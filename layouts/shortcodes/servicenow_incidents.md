@@ -36,4 +36,4 @@ To set up automatically create ServiceNow incidents for failed Chef InSpec scans
 
    ![Chef Automate Notification for InSpec Scan Failures](/images/automate/SNOW_Scan_Setup.png)
 
-8. Select **Create Notification** to save.
+1. Select **Create Notification** to save.
