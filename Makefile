@@ -26,6 +26,13 @@ serve_ignore_vendor: bundle
 lint: bundle
 	hugo -D
 
+## See:
+## - https://cspell.org/docs/getting-started/
+## - https://cspell.org/configuration/
+## - and cspell.json file.
+spellcheck:
+	cspell --no-progress "**/*.{md, html, js, yml, yaml, toml, json}"
+
 
 # Generates blank resource pages, one for each yaml file in data/client/resources
 # And an index page that lists all the resources.

@@ -34,7 +34,10 @@
     "**/*.toml",
     "archetypes/*.md",
     "_vendor/**/*",
-    "cspell.json"
+    "cspell.json",
+    "public/**",
+    "themes/docs-new/node_modules/**",
+    "resources/**"
   ],
   "ignoreRegExpList": [
     "/'s\\b/",
