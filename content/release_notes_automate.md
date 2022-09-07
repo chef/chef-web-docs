@@ -14,3 +14,7 @@ toc_layout = "release_notes_toc"
     parent = "release_notes"
     weight = 10
 +++
+
+{{< warning >}}
+{{% automate/4x-warn %}}
+{{< /warning >}}
