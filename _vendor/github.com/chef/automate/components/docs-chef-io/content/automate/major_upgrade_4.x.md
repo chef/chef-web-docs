@@ -12,6 +12,10 @@ gh_repo = "automate"
     weight = 30
 +++
 
+{{< warning >}}
+{{% automate/4x-warn %}}
+{{< /warning >}}
+
 {{< warning >}} *Elasticsearch support has been removed from this version (4.0.27) of Chef Automate.* {{< /warning >}}
 
 Chef Automate provides an entire suite of enterprise capabilities for node visibility and compliance. Chef Automate upgrades from one minor version to another automatically. However, Chef Automate will not automatically upgrade to a major version. See the instructions below for manually upgrading Chef Automate from date-based versions to Chef Automate *4.x*.
@@ -447,3 +451,33 @@ Refer to the [Chef Automate Restore](/automate/restore/) documentation.
 
 {{< note >}} Remove the `/hab/svc/deployment-service/var/upgrade_metadata.json` file if the migration of data has been done using backup and restore method. {{< /note >}}
 
+### Minor upgrade errors
+
+```sh
+sudo chef-automate upgrade run --airgap-bundle x.x.x.aib
+```
+
+The above error occurs if you run Chef Automate with Proxy settings and upgrade it from the Automate version before 4.2.22 or after 4.2.22.
+
+```sh
+Installing airgap install bundle
+DeploymentServiceCallError: A request to the deployment-service failed: Request to start to upgrade failed: RPC error: code = FailedPrecondition desc = The minimum compatible version field is missing in the manifest. Create a bundle with the latest automate-cli
+```
+
+This error may occur if a user running a non-airgapped version of Chef Automate tries to perform a minor upgrade using the airgapped installation method. To fix this minor upgrade error, run the following command:
+
+```sh
+sudo chef-automate stop
+```
+
+Once done, run the following command:
+
+```sh
+sudo chef-automate start
+```
+
+Before trying the upgrade again, confirm whether all the services are up by running the following command:
+
+```sh
+sudo chef-automate status
+```

@@ -13,6 +13,10 @@ gh_repo = "automate"
     weight = 210
 +++
 
+{{< warning >}}
+{{% automate/4x-warn %}}
+{{< /warning >}}
+
 This page explains the prerequisites of the backup. If we choose the AWS Deployment procedure to deploy Automate-HA, we can choose either the `efs` or `s3` backup option. In the config it will be: **`backup_config = "efs"` OR `backup_config = "s3"` in `config.toml`, the below steps are not required.** The below steps are taken care of by the deployment. If we have kept the `backup_config` blank, we need to perform the below steps.
 
 {{< note >}} You can take backup on EFS system through DNS or IP. {{< /note >}}
@@ -300,7 +304,7 @@ This section provides the pre-backup configuration required to backup the data o
 
 1. Log in to all the opensearch nodes and follow the steps on all the opensearch nodes.
 
--   Export `ES_PATH_CONF="/hab/svc/automate-ha-opensearch/config"`
+-   Export `OPENSEARCH_PATH_CONF="/hab/svc/automate-ha-opensearch/config"`
 -   `hab pkg exec chef/automate-ha-opensearch opensearch-keystore add s3.client.default.access_key` (When asked, Enter your key)
 -   `hab pkg exec chef/automate-ha-opensearch opensearch-keystore add s3.client.default.secret_key` (When asked, Enter your key/secret)
 -   `chown -RL hab:hab /hab/svc/automate-ha-opensearch/config/opensearch.keystore` (Setting hab:hab permission)
