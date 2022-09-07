@@ -26,11 +26,19 @@
         <span id="top-container-return">
           <a class="return" style="position: static;" href="{{ $.Page.Params.return_page }}">Return to Docs</a>
         </span>
-        <span id="top-container-message">
-          <p id="top-container-note">Note</p>
-          <div id="top-container-text">
-          <p>Some API endpoints are not available in Chef Automate 3.x and earlier. Contact your Chef account representative for more information.</p>
-          </div>
+        <span id="top-container-messages">
+          <span class="top-container-message container-note">
+            <p id="top-container-note" class="top-container-admonition">Note</p>
+            <div class="top-container-text">
+            <p>Some API endpoints are not available in Chef Automate 3.x and earlier. Contact your Chef account representative for more information.</p>
+            </div>
+          </span>
+          <span class="top-container-message container-warning">
+            <p id="top-container-warning" class="top-container-admonition">Warning</p>
+            <div class="top-container-text">
+            <p>Chef Automate 4.x will not be available for download before the end of September 2022. We are working on making the upgrade process a seamless experience. Until then, you can download Chef Automate 3.0.49. Please get in touch with support for more information.</p>
+            </div>
+          </span>
         </span>
       </div>
     {{ else }}
