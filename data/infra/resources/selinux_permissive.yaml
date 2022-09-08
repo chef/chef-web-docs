@@ -5,8 +5,8 @@ resources_common_notification: true
 resources_common_properties: true
 resource: selinux_permissive
 resource_description_list:
-- markdown: Use **selinux_permissive** resource to allows some types to misbehave
-    without stopping them. Not as good as specific policies, but better than disabling
+- markdown: Use the **selinux_permissive** resource to allow some domains to misbehave
+    without stopping them. This is not as good as setting specific policies, but better than disabling
     SELinux entirely.
 resource_new_in: '18.0'
 syntax_full_code_block: |-
@@ -25,14 +25,14 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :add:
-    markdown: Add a permissive, unless already set. (default)
+    markdown: Make a domain permissive, unless already set. (default)
   :delete:
-    markdown: Remove a permissive, if set.
+    markdown: Stop a domain from being permissive, if set.
 properties_list:
 - property: context
   ruby_type: String
   required: false
-  default_value: The resource block's name
+  default_value: The resource block's name.
   description_list:
   - markdown: The SELinux context to permit.
 examples: |
