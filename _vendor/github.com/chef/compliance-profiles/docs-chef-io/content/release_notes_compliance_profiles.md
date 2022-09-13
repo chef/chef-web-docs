@@ -29,3 +29,16 @@ draft = false
 ### Bug Fixes
 
 - CIS RHEL 8 v2.0.0 fix for control 6.2.7 implementation mismatch (Audit).
+
+## 20220913
+
+### New Features
+
+- CIS Alma Linux v2.0.0 (Audit).
+- CIS Oracle Linux8 v2.0.0 (Audit).
+- CIS Google Kubernetes Engine v1.2.0 (Audit).
+- CIS MS Office 365 v1.4.0.
+
+### Bug Fixes
+
+- CIS MS Office 365 v1.4.0 scale fix for control 4.3, 5.2, and 5.1 (Audit).

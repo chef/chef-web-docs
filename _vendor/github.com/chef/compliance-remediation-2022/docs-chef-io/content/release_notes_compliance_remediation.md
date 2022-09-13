@@ -18,3 +18,10 @@ draft = false
 - CIS Windows Server 2022 v1.0.0 (Remediation).
 - STIG RHEL 8 v1.2.0 (Remediation).
 - STIG Ubuntu 20.04 v1R2 (Remediation).
+
+## 20220913
+
+### New Features
+
+CIS Alma Linux v2.0.0 (Remediation).
+CIS Oracle Linux8 v2.0.0 (Remediation).

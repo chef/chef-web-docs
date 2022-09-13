@@ -1,10 +1,15 @@
+:root {
+	--note-color: #92C1E9;
+	--warning-color: #EF9600;
+}
+
 body {
 	margin: 0;
 	padding: 0;
 }
 
 a.return {
-	background: #EF9600;
+	background: var(--warning-color);
 	display: block;
 	text-align: center;
 	width: 260px;
@@ -34,9 +39,50 @@ a.return {
 	margin-top: 1em;
 }
 
-#top-container-message {
+#top-container-messages {
+	flex: 1 1 500px;
+	margin: 1em;
+	padding: 0 1em;
+	border-radius: 3px;
+	display: flex;
+	flex-direction: column;
+}
+
+.top-container-message {
 	padding: 0 15px;
-	flex: 1 1 250px;
+	margin: 1em;
+	padding: 0;
+	border-radius: 3px;
+}
+
+.container-note {
+	border: 2px solid var(--note-color);
+}
+
+.container-warning {
+	border: 2px solid var(--warning-color);
+}
+
+
+.top-container-admonition {
+	margin: 0 !important;
+	padding: 0.1rem 0 0.1rem 0.5rem;
+	color: #FFFFFF;
+	font-size: .9em;
+	font-weight: bold;
+}
+
+
+p#top-container-note {
+	background-color: var(--note-color);
+}
+
+p#top-container-warning {
+	background-color: var(--warning-color);
+}
+
+.top-container-text {
+	padding: 1em;
 }
 
 redoc[spec-url] a img[src^="/images/chef-automate-logo.svg"] {
