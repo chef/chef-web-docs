@@ -16,7 +16,7 @@ Team:
 Date update needs to be published:
 
 ## Product
-## Product
+
 - [ ] Chef Automate
 - [ ] Chef Habitat
 - [ ] Chef Infra Client

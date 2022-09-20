@@ -13,11 +13,11 @@ Link to page and section that needs updated:
 
 ## Product
 
-[ ] Chef Automate
-[ ] Chef Habitat
-[ ] Chef Infra Client
-[ ] Chef Infra Server
-[ ] Chef InSpec
-[ ] Other________________
+- [ ] Chef Automate
+- [ ] Chef Habitat
+- [ ] Chef Infra Client
+- [ ] Chef Infra Server
+- [ ] Chef InSpec
+- [ ] Other________________
 
 ## Describe the update that needs to be made. Be as specific as possible:
