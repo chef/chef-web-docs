@@ -153,4 +153,4 @@ We do not use critical credentials to access EC2 machines; hence it is recommend
 
 ### AWS EC2 service limit
 
-Refer to [EC2 service limit](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) link.
+Refer to [EC2 service limit](https://docs.aws.amazon.com/general/latest/gr/ec2-service.html#limits_ec2) link.
