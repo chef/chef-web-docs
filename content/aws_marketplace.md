@@ -111,15 +111,15 @@ The AWS EC2 instance connect functionality can be used to access the EC2 machine
 
 1. Select the EC2 machine and select the connect option as shown below:
 
-    ![Add Chef Infra Server Form](/images/automate/select-connect-option-in-ec2machine.png)
+    ![Add Chef Infra Server Form](/images/select-connect-option-in-ec2machine.png)
 
 1. Select **Connect** button on the new screen shown below:
 
-    ![Add Chef Infra Server Form](/images/automate/select-button-on-ec2machine.png)
+    ![Add Chef Infra Server Form](/images/select-button-on-ec2machine.png)
 
 The above action will launch a new tab for EC2 connect page, as shown below:
 
-![Add Chef Infra Server Form](/images/automate/new-tab-of-ec2-machine.png)
+![Add Chef Infra Server Form](/images/new-tab-of-ec2-machine.png)
 
 Now, you are into the EC2 machine, where you can run necessary commands.
 
