@@ -105,29 +105,31 @@ AWS provides 5 VPCs for each region. If you require more VPCs, please contact [A
 1. Select **Add Chef Organization**.
 ![Select the Add Chef Organization button to complete this action](/images/OrgPageDetails.png)
 
-## AWS Deployment Security
+## AWS EC2 Access
 
-Update the AWS Deployment **Security Group** to require source IP addresses for a secure SSH connection.
+The AWS EC2 instance connect functionality can be used to access the EC2 machine. It is recommended to use the same instead of SSH to the EC2 machine.
 
-1. Select the **Instance Security** group in the **Resources** tab of your AWS Chef Automate deployment.
-![ ](/images/aws_resources.png "Resources Page")
+1. Select the EC2 machine and select the connect option as shown below:
 
-1. Select the **Security Group ID** for your Chef Automate deployment.
-![Locate and copy your security group ID from the second column](/images/aws_security_group.png "Security Group")
+    ![Add Chef Infra Server Form](/images/automate/select-connect-option-in-ec2machine.png)
 
-1. Select **Edit inbound rules**.
-![Select the Edit inbound rules button](/images/aws_inbound_rules_edit.png "Edit Inbound Rules")
+1. Select **Connect** button on the new screen shown below:
 
-1. Select **Add rule** and then **SSH** and enter the source IP.
+    ![Add Chef Infra Server Form](/images/automate/select-button-on-ec2machine.png)
 
-1. Select **Save rules** to finish.
-![Add your IP address range as a custom SSH rule](/images/aws_inbound_rule.png "Add Rule")
+The above action will launch a new tab for EC2 connect page, as shown below:
+
+![Add Chef Infra Server Form](/images/automate/new-tab-of-ec2-machine.png)
+
+Now, you are into the EC2 machine, where you can run necessary commands.
 
 ## FAQs
 
 ### Data Storage in machine
 
 The chef automate deployment uses EBS volume, which is attached to an EC2 instance. This EBS volume is created as part of the cloud formation template. This storage is used to store data as part of automate.
+
+Also, on this EC2, we have Postgres and OpenSearch Database running where customers’ data is stored. Instead of existing DBs, customers can also configure external databases (Postgres and OpenSearch)based on these configurations [guidelines of Automate](https://docs.chef.io/automate/managed_services/)
 
 ### Data encryption configuration
 
@@ -139,7 +141,9 @@ Click [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring_ec2.
 
 ### Backup
 
-For the data and configuration backup, use the below command:
+Step-wise instructions for data and Configuration backup for automate can be found [here](https://docs.chef.io/automate/backup/)
+
+The command shown below gives you the data and configuration backup. Use the below command along with the details on the flag option.
 
 ```sh
 chef-automate backup
@@ -149,7 +153,7 @@ Click [here](https://docs.chef.io/automate/cli_chef_automate/#chef-automate-back
 
 ### Secure Access to the Machine
 
-We do not use critical credentials to access EC2 machines; hence it is recommended to utilize EC2 Instance Connect functionality. Click [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html) to refer to the guide of EC2 Instance Connect.
+We do not require credential-based access to EC2 machines; hence it is recommended to utilize EC2 Instance Connect functionality. Click [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html) to refer to the guide of EC2 Instance Connect.
 
 ### AWS EC2 service limit
 
