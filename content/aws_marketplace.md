@@ -127,7 +127,7 @@ Update the AWS Deployment **Security Group** to require source IP addresses for 
 
 ### Data Storage in machine
 
-The chef automate deployment uses EBS volume, which is attached to an EC2 instance. This EBS volume is created as part of the cloud formation template. The exact storage is used to store customer data as part of automate.
+The chef automate deployment uses EBS volume, which is attached to an EC2 instance. This EBS volume is created as part of the cloud formation template. This storage is used to store data as part of automate.
 
 ### Data encryption configuration
 
@@ -135,7 +135,7 @@ The current setup uses EBS for data storage. The current encryption configuratio
 
 ### Monitoring
 
-Click [here](docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring_ec2.html) for the reference of EC2 monitoring guide.
+Click [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring_ec2.html) for the reference of EC2 monitoring guide.
 
 ### Backup
 
@@ -153,4 +153,4 @@ We do not use critical credentials to access EC2 machines; hence it is recommend
 
 ### AWS EC2 service limit
 
-Refer to [EC2 service limit](docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) link.
+Refer to [EC2 service limit](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) link.
