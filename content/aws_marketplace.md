@@ -135,7 +135,7 @@ The current setup uses EBS for data storage. The current encryption configuratio
 
 ### Monitoring
 
-[EC2 monitoring guide](docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring_ec2.html)
+Click [here](docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring_ec2.html) for the reference of EC2 monitoring guide.
 
 ### Backup
 
