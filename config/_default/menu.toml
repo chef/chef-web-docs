@@ -314,9 +314,15 @@ identifier = "habitat"
 
   [[habitat]]
   title = "Install Habitat"
-  identifier = "habitat/get_started"
+  identifier = "habitat/install"
   parent = "habitat"
   weight = 10
+
+  [[habitat]]
+  title = "Get Started"
+  identifier = "habitat/get_started"
+  parent = "habitat"
+  weight = 15
 
   [[habitat]]
   title = "Builder"
@@ -324,11 +330,18 @@ identifier = "habitat"
   parent = "habitat"
   weight = 20
 
+    [[habitat]]
+    title = "Create a Builder Account"
+    identifier = "habitat/builder/builder-account"
+    parent = "habitat/builder"
+    weight = 20
+    url = "habitat/builder_account/"
+
   [[habitat]]
   title = "Origins"
-  identifier = "habitat/origins"
+  identifier = "habitat/builder/origins"
   parent = "habitat"
-  weight = 30
+  weight = 40
 
   [[habitat]]
   title = "Packages"
@@ -370,12 +383,6 @@ identifier = "habitat"
   identifier = "habitat/containers"
   parent = "habitat"
   weight = 200
-
-  [[habitat]]
-  title = "Diagrams"
-  identifier = "habitat/diagrams"
-  parent = "habitat"
-  weight = 500
 
 ####
 # End Chef Habitat Menu
