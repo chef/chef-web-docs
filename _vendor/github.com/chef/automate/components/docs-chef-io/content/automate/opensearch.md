@@ -27,6 +27,8 @@ These configuration directions are intended for the initial deployment of Chef A
 
 Add the following to your `config.toml` for HTTPS connection:
 
+{{< note >}} Special characters like **‘ ` " ' \ ; $** are not allowed in the password. {{< /note >}}
+
 ```toml
 [global.v1.external.opensearch]
   enable = true
@@ -54,6 +56,9 @@ Add the following to your `config.toml` for HTTPS connection:
 ```
 
 Add the following to your `config.toml` for HTTP connection:
+
+{{< note >}} Special characters like **‘ ` " ' \ ; $** are not allowed in the password. {{< /note >}}
+
 ```toml
 [global.v1.external.opensearch]
   enable = true
