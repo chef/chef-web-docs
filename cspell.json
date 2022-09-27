@@ -46,8 +46,6 @@
     "{{(.+)(?=}})"
   ],
   "words": [
-    "Grammarly",
-    "Haris",
-    "Shefu"
+    "Grammarly"
   ]
 }

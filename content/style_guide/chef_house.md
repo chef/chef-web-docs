@@ -64,7 +64,7 @@ written from scratch, but don't publish them.
 Reformat FAQ questions into an issue that a user might have, followed by the steps to resolve the issue. Then add those issues and solutions to
 the relevant page in the product documentation.
 
-See [this post on FAQs from I'd Rather Be Writing](https://idratherbewriting.com/2017/06/23/why-tech-writers-hate-faqs/) for more a more in-depth explanation of why FAQs are a bad documentation practice and suggestions for reformatting FAQ text into something more suitable.
+See [this post on FAQs from I'd Rather Be Writing](https://idratherbewriting.com/2017/06/23/why-tech-writers-hate-faqs/) for a more in-depth explanation of why FAQs are a bad documentation practice and suggestions for reformatting FAQ text into something more suitable.
 
 ## Examples
 
