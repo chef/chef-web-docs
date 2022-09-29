@@ -67,6 +67,13 @@
         padding: 1rem;
         cursor: pointer;
       }
+      &.figure-no-shadow {
+        padding: 0;
+        border: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+      }
     }
 
     .no-shadow {

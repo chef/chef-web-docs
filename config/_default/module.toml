@@ -288,10 +288,10 @@
 [[imports]]
   disable = false
   ignoreConfig = false
-  path = "github.com/chef/compliance-remediation-2022"
+  path = "github.com/chef/compliance-remediation-2022/docs-chef-io"
 
 [[imports.mounts]]
-  source = "docs-chef-io/content"
+  source = "content"
   target = "content"
 
 ###
