@@ -1,0 +1,75 @@
+---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: selinux_fcontext
+resource_description_list:
+- markdown: Use the **selinux_fcontext** resource to set the SELinux context of files
+    using the `semanage fcontext` command.
+resource_new_in: '18.0'
+syntax_full_code_block: |-
+  selinux_fcontext 'name' do
+    file_spec      String # default value: 'name' unless specified
+    file_type      String # default value: "a"
+    secontext      String
+    action         Symbol # defaults to :manage if not specified
+  end
+syntax_properties_list:
+syntax_full_properties_list:
+- "`selinux_fcontext` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`file_spec`, `file_type`, and `secontext` are the properties available to this
+  resource."
+actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :manage:
+    markdown: Assign the file to the right context regardless of previous state. (default)
+  :addormodify:
+    markdown: Assign the file context if not set. Update the file context if previously
+      set.
+  :add:
+    markdown: Assign the file context if not set.
+  :modify:
+    markdown: Update the file context if previously set.
+  :delete:
+    markdown: 'Removes the file context if set.'
+properties_list:
+- property: file_spec
+  ruby_type: String
+  required: false
+  default_value: The resource block's name.
+  description_list:
+  - markdown: Path to or regex matching the files or directories to label.
+- property: file_type
+  ruby_type: String
+  required: false
+  default_value: a
+  allowed_values: '"a", "b", "c", "d", "f", "l", "p", "s"'
+  description_list:
+  - markdown: The type of the file being labeled.
+- property: secontext
+  ruby_type: String
+  required: true
+  description_list:
+  - markdown: SELinux context to assign.
+examples: |
+  **Allow http servers (e.g. nginx/apache) to modify Moodle files**:
+
+  ```ruby
+  selinux_fcontext '/var/www/moodle(/.*)?' do
+    secontext 'httpd_sys_rw_content_t'
+  end
+  ```
+
+  **Adapt a symbolic link**:
+
+  ```ruby
+  selinux_fcontext '/var/www/symlink_to_webroot' do
+    secontext 'httpd_sys_rw_content_t'
+    file_type 'l'
+  end
+  ```

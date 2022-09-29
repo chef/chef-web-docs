@@ -1,0 +1,65 @@
+---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: selinux_port
+resource_description_list:
+- markdown: Use the **selinux_port** resource to assign a network port to a
+    specific SELinux context. For example, running a web server on a non-standard port.
+resource_new_in: '18.0'
+syntax_full_code_block: |-
+  selinux_port 'name' do
+    port           Integer, String # default value: 'name' unless specified
+    protocol       String
+    secontext      String
+    action         Symbol # defaults to :manage if not specified
+  end
+syntax_properties_list:
+syntax_full_properties_list:
+- "`selinux_port` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`port`, `protocol`, and `secontext` are the properties available to this resource."
+actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :manage:
+    markdown: Assign the port to the right context regardless of previous state. (default)
+  :addormodify:
+    markdown: Assigns the port context if not set. Updates the port context if previously
+      set.
+  :add:
+    markdown: Assign the port context if not set.
+  :modify:
+    markdown: Update the port context if previously set.
+  :delete:
+    markdown: Removes the port context if set.
+properties_list:
+- property: port
+  ruby_type: Integer, String
+  required: false
+  default_value: The resource block's name.
+  description_list:
+  - markdown: Port to modify.
+- property: protocol
+  ruby_type: String
+  required: true
+  allowed_values: '"tcp", "udp"'
+  description_list:
+  - markdown: Protocol to modify.
+- property: secontext
+  ruby_type: String
+  required: true
+  description_list:
+  - markdown: SELinux context to assign to the port.
+examples: |
+  **Allow Nginx or Apache to bind to port 5678 by giving it the `http_port_t` context**:
+
+  ```ruby
+  selinux_port '5678' do
+   protocol 'tcp'
+   secontext 'http_port_t'
+  end
+  ```
