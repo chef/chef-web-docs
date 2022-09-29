@@ -11,7 +11,7 @@ gh_repo = "chef-web-docs"
     parent = "chef_infra/infra_language"
 +++
 
-Chef Infra Client 17.5 and later includes a Secrets Management Integration helper. This helper allows accessing secrets from the following secrets management systems within your Infra recipes or resources:
+Chef Infra Client 17.5 and later includes a Secrets Management Integration helper. This helper allows you to access secrets from the following secrets management systems within your Infra recipes or resources:
 
 - AWS Secrets Manager
 - Akeyless Vault
