@@ -23,11 +23,24 @@
 
         {{ $versions := getJSON $versionsUrl }}
 
+        {{/* We have a current version of Infra Client that they want release notes for */}}
+        {{/* This allows us to add current release version numbers of Client to the list of version numbers */}}
+        {{/* that we want to include in the Client release notes */}}
+        {{- $current_versions := slice -}}
+        {{- if eq $product "chef" -}}
+          {{- $current_versions = getJSON "data/releases/chef/current.json" -}}
+        {{- end -}}
+        {{- $versions := append $versions $current_versions -}}
+
         {{- $versionsCorrectOrder := slice -}}
-        {{ $len := len $versions }}
-        {{- range seq $len -}}
+        {{- if eq $product "automate" -}}
+          {{- $len := len $versions -}}
+          {{- range seq $len -}}
             {{- $versionsCorrectOrder = $versionsCorrectOrder | append (index $versions (sub $len .)) }}
-        {{ end }}
+          {{- end -}}
+        {{ else }}
+          {{- $versionsCorrectOrder = sort $versions "value" "desc" -}}
+        {{- end -}}
 
         {{ $lastDate := ""}}
         {{ if eq $product "automate" }}

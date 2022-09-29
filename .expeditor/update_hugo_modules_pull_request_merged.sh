@@ -10,13 +10,7 @@ git checkout -B "$branch"
 # use to build the docs from.
 # See https://gohugo.io/hugo-modules/use-modules/#update-one-module
 
-if [ "${EXPEDITOR_REPO}" == "chef/compliance-remediation-2022" ]; then
-    module_suffix=""
-else
-    module_suffix="/docs-chef-io"
-fi
-
-hugo mod get -u github.com/${EXPEDITOR_REPO}${module_suffix}
+hugo mod get -u github.com/${EXPEDITOR_REPO}/docs-chef-io
 hugo mod tidy
 
 # Update the vendored files in chef-web-docs

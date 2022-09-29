@@ -41,6 +41,31 @@ like "Create a new user" (a user created **is** a
 new user) or (for a setting named `cidr_block`) "The CIDR block for the
 VPC."
 
+## Links
+
+Don't use "click here" in the text of a link. This can confuse the reader about what exactly they're clicking on,
+it make pages difficult to read for people who use screen readers, and it's a bad SEO practice.
+Instead use descriptive text to explain what the link will take the user to.
+
+For example, don't use:
+
+Click [here](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) for more information about AWS Lambda.
+
+Instead write something like:
+
+See Amazon's documentation for more information about [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html).
+
+## FAQs
+
+Don't write an FAQ. FAQ's turn into a grab bag of issues that a user might
+have, but they tend to be disorganized and the information in them is hard to find. FAQ's are fine in draft documentation when new documentation is
+written from scratch, but don't publish them.
+
+Reformat FAQ questions into an issue that a user might have, followed by the steps to resolve the issue. Then add those issues and solutions to
+the relevant page in the product documentation.
+
+See [this post on FAQs from I'd Rather Be Writing](https://idratherbewriting.com/2017/06/23/why-tech-writers-hate-faqs/) for a more in-depth explanation of why FAQs are a bad documentation practice and suggestions for reformatting FAQ text into something more suitable.
+
 ## Examples
 
 ### Example Company

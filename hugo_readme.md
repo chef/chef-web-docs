@@ -9,7 +9,7 @@ Each page should have a `gh_repo` parameter set to the value of the GitHub repos
 that the page comes from. For example, `gh_repo = "chef-server"`
 
 Each repository with documentation has a `config.toml` file with a `params.<REPOSITORY>`
-map and a `gh_path` paramater set to the path of the docs content directory in
+map and a `gh_path` parameter set to the path of the docs content directory in
 that repository.
 
 The `edit_on_github` partial appends the page file name to the end of `gh_path`
@@ -165,7 +165,7 @@ directory.
 
 To add a reusable text file to a page, use the `reusable_text_versioned` shortcode by adding
 `{{< reusable_text_versioned file="<FILENAME>" >}}` to the text of the versioned Markdown page.
-Ommit the `.md` suffix from the filename in the `file` parameter.
+Omit the `.md` suffix from the filename in the `file` parameter.
 
 ### Behind the Scenes
 
