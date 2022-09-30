@@ -34,6 +34,15 @@
 
         {{- $versionsCorrectOrder := slice -}}
         {{- if eq $product "automate" -}}
+
+          {{/* This is a temporary bodge fix and should be reverted at some time in the future. */}}
+          {{/* Version numbers for Automate in https://packages.chef.io/releases/current/automate.json were deleted */}}
+          {{/* but they still want release notes for those version numbers deployed. So this PR adds version numbers in */}}
+          {{/* data/releases/automate/current.json. Those version numbers are added using the code below. */}}
+
+          {{- $current_versions = $.Site.Data.releases.automate.current -}}
+          {{- $versions = append $current_versions $versions -}}
+
           {{- $len := len $versions -}}
           {{- range seq $len -}}
             {{- $versionsCorrectOrder = $versionsCorrectOrder | append (index $versions (sub $len .)) }}
