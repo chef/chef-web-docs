@@ -25,12 +25,12 @@
 
           {{- $versions := getJSON $versionsUrl -}}
 
-          {{/* We have a current version of Infra Client that they want release notes for */}}
+          {{/* We have a current version of Infra Client that they want release notes for on the Client release notes page. */}}
           {{/* This allows us to add current release version numbers of Client to the list of version numbers */}}
-          {{/* that we want to include in the Client release notes */}}
+          {{/* that we want to include in the Client release notes. */}}
           {{- $current_versions := slice -}}
           {{- if eq $product "chef" -}}
-            {{- $current_versions = getJSON "data/releases/chef/current.json" -}}
+            {{- $current_versions = $.Site.Data.releases.chef.current -}}
           {{- end -}}
           {{- $versions := append $versions $current_versions -}}
 
