@@ -235,7 +235,7 @@ Clone the following repositories:
 <!-- markdownlint-disable -->
 | Product | GitHub Docs Directory |
 |---------|-----------------------|
-|Chef Automate |[https://github.com/chef/automate|
+|Chef Automate |https://github.com/chef/automate|
 |Chef Habitat |https://github.com/habitat-sh/habitat|
 |Chef Infra Client |https://github.com/chef/chef-web-docs|
 |Chef Infra Server |https://github.com/chef/chef-server|
