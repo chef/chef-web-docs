@@ -276,12 +276,6 @@ identifier = "desktop"
   parent = "desktop"
   weight = 30
 
-  [[desktop]]
-  title = "Configure"
-  identifier = "desktop/configure"
-  parent = "desktop"
-  weight = 40
-
  [[desktop]]
   title = "Zero Touch Deployment"
   identifier = "desktop/zero_touch"
