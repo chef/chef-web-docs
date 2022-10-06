@@ -21,7 +21,7 @@ send feedback, choose any of the following options:
 
 ## Email
 
-Send an email to <docs@chef.io> for documentation bugs,
+Send an email to <Chef-Docs@progress.com> for documentation bugs,
 ideas, thoughts, and suggestions. This email address is
 not a support email address, however. If you need support,
 contact [Chef support](https://supportlink.chef.io/).
@@ -38,7 +38,7 @@ You can open a pull request on <https://github.com/chef/chef-web-docs>. Every pa
 to submit pull requests except for obvious fixes. See
 our [Contributing page](https://github.com/chef/chef/blob/main/CONTRIBUTING.md#developer-certification-of-origin-dco)
 for more information about our DCO policy. If you have questions
-about the chef-web-docs repo, send an email to <docs@chef.io> and we're
+about the chef-web-docs repo, send an email to <Chef-Docs@progress.com> and we're
 happy to assist.
 
 Thanks in advance for any feedback you choose to send.

@@ -118,7 +118,7 @@ Here is a list of some example names for you to use (the last names are translat
 - kbaavarchee@4thcafe.com
 - stagaluto@4thcafe.com
 
-Use `docs@chef.io` for the Chef Technical Documentation team.
+Use `Chef-Docs@progress.com` for the Chef Technical Documentation team.
 
 #### Example Phone Numbers
 

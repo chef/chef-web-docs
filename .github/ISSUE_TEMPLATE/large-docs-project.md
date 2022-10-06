@@ -28,7 +28,7 @@ Product manager:
 
 ## Project overview
 
-This is a public repository. If you would prefer to keep the following information confidential, please email this part of the form us at docs@chef.io.
+This is a public repository. If you would prefer to keep the following information confidential, please email this part of the form us at Chef-Docs@progress.com.
 
 - [ ] It's all good. I'll use the form
 - [ ] That's a big nope. Look for my email.
