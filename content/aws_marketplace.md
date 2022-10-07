@@ -53,7 +53,7 @@ AWS provides 5 VPCs for each region. If you require more VPCs, please contact [A
     ![Enter required information and click next](/images/stack_details.png "Stack Details")
 
     {{< warning >}}
-    `The values mentioned above are just an example of what can be the possible values that can be entered. We do not recommend using these values as is. All these values need to be entered based on your infrastructure security principles and should not be taken as actual values.`
+    The values mentioned above are just an example of what can be the possible values that can be entered. We do not recommend using these values as is. All these values need to be entered based on your infrastructure security principles and should not be taken as actual values.
     {{< /warning >}}
 
 1. Configure stack options:
