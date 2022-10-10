@@ -16,5 +16,5 @@ toc_layout = "release_notes_toc"
 +++
 
 {{< warning >}}
-{{% automate/4x-warn %}}
+{{% automate/ha-warn %}}
 {{< /warning >}}
