@@ -28,18 +28,27 @@
         {{/* that we want to include in the Client release notes. */}}
         {{- $current_versions := slice -}}
         {{- if eq $product "chef" -}}
-          {{- $current_versions = $.Site.Data.releases.chef.current -}}
+          {{- $current_versions := $.Site.Data.releases.chef.current -}}
+          {{- $versions = append $current_versions $versions -}}
         {{- end -}}
-        {{- $versions := append $versions $current_versions -}}
 
         {{- $versionsCorrectOrder := slice -}}
+
         {{- if eq $product "automate" -}}
           {{- $len := len $versions -}}
           {{- range seq $len -}}
-            {{- $versionsCorrectOrder = $versionsCorrectOrder | append (index $versions (sub $len .)) }}
+            {{- $versionsCorrectOrder = $versionsCorrectOrder | append (index $versions (sub $len .)) -}}
           {{- end -}}
+        {{- else if ne $product "chef" -}}
+          {{ $len := len $versions }}
+          {{- range seq $len -}}
+            {{- $versionsCorrectOrder = $versionsCorrectOrder | append (index $versions (sub $len .)) }}
+          {{ end }}
         {{ else }}
-          {{- $versionsCorrectOrder = sort $versions "value" "desc" -}}
+          {{ $len := len $versions }}
+          {{- range seq $len -}}
+            {{- $versionsCorrectOrder = $versionsCorrectOrder | append (index $versions (sub $len .)) }}
+          {{ end }}
         {{- end -}}
 
         {{ $lastDate := ""}}
