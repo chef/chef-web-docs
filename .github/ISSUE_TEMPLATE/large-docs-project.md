@@ -7,7 +7,8 @@ assignees: ''
 
 ---
 
-# Large documentation  project plan
+# Large documentation project plan
+
 Request for a large or multi-sprint documentation project:
 
 This project plan defines the scope and details for a larger doc project.
@@ -15,6 +16,7 @@ This project plan defines the scope and details for a larger doc project.
 Complete as much information as you can, as this will help us get better oriented and familiar with the documentation needs.
 
 ## Product
+
 - [ ] Chef Automate
 - [ ] Chef Habitat
 - [ ] Chef Infra Client
