@@ -16,12 +16,18 @@ product = []
 
 ## Reusable Text Files
 
-Store reusable text files in the `content/PRODUCT/reusable` directory within a project. The `reusable` subdirectory must be a [headless bundle](https://gohugo.io/content-management/page-bundles/#headless-bundle) so its contents are not published except when added using the [readfile shortcode](#readfile-shortcode).
+If there are sections of text or code samples that appear in more than one location in our documentation, create a file with the relevant text and place it in the `content/PRODUCT/reusable/FILE_TYPE/` directory within a project, then use the [readfile shortcode](#readfile-shortcode) to add the text from that file in every location that you want it in the Chef documentation.
 
 All content should be organized by file type. For example:
 
 - `content/server/reusable/md/FILENAME.md`
 - `content/server/reusable/rb/RUBY_EXAMPLE.rb`
+
+{{< note >}}
+
+The `reusable` subdirectory must be a [headless bundle](https://gohugo.io/content-management/page-bundles/#headless-bundle) so its contents are not published unless they're added to a page using the [readfile shortcode](#readfile-shortcode).
+
+{{< /note >}}
 
 ## readfile Shortcode
 
@@ -39,7 +45,7 @@ You can also add an HTML file:
 {{</* readfile file="content/workstation/reusable/html/example.html" html="true" */>}}
 ```
 
-And you can pass in a sample code file:
+You can pass in a sample code file:
 
 ```markdown
 {{</* readfile file="content/workstation/reusable/rb/example.rb" highlight="ruby" */>}}
