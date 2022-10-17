@@ -14,6 +14,15 @@ product = []
 +++
 <!-- markdownlint-disable-file MD013 MD031 -->
 
+## Reusable Text Files
+
+Store reusable text files in the `content/PRODUCT/reusable` directory within a project. The `reusable` subdirectory must be a [headless bundle](https://gohugo.io/content-management/page-bundles/#headless-bundle) so its contents are not published except when added using the [readfile shortcode](#readfile-shortcode).
+
+All content should be organized by file type. For example:
+
+- `content/server/reusable/md/FILENAME.md`
+- `content/server/reusable/rb/RUBY_EXAMPLE.rb`
+
 ## readfile Shortcode
 
 The readfile shortcode adds text from a file to a page. You can add a Markdown file, HTML file, or code file by specifying the path to the file from the project root directory.
@@ -21,26 +30,28 @@ The readfile shortcode adds text from a file to a page. You can add a Markdown f
 By default it accepts a Markdown file, for example:
 
 ```markdown
-{{</* readfile file="layouts/shortcodes/example.md" */>}}
+{{</* readfile file="content/workstation/reusable/md/example.md" */>}}
 ```
 
 You can also add an HTML file:
 
 ```markdown
-{{</* readfile file="layouts/shortcodes/example.html" html="true" */>}}
+{{</* readfile file="content/workstation/reusable/html/example.html" html="true" */>}}
 ```
 
 And you can pass in a sample code file:
 
 ```markdown
-{{</* readfile file="path/to/file/example.rb" highlight="ruby" */>}}
+{{</* readfile file="content/workstation/reusable/rb/example.rb" highlight="ruby" */>}}
 ```
 
 or:
 
 ```markdown
-{{</* readfile file="path/to/data/file.json" highlight="json" */>}}
+{{</* readfile file="content/workstation/reusable/json/example.json" highlight="json" */>}}
 ```
+
+See the [full list of highlighting languages and aliases](https://gohugo.io/content-management/syntax-highlighting/#list-of-chroma-highlighting-languages) that Hugo accepts.
 
 ## Notes, Warnings, and Admonitions
 
@@ -52,7 +63,7 @@ If you must use notes and warnings, bracket the text of the note or warning in *
 
 ### Notes
 
-```go
+```md
 {{</* note */>}}
 
 This is a note.
@@ -72,7 +83,7 @@ This is a note.
 
 Use sparingly so that when the user sees a warning it registers appropriately:
 
-```go
+```md
 {{</* warning */>}}
 
 This is a warning.
@@ -92,7 +103,7 @@ This is a warning.
 
 Danger should be used when there are serious consequences for the user:
 
-```go
+```md
 {{</* danger */>}}
 
 This is a danger block.
@@ -138,7 +149,7 @@ All `foundation_tab` shortcodes must be contained within opening and closing `fo
 
 For example:
 
-```go
+```md
 {{</* foundation_tabs tabs-id="ruby-python-panel" */>}}
   {{</* foundation_tab active="true" panel-link="ruby-panel" tab-text="Ruby" */>}}
   {{</* foundation_tab panel-link="python-panel" tab-text="Python" */>}}

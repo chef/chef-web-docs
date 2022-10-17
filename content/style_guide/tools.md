@@ -104,35 +104,35 @@ Install the extensions:
 
 ### Code Spell Checker
 
-Navigate to your VSCode settings by selecting the gear icon at the bottom left side of the VSCode screen and find the Code Spell settings. In the left menu nav, select **Language and Dictionaries**, scroll down to **C Spell: Dictionary Definitions**, select **Edit in settings.json**, and add the following content in settings.json file:
+Navigate to your VSCode settings by selecting the gear icon at the bottom left side of the VSCode screen and find the Code Spell settings. In the left menu nav, select **Language and Dictionaries**, scroll down to **C Spell: Dictionary Definitions**, select **Edit in settings.json**, and add the following content in `settings.json` file:
 
 ```json
-"cSpell.dictionaryDefinitions": [
-    {
-      "name": "chef",
-      "path": "https://raw.githubusercontent.com/chef/chef_dictionary/main/chef.txt",
-      "description": "Custom Chef Dictionary"
-    },
-    {
-      "name": "docs",
-      "path": "https://raw.githubusercontent.com/chef/chef_dictionary/main/docs.txt",
-      "description": "Custom Docs Dictionary"
-    }
-],
+  "cSpell.dictionaryDefinitions": [
+      {
+        "name": "chef",
+        "path": "https://raw.githubusercontent.com/chef/chef_dictionary/main/chef.txt",
+        "description": "Custom Chef Dictionary"
+      },
+      {
+        "name": "docs",
+        "path": "https://raw.githubusercontent.com/chef/chef_dictionary/main/docs.txt",
+        "description": "Custom Docs Dictionary"
+      }
+  ]
 ```
 
-Add this configuration to exclude code blocks from spellcheck:
+Add this configuration to the `settings.json` file to exclude code blocks from spellcheck:
 
 ```json
-"cSpell.languageSettings": [
-  {  // use with Markdown files
-    "languageId": "markdown",
-    // Exclude code blocks from spellcheck.
-    "ignoreRegExpList": [
-        "/^\\s*```[\\s\\S]*?^\\s*```/gm"
-    ]
-  }
-],
+  "cSpell.languageSettings": [
+    {  // use with Markdown files
+      "languageId": "markdown",
+      // Exclude code blocks from spellcheck.
+      "ignoreRegExpList": [
+          "/^\\s*```[\\s\\S]*?^\\s*```/gm"
+      ]
+    }
+  ]
 ```
 
 ### Markdownlint
