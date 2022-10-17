@@ -326,7 +326,7 @@ The following shortcode examples will display these icons: {{< fontawesome class
 
 ## Shortcodes
 
-[Shortcodes](https://gohugo.io/content-management/shortcodes/) add short snippets of code or HTML to a page. For example, the readfile shortcode can add a text file to a page or the notes shortcode can add HTML to a page that places text in an HTML div.
+[Shortcodes](https://gohugo.io/content-management/shortcodes/) add short snippets of Hugo code, Markdown, or HTML to a page. For example, the readfile shortcode can add a text file to a page, the note shortcode puts text inside an HTML div, and the [automate_cli_commands shortcode](https://github.com/chef/automate/blob/main/components/docs-chef-io/layouts/shortcodes/automate/automate_cli_commands.html) reads through YAML files and outputs formatted text from those files.
 
 ### Writing a Shortcode
 
