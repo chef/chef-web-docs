@@ -14,71 +14,33 @@ product = []
 +++
 <!-- markdownlint-disable-file MD013 MD031 -->
 
-Chef docs uses [shortcodes](https://gohugo.io/content-management/shortcodes/) to maintain text that appears in more than one location and must be consistent in every location.
+## readfile Shortcode
 
-## Writing a Shortcode
+The readfile shortcode adds text from a file to a page. You can add a Markdown file, HTML file, or code file by specifying the path to the file from the project root directory.
 
-Shortcode files are written in **Markdown** or **HTML** and are stored in [`layouts/shortcodes`](https://github.com/chef/chef-web-docs/tree/main/layouts/shortcodes) or [`themes/docs-new/layouts/shortcodes`](https://github.com/chef/chef-web-docs/tree/main/themes/docs-new/layouts/shortcodes) in the `chef/chef-web-docs` repository.
-
-In repositories other than chef-web-docs, store shortcodes in `layouts/shortcodes/REPOSITORY_NAME/`.
-
-## Adding a Shortcode to a Page
-
-There are two types of shortcodes, **Markdown** and **HTML**. The type of shortcode determines how it is added to a page and how Hugo processes the text when it renders the page into HTML.
-
-{{< note >}}
-If you add a **Markdown** shortcode to a page using **HTML** shortcode delimiters, Hugo will assume that the text is already formatted in HTML and will not run the shortcode file through its Markdown processor, leaving the bare Markdown in the HTML page output.
-{{< /note >}}
-
-### Markdown Shortcodes
-
-To include a Markdown shortcode in a page, wrap the name of the shortcode file, without the file type suffix, in between double curly braces and percent characters, `{{%/* SHORTCODE */%}}`. For example, if you wanted to add the [`chef.md`](https://github.com/chef/chef-web-docs/blob/main/layouts/shortcodes/chef.md) shortcode to a page, add the following text to the Markdown page:
+By default it accepts a Markdown file, for example:
 
 ```markdown
-{{%/* chef */%}}
+{{</* readfile file="layouts/shortcodes/example.md" */>}}
 ```
 
-For shortcodes located in a repository other than chef-web-docs, use `{{%/* REPO_NAME/SHORTCODE */%}}`. For example:
+You can also add an HTML file:
 
 ```markdown
-{{%/* chef-workstation/bento */%}}
+{{</* readfile file="layouts/shortcodes/example.html" html="true" */>}}
 ```
 
-### HTML Shortcodes
-
-To include an HTML shortcode in a page, wrap the name of the shortcode file, without the file type suffix, in between double curly braces and angle brackets, `{{</* SHORTCODE */>}}`. For example, add the following text to a page if you wanted to add the [`chef_automate_mark.html`](https://github.com/chef/chef-web-docs/blob/main/themes/docs-new/layouts/shortcodes/chef_automate_mark.html) shortcode:
-
-```go
-{{</* chef_automate_mark */>}}
-```
-
-For shortcodes located in a repository other than chef-web-docs, use `{{</* REPO_NAME/SHORTCODE */>}}`. For example:
+And you can pass in a sample code file:
 
 ```markdown
-{{</* automate/automate_cli_commands */>}}
+{{</* readfile file="path/to/file/example.rb" highlight="ruby" */>}}
 ```
 
-### Parameters
+or:
 
-Some shortcodes accept positioned or named parameters. For example, the `example_fqdn` shortcode requires a hostname, which is added like this: `{{</* example_fqdn "HOSTNAME" */>}}`, and produces the following output: `{{< example_fqdn "HOSTNAME" >}}`.
-
-The [Fontawesome Shortcode](#fontawesome-shortcode) accepts named parameters. For example, it accepts a class value which is added like this: `{{</* fontawesome class="fas fa-ellipsis-h" */>}}`
-
-See the [Fontawesome Shortcode](#fontawesome-shortcode) section for more examples.
-
-### Nested Content
-
-We have some shortcodes that nest around Markdown content that is included in the text of a page. Those shortcodes are all written in HTML. Note the slash `/` before the name of the closing shortcode.
-
-```md
-{{</* shortcode_name */>}}
-
-Some Markdown text.
-
-{{</* /shortcode_name */>}}
+```markdown
+{{</* readfile file="path/to/data/file.json" highlight="json" */>}}
 ```
-
-See the [Notes and Warnings](#notes-warnings-and-admonitions) and the [Foundation Tabs](#foundation-tabs-container) for examples of nested shortcodes.
 
 ## Notes, Warnings, and Admonitions
 
@@ -351,30 +313,72 @@ The following shortcode examples will display these icons: {{< fontawesome class
 {{</* fontawesome class="far fa-address-book" background-color="DarkBlue" color="rgb(168, 218, 220)" */>}}
 ```
 
-## readfile Shortcode
+## Shortcodes
 
-The readfile shortcode adds text from a file to a page. You can add a Markdown file, HTML file, or code file by specifying the path to the file from the project root directory.
+[Shortcodes](https://gohugo.io/content-management/shortcodes/) add short snippets of code or HTML to a page. For example, the readfile shortcode can add a text file to a page or the notes shortcode can add HTML to a page that places text in an HTML div.
 
-By default it accepts a Markdown file, for example:
+### Writing a Shortcode
+
+Shortcode files are written in **Markdown** or **HTML** and are stored in [`layouts/shortcodes`](https://github.com/chef/chef-web-docs/tree/main/layouts/shortcodes) or [`themes/docs-new/layouts/shortcodes`](https://github.com/chef/chef-web-docs/tree/main/themes/docs-new/layouts/shortcodes) in the `chef/chef-web-docs` repository.
+
+In repositories other than chef-web-docs, store shortcodes in `layouts/shortcodes/REPOSITORY_NAME/`.
+
+### Adding a Shortcode to a Page
+
+There are two types of shortcodes, **Markdown** and **HTML**. The type of shortcode determines how it is added to a page and how Hugo processes the text when it renders the page into HTML.
+
+{{< note >}}
+If you add a **Markdown** shortcode to a page using **HTML** shortcode delimiters, Hugo will assume that the text is already formatted in HTML and will not run the shortcode file through its Markdown processor, leaving the bare Markdown in the HTML page output.
+{{< /note >}}
+
+#### Markdown Shortcodes
+
+A Markdown shortcode must be processed into HTML by Hugo when the site is built.
+
+To include a Markdown shortcode in a page, wrap the name of the shortcode file, without the file type suffix, in between double curly braces and percent characters, `{{%/* SHORTCODE */%}}`. For example, if you wanted to add the [`chef.md`](https://github.com/chef/chef-web-docs/blob/main/layouts/shortcodes/chef.md) shortcode to a page, add the following text to the Markdown page:
 
 ```markdown
-{{</* readfile file="layouts/shortcodes/example.md" */>}}
+{{%/* chef */%}}
 ```
 
-You can also add an HTML file:
+For shortcodes located in a repository other than chef-web-docs, use `{{%/* REPO_NAME/SHORTCODE */%}}`. For example:
 
 ```markdown
-{{</* readfile file="layouts/shortcodes/example.html" html="true" */>}}
+{{%/* chef-workstation/bento */%}}
 ```
 
-And you can pass in a sample code file:
+#### HTML Shortcodes
+
+To include an HTML shortcode in a page, wrap the name of the shortcode file, without the file type suffix, in between double curly braces and angle brackets, `{{</* SHORTCODE */>}}`. For example, add the following text to a page if you wanted to add the [`chef_automate_mark.html`](https://github.com/chef/chef-web-docs/blob/main/themes/docs-new/layouts/shortcodes/chef_automate_mark.html) shortcode:
 
 ```markdown
-{{</* readfile file="path/to/file/example.rb" highlight="ruby" */>}}
+{{</* chef_automate_mark */>}}
 ```
 
-or:
+For shortcodes located in a repository other than chef-web-docs, use `{{</* REPO_NAME/SHORTCODE */>}}`. For example:
 
 ```markdown
-{{</* readfile file="path/to/data/file.json" highlight="json" */>}}
+{{</* automate/automate_cli_commands */>}}
 ```
+
+### Parameters
+
+Some shortcodes accept positioned or named parameters. For example, the `example_fqdn` shortcode requires a hostname, which is added like this: `{{</* example_fqdn "HOSTNAME" */>}}`, and produces the following output: `{{< example_fqdn "HOSTNAME" >}}`.
+
+The [Fontawesome Shortcode](#fontawesome-shortcode) accepts named parameters. For example, it accepts a class value which is added like this: `{{</* fontawesome class="fas fa-ellipsis-h" */>}}`
+
+See the [Fontawesome Shortcode](#fontawesome-shortcode) section for more examples.
+
+### Nested Content
+
+We have some shortcodes that nest around Markdown content that is included in the text of a page. Those shortcodes are all written in HTML. Note the slash `/` before the name of the closing shortcode.
+
+```md
+{{</* shortcode_name */>}}
+
+Some Markdown text.
+
+{{</* /shortcode_name */>}}
+```
+
+See the [Notes and Warnings](#notes-warnings-and-admonitions) and the [Foundation Tabs](#foundation-tabs-container) for examples of nested shortcodes.
