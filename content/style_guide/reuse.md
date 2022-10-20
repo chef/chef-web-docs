@@ -27,6 +27,8 @@ All content should be organized by file type. For example:
 
 The `reusable` subdirectory must be a [headless bundle](https://gohugo.io/content-management/page-bundles/#headless-bundle) so its contents are not published unless they're added to a page using the [readfile shortcode](#readfile-shortcode).
 
+See the [`content/reusable/index.md` file](https://github.com/chef/chef-web-docs/blob/main/content/reusable/index.md) to see how a headless bundle is created.
+
 {{< /note >}}
 
 ## readfile Shortcode
@@ -306,29 +308,7 @@ and `panel-id`/`panel-link` values must be unique HTML IDs on the page.
 
 ## Fontawesome Shortcode
 
-The Fontawesome shortcode will display any free [Font Awesome icon](https://fontawesome.com/icons) in a page.
-
-It accepts the following parameters:
-
-- `background-color`
-- `border`
-- `border-radius`
-- `class`
-- `color`
-- `font-size`
-- `margin`
-- `padding`
-
-The only required parameter is `class`, which is the same as the class name of the icon.
-
-The following shortcode examples will display these icons: {{< fontawesome class="fas fa-ellipsis-h">}} {{< fontawesome class="fas fa-anchor" font-size="3rem" border="2px dashed" padding="1px" border-radius="5px">}} {{< fontawesome class="fas fa-archive" color="#cc814b" margin="0 0 0 12px">}} {{< fontawesome class="far fa-address-book" background-color="DarkBlue" color="rgb(168, 218, 220)">}}
-
-```markdown
-{{</* fontawesome class="fas fa-ellipsis-h" */>}}
-{{</* fontawesome class="fas fa-anchor" font-size="3rem" border="2px dashed" padding="1px" border-radius="5px" */>}}
-{{</* fontawesome class="fas fa-archive" color="#cc814b" margin="0 0 0 12px"*/>}}
-{{</* fontawesome class="far fa-address-book" background-color="DarkBlue" color="rgb(168, 218, 220)" */>}}
-```
+{{< readfile file="content/reusable/md/fontawesome_shortcode.md" >}}
 
 ## Shortcodes
 
