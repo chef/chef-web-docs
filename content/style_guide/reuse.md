@@ -27,7 +27,7 @@ All content should be organized by file type. For example:
 
 The `reusable` subdirectory must be a [headless bundle](https://gohugo.io/content-management/page-bundles/#headless-bundle) so its contents are not published unless they're added to a page using the [readfile shortcode](#readfile-shortcode).
 
-See the [`content/reusable/index.md` file](https://github.com/chef/chef-web-docs/blob/main/content/reusable/index.md) to see how a headless bundle is created.
+See the [`content/reusable/index.md` file](https://raw.githubusercontent.com/chef/chef-web-docs/main/content/reusable/index.md) to see how a headless bundle is created.
 
 {{< /note >}}
 
