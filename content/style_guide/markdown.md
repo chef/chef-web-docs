@@ -304,6 +304,24 @@ Which looks like this:
 
 Raster images should be 96 dpi and no larger than 600 pixels wide. This helps ensure that the image can be printed and/or built into other output formats; in some cases, separate 300 dpi files should be maintained for images that require inclusion in formats designed for printing and/or presentations.
 
+### Fontawesome Shortcode
+
+{{< readfile file="content/reusable/md/fontawesome_shortcode.md" >}}
+
+### SVG Shortcode
+
+You can also add an inline SVG image into a line of text using the svg shortcode. Use this for adding SVG icons that Fontawesome doesn't include in their free tier.
+
+For example, this will add an SVG icon to a string of text:
+
+```md
+Click on the web asset icon ({{</* svg src="themes/docs-new/static/images/web-asset.svg" */>}}).
+```
+
+which produces this output:
+
+Click on the web asset icon ({{< svg file="themes/docs-new/static/images/web-asset.svg" >}}).
+
 ## Markdownlint
 
 We use [Markdownlint](https://github.com/DavidAnson/markdownlint) in a [GitHub action](https://github.com/DavidAnson/markdownlint-cli2-action) to lint the

@@ -348,3 +348,9 @@ Warnings point out something that could cause harm if ignored.
 {{< danger >}}
 The reader should proceed with caution.
 {{< /danger >}}
+
+## SVG Shortcode
+
+The SVG shortcode will add an inline SVG icon to a string of text:
+
+Click on the web asset icon ({{< svg file="themes/docs-new/static/images/web-asset.svg" >}}).
