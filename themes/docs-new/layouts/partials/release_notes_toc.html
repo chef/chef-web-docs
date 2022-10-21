@@ -30,6 +30,9 @@
         {{- if eq $product "chef" -}}
           {{- $current_versions := $.Site.Data.releases.chef.current -}}
           {{- $versions = append $current_versions $versions -}}
+          {{- $paddedVersions := apply $versions "partial" "zero_prefix_pad" "." }}
+          {{- $sortedVersions := (sort $paddedVersions "value" "desc") }}
+          {{- $versions = apply $sortedVersions "partial" "zero_prefix_trim" "." }}
         {{- end -}}
 
         {{- $versionsCorrectOrder := slice -}}
@@ -39,11 +42,8 @@
           {{- range seq $len -}}
             {{- $versionsCorrectOrder = $versionsCorrectOrder | append (index $versions (sub $len .)) -}}
           {{- end -}}
-        {{- else if ne $product "chef" -}}
-          {{ $len := len $versions }}
-          {{- range seq $len -}}
-            {{- $versionsCorrectOrder = $versionsCorrectOrder | append (index $versions (sub $len .)) }}
-          {{ end }}
+        {{- else if eq $product "chef" -}}
+            {{- $versionsCorrectOrder = $versions -}}
         {{ else }}
           {{ $len := len $versions }}
           {{- range seq $len -}}
