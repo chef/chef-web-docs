@@ -104,25 +104,24 @@ Install the extensions:
 
 ### Code Spell Checker
 
-Clone the [Chef Dictionary](https://github.com/chef/chef_dictionary) into your repository directory
-
-```bash
-gh repo clone chef/chef_dictionary
-```
-
-Navigate to your VSCode settings by selecting the gear icon at the bottom left side of the VSCode screen and find the Code Spell settings. Open the setting for "C Spell Dictionaries" and add the following content, adjusting the path for your local workstation
+Navigate to your VSCode settings by selecting the gear icon at the bottom left side of the VSCode screen and find the Code Spell settings. In the left menu nav, select **Language and Dictionaries**, scroll down to **C Spell: Dictionary Definitions**, select **Edit in settings.json**, and add the following content in `settings.json` file:
 
 ```json
   "cSpell.dictionaryDefinitions": [
-  { "name": "chef_dictionary",
-    "path": "/Users/<username>/<repodir>/chef_dictionary/chef_dictionary/chef.txt"}
-  ],
-  "cSpell.dictionaries": [
-    "chef_dictionary"
-  ],
+      {
+        "name": "chef",
+        "path": "https://raw.githubusercontent.com/chef/chef_dictionary/main/chef.txt",
+        "description": "Custom Chef Dictionary"
+      },
+      {
+        "name": "docs",
+        "path": "https://raw.githubusercontent.com/chef/chef_dictionary/main/docs.txt",
+        "description": "Custom Docs Dictionary"
+      }
+  ]
 ```
 
-Add this configuration to exclude code blocks from spellcheck:
+Add this configuration to the `settings.json` file to exclude code blocks from spellcheck:
 
 ```json
   "cSpell.languageSettings": [
@@ -235,7 +234,7 @@ Clone the following repositories:
 <!-- markdownlint-disable -->
 | Product | GitHub Docs Directory |
 |---------|-----------------------|
-|Chef Automate |[https://github.com/chef/automate|
+|Chef Automate |https://github.com/chef/automate|
 |Chef Habitat |https://github.com/habitat-sh/habitat|
 |Chef Infra Client |https://github.com/chef/chef-web-docs|
 |Chef Infra Server |https://github.com/chef/chef-server|

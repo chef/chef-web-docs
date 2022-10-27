@@ -7,7 +7,8 @@ assignees: ''
 
 ---
 
-# Large documentation  project plan
+# Large documentation project plan
+
 Request for a large or multi-sprint documentation project:
 
 This project plan defines the scope and details for a larger doc project.
@@ -15,6 +16,7 @@ This project plan defines the scope and details for a larger doc project.
 Complete as much information as you can, as this will help us get better oriented and familiar with the documentation needs.
 
 ## Product
+
 - [ ] Chef Automate
 - [ ] Chef Habitat
 - [ ] Chef Infra Client
@@ -28,7 +30,7 @@ Product manager:
 
 ## Project overview
 
-This is a public repository. If you would prefer to keep the following information confidential, please email this part of the form us at docs@chef.io.
+This is a public repository. If you would prefer to keep the following information confidential, please email this part of the form us at Chef-Docs@progress.com.
 
 - [ ] It's all good. I'll use the form
 - [ ] That's a big nope. Look for my email.

@@ -1,0 +1,87 @@
+---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: selinux_state
+resource_description_list:
+- markdown: Use the **selinux_state** resource to manage the SELinux state on a system.
+    It does this by using the `setenforce` command and rendering the `/etc/selinux/config`
+    file from a template.
+resource_new_in: '18.0'
+syntax_full_code_block: |-
+  selinux_state 'name' do
+    automatic_reboot      true, false, Symbol # default value: false
+    config_file           String # default value: "/etc/selinux/config"
+    persistent            true, false # default value: true
+    policy                String
+    action                Symbol # defaults to :enforcing if not specified
+  end
+syntax_properties_list:
+syntax_full_properties_list:
+- "`selinux_state` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`automatic_reboot`, `config_file`, `persistent`, and `policy` are the properties
+  available to this resource."
+actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :enforcing:
+    markdown: Set the SELinux state to enforcing. (default)
+  :permissive:
+    markdown: Set the SELinux state to permissive.
+  :disabled:
+    markdown: 'Set the SELinux state to disabled. **NOTE**: Switching to or from disabled
+      requires a reboot!'
+properties_list:
+- property: automatic_reboot
+  ruby_type: true, false, Symbol
+  required: false
+  default_value: 'false'
+  description_list:
+  - markdown: Perform an automatic node reboot if required for state change.
+- property: config_file
+  ruby_type: String
+  required: false
+  default_value: "/etc/selinux/config"
+  description_list:
+  - markdown: Path to the SELinux config file on disk.
+- property: persistent
+  ruby_type: true, false
+  required: false
+  default_value: 'true'
+  description_list:
+  - markdown: Set the status update in the SELinux configuration file.
+- property: policy
+  ruby_type: String
+  required: false
+  default_value: lazy default
+  allowed_values: '"default", "minimum", "mls", "src", "strict", "targeted"'
+  description_list:
+  - markdown: SELinux policy type.
+examples: |
+  **Set SELinux state to permissive**:
+
+  ```ruby
+  selinux_state 'permissive' do
+    action :permissive
+  end
+  ```
+
+  **Set SELinux state to enforcing**:
+
+  ```ruby
+  selinux_state 'enforcing' do
+    action :enforcing
+  end
+  ```
+
+  **Set SELinux state to disabled**:
+
+  ```ruby
+  selinux_state 'disabled' do
+    action :disabled
+  end
+  ```

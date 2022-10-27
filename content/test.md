@@ -214,7 +214,7 @@ You can also use HTML, but it is not preferred.
 To format an image, use similar syntax to [links](#links), but add a leading `!`
 character. The square brackets contain the image's alt text. Try to always use
 alt text so that people using screen readers can get some benefit from the
-image.
+image. For example, `![Classic Chef logo](/images/chef-icon.png)` will produce this:
 
 ![Classic Chef logo](/images/chef-icon.png)
 
@@ -224,15 +224,23 @@ which is preferred to using a HTML `<img>` tag. Also, if you need the image to
 also be a hyperlink, use the `link` attribute, rather than wrapping the whole
 figure in Markdown link syntax as shown below.
 
-{{< figure src="/images/chef-icon.png" title="Classic Chef icon" caption="Image used to illustrate the figure shortcode" width="200px" >}}
+For example, this will add the Chef icon with title, caption, and a width of 200 pixels:
 
-Even if you choose not to use the figure shortcode, an image can also be a link. This
-time the pencil icon links to the Kubernetes website. Outer square brackets enclose
-the entire image tag, and the link target is in the parentheses at the end.
+``` md
+{{</* figure src="/images/chef-icon.png" title="Classic Chef icon" caption="Image used to illustrate the figure shortcode" width="150px" */>}}
+```
 
-[![pencil icon](/images/chef-icon.png)](https://chef.io)
+{{< figure src="/images/chef-icon.png" title="Classic Chef icon" caption="Image used to illustrate the figure shortcode" width="150px" >}}
 
-You can also use HTML for images, but it is not preferred.
+Add the `figure-no-shadow` class to remove the drop shadow from around an image:
+
+``` md
+{{</* figure src="/images/chef-icon.png" class="figure-no-shadow" title="Classic Chef icon" width="150px" */>}}
+```
+
+{{< figure src="/images/chef-icon.png" class="figure-no-shadow" title="Classic Chef icon" width="150px" >}}
+
+You can also use HTML for images, but we don't recommend it.
 
 <img src="/images/chef-icon.png" alt="Classic Chef logo" />
 
@@ -340,3 +348,9 @@ Warnings point out something that could cause harm if ignored.
 {{< danger >}}
 The reader should proceed with caution.
 {{< /danger >}}
+
+## SVG Shortcode
+
+The SVG shortcode will add an inline SVG icon to a string of text:
+
+Click on the web asset icon ({{< svg file="themes/docs-new/static/images/web-asset.svg" >}}).

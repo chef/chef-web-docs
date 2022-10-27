@@ -124,6 +124,12 @@ identifier = "automate"
     weight = 40
 
     [[automate]]
+    title = "Disaster Recovery"
+    identifier = "automate/deploy_high_availability/disaster_recovery"
+    parent = "automate/deploy_high_availability"
+    weight = 50
+
+    [[automate]]
     title = "Backup and Restore"
     identifier = "automate/deploy_high_availability/backup_and_restore"
     parent = "automate/deploy_high_availability"
@@ -269,12 +275,6 @@ identifier = "desktop"
   identifier = "desktop/install"
   parent = "desktop"
   weight = 30
-
-  [[desktop]]
-  title = "Configure"
-  identifier = "desktop/configure"
-  parent = "desktop"
-  weight = 40
 
  [[desktop]]
   title = "Zero Touch Deployment"
