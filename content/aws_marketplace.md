@@ -56,30 +56,30 @@ AWS provides 5 VPCs for each region. If you require more VPCs, please contact [A
 
 1. Configure stack options:
 
-    ![Enter required information and click next](/images/configure_stack.png "Configure stack")
-
     - **Tags:** Create a tag that can be used to refer to your resources (for example, `Key: Name, Value: Chef-automate-stack`).
     - **Permission:** You need to create an IAM role with `AmazonEC2FullAccess` to enable resource creation via the cloud formation template. Once created, you can select it in the dropdown menu.
     - **Stack failure options:** AWS provides two option:
-    
-        1. **Roll back all stack resources:** In case of failure, it should rollback all created resources (`Default: Roll back all stack resources`).
-        2. **Preserve successfully provisioned resources:** In case of failure, it will rollback only failed resources.
+
+        - **Roll back all stack resources:** In case of failure, it should rollback all created resources (`Default: Roll back all stack resources`).
+        - **Preserve successfully provisioned resources:** In case of failure, it will rollback only failed resources.
+
+    ![Enter required information and click next](/images/configure_stack.png "Configure stack")
 
     - Advanced Options:
-        
-        1. **Stack Policy:** It is the JSON document that defines the update actions that can be performed on designated resources (`Default: No stack policy`).
-        2. **Rollback Configuration:** The user can set the alarm to monitor things during stack creation or update. Users must provide a threshold time and area of their cloud watch alarm. This alarm would get triggered if the threshold breaches. Users can enter multiple alarms as well. For more information, refer to this https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-rollback-triggers.html?icmpid=docs_cfn_console.
-    
+
+        - **Stack Policy:** It is the JSON document that defines the update actions that can be performed on designated resources (`Default: No stack policy`).
+        - **Rollback Configuration:** The user can set the alarm to monitor things during stack creation or update. Users must provide a threshold time and area of their cloud watch alarm. This alarm would get triggered if the threshold breaches. Users can enter multiple alarms as well. For more information, refer to [CFN Rollback Triggers](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-rollback-triggers.html?icmpid=docs_cfn_console) documentation.
+
     ![Enter rollback info and attach cloud watch alarms](/images/rollback_options.png "Rollback options")
 
     - **Notification Options:** Users can create/attach their AWS SNS topic(Simple Notification Service), which would help them get all notifications about their stack creation process on their email.
-    
+
     ![Enter SNS topic for notifications](/images/notification_options.png "Notification options")
 
     - **Stack Creation Options:** It has two options:
-        
+
         1. **Timeout:** If specified and stack creation is not completed in that time, rollback will happen
-        2. **Termination Protection:** You cannot delete the stack directly if enabled. You have to first update it to disabled to delete it.  
+        2. **Termination Protection:** You cannot delete the stack directly if enabled. You have to first update it to disabled to delete it.
 
     Select **Next** and create your Chef Automate deployment. This process can take several minutes.
 
@@ -94,7 +94,7 @@ AWS provides 5 VPCs for each region. If you require more VPCs, please contact [A
 1. Open your browser and paste the Chef Automate URL, which will open an alert page.
 
 1. Select **Advanced** and continue.
-    
+
     ![Select 'advanced' to bypass the warning that the page is not secure](/images/NotSecurePage.png "Not Secure Page").
 
 1. Enter your **Username** and **Password** and select **Sign In**.
@@ -104,7 +104,7 @@ AWS provides 5 VPCs for each region. If you require more VPCs, please contact [A
 1. Fill out the registration form and [Accept the Chef License](https://docs.chef.io/chef_license_accept/).
 
 1. Select **Register** to enter Chef Automate.
-    
+
     ![ ](/images/WelcomePage.png "Welcome Page")
 
 1. Congratulations! You've started Chef Automate!
@@ -145,9 +145,9 @@ AWS provides 5 VPCs for each region. If you require more VPCs, please contact [A
 
 ## AWS EC2 Access
 
-The AWS EC2 instance connects functionality can be used to access the EC2 machine. Using the same instead of SSH to the EC2 device is recommended.
+The AWS EC2 instance connects can be used to access the EC2 machine. Use the AWS EC2 instance for the EC2 device.
 
-1. Select the EC2 machine and select the connect option as shown below:
+1. Select the EC2 machine and then the connect option as shown below:
 
     ![Add Chef Infra Server Form](/images/select-connect-option-in-ec2machine.png)
 
@@ -155,11 +155,11 @@ The AWS EC2 instance connects functionality can be used to access the EC2 machin
 
     ![Add Chef Infra Server Form](/images/select-button-on-ec2machine.png)
 
-    The above action will launch a new tab for EC2 connect page, as shown below:
+    The above action will launch a new tab for the EC2 connect page, as shown below:
 
     ![Add Chef Infra Server Form](/images/new-tab-of-ec2-machine.png)
 
-Now, you are in the EC2 machine, where you can run the necessary commands.
+Now the EC2 machine is in a running state where you can run the necessary commands.
 
 ## FAQs
 
