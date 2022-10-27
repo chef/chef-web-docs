@@ -140,7 +140,7 @@ AWS provides 5 VPCs for each region. If you require more VPCs, please contact [A
     - Admin Key: _copy the key from the starter kit_
 
 1. Select **Add Chef Organization**.
-    
+
     ![Select the Add Chef Organization button to complete this action](/images/OrgPageDetails.png)
 
 ## AWS EC2 Access
@@ -155,7 +155,7 @@ The AWS EC2 instance connects functionality can be used to access the EC2 machin
 
     ![Add Chef Infra Server Form](/images/select-button-on-ec2machine.png)
 
-The above action will launch a new tab for EC2 connect page, as shown below:
+    The above action will launch a new tab for EC2 connect page, as shown below:
 
     ![Add Chef Infra Server Form](/images/new-tab-of-ec2-machine.png)
 
