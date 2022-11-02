@@ -28,7 +28,7 @@ Use this instance with Chef Workstation installed on your laptop or a separate A
 
 ## Installation
 
-Select [Chef Automate](https://aws.amazon.com/marketplace/pp/prodview-r26bs6uknftps?ref_=srh_res_product_title) in the AWS Marketplace.
+Select [Chef Automate](https://aws.amazon.com/marketplace/pp/prodview-7vdf3i2dgsy5w?sr=0-2&ref_=beagle) in the AWS Marketplace.
 
 The Chef Automate AWS deployment uses [CloudFormation](https://aws.amazon.com/cloudformation/). [Download the CloudFormation template](https://aws-ami-chef-automate-v2.s3.amazonaws.com/cloudformation_template.yaml) or use the [view the template in CloudFormation Designer](https://console.aws.amazon.com/cloudformation/designer/home?templateURL=https://s3.amazonaws.com/awsmp-fulfillment-cf-templates-prod/658820ac-955d-4f73-bbcd-ab19b598d852/ec282ef4e8434b46a9df737571e1e0ac.template)
 
