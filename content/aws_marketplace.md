@@ -28,9 +28,9 @@ Use this instance with Chef Workstation installed on your laptop or a separate A
 
 ## Installation
 
-Select [Chef Automate](https://aws.amazon.com/marketplace/pp/prodview-r26bs6uknftps?ref_=srh_res_product_title) in the AWS Marketplace.
+Select [Chef Automate](https://aws.amazon.com/marketplace/pp/prodview-r26bs6uknftps?sr=0-1&ref_=beagle&applicationId=AWSMPContessa) in the AWS Marketplace.
 
-The Chef Automate AWS deployment uses [CloudFormation](https://aws.amazon.com/cloudformation/). [Download the CloudFormation template](https://aws-ami-chef-automate-v2.s3.amazonaws.com/cloudformation_template.yaml) or use the [view the template in CloudFormation Designer](https://console.aws.amazon.com/cloudformation/designer/home?templateURL=https://s3.amazonaws.com/awsmp-fulfillment-cf-templates-prod/658820ac-955d-4f73-bbcd-ab19b598d852/ec282ef4e8434b46a9df737571e1e0ac.template)
+The Chef Automate AWS deployment uses [CloudFormation](https://aws.amazon.com/cloudformation/). [Download the CloudFormation template](https://aws-ami-chef-automate-v2.s3.amazonaws.com/cloudformation_template.yaml) or use the [view the template in CloudFormation Designer](https://us-east-1.console.aws.amazon.com/cloudformation/designer/home?region=us-east-1&templateURL=https://s3.amazonaws.com/awsmp-fulfillment-cf-templates-prod/658820ac-955d-4f73-bbcd-ab19b598d852.caadc0d6-b62a-4b83-d9b0-ec685d27c0bc.template)
 
 Every CloudFormation Stack deployment creates a new [Virtual Private Cloud](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) (VPC).
 
