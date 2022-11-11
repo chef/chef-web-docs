@@ -18,7 +18,7 @@ product = ["client", "workstation", "automate"]
 
 Chef Automate is an enterprise platform that allows developers, operations, and security engineers to collaborate on application and infrastructure changes with speed and at scale. Chef Automate provides actionable insights across data centers and cloud providers, wherever your nodes live.
 
-Chef Automate is the center of the modern Chef platform, providing users with a single source of truth for infrastructure, security, and application automation. The comprehensive dashboard provides real-time views of your configuration management activity. Chef Automate comes bundled with the latest Chef Infra Server, providing the core tools you need to manage your enterprise infrastructure. Data collection is enabled by default, allowing your nodes to report activity in real-time. This instance is free for 60 days or you can bring your own license (BYOL).
+Chef Automate is the center of the modern Chef platform, providing users with a single source of truth for infrastructure, security, and application automation. The comprehensive dashboard offers real-time views of your configuration management activity. Chef Automate comes bundled with the latest Chef Infra Server, providing the core tools you need to manage your enterprise infrastructure. Data collection is enabled by default, allowing your nodes to report activity in real time. This instance is free for 60 days, or you can bring your own license (BYOL).
 
 Use this instance with Chef Workstation installed on your laptop or a separate AWS instance.
 
@@ -42,19 +42,38 @@ AWS provides 5 VPCs for each region. If you require more VPCs, please contact [A
 
 1. Enter the following values for your deployment.
 
-     - Stack Name: `Chef-Automate`
-     - EC2RootVolumeSize: `Default: 40`
-     - Instance Type:`Default: t2.xlarge`
-     - KeyName: _Enter your existing keypair_
-     - SecurityGroupCidrIp: `0.0.0.0/0`
-     - SubnetCIDR: `10.0.0.0/24`
-     - VpcCIDR: `10.0.0.0/16`
-
-1. Select **Next** and create your Chef Automate deployment. This process can take several minutes.
+    ![Enter required information and click next](/images/stack_details.png "Stack Details")
 
 1. Give Chef Automate an additional five minutes for all the services to start running.
 
-![Select next to create stack](/images/StackDetails.png "Stack Details")
+1. Configure stack options:
+
+    - **Tags:** Create a tag that can be used to refer to your resources (for example, `Key: Name, Value: Chef-automate-stack`).
+    - **Permission:** Create an IAM role with `AmazonEC2FullAccess` to enable resource creation using the cloud formation template. Once created, select the IAM role from the dropdown menu.
+    - **Stack failure options:** AWS provides two option:
+
+        - **Roll back all stack resources:** In case of failure, it should rollback all created resources (`Default: Roll back all stack resources`).
+        - **Preserve successfully provisioned resources:** In case of failure, it will rollback only failed resources.
+
+    ![Enter required information and click next](/images/configure_stack.png "Configure stack")
+
+    - Advanced Options:
+
+        - **Stack Policy:** It is the JSON document that defines the update actions that can be performed on designated resources (`Default: No stack policy`).
+        - **Rollback Configuration:** The user can set the alarm to monitor things during stack creation or update. Users must provide a threshold time and area of their cloud watch alarm. This alarm would get triggered if the threshold breaches. Users can enter multiple alarms as well. For more information, refer to [CFN Rollback Triggers](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-rollback-triggers.html?icmpid=docs_cfn_console) documentation.
+
+    - **Notification Options:** Create or attach an AWS Simple Notification Service (SNS), which would help them get all notifications about their stack creation process on their email.
+
+    ![Enter SNS topic for notifications](/images/notification_options.png "Notification options")
+
+    - **Stack Creation Options:** It has two options:
+
+        1. **Timeout:** If specified and stack creation is not completed in that time, the stack rollback will happen.
+        2. **Termination Protection:** You cannot delete the stack directly if enabled. You have to first update it to disabled to delete it.
+
+    Select **Next** and create your Chef Automate deployment. This process can take several minutes.
+
+    Give Chef Automate an additional five minutes for all the services to start running.
 
 ## Post-Installation
 
