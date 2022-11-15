@@ -1,0 +1,30 @@
+<aside class="sticky sidebar hide-for-print" data-sticky data-top-anchor="utility-bar:bottom" data-btm-anchor="footer:top">
+    <div class="table-of-contents">
+      <span>
+        <span class="mini-toc-nav">Table Of Contents</span>
+        <button class="close-button hide-for-large" aria-label="Close menu" type="button" data-close>
+          <span aria-hidden="true">&times;</span>
+        </button>
+  
+      </span>
+      <a href="#{{ anchorize ( .Title )}}">{{ .Title }}</a>
+      <ul>
+
+        <li><a href="#knife-common-options">Knife Common Options</a></li>
+        <li>
+            <a href="#knife-subcommands">Knife Subcommands</a>
+
+            <ul>
+                {{ range $data_file, $data := index $.Site.Data (.Params.data_path) }}
+                {{ if ne $data_file "common_options" }}
+                {{ $subcommand := replaceRE `\_` " " $data_file }}
+                <li>
+                    <a href = "#{{ urlize $subcommand }}">{{ $subcommand }}</a>
+                </li>
+                {{ end }}
+                {{ end }}
+            </ul>
+        </li>
+      </ul>
+    </div>
+</aside>

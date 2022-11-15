@@ -1,0 +1,51 @@
+
+{{ define "main" }}
+  <main id="main-content-col" tabindex="-1">
+    <div id="col-content" data-swiftype-index='true'>
+      <h1 id="{{ anchorize ( .Title )}}">{{ .Title }}</h1>
+
+      <button type="button" class="TOC-button hide-for-large" data-toggle="offCanvasRightTOC" data-swiftype-index='false'>
+        <i class="fas fa-bars"></i> Table of Contents
+      </button>
+
+
+      <div class="prose">
+        <!-- First Display Common Options -->
+        <h2 id="knife-common-options">Knife Common Options</h2>
+        <p>These options are available to every Knife subcommand.</p>
+
+        <dl>
+          {{ range $option := index .Site.Data .Params.data_path "common_options" "common_options" }}
+          <dt>{{with $option.short }}<code>{{ $option.short }}</code>, {{ end }}<code>{{ $option.long }}</code></dt>
+          <dd>{{ $option.description }}</dd>
+          {{ end }}
+        </dl>
+
+        <h2 id="knife-subcommands">Knife Subcommands</h2>
+        {{ range $data_file, $data := index $.Site.Data (.Params.data_path) }}
+          {{ if ne $data_file "common_options" }}
+            {{ $subcommand := replaceRE `\_` " " $data_file }}
+            <h3 id="{{ urlize $subcommand }}">{{ $subcommand }}</h3>
+            <h4 id="{{ urlize $subcommand }}-syntax">Syntax</h4>
+            <p>This subcommand has the following syntax:</p>
+            <code>{{ $data.banner }}</code>
+            <h4>Options</h4>
+            {{ if gt (len $data) 1 }}
+            <dl>
+              {{ range $option, $option_data := $data }}
+                {{ if ne $option "banner" }}
+                    <dt>{{with $option_data.short }}<code>{{ $option_data.short }}</code>, {{ end }}<code>{{ $option_data.long }}</code>{{ if $option_data.deprecated }} <strong>(Deprecated)</strong>{{ end }}</dt>
+                    <dd>{{ $option_data.description }}</dd>
+                {{ end }}
+              {{ end }}
+            </dl>
+            {{ else }}
+              <p>This subcommand has no options.</p>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </div>
+    </div>
+    {{ partialCached "feedback" . }}
+  </main>
+{{ end }}

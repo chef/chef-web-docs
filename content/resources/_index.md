@@ -7,6 +7,7 @@ aliases = ["/resource_reference.html", "/resources.html", "resource_examples.htm
 data_path = ["infra","resources"]
 layout = "infra_resources_all"
 toc_layout = "infra_resources_all_toc"
+
 [cascade]
   product = ["client"]
 
