@@ -66,7 +66,7 @@ commercial agreement with Chef. Additional information is available in
 | Product           | Version                  | Lifecycle Status | EOL Date       |
 |-------------------|--------------------------|------------------|----------------|
 | Chef Automate     | Latest                   | GA               | n/a            |
-| Chef Infra Client | 17.x                     | GA               | April 30, 2024 |
+| Chef Infra Client | 18.x                     | GA               | n/a            |
 | Chef Infra Server | 14.x                     | GA               | n/a            |
 | Chef Habitat      | 0.81+                    | GA               | n/a            |
 | Chef InSpec       | 4.x                      | GA               | n/a            |
