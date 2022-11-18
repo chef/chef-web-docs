@@ -6,15 +6,9 @@ resources_common_properties: true
 resource: powershell_script
 resource_description_list:
 - markdown: |-
-    Use the **powershell_script** resource to execute a script using the Windows PowerShell interpreter, much like how the script and script-based resources **bash**, **csh**, **perl**, **python**, and **ruby** are used. The powershell_script is specific to the Microsoft Windows platform, but may use both the the Windows PowerShell interpreter or the PowerShell Core (pwsh) interpreter as of Chef Infra Client 16.6 and later.
+    Use the **powershell_script** resource to execute a script using the Windows PowerShell interpreter, much like how the script and script-based resources **bash**, **csh**, **perl**, **python**, and **ruby** are used. The **powershell_script** resource is specific to the Microsoft Windows platform, but may use both the Windows PowerShell interpreter or the PowerShell Core (pwsh) interpreter as of Chef Infra Client 16.6 and later.
 
-     The powershell_script resource creates and executes a temporary file rather than running the command inline. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use `not_if` and `only_if` conditionals to guard this resource for idempotence.
-syntax_description: "A **powershell_script** resource block executes a batch script\
-  \ using\nthe Windows PowerShell interpreter. For example, writing to an\ninterpolated\
-  \ path:\n\n```ruby\npowershell_script 'write-to-interpolated-path' do\n  code <<-EOH\n\
-  \  $stream = [System.IO.StreamWriter] \"#{Chef::Config[:file_cache_path]}/powershell-test.txt\"\
-  \n  $stream.WriteLine(\"In #{Chef::Config[:file_cache_path]}...word.\")\n  $stream.close()\n\
-  \  EOH\nend\n```"
+    The **powershell_script** resource creates and executes a temporary file rather than running the command inline. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use `not_if` and `only_if` conditionals to guard this resource for idempotence.
 syntax_full_code_block: |-
   powershell_script 'name' do
     code                        String
@@ -22,6 +16,7 @@ syntax_full_code_block: |-
     convert_boolean_return      true, false # default value: false
     creates                     String
     cwd                         String
+    default_env                 true, false # default value: false
     domain                      String
     elevated                    true, false # default value: false
     environment                 Hash
@@ -30,6 +25,7 @@ syntax_full_code_block: |-
     input                       String
     interpreter                 String # default value: "powershell"
     live_stream                 true, false # default value: false
+    login                       true, false # default value: false
     password                    String
     returns                     Integer, Array # default value: 0
     timeout                     Integer, String, Float # default value: 3600
@@ -42,15 +38,15 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`code`, `command`, `convert_boolean_return`, `creates`, `cwd`, `domain`,
+- "`code`, `command`, `convert_boolean_return`, `creates`, `cwd`, `default_env`, `domain`,
   `elevated`, `environment`, `flags`, `group`, `input`, `interpreter`, `live_stream`,
-  `password`, `returns`, `timeout`, and `user` are the properties
-  available to this resource."
+  `login`, `password`, `returns`, `timeout`, and `user` are the properties available
+  to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :run:
-    markdown: Default. Run the script.
+    markdown: Run a command. (default)
 properties_list:
 - property: architecture
   ruby_type: Symbol
@@ -79,6 +75,9 @@ properties_list:
   description_list:
   - markdown: An optional property to set the command to be executed if it differs
       from the resource block's name.
+  - note:
+      markdown: Use the **execute** resource to run a single command. Use multiple
+        **execute** resource blocks to run multiple commands.
 - property: convert_boolean_return
   ruby_type: true, false
   required: false
@@ -114,12 +113,20 @@ properties_list:
   required: false
   description_list:
   - markdown: The current working directory from which the command will be run.
+- property: default_env
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  new_in: '14.2'
+  description_list:
+  - markdown: When true this enables ENV magic to add path_sanity to the PATH and
+      force the locale to English+UTF-8 for parsing output
 - property: domain
   ruby_type: String
   required: false
   new_in: '12.21'
   description_list:
-  - markdown: 'The domain of the username specified by the user property.
+  - markdown: 'Windows only: The domain of the user specified by the user property.
       If not specified, the username and password specified by the `user` and `password`
       properties will be used to resolve that user against the domain in which the
       system running Chef Infra Client is joined, or if that system is not joined
@@ -147,7 +154,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'A string that is passed to the Windows PowerShell command. Default
+  - markdown: A string that is passed to the Windows PowerShell command
 
       value (Windows PowerShell 3.0+):
 
@@ -190,12 +197,20 @@ properties_list:
   description_list:
   - markdown: Send the output of the command run by this execute resource block to
       the Chef Infra Client event stream.
+- property: login
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  new_in: '17.0'
+  description_list:
+  - markdown: Use a login shell to run the commands instead of inheriting the existing
+      execution environment.
 - property: password
   ruby_type: String
   required: false
   new_in: '12.21'
   description_list:
-  - markdown: 'The password of the user specified by the user property.
+  - markdown: 'Windows only: The password of the user specified by the user property.
       This property is mandatory if user is specified on Windows and may only be specified
       if user is specified. The sensitive property for this resource will automatically
       be set to true if password is specified.'

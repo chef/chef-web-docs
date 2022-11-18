@@ -26,7 +26,7 @@ syntax_properties_list:
   the desired state'
 actions_list:
   :create:
-    markdown: Default. Use to create a data bag.
+    markdown: (default) Use to create a data bag.
   :delete:
     markdown: Use to delete a data bag.
   :nothing:

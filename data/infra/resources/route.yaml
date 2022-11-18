@@ -33,7 +33,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :add:
-    markdown: Default. Add a route.
+    markdown: (default) Add a route.
   :delete:
     markdown: Delete a route.
 properties_list:

@@ -47,7 +47,7 @@ actions_list:
     markdown: Purge a package. This action typically removes the configuration files
       as well as the package.
   :reconfig:
-    markdown:
+    markdown: Change the installed package
   :lock:
     markdown:
   :unlock:

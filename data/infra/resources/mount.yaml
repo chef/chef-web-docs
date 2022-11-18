@@ -19,7 +19,7 @@ syntax_full_code_block: |-
     options          Array, String # default value: ["defaults"]
     pass             Integer, false # default value: 2
     password         String
-    supports         Array, Hash # default value: { remount: false }
+    supports         Array, Hash # default value: "{ remount: false }"
     username         String
     action           Symbol # defaults to :mount if not specified
   end
@@ -33,20 +33,20 @@ syntax_full_properties_list:
   `mount_point`, `options`, `pass`, `password`, `supports`, and `username` are the
   properties available to this resource."
 actions_list:
-  :disable:
-    markdown: Remove an entry from the file systems table (`fstab`).
-  :enable:
-    markdown: Add an entry to the file systems table (`fstab`).
-  :mount:
-    markdown: Default. Mount a device.
   :nothing:
     shortcode: resources_common_actions_nothing.md
-  :remount:
-    markdown: Remount a device.
+  :mount:
+    markdown: " (default)"
   :umount:
     markdown: Unmount a device.
   :unmount:
-    markdown: Alias for `:umount` action.
+    markdown: 
+  :remount:
+    markdown: 
+  :enable:
+    markdown: 
+  :disable:
+    markdown: 
 properties_list:
 - property: device
   ruby_type: String

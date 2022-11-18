@@ -27,7 +27,7 @@ syntax_properties_list:
   the desired state'
 actions_list:
   :create:
-    markdown: Default. Use to create an environment.
+    markdown: (default) Use to create an environment.
   :delete:
     markdown: Use to delete an environment.
   :nothing:

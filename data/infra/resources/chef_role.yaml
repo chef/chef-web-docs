@@ -25,7 +25,7 @@ syntax_properties_list:
   the desired state'
 actions_list:
   :create:
-    markdown: Default. Use to create a role.
+    markdown: (default) Use to create a role.
   :delete:
     markdown: Use to delete a role.
   :nothing:

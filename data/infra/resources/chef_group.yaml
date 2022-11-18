@@ -26,7 +26,7 @@ syntax_properties_list:
   the desired state'
 actions_list:
   :create:
-    markdown: Default.
+    markdown: (default)
   :delete:
     markdown: ''
   :nothing:

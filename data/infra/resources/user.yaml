@@ -57,7 +57,7 @@ syntax_full_properties_list:
   all of the properties that may be used with this resource.'
 actions_list:
   :create:
-    markdown: Default. Create a user with given properties. If a user already exists
+    markdown: (default) Create a user with given properties. If a user already exists
       (but does not match), update that user to match.
   :lock:
     markdown: Lock a user's password.

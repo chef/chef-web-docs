@@ -53,7 +53,7 @@ properties_list:
   required: false
   default_value: 'true'
   description_list:
-  - markdown: Set the status update in the SELinux configuration file.
+  - markdown: Persist status update to the selinux configuration file.
 - property: policy
   ruby_type: String
   required: false

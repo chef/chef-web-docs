@@ -12,222 +12,174 @@ resource_description_list:
     that are executed with this resource are (by their nature) not idempotent, as
     they are typically unique to the environment in which they are run. Use `not_if`
     and `only_if` to guard this resource for idempotence.
-- markdown: 'This resource is the base resource for several other resources used for
-
-    scripting on specific platforms. For more information about specific
-
-    resources for specific platforms, see the following topics:
-
-
-    -   [bash](/resources/bash/)
-
-    -   [csh](/resources/csh/)
-
-    -   [ksh](/resources/ksh/)
-
-    -   [perl](/resources/perl/)
-
-    -   [python](/resources/python/)
-
-    -   [ruby](/resources/ruby/)
-
-
-    Changed in 12.19 to support windows alternate user identity in execute
-
-    resources'
-syntax_description: "A **script** resource block typically executes scripts using\
-  \ a specified\ninterpreter, such as Bash, csh, Perl, Python, or Ruby:\n\n```ruby\n\
-  script 'extract_module' do\n  interpreter \"bash\"\n  cwd ::File.dirname(src_filepath)\n\
-  \  code <<-EOH\n    mkdir -p #{extract_path}\n    tar xzf #{src_filename} -C #{extract_path}\n\
-  \    mv #{extract_path}/*/* #{extract_path}/\n  EOH\n  not_if { ::File.exist?(extract_path)\
-  \ }\nend\n```"
-syntax_properties_list:
-- '`interpreter` specifies the command shell to use'
-- '`cwd` specifies the directory from which the command is run'
-- |
-  `code` specifies the command to run
-
-  It is more common to use the **script**-based resource that is specific to the
-  command shell. Chef has shell-specific resources for Bash, csh, ksh, Perl,
-  Python, and Ruby.
-
-
-  The same command as above, but run using the **bash** resource:
-
-  ```ruby
-  bash 'extract_module' do
-    cwd ::File.dirname(src_filepath)
-    code <<-EOH
-      mkdir -p #{extract_path}
-      tar xzf #{src_filename} -C #{extract_path}
-      mv #{extract_path}/*/* #{extract_path}/
-    EOH
-    not_if { ::File.exist?(extract_path) }
+syntax_full_code_block: |-
+  script 'name' do
+    code             String
+    command          String, Array # default value: 'name' unless specified
+    creates          String
+    cwd              String
+    default_env      true, false # default value: false
+    domain           String
+    elevated         true, false # default value: false
+    environment      Hash
+    flags            String
+    group            String, Integer
+    input            String
+    interpreter      String
+    live_stream      true, false # default value: false
+    login            true, false # default value: false
+    password         String
+    returns          Integer, Array # default value: 0
+    timeout          Integer, String, Float # default value: 3600
+    user             String, Integer
+    action           Symbol # defaults to :run if not specified
   end
-  ```
-syntax_full_code_block: "script 'name' do\n  code                       String\n \
-  \ creates                    String\n  cwd                        String\n  environment\
-  \                Hash\n  flags                      String\n  group            \
-  \          String, Integer\n  interpreter                String\n  path        \
-  \               Array\n  returns                    Integer, Array\n  timeout  \
-  \                  Integer, Float\n  user                       String\n  password\
-  \                   String\n  domain                     String\n  umask       \
-  \               String, Integer\n  action                     Symbol # defaults\
-  \ to :run if not specified\nend"
+syntax_properties_list: 
 syntax_full_properties_list:
-- '`script` is the resource'
-- '`name` is the name of the resource block'
-- '`cwd` is the location from which the command is run'
-- '`action` identifies the steps Chef Infra Client will take to bring the node into
-  the desired state'
-- '`code`, `creates`, `cwd`, `environment`, `flags`, `group`, `interpreter`, `path`,
-  `returns`, `timeout`, `user`, `password`, `domain` and `umask` are properties of
-  this resource, with the Ruby type shown. See "Properties" section below for more
-  information about all of the properties that may be used with this resource.'
+- "`script` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`code`, `command`, `creates`, `cwd`, `default_env`, `domain`, `elevated`, `environment`,
+  `flags`, `group`, `input`, `interpreter`, `live_stream`, `login`, `password`, `returns`,
+  `timeout`, and `user` are the properties available to this resource."
 actions_list:
   :nothing:
-    markdown: Prevent a command from running. This action is used to specify that
-      a command is run only when another resource notifies it.
+    shortcode: resources_common_actions_nothing.md
   :run:
-    markdown: Default. Run a script.
+    markdown: Run a command. (default)
 properties_list:
 - property: code
   ruby_type: String
-  required: false
+  required: true
   description_list:
-  - markdown: A quoted (" ") string of code to be executed.
+  - markdown: A quoted string of code to be executed.
+- property: command
+  ruby_type: String, Array
+  required: false
+  default_value: The resource block's name
+  description_list:
+  - markdown: An optional property to set the command to be executed if it differs
+      from the resource block's name.
+  - note:
+      markdown: Use the **execute** resource to run a single command. Use multiple
+        **execute** resource blocks to run multiple commands.
 - property: creates
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'Prevent a command from creating a file when that file already
-
-      exists.'
+  - markdown: Prevent a command from creating a file when that file already exists.
 - property: cwd
   ruby_type: String
   required: false
   description_list:
   - markdown: The current working directory from which the command will be run.
+- property: default_env
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  new_in: '14.2'
+  description_list:
+  - markdown: When true this enables ENV magic to add path_sanity to the PATH and
+      force the locale to English+UTF-8 for parsing output
+- property: domain
+  ruby_type: String
+  required: false
+  new_in: '12.21'
+  description_list:
+  - markdown: 'Windows only: The domain of the user specified by the user property.
+      If not specified, the username and password specified by the `user` and `password`
+      properties will be used to resolve that user against the domain in which the
+      system running Chef Infra Client is joined, or if that system is not joined
+      to a domain it will resolve the user as a local account on that system. An alternative
+      way to specify the domain is to leave this property unspecified and specify
+      the domain as part of the user property.'
+- property: elevated
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  new_in: '13.3'
+  description_list:
+  - markdown: |-
+      Determines whether the script will run with elevated permissions to circumvent User Access Control (UAC) from interactively blocking the process.
+      This will cause the process to be run under a batch login instead of an interactive login. The user running chef-client needs the 'Replace a process level token' and 'Adjust Memory Quotas for a process' permissions. The user that is running the command needs the 'Log on as a batch job' permission.
+      Because this requires a login, the user and password properties are required.
 - property: environment
   ruby_type: Hash
   required: false
   description_list:
-  - markdown: 'A Hash of environment variables in the form of
-
-      `({"ENV_VARIABLE" => "VALUE"})`. (These variables must exist for a
-
-      command to be run successfully.)'
+  - markdown: 'A Hash of environment variables in the form of `({''ENV_VARIABLE''
+      => ''VALUE''})`. **Note**: These variables must exist for a command to be run
+      successfully.'
 - property: flags
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'One or more command line flags that are passed to the interpreter
-
-      when a command is invoked.'
+  - markdown: One or more command line flags that are passed to the interpreter when
+      a command is invoked.
 - property: group
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: 'The group name or group ID that must be changed before running a
-
-      command.'
+  - markdown: The group name or group ID that must be changed before running a command.
+- property: input
+  ruby_type: String
+  required: false
+  new_in: '16.2'
+  description_list:
+  - markdown: An optional property to set the input sent to the command as STDIN.
 - property: interpreter
   ruby_type: String
   required: false
   description_list:
-  - markdown: The script interpreter to use during code execution.
+  - markdown: 
+- property: live_stream
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  description_list:
+  - markdown: Send the output of the command run by this execute resource block to
+      the Chef Infra Client event stream.
+- property: login
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  new_in: '17.0'
+  description_list:
+  - markdown: Use a login shell to run the commands instead of inheriting the existing
+      execution environment.
+- property: password
+  ruby_type: String
+  required: false
+  new_in: '12.21'
+  description_list:
+  - markdown: 'Windows only: The password of the user specified by the user property.
+      This property is mandatory if user is specified on Windows and may only be specified
+      if user is specified. The sensitive property for this resource will automatically
+      be set to true if password is specified.'
 - property: returns
   ruby_type: Integer, Array
   required: false
   default_value: '0'
   description_list:
-  - markdown: 'The return value for a command. This may be an array of accepted
-
-      values. An exception is raised when the return value(s) do not
-
-      match.'
+  - markdown: The return value for a command. This may be an array of accepted values.
+      An exception is raised when the return value(s) do not match.
 - property: timeout
-  ruby_type: Integer, Float
+  ruby_type: Integer, String, Float
   required: false
   default_value: '3600'
   description_list:
-  - markdown: 'The amount of time (in seconds) a command is to wait before timing
-
-      out.'
+  - markdown: The amount of time (in seconds) a command is to wait before timing out.
 - property: user
-  ruby_type: String
-  required: false
-  description_list:
-  - markdown: 'The user name of the user identity with which to launch the new
-
-      process. Default value: <span class="title-ref">nil</span>. The user
-
-      name may optionally be specified with a domain, i.e. <span
-
-      class="title-ref">domainuser</span> or <span
-
-      class="title-ref">user@my.dns.domain.com</span> via Universal
-
-      Principal Name (UPN)format. It can also be specified without a
-
-      domain simply as user if the domain is instead specified using the
-
-      <span class="title-ref">domain</span> attribute. On Windows only, if
-
-      this property is specified, the <span
-
-      class="title-ref">password</span> property must be specified.'
-- property: password
-  ruby_type: String
-  required: false
-  description_list:
-  - markdown: '*Windows only*: The password of the user specified by the <span
-
-      class="title-ref">user</span> property. Default value: <span
-
-      class="title-ref">nil</span>. This property is mandatory if <span
-
-      class="title-ref">user</span> is specified on Windows and may only
-
-      be specified if <span class="title-ref">user</span> is specified.
-
-      The <span class="title-ref">sensitive</span> property for this
-
-      resource will automatically be set to true if password is specified.'
-- property: domain
-  ruby_type: String
-  required: false
-  description_list:
-  - markdown: '*Windows only*: The domain of the user user specified by the <span
-
-      class="title-ref">user</span> property. Default value: <span
-
-      class="title-ref">nil</span>. If not specified, the user name and
-
-      password specified by the <span class="title-ref">user</span> and
-
-      <span class="title-ref">password</span> properties will be used to
-
-      resolve that user against the domain in which the system running
-
-      Chef client is joined, or if that system is not joined to a domain
-
-      it will resolve the user as a local account on that system. An
-
-      alternative way to specify the domain is to leave this property
-
-      unspecified and specify the domain as part of the <span
-
-      class="title-ref">user</span> property.'
-- property: umask
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: The file mode creation mask, or umask.
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
-resources_common_guard_interpreter: true
+  - markdown: The user name of the user identity with which to launch the new process.
+      The user name may optionally be specified with a domain, i.e. `domain\user`
+      or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can
+      also be specified without a domain simply as user if the domain is instead specified
+      using the domain property. On Windows only, if this property is specified, the
+      password property must be specified.
 examples: "
   Use a named provider to run a script\n\n  ```ruby\n  bash 'install_something'\
   \ do\n    user 'root'\n    cwd '/tmp'\n    code <<-EOH\n      wget http://www.example.com/tarball.tar.gz\n\
@@ -321,4 +273,3 @@ examples: "
   \ is passed\n  script 'mkdir test_dir' do\n   interpreter \"bash\"\n   code  \"\
   mkdir test_dir\"\n   cwd Chef::Config[:file_cache_path]\n   user \"username@domain-name\"\
   \n   password \"password\"\n  end\n  ```\n"
-

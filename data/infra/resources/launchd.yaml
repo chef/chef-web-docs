@@ -224,6 +224,13 @@ properties_list:
   description_list:
   - markdown: The amount of time (in seconds) launchd waits before sending a `SIGKILL`
       signal.
+- property: group
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown: When launchd is run as the root user, the group to run the job as. If
+      the username property is specified and this property is not, this value is set
+      to the default group for the user.
 - property: hard_resource_limits
   ruby_type: Hash
   required: false
@@ -249,6 +256,12 @@ properties_list:
   description_list:
   - markdown: Keep a job running continuously (true) or allow demand and conditions
       on the node to determine if the job keeps running (`false`).
+- property: label
+  ruby_type: String
+  required: false
+  default_value: The resource block's name
+  description_list:
+  - markdown: The unique identifier for the job.
 - property: launch_events
   ruby_type: Hash
   required: false
@@ -262,6 +275,11 @@ properties_list:
   description_list:
   - markdown: Specify if a job can be run only one time. Set this value to true if
       a job cannot be restarted without a full machine reboot.
+- property: ld_group
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The group name.
 - property: limit_load_from_hosts
   ruby_type: Array
   required: false
@@ -289,6 +307,12 @@ properties_list:
   required: false
   description_list:
   - markdown: Specify services to be registered with the bootstrap subsystem.
+- property: mode
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown: 'A quoted 3-5 character string that defines the octal mode. For example:
+      ''755'', ''0755'', or 00755.'
 - property: nice
   ruby_type: Integer
   required: false
@@ -300,6 +324,26 @@ properties_list:
   description_list:
   - markdown: Keep a job alive. Only applies to macOS version 10.4 (and earlier);
       use `keep_alive` instead for newer versions.
+- property: owner
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown: A string or ID that identifies the group owner by user name, including
+      fully qualified user names such as domain_user or user@domain. If this value
+      is not specified, existing owners remain unchanged and new owner assignments
+      use the current user (when necessary).
+- property: path
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The path to the directory. Using a fully qualified path is recommended,
+      but is not always required.
+- property: plist_hash
+  ruby_type: Hash
+  required: false
+  new_in: '12.19'
+  description_list:
+  - markdown: A Hash of key value pairs used to create the launchd property list.
 - property: process_type
   ruby_type: String
   required: false
@@ -335,6 +379,12 @@ properties_list:
   required: false
   description_list:
   - markdown: Launch a job once (at the time it is loaded).
+- property: session_type
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: 'The type of launchd plist to be created. Possible values: system (default)
+      or user.'
 - property: sockets
   ruby_type: Hash
   required: false
@@ -346,6 +396,11 @@ properties_list:
   required: false
   description_list:
   - markdown: A Hash of resource limits to be imposed on a job.
+- property: source
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The path to the launchd property list.
 - property: standard_error_path
   ruby_type: String
   required: false
@@ -362,7 +417,7 @@ properties_list:
   description_list:
   - markdown: The file to which standard output (`stdout`) is sent.
 - property: start_calendar_interval
-  ruby_type: Hash
+  ruby_type: Hash, Array
   required: false
   description_list:
   - markdown: 'A Hash (similar to `crontab`) that defines the calendar frequency at
@@ -396,6 +451,12 @@ properties_list:
   description_list:
   - markdown: The amount of time (in seconds) a job may be idle before it times out.
       If no value is specified, the default timeout value for launchd will be used.
+- property: type
+  ruby_type: String
+  required: false
+  default_value: daemon
+  description_list:
+  - markdown: 'The type of resource. Possible values: daemon (default), agent.'
 - property: username
   ruby_type: String
   required: false

@@ -65,6 +65,8 @@ actions_list:
     markdown: Enables a scheduled task.
   :disable:
     markdown: Disables a scheduled task.
+  :change:
+    markdown: 
 properties_list:
 - property: backup
   ruby_type: Integer, false

@@ -45,7 +45,7 @@ actions_list:
     markdown: Install a package. If a version is specified, install the specified
       version of the package. (default)
   :upgrade:
-    markdown: Install a package and/or ensure that a package is the latest version.
+    markdown: Install a package and ensure that a package is the latest version.
   :remove:
     markdown: Remove a package.
   :purge:
@@ -53,6 +53,10 @@ actions_list:
       as well as the package.
   :reconfig:
     markdown: Reconfigure a package. This action requires a response file.
+  :lock:
+    markdown: 
+  :unlock:
+    markdown: 
 properties_list:
 - property: clear_sources
   ruby_type: true, false

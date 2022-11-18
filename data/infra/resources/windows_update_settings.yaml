@@ -42,6 +42,8 @@ actions_list:
     shortcode: resources_common_actions_nothing.md
   :set:
     markdown: Set Windows Update settings. (default)
+  :enable:
+    markdown: 
 properties_list:
 - property: automatic_update_option
   ruby_type: Integer, Symbol

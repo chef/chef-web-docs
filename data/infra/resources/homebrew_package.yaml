@@ -44,6 +44,12 @@ actions_list:
   :purge:
     markdown: Purge a package. This action typically removes the configuration files
       as well as the package.
+  :reconfig:
+    markdown: Change the installed package
+  :lock:
+    markdown:
+  :unlock:
+    markdown:
 properties_list:
 - property: homebrew_user
   ruby_type: String, Integer

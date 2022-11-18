@@ -42,7 +42,7 @@ properties_list:
 - property: value
   ruby_type: Integer, String, true, false
   required: true
-  allowed_values: '"on", "off", true, false, 0, 1'
+  allowed_values: '"off", "on"'
   description_list:
   - markdown: SELinux boolean value.
 examples: |

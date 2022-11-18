@@ -63,7 +63,7 @@ syntax_full_properties_list:
   all of the properties that may be used with this resource.'
 actions_list:
   :create:
-    markdown: Default. Create a file. If a file already exists (but does not match),
+    markdown: (default) Create a file. If a file already exists (but does not match),
       update that file to match.
   :create_if_missing:
     markdown: Create a file only if the file does not exist. When the file exists,

@@ -69,13 +69,24 @@ syntax_full_properties_list:
   `returns`, `source`, `timeout`, and `version` are the properties available to this
   resource."
 actions_list:
-  :install:
-    markdown: Default. Install a package. If a version is specified, install the specified
-      version of the package.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :install:
+    markdown: Install a package. If a version is specified, install the specified
+      version of the package. (default)
+  :upgrade:
+    markdown: Install a package and ensure that a package is the latest version.
   :remove:
     markdown: Remove a package.
+  :purge:
+    markdown: Purge a package. This action typically removes the configuration files
+      as well as the package.
+  :reconfig:
+    markdown: Change the installed package
+  :lock:
+    markdown:
+  :unlock:
+    markdown:
 properties_list:
 - property: checksum
   ruby_type: String
@@ -89,15 +100,10 @@ properties_list:
   required: false
   allowed_values: ":custom, :inno, :installshield, :msi, :nsis, :wise"
   description_list:
-  - markdown: 'A symbol that specifies the type of package. Possible values:
-
-      `:custom` (such as installing a non-.msi file that embeds an
-
-      .msi-based installer), `:inno` (Inno Setup), `:installshield`
-
-      (InstallShield), `:msi` (Microsoft Installer Package (MSI)), `:nsis`
-
-      (Nullsoft Scriptable Install System (NSIS)), `:wise` (Wise).'
+  - markdown: 'A symbol that specifies the type of package. Possible values: :custom
+      (such as installing a non-.msi file that embeds an .msi-based installer), :inno
+      (Inno Setup), :installshield (InstallShield), :msi (Microsoft Installer Package
+      (MSI)), :nsis (Nullsoft Scriptable Install System (NSIS)), :wise (Wise).'
 - property: options
   ruby_type: String
   required: false
@@ -113,15 +119,11 @@ properties_list:
   ruby_type: Hash
   required: false
   description_list:
-  - markdown: 'This property allows you to define a hash of properties and their
-
-      value if the source package to be installed is at a remote location.
-
-      This hash will be used by the underlying **remote_file** resource
-
-      which will fetch the source package.'
+  - markdown: If the source package to install is at a remote location, this property
+      allows you to define a hash of properties which will be used by the underlying
+      **remote_file** resource used to fetch the source.
 - property: returns
-  ruby_type: String, Integer, Array of integers
+  ruby_type: String, Integer, Array
   required: false
   default_value: 0 (success) and 3010 (success where a reboot is necessary)
   description_list:
@@ -170,7 +172,7 @@ properties_list:
   description_list:
   - markdown: The amount of time (in seconds) to wait before timing out.
 - property: version
-  ruby_type: String
+  ruby_type: String, Array
   required: false
   description_list:
   - markdown: The version of a package to be installed or upgraded.
@@ -219,7 +221,7 @@ examples: |
 
   ```ruby
   windows_package 'Mercurial 3.6.1 (64-bit)' do
-    source 'http://mercurial.selenic.com/release/windows/Mercurial-3.6.1-x64.exe'
+    source 'https://www.mercurial-scm.org/release/windows/Mercurial-3.6.1-x64.exe'
     checksum 'febd29578cb6736163d232708b834a2ddd119aa40abc536b2c313fc5e1b5831d'
   end
   ```

@@ -48,7 +48,7 @@ properties_list:
   required: false
   default_value: "[]"
   description_list:
-  - markdown: 'An array of arguments that are passed to the initializer for the
+  - markdown: Arguments to pass the handler's class initializer.
 
       handler class. For example:
 

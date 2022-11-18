@@ -48,9 +48,13 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :sync:
-    markdown: Default. Update the source to the specified version, or get a new clone
+    markdown: (default) Update the source to the specified version, or get a new clone
       or checkout. This action causes a hard reset of the index and working tree,
       discarding any uncommitted changes.
+  :diff:
+    markdown:
+  :log:
+    markdown:
 properties_list:
 - property: additional_remotes
   ruby_type: Hash

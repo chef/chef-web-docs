@@ -11,39 +11,59 @@ resource_description_list:
     resource are (by their nature) not idempotent, as they are typically unique to
     the environment in which they are run. Use `not_if` and `only_if` to guard this
     resource for idempotence.
-syntax_description: "A **ksh** resource block executes scripts using ksh:\n\n```ruby\n\
-  ksh 'hello world' do\n  code <<-EOH\n    echo \"Hello world!\"\n    echo \"Current\
-  \ directory: \" $cwd\n  EOH\nend\n```"
-syntax_properties_list:
-- '`code` specifies the command to run'
-syntax_full_code_block: "ksh 'name' do\n  code                       String\n  creates\
-  \                    String\n  cwd                        String\n  environment\
-  \                Hash\n  flags                      String\n  group            \
-  \          String, Integer\n  path                       Array\n  returns      \
-  \              Integer, Array\n  timeout                    Integer, Float\n  user\
-  \                       String, Integer\n  umask                      String, Integer\n\
-  \  action                     Symbol # defaults to :run if not specified\nend"
+resource_new_in: '12.6'
+syntax_full_code_block: |-
+  ksh 'name' do
+    code             String
+    command          String, Array # default value: 'name' unless specified
+    creates          String
+    cwd              String
+    default_env      true, false # default value: false
+    domain           String
+    elevated         true, false # default value: false
+    environment      Hash
+    flags            String
+    group            String, Integer
+    input            String
+    interpreter      String
+    live_stream      true, false # default value: false
+    login            true, false # default value: false
+    password         String
+    returns          Integer, Array # default value: 0
+    timeout          Integer, String, Float # default value: 3600
+    user             String, Integer
+    action           Symbol # defaults to :run if not specified
+  end
+syntax_properties_list: 
 syntax_full_properties_list:
-- '`ksh` is the resource.'
-- '`name` is the name given to the resource block.'
-- '`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state.'
-- '`code`, `creates`, `cwd`, `environment`, `flags`, `group`, `path`, `returns`, `timeout`,
-  `user`, and `umask` are properties of this resource, with the Ruby type shown. See
-  "Properties" section below for more information about all of the properties that
-  may be used with this resource.'
+- "`ksh` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`code`, `command`, `creates`, `cwd`, `default_env`, `domain`, `elevated`, `environment`,
+  `flags`, `group`, `input`, `interpreter`, `live_stream`, `login`, `password`, `returns`,
+  `timeout`, and `user` are the properties available to this resource."
 actions_list:
   :nothing:
-    markdown: Prevent a command from running. This action is used to specify that
-      a command is run only when another resource notifies it.
+    shortcode: resources_common_actions_nothing.md
   :run:
-    markdown: Default. Run a script.
+    markdown: Run a command. (default)
 properties_list:
 - property: code
   ruby_type: String
-  required: false
+  required: true
   description_list:
-  - markdown: A quoted (" ") string of code to be executed.
+  - markdown: A quoted string of code to be executed.
+- property: command
+  ruby_type: String, Array
+  required: false
+  default_value: The resource block's name
+  description_list:
+  - markdown: An optional property to set the command to be executed if it differs
+      from the resource block's name.
+  - note:
+      markdown: Use the **execute** resource to run a single command. Use multiple
+        **execute** resource blocks to run multiple commands.
 - property: creates
   ruby_type: String
   required: false
@@ -54,6 +74,36 @@ properties_list:
   required: false
   description_list:
   - markdown: The current working directory from which the command will be run.
+- property: default_env
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  new_in: '14.2'
+  description_list:
+  - markdown: When true this enables ENV magic to add path_sanity to the PATH and
+      force the locale to English+UTF-8 for parsing output
+- property: domain
+  ruby_type: String
+  required: false
+  new_in: '12.21'
+  description_list:
+  - markdown: 'Windows only: The domain of the user specified by the user property.
+      If not specified, the username and password specified by the `user` and `password`
+      properties will be used to resolve that user against the domain in which the
+      system running Chef Infra Client is joined, or if that system is not joined
+      to a domain it will resolve the user as a local account on that system. An alternative
+      way to specify the domain is to leave this property unspecified and specify
+      the domain as part of the user property.'
+- property: elevated
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  new_in: '13.3'
+  description_list:
+  - markdown: |-
+      Determines whether the script will run with elevated permissions to circumvent User Access Control (UAC) from interactively blocking the process.
+      This will cause the process to be run under a batch login instead of an interactive login. The user running chef-client needs the 'Replace a process level token' and 'Adjust Memory Quotas for a process' permissions. The user that is running the command needs the 'Log on as a batch job' permission.
+      Because this requires a login, the user and password properties are required.
 - property: environment
   ruby_type: Hash
   required: false
@@ -71,9 +121,42 @@ properties_list:
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: 'The group name or group ID that must be changed before running a
-
-      command.'
+  - markdown: The group name or group ID that must be changed before running a command.
+- property: input
+  ruby_type: String
+  required: false
+  new_in: '16.2'
+  description_list:
+  - markdown: An optional property to set the input sent to the command as STDIN.
+- property: interpreter
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: 
+- property: live_stream
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  description_list:
+  - markdown: Send the output of the command run by this execute resource block to
+      the Chef Infra Client event stream.
+- property: login
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  new_in: '17.0'
+  description_list:
+  - markdown: Use a login shell to run the commands instead of inheriting the existing
+      execution environment.
+- property: password
+  ruby_type: String
+  required: false
+  new_in: '12.21'
+  description_list:
+  - markdown: 'Windows only: The password of the user specified by the user property.
+      This property is mandatory if user is specified on Windows and may only be specified
+      if user is specified. The sensitive property for this resource will automatically
+      be set to true if password is specified.'
 - property: returns
   ruby_type: Integer, Array
   required: false
@@ -91,12 +174,10 @@ properties_list:
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: 'The user name or user ID that should be changed before running a
-
-      command.'
-- property: umask
-  ruby_type: String, Integer
-  required: false
-  description_list:
-  - markdown: The file mode creation mask, or umask.
-
+  - markdown: The user name of the user identity with which to launch the new process.
+      The user name may optionally be specified with a domain, i.e. `domain\user`
+      or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can
+      also be specified without a domain simply as user if the domain is instead specified
+      using the domain property. On Windows only, if this property is specified, the
+      password property must be specified.
+examples: 

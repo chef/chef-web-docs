@@ -11,7 +11,7 @@ resource_new_in: '12.17'
 syntax_full_code_block: |-
   msu_package 'name' do
     checksum          String
-    options           String
+    options           String, Array
     package_name      String
     source            String
     timeout           String, Integer # default value: 3600
@@ -28,6 +28,22 @@ syntax_full_properties_list:
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :install:
+    markdown: Install a package. If a version is specified, install the specified
+      version of the package. (default)
+  :upgrade:
+    markdown: Install a package and ensure that a package is the latest version.
+  :remove:
+    markdown: Remove a package.
+  :purge:
+    markdown: Purge a package. This action typically removes the configuration files
+      as well as the package.
+  :reconfig:
+    markdown: Change the installed package
+  :lock:
+    markdown:
+  :unlock:
+    markdown:
 properties_list:
 - property: checksum
   ruby_type: String
@@ -35,7 +51,7 @@ properties_list:
   description_list:
   - markdown: SHA-256 digest used to verify the checksum of the downloaded MSU package.
 - property: options
-  ruby_type: String
+  ruby_type: String, Array
   required: false
   description_list:
   - markdown: One (or more) additional command options that are passed to the command.
@@ -48,6 +64,7 @@ properties_list:
 - property: source
   ruby_type: String
   required: false
+  default_value: lazy default
   description_list:
   - markdown: The local file path or URL for the MSU package.
 - property: timeout

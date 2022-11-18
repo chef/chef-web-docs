@@ -9,50 +9,52 @@ resource_description_list:
 - markdown: Use the **dpkg_package** resource to manage packages for the dpkg platform.
     When a package is installed from a local file, it must be added to the node using
     the **remote_file** or **cookbook_file** resources.
-resource_new_in:
-syntax_description: 'A **dpkg_package** resource block manages a package on a node,
-
-  typically by installing it. The simplest use of the **dpkg_package**
-
-  resource is:
-
-
-  ```ruby
-
-  dpkg_package ''package_name''
-
-  ```
-
-
-  which will install the named package using all of the default options
-
-  and the default action (`:install`).'
+syntax_full_code_block: |-
+  dpkg_package 'name' do
+    allow_downgrade              true, false # default value: true
+    options                      String, Array
+    package_name                 String, Array
+    response_file                String
+    response_file_variables      Hash # default value: {}
+    source                       String, Array
+    timeout                      String, Integer
+    version                      String, Array
+    action                       Symbol # defaults to :install if not specified
+  end
 syntax_properties_list:
-syntax_full_code_block: "dpkg_package 'name' do\n  options                      String,\
-  \ Array\n  package_name                 String, Array\n  response_file         \
-  \       String\n  response_file_variables      Hash\n  source                  \
-  \     String, Array\n  timeout                      String, Integer\n  version \
-  \                     String, Array\n  action                       Symbol # defaults\
-  \ to :install if not specified\nend"
 syntax_full_properties_list:
 - "`dpkg_package` is the resource."
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`options`, `package_name`, `response_file`, `response_file_variables`, `source`,
-  `timeout`, and `version` are the properties available to this resource."
+- "`allow_downgrade`, `options`, `package_name`, `response_file`, `response_file_variables`,
+  `source`, `timeout`, and `version` are the properties available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :install:
     markdown: Install a package. If a version is specified, install the specified
       version of the package. (default)
+  :upgrade:
+    markdown: Install a package and ensure that a package is the latest version.
   :remove:
     markdown: Remove a package.
   :purge:
     markdown: Purge a package. This action typically removes the configuration files
       as well as the package.
+  :reconfig:
+    markdown: Change the installed package
+  :lock:
+    markdown:
+  :unlock:
+    markdown:
 properties_list:
+- property: allow_downgrade
+  ruby_type: true, false
+  required: false
+  default_value: 'true'
+  description_list:
+  - markdown: Allow downgrading a package to satisfy requested version requirements.
 - property: options
   ruby_type: String, Array
   required: false

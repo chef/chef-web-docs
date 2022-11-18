@@ -1,0 +1,174 @@
+---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: macosx_service
+resource_description_list:
+- markdown: Use the **macosx_service** resource to manage services on the macOS platform.
+syntax_full_code_block: |-
+  macosx_service 'name' do
+    init_command         String
+    options              Array, String
+    parameters           Hash
+    pattern              String
+    plist                String
+    priority             Integer, String, Hash
+    reload_command       String, false
+    restart_command      String, false
+    run_levels           Array
+    service_name         String # default value: 'name' unless specified
+    session_type         String
+    start_command        String, false
+    status_command       String, false
+    stop_command         String, false
+    supports             Hash # default value: {"restart"=>nil, "reload"=>nil, "status"=>nil}
+    timeout              Integer # default value: 900
+    user                 String
+    action               Symbol # defaults to :nothing if not specified
+  end
+syntax_properties_list: 
+syntax_full_properties_list:
+- "`macosx_service` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`init_command`, `options`, `parameters`, `pattern`, `plist`, `priority`, `reload_command`,
+  `restart_command`, `run_levels`, `service_name`, `session_type`, `start_command`,
+  `status_command`, `stop_command`, `supports`, `timeout`, and `user` are the properties
+  available to this resource."
+actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :enable:
+    markdown: 
+  :disable:
+    markdown: 
+  :start:
+    markdown: 
+  :stop:
+    markdown: 
+  :restart:
+    markdown: 
+  :reload:
+    markdown: 
+  :mask:
+    markdown: 
+  :unmask:
+    markdown: 
+properties_list:
+- property: init_command
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The path to the init script that is associated with the service. Use
+      init_command to prevent the need to specify overrides for the start_command,
+      stop_command, and restart_command properties. When this property is not specified,
+      the Chef Infra Client will use the default init command for the service provider
+      being used.
+- property: options
+  ruby_type: Array, String
+  required: false
+  description_list:
+  - markdown: Solaris platform only. Options to pass to the service command. See the
+      svcadm manual for details of possible options.
+- property: parameters
+  ruby_type: Hash
+  required: false
+  description_list:
+  - markdown: 'Upstart only: A hash of parameters to pass to the service command for
+      use in the service definition.'
+- property: pattern
+  ruby_type: String
+  required: false
+  default_value: The value provided to 'service_name' or the resource block's name
+  description_list:
+  - markdown: The pattern to look for in the process table.
+- property: plist
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: A plist to use in the case where the filename and label for the service
+      do not match.
+- property: priority
+  ruby_type: Integer, String, Hash
+  required: false
+  description_list:
+  - markdown: Debian platform only. The relative priority of the program for start
+      and shutdown ordering. May be an integer or a Hash. An integer is used to define
+      the start run levels; stop run levels are then 100-integer. A Hash is used to
+      define values for specific run levels. For example, { 2 => [:start, 20], 3 =>
+      [:stop, 55] } will set a priority of twenty for run level two and a priority
+      of fifty-five for run level three.
+- property: reload_command
+  ruby_type: String, false
+  required: false
+  description_list:
+  - markdown: The command used to tell a service to reload its configuration.
+- property: restart_command
+  ruby_type: String, false
+  required: false
+  description_list:
+  - markdown: The command used to restart a service.
+- property: run_levels
+  ruby_type: Array
+  required: false
+  description_list:
+  - markdown: 'RHEL platforms only: Specific run_levels the service will run under.'
+- property: service_name
+  ruby_type: String
+  required: false
+  default_value: The resource block's name
+  description_list:
+  - markdown: An optional property to set the service name if it differs from the
+      resource block's name.
+- property: session_type
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: 
+- property: start_command
+  ruby_type: String, false
+  required: false
+  description_list:
+  - markdown: The command used to start a service.
+- property: status_command
+  ruby_type: String, false
+  required: false
+  description_list:
+  - markdown: The command used to check the run status for a service.
+- property: stop_command
+  ruby_type: String, false
+  required: false
+  description_list:
+  - markdown: The command used to stop a service.
+- property: supports
+  ruby_type: Hash
+  required: false
+  default_value: '{"restart"=>nil, "reload"=>nil, "status"=>nil}'
+  description_list:
+  - markdown: 'A list of properties that controls how Chef Infra Client is to attempt
+      to manage a service: :restart, :reload, :status. For :restart, the init script
+      or other service provider can use a restart command; if :restart is not specified,
+      the chef-client attempts to stop and then start a service. For :reload, the
+      init script or other service provider can use a reload command. For :status,
+      the init script or other service provider can use a status command to determine
+      if the service is running; if :status is not specified, the chef-client attempts
+      to match the service_name against the process table as a regular expression,
+      unless a pattern is specified as a parameter property. Default value: { restart:
+      false, reload: false, status: false } for all platforms (except for the Red
+      Hat platform family, which defaults to { restart: false, reload: false, status:
+      true }.)'
+- property: timeout
+  ruby_type: Integer
+  required: false
+  default_value: '900'
+  description_list:
+  - markdown: The amount of time (in seconds) to wait before timing out.
+- property: user
+  ruby_type: String
+  required: false
+  new_in: '12.21'
+  description_list:
+  - markdown: 'systemd only: A username to run the service under.'
+examples: 

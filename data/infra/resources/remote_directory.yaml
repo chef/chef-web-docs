@@ -12,26 +12,16 @@ resource_description_list:
     from a cookbook to a node. The directory that is copied from the cookbook should
     be located under `COOKBOOK_NAME/files/default/REMOTE_DIRECTORY`. The `remote_directory`
     resource will obey file specificity.
-syntax_description: "A **remote_directory** resource block transfers a directory from\
-  \ a\ncookbook to a node, and then assigns the permissions needed on that\ndirectory.\
-  \ For example:\n\n```ruby\nremote_directory '/etc/apache2' do\n  source 'apache2'\n\
-  \  owner 'root'\n  group 'root'\n  mode '0755'\n  action :create\nend\n```"
-syntax_properties_list:
-- '`''/etc/apache2''` specifies the directory'
-- '`source` specifies a directory in the current cookbook (use the `cookbook` property
-  to specify a file that is in a different cookbook)'
-- '`owner`, `group`, and `mode` define the permissions'
-syntax_full_code_block: "remote_directory 'name' do\n  cookbook                  \
-  \ String\n  files_backup               Integer, false # default value: 5\n  files_group\
-  \                String, Integer\n  files_mode                 String, Integer #\
-  \ default value: 0644 on *nix systems\n  files_owner                String, Integer\n\
-  \  group                      String, Integer\n  inherits                   true,\
-  \ false\n  mode                       String, Integer\n  overwrite             \
-  \     true, false # default value: true\n  owner                      String, Integer\n\
-  \  path                       String # default value: 'name' unless specified\n\
-  \  purge                      true, false\n  recursive                  true, false\n\
-  \  rights                     Hash\n  source                     String\n  action\
-  \                     Symbol # defaults to :create if not specified\nend"
+syntax_full_code_block: "remote_directory 'name' do\n  cookbook          String\n
+  \ files_backup      Integer, false # default value: 5\n  files_group       String,
+  Integer\n  files_mode        String, Integer # default value: \"0644 on *nix systems\"\n
+  \ files_owner       String, Integer\n  group             \n  mode              \n
+  \ overwrite         true, false # default value: true\n  owner             \n  path
+  \             String # default value: 'name' unless specified\n  purge             true,
+  false # default value: false\n  recursive         true, false # default value: true\n
+  \ source            String\n  action            Symbol # defaults to :create if
+  not specified\nend"
+syntax_properties_list: 
 syntax_full_properties_list:
 - "`remote_directory` is the resource."
 - "`name` is the name given to the resource block."
@@ -44,9 +34,10 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :create:
-    markdown: Default. Create a directory and/or the contents of that directory. If
-      a directory or its contents already exist (but does not match), update that
-      directory or its contents to match.
+    markdown: Create a directory. If a directory already exists (but does not match),
+      update that directory to match. (default)
+  :delete:
+    markdown: Delete a directory.
   :create_if_missing:
     markdown: Create a directory and/or the contents of that directory, but only if
       it does not exist.
@@ -78,45 +69,10 @@ properties_list:
   required: false
   default_value: 0644 on *nix systems
   description_list:
-  - markdown: 'The octal mode for a file.
-
-
-      UNIX- and Linux-based systems: A quoted 3-5 character string that
-
-      defines the octal mode that is passed to chmod. For example:
-
-      `''755''`, `''0755''`, or `00755`. If the value is specified as a quoted
-
-      string, it works exactly as if the `chmod` command was passed. If
-
-      the value is specified as an integer, prepend a zero (`0`) to the
-
-      value to ensure that it is interpreted as an octal number. For
-
-      example, to assign read, write, and execute rights for all users,
-
-      use `''0777''` or `''777''`; for the same rights, plus the sticky bit,
-
-      use `01777` or `''1777''`.
-
-
-      Microsoft Windows: A quoted 3-5 character string that defines the
-
-      octal mode that is translated into rights for Microsoft Windows
-
-      security. For example: `''755''`, `''0755''`, or `00755`. Values up to
-
-      `''0777''` are allowed (no sticky bits) and mean the same in Microsoft
-
-      Windows as they do in UNIX, where `4` equals `GENERIC_READ`, `2`
-
-      equals `GENERIC_WRITE`, and `1` equals `GENERIC_EXECUTE`. This
-
-      property cannot be used to set `:full_control`. This property has no
-
-      effect if not specified, but when it and `rights` are both
-
-      specified, the effects are cumulative.'
+  - markdown: |-
+      The octal mode for a file.
+       UNIX- and Linux-based systems: A quoted 3-5 character string that defines the octal mode that is passed to chmod. For example: '755', '0755', or 00755. If the value is specified as a quoted string, it works exactly as if the chmod command was passed. If the value is specified as an integer, prepend a zero (0) to the value to ensure that it is interpreted as an octal number. For example, to assign read, write, and execute rights for all users, use '0777' or '777'; for the same rights, plus the sticky bit, use 01777 or '1777'.
+       Microsoft Windows: A quoted 3-5 character string that defines the octal mode that is translated into rights for Microsoft Windows security. For example: '755', '0755', or 00755. Values up to '0777' are allowed (no sticky bits) and mean the same in Microsoft Windows as they do in UNIX, where 4 equals GENERIC_READ, 2 equals GENERIC_WRITE, and 1 equals GENERIC_EXECUTE. This property cannot be used to set :full_control. This property has no effect if not specified, but when it and rights are both specified, the effects are cumulative.
 - property: files_owner
   ruby_type: String, Integer
   required: false
@@ -232,13 +188,8 @@ properties_list:
   required: false
   default_value: The resource block's name
   description_list:
-  - markdown: 'The path to the directory. Using a fully qualified path is
-
-      recommended, but is not always required. Default value: the `name`
-
-      of the resource block. See "Syntax" section above for more
-
-      information.'
+  - markdown: The path to the directory. Using a fully qualified path is recommended,
+      but is not always required.
 - property: purge
   ruby_type: true, false
   required: false
@@ -250,32 +201,13 @@ properties_list:
   required: false
   default_value: 'true'
   description_list:
-  - markdown: 'Create or delete directories recursively. Chef Infra Client must be
-
-      able to create the directory structure, including parent directories
-
-      (if missing), as defined in
-
-      `COOKBOOK_NAME/files/default/REMOTE_DIRECTORY`.'
-- property: rights
-  ruby_type: Integer, String
-  required: false
-  description_list:
-  - markdown: 'Microsoft Windows only. The permissions for users and groups in a
-
-      Microsoft Windows environment. For example:
-
-      `rights <permissions>, <principal>, <options>` where `<permissions>`
-
-      specifies the rights granted to the principal, `<principal>` is the
-
-      group or user name, and `<options>` is a Hash with one (or more)
-
-      advanced rights options.'
+  - markdown: Create or delete parent directories recursively. For the owner, group,
+      and mode properties, the value of this attribute applies only to the leaf directory.
 - property: source
   ruby_type: String
   required: false
-  default_value: The base portion of the 'path' property.
+  default_value: The base portion of the 'path' property. For example '/some/path/'
+    would be 'path'.
   description_list:
   - markdown: 'The base name of the source file (and inferred from the `path`
 

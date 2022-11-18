@@ -31,16 +31,24 @@ syntax_full_properties_list:
 - "`options`, `package_name`, `source`, `timeout`, and `version` are the properties
   available to this resource."
 actions_list:
-  :install:
-    markdown: Default. Install a package. If a version is specified, install the specified
-      version of the package.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :install:
+    markdown: (default) Install a package. If a version is specified, install the specified
+      version of the package.
+  :upgrade:
+    markdown: Install a package and ensure that a package is the latest version.
+  :remove:
+    markdown: Remove a package.
   :purge:
     markdown: Purge a package. This action typically removes the configuration files
       as well as the package.
-  :remove:
-    markdown: Remove a package.
+  :reconfig:
+    markdown: Change the installed package
+  :lock:
+    markdown:
+  :unlock:
+    markdown:
 properties_list:
 - property: options
   ruby_type: String, Array
@@ -57,7 +65,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'Required. The path to a package in the local file system. The AIX
+  - markdown: The optional path to a package on the local file system.
 
       platform requires `source` to be a local file system path because
 

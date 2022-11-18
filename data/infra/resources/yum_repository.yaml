@@ -75,9 +75,13 @@ actions_list:
     shortcode: resources_common_actions_nothing.md
   :create:
     markdown: Create a repository based on the properties. (default)
+  :remove:
+    markdown: 
   :makecache:
     markdown: Force the creation of the repository cache. This is also done automatically
       when a repository is updated.
+  :add:
+    markdown: 
   :delete:
     markdown: Remove a repository.
 properties_list:

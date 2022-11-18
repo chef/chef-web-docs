@@ -3,131 +3,46 @@ resource_reference: true
 resource_package_options: true
 resource: package
 resource_description_list:
-- markdown: 'Use the **package** resource to manage packages. When the package is
+- markdown: |-
+    Use the **package** resource to manage packages. When the package is installed from a local file (such as with RubyGems, dpkg, or RPM Package Manager), the file must be added to the node using the remote_file or cookbook_file resources.
 
-    installed from a local file (such as with RubyGems, dpkg, or RPM Package
-
-    Manager), the file must be added to the node using the **remote_file**
-
-    or **cookbook_file** resources.
-
-
-    This resource is the base resource for several other resources used for
-
-    package management on specific platforms. While it is possible to use
-
-    each of these specific resources, it is recommended to use the
-
-    **package** resource as often as possible.
-
-
-    For more information about specific resources for specific platforms,
-
-    see the following topics:
-
-
-    -   [apt_package](/resources/apt_package/)
-
-    -   [bff_package](/resources/bff_package/)
-
-    -   [cab_package](/resources/cab_package/)
-
-    -   [chef_gem](/resources/chef_gem/)
-
-    -   [chocolatey_package](/resources/chocolatey_package/)
-
-    -   [dmg_package](/resources/dmg_package/)
-
-    -   [dnf_package](/resources/dnf_package/)
-
-    -   [dpkg_package](/resources/dpkg_package/)
-
-    -   [freebsd_package](/resources/freebsd_package/)
-
-    -   [gem_package](/resources/gem_package/)
-
-    -   [homebrew_package](/resources/homebrew_package/)
-
-    -   [ips_package](/resources/ips_package/)
-
-    -   [macports_package](/resources/macports_package/)
-
-    -   [msu_package](/resources/msu_package/)
-
-    -   [openbsd_package](/resources/openbsd_package/)
-
-    -   [pacman_package](/resources/pacman_package/)
-
-    -   [paludis_package](/resources/paludis_package/)
-
-    -   [portage_package](/resources/portage_package/)
-
-    -   [rpm_package](/resources/rpm_package/)
-
-    -   [smartos_package](/resources/smartos_package/)
-
-    -   [snap_package](/resources/snap_package/)
-
-    -   [solaris_package](/resources/solaris_package/)
-
-    -   [windows_package](/resources/windows_package/)
-
-    -   [yum_package](/resources/yum_package/)
-
-    -   [zypper_package](/resources/zypper_package/)'
-syntax_description: "A **package** resource block manages a package on a node, typically\
-  \ by\ninstalling it. The simplest use of the **package** resource is:\n\n```ruby\n\
-  package 'httpd'\n```\n\nwhich will install Apache using all of the default options\
-  \ and the\ndefault action (`:install`).\n\nFor a package that has different package\
-  \ names, depending on the\nplatform, use a `case` statement within the **package**:\n\
-  \n```ruby\npackage 'Install Apache' do\n  case node[:platform]\n  when 'redhat',\
-  \ 'centos'\n    package_name 'httpd'\n  when 'ubuntu', 'debian'\n    package_name\
-  \ 'apache2'\n  end\nend\n```"
-syntax_properties_list:
-- '`''redhat'', ''centos''` will install Apache using the `httpd` package
-
-  and `''ubuntu'', ''debian''` will install it using the `apache2` package'
-syntax_full_code_block: "package 'name' do\n  allow_downgrade            true, false\
-  \ # Yum, RPM packages only\n  arch                       String, Array # Yum packages\
-  \ only\n  default_release            String # Apt packages only\n  flush_cache \
-  \               Array\n  gem_binary                 String\n  homebrew_user    \
-  \          String, Integer # Homebrew packages only\n  notifies                \
-  \   # see description\n  options                    String\n  package_name     \
-  \          String, Array # defaults to 'name' if not specified\n  response_file\
-  \              String # Apt packages only\n  response_file_variables    Hash # Apt\
-  \ packages only\n  source                     String\n  subscribes             \
-  \    # see description\n  timeout                    String, Integer\n  version\
-  \                    String, Array\n  action                     Symbol # defaults\
-  \ to :install if not specified\nend"
+    This resource is the base resource for several other resources used for package management on specific platforms. While it is possible to use each of these specific resources, it is recommended to use the package resource as often as possible.
+syntax_full_code_block: |-
+  package 'name' do
+    options           String, Array
+    package_name      String, Array
+    source            String
+    timeout           String, Integer
+    version           String, Array
+    action            Symbol # defaults to :install if not specified
+  end
+syntax_properties_list: 
 syntax_full_properties_list:
-- '`package` tells Chef Infra Client to manage a package; Chef Infra Client will determine
-  the correct package provider to use based on the platform running on the node'
-- '`''name''` is the name of the package'
-- '`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state'
-- '`allow_downgrade`, `arch`, `default_release`, `flush_cache`, `gem_binary`, `homebrew_user`,
-  `options`, `package_name`, `response_file`, `response_file_variables`, `source`,
-  `recursive`, `timeout`, and `version` are properties of this resource, with the
-  Ruby type shown. See "Properties" section below for more information about all of
-  the properties that may be used with this resource.'
-registry_key: false
-resource_package_options: true
+- "`package` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`options`, `package_name`, `source`, `timeout`, and `version` are the properties
+  available to this resource."
 actions_list:
-  :install:
-    markdown: Default. Install a package. If a version is specified, install the specified
-      version of the package.
   :nothing:
     shortcode: resources_common_actions_nothing.md
-  :purge:
-    markdown: Purge a package. This action typically removes the configuration files
-      as well as the package. (Debian platform only; for other platforms, use the
-      `:remove` action.)
-  :reconfig:
-    markdown: Reconfigure a package. This action requires a response file.
+  :install:
+    markdown: Install a package. If a version is specified, install the specified
+      version of the package. (default)
+  :upgrade:
+    markdown: Install a package and ensure that a package is the latest version.
   :remove:
     markdown: Remove a package.
-  :upgrade:
-    markdown: Install a package and/or ensure that a package is the latest version.
+  :purge:
+    markdown: Purge a package. This action typically removes the configuration files
+      as well as the package.
+  :reconfig:
+    markdown: Reconfigure a package. This action requires a response file.
+  :lock:
+    markdown: 
+  :unlock:
+    markdown: 
 properties_list:
 - property: allow_downgrade
   ruby_type: true, false

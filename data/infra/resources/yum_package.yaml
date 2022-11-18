@@ -38,18 +38,20 @@ syntax_full_properties_list:
 - "`allow_downgrade`, `arch`, `flush_cache`, `options`, `package_name`, `source`,
   `timeout`, `version`, and `yum_binary` are the properties available to this resource."
 actions_list:
-  :install:
-    markdown: Default. Install a package. If a version is specified, install the specified
-      version of the package.
-  :lock:
-    markdown: Locks the yum package to a specific version.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :install:
+    markdown: Install a package. If a version is specified, install the specified
+      version of the package. (default)
+  :remove:
+    markdown: Remove a package.
   :purge:
     markdown: Purge a package. This action typically removes the configuration files
       as well as the package.
-  :remove:
-    markdown: Remove a package.
+  :reconfig:
+    markdown: Change the installed package
+  :lock:
+    markdown:
   :unlock:
     markdown: Unlocks the yum package so that it can be upgraded to a newer version.
   :upgrade:
@@ -73,24 +75,9 @@ properties_list:
   required: false
   default_value: '{"before"=>false, "after"=>false}'
   description_list:
-  - markdown: 'Flush the in-memory cache before or after a Yum operation that
-
-      installs, upgrades, or removes a package. Accepts a Hash in the
-
-      form: { :before =\> true/false, :after =\> true/false } or an Array
-
-      in the form \[ :before, :after \].'
-  - shortcode: resources_common_package_yum_cache.md
-  - markdown: "As an array:\n\n```ruby\nyum_package 'some-package' do\n  #...\n \
-      \ flush_cache [ :before ]\n  #...\nend\n```\n\nand as a Hash:\n\n```ruby\n\
-      yum_package 'some-package' do\n  #...\n  flush_cache( { :after => true } )\n\
-      \  #...\nend\n```"
-  - note:
-      markdown: 'The `flush_cache` property does not flush the local Yum cache! Use
-
-        Yum tools---`yum clean headers`, `yum clean packages`,
-
-        `yum clean all`---to clean the local Yum cache.'
+  - markdown: |-
+      Flush the in-memory cache before or after a Yum operation that installs, upgrades, or removes a package. Accepts a Hash in the form: { :before => true/false, :after => true/false } or an Array in the form [ :before, :after ].
+      Yum automatically synchronizes remote metadata to a local cache. The chef-client creates a copy of the local cache, and then stores it in-memory during the chef-client run. The in-memory cache allows packages to be installed during the chef-client run without the need to continue synchronizing the remote metadata to the local cache while the chef-client run is in-progress.
 - property: options
   ruby_type: String, Array
   required: false
@@ -101,12 +88,7 @@ properties_list:
   required: false
   description_list:
   - markdown: 'One of the following: the name of a package, the name of a package
-
-      and its architecture, the name of a dependency. Default value: the
-
-      `name` of the resource block. See "Syntax" section above for more
-
-      information.'
+      and its architecture, the name of a dependency.'
 - property: source
   ruby_type: String
   required: false

@@ -11,34 +11,42 @@ resource_description_list:
     inline. Commands that are executed with this resource are (by their nature) not
     idempotent, as they are typically unique to the environment in which they are
     run. Use `not_if` and `only_if` to guard this resource for idempotence.
-syntax_description: "A **batch** resource block executes a batch script using the\
-  \ cmd.exe\ninterpreter:\n\n```ruby\nbatch 'echo some env vars' do\n  code <<-EOH\n\
-  \    echo %TEMP%\n    echo %SYSTEMDRIVE%\n    echo %PATH%\n    echo %WINDIR%\n \
-  \ EOH\nend\n```"
-syntax_properties_list: null
-syntax_full_code_block: "batch 'name' do\n  architecture               Symbol\n  code\
-  \                       String\n  command                    String, Array\n  creates\
-  \                    String\n  cwd                        String\n  flags      \
-  \                String\n  group                      String, Integer\n  guard_interpreter\
-  \          Symbol\n  interpreter                String\n  returns              \
-  \      Integer, Array\n  timeout                    Integer, Float\n  user     \
-  \                  String\n  password                   String\n  domain       \
-  \              String\n  action                     Symbol # defaults to :run if\
-  \ not specified\nend"
+syntax_full_code_block: |-
+  batch 'name' do
+    code             String
+    command          String, Array # default value: 'name' unless specified
+    creates          String
+    cwd              String
+    default_env      true, false # default value: false
+    domain           String
+    elevated         true, false # default value: false
+    environment      Hash
+    flags            String
+    group            String, Integer
+    input            String
+    interpreter      String
+    live_stream      true, false # default value: false
+    login            true, false # default value: false
+    password         String
+    returns          Integer, Array # default value: 0
+    timeout          Integer, String, Float # default value: 3600
+    user             String, Integer
+    action           Symbol # defaults to :run if not specified
+  end
+syntax_properties_list:
 syntax_full_properties_list:
-- '`batch` is the resource.'
-- '`name` is the name given to the resource block.'
-- '`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state.'
-- '`architecture`, `code`, `command`, `creates`, `cwd`, `flags`, `group`, `guard_interpreter`,
-  `interpreter`, `returns`, `timeout`, `user`, `password` and `domain` are properties
-  of this resource, with the Ruby type shown. See "Properties" section below for more
-  information about all of the properties that may be used with this resource.'
+- "`batch` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`code`, `command`, `creates`, `cwd`, `default_env`, `domain`, `elevated`, `environment`,
+  `flags`, `group`, `input`, `interpreter`, `live_stream`, `login`, `password`, `returns`,
+  `timeout`, and `user` are the properties available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :run:
-    markdown: Run a batch file.
+    markdown: Run a command. (default)
 properties_list:
 - property: architecture
   ruby_type: Symbol
@@ -63,8 +71,13 @@ properties_list:
 - property: command
   ruby_type: String, Array
   required: false
+  default_value: The resource block's name
   description_list:
-  - markdown: The name of the command to be executed.
+  - markdown: An optional property to set the command to be executed if it differs
+      from the resource block's name.
+  - note:
+      markdown: Use the **execute** resource to run a single command. Use multiple
+        **execute** resource blocks to run multiple commands.
 - property: creates
   ruby_type: String
   required: false
@@ -75,6 +88,43 @@ properties_list:
   required: false
   description_list:
   - markdown: The current working directory from which the command will be run.
+- property: default_env
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  new_in: '14.2'
+  description_list:
+  - markdown: When true this enables ENV magic to add path_sanity to the PATH and
+      force the locale to English+UTF-8 for parsing output
+- property: domain
+  ruby_type: String
+  required: false
+  new_in: '12.21'
+  description_list:
+  - markdown: 'Windows only: The domain of the user specified by the user property.
+      If not specified, the username and password specified by the `user` and `password`
+      properties will be used to resolve that user against the domain in which the
+      system running Chef Infra Client is joined, or if that system is not joined
+      to a domain it will resolve the user as a local account on that system. An alternative
+      way to specify the domain is to leave this property unspecified and specify
+      the domain as part of the user property.'
+- property: elevated
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  new_in: '13.3'
+  description_list:
+  - markdown: |-
+      Determines whether the script will run with elevated permissions to circumvent User Access Control (UAC) from interactively blocking the process.
+      This will cause the process to be run under a batch login instead of an interactive login. The user running chef-client needs the 'Replace a process level token' and 'Adjust Memory Quotas for a process' permissions. The user that is running the command needs the 'Log on as a batch job' permission.
+      Because this requires a login, the user and password properties are required.
+- property: environment
+  ruby_type: Hash
+  required: false
+  description_list:
+  - markdown: 'A Hash of environment variables in the form of `({''ENV_VARIABLE''
+      => ''VALUE''})`. **Note**: These variables must exist for a command to be run
+      successfully.'
 - property: flags
   ruby_type: String
   required: false
@@ -86,25 +136,41 @@ properties_list:
   required: false
   description_list:
   - markdown: The group name or group ID that must be changed before running a command.
-- property: guard_interpreter
-  ruby_type: Symbol
+- property: input
+  ruby_type: String
   required: false
   default_value: :batch
   description_list:
-  - markdown: 'When this property is set to `:batch`, the 64-bit version of the
-
-      cmd.exe shell will be used to evaluate strings values for the
-
-      `not_if` and `only_if` properties. Set this value to `:default` to
-
-      use the 32-bit version of the cmd.exe shell.'
+  - markdown: An optional property to set the input sent to the command as STDIN.
 - property: interpreter
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'The script interpreter to use during code execution. Changing the
-
-      default value of this property is not supported.'
+  - markdown:
+- property: live_stream
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  description_list:
+  - markdown: Send the output of the command run by this execute resource block to
+      the Chef Infra Client event stream.
+- property: login
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  new_in: '17.0'
+  description_list:
+  - markdown: Use a login shell to run the commands instead of inheriting the existing
+      execution environment.
+- property: password
+  ruby_type: String
+  required: false
+  new_in: '12.21'
+  description_list:
+  - markdown: 'Windows only: The password of the user specified by the user property.
+      This property is mandatory if user is specified on Windows and may only be specified
+      if user is specified. The sensitive property for this resource will automatically
+      be set to true if password is specified.'
 - property: returns
   ruby_type: Integer, Array
   required: false
@@ -119,20 +185,20 @@ properties_list:
   description_list:
   - markdown: The amount of time (in seconds) a command is to wait before timing out.
 - property: user
-  ruby_type: String
+  ruby_type: String, Integer
   required: false
   description_list:
   - markdown: 'The user name of the user identity with which to launch the new
 
-      process. The user name may optionally be specified with a domain,
+      The user name may optionally be specified with a domain, i.e. `domain\user`
 
       i.e. <span class="title-ref">domainuser</span> or <span
 
       class="title-ref">user@my.dns.domain.com</span> via Universal
 
-      Principal Name (UPN)format. It can also be specified without a
+      or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can
 
-      domain simply as user if the domain is instead specified using the
+      also be specified without a domain simply as user if the domain is instead specified
 
       <span class="title-ref">domain</span> attribute. On Windows only, if
 
@@ -143,7 +209,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: '*Windows only*: The password of the user specified by the <span
+      using the domain property. On Windows only, if this property is specified, the
 
       class="title-ref">user</span> property. This property is mandatory
 
@@ -164,7 +230,7 @@ properties_list:
 
       class="title-ref">user</span> property. If not specified, the user
 
-      name and password specified by the <span
+      password property must be specified.
 
       class="title-ref">user</span> and <span
 
@@ -181,9 +247,6 @@ properties_list:
       unspecified and specify the domain as part of the <span
 
       class="title-ref">user</span> property.'
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
 examples: "
   Unzip a file, and then move it\n\n  To run a batch file that unzips\
   \ and then moves Ruby, do something like:\n\n  ```ruby\n  batch 'unzip_and_move_ruby'\

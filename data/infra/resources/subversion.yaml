@@ -48,6 +48,10 @@ actions_list:
       does nothing.
   :export:
     markdown: Export the source, excluding or removing any version control artifacts.
+  :diff:
+    markdown: 
+  :log:
+    markdown: 
   :force_export:
     markdown: Export the source, excluding or removing any version control artifacts
       and force an export of the source that is overwriting the existing copy (if
@@ -80,11 +84,7 @@ properties_list:
   required: false
   default_value: HEAD
   description_list:
-  - markdown: 'A branch, tag, or commit to be synchronized with git. This can be
-
-      symbolic, like `HEAD` or it can be a source control
-
-      management-specific revision identifier.'
+  - markdown: The revision to checkout.
 - property: svn_arguments
   ruby_type: String, false
   required: false

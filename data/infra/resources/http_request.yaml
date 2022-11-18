@@ -8,15 +8,13 @@ resource_description_list:
 - markdown: Use the **http_request** resource to send an HTTP request (`GET`, `PUT`,
     `POST`, `DELETE`, `HEAD`, or `OPTIONS`) with an arbitrary message. This resource
     is often useful when custom callbacks are necessary.
-syntax_description: "A **http_request** resource block sends HTTP requests with an\
-  \ arbitrary\nmessage. For example, send a `DELETE` request to\n`'http://www.chef.io/some_page?message=please_delete_me'`.\n\
-  \n```ruby\nhttp_request 'please_delete_me' do\n  url 'http://www.chef.io/some_page'\n\
-  \  action :delete\nend\n```"
-syntax_properties_list: null
-syntax_full_code_block: "http_request 'name' do\n  headers                    Hash\n\
-  \  message                    Object # defaults to 'name' if not specified\n  url\
-  \                        String\n  action                     Symbol # defaults\
-  \ to :get if not specified\nend"
+syntax_full_code_block: |-
+  http_request 'name' do
+    headers      Hash # default value: {}
+    url          String
+    action       Symbol # defaults to :get if not specified
+  end
+syntax_properties_list:
 syntax_full_properties_list:
 - '`http_request` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -29,7 +27,7 @@ actions_list:
   :delete:
     markdown: Send a `DELETE` request.
   :get:
-    markdown: "Default. Send a `GET` request.\n Changed in Chef Client 12.0 to deprecate\
+    markdown: "(default) Send a `GET` request.\n Changed in Chef Client 12.0 to deprecate\
       \ the hard-coded query string from earlier versions. Cookbooks that rely on\
       \ this string need to be updated to manually add it to the URL as it is passed\
       \ to the resource."

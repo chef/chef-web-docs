@@ -26,18 +26,18 @@ syntax_full_code_block: "directory 'name' do\n  group                      Strin
   \              true, false\n  rights                     Hash\n  action        \
   \             Symbol # defaults to :create if not specified\nend"
 syntax_full_properties_list:
-- '`directory` is the resource.'
-- '`name` is the name of the resource block; when the `path` property is not specified,
-  `name` is also the path to the directory, from the root'
-- '`action` identifies the steps Chef Infra Client will take to bring the node into
-  the desired state'
-- '`group`, `inherits`, `mode`, `owner`, `path`, `recursive`, and `rights` are properties
-  of this resource, with the Ruby type shown. See "Properties" section below for more
-  information about all of the properties that may be used with this resource.'
+- "`directory` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`group`, `mode`, `owner`, `path`, and `recursive` are the properties available
+  to this resource."
 actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :create:
-    markdown: Default. Create a directory. If a directory already exists (but does
-      not match), update that directory to match.
+    markdown: Create a directory. If a directory already exists (but does not match),
+      update that directory to match. (default)
   :delete:
     markdown: Delete a directory.
   :nothing:
@@ -156,79 +156,7 @@ properties_list:
   required: false
   default_value: 'false'
   description_list:
-  - markdown: Create or delete parent directories recursively. For the owner, group,
-      and mode properties, the value of this property applies only to the leaf directory.
-- property: rights
-  ruby_type: Integer, String
-  required: false
-  description_list:
-  - markdown: 'Microsoft Windows only. The permissions for users and groups in a
-
-      Microsoft Windows environment. For example:
-
-      `rights <permissions>, <principal>, <options>` where `<permissions>`
-
-      specifies the rights granted to the principal, `<principal>` is the
-
-      group or user name, and `<options>` is a Hash with one (or more)
-
-      advanced rights options.'
-examples: "
-  Create a directory\n\n  ```ruby\n  directory '/tmp/something' do\n\
-  \    owner 'root'\n    group 'root'\n    mode '0755'\n    action :create\n  end\n\
-  \  ```\n\n  Create a directory in Microsoft Windows\n\n  ```ruby\n  directory \"\
-  C:\\\\tmp\\\\something\" do\n    rights :full_control, \"DOMAIN\\\\User\"\n    inherits\
-  \ false\n    action :create\n  end\n  ```\n\n  or:\n\n  ```ruby\n  directory 'C:\\\
-  tmp\\something' do\n    rights :full_control, 'DOMAIN\\User'\n    inherits false\n\
-  \    action :create\n  end\n  ```\n\n  <div class=\"admonition-note\">\n    <p class=\"\
-  admonition-note-title\">Note</p>\n      <div class=\"admonition-note-text\">\n \
-  \       <p>The difference between the two previous examples is the single- versus\
-  \ double-quoted strings, where if the double quotes are used, the backslash character\
-  \ (<code>\\</code>) must be escaped using the Ruby escape character (which is a\
-  \ backslash).</p>\n\n</div>\n</div>\n\n  Create a directory recursively\n\
-  \n  ```ruby\n  %w{dir1 dir2 dir3}.each do |dir|\n    directory \"/tmp/mydirs/#{dir}\"\
-  \ do\n      mode '0755'\n      owner 'root'\n      group 'root'\n      action :create\n\
-  \      recursive true\n    end\n  end\n  ```\n\n  Delete a directory\n\n  ```ruby\n\
-  \  directory '/tmp/something' do\n    recursive true\n    action :delete\n  end\n\
-  \  ```\n\n  Set directory permissions using a variable\n\n  The following example\
-  \ shows how read/write/execute permissions can be\n  set using a variable named\
-  \ `user_home`, and then for owners and groups\n  on any matching node:\n\n  ```\
-  \ ruby\n  user_home = \"/#{node[:matching_node][:user]}\"\n\n  directory user_home\
-  \ do\n    owner 'node[:matching_node][:user]'\n    group 'node[:matching_node][:group]'\n\
-  \    mode '0755'\n    action :create\n  end\n  ```\n\n  where `matching_node` represents\
-  \ a type of node. For example, if the\n  `user_home` variable specified `{node[:nginx]...}`,\
-  \ a recipe might look\n  similar to:\n\n  ```ruby\n  user_home = \"/#{node[:nginx][:user]}\"\
-  \n\n  directory user_home do\n    owner 'node[:nginx][:user]'\n    group 'node[:nginx][:group]'\n\
-  \    mode '0755'\n    action :create\n  end\n  ```\n\n  Set directory permissions\
-  \ for a specific type of node\n\n  The following example shows how permissions can\
-  \ be set for the\n  `/certificates` directory on any node that is running Nginx.\
-  \ In this\n  example, permissions are being set for the `owner` and `group`\n  properties\
-  \ as `root`, and then read/write permissions are granted to the\n  root.\n\n  ```\
-  \ ruby\n  directory \"#{node[:nginx][:dir]}/shared/certificates\" do\n    owner\
-  \ 'root'\n    group 'root'\n    mode '0755'\n    recursive true\n  end\n  ```\n\n\
-  \  Reload the configuration\n\n  The following example shows how to reload the configuration\
-  \ of a\n  chef-client using the **remote_file** resource to:\n\n  -   using an if\
-  \ statement to check whether the plugins on a node are the\n      latest versions\n\
-  \  -   identify the location from which Ohai plugins are stored\n  -   using the\
-  \ `notifies` property and a **ruby_block** resource to\n      trigger an update\
-  \ (if required) and to then reload the client.rb\n      file.\n\n  <!-- -->\n\n\
-  \  ```ruby\n  directory 'node[:ohai][:plugin_path]' do\n    owner 'chef'\n    recursive\
-  \ true\n  end\n\n  ruby_block 'reload_config' do\n    block do\n      Chef::Config.from_file('/etc/chef/client.rb')\n\
-  \    end\n    action :nothing\n  end\n\n  if node[:ohai].key?(:plugins)\n    node[:ohai][:plugins].each\
-  \ do |plugin|\n      remote_file node[:ohai][:plugin_path] +\"/#{plugin}\" do\n\
-  \        source plugin\n        owner 'chef'\n        notifies :run, 'ruby_block[reload_config]',\
-  \ :immediately\n      end\n    end\n  end\n  ```\n\n  Manage dotfiles\n\n  The following\
-  \ example shows using the **directory** and\n  **cookbook_file** resources to manage\
-  \ dotfiles. The dotfiles are\n  defined by a JSON data structure similar to:\n\n\
-  \  ```javascript\n  \"files\": {\n    \".zshrc\": {\n      \"mode\": '0755',\n\
-  \      \"source\": \"dot-zshrc\"\n      },\n    \".bashrc\": {\n      \"mode\":\
-  \ '0755',\n      \"source\": \"dot-bashrc\"\n       },\n    \".bash_profile\": {\n\
-  \      \"mode\": '0755',\n      \"source\": \"dot-bash_profile\"\n      },\n   \
-  \ }\n  ```\n\n  and then the following resources manage the dotfiles:\n\n  ```ruby\n\
-  \  if u.has_key?('files')\n    u['files'].each do |filename, file_data|\n\n    directory\
-  \ \"#{home_dir}/#{File.dirname(filename)}\" do\n      recursive true\n      mode\
-  \ '0755'\n    end if file_data['subdir']\n\n    cookbook_file \"#{home_dir}/#{filename}\"\
-  \ do\n      source \"#{u['id']}/#{file_data['source']}\"\n      owner 'u['id']'\n\
-  \      group 'group_id'\n      mode 'file_data['mode']'\n      ignore_failure true\n\
-  \      backup 0\n    end\n  end\n  ```\n"
-
+  - markdown: Create parent directories recursively, or delete directory and all children
+      recursively. For the owner, group, and mode properties, the value of this property
+      applies only to the leaf directory.
+examples: 

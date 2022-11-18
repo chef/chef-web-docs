@@ -5,55 +5,34 @@ resources_common_notification: true
 resources_common_properties: true
 resource: link
 resource_description_list:
-- markdown: 'Use the **link** resource to create symbolic or hard links.
+- markdown: |-
+    Use the **link** resource to create symbolic or hard links.
 
+    A symbolic link�sometimes referred to as a soft link�is a directory entry that associates a file name with a string that contains an absolute or relative path to a file on any file system. In other words, 'a file that contains a path that points to another file.' A symbolic link creates a new file with a new inode that points to the inode location of the original file.
 
-    A symbolic link---sometimes referred to as a soft link---is a directory
-
-    entry that associates a file name with a string that contains an
-
-    absolute or relative path to a file on any file system. In other words,
-
-    "a file that contains a path that points to another file." A symbolic
-
-    link creates a new file with a new inode that points to the inode
-
-    location of the original file.
-
-
-    A hard link is a directory entry that associates a file with another
-
-    file in the same file system. In other words, "multiple directory
-
-    entries to the same file." A hard link creates a new file that points to
-
-    the same inode as the original file. On Windows, this resource can be
-
-    used to create directory junction/reparse points.'
-syntax_description: "A **link** resource block creates symbolic or hard links. For\
-  \ example,\nto create a hard link from `/tmp/file` to `/etc/file`:\n\n```ruby\n\
-  link '/tmp/file' do\n  to '/etc/file'\n  link_type :hard\nend\n```\n\nBecause the\
-  \ default value for `link_type` is symbolic, and because\nproperties that are not\
-  \ specified in the resource block will be assigned\ntheir default values, the following\
-  \ example creates a symbolic link:\n\n```ruby\nlink '/tmp/file' do\n  to '/etc/file'\n\
-  end\n```"
-syntax_properties_list: null
-syntax_full_code_block: "link 'name' do\n  group            String, Integer\n  link_type\
-  \        String, Symbol # default value: :symbolic\n  mode             Integer,\
-  \ String\n  owner            String, Integer\n  target_file      String # default\
-  \ value: 'name' unless specified\n  to               String\n  action          \
-  \ Symbol # defaults to :create if not specified\nend"
+    A hard link is a directory entry that associates a file with another file in the same file system. In other words, 'multiple directory entries to the same file.' A hard link creates a new file that points to the same inode as the original file.
+syntax_full_code_block: |-
+  link 'name' do
+    group            String, Integer
+    link_type        String, Symbol # default value: :symbolic
+    owner            String, Integer
+    target_file      String # default value: 'name' unless specified
+    to               String
+    action           Symbol # defaults to :create if not specified
+  end
+syntax_properties_list:
 syntax_full_properties_list:
-- '`link` is the resource.'
-- '`name` is the name given to the resource block.'
-- '`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state.'
-- '`group`, `link_type`, `mode`, `owner`, `target_file`, and `to` are properties of
-  this resource, with the Ruby type shown. See "Properties" section below for more
-  information about all of the properties that may be used with this resource.'
+- "`link` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`group`, `link_type`, `owner`, `target_file`, and `to` are the properties available
+  to this resource."
 actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :create:
-    markdown: Default. Create a link. If a link already exists (but does not match),
+    markdown: (default) Create a link. If a link already exists (but does not match),
       update that link to match.
   :delete:
     markdown: Delete a link.
