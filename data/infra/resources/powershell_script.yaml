@@ -154,7 +154,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: A string that is passed to the Windows PowerShell command
+  - markdown: 'A string that is passed to the Windows PowerShell command
 
       value (Windows PowerShell 3.0+):
 

@@ -209,7 +209,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-      using the domain property. On Windows only, if this property is specified, the
+  - markdown: 'On Windows only, if this property is specified, the
 
       class="title-ref">user</span> property. This property is mandatory
 

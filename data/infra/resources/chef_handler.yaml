@@ -48,7 +48,7 @@ properties_list:
   required: false
   default_value: "[]"
   description_list:
-  - markdown: Arguments to pass the handler's class initializer.
+  - markdown: "Arguments to pass the handler's class initializer.
 
       handler class. For example:
 
@@ -67,7 +67,7 @@ properties_list:
 
       arguments [:key1 => ''val1'', :key2 => ''val2'']
 
-      ```'
+      ```"
 - property: class_name
   ruby_type: String
   required: false
