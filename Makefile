@@ -14,6 +14,9 @@ clean_all:
 serve: bundle
 	hugo server --buildDrafts --noHTTPCache --buildFuture
 
+metrics: bundle
+	hugo --gc --minify --enableGitInfo --templateMetrics --templateMetricsHints
+
 nodrafts: bundle
 	hugo server --noHTTPCache --buildFuture
 
