@@ -209,7 +209,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-      '*Windows only*:  The password of the user specified by the user property.
+  - markdown: '*Windows only*:  The password of the user specified by the user property.
       This property is mandatory if user is specified on Windows and may only be specified if user is specified.
       The sensitive property for this resource will automatically be set to true if password is specified.'
 - property: domain
