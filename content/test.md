@@ -354,3 +354,7 @@ The reader should proceed with caution.
 The SVG shortcode will add an inline SVG icon to a string of text:
 
 Click on the web asset icon ({{< svg file="themes/docs-new/static/images/web-asset.svg" >}}).
+
+Testing if netlify will build.
+
+Do not merge.
