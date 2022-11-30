@@ -27,7 +27,7 @@ syntax_full_properties_list:
   available to this resource."
 actions_list:
   :nothing:
-    - markdown: This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
+    shortcode: resources_common_actions_nothing.md
 properties_list:
 - property: checksum
   ruby_type: String

@@ -43,8 +43,7 @@ syntax_full_properties_list:
   `timeout`, and `user` are the properties available to this resource."
 actions_list:
   :nothing:
-    markdown:
-      shortcode: resources_common_actions_nothing.md
+    shortcode: resources_common_actions_nothing.md
   :run:
     markdown: Run a command. (default)
 properties_list:
@@ -56,7 +55,7 @@ properties_list:
 - property: command
   ruby_type: String, Array
   required: false
-  default_value: The resource block's name
+  default_value: The resource block's name.
   description_list:
   - markdown: An optional property to set the command to be executed if it differs
       from the resource block's name.
