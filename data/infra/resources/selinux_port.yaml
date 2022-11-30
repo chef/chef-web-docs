@@ -40,7 +40,6 @@ properties_list:
 - property: port
   ruby_type: Integer, String
   required: false
-  default_value: The resource block's name.
   description_list:
   - markdown: Port to modify.
 - property: protocol

@@ -22,7 +22,7 @@ syntax_full_code_block: |-
     timeout          Integer
     action           Symbol # defaults to :run if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`dsc_script` is the resource."
 - "`name` is the name given to the resource block."
@@ -177,12 +177,8 @@ resources_common_atomic_update: false
 properties_resources_common_windows_security: false
 remote_file_prevent_re_downloads: false
 remote_file_unc_path: false
-ps_credential_helper: true
 ruby_style_basics_chef_log: false
 debug_recipes_chef_shell: false
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
 examples: "
   Specify DSC code directly\n\n  DSC data can be specified directly\
   \ in a recipe:\n\n  ```ruby\n  dsc_script 'emacs' do\n    code <<-EOH\n    Environment\

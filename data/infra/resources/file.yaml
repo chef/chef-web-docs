@@ -30,8 +30,6 @@ syntax_full_properties_list:
   `manage_symlink_source`, `path`, and `rights` are the properties available to this
   resource."
 actions_list:
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
   :create:
     markdown: (default) Create a file. If a file already exists (but does not match),
       update that file to match.
@@ -242,16 +240,11 @@ properties_list:
         will stop and an error is raised.
 properties_multiple_packages: false
 resource_directory_recursive_directories: false
-resources_common_atomic_update: true
-properties_resources_common_windows_security: true
 remote_file_prevent_re_downloads: false
 remote_file_unc_path: false
 ps_credential_helper: false
 ruby_style_basics_chef_log: false
 debug_recipes_chef_shell: false
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
 examples: "
   Create a file\n\n  ```ruby\n  file '/tmp/something' do\n    owner\
   \ 'root'\n    group 'root'\n    mode '0755'\n    action :create\n  end\n  ```\n\n\

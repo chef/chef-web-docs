@@ -16,7 +16,7 @@ syntax_full_code_block: |-
     timeout             Integer
     action              Symbol # defaults to :run if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`dsc_resource` is the resource."
 - "`name` is the name given to the resource block."
@@ -35,7 +35,6 @@ properties_list:
   required: false
   description_list:
   - markdown: 'The name of the module from which a DSC resource originates. If this
-
       property is not specified, it will be inferred.'
 - property: module_version
   ruby_type: String
@@ -45,6 +44,59 @@ properties_list:
   - markdown: The version number of the module to use. PowerShell 5.0.10018.0 (or
       higher) supports having multiple versions of a module installed. This should
       be specified along with the `module_name` property.
+- property: property
+  ruby_type: String
+  description_list:
+  - markdown: |-
+      A property from a Desired State Configuration (DSC) resource.
+      Use this property multiple times, one for each property in the Desired State Configuration (DSC) resource.
+      The format for this property must follow property :dsc_property_name, \"property_value\" for each DSC property added to the resource block.
+      The :dsc_property_name must be a symbol.
+
+      Use the following Ruby types to define property_value:
+
+      <table>
+      <colgroup>
+      <col style="width: 50%" />
+      <col style="width: 50%" />
+      </colgroup>
+      <thead>
+      <tr class="header">
+      <th>Ruby</th>
+      <th>PowerShell</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+      <td><code>:array</code></td>
+      <td><code>Object[]</code></td>
+      </tr>
+      <tr>
+      <td><code>Chef::Util::Powershell:PSCredential</code></td>
+      <td><code>PSCredential</code></td>
+      </tr>
+      <tr>
+      <td><code>False</code></td>
+      <td><code>bool($false)</code></td>
+      </tr>
+      <tr>
+      <td><code>Fixnum</code></td>
+      <td><code>Integer</code></td>
+      </tr>
+      <tr>
+      <td><code>Float</code></td>
+      <td><code>Double</code></td>
+      </tr>
+      <tr>
+      <td><code>Hash</code></td>
+      <td><code>Hashtable</code></td>
+      </tr>
+      <tr>
+      <td><code>True</code></td>
+      <td><code>bool($true)</code></td>
+      </tr>
+      </tbody>
+      </table>
 - property: reboot_action
   ruby_type: Symbol
   required: false
@@ -232,9 +284,6 @@ properties_list:
   - markdown: 'The amount of time (in seconds) a command is to wait before timing
 
       out.'
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
 examples: "
   Open a Zip file\n\n  ```ruby\n  dsc_resource 'example' do\n    \
   \ resource :archive\n     property :ensure, 'Present'\n     property :path, 'C:\\\

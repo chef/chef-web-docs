@@ -28,10 +28,10 @@ syntax_full_properties_list:
 - "`backup`, `control`, `expiration`, `file_path`, `justification`, and `run_test`
   are the properties available to this resource."
 actions_list:
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
   :add:
     markdown: " (default)"
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :remove:
     markdown:
 properties_list:

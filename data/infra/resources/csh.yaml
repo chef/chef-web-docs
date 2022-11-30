@@ -32,7 +32,7 @@ syntax_full_code_block: |-
     user             String, Integer
     action           Symbol # defaults to :run if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`csh` is the resource."
 - "`name` is the name given to the resource block."
@@ -43,8 +43,8 @@ syntax_full_properties_list:
   `timeout`, and `user` are the properties available to this resource."
 actions_list:
   :nothing:
-    markdown: Prevent a command from running. This action is used to specify that
-      a command is run only when another resource notifies it.
+    markdown:
+      shortcode: resources_common_actions_nothing.md
   :run:
     markdown: Run a command. (default)
 properties_list:
@@ -131,7 +131,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 
+  - markdown:
 - property: live_stream
   ruby_type: true, false
   required: false
@@ -179,4 +179,4 @@ properties_list:
       also be specified without a domain simply as user if the domain is instead specified
       using the domain property. On Windows only, if this property is specified, the
       password property must be specified.
-examples: 
+examples:

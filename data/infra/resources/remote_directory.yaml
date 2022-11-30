@@ -21,7 +21,7 @@ syntax_full_code_block: "remote_directory 'name' do\n  cookbook          String\
   false # default value: false\n  recursive         true, false # default value: true\n
   \ source            String\n  action            Symbol # defaults to :create if
   not specified\nend"
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`remote_directory` is the resource."
 - "`name` is the name given to the resource block."
@@ -31,18 +31,16 @@ syntax_full_properties_list:
   `mode`, `overwrite`, `owner`, `path`, `purge`, `recursive`, and `source` are the
   properties available to this resource."
 actions_list:
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
   :create:
     markdown: Create a directory. If a directory already exists (but does not match),
       update that directory to match. (default)
-  :delete:
-    markdown: Delete a directory.
   :create_if_missing:
     markdown: Create a directory and/or the contents of that directory, but only if
       it does not exist.
   :delete:
     markdown: Delete a directory, including the contents of that directory.
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
 properties_list:
 - property: cookbook
   ruby_type: String
@@ -203,6 +201,13 @@ properties_list:
   description_list:
   - markdown: Create or delete parent directories recursively. For the owner, group,
       and mode properties, the value of this attribute applies only to the leaf directory.
+- property: rights
+  ruby_type: Integer, String
+  required: false
+  description_list:
+  - markdown: "Microsoft Windows only. The permissions for users and groups in a Microsoft Windows environment.
+      For example: rights <permissions>, <principal>, <options> where <permissions> specifies the rights granted to the principal,
+      <principal> is the group or user name, and <options> is a Hash with one (or more) advanced rights options."
 - property: source
   ruby_type: String
   required: false
@@ -215,7 +220,6 @@ properties_list:
 
       ''path''.'
 properties_multiple_packages: false
-resource_directory_recursive_directories: true
 resources_common_atomic_update: false
 properties_resources_common_windows_security: false
 remote_file_prevent_re_downloads: false
@@ -223,11 +227,6 @@ remote_file_unc_path: false
 ps_credential_helper: false
 ruby_style_basics_chef_log: false
 debug_recipes_chef_shell: false
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
-remote_directory_recursive_directories: true
-common_resource_functionality_resources_common_windows_security: true
 examples: "
   Recursively transfer a directory from a remote location\n\n  ```\
   \ ruby\n  # create up to 10 backups of the files\n  # set the files owner different\

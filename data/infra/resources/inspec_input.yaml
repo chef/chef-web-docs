@@ -21,10 +21,10 @@ syntax_full_properties_list:
   the desired state."
 - "`input` and `source` are the properties available to this resource."
 actions_list:
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
   :add:
     markdown: Add an input to the compliance phase (default)
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
 properties_list:
 - property: input
   ruby_type: Hash, String

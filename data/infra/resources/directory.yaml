@@ -14,17 +14,25 @@ resource_description_list:
     in a directory. Typically, permission to access that location in the directory
     is required.
 syntax_description: "A **directory** resource block declares a directory and the permissions\n\
-  needed on that directory. For example:\n\n```ruby\ndirectory '/etc/apache2' do\n\
-  \  owner 'root'\n  group 'root'\n  mode '0755'\n  action :create\nend\n```"
+  needed on that directory. For example:
+  directory '/etc/apache2' do
+    owner 'root'
+    group 'root'
+    mode '0755'
+    action :create
+  end"
 syntax_properties_list:
-- '`''/etc/apache2''` specifies the directory'
-- '`owner`, `group`, and `mode` define the permissions'
-syntax_full_code_block: "directory 'name' do\n  group                      String,\
-  \ Integer\n  inherits                   true, false\n  mode                    \
-  \   String, Integer\n  owner                      String, Integer\n  path      \
-  \                 String # defaults to 'name' if not specified\n  recursive    \
-  \              true, false\n  rights                     Hash\n  action        \
-  \             Symbol # defaults to :create if not specified\nend"
+syntax_full_code_block: |-
+  directory 'name' do
+    group                      String, Integer
+    inherits                   true, false
+    mode                       String, Integer
+    owner                      String, Integer
+    path                       String # defaults to 'name' if not specified
+    recursive                  true, false
+    rights                     Hash
+    action                     Symbol # defaults to :create if not specified
+  end
 syntax_full_properties_list:
 - "`directory` is the resource."
 - "`name` is the name given to the resource block."
@@ -40,8 +48,6 @@ actions_list:
       update that directory to match. (default)
   :delete:
     markdown: Delete a directory.
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
 properties_list:
 - property: group
   ruby_type: Integer, String
@@ -159,4 +165,4 @@ properties_list:
   - markdown: Create parent directories recursively, or delete directory and all children
       recursively. For the owner, group, and mode properties, the value of this property
       applies only to the leaf directory.
-examples: 
+examples:

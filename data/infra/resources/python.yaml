@@ -30,7 +30,7 @@ syntax_full_code_block: |-
     user             String, Integer
     action           Symbol # defaults to :run if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`python` is the resource."
 - "`name` is the name given to the resource block."
@@ -50,16 +50,6 @@ properties_list:
   required: true
   description_list:
   - markdown: A quoted string of code to be executed.
-- property: command
-  ruby_type: String, Array
-  required: false
-  default_value: The resource block's name
-  description_list:
-  - markdown: An optional property to set the command to be executed if it differs
-      from the resource block's name.
-  - note:
-      markdown: Use the **execute** resource to run a single command. Use multiple
-        **execute** resource blocks to run multiple commands.
 - property: creates
   ruby_type: String
   required: false
@@ -70,36 +60,6 @@ properties_list:
   required: false
   description_list:
   - markdown: The current working directory from which the command will be run.
-- property: default_env
-  ruby_type: true, false
-  required: false
-  default_value: 'false'
-  new_in: '14.2'
-  description_list:
-  - markdown: When true this enables ENV magic to add path_sanity to the PATH and
-      force the locale to English+UTF-8 for parsing output
-- property: domain
-  ruby_type: String
-  required: false
-  new_in: '12.21'
-  description_list:
-  - markdown: 'Windows only: The domain of the user specified by the user property.
-      If not specified, the username and password specified by the `user` and `password`
-      properties will be used to resolve that user against the domain in which the
-      system running Chef Infra Client is joined, or if that system is not joined
-      to a domain it will resolve the user as a local account on that system. An alternative
-      way to specify the domain is to leave this property unspecified and specify
-      the domain as part of the user property.'
-- property: elevated
-  ruby_type: true, false
-  required: false
-  default_value: 'false'
-  new_in: '13.3'
-  description_list:
-  - markdown: |-
-      Determines whether the script will run with elevated permissions to circumvent User Access Control (UAC) from interactively blocking the process.
-      This will cause the process to be run under a batch login instead of an interactive login. The user running chef-client needs the 'Replace a process level token' and 'Adjust Memory Quotas for a process' permissions. The user that is running the command needs the 'Log on as a batch job' permission.
-      Because this requires a login, the user and password properties are required.
 - property: environment
   ruby_type: Hash
   required: false
@@ -118,41 +78,33 @@ properties_list:
   required: false
   description_list:
   - markdown: The group name or group ID that must be changed before running a command.
-- property: input
-  ruby_type: String
-  required: false
-  new_in: '16.2'
-  description_list:
-  - markdown: An optional property to set the input sent to the command as STDIN.
-- property: interpreter
-  ruby_type: String
-  required: false
-  description_list:
-  - markdown: 
-- property: live_stream
+- property: ignore_failure
   ruby_type: true, false
   required: false
   default_value: 'false'
   description_list:
-  - markdown: Send the output of the command run by this execute resource block to
-      the Chef Infra Client event stream.
-- property: login
-  ruby_type: true, false
+  - markdown: Continue running a recipe if a resource fails for any reason.
+- property: notifies
+  ruby_type: Symbol, Chef::Resource\[String\]
   required: false
-  default_value: 'false'
-  new_in: '17.0'
   description_list:
-  - markdown: Use a login shell to run the commands instead of inheriting the existing
-      execution environment.
-- property: password
-  ruby_type: String
-  required: false
-  new_in: '12.21'
-  description_list:
-  - markdown: 'Windows only: The password of the user specified by the user property.
-      This property is mandatory if user is specified on Windows and may only be specified
-      if user is specified. The sensitive property for this resource will automatically
-      be set to true if password is specified.'
+  - shortcode: resources_common_notification_notifies.md
+  - markdown: |-
+      A resource may notify another resource to take action when its state changes. Specify a resource[name], the :action that resource should take,
+      and then the :timer for that action. A resource may notify more than one resource; use a notifies statement for each resource to be notified.
+      If the referenced resource does not exist, an error is raised. In contrast, subscribes will not fail if the source resource is not found.
+      A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:'
+  - shortcode: resources_common_notification_timers.md
+  - markdown: |-
+      :before
+      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
+
+      :delayed
+      Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
+
+      :immediate, :immediately
+      Specifies that a notification should be run immediately, for each resource notified.
+  - shortcode: resources_common_notification_notifies_syntax.md
 - property: returns
   ruby_type: Integer, Array
   required: false
@@ -160,12 +112,58 @@ properties_list:
   description_list:
   - markdown: The return value for a command. This may be an array of accepted values.
       An exception is raised when the return value(s) do not match.
+- property: subscribes
+  ruby_type: Symbol, Chef::Resource\[String\]
+  required: false
+  description_list:
+  - shortcode: resources_common_notification_subscribes.md
+  - markdown: |-
+      A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a 'resource[name]', the :action to be taken, and then the :timer for that action.
+
+      Note that subscribes does not apply the specified action to the resource that it listens to - for example:
+
+      ```ruby
+      file '/etc/nginx/ssl/example.crt' do
+        mode '0600'
+        owner 'root'
+      end
+      ````
+
+      service 'nginx' do
+        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+      end
+      In this case the subscribes property reloads the nginx service whenever its certificate file, located under /etc/nginx/ssl/example.crt, is updated.
+      Subscribes does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the :reload action for its resource (in this example nginx) when a change is detected.
+
+      If the other resource does not exist, the subscription will not raise an error. Contrast this with the stricter semantics of notifies, which will raise an error if the other resource does not exist.
+  - shortcode: resources_common_notification_timers.md
+  - markdown: |-
+      A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
+
+      :before
+      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
+
+      :delayed
+      Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
+
+      :immediate, :immediately
+      Specifies that a notification should be run immediately, for each resource notified.
+
+      The syntax for subscribes is:
+
+      subscribes :action, 'resource[name]', :timer
+  - shortcode: resources_common_notification_subscribes_syntax.md
 - property: timeout
   ruby_type: Integer, String, Float
   required: false
   default_value: '3600'
   description_list:
   - markdown: The amount of time (in seconds) a command is to wait before timing out.
+- property: umask
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown: The file mode creation mask, or umask.
 - property: user
   ruby_type: String, Integer
   required: false

@@ -14,10 +14,7 @@ resource_description_list:
 - notes_resource_based_on_package: true
 resource_new_in: '12.18'
 syntax_description: 'A **dnf_package** resource block manages a package on a node,
-  typically
-
-  by installing it. The simplest use of the **dnf_package** resource is:
-
+  typically by installing it. The simplest use of the **dnf_package** resource is:
 
   ```ruby
 
@@ -25,9 +22,7 @@ syntax_description: 'A **dnf_package** resource block manages a package on a nod
 
   ```
 
-
   which will install the named package using all of the default options
-
   and the default action (`:install`).'
 syntax_full_code_block: |-
   dnf_package 'name' do

@@ -34,24 +34,21 @@ syntax_full_properties_list:
 - "`arguments`, `class_name`, `source`, and `type` are the properties available to
   this resource."
 actions_list:
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
-  :enable:
-    markdown: Enables the handler for the current Chef Infra Client run on the current
-      node. (default)
   :disable:
     markdown: Disables the handler for the current Chef Infra Client run on the current
       node.
+  :enable:
+    markdown: Enables the handler for the current Chef Infra Client run on the current
+      node. (default)
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
 properties_list:
 - property: arguments
   ruby_type: Array, Hash
   required: false
   default_value: "[]"
   description_list:
-  - markdown: "Arguments to pass the handler's class initializer.
-
-      handler class. For example:
-
+  - markdown: "An array of arguments that are passed to the initializer for the handler class. For example:
 
       ```ruby
 
@@ -59,9 +56,7 @@ properties_list:
 
       ```
 
-
       or:
-
 
       ```ruby
 

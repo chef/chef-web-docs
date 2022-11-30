@@ -12,14 +12,23 @@ resource_description_list:
     Use the **cookbook_file** resource to transfer files from a sub-directory of COOKBOOK_NAME/files/ to a specified path located on a host that is running the Chef Infra Client. The file is selected according to file specificity, which allows different source files to be used based on the hostname, host platform (operating system, distro, or as appropriate), or platform version. Files that are located in the COOKBOOK_NAME/files/default sub-directory may be used on any platform.
 
     During a Chef Infra Client run, the checksum for each local file is calculated and then compared against the checksum for the same file as it currently exists in the cookbook on the Chef Infra Server. A file is not transferred when the checksums match. Only files that require an update are transferred from the Chef Infra Server to a node.
-syntax_full_code_block: "cookbook_file 'name' do\n  atomic_update              true,
-  false\n  backup                     Integer, false # default value: 5\n  checksum
-  \                  String\n  content                    String\n  cookbook                   String
-  # default value: \"The current cookbook name\"\n  deny_rights                \n
-  \ force_unlink               true, false # default value: false\n  manage_symlink_source
-  \     true, false\n  path                       String # default value: 'name' unless
-  specified\n  rights                     \n  source                     String, Array\n
-  \ action                     Symbol # defaults to :create if not specified\nend"
+syntax_full_code_block: |-
+  cookbook_file 'name' do
+    atomic_update              true, false
+    backup                     Integer, false # default value: 5
+    cookbook                   String
+    force_unlink               true, false # default value: false
+    group                      String, Integer
+    inherits                   true, false
+    manage_symlink_source      true, false
+    mode                       String, Integer
+    owner                      String, Integer
+    path                       String # default value: 'name' unless specified
+    rights                     Hash
+    source                     String, Array
+    verify                     String, Block
+    action                     Symbol # defaults to :create if not specified
+  end
 syntax_properties_list:
 syntax_full_properties_list:
 - "`cookbook_file` is the resource."
@@ -40,12 +49,8 @@ actions_list:
       nothing happens.
   :delete:
     markdown: Delete a file.
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
   :touch:
     markdown: Touch a file. This updates the access (atime) and file modification
-  :create_if_missing:
-    markdown:
 properties_list:
 - property: atomic_update
   ruby_type: true, false
@@ -276,17 +281,11 @@ properties_list:
       \ the Chef Infra Client run\nwill stop and an error is returned."
 properties_multiple_packages: false
 resource_directory_recursive_directories: false
-resources_common_atomic_update: true
-properties_resources_common_windows_security: true
 remote_file_prevent_re_downloads: false
       the platform used.
 ps_credential_helper: false
 ruby_style_basics_chef_log: false
 debug_recipes_chef_shell: false
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
-cookbook_file_specificity: true
 examples: "
   Transfer a file\n\n  ```ruby\n  cookbook_file 'file.txt' do\n  \
   \  mode '0755'\n  end\n  ```\n\n  Handle cookbook_file and package resources in\

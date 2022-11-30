@@ -36,8 +36,6 @@ syntax_full_properties_list:
   `ssl_verify_mode`, `use_etag`, and `use_last_modified` are the properties available
   to this resource."
 actions_list:
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
   :create:
     markdown: (default) Create a file. If a file already exists (but does not match),
       update that file to match.
@@ -46,10 +44,10 @@ actions_list:
       nothing happens.
   :delete:
     markdown: Delete a file.
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :touch:
-    markdown:
-  :create_if_missing:
-    markdown:
+    markdown: Touch a file. This updates the access (atime) and file modification (mtime) times for a file. (This action may be used with this resource, but is typically only used with the file resource.)
 properties_list:
 - property: atomic_update
   ruby_type: true, false
@@ -212,6 +210,54 @@ properties_list:
       If-Modified-Since headers, `use_last_modified` must also be set to
 
       `true`. To use ETag headers, `use_etag` must also be set to `true`.'
+- property: source
+  ruby_type: String, Array
+  required: false
+  description_list:
+  - markdown: 'Required. The location of the source file. The location of the
+      source file may be HTTP (`http://`), FTP (`ftp://`), SFTP
+      (`sftp://`), local (`file:///`), or UNC
+      (`\\host\share\file.tar.gz`).
+      There are many ways to define the location of a source file. By
+      using a path:
+      ```ruby
+      source ''http://couchdb.apache.org/img/sketch.png''
+      ```
+      By using FTP:
+      ```ruby
+      source ''ftp://remote_host/path/to/img/sketch.png''
+      ```
+      By using SFTP:
+      ```ruby
+      source ''sftp://username:password@remote_host:22/path/to/img/sketch.png''
+      ```
+      By using a local path:
+      ```ruby
+      source ''file:///path/to/img/sketch.png''
+      ```
+      By using a Microsoft Windows UNC:
+      ```ruby
+      source ''\\\\path\\to\\img\\sketch.png''
+      ```
+      By using a node attribute:
+      ```ruby
+      source node[''nginx''][''foo123''][''url'']
+      ```
+      By using attributes to define paths:
+      ```ruby
+      source "#{node[''python''][''url'']}/#{version}/Python-#{version}.tar.bz2"
+      ```
+      By defining multiple paths for multiple locations:
+      ```ruby
+      source ''http://seapower/spring.png'', ''http://seapower/has_sprung.png''
+      ```
+      By defining those same multiple paths as an array:
+      ```ruby
+      source [''http://seapower/spring.png'', ''http://seapower/has_sprung.png'']
+      ```
+      When multiple paths are specified, Chef Infra Client will attempt to
+      download the files in the order listed, stopping after the first
+      successful download.'
 - property: show_progress
   ruby_type: true, false
   required: false

@@ -31,18 +31,8 @@ actions_list:
       version of the package.
   :nothing:
     shortcode: resources_common_actions_nothing.md
-  :upgrade:
-    markdown:
   :remove:
     markdown: Remove a package.
-  :purge:
-    markdown:
-  :reconfig:
-    markdown: Change the installed package
-  :lock:
-    markdown:
-  :unlock:
-    markdown:
 properties_list:
 - property: options
   ruby_type: String, Array

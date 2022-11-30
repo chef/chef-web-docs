@@ -30,11 +30,13 @@ syntax_full_properties_list:
 - "`allow_downgrade`, `global_options`, `gpg_check`, `options`, `package_name`, `source`,
   `timeout`, and `version` are the properties available to this resource."
 actions_list:
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
   :install:
     markdown: Install a package. If a version is specified, install the specified
       version of the package. (default)
+  :lock:
+    markdown: Locks the zypper package to a specific version.
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :purge:
     markdown: Purge a package. This action typically removes the configuration files
       as well as the package.

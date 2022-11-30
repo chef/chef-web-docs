@@ -113,14 +113,6 @@ properties_list:
   required: false
   description_list:
   - markdown: The current working directory from which the command will be run.
-- property: default_env
-  ruby_type: true, false
-  required: false
-  default_value: 'false'
-  new_in: '14.2'
-  description_list:
-  - markdown: When true this enables ENV magic to add path_sanity to the PATH and
-      force the locale to English+UTF-8 for parsing output
 - property: domain
   ruby_type: String
   required: false
@@ -197,14 +189,6 @@ properties_list:
   description_list:
   - markdown: Send the output of the command run by this execute resource block to
       the Chef Infra Client event stream.
-- property: login
-  ruby_type: true, false
-  required: false
-  default_value: 'false'
-  new_in: '17.0'
-  description_list:
-  - markdown: Use a login shell to run the commands instead of inheriting the existing
-      execution environment.
 - property: password
   ruby_type: String
   required: false

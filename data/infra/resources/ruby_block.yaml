@@ -11,7 +11,7 @@ syntax_full_code_block: |-
     block_name      String # default value: 'name' unless specified
     action          Symbol # defaults to :run if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`ruby_block` is the resource."
 - "`name` is the name given to the resource block."
@@ -19,13 +19,17 @@ syntax_full_properties_list:
   the desired state."
 - "`block_name` is the property available to this resource."
 actions_list:
+  :create:
+    markdown: The same as :run.
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :run:
     markdown: " (default)"
-  :create:
-    markdown: 
 properties_list:
+- property: block
+  ruby_type: block
+  description_list:
+  - markdown: A block of Ruby code.
 - property: block_name
   ruby_type: String
   required: false

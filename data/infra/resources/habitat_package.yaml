@@ -34,24 +34,18 @@ syntax_full_properties_list:
   `options`, `package_name`, `source`, `timeout`, and `version` are the properties
   available to this resource."
 actions_list:
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
   :install:
     markdown: Install a package. If a version is specified, install the specified
       version of the package. (default)
-  :upgrade:
-    markdown: Install a package and ensure that a package is the latest version.
+  :reconfig:
+    markdown: Change the installed package
   :remove:
     markdown: Remove a package.
   :purge:
     markdown: Purge a package. This action typically removes the configuration files
       as well as the package.
-  :reconfig:
-    markdown: Change the installed package
-  :lock:
-    markdown:
-  :unlock:
-    markdown:
+  :upgrade:
+    markdown: Install a package and ensure that a package is the latest version.
 properties_list:
 - property: auth_token
   ruby_type: String
@@ -103,27 +97,6 @@ properties_list:
   required: false
   description_list:
   - markdown: Pass any additional parameters to the habitat package command.
-- property: package_name
-  ruby_type: String, Array
-  required: false
-  description_list:
-  - markdown: An optional property to set the package name if it differs from the
-      resource block's name.
-- property: source
-  ruby_type: String
-  required: false
-  description_list:
-  - markdown: The optional path to a package on the local file system.
-- property: timeout
-  ruby_type: String, Integer
-  required: false
-  description_list:
-  - markdown: The amount of time (in seconds) to wait before timing out.
-- property: version
-  ruby_type: String, Array
-  required: false
-  description_list:
-  - markdown: The version of a package to be installed or upgraded.
 examples: |
   **Install core/redis**
 

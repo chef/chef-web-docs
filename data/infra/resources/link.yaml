@@ -29,8 +29,6 @@ syntax_full_properties_list:
 - "`group`, `link_type`, `owner`, `target_file`, and `to` are the properties available
   to this resource."
 actions_list:
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
   :create:
     markdown: (default) Create a link. If a link already exists (but does not match),
       update that link to match.
@@ -129,9 +127,6 @@ properties_list:
   required: false
   description_list:
   - markdown: The actual file to which the link is to be created.
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
 examples: "
   Create symbolic links\n\n  The following example will create a symbolic\
   \ link from `/tmp/file` to\n  `/etc/file`:\n\n  ```ruby\n  link '/tmp/file' do\n\

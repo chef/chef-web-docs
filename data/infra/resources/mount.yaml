@@ -33,20 +33,20 @@ syntax_full_properties_list:
   `mount_point`, `options`, `pass`, `password`, `supports`, and `username` are the
   properties available to this resource."
 actions_list:
+  :disable:
+    markdown: Remove an entry from the file systems table (fstab).
+  :enable:
+    markdown: Add an entry to the file systems table (fstab).
+  :mount:
+    markdown: "(default) Mount a device."
   :nothing:
     shortcode: resources_common_actions_nothing.md
-  :mount:
-    markdown: " (default)"
+  :remount:
+    markdown: Remount a device
   :umount:
     markdown: Unmount a device.
   :unmount:
-    markdown: 
-  :remount:
-    markdown: 
-  :enable:
-    markdown: 
-  :disable:
-    markdown: 
+    markdown: Alias for <code>:umount</code> action.
 properties_list:
 - property: device
   ruby_type: String

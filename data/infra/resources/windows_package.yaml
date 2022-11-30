@@ -69,24 +69,12 @@ syntax_full_properties_list:
   `returns`, `source`, `timeout`, and `version` are the properties available to this
   resource."
 actions_list:
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
   :install:
     markdown: Install a package. If a version is specified, install the specified
       version of the package. (default)
-  :upgrade:
-    markdown: Install a package and ensure that a package is the latest version.
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :remove:
-    markdown: Remove a package.
-  :purge:
-    markdown: Purge a package. This action typically removes the configuration files
-      as well as the package.
-  :reconfig:
-    markdown: Change the installed package
-  :lock:
-    markdown:
-  :unlock:
-    markdown:
 properties_list:
 - property: checksum
   ruby_type: String

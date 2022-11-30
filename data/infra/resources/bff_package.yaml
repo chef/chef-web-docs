@@ -36,45 +36,18 @@ actions_list:
   :install:
     markdown: (default) Install a package. If a version is specified, install the specified
       version of the package.
-  :upgrade:
-    markdown: Install a package and ensure that a package is the latest version.
   :remove:
     markdown: Remove a package.
   :purge:
     markdown: Purge a package. This action typically removes the configuration files
       as well as the package.
-  :reconfig:
-    markdown: Change the installed package
-  :lock:
-    markdown:
-  :unlock:
-    markdown:
 properties_list:
-- property: options
-  ruby_type: String, Array
-  required: false
-  description_list:
-  - markdown: One (or more) additional command options that are passed to the command.
 - property: package_name
   ruby_type: String
   required: false
   description_list:
   - markdown: An optional property to set the package name if it differs from the
       resource block's name.
-- property: source
-  ruby_type: String
-  required: false
-  description_list:
-  - markdown: The optional path to a package on the local file system.
-
-      platform requires `source` to be a local file system path because
-
-      `installp` does not retrieve packages using HTTP or FTP.'
-- property: timeout
-  ruby_type: String, Integer
-  required: false
-  description_list:
-  - markdown: The amount of time (in seconds) to wait before timing out.
 - property: version
   ruby_type: String
   required: false

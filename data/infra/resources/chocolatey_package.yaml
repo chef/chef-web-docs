@@ -50,12 +50,6 @@ actions_list:
   :purge:
     markdown: Purge a package. This action typically removes the configuration files
       as well as the package.
-  :reconfig:
-    markdown: 
-  :lock:
-    markdown: 
-  :unlock:
-    markdown: 
 properties_list:
 - property: list_options
   ruby_type: String
@@ -93,11 +87,8 @@ properties_list:
   required: false
   description_list:
   - markdown: 'The optional path to a package on the local file system or a
-
       reachable UNC path. Ensure that the path specified is to the
-
       **folder** containing the chocolatey package(s), not to the package
-
       itself.'
 - property: timeout
   ruby_type: String, Integer

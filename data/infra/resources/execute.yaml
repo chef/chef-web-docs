@@ -75,7 +75,6 @@ syntax_full_code_block: |-
     user             String, Integer
     action           Symbol # defaults to :run if not specified
   end
-syntax_properties_list:
 syntax_full_properties_list:
 - "`execute` is the resource."
 - "`name` is the name given to the resource block."
