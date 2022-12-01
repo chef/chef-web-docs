@@ -98,7 +98,7 @@ newer versions or products.
 | Product           | Version | Lifecycle Status | EOL Date          |
 |-------------------|---------|------------------|-------------------|
 | Chef Backend      | 2.x     | Deprecated       | TBD               |
-| Chef Infra Client | 16.x    | Deprecated       | November 30, 2022 |
+| Chef Infra Client | 17.x    | Deprecated       | TBD               |
 | Chef Manage       | 2.5.x+  | Deprecated       | TBD               |
 
 ## End of Life (EOL) Products
@@ -107,7 +107,7 @@ newer versions or products.
 |--------------------------|---------------------|------------------|-------------------|
 | Analytics                | All                 | EOL              | December 31, 2018 |
 | Chef Automate            | 1.x                 | EOL              | December 31, 2019 |
-| Chef Infra Client        | 15 and under        | EOL              | April 30, 2021    |
+| Chef Infra Client        | 16 and under        | EOL              | November 30, 2022 |
 | Chef Compliance Server   | All                 | EOL              | December 31, 2018 |
 | ChefDK                   | ALL                 | EOL              | December 31, 2020 |
 | Chef Infra Server        | 13.x                | EOL              | June 30, 2021     |
