@@ -29,8 +29,6 @@ actions_list:
   :install:
     markdown: (default) Install a package. If a version is specified, install the specified
       version of the package.
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
   :purge:
     markdown: Purge a package. This action typically removes the configuration files
       as well as the package.

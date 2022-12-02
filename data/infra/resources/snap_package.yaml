@@ -31,19 +31,11 @@ actions_list:
   :install:
     markdown: Install a package. If a version is specified, install the specified
       version of the package. (default)
-  :lock:
-    markdown: Locks the apt package to a specific version.
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
   :purge:
     markdown: Purge a package. This action typically removes the configuration files
       as well as the package.
-  :reconfig:
-    markdown: Change the installed package
   :remove:
     markdown: Remove a package.
-  :unlock:
-    markdown: Unlocks the apt package so that it can be upgraded to a newer version.
   :upgrade:
     markdown: Install a package and ensure that a package is the latest version.
 properties_list:

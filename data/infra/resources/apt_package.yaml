@@ -40,8 +40,6 @@ syntax_full_properties_list:
   `response_file_variables`, `source`, `timeout`, and `version` are the properties
   available to this resource."
 actions_list:
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
   :install:
     markdown: Install a package. If a version is specified, install the specified
       version of the package. (default)

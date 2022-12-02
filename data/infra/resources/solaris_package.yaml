@@ -28,8 +28,6 @@ actions_list:
   :install:
     markdown: Install a package. If a version is specified, install the specified
       version of the package. (default)
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
   :upgrade:
     markdown: Install a package and ensure that a package is the latest version.
   :remove:
