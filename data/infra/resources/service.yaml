@@ -49,7 +49,7 @@ actions_list:
       Resource Controller (SRC) does not have a standard mechanism for enabling and
       disabling services on system boot.
   :nothing:
-    shortcode: resources_common_actions_nothing.md
+    shortcode: resources_common_actions_nothing_default.md
   :reload:
     markdown: Reload the configuration for this service.
   :restart:
