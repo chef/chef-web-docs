@@ -100,11 +100,6 @@ actions_list:
   :restart:
     markdown: Restart a launchd managed daemon or agent.
 properties_list:
-- property: action
-  ruby_type: Symbol
-  required: false
-  description_list:
-  - markdown: What action to execute. Defaults to :create if not specified.
 - property: abandon_process_group
   ruby_type: true, false
   required: false

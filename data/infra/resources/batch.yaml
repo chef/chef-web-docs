@@ -103,7 +103,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown:
+  - markdown: The script interpreter to use during code execution. Changing the default value of this property is not supported.
 - property: returns
   ruby_type: Integer, Array
   required: false
@@ -118,7 +118,7 @@ properties_list:
   description_list:
   - markdown: The amount of time (in seconds) a command is to wait before timing out.
 - property: user
-  ruby_type: String, Integer
+  ruby_type: String
   required: false
   description_list:
   - markdown: 'The user name of the user identity with which to launch the new process.

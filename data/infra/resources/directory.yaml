@@ -165,4 +165,14 @@ properties_list:
   - markdown: Create parent directories recursively, or delete directory and all children
       recursively. For the owner, group, and mode properties, the value of this property
       applies only to the leaf directory.
+- property: rights
+  ruby_type: Integer, String
+  required: false
+  description_list:
+  - markdown: 'Microsoft Windows only. The permissions for users and groups in a
+      Microsoft Windows environment. For example:
+      `rights <permissions>, <principal>, <options>` where `<permissions>`
+      specifies the rights granted to the principal, `<principal>` is the
+      group or user name, and `<options>` is a Hash with one (or more)
+      advanced rights options.'
 examples:

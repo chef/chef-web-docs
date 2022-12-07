@@ -63,8 +63,6 @@ actions_list:
     markdown: Locks the DNF package to a specific version.
   :unlock:
     markdown: Unlocks the DNF package so that it can be upgraded to a newer version.
-  :flush_cache:
-    markdown:
 properties_list:
 - property: allow_downgrade
   ruby_type: true, false
@@ -83,12 +81,19 @@ properties_list:
   required: false
   default_value: '{"before"=>false, "after"=>false}'
   description_list:
-  - markdown: Flush the in-memory cache before or after a DNF operation that installs,
-      upgrades, or removes a package. DNF automatically synchronizes remote metadata
-      to a local cache. The chef-client creates a copy of the local cache, and then
-      stores it in-memory during the chef-client run. The in-memory cache allows packages
-      to be installed during the chef-client run without the need to continue synchronizing
-      the remote metadata to the local cache while the chef-client run is in-progress.
+  - markdown: "Flush the in-memory cache before or after a DNF operation that\ninstalls,\
+      \ upgrades, or removes a package.\n\nDNF automatically synchronizes remote metadata to a local cache.\n\
+      Chef Infra Client creates a copy of the local cache, and then stores\nit in-memory\
+      \ during a Chef Infra Client run. The in-memory cache\nallows packages to be\
+      \ installed during a Chef Infra Client run\nwithout the need to continue synchronizing\
+      \ the remote metadata to\nthe local cache while a Chef Infra Client run is in-progress.\n\
+      \nAs an array:\n\n```ruby\ndnf_package 'some-package' do\n  #...\n  flush_cache\
+      \ [ :before ]\n  #...\nend\n```\n\nand as a Hash:\n\n```ruby\ndnf_package 'some-package'\
+      \ do\n  #...\n  flush_cache( { :after => true } )\n  #...\nend\n```"
+  - note:
+      markdown: 'The `flush_cache` property does not flush the local DNF cache! Use
+        dnf tools---`dnf clean metadata`, `dnf clean packages`,
+        `dnf clean all`---to clean the local DNF cache.'
 - property: options
   ruby_type: String, Array
   required: false

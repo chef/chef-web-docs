@@ -11,6 +11,12 @@ resource_description_list:
     have file, package, and service resources. The dsc_script resource is most useful for those DSC resources that do not have a direct comparison to a
     resource in Chef Infra Client, such as the Archive resource, a custom DSC resource, an existing DSC script that performs an important
     task, and so on. Use the dsc_script resource to embed the code that defines a DSC configuration directly within a Chef Infra Client recipe.
+- note:
+    markdown: 'Windows PowerShell 4.0 is required for using the **dsc_script**
+      resource with Chef Infra.'
+- note:
+    markdown: 'The WinRM service must be enabled. (Use `winrm quickconfig` to enable
+      the service.)'
 - warning:
     markdown: The **dsc_script** resource may not be used with the 32 bit Chef Infra
       client. It must be executed from a 64 bit Chef Infra client.
