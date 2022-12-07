@@ -99,7 +99,7 @@ properties_list:
 examples: |
   The following examples demonstrate various approaches for using the **group** resource in recipes:
 
-  Append users to groups:
+  **Append users to groups**:
 
   ```ruby
   group 'www-data' do
@@ -109,7 +109,7 @@ examples: |
   end
   ```
 
-  Add a user to group on the Windows platform:
+  **Add a user to group on the Windows platform**:
 
   ```ruby
   group 'Administrators' do

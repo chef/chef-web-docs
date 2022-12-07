@@ -13,14 +13,18 @@ resource_description_list:
     The directory resource uses the name property to specify the path to a location
     in a directory. Typically, permission to access that location in the directory
     is required.
-syntax_description: "A **directory** resource block declares a directory and the permissions\n\
+syntax_description: |
+  A **directory** resource block declares a directory and the permissions
   needed on that directory. For example:
+
+  ```ruby
   directory '/etc/apache2' do
     owner 'root'
     group 'root'
     mode '0755'
     action :create
-  end"
+  end
+  ```
 syntax_properties_list:
 syntax_full_code_block: |-
   directory 'name' do
@@ -175,4 +179,203 @@ properties_list:
       specifies the rights granted to the principal, `<principal>` is the
       group or user name, and `<options>` is a Hash with one (or more)
       advanced rights options.'
-examples:
+examples: |
+  Create a directory
+
+  ```ruby
+  directory '/tmp/something' do
+    owner 'root'
+    group 'root'
+    mode '0755'
+    action :create
+  end
+
+  ```
+
+  Create a directory in Microsoft Windows
+
+  ```ruby
+  directory "C:\\tmp\\something" do
+    rights :full_control, "DOMAIN\\User"
+    inherits false
+    action :create
+  end
+  ```
+
+  or:
+
+  ```ruby
+  directory 'C:\tmp\something' do
+    rights :full_control, 'DOMAIN\User'
+    inherits false
+    action :create
+  end
+  ```
+
+  <div class="admonition-note">
+    <p class="admonition-note-title">Note</p>
+    <div class="admonition-note-text">
+      <p>The difference between the two previous examples is the single- versus
+      double-quoted strings, where if the double quotes are used, the backslash character
+      (<code>\</code>) must be escaped using the Ruby escape character (which is a
+      backslash).</p>
+    </div>
+  </div>
+
+  Create a directory recursively:
+
+  ```ruby
+  %w{dir1 dir2 dir3}.each do |dir|
+    directory "/tmp/mydirs/#{dir}" do
+      mode '0755'
+      owner 'root'
+      group 'root'
+      action :create
+      recursive true
+    end
+  end
+  ```
+
+  Delete a directory:
+
+  ```ruby
+  directory '/tmp/something' do
+    recursive true
+    action :delete
+  end
+  ```
+
+  Set directory permissions using a variable
+
+  The following example
+  shows how read/write/execute permissions can be
+  set using a variable named
+  `user_home`, and then for owners and groups
+  on any matching node:
+
+  ```ruby
+  user_home = "/#{node[:matching_node][:user]}"
+
+  directory user_home do
+    owner 'node[:matching_node][:user]'
+    group 'node[:matching_node][:group]'
+    mode '0755'
+    action :create
+  end
+  ```
+
+  where `matching_node` represents
+  a type of node. For example, if the
+  `user_home` variable specified `{node[:nginx]...}`,
+  a recipe might look
+  similar to:
+
+  ```ruby
+  user_home = "/#{node[:nginx][:user]}"
+
+  directory user_home do
+    owner 'node[:nginx][:user]'
+    group 'node[:nginx][:group]'
+    mode '0755'
+    action :create
+  end
+  ```
+
+  Set directory permissions for a specific type of node
+
+  The following example shows how permissions can be set for the
+  `/certificates` directory on any node that is running Nginx. In this
+  example, permissions are being set for the `owner` and `group`
+  properties as `root`, and then read/write permissions are granted to the
+  root.
+
+  ```ruby
+  directory "#{node[:nginx][:dir]}/shared/certificates" do
+    owner 'root'
+    group 'root'
+    mode '0755'
+    recursive true
+  end
+  ```
+
+
+  Reload the configuration
+
+  The following example shows how to reload the configuration of a
+  chef-client using the **remote_file** resource to:
+
+  -   using an if statement to check whether the plugins on a node are the
+      latest versions
+  -   identify the location from which Ohai plugins are stored
+  -   using the `notifies` property and a **ruby_block** resource to
+      trigger an update (if required) and to then reload the client.rb
+      file.
+
+  ```ruby
+  directory 'node[:ohai][:plugin_path]' do
+    owner 'chef'
+    recursive true
+  end
+
+  ruby_block 'reload_config' do
+    block do
+      Chef::Config.from_file('/etc/chef/client.rb')
+    end
+    action :nothing
+  end
+
+  if node[:ohai].key?(:plugins)
+    node[:ohai][:plugins].each do |plugin|
+      remote_file node[:ohai][:plugin_path] +"/#{plugin}" do
+        source plugin
+        owner 'chef'
+        notifies :run, 'ruby_block[reload_config]', :immediately
+      end
+    end
+  end
+  ```
+
+  Manage dotfiles
+
+  The following example shows using the **directory** and
+  **cookbook_file** resources to manage dotfiles. The dotfiles are
+  defined by a JSON data structure similar to:
+
+  ```javascript
+  "files": {
+    ".zshrc": {
+      "mode": '0755',
+      "source": "dot-zshrc"
+      },
+    ".bashrc": {
+      "mode": '0755',
+      "source": "dot-bashrc"
+      },
+    ".bash_profile": {
+      "mode": '0755',
+      "source": "dot-bash_profile"
+      },
+    }
+  ```
+
+  and then the following resources manage the dotfiles:
+
+  ```ruby
+  if u.has_key?('files')
+    u['files'].each do |filename, file_data|
+
+    directory "#{home_dir}/#{File.dirname(filename)}" do
+      recursive true
+      mode '0755'
+    end if file_data['subdir']
+
+    cookbook_file "#{home_dir}/#{filename}" do
+      source "#{u['id']}/#{file_data['source']}"
+      owner 'u['id']'
+      group 'group_id'
+      mode 'file_data['mode']'
+      ignore_failure true
+      backup 0
+    end
+  end
+  ```

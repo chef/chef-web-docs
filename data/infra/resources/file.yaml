@@ -112,14 +112,14 @@ properties_list:
   required: false
   default_value: 'true'
   description_list:
-  - markdown: Change the behavior of the file resource if it is pointed at a symlink.
-      When this value is set to true, Chef Infra Client will manage the symlink's
+  - markdown: Change the behavior of the **file** resource if it is pointed at a symlink.
+      When this value is set to `true`, Chef Infra Client will manage the symlink's
       permissions or will replace the symlink with a normal file if the resource has
-      content. When this value is set to false, Chef Infra Client will follow the
+      content. When this value is set to `false`, Chef Infra Client will follow the
       symlink and will manage the permissions and content of symlink's target file.
-      The default behavior is true but emits a warning that the default value will
-      be changed to false in a future version; setting this explicitly to true or
-      false suppresses this warning.
+      The default behavior is `true` but emits a warning that the default value will
+      be changed to `false` in a future version; setting this explicitly to `true` or
+      `false` suppresses this warning.
 - property: mode
   ruby_type: Integer, String
   required: false

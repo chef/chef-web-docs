@@ -12,8 +12,11 @@ resource_description_list:
       the monolithic `/etc/crontab` file on platforms that lack cron.d support. See
       the [cron resource](/resources/cron/) for information on using that resource.
 resource_new_in: '14.4'
-syntax_description: "A **cron_d** resource block manages cron.d files. For example,
+syntax_description: |
+  A **cron_d** resource block manages cron.d files. For example,
   to get a weekly cookbook report from the Chef Supermarket:
+
+  ```ruby
   cron_d 'cookbooks_report' do
     action :create
     minute '0'
@@ -28,7 +31,8 @@ syntax_description: "A **cron_d** resource block manages cron.d files. For examp
       RAILS_ASSET_ID=`git rev-parse HEAD` RAILS_ENV=\"#{rails_env}\"
       bundle exec rake cookbooks_report
     }.join(' ')
-  end"
+  end
+  ```
 syntax_full_code_block: |-
   cron_d 'name' do
     command               String

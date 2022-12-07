@@ -8,9 +8,8 @@ resources_common_notification: true
 resources_common_properties: true
 resource: cookbook_file
 resource_description_list:
+- shortcode: resource_cookbook_file_summary.md
 - markdown: |-
-    Use the **cookbook_file** resource to transfer files from a sub-directory of COOKBOOK_NAME/files/ to a specified path located on a host that is running the Chef Infra Client. The file is selected according to file specificity, which allows different source files to be used based on the hostname, host platform (operating system, distro, or as appropriate), or platform version. Files that are located in the COOKBOOK_NAME/files/default sub-directory may be used on any platform.
-
     During a Chef Infra Client run, the checksum for each local file is calculated and then compared against the checksum for the same file as it currently exists in the cookbook on the Chef Infra Server. A file is not transferred when the checksums match. Only files that require an update are transferred from the Chef Infra Server to a node.
 syntax_full_code_block: |-
   cookbook_file 'name' do
@@ -111,9 +110,7 @@ properties_list:
   required: false
   default_value: 'true'
   description_list:
-  - markdown: "(with
-
-      warning)
+  - markdown: "(with warning)
 
       Change the behavior of the file resource if it is pointed at a symlink.
 
@@ -123,16 +120,13 @@ properties_list:
 
       content. When this value is set to `false`, Chef Infra Client will follow the
 
-      `false`, Chef will follow the symlink and will manage the
-
       symlink and will manage the permissions and content of symlink's target file.
 
+      The default behavior is `true`, but emits a warning that the default value will
 
-      The default behavior is true but emits a warning that the default value will
+      be changed to `false` in a future version; setting this explicitly to `true` or
 
-      be changed to false in a future version; setting this explicitly to true or
-
-      false suppresses this warning."
+      `false` suppresses this warning."
 - property: mode
   ruby_type: Integer, String
   required: false
@@ -233,11 +227,11 @@ properties_list:
 - property: source
   ruby_type: String, Array
   required: false
-  default_value: lazy default
+  default_value: The resource block's name.
   description_list:
-  - markdown: The name of the file in COOKBOOK_NAME/files/default or the path to a
+  - markdown: The name of the file in `COOKBOOK_NAME/files/default` or the path to a
 
-      file located in COOKBOOK_NAME/files. The path must include the file name and
+      file located in `COOKBOOK_NAME/files`. The path must include the file name and
 
       its extension. This can be used to distribute specific files depending upon
 
@@ -263,8 +257,8 @@ properties_list:
       \ the Chef Infra Client run\nwill stop and an error is returned."
 properties_multiple_packages: false
 resource_directory_recursive_directories: false
+remote_file_unc_path: false
 remote_file_prevent_re_downloads: false
-      the platform used.
 ps_credential_helper: false
 ruby_style_basics_chef_log: false
 debug_recipes_chef_shell: false

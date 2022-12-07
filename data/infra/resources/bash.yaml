@@ -78,8 +78,8 @@ properties_list:
   default_value: 'false'
   new_in: '14.2'
   description_list:
-  - markdown: When true this enables ENV magic to add path_sanity to the PATH and
-      force the locale to English+UTF-8 for parsing output
+  - markdown: When `true` this enables ENV magic to add path_sanity to the PATH and
+      force the locale to English+UTF-8 for parsing output.
 - property: domain
   ruby_type: String
   required: false

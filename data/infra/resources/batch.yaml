@@ -46,7 +46,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :run:
-    markdown: Run a command. (default)
+    markdown: Run a batch file.
 properties_list:
 - property: architecture
   ruby_type: Symbol
@@ -54,8 +54,8 @@ properties_list:
   description_list:
   - markdown: 'The architecture of the process under which a script is executed. If a value is not provided,
       Chef Infra Client defaults to the correct value for the architecture, as determined by Ohai.
-      An exception is raised when anything other than :i386 is specified for a 32-bit process.
-      Possible values: :i386 (for 32-bit processes) and :x86_64 (for 64-bit processes).'
+      An exception is raised when anything other than `:i386` is specified for a 32-bit process.
+      Possible values: `:i386` (for 32-bit processes) and `:x86_64` (for 64-bit processes).'
 - property: code
   ruby_type: String
   required: true
@@ -64,7 +64,7 @@ properties_list:
 - property: command
   ruby_type: String, Array
   required: false
-  default_value: The resource block's name
+  default_value: The resource block's name.
   description_list:
   - markdown: An optional property to set the command to be executed if it differs
       from the resource block's name.
@@ -97,8 +97,8 @@ properties_list:
   required: false
   default_value: :batch
   description_list:
-  - markdown: 'When this property is set to :batch, the 64-bit version of the cmd.exe shell will be used to evaluate strings values for the not_if and only_if properties.
-      Set this value to :default to use the 32-bit version of the cmd.exe shell.'
+  - markdown: 'When this property is set to `:batch`, the 64-bit version of the cmd.exe shell will be used to evaluate strings values for the not_if and only_if properties.
+      Set this value to `:default` to use the 32-bit version of the cmd.exe shell.'
 - property: interpreter
   ruby_type: String
   required: false
@@ -122,25 +122,25 @@ properties_list:
   required: false
   description_list:
   - markdown: 'The user name of the user identity with which to launch the new process.
-      The user name may optionally be specified with a domain, i.e. domainuser or user@my.dns.domain.com via Universal Principal Name (UPN)format.
-      It can also be specified without a domain simply as user if the domain is instead specified using the domain attribute.
+      The user name may optionally be specified with a domain, i.e. `domainuser` or `user@subdomain.dns.example.com` via Universal Principal Name (UPN)format.
+      It can also be specified without a domain simply as `user` if the domain is instead specified using the domain attribute.
       On Windows only, if this property is specified, the password property must be specified.'
 - property: password
   ruby_type: String
   required: false
   description_list:
   - markdown: '*Windows only*:  The password of the user specified by the user property.
-      This property is mandatory if user is specified on Windows and may only be specified if user is specified.
-      The sensitive property for this resource will automatically be set to true if password is specified.'
+      This property is mandatory if `user` is specified on Windows and may only be specified if `user` is specified.
+      The sensitive property for this resource will automatically be set to `true` if password is specified.'
 - property: domain
   ruby_type: String
   required: false
   description_list:
-  - markdown: '*Windows only*: The domain of the user user specified by the user property.
-      If not specified, the user name and password specified by the user and password properties will be used to resolve that user
+  - markdown: '*Windows only*: The domain of the user specified by the `user` property.
+      If not specified, the user name and password specified by the `user` and `password` properties will be used to resolve that user
       against the domain in which the system running Chef Infra Client is joined, or if that system is not joined to a domain it
       will resolve the user as a local account on that system. An alternative way to specify the domain is
-      to leave this property unspecified and specify the domain as part of the user property.'
+      to leave this property unspecified and specify the domain as part of the `user` property.'
 examples: "
   Unzip a file, and then move it\n\n  To run a batch file that unzips\
   \ and then moves Ruby, do something like:\n\n  ```ruby\n  batch 'unzip_and_move_ruby'\

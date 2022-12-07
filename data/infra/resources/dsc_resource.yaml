@@ -52,53 +52,23 @@ properties_list:
   - markdown: |-
       A property from a Desired State Configuration (DSC) resource.
       Use this property multiple times, one for each property in the Desired State Configuration (DSC) resource.
-      The format for this property must follow property :dsc_property_name, \"property_value\" for each DSC property added to the resource block.
-      The :dsc_property_name must be a symbol.
+      The format for this property must follow `property :dsc_property_name, "property_value"` for each DSC property added to the resource block.
+      The `:dsc_property_name` must be a symbol.
 
       Use the following Ruby types to define property_value:
 
-      <table>
-      <colgroup>
-      <col style="width: 50%" />
-      <col style="width: 50%" />
-      </colgroup>
-      <thead>
-      <tr class="header">
-      <th>Ruby</th>
-      <th>PowerShell</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-      <td><code>:array</code></td>
-      <td><code>Object[]</code></td>
-      </tr>
-      <tr>
-      <td><code>Chef::Util::Powershell:PSCredential</code></td>
-      <td><code>PSCredential</code></td>
-      </tr>
-      <tr>
-      <td><code>False</code></td>
-      <td><code>bool($false)</code></td>
-      </tr>
-      <tr>
-      <td><code>Fixnum</code></td>
-      <td><code>Integer</code></td>
-      </tr>
-      <tr>
-      <td><code>Float</code></td>
-      <td><code>Double</code></td>
-      </tr>
-      <tr>
-      <td><code>Hash</code></td>
-      <td><code>Hashtable</code></td>
-      </tr>
-      <tr>
-      <td><code>True</code></td>
-      <td><code>bool($true)</code></td>
-      </tr>
-      </tbody>
-      </table>
+      | **Ruby**                              | **PowerShell** |
+      |---------------------------------------|----------------|
+      | `:array`                              | `Object[]`     |
+      | `Chef::Util::Powershell:PSCredential` | `PSCredential` |
+      | `False`                               | `bool($false)` |
+      | `Fixnum`                              | `Integer`      |
+      | `Float`                               | `Double`       |
+      | `Hash`                                | `Hashtable`    |
+      | `True`                                | `bool($true)`  |
+
+      These are converted into the corresponding Windows PowerShell type during a Chef Infra Client run.
+
 - property: reboot_action
   ruby_type: Symbol
   required: false

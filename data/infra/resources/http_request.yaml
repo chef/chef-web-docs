@@ -11,10 +11,21 @@ resource_description_list:
 syntax_full_code_block: |-
   http_request 'name' do
     headers      Hash # default value: {}
+    message      Object # defaults to 'name' if not specified
     url          String
     action       Symbol # defaults to :get if not specified
   end
-syntax_properties_list:
+syntax_description: |
+  An **http_request** resource block sends HTTP requests with an arbitrary message.
+  For example, to send a `DELETE` request to `'http://www.example.com/some_page?message=please_delete_me'`:
+
+  ```ruby
+  http_request 'please_delete_me' do
+    url 'http://www.example.com/some_page'
+    action :delete
+  end
+  ```
+
 syntax_full_properties_list:
 - '`http_request` is the resource.'
 - '`name` is the name given to the resource block.'

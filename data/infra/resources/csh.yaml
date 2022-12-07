@@ -99,7 +99,7 @@ properties_list:
   description_list:
   - markdown: The user name of the user identity with which to launch the new process.
       The user name may optionally be specified with a domain, i.e. `domain\user`
-      or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can
+      or `user@sub.dns.example.com` via Universal Principal Name (UPN) format. It can
       also be specified without a domain simply as user if the domain is instead specified
       using the domain property. On Windows only, if this property is specified, the
       password property must be specified.

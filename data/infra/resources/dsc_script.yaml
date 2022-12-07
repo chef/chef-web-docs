@@ -6,11 +6,13 @@ resources_common_notification: true
 resources_common_properties: true
 resource: dsc_script
 resource_description_list:
+- shortcode: resources_common_powershell.md
+- shortcode: resources_common_powershell_dsc.md
 - markdown: |-
     Many DSC resources are comparable to built-in Chef Infra Client resources. For example, both DSC and Chef Infra Client
-    have file, package, and service resources. The dsc_script resource is most useful for those DSC resources that do not have a direct comparison to a
-    resource in Chef Infra Client, such as the Archive resource, a custom DSC resource, an existing DSC script that performs an important
-    task, and so on. Use the dsc_script resource to embed the code that defines a DSC configuration directly within a Chef Infra Client recipe.
+    have **file**, **package**, and **service** resources. The **dsc_script** resource is most useful for those DSC resources that do not have a direct comparison to a
+    resource in Chef Infra Client, such as the DSC Archive resource, a custom DSC resource, an existing DSC script that performs an important
+    task, and so on. Use the `dsc_script` resource to embed the code that defines a DSC configuration directly within a Chef Infra Client recipe.
 - note:
     markdown: 'Windows PowerShell 4.0 is required for using the **dsc_script**
       resource with Chef Infra.'
@@ -18,8 +20,34 @@ resource_description_list:
     markdown: 'The WinRM service must be enabled. (Use `winrm quickconfig` to enable
       the service.)'
 - warning:
-    markdown: The **dsc_script** resource may not be used with the 32 bit Chef Infra
-      client. It must be executed from a 64 bit Chef Infra client.
+    markdown: The **dsc_script** resource may not be used in the same run-list with
+      the **dsc_resource**. This is because the **dsc_script** resource
+      requires that `RefreshMode` in the Local Configuration Manager be set to
+      `Push`, whereas the **dsc_resource** resource requires it to be set to
+      `Disabled`.
+- warning:
+    markdown: The **dsc_script** resource is only available on 64-bit versions of Chef Infra Client.
+syntax_description: |
+  A **dsc_script** resource block embeds the code that defines a DSC configuration directly within a Chef recipe:
+
+  ```ruby
+  dsc_script 'get-dsc-resource-kit' do
+    code <<-EOH
+      Archive reskit
+      {
+        ensure = 'Present'
+        path = "#{Chef::Config[:file_cache_path]}\\DSCResourceKit620082014.zip"
+        destination = "#{ENV['PROGRAMW6432']}\\WindowsPowerShell\\Modules"
+      }
+    EOH
+  end
+  ```
+
+  where
+  
+  - the **remote_file** resource is first used to download the `DSCResourceKit620082014.zip` file.
+
+
 syntax_full_code_block: |-
   dsc_script 'name' do
     cwd              String
