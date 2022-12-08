@@ -8,6 +8,9 @@ resource_description_list:
     to the **execute** resource. Commands that are executed with this resource are
     (by their nature) not idempotent, as they are typically unique to the environment
     in which they are run. Use `not_if` and `only_if` to guard this resource for idempotence.
+syntax_description: "A **perl** resource block executes scripts Perl:\n\n```perl\n\
+  perl 'hello world' do\n  code <<-EOH\n    print \"Hello world! From Chef and Perl.\"\
+  ;\n  EOH\nend\n```"
 syntax_full_code_block: |-
   perl 'name' do
     code             String
@@ -31,6 +34,7 @@ syntax_full_code_block: |-
     action           Symbol # defaults to :run if not specified
   end
 syntax_properties_list:
+- '`code` specifies the command to run'
 syntax_full_properties_list:
 - "`perl` is the resource."
 - "`name` is the name given to the resource block."
@@ -88,21 +92,9 @@ properties_list:
   required: false
   description_list:
   - shortcode: resources_common_notification_notifies.md
-  - markdown: |-
-      A resource may notify another resource to take action when its state changes. Specify a resource[name], the :action that resource should take,
-      and then the :timer for that action. A resource may notify more than one resource; use a notifies statement for each resource to be notified.
-      If the referenced resource does not exist, an error is raised. In contrast, subscribes will not fail if the source resource is not found.
-      A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:'
+  - markdown: ''
   - shortcode: resources_common_notification_timers.md
-  - markdown: |-
-      :before
-      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
-
-      :delayed
-      Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
-
-      :immediate, :immediately
-      Specifies that a notification should be run immediately, for each resource notified.
+  - markdown: ''
   - shortcode: resources_common_notification_notifies_syntax.md
 - property: returns
   ruby_type: Integer, Array
@@ -131,12 +123,8 @@ properties_list:
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: The user name of the user identity with which to launch the new process.
-      The user name may optionally be specified with a domain, i.e. `domain\user`
-      or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can
-      also be specified without a domain simply as user if the domain is instead specified
-      using the domain property. On Windows only, if this property is specified, the
-      password property must be specified.
+  - markdown: The user name or user ID that should be changed before running a
+      command.
 - property: umask
   ruby_type: String, Integer
   required: false

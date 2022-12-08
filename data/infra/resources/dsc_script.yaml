@@ -44,7 +44,7 @@ syntax_description: |
   ```
 
   where
-  
+
   - the **remote_file** resource is first used to download the `DSCResourceKit620082014.zip` file.
 
 
@@ -57,6 +57,8 @@ syntax_full_code_block: |-
     action           Symbol # defaults to :run if not specified
   end
 syntax_properties_list:
+- 'the **remote_file** resource is first used to download the
+  `DSCResourceKit620082014.zip` file.'
 syntax_full_properties_list:
 - "`dsc_script` is the resource."
 - "`name` is the name given to the resource block."

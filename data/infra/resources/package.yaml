@@ -3,10 +3,52 @@ resource_reference: true
 resource_package_options: true
 resource: package
 resource_description_list:
-- markdown: |-
-    Use the **package** resource to manage packages. When the package is installed from a local file (such as with RubyGems, dpkg, or RPM Package Manager), the file must be added to the node using the remote_file or cookbook_file resources.
-
-    This resource is the base resource for several other resources used for package management on specific platforms. While it is possible to use each of these specific resources, it is recommended to use the package resource as often as possible.
+- markdown: 'Use the **package** resource to manage packages. When the package is
+    installed from a local file (such as with RubyGems, dpkg, or RPM Package
+    Manager), the file must be added to the node using the **remote_file**
+    or **cookbook_file** resources.
+    This resource is the base resource for several other resources used for
+    package management on specific platforms. While it is possible to use
+    each of these specific resources, it is recommended to use the
+    **package** resource as often as possible.
+    For more information about specific resources for specific platforms,
+    see the following topics:
+    -   [apt_package](/resources/apt_package/)
+    -   [bff_package](/resources/bff_package/)
+    -   [cab_package](/resources/cab_package/)
+    -   [chef_gem](/resources/chef_gem/)
+    -   [chocolatey_package](/resources/chocolatey_package/)
+    -   [dmg_package](/resources/dmg_package/)
+    -   [dnf_package](/resources/dnf_package/)
+    -   [dpkg_package](/resources/dpkg_package/)
+    -   [freebsd_package](/resources/freebsd_package/)
+    -   [gem_package](/resources/gem_package/)
+    -   [homebrew_package](/resources/homebrew_package/)
+    -   [ips_package](/resources/ips_package/)
+    -   [macports_package](/resources/macports_package/)
+    -   [msu_package](/resources/msu_package/)
+    -   [openbsd_package](/resources/openbsd_package/)
+    -   [pacman_package](/resources/pacman_package/)
+    -   [paludis_package](/resources/paludis_package/)
+    -   [portage_package](/resources/portage_package/)
+    -   [rpm_package](/resources/rpm_package/)
+    -   [smartos_package](/resources/smartos_package/)
+    -   [snap_package](/resources/snap_package/)
+    -   [solaris_package](/resources/solaris_package/)
+    -   [windows_package](/resources/windows_package/)
+    -   [yum_package](/resources/yum_package/)
+    -   [zypper_package](/resources/zypper_package/)'
+syntax_description: "A **package** resource block manages a package on a node, typically\
+  \ by\ninstalling it. The simplest use of the **package** resource is:\n\n```ruby\n\
+  package 'httpd'\n```\n\nwhich will install Apache using all of the default options\
+  \ and the\ndefault action (`:install`).\n\nFor a package that has different package\
+  \ names, depending on the\nplatform, use a `case` statement within the **package**:\n\
+  \n```ruby\npackage 'Install Apache' do\n  case node[:platform]\n  when 'redhat',\
+  \ 'centos'\n    package_name 'httpd'\n  when 'ubuntu', 'debian'\n    package_name\
+  \ 'apache2'\n  end\nend\n```"
+syntax_properties_list:
+- '`''redhat'', ''centos''` will install Apache using the `httpd` package
+  and `''ubuntu'', ''debian''` will install it using the `apache2` package'
 syntax_full_code_block: |-
   package 'name' do
     options           String, Array
@@ -16,7 +58,6 @@ syntax_full_code_block: |-
     version           String, Array
     action            Symbol # defaults to :install if not specified
   end
-syntax_properties_list:
 syntax_full_properties_list:
 - "`package` is the resource."
 - "`name` is the name given to the resource block."

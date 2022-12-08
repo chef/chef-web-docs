@@ -47,7 +47,7 @@ actions_list:
     markdown: Purge a package. This action typically removes the configuration files
       as well as the package.
   :remove:
-    markdown: Change the installed package
+    markdown: Remove a package.
   :unlock:
     markdown: Unlocks the yum package so that it can be upgraded to a newer version.
   :upgrade:
@@ -94,7 +94,9 @@ properties_list:
   required: false
   description_list:
   - markdown: 'One of the following: the name of a package, the name of a package
-      and its architecture, the name of a dependency.'
+      and its architecture, the name of a dependency. Default value: the
+      `name` of the resource block. See "Syntax" section above for more
+      information.'
 - property: source
   ruby_type: String
   required: false

@@ -157,7 +157,17 @@ properties_list:
   required: false
   default_value: "[]"
   description_list:
-  - markdown:
+  - markdown: 'An array of hashes, where each Hash contains the values that are to
+      be set under a registry key. Each Hash must contain `name:`,
+      `type:`, and `data:` (and must contain no other key values).
+      `type:` represents the values available for registry keys in
+      Microsoft Windows. Use `:binary` for REG_BINARY, `:string` for
+      REG_SZ, `:multi_string` for REG_MULTI_SZ, `:expand_string` for
+      REG_EXPAND_SZ, `:dword` for REG_DWORD, `:dword_big_endian` for
+      REG_DWORD_BIG_ENDIAN, or `:qword` for REG_QWORD.'
+  - warning:
+      markdown: '`:multi_string` must be an array, even if there is only a single
+        string.'
 resources_common_properties: false
 resources_common_notification: false
 resources_common_guards: false

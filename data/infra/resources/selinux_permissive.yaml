@@ -25,9 +25,9 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :add:
-    markdown: Add a permissive, unless already set. (default)
+    markdown: Make a domain permissive, unless already set. (default)
   :delete:
-    markdown: Remove a permissive, if set.
+    markdown: Stop a domain from being permissive, if set.
 properties_list:
 - property: context
   ruby_type: String

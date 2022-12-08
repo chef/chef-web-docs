@@ -12,6 +12,43 @@ resource_description_list:
     that are executed with this resource are (by their nature) not idempotent, as
     they are typically unique to the environment in which they are run. Use `not_if`
     and `only_if` to guard this resource for idempotence.
+- markdown: 'This resource is the base resource for several other resources used for
+    scripting on specific platforms. For more information about specific
+    resources for specific platforms, see the following topics:
+    -   [bash](/resources/bash/)
+    -   [csh](/resources/csh/)
+    -   [ksh](/resources/ksh/)
+    -   [perl](/resources/perl/)
+    -   [python](/resources/python/)
+    -   [ruby](/resources/ruby/)
+    Changed in 12.19 to support windows alternate user identity in execute
+    resources'
+syntax_description: "A **script** resource block typically executes scripts using\
+  \ a specified\ninterpreter, such as Bash, csh, Perl, Python, or Ruby:\n\n```ruby\n\
+  script 'extract_module' do\n  interpreter \"bash\"\n  cwd ::File.dirname(src_filepath)\n\
+  \  code <<-EOH\n    mkdir -p #{extract_path}\n    tar xzf #{src_filename} -C #{extract_path}\n\
+  \    mv #{extract_path}/*/* #{extract_path}/\n  EOH\n  not_if { ::File.exist?(extract_path)\
+  \ }\nend\n```"
+syntax_properties_list:
+- '`interpreter` specifies the command shell to use'
+- '`cwd` specifies the directory from which the command is run'
+- |
+  `code` specifies the command to run
+  It is more common to use the **script**-based resource that is specific to the
+  command shell. Chef has shell-specific resources for Bash, csh, ksh, Perl,
+  Python, and Ruby.
+  The same command as above, but run using the **bash** resource:
+  ```ruby
+  bash 'extract_module' do
+    cwd ::File.dirname(src_filepath)
+    code <<-EOH
+      mkdir -p #{extract_path}
+      tar xzf #{src_filename} -C #{extract_path}
+      mv #{extract_path}/*/* #{extract_path}/
+    EOH
+    not_if { ::File.exist?(extract_path) }
+  end
+  ```
 syntax_full_code_block: |-
   script 'name' do
     code             String
@@ -34,7 +71,6 @@ syntax_full_code_block: |-
     user             String, Integer
     action           Symbol # defaults to :run if not specified
   end
-syntax_properties_list: 
 syntax_full_properties_list:
 - "`script` is the resource."
 - "`name` is the name given to the resource block."
@@ -74,36 +110,21 @@ properties_list:
   required: false
   description_list:
   - markdown: The current working directory from which the command will be run.
-- property: default_env
-  ruby_type: true, false
-  required: false
-  default_value: 'false'
-  new_in: '14.2'
-  description_list:
-  - markdown: When true this enables ENV magic to add path_sanity to the PATH and
-      force the locale to English+UTF-8 for parsing output
 - property: domain
   ruby_type: String
   required: false
-  new_in: '12.21'
   description_list:
-  - markdown: 'Windows only: The domain of the user specified by the user property.
-      If not specified, the username and password specified by the `user` and `password`
-      properties will be used to resolve that user against the domain in which the
-      system running Chef Infra Client is joined, or if that system is not joined
-      to a domain it will resolve the user as a local account on that system. An alternative
-      way to specify the domain is to leave this property unspecified and specify
-      the domain as part of the user property.'
-- property: elevated
-  ruby_type: true, false
-  required: false
-  default_value: 'false'
-  new_in: '13.3'
-  description_list:
-  - markdown: |-
-      Determines whether the script will run with elevated permissions to circumvent User Access Control (UAC) from interactively blocking the process.
-      This will cause the process to be run under a batch login instead of an interactive login. The user running chef-client needs the 'Replace a process level token' and 'Adjust Memory Quotas for a process' permissions. The user that is running the command needs the 'Log on as a batch job' permission.
-      Because this requires a login, the user and password properties are required.
+  - markdown: '*Windows only*: The domain of the user user specified by the <span
+      class="title-ref">user</span> property. Default value: <span
+      class="title-ref">nil</span>. If not specified, the user name and
+      password specified by the <span class="title-ref">user</span> and
+      <span class="title-ref">password</span> properties will be used to
+      resolve that user against the domain in which the system running
+      Chef client is joined, or if that system is not joined to a domain
+      it will resolve the user as a local account on that system. An
+      alternative way to specify the domain is to leave this property
+      unspecified and specify the domain as part of the <span
+      class="title-ref">user</span> property.'
 - property: environment
   ruby_type: Hash
   required: false
@@ -132,22 +153,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 
-- property: live_stream
-  ruby_type: true, false
-  required: false
-  default_value: 'false'
-  description_list:
-  - markdown: Send the output of the command run by this execute resource block to
-      the Chef Infra Client event stream.
-- property: login
-  ruby_type: true, false
-  required: false
-  default_value: 'false'
-  new_in: '17.0'
-  description_list:
-  - markdown: Use a login shell to run the commands instead of inheriting the existing
-      execution environment.
+  - markdown: The script interpreter to use during code execution.
 - property: password
   ruby_type: String
   required: false
@@ -170,6 +176,11 @@ properties_list:
   default_value: '3600'
   description_list:
   - markdown: The amount of time (in seconds) a command is to wait before timing out.
+- property: umask
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown: The file mode creation mask, or umask.
 - property: user
   ruby_type: String, Integer
   required: false

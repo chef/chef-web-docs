@@ -111,7 +111,7 @@ properties_list:
       allows you to define a hash of properties which will be used by the underlying
       **remote_file** resource used to fetch the source.
 - property: returns
-  ruby_type: String, Integer, Array
+  ruby_type: String, Integer, Array of integers
   required: false
   default_value: 0 (success) and 3010 (success where a reboot is necessary)
   description_list:
@@ -160,7 +160,7 @@ properties_list:
   description_list:
   - markdown: The amount of time (in seconds) to wait before timing out.
 - property: version
-  ruby_type: String, Array
+  ruby_type: String
   required: false
   description_list:
   - markdown: The version of a package to be installed or upgraded.

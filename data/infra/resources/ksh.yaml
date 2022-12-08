@@ -42,6 +42,7 @@ syntax_full_code_block: |-
     action                     Symbol # defaults to :run if not specified
   end
 syntax_properties_list:
+- '`code` specifies the command to run'
 syntax_full_properties_list:
 - "`ksh` is the resource."
 - "`name` is the name given to the resource block."

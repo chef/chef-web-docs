@@ -59,7 +59,6 @@ properties_list:
       with set action.
 examples: |
   **Set the SeNetworkLogonRight Privilege for the Builtin Administrators Group and Authenticated Users**:
-
   ```ruby
   windows_user_privilege 'Network Logon Rights' do
     privilege      'SeNetworkLogonRight'
@@ -67,9 +66,15 @@ examples: |
     action         :set
   end
   ```
-
+  **Add the SeDenyRemoteInteractiveLogonRight Privilege to the Builtin Guests and Local Accounts User Groups**:
+  ```ruby
+  windows_user_privilege 'Remote interactive logon' do
+    privilege      'SeDenyRemoteInteractiveLogonRight'
+    users          ['Builtin\Guests', 'NT AUTHORITY\Local Account']
+    action         :add
+  end
+  ```
   **Provide only the Builtin Guests and Administrator Groups with the SeCreatePageFile Privilege**:
-
   ```ruby
   windows_user_privilege 'Create Pagefile' do
     privilege      'SeCreatePagefilePrivilege'
@@ -77,28 +82,7 @@ examples: |
     action         :set
   end
   ```
-
-  **Add the SeDenyRemoteInteractiveLogonRight Privilege to the 'Remote interactive logon' principal**:
-
-  ```ruby
-  windows_user_privilege 'Remote interactive logon' do
-    privilege      'SeDenyRemoteInteractiveLogonRight'
-    action         :add
-  end
-  ```
-
-  **Add to the Builtin Guests Group the SeCreatePageFile Privilege**:
-
-  ```ruby
-  windows_user_privilege 'Guests add Create Pagefile' do
-    principal      'BUILTIN\Guests'
-    privilege      'SeCreatePagefilePrivilege'
-    action         :add
-  end
-  ```
-
   **Remove the SeCreatePageFile Privilege from the Builtin Guests Group**:
-
   ```ruby
   windows_user_privilege 'Create Pagefile' do
     privilege      'SeCreatePagefilePrivilege'
@@ -106,9 +90,7 @@ examples: |
     action         :remove
   end
   ```
-
   **Clear all users from the SeDenyNetworkLogonRight Privilege**:
-
   ```ruby
   windows_user_privilege 'Allow any user the Network Logon right' do
     privilege      'SeDenyNetworkLogonRight'

@@ -50,23 +50,21 @@ syntax_full_properties_list:
   `stop_if_going_on_batteries`, `task_name`, and `user` are the properties available
   to this resource."
 actions_list:
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
   :create:
     markdown: Creates a scheduled task, or updates an existing task if any property
       has changed. (default)
   :delete:
     markdown: Deletes a scheduled task.
-  :run:
-    markdown: Runs a scheduled task.
-  :end:
-    markdown: Ends a scheduled task.
-  :enable:
-    markdown: Enables a scheduled task.
   :disable:
     markdown: Disables a scheduled task.
-  :change:
-    markdown: 
+  :enable:
+    markdown: Enables a scheduled task.
+  :end:
+    markdown: Ends a scheduled task.
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :run:
+    markdown: Runs a scheduled task.
 properties_list:
 - property: backup
   ruby_type: Integer, false

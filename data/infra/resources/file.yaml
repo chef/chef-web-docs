@@ -13,6 +13,11 @@ resource_description_list:
       `/files` directory. Use the **template** resource to create a file based on
       a template in a cookbook's `/templates` directory. And use the **remote_file**
       resource to transfer a file to a node from a remote location.
+syntax_description: "A **file** resource block manages files that exist on nodes.\
+  \ For\nexample, to write the home page for an Apache website:\n\n```ruby\nfile\
+  \ '/var/www/customers/public_html/index.php' do\n  content '<html>This is a placeholder\
+  \ for the home page.</html>'\n  mode '0755'\n  owner 'web_admin'\n  group 'web_admin'\n\
+  end\n```"
 syntax_full_code_block: "file 'name' do\n  atomic_update              true, false\n
   \ backup                     Integer, false # default value: 5\n  checksum                   String\n
   \ content                    String\n  deny_rights                \n  force_unlink
@@ -21,6 +26,9 @@ syntax_full_code_block: "file 'name' do\n  atomic_update              true, fals
   \ rights                     \n  action                     Symbol # defaults to
   :create if not specified\nend"
 syntax_properties_list:
+- '`''/var/www/customers/public_html/index.php''` is path to the file and also the
+  filename to be managed'
+- '`content` defines the contents of the file'
 syntax_full_properties_list:
 - "`file` is the resource."
 - "`name` is the name given to the resource block."

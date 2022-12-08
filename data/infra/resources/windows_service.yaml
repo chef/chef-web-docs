@@ -7,6 +7,9 @@ resource: windows_service
 resource_description_list:
 - markdown: Use the **windows_service** resource to create, delete, or manage a service
     on the Microsoft Windows platform.
+syntax_description: "A **windows_service** resource block manages the state of a service\
+  \ on\na machine that is running Microsoft Windows. For example:\n\n```ruby\nwindows_service\
+  \ 'BITS' do\n  action :configure_startup\n  startup_type :manual\nend\n```"
 resource_new_in: '12.0'
 syntax_full_code_block: |-
   windows_service 'name' do
@@ -39,7 +42,7 @@ syntax_full_code_block: |-
     user                  String
     action                Symbol # defaults to :nothing if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`windows_service` is the resource."
 - "`name` is the name given to the resource block."
@@ -52,32 +55,33 @@ syntax_full_properties_list:
   `status_command`, `stop_command`, `supports`, `timeout`, and `user` are the properties
   available to this resource."
 actions_list:
+  :configure:
+    markdown: "Configure a pre-existing service.\n *New in Chef Client 14.0.*"
+  :configure_startup:
+    markdown: Configure a service based on the value of the `startup_type` property.
+  :create:
+    markdown: "Create the service based on the value of the `binary_path_name`, `service_name`\
+      \ and/or `display_name` property.\n *New in Chef Client 14.0.*"
+  :delete:
+    markdown: "Delete the service based on the value of the `service_name` property.\n\
+      \ *New in Chef Client 14.0.*"
+  :disable:
+    markdown: Disable a service. This action is equivalent to a `Disabled` startup
+      type on the Microsoft Windows platform.
+  :enable:
+    markdown: Enable a service at boot. This action is equivalent to an `Automatic`
+      startup type on the Microsoft Windows platform.
   :nothing:
     shortcode: resources_common_actions_nothing.md
-  :enable:
-    markdown: 
-  :disable:
-    markdown: 
-  :start:
-    markdown: 
-  :stop:
-    markdown: 
-  :restart:
-    markdown: 
   :reload:
-    markdown: 
-  :mask:
-    markdown: 
-  :unmask:
-    markdown: 
-  :configure_startup:
-    markdown: 
-  :create:
-    markdown: 
-  :delete:
-    markdown: 
-  :configure:
-    markdown: 
+    markdown: Reload the configuration for this service. This action is not supported
+      on the Windows platform and will raise an error if used.
+  :restart:
+    markdown: Restart a service.
+  :start:
+    markdown: Start a service, and keep it running until stopped or disabled.
+  :stop:
+    markdown: Stop a service.
 properties_list:
 - property: binary_path_name
   ruby_type: String
@@ -131,50 +135,19 @@ properties_list:
   default_value: '1'
   new_in: '14.0'
   description_list:
-  - markdown: 
-- property: init_command
-  ruby_type: String
-  required: false
-  description_list:
-  - markdown: The path to the init script that is associated with the service. Use
-      init_command to prevent the need to specify overrides for the start_command,
-      stop_command, and restart_command properties. When this property is not specified,
-      the Chef Infra Client will use the default init command for the service provider
-      being used.
+  - markdown:
 - property: load_order_group
   ruby_type: String
   required: false
   new_in: '14.0'
   description_list:
   - markdown: The name of the service's load ordering group(s).
-- property: options
-  ruby_type: Array, String
-  required: false
-  description_list:
-  - markdown: Solaris platform only. Options to pass to the service command. See the
-      svcadm manual for details of possible options.
-- property: parameters
-  ruby_type: Hash
-  required: false
-  description_list:
-  - markdown: 'Upstart only: A hash of parameters to pass to the service command for
-      use in the service definition.'
 - property: pattern
   ruby_type: String
   required: false
   default_value: The value provided to 'service_name' or the resource block's name
   description_list:
   - markdown: The pattern to look for in the process table.
-- property: priority
-  ruby_type: Integer, String, Hash
-  required: false
-  description_list:
-  - markdown: Debian platform only. The relative priority of the program for start
-      and shutdown ordering. May be an integer or a Hash. An integer is used to define
-      the start run levels; stop run levels are then 100-integer. A Hash is used to
-      define values for specific run levels. For example, { 2 => [:start, 20], 3 =>
-      [:stop, 55] } will set a priority of twenty for run level two and a priority
-      of fifty-five for run level three.
 - property: reload_command
   ruby_type: String, false
   required: false
@@ -196,11 +169,6 @@ properties_list:
   default_value: localsystem
   description_list:
   - markdown: The user under which a Microsoft Windows service runs.
-- property: run_levels
-  ruby_type: Array
-  required: false
-  description_list:
-  - markdown: 'RHEL platforms only: Specific run_levels the service will run under.'
 - property: service_name
   ruby_type: String
   required: false
@@ -242,30 +210,26 @@ properties_list:
   required: false
   default_value: '{"restart"=>nil, "reload"=>nil, "status"=>nil}'
   description_list:
-  - markdown: 'A list of properties that controls how Chef Infra Client is to attempt
-      to manage a service: :restart, :reload, :status. For :restart, the init script
-      or other service provider can use a restart command; if :restart is not specified,
-      the chef-client attempts to stop and then start a service. For :reload, the
-      init script or other service provider can use a reload command. For :status,
-      the init script or other service provider can use a status command to determine
-      if the service is running; if :status is not specified, the chef-client attempts
-      to match the service_name against the process table as a regular expression,
-      unless a pattern is specified as a parameter property. Default value: { restart:
-      false, reload: false, status: false } for all platforms (except for the Red
-      Hat platform family, which defaults to { restart: false, reload: false, status:
-      true }.)'
+  - markdown: 'A list of properties that controls how Chef Infra Client is to
+      attempt to manage a service: `:restart`, `:reload`, `:status`. For
+      `:restart`, the init script or other service provider can use a
+      restart command; if `:restart` is not specified, Chef Infra Client
+      attempts to stop and then start a service. For `:reload`, the init
+      script or other service provider can use a reload command. For
+      `:status`, the init script or other service provider can use a
+      status command to determine if the service is running; if `:status`
+      is not specified, Chef Infra Client attempts to match the
+      `service_name` against the process table as a regular expression,
+      unless a pattern is specified as a parameter property. Default
+      value: `{ restart: false, reload: false, status: false }` for all
+      platforms (except for the Red Hat platform family, which defaults to
+      `{ restart: false, reload: false, status: true }`.)'
 - property: timeout
   ruby_type: Integer
   required: false
   default_value: '60'
   description_list:
   - markdown: The amount of time (in seconds) to wait before timing out.
-- property: user
-  ruby_type: String
-  required: false
-  new_in: '12.21'
-  description_list:
-  - markdown: 'systemd only: A username to run the service under.'
 examples: |
   **Starting Services**
 

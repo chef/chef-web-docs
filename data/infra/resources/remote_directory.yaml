@@ -12,6 +12,10 @@ resource_description_list:
     from a cookbook to a node. The directory that is copied from the cookbook should
     be located under `COOKBOOK_NAME/files/default/REMOTE_DIRECTORY`. The `remote_directory`
     resource will obey file specificity.
+syntax_description: "A **remote_directory** resource block transfers a directory from\
+  \ a\ncookbook to a node, and then assigns the permissions needed on that\ndirectory.\
+  \ For example:\n\n```ruby\nremote_directory '/etc/apache2' do\n  source 'apache2'\n\
+  \  owner 'root'\n  group 'root'\n  mode '0755'\n  action :create\nend\n```"
 syntax_full_code_block: "remote_directory 'name' do\n  cookbook          String\n
   \ files_backup      Integer, false # default value: 5\n  files_group       String,
   Integer\n  files_mode        String, Integer # default value: \"0644 on *nix systems\"\n
@@ -22,6 +26,10 @@ syntax_full_code_block: "remote_directory 'name' do\n  cookbook          String\
   \ source            String\n  action            Symbol # defaults to :create if
   not specified\nend"
 syntax_properties_list:
+- '`''/etc/apache2''` specifies the directory'
+- '`source` specifies a directory in the current cookbook (use the `cookbook` property
+  to specify a file that is in a different cookbook)'
+- '`owner`, `group`, and `mode` define the permissions'
 syntax_full_properties_list:
 - "`remote_directory` is the resource."
 - "`name` is the name given to the resource block."

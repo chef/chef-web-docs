@@ -47,8 +47,6 @@ actions_list:
     markdown: Add a new Zypper repository. (default)
   :remove:
     markdown: Remove a Zypper repository.
-  :add:
-    markdown: 
   :refresh:
     markdown: Refresh Zypper repository.
 properties_list:

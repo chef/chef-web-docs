@@ -10,6 +10,29 @@ resource_description_list:
 - markdown: The dsc_resource resource allows any DSC resource to be used in a recipe,
     as well as any custom resources that have been added to your Windows PowerShell
     environment. Microsoft frequently adds new resources to the DSC resource collection.
+- warning:
+  markdown: "Using the **dsc_resource** has the following requirements:\n\n-   Windows\
+    \ Management Framework (WMF) 5.0 (or higher)\n-  The **dsc_resource** resource can only\
+    \ use binary- or script-based\n    resources. Composite DSC resources may not\
+    \ be used.\n\n    This is because composite resources aren't \"real\" resources\
+    \ from the\n    perspective of the Local Configuration Manager (LCM). Composite\n\
+    \    resources are used by the \"configuration\" keyword from the\n    `PSDesiredStateConfiguration`\
+    \ module, and then evaluated in that\n    context. When using DSC to create\
+    \ the configuration document (the\n    Managed Object Framework (MOF) file)\
+    \ from the configuration command,\n    the composite resource is evaluated.\
+    \ Any individual resources from\n    that composite resource are written into\
+    \ the Managed Object\n    Framework (MOF) document. As far as the Local Configuration\
+    \ Manager\n    (LCM) is concerned, there is no such thing as a composite resource.\n\
+    \    Unless that changes, the **dsc_resource** resource and/or\n    `Invoke-DscResource`\
+    \ command cannot directly use them."
+syntax_description: "A **dsc_resource** resource block allows DSC resources to be\
+  \ used in a\nChef recipe. For example, the DSC `Archive` resource:\n\n```powershell\n\
+  Archive ExampleArchive {\n  Ensure = \"Present\"\n  Path = \"C:\\Users\\Public\\\
+  Documents\\example.zip\"\n  Destination = \"C:\\Users\\Public\\Documents\\ExtractionPath\"\
+  \n}\n```\n\nand then the same **dsc_resource** with Chef:\n\n```ruby\ndsc_resource\
+  \ 'example' do\n   resource :archive\n   property :ensure, 'Present'\n   property\
+  \ :path, \"C:\\Users\\Public\\Documents\\example.zip\"\n   property :destination,\
+  \ \"C:\\Users\\Public\\Documents\\ExtractionPath\"\n end```"
 resource_new_in: '12.2'
 syntax_full_code_block: |-
   dsc_resource 'name' do

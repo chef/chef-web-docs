@@ -6,6 +6,10 @@ resource_description_list:
     Client run. Ruby code in the `ruby_block` resource is evaluated with other resources
     during convergence, whereas Ruby code outside of a `ruby_block` resource is evaluated
     before other resources, as the recipe is compiled.
+syntax_description: "A **ruby_block** resource block executes a block of arbitrary\
+  \ Ruby\ncode. For example, to reload the client.rb file during a Chef Infra\nClient\
+  \ run:\n\n```ruby\nruby_block 'reload_client_config' do\n  block do\n    Chef::Config.from_file(\"\
+  /etc/chef/client.rb\")\n  end\n  action :run\nend\n```"
 syntax_full_code_block: |-
   ruby_block 'name' do
     block_name      String # default value: 'name' unless specified
@@ -13,11 +17,14 @@ syntax_full_code_block: |-
   end
 syntax_properties_list:
 syntax_full_properties_list:
-- "`ruby_block` is the resource."
-- "`name` is the name given to the resource block."
-- "`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state."
-- "`block_name` is the property available to this resource."
+- '`ruby_block` is the resource.'
+- '`name` is the name given to the resource block.'
+- '`block` is the block of Ruby code to be executed.'
+- '`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state.'
+- '`block` and `block_name` are properties of this resource, with the Ruby type shown.
+  See "Properties" section below for more information about all of the properties
+  that may be used with this resource.'
 actions_list:
   :create:
     markdown: The same as :run.
@@ -28,6 +35,7 @@ actions_list:
 properties_list:
 - property: block
   ruby_type: block
+  required: false
   description_list:
   - markdown: A block of Ruby code.
 - property: block_name

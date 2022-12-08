@@ -29,6 +29,11 @@ syntax_full_code_block: |-
     action                     Symbol # defaults to :create if not specified
   end
 syntax_properties_list:
+- '`''/var/www/customers/public_html/index.php''` is path to the file to be created'
+- '`''index.php''` is a file in the `/files` directory in a cookbook that is used
+  to create that file (the contents of the file in the cookbook will become the contents
+  of the file on the node)'
+- '`owner`, `group`, and `mode` define the permissions'
 syntax_full_properties_list:
 - "`cookbook_file` is the resource."
 - "`name` is the name given to the resource block."
