@@ -6,10 +6,18 @@ resources_common_properties: true
 resource: powershell_package
 resource_description_list:
 - markdown: Use the **powershell_package** resource to install and manage packages
-    via the PowerShell Package Manager for the Microsoft Windows platform. The powershell_package
+    with the PowerShell Package Manager for the Microsoft Windows platform. The **powershell_package**
     resource requires administrative access, and a source must be configured in the
-    PowerShell Package Manager via the powershell_package_source resource.
+    PowerShell Package Manager using the [**powershell_package_source**](/resources/powershell_package_source/) resource.
 resource_new_in: '12.16'
+syntax_description: |
+  A **powershell_package** resource block manages a package on a node, typically by installing it. The simplest use of the **powershell_package** resource is:
+
+  ```ruby
+  powershell_package 'package_name'
+  ```
+
+  which will install the named package using all of the default options and the default action (`:install`).
 syntax_full_code_block: |-
   powershell_package 'name' do
     options                   String, Array
@@ -42,7 +50,7 @@ actions_list:
     markdown: Purge a package. This action typically removes the configuration files
       as well as the package.
   :reconfig:
-    markdown: Change the installed package
+    markdown: Change the installed package.
   :lock:
     markdown:
   :unlock:
@@ -81,21 +89,67 @@ properties_list:
   required: false
   description_list:
   - markdown: The version of a package to be installed or upgraded.
-examples: "
-  Install a specific version of a package:\n\n  ```ruby\n  powershell_package\
-  \ 'xCertificate' do\n    action :install\n    version '1.1.0.0'\n  end\n  ```\n\n\
-  \  Install multiple packages:\n\n  ```ruby\n  powershell_package 'Install Multiple\
-  \ Packages' do\n    action :install\n    package_name %w(xCertificate xNetworking)\n\
-  \  end\n  ```\n\n  Install a package from a custom source:\n\n  ```ruby\n  powershell_package\
-  \ 'xCertificate' do\n    action :install\n    source 'MyGallery'\n  end\n  ```\n\
-  \n  Install multiple packages, and specify package versions:\n\n  ```ruby\n  powershell_package\
-  \ 'Install Multiple Packages' do\n    action :install\n    package_name %w(xCertificate\
-  \ xNetworking)\n    version ['2.0.0.0', '2.12.0.0']\n  end\n  ```\n\n  Install multiple\
-  \ packages, specifying the package version for one\n  package but not the other:\n\
-  \n  ```ruby\n  powershell_package 'Install Multiple Packages' do\n     action :install\n\
-  \     package_name %w(xCertificate xNetworking)\n     version [nil, '2.12.0.0']\n\
-  \   end\n  ```\n\n  In this example, the `nil` tells `powershell_package` to install\
-  \ the\n  most up to date version of `xCertificate` that is available, while\n  pinning\
-  \ `xNetworking` to version 2.12.0.0.\n\n  Remove a package:\n\n  ```ruby\n  powershell_package\
-  \ 'xCertificate' do\n    action :remove\n  end\n  ```\n"
+examples: |
+  **Install a specific version of a package**:
+
+  ```ruby
+  powershell_package 'xCertificate' do
+    action :install
+    version '1.1.0.0'
+  end
+  ```
+
+
+  **Install multiple packages**:
+
+  ```ruby
+  powershell_package 'Install Multiple Packages' do
+    action :install
+    package_name %w(xCertificate xNetworking)
+  end
+  ```
+
+  **Install a package from a custom source**:
+
+  ```ruby
+  powershell_package 'xCertificate' do
+    action :install
+    source 'MyGallery'
+  end
+  ```
+
+
+  **Install multiple packages, and specify package versions**:
+
+  ```ruby
+  powershell_package 'Install Multiple Packages' do
+    action :install
+    package_name %w(xCertificate xNetworking)
+    version ['2.0.0.0', '2.12.0.0']
+  end
+  ```
+
+  **Install multiple packages, specifying the package version for one
+  package but not the other**:
+
+
+  ```ruby
+  powershell_package 'Install Multiple Packages' do
+    action :install
+    package_name %w(xCertificate xNetworking)
+    version [nil, '2.12.0.0']
+  end
+  ```
+
+  In this example, the `nil` tells `powershell_package` to install the
+  most up to date version of `xCertificate` that is available, while
+  pinning `xNetworking` to version 2.12.0.0.
+
+  **Remove a package**:
+
+  ```ruby
+  powershell_package 'xCertificate' do
+    action :remove
+  end
+  ```
 

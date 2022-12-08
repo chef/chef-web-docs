@@ -46,7 +46,7 @@ actions_list:
   :umount:
     markdown: Unmount a device.
   :unmount:
-    markdown: Alias for <code>:umount</code> action.
+    markdown: Alias for the `:umount` action.
 properties_list:
 - property: device
   ruby_type: String
@@ -66,7 +66,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'Windows only: Use to specify the domain in which the `username` and
+  - markdown: '**Windows only**. Use to specify the domain in which the `username` and
       `password` are located.'
 - property: dump
   ruby_type: Integer, false
@@ -86,13 +86,13 @@ properties_list:
   required: false
   default_value: "-"
   description_list:
-  - markdown: 'Solaris only: The fsck device.'
+  - markdown: '**Solaris only**. The fsck device.'
 - property: fstype
   ruby_type: String
   required: false
   default_value: auto
   description_list:
-  - markdown: The file system type (fstype) of the device.
+  - markdown: The file system type of the device.
 - property: mount_point
   ruby_type: String
   required: false
@@ -117,7 +117,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: Windows only:. Use to specify the password for username.
+  - markdown: '**Windows only**. Use to specify the password for username.'
 - property: supports
   ruby_type: Array, Hash
   required: false
@@ -128,7 +128,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'Windows only: Use to specify the user name.'
+  - markdown: '**Windows only**. Use to specify the user name.'
 examples: "
   Mount a labeled file system\n\n  ```ruby\n  mount '/mnt/volume1'\
   \ do\n    device 'volume1'\n    device_type :label\n    fstype 'xfs'\n    options\

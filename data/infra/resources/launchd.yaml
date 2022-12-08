@@ -193,7 +193,7 @@ properties_list:
   required: false
   description_list:
   - markdown: When launchd is run as the root user, this is the corresponding group to run the job as. If
-      the username property is specified and this property is not, this value is set
+      the `username` property is specified and this property is not, this value is set
       to the default group for the user.
 - property: hard_resource_limits
   ruby_type: Hash
@@ -281,7 +281,7 @@ properties_list:
   required: false
   description_list:
   - markdown: A string or ID that identifies the group owner by user name, including
-      fully qualified user names such as domain_user or user@domain. If this value
+      fully qualified user names such as `domain_user` or `user@domain`. If this value
       is not specified, existing owners remain unchanged and new owner assignments
       use the current user (when necessary).
 - property: path

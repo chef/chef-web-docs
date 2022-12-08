@@ -8,9 +8,19 @@ resource_description_list:
     to the **execute** resource. Commands that are executed with this resource are
     (by their nature) not idempotent, as they are typically unique to the environment
     in which they are run. Use `not_if` and `only_if` to guard this resource for idempotence.
-syntax_description: "A **perl** resource block executes scripts Perl:\n\n```perl\n\
-  perl 'hello world' do\n  code <<-EOH\n    print \"Hello world! From Chef and Perl.\"\
-  ;\n  EOH\nend\n```"
+syntax_description: |
+  A **perl** resource block executes scripts Perl:
+
+  ```ruby
+  perl 'hello world' do
+    code <<-EOH
+      print "Hello world! From Chef and Perl.";
+    EOH
+  end
+  ```
+  where:
+
+    `code` specifies the command to run.
 syntax_full_code_block: |-
   perl 'name' do
     code             String
@@ -92,9 +102,7 @@ properties_list:
   required: false
   description_list:
   - shortcode: resources_common_notification_notifies.md
-  - markdown: ''
   - shortcode: resources_common_notification_timers.md
-  - markdown: ''
   - shortcode: resources_common_notification_notifies_syntax.md
 - property: returns
   ruby_type: Integer, Array
@@ -109,9 +117,7 @@ properties_list:
   required: false
   description_list:
   - shortcode: resources_common_notification_subscribes.md
-  - markdown: ''
   - shortcode: resources_common_notification_timers.md
-  - markdown: ''
   - shortcode: resources_common_notification_subscribes_syntax.md
 - property: timeout
   ruby_type: Integer, String, Float

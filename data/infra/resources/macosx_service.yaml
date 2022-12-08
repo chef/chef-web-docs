@@ -62,26 +62,27 @@ properties_list:
   required: false
   description_list:
   - markdown: The path to the init script that is associated with the service. Use
-      init_command to prevent the need to specify overrides for the start_command,
-      stop_command, and restart_command properties. When this property is not specified,
+      `init_command` to prevent the need to specify overrides for the `start_command`,
+      `stop_command`, and `restart_command` properties. When this property is not specified,
       the Chef Infra Client will use the default init command for the service provider
       being used.
 - property: options
   ruby_type: Array, String
   required: false
   description_list:
-  - markdown: Solaris platform only. Options to pass to the service command. See the
+  - markdown: | 
+      **Solaris platform only**. Options to pass to the `service` command. See the
       svcadm manual for details of possible options.
 - property: parameters
   ruby_type: Hash
   required: false
   description_list:
-  - markdown: 'Upstart only: A hash of parameters to pass to the service command for
+  - markdown: '**Upstart only**. A hash of parameters to pass to the `service` command for
       use in the service definition.'
 - property: pattern
   ruby_type: String
   required: false
-  default_value: The value provided to 'service_name' or the resource block's name
+  default_value: The value provided to `service_name` or the resource block's name
   description_list:
   - markdown: The pattern to look for in the process table.
 - property: plist
@@ -94,7 +95,8 @@ properties_list:
   ruby_type: Integer, String, Hash
   required: false
   description_list:
-  - markdown: Debian platform only. The relative priority of the program for start
+  - markdown: |
+      **Debian platform only**. The relative priority of the program for start
       and shutdown ordering. May be an integer or a Hash. An integer is used to define
       the start run levels; stop run levels are then 100-integer. A Hash is used to
       define values for specific run levels. For example, { 2 => [:start, 20], 3 =>
@@ -114,7 +116,7 @@ properties_list:
   ruby_type: Array
   required: false
   description_list:
-  - markdown: 'RHEL platforms only: Specific run_levels the service will run under.'
+  - markdown: '**RHEL platforms only**. Specific run levels the service will run under.'
 - property: service_name
   ruby_type: String
   required: false
@@ -170,5 +172,5 @@ properties_list:
   required: false
   new_in: '12.21'
   description_list:
-  - markdown: 'systemd only: A username to run the service under.'
+  - markdown: '**systemd only**. A username to run the service under.'
 examples: 
