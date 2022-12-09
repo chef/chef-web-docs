@@ -25,11 +25,6 @@ syntax_full_code_block: "remote_directory 'name' do\n  cookbook          String\
   false # default value: false\n  recursive         true, false # default value: true\n
   \ source            String\n  action            Symbol # defaults to :create if
   not specified\nend"
-syntax_properties_list:
-- '`''/etc/apache2''` specifies the directory'
-- '`source` specifies a directory in the current cookbook (use the `cookbook` property
-  to specify a file that is in a different cookbook)'
-- '`owner`, `group`, and `mode` define the permissions'
 syntax_full_properties_list:
 - "`remote_directory` is the resource."
 - "`name` is the name given to the resource block."
@@ -77,8 +72,17 @@ properties_list:
   description_list:
   - markdown: |-
       The octal mode for a file.
-       UNIX- and Linux-based systems: A quoted 3-5 character string that defines the octal mode that is passed to chmod. For example: '755', '0755', or 00755. If the value is specified as a quoted string, it works exactly as if the chmod command was passed. If the value is specified as an integer, prepend a zero (0) to the value to ensure that it is interpreted as an octal number. For example, to assign read, write, and execute rights for all users, use '0777' or '777'; for the same rights, plus the sticky bit, use 01777 or '1777'.
-       Microsoft Windows: A quoted 3-5 character string that defines the octal mode that is translated into rights for Microsoft Windows security. For example: '755', '0755', or 00755. Values up to '0777' are allowed (no sticky bits) and mean the same in Microsoft Windows as they do in UNIX, where 4 equals GENERIC_READ, 2 equals GENERIC_WRITE, and 1 equals GENERIC_EXECUTE. This property cannot be used to set :full_control. This property has no effect if not specified, but when it and rights are both specified, the effects are cumulative.
+
+      **UNIX- and Linux-based systems**: A quoted 3-5 character string that defines the octal mode that is passed to chmod.
+      For example: `'755'`, `'0755'`, or `'00755'`. If the value is specified as a quoted string, it works exactly as if
+      the chmod command was passed. If the value is specified as an integer, prepend a zero (0) to the value to ensure
+      that it is interpreted as an octal number. For example, to assign read, write, and execute rights for all users, use `'0777'` or `'777'`;
+      for the same rights, plus the sticky bit, use `'01777'` or `'1777'`.
+
+      **Microsoft Windows**: A quoted 3-5 character string that defines the octal mode that is translated into rights for Microsoft Windows security.
+      For example: `'755'`, `'0755'`, or `'00755'`. Values up to `'0777'` are allowed (no sticky bits) and mean the same in Microsoft Windows as they do in
+      UNIX, where 4 equals GENERIC_READ, 2 equals GENERIC_WRITE, and 1 equals GENERIC_EXECUTE. This property cannot be used to set `:full_control`.
+      This property has no effect if not specified, but when it and rights are both specified, the effects are cumulative.
 - property: files_owner
   ruby_type: String, Integer
   required: false

@@ -8,9 +8,16 @@ resource_description_list:
     to the **execute** resource. Commands that are executed with this resource are
     (by their nature) not idempotent, as they are typically unique to the environment
     in which they are run. Use `not_if` and `only_if` to guard this resource for idempotence.
-syntax_description: "The python resource has the following syntax:\n\n```ruby\npython\
-  \ 'hello world' do\n  code <<-EOH\n    print \"Hello world! From Chef and Python.\"\
-  \n  EOH\nend\n```"
+syntax_description: |
+  The **python** resource has the following syntax:
+
+  ```ruby
+  python 'hello world' do
+    code <<-EOH
+      print "Hello world! From Chef and Python."
+    EOH
+  end
+  ```
 syntax_full_code_block: |-
   python 'name' do
     code             String
@@ -106,41 +113,7 @@ properties_list:
   required: false
   description_list:
   - shortcode: resources_common_notification_subscribes.md
-  - markdown: |-
-      A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a 'resource[name]', the :action to be taken, and then the :timer for that action.
-
-      Note that subscribes does not apply the specified action to the resource that it listens to - for example:
-
-      ```ruby
-      file '/etc/nginx/ssl/example.crt' do
-        mode '0600'
-        owner 'root'
-      end
-      ````
-
-      service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-      end
-      In this case the subscribes property reloads the nginx service whenever its certificate file, located under /etc/nginx/ssl/example.crt, is updated.
-      Subscribes does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the :reload action for its resource (in this example nginx) when a change is detected.
-
-      If the other resource does not exist, the subscription will not raise an error. Contrast this with the stricter semantics of notifies, which will raise an error if the other resource does not exist.
   - shortcode: resources_common_notification_timers.md
-  - markdown: |-
-      A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
-
-      :before
-      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
-
-      :delayed
-      Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
-
-      :immediate, :immediately
-      Specifies that a notification should be run immediately, for each resource notified.
-
-      The syntax for subscribes is:
-
-      subscribes :action, 'resource[name]', :timer
   - shortcode: resources_common_notification_subscribes_syntax.md
 - property: timeout
   ruby_type: Integer, String, Float

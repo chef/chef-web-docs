@@ -16,19 +16,31 @@ syntax_description: "A **remote_file** resource block manages files by using fil
   \n```ruby\nremote_file '/var/www/customers/public_html/index.html' do\n  source\
   \ 'http://somesite.com/index.html'\n  owner 'web_admin'\n  group 'web_admin'\n \
   \ mode '0755'\n  action :create\nend\n```"
-syntax_full_code_block: "remote_file 'name' do\n  atomic_update              true,
-  false\n  authentication             Symbol # default value: :remote\n  backup                     Integer,
-  false # default value: 5\n  checksum                   String\n  content                    String\n
-  \ deny_rights                \n  force_unlink               true, false # default
-  value: false\n  ftp_active_mode            true, false # default value: false\n
-  \ headers                    Hash # default value: {}\n  http_options               Hash
-  # default value: {}\n  manage_symlink_source      true, false\n  path                       String
-  # default value: 'name' unless specified\n  remote_domain              String\n
-  \ remote_password            String\n  remote_user                String\n  rights
-  \                    \n  show_progress              true, false # default value:
-  false\n  ssl_verify_mode            Symbol\n  use_etag                   true, false
-  # default value: true\n  use_last_modified          true, false # default value:
-  true\n  action                     Symbol # defaults to :create if not specified\nend"
+syntax_full_code_block: |
+  remote_file 'name' do
+    atomic_update              true, false
+    authentication             Symbol # default value: :remote
+    backup                     Integer, false # default value: 5
+    checksum                   String
+    content                    String
+    deny_rights
+    force_unlink               true, false # default value: false
+    ftp_active_mode            true, false # default value: false
+    headers                    Hash # default value: {}
+    http_options               Hash # default value: {}
+    manage_symlink_source      true, false
+    path                       String # default value: 'name' unless specified
+    remote_domain              String
+    remote_password            String
+    remote_user                String
+    rights
+    show_progress              true, false # default value: false
+    ssl_verify_mode            Symbol
+    use_conditional_get        true, false # default value: true
+    use_etag                   true, false # default value: true
+    use_last_modified          true, false # default value: true
+    action                     Symbol # defaults to :create if not specified
+  end
 syntax_properties_list:
 - '`''/var/www/customers/public_html/index.html''` is path to the file to be created'
 - '`''http://somesite.com/index.html''` specifies the location of the remote file,
@@ -42,7 +54,7 @@ syntax_full_properties_list:
 - "`atomic_update`, `authentication`, `backup`, `checksum`, `content`, `deny_rights`,
   `force_unlink`, `ftp_active_mode`, `headers`, `http_options`, `manage_symlink_source`,
   `path`, `remote_domain`, `remote_password`, `remote_user`, `rights`, `show_progress`,
-  `ssl_verify_mode`, `use_etag`, and `use_last_modified` are the properties available
+  `ssl_verify_mode`, `use_conditional_get`, `use_etag`, and `use_last_modified` are the properties available
   to this resource."
 actions_list:
   :create:
