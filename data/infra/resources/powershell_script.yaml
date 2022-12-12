@@ -56,9 +56,9 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`code`, `command`, `convert_boolean_return`, `creates`, `cwd`, `default_env`, `domain`,
-  `elevated`, `environment`, `flags`, `group`, `input`, `interpreter`, `live_stream`,
-  `login`, `password`, `returns`, `timeout`, and `user` are the properties available
+- "`architecture`, `code`, `command`, `convert_boolean_return`, `creates`, `cwd`, `domain`,
+  `elevated`, `environment`, `flags`, `group`, `guard_interpreter`, `input`, `interpreter`, `live_stream`,
+  `password`, `returns`, `timeout`, and `user` are the properties available
   to this resource."
 actions_list:
   :nothing:

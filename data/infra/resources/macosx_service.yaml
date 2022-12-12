@@ -27,7 +27,7 @@ syntax_full_code_block: |-
     user                 String
     action               Symbol # defaults to :nothing if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`macosx_service` is the resource."
 - "`name` is the name given to the resource block."
@@ -41,21 +41,17 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :enable:
-    markdown: 
+    markdown: Enable a service at boot.
   :disable:
-    markdown: 
+    markdown: Disable a service.
   :start:
-    markdown: 
+    markdown: Start a service, and keep it running until stopped or disabled.
   :stop:
-    markdown: 
+    markdown: Stop a service. It will stay stopped until restarted.
   :restart:
-    markdown: 
+    markdown: Stop and then start a service again.
   :reload:
-    markdown: 
-  :mask:
-    markdown: 
-  :unmask:
-    markdown: 
+    markdown: Reload the configuration for this service.
 properties_list:
 - property: init_command
   ruby_type: String
@@ -70,7 +66,7 @@ properties_list:
   ruby_type: Array, String
   required: false
   description_list:
-  - markdown: | 
+  - markdown: |
       **Solaris platform only**. Options to pass to the `service` command. See the
       svcadm manual for details of possible options.
 - property: parameters
@@ -128,7 +124,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 
+  - markdown: The type of plist to be created
 - property: start_command
   ruby_type: String, false
   required: false
@@ -172,5 +168,5 @@ properties_list:
   required: false
   new_in: '12.21'
   description_list:
-  - markdown: '**systemd only**. A username to run the service under.'
-examples: 
+  - markdown: 'systemd only: A username to run the service under.'
+examples:
