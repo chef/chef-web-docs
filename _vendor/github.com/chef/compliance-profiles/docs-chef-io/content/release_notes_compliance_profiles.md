@@ -10,6 +10,39 @@ draft = false
     weight = 10
 +++
 
+## 20221212
+
+### New Features
+
+- CIS VMWare ESXi 7.0 v1.1.0 (Audit).
+- CIS Rocky Linux 8 v1.0.0 (Audit).
+- STIG Windows Server 2019 v2r2 (Audits).
+- CIS Windows Server 2019 v1.3.0 (Audits)
+- CIS Windows Server 2016 v1.4.0 (Audits)
+
+### Improvements
+
+- Added platform support for CIS RHEL 7 v3.1.1. & CIS Amazon Linux 2 v2.0.0.
+
+## Bug Fixes
+
+- Added platform support for Amazon Linux 2, RHEL 7 and RHEL 8.
+- Optimized redundant API calls by caching SharePoint tenant library for CIS Microsoft Office 365.
+- Readme updated on access level for CIS Microsoft Sharepoint 2016 v1.1.0
+
+## 20220913
+
+### New Features
+
+- CIS Alma Linux v2.0.0 (Audit).
+- CIS Oracle Linux 8 v2.0.0 (Audit).
+- CIS Google Kubernetes Engine v1.2.0 (Audit).
+- CIS MS Office 365 v1.4.0.
+
+### Bug Fixes
+
+- CIS MS Office 365 v1.4.0 scale fix for control 4.3, 5.2, and 5.1 (Audit).
+
 ## 20220808
 
 ### New Features
@@ -29,16 +62,3 @@ draft = false
 ### Bug Fixes
 
 - CIS RHEL 8 v2.0.0 fix for control 6.2.7 implementation mismatch (Audit).
-
-## 20220913
-
-### New Features
-
-- CIS Alma Linux v2.0.0 (Audit).
-- CIS Oracle Linux8 v2.0.0 (Audit).
-- CIS Google Kubernetes Engine v1.2.0 (Audit).
-- CIS MS Office 365 v1.4.0.
-
-### Bug Fixes
-
-- CIS MS Office 365 v1.4.0 scale fix for control 4.3, 5.2, and 5.1 (Audit).
