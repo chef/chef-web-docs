@@ -5,8 +5,8 @@ resources_common_notification: true
 resources_common_properties: true
 resource: selinux_fcontext
 resource_description_list:
-- markdown: Use **selinux_fcontext** resource to set the SELinux context of files
-    with semanage fcontext.
+- markdown: Use the **selinux_fcontext** resource to set the SELinux context of files
+    with the `semanage fcontext` command.
 resource_new_in: '18.0'
 syntax_full_code_block: |-
   selinux_fcontext 'name' do

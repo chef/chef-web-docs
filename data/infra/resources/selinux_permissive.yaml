@@ -5,8 +5,8 @@ resources_common_notification: true
 resources_common_properties: true
 resource: selinux_permissive
 resource_description_list:
-- markdown: Use **selinux_permissive** resource to allows some types to misbehave
-    without stopping them. Not as good as specific policies, but better than disabling
+- markdown: Use the **selinux_permissive** resource to allow some domains to misbehave
+    without stopping them. This is not as good as setting specific policies, but better than disabling
     SELinux entirely.
 resource_new_in: '18.0'
 syntax_full_code_block: |-

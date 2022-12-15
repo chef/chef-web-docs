@@ -30,6 +30,8 @@ actions_list:
       version of the package. (default)
   :remove:
     markdown: Remove a package.
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
 properties_list:
 - property: options
   ruby_type: String, Array

@@ -12,6 +12,7 @@ syntax_description: "A **ruby_block** resource block executes a block of arbitra
   /etc/chef/client.rb\")\n  end\n  action :run\nend\n```"
 syntax_full_code_block: |-
   ruby_block 'name' do
+    block           Block
     block_name      String # default value: 'name' unless specified
     action          Symbol # defaults to :run if not specified
   end
@@ -27,11 +28,11 @@ syntax_full_properties_list:
   that may be used with this resource.'
 actions_list:
   :create:
-    markdown: The same as :run.
+    markdown: The same as `:run`.
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :run:
-    markdown: " (default)"
+    markdown: "Run a Ruby block. (default)"
 properties_list:
 - property: block
   ruby_type: block

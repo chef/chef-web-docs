@@ -48,6 +48,8 @@ actions_list:
       as well as the package.
   :remove:
     markdown: Remove a package.
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :unlock:
     markdown: Unlocks the yum package so that it can be upgraded to a newer version.
   :upgrade:
@@ -73,8 +75,8 @@ properties_list:
   description_list:
   - markdown: 'Flush the in-memory cache before or after a Yum operation that
       installs, upgrades, or removes a package. Accepts a Hash in the
-      form: { :before =\> true/false, :after =\> true/false } or an Array
-      in the form \[ :before, :after \].'
+      form: `{ :before =\> true/false, :after =\> true/false }` or an Array
+      in the form `[ :before, :after ]`.'
   - shortcode: resources_common_package_yum_cache.md
   - markdown: "As an array:\n\n```ruby\nyum_package 'some-package' do\n  #...\n \
       \ flush_cache [ :before ]\n  #...\nend\n```\n\nand as a Hash:\n\n```ruby\n\

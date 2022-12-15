@@ -5,11 +5,13 @@ resources_common_notification: true
 resources_common_properties: true
 resource: windows_feature
 resource_description_list:
-- markdown: Use the **windows_feature** resource to add, remove or entirely delete
-    Windows features and roles. This resource calls the 'windows_feature_dism' or
-    'windows_feature_powershell' resources depending on the specified installation
-    method, and defaults to DISM, which is available on both Workstation and Server
-    editions of Windows.
+- markdown: 'Use the **windows_feature** resource to add, remove or entirely delete
+    Windows features and roles. This resource calls the
+    [windows_feature_dism](/resources/windows_feature_dism/) or
+    [windows_feature_powershell](/resources/windows_feature_powershell/)
+    resources depending on the specified installation method, and defaults
+    to DISM, which is available on both Workstation and Server editions of
+    Windows.'
 resource_new_in: '14.0'
 syntax_full_code_block: |-
   windows_feature 'name' do

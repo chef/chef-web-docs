@@ -38,6 +38,8 @@ actions_list:
     markdown: Remove a package.
   :upgrade:
     markdown: Install a package and ensure that a package is the latest version.
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
 properties_list:
 - property: channel
   ruby_type: String
