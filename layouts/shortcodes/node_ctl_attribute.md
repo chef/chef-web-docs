@@ -34,4 +34,4 @@ will result in a node object similar to:
 }
 ```
 
-{{/* Delete Used once in chef-workstation */}}
+<!-- Delete Used once in chef-workstation -->
