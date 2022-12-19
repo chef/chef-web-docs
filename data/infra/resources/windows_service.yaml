@@ -20,17 +20,12 @@ syntax_full_code_block: |-
     desired_access        Integer # default value: 983551
     display_name          String
     error_control         Integer # default value: 1
-    init_command          String
     load_order_group      String
-    options               Array, String
-    parameters            Hash
     pattern               String
-    priority              Integer, String, Hash
     reload_command        String, false
     restart_command       String, false
     run_as_password       String
     run_as_user           String # default value: "localsystem"
-    run_levels            Array
     service_name          String # default value: 'name' unless specified
     service_type          Integer # default value: 16
     start_command         String, false
@@ -39,7 +34,6 @@ syntax_full_code_block: |-
     stop_command          String, false
     supports              Hash # default value: {"restart"=>nil, "reload"=>nil, "status"=>nil}
     timeout               Integer # default value: 60
-    user                  String
     action                Symbol # defaults to :nothing if not specified
   end
 syntax_properties_list:
@@ -49,10 +43,10 @@ syntax_full_properties_list:
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
 - "`binary_path_name`, `delayed_start`, `dependencies`, `description`, `desired_access`,
-  `display_name`, `error_control`, `init_command`, `load_order_group`, `options`,
-  `parameters`, `pattern`, `priority`, `reload_command`, `restart_command`, `run_as_password`,
-  `run_as_user`, `run_levels`, `service_name`, `service_type`, `start_command`, `startup_type`,
-  `status_command`, `stop_command`, `supports`, `timeout`, and `user` are the properties
+  `display_name`, `error_control`, `load_order_group`,
+  `pattern`, `reload_command`, `restart_command`, `run_as_password`,
+  `run_as_user`, `service_name`, `service_type`, `start_command`, `startup_type`,
+  `status_command`, `stop_command`, `supports`, and `timeout` are the properties
   available to this resource."
 actions_list:
   :configure:

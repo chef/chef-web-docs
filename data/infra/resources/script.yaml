@@ -52,22 +52,17 @@ syntax_properties_list:
 syntax_full_code_block: |-
   script 'name' do
     code             String
-    command          String, Array # default value: 'name' unless specified
     creates          String
     cwd              String
-    default_env      true, false # default value: false
     domain           String
-    elevated         true, false # default value: false
     environment      Hash
     flags            String
     group            String, Integer
-    input            String
     interpreter      String
-    live_stream      true, false # default value: false
-    login            true, false # default value: false
     password         String
     returns          Integer, Array # default value: 0
     timeout          Integer, String, Float # default value: 3600
+    umask            String, Integer
     user             String, Integer
     action           Symbol # defaults to :run if not specified
   end
@@ -76,9 +71,9 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`code`, `command`, `creates`, `cwd`, `default_env`, `domain`, `elevated`, `environment`,
-  `flags`, `group`, `input`, `interpreter`, `live_stream`, `login`, `password`, `returns`,
-  `timeout`, and `user` are the properties available to this resource."
+- "`code`, `creates`, `cwd`, `domain`, `environment`,
+  `flags`, `group`, `interpreter`, `password`, `returns`,
+  `timeout`, `umask`, and `user` are the properties available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -90,16 +85,6 @@ properties_list:
   required: true
   description_list:
   - markdown: A quoted string of code to be executed.
-- property: command
-  ruby_type: String, Array
-  required: false
-  default_value: The resource block's name
-  description_list:
-  - markdown: An optional property to set the command to be executed if it differs
-      from the resource block's name.
-  - note:
-      markdown: Use the **execute** resource to run a single command. Use multiple
-        **execute** resource blocks to run multiple commands.
 - property: creates
   ruby_type: String
   required: false
@@ -143,12 +128,6 @@ properties_list:
   required: false
   description_list:
   - markdown: The group name or group ID that must be changed before running a command.
-- property: input
-  ruby_type: String
-  required: false
-  new_in: '16.2'
-  description_list:
-  - markdown: An optional property to set the input sent to the command as STDIN.
 - property: interpreter
   ruby_type: String
   required: false
