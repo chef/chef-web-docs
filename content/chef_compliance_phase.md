@@ -225,7 +225,7 @@ The following examples:
   'supermarket': 'hardening/ssh-hardening'
   }
   # Fetch additional profiles
-  default['audit']['fetcher'] = 'chef-automate'
+  default['audit']['fetcher'] = 'chef-server'
   # Set reporter
   default['audit']['reporter'] = 'chef-server-automate'
   ```
