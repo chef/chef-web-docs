@@ -33,6 +33,10 @@ Community support for platforms means that members of the Chef community have co
 
 Many of these platforms are forks, clones, or otherwise derivative of platforms that Chef commercially supports. Continued functionality for these platforms is likely, but not guaranteed. Unsupported platforms may have missing or non-operative functionality. As always, we welcome community contributions from anyone looking to expand community support for platforms in Chef products.
 
+### Limited support
+
+Limited support for platforms means that standard service level agreement(SLA) will be applicable as a limited scope. Platforms that are in essence the same fundamental packages as of a counterpart platform that falls under Commercial Support are classified for Limited Support. This will mean that only the binaries of the parent platform will be tested and fully supported. Chef does not explicitly test derivative platforms as part of the development and release process. The derivative platform will only be supported until any point of divergence it may have from it's parent. Continued functionality for these platforms is likely, but not guaranteed. 
+
 ## Platforms
 
 The sections below list the platforms that Chef Software supports.
@@ -61,11 +65,6 @@ The following table lists the commercially-supported platforms and versions for 
 <td>AIX</td>
 <td><code>powerpc</code></td>
 <td><code>7.1</code> (TL5 SP2 or higher, recommended), <code>7.2</code></td>
-</tr>
-<tr>
-<td>AlmaLinux</td>
-<td><code>x86_64</code>, <code>aarch64</code></td>
-<td><code>8.x</code></td>
 </tr>
 <tr>
 <td>Amazon Linux</td>
@@ -98,11 +97,6 @@ The following table lists the commercially-supported platforms and versions for 
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr>
-<td>Rocky Linux</td>
-<td><code>x86_64</code>, <code>aarch64</code></td>
-<td><code>8.x</code></td>
-</tr>
-<tr>
 <td>Red Hat Enterprise Linux</td>
 <td><code>x86_64</code>, <code>ppc64le</code> (7.x only), <code>ppc64</code> (7.x only), <code>aarch64</code> (7.x / 8.x only), <code>s390x</code></td>
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
@@ -126,6 +120,32 @@ The following table lists the commercially-supported platforms and versions for 
 <td>Windows</td>
 <td><code>x86</code>, <code>x64</code></td>
 <td><code>8.1</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), both Desktop Experience and Server Core)</code><code>11</code>, <code>2022</code></td>
+</tr>
+</tbody>
+</table>
+
+#### Limited Support
+
+The following table lists the platforms and versions covered under limited support for Chef Infra Client:
+
+<table>
+<thead>
+<tr class="header">
+<th>Platform</th>
+<th>Architecture</th>
+<th>Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AlmaLinux</td>
+<td><code>x86_64</code>, <code>aarch64</code></td>
+<td><code>8.x</code></td>
+</tr>
+<tr>
+<td>Rocky Linux</td>
+<td><code>x86_64</code>, <code>aarch64</code></td>
+<td><code>8.x</code></td>
 </tr>
 </tbody>
 </table>
@@ -268,11 +288,6 @@ versions for the Chef Workstation:
 </thead>
 <tbody>
 <tr>
-<td>AlmaLinux</td>
-<td><code>x86_64</code></td>
-<td><code>8.x</code></td>
-</tr>
-<tr>
 <td>Amazon Linux</td>
 <td><code>x86_64</code></td>
 <td><code>2.x</code></td>
@@ -293,11 +308,6 @@ versions for the Chef Workstation:
 <td><code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr>
-<td>Rocky Linux</td>
-<td><code>x86_64</code></td>
-<td><code>8.x</code></td>
-</tr>
-<tr>
 <td>Ubuntu</td>
 <td><code>x86_64</code></td>
 <td><code>16.04</code>, <code>18.04</code>, <code>20.04</code></td>
@@ -306,6 +316,33 @@ versions for the Chef Workstation:
 <td>Windows</td>
 <td><code>x64</code></td>
 <td><code>8.1</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), Desktop Experience only)</code>, <code>11</code>, <code>2022</code></td>
+</tr>
+</tbody>
+</table>
+
+
+#### Limited Support
+
+The following table lists the platforms and versions covered under limited support for Chef Workstation:
+
+<table>
+<thead>
+<tr class="header">
+<th>Platform</th>
+<th>Architecture</th>
+<th>Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AlmaLinux</td>
+<td><code>x86_64</code></td>
+<td><code>8.x</code></td>
+</tr>
+<tr>
+<td>Rocky Linux</td>
+<td><code>x86_64</code></td>
+<td><code>8.x</code></td>
 </tr>
 </tbody>
 </table>
@@ -330,11 +367,6 @@ The following table lists the commercially-supported platforms and versions for 
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>AlmaLinux</td>
-<td><code>x86_64</code>, <code>aarch64</code></td>
-<td><code>8.x</code></td>
-</tr>
 <tr>
 <td>Amazon Linux</td>
 <td><code>x86_64</code>, <code>aarch64</code></td>
@@ -361,11 +393,6 @@ The following table lists the commercially-supported platforms and versions for 
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr>
-<td>Rocky Linux</td>
-<td><code>x86_64</code>, <code>aarch64</code></td>
-<td><code>8.x</code></td>
-</tr>
-<tr>
 <td>SUSE Linux Enterprise Server</td>
 <td><code>x86_64</code>, <code>aarch64</code> (15.x only)</td>
 <td><code>12.x</code>, <code>15.x</code></td>
@@ -382,6 +409,34 @@ The following table lists the commercially-supported platforms and versions for 
 </tr>
 </tbody>
 </table>
+
+
+#### Limited Support
+
+The following table lists the platforms and versions covered under limited support for Chef Inspec:
+
+<table>
+<thead>
+<tr class="header">
+<th>Platform</th>
+<th>Architecture</th>
+<th>Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AlmaLinux</td>
+<td><code>x86_64</code>, <code>aarch64</code></td>
+<td><code>8.x</code></td>
+</tr>
+<tr>
+<td>Rocky Linux</td>
+<td><code>x86_64</code>, <code>aarch64</code></td>
+<td><code>8.x</code></td>
+</tr>
+</tbody>
+</table>
+
 
 Chef InSpec Target Mode (`inspec --target`) may be functional on
 additional platforms, versions, and architectures but are not validated
@@ -434,11 +489,6 @@ The following table lists the commercially-supported platforms for Chef Backend,
 </thead>
 <tbody>
 <tr>
-<td>AlmaLinux</td>
-<td><code>x86_64</code></td>
-<td><code>8.x</code></td>
-</tr>
-<tr>
 <td>CentOS</td>
 <td><code>x86_64</code></td>
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
@@ -447,11 +497,6 @@ The following table lists the commercially-supported platforms for Chef Backend,
 <td>Oracle Enterprise Linux</td>
 <td><code>x86_64</code></td>
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
-</tr>
-<tr>
-<td>Rocky Linux</td>
-<td><code>x86_64</code></td>
-<td><code>8.x</code></td>
 </tr>
 <tr>
 <td>Red Hat Enterprise Linux</td>
@@ -470,6 +515,35 @@ The following table lists the commercially-supported platforms for Chef Backend,
 </tr>
 </tbody>
 </table>
+
+
+#### Limited Support
+
+The following table lists the platforms and versions covered under limited support for Chef Infra Server:
+
+<table>
+<thead>
+<tr class="header">
+<th>Platform</th>
+<th>Architecture</th>
+<th>Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AlmaLinux</td>
+<td><code>x86_64</code></td>
+<td><code>8.x</code></td>
+</tr>
+<tr>
+<td>Rocky Linux</td>
+<td><code>x86_64</code></td>
+<td><code>8.x</code></td>
+</tr>
+</tbody>
+</table>
+
+
 
 ### Chef Manage
 
@@ -492,11 +566,6 @@ The following table lists the commercially-supported platforms for Chef Manage:
 </thead>
 <tbody>
 <tr>
-<td>AlmaLinux</td>
-<td><code>x86_64</code></td>
-<td><code>8.x</code></td>
-</tr>
-<tr>
 <td>CentOS</td>
 <td><code>x86_64</code></td>
 <td><code>7.x</code>, <code>8.x</code></td>
@@ -505,11 +574,6 @@ The following table lists the commercially-supported platforms for Chef Manage:
 <td>Oracle Enterprise Linux</td>
 <td><code>x86_64</code></td>
 <td><code>7.x</code>, <code>8.x</code></td>
-</tr>
-<tr>
-<td>Rocky Linux</td>
-<td><code>x86_64</code></td>
-<td><code>8.x</code></td>
 </tr>
 <tr>
 <td>Red Hat Enterprise Linux</td>
@@ -523,6 +587,35 @@ The following table lists the commercially-supported platforms for Chef Manage:
 </tr>
 </tbody>
 </table>
+
+
+#### Limited Support
+
+The following table lists the platforms and versions covered under limited support for Chef Manage:
+
+<table>
+<thead>
+<tr class="header">
+<th>Platform</th>
+<th>Architecture</th>
+<th>Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AlmaLinux</td>
+<td><code>x86_64</code></td>
+<td><code>8.x</code></td>
+</tr>
+<tr>
+<td>Rocky Linux</td>
+<td><code>x86_64</code></td>
+<td><code>8.x</code></td>
+</tr>
+</tbody>
+</table>
+
+
 
 ## Platform End-of-Life Policy
 
