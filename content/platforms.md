@@ -33,9 +33,9 @@ Community support for platforms means that members of the Chef community have co
 
 Many of these platforms are forks, clones, or otherwise derivative of platforms that Chef commercially supports. Continued functionality for these platforms is likely, but not guaranteed. Unsupported platforms may have missing or non-operative functionality. As always, we welcome community contributions from anyone looking to expand community support for platforms in Chef products.
 
-### Limited support
+### Derived platforms support
 
-Limited support for platforms means that standard service level agreement(SLA) will be applicable as a limited scope. Platforms that are in essence the same fundamental packages as of a counterpart platform that falls under Commercial Support are classified for Limited Support. This will mean that only the binaries of the parent platform will be tested and fully supported. Chef does not explicitly test derivative platforms as part of the development and release process. The derivative platform will only be supported until any point of divergence it may have from it's parent. Continued functionality for these platforms is likely, but not guaranteed. 
+Platforms that are in essence the same fundamental packages as of a counterpart platform that falls under Commercial Support are classified as derived platforms. This will mean that only the binaries of the parent platform will be tested and fully supported. Chef does not explicitly test derived platforms as part of the development and release process. The derived platform will only be supported until any point of divergence it may have from it's parent. Continued functionality for these platforms is likely, but not guaranteed. 
 
 ## Platforms
 
@@ -124,9 +124,9 @@ The following table lists the commercially-supported platforms and versions for 
 </tbody>
 </table>
 
-#### Limited Support
+#### Derived platforms
 
-The following table lists the platforms and versions covered under limited support for Chef Infra Client:
+The following table lists the platforms and versions classified under Derived Platforms for Chef Infra Client:
 
 <table>
 <thead>
@@ -134,6 +134,7 @@ The following table lists the platforms and versions covered under limited suppo
 <th>Platform</th>
 <th>Architecture</th>
 <th>Version</th>
+<th>Parent platform</th>
 </tr>
 </thead>
 <tbody>
@@ -141,11 +142,13 @@ The following table lists the platforms and versions covered under limited suppo
 <td>AlmaLinux</td>
 <td><code>x86_64</code>, <code>aarch64</code></td>
 <td><code>8.x</code></td>
+<td>CentOS</td>
 </tr>
 <tr>
 <td>Rocky Linux</td>
 <td><code>x86_64</code>, <code>aarch64</code></td>
 <td><code>8.x</code></td>
+<td>CentOS</td>
 </tr>
 </tbody>
 </table>
@@ -320,10 +323,9 @@ versions for the Chef Workstation:
 </tbody>
 </table>
 
+#### Derived platforms
 
-#### Limited Support
-
-The following table lists the platforms and versions covered under limited support for Chef Workstation:
+The following table lists the platforms and versions classified under Derived Platforms for Chef Workstation:
 
 <table>
 <thead>
@@ -331,18 +333,21 @@ The following table lists the platforms and versions covered under limited suppo
 <th>Platform</th>
 <th>Architecture</th>
 <th>Version</th>
+<th>Parent platform</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>AlmaLinux</td>
-<td><code>x86_64</code></td>
+<td><code>x86_64</code>, <code>aarch64</code></td>
 <td><code>8.x</code></td>
+<td>CentOS</td>
 </tr>
 <tr>
 <td>Rocky Linux</td>
-<td><code>x86_64</code></td>
+<td><code>x86_64</code>, <code>aarch64</code></td>
 <td><code>8.x</code></td>
+<td>CentOS</td>
 </tr>
 </tbody>
 </table>
@@ -410,10 +415,9 @@ The following table lists the commercially-supported platforms and versions for 
 </tbody>
 </table>
 
+#### Derived platforms
 
-#### Limited Support
-
-The following table lists the platforms and versions covered under limited support for Chef Inspec:
+The following table lists the platforms and versions classified under Derived Platforms for Chef Inspec:
 
 <table>
 <thead>
@@ -421,6 +425,7 @@ The following table lists the platforms and versions covered under limited suppo
 <th>Platform</th>
 <th>Architecture</th>
 <th>Version</th>
+<th>Parent platform</th>
 </tr>
 </thead>
 <tbody>
@@ -428,11 +433,13 @@ The following table lists the platforms and versions covered under limited suppo
 <td>AlmaLinux</td>
 <td><code>x86_64</code>, <code>aarch64</code></td>
 <td><code>8.x</code></td>
+<td>CentOS</td>
 </tr>
 <tr>
 <td>Rocky Linux</td>
 <td><code>x86_64</code>, <code>aarch64</code></td>
 <td><code>8.x</code></td>
+<td>CentOS</td>
 </tr>
 </tbody>
 </table>
@@ -516,10 +523,9 @@ The following table lists the commercially-supported platforms for Chef Backend,
 </tbody>
 </table>
 
+#### Derived platforms
 
-#### Limited Support
-
-The following table lists the platforms and versions covered under limited support for Chef Infra Server:
+The following table lists the platforms and versions classified under Derived Platforms for Chef Infra Server:
 
 <table>
 <thead>
@@ -527,6 +533,7 @@ The following table lists the platforms and versions covered under limited suppo
 <th>Platform</th>
 <th>Architecture</th>
 <th>Version</th>
+<th>Parent platform</th>
 </tr>
 </thead>
 <tbody>
@@ -534,16 +541,16 @@ The following table lists the platforms and versions covered under limited suppo
 <td>AlmaLinux</td>
 <td><code>x86_64</code></td>
 <td><code>8.x</code></td>
+<td>CentOS</td>
 </tr>
 <tr>
 <td>Rocky Linux</td>
 <td><code>x86_64</code></td>
 <td><code>8.x</code></td>
+<td>CentOS</td>
 </tr>
 </tbody>
 </table>
-
-
 
 ### Chef Manage
 
@@ -588,10 +595,9 @@ The following table lists the commercially-supported platforms for Chef Manage:
 </tbody>
 </table>
 
+#### Derived platforms
 
-#### Limited Support
-
-The following table lists the platforms and versions covered under limited support for Chef Manage:
+The following table lists the platforms and versions classified under Derived Platforms for Chef Manage:
 
 <table>
 <thead>
@@ -599,6 +605,7 @@ The following table lists the platforms and versions covered under limited suppo
 <th>Platform</th>
 <th>Architecture</th>
 <th>Version</th>
+<th>Parent platform</th>
 </tr>
 </thead>
 <tbody>
@@ -606,16 +613,16 @@ The following table lists the platforms and versions covered under limited suppo
 <td>AlmaLinux</td>
 <td><code>x86_64</code></td>
 <td><code>8.x</code></td>
+<td>CentOS</td>
 </tr>
 <tr>
 <td>Rocky Linux</td>
 <td><code>x86_64</code></td>
 <td><code>8.x</code></td>
+<td>CentOS</td>
 </tr>
 </tbody>
 </table>
-
-
 
 ## Platform End-of-Life Policy
 
