@@ -1,15 +1,11 @@
-name: chef-automate ssh
-synopsis: SSH into Automate HA servers
-usage: chef-automate ssh [flags]
-description: SSH into Automate HA servers
+name: chef-automate post-major-upgrade
+synopsis: Utilities for post-major-upgrade
+usage: chef-automate post-major-upgrade COMMAND [flags]
 options:
 - name: help
   shorthand: h
   default_value: "false"
-  usage: help for ssh
-- name: hostname
-  shorthand: H
-  usage: Automate ha server name to ssh
+  usage: help for post-major-upgrade
 inherited_options:
 - name: debug
   shorthand: d
@@ -22,3 +18,5 @@ inherited_options:
   usage: Write command result as JSON to PATH
 see_also:
 - chef-automate - Chef Automate CLI
+- clear-data - Chef Automate post-major-upgrade clear-data
+- migrate - Chef Automate post-major-upgrade migrate

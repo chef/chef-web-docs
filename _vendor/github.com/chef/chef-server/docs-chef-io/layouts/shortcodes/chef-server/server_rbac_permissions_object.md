@@ -31,4 +31,4 @@ The Chef Infra Server includes the following object permissions:
 </tbody>
 </table>
 
-<!-- moved to chef-server repo -->
+{{/* moved to chef-server repo */}}
