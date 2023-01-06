@@ -6,7 +6,7 @@ resources_common_properties: true
 resource: chef_gem
 resource_description_list:
 - markdown: |-
-    Use the **chef_gem** resource to install a gem only for the instance of Ruby that is dedicated to the chef-client.
+    Use the **chef_gem** resource to install a gem only for the instance of Ruby that is dedicated to the Chef Infra Client.
     When a gem is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources.
 
     The **chef_gem** resource works with all of the same properties and options as the **gem_package** resource, but does not
@@ -16,12 +16,7 @@ resource_description_list:
     - Runs its actions immediately, before convergence, allowing a gem to be used in a recipe immediately after it is installed.
     - Runs `Gem.clear_paths` after the action, ensuring that gem is aware of changes so that it can be required immediately after it is installed.
 - warning:
-    markdown: |-
-      The **chef_gem** and **gem_package** resources are both used to install Ruby gems. For any machine on which Chef Infra Client is
-      installed, there are two instances of Ruby. One is the standard, system-wide instance of Ruby and the other is a dedicated instance that is
-      available only to Chef Infra Client.
-      Use the **chef_gem** resource to install gems into the instance of Ruby that is dedicated to Chef Infra Client.
-      Use the **gem_package** resource to install all other gems (i.e. install gems system-wide).
+    shortcode: resource_chef_gem_gem_package_install.md
 syntax_full_code_block: |-
   chef_gem 'name' do
     clear_sources               true, false
@@ -44,19 +39,19 @@ syntax_full_properties_list:
   `source`, `timeout`, and `version` are the properties available to this resource."
 actions_list:
   :install:
-    markdown: Default. Install a gem. If a version is specified, install the specified
-      version of the gem.
+    markdown: Install a gem. If a version is specified, install the specified
+      version of the gem. (default)
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :purge:
-    markdown: Purge a gem. This action typically removes the configuration files as
-      well as the gem.
+    markdown: Purge a gem. This action typically removes the configuration files
+      as well as the gem.
   :reconfig:
     markdown: Reconfigure a gem. This action requires a response file.
   :remove:
     markdown: Remove a gem.
   :upgrade:
-    markdown: Install a gem and/or ensure that a gem is the latest version.
+    markdown: Install a gem and ensure that a gem is the latest version.
 properties_list:
 - property: clear_sources
   ruby_type: true, false

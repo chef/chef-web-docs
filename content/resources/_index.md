@@ -24,6 +24,8 @@ toc_layout = "infra_resources_all_toc"
 <!-- NOTE: The Markdown in this page comes from the archetype file archetypes/all_the_resources.md. If you update the Markdown in this page,
 you must also update the Markdown in the archetype page as well, otherwise your changes in this page may be overwritten. -->
 
+<!-- markdownlint-disable-file -->
+
 This reference describes each of the resources available to Chef Infra Client, including a list of actions, properties, and usage examples.
 
 ## Common Functionality
@@ -59,7 +61,7 @@ The following properties are common to every resource:
 `retry_delay`
 : **Ruby Type:** Integer | **Default Value:** `2`
 
-  The delay in seconds between retry attempts.
+  The retry delay (in seconds).
 
 `sensitive`
 : **Ruby Type:** true, false | **Default Value:** `false`
@@ -108,7 +110,6 @@ template '/tmp/somefile' do
 end
 ```
 
-
 **Create a file with a Ruby block, but not if "/etc/passwd" exists**
 
 The following example shows how to use the `not_if` condition to create
@@ -139,7 +140,6 @@ template '/tmp/somefile' do
 end
 ```
 
-
 **Create a file using a string, but not if "/etc/passwd" exists**
 
 The following example shows how to use the `not_if` condition to create
@@ -152,7 +152,6 @@ template '/etc/some_config' do
   not_if 'some_app --check-config'
 end
 ```
-
 
 #### only_if Examples
 
@@ -172,7 +171,6 @@ template '/tmp/somefile' do
 end
 ```
 
-
 **Create a file with a Ruby block, but only if "/etc/passwd" does not exist**
 
 The following example shows how to use the `only_if` condition to create
@@ -186,7 +184,6 @@ template '/etc/some_app/some_config' do
 end
 ```
 
-
 **Create a file using a string, but only if "/etc/passwd" exists**
 
 The following example shows how to use the `only_if` condition to create
@@ -199,7 +196,6 @@ template '/tmp/somefile' do
   only_if 'test -f /etc/passwd'
 end
 ```
-
 
 ### Guard Interpreters
 
@@ -330,7 +326,6 @@ ruby_block 'share the torrent file' do
   subscribes :create, "bittorrent_torrent[#{node['bittorrent']['torrent']}]", :immediately
 end
 ```
-
 
 ### Relative Paths
 

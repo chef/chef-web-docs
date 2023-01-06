@@ -27,14 +27,14 @@ syntax_full_properties_list:
   available to this resource."
 actions_list:
   :install:
-    markdown: Default. Install a package. If a version is specified, install the specified
-      version of the package.
+    markdown: Install a package. If a version is specified, install the specified
+      version of the package. (default)
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :remove:
     markdown: Remove a package.
   :upgrade:
-    markdown: Install a package and/or ensure that a package is the latest version.
+    markdown: Install a package and ensure that a package is the latest version.
 properties_list:
 - property: options
   ruby_type: String, Array
@@ -62,4 +62,4 @@ properties_list:
   required: false
   description_list:
   - markdown: The version of a package to be installed or upgraded.
-examples: 
+examples:

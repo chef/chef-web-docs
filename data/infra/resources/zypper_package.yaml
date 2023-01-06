@@ -31,8 +31,8 @@ syntax_full_properties_list:
   `timeout`, and `version` are the properties available to this resource."
 actions_list:
   :install:
-    markdown: Default. Install a package. If a version is specified, install the specified
-      version of the package.
+    markdown: Install a package. If a version is specified, install the specified
+      version of the package. (default)
   :lock:
     markdown: Locks the zypper package to a specific version.
   :nothing:
@@ -40,8 +40,6 @@ actions_list:
   :purge:
     markdown: Purge a package. This action typically removes the configuration files
       as well as the package.
-  :reconfig:
-    markdown: Reconfigure a package. This action requires a response file.
   :remove:
     markdown: Remove a package.
   :unlock:

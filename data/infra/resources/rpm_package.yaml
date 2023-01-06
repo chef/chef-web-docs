@@ -26,15 +26,15 @@ syntax_full_properties_list:
 - "`allow_downgrade`, `options`, `package_name`, `source`, `timeout`, and `version`
   are the properties available to this resource."
 actions_list:
-  :install:
-    markdown: Default. Install a package. If a version is specified, install the specified
-      version of the package.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :install:
+    markdown: Install a package. If a version is specified, install the specified
+      version of the package. (default)
   :remove:
     markdown: Remove a package.
   :upgrade:
-    markdown: Install a package and/or ensure that a package is the latest version.
+    markdown: Install a package and ensure that a package is the latest version.
 properties_list:
 - property: allow_downgrade
   ruby_type: true, false

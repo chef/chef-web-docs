@@ -7,10 +7,19 @@ resources_common_properties: true
 ruby_style_basics_chef_log: true
 syntax_shortcode: resource_log_syntax.md
 resource: log
+resource_description_list:
+- markdown: 'Use the **log** resource to create log entries. The log resource behaves
+    like any other resource: built into the resource collection during the compile
+    phase, and then run during the execution phase. (To create a log entry that is
+    not built into the resource collection, use `Chef::Log` instead of the log resource.)'
+actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :write:
+    markdown: "(default)"
 examples: "
   Set default logging level\n\n  ```ruby\n  log 'a string to log'\n\
   \  ```\n\n  Set debug logging level\n\n  ```ruby\n  log 'a debug string' do\n \
   \   level :debug\n  end\n  ```\n\n  Add a message to a log file\n\n  ```ruby\n\
   \  log 'message' do\n    message 'This is the message that will be added to the\
   \ log.'\n    level :info\n  end\n  ```\n"
-
