@@ -75,7 +75,6 @@ syntax_full_code_block: |-
     user             String, Integer
     action           Symbol # defaults to :run if not specified
   end
-syntax_properties_list:
 syntax_full_properties_list:
 - "`execute` is the resource."
 - "`name` is the name given to the resource block."
@@ -116,8 +115,8 @@ properties_list:
   default_value: 'false'
   new_in: '14.2'
   description_list:
-  - markdown: When true this enables ENV magic to add path_sanity to the PATH and
-      force the locale to English+UTF-8 for parsing output
+  - markdown: When `true` this enables ENV magic to add path_sanity to the PATH and
+      force the locale to English+UTF-8 for parsing output.
 - property: domain
   ruby_type: String
   required: false
