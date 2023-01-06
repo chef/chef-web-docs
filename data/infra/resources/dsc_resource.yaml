@@ -7,30 +7,24 @@ resource: dsc_resource
 resource_description_list:
 - shortcode: resources_common_powershell.md
 - shortcode: resources_common_powershell_dsc.md
-- markdown: 'The **dsc_resource** resource allows any DSC resource to be used in a
-
-    Chef recipe, as well as any custom resources that have been added to
-
-    your Windows PowerShell environment. Microsoft [frequently adds new
-
-    resources](https://github.com/powershell/DscResources) to the DSC
-
-    resource collection.'
+- markdown: The dsc_resource resource allows any DSC resource to be used in a recipe,
+    as well as any custom resources that have been added to your Windows PowerShell
+    environment. Microsoft frequently adds new resources to the DSC resource collection.
 - warning:
-    markdown: "Using the **dsc_resource** has the following requirements:\n\n-   Windows\
-      \ Management Framework (WMF) 5.0 (or higher)\n-  The **dsc_resource** resource can only\
-      \ use binary- or script-based\n    resources. Composite DSC resources may not\
-      \ be used.\n\n    This is because composite resources aren't \"real\" resources\
-      \ from the\n    perspective of the Local Configuration Manager (LCM). Composite\n\
-      \    resources are used by the \"configuration\" keyword from the\n    `PSDesiredStateConfiguration`\
-      \ module, and then evaluated in that\n    context. When using DSC to create\
-      \ the configuration document (the\n    Managed Object Framework (MOF) file)\
-      \ from the configuration command,\n    the composite resource is evaluated.\
-      \ Any individual resources from\n    that composite resource are written into\
-      \ the Managed Object\n    Framework (MOF) document. As far as the Local Configuration\
-      \ Manager\n    (LCM) is concerned, there is no such thing as a composite resource.\n\
-      \    Unless that changes, the **dsc_resource** resource and/or\n    `Invoke-DscResource`\
-      \ command cannot directly use them."
+  markdown: "Using the **dsc_resource** has the following requirements:\n\n-   Windows\
+    \ Management Framework (WMF) 5.0 (or higher)\n-  The **dsc_resource** resource can only\
+    \ use binary- or script-based\n    resources. Composite DSC resources may not\
+    \ be used.\n\n    This is because composite resources aren't \"real\" resources\
+    \ from the\n    perspective of the Local Configuration Manager (LCM). Composite\n\
+    \    resources are used by the \"configuration\" keyword from the\n    `PSDesiredStateConfiguration`\
+    \ module, and then evaluated in that\n    context. When using DSC to create\
+    \ the configuration document (the\n    Managed Object Framework (MOF) file)\
+    \ from the configuration command,\n    the composite resource is evaluated.\
+    \ Any individual resources from\n    that composite resource are written into\
+    \ the Managed Object\n    Framework (MOF) document. As far as the Local Configuration\
+    \ Manager\n    (LCM) is concerned, there is no such thing as a composite resource.\n\
+    \    Unless that changes, the **dsc_resource** resource and/or\n    `Invoke-DscResource`\
+    \ command cannot directly use them."
 syntax_description: "A **dsc_resource** resource block allows DSC resources to be\
   \ used in a\nChef recipe. For example, the DSC `Archive` resource:\n\n```powershell\n\
   Archive ExampleArchive {\n  Ensure = \"Present\"\n  Path = \"C:\\Users\\Public\\\
@@ -39,158 +33,65 @@ syntax_description: "A **dsc_resource** resource block allows DSC resources to b
   \ 'example' do\n   resource :archive\n   property :ensure, 'Present'\n   property\
   \ :path, \"C:\\Users\\Public\\Documents\\example.zip\"\n   property :destination,\
   \ \"C:\\Users\\Public\\Documents\\ExtractionPath\"\n end```"
-syntax_properties_list: null
-syntax_full_code_block: "dsc_resource 'name' do\n  module_name                String\n\
-  \  module_version             String\n  property                   Symbol\n  reboot_action\
-  \              Symbol # default value: :nothing\n  resource                   Symbol\n\
-  \  timeout                    Integer\n  action                     Symbol # defaults\
-  \ to :run if not specified\nend"
+resource_new_in: '12.2'
+syntax_full_code_block: |-
+  dsc_resource 'name' do
+    module_version      String
+    reboot_action       Symbol # default value: :nothing
+    timeout             Integer
+    action              Symbol # defaults to :run if not specified
+  end
+syntax_properties_list:
 syntax_full_properties_list:
-- '`dsc_resource` is the resource.'
-- '`name` is the name given to the resource block.'
-- '`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state.'
-- '`property` is zero (or more) properties in the DSC resource, where each property
-  is entered on a separate line, `:dsc_property_name` is the case-insensitive name
-  of that property, and `"property_value"` is a Ruby value to be applied by Chef Infra
-  Client'
-- '`module_name`, `module_version`, `property`, `reboot_action`, `resource`, and `timeout`
-  are properties of this resource, with the Ruby type shown. See "Properties" section
-  below for more information about all of the properties that may be used with this
-  resource.'
+- "`dsc_resource` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`module_version`, `reboot_action`, and `timeout` are the properties available to
+  this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :run:
-    markdown: Default. Use to run the DSC configuration defined as defined in this
-      resource.
+    markdown: " (default)"
 properties_list:
 - property: module_name
   ruby_type: String
   required: false
   description_list:
   - markdown: 'The name of the module from which a DSC resource originates. If this
-
       property is not specified, it will be inferred.'
 - property: module_version
   ruby_type: String
   required: false
   new_in: '12.21'
   description_list:
-  - markdown: 'The version number of the module to use. PowerShell 5.0.10018.0 (or
-
-      higher) supports having multiple versions of a module installed.
-
-      This should be specified along with the `module_name`.'
+  - markdown: The version number of the module to use. PowerShell 5.0.10018.0 (or
+      higher) supports having multiple versions of a module installed. This should
+      be specified along with the `module_name` property.
 - property: property
-  ruby_type: Symbol
-  required: false
+  ruby_type: String
   description_list:
-  - markdown: 'A property from a Desired State Configuration (DSC) resource. Use
-
-      this property multiple times, one for each property in the Desired
-
-      State Configuration (DSC) resource. The format for this property
-
-      must follow `property :dsc_property_name, "property_value"` for each
-
-      DSC property added to the resource block.
-
-
+  - markdown: |-
+      A property from a Desired State Configuration (DSC) resource.
+      Use this property multiple times, one for each property in the Desired State Configuration (DSC) resource.
+      The format for this property must follow `property :dsc_property_name, "property_value"` for each DSC property added to the resource block.
       The `:dsc_property_name` must be a symbol.
 
+      Use the following Ruby types to define property_value:
 
-      Use the following Ruby types to define `property_value`:
+      | **Ruby**                              | **PowerShell** |
+      |---------------------------------------|----------------|
+      | `:array`                              | `Object[]`     |
+      | `Chef::Util::Powershell:PSCredential` | `PSCredential` |
+      | `False`                               | `bool($false)` |
+      | `Fixnum`                              | `Integer`      |
+      | `Float`                               | `Double`       |
+      | `Hash`                                | `Hashtable`    |
+      | `True`                                | `bool($true)`  |
 
+      These are converted into the corresponding Windows PowerShell type during a Chef Infra Client run.
 
-      <table>
-
-      <colgroup>
-
-      <col style="width: 50%" />
-
-      <col style="width: 50%" />
-
-      </colgroup>
-
-      <thead>
-
-      <tr class="header">
-
-      <th>Ruby</th>
-
-      <th>Windows PowerShell</th>
-
-      </tr>
-
-      </thead>
-
-      <tbody>
-
-      <tr>
-
-      <td><code>Array</code></td>
-
-      <td><code>Object[]</code></td>
-
-      </tr>
-
-      <tr>
-
-      <td><code>Chef::Util::Powershell:PSCredential</code></td>
-
-      <td><code>PSCredential</code></td>
-
-      </tr>
-
-      <tr>
-
-      <td><code>False</code></td>
-
-      <td><code>bool($false)</code></td>
-
-      </tr>
-
-      <tr>
-
-      <td><code>Fixnum</code></td>
-
-      <td><code>Integer</code></td>
-
-      </tr>
-
-      <tr>
-
-      <td><code>Float</code></td>
-
-      <td><code>Double</code></td>
-
-      </tr>
-
-      <tr>
-
-      <td><code>Hash</code></td>
-
-      <td><code>Hashtable</code></td>
-
-      </tr>
-
-      <tr>
-
-      <td><code>True</code></td>
-
-      <td><code>bool($true)</code></td>
-
-      </tr>
-
-      </tbody>
-
-      </table>
-
-
-      These are converted into the corresponding Windows PowerShell type
-
-      during a Chef Infra Client run.'
 - property: reboot_action
   ruby_type: Symbol
   required: false
@@ -378,9 +279,6 @@ properties_list:
   - markdown: 'The amount of time (in seconds) a command is to wait before timing
 
       out.'
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
 examples: "
   Open a Zip file\n\n  ```ruby\n  dsc_resource 'example' do\n    \
   \ resource :archive\n     property :ensure, 'Present'\n     property :path, 'C:\\\

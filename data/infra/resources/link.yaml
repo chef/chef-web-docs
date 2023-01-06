@@ -5,55 +5,55 @@ resources_common_notification: true
 resources_common_properties: true
 resource: link
 resource_description_list:
-- markdown: 'Use the **link** resource to create symbolic or hard links.
+- markdown: |-
+    Use the **link** resource to create symbolic or hard links.
 
+    A symbolic link--sometimes referred to as a soft link--is a directory entry that associates a file name with a string
+    that contains an absolute or relative path to a file on any file system. In other words, it's a file that contains a path
+    that points to another file. A symbolic link creates a new file with a new inode that points to the inode location of the original file.
 
-    A symbolic link---sometimes referred to as a soft link---is a directory
+    A hard link is a directory entry that associates a file with another file in the same file system. In other words,
+    multiple directory entries to the same file. A hard link creates a new file that points to the same inode as the original file.
+syntax_description: |
+  A **link** resource block creates symbolic or hard links. For
+  example, to create a hard link from `/tmp/file` to `/etc/file`:
 
-    entry that associates a file name with a string that contains an
+  ```ruby
+  link '/tmp/file' do
+    to '/etc/file'
+    link_type :hard
+  end
+  ```
 
-    absolute or relative path to a file on any file system. In other words,
+  Because the default value for `link_type` is symbolic, and because
+  properties that are not specified in the resource block will be assigned
+  their default values, the following example creates a symbolic link:
 
-    "a file that contains a path that points to another file." A symbolic
-
-    link creates a new file with a new inode that points to the inode
-
-    location of the original file.
-
-
-    A hard link is a directory entry that associates a file with another
-
-    file in the same file system. In other words, "multiple directory
-
-    entries to the same file." A hard link creates a new file that points to
-
-    the same inode as the original file. On Windows, this resource can be
-
-    used to create directory junction/reparse points.'
-syntax_description: "A **link** resource block creates symbolic or hard links. For\
-  \ example,\nto create a hard link from `/tmp/file` to `/etc/file`:\n\n```ruby\n\
-  link '/tmp/file' do\n  to '/etc/file'\n  link_type :hard\nend\n```\n\nBecause the\
-  \ default value for `link_type` is symbolic, and because\nproperties that are not\
-  \ specified in the resource block will be assigned\ntheir default values, the following\
-  \ example creates a symbolic link:\n\n```ruby\nlink '/tmp/file' do\n  to '/etc/file'\n\
-  end\n```"
-syntax_properties_list: null
-syntax_full_code_block: "link 'name' do\n  group            String, Integer\n  link_type\
-  \        String, Symbol # default value: :symbolic\n  mode             Integer,\
-  \ String\n  owner            String, Integer\n  target_file      String # default\
-  \ value: 'name' unless specified\n  to               String\n  action          \
-  \ Symbol # defaults to :create if not specified\nend"
+  ```ruby
+  link '/tmp/file' do
+    to '/etc/file'
+  end
+  ```
+syntax_full_code_block: |-
+  link 'name' do
+    group            String, Integer
+    link_type        String, Symbol # default value: :symbolic
+    owner            String, Integer
+    target_file      String # default value: 'name' unless specified
+    to               String
+    action           Symbol # defaults to :create if not specified
+  end
+syntax_properties_list:
 syntax_full_properties_list:
-- '`link` is the resource.'
-- '`name` is the name given to the resource block.'
-- '`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state.'
-- '`group`, `link_type`, `mode`, `owner`, `target_file`, and `to` are properties of
-  this resource, with the Ruby type shown. See "Properties" section below for more
-  information about all of the properties that may be used with this resource.'
+- "`link` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`group`, `link_type`, `owner`, `target_file`, and `to` are the properties available
+  to this resource."
 actions_list:
   :create:
-    markdown: Default. Create a link. If a link already exists (but does not match),
+    markdown: (default) Create a link. If a link already exists (but does not match),
       update that link to match.
   :delete:
     markdown: Delete a link.
@@ -150,38 +150,104 @@ properties_list:
   required: false
   description_list:
   - markdown: The actual file to which the link is to be created.
-resources_common_properties: true
-resources_common_notification: true
-resources_common_guards: true
-examples: "
-  Create symbolic links\n\n  The following example will create a symbolic\
-  \ link from `/tmp/file` to\n  `/etc/file`:\n\n  ```ruby\n  link '/tmp/file' do\n\
-  \    to '/etc/file'\n  end\n  ```\n\n  Create hard links\n\n  The following example\
-  \ will create a hard link from `/tmp/file` to\n  `/etc/file`:\n\n  ```ruby\n  link\
-  \ '/tmp/file' do\n    to '/etc/file'\n    link_type :hard\n  end\n  ```\n\n  Delete\
-  \ links\n\n  The following example will delete the `/tmp/file` symbolic link and\
-  \ uses\n  the `only_if` guard to run the `test -L` command, which verifies that\n\
-  \  `/tmp/file` is a symbolic link, and then only deletes `/tmp/file` if the\n  test\
-  \ passes:\n\n  ```ruby\n  link '/tmp/file' do\n    action :delete\n    only_if\
-  \ 'test -L /tmp/file'\n  end\n  ```\n\n  Create multiple symbolic links\n\n  The\
-  \ following example creates symbolic links from two files in the\n  `/vol/webserver/cert/`\
-  \ directory to files located in the\n  `/etc/ssl/certs/` directory:\n\n  ```ruby\n\
-  \  link '/vol/webserver/cert/server.crt' do\n    to '/etc/ssl/certs/ssl-cert-name.pem'\n\
-  \  end\n\n  link '/vol/webserver/cert/server.key' do\n    to '/etc/ssl/certs/ssl-cert-name.key'\n\
-  \  end\n  ```\n\n  Create platform-specific symbolic links\n\n  The following example\
-  \ shows installing a filter module on Apache. The\n  package name is different for\
-  \ different platforms, and for the Red Hat\n  Enterprise Linux family, a symbolic\
-  \ link is required:\n\n  ```ruby\n  include_recipe 'apache2::default'\n\n  case\
-  \ node['platform_family']\n  when 'debian'\n    ...\n  when 'suse'\n    ...\n  when\
-  \ 'rhel', 'fedora'\n    ...\n\n    link '/usr/lib64/httpd/modules/mod_apreq.so'\
-  \ do\n      to      '/usr/lib64/httpd/modules/mod_apreq2.so'\n      only_if 'test\
-  \ -f /usr/lib64/httpd/modules/mod_apreq2.so'\n    end\n\n    link '/usr/lib/httpd/modules/mod_apreq.so'\
-  \ do\n      to      '/usr/lib/httpd/modules/mod_apreq2.so'\n      only_if 'test\
-  \ -f /usr/lib/httpd/modules/mod_apreq2.so'\n    end\n  end\n\n  ...\n  ```\n\n \
-  \ For the complete recipe, see\n  <https://github.com/onehealth-cookbooks/apache2/blob/68bdfba4680e70b3e90f77e40223dd535bf22c17/recipes/mod_apreq2.rb>.\n\
-  \n  **Create Windows junction/reparse points**\n\n  This example demonstrates how\
-  \ to create a directory junction/reparse\n  point. In this example, `C:\\destination`\
-  \ will be a junction/reparse\n  point to the `C:\\source` directory.\n\n  ```ruby\n\
-  \  directory 'C:/source'\n\n  link 'C:/destination' do\n      link_type :symbolic\n\
-  \      to 'C:/source'\n  end\n  ```\n"
+examples: |
+  **Create symbolic links**
+
+  The following example will create a symbolic link from `/tmp/file` to `/etc/file`:
+
+  ```ruby
+  link '/tmp/file' do
+    to '/etc/file'
+  end
+  ```
+
+  **Create hard links**
+
+  The following example will create a hard link from `/tmp/file` to `/etc/file`:
+
+  ```ruby
+  link '/tmp/file' do
+    to '/etc/file'
+    link_type :hard
+  end
+  ```
+
+  **Delete links**
+
+  The following example will delete the `/tmp/file` symbolic link and uses
+  the `only_if` guard to run the `test -L` command, which verifies that
+  `/tmp/file` is a symbolic link, and then only deletes `/tmp/file` if the
+  test passes:
+
+  ```ruby
+  link '/tmp/file' do
+    action :delete
+    only_if
+  'test -L /tmp/file'
+  end
+  ```
+
+  **Create multiple symbolic links**
+
+  The following example creates symbolic links from two files in the `/vol/webserver/cert/`
+  directory to files located in the `/etc/ssl/certs/` directory:
+
+  ```ruby
+  link '/vol/webserver/cert/server.crt' do
+    to '/etc/ssl/certs/ssl-cert-name.pem'
+  end
+
+  link '/vol/webserver/cert/server.key' do
+    to '/etc/ssl/certs/ssl-cert-name.key'
+  end
+  ```
+
+  **Create platform-specific symbolic links**
+
+  The following example shows installing a filter module on Apache. The package name is different for
+  different platforms, and for the Red Hat Enterprise Linux family, a symbolic link is required:
+
+  ```ruby
+  include_recipe 'apache2::default'
+
+  case node['platform_family']
+  when 'debian'
+    ...
+  when 'suse'
+    ...
+  when 'rhel', 'fedora'
+    ...
+
+    link '/usr/lib64/httpd/modules/mod_apreq.so' do
+      to      '/usr/lib64/httpd/modules/mod_apreq2.so'
+      only_if 'test -f /usr/lib64/httpd/modules/mod_apreq2.so'
+    end
+
+    link '/usr/lib/httpd/modules/mod_apreq.so' do
+      to      '/usr/lib/httpd/modules/mod_apreq2.so'
+      only_if 'test -f /usr/lib/httpd/modules/mod_apreq2.so'
+    end
+  end
+  ...
+
+  ```
+
+
+  For the complete recipe, see
+  <https://github.com/onehealth-cookbooks/apache2/blob/68bdfba4680e70b3e90f77e40223dd535bf22c17/recipes/mod_apreq2.rb>.
+
+
+  **Create Windows junction/reparse points**
+
+  This example demonstrates how to create a directory junction/reparse point. In this example, `C:\\destination`
+  will be a junction/reparse point to the `C:\\source` directory.
+
+  ```ruby
+  directory 'C:/source'
+
+  link 'C:/destination' do
+    link_type :symbolic
+    to 'C:/source'
+  end
+  ```
 

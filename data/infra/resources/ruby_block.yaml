@@ -10,9 +10,13 @@ syntax_description: "A **ruby_block** resource block executes a block of arbitra
   \ Ruby\ncode. For example, to reload the client.rb file during a Chef Infra\nClient\
   \ run:\n\n```ruby\nruby_block 'reload_client_config' do\n  block do\n    Chef::Config.from_file(\"\
   /etc/chef/client.rb\")\n  end\n  action :run\nend\n```"
-syntax_full_code_block: "ruby_block 'name' do\n  block                      Block\n\
-  \  block_name                 String # defaults to 'name' if not specified\n  action\
-  \                     Symbol # defaults to :run if not specified\nend"
+syntax_full_code_block: |-
+  ruby_block 'name' do
+    block           Block
+    block_name      String # default value: 'name' unless specified
+    action          Symbol # defaults to :run if not specified
+  end
+syntax_properties_list:
 syntax_full_properties_list:
 - '`ruby_block` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -28,10 +32,10 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :run:
-    markdown: Default. Run a Ruby block.
+    markdown: "Run a Ruby block. (default)"
 properties_list:
 - property: block
-  ruby_type: Block
+  ruby_type: block
   required: false
   description_list:
   - markdown: A block of Ruby code.
@@ -44,7 +48,7 @@ properties_list:
 
       resource block. See "Syntax" section above for more information.'
 examples: |
-  **Re-read configuration data**
+  **Reload Chef Infra Client configuration data**
 
   ```ruby
   ruby_block 'reload_client_config' do

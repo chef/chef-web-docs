@@ -29,9 +29,10 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :install:
-    markdown: Installs the cabinet package.
+    markdown: Install a cabinet package. If a version is specified, install the specified
+      version of the package. (default)
   :remove:
-    markdown: Removes the cabinet package.
+    markdown: Remove a cabinet package.
 properties_list:
 - property: options
   ruby_type: String, Array

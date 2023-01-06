@@ -42,6 +42,10 @@ Follow the steps below to deploy Chef Automate High Availability (HA) on AWS (Am
 - Have SSH Key Pair ready in AWS, so new VM's are created using that pair.
     Reference for [AWS SSH Key Pair creation](https://docs.aws.amazon.com/ground-station/latest/ug/create-ec2-ssh-key-pair.html)
 - We do not support passphrase for Private Key authentication.
+
+{{< warning >}} PLEASE DONOT MODIFY THE WORKSPACE PATH it should always be "/hab/a2_deploy_workspace"
+{{< /warning >}}
+
 ### Deployment
 
 Run the following steps on Bastion Host Machine:
@@ -65,11 +69,9 @@ Run the following steps on Bastion Host Machine:
    "
    ```
 
-   {{< note >}} 
-   Chef Automate bundles are available for 365 days from the release of a version. However, the milestone release bundles are available for download forever.
-   {{< /note >}}
+   {{< note >}} Chef Automate bundles are available for 365 days from the release of a version. However, the milestone release bundles are available for download forever. {{< /note >}}
 
-2. Update Config with relevant data. Click [here](/automate/ha_aws_deploy_steps/#sample-config) for sample config
+1. Update Config with relevant data. Click [here](/automate/ha_aws_deploy_steps/#sample-config) for sample config
 
    ```bash
    vi config.toml
@@ -91,7 +93,7 @@ Run the following steps on Bastion Host Machine:
      - Set `aws_vpc_id`, which you had created as Prerequisite step. Example: `"vpc12318h"`
      - If AWS VPC uses CIDR then set `aws_cidr_block_addr`.
      - If AWS VPC uses Subnet then set `private_custom_subnets` and `public_custom_subnets` Example: example : `["subnet-07e469d218301533","subnet-07e469d218041534","subnet-07e469d283041535"]`
-     - Set `ssh_key_pair_name`, this is the SSH Key Pair we created as Prerequsite. This value should be just name of the AWS SSH Key Pair, not having `.pem` extention. The ssh key content should be same as content of `ssh_key_file`.
+     - Set `ssh_key_pair_name`, this is the SSH Key Pair we created as Prerequisite. This value should be just name of the AWS SSH Key Pair, not having `.pem` extention. The ssh key content should be same as content of `ssh_key_file`.
      - Set `setup_managed_services` as `false`, As these deployment steps are for Non-Managed Services AWS Deployment. Default value is `false`.
      - Set `ami_id`, this value depends on your AWS Region and the Operating System Image you want to use.
      - Please use the [Hardware Requirement Calculator sheet](/calculator/automate_ha_hardware_calculator.xlsx) to get information for which instance type you will need for your load.
@@ -107,7 +109,9 @@ Run the following steps on Bastion Host Machine:
      - Set `postgresql_ebs_volume_iops`, `postgresql_ebs_volume_size` based on your load needs.
      - Set `automate_ebs_volume_type`, `chef_ebs_volume_type`, `opensearch_ebs_volume_type`, `postgresql_ebs_volume_type`. Default value is `"gp3"`. Change this based on your needs.
 
-3. Continue with the deployment after updating config:
+   {{< note >}} Click [here](/automate/ha_cert_deployment) to know more on adding certificates for services during deployment. {{< /note >}}
+
+1. Continue with the deployment after updating config:
 
    ```bash
    #Run commands as sudo.
@@ -143,7 +147,7 @@ Below section will destroy the infrastructure
 
 To destroy infra after successfull provisioning, run below command in your bastion host in same order.
 
-1. This command will initialise the terraform packages
+1. This command will initialize the terraform packages
 
     ```bash
     for i in 1;do i=$PWD;cd /hab/a2_deploy_workspace/terraform/destroy/aws/;terraform init;cd $i;done
@@ -159,7 +163,7 @@ To destroy infra after successfull provisioning, run below command in your basti
 
 To destroy infra after successfull provisioning, run below command in your bastion host in same order.
 
-1. This command will initialise the terraform packages
+1. This command will initialize the terraform packages
 
     ```bash
     for i in 1;do i=$PWD;cd /hab/a2_deploy_workspace/terraform/destroy/aws/;terraform init;cd $i;done
@@ -178,14 +182,21 @@ To destroy infra after successfull provisioning, run below command in your basti
     ```
 
 #### Sample config
+
 {{< note >}}
--   Assuming 8+1 nodes (1 bastion, 1 for automate UI, 1 for Chef-server, 3 for Postgresql, 3 for Opensearch)
+
+- Assuming 8+1 nodes (1 bastion, 1 for automate UI, 1 for Chef-server, 3 for Postgresql, 3 for Opensearch)
+
 {{< /note >}}
+
 {{< note >}}
--   User only needs to create/setup **the bastion node** with IAM role of Admin access, and s3 bucket access attached to it.
--   It is adviceble to create bastion server (EC2 instance) in a new VPC.
--   Following config will create s3 bucket for backup.
+
+- User only needs to create/setup **the bastion node** with IAM role of Admin access, and s3 bucket access attached to it.
+- It is adviceble to create bastion server (EC2 instance) in a new VPC.
+- Following config will create s3 bucket for backup.
+
 {{< /note >}}
+
 ```config
 [architecture.aws]
 ssh_port = "22"
@@ -198,8 +209,8 @@ backup_config = "s3"
 secrets_key_file = "/hab/a2_deploy_workspace/secrets.key"
 secrets_store_file = "/hab/a2_deploy_workspace/secrets.json"
 architecture = "aws"
+# DON'T MODIFY THE BELOW LINE (workspace_path)
 workspace_path = "/hab/a2_deploy_workspace"
-# DON'T MODIFY THE BELOW LINE (backup_mount)
 backup_mount = "/mnt/automate_backups"
 [automate.config]
 admin_password = ""
@@ -207,12 +218,38 @@ admin_password = ""
 fqdn = ""
 instance_count = "1"
 config_file = "configs/automate.toml"
+# Set enable_custom_certs = true to provide custom certificates during deployment
+enable_custom_certs = false
+# Add Automate load balancer root-ca and keys
+# root_ca = ""
+# private_key = ""
+# public_key = ""
 [chef_server.config]
 instance_count = "1"
+# Set enable_custom_certs = true to provide custom certificates during deployment
+enable_custom_certs = false
+# Add Chef Server load balancer root-ca and keys
+# root_ca = ""
+# private_key = ""
+# public_key = ""
 [opensearch.config]
 instance_count = "3"
+# Set enable_custom_certs = true to provide custom certificates during deployment
+enable_custom_certs = false
+# Add OpenSearch load balancer root-ca and keys
+# root_ca = ""
+# admin_key = ""
+# admin_cert = ""
+# private_key = ""
+# public_key = ""
 [postgresql.config]
 instance_count = "3"
+# Set enable_custom_certs = true to provide custom certificates during deployment
+enable_custom_certs = false
+# Add Postgresql load balancer root-ca and keys
+# root_ca = ""
+# private_key = ""
+# public_key = ""
 [aws.config]
 profile = "default"
 # Eg.: region = "us-east-1"
@@ -255,17 +292,34 @@ X-Dept = ""
 X-Project = "Test_Project"
 # ======================================================
 ```
-##### Changes to be made
--   Give `ssh_user` which has access to all the machines. Eg: `ubuntu`, `centos`, `ec2-user`
--   Give `ssh_key_file` path, this key should have access to all the Machines or VM's. Eg: `~/.ssh/id_rsa`, `/home/ubuntu/key.pem`
--   Give `fqdn` as the DNS entry of Chef Automate, which LoadBalancer redirects to Chef Automate Machines or VM's. (optional for above configuration) Eg: `chefautomate.example.com`
--   Provide `region` Eg: `us-east-1`, `ap-northeast-1`.
--   Provide `aws_vpc_id` Eg: `vpc-0a12*****`
--   Provide `aws_cidr_block_addr` Eg: `10.0.192.0`
--   Provide `ssh_key_pair_name` Eg: `user-key`
--   Provide `ami_filter_name` Eg: `ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*`
--   Provide `ami_filter_virt_type` Eg: `hvm`
--   Provide `ami_filter_owner` Eg: `112758395563`
--   Give `ami_id` for the respective region where the infra is been created. Eg: `ami-0bb66b6ba59664870`
--   Provide `certificate ARN` for both automate and Chef server in `automate_lb_certificate_arn` and `chef_server_lb_certificate_arn` respectivelly.
 
+##### Changes to be made
+
+- Give `ssh_user` which has access to all the machines. Eg: `ubuntu`, `centos`, `ec2-user`
+- Give `ssh_key_file` path, this key should have access to all the Machines or VM's. Eg: `~/.ssh/id_rsa`, `/home/ubuntu/key.pem`
+- Give `fqdn` as the DNS entry of Chef Automate, which LoadBalancer redirects to Chef Automate Machines or VM's. (optional for above configuration) Eg: `chefautomate.example.com`
+- Provide `region` Eg: `us-east-1`, `ap-northeast-1`.
+- Provide `aws_vpc_id` Eg: `vpc-0a12*****`
+- Provide `aws_cidr_block_addr` Eg: `10.0.192.0`
+- Provide `ssh_key_pair_name` Eg: `user-key`
+- Provide `ami_filter_name` Eg: `ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*`
+- Provide `ami_filter_virt_type` Eg: `hvm`
+- Provide `ami_filter_owner` Eg: `112758395563`
+- Give `ami_id` for the respective region where the infra is been created. Eg: `ami-0bb66b6ba59664870`
+- Provide `certificate ARN` for both automate and Chef server in `automate_lb_certificate_arn` and `chef_server_lb_certificate_arn` respectively.
+
+### Uninstall chef automate HA
+
+{{< danger >}}
+- Running clean up command will remove all AWS resources created by `provision-infra` command
+- Adding `--force` flag will remove storage (Object Storage/ NFS) if it is created by`provision-infra`
+{{< /danger >}}
+
+To uninstall chef automate HA instances after unsuccessfull deployment, run below command in your bastion host.
+```bash
+    chef-automate cleanup --aws-deployment --force
+```
+or
+```bash
+    chef-automate cleanup --aws-deployment
+```

@@ -10,33 +10,44 @@ resource_description_list:
 syntax_description: "A **windows_service** resource block manages the state of a service\
   \ on\na machine that is running Microsoft Windows. For example:\n\n```ruby\nwindows_service\
   \ 'BITS' do\n  action :configure_startup\n  startup_type :manual\nend\n```"
-syntax_full_code_block: "windows_service 'name' do\n  binary_path_name      String\n\
-  \  delayed_start         true, false # default value: false\n  dependencies    \
-  \      String, Array\n  description           String\n  desired_access        Integer\
-  \ # default value: 983551\n  display_name          String\n  error_control     \
-  \    Integer # default value: 1\n  init_command          String\n  load_order_group\
-  \      String\n  pattern               String\n  reload_command        String, false\n\
-  \  restart_command       String, false\n  run_as_password       String\n  run_as_user\
-  \           String # default value: \"LocalSystem\"\n  service_name          String\
-  \ # default value: 'name' unless specified\n  service_type          Integer # default\
-  \ value: \"SERVICE_WIN32_OWN_PROCESS\"\n  start_command         String, false\n\
-  \  startup_type          Symbol # default value: :automatic\n  status_command  \
-  \      String, false\n  stop_command          String, false\n  supports        \
-  \      Hash # default value: {\"restart\"=>nil, \"reload\"=>nil, \"status\"=>nil}\n\
-  \  timeout               Integer\n  action                Symbol # defaults to :nothing\
-  \ if not specified\nend"
+resource_new_in: '12.0'
+syntax_full_code_block: |-
+  windows_service 'name' do
+    binary_path_name      String
+    delayed_start         true, false # default value: false
+    dependencies          String, Array
+    description           String
+    desired_access        Integer # default value: 983551
+    display_name          String
+    error_control         Integer # default value: 1
+    load_order_group      String
+    pattern               String
+    reload_command        String, false
+    restart_command       String, false
+    run_as_password       String
+    run_as_user           String # default value: "localsystem"
+    service_name          String # default value: 'name' unless specified
+    service_type          Integer # default value: 16
+    start_command         String, false
+    startup_type          Symbol # default value: :automatic
+    status_command        String, false
+    stop_command          String, false
+    supports              Hash # default value: {"restart"=>nil, "reload"=>nil, "status"=>nil}
+    timeout               Integer # default value: 60
+    action                Symbol # defaults to :nothing if not specified
+  end
+syntax_properties_list:
 syntax_full_properties_list:
-- '`windows_service` is the resource.'
-- '`name` is the name given to the resource block.'
-- '`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state.'
-- '`binary_path_name`, `display_name`, `desired_access`, `delayed_start`, `dependencies`,
-  `description`, `error_control`, `init_command`, `load_order_group`, `pattern`, `reload_command`,
-  `restart_command`, `run_as_password`, `run_as_user`, `service_name`, `service_type`,
-  `start_command`, `startup_type`, `status_command`, `stop_command`, `supports`, and
-  `timeout` are properties of this resource, with the Ruby type shown. See "Properties"
-  section below for more information about all of the properties that may be used
-  with this resource.'
+- "`windows_service` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`binary_path_name`, `delayed_start`, `dependencies`, `description`, `desired_access`,
+  `display_name`, `error_control`, `load_order_group`,
+  `pattern`, `reload_command`, `restart_command`, `run_as_password`,
+  `run_as_user`, `service_name`, `service_type`, `start_command`, `startup_type`,
+  `status_command`, `stop_command`, `supports`, and `timeout` are the properties
+  available to this resource."
 actions_list:
   :configure:
     markdown: "Configure a pre-existing service.\n *New in Chef Client 14.0.*"
@@ -55,7 +66,7 @@ actions_list:
     markdown: Enable a service at boot. This action is equivalent to an `Automatic`
       startup type on the Microsoft Windows platform.
   :nothing:
-    markdown: Default. Do nothing with a service.
+    shortcode: resources_common_actions_nothing.md
   :reload:
     markdown: Reload the configuration for this service. This action is not supported
       on the Windows platform and will raise an error if used.
@@ -194,31 +205,18 @@ properties_list:
   default_value: '{"restart"=>nil, "reload"=>nil, "status"=>nil}'
   description_list:
   - markdown: 'A list of properties that controls how Chef Infra Client is to
-
       attempt to manage a service: `:restart`, `:reload`, `:status`. For
-
       `:restart`, the init script or other service provider can use a
-
       restart command; if `:restart` is not specified, Chef Infra Client
-
       attempts to stop and then start a service. For `:reload`, the init
-
       script or other service provider can use a reload command. For
-
       `:status`, the init script or other service provider can use a
-
       status command to determine if the service is running; if `:status`
-
       is not specified, Chef Infra Client attempts to match the
-
       `service_name` against the process table as a regular expression,
-
       unless a pattern is specified as a parameter property. Default
-
       value: `{ restart: false, reload: false, status: false }` for all
-
       platforms (except for the Red Hat platform family, which defaults to
-
       `{ restart: false, reload: false, status: true }`.)'
 - property: timeout
   ruby_type: Integer

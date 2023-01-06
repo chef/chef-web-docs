@@ -14,6 +14,6 @@ toc_layout = "infra_resource_toc"
     parent = "chef_infra/resources"
 +++
 
-<!-- The contents of this page are automatically generated from the ssh_known_hosts_entry.yaml file in the data directory. -->
-<!-- To suggest a change, edit the https://github.com/chef/chef/blob/main/lib/chef/resource/ssh_known_hosts_entry.rb file
-      and submit a pull request to the https://github.com/chef/chef repository. -->
+<!-- The contents of this page are automatically generated from the ssh_known_hosts_entry.yaml file in the data/infra/resources directory. -->
+<!-- To suggest a change, edit the https://github.com/chef/chef/blob/main/lib/chef/resource/ssh_known_hosts_entry.rb file and submit a pull request to the https://github.com/chef/chef repository. -->
+<!-- markdownlint-disable-file -->
