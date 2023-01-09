@@ -11,6 +11,7 @@ resource_new_in: '12.8'
 syntax_full_code_block: |-
   launchd 'name' do
     abandon_process_group           true, false
+    associated_bundle_identifiers   Hash
     backup                          Integer, false
     cookbook                        String
     debug                           true, false
@@ -70,7 +71,7 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`abandon_process_group`, `backup`, `cookbook`, `debug`, `disabled`, `enable_globbing`,
+- "`abandon_process_group`, `associated_bundle_identifiers`, `backup`, `cookbook`, `debug`, `disabled`, `enable_globbing`,
   `enable_transactions`, `environment_variables`, `exit_timeout`, `group`, `hard_resource_limits`,
   `inetd_compatibility`, `init_groups`, `keep_alive`, `label`, `launch_events`, `launch_only_once`,
   `ld_group`, `limit_load_from_hosts`, `limit_load_to_hosts`, `limit_load_to_session_type`,
@@ -106,6 +107,13 @@ properties_list:
   description_list:
   - markdown: If a job dies, all remaining processes with the same process ID may
       be kept running. Set to true to kill all remaining processes.
+- property: associated_bundle_identifiers
+  new_in: 18.1
+  ruby_type: Hash
+  required: false
+  description_list:
+  - markdown: This optional key indicates which bundles the **Login Items Added by Apps**
+      panel associates with the helper executable.
 - property: backup
   ruby_type: Integer, false
   required: false
