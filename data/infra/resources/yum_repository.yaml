@@ -28,6 +28,7 @@ syntax_full_code_block: |-
     includepkgs                String
     keepalive                  true, false
     make_cache                 true, false # default value: true
+    makecache_fast             true, false # default value: false
     max_retries                String, Integer
     metadata_expire            String
     metalink                   String
@@ -64,22 +65,22 @@ syntax_full_properties_list:
   the desired state."
 - "`baseurl`, `clean_metadata`, `cost`, `description`, `enabled`, `enablegroups`,
   `exclude`, `failovermethod`, `fastestmirror_enabled`, `gpgcheck`, `gpgkey`, `http_caching`,
-  `include_config`, `includepkgs`, `keepalive`, `make_cache`, `max_retries`, `metadata_expire`,
+  `include_config`, `includepkgs`, `keepalive`, `make_cache`, `makecache_fast`, `max_retries`, `metadata_expire`,
   `metalink`, `mirror_expire`, `mirrorlist`, `mirrorlist_expire`, `mode`, `options`,
   `password`, `priority`, `proxy`, `proxy_password`, `proxy_username`, `repo_gpgcheck`,
   `report_instanceid`, `reposdir`, `repositoryid`, `skip_if_unavailable`, `source`,
   `sslcacert`, `sslclientcert`, `sslclientkey`, `sslverify`, `throttle`, `timeout`,
   and `username` are the properties available to this resource."
 actions_list:
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
   :create:
     markdown: Create a repository based on the properties. (default)
+  :delete:
+    markdown: Remove a repository.
   :makecache:
     markdown: Force the creation of the repository cache. This is also done automatically
       when a repository is updated.
-  :delete:
-    markdown: Remove a repository.
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
 properties_list:
 - property: baseurl
   ruby_type: String, Array
@@ -194,6 +195,15 @@ properties_list:
   - markdown: Determines whether package files downloaded by Yum stay in cache directories.
       By using cached data, you can carry out certain operations without a network
       connection.
+- property: makecache_fast
+  new_in: 18.1
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  description_list:
+  - markdown: If `make_cache` is `true`, this uses `yum makecache fast`, which downloads
+      only the minimum amount of data required. Useful over slower connections and when
+      disk space is at a premium.
 - property: max_retries
   ruby_type: String, Integer
   required: false

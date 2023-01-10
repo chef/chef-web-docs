@@ -10,6 +10,22 @@ draft = false
     weight = 20
 +++
 
+## 20221212
+
+### New Features
+
+- CIS Rocky Linux v1.0.0 (Remediation).
+- STIG Windows Server 2019 V2R2 (Remediation).
+- CIS Windows Server 2016 v1.4.0 (Remediation).
+- CIS Windows Server 2019 v1.3.0 (Remediation).
+
+## 20220913
+
+### New Features
+
+CIS Alma Linux v2.0.0 (Remediation).
+CIS Oracle Linux 8 v2.0.0 (Remediation).
+
 ## 20220808
 
 ### New Features
@@ -18,10 +34,3 @@ draft = false
 - CIS Windows Server 2022 v1.0.0 (Remediation).
 - STIG RHEL 8 v1.2.0 (Remediation).
 - STIG Ubuntu 20.04 v1R2 (Remediation).
-
-## 20220913
-
-### New Features
-
-CIS Alma Linux v2.0.0 (Remediation).
-CIS Oracle Linux8 v2.0.0 (Remediation).

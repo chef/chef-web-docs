@@ -28,7 +28,7 @@ syntax_full_properties_list:
   and `system` are the properties available to this resource."
 actions_list:
   :create:
-    markdown: Default. Create a group. If a group already exists (but does not match),
+    markdown: (default) Create a group. If a group already exists (but does not match),
       update that group to match.
   :manage:
     markdown: Manage an existing group. This action does nothing if the group does
@@ -97,7 +97,9 @@ properties_list:
   description_list:
   - markdown: Set to `true` if the group belongs to a system group.
 examples: |
-  Append users to groups:
+  The following examples demonstrate various approaches for using the **group** resource in recipes:
+
+  **Append users to groups**:
 
   ```ruby
   group 'www-data' do
@@ -107,7 +109,7 @@ examples: |
   end
   ```
 
-  Add a user to group on the Windows platform:
+  **Add a user to group on the Windows platform**:
 
   ```ruby
   group 'Administrators' do

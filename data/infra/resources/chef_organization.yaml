@@ -27,7 +27,7 @@ syntax_properties_list:
   the desired state'
 actions_list:
   :create:
-    markdown: Default.
+    markdown: (default)
   :delete:
     markdown: ''
   :nothing:
@@ -103,9 +103,7 @@ properties_list:
   required: false
   description_list:
   - shortcode: resources_common_notification_notifies.md
-  - markdown: ''
   - shortcode: resources_common_notification_timers.md
-  - markdown: ''
   - shortcode: resources_common_notification_notifies_syntax.md
 - property: raw_json
   ruby_type: null
@@ -126,8 +124,6 @@ properties_list:
   required: false
   description_list:
   - shortcode: resources_common_notification_subscribes.md
-  - markdown: ''
   - shortcode: resources_common_notification_timers.md
-  - markdown: ''
   - shortcode: resources_common_notification_subscribes_syntax.md
 

@@ -3,11 +3,11 @@ module github.com/chef/chef-web-docs
 go 1.16
 
 require (
-	github.com/chef/automate/components/docs-chef-io v0.0.0-20221018133443-f2fd6b9d26f0 // indirect
-	github.com/chef/chef-server/docs-chef-io v0.0.0-20221108221238-b4b7b8d27857 // indirect
-	github.com/chef/chef-workstation/docs-chef-io v0.0.0-20221011155800-13a1f87a1889 // indirect
+	github.com/chef/automate/components/docs-chef-io v0.0.0-20230103083148-e1c80991b55a // indirect
+	github.com/chef/chef-server/docs-chef-io v0.0.0-20230105060905-c178106dc44e // indirect
+	github.com/chef/chef-workstation/docs-chef-io v0.0.0-20221220145157-cf956b9430bf // indirect
 	github.com/chef/compliance-profiles/docs-chef-io v0.0.0-20220913154223-6d8d6f3396b6 // indirect
-	github.com/chef/compliance-remediation-2022/docs-chef-io v0.0.0-20220915063419-745be3d3a37b // indirect
+	github.com/chef/compliance-remediation-2022/docs-chef-io v0.0.0-20221212054622-28b0bde63f50 // indirect
 	github.com/chef/desktop-config/docs-chef-io v0.0.0-20220405052948-5947f844edff // indirect
 	github.com/chef/effortless/docs-chef-io v0.0.0-20211119164252-4ff3d53886be // indirect
 	github.com/chef/supermarket/docs-chef-io v0.0.0-20221020122658-254e65785dfb // indirect

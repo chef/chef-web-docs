@@ -63,22 +63,17 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'The path to the init script that is associated with the service. Use
-
-      `init_command` to prevent the need to specify overrides for the
-
-      `start_command`, `stop_command`, and `restart_command` properties.
-
-      When this property is not specified, Chef Infra Client will use the
-
-      default init command for the service provider being used.'
+  - markdown: The path to the init script that is associated with the service. Use
+      `init_command` to prevent the need to specify overrides for the `start_command`,
+      `stop_command`, and `restart_command` properties. When this property is not specified,
+      the Chef Infra Client will use the default init command for the service provider
+      being used.
 - property: options
   ruby_type: Array, String
   required: false
   description_list:
-  - markdown: 'Solaris platform only. Options to pass to the service command. See
-
-      the `svcadm` manual for details of possible options.'
+  - markdown: Solaris platform only. Options to pass to the service command. See the
+      `svcadm` manual for details of possible options.
 - property: parameters
   ruby_type: Hash
   required: false
@@ -95,19 +90,12 @@ properties_list:
   ruby_type: Integer, String, Hash
   required: false
   description_list:
-  - markdown: 'Debian platform only. The relative priority of the program for start
-
-      and shutdown ordering. May be an integer or a Hash. An integer is
-
-      used to define the start run levels; stop run levels are then
-
-      100-integer. A Hash is used to define values for specific run
-
-      levels. For example, `{ 2 => [:start, 20], 3 => [:stop, 55] }` will
-
-      set a priority of twenty for run level two and a priority of
-
-      fifty-five for run level three.'
+  - markdown: Debian platform only. The relative priority of the program for start
+      and shutdown ordering. May be an integer or a Hash. An integer is used to define
+      the start run levels; stop run levels are then 100-integer. A Hash is used to
+      define values for specific run levels. For example, `{ 2 => [:start, 20], 3 =>
+      [:stop, 55] }` will set a priority of twenty for run level two and a priority
+      of fifty-five for run level three.
 - property: reload_command
   ruby_type: String, false
   required: false
@@ -150,33 +138,18 @@ properties_list:
   required: false
   default_value: '{"restart" => nil, "reload" => nil, "status" => nil}'
   description_list:
-  - markdown: 'A list of properties that controls how Chef Infra Client is to
-
-      attempt to manage a service: `:restart`, `:reload`, `:status`. For
-
-      `:restart`, the init script or other service provider can use a
-
-      restart command; if `:restart` is not specified, Chef Infra Client
-
-      attempts to stop and then start a service. For `:reload`, the init
-
-      script or other service provider can use a reload command. For
-
-      `:status`, the init script or other service provider can use a
-
-      status command to determine if the service is running; if `:status`
-
-      is not specified, Chef Infra Client attempts to match the
-
-      `service_name` against the process table as a regular expression,
-
-      unless a pattern is specified as a parameter property. Default
-
-      value: `{ restart: false, reload: false, status: false }` for all
-
-      platforms (except for the Red Hat platform family, which defaults to
-
-      `{ restart: false, reload: false, status: true }`.)'
+  - markdown: 'A list of properties that controls how Chef Infra Client is to attempt
+      to manage a service: `:restart`, `:reload`, `:status`. For `:restart`, the init script
+      or other service provider can use a restart command; if `:restart` is not specified,
+      the Chef Infra Client attempts to stop and then start a service. For `:reload`, the
+      init script or other service provider can use a reload command. For `:status`,
+      the init script or other service provider can use a status command to determine
+      if the service is running; if `:status` is not specified, the Chef Infra Client attempts
+      to match the `service_name` against the process table as a regular expression,
+      unless a pattern is specified as a parameter property. Default value: `{ restart:
+      false, reload: false, status: false }` for all platforms (except for the Red
+      Hat platform family, which defaults to `{ restart: false, reload: false, status:
+      true }`.)'
 - property: timeout
   ruby_type: Integer
   required: false

@@ -11,6 +11,7 @@ resource_new_in: '12.8'
 syntax_full_code_block: |-
   launchd 'name' do
     abandon_process_group           true, false
+    associated_bundle_identifiers   Hash
     backup                          Integer, false
     cookbook                        String
     debug                           true, false
@@ -70,7 +71,7 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`abandon_process_group`, `backup`, `cookbook`, `debug`, `disabled`, `enable_globbing`,
+- "`abandon_process_group`, `associated_bundle_identifiers`, `backup`, `cookbook`, `debug`, `disabled`, `enable_globbing`,
   `enable_transactions`, `environment_variables`, `exit_timeout`, `group`, `hard_resource_limits`,
   `inetd_compatibility`, `init_groups`, `keep_alive`, `label`, `launch_events`, `launch_only_once`,
   `ld_group`, `limit_load_from_hosts`, `limit_load_to_hosts`, `limit_load_to_session_type`,
@@ -82,8 +83,6 @@ syntax_full_properties_list:
   `wait_for_debugger`, `watch_paths`, and `working_directory` are the properties available
   to this resource."
 actions_list:
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
   :create:
     markdown: Create a launchd property list. (default)
   :create_if_missing:
@@ -91,12 +90,14 @@ actions_list:
   :delete:
     markdown: Delete a launchd property list. This will unload a daemon or agent,
       if loaded.
+  :disable:
+    markdown: Disable a launchd property list.
   :enable:
     markdown: Create a launchd property list, and then ensure that it is enabled.
       If a launchd property list already exists, but does not match, updates the property
       list to match, and then restarts the daemon or agent.
-  :disable:
-    markdown: Disable a launchd property list.
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :restart:
     markdown: Restart a launchd managed daemon or agent.
 properties_list:
@@ -106,6 +107,13 @@ properties_list:
   description_list:
   - markdown: If a job dies, all remaining processes with the same process ID may
       be kept running. Set to true to kill all remaining processes.
+- property: associated_bundle_identifiers
+  new_in: 18.1
+  ruby_type: Hash
+  required: false
+  description_list:
+  - markdown: This optional key indicates which bundles the **Login Items Added by Apps**
+      panel associates with the helper executable.
 - property: backup
   ruby_type: Integer, false
   required: false
@@ -139,42 +147,6 @@ properties_list:
   - markdown: 'A quoted 3-5 character string that defines the octal mode. For
 
       example: `''755''`, `''0755''`, or `00755`.'
-- property: owner
-  ruby_type: Integer, String
-  required: false
-  description_list:
-  - markdown: 'A string or ID that identifies the group owner by user name,
-
-      including fully qualified user names such as `domain\user` or
-
-      `user@domain`. If this value is not specified, existing owners
-
-      remain unchanged and new owner assignments use the current user
-
-      (when necessary).'
-- property: path
-  ruby_type: String
-  required: false
-  description_list:
-  - markdown: 'The path to the directory. Using a fully qualified path is
-
-      recommended, but is not always required. Default value: the `name`
-
-      of the resource block. See "Syntax" section above for more
-
-      information.'
-- property: plist_hash
-  ruby_type: Hash
-  required: false
-  description_list:
-  - markdown: A Hash of key value pairs used to create the launchd property list.
-- property: session_type
-  ruby_type: String
-  required: false
-  description_list:
-  - markdown: 'The type of launchd plist to be created. Possible values: `system`
-
-      (default) or `user`.'
 - property: source
   ruby_type: String
   required: false
@@ -224,6 +196,13 @@ properties_list:
   description_list:
   - markdown: The amount of time (in seconds) launchd waits before sending a `SIGKILL`
       signal.
+- property: group
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown: When launchd is run as the root user, this is the corresponding group to run the job as. If
+      the `username` property is specified and this property is not, this value is set
+      to the default group for the user.
 - property: hard_resource_limits
   ruby_type: Hash
   required: false
@@ -262,6 +241,11 @@ properties_list:
   description_list:
   - markdown: Specify if a job can be run only one time. Set this value to true if
       a job cannot be restarted without a full machine reboot.
+- property: ld_group
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The group name.
 - property: limit_load_from_hosts
   ruby_type: Array
   required: false
@@ -300,6 +284,26 @@ properties_list:
   description_list:
   - markdown: Keep a job alive. Only applies to macOS version 10.4 (and earlier);
       use `keep_alive` instead for newer versions.
+- property: owner
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown: A string or ID that identifies the group owner by user name, including
+      fully qualified user names such as `domain_user` or `user@domain`. If this value
+      is not specified, existing owners remain unchanged and new owner assignments
+      use the current user (when necessary).
+- property: path
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The path to the directory. Using a fully qualified path is recommended,
+      but is not always required.
+- property: plist_hash
+  ruby_type: Hash
+  required: false
+  new_in: '12.19'
+  description_list:
+  - markdown: A Hash of key value pairs used to create the launchd property list.
 - property: process_type
   ruby_type: String
   required: false
@@ -335,6 +339,12 @@ properties_list:
   required: false
   description_list:
   - markdown: Launch a job once (at the time it is loaded).
+- property: session_type
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: 'The type of launchd plist to be created. Possible values: system (default)
+      or user.'
 - property: sockets
   ruby_type: Hash
   required: false
@@ -346,6 +356,11 @@ properties_list:
   required: false
   description_list:
   - markdown: A Hash of resource limits to be imposed on a job.
+- property: source
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The path to the launchd property list.
 - property: standard_error_path
   ruby_type: String
   required: false
@@ -362,7 +377,7 @@ properties_list:
   description_list:
   - markdown: The file to which standard output (`stdout`) is sent.
 - property: start_calendar_interval
-  ruby_type: Hash
+  ruby_type: Hash, Array
   required: false
   description_list:
   - markdown: 'A Hash (similar to `crontab`) that defines the calendar frequency at
@@ -396,6 +411,12 @@ properties_list:
   description_list:
   - markdown: The amount of time (in seconds) a job may be idle before it times out.
       If no value is specified, the default timeout value for launchd will be used.
+- property: type
+  ruby_type: String
+  required: false
+  default_value: daemon
+  description_list:
+  - markdown: 'The type of resource. Possible values: daemon (default), agent.'
 - property: username
   ruby_type: String
   required: false

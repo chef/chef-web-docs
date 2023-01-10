@@ -25,10 +25,10 @@ syntax_full_properties_list:
 - "`control`, `expiration`, `justification`, `run_test`, and `source` are the properties
   available to this resource."
 actions_list:
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
   :add:
     markdown: Add a waiver to the compliance phase (default)
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
 properties_list:
 - property: control
   ruby_type: String

@@ -14,6 +14,6 @@ toc_layout = "infra_resource_toc"
     parent = "chef_infra/resources"
 +++
 
-<!-- The contents of this page are automatically generated from the selinux_fcontext.yaml file in the data directory. -->
+<!-- The contents of this page are automatically generated from the selinux_fcontext.yaml file in the data/infra/resources directory. -->
 <!-- To suggest a change, edit the https://github.com/chef/chef/blob/main/lib/chef/resource/selinux_fcontext.rb file and submit a pull request to the https://github.com/chef/chef repository. -->
 <!-- markdownlint-disable-file -->

@@ -29,22 +29,16 @@ resource_description_list:
       be removed unless a version is provided in the **version** property or unless it can be discovered in the installer
       file specified by the **source** property.
 - notes_resource_based_on_package: true
-syntax_description: 'A **windows_package** resource block manages a package on a node,
-
+syntax_description: |
+  A **windows_package** resource block manages a package on a node,
   typically by installing it. The simplest use of the **windows_package**
-
   resource is:
 
-
   ```ruby
-
   windows_package ''package_name''
-
   ```
 
-
   which will install the named package using all of the default options
-
   and the default action (`:install`).'
 syntax_full_code_block: |-
   windows_package 'name' do
@@ -70,12 +64,11 @@ syntax_full_properties_list:
   resource."
 actions_list:
   :install:
-    markdown: Default. Install a package. If a version is specified, install the specified
-      version of the package.
+    markdown: Install a package. If a version is specified, install the specified
+      version of the package. (default)
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :remove:
-    markdown: Remove a package.
 properties_list:
 - property: checksum
   ruby_type: String
@@ -89,15 +82,10 @@ properties_list:
   required: false
   allowed_values: ":custom, :inno, :installshield, :msi, :nsis, :wise"
   description_list:
-  - markdown: 'A symbol that specifies the type of package. Possible values:
-
-      `:custom` (such as installing a non-.msi file that embeds an
-
-      .msi-based installer), `:inno` (Inno Setup), `:installshield`
-
-      (InstallShield), `:msi` (Microsoft Installer Package (MSI)), `:nsis`
-
-      (Nullsoft Scriptable Install System (NSIS)), `:wise` (Wise).'
+  - markdown: 'A symbol that specifies the type of package. Possible values: `:custom`
+      (such as installing a non-.msi file that embeds an .msi-based installer), `:inno`
+      (Inno Setup), `:installshield` (InstallShield), `:msi` (Microsoft Installer Package
+      (MSI)), `:nsis` (Nullsoft Scriptable Install System (NSIS)), `:wise` (Wise).'
 - property: options
   ruby_type: String
   required: false
@@ -113,13 +101,9 @@ properties_list:
   ruby_type: Hash
   required: false
   description_list:
-  - markdown: 'This property allows you to define a hash of properties and their
-
-      value if the source package to be installed is at a remote location.
-
-      This hash will be used by the underlying **remote_file** resource
-
-      which will fetch the source package.'
+  - markdown: If the source package to install is at a remote location, this property
+      allows you to define a hash of properties which will be used by the underlying
+      **remote_file** resource used to fetch the source.
 - property: returns
   ruby_type: String, Integer, Array of integers
   required: false
@@ -219,7 +203,7 @@ examples: |
 
   ```ruby
   windows_package 'Mercurial 3.6.1 (64-bit)' do
-    source 'http://mercurial.selenic.com/release/windows/Mercurial-3.6.1-x64.exe'
+    source 'https://www.mercurial-scm.org/release/windows/Mercurial-3.6.1-x64.exe'
     checksum 'febd29578cb6736163d232708b834a2ddd119aa40abc536b2c313fc5e1b5831d'
   end
   ```

@@ -26,7 +26,7 @@ syntax_properties_list:
   the desired state'
 actions_list:
   :create:
-    markdown: Default. Use to create a chef-client.
+    markdown: (default) Use to create a chef-client.
   :delete:
     markdown: Use to delete a chef-client.
   :nothing:
@@ -69,16 +69,13 @@ properties_list:
   required: false
   description_list:
   - shortcode: resources_common_notification_notifies.md
-  - markdown: ''
   - shortcode: resources_common_notification_timers.md
-  - markdown: ''
   - shortcode: resources_common_notification_notifies_syntax.md
 - property: output_key_format
   ruby_type: null
   required: false
   description_list:
   - markdown: 'Use to specify the format of a public key. Possible values: `pem`,
-
       `der`, or `openssh`. Default value: `openssh`.'
 - property: output_key_path
   ruby_type: null
@@ -125,9 +122,7 @@ properties_list:
   required: false
   description_list:
   - shortcode: resources_common_notification_subscribes.md
-  - markdown: ''
   - shortcode: resources_common_notification_timers.md
-  - markdown: ''
   - shortcode: resources_common_notification_subscribes_syntax.md
 - property: validator
   ruby_type: null
