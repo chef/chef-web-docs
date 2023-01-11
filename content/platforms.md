@@ -450,7 +450,6 @@ See our policy on [support for derived platforms](#support-for-derived-platforms
 </tbody>
 </table>
 
-
 Chef InSpec Target Mode (`inspec --target`) may be functional on
 additional platforms, versions, and architectures but are not validated
 by Chef Software, Inc.
