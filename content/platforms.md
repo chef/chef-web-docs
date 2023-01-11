@@ -421,7 +421,9 @@ The following table lists the commercially-supported platforms and versions for 
 
 #### Derived platforms
 
-The following table lists the platforms and versions classified under Derived Platforms for Chef Inspec:
+The following table lists supported derived platforms and versions for Chef InSpec.
+
+See our policy on [support for derived platforms](#support-for-derived-platforms) for more information.
 
 <table>
 <thead>
