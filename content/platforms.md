@@ -33,6 +33,10 @@ Community support for platforms means that members of the Chef community have co
 
 Many of these platforms are forks, clones, or otherwise derivative of platforms that Chef commercially supports. Continued functionality for these platforms is likely, but not guaranteed. Unsupported platforms may have missing or non-operative functionality. As always, we welcome community contributions from anyone looking to expand community support for platforms in Chef products.
 
+### Support for Derived Platforms
+
+Derived platforms are platforms that are fundamentally the same as a commercially supported platform. Chef does not explicitly test derived platforms as part of our development and release process, only commercially supported platforms are tested. Derived platforms are only supported until that platform diverges from a commercially supported parent platform. Continued functionality for derived platforms is likely, but not guaranteed.
+
 ## Platforms
 
 The sections below list the platforms that Chef Software supports.
@@ -61,11 +65,6 @@ The following table lists the commercially-supported platforms and versions for 
 <td>AIX</td>
 <td><code>powerpc</code></td>
 <td><code>7.1</code> (TL5 SP2 or higher, recommended), <code>7.2</code></td>
-</tr>
-<tr>
-<td>AlmaLinux</td>
-<td><code>x86_64</code>, <code>aarch64</code></td>
-<td><code>8.x</code></td>
 </tr>
 <tr>
 <td>Amazon Linux</td>
@@ -98,11 +97,6 @@ The following table lists the commercially-supported platforms and versions for 
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr>
-<td>Rocky Linux</td>
-<td><code>x86_64</code>, <code>aarch64</code></td>
-<td><code>8.x</code></td>
-</tr>
-<tr>
 <td>Red Hat Enterprise Linux</td>
 <td><code>x86_64</code>, <code>ppc64le</code> (7.x only), <code>ppc64</code> (7.x only), <code>aarch64</code> (7.x / 8.x only), <code>s390x</code></td>
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
@@ -126,6 +120,37 @@ The following table lists the commercially-supported platforms and versions for 
 <td>Windows</td>
 <td><code>x86</code>, <code>x64</code></td>
 <td><code>8.1</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), both Desktop Experience and Server Core)</code><code>11</code>, <code>2022</code></td>
+</tr>
+</tbody>
+</table>
+
+#### Derived platforms
+
+The following table lists supported derived platforms and versions for Chef Infra Client.
+
+See our policy on [support for derived platforms](#support-for-derived-platforms) for more information.
+
+<table>
+<thead>
+<tr class="header">
+<th>Platform</th>
+<th>Architecture</th>
+<th>Version</th>
+<th>Parent platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AlmaLinux</td>
+<td><code>x86_64</code>, <code>aarch64</code></td>
+<td><code>8.x</code></td>
+<td>CentOS</td>
+</tr>
+<tr>
+<td>Rocky Linux</td>
+<td><code>x86_64</code>, <code>aarch64</code></td>
+<td><code>8.x</code></td>
+<td>CentOS</td>
 </tr>
 </tbody>
 </table>
@@ -268,11 +293,6 @@ versions for the Chef Workstation:
 </thead>
 <tbody>
 <tr>
-<td>AlmaLinux</td>
-<td><code>x86_64</code></td>
-<td><code>8.x</code></td>
-</tr>
-<tr>
 <td>Amazon Linux</td>
 <td><code>x86_64</code></td>
 <td><code>2.x</code></td>
@@ -293,11 +313,6 @@ versions for the Chef Workstation:
 <td><code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr>
-<td>Rocky Linux</td>
-<td><code>x86_64</code></td>
-<td><code>8.x</code></td>
-</tr>
-<tr>
 <td>Ubuntu</td>
 <td><code>x86_64</code></td>
 <td><code>16.04</code>, <code>18.04</code>, <code>20.04</code></td>
@@ -306,6 +321,37 @@ versions for the Chef Workstation:
 <td>Windows</td>
 <td><code>x64</code></td>
 <td><code>8.1</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), Desktop Experience only)</code>, <code>11</code>, <code>2022</code></td>
+</tr>
+</tbody>
+</table>
+
+#### Derived platforms
+
+The following table lists supported derived platforms and versions for Chef Workstation.
+
+See our policy on [support for derived platforms](#support-for-derived-platforms) for more information.
+
+<table>
+<thead>
+<tr class="header">
+<th>Platform</th>
+<th>Architecture</th>
+<th>Version</th>
+<th>Parent platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AlmaLinux</td>
+<td><code>x86_64</code></td>
+<td><code>8.x</code></td>
+<td>CentOS</td>
+</tr>
+<tr>
+<td>Rocky Linux</td>
+<td><code>x86_64</code></td>
+<td><code>8.x</code></td>
+<td>CentOS</td>
 </tr>
 </tbody>
 </table>
@@ -330,11 +376,6 @@ The following table lists the commercially-supported platforms and versions for 
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>AlmaLinux</td>
-<td><code>x86_64</code>, <code>aarch64</code></td>
-<td><code>8.x</code></td>
-</tr>
 <tr>
 <td>Amazon Linux</td>
 <td><code>x86_64</code>, <code>aarch64</code></td>
@@ -361,11 +402,6 @@ The following table lists the commercially-supported platforms and versions for 
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr>
-<td>Rocky Linux</td>
-<td><code>x86_64</code>, <code>aarch64</code></td>
-<td><code>8.x</code></td>
-</tr>
-<tr>
 <td>SUSE Linux Enterprise Server</td>
 <td><code>x86_64</code>, <code>aarch64</code> (15.x only)</td>
 <td><code>12.x</code>, <code>15.x</code></td>
@@ -379,6 +415,37 @@ The following table lists the commercially-supported platforms and versions for 
 <td>Windows</td>
 <td><code>x86_64</code></td>
 <td><code>8.1</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019</code>, <code>11</code>, <code>2022</code></td>
+</tr>
+</tbody>
+</table>
+
+#### Derived platforms
+
+The following table lists supported derived platforms and versions for Chef InSpec.
+
+See our policy on [support for derived platforms](#support-for-derived-platforms) for more information.
+
+<table>
+<thead>
+<tr class="header">
+<th>Platform</th>
+<th>Architecture</th>
+<th>Version</th>
+<th>Parent platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AlmaLinux</td>
+<td><code>x86_64</code>, <code>aarch64</code></td>
+<td><code>8.x</code></td>
+<td>CentOS</td>
+</tr>
+<tr>
+<td>Rocky Linux</td>
+<td><code>x86_64</code>, <code>aarch64</code></td>
+<td><code>8.x</code></td>
+<td>CentOS</td>
 </tr>
 </tbody>
 </table>
@@ -434,11 +501,6 @@ The following table lists the commercially-supported platforms for Chef Backend,
 </thead>
 <tbody>
 <tr>
-<td>AlmaLinux</td>
-<td><code>x86_64</code></td>
-<td><code>8.x</code></td>
-</tr>
-<tr>
 <td>CentOS</td>
 <td><code>x86_64</code></td>
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
@@ -447,11 +509,6 @@ The following table lists the commercially-supported platforms for Chef Backend,
 <td>Oracle Enterprise Linux</td>
 <td><code>x86_64</code></td>
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
-</tr>
-<tr>
-<td>Rocky Linux</td>
-<td><code>x86_64</code></td>
-<td><code>8.x</code></td>
 </tr>
 <tr>
 <td>Red Hat Enterprise Linux</td>
@@ -467,6 +524,37 @@ The following table lists the commercially-supported platforms for Chef Backend,
 <td>Ubuntu (LTS releases)</td>
 <td><code>x86_64</code></td>
 <td><code>16.04</code>, <code>18.04</code></td>
+</tr>
+</tbody>
+</table>
+
+#### Derived platforms
+
+The following table lists supported derived platforms and versions for Chef Infra Server.
+
+See our policy on [support for derived platforms](#support-for-derived-platforms) for more information.
+
+<table>
+<thead>
+<tr class="header">
+<th>Platform</th>
+<th>Architecture</th>
+<th>Version</th>
+<th>Parent platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AlmaLinux</td>
+<td><code>x86_64</code></td>
+<td><code>8.x</code></td>
+<td>CentOS</td>
+</tr>
+<tr>
+<td>Rocky Linux</td>
+<td><code>x86_64</code></td>
+<td><code>8.x</code></td>
+<td>CentOS</td>
 </tr>
 </tbody>
 </table>
@@ -492,11 +580,6 @@ The following table lists the commercially-supported platforms for Chef Manage:
 </thead>
 <tbody>
 <tr>
-<td>AlmaLinux</td>
-<td><code>x86_64</code></td>
-<td><code>8.x</code></td>
-</tr>
-<tr>
 <td>CentOS</td>
 <td><code>x86_64</code></td>
 <td><code>7.x</code>, <code>8.x</code></td>
@@ -507,11 +590,6 @@ The following table lists the commercially-supported platforms for Chef Manage:
 <td><code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr>
-<td>Rocky Linux</td>
-<td><code>x86_64</code></td>
-<td><code>8.x</code></td>
-</tr>
-<tr>
 <td>Red Hat Enterprise Linux</td>
 <td><code>x86_64</code></td>
 <td><code>7.x</code>, <code>8.x</code></td>
@@ -520,6 +598,37 @@ The following table lists the commercially-supported platforms for Chef Manage:
 <td>Ubuntu (LTS releases)</td>
 <td><code>x86_64</code></td>
 <td><code>16.04</code>, <code>18.04</code>, <code>20.04</code></td>
+</tr>
+</tbody>
+</table>
+
+#### Derived platforms
+
+The following table lists supported derived platforms and versions for Chef Manage.
+
+See our policy on [support for derived platforms](#support-for-derived-platforms) for more information.
+
+<table>
+<thead>
+<tr class="header">
+<th>Platform</th>
+<th>Architecture</th>
+<th>Version</th>
+<th>Parent platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AlmaLinux</td>
+<td><code>x86_64</code></td>
+<td><code>8.x</code></td>
+<td>CentOS</td>
+</tr>
+<tr>
+<td>Rocky Linux</td>
+<td><code>x86_64</code></td>
+<td><code>8.x</code></td>
+<td>CentOS</td>
 </tr>
 </tbody>
 </table>
