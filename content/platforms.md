@@ -33,9 +33,9 @@ Community support for platforms means that members of the Chef community have co
 
 Many of these platforms are forks, clones, or otherwise derivative of platforms that Chef commercially supports. Continued functionality for these platforms is likely, but not guaranteed. Unsupported platforms may have missing or non-operative functionality. As always, we welcome community contributions from anyone looking to expand community support for platforms in Chef products.
 
-### Derived platforms support
+### Support for Derived Platforms
 
-Platforms that are in essence the same fundamental packages as of a counterpart platform that falls under Commercial Support are classified as derived platforms. This will mean that only the binaries of the parent platform will be tested and fully supported. Chef does not explicitly test derived platforms as part of the development and release process. The derived platform will only be supported until any point of divergence it may have from it's parent. Continued functionality for these platforms is likely, but not guaranteed. 
+Derived platforms are platforms that are fundamentally the same as a commercially supported platform. Chef does not explicitly test derived platforms as part of our development and release process, only commercially supported platforms are tested. Derived platforms are only supported until that platform diverges from a commercially supported parent platform. Continued functionality for derived platforms is likely, but not guaranteed.
 
 ## Platforms
 
