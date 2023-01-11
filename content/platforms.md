@@ -531,7 +531,9 @@ The following table lists the commercially-supported platforms for Chef Backend,
 
 #### Derived platforms
 
-The following table lists the platforms and versions classified under Derived Platforms for Chef Infra Server:
+The following table lists supported derived platforms and versions for Chef Infra Server.
+
+See our policy on [support for derived platforms](#support-for-derived-platforms) for more information.
 
 <table>
 <thead>
