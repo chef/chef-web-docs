@@ -65,3 +65,6 @@ verify_cookstyle_pages:
 			echo "generated/generated_content/workstation/cookstyle/cops.md does not exist."; \
 	fi; \
 
+## Adding comments for Netlify testing
+## Don't merge, but honestly it's not terrible if it gets merged.
+##
