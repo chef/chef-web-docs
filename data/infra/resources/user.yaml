@@ -57,7 +57,7 @@ syntax_full_properties_list:
   all of the properties that may be used with this resource.'
 actions_list:
   :create:
-    markdown: Default. Create a user with given properties. If a user already exists
+    markdown: (default) Create a user with given properties. If a user already exists
       (but does not match), update that user to match.
   :lock:
     markdown: Lock a user's password.
@@ -79,6 +79,12 @@ properties_list:
   required: false
   description_list:
   - markdown: One (or more) comments about the user.
+- property: expire_date
+  ruby_type: String
+  new_in: '18.0'
+  required: false
+  description_list:
+  - markdown: (Linux) The date on which the user account will be disabled. The date is specified in YYYY-MM-DD format.
 - property: force
   ruby_type: true, false
   required: false
@@ -106,6 +112,12 @@ properties_list:
   required: false
   description_list:
   - markdown: The location of the home directory.
+- property: inactive
+  ruby_type: String, Integer
+  new_in: '18.0'
+  required: false
+  description_list:
+  - markdown: (Linux) The number of days after a password expires until the account is permanently disabled. A value of `0` disables the account as soon as the password has expired, and a value of `-1` disables the feature.
 - property: iterations
   ruby_type: Integer
   required: false

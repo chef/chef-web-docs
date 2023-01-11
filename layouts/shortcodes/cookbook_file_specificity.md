@@ -6,11 +6,11 @@ platforms, while ensuring that the correct file ends up on each system.
 The pattern for file specificity depends on two things: the lookup path
 and the source attribute. The first pattern that matches is used:
 
-1.  /host-\$fqdn/\$source
-2.  /\$platform-\$platform_version/\$source
-3.  /\$platform/\$source
-4.  /default/\$source
-5.  /\$source
+1. `/host-\$fqdn/\$source`
+1. `/\$platform-\$platform_version/\$source`
+1. `/\$platform/\$source`
+1. `/default/\$source`
+1. `/\$source`
 
 Use an array with the `source` attribute to define an explicit lookup
 path. For example:

@@ -81,9 +81,7 @@ properties_list:
   default_value: HEAD
   description_list:
   - markdown: 'A branch, tag, or commit to be synchronized with git. This can be
-
       symbolic, like `HEAD` or it can be a source control
-
       management-specific revision identifier.'
 - property: svn_arguments
   ruby_type: String, false

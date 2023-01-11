@@ -19,7 +19,7 @@ syntax_full_code_block: |-
     options          Array, String # default value: ["defaults"]
     pass             Integer, false # default value: 2
     password         String
-    supports         Array, Hash # default value: { remount: false }
+    supports         Array, Hash # default value: "{ remount: false }"
     username         String
     action           Symbol # defaults to :mount if not specified
   end
@@ -34,19 +34,19 @@ syntax_full_properties_list:
   properties available to this resource."
 actions_list:
   :disable:
-    markdown: Remove an entry from the file systems table (`fstab`).
+    markdown: Remove an entry from the file systems table (fstab).
   :enable:
-    markdown: Add an entry to the file systems table (`fstab`).
+    markdown: Add an entry to the file systems table (fstab).
   :mount:
-    markdown: Default. Mount a device.
+    markdown: "(default) Mount a device."
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :remount:
-    markdown: Remount a device.
+    markdown: Remount a device
   :umount:
     markdown: Unmount a device.
   :unmount:
-    markdown: Alias for `:umount` action.
+    markdown: Alias for the `:umount` action.
 properties_list:
 - property: device
   ruby_type: String
@@ -66,7 +66,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'Windows only: Use to specify the domain in which the `username` and
+  - markdown: '**Windows only**. Use to specify the domain in which the `username` and
       `password` are located.'
 - property: dump
   ruby_type: Integer, false
@@ -86,13 +86,13 @@ properties_list:
   required: false
   default_value: "-"
   description_list:
-  - markdown: 'Solaris only: The fsck device.'
+  - markdown: '**Solaris only**. The fsck device.'
 - property: fstype
   ruby_type: String
   required: false
   default_value: auto
   description_list:
-  - markdown: The file system type (fstype) of the device.
+  - markdown: The file system type of the device.
 - property: mount_point
   ruby_type: String
   required: false
@@ -117,7 +117,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: Windows only:. Use to specify the password for username.
+  - markdown: '**Windows only**. Use to specify the password for username.'
 - property: supports
   ruby_type: Array, Hash
   required: false
@@ -128,7 +128,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'Windows only: Use to specify the user name.'
+  - markdown: '**Windows only**. Use to specify the user name.'
 examples: "
   Mount a labeled file system\n\n  ```ruby\n  mount '/mnt/volume1'\
   \ do\n    device 'volume1'\n    device_type :label\n    fstype 'xfs'\n    options\

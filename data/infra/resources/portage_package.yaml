@@ -10,7 +10,7 @@ resource_description_list:
 - notes_resource_based_on_package: true
 syntax_full_code_block: |-
   portage_package 'name' do
-    options           String
+    options           String, Array
     package_name      String
     source            String
     timeout           String, Integer # default value: 3600
@@ -27,20 +27,18 @@ syntax_full_properties_list:
   available to this resource."
 actions_list:
   :install:
-    markdown: Default. Install a package. If a version is specified, install the specified
+    markdown: (default) Install a package. If a version is specified, install the specified
       version of the package.
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
   :purge:
     markdown: Purge a package. This action typically removes the configuration files
       as well as the package.
   :remove:
     markdown: Remove a package.
   :upgrade:
-    markdown: Install a package and/or ensure that a package is the latest version.
+    markdown: Install a package and ensure that a package is the latest version.
 properties_list:
 - property: options
-  ruby_type: String
+  ruby_type: String, Array
   required: false
   description_list:
   - markdown: One (or more) additional command options that are passed to the command.
