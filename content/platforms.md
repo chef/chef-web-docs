@@ -327,7 +327,9 @@ versions for the Chef Workstation:
 
 #### Derived platforms
 
-The following table lists the platforms and versions classified under Derived Platforms for Chef Workstation:
+The following table lists supported derived platforms and versions for Chef Workstation.
+
+See our policy on [support for derived platforms](#support-for-derived-platforms) for more information.
 
 <table>
 <thead>
