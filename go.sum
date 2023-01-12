@@ -1,8 +1,8 @@
 cloud.google.com/go v0.26.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMTw=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
-github.com/chef/automate/components/docs-chef-io v0.0.0-20230103083148-e1c80991b55a h1:WQQUiOR/bKL3dWjojK9Kzb1CoH5zLv63BV4iadHJtCk=
-github.com/chef/automate/components/docs-chef-io v0.0.0-20230103083148-e1c80991b55a/go.mod h1:juvLC7Rt33YOCgJ5nnfl4rWZRAbSwqjTbWmcAoA0LtU=
+github.com/chef/automate/components/docs-chef-io v0.0.0-20230111051016-db06fb8b6ece h1:+7fth1EzBJ2pFSw+vn99dHrWVRsvparz71fb026RT10=
+github.com/chef/automate/components/docs-chef-io v0.0.0-20230111051016-db06fb8b6ece/go.mod h1:juvLC7Rt33YOCgJ5nnfl4rWZRAbSwqjTbWmcAoA0LtU=
 github.com/chef/chef-server/docs-chef-io v0.0.0-20230105060905-c178106dc44e h1:UQG6YMrw3lanpEAoWhS9qeMOQBrag6gfQKj7F8Xi7qs=
 github.com/chef/chef-server/docs-chef-io v0.0.0-20230105060905-c178106dc44e/go.mod h1:gMSa25GUHmLimA0gjvRd3hs1buOBqkKPrdHzHvaJauY=
 github.com/chef/chef-workstation/docs-chef-io v0.0.0-20221220145157-cf956b9430bf h1:mzHYZuhzBB9/KRcbLBnttptCYeo7ny79lNz6vsAUUkU=
