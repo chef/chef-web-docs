@@ -116,7 +116,7 @@ To set up a Yum package repository for Enterprise Linux platforms:
     name=chef-<CHANNEL>
     baseurl=https://packages.chef.io/repos/yum/<CHANNEL>/el/<VERSION>/\$basearch/
     gpgcheck=1
-    # No auto-upgrade, as there are manual steps needed for Chef Server upgrades
+    # No auto-upgrade, as there are manual steps needed for Chef Infra Server upgrades
     enabled=0
     EOL
     ```
