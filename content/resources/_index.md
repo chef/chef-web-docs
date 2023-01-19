@@ -5,8 +5,7 @@ description = "This reference describes each of the resources available to Chef 
 gh_repo = "chef-web-docs"
 aliases = ["/resource_reference.html", "/resources.html", "resource_examples.html", "/chef/resources.html"]
 data_path = ["infra","resources"]
-layout = "infra_resources_all"
-toc_layout = "infra_resources_all_toc"
+
 [cascade]
   product = ["client"]
 

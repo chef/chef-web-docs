@@ -4,8 +4,19 @@ draft = false
 robots = ""
 gh_repo = "chef-web-docs"
 data_path = ["infra","resources","apt_package"]
-layout = "infra_resource"
-toc_layout = "infra_resource_toc"
+layout = "infra_resource_test"
+
+resource_reference = true
+multi_package_resource = true
+resources_common_guards = true
+resources_common_notification = true
+resources_common_properties = true
+resource = "apt_package"
+
+resource_description = [
+  "content/resources/apt_package/description.md",
+  "content/reusable/md/notes_resource_based_on_package.md"
+]
 
 [menu]
   [menu.infra]

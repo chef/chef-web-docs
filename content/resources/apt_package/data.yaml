@@ -1,23 +1,4 @@
 ---
-resource_reference: true
-multi_package_resource: true
-resources_common_guards: true
-resources_common_notification: true
-resources_common_properties: true
-resource: apt_package
-resource_description_list:
-- markdown: Use the **apt_package** resource to manage packages on Debian, Ubuntu,
-    and other platforms that use the APT package system.
-- notes_resource_based_on_package: true
-syntax_description: |
-  An **apt_package** resource block manages a package on a node,
-  typically by installing it. The simplest use of the **apt_package** resource is:
-
-  ```ruby
-  apt_package 'package_name'
-  ```
-
-  which will install the named package using all of the default options and the default action of `:install`.
 syntax_full_code_block: |-
   apt_package 'name' do
     default_release              String
@@ -63,6 +44,8 @@ properties_list:
   required: false
   description_list:
   - markdown: 'The default release. For example: `stable`.'
+  - file: 'content/reusable/md/notes_resource_based_on_package.md'
+  - markdown: '**TESTING** Additional text for testing. **TESTING** '
 - property: options
   ruby_type: String, Array
   required: false
@@ -107,34 +90,6 @@ properties_list:
   - markdown: The amount of time (in seconds) to wait before timing out.
 - property: version
   ruby_type: String, Array
-  required: false
+  required: true
   description_list:
   - markdown: The version of a package to be installed or upgraded.
-examples: |
-  **Install a package using package manager**:
-
-  ```ruby
-  apt_package 'name of package' do
-    action :install
-  end
-  ```
-
-  **Install a package without specifying the default action**:
-
-  ```ruby
-  apt_package 'name of package'
-  ```
-
-  **Install multiple packages at once**:
-
-  ```ruby
-  apt_package %w(package1 package2 package3)
-  ```
-
-  **Install without using recommend packages as a dependency**:
-
-  ```ruby
-  package 'apache2' do
-    options '--no-install-recommends'
-  end
-  ```

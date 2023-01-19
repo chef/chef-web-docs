@@ -1,13 +1,4 @@
 ---
-resource_reference: true
-resources_common_guards: true
-resources_common_notification: true
-resources_common_properties: true
-resource: alternatives
-resource_description_list:
-- markdown: Use the **alternatives** resource to configure command alternatives in
-    Linux using the alternatives or update-alternatives packages.
-resource_new_in: '16.0'
 syntax_full_code_block: |-
   alternatives 'name' do
     link           String # default value: "/usr/bin/LINK_NAME"
@@ -26,7 +17,7 @@ syntax_full_properties_list:
   resource."
 actions_list:
   :nothing:
-    shortcode: resources_common_actions_nothing.md
+    file: content/reusable/md/resources_common_actions_nothing.md
   :install:
     markdown: Install an alternative on the system including symlinks. (default)
   :set:
@@ -62,52 +53,3 @@ properties_list:
   required: false
   description_list:
   - markdown: The priority of the alternative.
-examples: |
-  **Install an alternative**:
-
-  ```ruby
-  alternatives 'python install 2' do
-    link_name 'python'
-    path '/usr/bin/python2.7'
-    priority 100
-    action :install
-  end
-  ```
-
-  **Set an alternative**:
-
-  ```ruby
-  alternatives 'python set version 3' do
-    link_name 'python'
-    path '/usr/bin/python3'
-    action :set
-  end
-  ```
-
-  **Set the automatic alternative state**:
-
-  ```ruby
-  alternatives 'python auto' do
-    link_name 'python'
-    action :auto
-  end
-  ```
-
-  **Refresh an alternative**:
-
-  ```ruby
-  alternatives 'python refresh' do
-    link_name 'python'
-    action :refresh
-  end
-  ```
-
-  **Remove an alternative**:
-
-  ```ruby
-  alternatives 'python remove' do
-    link_name 'python'
-    path '/usr/bin/python3'
-    action :remove
-  end
-  ```
