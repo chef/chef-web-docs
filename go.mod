@@ -3,7 +3,7 @@ module github.com/chef/chef-web-docs
 go 1.16
 
 require (
-	github.com/chef/automate/components/docs-chef-io v0.0.0-20230111051016-db06fb8b6ece // indirect
+	github.com/chef/automate/components/docs-chef-io v0.0.0-20230120073233-b1a3f0208cce // indirect
 	github.com/chef/chef-server/docs-chef-io v0.0.0-20230105060905-c178106dc44e // indirect
 	github.com/chef/chef-workstation/docs-chef-io v0.0.0-20221220145157-cf956b9430bf // indirect
 	github.com/chef/compliance-profiles/docs-chef-io v0.0.0-20220913154223-6d8d6f3396b6 // indirect
@@ -17,7 +17,7 @@ require (
 	github.com/inspec/inspec-aws/docs-chef-io v0.0.0-20220228151600-69aa036b1527 // indirect
 	github.com/inspec/inspec-azure/docs-chef-io v0.0.0-20220228040450-e1b23e65979a // indirect
 	github.com/inspec/inspec-habitat/docs-chef-io v0.0.0-20220218210405-bfd542da49fd // indirect
-	github.com/inspec/inspec/docs-chef-io v0.0.0-20220711135219-de7931d0c2a9 // indirect
+	github.com/inspec/inspec/docs-chef-io v0.0.0-20230124055446-81e11ff940e0 // indirect
 	github.com/swiftype/swiftype-autocomplete-jquery v0.0.0-20190222215504-a90008d64b30 // indirect
 	github.com/swiftype/swiftype-search-jquery v1.1.0 // indirect
 	github.com/twitter/hogan.js v3.0.2+incompatible // indirect
