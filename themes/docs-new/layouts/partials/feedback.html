@@ -1,8 +1,41 @@
-<div id="feedback">
-  <p>Was this page helpful?</p>
+{{ if ne .Params.feedback false }}
+<div id="feedback" data-swiftype-index='false'>
 
-    <button type="button" class="feedback-yes">Yes, thanks!</button>
+  <div class="grid-x grid-padding-x">
+    <div class="cell medium-6 large-4">
+      <div id="feedback-buttons">
 
-    <button type="button" class="feedback-no">No, not really.</button>
+        <p class="feedback-request">Was this page helpful?</p>
+        <button type="button" class="feedback-yes"><i class="fa-regular fa-thumbs-up"></i>Yes</button>
+        <button type="button" class="feedback-no"><i class="fa-regular fa-thumbs-down"></i>No</button>
 
+      </div>
+      <div id="feedback-edit-on-github">
+
+        {{ if and (.File) (.Params.gh_repo) (index .Site.Params .Params.gh_repo)}}
+          <p class="feedback-request">Help us improve this document.</p>
+          <a href="{{ index .Site.Params .Params.gh_repo "gh_path" }}{{ .File.Path }}" alt="Link to page on GitHub repository">
+            <button class="feedback-request-edit-on-github"><i class="fa-solid fa-code-merge"></i>Edit this page on GitHub.</button>
+          </a>
+        {{ end }}
+
+      </div>
+    </div>
+    <div class="cell auto" id="feedback-form">
+
+      <p class="feedback-request">How can we improve this document?</p>
+
+      <form>
+        <label for="fname">Enter your email address and someone from the docs team will get back to you.</label>
+        <input type="text" id="feedback-form-email" name="fname" placeholder="E-mail">
+        <textarea id="feedback-form-feedback" name="w3review" rows="4" cols="50" placeholder="Enter your feedback here. Try to be as specific as possible."></textarea>
+        <input type="hidden" id="feedback-form-page-url" name="page-url" value="{{ .Permalink }}">
+        <input type="hidden" id="feedback-form-page-title" name="page-title" value="{{ .Title }}">
+        <input type="hidden" id="feedback-form-chef-product" name="chef-product" value="{{ .Params.product }}">
+        <input type="button" id="feedback-form-submit-feedback" value="Submit Feedback">
+      </form>
+
+    </div>
+  </div>
 </div>
+{{ end }}
