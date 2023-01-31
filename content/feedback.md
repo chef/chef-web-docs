@@ -4,6 +4,8 @@ draft = false
 gh_repo = "chef-web-docs"
 aliases = ["/feedback.html"]
 product = []
+layout = "feedback"
+feedback = false
 
 [menu]
   [menu.overview]
@@ -34,11 +36,13 @@ itself, consider opening an issue in the relevant [product repository]({{< relre
 
 ## GitHub Pull Request
 
-You can open a pull request on <https://github.com/chef/chef-web-docs>. Every page on <docs.chef.io> has a link to the Markdown page in the repository that it's sourced from. We require a DCO sign-off
-to submit pull requests except for obvious fixes. See
-our [Contributing page](https://github.com/chef/chef/blob/main/CONTRIBUTING.md#developer-certification-of-origin-dco)
-for more information about our DCO policy. If you have questions
-about the chef-web-docs repo, send an email to <Chef-Docs@progress.com> and we're
+You can open a pull request on <https://github.com/chef/chef-web-docs>.
+Every page on <docs.chef.io> has a link to the Markdown page in the repository
+that it's sourced from. We require a DCO sign-off to submit pull requests
+except for obvious fixes. See our
+[Contributing page](https://github.com/chef/chef/blob/main/CONTRIBUTING.md#developer-certification-of-origin-dco)
+for more information about our DCO policy. If you have questions about the
+chef-web-docs repo, send an email to <Chef-Docs@progress.com> and we're
 happy to assist.
 
 Thanks in advance for any feedback you choose to send.

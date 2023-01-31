@@ -2,6 +2,8 @@
 title = "Test Page"
 draft = false
 robots = "noindex"
+product = []
+feedback = false
 
 +++
 
