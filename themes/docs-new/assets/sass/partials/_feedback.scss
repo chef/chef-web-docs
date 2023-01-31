@@ -1,26 +1,59 @@
 #feedback{
   margin-top: 2rem;
   padding: 2rem 0 2rem 1rem;
-  border-top: 1px solid $border;
+  border-top: 2px solid $border;
 
   p{
     font-weight: 500;
+
+    &.feedback-request{
+      font-weight: 700;
+      margin-top: 1.5rem;
+    }
+  }
+
+  &-form-feedback{
+    height:200px;
+  }
+
+  input{
+    &#feedback-form-submit-feedback {
+      background-color: $white;
+      display: inline-block;
+      border: 1px solid $blue;
+      padding: .5rem 1rem;
+      border-radius: $border-radius-base;
+
+      &:not([disabled]):hover{
+        border: 2px solid $blue;
+        margin: -1px;
+      }
+
+      &:not([disabled]):active{
+        color: $white;
+        background-color: $blue;
+      }
+    }
   }
 
   button{
     display: inline-block;
     border: 1px solid $blue;
-    padding: 1rem;
+    padding: .5rem 1rem;
     border-radius: $border-radius-base;
-    text-transform: uppercase;
-    font-size: .8rem;
+
     &:not([disabled]):hover{
       border: 2px solid $blue;
       margin: -1px;
     }
+
     &:not([disabled]):active{
       color: $white;
       background-color: $blue;
+    }
+
+    svg.svg-inline--fa{
+      margin-right: 6px;
     }
 
   }

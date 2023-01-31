@@ -12,7 +12,6 @@
 @import "buttons";
 
 @import "base";
-@import "toc";
 @import "homepage";
 
 body {
@@ -26,9 +25,10 @@ body {
 @import "partials/feedback";
 @import "partials/footer";
 @import "partials/grid";
-@import "partials/sidebar";
-@import "partials/tab-container";
-@import "partials/utility-bar";
-@import "partials/swiftype_search";
 @import "partials/image_modal";
-@import "partials/inspec_resources"
+@import "partials/inspec_resources";
+@import "partials/sidebar";
+@import "partials/swiftype_search";
+@import "partials/tab-container";
+@import "partials/toc";
+@import "partials/utility-bar"
