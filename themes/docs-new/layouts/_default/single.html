@@ -24,11 +24,9 @@
       {{ if .Params.version_docs_product }}
         {{ partial "versioned-docs-content" . }}
       {{ else }}
-        {{ partial "edit_on_github" . }}
         {{ .Content }}
       {{ end }}
     </div>
   </div>
-  {{ partialCached "feedback" . }}
 </main>
 {{ end }}
