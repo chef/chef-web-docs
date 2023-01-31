@@ -3,7 +3,6 @@ title = "Developing Documentation"
 draft = false
 gh_repo = "chef-web-docs"
 aliases = ["/style_tools/"]
-product = []
 
 [menu]
   [menu.overview]
