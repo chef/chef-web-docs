@@ -99,6 +99,7 @@ newer versions or products.
 |-------------------|---------|------------------|-------------------|
 | Chef Backend      | 2.x     | Deprecated       | TBD               |
 | Chef Infra Client | 17.x    | Deprecated       | TBD               |
+| Chef Infra Server | 14.x    | Deprecated       | TBD               |
 | Chef Manage       | 2.5.x+  | Deprecated       | TBD               |
 
 ## End of Life (EOL) Products
