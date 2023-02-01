@@ -22,7 +22,7 @@ syntax_full_properties_list:
   the desired state."
 actions_list:
   :nothing:
-    shortcode: resources_common_actions_nothing.md
+    shortcode: resources_common_actions_nothing_default.md
   :run:
     markdown:
 properties_list: []

@@ -28,7 +28,7 @@ syntax_full_properties_list:
   available to this resource."
 actions_list:
   :nothing:
-    shortcode: resources_common_actions_nothing.md
+    shortcode: resources_common_actions_nothing_default.md
   :create:
     markdown: Create a systemd unit file, if it does not already exist.
   :delete:

@@ -15,7 +15,7 @@ syntax_full_code_block: |-
     config_file           String # default value: "/etc/selinux/config"
     persistent            true, false # default value: true
     policy                String
-    action                Symbol # defaults to :enforcing if not specified
+    action                Symbol # defaults to :nothing if not specified
   end
 syntax_properties_list:
 syntax_full_properties_list:
@@ -27,9 +27,9 @@ syntax_full_properties_list:
   available to this resource."
 actions_list:
   :nothing:
-    shortcode: resources_common_actions_nothing.md
+    shortcode: resources_common_actions_nothing_default.md
   :enforcing:
-    markdown: Set the SELinux state to enforcing. (default)
+    markdown: Set the SELinux state to enforcing.
   :permissive:
     markdown: Set the SELinux state to permissive.
   :disabled:
