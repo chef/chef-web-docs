@@ -59,7 +59,7 @@ jobs:
           tag: 'v0.2.4'
           path: tools/vale/chef
           token: "${{ secrets.GITHUB_TOKEN }}"
-      - uses: errata-ai/vale-action@v1
+      - uses: errata-ai/vale-action@reviewdog
         with:
           config: https://raw.githubusercontent.com/chef/chef-web-docs/main/.vale.ini
           files: __onlyModified
