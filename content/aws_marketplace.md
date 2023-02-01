@@ -28,7 +28,7 @@ Use this instance with Chef Workstation installed on your laptop or a separate A
 
 ## Installation
 
-Select [Chef Automate](https://aws.amazon.com/marketplace/pp/prodview-r26bs6uknftps?sr=0-1&ref_=beagle&applicationId=AWSMPContessa) in the AWS Marketplace.
+Select [Chef Automate](https://aws.amazon.com/marketplace/pp/prodview-r26bs6uknftps?) in the AWS Marketplace.
 
 The Chef Automate AWS deployment uses [CloudFormation](https://aws.amazon.com/cloudformation/). [Download the CloudFormation template](https://aws-ami-chef-automate-v2.s3.amazonaws.com/cloudformation_template.yaml) or use the [view the template in CloudFormation Designer](https://us-east-1.console.aws.amazon.com/cloudformation/designer/home?region=us-east-1&templateURL=https://s3.amazonaws.com/awsmp-fulfillment-cf-templates-prod/658820ac-955d-4f73-bbcd-ab19b598d852.caadc0d6-b62a-4b83-d9b0-ec685d27c0bc.template)
 
@@ -48,14 +48,20 @@ AWS provides 5 VPCs for each region. If you require more VPCs, please contact [A
 
 1. Configure stack options:
 
-    - **Tags:** Create a tag that can be used to refer to your resources (for example, `Key: Name, Value: Chef-automate-stack`).
-    - **Permission:** Create an IAM role with `AmazonEC2FullAccess` to enable resource creation using the cloud formation template. Once created, select the IAM role from the dropdown menu.
-    - **Stack failure options:** AWS provides two option:
+    - **Tags:**
 
-        - **Roll back all stack resources:** In case of failure, it should rollback all created resources (`Default: Roll back all stack resources`).
-        - **Preserve successfully provisioned resources:** In case of failure, it will rollback only failed resources.
+    With **Key:** `Name`, **Value:** `Chef-automate-stack`, reserve the inline code for text that the user is going to enter into the Web UI. So: "Key: Name, Value: Chef-automate-stack".
 
-    ![Enter required information and click next](/images/configure_stack.png "Configure stack")
+    - **Permission:**
+
+    Create an IAM role with `AmazonEC2FullAccess` to enable resource creation using the cloud formation template. Once created, select the IAM role from the dropdown menu.
+
+    - **Stack failure options:**
+
+    AWS provides two option:
+
+    - **Roll back all stack resources:** In case of failure, it should rollback all created resources (`Default: Roll back all stack resources`).
+    - **Preserve successfully provisioned resources:** In case of failure, it will rollback only failed resources.
 
     - Advanced Options:
 
@@ -64,12 +70,10 @@ AWS provides 5 VPCs for each region. If you require more VPCs, please contact [A
 
     - **Notification Options:** Create or attach an AWS Simple Notification Service (SNS), which would help them get all notifications about their stack creation process on their email.
 
-    ![Enter SNS topic for notifications](/images/notification_options.png "Notification options")
-
     - **Stack Creation Options:** It has two options:
 
-        1. **Timeout:** If specified and stack creation is not completed in that time, the stack rollback will happen.
-        2. **Termination Protection:** You cannot delete the stack directly if enabled. You have to first update it to disabled to delete it.
+        - **Timeout:** If specified and stack creation is not completed in that time, the stack rollback will happen.
+        - **Termination Protection:** You cannot delete the stack directly if enabled. You have to first update it to disabled to delete it.
 
     Select **Next** and create your Chef Automate deployment. This process can take several minutes.
 
