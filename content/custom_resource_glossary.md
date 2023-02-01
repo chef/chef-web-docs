@@ -255,7 +255,7 @@ The following properties are identical to the properties in the execute resource
 - `property :user`
 - `property :sensitive`
 
-Because both the custom properties and the **execute** properties are identical, this
+Because both the custom properties and the __execute__ properties are identical, this
 will result in an error message similar to:
 
 ```ruby
@@ -306,7 +306,7 @@ where:
 - `user new_resource.user`
 - `sensitive new_resource.sensitive`
 
-Correctly use the properties of the **execute** resource and not the identically-named override properties of the custom resource.
+Correctly use the properties of the __execute__ resource and not the identically-named override properties of the custom resource.
 
 ## property
 
@@ -566,7 +566,7 @@ reset_property(:password)
 
 `coerce` is used to transform user input into a canonical form. The
 value is passed in, and the transformed value returned as output. Lazy
-values will **not** be passed to this method until after they are
+values will __not__ be passed to this method until after they are
 evaluated.
 
 `coerce` is run in the context of the instance, which gives it access to
