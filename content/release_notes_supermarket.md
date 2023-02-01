@@ -1,7 +1,7 @@
 +++
 title = "Chef Supermarket Release Notes"
 draft = false
-product = ["client", "server", "workstation"]
+product = ["supermarket"]
 release_notes = "supermarket"
 layout = "release_notes"
 toc_layout = "release_notes_toc"

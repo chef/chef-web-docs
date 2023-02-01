@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 
 aliases = ["/chef_license_accept.html"]
-product = ["automate", "client", "server", "habitat", "inspec", "workstation"]
+product = ["automate", "client", "server", "habitat", "inspec", "supermarket", "workstation"]
 
 [menu]
   [menu.overview]
