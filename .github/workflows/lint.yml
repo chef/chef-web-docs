@@ -59,6 +59,7 @@ jobs:
           tag: 'v0.2.4'
           path: tools/vale/chef
           token: "${{ secrets.GITHUB_TOKEN }}"
+      - uses: actions/checkout@v3
       - uses: errata-ai/vale-action@reviewdog
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
