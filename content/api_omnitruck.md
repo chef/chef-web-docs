@@ -3,7 +3,7 @@ title = "Omnitruck API"
 draft = false
 gh_repo = "chef-web-docs"
 aliases = ["/api_omnitruck.html"]
-product = ["automate", "client", "server", "habitat", "inspec", "workstation"]
+product = ["automate", "client", "server", "habitat", "inspec", "supermarket", "workstation"]
 
 [menu]
   [menu.overview]

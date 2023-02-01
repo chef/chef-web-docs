@@ -3,7 +3,9 @@ title = "Docs Style Guide"
 draft = false
 gh_repo = "chef-web-docs"
 aliases = ["/style_guide.html", "/style_index/"]
-product = []
+
+[cascade]
+  product = []
 
 [menu]
   [menu.overview]
