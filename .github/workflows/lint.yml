@@ -60,9 +60,6 @@ jobs:
           path: tools/vale/chef
           token: "${{ secrets.GITHUB_TOKEN }}"
       - uses: errata-ai/vale-action@reviewdog
-        with:
-          config: https://raw.githubusercontent.com/chef/chef-web-docs/main/.vale.ini
-          files: __onlyModified
-        env: 
+        env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
             
