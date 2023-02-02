@@ -35,49 +35,80 @@ The Chef Automate AWS deployment uses [CloudFormation](https://aws.amazon.com/cl
 Every CloudFormation Stack deployment creates a new [Virtual Private Cloud](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) (VPC).
 
 {{< note >}}
-AWS provides 5 VPCs for each region. If you require more VPCs, please contact [AWS Support](https://aws.amazon.com/contact-us/).
+AWS provides five VPCs for each region. If you require more VPCs, please contact [AWS Support](https://aws.amazon.com/contact-us/).
 {{< /note >}}
 
 ### Start Chef Automate with CloudFormation
 
-1. Enter the following values for your deployment.
+1. Enter the following values for your deployment:
 
-    ![Enter required information and click next](/images/stack_details.png "Stack Details")
+   Stack Name
+   : `Chef-Automate`
 
-1. Give Chef Automate an additional five minutes for all the services to start running.
+   EC2RootVolumeSize
+   : `Default: 40`
 
-1. Configure stack options:
+   Instance Type
+   : `Default: t2.xlarge`
 
-    - **Tags:**
+   KeyName
+   : _Enter your existing keypair._
 
-    With **Key:** `Name`, **Value:** `Chef-automate-stack`, reserve the inline code for text that the user is going to enter into the Web UI. So: "Key: Name, Value: Chef-automate-stack".
+   SecurityGroupCidrIp
+   : `0.0.0.0/0`
 
-    - **Permission:**
+   SubnetCIDR
+   : `10.0.0.0/24`
 
-    Create an IAM role with `AmazonEC2FullAccess` to enable resource creation using the cloud formation template. Once created, select the IAM role from the dropdown menu.
+   VpcCIDR
+   : `10.0.0.0/16`
 
-    - **Stack failure options:**
+1. Select **Next** after entering these values.
 
-    AWS provides two option:
+1. Configure the CloudFormation stack options:
 
-    - **Roll back all stack resources:** In case of failure, it should rollback all created resources (`Default: Roll back all stack resources`).
-    - **Preserve successfully provisioned resources:** In case of failure, it will rollback only failed resources.
+   1. Create a tag for your stack with **Key** set to `Name` and **Value** to `Chef-automate-stack`.
 
-    - Advanced Options:
+   1. Set permissions for your stack:
 
-        - **Stack Policy:** It is the JSON document that defines the update actions that can be performed on designated resources (`Default: No stack policy`).
-        - **Rollback Configuration:** The user can set the alarm to monitor things during stack creation or update. Users must provide a threshold time and area of their cloud watch alarm. This alarm would get triggered if the threshold breaches. Users can enter multiple alarms as well. For more information, refer to [CFN Rollback Triggers](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-rollback-triggers.html?icmpid=docs_cfn_console) documentation.
+      1. Create an IAM role with `AmazonEC2FullAccess` to enable resource creation using the CloudFormation template.
+      1. Once that role is created, select the IAM role from the dropdown menu.
 
-    - **Notification Options:** Create or attach an AWS Simple Notification Service (SNS), which would help them get all notifications about their stack creation process on their email.
+   1. Configure stack failure options:
 
-    - **Stack Creation Options:** It has two options:
+      AWS provides two stack-failure options:
 
-        - **Timeout:** If specified and stack creation is not completed in that time, the stack rollback will happen.
-        - **Termination Protection:** You cannot delete the stack directly if enabled. You have to first update it to disabled to delete it.
+      Roll back all stack resources
+      : In case of failure, it should rollback all created resources (`Default: Roll back all stack resources`).
 
-    Select **Next** and create your Chef Automate deployment. This process can take several minutes.
+      Preserve successfully provisioned resources
+      : In case of failure, it will rollback only failed resources.
 
-    Give Chef Automate an additional five minutes for all the services to start running.
+   1. Configure advanced options:
+
+      1. Set the stack policy.
+
+         The stack policy defines the update actions that can be performed on resources.`Default: No stack policy`.
+
+      1. Set the rollback configuration.
+
+         AWS CloudFormation will monitor the state of your application during stack creation and updating. For more information, see [Amazon's documentation on rollback triggers](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-rollback-triggers.html).
+
+   1. Configure notification options:
+
+      Create or attach an AWS Simple Notification Service (SNS) which will send email notifications about the stack creation process.
+
+   1. Set the stack creation options:
+
+      Timeout
+      : If specified and stack creation is not completed in that time, CloudFormation will roll back the stack.
+
+      Termination Protection
+      : Termination protection prevents a user from deleting a stack.
+
+1. Select **Next** to create your Chef Automate deployment. This process can take several minutes.
+
+For additional information about these options, see [Amazon's documentation on CloudFormation stack options](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-add-tags.html).
 
 ## Post-Installation
 
@@ -107,13 +138,18 @@ AWS provides 5 VPCs for each region. If you require more VPCs, please contact [A
 
 1. Enter the server name, FQDN, and IP address. Then select **Add Chef Infra Server** to create the server.
 
-    - Name: Add Proper Name for the Sever.
-    - FQDN: It would be the same as Automate FQDN.
-    - IP Address: Public IP Address of the EC2-Instance.
+   Name
+   : Add the name of the Chef Infra Server.
 
-    ![Add Chef Infra Server Form](/images/automate/add-chef-server-popup-menu.png)
+   FQDN
+   : Enter the same as the Chef Automate FQDN.
 
-1. The Chef Infra Server will appear in the list of servers. Select the server and view information about it.
+   IP Address
+   : Public IP address of the EC2 instance.
+
+   {{< figure src="/images/automate/add-chef-server-popup-menu.png" alt="Add Chef Infra Server Form" width="500" >}}
+
+1. The Chef Infra Server will appear in the list of servers. Selecting the server allows you to view information about it.
 ![Select a server from the list](/images/chef_automate_single_server.png "Single Server View")
 
 1. Select **Add Chef Organization**.
@@ -121,12 +157,17 @@ AWS provides 5 VPCs for each region. If you require more VPCs, please contact [A
 
 1. Enter the following information:
 
-    - Name: **demo**
-    - Admin User: **admin**
-    - Admin Key: _copy the key from starter kit_
+   Name
+   : demo
+
+   Admin User
+   : admin
+
+   Admin Key
+   : _copy the key from starter kit_
 
 1. Select **Add Chef Organization**.
-![Select the Add Chef Organization button to complete this action](/images/OrgPageDetails.png)
+{{< figure src="/images/OrgPageDetails.png" alt="Select the Add Chef Organization button to complete this actio" width="500" >}}
 
 ## AWS Deployment Security
 
