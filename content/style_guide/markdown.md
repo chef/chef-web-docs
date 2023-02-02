@@ -149,7 +149,7 @@ term
 
 : You can include more than one definition for a term by starting another line with a colon.
 
-: Adding square brackets and the `(@)` symbol around the term (`[another term](@)`) add a linkable ID to the term.
+: Adding square brackets and the `(@)` symbol around the term (`[another term](@)`) adds a linkable ID to the term.
 
 ## Tables
 
