@@ -18,7 +18,7 @@ jobs:
   cspell-action:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: streetsidesoftware/cspell-action@v2.1.1
         with:
           files: '**/*.md'
@@ -32,15 +32,15 @@ jobs:
   markdownlint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
-      - uses: carlosperate/download-file-action@v1.0.3
+      - uses: carlosperate/download-file-action@v1.1.2
         id: download-mdl-config
         with:
           file-url: 'https://raw.githubusercontent.com/chef/chef-web-docs/main/.markdownlint.yaml'
           file-name: 'markdownlint.yaml'
-      - uses: DavidAnson/markdownlint-cli2-action@v4
+      - uses: DavidAnson/markdownlint-cli2-action@v5
         with:
           globs: |
             *.md
