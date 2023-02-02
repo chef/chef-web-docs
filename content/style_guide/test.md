@@ -83,13 +83,13 @@ Use the `readfile` shortcode to add files to a page. This could be Markdown text
 Markdown doesn't have strict rules about how to process lists. These are things to keep in
 mind:
 
-- Make sure you indent sub-list items **2 spaces**.
-
 - To end a list and start another, you need a HTML comment block on a new line
   between the lists, flush with the left-hand border. The first list won't end
   otherwise, no matter how many blank lines you put between it and the second.
 
 ### Bullet Lists
+
+Indent unordered sub-list items **2 spaces**.
 
 - This is a list item
 - This is another list item in the same list
@@ -113,7 +113,9 @@ mind:
 
   - And a sub-list after some block-level content
 
-### Numbered Lists
+### Ordered Lists
+
+Indent ordered sub-list items **3 spaces**.
 
 1. This is a list item
 2. This is another list item in the same list. The number you use in Markdown
@@ -122,7 +124,7 @@ mind:
 3. {{< note >}}
    For single-digit numbered lists, using two spaces after the period makes
    interior block-level content line up better along tab-stops.
-  {{< /note >}}
+   {{< /note >}}
 
 <!-- separate lists -->
 
@@ -141,6 +143,39 @@ mind:
    - And a sub-list after some block-level content. This is at the same
      "level" as the paragraph and code block above, despite being indented
      more.
+
+### Description List
+
+Use description lists to define things like commands, command flags, options, or other terms. For example:
+
+<!-- /* cSpell:disable */ -->
+
+plain text _(term in italics)_
+: Ex quis duis deserunt commodo.
+
+`code` _(`code` in italics **and bolded text in italics**)_ **and regular bolded text**
+: Reprehenderit eu ex dolore sunt reprehenderit ut consequat amet Lorem pariatur Lorem anim.
+
+term
+: Term definition.
+
+[another term](@)
+: Another term definition.
+
+  You can include multiple paragraphs in a definition if you need to.
+
+: You can include more than one definition for a term by starting another line with a colon.
+
+: Adding square brackets and the `(@)` symbol around the term (`[another term](@)`) adds a linkable ID to the term.
+
+<!-- /* cSpell:enable */ -->
+
+### Checklists
+
+Checklists are technically bullet lists, but the bullets are suppressed by CSS.
+
+- [ ] This is a checklist item
+- [x] This is a selected checklist item
 
 ### Tab Panels
 
@@ -178,13 +213,6 @@ mind:
 {{< /foundation_tabs_panels >}}
 
 <!-- markdownlint-enable MD031 -->
-
-### Checklists
-
-Checklists are technically bullet lists, but the bullets are suppressed by CSS.
-
-- [ ] This is a checklist item
-- [x] This is a selected checklist item
 
 ## Code Blocks
 
