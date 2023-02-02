@@ -111,8 +111,16 @@
   }
 
   dl {
+    margin-top: rem-calc(36px);
+
     dt {
-      margin-top: rem-calc(36px);
+      em {
+      font-weight: normal;
+      }
+      code {
+        font-weight: bold;
+      }
+      margin-top: 1rem;
     }
 
     dd {
