@@ -1,7 +1,7 @@
 +++
 title = "Service Template Data"
 
-date = 2022-06-03T16:35:47.304Z
+date = 2023-02-06T17:00:20.822Z
 draft = false
 
 [menu]
@@ -135,6 +135,7 @@ Represents a member of a service group
 | update_leader | boolean | Whether this member is the update leader in the service group (only meaningful in a leader topology) |
 | update_follower | boolean | Whether this member is an update follower in the service group (only meaningful in a leader topology) |
 | pkg | [package_identifier](#package_identifier) | The identifier of the release the member is running |
+| pkg_incarnation | integer | Incarnation number associated with this package update |
 | package | string | The package identifier |
 | sys | object | An abbreviated version of the top-level {{sys}} object, containing networking information for the member. |
 | cfg | object | The configuration the member is currently exporting. This is constrained by what is defined in `pkg_exports`, where the values are replaced with the current values (e.g., taking into account things like user.toml, gossiped configuration values, etc.) |

@@ -18,7 +18,7 @@ The commands for the Chef Habitat CLI (`hab`) are listed below.
 
 | Applies to Version | Last Updated |
 | ------- | ------------ |
-| hab 1.6.521/20220603154827 (linux) | 3 Jun 2022 |
+| hab 1.6.652/20230206155653 (linux) | 6 Feb 2023 |
 
 ## hab
 
@@ -1815,10 +1815,11 @@ hab pkg build [FLAGS] [OPTIONS] <PLAN_CONTEXT>
 **FLAGS**
 
 ```
--D, --docker     Uses a Dockerized Studio for the build
--R, --reuse      Reuses a previous Studio for the build (default: clean up before building)
--h, --help       Prints help information
--V, --version    Prints version information
+-D, --docker            Uses a Dockerized Studio for the build
+-N, --native-package    Build a native package on the host system without a studio
+-R, --reuse             Reuses a previous Studio for the build (default: clean up before building)
+-h, --help              Prints help information
+-V, --version           Prints version information
 ```
 
 **OPTIONS**
