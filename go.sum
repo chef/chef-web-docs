@@ -37,8 +37,8 @@ github.com/google/go-cmp v0.3.0/go.mod h1:8QqcDgzrUqlUb/G2PQTWiueGozuR1884gddMyw
 github.com/google/go-cmp v0.3.1/go.mod h1:8QqcDgzrUqlUb/G2PQTWiueGozuR1884gddMywk6iLU=
 github.com/google/go-cmp v0.4.0/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
 github.com/google/go-cmp v0.5.0/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
-github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20221115145041-84569f78b4cb h1:pFpWj+s0mCYJ8e0hPe7TG3tRY1XropGAsywfp3vWWZE=
-github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20221115145041-84569f78b4cb/go.mod h1:luAy42opPrAM/T6hsqDyW3CNBaAMgy+a6l0+oi8sw8U=
+github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20230206155408-0aaf37322e4e h1:o6AJ638yH6lv4AXUQlWkBZxCqVDfJzZPgXyX4lfTIn8=
+github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20230206155408-0aaf37322e4e/go.mod h1:luAy42opPrAM/T6hsqDyW3CNBaAMgy+a6l0+oi8sw8U=
 github.com/inspec/inspec-alicloud/docs-chef-io v0.0.0-20220614123852-e453ba687370 h1:ExM/pqpJgy8gtu2gK6E8EiuolMy7BvcHSSvTzkf/Sm4=
 github.com/inspec/inspec-alicloud/docs-chef-io v0.0.0-20220614123852-e453ba687370/go.mod h1:tAazDDBtR5yCl/FNWHnrmkxpfxnOo9B99DyfRE7JH1c=
 github.com/inspec/inspec-aws/docs-chef-io v0.0.0-20220228151600-69aa036b1527 h1:uUaij/nZVKcjxg6wiyKdHZjUESGAXrnUPyFL8+YhfaU=
