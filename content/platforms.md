@@ -35,7 +35,7 @@ Many of these platforms are forks, clones, or otherwise derivative of platforms 
 
 ### Support for Derived Platforms
 
-Chef does not explicitly test or provide builds for derived distributions other than those in our supported platform list. However, if the derived distribution is a direct rebuild of the originating distribution and has not diverged in functionality or packaged dependencies, Chef will support our customers via our normal channels.
+Chef does not explicitly test or provide builds for derived distributions other than those in our supported platform list. However, if the derived distribution is a direct rebuild of the originating distribution and has not diverged in functionality or packaged dependencies, Chef will support our customers through our normal channels.
 
 ## Platforms
 
