@@ -35,7 +35,7 @@ Many of these platforms are forks, clones, or otherwise derivative of platforms 
 
 ### Support for Derived Platforms
 
-Derived platforms are platforms that are fundamentally the same as a commercially supported platform. Chef does not explicitly test derived platforms as part of our development and release process, only commercially supported platforms are tested. Derived platforms are only supported until that platform diverges from a commercially supported parent platform. Continued functionality for derived platforms is likely, but not guaranteed.
+Chef does not explicitly test or provide builds for derived distributions other than those in our supported platform list. However, if the derived distribution is a direct rebuild of the originating distribution and has not diverged in functionality or packaged dependencies, Chef will support our customers through our normal channels.
 
 ## Platforms
 
