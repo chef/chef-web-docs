@@ -16,23 +16,39 @@
     height:200px;
   }
 
+  #feedback-form-thank-you-message{
+    display: none;
+  }
+
+  #feedback-min-characters{
+    color: $lightgray;
+    margin-bottom: 1rem;
+  }
+
   input{
     &#feedback-form-submit-feedback {
-      background-color: $white;
+      background-color: $lightlightgray;
       display: inline-block;
-      border: 1px solid $blue;
+      color: $white;
+      border: 1px solid $lightlightgray;
       padding: .5rem 1rem;
       border-radius: $border-radius-base;
 
-      &:not([disabled]):hover{
-        border: 2px solid $blue;
-        margin: -1px;
+      &:enabled{
+        background-color: $white;
+        color: $black;
+        border: 1px solid $blue;
+
+        &:hover{
+          border: 2px solid $blue;
+          margin: -1px;
+        }
+        &:active{
+          color: $white;
+          background-color: $blue;
+        }
       }
 
-      &:not([disabled]):active{
-        color: $white;
-        background-color: $blue;
-      }
     }
   }
 
