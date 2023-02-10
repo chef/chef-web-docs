@@ -15,12 +15,13 @@
 
 [context.deploy-preview]
   command = "make bundle; hugo --gc --minify --enableGitInfo --buildFuture"
-
+  [context.deploy-preview.environment]
+    HUGO_ENV = "staging"
 
 [context.branch-deploy]
   command = "make bundle; hugo --gc --minify --enableGitInfo"
   [context.branch-deploy.environment]
-    HUGO_ENV = "development"
+    HUGO_ENV = "branch-deploy"
 
 [[headers]]
   for = "/*"
