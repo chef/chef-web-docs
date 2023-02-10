@@ -6,7 +6,7 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </span>
-    {{ if hugo.Environment | eq "production" }}
+    {{ if or (hugo.IsProduction) ( eq hugo.Environment "staging") ( eq hugo.Environment "branch-deploy")}}
 
       {{ with $product := $.Param "release_notes" }}
 
