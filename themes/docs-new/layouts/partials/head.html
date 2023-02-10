@@ -16,4 +16,6 @@
   <link rel="canonical" href="{{ .Permalink | absURL }}">
   <title>{{ .Title }}</title>
   {{ partialCached "scss" . -}}
+  {{ partialCached "cookie_consent" . -}}
+  {{ partialCached "google_tag_manager_head" . -}}
 </head>
