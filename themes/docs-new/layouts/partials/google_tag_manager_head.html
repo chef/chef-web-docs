@@ -1,4 +1,4 @@
-{{ if hugo.IsProduction }}
+{{ if or (hugo.IsProduction) (eq hugo.Environment "branch-deploy") }}
 <!-- Google Tag Manager -->
 <script type="text/plain" class="optanon-category-1">
   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

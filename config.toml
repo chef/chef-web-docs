@@ -26,9 +26,6 @@ baseName = "_redirects"
 isPlainText = true
 notAlternative = true
 
-[security.funcs]
-getenv = [ "^HUGO_", "^WC_", "BRANCH" ]
-
 [markup]
   [markup.goldmark]
     [markup.goldmark.extensions]
