@@ -19,7 +19,7 @@ gh_repo = "automate"
 
 {{< note >}}
 
--   If the user chooses `backup_config` as `file_system` in `config.toml` backup is already configured during the deployment, and in that case **the below steps are not required**. If `backup_config` is left blank, then the configuration needs to be configured manually.
+- If the user chooses `backup_config` as `file_system` in `config.toml` backup is already configured during the deployment, and in that case **the below steps are not required**. If `backup_config` is left blank, then the configuration needs to be configured manually.
 
 {{< /note >}}
 
@@ -31,7 +31,7 @@ A shared file system is always required to create **OpenSearch** snapshots. To r
 
 #### Configuration in OpenSearch Node
 
--   Mount the shared file system on **all** OpenSearch and Frontend servers :
+- Mount the shared file system on **all** OpenSearch and Frontend servers :
 
     ```sh
     mount /mnt/automate_backups
@@ -39,43 +39,46 @@ A shared file system is always required to create **OpenSearch** snapshots. To r
 
 {{< note >}}
 
--   `/mnt/automate_backups` is the default value for the backup path, we can change it to any other value.
+- `/mnt/automate_backups` is the default value for the backup path, we can change it to any other value.
 
 {{< /note >}}
 
 Apply the following steps on **all of the OpenSearch server** node
 
--   Create an OpenSearch sub-directory and set permissions (only if the network mount is correctly mounted).
+- Create an OpenSearch sub-directory and set permissions (only if the network mount is correctly mounted).
 
     ```sh
     sudo mkdir /mnt/automate_backups/opensearch
     sudo chown hab:hab /mnt/automate_backups/opensearch/
     ```
 
-#### Configuration for OpenSearch Node from Provision Host
+#### Configuration for OpenSearch Node from Bastion Host
 
 Configure the OpenSearch `path.repo` setting by following the steps given below:
 
--   Create a .toml (say os_config.toml) file in **the Provision host** and copy the following template with the path to the repo.
+- Create a .toml (say os_config.toml) file in **the Bastion host** and copy the following template with the path to the repo.
+
     ```sh
       [path]
-      # Replace /mnt/automate_backups with the backup_mount config found on the provisioning host in /hab/a2_deploy_workspace/a2ha.rb
+      # Replace /mnt/automate_backups with the backup_mount config found on the Bastion host in /hab/a2_deploy_workspace/a2ha.rb
       repo = "/mnt/automate_backups/opensearch"
     ```
--   Following command will add the configuration to the OpenSearch node.
+
+- Following command will add the configuration to the OpenSearch node.
+
     ```sh
       chef-automate config patch --opensearch <PATH TO OS_CONFIG.TOML>
     ```
 
 ##### Healthcheck commands
 
--   Following command can be run in the OpenSearch node
+- Following command can be run in the OpenSearch node
 
     ```sh
     chef-automate status
     ```
 
--   Following command can be run in the OpenSearch node
+- Following command can be run in the OpenSearch node
 
     ```sh
     hab svc status (check whether OpenSearch service is up or not)
@@ -88,9 +91,9 @@ Configure the OpenSearch `path.repo` setting by following the steps given below:
 
 #### Configuration for Automate Node from Provision Host
 
--   Configure Automate to handle _External OpenSearch Backups_.
+- Configure Automate to handle _External OpenSearch Backups_.
 
--   Create an `automate.toml` file on **the provisioning server** using the following command:
+- Create an `automate.toml` file on **the provisioning server** using the following command:
 
     ```bash
     touch automate.toml
@@ -111,7 +114,7 @@ Configure the OpenSearch `path.repo` setting by following the steps given below:
     path = "/mnt/automate_backups/backups"
     ```
 
--   Patch the `automate.toml` config to trigger the deployment from the provision host.
+- Patch the `automate.toml` config to trigger the deployment from the provision host.
 
     ```sh
     chef-automate config patch --fe automate.toml
@@ -121,7 +124,7 @@ Configure the OpenSearch `path.repo` setting by following the steps given below:
 
 ### Backup
 
--   To create the backup, by running the backup command from bastion. The backup command is as shown below:
+- To create the backup, by running the backup command from bastion. The backup command is as shown below:
 
     ```cmd
     chef-automate backup create
@@ -131,15 +134,21 @@ Configure the OpenSearch `path.repo` setting by following the steps given below:
 
 To restore backed-up data of the Chef Automate High Availability (HA) using External File System (EFS), follow the steps given below:
 
--   Check the status of Automate HA Cluster from the bastion nodes by executing the `chef-automate status` command.
+- Check the status of Automate HA Cluster from the bastion nodes by executing the `chef-automate status` command.
 
--   Execute the restore command from bastion`chef-automate backup restore <BACKUP-ID> --yes -b /mnt/automate_backups/backups --airgap-bundle </path/to/bundle>`.
+- Execute the restore command from bastion`chef-automate backup restore <BACKUP-ID> --yes -b /mnt/automate_backups/backups --airgap-bundle </path/to/bundle>`.
+
+{{< note >}}
+
+- If you are restoring the backup from an older version, then you need to provide the `--airgap-bundle </path/to/current/bundle>`.
+
+{{< /note >}}
 
 ## Troubleshooting
 
 While running the restore command, If it prompts any error follow the steps given below.
 
--  check the chef-automate status in Automate node by running `chef-automate status`.
--  Also check the hab svc status in automate node by running `hab svc status`.
--  If the deployment services is not healthy then reload it using `hab svc load chef/deployment-service`.
--  Now, check the status of Automate node and then try running the restore command from bastion.
+- Check the chef-automate status in Automate node by running `chef-automate status`.
+- Also check the hab svc status in automate node by running `hab svc status`.
+- If the deployment services is not healthy then reload it using `hab svc load chef/deployment-service`.
+- Now, check the status of Automate node and then try running the restore command from bastion.
