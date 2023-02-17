@@ -288,7 +288,7 @@ The commit history of this repo before February 12, 2016 has been archived to th
 
 We love getting feedback. You can use:
 
-- Email --- Send an email to Chef-Docs@progress.com for documentation bugs,
+- Email --- Send an email to chef-docs@progress.com for documentation bugs,
   ideas, thoughts, and suggestions. This email address is not a
   support email address, however. If you need support, contact Chef
   support.
