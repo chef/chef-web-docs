@@ -13,12 +13,11 @@ product = ["automate", "client", "server", "habitat", "inspec", "workstation"]
     weight = 10
 +++
 
-Chef is an automation company. Ever since it was founded in 2008, we have
-been bringing together developers and system administrators with our
-namesake product, Chef Infra. Over the years, what we mean by automation
-has expanded. Today, Chef has a complete automation solution for both
-infrastructure and applications that takes you all the way from
-development to production. Here's the complete Chef solution.
+Chef products allow you to configure, deploy, and manage your infrastructure in a secure and compliant way.
+Founded in 2008, Chef has brought developers and system administrators together with our products, and it all started with Chef Infra.
+Today, Chef provides a complete automation solution for both infrastructure and applications that takes you from development to production while providing cloud-to-edge compliance and security.
+
+Here's the complete Chef suite.
 
 {{< figure src="/images/automate_architecture.svg" width=500 alt="Diagram of Chef Automate architecture.">}}
 
