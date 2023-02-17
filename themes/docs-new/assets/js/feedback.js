@@ -65,13 +65,13 @@ feedback-min-characters label updates as number of characters changes
 */
 
 function feedbackLength(){
-  var feedbackLength = feedbackId.val().length;
+  const feedbackLength = feedbackId.val().length;
 
   if (feedbackLength >= minFeedbackLength){
     feedbackButtonId.prop("disabled", false);
     feedbackCharactersMinimumId.text("0 characters left");
   } else {
-    var remainingCharLength = minFeedbackLength - feedbackLength
+    const remainingCharLength = minFeedbackLength - feedbackLength
     feedbackCharactersMinimumId.text(remainingCharLength + " characters left");
     feedbackButtonId.prop("disabled", true);
   }
@@ -95,13 +95,13 @@ function submitContactFormFeedback(e) {
   const emailId = $("#feedback-form-email");
   const responseMessageId = $("#feedback-form-thank-you-message");
 
-  var email = emailId.val();
-  var feedback = feedbackId.val();
-  var pageUrl = $("#feedback-form-page-url").val();
-  var ghUrl = $("#feedback-form-gh-url").val();
-  var pageTitle = $("#feedback-form-page-title").val();
-  var product = $("#feedback-form-chef-product").val();
-  var data = {
+  const email = emailId.val();
+  const feedback = feedbackId.val();
+  const pageUrl = $("#feedback-form-page-url").val();
+  const ghUrl = $("#feedback-form-gh-url").val();
+  const pageTitle = $("#feedback-form-page-title").val();
+  const product = $("#feedback-form-chef-product").val();
+  const data = {
 
      email : email,
      feedback : feedback,
