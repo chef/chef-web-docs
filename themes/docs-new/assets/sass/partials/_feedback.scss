@@ -25,52 +25,12 @@
     margin-bottom: 1rem;
   }
 
-  input{
-    &#feedback-form-submit-feedback {
-      background-color: $lightlightgray;
-      display: inline-block;
-      color: $white;
-      border: 1px solid $lightlightgray;
-      padding: .5rem 1rem;
-      border-radius: $border-radius-base;
-
-      &:enabled{
-        background-color: $white;
-        color: $black;
-        border: 1px solid $blue;
-
-        &:hover{
-          border: 2px solid $blue;
-          margin: -1px;
-        }
-        &:active{
-          color: $white;
-          background-color: $blue;
-        }
-      }
-
-    }
+  input[type=submit]{
+    @include button-style();
   }
 
+
   button{
-    display: inline-block;
-    border: 1px solid $blue;
-    padding: .5rem 1rem;
-    border-radius: $border-radius-base;
-
-    &:not([disabled]):hover{
-      border: 2px solid $blue;
-      margin: -1px;
-    }
-
-    &:not([disabled]):active{
-      color: $white;
-      background-color: $blue;
-    }
-
-    svg.svg-inline--fa{
-      margin-right: 6px;
-    }
-
+    @include button-style();
   }
 }

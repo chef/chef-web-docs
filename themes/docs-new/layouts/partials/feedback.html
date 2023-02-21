@@ -11,16 +11,24 @@
         <button type="button" class="feedback-no"><i class="fa-regular fa-thumbs-down"></i>No</button>
 
       </div>
+      {{ if and (.File) (.Params.gh_repo) (index .Site.Params .Params.gh_repo)}}
       <div id="feedback-edit-on-github">
+        {{ $gh_file_path = print (index .Site.Params .Params.gh_repo "gh_path") (.File.Path) }}
+        <p class="feedback-request">Help us improve this document.</p>
+        <a href="{{ index .Site.Params .Params.gh_repo "gh_path" }}{{ .File.Path }}" alt="Link to page on GitHub repository" class="button">
+          <i class="fa-solid fa-code-merge"></i>Edit this page on GitHub.
+        </a>
+      </div>
+      {{ end }}
 
-        {{ if and (.File) (.Params.gh_repo) (index .Site.Params .Params.gh_repo)}}
-          {{ $gh_file_path = print (index .Site.Params .Params.gh_repo "gh_path") (.File.Path) }}
-          <p class="feedback-request">Help us improve this document.</p>
-          <a href="{{ index .Site.Params .Params.gh_repo "gh_path" }}{{ .File.Path }}" alt="Link to page on GitHub repository">
-            <button class="feedback-request-edit-on-github"><i class="fa-solid fa-code-merge"></i>Edit this page on GitHub.</button>
-          </a>
-        {{ end }}
-
+      <div id="feedback-support">
+        <p class="feedback-request">Still stuck?</p>
+        <a href="https://www.chef.io/support/" class="button">
+          <i class="fa-regular fa-comments"></i>Contact Support
+        </a>
+        <a href="https://community.chef.io/" class="button">
+          <i class="fa-solid fa-user-group"></i>Ask The Community
+        </a>
       </div>
     </div>
     <div class="cell auto" id="feedback-section">
