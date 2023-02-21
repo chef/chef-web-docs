@@ -17,18 +17,26 @@
         <a href = "#automate-cli-commands">Automate CLI Commands</a>
         <ul>
           {{ range .Site.Data.automate.cli_chef_automate.commands }}
-            {{ $command := .name }}
-            {{ if ne $command "chef-automate"}}
-              {{ $command := replaceRE `chef-automate ` "" $command }}
-              <li>
-                <a href = "#{{ .name | urlize}}">{{ $command }}</a>
-              </li>
-            {{ else}}
-              <li>
-                <a href = "#{{ .name | urlize}}">{{ $command }}</a>
-              </li>
+            {{ $command := "" }}
+            {{ if and (eq $.Page.Title "Automate CLI (HA)") (or (not .compatible_with) (eq .compatible_with "AutomateHA")) }}
+              {{ $command = .name }}
+            {{ end }}
+            {{ if and (eq $.Page.Title "Automate CLI (Standalone)") (or (not .compatible_with) (eq .compatible_with "Automate")) }}
+              {{ $command = .name }}
             {{ end }}
 
+            {{ if ne $command "" }}
+              {{ if ne $command "chef-automate"}}
+                {{ $command := replaceRE `chef-automate ` "" $command }}
+                <li>
+                  <a href = "#{{ .name | urlize}}">{{ $command }}</a>
+                </li>
+              {{ else}}
+                <li>
+                  <a href = "#{{ .name | urlize}}">{{ $command }}</a>
+                </li>
+              {{ end }}
+            {{ end }}
           {{ end }}
         </ul>
       </li>
