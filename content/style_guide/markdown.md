@@ -194,35 +194,6 @@ within a regular string of text:
 
 `code goes here`
 
-## Links
-
-To make a link in Markdown put the page title in square brackets followed by the link in parentheses. For example this:
-
-`[Ruby Programming Language](https://www.ruby-lang.org/)`
-
-will produce this:
-
-[Ruby Programming Language](https://www.ruby-lang.org/)
-
-External links requires an HTTP address.
-
-### relref Links
-
-We recommend using Hugo's built-in [relref shortcode](https://gohugo.io/content-management/shortcodes/#ref-and-relref) for making relative links to other pages in the documentation. The site build will fail if a link is made to a page that does not exist. This ensures that we catch bad links if a page is deleted but a link to that page is not removed.
-
-#### Examples
-
-Link to pages:
-
-- `[link text]({{</* relref "some_page" */>}})`
-- `[link text]({{</* relref "section/some_page" */>}})`
-
-Link to headings:
-
-- `[link text]({{</* relref "#heading_on_this_page" */>}})`.
-- `[link text]({{</* relref "some_page#heading_on_other_page" */>}})`.
-- `[link text]({{</* relref "section/some_page#heading_on_other_page" */>}})`.
-
 ## Code Blocks
 
 Code blocks are used to show code samples, such as those for Ruby, JSON,

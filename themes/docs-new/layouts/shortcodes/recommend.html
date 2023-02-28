@@ -1,0 +1,9 @@
+{{ if eq (.Get "not") "true" }}
+<div class="text-not-recommend">
+  <i class="fa-solid fa-square-xmark"></i>{{ .Inner | markdownify }}
+</div>
+{{ else }}
+<div class="text-recommend">
+  <i class="fa-regular fa-square-check"></i>{{ .Inner | markdownify }}
+</div>
+{{ end }}

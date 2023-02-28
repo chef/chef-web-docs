@@ -80,3 +80,29 @@
 .responsive-table {
   overflow-x: auto;
 }
+
+.text-not-recommend{
+  .svg-inline--fa{
+    font-size: 1.5rem;
+    margin-right: .5rem;
+    top: 3px;
+    position: relative;
+    &.fa-square-xmark{
+      color: $alert-color;
+    }
+  }
+}
+
+
+.text-recommend{
+  .svg-inline--fa{
+    font-size: 1.5rem;
+    margin-right: .5rem;
+    font-weight: 800;
+    top: 3px;
+    position: relative;
+    &.fa-square-check{
+      color: green;
+    }
+  }
+}

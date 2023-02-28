@@ -1,5 +1,5 @@
 +++
-title = "Docs Style Guide"
+title = "Chef Documentation Style Guide"
 draft = false
 gh_repo = "chef-web-docs"
 aliases = ["/style_guide.html", "/style_index/"]
@@ -17,10 +17,9 @@ aliases = ["/style_guide.html", "/style_index/"]
 
 <!-- markdownlint-disable-file MD013 -->
 
-The Chef Documentation is online at [docs.chef.io](https://docs.chef.io).
-Our documentation is open source and we follow a [docs as code](https://www.docslikecode.com/) methodology.
-Our workflow is based in GitHub, we write in Markdown, and we use Hugo as our static site generator.
+This style guide provides a set of standards for writing clear and consistent developer documentation for all of Progress Chef's products.
 
+Our documentation is open source and we follow a [docs as code](https://www.docslikecode.com/) methodology.
 Any community member can make or suggest a documentation change through pull request (PR) or issue in a documentation repository.
 
 ## Documentation Repositories
