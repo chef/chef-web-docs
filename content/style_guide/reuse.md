@@ -15,18 +15,22 @@ gh_repo = "chef-web-docs"
 
 ## Reusable Text Files
 
-If there are sections of text or code samples that appear in more than one location in our documentation, create a file with the relevant text and place it in the `content/PRODUCT/reusable/FILE_TYPE/` directory within a project, then use the [readfile shortcode](#readfile-shortcode) to add the text from that file in every location that you want it in the Chef documentation.
+If there are sections of text or code samples that appear in more than one location in Chef's documentation, that text should be sourced from a single file.
+Store the files in a headless subdirectory named `reusable` and use the [readfile shortcode](#readfile-shortcode) to add that text to a page.
 
-All content should be organized by file type. For example:
+Store reusable text files in a `reusable` directory and organize the files in subdirectories by file type.
+
+For example:
 
 - `content/server/reusable/md/FILENAME.md`
 - `content/server/reusable/rb/RUBY_EXAMPLE.rb`
 
+Make the `reusable` directory a [headless bundle](https://gohugo.io/content-management/page-bundles/#headless-bundle) by adding an `index.md` file to the directory and add `headless = true` to the file's frontmatter.
+See the [`content/reusable/index.md` file in chef-web-docs](https://raw.githubusercontent.com/chef/chef-web-docs/main/content/reusable/index.md) for an example of an `index.md` file that makes a headless bundle.
+
 {{< note >}}
 
-The `reusable` subdirectory must be a [headless bundle](https://gohugo.io/content-management/page-bundles/#headless-bundle) so its contents are not published unless they're added to a page using the [readfile shortcode](#readfile-shortcode).
-
-See the [`content/reusable/index.md` file](https://raw.githubusercontent.com/chef/chef-web-docs/main/content/reusable/index.md) to see how a headless bundle is created.
+The `reusable` subdirectory must be a [headless bundle](https://gohugo.io/content-management/page-bundles/#headless-bundle). This will prevent Hugo from publishing this directory and its contents unless those files are added to a page using the [readfile shortcode](#readfile-shortcode).
 
 {{< /note >}}
 
@@ -34,7 +38,7 @@ See the [`content/reusable/index.md` file](https://raw.githubusercontent.com/che
 
 The readfile shortcode adds text from a file to a page. You can add a Markdown file, HTML file, or code file by specifying the path to the file from the project root directory.
 
-By default it accepts a Markdown file, for example:
+By default it accepts a Markdown file:
 
 ```markdown
 {{</* readfile file="content/workstation/reusable/md/example.md" */>}}
