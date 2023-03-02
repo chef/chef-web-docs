@@ -112,16 +112,31 @@ identifier = "automate"
   weight = 25
 
     [[automate]]
-    title = "System Requirements"
-    identifier = "automate/deploy_high_availability/ha_system_requirements"
-    parent = "automate/deploy_high_availability"
-    weight = 20
-
-    [[automate]]
     title = "Deployment"
     identifier = "automate/deploy_high_availability/deployment"
     parent = "automate/deploy_high_availability"
     weight = 40
+
+      [[automate]]
+      title = "System Requirements"
+      identifier = "automate/deploy_high_availability/deployment/ha_system_requirements"
+      parent = "automate/deploy_high_availability/deployment"
+      weight = 10
+
+      [[automate]]
+      title = "On-Premises"
+      identifier = "automate/deploy_high_availability/deployment/on_prem"
+      parent = "automate/deploy_high_availability/deployment"
+
+      [[automate]]
+      title = "AWS"
+      identifier = "automate/deploy_high_availability/deployment/aws"
+      parent = "automate/deploy_high_availability/deployment"
+
+      [[automate]]
+      title = "AWS Managed Services"
+      identifier = "automate/deploy_high_availability/deployment/aws_managed"
+      parent = "automate/deploy_high_availability/deployment"
 
     [[automate]]
     title = "Disaster Recovery"
