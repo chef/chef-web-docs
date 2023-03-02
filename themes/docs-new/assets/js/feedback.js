@@ -102,14 +102,15 @@ function submitContactFormFeedback(e) {
   const pageTitle = $("#feedback-form-page-title").val();
   const product = $("#feedback-form-chef-product").val();
   const data = {
+    email : email,
+    feedback : feedback,
+    pageUrl : pageUrl,
+    ghUrl : ghUrl,
+    pageTitle : pageTitle,
+    product : product,
+  };
 
-     email : email,
-     feedback : feedback,
-     pageUrl : pageUrl,
-     ghUrl : ghUrl,
-     pageTitle : pageTitle,
-     product : product,
-   };
+  console.log(data);
 
   $.ajax({
     type: "POST",
