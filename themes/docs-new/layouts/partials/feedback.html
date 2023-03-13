@@ -50,7 +50,26 @@
         <input type="hidden" id="feedback-form-gh-url" name="gh_url" value="{{ $gh_file_path }}">
         <input type="hidden" id="feedback-form-page-title" name="title" value="{{ .Title }}">
         <input type="hidden" id="feedback-form-chef-product" name="product" value="{{ .Params.product }}">
-        <input type="submit" id="feedback-form-submit-feedback" name="submit" onClick="submitContactFormFeedback(event)" value="Submit Feedback" disabled>
+        {{ if or (hugo.IsProduction) (eq hugo.Environment "branch-deploy") -}}
+          <div class="g-recaptcha"
+            data-sitekey="6LffyK4kAAAAAEfN35Ba1POsTAjXejP3Ya9CcRts"
+            data-callback="submitContactFormFeedback"
+            data-size="invisible">
+          </div>
+        {{- else if (eq hugo.Environment "staging") -}}
+          <div class="g-recaptcha"
+            data-sitekey="6Lf0EvokAAAAABQM_HQWT8CL_CvUL80p9xTp2o4b"
+            data-callback="submitContactFormFeedback"
+            data-size="invisible">
+          </div>
+        {{- else -}}
+          <div class="g-recaptcha"
+            data-sitekey="6LfR2MMkAAAAAN2fOkrd00cbS_e44lElwQZNVC8Y"
+            data-callback="submitContactFormFeedback"
+            data-size="invisible">
+          </div>
+        {{- end }}
+        <button id="feedback-form-submit-feedback" onclick="validate(event)" disabled>Submit Feedback</button>
       </form>
 
       <p id="feedback-form-thank-you-message">

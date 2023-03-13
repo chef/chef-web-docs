@@ -88,10 +88,14 @@ On successful submit:
 On failed submit:
 - show failure message
 */
+function validate(event)  {
+  event.preventDefault();
+  grecaptcha.execute();
+}
 
-function submitContactFormFeedback(e) {
-  e.preventDefault();
+function submitContactFormFeedback(event) {
 
+  const reCaptchaResponse = grecaptcha.getResponse();
   const emailId = $("#feedback-form-email");
   const responseMessageId = $("#feedback-form-thank-you-message");
 
@@ -108,6 +112,7 @@ function submitContactFormFeedback(e) {
     ghUrl : ghUrl,
     pageTitle : pageTitle,
     product : product,
+    reCaptchaResponse : reCaptchaResponse
   };
 
   console.log(data);
@@ -117,19 +122,23 @@ function submitContactFormFeedback(e) {
     url : "https://nhvuhdbe97.execute-api.us-west-2.amazonaws.com/default/docs-feedback-form",
     dataType: "json",
     crossDomain: "true",
-    contentType: "application/json; charset=utf-8",
+    contentType: "application/json",
     data: JSON.stringify(data),
 
     success: function () {
       // clear form and show a success message
+      // console.log("User input successfully submitted!")
       emailId.val("");
       feedbackId.val("");
       responseMessageId.show();
       feedbackButtonId.prop("disabled", true);
     },
-    error: function () {
+    error: function(jqXHR, textStatus, errorThrown) {
       // show an error message
-      responseMessageId.val("Unsuccessful :(. You can also try sending an email to chef-docs@progress.com.");
+      // console.log("Failure");
+      // console.log(JSON.stringify(jqXHR));
+      // console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
+      responseMessageId.text("Unsuccessful :( You can also try sending an email to chef-docs@progress.com.");
       responseMessageId.show();
     }
   });
