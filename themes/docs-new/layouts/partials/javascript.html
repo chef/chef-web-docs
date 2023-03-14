@@ -26,7 +26,7 @@
 {{- $feedback := resources.Get "js/feedback.js" -}}
 {{- $calculator := resources.Get "js/calculator.js" -}}
 {{- $imageModal := resources.Get "js/image-modal.js" -}}
-{{- $customJs := slice $copycodebutton $chefHugo $resourceNote $versionDocs $feedback $calculator $imageModal -}}
+{{- $customJs := slice $copycodebutton $chefHugo $resourceNote $versionDocs $feedback $imageModal -}}
 
 {{ if hugo.Environment | eq "development" }}
   {{- $customJs = $customJs | resources.Concat "js/custom-bundle.js" -}}

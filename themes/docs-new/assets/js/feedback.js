@@ -115,7 +115,7 @@ function submitContactFormFeedback(event) {
     reCaptchaResponse : reCaptchaResponse
   };
 
-  console.log(data);
+  // console.log(data);
 
   $.ajax({
     type: "POST",
