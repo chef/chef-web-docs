@@ -29,7 +29,7 @@ syntax_full_code_block: |-
     version           String, Array
     action            Symbol # defaults to :install if not specified
   end
-syntax_properties_list:
+syntax_properties_list: 
 syntax_full_properties_list:
 - "`chocolatey_package` is the resource."
 - "`name` is the name given to the resource block."
@@ -50,6 +50,12 @@ actions_list:
   :purge:
     markdown: Purge a package. This action typically removes the configuration files
       as well as the package.
+  :reconfig:
+    markdown: 
+  :lock:
+    markdown: 
+  :unlock:
+    markdown: 
 properties_list:
 - property: list_options
   ruby_type: String
@@ -86,10 +92,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'The optional path to a package on the local file system or a
-      reachable UNC path. Ensure that the path specified is to the
-      **folder** containing the chocolatey package(s), not to the package
-      itself.'
+  - markdown: The optional path to a package on the local file system.
 - property: timeout
   ruby_type: String, Integer
   required: false

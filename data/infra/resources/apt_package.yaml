@@ -9,15 +9,6 @@ resource_description_list:
 - markdown: Use the **apt_package** resource to manage packages on Debian, Ubuntu,
     and other platforms that use the APT package system.
 - notes_resource_based_on_package: true
-syntax_description: |
-  An **apt_package** resource block manages a package on a node,
-  typically by installing it. The simplest use of the **apt_package** resource is:
-
-  ```ruby
-  apt_package 'package_name'
-  ```
-
-  which will install the named package using all of the default options and the default action of `:install`.
 syntax_full_code_block: |-
   apt_package 'name' do
     default_release              String
@@ -31,7 +22,7 @@ syntax_full_code_block: |-
     version                      String, Array
     action                       Symbol # defaults to :install if not specified
   end
-syntax_properties_list:
+syntax_properties_list: 
 syntax_full_properties_list:
 - "`apt_package` is the resource."
 - "`name` is the name given to the resource block."
@@ -41,6 +32,8 @@ syntax_full_properties_list:
   `response_file_variables`, `source`, `timeout`, and `version` are the properties
   available to this resource."
 actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :install:
     markdown: Install a package. If a version is specified, install the specified
       version of the package. (default)
@@ -52,11 +45,11 @@ actions_list:
     markdown: Purge a package. This action typically removes the configuration files
       as well as the package.
   :reconfig:
-    markdown: Change the installed package.
+    markdown: 
   :lock:
-    markdown: Locks the apt package to a specific version.
+    markdown: 
   :unlock:
-    markdown: Unlocks the apt package so that it can be upgraded to a newer version.
+    markdown: 
 properties_list:
 - property: default_release
   ruby_type: String
@@ -67,9 +60,7 @@ properties_list:
   ruby_type: String, Array
   required: false
   description_list:
-  - markdown: 'One (or more) additional options that are passed to the command. For
-      example, common apt-get directives, such as `--no-install-recommends`. See the [apt-get man page](http://manpages.ubuntu.com/manpages/jammy/en/man8/apt-get.8.html)
-      for the full list.'
+  - markdown: One (or more) additional command options that are passed to the command.
 - property: overwrite_config_files
   ruby_type: true, false
   required: false

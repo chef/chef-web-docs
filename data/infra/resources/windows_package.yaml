@@ -29,17 +29,7 @@ resource_description_list:
       be removed unless a version is provided in the **version** property or unless it can be discovered in the installer
       file specified by the **source** property.
 - notes_resource_based_on_package: true
-syntax_description: |
-  A **windows_package** resource block manages a package on a node,
-  typically by installing it. The simplest use of the **windows_package**
-  resource is:
-
-  ```ruby
-  windows_package ''package_name''
-  ```
-
-  which will install the named package using all of the default options
-  and the default action (`:install`).'
+resource_new_in: '11.12'
 syntax_full_code_block: |-
   windows_package 'name' do
     checksum                    String
@@ -50,10 +40,10 @@ syntax_full_code_block: |-
     returns                     String, Integer, Array
     source                      String # default value: "The resource block's name"
     timeout                     String, Integer # default value: "600 (seconds)"
-    version                     String
+    version                     String, Array
     action                      Symbol # defaults to :install if not specified
   end
-syntax_properties_list:
+syntax_properties_list: 
 syntax_full_properties_list:
 - "`windows_package` is the resource."
 - "`name` is the name given to the resource block."
@@ -63,12 +53,24 @@ syntax_full_properties_list:
   `returns`, `source`, `timeout`, and `version` are the properties available to this
   resource."
 actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :install:
     markdown: Install a package. If a version is specified, install the specified
       version of the package. (default)
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
+  :upgrade:
+    markdown: Install a package and ensure that a package is the latest version.
   :remove:
+    markdown: Remove a package.
+  :purge:
+    markdown: Purge a package. This action typically removes the configuration files
+      as well as the package.
+  :reconfig:
+    markdown: 
+  :lock:
+    markdown: 
+  :unlock:
+    markdown: 
 properties_list:
 - property: checksum
   ruby_type: String
@@ -82,10 +84,10 @@ properties_list:
   required: false
   allowed_values: ":custom, :inno, :installshield, :msi, :nsis, :wise"
   description_list:
-  - markdown: 'A symbol that specifies the type of package. Possible values: `:custom`
-      (such as installing a non-.msi file that embeds an .msi-based installer), `:inno`
-      (Inno Setup), `:installshield` (InstallShield), `:msi` (Microsoft Installer Package
-      (MSI)), `:nsis` (Nullsoft Scriptable Install System (NSIS)), `:wise` (Wise).'
+  - markdown: 'A symbol that specifies the type of package. Possible values: :custom
+      (such as installing a non-.msi file that embeds an .msi-based installer), :inno
+      (Inno Setup), :installshield (InstallShield), :msi (Microsoft Installer Package
+      (MSI)), :nsis (Nullsoft Scriptable Install System (NSIS)), :wise (Wise).'
 - property: options
   ruby_type: String
   required: false
@@ -105,7 +107,7 @@ properties_list:
       allows you to define a hash of properties which will be used by the underlying
       **remote_file** resource used to fetch the source.
 - property: returns
-  ruby_type: String, Integer, Array of integers
+  ruby_type: String, Integer, Array
   required: false
   default_value: 0 (success) and 3010 (success where a reboot is necessary)
   description_list:
@@ -116,37 +118,8 @@ properties_list:
   required: false
   default_value: The resource block's name
   description_list:
-  - markdown: 'The path to a package in the local file system. The location of the
-
-      package may be at a URL.
-
-
-      If the `source` property is not specified, the package name MUST be
-
-      exactly the same as the display name found in **Add/Remove
-
-      programs** or exactly the same as the `DisplayName` property in the
-
-      appropriate registry key, which may be one of the following:
-
-
-      ```ruby
-
-      HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall
-
-      HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Uninstall
-
-      HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall
-
-      ```'
-  - note:
-      markdown: 'If there are multiple versions of a package installed with the same
-
-        display name, all of those packages will be removed unless a version
-
-        is provided in the `version` property or unless it can be discovered
-
-        in the installer file specified by the `source` property.'
+  - markdown: The path to a package in the local file system or the URL of a remote
+      file that will be downloaded.
 - property: timeout
   ruby_type: String, Integer
   required: false
@@ -154,7 +127,7 @@ properties_list:
   description_list:
   - markdown: The amount of time (in seconds) to wait before timing out.
 - property: version
-  ruby_type: String
+  ruby_type: String, Array
   required: false
   description_list:
   - markdown: The version of a package to be installed or upgraded.
@@ -181,7 +154,7 @@ examples: |
   ```ruby
   windows_package '7zip' do
     source 'http://www.7-zip.org/a/7z938-x64.msi'
-    checksum '7c8e873991c82ad9cfc123415254ea6101e9a645e12977dcd518979e50fdedf3'
+    checksum '7c8e873991c82ad9cfcdbdf45254ea6101e9a645e12977dcd518979e50fdedf3'
   end
   ```
 
@@ -194,7 +167,7 @@ examples: |
     source 'http://www.7-zip.org/a/7z938-x64.msi'
     remote_file_attributes ({
       :path => 'C:\7zip.msi',
-      :checksum => '7c8e873991c82ad9cfc123415254ea6101e9a645e12977dcd518979e50fdedf3'
+      :checksum => '7c8e873991c82ad9cfcdbdf45254ea6101e9a645e12977dcd518979e50fdedf3'
     })
   end
   ```

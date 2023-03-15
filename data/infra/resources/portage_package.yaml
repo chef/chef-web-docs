@@ -17,7 +17,7 @@ syntax_full_code_block: |-
     version           String
     action            Symbol # defaults to :install if not specified
   end
-syntax_properties_list:
+syntax_properties_list: 
 syntax_full_properties_list:
 - "`portage_package` is the resource."
 - "`name` is the name given to the resource block."
@@ -26,16 +26,24 @@ syntax_full_properties_list:
 - "`options`, `package_name`, `source`, `timeout`, and `version` are the properties
   available to this resource."
 actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :install:
-    markdown: (default) Install a package. If a version is specified, install the specified
-      version of the package.
+    markdown: Install a package. If a version is specified, install the specified
+      version of the package. (default)
+  :upgrade:
+    markdown: Install a package and ensure that a package is the latest version.
+  :remove:
+    markdown: Remove a package.
   :purge:
     markdown: Purge a package. This action typically removes the configuration files
       as well as the package.
-  :remove:
-    markdown: Remove a package.
-  :upgrade:
-    markdown: Install a package and ensure that a package is the latest version.
+  :reconfig:
+    markdown: 
+  :lock:
+    markdown: 
+  :unlock:
+    markdown: 
 properties_list:
 - property: options
   ruby_type: String, Array
@@ -64,7 +72,4 @@ properties_list:
   required: false
   description_list:
   - markdown: The version of a package to be installed or upgraded.
-examples: "
-  Install a package\n\n  ```ruby\n  portage_package 'name of package'\
-  \ do\n    action :install\n  end\n  ```\n"
-
+examples: 

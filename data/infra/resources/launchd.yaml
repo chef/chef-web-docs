@@ -10,79 +10,81 @@ resource_description_list:
 resource_new_in: '12.8'
 syntax_full_code_block: |-
   launchd 'name' do
-    abandon_process_group           true, false
-    associated_bundle_identifiers   Hash
-    backup                          Integer, false
-    cookbook                        String
-    debug                           true, false
-    disabled                        true, false # default value: false
-    enable_globbing                 true, false
-    enable_transactions             true, false
-    environment_variables           Hash
-    exit_timeout                    Integer
-    group                           String, Integer
-    hard_resource_limits            Hash
-    inetd_compatibility             Hash
-    init_groups                     true, false
-    keep_alive                      true, false, Hash
-    label                           String # default value: 'name' unless specified
-    launch_events                   Hash
-    launch_only_once                true, false
-    ld_group                        String
-    limit_load_from_hosts           Array
-    limit_load_to_hosts             Array
-    limit_load_to_session_type      Array, String
-    low_priority_io                 true, false
-    mach_services                   Hash
-    mode                            String, Integer
-    nice                            Integer
-    on_demand                       true, false
-    owner                           String, Integer
-    path                            String
-    plist_hash                      Hash
-    process_type                    String
-    program                         String
-    program_arguments               Array
-    queue_directories               Array
-    root_directory                  String
-    run_at_load                     true, false
-    session_type                    String
-    sockets                         Hash
-    soft_resource_limits            Array
-    source                          String
-    standard_error_path             String
-    standard_in_path                String
-    standard_out_path               String
-    start_calendar_interval         Hash, Array
-    start_interval                  Integer
-    start_on_mount                  true, false
-    throttle_interval               Integer
-    time_out                        Integer
-    type                            String # default value: "daemon"
-    username                        String
-    wait_for_debugger               true, false
-    watch_paths                     Array
-    working_directory               String
-    action                          Symbol # defaults to :create if not specified
+    abandon_process_group              true, false
+    associated_bundle_identifiers      Array
+    backup                             Integer, false
+    cookbook                           String
+    debug                              true, false
+    disabled                           true, false # default value: false
+    enable_globbing                    true, false
+    enable_transactions                true, false
+    environment_variables              Hash
+    exit_timeout                       Integer
+    group                              String, Integer
+    hard_resource_limits               Hash
+    inetd_compatibility                Hash
+    init_groups                        true, false
+    keep_alive                         true, false, Hash
+    label                              String # default value: 'name' unless specified
+    launch_events                      Hash
+    launch_only_once                   true, false
+    ld_group                           String
+    limit_load_from_hosts              Array
+    limit_load_to_hosts                Array
+    limit_load_to_session_type         Array, String
+    low_priority_io                    true, false
+    mach_services                      Hash
+    mode                               String, Integer
+    nice                               Integer
+    on_demand                          true, false
+    owner                              String, Integer
+    path                               String
+    plist_hash                         Hash
+    process_type                       String
+    program                            String
+    program_arguments                  Array
+    queue_directories                  Array
+    root_directory                     String
+    run_at_load                        true, false
+    session_type                       String
+    sockets                            Hash
+    soft_resource_limits               Array
+    source                             String
+    standard_error_path                String
+    standard_in_path                   String
+    standard_out_path                  String
+    start_calendar_interval            Hash, Array
+    start_interval                     Integer
+    start_on_mount                     true, false
+    throttle_interval                  Integer
+    time_out                           Integer
+    type                               String # default value: "daemon"
+    username                           String
+    wait_for_debugger                  true, false
+    watch_paths                        Array
+    working_directory                  String
+    action                             Symbol # defaults to :create if not specified
   end
-syntax_properties_list:
+syntax_properties_list: 
 syntax_full_properties_list:
 - "`launchd` is the resource."
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`abandon_process_group`, `associated_bundle_identifiers`, `backup`, `cookbook`, `debug`, `disabled`, `enable_globbing`,
-  `enable_transactions`, `environment_variables`, `exit_timeout`, `group`, `hard_resource_limits`,
-  `inetd_compatibility`, `init_groups`, `keep_alive`, `label`, `launch_events`, `launch_only_once`,
-  `ld_group`, `limit_load_from_hosts`, `limit_load_to_hosts`, `limit_load_to_session_type`,
-  `low_priority_io`, `mach_services`, `mode`, `nice`, `on_demand`, `owner`, `path`,
-  `plist_hash`, `process_type`, `program`, `program_arguments`, `queue_directories`,
-  `root_directory`, `run_at_load`, `session_type`, `sockets`, `soft_resource_limits`,
-  `source`, `standard_error_path`, `standard_in_path`, `standard_out_path`, `start_calendar_interval`,
-  `start_interval`, `start_on_mount`, `throttle_interval`, `time_out`, `type`, `username`,
-  `wait_for_debugger`, `watch_paths`, and `working_directory` are the properties available
-  to this resource."
+- "`abandon_process_group`, `associated_bundle_identifiers`, `backup`, `cookbook`,
+  `debug`, `disabled`, `enable_globbing`, `enable_transactions`, `environment_variables`,
+  `exit_timeout`, `group`, `hard_resource_limits`, `inetd_compatibility`, `init_groups`,
+  `keep_alive`, `label`, `launch_events`, `launch_only_once`, `ld_group`, `limit_load_from_hosts`,
+  `limit_load_to_hosts`, `limit_load_to_session_type`, `low_priority_io`, `mach_services`,
+  `mode`, `nice`, `on_demand`, `owner`, `path`, `plist_hash`, `process_type`, `program`,
+  `program_arguments`, `queue_directories`, `root_directory`, `run_at_load`, `session_type`,
+  `sockets`, `soft_resource_limits`, `source`, `standard_error_path`, `standard_in_path`,
+  `standard_out_path`, `start_calendar_interval`, `start_interval`, `start_on_mount`,
+  `throttle_interval`, `time_out`, `type`, `username`, `wait_for_debugger`, `watch_paths`,
+  and `working_directory` are the properties available to this resource."
 actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :create:
     markdown: Create a launchd property list. (default)
   :create_if_missing:
@@ -90,14 +92,12 @@ actions_list:
   :delete:
     markdown: Delete a launchd property list. This will unload a daemon or agent,
       if loaded.
-  :disable:
-    markdown: Disable a launchd property list.
   :enable:
     markdown: Create a launchd property list, and then ensure that it is enabled.
       If a launchd property list already exists, but does not match, updates the property
       list to match, and then restarts the daemon or agent.
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
+  :disable:
+    markdown: Disable a launchd property list.
   :restart:
     markdown: Restart a launchd managed daemon or agent.
 properties_list:
@@ -108,11 +108,10 @@ properties_list:
   - markdown: If a job dies, all remaining processes with the same process ID may
       be kept running. Set to true to kill all remaining processes.
 - property: associated_bundle_identifiers
-  new_in: 18.1
-  ruby_type: Hash
+  ruby_type: Array
   required: false
   description_list:
-  - markdown: This optional key indicates which bundles the **Login Items Added by Apps**
+  - markdown: This optional key indicates which bundles the Login Items Added by Apps
       panel associates with the helper executable.
 - property: backup
   ruby_type: Integer, false
@@ -125,45 +124,6 @@ properties_list:
   required: false
   description_list:
   - markdown: The name of the cookbook in which the source files are located.
-- property: group
-  ruby_type: String, Integer
-  required: false
-  description_list:
-  - markdown: 'When launchd is run as the root user, the group to run the job as.
-
-      If the `username` property is specified and this property is not,
-
-      this value is set to the default group for the user.'
-- property: label
-  ruby_type: String
-  required: false
-  description_list:
-  - markdown: The unique identifier for the job.
-- property: mode
-  ruby_type: Integer, String
-  required: false
-  default_value: '''0755'''
-  description_list:
-  - markdown: 'A quoted 3-5 character string that defines the octal mode. For
-
-      example: `''755''`, `''0755''`, or `00755`.'
-- property: source
-  ruby_type: String
-  required: false
-  description_list:
-  - markdown: The path to the launchd property list.
-- property: type
-  ruby_type: String
-  required: false
-  description_list:
-  - markdown: 'The type of resource. Possible values: `daemon` (default), `agent`.'
-- property: abandon_process_group
-  ruby_type: true, false
-  required: false
-  description_list:
-  - markdown: 'If a job dies, all remaining processes with the same process ID may
-
-      be kept running. Set to true to kill all remaining processes.'
 - property: debug
   ruby_type: true, false
   required: false
@@ -200,8 +160,8 @@ properties_list:
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: When launchd is run as the root user, this is the corresponding group to run the job as. If
-      the `username` property is specified and this property is not, this value is set
+  - markdown: When launchd is run as the root user, the group to run the job as. If
+      the username property is specified and this property is not, this value is set
       to the default group for the user.
 - property: hard_resource_limits
   ruby_type: Hash
@@ -228,6 +188,12 @@ properties_list:
   description_list:
   - markdown: Keep a job running continuously (true) or allow demand and conditions
       on the node to determine if the job keeps running (`false`).
+- property: label
+  ruby_type: String
+  required: false
+  default_value: The resource block's name
+  description_list:
+  - markdown: The unique identifier for the job.
 - property: launch_events
   ruby_type: Hash
   required: false
@@ -273,6 +239,12 @@ properties_list:
   required: false
   description_list:
   - markdown: Specify services to be registered with the bootstrap subsystem.
+- property: mode
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown: 'A quoted 3-5 character string that defines the octal mode. For example:
+      ''755'', ''0755'', or 00755.'
 - property: nice
   ruby_type: Integer
   required: false
@@ -289,7 +261,7 @@ properties_list:
   required: false
   description_list:
   - markdown: A string or ID that identifies the group owner by user name, including
-      fully qualified user names such as `domain_user` or `user@domain`. If this value
+      fully qualified user names such as domain_user or user@domain. If this value
       is not specified, existing owners remain unchanged and new owner assignments
       use the current user (when necessary).
 - property: path
@@ -380,15 +352,8 @@ properties_list:
   ruby_type: Hash, Array
   required: false
   description_list:
-  - markdown: 'A Hash (similar to `crontab`) that defines the calendar frequency at
-
-      which a job is started. For example:
-
-      `{ Minute => "0", Hour => "20", Day => "*", Weekday => "1-5", Month => "*" }`
-
-      will run a job at 8:00 PM every day, Monday through Friday, every
-
-      month of the year.'
+  - markdown: A Hash (similar to crontab) that defines the calendar frequency at which
+      a job is started or an Array.
 - property: start_interval
   ruby_type: Integer
   required: false
@@ -402,7 +367,6 @@ properties_list:
 - property: throttle_interval
   ruby_type: Integer
   required: false
-  default_value: '10'
   description_list:
   - markdown: The frequency (in seconds) at which jobs are allowed to spawn.
 - property: time_out
@@ -439,11 +403,4 @@ properties_list:
   required: false
   description_list:
   - markdown: "`chdir` to this directory, and then run the job."
-examples: "
-  Create a Launch Daemon from a cookbook file\n\n  ```ruby\n  launchd\
-  \ 'com.chef.every15' do\n    source 'com.chef.every15.plist'\n  end\n  ```\n\n \
-  \ Create a Launch Daemon using keys\n\n  ```ruby\n  launchd 'call.mom.weekly' do\n\
-  \    program '/Library/scripts/call_mom.sh'\n    start_calendar_interval 'Weekday'\
-  \ => 7, 'Hourly' => 10\n    time_out 300\n  end\n  ```\n\n  Remove a Launch Daemon\n\
-  \n  ```ruby\n  launchd 'com.chef.every15' do\n    action :delete\n  end\n  ```\n"
-
+examples: 

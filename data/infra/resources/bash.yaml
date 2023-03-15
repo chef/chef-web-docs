@@ -32,7 +32,7 @@ syntax_full_code_block: |-
     user             String, Integer
     action           Symbol # defaults to :run if not specified
   end
-syntax_properties_list:
+syntax_properties_list: 
 syntax_full_properties_list:
 - "`bash` is the resource."
 - "`name` is the name given to the resource block."
@@ -78,8 +78,8 @@ properties_list:
   default_value: 'false'
   new_in: '14.2'
   description_list:
-  - markdown: When `true` this enables ENV magic to add path_sanity to the PATH and
-      force the locale to English+UTF-8 for parsing output.
+  - markdown: When true this enables ENV magic to add path_sanity to the PATH and
+      force the locale to English+UTF-8 for parsing output
 - property: domain
   ruby_type: String
   required: false
@@ -105,8 +105,6 @@ properties_list:
 - property: environment
   ruby_type: Hash
   required: false
-  default_value:
-  new_in:
   description_list:
   - markdown: 'A Hash of environment variables in the form of `({''ENV_VARIABLE''
       => ''VALUE''})`. **Note**: These variables must exist for a command to be run
@@ -128,6 +126,11 @@ properties_list:
   new_in: '16.2'
   description_list:
   - markdown: An optional property to set the input sent to the command as STDIN.
+- property: interpreter
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: 
 - property: live_stream
   ruby_type: true, false
   required: false
@@ -195,7 +198,7 @@ examples: |
 
   **Using escape characters in a string of code**
 
-  In the following example, the `find` command uses an escape character (`\`). Use double escape characters (`\\`) to preserve the escape character in the code string:
+  In the following example, the `find` command uses an escape character (`\`). Use a second escape character (`\\`) to preserve the escape character in the code string:
 
   ```ruby
   bash 'delete some archives ' do

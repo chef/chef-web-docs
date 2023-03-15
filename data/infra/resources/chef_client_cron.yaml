@@ -15,7 +15,7 @@ syntax_full_code_block: |-
     append_log_file          true, false # default value: true
     chef_binary_path         String # default value: "/opt/chef/bin/chef-client"
     comment                  String
-    config_directory         String # default value: "/etc/chef"
+    config_directory         String # default value: "C:\\chef"
     daemon_options           Array # default value: []
     day                      Integer, String # default value: "*"
     environment              Hash # default value: {}
@@ -32,7 +32,7 @@ syntax_full_code_block: |-
     weekday                  Integer, String # default value: "*"
     action                   Symbol # defaults to :add if not specified
   end
-syntax_properties_list:
+syntax_properties_list: 
 syntax_full_properties_list:
 - "`chef_client_cron` is the resource."
 - "`name` is the name given to the resource block."
@@ -76,7 +76,7 @@ properties_list:
 - property: config_directory
   ruby_type: String
   required: false
-  default_value: "/etc/chef"
+  default_value: C:\chef
   description_list:
   - markdown: The path of the config directory.
 - property: daemon_options

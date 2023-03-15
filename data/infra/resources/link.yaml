@@ -8,32 +8,9 @@ resource_description_list:
 - markdown: |-
     Use the **link** resource to create symbolic or hard links.
 
-    A symbolic link--sometimes referred to as a soft link--is a directory entry that associates a file name with a string
-    that contains an absolute or relative path to a file on any file system. In other words, it's a file that contains a path
-    that points to another file. A symbolic link creates a new file with a new inode that points to the inode location of the original file.
+    A symbolic link—sometimes referred to as a soft link—is a directory entry that associates a file name with a string that contains an absolute or relative path to a file on any file system. In other words, 'a file that contains a path that points to another file.' A symbolic link creates a new file with a new inode that points to the inode location of the original file.
 
-    A hard link is a directory entry that associates a file with another file in the same file system. In other words,
-    multiple directory entries to the same file. A hard link creates a new file that points to the same inode as the original file.
-syntax_description: |
-  A **link** resource block creates symbolic or hard links. For
-  example, to create a hard link from `/tmp/file` to `/etc/file`:
-
-  ```ruby
-  link '/tmp/file' do
-    to '/etc/file'
-    link_type :hard
-  end
-  ```
-
-  Because the default value for `link_type` is symbolic, and because
-  properties that are not specified in the resource block will be assigned
-  their default values, the following example creates a symbolic link:
-
-  ```ruby
-  link '/tmp/file' do
-    to '/etc/file'
-  end
-  ```
+    A hard link is a directory entry that associates a file with another file in the same file system. In other words, 'multiple directory entries to the same file.' A hard link creates a new file that points to the same inode as the original file.
 syntax_full_code_block: |-
   link 'name' do
     group            String, Integer
@@ -43,7 +20,7 @@ syntax_full_code_block: |-
     to               String
     action           Symbol # defaults to :create if not specified
   end
-syntax_properties_list:
+syntax_properties_list: 
 syntax_full_properties_list:
 - "`link` is the resource."
 - "`name` is the name given to the resource block."
@@ -52,13 +29,12 @@ syntax_full_properties_list:
 - "`group`, `link_type`, `owner`, `target_file`, and `to` are the properties available
   to this resource."
 actions_list:
-  :create:
-    markdown: (default) Create a link. If a link already exists (but does not match),
-      update that link to match.
-  :delete:
-    markdown: Delete a link.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: " (default)"
+  :delete:
+    markdown: 
 properties_list:
 - property: group
   ruby_type: String, Integer
@@ -72,66 +48,7 @@ properties_list:
   default_value: ":symbolic"
   allowed_values: ":hard, :symbolic"
   description_list:
-  - markdown: 'The type of link: `:symbolic` or `:hard`. On Windows, `:symbolic` will create a junction point if the target is a directory.'
-- property: mode
-  ruby_type: Integer, String
-  required: false
-  default_value: '777'
-  description_list:
-  - markdown: 'If `mode` is not specified and if the file already exists, the
-
-      existing mode on the file is used. If `mode` is not specified, the
-
-      file does not exist, and the `:create` action is specified, Chef
-
-      Infra Client assumes a mask value of `''0777''` and then applies the
-
-      umask for the system on which the file is to be created to the
-
-      `mask` value. For example, if the umask on a system is `''022''`, Chef
-
-      Infra Client uses the default value of `''0755''`.
-
-
-      The behavior is different depending on the platform.
-
-
-      UNIX- and Linux-based systems: A quoted 3-5 character string that
-
-      defines the octal mode that is passed to chmod. For example:
-
-      `''755''`, `''0755''`, or `00755`. If the value is specified as a quoted
-
-      string, it works exactly as if the `chmod` command was passed. If
-
-      the value is specified as an integer, prepend a zero (`0`) to the
-
-      value to ensure that it is interpreted as an octal number. For
-
-      example, to assign read, write, and execute rights for all users,
-
-      use `''0777''` or `''777''`; for the same rights, plus the sticky bit,
-
-      use `01777` or `''1777''`.
-
-
-      Microsoft Windows: A quoted 3-5 character string that defines the
-
-      octal mode that is translated into rights for Microsoft Windows
-
-      security. For example: `''755''`, `''0755''`, or `00755`. Values up to
-
-      `''0777''` are allowed (no sticky bits) and mean the same in Microsoft
-
-      Windows as they do in UNIX, where `4` equals `GENERIC_READ`, `2`
-
-      equals `GENERIC_WRITE`, and `1` equals `GENERIC_EXECUTE`. This
-
-      property cannot be used to set `:full_control`. This property has no
-
-      effect if not specified, but when it and `rights` are both
-
-      specified, the effects are cumulative.'
+  - markdown: 'The type of link: :symbolic or :hard.'
 - property: owner
   ruby_type: String, Integer
   required: false
@@ -142,112 +59,11 @@ properties_list:
   required: false
   default_value: The resource block's name
   description_list:
-  - markdown: 'An optional property to set the target file if it differs from the
-
-      resource block''s name.'
+  - markdown: An optional property to set the target file if it differs from the resource
+      block's name.
 - property: to
   ruby_type: String
   required: false
   description_list:
   - markdown: The actual file to which the link is to be created.
-examples: |
-  **Create symbolic links**
-
-  The following example will create a symbolic link from `/tmp/file` to `/etc/file`:
-
-  ```ruby
-  link '/tmp/file' do
-    to '/etc/file'
-  end
-  ```
-
-  **Create hard links**
-
-  The following example will create a hard link from `/tmp/file` to `/etc/file`:
-
-  ```ruby
-  link '/tmp/file' do
-    to '/etc/file'
-    link_type :hard
-  end
-  ```
-
-  **Delete links**
-
-  The following example will delete the `/tmp/file` symbolic link and uses
-  the `only_if` guard to run the `test -L` command, which verifies that
-  `/tmp/file` is a symbolic link, and then only deletes `/tmp/file` if the
-  test passes:
-
-  ```ruby
-  link '/tmp/file' do
-    action :delete
-    only_if
-  'test -L /tmp/file'
-  end
-  ```
-
-  **Create multiple symbolic links**
-
-  The following example creates symbolic links from two files in the `/vol/webserver/cert/`
-  directory to files located in the `/etc/ssl/certs/` directory:
-
-  ```ruby
-  link '/vol/webserver/cert/server.crt' do
-    to '/etc/ssl/certs/ssl-cert-name.pem'
-  end
-
-  link '/vol/webserver/cert/server.key' do
-    to '/etc/ssl/certs/ssl-cert-name.key'
-  end
-  ```
-
-  **Create platform-specific symbolic links**
-
-  The following example shows installing a filter module on Apache. The package name is different for
-  different platforms, and for the Red Hat Enterprise Linux family, a symbolic link is required:
-
-  ```ruby
-  include_recipe 'apache2::default'
-
-  case node['platform_family']
-  when 'debian'
-    ...
-  when 'suse'
-    ...
-  when 'rhel', 'fedora'
-    ...
-
-    link '/usr/lib64/httpd/modules/mod_apreq.so' do
-      to      '/usr/lib64/httpd/modules/mod_apreq2.so'
-      only_if 'test -f /usr/lib64/httpd/modules/mod_apreq2.so'
-    end
-
-    link '/usr/lib/httpd/modules/mod_apreq.so' do
-      to      '/usr/lib/httpd/modules/mod_apreq2.so'
-      only_if 'test -f /usr/lib/httpd/modules/mod_apreq2.so'
-    end
-  end
-  ...
-
-  ```
-
-
-  For the complete recipe, see
-  <https://github.com/onehealth-cookbooks/apache2/blob/68bdfba4680e70b3e90f77e40223dd535bf22c17/recipes/mod_apreq2.rb>.
-
-
-  **Create Windows junction/reparse points**
-
-  This example demonstrates how to create a directory junction/reparse point. In this example, `C:\\destination`
-  will be a junction/reparse point to the `C:\\source` directory.
-
-  ```ruby
-  directory 'C:/source'
-
-  link 'C:/destination' do
-    link_type :symbolic
-    to 'C:/source'
-  end
-  ```
-
+examples: 

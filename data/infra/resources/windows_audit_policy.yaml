@@ -21,7 +21,7 @@ syntax_full_code_block: |-
     success                      true, false
     action                       Symbol # defaults to :set if not specified
   end
-syntax_properties_list:
+syntax_properties_list: 
 syntax_full_properties_list:
 - "`windows_audit_policy` is the resource."
 - "`name` is the name given to the resource block."

@@ -8,18 +8,6 @@ resource_description_list:
 - markdown: Use the **freebsd_package** resource to manage packages for the FreeBSD
     platform.
 - notes_resource_based_on_package: true
-syntax_description: |
-  A **freebsd_package** resource block manages a package on a node,
-  typically by installing it. The simplest use of the **freebsd_package**
-  resource is:
-
-  ```ruby
-  freebsd_package 'package_name'
-  ```
-
-  which will install the named package using all of the default options
-  and the default action (`:install`).
-
 syntax_full_code_block: |-
   freebsd_package 'name' do
     options           String, Array
@@ -29,20 +17,31 @@ syntax_full_code_block: |-
     version           String, Array
     action            Symbol # defaults to :install if not specified
   end
-syntax_properties_list:
+syntax_properties_list: 
 syntax_full_properties_list:
-- '`freebsd_package` is the resource.'
-- '`name` is the name given to the resource block.'
-- '`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state.'
-- '`options`, `package_name`, `source`, `timeout`, and `version` are the properties
-  available to this resource.'
+- "`freebsd_package` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`options`, `package_name`, `source`, `timeout`, and `version` are the properties
+  available to this resource."
 actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :install:
-    markdown: (default) Install a package. If a version is specified, install the specified
-      version of the package.
+    markdown: " (default)"
+  :upgrade:
+    markdown: 
   :remove:
-    markdown: Remove a package.
+    markdown: 
+  :purge:
+    markdown: 
+  :reconfig:
+    markdown: 
+  :lock:
+    markdown: 
+  :unlock:
+    markdown: 
 properties_list:
 - property: options
   ruby_type: String, Array
@@ -70,7 +69,4 @@ properties_list:
   required: false
   description_list:
   - markdown: The version of a package to be installed or upgraded.
-examples: "
-  Install a package\n\n  ```ruby\n  freebsd_package 'name of package'\
-  \ do\n    action :install\n  end\n  ```\n"
-
+examples: 

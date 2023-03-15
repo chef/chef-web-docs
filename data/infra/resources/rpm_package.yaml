@@ -17,7 +17,7 @@ syntax_full_code_block: |-
     version              String
     action               Symbol # defaults to :install if not specified
   end
-syntax_properties_list:
+syntax_properties_list: 
 syntax_full_properties_list:
 - "`rpm_package` is the resource."
 - "`name` is the name given to the resource block."
@@ -31,10 +31,19 @@ actions_list:
   :install:
     markdown: Install a package. If a version is specified, install the specified
       version of the package. (default)
-  :remove:
-    markdown: Remove a package.
   :upgrade:
     markdown: Install a package and ensure that a package is the latest version.
+  :remove:
+    markdown: Remove a package.
+  :purge:
+    markdown: Purge a package. This action typically removes the configuration files
+      as well as the package.
+  :reconfig:
+    markdown: 
+  :lock:
+    markdown: 
+  :unlock:
+    markdown: 
 properties_list:
 - property: allow_downgrade
   ruby_type: true, false
@@ -68,7 +77,4 @@ properties_list:
   required: false
   description_list:
   - markdown: The version of a package to be installed or upgraded.
-examples: "
-  Install a package\n\n  ```ruby\n  rpm_package 'name of package'\
-  \ do\n    action :install\n  end\n  ```\n"
-
+examples: 

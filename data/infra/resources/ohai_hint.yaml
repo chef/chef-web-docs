@@ -15,7 +15,7 @@ syntax_full_code_block: |-
     hint_name         String # default value: 'name' unless specified
     action            Symbol # defaults to :create if not specified
   end
-syntax_properties_list:
+syntax_properties_list: 
 syntax_full_properties_list:
 - "`ohai_hint` is the resource."
 - "`name` is the name given to the resource block."

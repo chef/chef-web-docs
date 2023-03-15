@@ -19,7 +19,7 @@ syntax_full_code_block: |-
     run_test           true, false
     action             Symbol # defaults to :add if not specified
   end
-syntax_properties_list:
+syntax_properties_list: 
 syntax_full_properties_list:
 - "`inspec_waiver_file_entry` is the resource."
 - "`name` is the name given to the resource block."
@@ -28,12 +28,12 @@ syntax_full_properties_list:
 - "`backup`, `control`, `expiration`, `file_path`, `justification`, and `run_test`
   are the properties available to this resource."
 actions_list:
-  :add:
-    markdown: " (default)"
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :add:
+    markdown: " (default)"
   :remove:
-    markdown:
+    markdown: 
 properties_list:
 - property: backup
   ruby_type: false, Integer

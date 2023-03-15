@@ -13,7 +13,7 @@ syntax_full_code_block: |-
   chef_client_scheduled_task 'name' do
     accept_chef_license       true, false # default value: false
     chef_binary_path          String # default value: "C:/opscode/chef/bin/chef-client"
-    config_directory          String # default value: "/etc/chef"
+    config_directory          String # default value: "C:\\chef"
     daemon_options            Array # default value: []
     frequency                 String # default value: "minute"
     frequency_modifier        Integer, String # default value: "30 if frequency is 'minute', 1 otherwise"
@@ -30,7 +30,7 @@ syntax_full_code_block: |-
     user                      String # default value: "System"
     action                    Symbol # defaults to :add if not specified
   end
-syntax_properties_list:
+syntax_properties_list: 
 syntax_full_properties_list:
 - "`chef_client_scheduled_task` is the resource."
 - "`name` is the name given to the resource block."
@@ -63,7 +63,7 @@ properties_list:
 - property: config_directory
   ruby_type: String
   required: false
-  default_value: "/etc/chef"
+  default_value: C:\chef
   description_list:
   - markdown: The path of the config directory.
 - property: daemon_options

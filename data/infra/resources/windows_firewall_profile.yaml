@@ -22,7 +22,7 @@ syntax_full_code_block: |-
     profile                         String # default value: 'name' unless specified
     action                          Symbol # defaults to :enable if not specified
   end
-syntax_properties_list:
+syntax_properties_list: 
 syntax_full_properties_list:
 - "`windows_firewall_profile` is the resource."
 - "`name` is the name given to the resource block."

@@ -18,7 +18,7 @@ syntax_full_code_block: |-
     verify               true, false # default value: true
     action               Symbol # defaults to :nothing if not specified
   end
-syntax_properties_list:
+syntax_properties_list: 
 syntax_full_properties_list:
 - "`systemd_unit` is the resource."
 - "`name` is the name given to the resource block."
@@ -28,7 +28,7 @@ syntax_full_properties_list:
   available to this resource."
 actions_list:
   :nothing:
-    shortcode: resources_common_actions_nothing_default.md
+    shortcode: resources_common_actions_nothing.md
   :create:
     markdown: Create a systemd unit file, if it does not already exist.
   :delete:

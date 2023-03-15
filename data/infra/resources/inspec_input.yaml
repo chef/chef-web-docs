@@ -13,7 +13,7 @@ syntax_full_code_block: |-
     source      Hash, String # default value: 'name' unless specified
     action      Symbol # defaults to :add if not specified
   end
-syntax_properties_list:
+syntax_properties_list: 
 syntax_full_properties_list:
 - "`inspec_input` is the resource."
 - "`name` is the name given to the resource block."
@@ -21,23 +21,23 @@ syntax_full_properties_list:
   the desired state."
 - "`input` and `source` are the properties available to this resource."
 actions_list:
-  :add:
-    markdown: Add an input to the compliance phase (default)
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :add:
+    markdown: Add an input to the compliance phase (default)
 properties_list:
 - property: input
   ruby_type: Hash, String
   required: false
   default_value: The resource block's name
   description_list:
-  - markdown:
+  - markdown: 
 - property: source
   ruby_type: Hash, String
   required: false
   default_value: The resource block's name
   description_list:
-  - markdown:
+  - markdown: 
 examples: |2
 
   **Activate the default input in the openssh cookbook's compliance segment**:

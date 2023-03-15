@@ -12,27 +12,6 @@ resource_description_list:
       the monolithic `/etc/crontab` file on platforms that lack cron.d support. See
       the [cron resource](/resources/cron/) for information on using that resource.
 resource_new_in: '14.4'
-syntax_description: |
-  A **cron_d** resource block manages cron.d files. For example,
-  to get a weekly cookbook report from the Chef Supermarket:
-
-  ```ruby
-  cron_d 'cookbooks_report' do
-    action :create
-    minute '0'
-    hour '0'
-    weekday '1'
-    user 'getchef'
-    mailto 'sysadmin@example.com'
-    home '/srv/supermarket/shared/system'
-    command %W{
-      cd /srv/supermarket/current &&
-      env RUBYLIB='/srv/supermarket/current/lib'
-      RAILS_ASSET_ID=`git rev-parse HEAD` RAILS_ENV=\"#{rails_env}\"
-      bundle exec rake cookbooks_report
-    }.join(' ')
-  end
-  ```
 syntax_full_code_block: |-
   cron_d 'name' do
     command               String
@@ -55,7 +34,7 @@ syntax_full_code_block: |-
     weekday               Integer, String, Symbol # default value: "*"
     action                Symbol # defaults to :create if not specified
   end
-syntax_properties_list:
+syntax_properties_list: 
 syntax_full_properties_list:
 - "`cron_d` is the resource."
 - "`name` is the name given to the resource block."

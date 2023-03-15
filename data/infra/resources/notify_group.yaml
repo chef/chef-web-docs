@@ -14,7 +14,7 @@ syntax_full_code_block: |-
   notify_group 'name' do
     action      Symbol # defaults to :nothing if not specified
   end
-syntax_properties_list:
+syntax_properties_list: 
 syntax_full_properties_list:
 - "`notify_group` is the resource."
 - "`name` is the name given to the resource block."
@@ -22,9 +22,9 @@ syntax_full_properties_list:
   the desired state."
 actions_list:
   :nothing:
-    shortcode: resources_common_actions_nothing_default.md
+    shortcode: resources_common_actions_nothing.md
   :run:
-    markdown:
+    markdown: 
 properties_list: []
 examples: |
   Wire up a notification from a service resource to stop and start the service with a 60 second delay.

@@ -12,50 +12,6 @@ resource_description_list:
 - note:
     markdown: Use the **script** resource to execute a script using a specific interpreter
       (Ruby, Python, Perl, csh, or Bash).
-syntax_description: "An **execute** resource block typically executes a single command\
-  \ that\nis unique to the environment in which a recipe will run. Some\n**execute**\
-  \ resource commands are run by themselves, but often they are\nrun in combination\
-  \ with other Chef resources. For example, a single\ncommand that is run by itself:\n\
-  \n```ruby\nexecute 'apache_configtest' do\n  command '/usr/sbin/apachectl configtest'\n\
-  end\n```"
-syntax_properties_list:
-- '`''/usr/sbin/apachectl configtest''` is a command that tests if the
-
-  configuration files for Apache are valid.
-
-
-  Commands are often run in combination with other Chef resources. The
-
-  following example shows the **template** resource run with the
-
-  **execute** resource to add an entry to a LDAP Directory Interchange
-
-  Format (LDIF) file:
-
-
-  ```ruby
-
-  execute ''slapadd'' do command ''slapadd < /tmp/something.ldif'' creates ''/var/lib/slapd/uid.bdb''
-  action :nothing
-
-  end
-
-
-  template ''/tmp/something.ldif'' do source ''something.ldif'' notifies :run, ''execute[slapadd]'',
-  :immediately
-
-  end
-
-  ```
-
-
-  where'
-- '`''/tmp/something.ldif''` specifies the location of the file'
-- '`''something.ldif''` specifies template file from which `/tmp/something.ldif` is
-  created'
-- '`''slapadd < /tmp/something.ldif''` is the command that is run'
-- '`/var/lib/slapd/uid.bdb` prevents the **execute** resource block from running if
-  that file already exists'
 syntax_full_code_block: |-
   execute 'name' do
     command          String, Array # default value: 'name' unless specified
@@ -75,6 +31,7 @@ syntax_full_code_block: |-
     user             String, Integer
     action           Symbol # defaults to :run if not specified
   end
+syntax_properties_list: 
 syntax_full_properties_list:
 - "`execute` is the resource."
 - "`name` is the name given to the resource block."
@@ -115,8 +72,8 @@ properties_list:
   default_value: 'false'
   new_in: '14.2'
   description_list:
-  - markdown: When `true` this enables ENV magic to add path_sanity to the PATH and
-      force the locale to English+UTF-8 for parsing output.
+  - markdown: When true this enables ENV magic to add path_sanity to the PATH and
+      force the locale to English+UTF-8 for parsing output
 - property: domain
   ruby_type: String
   required: false

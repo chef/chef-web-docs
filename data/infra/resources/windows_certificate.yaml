@@ -22,7 +22,7 @@ syntax_full_code_block: |-
     user_store           true, false # default value: false
     action               Symbol # defaults to :create if not specified
   end
-syntax_properties_list:
+syntax_properties_list: 
 syntax_full_properties_list:
 - "`windows_certificate` is the resource."
 - "`name` is the name given to the resource block."

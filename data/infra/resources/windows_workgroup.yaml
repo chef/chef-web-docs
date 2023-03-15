@@ -16,7 +16,7 @@ syntax_full_code_block: |-
     workgroup_name      String # default value: 'name' unless specified
     action              Symbol # defaults to :join if not specified
   end
-syntax_properties_list:
+syntax_properties_list: 
 syntax_full_properties_list:
 - "`windows_workgroup` is the resource."
 - "`name` is the name given to the resource block."
