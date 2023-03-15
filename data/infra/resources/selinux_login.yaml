@@ -1,0 +1,63 @@
+---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: selinux_login
+resource_description_list:
+- markdown: Use the **selinux_login** resource to add, update, or remove SELinux user
+    to OS login mappings.
+resource_new_in: '18.1'
+syntax_full_code_block: |-
+  selinux_login 'name' do
+    login      String # default value: 'name' unless specified
+    range      String
+    user       String
+    action     Symbol # defaults to :manage if not specified
+  end
+syntax_properties_list: 
+syntax_full_properties_list:
+- "`selinux_login` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`login`, `range`, and `user` are the properties available to this resource."
+actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :manage:
+    markdown: Sets the SELinux login mapping to the desired settings regardless of
+      previous state. (default)
+  :add:
+    markdown: Creates the SELinux login mapping if not previously created.
+  :modify:
+    markdown: Updates the SELinux login mapping if previously created.
+  :delete:
+    markdown: Removes the SELinux login mapping if previously created.
+properties_list:
+- property: login
+  ruby_type: String
+  required: false
+  default_value: The resource block's name
+  description_list:
+  - markdown: An optional property to set the OS user login value if it differs from
+      the resource block's name.
+- property: range
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: MLS/MCS security range for the SELinux user.
+- property: user
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: SELinux user to be mapped.
+examples: |
+  **Manage test OS user mapping with a range of s0 and associated SELinux user test_u**:
+
+  ```ruby
+  selinux_login 'test' do
+    user 'test_u'
+    range 's0'
+  end
+  ```
