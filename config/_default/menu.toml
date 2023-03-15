@@ -115,7 +115,7 @@ identifier = "automate"
     title = "Prerequisites"
     identifier = "automate/deploy_high_availability/ha_prerequisites"
     parent = "automate/deploy_high_availability"
-    weight = 10
+    weight = 15
 
     [[automate]]
     title = "Deployment"
