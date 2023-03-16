@@ -3,7 +3,7 @@
 
 [build.environment]
   HUGO_ENABLEGITINFO = "true"
-  NODE_VERSION = "17"
+  NODE_VERSION = "19"
 
 [build.processing]
   skip_processing = true
