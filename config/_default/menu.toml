@@ -112,10 +112,10 @@ identifier = "automate"
   weight = 25
 
     [[automate]]
-    title = "System Requirements"
-    identifier = "automate/deploy_high_availability/ha_system_requirements"
+    title = "Prerequisites"
+    identifier = "automate/deploy_high_availability/ha_prerequisites"
     parent = "automate/deploy_high_availability"
-    weight = 20
+    weight = 15
 
     [[automate]]
     title = "Deployment"
