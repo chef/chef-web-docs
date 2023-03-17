@@ -15,7 +15,7 @@ syntax_full_code_block: |-
     secontext      String
     action         Symbol # defaults to :manage if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`selinux_port` is the resource."
 - "`name` is the name given to the resource block."
@@ -40,7 +40,7 @@ properties_list:
 - property: port
   ruby_type: Integer, String
   required: false
-  default_value: The resource block's name
+  default_value: The resource block's name.
   description_list:
   - markdown: Port to modify.
 - property: protocol
@@ -55,7 +55,7 @@ properties_list:
   description_list:
   - markdown: SELinux context to assign to the port.
 examples: |
-  **Allow nginx/apache to bind to port 5678 by giving it the http_port_t context**:
+  **Allow Nginx or Apache to bind to port 5678 by giving it the `http_port_t` context**:
 
   ```ruby
   selinux_port '5678' do

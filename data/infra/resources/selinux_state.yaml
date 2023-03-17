@@ -5,7 +5,7 @@ resources_common_notification: true
 resources_common_properties: true
 resource: selinux_state
 resource_description_list:
-- markdown: Use **selinux_state** resource to manages the SELinux state on the system.
+- markdown: Use the **selinux_state** resource to manage the SELinux state on a system.
     It does this by using the `setenforce` command and rendering the `/etc/selinux/config`
     file from a template.
 resource_new_in: '18.0'
@@ -47,7 +47,7 @@ properties_list:
   required: false
   default_value: "/etc/selinux/config"
   description_list:
-  - markdown: Path to SELinux config file on disk.
+  - markdown: Path to the SELinux config file on disk.
 - property: persistent
   ruby_type: true, false
   required: false
@@ -79,6 +79,7 @@ examples: |
   ```
 
   **Set SELinux state to disabled**:
+
   ```ruby
   selinux_state 'disabled' do
     action :disabled

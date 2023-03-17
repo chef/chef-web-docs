@@ -15,7 +15,7 @@ syntax_full_code_block: |-
     user       String # default value: 'name' unless specified
     action     Symbol # defaults to :manage if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`selinux_user` is the resource."
 - "`name` is the name given to the resource block."
@@ -39,12 +39,12 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: MLS/MCS security level for the SELinux user.
+  - markdown: Multi-Level Security (MLS) or Multi-Category Security (MCS) security level for the SELinux user.
 - property: range
   ruby_type: String
   required: false
   description_list:
-  - markdown: MLS/MCS security range for the SELinux user.
+  - markdown: Multi-Level Security (MLS) or Multi-Category Security (MCS) security range for the SELinux user.
 - property: roles
   ruby_type: Array
   required: false
@@ -58,10 +58,10 @@ properties_list:
   - markdown: An optional property to set the SELinux user value if it differs from
       the resource block's name.
 examples: |
-  **Manage test_u SELinux user with a level and range of s0 and roles sysadm_r and staff_r**:
+  **Set an SELinux user with a level and range of `s0` and roles `sysadm_r` and `staff_r`**:
 
   ```ruby
-  selinux_user 'test_u' do
+  selinux_user 'username' do
     level 's0'
     range 's0'
     roles %w(sysadm_r staff_r)

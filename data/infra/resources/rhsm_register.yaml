@@ -117,7 +117,7 @@ properties_list:
   description_list:
   - markdown: Sets the operating system minor release to use for subscriptions for
       the system. Products and updates are limited to the specified minor release
-      version. This is used with the `auto_attach` or `activation_key` options.  For
+      version. This is used with the `auto_attach` or `activation_key` options. For
       example, `release '6.4'` will append `--release=6.4` to the register command.
 - property: satellite_host
   ruby_type: String
@@ -154,7 +154,7 @@ properties_list:
       if using an activation key. If specified, password and environment properties
       are also required.
 examples: |
-  **Register a node with RHSM*
+  **Register a node with RHSM**
 
   ```ruby
   rhsm_register 'my-host' do

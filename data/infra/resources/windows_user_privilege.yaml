@@ -7,7 +7,7 @@ resource: windows_user_privilege
 resource_description_list:
 - markdown: |-
     Use the **windows_user_privilege** resource to set privileges for a principal, user, or group.
-     See [Microsoft's user rights assignment documentation](https://learn.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/user-rights-assignment) for more information.
+    See [Microsoft's user rights assignment documentation](https://learn.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/user-rights-assignment) for more information.
 resource_new_in: '16.0'
 syntax_full_code_block: |-
   windows_user_privilege 'name' do
@@ -16,7 +16,7 @@ syntax_full_code_block: |-
     users          Array, String
     action         Symbol # defaults to :add if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`windows_user_privilege` is the resource."
 - "`name` is the name given to the resource block."
@@ -27,7 +27,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :add:
-    markdown: Add a privileges to a principal. (default)
+    markdown: Add a privilege to a principal. (default)
   :set:
     markdown: Set the privileges that are listed in the `privilege` property for only
       the users listed in the `users` property. All other users not listed with given
@@ -35,28 +35,28 @@ actions_list:
   :clear:
     markdown: Clear all user privileges
   :remove:
-    markdown: Remove a principal privilege
+    markdown: Remove a privilege from a principal.
 properties_list:
 - property: principal
   ruby_type: String
   required: false
   default_value: The resource block's name
   description_list:
-  - markdown: An optional property to add the privilege for given principal. Use only
-      with add and remove action. Principal can either be a user, group, or [special
-      identity](https://docs.microsoft.com/en-us/windows/security/identity-protection/access-control/special-identities).
+  - markdown: An optional property to add the privilege for the specified principal. Use
+      only with add and remove action. The principal can either be a user, group, or
+      [special identity](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-special-identities-groups).'
 - property: privilege
   ruby_type: Array, String
   required: true
   description_list:
-  - markdown: One or more privileges to set for principal or users/groups. For more
-      information, see [Microsoft's documentation on what each privilege does](https://learn.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/user-rights-assignment).
+  - markdown: "One or more privileges to set for principal or users/groups. For more information, see
+      [Microsoft's privileges documentation](https://learn.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/user-rights-assignment)."
 - property: users
   ruby_type: Array, String
   required: false
   description_list:
   - markdown: An optional property to set the privilege for the specified users. Use
-      only with `:set` action
+      only with `:set` action.
 examples: |
   **Set the SeNetworkLogonRight privilege for the Builtin Administrators and Authenticated Users groups**:
 

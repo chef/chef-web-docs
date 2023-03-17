@@ -46,7 +46,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: MLS/MCS security range for the SELinux user.
+  - markdown: Multi-Level Security (MLS) or Multi-Category Security (MCS) range for the SELinux user.
 - property: user
   ruby_type: String
   required: false

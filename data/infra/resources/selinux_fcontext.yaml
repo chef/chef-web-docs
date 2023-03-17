@@ -36,12 +36,12 @@ actions_list:
   :modify:
     markdown: Update the file context if previously set.
   :delete:
-    markdown: 'Removes the file context if set. '
+    markdown: 'Removes the file context if set.'
 properties_list:
 - property: file_spec
   ruby_type: String
   required: false
-  default_value: The resource block's name
+  default_value: The resource block's name.
   description_list:
   - markdown: Path to or regex matching the files or directories to label.
 - property: file_type
@@ -57,7 +57,7 @@ properties_list:
   description_list:
   - markdown: SELinux context to assign.
 examples: |
-  **Allow http servers (e.g. nginx/apache) to modify moodle files**:
+  **Allow http servers (e.g. nginx/apache) to modify Moodle files**:
 
   ```ruby
   selinux_fcontext '/var/www/moodle(/.*)?' do
