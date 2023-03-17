@@ -3,14 +3,14 @@ module github.com/chef/chef-web-docs
 go 1.16
 
 require (
-	github.com/chef/automate/components/docs-chef-io v0.0.0-20230309152106-d99170f089e1 // indirect
-	github.com/chef/chef-server/docs-chef-io v0.0.0-20230302134829-04da6ce46900 // indirect
+	github.com/chef/automate/components/docs-chef-io v0.0.0-20230316135440-186f02ecb21a // indirect
+	github.com/chef/chef-server/docs-chef-io v0.0.0-20230316212916-ae2a66241efd // indirect
 	github.com/chef/chef-workstation/docs-chef-io v0.0.0-20230302122017-96ed5dce33b1 // indirect
 	github.com/chef/compliance-profiles/docs-chef-io v0.0.0-20220913154223-6d8d6f3396b6 // indirect
 	github.com/chef/compliance-remediation-2022/docs-chef-io v0.0.0-20221212054622-28b0bde63f50 // indirect
 	github.com/chef/desktop-config/docs-chef-io v0.0.0-20220405052948-5947f844edff // indirect
 	github.com/chef/effortless/docs-chef-io v0.0.0-20211119164252-4ff3d53886be // indirect
-	github.com/chef/supermarket/docs-chef-io v0.0.0-20230215042509-e4e27bcefacd // indirect
+	github.com/chef/supermarket/docs-chef-io v0.0.0-20230317105755-1f3d273b3f82 // indirect
 	github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90 // indirect
 	github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20230206155408-0aaf37322e4e // indirect
 	github.com/inspec/inspec-alicloud/docs-chef-io v0.0.0-20220614123852-e453ba687370 // indirect
