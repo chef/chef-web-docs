@@ -14,7 +14,7 @@ syntax_full_code_block: |-
     secvalue       String
     action         Symbol # defaults to :set if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`windows_security_policy` is the resource."
 - "`name` is the name given to the resource block."

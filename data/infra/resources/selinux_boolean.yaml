@@ -5,7 +5,7 @@ resources_common_notification: true
 resources_common_properties: true
 resource: selinux_boolean
 resource_description_list:
-- markdown: Use **selinux_boolean** resource to set SELinux boolean values.
+- markdown: Use the **selinux_boolean** resource to set SELinux boolean values.
 resource_new_in: '18.0'
 syntax_full_code_block: |-
   selinux_boolean 'name' do
@@ -14,7 +14,7 @@ syntax_full_code_block: |-
     value           Integer, String, true, false
     action          Symbol # defaults to :set if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`selinux_boolean` is the resource."
 - "`name` is the name given to the resource block."
@@ -30,7 +30,7 @@ properties_list:
 - property: boolean
   ruby_type: String
   required: false
-  default_value: The resource block's name
+  default_value: The resource block's name.
   description_list:
   - markdown: SELinux boolean to set.
 - property: persistent
@@ -38,11 +38,11 @@ properties_list:
   required: false
   default_value: 'true'
   description_list:
-  - markdown: Set to true for value setting to survive reboot.
+  - markdown: Set to `true` for value setting to survive reboot.
 - property: value
   ruby_type: Integer, String, true, false
   required: true
-  allowed_values: '"off", "on"'
+  allowed_values: '"on", "off", true, false, 0, 1'
   description_list:
   - markdown: SELinux boolean value.
 examples: |

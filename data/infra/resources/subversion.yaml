@@ -27,7 +27,7 @@ syntax_full_code_block: |-
     user               String, Integer
     action             Symbol # defaults to :sync if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`subversion` is the resource."
 - "`name` is the name given to the resource block."
@@ -48,10 +48,6 @@ actions_list:
       does nothing.
   :export:
     markdown: Export the source, excluding or removing any version control artifacts.
-  :diff:
-    markdown: 
-  :log:
-    markdown: 
   :force_export:
     markdown: Export the source, excluding or removing any version control artifacts
       and force an export of the source that is overwriting the existing copy (if
@@ -84,7 +80,9 @@ properties_list:
   required: false
   default_value: HEAD
   description_list:
-  - markdown: The revision to checkout.
+  - markdown: 'A branch, tag, or commit to be synchronized with git. This can be
+      symbolic, like `HEAD` or it can be a source control
+      management-specific revision identifier.'
 - property: svn_arguments
   ruby_type: String, false
   required: false

@@ -18,7 +18,7 @@ syntax_full_code_block: |-
     require_signed_binaries       true, false # default value: false
     action                        Symbol # defaults to :configure if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`windows_uac` is the resource."
 - "`name` is the name given to the resource block."

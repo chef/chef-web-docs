@@ -19,7 +19,7 @@ syntax_full_code_block: |-
     value         true, false, String, Integer, Float, Hash
     action        Symbol # defaults to :set if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`plist` is the resource."
 - "`name` is the name given to the resource block."
@@ -38,12 +38,12 @@ properties_list:
   required: false
   default_value: binary
   description_list:
-  - markdown: 
+  - markdown:
 - property: entry
   ruby_type: String
   required: false
   description_list:
-  - markdown: 
+  - markdown:
 - property: group
   ruby_type: String
   required: false
@@ -71,7 +71,7 @@ properties_list:
   ruby_type: true, false, String, Integer, Float, Hash
   required: false
   description_list:
-  - markdown: 
+  - markdown:
 examples: |
   **Show hidden files in finder**:
 

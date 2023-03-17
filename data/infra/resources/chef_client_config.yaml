@@ -46,7 +46,7 @@ syntax_full_code_block: |-
     user                           String
     action                         Symbol # defaults to :create if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`chef_client_config` is the resource."
 - "`name` is the name given to the resource block."
@@ -280,8 +280,8 @@ properties_list:
   new_in: '17.11'
   description_list:
   - markdown: The location to source rubygems. It can be set to a string or array
-      of strings for URIs to set as rubygems sources. This allows individuals to setup
-      an internal mirror of rubygems for “airgapped” environments.
+      of strings for URIs to set as rubygems sources. This allows individuals to set up
+      an internal mirror of rubygems for airgapped environments.
 - property: ssl_verify_mode
   ruby_type: Symbol, String
   required: false

@@ -11,38 +11,15 @@ resource_description_list:
 - markdown: 'Use the **log** resource to create log entries. The log resource behaves
     like any other resource: built into the resource collection during the compile
     phase, and then run during the execution phase. (To create a log entry that is
-    not built into the resource collection, use Chef::Log instead of the log resource.)'
-syntax_full_code_block: |-
-  log 'name' do
-    level        Symbol # default value: :info
-    message      String # default value: 'name' unless specified
-    action       Symbol # defaults to :write if not specified
-  end
-syntax_properties_list: 
-syntax_full_properties_list:
-- "`log` is the resource."
-- "`name` is the name given to the resource block."
-- "`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state."
-- "`level` and `message` are the properties available to this resource."
+    not built into the resource collection, use `Chef::Log` instead of the log resource.)'
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :write:
-    markdown: " (default)"
-properties_list:
-- property: level
-  ruby_type: Symbol
-  required: false
-  default_value: ":info"
-  allowed_values: ":debug, :error, :fatal, :info, :warn"
-  description_list:
-  - markdown: The logging level to display this message at.
-- property: message
-  ruby_type: String
-  required: false
-  default_value: The resource block's name
-  description_list:
-  - markdown: The message to be added to a log file. If not specified we'll use the
-      resource's name instead.
-examples: 
+    markdown: "(default)"
+examples: "
+  Set default logging level\n\n  ```ruby\n  log 'a string to log'\n\
+  \  ```\n\n  Set debug logging level\n\n  ```ruby\n  log 'a debug string' do\n \
+  \   level :debug\n  end\n  ```\n\n  Add a message to a log file\n\n  ```ruby\n\
+  \  log 'message' do\n    message 'This is the message that will be added to the\
+  \ log.'\n    level :info\n  end\n  ```\n"

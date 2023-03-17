@@ -13,7 +13,7 @@ syntax_full_code_block: |-
     frequency      Integer # default value: 86400
     action         Symbol # defaults to :periodic if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`homebrew_update` is the resource."
 - "`name` is the name given to the resource block."

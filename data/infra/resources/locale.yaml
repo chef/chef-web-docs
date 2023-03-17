@@ -14,7 +14,7 @@ syntax_full_code_block: |-
     lc_env      Hash # default value: {}
     action      Symbol # defaults to :update if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`locale` is the resource."
 - "`name` is the name given to the resource block."

@@ -4,9 +4,68 @@ resource_package_options: true
 resource: package
 resource_description_list:
 - markdown: |-
-    Use the **package** resource to manage packages. When the package is installed from a local file (such as with RubyGems, dpkg, or RPM Package Manager), the file must be added to the node using the remote_file or cookbook_file resources.
+    Use the **package** resource to manage packages. When the package is installed from a local file (such as with RubyGems,
+    dpkg, or RPM Package Manager), the file must be added to the node using the **remote_file** or **cookbook_file** resources.
 
-    This resource is the base resource for several other resources used for package management on specific platforms. While it is possible to use each of these specific resources, it is recommended to use the package resource as often as possible.
+    This resource is the base resource for several other resources used for package management on specific platforms. While it
+    is possible to use each of these specific resources, we recommend using the **package** resource as often as possible.
+
+    For more information about specific resources for specific platforms,
+    see the following topics:
+    - [apt_package](/resources/apt_package/)
+    - [bff_package](/resources/bff_package/)
+    - [cab_package](/resources/cab_package/)
+    - [chef_gem](/resources/chef_gem/)
+    - [chocolatey_package](/resources/chocolatey_package/)
+    - [dmg_package](/resources/dmg_package/)
+    - [dnf_package](/resources/dnf_package/)
+    - [dpkg_package](/resources/dpkg_package/)
+    - [freebsd_package](/resources/freebsd_package/)
+    - [gem_package](/resources/gem_package/)
+    - [homebrew_package](/resources/homebrew_package/)
+    - [ips_package](/resources/ips_package/)
+    - [macports_package](/resources/macports_package/)
+    - [msu_package](/resources/msu_package/)
+    - [openbsd_package](/resources/openbsd_package/)
+    - [pacman_package](/resources/pacman_package/)
+    - [paludis_package](/resources/paludis_package/)
+    - [portage_package](/resources/portage_package/)
+    - [rpm_package](/resources/rpm_package/)
+    - [smartos_package](/resources/smartos_package/)
+    - [snap_package](/resources/snap_package/)
+    - [solaris_package](/resources/solaris_package/)
+    - [windows_package](/resources/windows_package/)
+    - [yum_package](/resources/yum_package/)
+    - [zypper_package](/resources/zypper_package/)
+syntax_description: |
+  A **package** resource block manages a package on a node, typically by
+  installing it. The simplest use of the **package** resource is:
+
+  ```ruby
+  package 'httpd'
+  ```
+
+  which will install Apache using all of the default options and the
+  default action (`:install`).
+
+  For a package that has different package names, depending on the
+  platform, use a `case` statement within the **package**:
+
+  ```ruby
+  package 'Install Apache' do
+    case node[:platform]
+    when 'redhat',
+   'centos'
+      package_name 'httpd'
+    when 'ubuntu', 'debian'
+      package_name
+   'apache2'
+    end
+  end
+  ```
+syntax_properties_list:
+- '`''redhat'', ''centos''` will install Apache using the `httpd` package
+  and `''ubuntu'', ''debian''` will install it using the `apache2` package'
 syntax_full_code_block: |-
   package 'name' do
     options           String, Array
@@ -16,7 +75,6 @@ syntax_full_code_block: |-
     version           String, Array
     action            Symbol # defaults to :install if not specified
   end
-syntax_properties_list: 
 syntax_full_properties_list:
 - "`package` is the resource."
 - "`name` is the name given to the resource block."
@@ -25,41 +83,153 @@ syntax_full_properties_list:
 - "`options`, `package_name`, `source`, `timeout`, and `version` are the properties
   available to this resource."
 actions_list:
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
   :install:
     markdown: Install a package. If a version is specified, install the specified
       version of the package. (default)
-  :upgrade:
-    markdown: Install a package and ensure that a package is the latest version.
-  :remove:
-    markdown: Remove a package.
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :purge:
     markdown: Purge a package. This action typically removes the configuration files
       as well as the package.
   :reconfig:
-    markdown: 
-  :lock:
-    markdown: 
-  :unlock:
-    markdown: 
+    markdown: Reconfigure a package. This action requires a response file.
+  :remove:
+    markdown: Remove a package.
+  :upgrade:
+    markdown: Install a package and ensure that a package is the latest version.
 properties_list:
-- property: options
+- property: allow_downgrade
+  ruby_type: true, false
+  required: false
+  default_value: 'true'
+  description_list:
+  - markdown: '**yum_package** resource only. Downgrade a package to satisfy
+
+      requested version requirements.'
+- property: arch
   ruby_type: String, Array
   required: false
   description_list:
-  - markdown: One (or more) additional command options that are passed to the command.
+  - markdown: '**yum_package** resource only. The architecture of the package to
+
+      be installed or upgraded. This value can also be passed as part of
+
+      the package name.'
+- property: default_release
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: '**apt_package** resource only. The default release. For example:
+
+      `stable`.'
+- property: flush_cache
+  ruby_type: Array
+  required: false
+  description_list:
+  - markdown: 'Flush the in-memory cache before or after a Yum operation that
+
+      installs, upgrades, or removes a package. Default value:
+
+      `[ :before, :after ]`. The value may also be a Hash:
+
+      `( { :before => true/false, :after => true/false } )`.'
+  - shortcode: resources_common_package_yum_cache.md
+  - markdown: |
+      As an array:
+
+      ```ruby
+      yum_package 'some-package' do
+        #...
+
+          flush_cache [ :before ]
+        #...
+      end
+      ```
+
+      and as a Hash:
+
+      ```ruby
+          yum_package 'some-package' do
+        #...
+        flush_cache( { :after => true } )
+
+            #...
+      end
+  - note:
+      markdown: 'The `flush_cache` property does not flush the local Yum cache! Use
+
+        Yum tools---`yum clean headers`, `yum clean packages`,
+
+        `yum clean all`---to clean the local Yum cache.'
+- property: gem_binary
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: 'A property for the `gem_package` provider that is used to specify a
+
+      gems binary.'
+- property: homebrew_user
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown: '**homebrew_package** resource only. The name of the Homebrew owner
+
+      to be used by Chef Infra Client when executing a command.'
+- property: ignore_failure
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  description_list:
+  - markdown: Continue running a recipe if a resource fails for any reason.
+- property: notifies
+  ruby_type: Symbol, Chef::Resource\[String\]
+  required: false
+  description_list:
+  - shortcode: resources_common_notification_notifies.md
+  - shortcode: resources_common_notification_timers.md
+  - shortcode: resources_common_notification_notifies_syntax.md
+- property: options
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: One (or more) additional options that are passed to the command.
 - property: package_name
   ruby_type: String, Array
   required: false
   description_list:
-  - markdown: An optional property to set the package name if it differs from the
-      resource block's name.
+  - markdown: 'The name of the package. Default value: the `name` of the resource
+
+      block. See "Syntax" section above for more information.'
+- property: response_file
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: '**apt_package** and **dpkg_package** resources only. The direct
+
+      path to the file used to pre-seed a package.'
+- property: response_file_variables
+  ruby_type: Hash
+  required: false
+  description_list:
+  - markdown: '**apt_package** and **dpkg_package** resources only. A Hash of
+
+      response file variables in the form of `{"VARIABLE" => "VALUE"}`.'
 - property: source
   ruby_type: String
   required: false
   description_list:
-  - markdown: The optional path to a package on the local file system.
+  - markdown: Optional. The path to a package in the local file system.
+  - note:
+      markdown: 'The AIX platform requires `source` to be a local file system path
+
+        because `installp` does not retrieve packages using HTTP or FTP.'
+- property: subscribes
+  ruby_type: Symbol, Chef::Resource\[String\]
+  required: false
+  description_list:
+  - shortcode: resources_common_notification_subscribes.md
+  - shortcode: resources_common_notification_timers.md
+  - shortcode: resources_common_notification_subscribes_syntax.md
 - property: timeout
   ruby_type: String, Integer
   required: false
@@ -70,4 +240,324 @@ properties_list:
   required: false
   description_list:
   - markdown: The version of a package to be installed or upgraded.
-examples: 
+multi_package_resource: true
+resource_directory_recursive_directories: false
+resources_common_atomic_update: false
+properties_resources_common_windows_security: false
+remote_file_prevent_re_downloads: false
+remote_file_unc_path: false
+ps_credential_helper: false
+ruby_style_basics_chef_log: false
+debug_recipes_chef_shell: false
+resources_common_properties: false
+resources_common_notification: false
+resources_common_guards: false
+common_resource_functionality_multiple_packages: null
+examples: |
+  **Install a gems file for use in recipes**
+
+  ```ruby
+  chef_gem 'right_aws' do
+    action :install
+  end
+
+  require 'right_aws'
+  ```
+
+
+  **Install a gems file from the local file system**
+
+  ```ruby
+  gem_package 'right_aws' do
+    source '/tmp/right_aws-1.11.0.gem'
+    action :install
+  end
+  ```
+
+  **Install a package**
+
+  ```ruby
+  package 'tar' do
+    action :install
+  end
+  ```
+
+  **Install a package version**
+
+  ```ruby
+  package 'tar' do
+
+    version '1.16.1-1'
+    action :install
+  end
+  ```
+
+  **Install a package with options**
+
+  ```ruby
+  package 'debian-archive-keyring' do
+    action :install
+    options '--force-yes'
+  end
+  ```
+
+  **Install a package with a response_file**
+
+  Use of a `response_file` is only supported on Debian and Ubuntu at this
+  time. Custom resources must be written to support the use of a
+  `response_file`, which contains debconf answers to questions normally
+  asked by the package manager on installation. Put the file in
+  `/files/default` of the cookbook where the package is specified and Chef
+  Infra Client will use the **cookbook_file** resource to retrieve it.
+
+  To install a package with a `response_file`:
+
+  ```ruby
+  package 'sun-java6-jdk' do
+    response_file 'java.seed'
+  end
+  ```
+
+  **Install a specified architecture using a named provider**
+
+  ```ruby
+  yum_package 'glibc-devel' do
+    arch 'i386'
+  end
+  ```
+
+  **Purge a package**
+
+  ```ruby
+  package 'tar' do
+    action :purge
+  end
+  ```
+
+  **Remove a package**
+
+  ```ruby
+  package 'tar' do
+    action :remove
+  end
+  ```
+
+  **Upgrade a package**
+
+  ```ruby
+  package 'tar' do
+    action :upgrade
+  end
+  ```
+
+  **Use the `ignore_failure` common attribute**
+
+  ```ruby
+  gem_package 'syntax' do
+    action :install
+    ignore_failure true
+  end
+  ```
+
+  **Avoid unnecessary string interpolation**
+
+  Do this:
+
+  ```ruby
+  package 'mysql-server' do
+    version node['mysql']['version']
+    action :install
+  end
+  ```
+
+  and not this:
+
+  ```ruby
+  package 'mysql-server' do
+    version "#{node['mysql']['version']}"
+    action :install
+  end
+
+  ```
+
+  **Install a package in a platform**
+
+  The following example shows how
+  to use the **package** resource to
+  install an application named `app` and ensure
+  that the correct packages
+  are installed for the correct platform:
+
+  ```ruby
+  package 'app_name' do
+    action :install
+  end
+
+  case node[:platform]
+
+  when 'ubuntu','debian'
+    package 'app_name-doc' do
+      action :install
+    end
+  when 'centos'
+    package 'app_name-html' do
+      action :install
+    end
+  end
+  ```
+
+  **Install sudo, then configure /etc/sudoers/ file**
+
+  The following example shows how to install sudo and then configure the
+  `/etc/sudoers` file:
+
+  ```ruby
+  # the following code sample comes from the ``default``
+  # recipe in the ``sudo`` cookbook: https://github.com/chef-cookbooks/sudo
+
+  package 'sudo' do
+    action :install
+  end
+
+  if node['authorization']['sudo']['include_sudoers_d']
+    directory '/etc/sudoers.d' do
+      mode        '0755'
+      owner       'root'
+      group       'root'
+      action      :create
+    end
+
+    cookbook_file '/etc/sudoers.d/README' do
+      source      'README'
+      mode        '0440'
+      owner       'root'
+      group       'root'
+      action      :create
+    end
+  end
+
+  template '/etc/sudoers' do
+    source 'sudoers.erb'
+    mode '0440'
+    owner 'root'
+    group platform?('freebsd') ? 'wheel' : 'root'
+    variables(
+      :sudoers_groups => node['authorization']['sudo']['groups'],
+      :sudoers_users => node['authorization']['sudo']['users'],
+      :passwordless => node['authorization']['sudo']['passwordless']
+    )
+  end
+  ```
+
+  where:
+
+  - the **package** resource is used to install sudo
+  - the `if` statement is used to ensure availability of the `/etc/sudoers.d` directory
+  - the **template** resource tells Chef Infra Client where to find the `sudoers` template
+  - the `variables` property is a hash that passes values to template
+    files (that are located in the `templates/` directory for the cookbook
+
+  **Use a case statement to specify the platform**
+
+  The following example shows how to use a case statement to tell Chef
+  Infra Client which platforms and packages to install using cURL.
+
+  ```ruby
+  package 'curl'
+    case node[:platform]
+    when 'redhat', 'centos'
+      package 'package_1'
+      package 'package_2'
+      package 'package_3'
+    when 'ubuntu', 'debian'
+      package 'package_a'
+      package 'package_b'
+      package 'package_c'
+    end
+  end
+  ```
+
+  where `node[:platform]` for each node is identified by Ohai during every Chef
+  Infra Client run. For example:
+
+  ```ruby
+  package 'curl'
+    case node[:platform]
+    when 'redhat', 'centos'
+      package 'zlib-devel'
+      package 'openssl-devel'
+      package 'libc6-dev'
+    when 'ubuntu', 'debian'
+      package 'openssl'
+      package 'pkg-config'
+      package 'subversion'
+    end
+  end
+  ```
+
+  **Use symbols to reference attributes**
+
+  Symbols may be used to reference attributes:
+
+  ```ruby
+  package 'mysql-server' do
+    version node[:mysql][:version]
+    action :install
+  end
+  ```
+
+  instead of strings:
+
+  ```ruby
+  package 'mysql-server' do
+    version node['mysql']['version']
+    action :install
+  end
+  ```
+
+  **Use a whitespace array to simplify a recipe**
+
+  The following examples show different ways of doing the same thing. The
+  first shows a series of packages that will be upgraded:
+
+  ```ruby
+  package 'package-a' do
+    action :upgrade
+  end
+
+  package 'package-b' do
+    action :upgrade
+  end
+
+  package 'package-c' do
+    action :upgrade
+  end
+
+  package 'package-d' do
+    action :upgrade
+  end
+  ```
+
+  and the next uses a single **package** resource and a whitespace array (`%w`):
+
+  ```ruby
+  package %w{package-a package-b package-c package-d} do
+    action :upgrade
+  end
+  ```
+
+  **Specify the Homebrew user with a UUID**
+
+  ```ruby
+  homebrew_package 'emacs' do
+    homebrew_user 1001
+  end
+  ```
+
+  **Specify the Homebrew user with a string**
+
+  ```ruby
+  homebrew_package 'vim' do
+    homebrew_user 'user1'
+  end
+  ```

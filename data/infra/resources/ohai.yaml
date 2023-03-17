@@ -13,7 +13,7 @@ syntax_full_code_block: |-
     plugin      String
     action      Symbol # defaults to :reload if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`ohai` is the resource."
 - "`name` is the name given to the resource block."
@@ -24,7 +24,7 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :reload:
-    markdown: " (default)"
+    markdown: Reloads the Ohai data. (default)
 properties_list:
 - property: plugin
   ruby_type: String

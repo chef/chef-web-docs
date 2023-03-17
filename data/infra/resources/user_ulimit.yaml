@@ -31,7 +31,7 @@ syntax_full_code_block: |-
     virt_limit                 String, Integer
     action                     Symbol # defaults to :create if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`user_ulimit` is the resource."
 - "`name` is the name given to the resource block."
@@ -54,99 +54,99 @@ properties_list:
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: 
+  - markdown:
 - property: core_limit
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: 
+  - markdown:
 - property: core_soft_limit
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: 
+  - markdown:
 - property: filehandle_hard_limit
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: 
+  - markdown:
 - property: filehandle_limit
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: 
+  - markdown:
 - property: filehandle_soft_limit
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: 
+  - markdown:
 - property: filename
   ruby_type: String
   required: false
   default_value: lazy default
   description_list:
-  - markdown: 
+  - markdown:
 - property: memory_limit
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: 
+  - markdown:
 - property: process_hard_limit
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: 
+  - markdown:
 - property: process_limit
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: 
+  - markdown:
 - property: process_soft_limit
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: 
+  - markdown:
 - property: rtprio_hard_limit
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: 
+  - markdown:
 - property: rtprio_limit
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: 
+  - markdown:
 - property: rtprio_soft_limit
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: 
+  - markdown:
 - property: stack_hard_limit
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: 
+  - markdown:
 - property: stack_limit
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: 
+  - markdown:
 - property: stack_soft_limit
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: 
+  - markdown:
 - property: username
   ruby_type: String
   required: false
   default_value: The resource block's name
   description_list:
-  - markdown: 
+  - markdown:
 - property: virt_limit
   ruby_type: String, Integer
   required: false
   description_list:
-  - markdown: 
+  - markdown:
 examples: |
   **Set filehandle limit for the tomcat user**:
 

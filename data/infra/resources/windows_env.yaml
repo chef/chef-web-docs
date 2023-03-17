@@ -21,7 +21,7 @@ syntax_full_code_block: |-
     value         String
     action        Symbol # defaults to :create if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`windows_env` is the resource."
 - "`name` is the name given to the resource block."
@@ -58,7 +58,7 @@ properties_list:
   required: false
   default_value: "<System>"
   description_list:
-  - markdown: 
+  - markdown:
 - property: value
   ruby_type: String
   required: true

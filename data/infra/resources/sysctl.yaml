@@ -18,7 +18,7 @@ syntax_full_code_block: |-
     value             Array, String, Integer, Float
     action            Symbol # defaults to :apply if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`sysctl` is the resource."
 - "`name` is the name given to the resource block."

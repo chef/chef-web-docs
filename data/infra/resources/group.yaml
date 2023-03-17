@@ -18,7 +18,7 @@ syntax_full_code_block: |-
     system                true, false # default value: false
     action                Symbol # defaults to :create if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`group` is the resource."
 - "`name` is the name given to the resource block."
@@ -27,16 +27,19 @@ syntax_full_properties_list:
 - "`append`, `comment`, `excluded_members`, `gid`, `group_name`, `members`, `non_unique`,
   and `system` are the properties available to this resource."
 actions_list:
+  :create:
+    markdown: (default) Create a group. If a group already exists (but does not match),
+      update that group to match.
+  :manage:
+    markdown: Manage an existing group. This action does nothing if the group does
+      not exist.
+  :modify:
+    markdown: Modify an existing group. This action raises an exception if the group
+      does not exist.
   :nothing:
     shortcode: resources_common_actions_nothing.md
-  :create:
-    markdown: " (default)"
   :remove:
-    markdown: 
-  :modify:
-    markdown: 
-  :manage:
-    markdown: 
+    markdown: Remove a group.
 properties_list:
 - property: append
   ruby_type: true, false
@@ -69,7 +72,9 @@ properties_list:
   required: false
   default_value: The resource block's name
   description_list:
-  - markdown: The name of the group.
+  - markdown: 'The name of the group. Default value: the `name` of the resource
+
+      block. See "Syntax" section above for more information.'
 - property: members
   ruby_type: String, Array
   required: false
@@ -94,7 +99,7 @@ properties_list:
 examples: |
   The following examples demonstrate various approaches for using the **group** resource in recipes:
 
-  Append users to groups:
+  **Append users to groups**:
 
   ```ruby
   group 'www-data' do
@@ -104,7 +109,7 @@ examples: |
   end
   ```
 
-  Add a user to group on the Windows platform:
+  **Add a user to group on the Windows platform**:
 
   ```ruby
   group 'Administrators' do

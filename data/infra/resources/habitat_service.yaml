@@ -31,7 +31,7 @@ syntax_full_code_block: |-
     update_condition           Symbol, String # default value: :latest
     action                     Symbol # defaults to :load if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`habitat_service` is the resource."
 - "`name` is the name given to the resource block."

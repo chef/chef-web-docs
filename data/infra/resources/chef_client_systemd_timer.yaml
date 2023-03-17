@@ -12,7 +12,7 @@ syntax_full_code_block: |-
   chef_client_systemd_timer 'name' do
     accept_chef_license      true, false # default value: false
     chef_binary_path         String # default value: "/opt/chef/bin/chef-client"
-    config_directory         String # default value: "C:\\chef"
+    config_directory         String # default value: "/etc/chef"
     cpu_quota                Integer, String
     daemon_options           Array # default value: []
     delay_after_boot         String # default value: "1min"
@@ -25,7 +25,7 @@ syntax_full_code_block: |-
     user                     String # default value: "root"
     action                   Symbol # defaults to :add if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`chef_client_systemd_timer` is the resource."
 - "`name` is the name given to the resource block."
@@ -57,7 +57,7 @@ properties_list:
 - property: config_directory
   ruby_type: String
   required: false
-  default_value: C:\chef
+  default_value: "/etc/chef"
   description_list:
   - markdown: The path of the config directory.
 - property: cpu_quota

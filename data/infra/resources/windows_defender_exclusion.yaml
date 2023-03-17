@@ -15,7 +15,7 @@ syntax_full_code_block: |-
     process_paths      String, Array # default value: []
     action             Symbol # defaults to :add if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`windows_defender_exclusion` is the resource."
 - "`name` is the name given to the resource block."

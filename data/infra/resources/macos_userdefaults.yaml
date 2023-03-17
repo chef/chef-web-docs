@@ -13,13 +13,13 @@ resource_new_in: '14.0'
 syntax_full_code_block: |-
   macos_userdefaults 'name' do
     domain      String # default value: NSGlobalDomain: the global domain.
-    host        String, Symbol # default value: :all
+    host        String, Symbol
     key         String
-    user        String, Symbol # default value: :current
+    user        String, Symbol
     value       Integer, Float, String, true, false, Hash, Array
     action      Symbol # defaults to :write if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`macos_userdefaults` is the resource."
 - "`name` is the name given to the resource block."
@@ -44,7 +44,6 @@ properties_list:
 - property: host
   ruby_type: String, Symbol
   required: false
-  default_value: ":all"
   new_in: '16.3'
   description_list:
   - markdown: Set either :current, :all or a hostname to set the user default at the
@@ -57,7 +56,6 @@ properties_list:
 - property: user
   ruby_type: String, Symbol
   required: false
-  default_value: ":current"
   description_list:
   - markdown: The system user that the default will be applied to. Set :current for
       current user, :all for all users or pass a valid username
@@ -70,7 +68,7 @@ properties_list:
       markdown: 'With the `type` property set to `bool`, `String` forms of Boolean
         true/false values that Apple accepts in the defaults command will be coerced:
         0/1, ''TRUE''/''FALSE,'' ''true''/false'', ''YES''/''NO'', or ''yes''/''no''.'
-examples: |+
+examples: |
   **Specify a global domain value**
 
   ```ruby
@@ -90,14 +88,12 @@ examples: |+
   end
   ```
 
-  **Setting a value for specific user and hosts**
+  **Specifying the type of a key to skip automatic type detection**
 
   ```ruby
-  macos_userdefaults 'Enable macOS firewall' do
-    key 'globalstate'
-    value 1
-    user 'jane'
-    host :current
+  macos_userdefaults 'Finder expanded save dialogs' do
+    key 'NSNavPanelExpandedStateForSaveMode'
+    value 'TRUE'
+    type 'bool'
   end
   ```
-

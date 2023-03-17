@@ -12,7 +12,7 @@ syntax_full_code_block: |-
   chef_client_launchd 'name' do
     accept_chef_license      true, false # default value: false
     chef_binary_path         String # default value: "/opt/chef/bin/chef-client"
-    config_directory         String # default value: "C:\\chef"
+    config_directory         String # default value: "/etc/chef"
     daemon_options           Array # default value: []
     environment              Hash # default value: {}
     interval                 Integer, String # default value: 30
@@ -25,7 +25,7 @@ syntax_full_code_block: |-
     working_directory        String # default value: "/var/root"
     action                   Symbol # defaults to :enable if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`chef_client_launchd` is the resource."
 - "`name` is the name given to the resource block."
@@ -58,7 +58,7 @@ properties_list:
 - property: config_directory
   ruby_type: String
   required: false
-  default_value: C:\chef
+  default_value: "/etc/chef"
   description_list:
   - markdown: The path of the config directory.
 - property: daemon_options

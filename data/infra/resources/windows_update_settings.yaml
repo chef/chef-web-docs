@@ -26,7 +26,7 @@ syntax_full_code_block: |-
     wsus_server_url                          String
     action                                   Symbol # defaults to :set if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`windows_update_settings` is the resource."
 - "`name` is the name given to the resource block."
@@ -42,8 +42,6 @@ actions_list:
     shortcode: resources_common_actions_nothing.md
   :set:
     markdown: Set Windows Update settings. (default)
-  :enable:
-    markdown: 
 properties_list:
 - property: automatic_update_option
   ruby_type: Integer, Symbol

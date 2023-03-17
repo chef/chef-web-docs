@@ -7,6 +7,9 @@ resource: route
 resource_description_list:
 - markdown: Use the **route** resource to manage the system routing table in a Linux
     environment.
+syntax_description: "A **route** resource block manages the system routing table in\
+  \ a Linux\nenvironment:\n\n```ruby\nroute '10.0.1.10/32' do\n  gateway '10.0.0.20'\n\
+  \  device 'eth1'\nend\n```"
 syntax_full_code_block: |-
   route 'name' do
     comment         String
@@ -18,7 +21,7 @@ syntax_full_code_block: |-
     target          String # default value: 'name' unless specified
     action          Symbol # defaults to :add if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`route` is the resource."
 - "`name` is the name given to the resource block."
@@ -27,12 +30,12 @@ syntax_full_properties_list:
 - "`comment`, `device`, `gateway`, `metric`, `netmask`, `route_type`, and `target`
   are the properties available to this resource."
 actions_list:
+  :add:
+    markdown: (default) Add a route.
+  :delete:
+    markdown: Delete a route.
   :nothing:
     shortcode: resources_common_actions_nothing.md
-  :add:
-    markdown: " (default)"
-  :delete:
-    markdown: 
 properties_list:
 - property: comment
   ruby_type: String
@@ -72,4 +75,4 @@ properties_list:
   default_value: The resource block's name
   description_list:
   - markdown: The IP address of the target route.
-examples: 
+examples:

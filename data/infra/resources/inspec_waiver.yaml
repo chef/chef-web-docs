@@ -16,7 +16,7 @@ syntax_full_code_block: |-
     source             Hash, String
     action             Symbol # defaults to :add if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`inspec_waiver` is the resource."
 - "`name` is the name given to the resource block."
@@ -25,10 +25,10 @@ syntax_full_properties_list:
 - "`control`, `expiration`, `justification`, `run_test`, and `source` are the properties
   available to this resource."
 actions_list:
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
   :add:
     markdown: Add a waiver to the compliance phase (default)
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
 properties_list:
 - property: control
   ruby_type: String
@@ -58,7 +58,7 @@ properties_list:
   ruby_type: Hash, String
   required: false
   description_list:
-  - markdown: 
+  - markdown:
 examples: |
   **Activate the default waiver in the openssh cookbook's compliance segment**:
 

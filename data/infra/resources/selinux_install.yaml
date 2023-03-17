@@ -5,8 +5,8 @@ resources_common_notification: true
 resources_common_properties: true
 resource: selinux_install
 resource_description_list:
-- markdown: Use **selinux_install** resource to encapsulates the set of selinux packages
-    to install in order to manage selinux. It also ensures the directory `/etc/selinux`
+- markdown: Use the **selinux_install** resource to encapsulate the set of SELinux packages
+    to install in order to manage SELinux. It also ensures the directory `/etc/selinux`
     is created.
 resource_new_in: '18.0'
 syntax_full_code_block: |-
@@ -14,7 +14,7 @@ syntax_full_code_block: |-
     packages      String, Array
     action        Symbol # defaults to :install if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`selinux_install` is the resource."
 - "`name` is the name given to the resource block."
@@ -53,6 +53,7 @@ examples: |
   ```
 
   **Uninstall**
+
   ```ruby
   selinux_install 'example' do
     action :remove

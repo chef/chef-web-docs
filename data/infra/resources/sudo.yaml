@@ -32,7 +32,7 @@ syntax_full_code_block: |-
     visudo_binary          String # default value: "/usr/sbin/visudo"
     action                 Symbol # defaults to :create if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`sudo` is the resource."
 - "`name` is the name given to the resource block."
@@ -47,10 +47,6 @@ actions_list:
   :create:
     markdown: Create a single sudoers configuration file in the `sudoers.d` directory.
       (default)
-  :install:
-    markdown: 
-  :remove:
-    markdown: 
   :delete:
     markdown: Remove a sudoers configuration file from the `sudoers.d` directory.
 properties_list:

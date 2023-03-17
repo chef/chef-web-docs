@@ -37,7 +37,7 @@ syntax_full_code_block: |-
     vlan              String
     action            Symbol # defaults to :add if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`ifconfig` is the resource."
 - "`name` is the name given to the resource block."
@@ -48,18 +48,18 @@ syntax_full_properties_list:
   `onboot`, `onparent`, `slave`, `target`, and `vlan` are the properties available
   to this resource."
 actions_list:
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
   :add:
     markdown: Run ifconfig to configure a network interface and (on some platforms)
       write a configuration file for that network interface. (default)
   :delete:
     markdown: Run ifconfig to disable a network interface and (on some platforms)
       delete that network interface’s configuration file.
-  :enable:
-    markdown: Run ifconfig to enable a network interface.
   :disable:
     markdown: Run ifconfig to disable a network interface.
+  :enable:
+    markdown: Run ifconfig to enable a network interface.
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
 properties_list:
 - property: bcast
   ruby_type: String

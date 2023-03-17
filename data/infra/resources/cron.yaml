@@ -31,7 +31,7 @@ syntax_full_code_block: |-
     weekday          Integer, String, Symbol # default value: "*"
     action           Symbol # defaults to :create if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`cron` is the resource."
 - "`name` is the name given to the resource block."
@@ -132,7 +132,9 @@ properties_list:
   required: false
   default_value: root
   description_list:
-  - markdown: The name of the user that runs the command.
+  - markdown: The name of the user that runs the command. If the user property is
+      changed, the original user for the crontab program continues to run until that
+      crontab program is deleted. This property is not applicable on the AIX platform.
 - property: weekday
   ruby_type: Integer, String, Symbol
   required: false
