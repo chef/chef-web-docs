@@ -41,9 +41,9 @@
 
       <p class="feedback-request">How can we improve this document?</p>
       <form id="feedback-form">
-        <label for="feedback-form-email">Enter your email address and someone from the Docs Team will get back to you.</label>
+        <label for="feedback-form-email">Provide an email address if you'd like a response from the Docs Team. <span class="optional">(optional)</span></label>
         <input type="email" id="feedback-form-email" name="email" placeholder="E-mail">
-        <label for="feedback-form-feedback" id="feedback-label">Feedback: How can we improve this page? Please be specific.</label>
+        <label for="feedback-form-feedback" id="feedback-label">How can we improve this page? Please be specific.</label>
         <textarea id="feedback-form-feedback" name="message" rows="4" cols="50" onkeyup="feedbackLength()" placeholder="Enter your feedback here. Try to be as specific as possible."></textarea>
         <label for="feedback-form-feedback" id="feedback-min-characters">Enter at least 100 characters.</label>
         <input type="hidden" id="feedback-form-page-url" name="url" value="{{ .Permalink }}">
