@@ -86,11 +86,6 @@ properties_list:
   default_value: "{}"
   description_list:
   - markdown: A Hash of response file variables in the form of {'VARIABLE' => 'VALUE'}.
-- property: source
-  ruby_type: String
-  required: false
-  description_list:
-  - markdown: The optional path to a package on the local file system.
 - property: timeout
   ruby_type: String, Integer
   required: false
