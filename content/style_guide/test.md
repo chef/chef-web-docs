@@ -2,6 +2,7 @@
 title = "Test Page"
 draft = false
 robots = "noindex"
+product = []
 
 +++
 
@@ -75,6 +76,14 @@ culpa qui officia deserunt mollit anim id est laborum.
 ## readfile Shortcode
 
 Use the `readfile` shortcode to add files to a page. This could be Markdown text or a code sample.
+
+You can add a JSON file like this:
+
+```md
+{{</* readfile file="data/test/test.json" highlight="json" */>}}
+```
+
+which will produce this:
 
 {{< readfile file="data/test/test.json" highlight="json" >}}
 
@@ -374,7 +383,7 @@ Warnings point out something that could cause harm if ignored.
 {{< /warning >}}
 
 {{< danger >}}
-The reader should proceed with caution.
+The reader should proceed with caution. Ignoring this could break their deployment.
 {{< /danger >}}
 
 ## SVG Shortcode
@@ -382,3 +391,19 @@ The reader should proceed with caution.
 The SVG shortcode will add an inline SVG icon to a string of text:
 
 Click on the web asset icon ({{< svg file="themes/docs-new/static/images/web-asset.svg" >}}).
+
+## Buttons
+
+To create a link that looks like a button, just add add the `button` class to a link tag.
+
+```html
+<a href="#buttons" class="button">Link To Button Heading</a>
+```
+
+<!-- markdownlint-disable MD033 -->
+<a href="#buttons" class="button">Link To Button Heading</a>
+
+Disabled button:
+
+<a href="#buttons" class="button" disabled>Link To Button Heading</a>
+<!-- markdownlint-enable MD033 -->

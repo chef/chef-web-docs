@@ -61,6 +61,7 @@
         a {
           text-overflow: ellipsis;
           overflow: hidden;
+          text-decoration-line: none;
           &:focus {
             outline: none;
           }
@@ -86,6 +87,7 @@
     .menu {
       a {
         color: $body-font-color;
+
       }
     }
   }

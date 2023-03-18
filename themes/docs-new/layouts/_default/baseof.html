@@ -15,24 +15,29 @@
         {{ partial "sidebar-on-canvas" . }}
 
         <div id="main-content" class="cell off-canvas-content auto" data-off-canvas-content>
-          {{ block "main" . }}
-          {{ end }}
+          <div id="page-content">
+            {{ block "main" . }}
+            {{ end }}
+  
+            {{ $headers := findRE `(?m)<h2.*?>(.|\n])+\>` .Content }}
+            {{ if or (and (ge (len $headers) 1) (ne .Params.toc false )) (isset .Params "release_notes") (.Params.version_docs_product) (.Params.toc_layout)}}
+              {{ if .Params.toc_layout }}
+                <div id="onCanvasRightTOC" class="cell off-canvas position-right toc off-canvas-absolute reveal-for-large" data-off-canvas >
+                  {{ partial .Params.toc_layout . }}
+                </div>
+              {{ else if (.Params.version_docs_product)}}
+                {{ partial "versioned-docs-toc" . }}
+              {{ else }}
+                <div id="onCanvasRightTOC" class="cell off-canvas position-right toc off-canvas-absolute reveal-for-large" data-off-canvas >
+                  {{ partial "table-of-contents" . }}
+                </div>
+              {{ end }}
+            {{ end }}
+          </div>
+
+          {{ partial "feedback" . }}
         </div>
 
-        {{ $headers := findRE `(?m)<h2.*?>(.|\n])+\>` .Content }}
-        {{ if or (and (ge (len $headers) 1) (ne .Params.toc false )) (isset .Params "release_notes") (.Params.version_docs_product) (.Params.toc_layout)}}
-          {{ if .Params.toc_layout }}
-            <div id="onCanvasRightTOC" class="cell off-canvas position-right toc off-canvas-absolute reveal-for-large" data-off-canvas >
-              {{ partial .Params.toc_layout . }}
-            </div>
-          {{ else if (.Params.version_docs_product)}}
-            {{ partial "versioned-docs-toc" . }}
-          {{ else }}
-            <div id="onCanvasRightTOC" class="cell off-canvas position-right toc off-canvas-absolute reveal-for-large" data-off-canvas >
-              {{ partial "table-of-contents" . }}
-            </div>
-          {{ end }}
-        {{ end }}
       </div>
     </div>
   </div>
