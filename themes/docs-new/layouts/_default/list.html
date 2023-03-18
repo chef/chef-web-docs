@@ -10,10 +10,8 @@
       </button>
     {{ end }}
     <div class="prose">
-      {{ partial "edit_on_github" . }}
       {{ .Content }}
     </div>
   </div>
-  {{ partialCached "feedback" . }}
 </main>
 {{ end }}

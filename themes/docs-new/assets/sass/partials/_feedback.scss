@@ -1,27 +1,36 @@
 #feedback{
   margin-top: 2rem;
   padding: 2rem 0 2rem 1rem;
-  border-top: 1px solid $border;
+  border-top: 2px solid $border;
 
   p{
     font-weight: 500;
+
+    &.feedback-request{
+      font-weight: 700;
+      margin-top: 1.5rem;
+    }
   }
 
-  button{
-    display: inline-block;
-    border: 1px solid $blue;
-    padding: 1rem;
-    border-radius: $border-radius-base;
-    text-transform: uppercase;
-    font-size: .8rem;
-    &:not([disabled]):hover{
-      border: 2px solid $blue;
-      margin: -1px;
-    }
-    &:not([disabled]):active{
-      color: $white;
-      background-color: $blue;
-    }
+  &-form-feedback{
+    height:200px;
+  }
 
+  #feedback-form-thank-you-message{
+    display: none;
+  }
+
+  #feedback-min-characters{
+    color: $lightgray;
+    margin-bottom: 1rem;
+  }
+
+  input[type=submit]{
+    @include button-style();
+  }
+
+
+  button{
+    @include button-style();
   }
 }

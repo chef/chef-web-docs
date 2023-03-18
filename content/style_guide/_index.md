@@ -114,7 +114,7 @@ For more information, see our [Obvious Fix policy](https://github.com/chef/chef/
 
 We use [Hugo](https://gohugo.io/documentation/) to build and preview our documentation. See the `chef-web-docs` [README](https://github.com/chef/chef-web-docs#local-development-environment) for information on setting up Hugo and previewing documentation changes locally.
 
-We also use [Netlify](https://docs.netlify.com/) to deploy our documentation and preview pull requests. Netlify generates a preview of <docs.chef.io> when a pull request is made that changes documentation content. Netlify automatically adds a link to the preview build in a pull request comment.
+We also use [Netlify](https://docs.netlify.com/) to deploy our documentation and preview pull requests. Netlify generates a preview of <https://docs.chef.io> when a pull request is made that changes documentation content. Netlify automatically adds a link to the preview build in a pull request comment.
 
 ## Deleting Pages or Making New Pages
 
