@@ -51,6 +51,4 @@ The [Terraform Chef Provider](https://www.terraform.io/docs/providers/chef/index
 
 ## Additional Terraform Integrations
 
-* The [Habitat Provisioner](https://www.habitat.sh/docs/habitat-and-other-software/#habitat-and-provisioning) may be used to install and load the Chef Habitat Supervisor and configure the services to be managed by the supervisor.
 * [Kitchen Terraform](https://newcontext-oss.github.io/kitchen-terraform/) is a community [Test Kitchen](/kitchen/) driver that allows for multi-node testing.
-* [InSpec-Iggy](https://github.com/mattray/inspec-iggy/) is a community [InSpec](/inspec/) plugin that generates InSpec compliance controls and profiles from Terraform `tfstate` files and AWS CloudFormation templates.
