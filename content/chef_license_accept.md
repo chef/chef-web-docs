@@ -135,7 +135,7 @@ When installed as a system package, users accept the license with the ctl comman
 
 Chef Infra Server is also distributed as a `hab` package and ran using the supervisor. In this mode, users accept the license by setting the correct configuration values. The key is `chef_license.acceptance`.
 
-For example: Against a supervisor running Chef Infra Server, run `echo "chef_license.acceptance = accept" | hab config apply server.default 100`. See the [Chef Habitat config updates documentation](https://www.habitat.sh/docs/using-habitat/#config-updates) for more information about how to apply this configuration to a service group.
+For example: Against a supervisor running Chef Infra Server, run `echo "chef_license.acceptance = accept" | hab config apply server.default 100`. See the [Chef Habitat config updates documentation](/habitat/service_updates/) for more information about how to apply this configuration to a service group.
 
 ### Remote Management Products
 
