@@ -1,0 +1,135 @@
+{{ define "main" }}
+{{ $product := index .Params.data_path 0 }}
+
+  <main id="main-content-col" tabindex="-1">
+    <div id="col-content" data-swiftype-index='true'>
+
+      <h1 id="{{ anchorize ( .Title )}}">{{ .Title }}</h1>
+
+      <button type="button" class="TOC-button hide-for-large" data-toggle="offCanvasRightTOC"
+        data-close="left-nav-off-canvas" data-swiftype-index='false'>
+        <i class="fas fa-bars"></i> Table of Contents
+      </button>
+
+      <div class="prose">
+        {{ if eq $product "infra" }}
+          <p data-swiftype-index='false'>
+            <button onclick="resource_note_function('resource_note')" class="note-btn note-block note-left-align">Edit this page in the Chef repository</button>
+            <div id="resource_note" class="note-container note-hide">
+              <p>
+                This page is generated from the <a href="https://github.com/chef/chef">Chef Infra Client source code</a>.</br>
+                To suggest a change, edit the <a href="https://github.com/chef/chef/blob/main/lib/chef/resource/{{ index .Params.data_path 2 }}.rb">{{ index .Params.data_path 2 }}.rb</a> file and submit a pull request to the <a href="https://github.com/chef/chef">Chef Infra Client repository</a>.</br>
+              </p>
+            </div>
+          </p>
+        {{ end }}
+        {{ if eq $product "infra" }}
+          <p data-swiftype-index='false'><a href="/resources/">All Infra resources page</a></p>
+        {{ else }}
+          <p data-swiftype-index='false'><a href="/{{ $product }}/resources/">All {{ $product | title }} resources page</a></p>
+        {{ end }}
+        {{ $file := .File.Path }}
+        {{ $dir := .File.Dir }}
+        {{ $resource_name := .Params.resource }}
+
+        {{ $data_file := path.Join "content" $dir "data.yaml" }}
+        {{ $data := readFile $data_file | transform.Unmarshal }}
+        {{ $actions_list := index $data "actions_list" }}
+        {{ $properties_list := index $data "properties_list" }}
+        {{ $actions_list := index $data "actions_list" }}
+
+        <!-------------- Resource Description -------------->
+        {{ $resource_description_file := path.Join "content" $dir "resource_description.md" }}
+
+        {{ if fileExists $resource_description_file }}
+          {{ readFile $resource_description_file | markdownify }}
+        {{ end }}
+
+        <!-------------- Syntax -------------->
+        <h2>Syntax</h2>
+
+        {{ $syntax_description_file := path.Join "content" $dir "syntax_description.md" }}
+
+        {{ if fileExists $syntax_description_file }}
+          {{ readFile $syntax_description_file | markdownify }}
+        {{ end }}
+
+        {{ $pad_length := 26 }}
+        {{ $syntax_block := print "```ruby\n" }}
+        {{ $syntax_block = print $syntax_block $resource_name " 'name' do\n" }}
+        {{ range $properties_list }}
+          {{ $property_len := len .property }}
+          {{ $spaces := "  " }}
+          {{ if gt $pad_length $property_len }}
+            {{ $spaces = strings.Repeat (sub $pad_length $property_len) " " }}
+          {{ end }}
+          {{ $syntax_block = print $syntax_block "  " .property $spaces .ruby_type }}
+          {{ if .default_value }}
+            {{ $syntax_block = print $syntax_block " # default value: " .default_value "\n" }}
+          {{ else }}
+            {{ $syntax_block = print $syntax_block "\n" }}
+          {{ end }}
+        {{ end }}
+
+        {{ $syntax_block = print $syntax_block "  action" (strings.Repeat 20 " ") "Symbol\n" }}
+        {{ $syntax_block = print $syntax_block "end\n```" }}
+        <p>{{ markdownify $syntax_block }}</p>
+
+        <!-------------- Actions -------------->
+        <h2>Actions</h2>
+
+        <dl>
+        {{ range $k, $v := $actions_list }}
+          <dt><code>{{ $k }}</code></dt>
+          {{ if $v.markdown }}
+            <dd>{{ $v.markdown | markdownify }}</dd>
+          {{ else if $v.file }}
+            <dd>{{ readFile $v.file | markdownify }}</dd>
+          {{ end }}
+        {{ end }}
+        </dl>
+
+        <!-------------- Properties -------------->
+        <h2>Properties</h2>
+
+        <dl>
+        {{ range $properties_list }}
+          <dt><code>{{ .property }}</code></dt>
+
+          {{ if eq .required true }}
+            <dd><strong>REQUIRED</strong></dd>
+          {{ end }}
+
+          <dd><strong>Ruby Type</strong>: {{ .ruby_type }}</dd>
+          {{ with .default_value }}
+            <dd><strong>Default Value</strong>: <code>{{ . }}</code></dd>
+          {{ end }}
+          {{ range .description_list }}
+
+            {{ if .markdown }}
+              <dd>{{ .markdown | markdownify }}</dd>
+            {{ else if .file }}
+              <dd>{{ readFile .file | markdownify }}</dd>
+            {{ end }}
+
+          {{ end }}
+        {{ end }}
+        </dl>
+
+        <!-------------- Examples ------------------->
+
+        <h2 id = "examples">Examples</h2>
+
+        {{ $examples_file := path.Join "content" $dir "examples.md" }}
+
+        {{ if fileExists $examples_file }}
+          {{ readFile $examples_file | markdownify }}
+        {{ else }}
+          <p>This resource does not have any examples.</p>
+        {{ end }}
+
+      </div>
+    </div>
+    {{ partialCached "feedback" . }}
+  </main>
+{{ end }}
