@@ -13,7 +13,7 @@ The full name of the cop is: `Chef/Deprecations/UsesDeprecatedMixins`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
-do not use deprecated Mixins no longer included in Chef Infra Client 14 and later.
+Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later.
 
 ## Examples
 

@@ -13,7 +13,7 @@ The full name of the cop is: `Chef/Correctness/OctalModeAsString`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
-do not represent file modes as Strings containing octal values.
+Don't represent file modes as Strings containing octal values.
 
 ## Examples
 

@@ -13,7 +13,7 @@ The full name of the cop is: `Chef/Style/OverlyComplexSupportsDependsMetadata`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
-do not loop over an array to set cookbook dependencies or supported platforms if you have fewer than three values to set. Setting multiple `supports` or `depends` values is simpler and easier to understand for new users.
+Don't loop over an array to set cookbook dependencies or supported platforms if you have fewer than three values to set. Setting multiple `supports` or `depends` values is simpler and easier to understand for new users.
 
 ## Examples
 
