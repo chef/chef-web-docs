@@ -13,7 +13,7 @@ The full name of the cop is: `Chef/Deprecations/DependsOnOmnibusUpdaterCookbook`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
-do not depend on the EOL `omnibus_updater` cookbook. This cookbook no longer works with newer Chef Infra Client releases and has been replaced with the more reliable `chef_client_updater` cookbook.
+Don't depend on the EOL `omnibus_updater` cookbook. This cookbook no longer works with newer Chef Infra Client releases and has been replaced with the more reliable `chef_client_updater` cookbook.
 
 ## Examples
 

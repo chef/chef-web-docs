@@ -13,7 +13,7 @@ The full name of the cop is: `Chef/Correctness/MacosUserdefaultsInvalidType`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
-The macos_userdefaults resource before Chef Infra Client 16.3 would silently continue if invalid types were passed resulting in unexpected behavior. Valid values are: "array", "bool", "dict", "float", "int", and "string".
+The macos_userdefaults resource prior to Chef Infra Client 16.3 would silently continue if invalid types were passed resulting in unexpected behavior. Valid values are: "array", "bool", "dict", "float", "int", and "string".
 
 ## Examples
 

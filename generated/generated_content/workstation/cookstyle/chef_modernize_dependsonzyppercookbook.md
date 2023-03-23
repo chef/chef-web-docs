@@ -13,7 +13,7 @@ The full name of the cop is: `Chef/Modernize/DependsOnZypperCookbook`
 | --- | --- | --- |
 | Enabled | Yes | 13.3+ |
 
-do not depend on the zypper cookbook as the zypper_repository resource is built into Chef Infra Client 13.3+
+Don't depend on the zypper cookbook as the zypper_repository resource is built into Chef Infra Client 13.3+
 
 ## Examples
 
