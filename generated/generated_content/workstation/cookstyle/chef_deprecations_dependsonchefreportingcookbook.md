@@ -13,7 +13,7 @@ The full name of the cop is: `Chef/Deprecations/DependsOnChefReportingCookbook`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
-do not depend on the chef-reporting cookbook made obsolete by Chef Infra Client 11.6. This cookbook installs a gem that is not compatible with newer Chef Infra Client releases.
+Don't depend on the chef-reporting cookbook made obsolete by Chef Infra Client 11.6. This cookbook installs a gem that is not compatible with newer Chef Infra Client releases.
 
 ## Examples
 
