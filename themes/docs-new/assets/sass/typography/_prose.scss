@@ -2,7 +2,13 @@
 
   h1, h2, h3, h4, h5, h6 {
     .svg-inline--fa {
-      font-size: .75em;
+      font-size: 16px;
+      margin-left: .5rem;
+      color: $lightgray;
+      vertical-align: middle;
+      &:hover{
+        color: $blue-darker;
+      }
     }
   }
 
