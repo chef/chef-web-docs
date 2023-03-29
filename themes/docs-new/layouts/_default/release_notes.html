@@ -25,7 +25,7 @@
 
           {{- $versions := getJSON $versionsUrl -}}
 
-          {{/* We have a current version of Infra Client that they want release notes for on the Client release notes page. */}}
+          {{/* We have a "current" version of Infra Client that they want release notes for on the Client release notes page. */}}
           {{/* This allows us to add current release version numbers of Client to the list of version numbers */}}
           {{/* that we want to include in the Client release notes. */}}
           {{- if eq $product "chef" -}}
@@ -112,7 +112,11 @@
               {{- $content = replaceRE `\n### ` "\n#### " $content -}}
               {{- $content = replaceRE `\n## ` "\n### " $content -}}
               {{- $content = replaceRE `^## ` "### " $content -}}
-              {{ $content | markdownify }}
+              {{- $content = $content | markdownify -}}
+              {{- $regexp := `<h(\d) id="([\w|\-\.]+)">` -}}
+              {{- $replaceString := print "<h${1} id=\"" $version "-${2}\">" }}
+              {{- $content = replaceRE $regexp $replaceString $content -}}
+              {{- $content | safeHTML -}}
             {{- end -}}
 
           {{ end }}
