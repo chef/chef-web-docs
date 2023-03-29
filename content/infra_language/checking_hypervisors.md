@@ -65,6 +65,14 @@ Determine if the current node is a VMWare guest.
 
 Determine if the current node is VMware host.
 
+## vmware_desktop?
+
+Determine if the current node is a guest on VMware desktop products (Fusion, Player, Workstation).
+
+## vmware_vsphere?
+
+Determine if the current node is a guest on VMware vSphere (aka ESXi).
+
 ## openvz?
 
 Determine if the current node is an openvz guest.
