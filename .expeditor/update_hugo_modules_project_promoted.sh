@@ -62,6 +62,7 @@ hugo mod clean
 if [[ "${EXPEDITOR_PROJECT}" == *"habitat"* ]]; then
   curl --silent --output generated-documentation.tar.gz https://packages.chef.io/files/${EXPEDITOR_TARGET_CHANNEL}/habitat/latest/generated-documentation.tar.gz
   tar xvzf generated-documentation.tar.gz --strip-components 1 -C content/habitat
+  mv content/habitat/habitat_cli.md content/habitat/cli.md
   rm generated-documentation.tar.gz
 fi
 
