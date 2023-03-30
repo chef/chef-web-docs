@@ -126,11 +126,6 @@ properties_list:
   new_in: '16.2'
   description_list:
   - markdown: An optional property to set the input sent to the command as STDIN.
-- property: interpreter
-  ruby_type: String
-  required: false
-  description_list:
-  - markdown: 
 - property: live_stream
   ruby_type: true, false
   required: false

@@ -54,14 +54,6 @@ actions_list:
     markdown: Start a service, and keep it running until stopped or disabled.
   :stop:
     markdown: Stop a service.
-  :restart:
-    markdown: 
-  :reload:
-    markdown: 
-  :mask:
-    markdown: 
-  :unmask:
-    markdown: 
 properties_list:
 - property: init_command
   ruby_type: String
