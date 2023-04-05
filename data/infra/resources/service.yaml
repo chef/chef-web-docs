@@ -25,7 +25,7 @@ syntax_full_code_block: |-
     user                 String
     action               Symbol # defaults to :nothing if not specified
   end
-syntax_properties_list:
+syntax_properties_list: 
 syntax_full_properties_list:
 - "`service` is the resource."
 - "`name` is the name given to the resource block."
@@ -36,24 +36,20 @@ syntax_full_properties_list:
   `stop_command`, `supports`, `timeout`, and `user` are the properties available to
   this resource."
 actions_list:
-  :disable:
-    markdown: Disable a service. This action is equivalent to a `Disabled` startup
-      type on the Microsoft Windows platform. This action is not supported when using
-      System Resource Controller (SRC) on the AIX platform because System Resource
-      Controller (SRC) does not have a standard mechanism for enabling and disabling
-      services on system boot.
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :enable:
     markdown: Enable a service at boot. This action is equivalent to an `Automatic`
       startup type on the Microsoft Windows platform. This action is not supported
       when using System Resource Controller (SRC) on the AIX platform because System
       Resource Controller (SRC) does not have a standard mechanism for enabling and
       disabling services on system boot.
-  :nothing:
-    shortcode: resources_common_actions_nothing_default.md
-  :reload:
-    markdown: Reload the configuration for this service.
-  :restart:
-    markdown: Restart a service.
+  :disable:
+    markdown: Disable a service. This action is equivalent to a `Disabled` startup
+      type on the Microsoft Windows platform. This action is not supported when using
+      System Resource Controller (SRC) on the AIX platform because System Resource
+      Controller (SRC) does not have a standard mechanism for enabling and disabling
+      services on system boot.
   :start:
     markdown: Start a service, and keep it running until stopped or disabled.
   :stop:
@@ -65,15 +61,15 @@ properties_list:
   description_list:
   - markdown: The path to the init script that is associated with the service. Use
       `init_command` to prevent the need to specify overrides for the `start_command`,
-      `stop_command`, and `restart_command` properties. When this property is not specified,
-      the Chef Infra Client will use the default init command for the service provider
-      being used.
+      `stop_command`, and `restart_command` properties. When this property is not
+      specified, the Chef Infra Client will use the default init command for the service
+      provider being used.
 - property: options
   ruby_type: Array, String
   required: false
   description_list:
   - markdown: Solaris platform only. Options to pass to the service command. See the
-      `svcadm` manual for details of possible options.
+      svcadm manual for details of possible options.
 - property: parameters
   ruby_type: Hash
   required: false
@@ -141,11 +137,11 @@ properties_list:
   - markdown: 'A list of properties that controls how Chef Infra Client is to attempt
       to manage a service: `:restart`, `:reload`, `:status`. For `:restart`, the init script
       or other service provider can use a restart command; if `:restart` is not specified,
-      the Chef Infra Client attempts to stop and then start a service. For `:reload`, the
+      the Chef Infra Client attempts to stop and then start a service. For :reload, the
       init script or other service provider can use a reload command. For `:status`,
       the init script or other service provider can use a status command to determine
       if the service is running; if `:status` is not specified, the Chef Infra Client attempts
-      to match the `service_name` against the process table as a regular expression,
+      to match the service_name against the process table as a regular expression,
       unless a pattern is specified as a parameter property. Default value: `{ restart:
       false, reload: false, status: false }` for all platforms (except for the Red
       Hat platform family, which defaults to `{ restart: false, reload: false, status:
@@ -282,4 +278,3 @@ examples: "
   \ '#{node['chef_client']['svc_name']}:2:once:/usr/bin/startsrc\n               \
   \     -s #{node['chef_client']['svc_name']} > /dev/console 2>&1'\"\n    not_if \"\
   lsitab #{node['chef_client']['svc_name']}\"\n  end\n  ```\n"
-
