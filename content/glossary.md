@@ -48,10 +48,6 @@ chef-client
 
 : The `chef-client` is the name for both the command line tool that runs on your local computer and the program that runs on nodes. The `chef-client` allows you to ensure the configuration compliance of your systems through policy code. You use the chef-client command line tool from your local computer to send instructions to the program on the node. You install the chef-client on nodes with the bootstrap process from your computer and then you configure it to run on an interval to ensure continuous configuration compliance.
 
-chef-apply
-
-: A command-line tool that allows a single recipe to be run from the command line.
-
 chef-repo
 
 : The repository structure in which cookbooks are authored, tested, and maintained. View [an example of the](https://github.com/chef/chef-repo) chef-repo.
