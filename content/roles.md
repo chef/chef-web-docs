@@ -55,7 +55,7 @@ There are two types of attributes that can be used with roles:
 ## Role Formats
 
 Role data is stored in two formats: as a Ruby file that contains
-domain-specific language and as JSON data.
+domain-specific language or as JSON data.
 
 ### Chef Language
 
@@ -134,9 +134,9 @@ Domain-specific Ruby attributes:
 </tbody>
 </table>
 
-Each role must be saved as a ruby file the `roles/` subdirectory of
+Each role must be saved as a ruby file in the `roles/` subdirectory of
 the chef-repo. (If the repository does not have this subdirectory, then
-create it using knife.) Each Ruby file should have the .rb suffix. A
+create it using knife.) Each Ruby file should have the `.rb` suffix. A
 complete role has the following syntax:
 
 ```javascript
