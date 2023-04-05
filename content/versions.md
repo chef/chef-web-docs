@@ -96,7 +96,6 @@ newer versions or products.
 
 | Product           | Version | Lifecycle Status | EOL Date          |
 |-------------------|---------|------------------|-------------------|
-| Chef Backend      | 2.x     | Deprecated       | TBD               |
 | Chef Backend      | 3.x     | Deprecated       | TBD               |
 | Chef Infra Client | 17.x    | Deprecated       | April 30, 2024    |
 | Chef Infra Server | 14.x    | Deprecated       | TBD               |
