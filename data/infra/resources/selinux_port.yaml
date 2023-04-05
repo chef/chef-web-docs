@@ -5,8 +5,8 @@ resources_common_notification: true
 resources_common_properties: true
 resource: selinux_port
 resource_description_list:
-- markdown: Use the **selinux_port** resource to assign a network port to a
-    specific SELinux context. For example, running a web server on a non-standard port.
+- markdown: Use the **selinux_port** resource to assign a network port to a specific
+    SELinux context. For example, running a web server on a non-standard port.
 resource_new_in: '18.0'
 syntax_full_code_block: |-
   selinux_port 'name' do

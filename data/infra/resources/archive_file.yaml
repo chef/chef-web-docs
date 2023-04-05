@@ -21,7 +21,7 @@ syntax_full_code_block: |-
     strip_components      Integer # default value: 0
     action                Symbol # defaults to :extract if not specified
   end
-syntax_properties_list:
+syntax_properties_list: 
 syntax_full_properties_list:
 - "`archive_file` is the resource."
 - "`name` is the name given to the resource block."
