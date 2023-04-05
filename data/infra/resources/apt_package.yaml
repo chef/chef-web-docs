@@ -31,7 +31,7 @@ syntax_full_code_block: |-
     version                      String, Array
     action                       Symbol # defaults to :install if not specified
   end
-syntax_properties_list:
+syntax_properties_list: 
 syntax_full_properties_list:
 - "`apt_package` is the resource."
 - "`name` is the name given to the resource block."
@@ -41,6 +41,8 @@ syntax_full_properties_list:
   `response_file_variables`, `source`, `timeout`, and `version` are the properties
   available to this resource."
 actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :install:
     markdown: Install a package. If a version is specified, install the specified
       version of the package. (default)
@@ -95,11 +97,6 @@ properties_list:
   default_value: "{}"
   description_list:
   - markdown: A Hash of response file variables in the form of {'VARIABLE' => 'VALUE'}.
-- property: source
-  ruby_type: String
-  required: false
-  description_list:
-  - markdown: The optional path to a package on the local file system.
 - property: timeout
   ruby_type: String, Integer
   required: false

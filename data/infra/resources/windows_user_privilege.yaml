@@ -6,7 +6,7 @@ resources_common_properties: true
 resource: windows_user_privilege
 resource_description_list:
 - markdown: |-
-    Use the **windows_user_privilege** resource to add or remove privileges for principals, users, or groups.
+    Use the **windows_user_privilege** resource to set privileges for a principal, user, or group.
     See [Microsoft's user rights assignment documentation](https://learn.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/user-rights-assignment) for more information.
 resource_new_in: '16.0'
 syntax_full_code_block: |-
@@ -42,7 +42,7 @@ properties_list:
   required: false
   default_value: The resource block's name
   description_list:
-  - markdown: 'An optional property to add the privilege for the specified principal. Use
+  - markdown: An optional property to add the privilege for the specified principal. Use
       only with add and remove action. The principal can either be a user, group, or
       [special identity](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-special-identities-groups).'
 - property: privilege
@@ -55,32 +55,12 @@ properties_list:
   ruby_type: Array, String
   required: false
   description_list:
-  - markdown: An optional property to set the privilege for the specified users. Use only
-      with `:set` action.
+  - markdown: An optional property to set the privilege for the specified users. Use
+      only with `:set` action.
 examples: |
-  **Add the SeDenyRemoteInteractiveLogonRight privilege to the Builtin\Guests and Local Accounts user groups**:
+  **Set the SeNetworkLogonRight privilege for the Builtin Administrators and Authenticated Users groups**:
 
-  ```ruby
-  windows_user_privilege 'Remote interactive logon' do
-    privilege      'SeDenyRemoteInteractiveLogonRight'
-    users          ['Builtin\Guests', 'NT AUTHORITY\Local Account']
-    action         :add
-  end
-  ```
-
-  **Add the SeCreatePageFilePrivilege privilege to the BUILTIN\Guests group**:
-
-  ```ruby
-  windows_user_privilege 'Guests add Create Pagefile' do
-    principal      'BUILTIN\Guests'
-    privilege      'SeCreatePagefilePrivilege'
-    action         :add
-  end
-  ```
-
-  **Set the SeNetworkLogonRight Privilege for the BUILTIN\Administrators and Authenticated Users groups**:
-
-  The `:set` action will add this privilege for these two groups and remove this privilege from all other users.
+  The `:set` action will add this privilege for these two groups and remove this privilege from all other groups or users.
 
   ```ruby
   windows_user_privilege 'Network Logon Rights' do
@@ -90,9 +70,9 @@ examples: |
   end
   ```
 
-  **Set the SeCreatePageFilePrivilege Privilege for the BUILTIN\Guests and BUILTIN\Administrators groups**:
+  **Set the SeCreatePagefilePrivilege privilege for the Builtin Guests and Administrator groups**:
 
-  The `:set` action will add this privilege for these two groups and remove this privilege from all other users.
+  The `:set` action will add this privilege for these two groups and remove this privilege from all other groups or users.
 
   ```ruby
   windows_user_privilege 'Create Pagefile' do
@@ -102,7 +82,26 @@ examples: |
   end
   ```
 
-  **Remove the SeCreatePageFile privilege from the BUILTIN\Guests group**:
+  **Add the SeDenyRemoteInteractiveLogonRight privilege to the 'Remote interactive logon' principal**:
+
+  ```ruby
+  windows_user_privilege 'Remote interactive logon' do
+    privilege      'SeDenyRemoteInteractiveLogonRight'
+    action         :add
+  end
+  ```
+
+  **Add the SeCreatePageFilePrivilege privilege to the Builtin Guests group**:
+
+  ```ruby
+  windows_user_privilege 'Guests add Create Pagefile' do
+    principal      'BUILTIN\Guests'
+    privilege      'SeCreatePagefilePrivilege'
+    action         :add
+  end
+  ```
+
+  **Remove the SeCreatePageFilePrivilege privilege from the Builtin Guests group**:
 
   ```ruby
   windows_user_privilege 'Create Pagefile' do
@@ -112,7 +111,7 @@ examples: |
   end
   ```
 
-  **Clear all users from the SeDenyNetworkLogonRight privilege**:
+  **Clear the SeDenyNetworkLogonRight privilege from all users**:
 
   ```ruby
   windows_user_privilege 'Allow any user the Network Logon right' do
