@@ -1,13 +1,11 @@
 .prose {
 
   h1, h2, h3, h4, h5, h6 {
-    .svg-inline--fa {
-      font-size: 16px;
+    svg.svg-link {
       margin-left: .5rem;
-      color: $lightgray;
-      vertical-align: middle;
+
       &:hover{
-        color: $blue-darker;
+        filter: brightness(0) saturate(100%) invert(38%) sepia(99%) saturate(497%) hue-rotate(163deg) brightness(87%) contrast(79%);
       }
     }
   }
