@@ -24,7 +24,7 @@ draft = false
 
 - Added platform support for CIS RHEL 7 v3.1.1. & CIS Amazon Linux 2 v2.0.0.
 
-## Bug Fixes
+### Bug Fixes
 
 - Added platform support for Amazon Linux 2, RHEL 7 and RHEL 8.
 - Optimized redundant API calls by caching SharePoint tenant library for CIS Microsoft Office 365.
