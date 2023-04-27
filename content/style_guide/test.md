@@ -96,32 +96,6 @@ mind:
   between the lists, flush with the left-hand border. The first list won't end
   otherwise, no matter how many blank lines you put between it and the second.
 
-### Bullet Lists
-
-Indent unordered sub-list items **2 spaces**.
-
-- This is a list item
-- This is another list item in the same list
-  - To make a sub-item, indent two spaces.
-    - This is a sub-sub-item. Indent two more spaces.
-  - Another sub-item.
-
-<!-- separate lists -->
-
-- This is a new list. With Hugo, you need to use a HTML comment to separate two
-  consecutive lists. **The HTML comment needs to be at the left margin.**
-- Bullet lists can have paragraphs or block elements within them.
-
-  Indent the content to be the same as the first line of the bullet point.
-  **This paragraph and the code block line up with the first `B` in `Bullet`
-  above.**
-
-  ```bash
-  ls -l
-  ```
-
-  - And a sub-list after some block-level content
-
 ### Ordered Lists
 
 Indent ordered sub-list items **3 spaces**.
@@ -153,7 +127,7 @@ Indent ordered sub-list items **3 spaces**.
      "level" as the paragraph and code block above, despite being indented
      more.
 
-<!-- separate lists -->
+This is some text that introduces an ordered list.
 
 1. Testing multiple lines, nested ordered and unordered list items. Here's some code: `/etc/chef-backend/chef-backend-secrets.json` and more code `tmp/chef-backend-secrets.json`
 
@@ -203,19 +177,107 @@ Indent ordered sub-list items **3 spaces**.
 
        Ullamco proident ex nulla enim in anim. Enim laborum laboris laborum dolor aute officia sunt minim cillum. Irure consequat duis magna cupidatat eiusmod elit reprehenderit in laborum eiusmod minim cillum.
 
-       - nested item 1
-       - nested item 2
-       - nested item 3
+       - double nested item 1
+       - double nested item 2
+       - double nested item 3
 
     1. One more item. Culpa voluptate minim sunt velit officia mollit velit duis. Exercitation reprehenderit pariatur in aute id commodo id amet ea eiusmod. Ad quis aliquip enim irure ea magna ex. Eiusmod aliqua voluptate consequat consequat adipisicing consectetur veniam dolor.
 
     Introductory text:
 
-    - item 1
-    - item 2
-    - item 3
+    - nested item 1
+    - nested item 2
+    - nested item 3
 
     Velit incididunt sunt velit fugiat occaecat commodo do labore minim qui cupidatat anim non. Aliquip reprehenderit voluptate aute consectetur dolore dolor eu nisi dolore cupidatat exercitation. Ipsum ullamco quis enim enim ipsum.
+
+### Unordered lists
+
+A plain unordered list:
+
+- item 1
+- item 2
+- item 3
+
+A plain unordered list with additional paragraphs in list items:
+
+- item 1
+- item 2
+
+  A second paragraph in item 2
+- item 3
+
+  A second paragraph in item 3
+
+  A long paragraph in item 3. Duis quis minim anim reprehenderit id in velit ut commodo deserunt Lorem qui aliqua. Sint duis dolore commodo et irure sunt. Labore ut reprehenderit excepteur eiusmod id ea dolore consectetur laborum sint magna. Qui aliqua consectetur tempor deserunt aliquip. Eiusmod deserunt dolore deserunt ea aliquip non fugiat. Duis tempor exercitation laborum aute ut sit do occaecat proident. Adipisicing qui ex do nulla pariatur ullamco pariatur magna proident.
+
+- item 4
+
+Note that the text of each list item is now enclosed in a paragraph tag while the items in the plain list just had a list item tag.
+
+Here's a regular list with a sublist:
+
+- item 1
+- item 2
+  - subitem 1
+  - subitem 2
+  - subitem 3
+- item 3
+- item 4
+
+Here's a regular list with a second paragraph introducing a sublist:
+
+- item 1
+- item 2
+
+  Adding a nested list:
+  - subitem 1
+  - subitem 2
+  - subitem 3
+- item 3
+- item 4
+
+Here's a regular list with additional paragraphs in list items and sublists:
+
+- item 1
+- item 2
+
+  Adding a nested list:
+  - subitem 1
+  - subitem 2
+
+    A second paragraph in the sublist item 2.
+
+    Here's a long block of lorem. Pariatur ea deserunt adipisicing anim nulla consequat nostrud sunt incididunt do anim elit et Lorem. Proident fugiat excepteur esse cupidatat sunt ea culpa. Nisi proident ea sunt tempor et non proident in. Aliquip cupidatat dolore et commodo aliqua labore.
+  - subitem 3
+- item 3
+
+  Additional pargraph for item 3. Consequat dolore nostrud quis ad consectetur pariatur. Mollit culpa sit adipisicing adipisicing sint officia. Commodo minim culpa mollit labore ad fugiat ut sit aute dolor esse.
+- item 4
+
+Indent unordered sub-list items **2 spaces**.
+
+- This is a list item
+- This is another list item in the same list
+  - To make a sub-item, indent two spaces.
+    - This is a sub-sub-item. Indent two more spaces.
+  - Another sub-item.
+
+<!-- separate lists -->
+
+- This is a new list. With Hugo, you need to use a HTML comment to separate two
+  consecutive lists. **The HTML comment needs to be at the left margin.**
+- Bullet lists can have paragraphs or block elements within them.
+
+  Indent the content to be the same as the first line of the bullet point.
+  **This paragraph and the code block line up with the first `B` in `Bullet`
+  above.**
+
+  ```bash
+  ls -l
+  ```
+
+  - And a sub-list after some block-level content
 
 ### Description List
 
