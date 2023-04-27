@@ -153,6 +153,70 @@ Indent ordered sub-list items **3 spaces**.
      "level" as the paragraph and code block above, despite being indented
      more.
 
+<!-- separate lists -->
+
+1. Testing multiple lines, nested ordered and unordered list items. Here's some code: `/etc/chef-backend/chef-backend-secrets.json` and more code `tmp/chef-backend-secrets.json`
+
+1. Here's an ordered list item with a long code sample, a nested unordered list, and a nested ordered list.
+
+    ```bash
+    chef-backend-ctl join-cluster --accept-license --yes --quiet IP_OF_LEADER_NODE --publish_address IP_OF_FOLLOWER_NODE -s /tmp/chef-backend-secrets.json
+    ```
+
+    Replace:
+
+    - `IP_OF_LEADER_NODE` with the IP address of the new leader node.
+    - `IP_OF_FOLLOWER_NODE` with the IP address of the follower node.
+
+    1. Another code example and it mentions a `chef-backend.rb` file.
+
+        ```bash
+        cp /etc/chef-backend/chef-backend.rb /tmp/chef-backend.rb
+        chef-backend-ctl cleanse
+        cp /tmp/chef-backend.rb /etc/chef-backend/chef-backend.rb
+        ```
+
+        Adding another list for testing:
+
+        - item 1
+        - item 2
+        - code in item3 `chef-backend-ctl cleanse`
+
+        1. another ordered list item
+        1. Ea excepteur duis eiusmod duis laboris anim eiusmod. Est officia dolore veniam exercitation. Do cupidatat ea duis minim labore proident dolore sit dolore et. Elit Lorem aliqua incididunt sint.
+
+    1. Retry joining the node to the cluster again using `chef-backend-ctl join-cluster` as described above.
+
+1. Multiple paragraphs in a list item.
+
+    ```bash
+    chef-backend-ctl gen-server-config FQDN > /tmp/chef-server.rb
+    ```
+
+    Replace `FQDN` with the FQDN of your frontend node. For example, `chefserver.example.com`.
+
+    Magna in ea nostrud aute ea incididunt eiusmod occaecat deserunt. Veniam in ipsum fugiat veniam adipisicing voluptate reprehenderit tempor pariatur dolore. Voluptate quis sunt commodo nisi aliquip minim eiusmod magna ea. Elit qui consectetur enim eu culpa do ex et culpa aliquip eiusmod. Officia irure cillum esse id aliquip cillum excepteur amet magna culpa culpa.
+
+    1. Exercitation est non ipsum nostrud excepteur ullamco quis eu sit sint nulla ex. Velit excepteur sit deserunt occaecat duis ea laboris nisi occaecat quis dolor. Exercitation velit quis excepteur ut id ut duis enim sunt pariatur culpa occaecat sit magna.
+
+    1. Est ut id proident eu exercitation ut ad irure consequat enim laboris amet. Reprehenderit velit laboris proident enim qui mollit velit aute adipisicing. Mollit est sit anim sunt nisi fugiat qui dolor est incididunt culpa dolore. Non sint culpa tempor excepteur officia non aliquip. Voluptate voluptate ea aliqua dolor cupidatat aute aute duis nisi irure.
+
+       Ullamco proident ex nulla enim in anim. Enim laborum laboris laborum dolor aute officia sunt minim cillum. Irure consequat duis magna cupidatat eiusmod elit reprehenderit in laborum eiusmod minim cillum.
+
+       - nested item 1
+       - nested item 2
+       - nested item 3
+
+    1. One more item. Culpa voluptate minim sunt velit officia mollit velit duis. Exercitation reprehenderit pariatur in aute id commodo id amet ea eiusmod. Ad quis aliquip enim irure ea magna ex. Eiusmod aliqua voluptate consequat consequat adipisicing consectetur veniam dolor.
+
+    Introductory text:
+
+    - item 1
+    - item 2
+    - item 3
+
+    Velit incididunt sunt velit fugiat occaecat commodo do labore minim qui cupidatat anim non. Aliquip reprehenderit voluptate aute consectetur dolore dolor eu nisi dolore cupidatat exercitation. Ipsum ullamco quis enim enim ipsum.
+
 ### Description List
 
 Use description lists to define things like commands, command flags, options, or other terms. For example:
@@ -175,7 +239,7 @@ term
 
 : You can include more than one definition for a term by starting another line with a colon.
 
-: Adding square brackets and the `(@)` symbol around the term (`[another term](@)`) adds a linkable ID to the term.
+: Adding square brackets and the `(@)` symbol around the term (`[another term](@)`) adds a [linkable ID to the term](#another-term).
 
 <!-- /* cSpell:enable */ -->
 

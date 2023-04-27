@@ -6,12 +6,8 @@
   }
 
   ol {
-    padding-left: rem-calc(16);
-
-    li {
-      p {
-        margin-bottom: .2rem;
-      }
+    > li {
+      margin-top: 1rem;
     }
 
     > li > ol {
