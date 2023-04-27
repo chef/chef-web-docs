@@ -6,6 +6,8 @@ product = []
 
 +++
 
+<!-- /* cSpell:disable */ -->
+
 This page is a "smoke test" document that we can use to test HTML, CSS, and template
 changes that affect the overall documentation.
 
@@ -45,16 +47,12 @@ This is in an bolded section.
 Inline elements show up within the text of paragraph, list item, admonition, or
 other block-level element.
 
-<!-- /* cSpell:disable */ -->
-
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
 nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
 fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 culpa qui officia deserunt mollit anim id est laborum.
-
-<!-- /* cSpell:enable */ -->
 
 ### Inline Text Styles
 
@@ -283,8 +281,6 @@ Indent unordered sub-list items **2 spaces**.
 
 Use description lists to define things like commands, command flags, options, or other terms. For example:
 
-<!-- /* cSpell:disable */ -->
-
 plain text _(term in italics)_
 : Ex quis duis deserunt commodo.
 
@@ -302,8 +298,6 @@ term
 : You can include more than one definition for a term by starting another line with a colon.
 
 : Adding square brackets and the `(@)` symbol around the term (`[another term](@)`) adds a [linkable ID to the term](#another-term).
-
-<!-- /* cSpell:enable */ -->
 
 ### Checklists
 
