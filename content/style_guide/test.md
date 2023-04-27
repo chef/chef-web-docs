@@ -6,6 +6,8 @@ product = []
 
 +++
 
+<!-- /* cSpell:disable */ -->
+
 This page is a "smoke test" document that we can use to test HTML, CSS, and template
 changes that affect the overall documentation.
 
@@ -45,16 +47,12 @@ This is in an bolded section.
 Inline elements show up within the text of paragraph, list item, admonition, or
 other block-level element.
 
-<!-- /* cSpell:disable */ -->
-
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
 nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
 fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 culpa qui officia deserunt mollit anim id est laborum.
-
-<!-- /* cSpell:enable */ -->
 
 ### Inline Text Styles
 
@@ -96,32 +94,6 @@ mind:
   between the lists, flush with the left-hand border. The first list won't end
   otherwise, no matter how many blank lines you put between it and the second.
 
-### Bullet Lists
-
-Indent unordered sub-list items **2 spaces**.
-
-- This is a list item
-- This is another list item in the same list
-  - To make a sub-item, indent two spaces.
-    - This is a sub-sub-item. Indent two more spaces.
-  - Another sub-item.
-
-<!-- separate lists -->
-
-- This is a new list. With Hugo, you need to use a HTML comment to separate two
-  consecutive lists. **The HTML comment needs to be at the left margin.**
-- Bullet lists can have paragraphs or block elements within them.
-
-  Indent the content to be the same as the first line of the bullet point.
-  **This paragraph and the code block line up with the first `B` in `Bullet`
-  above.**
-
-  ```bash
-  ls -l
-  ```
-
-  - And a sub-list after some block-level content
-
 ### Ordered Lists
 
 Indent ordered sub-list items **3 spaces**.
@@ -153,11 +125,161 @@ Indent ordered sub-list items **3 spaces**.
      "level" as the paragraph and code block above, despite being indented
      more.
 
+This is some text that introduces an ordered list.
+
+1. Testing multiple lines, nested ordered and unordered list items. Here's some code: `/etc/chef-backend/chef-backend-secrets.json` and more code `tmp/chef-backend-secrets.json`
+
+1. Here's an ordered list item with a long code sample, a nested unordered list, and a nested ordered list.
+
+    ```bash
+    chef-backend-ctl join-cluster --accept-license --yes --quiet IP_OF_LEADER_NODE --publish_address IP_OF_FOLLOWER_NODE -s /tmp/chef-backend-secrets.json
+    ```
+
+    Replace:
+
+    - `IP_OF_LEADER_NODE` with the IP address of the new leader node.
+    - `IP_OF_FOLLOWER_NODE` with the IP address of the follower node.
+
+    1. Another code example and it mentions a `chef-backend.rb` file.
+
+        ```bash
+        cp /etc/chef-backend/chef-backend.rb /tmp/chef-backend.rb
+        chef-backend-ctl cleanse
+        cp /tmp/chef-backend.rb /etc/chef-backend/chef-backend.rb
+        ```
+
+        Adding another list for testing:
+
+        - item 1
+        - item 2
+        - code in item3 `chef-backend-ctl cleanse`
+
+        1. another ordered list item
+        1. Ea excepteur duis eiusmod duis laboris anim eiusmod. Est officia dolore veniam exercitation. Do cupidatat ea duis minim labore proident dolore sit dolore et. Elit Lorem aliqua incididunt sint.
+
+    1. Retry joining the node to the cluster again using `chef-backend-ctl join-cluster` as described above.
+
+1. Multiple paragraphs in a list item.
+
+    ```bash
+    chef-backend-ctl gen-server-config FQDN > /tmp/chef-server.rb
+    ```
+
+    Replace `FQDN` with the FQDN of your frontend node. For example, `chefserver.example.com`.
+
+    Magna in ea nostrud aute ea incididunt eiusmod occaecat deserunt. Veniam in ipsum fugiat veniam adipisicing voluptate reprehenderit tempor pariatur dolore. Voluptate quis sunt commodo nisi aliquip minim eiusmod magna ea. Elit qui consectetur enim eu culpa do ex et culpa aliquip eiusmod. Officia irure cillum esse id aliquip cillum excepteur amet magna culpa culpa.
+
+    1. Exercitation est non ipsum nostrud excepteur ullamco quis eu sit sint nulla ex. Velit excepteur sit deserunt occaecat duis ea laboris nisi occaecat quis dolor. Exercitation velit quis excepteur ut id ut duis enim sunt pariatur culpa occaecat sit magna.
+
+    1. Est ut id proident eu exercitation ut ad irure consequat enim laboris amet. Reprehenderit velit laboris proident enim qui mollit velit aute adipisicing. Mollit est sit anim sunt nisi fugiat qui dolor est incididunt culpa dolore. Non sint culpa tempor excepteur officia non aliquip. Voluptate voluptate ea aliqua dolor cupidatat aute aute duis nisi irure.
+
+       Ullamco proident ex nulla enim in anim. Enim laborum laboris laborum dolor aute officia sunt minim cillum. Irure consequat duis magna cupidatat eiusmod elit reprehenderit in laborum eiusmod minim cillum.
+
+       - double nested item 1
+       - double nested item 2
+       - double nested item 3
+
+    1. One more item. Culpa voluptate minim sunt velit officia mollit velit duis. Exercitation reprehenderit pariatur in aute id commodo id amet ea eiusmod. Ad quis aliquip enim irure ea magna ex. Eiusmod aliqua voluptate consequat consequat adipisicing consectetur veniam dolor.
+
+    Introductory text:
+
+    - nested item 1
+    - nested item 2
+    - nested item 3
+
+    Velit incididunt sunt velit fugiat occaecat commodo do labore minim qui cupidatat anim non. Aliquip reprehenderit voluptate aute consectetur dolore dolor eu nisi dolore cupidatat exercitation. Ipsum ullamco quis enim enim ipsum.
+
+### Unordered lists
+
+A plain unordered list:
+
+- item 1
+- item 2
+- item 3
+
+A plain unordered list with additional paragraphs in list items:
+
+- item 1
+- item 2
+
+  A second paragraph in item 2
+- item 3
+
+  A second paragraph in item 3
+
+  A long paragraph in item 3. Duis quis minim anim reprehenderit id in velit ut commodo deserunt Lorem qui aliqua. Sint duis dolore commodo et irure sunt. Labore ut reprehenderit excepteur eiusmod id ea dolore consectetur laborum sint magna. Qui aliqua consectetur tempor deserunt aliquip. Eiusmod deserunt dolore deserunt ea aliquip non fugiat. Duis tempor exercitation laborum aute ut sit do occaecat proident. Adipisicing qui ex do nulla pariatur ullamco pariatur magna proident.
+
+- item 4
+
+Note that the text of each list item is now enclosed in a paragraph tag while the items in the plain list just had a list item tag.
+
+Here's a regular list with a sublist:
+
+- item 1
+- item 2
+  - subitem 1
+  - subitem 2
+  - subitem 3
+- item 3
+- item 4
+
+Here's a regular list with a second paragraph introducing a sublist:
+
+- item 1
+- item 2
+
+  Adding a nested list:
+  - subitem 1
+  - subitem 2
+  - subitem 3
+- item 3
+- item 4
+
+Here's a regular list with additional paragraphs in list items and sublists:
+
+- item 1
+- item 2
+
+  Adding a nested list:
+  - subitem 1
+  - subitem 2
+
+    A second paragraph in the sublist item 2.
+
+    Here's a long block of lorem. Pariatur ea deserunt adipisicing anim nulla consequat nostrud sunt incididunt do anim elit et Lorem. Proident fugiat excepteur esse cupidatat sunt ea culpa. Nisi proident ea sunt tempor et non proident in. Aliquip cupidatat dolore et commodo aliqua labore.
+  - subitem 3
+- item 3
+
+  Additional pargraph for item 3. Consequat dolore nostrud quis ad consectetur pariatur. Mollit culpa sit adipisicing adipisicing sint officia. Commodo minim culpa mollit labore ad fugiat ut sit aute dolor esse.
+- item 4
+
+Indent unordered sub-list items **2 spaces**.
+
+- This is a list item
+- This is another list item in the same list
+  - To make a sub-item, indent two spaces.
+    - This is a sub-sub-item. Indent two more spaces.
+  - Another sub-item.
+
+<!-- separate lists -->
+
+- This is a new list. With Hugo, you need to use a HTML comment to separate two
+  consecutive lists. **The HTML comment needs to be at the left margin.**
+- Bullet lists can have paragraphs or block elements within them.
+
+  Indent the content to be the same as the first line of the bullet point.
+  **This paragraph and the code block line up with the first `B` in `Bullet`
+  above.**
+
+  ```bash
+  ls -l
+  ```
+
+  - And a sub-list after some block-level content
+
 ### Description List
 
 Use description lists to define things like commands, command flags, options, or other terms. For example:
-
-<!-- /* cSpell:disable */ -->
 
 plain text _(term in italics)_
 : Ex quis duis deserunt commodo.
@@ -175,9 +297,7 @@ term
 
 : You can include more than one definition for a term by starting another line with a colon.
 
-: Adding square brackets and the `(@)` symbol around the term (`[another term](@)`) adds a linkable ID to the term.
-
-<!-- /* cSpell:enable */ -->
+: Adding square brackets and the `(@)` symbol around the term (`[another term](@)`) adds a [linkable ID to the term](#another-term).
 
 ### Checklists
 

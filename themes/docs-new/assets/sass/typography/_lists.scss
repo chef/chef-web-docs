@@ -6,12 +6,8 @@
   }
 
   ol {
-    padding-left: rem-calc(16);
-
-    li {
-      p {
-        margin-bottom: .2rem;
-      }
+    > li {
+      margin-top: 1rem;
     }
 
     > li > ol {
@@ -38,6 +34,7 @@
       }
       p:first-child {
         margin-top: -1.7em;
+        margin-bottom: 0;
       }
       div.highlight{
         margin-top: -3em;
