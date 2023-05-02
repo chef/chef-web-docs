@@ -13,7 +13,7 @@ gh_repo = "chef-web-docs"
 
 Use descriptive link text that tell the user where a link will take them without needing to read the surrounding text.
 
-## Writing Link Text
+## Writing link text
 
 People who use screen reading software can jump from one link to the next in a document without reading the text in between.
 Many users scan through documents looking for links.

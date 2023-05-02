@@ -12,7 +12,7 @@ gh_repo = "chef-web-docs"
     weight = 30
 +++
 
-This page provides guideance on using Chef product names.
+This page provides guidance on using Chef product names.
 
 ## Chef product names
 
@@ -35,9 +35,9 @@ Always capitalize product names and never hyphenate a product name or refer to a
 It is awkward to refer to the full product name all the time.
 Use the full product name the first time it's used in a page or paragraph and then use the shortened product name afterward.
 
-## Using "the" before product names
+## Using _the_ before product names
 
-Don't use "the" before a product name unless you're referring to a component of that product.
+Avoid using _the_ before a product name unless you're referring to a component of that product.
 
 {{< recommend >}}
 

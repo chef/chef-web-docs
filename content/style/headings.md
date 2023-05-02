@@ -59,7 +59,7 @@ Use four hash characters (####) before the heading name to indicate H4 headings:
 This is the paragraph.
 ```
 
-## Other Headings
+## Other headings
 
 If you need more than four heading levels, use bold emphasis and then white space to make the heading text stand out and separate the heading from the content:
 

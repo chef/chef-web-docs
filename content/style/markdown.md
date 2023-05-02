@@ -13,7 +13,6 @@ gh_repo = "chef-web-docs"
 +++
 <!-- markdownlint-disable-file MD002 MD013 MD014 -->
 
-
 ## Inline Markup
 
 Adding emphasis within text strings can be done using **bold** and

@@ -88,7 +88,6 @@ or:
 
 See the [full list of highlighting languages and aliases](https://gohugo.io/content-management/syntax-highlighting/#list-of-chroma-highlighting-languages) that Hugo accepts.
 
-
 ## Foundation tabs container
 
 There are four shortcodes that can be combined together to create a container that will allow
@@ -202,7 +201,7 @@ Below is an example of a container that shows three code blocks in three languag
 You can copy and paste the code below into a page to get started. Note that the `tabs-id`
 and `panel-id`/`panel-link` values must be unique HTML IDs on the page.
 
-<!-- markdownlint-disable MD046 -->
+<!-- markdownlint-disable MD046 MD032 -->
 
 {{< foundation_tabs tabs-id="ruby-python-go-panel" >}}
   {{< foundation_tab active="true" panel-link="ruby-panel" tab-text="Ruby">}}
@@ -212,17 +211,22 @@ and `panel-id`/`panel-link` values must be unique HTML IDs on the page.
 
 {{< foundation_tabs_panels tabs-id="ruby-python-go-panel" >}}
   {{< foundation_tabs_panel active="true" panel-id="ruby-panel" >}}
+
   ```ruby
   puts 'Hello, world!'
   ```
+
   {{< /foundation_tabs_panel >}}
 
   {{< foundation_tabs_panel panel-id="python-panel" >}}
+
   ```python
   print('Hello, world!')
   ```
+
   {{< /foundation_tabs_panel >}}
   {{< foundation_tabs_panel panel-id="golang-panel" >}}
+
   ```go
   package main
 
@@ -232,6 +236,7 @@ and `panel-id`/`panel-link` values must be unique HTML IDs on the page.
       fmt.Println("Hello, world!")
   }
   ```
+
   {{< /foundation_tabs_panel >}}
 {{< /foundation_tabs_panels >}}
 
@@ -266,7 +271,7 @@ and `panel-id`/`panel-link` values must be unique HTML IDs on the page.
       {{</* /foundation_tabs_panel */>}}
     {{</* /foundation_tabs_panels */>}}
 
-<!-- markdownlint-enable MD046 -->
+<!-- markdownlint-enable MD046 MD032 -->
 
 ## fontawesome shortcode
 
@@ -280,7 +285,11 @@ The svg shortcode takes one parameter, `file`, which is the file path to the SVG
 
 For example:
 
+<!-- markdownlint-disable MD046-->
+
     Click on the web asset icon ({{</* svg file="themes/docs-new/static/images/web-asset.svg" */>}}).
+
+<!-- markdownlint-enable MD046-->
 
 Click on the web asset icon ({{< svg file="themes/docs-new/static/images/web-asset.svg" >}}).
 
@@ -290,7 +299,7 @@ Shortcode files are written in **Markdown** or **HTML** and are stored in [`layo
 
 In repositories other than chef-web-docs, store shortcodes in `layouts/shortcodes/REPOSITORY_NAME/`.
 
-### Add a Shortcode to a Page
+### Add a shortcode to a page
 
 There are two types of shortcodes, **Markdown** and **HTML**. The type of shortcode determines how it is added to a page and how Hugo processes the text when it renders the page into HTML.
 
@@ -298,7 +307,7 @@ There are two types of shortcodes, **Markdown** and **HTML**. The type of shortc
 If you add a **Markdown** shortcode to a page using **HTML** shortcode delimiters, Hugo will assume that the text is already formatted in HTML and will not run the shortcode file through its Markdown processor, leaving the bare Markdown in the HTML page output.
 {{< /note >}}
 
-#### Markdown Shortcodes
+#### Markdown shortcodes
 
 A Markdown shortcode must be processed into HTML by Hugo when the site is built.
 
@@ -314,7 +323,7 @@ For shortcodes located in a repository other than chef-web-docs, use `{{%/* REPO
 {{%/* chef-workstation/bento */%}}
 ```
 
-#### HTML Shortcodes
+#### HTML shortcodes
 
 To include an HTML shortcode in a page, wrap the name of the shortcode file, without the file type suffix, in between double curly braces and angle brackets, `{{</* SHORTCODE */>}}`. For example, add the following text to a page if you wanted to add the [`chef_automate_mark.html`](https://github.com/chef/chef-web-docs/blob/main/themes/docs-new/layouts/shortcodes/chef_automate_mark.html) shortcode:
 
