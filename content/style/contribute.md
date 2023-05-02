@@ -1,34 +1,25 @@
 +++
-title = "Chef Documentation Style Guide"
+title = "Contribute to Chef's Documentation"
 draft = false
 gh_repo = "chef-web-docs"
-aliases = ["/style_guide.html", "/style_index/"]
-
-[cascade]
-  product = []
 
 [menu]
   [menu.overview]
-    title = "Docs Style"
-    identifier = "overview/style/Docs Style"
+    title = "Contribute"
+    identifier = "overview/style/contribute"
     parent = "overview/style"
-    weight = 80
+    weight = 20
 +++
 
-<!-- markdownlint-disable-file MD013 -->
-
-This style guide provides a set of standards for writing clear and consistent developer documentation for all of Progress Chef's products.
-
-Our documentation is open source and we follow a [docs as code](https://www.docslikecode.com/) methodology.
-Any community member can make or suggest a documentation change through pull request (PR) or issue in a documentation repository.
+This document describes how you can contribute to Chef's documentation.
 
 ## Documentation Repositories
 
-Our main repository (repo, for short) for [docs.chef.io](https://docs.chef.io) is called [chef-web-docs](https://github.com/chef/chef-web-docs). This repo contains the files for Chef Infra Client and the Hugo files for our front-end theme, templates, and shortcodes. The Chef documentation is located in: `https://github.com/chef/chef-web-docs`
+Our main repository for [docs.chef.io](https://docs.chef.io) is [chef-web-docs](https://github.com/chef/chef-web-docs). This repo contains the files for Chef Infra Client and the Hugo files for our site theme, templates, and shortcodes.
 
 - The `chef-web-docs` repo contains a `content` directory which holds most the Markdown files in the doc set.
 - The `static/images` directory stores the image files used in the docs.
-- The `config.toml` tells Hugo how to build the navigation menus and contains other Hugo settings. do not modify this file.
+- The `config.toml` and `config` directory tell Hugo how to build the navigation menus and contains other Hugo settings.
 
 ### Repository Locations
 
@@ -52,15 +43,12 @@ We try to keep our documentation source as close to the code as possible, which 
 | Effortless Pattern |https://github.com/chef/effortless/tree/main/docs-chef-io|
 <!-- markdownlint-enable -->
 
-## How to Make a Change
+## Make a change in Chef's documentation
 
 ### Finding the Right Repository
 
-The easiest way to find the location of the source file is to select the `Edit on GitHub` link at the top of every documentation file in your browser.
-
+The easiest way to find the location of the source file is to select the `Edit on GitHub` link at the bottom of every page.
 Selecting `Edit on GitHub` opens the related documentation file in the correct repository.
-
-![Edit On GitHub](/images/edit_on_github.png)
 
 ### Suggest a Change
 
@@ -119,7 +107,3 @@ We also use [Netlify](https://docs.netlify.com/) to deploy our documentation and
 ## Deleting Pages or Making New Pages
 
 Contact the documentation team if you would like to suggest adding or removing pages.
-
-## Contact
-
-See our [feedback](/feedback/) page if you have any questions or comments for the documentation team.

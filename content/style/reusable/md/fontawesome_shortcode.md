@@ -1,4 +1,4 @@
-The Fontawesome shortcode will display any free [Font Awesome icon](https://fontawesome.com/icons) in a page.
+The fontawesome shortcode will display any free [Font Awesome icon](https://fontawesome.com/icons) in a page.
 
 It accepts the following parameters:
 

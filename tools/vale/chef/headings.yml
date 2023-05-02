@@ -1,8 +1,7 @@
 extends: capitalization
-message: "'%s' should be in title-case."
+message: "'%s' should be in sentence-case."
 level: warning
 scope: heading
-match: $title
-style: Chicago
+match: $sentence
 exceptions:
   - macOS

@@ -7,24 +7,13 @@ aliases = ["/style_tools/"]
 [menu]
   [menu.overview]
     title = "Tools"
-    identifier = "overview/style/style_tools"
+    identifier = "overview/style/tools"
     parent = "overview/style"
-    weight = 100
+    weight = 40
 +++
 <!-- markdownlint-disable-file MD013 -->
 
 This document covers the tools used by the @chef-docs team for developing documentation.
-
-## GitHub
-
-If you do not already have one, set up your [GitHub account](https://github.com/).
-
-Download and install Git onto your computer from [git-scm.com](https://git-scm.com/download)
-
-Configure Git:
-[First time setup](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup)
-
-After you have Git setup, create a directory for your repositories. Some name this directory `code` or `repos`. Use whatever name makes sense for you.
 
 ## Homebrew
 
@@ -36,40 +25,25 @@ Install Homebrew with the command:
 ```
 
 ```bash
-brew tap go-swagger/go-swagger chef/okta-aws && brew install go-swagger okta-aws hugo node go jq direnv readline openssl@1.1 gh vale vagrant virtualbox coreutils gnutls
+brew tap go-swagger/go-swagger && brew install go-swagger hugo node go vale git
 ```
 
-This command installs
+This command installs:
 
-- go-swagger
-- okta-aws
 - [Hugo](https://gohugo.io)
 - [Node.js](https://nodejs.org/en/)
 - [Go](https://golang.org/)
-- [JQ](https://stedolan.github.io/jq/)
 - [go-swagger](https://goswagger.io/)
-- [direnv](https://direnv.net/)
-- [readline](https://tiswww.case.edu/php/chet/readline/rltop.html)
-- [openssl@1.1](https://www.openssl.org/)
-- [gh](https://cli.github.com/)
-- vale
-- vagrant
-- virtualbox
+- [vale](https://vale.sh/)
+- [git](https://git-scm.com/)
 
 ## Chocolatey
 
 Install [Chocolatey](https://chocolatey.org/install)
 
 ```ps
-choco install choco install hugo-extended nodejs golang jq  gh
+choco install choco install hugo-extended nodejs golang jq git
 ```
-
-Install [Docker Desktop](https://www.docker.com/get-started)
-Install [go-swagger](https://goswagger.io/install.html#for-windows-users)
-
-- Download the Docker image:
- `docker pull quay.io/goswagger/swagger`
-- Run with: `docker run --rm -it --env GOPATH=/go -v %CD%:/go/src -w /go/src quay.io/goswagger/swagger`
 
 ## Visual Studio Code (VSCode)
 
@@ -94,7 +68,7 @@ Install the extensions:
 - [Trailing Spaces](https://marketplace.visualstudio.com/items?itemName=shardulm94.trailing-spaces)
 - [Code Street Spell](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
 - [Markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
-- [Vale](https://marketplace.visualstudio.com/items?itemName=errata-ai.vale-server)
+- [Vale](https://marketplace.visualstudio.com/items?itemName=ChrisChinchilla.vale-vscode)
 - [Better TOML](https://marketplace.visualstudio.com/items?itemName=bungcip.better-toml)
 - [YAML](https://marketplace.visualstudio.com/items?itemName=docsmsft.docs-yaml)
 - [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
@@ -102,6 +76,8 @@ Install the extensions:
 - [LiveShare](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack)
 
 ### Code Spell Checker
+
+We use CSpell dictionaries that are hosted in the [chef_dictionary GitHub repository](https://github.com/chef/chef_dictionary).
 
 Navigate to your VSCode settings by selecting the gear icon at the bottom left side of the VSCode screen and find the Code Spell settings. In the left menu nav, select **Language and Dictionaries**, scroll down to **C Spell: Dictionary Definitions**, select **Edit in settings.json**, and add the following content in `settings.json` file:
 
@@ -167,77 +143,3 @@ To enable or disable rules for entire files, use:
 - Enable one or more rules by name: `<!-- markdownlint-enable-file MD001 -->`
 
 For more information about customizing Markdownlint, see the Markdownlint GitHub Repository [README](https://github.com/DavidAnson/markdownlint/blob/main/README.md#configuration).
-
-### Vale
-
-[Vale](https://docs.errata.ai/vale/about)
-
-```yml
-# Example Vale config file (`.vale.ini` or `_vale.ini`)
-
-# Core settings
-StylesPath = /Users/kimberlygarmoe/repos/styles
-
-# The minimum alert level to display (suggestion, warning, or error).
-#
-# CI builds will only fail on error-level alerts.
-MinAlertLevel = warning
-
-# By default, `code` and `tt` are ignored.
-IgnoredScopes = code, tt, script
-
-# SkippedScopes specifies block-level HTML tags to ignore. Any content in these scopes will be ignored.
-SkippedScopes = script, style, pre, figure
-
-# WordTemplate specifies what Vale will consider to be an individual word.
-WordTemplate = `\b(?:%s)\b`
-
-# BlockIgnores allow you to exclude certain block-level sections of text that do not have an associated HTML tag that could be used with SkippedScopes. See Non-Standard Markup for more information.
-# BlockIgnores = (?s) *({< file [^>]* >}.*?{</ ?file >})
-# Ignore code fences
-BlockIgnores = (((\x60{3}){1,1})([\s\S]*?)((\x60{3}){1,1}))
-
-# TokenIgnores allow you to exclude certain inline-level sections of text that do not have an associated HTML tag that could be used with IgnoredScopes. See Non-Standard Markup for more information.
-# TokenIgnores = (\$+[^\n$]+\$+)
-# Ignore SVG markup
-TokenIgnores = (\*\*\{\w*\}\*\*)
-
-# The "formats" section allows you to associate an "unknown" format
-# with one of Vale's supported formats.
-[formats]
-mdx = md
-proto = md
-
-# Global settings (applied to every syntax)
-[*]
-
-Vocab = chef_dictionary
-# List of styles to load
-BasedOnStyles = write-good, vale-chef
-# Chef, Microsoft
-# Style.Rule = {YES, NO} to enable or disable a specific rule
-write-good.Editorializing = YES
-# Microsoft.Contractions = NO
-# You can also change the level associated with a rule
-write-good.Hedging = warning
-
-# Syntax-specific settings
-# These overwrite any conflicting global settings
-[*.{md,txt}]
-```
-
-## Download the Chef Repositories
-
-Clone the following repositories:
-
-<!-- markdownlint-disable -->
-| Product | GitHub Docs Directory |
-|---------|-----------------------|
-|Chef Automate |https://github.com/chef/automate|
-|Chef Habitat |https://github.com/habitat-sh/habitat|
-|Chef Infra Client |https://github.com/chef/chef-web-docs|
-|Chef Infra Server |https://github.com/chef/chef-server|
-|Chef Inspec| https://github.com/inspec/inspec|
-
-For example, you can clone a repo using the GitHub CLI with the command `gh repo clone chef/chef-web-docs`.
-<!-- markdownlint-enable -->

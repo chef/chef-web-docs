@@ -81,6 +81,18 @@ weight = 20
   parent = "overview"
   weight = 80
 
+    [[overview]]
+    title = "Formatting"
+    identifier = "overview/style/formatting"
+    parent = "overview/style"
+    weight = 980
+
+    [[overview]]
+    title = "Hugo"
+    identifier = "overview/style/hugo"
+    parent = "overview/style"
+    weight = 999
+
 ####
 # End Overview Menu
 ####

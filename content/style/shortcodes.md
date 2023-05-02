@@ -1,40 +1,64 @@
 +++
-title = "Content Reuse and Hugo Shortcodes"
+title = "Hugo Shortcodes"
 draft = false
-aliases = ["/style_reuse"]
 gh_repo = "chef-web-docs"
 
 [menu]
   [menu.overview]
-    title = "Content Reuse and Shortcodes Guide"
-    identifier = "overview/style/style_reuse"
-    parent = "overview/style"
-    weight = 130
+    title = "Shortcodes"
+    identifier = "overview/style/hugo/shortcodes"
+    parent = "overview/style/hugo"
+    weight = 30
 +++
-<!-- markdownlint-disable-file MD013 MD031 -->
 
-## Reusable Text Files
+This page describes shortcodes that we use in Chef documentation.
 
-If there are sections of text or code samples that appear in more than one location in Chef's documentation, that text should be sourced from a single file.
-Store the files in a headless subdirectory named `reusable` and use the [readfile shortcode](#readfile-shortcode) to add that text to a page.
+[Shortcodes](https://gohugo.io/content-management/shortcodes/) add short snippets of Hugo code, Markdown, or HTML to a page. For example, the readfile shortcode can add a text file to a page, the note shortcode puts text inside an HTML div, and the [automate_cli_commands shortcode](https://github.com/chef/automate/blob/main/components/docs-chef-io/layouts/shortcodes/automate/automate_cli_commands.html) reads through YAML files and outputs formatted text from those files.
 
-Store reusable text files in a `reusable` directory and organize the files in subdirectories by file type.
+## Notes, warnings, and admonitions
 
-For example:
+Note, warning, and danger notice boxes have a different color than the surrounding text so they can be spotted within a document.
+If you must use a note or warning, bracket the text of the note or warning in a **note**, **warning**, or **danger** shortcode.
 
-- `content/server/reusable/md/FILENAME.md`
-- `content/server/reusable/rb/RUBY_EXAMPLE.rb`
+See the [notices guidelines]({{< relref "notices" >}}) for usage recommendations.
 
-Make the `reusable` directory a [headless bundle](https://gohugo.io/content-management/page-bundles/#headless-bundle) by adding an `index.md` file to the directory and add `headless = true` to the file's frontmatter.
-See the [`content/reusable/index.md` file in chef-web-docs](https://raw.githubusercontent.com/chef/chef-web-docs/main/content/reusable/index.md) for an example of an `index.md` file that makes a headless bundle.
+### Notes
 
-{{< note >}}
+Add a note using the note shortcode:
 
-The `reusable` subdirectory must be a [headless bundle](https://gohugo.io/content-management/page-bundles/#headless-bundle). This will prevent Hugo from publishing this directory and its contents unless those files are added to a page using the [readfile shortcode](#readfile-shortcode).
+```md
+{{</* note */>}}
 
-{{< /note >}}
+This is the text of a note.
 
-## readfile Shortcode
+{{</* /note */>}}
+```
+
+### Warnings
+
+Add a warning using the warning shortcode.
+
+```md
+{{</* warning */>}}
+
+This is text in a warning.
+
+{{</* /warning */>}}
+```
+
+### Danger
+
+Add a danger notice using the danger shortcode.
+
+```md
+{{</* danger */>}}
+
+This is text in a warning.
+
+{{</* /danger */>}}
+```
+
+## readfile shortcode
 
 The readfile shortcode adds text from a file to a page. You can add a Markdown file, HTML file, or code file by specifying the path to the file from the project root directory.
 
@@ -64,73 +88,8 @@ or:
 
 See the [full list of highlighting languages and aliases](https://gohugo.io/content-management/syntax-highlighting/#list-of-chroma-highlighting-languages) that Hugo accepts.
 
-## Notes, Warnings, and Admonitions
 
-In general, notes, warnings, and admonitions are not the best way to present important information. Before using them, ask yourself how important the
-information is. If you want the information to be returned in a search
-result, then it is better for the information to have its own topic or
-section heading. Notes and warnings have a different color than the surrounding text so they can be spotted within a document.
-If you must use notes and warnings, bracket the text of the note or warning in **note**, **warning**, or **danger** shortcodes.
-
-### Notes
-
-```md
-{{</* note */>}}
-
-This is a note.
-
-{{</* /note */>}}
-```
-
-What a note looks like after it is built:
-
-{{< note >}}
-
-This is a note.
-
-{{< /note >}}
-
-### Warnings
-
-Use sparingly so that when the user sees a warning it registers appropriately:
-
-```md
-{{</* warning */>}}
-
-This is a warning.
-
-{{</* /warning */>}}
-```
-
-What a warning looks like after it is built:
-
-{{< warning >}}
-
-This is a warning.
-
-{{< /warning >}}
-
-### Danger
-
-Danger should be used when there are serious consequences for the user:
-
-```md
-{{</* danger */>}}
-
-This is a danger block.
-
-{{</* /danger */>}}
-```
-
-This is what a danger block looks like after it is built:
-
-{{< danger >}}
-
-This is a danger block.
-
-{{< /danger >}}
-
-## Foundation Tabs Container
+## Foundation tabs container
 
 There are four shortcodes that can be combined together to create a container that will allow
 the user to click on a tab to reveal content in a matching panel. For example, you
@@ -167,7 +126,7 @@ For example:
 {{</* /foundation_tabs */>}}
 ```
 
-#### Tab Parameters
+#### Tab parameters
 
 The **`foundation_tabs`** shortcode has one parameter:
 
@@ -217,7 +176,7 @@ For example:
     {{</* /foundation_tabs_panels */>}}
 <!-- markdownlint-enable MD046 -->
 
-#### Panel Parameters
+#### Panel parameters
 
 The **`foundation_tabs_panels`** shortcode has one parameter:
 
@@ -309,21 +268,29 @@ and `panel-id`/`panel-link` values must be unique HTML IDs on the page.
 
 <!-- markdownlint-enable MD046 -->
 
-## Fontawesome Shortcode
+## fontawesome shortcode
 
-{{< readfile file="content/reusable/md/fontawesome_shortcode.md" >}}
+{{< readfile file="content/style/reusable/md/fontawesome_shortcode.md" >}}
 
-## Shortcodes
+## svg shortcode
 
-[Shortcodes](https://gohugo.io/content-management/shortcodes/) add short snippets of Hugo code, Markdown, or HTML to a page. For example, the readfile shortcode can add a text file to a page, the note shortcode puts text inside an HTML div, and the [automate_cli_commands shortcode](https://github.com/chef/automate/blob/main/components/docs-chef-io/layouts/shortcodes/automate/automate_cli_commands.html) reads through YAML files and outputs formatted text from those files.
+The svg shortcode will add an inline SVG icon to a string of text.
 
-### Writing a Shortcode
+The svg shortcode takes one parameter, `file`, which is the file path to the SVG file.
+
+For example:
+
+    Click on the web asset icon ({{</* svg file="themes/docs-new/static/images/web-asset.svg" */>}}).
+
+Click on the web asset icon ({{< svg file="themes/docs-new/static/images/web-asset.svg" >}}).
+
+## Create a new shortcode
 
 Shortcode files are written in **Markdown** or **HTML** and are stored in [`layouts/shortcodes`](https://github.com/chef/chef-web-docs/tree/main/layouts/shortcodes) or [`themes/docs-new/layouts/shortcodes`](https://github.com/chef/chef-web-docs/tree/main/themes/docs-new/layouts/shortcodes) in the `chef/chef-web-docs` repository.
 
 In repositories other than chef-web-docs, store shortcodes in `layouts/shortcodes/REPOSITORY_NAME/`.
 
-### Adding a Shortcode to a Page
+### Add a Shortcode to a Page
 
 There are two types of shortcodes, **Markdown** and **HTML**. The type of shortcode determines how it is added to a page and how Hugo processes the text when it renders the page into HTML.
 
