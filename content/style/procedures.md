@@ -14,7 +14,7 @@ gh_repo = "chef-web-docs"
 
 This page provides guidance for writing procedures.
 
-Every set of procedures has four elements: a title or heading, an introduction, the step-by-step procedures, and an end point.
+Every set of procedures has four elements: a [title or heading](#titles-and-headings), an [introduction](#introduction), the [step-by-step procedures](#writing-steps), and an [end point](#end-point).
 
 ## Titles and headings
 
@@ -22,6 +22,8 @@ The title or heading should briefly explain what the procedure will accomplish.
 
 Use the [bare infinitive](https://en.wikipedia.org/wiki/Infinitive#English) to form titles or headings for a set of procedures.
 Avoid using the _-ing_ form of a verb, either a [gerund](https://en.wikipedia.org/wiki/Gerund#Gerunds_in_English) or the [present participle](https://en.wikipedia.org/wiki/Participle#Modern_English).
+
+Use [sentence case](https://en.wikipedia.org/wiki/Letter_case#Sentence_case) for section headings and [title case](https://en.wikipedia.org/wiki/Title_case) for page headings.
 
 {{< recommend >}}
 
@@ -31,7 +33,7 @@ Install the Chef Habitat CLI
 
 {{< recommend >}}
 
-Create an Instance
+Create an instance
 
 {{< /recommend >}}
 
@@ -77,9 +79,9 @@ Each introduction will be unique, but may contain the following information:
 A set or procedures may require certain hardware or software, or certain permissions or access to complete a set of procedures.
 Include those requirements before a set of procedures.
 
-If users will install third-party software, include links the system requirements documentation for that software.
+If users will install third-party software, include links the system requirement documentation for that software.
 
-## Writing Steps
+## Writing steps
 
 ### Procedure levels
 
@@ -90,7 +92,7 @@ A higher level would tell users to log into an account.
 Both of these levels achieve the same goal, logging a user into an account, but the lower level splits the procedure into several smaller steps.
 This lower level is too low for must users and certainly too low for Chef's users.
 
-Higher level tasks give the user a better overview of the procedure and where they are in that procedure.
+Higher level tasks give the user a better overview of the procedures and where they are while following a set of procedures.
 Higher level tasks are also less likely to become obsolete when a product is updated.
 
 It's important to understand the users' skill level so steps can be written at the correct level.
@@ -99,6 +101,7 @@ It's important to understand the users' skill level so steps can be written at t
 
 Each step is an action that a user will perform or a decision that a user must make.
 If an action triggers a response from an application or a system, that response is not a step.
+
 Use an [imperative verb](https://en.wikipedia.org/wiki/Imperative_mood#English) in the first sentence of every step to clarify the action that the user will take. Format each step as a separate ordered list item.
 
 {{< recommend >}}
@@ -106,6 +109,12 @@ Use an [imperative verb](https://en.wikipedia.org/wiki/Imperative_mood#English) 
 1. Select **Submit**.
 
    A dialog box opens with a "Success" message.
+
+{{< /recommend >}}
+
+{{< recommend >}}
+
+1. Select **Submit** and a dialog box opens with a "Success" message.
 
 {{< /recommend >}}
 
@@ -236,6 +245,14 @@ To cleanse the node, run this command:
 
 {{< recommend not >}}
 
+Cleanse the node.
+
+1. `chef-backend-ctl cleanse`
+
+{{< /recommend >}}
+
+{{< recommend not >}}
+
 To cleanse the node, run this command:
 
 - `chef-backend-ctl cleanse`
@@ -250,7 +267,7 @@ This may be a midway point in a long set of procedures, or the conclusion of a s
 When a user reaches an end point, they should intuitively know or be able to verify that they've reached the end point.
 If it's not clear, include a picture of a user interface, a CLI output, a command that a user can run to verify that a system or application is running, or the description of a file detailing its completed state.
 
-## General Guidelines
+## General guidelines
 
 ### Test procedures
 
@@ -299,9 +316,9 @@ The server updates the node.
 
 ### Don't use _should_
 
-Don't use the words "should", "could", and "would".
+Don't use the words _should_, _could_, and _would_.
 They create ambiguity and could cause confusion over whether you're making a recommendation or stating a requirement.
-If you write, "You should back up the server.", is that a requirement or a suggestion?
+If you write, "You should back up the server," is that a requirement or a suggestion?
 
 {{< recommend not >}}
 The config file should be opened.
@@ -315,13 +332,13 @@ You should back up the server.
 Back up the server.
 {{< /recommend >}}
 
-Use _must_ if a user must perform a task.
+If a user must perform a task, use _must_.
 
 {{< recommend >}}
 You must back up the server before upgrading.
 {{< /recommend >}}
 
-If something will happen, don't use _should_. Just say it will happen.
+If something will happen as the result of a user action, don't use _should_, just say what will happen.
 
 {{< recommend not >}}
 After you run the command, the notification should appear.
@@ -345,7 +362,7 @@ Before upgrading, back up the node.
 
 ### Don't use _we_ when referring to the user
 
-_We_ are not doing anything. The user is doing something so use _you_ if you must, but it's better to use the implied _you_ in the imperative mood.
+_We_ are not doing anything. The user is doing something so use _you_ if you must, but it's better to use the implied _you_ in the [imperative mood](https://en.wikipedia.org/wiki/Imperative_mood#Usage) .
 
 {{< recommend not >}}
 
@@ -361,7 +378,7 @@ You can now verify that the node is running.
 
 {{< /recommend >}}
 
-If this is a step that the user must perform, try using the imperative mood. It's simpler, shorter, and more direct.
+If this is a step that the user must perform, try using the [imperative mood](https://en.wikipedia.org/wiki/Imperative_mood#Usage) . It's simpler, shorter, and more direct.
 
 {{< recommend >}}
 

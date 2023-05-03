@@ -527,3 +527,41 @@ Disabled button:
 
 <a href="#buttons" class="button" disabled>Link To Button Heading</a>
 <!-- markdownlint-enable MD033 -->
+
+## Recommend
+
+Recommend shortcode blocks used in the style guide.
+
+{{< recommend not >}}
+You should back up the server.
+{{< /recommend >}}
+
+{{< recommend >}}
+Back up the server.
+{{< /recommend >}}
+
+## Notices
+
+### Notes
+
+{{< note >}}
+
+This is the text of a note.
+
+{{< /note >}}
+
+### Warnings
+
+{{< warning >}}
+
+This is text in a warning.
+
+{{< /warning >}}
+
+### Danger
+
+{{< danger >}}
+
+This is text in a danger notice.
+
+{{< /danger >}}

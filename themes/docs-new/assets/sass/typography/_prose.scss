@@ -86,7 +86,10 @@
 }
 
 .text-recommend{
-  margin-bottom: 1rem;
+  background-color: $light-light-gray;
+  border-radius: $border-radius-base;
+  margin: 1rem 0;
+  padding: .5rem;
   >.recommend-text{
     font-weight: bold;
     margin-bottom: 1rem;
@@ -106,6 +109,9 @@
   .recommended-text{
     margin-left: 1rem;
     margin-bottom: 1rem;
+  }
+  code, pre {
+    border-color: $code-border;
   }
 }
 

@@ -15,7 +15,7 @@ This page describes shortcodes that we use in Chef documentation.
 
 [Shortcodes](https://gohugo.io/content-management/shortcodes/) add short snippets of Hugo code, Markdown, or HTML to a page. For example, the readfile shortcode can add a text file to a page, the note shortcode puts text inside an HTML div, and the [automate_cli_commands shortcode](https://github.com/chef/automate/blob/main/components/docs-chef-io/layouts/shortcodes/automate/automate_cli_commands.html) reads through YAML files and outputs formatted text from those files.
 
-## Notes, warnings, and admonitions
+## Notices
 
 Note, warning, and danger notice boxes have a different color than the surrounding text so they can be spotted within a document.
 If you must use a note or warning, bracket the text of the note or warning in a **note**, **warning**, or **danger** shortcode.
@@ -285,11 +285,11 @@ The svg shortcode takes one parameter, `file`, which is the file path to the SVG
 
 For example:
 
-<!-- markdownlint-disable MD046-->
+```md
+Click on the web asset icon ({{</* svg file="themes/docs-new/static/images/web-asset.svg" */>}}).
+```
 
-    Click on the web asset icon ({{</* svg file="themes/docs-new/static/images/web-asset.svg" */>}}).
-
-<!-- markdownlint-enable MD046-->
+produces:
 
 Click on the web asset icon ({{< svg file="themes/docs-new/static/images/web-asset.svg" >}}).
 

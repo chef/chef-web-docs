@@ -22,25 +22,21 @@ Store these files in a [headless subdirectory named `reusable`](#reusable-direct
 
 ## reusable directory
 
-Store reusable files in a subdirectory called `reusable` in the `content` directory.
+Store reusable files in a subdirectory called `reusable` in the `content` directory. For example, `content/server/reusable` or `content/workstation/reusable`.
 
-Make the `reusable` directory a [headless bundle](https://gohugo.io/content-management/page-bundles/#headless-bundle) by adding an `index.md` file to the directory and add `headless = true` to the file's front matter.
+Make the `reusable` directory a [headless bundle](https://gohugo.io/content-management/page-bundles/#headless-bundle) by adding an `index.md` file to the directory and add `headless = true` to the file's front matter. This directory must be a headless bundle because it prevents Hugo from publishing this directory and its contents on <https://docs.chef.io>.
+
 See the [`content/reusable/index.md` file in chef-web-docs](https://raw.githubusercontent.com/chef/chef-web-docs/main/content/reusable/index.md) for an example of an `index.md` file that makes a headless bundle.
-
-{{< note >}}
-
-The `reusable` subdirectory must be a [headless bundle](https://gohugo.io/content-management/page-bundles/#headless-bundle). This will prevent Hugo from publishing this directory and its contents on <https://docs.chef.io>.
-
-{{< /note >}}
 
 ## Reusable file organization
 
-Store reusable text files in a `reusable` directory and organize the files in subdirectories by file type.
+Store reusable text files in subdirectories organized by file type.
 
 For example:
 
 - `content/server/reusable/md/FILENAME.md`
 - `content/server/reusable/rb/RUBY_EXAMPLE.rb`
+- `content/server/reusable/rb/GO_EXAMPLE.go`
 
 ## readfile shortcode
 
