@@ -9,22 +9,11 @@ gh_repo = "chef-web-docs"
     title = "Chef House Style"
     identifier = "overview/style/style_house"
     parent = "overview/style"
-    weight = 90
+    weight = 30
 +++
 <!-- markdownlint-disable-file MD013 -->
 
 We recommend that you use the conventions described in this guide when contributing to the Chef reference documentation.
-
-## Official Names
-
-For Chef applications and components, use:
-
-- Chef Automate
-- Chef Habitat
-- Chef Infra (formerly Chef)
-- Chef Infra Client (Use Chef Infra Client up to version 14.x)
-- Chef Infra Server (Formerly Chef Server)
-- Chef InSpec
 
 ## Grammar
 
@@ -43,9 +32,8 @@ VPC."
 
 ## FAQs
 
-Don't write an FAQ. FAQs turn into a grab bag of issues that a user might
-have, but they tend to be disorganized and the information in them is hard to find. FAQs are fine in draft documentation when new documentation is
-written from scratch, but don't publish them.
+Don't write an FAQ. FAQs turn into a grab bag of issues that a user might have, but they tend to be disorganized and the information in them is hard to find.
+FAQs are fine in draft documentation when new documentation is written from scratch, but don't publish them.
 
 Reformat FAQ questions into an issue that a user might have, followed by the steps to resolve the issue. Then add those issues and solutions to
 the relevant page in the product documentation.

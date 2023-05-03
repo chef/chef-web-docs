@@ -6,14 +6,13 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.overview]
     title = "Linking"
-    identifier = "overview/style/linking"
-    parent = "overview/style"
-    weight = 115
+    identifier = "overview/style/formatting/linking"
+    parent = "overview/style/formatting"
 +++
 
 Use descriptive link text that tell the user where a link will take them without needing to read the surrounding text.
 
-## Writing Link Text
+## Writing link text
 
 People who use screen reading software can jump from one link to the next in a document without reading the text in between.
 Many users scan through documents looking for links.
@@ -27,15 +26,15 @@ Use the following guidelines in link text:
 - Place important words at the beginning of link text.
 - If a link downloads a file, write text to indicate this action as well as the file type.
 
-{{< recommend not="true" >}}
+{{< recommend not >}}
 Click [here](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) for more information about AWS Lambda.
 {{< /recommend >}}
 
-{{< recommend not="true" >}}
+{{< recommend not >}}
 [Click here](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) for more information.
 {{< /recommend >}}
 
-{{< recommend not="true" >}}
+{{< recommend not >}}
 See Chef's documentation: [https://docs.chef.io](https://docs.chef.io).
 {{< /recommend >}}
 
@@ -51,7 +50,7 @@ For more information about writing Lambda functions, see [Amazon's documentation
 
 You may need to rewrite a sentence so that the link makes sense in the sentence.
 
-## Linking to Headings
+## Link to headings
 
 If you're adding a link to a heading in Chef's documentation, use the full heading text:
 
@@ -59,17 +58,17 @@ If you're adding a link to a heading in Chef's documentation, use the full headi
 For more information, see [Chef Infra Components](https://docs.chef.io/chef_overview/#chef-infra-components).
 {{< /recommend >}}
 
-## Formatting Links
+## Formatting links
 
 To make a link in Markdown, put the link text in square brackets followed by the link URL in parentheses:
 
 `[Ruby Programming Language](https://www.ruby-lang.org/)`
 
-### relref Shortcode
+### relref shortcode
 
 We recommend using Hugo's built-in [relref shortcode](https://gohugo.io/content-management/shortcodes/#ref-and-relref) for making relative links to other pages in Chef's documentation.
 If a link is made to a page that does not exist, the site build will fail when Hugo generates a preview of the site.
-This will help us catch dead links in our own documentation before they happen.
+This will help us prevent dead links in our own documentation if a page is moved or deleted.
 
 To format link to pages:
 
@@ -84,6 +83,6 @@ To format links to headings:
 
 {{< note >}}
 
-relref doesn't validate heading links, only page links.
+relref doesn't validate links to headings, only page links. Double checkout your headings when adding or updating heading links.
 
 {{< /note >}}
