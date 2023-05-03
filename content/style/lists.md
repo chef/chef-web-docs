@@ -8,7 +8,6 @@ gh_repo = "chef-web-docs"
     title = "Lists"
     identifier = "overview/style/formatting/lists"
     parent = "overview/style/formatting"
-    weight = 50
 +++
 
 

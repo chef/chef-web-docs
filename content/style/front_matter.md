@@ -113,8 +113,8 @@ parent
 : The page's parent menu identifier.
   The convention we have adopted is to append the different menu levels together, separated by a forward slash, and starting with the highest level. For example, this page is nested under Overview and then style, so the page's parent identifier is `overview/style`.
 
-weight
-: The rank that the page will appear in the menu, incremented by 10. Higher numbers are lower in the menu.
+weight (optional)
+: The rank that the page will appear in the menu, incremented by 10. Higher numbers are lower in the menu. If `weight` excluded, the page is sorted in the menu alphabetically by page title.
 
 <!-- markdownlint-enable MD006 MD007 MD032-->
 

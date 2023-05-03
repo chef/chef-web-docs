@@ -9,7 +9,6 @@ gh_repo = "chef-web-docs"
     title = "Markdown"
     identifier = "overview/style/formatting/style_markdown"
     parent = "overview/style/formatting"
-    weight = 120
 +++
 <!-- markdownlint-disable-file MD002 MD013 MD014 -->
 

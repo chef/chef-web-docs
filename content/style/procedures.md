@@ -9,7 +9,6 @@ gh_repo = "chef-web-docs"
     title = "Procedures"
     identifier = "overview/style/formatting/procedures"
     parent = "overview/style/formatting"
-    weight = 50
 +++
 
 This page provides guidance for writing procedures.

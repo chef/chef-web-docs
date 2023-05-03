@@ -8,7 +8,6 @@ gh_repo = "chef-web-docs"
     title = "Linking"
     identifier = "overview/style/formatting/linking"
     parent = "overview/style/formatting"
-    weight = 115
 +++
 
 Use descriptive link text that tell the user where a link will take them without needing to read the surrounding text.

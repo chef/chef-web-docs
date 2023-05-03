@@ -9,7 +9,6 @@ gh_repo = "chef-web-docs"
     title = "Tables"
     identifier = "overview/style/formatting/tables"
     parent = "overview/style/formatting"
-    weight = 80
 +++
 
 Create tables in Markdown like this:
