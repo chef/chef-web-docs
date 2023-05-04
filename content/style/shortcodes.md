@@ -58,35 +58,9 @@ This is text in a warning.
 {{</* /danger */>}}
 ```
 
-## readfile shortcode
+## fontawesome shortcode
 
-The readfile shortcode adds text from a file to a page. You can add a Markdown file, HTML file, or code file by specifying the path to the file from the project root directory.
-
-By default it accepts a Markdown file:
-
-```markdown
-{{</* readfile file="content/workstation/reusable/md/example.md" */>}}
-```
-
-You can also add an HTML file:
-
-```markdown
-{{</* readfile file="content/workstation/reusable/html/example.html" html="true" */>}}
-```
-
-You can pass in a sample code file:
-
-```markdown
-{{</* readfile file="content/workstation/reusable/rb/example.rb" highlight="ruby" */>}}
-```
-
-or:
-
-```markdown
-{{</* readfile file="content/workstation/reusable/json/example.json" highlight="json" */>}}
-```
-
-See the [full list of highlighting languages and aliases](https://gohugo.io/content-management/syntax-highlighting/#list-of-chroma-highlighting-languages) that Hugo accepts.
+{{< readfile file="content/style/reusable/md/fontawesome_shortcode.md" >}}
 
 ## Foundation tabs container
 
@@ -273,9 +247,58 @@ and `panel-id`/`panel-link` values must be unique HTML IDs on the page.
 
 <!-- markdownlint-enable MD046 MD032 -->
 
-## fontawesome shortcode
+## readfile shortcode
 
-{{< readfile file="content/style/reusable/md/fontawesome_shortcode.md" >}}
+The readfile shortcode adds text from a file to a page. You can add a Markdown file, HTML file, or code file by specifying the path to the file from the project root directory.
+
+By default it accepts a Markdown file:
+
+```markdown
+{{</* readfile file="content/workstation/reusable/md/example.md" */>}}
+```
+
+You can also add an HTML file:
+
+```markdown
+{{</* readfile file="content/workstation/reusable/html/example.html" html="true" */>}}
+```
+
+You can pass in a sample code file:
+
+```markdown
+{{</* readfile file="content/workstation/reusable/rb/example.rb" highlight="ruby" */>}}
+```
+
+or:
+
+```markdown
+{{</* readfile file="content/workstation/reusable/json/example.json" highlight="json" */>}}
+```
+
+See the [full list of highlighting languages and aliases](https://gohugo.io/content-management/syntax-highlighting/#list-of-chroma-highlighting-languages) that Hugo accepts.
+
+## relref shortcode
+
+We recommend using Hugo's built-in [relref shortcode](https://gohugo.io/content-management/shortcodes/#ref-and-relref) for making relative links to other pages in Chef's documentation.
+If a link is made to a page that does not exist, the site build will fail when Hugo generates a preview of the site.
+This will help us prevent dead links in our own documentation if a page is moved or deleted.
+
+To format link to pages:
+
+- `[link text]({{</* relref "some_page" */>}})`
+- `[link text]({{</* relref "section/some_page" */>}})`
+
+To format links to headings:
+
+- `[link text]({{</* relref "#heading_on_this_page" */>}})`
+- `[link text]({{</* relref "some_page#heading_on_other_page" */>}})`
+- `[link text]({{</* relref "section/some_page#heading_on_other_page" */>}})`
+
+{{< note >}}
+
+relref doesn't validate links to headings, only page links. Double checkout your headings when adding or updating heading links.
+
+{{< /note >}}
 
 ## svg shortcode
 
