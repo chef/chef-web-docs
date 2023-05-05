@@ -11,3 +11,5 @@ to settings and objects stored on the Chef Infra Server:
     SSL certificates
 - The cookbooks (and cookbook versions) in which organization-specific
     configuration policies are maintained
+- Attributes that are included at the Policyfile Level. This is similar
+    to the Role and Environment levels 

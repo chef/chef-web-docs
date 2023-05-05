@@ -206,3 +206,34 @@ A `Policyfile.rb` file may contain the following settings:
     ```ruby
     include_policy 'NAME', policy_name: 'foo', policy_group: 'prod', server: 'http://chef-server.example'
     ```
+
+`default['attribute'] = 'value'`
+
+:   Specify one or many attributes that are included with the Policy.
+    This is similar to including an attribute in the traditional Role
+    approach. The precedence order is the same as the role and can be
+    either `default` or `override`. You can also use attribute hoisting
+    in this regard.
+
+    Example of default attributes
+
+    ```ruby
+    default['attribute'] = 'value'
+    default['attribute']['level2'] = 'anothervalue'
+    ```
+
+    Example of override attributes
+
+    ```ruby
+    default['attribute'] = 'value'
+    default['attribute']['level2'] = 'anothervalue'
+    ```
+
+    Hoisted attributes will match the first level with the policy_group.
+    The example below - when read by a cookbook - will put the attribute in
+    default['attribute'].  
+
+    ```ruby
+    default['dev']['attribute'] = 'dev_value'
+    default['prod']['attribute'] = 'prod_value'
+    ```

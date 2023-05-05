@@ -31,4 +31,15 @@ A `Policyfile.lock.json` file is similar to:
       "artifactserver": "https://supermarket.chef.io/api/v1/cookbooks/java/versions/1.24.0/download",
       "version": "1.24.0"
     }
+  "default_attributes": {
+    "audit": {
+      "reporter": [
+        "chef-server-automate",
+        "cli"
+      ]
+    }
+  },
+  "override_attributes": {
+
+  },
 ```
