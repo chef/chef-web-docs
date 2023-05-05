@@ -225,13 +225,13 @@ A `Policyfile.rb` file may contain the following settings:
     Example of override attributes
 
     ```ruby
-    default['attribute'] = 'value'
-    default['attribute']['level2'] = 'anothervalue'
+    override['attribute'] = 'value'
+    override['attribute']['level2'] = 'anothervalue'
     ```
 
     Hoisted attributes will match the first level with the policy_group.
     The example below - when read by a cookbook - will put the attribute in
-    default['attribute'].  
+    node['attribute'].  
 
     ```ruby
     default['dev']['attribute'] = 'dev_value'
