@@ -83,6 +83,6 @@ To format links to headings:
 
 {{< note >}}
 
-relref doesn't validate links to headings, only page links. Double checkout your headings when adding or updating heading links.
+relref doesn't validate links to headings, only page links. Double check your headings when adding or updating heading links.
 
 {{< /note >}}
