@@ -55,7 +55,7 @@ sudo sed -i 's/SELINUX=enforcing/SELINUX=permissive/g' /etc/selinux/config
 
 - PLEASE DONOT MODIFY THE WORKSPACE PATH it should always be "/hab/a2_deploy_workspace"
 - We currently don't support AD managed users in nodes. We only support local linux users.
-- If you have configured sudo password for the user, then you need to create an environment variable `sudo_password` and set the password as the value of the variable. Example: `export sudo_password=<password>`. And then run all sudo commands with `sudo -E or --preserve-env` option. Example: `sudo -E ./chef-automate deploy config.toml --airgap-bundle automate.aib`. This is required for the `chef-automate` CLI to run the commands with sudo privileges.
+- If you have configured sudo password for the user, then you need to create an environment variable `sudo_password` and set the password as the value of the variable. Example: `export sudo_password=<password>`. And then run all sudo commands with `sudo -E or --preserve-env` option. Example: `sudo -E ./chef-automate deploy config.toml --airgap-bundle automate.aib`. This is required for the `chef-automate` CLI to run the commands with sudo privileges. Please refer [this](/automate/ha_sudo_password/) for details.
 
 {{< /warning >}}
 
@@ -110,9 +110,9 @@ sudo sed -i 's/SELINUX=enforcing/SELINUX=permissive/g' /etc/selinux/config
       - Also, you can use the same machines for Chef Automate and Chef Infra Server. This means overall, there will be two machines or VMs running both Chef Automate and Chef Infra Server. A reduced performance should be expected with this. Minimum 2 VMs or Machines will be used by both Chef Automate and Chef Infra Server on both machines.
       - Thus, the overall minimum number of machines needed will be 5.
    - Give `ssh_user` which has access to all the machines. Example: `ubuntu`
+   - Optional `ssh_group_name` make sure given group name is available in all machines, this value will be defaulted to `ssh_user`.
    - Give `ssh_port` in case your AMI is running on custom ssh port, default will be 22.
    - Give the `ssh_key_file` path; this key should have access to all the Machines or VMs.
-   - `sudo_password` is only meant to switch to sudo user. If you have configured a password for the sudo user, please provide it here.
    - We support only private key authentication.
    - Provide `backup_config` based on the type of backup storage you have. This field can be optionally left empty during deployment and can be patched at later point. Allowed values are `object_storage` and `file_system`.
    - If `backup_config` is `object_storage`, make sure to fill values under `[object_storage.config]`
@@ -133,7 +133,7 @@ sudo sed -i 's/SELINUX=enforcing/SELINUX=permissive/g' /etc/selinux/config
    chef-automate deploy config.toml --airgap-bundle automate.aib
 
    #After Deployment is done successfully. Check the status of Chef Automate HA services
-   chef-automate status
+   chef-automate status summary
    "
    ```
 
@@ -154,8 +154,11 @@ sudo sed -i 's/SELINUX=enforcing/SELINUX=permissive/g' /etc/selinux/config
 # successfully create a new Chef Automate HA instance with default settings.
 [architecture.existing_infra]
 ssh_user = ""
+# custom ssh group name, it will be defaulted to ssh_user
+# Eg.: ssh_group_name = "ubuntu"
+ssh_group_name = ""
 # private ssh key file path to access instances
-# Eg.: ssh_user = "~/.ssh/A2HA.pem"
+# Eg.: ssh_key_file = "~/.ssh/A2HA.pem"
 ssh_key_file = ""
 ssh_port = "22"
 secrets_key_file = "/hab/a2_deploy_workspace/secrets.key"
@@ -297,7 +300,7 @@ Continue with the deployment after updating the config:
    chef-automate deploy config.toml --airgap-bundle automate.aib
 
    #After Deployment is done successfully. Check the status of Chef Automate HA services
-   chef-automate status
+   chef-automate status summary
    "
 ```
 
@@ -380,7 +383,7 @@ Continue with the deployment after updating the config:
    chef-automate deploy config.toml --airgap-bundle automate.aib
 
    #After Deployment is done successfully. Check the status of Chef Automate HA services
-   chef-automate status
+   chef-automate status summary
    "
 ```
 
