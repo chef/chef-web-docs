@@ -54,7 +54,7 @@ Follow the steps below to deploy Chef Automate High Availability (HA) on AWS (Am
 
 - PLEASE DONOT MODIFY THE WORKSPACE PATH it should always be "/hab/a2_deploy_workspace"
 - We currently don't support AD managed users in nodes. We only support local linux users.
-- If you have configured sudo password for the user, then you need to create an environment variable `sudo_password` and set the password as the value of the variable. Example: `export sudo_password=<password>`. And then run all sudo commands with `sudo -E or --preserve-env` option. Example: `sudo -E ./chef-automate deploy config.toml --airgap-bundle automate.aib`. This is required for the `chef-automate` CLI to run the commands with sudo privileges.
+- If you have configured sudo password for the user, then you need to create an environment variable `sudo_password` and set the password as the value of the variable. Example: `export sudo_password=<password>`. And then run all sudo commands with `sudo -E or --preserve-env` option. Example: `sudo -E ./chef-automate deploy config.toml --airgap-bundle automate.aib`. This is required for the `chef-automate` CLI to run the commands with sudo privileges. Please refer [this](/automate/ha_sudo_password/) for details.
 
 {{< /warning >}}
 
@@ -100,14 +100,14 @@ Run the following steps on Bastion Host Machine:
    ```
 
    - Give `ssh_user` which has access to all the machines. Example: `ubuntu`
+   - Optional `ssh_group_name` make sure given group name is available in all machines, this value will be defaulted to `ssh_user`.
    - Give `ssh_port` in case your AMI is running on custom ssh port, default will be 22.
    - Give `ssh_key_file` path, this should have been download from AWS SSH Key Pair which we want to use to create all the VM's. Thus, we will be able to access all VM's using this.
-   - `sudo_password` is only meant to switch to sudo user. If you have configured password for sudo user, please provide it here.
    - We support only private key authentication.
    - Set `backup_config` to `"efs"` or `"s3"`
    - If `backup_config` is `s3` then set `s3_bucketName` to a Unique Value.
    - Set `admin_password` which you can use to access Chef Automate UI for user `admin`.
-   - Don't set `fqdn` for this AWS deployment.
+   - If you don't have a custom FQDN leave `fqdn` as empty for this AWS deployment. By default, AWS Application load balancer will be used as `fqdn`.
    - Set `instance_count` for Chef Automate, Chef Infra Server, Postgresql, OpenSearch.
    - Set AWS Config Details:
      - Set `profile`, by default `profile` is `"default"`
@@ -153,7 +153,7 @@ Run the following steps on Bastion Host Machine:
     chef-automate deploy config.toml --airgap-bundle automate.aib
 
     #After Deployment is done successfully. Check status of Chef Automate HA services
-    chef-automate status
+    chef-automate status summary
 
     #Check Chef Automate HA deployment information, using the following command
     chef-automate info
@@ -217,9 +217,9 @@ Check if Chef Automate UI is accessible by going to (Domain used for Chef Automa
  
 [architecture.aws]
 ssh_user = "ec2-user"
+ssh_group_name = "ec2-user"
 ssh_port = "22"
 ssh_key_file = "~/.ssh/my-key.pem"
-# sudo_password = ""
 backup_config = "s3"
 s3_bucketName = "My-Bucket-Name"
 secrets_key_file = "/hab/a2_deploy_workspace/secrets.key"
