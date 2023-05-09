@@ -231,7 +231,7 @@ A `Policyfile.rb` file may contain the following settings:
 
     Hoisted attributes will match the first level with the policy_group.
     The example below - when read by a cookbook - will put the attribute in
-    node['attribute'].  
+    node['attribute'] of the matching policy group dev or prod.
 
     ```ruby
     default['dev']['attribute'] = 'dev_value'
