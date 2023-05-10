@@ -10,6 +10,12 @@ draft = false
     weight = 20
 +++
 
+## 20230509
+
+### New Features
+
+- CIS RHEL 8 v2.0.0 (Remediation).
+
 ## 20221212
 
 ### New Features
