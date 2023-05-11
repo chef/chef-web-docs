@@ -72,7 +72,7 @@ ohai os
 
 This fetches the value of Chef Infra's node data at `node['os']` and returns something like:
 
-```javascript
+```json
 [
   "linux"
 ]
@@ -119,7 +119,7 @@ ohai --directory /path/to/directory sl
 
 The command will return something similar to:
 
-```javascript
+```json
 {
   "sl": {
     "installed": true

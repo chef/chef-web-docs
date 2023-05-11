@@ -59,7 +59,7 @@ knife data bag create admins
 
 Use this approach to show code blocks that use any type of JavaScript, including any JSON code sample:
 
-```javascript
+```json
 {
   "id": "charlie",
   "uid": 1005,

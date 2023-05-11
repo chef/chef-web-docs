@@ -139,7 +139,7 @@ the chef-repo. (If the repository does not have this subdirectory, then
 create it using knife.) Each Ruby file should have the `.rb` suffix. A
 complete role has the following syntax:
 
-```javascript
+```ruby
 name "role_name"
 description "role_description"
 run_list "recipe[name]", "recipe[name::attribute]", "recipe[name::attribute]"
@@ -154,7 +154,7 @@ role named `webserver` that has a run-list that defines actions for
 three different roles, and for certain roles takes extra steps (such as
 the `apache2` role listening on ports 80 and 443):
 
-```javascript
+```ruby
 name "webserver"
 description "The base role for systems that serve HTTP traffic"
 run_list "recipe[apache2]", "recipe[apache2::mod_ssl]", "role[monitor]"
@@ -169,7 +169,7 @@ The JSON format for roles maps directly to the domain-specific Ruby
 format: same settings, attributes, and values, and a similar structure
 and organization. For example:
 
-```javascript
+```json
 {
   "name": "webserver",
   "chef_type": "role",
@@ -277,7 +277,7 @@ It is strongly recommended to keep to one process and not switch back and forth.
 
 Associating a run-list with a role and a specific environment lets you use the run-list on different nodes that share the same environment. More than one environment can be specified in a role, but each specific environment may be associated with only one run-list. If a run-list is not specified, the default run-list will be used. For example:
 
-```javascript
+```json
 {
   "name": "webserver",
   "default_attributes": {

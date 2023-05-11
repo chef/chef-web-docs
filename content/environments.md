@@ -219,7 +219,7 @@ structure and organization, just formatted as JSON. When an environment
 is defined as JSON the file that contains that data must be defined as a
 file that ends with `.json`. For example:
 
-```javascript
+```json
 {
   "name": "dev",
   "default_attributes": {
@@ -326,7 +326,7 @@ items for each environment.
 A data bag that is storing a top-level key for an environment might look
 something like this:
 
-```javascript
+```json
 {
   "id": "some_data_bag_item",
   "production" : {

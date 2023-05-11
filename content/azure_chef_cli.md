@@ -244,7 +244,7 @@ The following examples show how Chef Infra Client can be installed and configure
 
 #### Installing the Azure Chef extension on a Linux system
 
-```javascript
+```json
 {
    "type": "Microsoft.Compute/virtualMachines/extensions",
    "name": "myVirtualMachine/LinuxChefClient",
@@ -272,7 +272,7 @@ The following examples show how Chef Infra Client can be installed and configure
 
 #### Installing the Azure Chef extension on a Windows system
 
-```javascript
+```json
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "myVirtualMachine/ChefClient",
@@ -301,7 +301,7 @@ The following examples show how Chef Infra Client can be installed and configure
 
 #### Installing the Azure Chef extension on a Linux system with SSL peer verification turned off and given a data bag secret
 
-```javascript
+```json
 {
    "type": "Microsoft.Compute/virtualMachines/extensions",
    "name": "myVirtualMachine/LinuxChefClient",
