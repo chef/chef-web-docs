@@ -3,7 +3,8 @@ A `Policyfile.rb` file may contain the following settings:
 `name "name"`
 
 :   Required. The name of the policy. Use a name that reflects the
-    purpose of the machines against which the policy will run.
+    purpose of the machines against which the policy will run,
+    such as "application server", "chat server", "load balancer", and so on.
 
 `run_list "ITEM", "ITEM", ...`
 
@@ -13,30 +14,43 @@ A `Policyfile.rb` file may contain the following settings:
 `default_source :SOURCE_TYPE, *args`
 
 :   The location in which any cookbooks not specified by `cookbook` are
-    located. Possible values: `chef_repo`, `chef_server`, `:supermarket`,
-    and `:artifactory`. Use more than one `default_source` to specify more
-    than one location for cookbooks.
+    located.
 
-    `default_source :supermarket` pulls cookbooks from the public Chef
-    Supermarket.
+    Possible values for `:SOURCE_TYPE` are:
 
-    `default_source :supermarket, "https://mysupermarket.example"` pulls
-    cookbooks from a named private Chef Supermarket.
+    - `:artifactory`
+    - `:chef_repo`
+    - `:chef_server`
+    - `:supermarket`
 
-    `default_source :chef_server, "https://chef-server.example/organizations/example"`
-    pulls cookbooks from the Chef Infra Server.
+    `:artifactory`
+    : Pulls cookbooks from an Artifactory server. Requires either `artifactory_api_key` to be set in `config.rb` or
+      `ARTIFACTORY_API_KEY` to be set in your environment.
 
-    `default_source :chef_repo, "path/to/repo"` pulls cookbooks from a
-    monolithic cookbook repository. This may be a path to the top-level
-    of a cookbook repository or to the `/cookbooks` directory within
-    that repository.
+      For example, `default_source :artifactory, "https://artifactory.example/api/chef/my-supermarket"`.
 
-    `default_source :artifactory, "https://artifactory.example/api/chef/my-supermarket"`
-    pulls cookbooks from an Artifactory server. Requires either
-    `artifactory_api_key` to be set in `config.rb` or
-    `ARTIFACTORY_API_KEY` to be set in your environment.
+    `:chef_repo`
+    : Pulls cookbooks from a monolithic cookbook repository. This may be a path to the top-level
+      of a cookbook repository or to the `/cookbooks` directory within that repository.
 
-    Multiple cookbook sources may be specified. For example from the
+      For example, `default_source :chef_repo, "path/to/repo"`.
+
+    `:chef_server`
+    : Pulls cookbooks from the Chef Infra Server.
+
+      For example, `default_source :chef_server, "https://chef-server.example/organizations/example"`.
+
+    `:supermarket`
+
+    : Pulls cookbooks from the public Chef Supermarket or a private Chef Supermarket.
+
+      By default `:supermarket` pulls cookbooks from the public Chef
+      Supermarket. For example, `default_source :supermarket`.
+
+      Specify the Supermarket URL to pull cookbooks from a private Supermarket. For example,
+      `default_source :supermarket, "https://supermarket-name.example"`.
+
+    You can specify multiple cookbook sources. For example from the
     public Chef Supermarket and a monolithic repository:
 
     ```ruby
@@ -207,31 +221,51 @@ A `Policyfile.rb` file may contain the following settings:
     include_policy 'NAME', policy_name: 'foo', policy_group: 'prod', server: 'http://chef-server.example'
     ```
 
-`default['attribute'] = 'value'`
+`ATTRIBUTE_TYPE['attribute'] = 'value'`
 
-:   Specify one or many attributes that are included with the Policy.
-    This is similar to including an attribute in the traditional Role
-    approach. The precedence order is the same as the role and can be
-    either `default` or `override`. You can also use attribute hoisting
-    in this regard.
+:   Specify one or more attributes to be included with the policy.
+    This is similar to defining attributes using roles.
 
-    Example of default attributes
+    Possible values for `ATTRIBUTE_TYPE` are:
+
+    - `default`
+    - `override`
+
+    `default`
+    : A `default` attribute is automatically reset at the start of every Chef
+      Infra Client run and has the lowest attribute precedence.
+
+      For example:
+
+      ```ruby
+      default['attribute'] = 'value'
+      default['attribute']['level2'] = 'another_value'
+      ```
+
+    `override`
+    : An `override` attribute is automatically reset at the start of every
+      Chef Infra Client run and has a higher attribute precedence than
+      a `default` attribute.
+
+      ```ruby
+      override['attribute'] = 'value'
+      override['attribute']['level2'] = 'another_value'
+      ```
+
+    Attribute hoisting allows you to define attributes by policy group.
+
+    Use the following syntax to define policy group-specific attributes:
 
     ```ruby
-    default['attribute'] = 'value'
-    default['attribute']['level2'] = 'anothervalue'
+    ATTRIBUTE_TYPE['POLICY_GROUP']['attribute'] = 'value'
     ```
 
-    Example of override attributes
+    where:
 
-    ```ruby
-    override['attribute'] = 'value'
-    override['attribute']['level2'] = 'anothervalue'
-    ```
+    - `ATTRIBUTE_TYPE` is either `default` or `override` as described above.
+    - `POLICY_GROUP` is a user-defined policy group, such as "dev", "test" "staging", or "production".
 
-    Hoisted attributes will match the first level with the policy_group.
-    The example below - when read by a cookbook - will put the attribute in
-    node['attribute'] of the matching policy group dev or prod.
+    In the following example, the value of `default['attribute']` is set to either `dev_value` or `prod_value` depending on the policy group.
 
     ```ruby
     default['dev']['attribute'] = 'dev_value'

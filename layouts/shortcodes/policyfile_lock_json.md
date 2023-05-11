@@ -3,9 +3,9 @@ necessary cookbooks and emits a `Policyfile.lock.json` file that
 describes:
 
 - The versions of cookbooks in use
-- A Hash of cookbook content
+- A hash of cookbook content
 - The source for all cookbooks
-- Attributes included with the policyfile
+- Attributes included with the Policyfile
 
 A `Policyfile.lock.json` file is associated with a specific policy
 group, which means it is associated with one (or more) nodes that use the same
