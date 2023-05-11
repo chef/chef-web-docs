@@ -136,7 +136,7 @@ This command has the following options:
 
     where `/path/to/file.json` is similar to:
 
-    ```javascript
+    ```json
     {
       "chef_environment": "pre-production"
     }
@@ -185,7 +185,7 @@ This command has the following options:
 
     For example:
 
-    ```javascript
+    ```json
     {
       "policy_name": "appserver",
       "policy_group": "staging"

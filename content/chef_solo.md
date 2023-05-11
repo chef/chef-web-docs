@@ -70,7 +70,7 @@ or a web server on the local network.
 The JSON file must also specify the recipes that are part of the
 run-list. For example:
 
-```javascript
+```json
 {
   "resolver": {
     "nameservers": [ "10.0.0.1" ],
@@ -104,7 +104,7 @@ mkdir /var/chef-solo/data_bags/admins
 
 and then create a JSON file in that location:
 
-```javascript
+```json
 {
   "id": "ITEM_NAME"
 }
@@ -129,7 +129,7 @@ role_path '/var/chef-solo/roles'
 
 Role data looks like the following in JSON:
 
-```javascript
+```json
 {
   "name": "test",
   "default_attributes": { },

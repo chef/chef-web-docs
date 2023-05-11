@@ -23,7 +23,7 @@ Client 12 or earlier node you can compare the data formats by running
 
 Here are examples of the old and new format of the cloud data:
 
-```javascript
+```json
 {
   "public_ips": [
     "52.88.253.144"
@@ -39,7 +39,7 @@ Here are examples of the old and new format of the cloud data:
 }
 ```
 
-```javascript
+```json
 {
   "public_ipv4_addrs": [
     "52.88.253.144"

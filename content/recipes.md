@@ -61,7 +61,7 @@ The following sections show approaches to working with recipes.
 The contents of a data bag can be loaded into a recipe. For example, a
 data bag named `apps` and a data bag item named `my_app`:
 
-```javascript
+```json
 {
   "id": "my_app",
   "repository": "git://github.com/company/my_app.git"

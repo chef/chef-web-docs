@@ -284,7 +284,7 @@ Supermarket.
     supermarket](/ctl_chef_server/#ctl-chef-server-oc-id-show-app)
     or is located in `/etc/opscode/oc-id-applications/supermarket.json`:
 
-    ```javascript
+    ```json
     {
       "name": "supermarket",
       "uid": "0bad0f2eb04e935718e081fb71asdfec3681c81acb9968a8e1e32451d08b",

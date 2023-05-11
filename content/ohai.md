@@ -251,7 +251,7 @@ Ohai hints are used to tell Ohai something about the system that it is running o
 
 If the hint file contains JSON content, it will be returned as a hash from the call to `hint?`.
 
-```javascript
+```json
 {
   "snow": true,
   "penguins": "many"

@@ -279,7 +279,7 @@ knife data bag show --secret-file /tmp/my_data_bag_key passwords mysql
 
 that will return JSON output similar to:
 
-```javascript
+```json
 {
   "id": "mysql",
   "pass": "thesecret123",
