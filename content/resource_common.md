@@ -21,7 +21,11 @@ path options.
 
 ## Actions
 
-{{< readfile file="content/reusable/md/resources_common_actions.md" >}}
+The following actions may be used with any resource:
+
+`:nothing`
+
+: {{ readFile "layouts/shortcodes/resources_common_actions_nothing.md" | markdownify }}
 
 ### Examples
 

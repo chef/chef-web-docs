@@ -34,7 +34,11 @@ The properties and actions in this section apply to all resources.
 
 ### Actions
 
-{{< readfile file="content/reusable/md/resources_common_actions.md" >}}
+The following actions may be used with any resource:
+
+`:nothing`
+
+: {{ readFile "layouts/shortcodes/resources_common_actions_nothing.md" | markdownify }}
 
 #### Examples
 
