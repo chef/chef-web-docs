@@ -46,7 +46,7 @@
                           {{ end }}
                           {{ if eq $subkey "shortcode" }}
                             <p>
-                              {{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}
+                              {{ readFile (delimit (slice `content/reusable/md/` $subvalue ) "") | markdownify }}
                             </p>
                           {{ end }}
                         {{ end }}
@@ -65,7 +65,7 @@
                         {{ end }}
                         {{ if eq $subkey "shortcode" }}
                           <p>
-                            {{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}
+                            {{ readFile (delimit (slice `content/reusable/md/` $subvalue ) "") | markdownify }}
                           </p>
                         {{ end }}
                       {{ end }}
@@ -74,14 +74,14 @@
                   {{ end }}
                   {{ if eq $key "shortcode" }}
                     <p>
-                      {{ readFile (delimit (slice `layouts/shortcodes/` $value ) "") | markdownify }}
+                      {{ readFile (delimit (slice `content/reusable/md/` $value ) "") | markdownify }}
                     </p>
                   {{ end }}
                   {{ if and (eq $key "notes_resource_based_on_package") (eq $value true)}}
                     <div class="admonition-note">
                       <p class="admonition-note-title">Note</p>
                       <div class="admonition-note-text">
-                        {{ readFile (delimit (slice `layouts/shortcodes/notes_resource_based_on_package.md` ) "") | markdownify }}
+                        {{ readFile "content/reusable/md/notes_resource_based_on_package.md" | markdownify }}
                       </div>
                     </div>
                   {{ end }}
@@ -151,7 +151,7 @@
             {{ end }}
 
             {{ with index $yaml_file "syntax_shortcode" }}
-                {{ readFile (delimit (slice `layouts/shortcodes/` . ) "") | markdownify }}
+                {{ readFile (delimit (slice `content/reusable/md/` . ) "") | markdownify }}
             {{ end }}
 
             {{ with index $yaml_file "registry_key" }}
@@ -283,7 +283,7 @@
                     <dt><code>{{ $key | markdownify }}</code></dt>
                     {{ range $subkey, $subvalue := $value }}
                       {{ if eq $subkey "shortcode" }}
-                        <dd>{{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}</dd>
+                        <dd>{{ readFile (delimit (slice `content/reusable/md/` $subvalue ) "") | markdownify }}</dd>
                       {{ end }}
                       {{ if eq $subkey "markdown" }}
                         <dd>{{- $subvalue | markdownify -}}</dd>
@@ -334,7 +334,7 @@
                                   {{ end }}
                                   {{ if eq $subkey "shortcode" }}
                                     <p>
-                                      {{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}
+                                      {{ readFile (delimit (slice `content/reusable/md/` $subvalue ) "") | markdownify }}
                                     </p>
                                   {{ end }}
                                 {{ end }}
@@ -353,7 +353,7 @@
                                   {{ end }}
                                   {{ if eq $subkey "shortcode" }}
                                     <p>
-                                      {{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}
+                                      {{ readFile (delimit (slice `content/reusable/md/` $subvalue ) "") | markdownify }}
                                     </p>
                                   {{ end }}
                                 {{ end }}
@@ -362,7 +362,7 @@
                           {{ end }}
                           {{ if eq $key "shortcode" }}
                             <p>
-                              {{ readFile (delimit (slice `layouts/shortcodes/` $value ) "") | markdownify }}
+                              {{ readFile (delimit (slice `content/reusable/md/` $value ) "") | markdownify }}
                             </p>
                           {{ end }}
                         {{ end }}
@@ -388,7 +388,7 @@
                 {{ end }}
               {{ end }}
               {{ with index $yaml_file "properties_shortcode" }}
-                {{ readFile (delimit (slice `layouts/shortcodes/` . ) "") | markdownify }}
+                {{ readFile (delimit (slice `content/reusable/md/` . ) "") | markdownify }}
               {{ end }}
             {{ else }}
               <p>This resource does not have any properties.</p>
