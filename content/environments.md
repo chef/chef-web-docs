@@ -54,11 +54,11 @@ There are two types of attributes that can be used with environments:
 <tbody>
 <tr>
 <td><code>default</code></td>
-<td>{{< readfile file="layouts/shortcodes/node_attribute_type_default.md" >}}</td>
+<td>{{< readfile file="content/reusable/md/node_attribute_type_default.md" >}}</td>
 </tr>
 <tr>
 <td><code>override</code></td>
-<td>{{< readfile file="layouts/shortcodes/node_attribute_type_override.md" >}}</td>
+<td>{{< readfile file="content/reusable/md/node_attribute_type_override.md" >}}</td>
 </tr>
 </tbody>
 </table>

@@ -15,7 +15,11 @@ product = []
 
 {{< chef_automate_mark >}}
 
+{{< warning >}}
+
 {{< readfile file="content/reusable/md/EOL_manage.md" >}}
+
+{{< /warning >}}
 
 Chef Manage can support logging in users using SAML authentication. In
 order to do so, there must be a Chef Automate Server that is configured

@@ -177,7 +177,11 @@ a fine-grained approach to modifying permissions, by wrapping API calls
 to the `_acl` endpoint and makes such permission changes easier to
 manage.
 
+{{< warning >}}
+
 {{< readfile file="content/reusable/md/EOL_manage.md" >}}
+
+{{< /warning >}}
 
 <span class="title-ref">knife-acl</span> and the Chef Manage browser
 interface are incompatible. After engaging <span

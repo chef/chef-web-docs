@@ -39,7 +39,7 @@ used within a recipe is: `key_exists?`, `value_exists?`, `data_exists?`,
 
 {{< note >}}
 
-{{< readFile file="content/reusable/md/notes_registry_key_not_if_only_if.md" >}}
+{{< readfile file="content/reusable/md/notes_registry_key_not_if_only_if.md" >}}
 
 {{< /note >}}
 
@@ -51,7 +51,7 @@ used within a recipe is: `key_exists?`, `value_exists?`, `data_exists?`,
 
 {{< note >}}
 
-{{< readFile file="content/reusable/md/notes_registry_key_not_if_only_if.md" >}}
+{{< readfile file="content/reusable/md/notes_registry_key_not_if_only_if.md" >}}
 
 {{< /note >}}
 
@@ -63,7 +63,7 @@ used within a recipe is: `key_exists?`, `value_exists?`, `data_exists?`,
 
 {{< note >}}
 
-{{< readFile file="content/reusable/md/notes_registry_key_not_if_only_if.md" >}}
+{{< readfile file="content/reusable/md/notes_registry_key_not_if_only_if.md" >}}
 
 {{< /note >}}
 
@@ -75,7 +75,7 @@ used within a recipe is: `key_exists?`, `value_exists?`, `data_exists?`,
 
 {{< note >}}
 
-{{< readFile file="content/reusable/md/notes_registry_key_not_if_only_if.md" >}}
+{{< readfile file="content/reusable/md/notes_registry_key_not_if_only_if.md" >}}
 
 {{< /note >}}
 
@@ -87,7 +87,7 @@ used within a recipe is: `key_exists?`, `value_exists?`, `data_exists?`,
 
 {{< note >}}
 
-{{< readFile file="content/reusable/md/notes_registry_key_not_if_only_if.md" >}}
+{{< readfile file="content/reusable/md/notes_registry_key_not_if_only_if.md" >}}
 
 {{< /note >}}
 

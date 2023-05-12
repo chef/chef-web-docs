@@ -36,11 +36,21 @@ See the [Chef Infra Client release notes](/release_notes_client/) for the latest
 
 ### Attributes Blocklist
 
+{{< warning >}}
+
+{{< readfile file="content/reusable/md/node_attribute_blocklist_warning.md" >}}
+
+{{< /warning >}}
+
 {{< readfile file="content/reusable/md/node_attribute_blocklist.md" >}}
 
 ### Attribute Allowlist
 
-{{< readfile file="content/reusable/md/node_attribute_allowlist.md" >}}
+{{< warning >}}
+
+{{< readfile file="content/reusable/md/node_attribute_allowlist_warning.md" >}}
+
+{{< /warning >}}
 
 ## Default Plugins
 

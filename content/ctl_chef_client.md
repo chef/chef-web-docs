@@ -116,7 +116,7 @@ This command has the following options:
 
     **Run-lists**
 
-    {{< readfile file="layouts/shortcodes/node_ctl_run_list.md" >}}
+    {{< readfile file="content/reusable/md/node_ctl_run_list.md" >}}
 
     **Environments**
 
@@ -146,7 +146,7 @@ This command has the following options:
 
     **All attributes are normal attributes**
 
-    {{< readfile file="layouts/shortcodes/node_ctl_attribute.md" >}}
+    {{< readfile file="content/reusable/md/node_ctl_attribute.md" >}}
 
     {{< note spaces=4 >}}
 

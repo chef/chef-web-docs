@@ -15,9 +15,17 @@ aliases = ["/config_rb_manage.html"]
 
 {{< chef_automate_mark >}}
 
+{{< warning >}}
+
 {{< readfile file="content/reusable/md/EOL_manage.md" >}}
 
+{{< /warning >}}
+
+{{< danger >}}
+
 {{< readfile file="content/reusable/md/EOL_a1.md" >}}
+
+{{< /danger >}}
 
 {{< readfile file="content/reusable/md/chef_manager.md" >}}
 

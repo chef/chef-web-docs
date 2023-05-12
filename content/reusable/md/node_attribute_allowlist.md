@@ -1,10 +1,3 @@
-<div class="admonition-warning"><p class="admonition-warning-title">Warning</p><div class="admonition-warning-text">
-
-When attribute allowlist settings are used, only the attributes defined in a allowlist will be saved and any attribute that is not defined in a allowlist will not be saved. Each attribute type is allowlisted independently of the other attribute types. For example, if `automatic_attribute_allowlist` defines attributes to be saved, but `normal_attribute_allowlist`, `default_attribute_allowlist`, and
-`override_attribute_allowlist` are not defined, then all normal attributes, default attributes, and override attributes are saved, as well as the automatic attributes that were specifically included through allowlisting.
-
-</div></div>
-
 Attributes that should be saved by a node may be allowlisted in the client.rb file. The allowlist is a hash of keys that specifies each attribute to be saved.
 
 Attributes are allowlisted by attribute type, with each attribute type being allowlisted independently. Each attribute type---`automatic`, `default`, `normal`, and `override`---may define allowlists by using the following settings in the client.rb file:

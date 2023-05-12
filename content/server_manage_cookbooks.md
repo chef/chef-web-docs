@@ -15,7 +15,11 @@ product = []
 
 {{< chef_automate_mark >}}
 
+{{< warning >}}
+
 {{< readfile file="content/reusable/md/EOL_manage.md" >}}
+
+{{< /warning >}}
 
 {{< note >}}
 
@@ -65,27 +69,27 @@ A cookbook can contain the following types of files:
 <tbody>
 <tr>
 <td>Attributes</td>
-<td>{{< readfile file="layouts/shortcodes/cookbooks_attribute.md" >}}</td>
+<td>{{< readfile file="content/reusable/md/cookbooks_attribute.md" >}}</td>
 </tr>
 <tr>
 <td>Files</td>
-<td>{{< readfile file="layouts/shortcodes/resource_cookbook_file_summary.md" >}}</td>
+<td>{{< readfile file="content/reusable/md/resource_cookbook_file_summary.md" >}}</td>
 </tr>
 <tr>
 <td>Libraries</td>
-<td>{{< readfile file="layouts/shortcodes/libraries_summary.md" >}}</td>
+<td>{{< readfile file="content/reusable/md/libraries_summary.md" >}}</td>
 </tr>
 <tr>
 <td>Recipes</td>
-<td>{{< readfile file="layouts/shortcodes/cookbooks_recipe.md" >}}</td>
+<td>{{< readfile file="content/reusable/md/cookbooks_recipe.md" >}}</td>
 </tr>
 <tr>
 <td>Resources</td>
-<td>{{< readfile file="layouts/shortcodes/resources_common.md" >}}</td>
+<td>{{< readfile file="content/reusable/md/resources_common.md" >}}</td>
 </tr>
 <tr>
 <td>Templates</td>
-<td>{{< readfile file="layouts/shortcodes/template.md" >}}</td>
+<td>{{< readfile file="content/reusable/md/template.md" >}}</td>
 </tr>
 </tbody>
 </table>

@@ -46,12 +46,12 @@ A cookbook is comprised of recipes and other optional components as files or dir
 <tr>
 <td><a href="/recipes/">Recipes</a></td>
 <td>recipes/</td>
-<td>{{< readfile file="layouts/shortcodes/cookbooks_recipe.md" >}}</td>
+<td>{{< readfile file="content/reusable/md/cookbooks_recipe.md" >}}</td>
 </tr>
 <tr>
 <td><a href="/attributes/">Attributes</a></td>
 <td>attributes/</td>
-<td>{{< readfile file="layouts/shortcodes/cookbooks_attribute.md" >}}</td>
+<td>{{< readfile file="content/reusable/md/cookbooks_attribute.md" >}}</td>
 </tr>
 <tr>
 <td><a href="/files/">Files</a></td>

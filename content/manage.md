@@ -14,7 +14,11 @@ product = []
 +++
 {{< chef_automate_mark >}}
 
+{{< warning >}}
+
 {{< readfile file="content/reusable/md/EOL_manage.md" >}}
+
+{{< /warning >}}
 
 {{< note >}}
 
