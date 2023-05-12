@@ -13,7 +13,7 @@ gh_repo = "chef-web-docs"
 
 ## data_bag
 
-{{% data_bag %}}
+{{< readfile file="content/reusable/md/data_bag.md" >}}
 
 Use the `data_bag` method to get a list of the contents of a data bag.
 
@@ -29,11 +29,11 @@ The following example shows how the `data_bag` method can be used in a recipe.
 
 #### Get a data bag, and then iterate through each data bag item
 
-{{% infra_lang_data_bag %}}
+{{< readfile file="content/reusable/md/infra_lang_data_bag.md" >}}
 
 ## data_bag_item
 
-{{% data_bag %}}
+{{< readfile file="content/reusable/md/data_bag.md" >}}
 
 The `data_bag_item` method can be used in a recipe to get the contents of a data bag item.
 
@@ -51,7 +51,7 @@ The following examples show how the `data_bag_item` method can be used in a reci
 
 #### Get a data bag, and then iterate through each data bag item
 
-{{% infra_lang_data_bag %}}
+{{< readfile file="content/reusable/md/infra_lang_data_bag.md" >}}
 
 #### Use the contents of a data bag in a recipe
 

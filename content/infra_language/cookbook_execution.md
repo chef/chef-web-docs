@@ -126,7 +126,7 @@ These helpers allow you to include recipes and impact how resources run on the s
 
 ### include_recipe
 
-{{% cookbooks_recipe_include_in_recipe %}}
+{{< readfile file="content/reusable/md/cookbooks_recipe_include_in_recipe.md" >}}
 
 ### with_run_context
 

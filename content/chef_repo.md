@@ -12,7 +12,7 @@ aliases = ["/chef_repo.html"]
     weight = 15
 +++
 <!-- markdownlint-disable-file MD033 -->
-{{% chef_repo_description %}}
+{{< readfile file="content/reusable/md/chef_repo_description.md" >}}
 
 ## Generate the chef-repo
 
@@ -121,4 +121,4 @@ and for vim:
 
 ## Many Users, Same Repo
 
-{{% chef_repo_many_users_same_knife %}}
+{{< readfile file="content/reusable/md/chef_repo_many_users_same_knife.md" >}}

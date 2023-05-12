@@ -15,7 +15,7 @@ product = []
 
 {{< chef_automate_mark >}}
 
-{{% EOL_manage %}}
+{{< readfile file="content/reusable/md/EOL_manage.md" >}}
 
 {{< note >}}
 
@@ -24,7 +24,7 @@ cookbooks.
 
 {{< /note >}}
 
-{{% cookbooks_summary %}}
+{{< readfile file="content/reusable/md/cookbooks_summary.md" >}}
 
 ## Manage
 

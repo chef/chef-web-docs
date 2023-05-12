@@ -15,11 +15,11 @@ product = ["client", "server", "workstation"]
     weight = 10
 +++
 
-{{% cookbooks_summary %}}
+{{< readfile file="content/reusable/md/cookbooks_summary.md" >}}
 
-{{% infra_lang_ruby %}}
+{{< readfile file="content/reusable/md/infra_lang_ruby.md" >}}
 
-{{% infra_lang_summary %}}
+{{< readfile file="content/reusable/md/infra_lang_summary.md" >}}
 
 Chef Infra Client runs a recipe only when instructed. When Chef Infra Client runs the same recipe more than once, the results will be the same system state each time. When a recipe is run against a system, but nothing has changed on either the system or in the recipe, Chef Infra Client will not change anything.
 

@@ -15,7 +15,7 @@ product = []
 
 {{< chef_automate_mark >}}
 
-{{% EOL_manage %}}
+{{< readfile file="content/reusable/md/EOL_manage.md" >}}
 
 {{< note >}}
 
@@ -23,7 +23,7 @@ This topic is about using the Chef management console to manage nodes.
 
 {{< /note >}}
 
-{{% node %}}
+{{< readfile file="content/reusable/md/node.md" >}}
 
 ## Manage
 
@@ -140,15 +140,15 @@ To view the attributes for a node:
 
 ## Run-lists
 
-{{% node_run_list %}}
+{{< readfile file="content/reusable/md/node_run_list.md" >}}
 
 ### Add Recipe
 
-{{% manage_webui_node_run_list_add_role_or_recipe %}}
+{{< readfile file="content/reusable/md/manage_webui_node_run_list_add_role_or_recipe.md" >}}
 
 ### Add Role
 
-{{% manage_webui_node_run_list_add_role_or_recipe %}}
+{{< readfile file="content/reusable/md/manage_webui_node_run_list_add_role_or_recipe.md" >}}
 
 ### Edit
 
@@ -163,11 +163,11 @@ To edit a run-list:
 
 ### Remove Recipe
 
-{{% manage_webui_node_run_list_remove_role_or_recipe %}}
+{{< readfile file="content/reusable/md/manage_webui_node_run_list_remove_role_or_recipe.md" >}}
 
 ### Remove Role
 
-{{% manage_webui_node_run_list_remove_role_or_recipe %}}
+{{< readfile file="content/reusable/md/manage_webui_node_run_list_remove_role_or_recipe.md" >}}
 
 ### View Current
 
@@ -228,7 +228,7 @@ To view permissions for a node:
 
 ## Manage Tags
 
-{{% chef_tags %}}
+{{< readfile file="content/reusable/md/chef_tags.md" >}}
 
 ### Add
 

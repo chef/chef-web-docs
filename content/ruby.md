@@ -13,7 +13,7 @@ aliases = ["/ruby.html", "/just_enough_ruby_for_chef.html"]
     parent = "chef_infra/infra_language"
 +++
 
-{{% ruby_summary %}}
+{{< readfile file="content/reusable/md/ruby_summary.md" >}}
 
 Chef Infra Client 15 ships with Ruby 2.6 and Chef Infra Client 16 ships with Ruby 2.7.
 
@@ -200,7 +200,7 @@ if %w(debian ubuntu).include?(node['platform'])
 end
 ```
 
-{{% ruby_style_patterns_string_quoting_vs_whitespace_array %}}
+{{< readfile file="content/reusable/md/ruby_style_patterns_string_quoting_vs_whitespace_array.md" >}}
 
 ##### Example
 
@@ -434,7 +434,7 @@ This will prevent commit log entries similar to
 
 ### Use of Hyphens
 
-{{% ruby_style_patterns_hyphens %}}
+{{< readfile file="content/reusable/md/ruby_style_patterns_hyphens.md" >}}
 
 ### Cookbook Naming
 
@@ -542,7 +542,7 @@ need interpolation.
 
 #### Whitespace Arrays
 
-{{% ruby_style_patterns_string_quoting_vs_whitespace_array %}}
+{{< readfile file="content/reusable/md/ruby_style_patterns_string_quoting_vs_whitespace_array.md" >}}
 
 ### Recipes
 

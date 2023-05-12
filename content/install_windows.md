@@ -18,7 +18,7 @@ aliases = ["/install_windows.html"]
 
 There are several methods available to install Chef Infra Client depending on the needs of your organization.
 
-{{% windows_install_overview %}}
+{{< readfile file="content/reusable/md/windows_install_overview.md" >}}
 
 ### Use knife CLI
 
@@ -32,11 +32,11 @@ There are several methods available to install Chef Infra Client depending on th
 
 A Microsoft Installer Package (MSI) is available for installing Chef Infra Client on a Windows machine at [Chef Downloads](https://www.chef.io/downloads/tools/infra-client?os=windows).
 
-{{% windows_msiexec %}}
+{{< readfile file="content/reusable/md/windows_msiexec.md" >}}
 
 #### ADDLOCAL Options
 
-{{% windows_msiexec_addlocal %}}
+{{< readfile file="content/reusable/md/windows_msiexec_addlocal.md" >}}
 
 #### Running as a Scheduled Task
 
@@ -44,12 +44,12 @@ On Windows, run Chef Infra Client periodically as a scheduled task. Scheduled ta
 
 #### Scheduled Task Options
 
-{{% install_chef_client_windows_as_scheduled_task %}}
+{{< readfile file="content/reusable/md/install_chef_client_windows_as_scheduled_task.md" >}}
 
 ### Use an Existing Process
 
-{{% windows_install_system_center %}}
+{{< readfile file="content/reusable/md/windows_install_system_center.md" >}}
 
 ### PATH System Variable
 
-{{% windows_environment_variable_path %}}
+{{< readfile file="content/reusable/md/windows_environment_variable_path.md" >}}

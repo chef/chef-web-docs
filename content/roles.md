@@ -13,17 +13,17 @@ product = ["client", "server"]
     weight = 70
 +++
 <!-- markdownlint-disable-file MD033 -->
-{{% role %}}
+{{< readfile file="content/reusable/md/role.md" >}}
 
 ## Role Attributes
 
 {{< note >}}
 
-{{% notes_see_attributes_overview %}}
+{{< readfile file="content/reusable/md/notes_see_attributes_overview.md" >}}
 
 {{< /note >}}
 
-{{% role_attribute %}}
+{{< readfile file="content/reusable/md/role_attribute.md" >}}
 
 ### Attribute Types
 
@@ -59,7 +59,7 @@ domain-specific language or as JSON data.
 
 ### Chef Language
 
-{{% ruby_summary %}}
+{{< readfile file="content/reusable/md/ruby_summary.md" >}}
 
 Domain-specific Ruby attributes:
 

@@ -13,7 +13,7 @@ product = ["client", "server"]
     weight = 40
 +++
 
-{{% data_bag %}}
+{{< readfile file="content/reusable/md/data_bag.md" >}}
 
 ## Create a Data Bag
 
@@ -157,11 +157,11 @@ data bag items.
 
 ### Data Bag Items
 
-{{% data_bag_item %}}
+{{< readfile file="content/reusable/md/data_bag_item.md" >}}
 
 ## Encrypt a Data Bag Item
 
-{{% data_bag_encryption %}}
+{{< readfile file="content/reusable/md/data_bag_encryption.md" >}}
 
 ### Encryption Versions
 
@@ -226,7 +226,7 @@ arguments and the following options:
 
 ### Secret Keys
 
-{{% data_bag_encryption_secret_key %}}
+{{< readfile file="content/reusable/md/data_bag_encryption_secret_key.md" >}}
 
 ### Encrypt
 
@@ -304,9 +304,9 @@ Data bags can be accessed in the following ways:
 
 ### Search
 
-{{% data_bag %}}
+{{< readfile file="content/reusable/md/data_bag.md" >}}
 
-{{% search_data_bag %}}
+{{< readfile file="content/reusable/md/search_data_bag.md" >}}
 
 ### Environments
 

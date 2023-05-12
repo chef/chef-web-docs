@@ -46,7 +46,7 @@ Chef Infra Client's Compliance Phase lets you automatically execute compliance a
 
 ## The Chef Infra Client Run
 
-{{% chef_client_run %}}
+{{< readfile file="content/reusable/md/chef_client_run.md" >}}
 
 ## Related Content
 

@@ -22,9 +22,9 @@ Chef Automate is the center of the modern Chef platform, providing users with a 
 
 Use this instance with Chef Workstation installed on your laptop or a separate AWS instance.
 
-{{% workstation %}}
+{{< readfile file="content/reusable/md/workstation.md" >}}
 
-{{% automate_ha_support %}}
+{{< readfile file="content/reusable/md/automate_ha_support.md" >}}
 
 ## Installation
 

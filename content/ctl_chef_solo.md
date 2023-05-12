@@ -14,7 +14,7 @@ aliases = ["/ctl_chef_solo.html"]
     weight = 20
 +++
 <!-- markdownlint-disable-file MD046 -->
-{{% chef_solo_summary %}}
+{{< readfile file="content/reusable/md/chef_solo_summary.md" >}}
 
 ## Options
 

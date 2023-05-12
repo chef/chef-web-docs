@@ -14,4 +14,4 @@ aliases = ["/attributes.html", "essentials_cookbook_attribute_files.html", "chef
     weight = 10
 +++
 
-{{% node_attribute %}}
+{{< readfile file="content/reusable/md/node_attribute.md" >}}

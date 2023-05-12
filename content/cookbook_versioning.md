@@ -13,7 +13,7 @@ product = ["client", "server", "workstation"]
     weight = 150
 +++
 <!-- markdownlint-disable-file MD033 -->
-{{% cookbooks_version %}}
+{{< readfile file="content/reusable/md/cookbooks_version.md" >}}
 
 ## Syntax
 
@@ -40,7 +40,7 @@ specify at least the major and minor version. For example, use `1.0` or
 
 {{< /note >}}
 
-{{% cookbooks_version_constraints_operators %}}
+{{< readfile file="content/reusable/md/cookbooks_version_constraints_operators.md" >}}
 
 For example, a version constraint for "equals version 1.0.7" is
 expressed like this:
@@ -102,7 +102,7 @@ or will match cookbooks less than or equal to a specific version number:
 
 ## Metadata
 
-{{% cookbooks_metadata %}}
+{{< readfile file="content/reusable/md/cookbooks_metadata.md" >}}
 
 Versions and version constraints can be specified in a cookbook's
 metadata.rb file by using the following functions. Each function accepts

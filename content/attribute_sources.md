@@ -51,9 +51,9 @@ Notes:
 
 ## Automatic Attributes (Ohai)
 
-{{% ohai_automatic_attribute %}}
+{{< readfile file="content/reusable/md/ohai_automatic_attribute.md" >}}
 
-{{% ohai_attribute_list %}}
+{{< readfile file="content/reusable/md/ohai_attribute_list.md" >}}
 
 ## Attribute Files
 
@@ -127,18 +127,18 @@ end
 
 ## Attributes from Recipes
 
-{{% cookbooks_recipe %}}
+{{< readfile file="content/reusable/md/cookbooks_recipe.md" >}}
 
-{{% cookbooks_attribute %}}
+{{< readfile file="content/reusable/md/cookbooks_attribute.md" >}}
 
 ## Attributes from Roles
 
-{{% role %}}
+{{< readfile file="content/reusable/md/role.md" >}}
 
-{{% role_attribute %}}
+{{< readfile file="content/reusable/md/role_attribute.md" >}}
 
 ## Attributes from Environments
 
-{{% environment %}}
+{{< readfile file="content/reusable/md/environment.md" >}}
 
-{{% environment_attribute %}}
+{{< readfile file="content/reusable/md/environment_attribute.md" >}}

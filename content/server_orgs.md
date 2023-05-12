@@ -177,7 +177,7 @@ a fine-grained approach to modifying permissions, by wrapping API calls
 to the `_acl` endpoint and makes such permission changes easier to
 manage.
 
-{{% EOL_manage %}}
+{{< readfile file="content/reusable/md/EOL_manage.md" >}}
 
 <span class="title-ref">knife-acl</span> and the Chef Manage browser
 interface are incompatible. After engaging <span
@@ -594,7 +594,7 @@ The `users` group is assigned the following:
 
 ### chef-validator
 
-{{% security_chef_validator %}}
+{{< readfile file="content/reusable/md/security_chef_validator.md" >}}
 
 The chef-validator is allowed to do the following at the start of a Chef
 Infra Client run. After the Chef Infra Client is registered with Chef

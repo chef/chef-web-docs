@@ -18,7 +18,7 @@ that are developed and maintained by the Chef community.
 
 ## Ohai
 
-{{% ohai_summary %}}
+{{< readfile file="content/reusable/md/ohai_summary.md" >}}
 
 The following Ohai plugins are available from the open source community:
 
@@ -99,6 +99,6 @@ The following Ohai plugins are available from the open source community:
 
 ## Handlers
 
-{{% handler %}}
+{{< readfile file="content/reusable/md/handler.md" >}}
 
-{{% handler_community_handlers %}}
+{{< readfile file="content/reusable/md/handler_community_handlers.md" >}}

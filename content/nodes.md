@@ -13,9 +13,9 @@ product = ["client", "server"]
     weight = 30
 +++
 <!-- markdownlint-disable-file MD033 -->
-{{% node %}}
+{{< readfile file="content/reusable/md/node.md" >}}
 
-{{% node_types %}}
+{{< readfile file="content/reusable/md/node_types.md" >}}
 
 The key components of nodes that are under management by Chef include:
 
@@ -78,7 +78,7 @@ Server. Chef Infra Client gets a copy of the node object from the Chef
 Infra Server during each Chef Infra Client run and places an updated
 copy on the Chef Infra Server at the end of each Chef Infra Client run.
 
-{{% node_attribute %}}
+{{< readfile file="content/reusable/md/node_attribute.md" >}}
 
 ### Attributes
 
@@ -115,11 +115,11 @@ See [Attributes](/attributes) for detailed information on the different types of
 
 ### Run-lists
 
-{{% node_run_list %}}
+{{< readfile file="content/reusable/md/node_run_list.md" >}}
 
 #### Run-list Format
 
-{{% node_run_list_format %}}
+{{< readfile file="content/reusable/md/node_run_list_format.md" >}}
 
 ## Managing Nodes
 

@@ -11,6 +11,6 @@ gh_repo = "chef-web-docs"
     parent = "chef_infra/infra_language"
 +++
 
-{{% chef_tags %}}
+{{< readfile file="content/reusable/md/chef_tags.md" >}}
 
-{{% cookbooks_recipe_tags %}}
+{{< readfile file="content/reusable/md/cookbooks_recipe_tags.md" >}}

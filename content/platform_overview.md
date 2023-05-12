@@ -24,7 +24,7 @@ development to production. Here's the complete Chef solution.
 
 ## Chef Infra
 
-{{% chef %}}
+{{< readfile file="content/reusable/md/chef.md" >}}
 
 ### Using Chef Workstation
 

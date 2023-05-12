@@ -22,7 +22,7 @@ variables to specify the proxy settings using a lowercase value.
 
 ## Windows
 
-{{% proxy_windows %}}
+{{< readfile file="content/reusable/md/proxy_windows.md" >}}
 
 ## Linux
 
@@ -193,4 +193,4 @@ used to set the proxy:
 
 ### ENV
 
-{{% proxy_env %}}
+{{< readfile file="content/reusable/md/proxy_env.md" >}}

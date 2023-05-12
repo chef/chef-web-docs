@@ -12,7 +12,7 @@ aliases = ["/chef_solo.html"]
     weight = 10
 +++
 
-{{% chef_solo_summary %}}
+{{< readfile file="content/reusable/md/chef_solo_summary.md" >}}
 
 ## Cookbooks
 
@@ -157,7 +157,7 @@ and finally, JSON data passed to chef-solo:
 
 ## Environments
 
-{{% chef_solo_environments %}}
+{{< readfile file="content/reusable/md/chef_solo_environments.md" >}}
 
 ## chef-solo (executable)
 

@@ -12,11 +12,11 @@ product = ["client"]
     weight = 20
 +++
 
-{{% unified_mode_overview %}}
+{{< readfile file="content/reusable/md/unified_mode_overview.md" >}}
 
-{{% unified_mode_client_releases %}}
+{{< readfile file="content/reusable/md/unified_mode_client_releases.md" >}}
 
-{{% unified_mode_enable %}}
+{{< readfile file="content/reusable/md/unified_mode_enable.md" >}}
 
 ## Unified Mode Isolation
 
@@ -150,10 +150,10 @@ This simplified example shows how to trap exceptions from resources using normal
 
 This is useful because the TAR extraction throws an exception (for example, the node could be out of disk space), which deletes the TAR file. The next time Chef Infra Client runs, the TAR file will be redownload. If the resource did not have file cleanup after an exception, the TAR file would remain on the client node even though the resource is not complete and the extraction did not happen, leaving the resource in a broken, indeterminate state.
 
-{{% unified_mode_actions_later_resources %}}
+{{< readfile file="content/reusable/md/unified_mode_actions_later_resources.md" >}}
 
 ### Notifications and Accumulators
 
 The accumulator pattern works unchanged. Notifications to the `:root` run context still behave identically. Since the compile and converge phases of custom resources both fire in the converge time (typically) of the enclosing `run_context`, the effect of eliminating the separate compile and converge phases of the custom resource has no visible effect from the outer context.
 
-{{% unified_mode_troubleshooting %}}
+{{< readfile file="content/reusable/md/unified_mode_troubleshooting.md" >}}

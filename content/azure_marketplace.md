@@ -16,11 +16,11 @@ product = ["client", "workstation", "automate"]
     weight = 10
 +++
 <!-- markdownlint-disable-file MD033 -->
-{{% azure_marketplace %}}
+{{< readfile file="content/reusable/md/azure_marketplace.md" >}}
 
-{{% workstation %}}
+{{< readfile file="content/reusable/md/workstation.md" >}}
 
-{{% automate_ha_support %}}
+{{< readfile file="content/reusable/md/automate_ha_support.md" >}}
 
 ## Marketplace Deployment
 

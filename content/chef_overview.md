@@ -14,7 +14,7 @@ product = ["client", "server", "workstation"]
 +++
 <!-- markdownlint-disable-file MD033 -->
 
-{{% chef %}}
+{{< readfile file="content/reusable/md/chef.md" >}}
 
 - **Chef Workstation** is the location where users interact with Chef
     Infra. With Chef Workstation, users can author and test
@@ -166,7 +166,7 @@ Some important tools and components of Chef Workstation include:
 
 ## Cookbooks
 
-{{% cookbooks_summary %}}
+{{< readfile file="content/reusable/md/cookbooks_summary.md" >}}
 
 The Chef Infra Client uses Ruby as its reference language for creating
 cookbooks and defining recipes, with an extended DSL for specific
@@ -231,11 +231,11 @@ Cookbooks are comprised of the following components:
 
 ## Nodes
 
-{{% node %}}
+{{< readfile file="content/reusable/md/node.md" >}}
 
 ### Node Types
 
-{{% node_types %}}
+{{< readfile file="content/reusable/md/node_types.md" >}}
 
 ### Chef on Nodes
 
@@ -302,7 +302,7 @@ The key components of nodes that are under management by Chef include:
 
 ### Policy
 
-{{% policy_summary %}}
+{{< readfile file="content/reusable/md/policy_summary.md" >}}
 
 Some important aspects of policy include:
 

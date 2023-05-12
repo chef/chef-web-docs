@@ -14,15 +14,15 @@ aliases = ["/dsl_handler.html"]
     weight = 20
 +++
 
-{{% dsl_handler_summary %}}
+{{< readfile file="content/reusable/md/dsl_handler_summary.md" >}}
 
 ## on Method
 
-{{% dsl_handler_method_on %}}
+{{< readfile file="content/reusable/md/dsl_handler_method_on.md" >}}
 
 ## Event Types
 
-{{% dsl_handler_event_types %}}
+{{< readfile file="content/reusable/md/dsl_handler_event_types.md" >}}
 
 ## Examples
 
@@ -30,27 +30,27 @@ The following examples show ways to use the Handler DSL.
 
 ### Send Email
 
-{{% dsl_handler_slide_send_email %}}
+{{< readfile file="content/reusable/md/dsl_handler_slide_send_email.md" >}}
 
 #### Define How Email is Sent
 
-{{% dsl_handler_slide_send_email_library %}}
+{{< readfile file="content/reusable/md/dsl_handler_slide_send_email_library.md" >}}
 
 #### Add the Handler
 
-{{% dsl_handler_slide_send_email_handler %}}
+{{< readfile file="content/reusable/md/dsl_handler_slide_send_email_handler.md" >}}
 
 #### Test the Handler
 
-{{% dsl_handler_slide_send_email_test %}}
+{{< readfile file="content/reusable/md/dsl_handler_slide_send_email_test.md" >}}
 
 ### etcd Locks
 
-{{% dsl_handler_example_etcd_lock %}}
+{{< readfile file="content/reusable/md/dsl_handler_example_etcd_lock.md" >}}
 
 ### HipChat Notifications
 
-{{% dsl_handler_example_hipchat %}}
+{{< readfile file="content/reusable/md/dsl_handler_example_hipchat.md" >}}
 
 ### `attribute_changed` event hook
 

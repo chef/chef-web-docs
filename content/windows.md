@@ -20,7 +20,7 @@ The Chef Infra Client has specific components that are designed to
 support unique aspects of the Windows platform, including
 PowerShell, PowerShell DSC, and Internet Information Services (IIS).
 
-{{% windows_install_overview %}}
+{{< readfile file="content/reusable/md/windows_install_overview.md" >}}
 
 ## Setting up Windows Workstations
 
@@ -29,7 +29,7 @@ Windows](/workstation/install_workstation/)
 
 ## Install Chef Infra Client on Windows Nodes
 
-{{% chef_client_summary %}}
+{{< readfile file="content/reusable/md/chef_client_summary.md" >}}
 
 This command has the following syntax:
 
@@ -88,19 +88,19 @@ main configuration file for Chef Infra Client is located at
 
 #### Spaces and Directories
 
-{{% windows_spaces_and_directories %}}
+{{< readfile file="content/reusable/md/windows_spaces_and_directories.md" >}}
 
 #### Top-level Directory Names
 
-{{% windows_top_level_directory_names %}}
+{{< readfile file="content/reusable/md/windows_top_level_directory_names.md" >}}
 
 #### PATH System Variable
 
-{{% windows_environment_variable_path %}}
+{{< readfile file="content/reusable/md/windows_environment_variable_path.md" >}}
 
 #### Proxy Settings
 
-{{% proxy_windows %}}
+{{< readfile file="content/reusable/md/proxy_windows.md" >}}
 
 ### Remotely administering nodes
 
@@ -120,19 +120,19 @@ Downloads](https://www.chef.io/downloads/tools/infra-client?os=windows).
 
 #### Msiexec.exe
 
-{{% windows_msiexec %}}
+{{< readfile file="content/reusable/md/windows_msiexec.md" >}}
 
 #### ADDLOCAL Options
 
-{{% windows_msiexec_addlocal %}}
+{{< readfile file="content/reusable/md/windows_msiexec_addlocal.md" >}}
 
 #### Enable as a Scheduled Task
 
-{{% install_chef_client_windows_as_scheduled_task %}}
+{{< readfile file="content/reusable/md/install_chef_client_windows_as_scheduled_task.md" >}}
 
 ### Install Chef Infra Client using an Existing Process
 
-{{% windows_install_system_center %}}
+{{< readfile file="content/reusable/md/windows_install_system_center.md" >}}
 
 ## Windows Cookbooks
 
@@ -188,7 +188,7 @@ Two community supports two provisioners for Kitchen:
 
 ## Windows Resources
 
-{{% resources_common %}}
+{{< readfile file="content/reusable/md/resources_common.md" >}}
 
 ### Windows Resources
 

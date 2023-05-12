@@ -15,7 +15,7 @@ product = []
 
 {{< chef_automate_mark >}}
 
-{{% EOL_manage %}}
+{{< readfile file="content/reusable/md/EOL_manage.md" >}}
 
 {{< note >}}
 
@@ -24,7 +24,7 @@ bags.
 
 {{< /note >}}
 
-{{% data_bag %}}
+{{< readfile file="content/reusable/md/data_bag.md" >}}
 
 ## Manage
 
@@ -60,7 +60,7 @@ To delete a data bag:
 
 ## Manage Items
 
-{{% data_bag_item %}}
+{{< readfile file="content/reusable/md/data_bag_item.md" >}}
 
 ### Add Item
 

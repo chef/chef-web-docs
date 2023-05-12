@@ -14,7 +14,7 @@ aliases = ["/templates.html", "essentials_cookbook_templates.html"]
     weight = 100
 +++
 
-{{% template %}}
+{{< readfile file="content/reusable/md/template.md" >}}
 
 The `templates` directory does not exist by default in a cookbook.
 Generate the `templates` directory and a template file from the `chef-repo/cookbooks` directory with the command:
@@ -54,36 +54,36 @@ The `custom_web` cookbook directory with a template has the structure:
 
 ## Requirements
 
-{{% template_requirements %}}
+{{< readfile file="content/reusable/md/template_requirements.md" >}}
 
 ## Variables
 
-{{% template_variables %}}
+{{< readfile file="content/reusable/md/template_variables.md" >}}
 
 ## File Specificity
 
-{{% template_specificity %}}
+{{< readfile file="content/reusable/md/template_specificity.md" >}}
 
-{{% template_specificity_pattern %}}
+{{< readfile file="content/reusable/md/template_specificity_pattern.md" >}}
 
-{{% template_specificity_example %}}
+{{< readfile file="content/reusable/md/template_specificity_example.md" >}}
 
 ## Host Notation
 
-{{% template_host_notation %}}
+{{< readfile file="content/reusable/md/template_host_notation.md" >}}
 
 ## Transfer Frequency
 
-{{% template_transfer_frequency %}}
+{{< readfile file="content/reusable/md/template_transfer_frequency.md" >}}
 
 ## Partial Templates
 
-{{% template_partials %}}
+{{< readfile file="content/reusable/md/template_partials.md" >}}
 
 ### variables Attribute
 
-{{% template_partials_variables_attribute %}}
+{{< readfile file="content/reusable/md/template_partials_variables_attribute.md" >}}
 
 ### render Method
 
-{{% template_partials_render_method %}}
+{{< readfile file="content/reusable/md/template_partials_render_method.md" >}}

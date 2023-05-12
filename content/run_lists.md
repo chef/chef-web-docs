@@ -13,15 +13,15 @@ product = ["client", "server"]
     weight = 50
 +++
 <!-- markdownlint-disable-file MD024 -->
-{{% node_run_list %}}
+{{< readfile file="content/reusable/md/node_run_list.md" >}}
 
 ## Run-list Format
 
-{{% node_run_list_format %}}
+{{< readfile file="content/reusable/md/node_run_list_format.md" >}}
 
 ### Empty Run-lists
 
-{{% node_run_list_empty %}}
+{{< readfile file="content/reusable/md/node_run_list_empty.md" >}}
 
 ## Knife Commands
 
@@ -40,7 +40,7 @@ Infra Server.
 
 {{% chef-workstation/knife_node_run_list_add %}}
 
-{{% node_run_list_format %}}
+{{< readfile file="content/reusable/md/node_run_list_format.md" >}}
 
 #### Syntax
 
@@ -147,12 +147,12 @@ every subsequent Chef Infra Client run.
 
 ### Bootstrap Operations
 
-{{% install_chef_client %}}
+{{< readfile file="content/reusable/md/install_chef_client.md" >}}
 
-{{% chef_client_bootstrap_node %}}
+{{< readfile file="content/reusable/md/chef_client_bootstrap_node.md" >}}
 
-{{% chef_client_bootstrap_stages %}}
+{{< readfile file="content/reusable/md/chef_client_bootstrap_stages.md" >}}
 
 ### The Chef Infra Client Run
 
-{{% chef_client_run %}}
+{{< readfile file="content/reusable/md/chef_client_run.md" >}}

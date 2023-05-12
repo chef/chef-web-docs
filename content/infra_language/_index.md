@@ -16,9 +16,9 @@ aliases = ["/dsl_recipe.html", "/dsl_recipe"]
     weight = 10
 +++
 
-{{% infra_lang_summary %}}
+{{< readfile file="content/reusable/md/infra_lang_summary.md" >}}
 
-{{% infra_lang_ruby %}}
+{{< readfile file="content/reusable/md/infra_lang_ruby.md" >}}
 
 ## Resources
 

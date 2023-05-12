@@ -11,7 +11,7 @@ gh_repo = "chef-web-docs"
     parent = "chef_infra/infra_language"
 +++
 
-{{% infra_lang_method_windows_methods %}}
+{{< readfile file="content/reusable/md/infra_lang_method_windows_methods.md" >}}
 
 {{< note >}}
 
@@ -23,24 +23,24 @@ used within a recipe is: `key_exists?`, `value_exists?`, `data_exists?`,
 
 ## registry_data_exists?
 
-{{% infra_lang_method_registry_data_exists %}}
+{{< readfile file="content/reusable/md/infra_lang_method_registry_data_exists.md" >}}
 
 ## registry_get_subkeys
 
-{{% infra_lang_method_registry_get_subkeys %}}
+{{< readfile file="content/reusable/md/infra_lang_method_registry_get_subkeys.md" >}}
 
 ## registry_get_values
 
-{{% infra_lang_method_registry_get_values %}}
+{{< readfile file="content/reusable/md/infra_lang_method_registry_get_values.md" >}}
 
 ## registry_has_subkeys?
 
-{{% infra_lang_method_registry_has_subkeys %}}
+{{< readfile file="content/reusable/md/infra_lang_method_registry_has_subkeys.md" >}}
 
 ## registry_key_exists?
 
-{{% infra_lang_method_registry_key_exists %}}
+{{< readfile file="content/reusable/md/infra_lang_method_registry_key_exists.md" >}}
 
 ## registry_value_exists?
 
-{{% infra_lang_method_registry_value_exists %}}
+{{< readfile file="content/reusable/md/infra_lang_method_registry_value_exists.md" >}}

@@ -13,24 +13,24 @@ product = ["automate", "client", "server", "habitat", "inspec", "supermarket", "
     weight = 40
 +++
 
-{{% packages_install_script %}}
+{{< readfile file="content/reusable/md/packages_install_script.md" >}}
 
 ## Run the Chef Software Install Script
 
-{{% packages_install_script_run %}}
+{{< readfile file="content/reusable/md/packages_install_script_run.md" >}}
 
 ### UNIX, Linux, and macOS
 
-{{% packages_install_script_run_unix_linux %}}
+{{< readfile file="content/reusable/md/packages_install_script_run_unix_linux.md" >}}
 
 ### Windows
 
-{{% packages_install_script_run_windows %}}
+{{< readfile file="content/reusable/md/packages_install_script_run_windows.md" >}}
 
 ## Chef Software Install Script Options
 
-{{% packages_install_script_options %}}
+{{< readfile file="content/reusable/md/packages_install_script_options.md" >}}
 
 ## Examples
 
-{{% packages_install_script_examples %}}
+{{< readfile file="content/reusable/md/packages_install_script_examples.md" >}}

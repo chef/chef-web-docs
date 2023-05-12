@@ -12,7 +12,7 @@ aliases = ["/libraries.html"]
     weight = 50
 +++
 
-{{% libraries_summary %}}
+{{< readfile file="content/reusable/md/libraries_summary.md" >}}
 
 Use a library to:
 
@@ -29,7 +29,7 @@ section below for samples.
 
 ## Template Helper Modules
 
-{{% resource_template_library_module %}}
+{{< readfile file="content/reusable/md/resource_template_library_module.md" >}}
 
 ## Examples
 
