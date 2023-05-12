@@ -15,11 +15,19 @@ aliases = ["/config_rb_manage.html"]
 
 {{< chef_automate_mark >}}
 
-{{% EOL_manage %}}
+{{< warning >}}
 
-{{% EOL_a1 %}}
+{{< readfile file="content/reusable/md/EOL_manage.md" >}}
 
-{{% chef_manager %}}
+{{< /warning >}}
+
+{{< danger >}}
+
+{{< readfile file="content/reusable/md/EOL_a1.md" >}}
+
+{{< /danger >}}
+
+{{< readfile file="content/reusable/md/chef_manager.md" >}}
 
 The manage.rb file is the default configuration file used by Chef
 management console. These settings are applied every time

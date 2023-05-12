@@ -16,9 +16,17 @@ product = []
 
 {{< chef_automate_mark >}}
 
-{{% EOL_manage %}}
+{{< warning >}}
 
-{{% EOL_a1 %}}
+{{< readfile file="content/reusable/md/EOL_manage.md" >}}
+
+{{< /warning >}}
+
+{{< danger >}}
+
+{{< readfile file="content/reusable/md/EOL_a1.md" >}}
+
+{{< /danger >}}
 
 The Chef management console includes a command-line utility named
 `chef-manage-ctl`. This command-line tool is used to reconfigure,

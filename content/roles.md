@@ -13,17 +13,17 @@ product = ["client", "server"]
     weight = 70
 +++
 <!-- markdownlint-disable-file MD033 -->
-{{% role %}}
+{{< readfile file="content/reusable/md/role.md" >}}
 
 ## Role Attributes
 
 {{< note >}}
 
-{{% notes_see_attributes_overview %}}
+{{< readfile file="content/reusable/md/notes_see_attributes_overview.md" >}}
 
 {{< /note >}}
 
-{{% role_attribute %}}
+{{< readfile file="content/reusable/md/role_attribute.md" >}}
 
 ### Attribute Types
 
@@ -43,11 +43,11 @@ There are two types of attributes that can be used with roles:
 <tbody>
 <tr>
 <td><code>default</code></td>
-<td>{{< readfile file="layouts/shortcodes/node_attribute_type_default.md" >}}</td>
+<td>{{< readfile file="content/reusable/md/node_attribute_type_default.md" >}}</td>
 </tr>
 <tr>
 <td><code>override</code></td>
-<td>{{< readfile file="layouts/shortcodes/node_attribute_type_override.md" >}}</td>
+<td>{{< readfile file="content/reusable/md/node_attribute_type_override.md" >}}</td>
 </tr>
 </tbody>
 </table>
@@ -59,7 +59,7 @@ domain-specific language or as JSON data.
 
 ### Chef Language
 
-{{% ruby_summary %}}
+{{< readfile file="content/reusable/md/ruby_summary.md" >}}
 
 Domain-specific Ruby attributes:
 

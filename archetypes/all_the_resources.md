@@ -34,7 +34,11 @@ The properties and actions in this section apply to all resources.
 
 ### Actions
 
-{{% resources_common_actions %}}
+The following actions may be used with any resource:
+
+`:nothing`
+
+: {{< readfile file="content/reusable/md/resources_common_actions_nothing.md" >}}
 
 #### Examples
 
@@ -42,7 +46,7 @@ The following examples show how to use common actions in a recipe.
 
 **Use the :nothing action**
 
-{{% resource_service_use_nothing_action %}}
+{{< readfile file="content/reusable/md/resource_service_use_nothing_action.md" >}}
 
 ### Properties
 
@@ -74,23 +78,23 @@ The following examples show how to use common properties in a recipe.
 
 **Use the ignore_failure common property**
 
-{{% resource_package_use_ignore_failure_attribute %}}
+{{< readfile file="content/reusable/md/resource_package_use_ignore_failure_attribute.md" >}}
 
 **Use the retries and retry_delay common properties**
 
-{{% resource_service_use_retries_properties %}}
+{{< readfile file="content/reusable/md/resource_service_use_retries_properties.md" >}}
 
 ### Guards
 
-{{% resources_common_guards %}}
+{{< readfile file="content/reusable/md/resources_common_guards.md" >}}
 
 #### Properties
 
-{{% resources_common_guards_properties %}}
+{{< readfile file="content/reusable/md/resources_common_guards_properties.md" >}}
 
 #### Arguments
 
-{{% resources_common_guards_arguments %}}
+{{< readfile file="content/reusable/md/resources_common_guards_arguments.md" >}}
 
 #### not_if Examples
 
@@ -199,37 +203,37 @@ end
 
 ### Guard Interpreters
 
-{{% resources_common_guard_interpreter %}}
+{{< readfile file="content/reusable/md/resources_common_guard_interpreter.md" >}}
 
 #### Attributes
 
-{{% resources_common_guard_interpreter_attributes %}}
+{{< readfile file="content/reusable/md/resources_common_guard_interpreter_attributes.md" >}}
 
 #### Inheritance
 
-{{% resources_common_guard_interpreter_attributes_inherit %}}
+{{< readfile file="content/reusable/md/resources_common_guard_interpreter_attributes_inherit.md" >}}
 
 #### Examples
 
-{{% resources_common_guard_interpreter_example_default %}}
+{{< readfile file="content/reusable/md/resources_common_guard_interpreter_example_default.md" >}}
 
 ### Lazy Evaluation
 
-{{% resources_common_lazy_evaluation %}}
+{{< readfile file="content/reusable/md/resources_common_lazy_evaluation.md" >}}
 
 ### Notifications
 
-{{% resources_common_notification %}}
+{{< readfile file="content/reusable/md/resources_common_notification.md" >}}
 
 #### Timers
 
-{{% resources_common_notification_timers %}}
+{{< readfile file="content/reusable/md/resources_common_notification_timers.md" >}}
 
 #### Notifies
 
-{{% resources_common_notification_notifies %}}
+{{< readfile file="content/reusable/md/resources_common_notification_notifies.md" >}}
 
-{{% resources_common_notification_notifies_syntax %}}
+{{< readfile file="content/reusable/md/resources_common_notification_notifies_syntax.md" >}}
 
 ##### Examples
 
@@ -237,53 +241,53 @@ The following examples show how to use the `notifies` notification in a recipe.
 
 **Delay notifications**
 
-{{% resource_template_notifies_delay %}}
+{{< readfile file="content/reusable/md/resource_template_notifies_delay.md" >}}
 
 **Notify immediately**
 
-{{% resource_template_notifies_run_immediately %}}
+{{< readfile file="content/reusable/md/resource_template_notifies_run_immediately.md" >}}
 
 **Notify multiple resources**
 
-{{% resource_template_notifies_multiple_resources %}}
+{{< readfile file="content/reusable/md/resource_template_notifies_multiple_resources.md" >}}
 
 **Notify in a specific order**
 
-{{% resource_execute_notifies_specific_order %}}
+{{< readfile file="content/reusable/md/resource_execute_notifies_specific_order.md" >}}
 
 **Reload a service**
 
-{{% resource_template_notifies_reload_service %}}
+{{< readfile file="content/reusable/md/resource_template_notifies_reload_service.md" >}}
 
 **Restart a service when a template is modified**
 
-{{% resource_template_notifies_restart_service_when_template_modified %}}
+{{< readfile file="content/reusable/md/resource_template_notifies_restart_service_when_template_modified.md" >}}
 
 **Send notifications to multiple resources**
 
-{{% resource_template_notifies_send_notifications_to_multiple_resources %}}
+{{< readfile file="content/reusable/md/resource_template_notifies_send_notifications_to_multiple_resources.md" >}}
 
 **Execute a command using a template**
 
-{{% resource_execute_command_from_template %}}
+{{< readfile file="content/reusable/md/resource_execute_command_from_template.md" >}}
 
 **Restart a service, and then notify a different service**
 
-{{% resource_service_restart_and_notify %}}
+{{< readfile file="content/reusable/md/resource_service_restart_and_notify.md" >}}
 
 **Restart one service before restarting another**
 
-{{% resource_before_notification_restart %}}
+{{< readfile file="content/reusable/md/resource_before_notification_restart.md" >}}
 
 **Notify when a remote source changes**
 
-{{% resource_remote_file_transfer_remote_source_changes %}}
+{{< readfile file="content/reusable/md/resource_remote_file_transfer_remote_source_changes.md" >}}
 
 #### Subscribes
 
-{{% resources_common_notification_subscribes %}}
+{{< readfile file="content/reusable/md/resources_common_notification_subscribes.md" >}}
 
-{{% resources_common_notification_subscribes_syntax %}}
+{{< readfile file="content/reusable/md/resources_common_notification_subscribes_syntax.md" >}}
 
 ##### Examples
 
@@ -291,11 +295,11 @@ The following examples show how to use the `subscribes` notification in a recipe
 
 **Prevent restart and reconfigure if configuration is broken**
 
-{{% resource_execute_subscribes_prevent_restart_and_reconfigure %}}
+{{< readfile file="content/reusable/md/resource_execute_subscribes_prevent_restart_and_reconfigure.md" >}}
 
 **Reload a service using a template**
 
-{{% resource_service_subscribes_reload_using_template %}}
+{{< readfile file="content/reusable/md/resource_service_subscribes_reload_using_template.md" >}}
 
 **Stash a file in a data bag**
 
@@ -329,35 +333,35 @@ end
 
 ### Relative Paths
 
-{{% resources_common_relative_paths %}}
+{{< readfile file="content/reusable/md/resources_common_relative_paths.md" >}}
 
 #### Examples
 
-{{% resource_template_use_relative_paths %}}
+{{< readfile file="content/reusable/md/resource_template_use_relative_paths.md" >}}
 
 ### Run in Compile Phase
 
-{{% resources_common_compile %}}
+{{< readfile file="content/reusable/md/resources_common_compile.md" >}}
 
 #### run_action
 
-{{% resources_common_compile_begin %}}
+{{< readfile file="content/reusable/md/resources_common_compile_begin.md" >}}
 
 ### Atomic File Updates
 
-{{% resources_common_atomic_update %}}
+{{< readfile file="content/reusable/md/resources_common_atomic_update.md" >}}
 
 ### Windows File Security
 
-{{% resources_common_windows_security %}}
+{{< readfile file="content/reusable/md/resources_common_windows_security.md" >}}
 
 **Access Control Lists (ACLs)**
 
-{{% resources_common_windows_security_acl %}}
+{{< readfile file="content/reusable/md/resources_common_windows_security_acl.md" >}}
 
 **Inheritance**
 
-{{% resources_common_windows_security_inherits %}}
+{{< readfile file="content/reusable/md/resources_common_windows_security_inherits.md" >}}
 
 ## Resources
 

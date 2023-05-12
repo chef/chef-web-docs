@@ -47,8 +47,18 @@ Legacy config mapping:
 
 ### Attribute Blocklist
 
-{{% node_attribute_blocklist %}}
+{{< warning >}}
+
+{{< readfile file="content/reusable/md/node_attribute_blocklist_warning.md" >}}
+
+{{< /warning >}}
+
+{{< readfile file="content/reusable/md/node_attribute_blocklist.md" >}}
 
 ### Attribute Allowlist
 
-{{% node_attribute_allowlist %}}
+{{< warning >}}
+
+{{< readfile file="content/reusable/md/node_attribute_allowlist_warning.md" >}}
+
+{{< /warning >}}

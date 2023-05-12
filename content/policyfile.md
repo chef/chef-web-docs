@@ -13,7 +13,7 @@ product = ["client", "server"]
     weight = 20
 +++
 
-{{% policyfile_summary %}}
+{{< readfile file="content/reusable/md/policyfile_summary.md" >}}
 
 ## Why Policyfiles?
 
@@ -96,19 +96,19 @@ knife node policy set test-node 'test-policy-group-name' 'test-policy-name'
 
 ## Policyfile.rb
 
-{{% policyfile_rb %}}
+{{< readfile file="content/reusable/md/policyfile_rb.md" >}}
 
 ### Syntax
 
-{{% policyfile_rb_syntax %}}
+{{< readfile file="content/reusable/md/policyfile_rb_syntax.md" >}}
 
 ### Settings
 
-{{% policyfile_rb_settings %}}
+{{< readfile file="content/reusable/md/policyfile_rb_settings.md" >}}
 
 ### Example
 
-{{% policyfile_rb_example %}}
+{{< readfile file="content/reusable/md/policyfile_rb_example.md" >}}
 
 ## client.rb Settings
 
@@ -197,7 +197,7 @@ As `chef_zero` explicitly tests outside the context of a Chef Infra Server, the 
 
 ## chef Commands
 
-{{% policyfile_chef_commands %}}
+{{< readfile file="content/reusable/md/policyfile_chef_commands.md" >}}
 
 ### chef clean-policy-cookbooks
 
@@ -345,9 +345,9 @@ This subcommand requires using one (or more) of the options (below) to support P
 
 #### Policyfile.lock.json
 
-{{% policyfile_lock_json %}}
+{{< readfile file="content/reusable/md/policyfile_lock_json.md" >}}
 
-{{% policyfile_lock_json_example %}}
+{{< readfile file="content/reusable/md/policyfile_lock_json_example.md" >}}
 
 ### chef push
 

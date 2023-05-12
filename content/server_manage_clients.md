@@ -15,7 +15,11 @@ product = []
 
 {{< chef_automate_mark >}}
 
-{{% EOL_manage %}}
+{{< warning >}}
+
+{{< readfile file="content/reusable/md/EOL_manage.md" >}}
+
+{{< /warning >}}
 
 {{< note >}}
 
@@ -147,7 +151,7 @@ To set permissions list for a client key:
 
 #### Update
 
-{{% manage_webui_policy_client_permissions_add %}}
+{{< readfile file="content/reusable/md/manage_webui_policy_client_permissions_add.md" >}}
 
 #### View
 
@@ -163,9 +167,9 @@ To view permissions for a client key:
 
 ## chef-validator Keys
 
-{{% security_chef_validator %}}
+{{< readfile file="content/reusable/md/security_chef_validator.md" >}}
 
-{{% security_chef_validator_context %}}
+{{< readfile file="content/reusable/md/security_chef_validator_context.md" >}}
 
 ### Add
 
@@ -212,7 +216,7 @@ To delete a chef-validator key:
 
 ### Reset Key
 
-{{% manage_webui_policy_validation_reset_key %}}
+{{< readfile file="content/reusable/md/manage_webui_policy_validation_reset_key.md" >}}
 
 ### View Details
 
@@ -252,7 +256,7 @@ To update the permissions list for a chef-validator key:
 
 #### Update
 
-{{% manage_webui_policy_client_permissions_add %}}
+{{< readfile file="content/reusable/md/manage_webui_policy_client_permissions_add.md" >}}
 
 #### View
 

@@ -13,7 +13,7 @@ gh_repo = "chef-web-docs"
 
 ## search
 
-{{% search %}}
+{{< readfile file="content/reusable/md/search.md" >}}
 
 Use the `search` method to perform a search query against the Chef Infra Server from within a recipe.
 
@@ -45,47 +45,47 @@ end
 
 ### :filter_result
 
-{{% infra_lang_method_search_filter_result %}}
+{{< readfile file="content/reusable/md/infra_lang_method_search_filter_result.md" >}}
 
 ### Query Syntax
 
-{{% search_query_syntax %}}
+{{< readfile file="content/reusable/md/search_query_syntax.md" >}}
 
 #### Keys
 
-{{% search_key %}}
+{{< readfile file="content/reusable/md/search_key.md" >}}
 
 #### Nested Fields
 
-{{% search_key_nested %}}
+{{< readfile file="content/reusable/md/search_key_nested.md" >}}
 
 #### Patterns
 
-{{% search_pattern %}}
+{{< readfile file="content/reusable/md/search_pattern.md" >}}
 
 #### Exact Match
 
-{{% search_pattern_exact %}}
+{{< readfile file="content/reusable/md/search_pattern_exact.md" >}}
 
 #### Wildcard Match
 
-{{% search_pattern_wildcard %}}
+{{< readfile file="content/reusable/md/search_pattern_wildcard.md" >}}
 
 #### Range Match
 
-{{% search_pattern_range %}}
+{{< readfile file="content/reusable/md/search_pattern_range.md" >}}
 
 #### Fuzzy Match
 
-{{% search_pattern_fuzzy %}}
+{{< readfile file="content/reusable/md/search_pattern_fuzzy.md" >}}
 
 #### Operators
 
-{{% search_boolean_operators %}}
+{{< readfile file="content/reusable/md/search_boolean_operators.md" >}}
 
 #### Special Characters
 
-{{% search_special_characters %}}
+{{< readfile file="content/reusable/md/search_special_characters.md" >}}
 
 ### Examples
 

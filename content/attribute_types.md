@@ -19,9 +19,9 @@ competing values available during a Chef Infra Client run:
 
 | Attribute Type | Description                             |
 |----------------|-----------------------------------------|
-| default        | {{< readfile file="layouts/shortcodes/node_attribute_type_default.md" >}}                               |
+| default        | {{< readfile file="content/reusable/md/node_attribute_type_default.md" >}}                               |
 | force_default  | Use the force_default attribute to ensure that an attribute defined in a cookbook (by an attribute file or by a recipe) takes precedence over a default attribute set by a role or an environment.    |
-| normal         | {{< readfile file="layouts/shortcodes/node_attribute_type_normal.md" >}}         |
-| override       | {{< readfile file="layouts/shortcodes/node_attribute_type_override.md" >}}       |
+| normal         | {{< readfile file="content/reusable/md/node_attribute_type_normal.md" >}}         |
+| override       | {{< readfile file="content/reusable/md/node_attribute_type_override.md" >}}       |
 | force_override | Use the force_override attribute to ensure that an attribute defined in a cookbook (by an attribute file or by a recipe) takes precedence over an override attribute set by a role or an environment. |
-| automatic      | {{< readfile file="layouts/shortcodes/node_attribute_type_automatic.md" >}}     |
+| automatic      | {{< readfile file="content/reusable/md/node_attribute_type_automatic.md" >}}     |

@@ -13,10 +13,10 @@ gh_repo = "chef-web-docs"
 
 ## Log Entries
 
-{{% ruby_style_basics_chef_log %}}
+{{< readfile file="content/reusable/md/ruby_style_basics_chef_log.md" >}}
 
 ### Examples
 
-{{% ruby_class_chef_log_fatal %}}
+{{< readfile file="content/reusable/md/ruby_class_chef_log_fatal.md" >}}
 
-{{% ruby_class_chef_log_multiple %}}
+{{< readfile file="content/reusable/md/ruby_class_chef_log_multiple.md" >}}

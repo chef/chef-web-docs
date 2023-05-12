@@ -14,7 +14,7 @@ aliases = ["/ohai.html"]
     weight = 10
 +++
 
-{{% ohai_summary %}}
+{{< readfile file="content/reusable/md/ohai_summary.md" >}}
 
 Ohai collects data for many platforms, including AIX, macOS, Linux, FreeBSD, Solaris, and any Windows operating systems.
 
@@ -24,23 +24,33 @@ See the [Chef Infra Client release notes](/release_notes_client/) for the latest
 
 {{< note >}}
 
-{{% notes_see_attributes_overview %}}
+{{< readfile file="content/reusable/md/notes_see_attributes_overview.md" >}}
 
 {{< /note >}}
 
-{{% ohai_automatic_attribute %}}
+{{< readfile file="content/reusable/md/ohai_automatic_attribute.md" >}}
 
 ### Get a list of automatic attributes for a node
 
-{{% ohai_attribute_list %}}
+{{< readfile file="content/reusable/md/ohai_attribute_list.md" >}}
 
 ### Attributes Blocklist
 
-{{% node_attribute_blocklist %}}
+{{< warning >}}
+
+{{< readfile file="content/reusable/md/node_attribute_blocklist_warning.md" >}}
+
+{{< /warning >}}
+
+{{< readfile file="content/reusable/md/node_attribute_blocklist.md" >}}
 
 ### Attribute Allowlist
 
-{{% node_attribute_allowlist %}}
+{{< warning >}}
+
+{{< readfile file="content/reusable/md/node_attribute_allowlist_warning.md" >}}
+
+{{< /warning >}}
 
 ## Default Plugins
 
@@ -237,9 +247,9 @@ The Ohai optional_plugins config array must contain an array of plugin names as 
 
 ## Ohai Settings in client.rb
 
-{{% config_rb_ohai %}}
+{{< readfile file="content/reusable/md/config_rb_ohai.md" >}}
 
-{{% config_rb_ohai_settings %}}
+{{< readfile file="content/reusable/md/config_rb_ohai_settings.md" >}}
 
 ## Custom Plugins
 

@@ -14,17 +14,17 @@ aliases = ["/handlers.html", "essentials_handlers.html"]
     weight = 40
 +++
 <!-- markdownlint-disable-file MD033 -->
-{{% handler %}}
+{{< readfile file="content/reusable/md/handler.md" >}}
 
-{{% handler_types %}}
+{{< readfile file="content/reusable/md/handler_types.md" >}}
 
 ## Exception/Report Handlers
 
-{{% handler_type_exception_report %}}
+{{< readfile file="content/reusable/md/handler_type_exception_report.md" >}}
 
 ### Run from Recipes
 
-{{% handler_type_exception_report_run_from_recipe %}}
+{{< readfile file="content/reusable/md/handler_type_exception_report_run_from_recipe.md" >}}
 
 ### Run from client.rb
 
@@ -69,11 +69,11 @@ exception_handlers << email_handler           # run at the end of a failed run
 
 ## Start Handlers
 
-{{% handler_type_start %}}
+{{< readfile file="content/reusable/md/handler_type_start.md" >}}
 
 ### Run from Recipes
 
-{{% handler_type_start_run_from_recipe %}}
+{{< readfile file="content/reusable/md/handler_type_start_run_from_recipe.md" >}}
 
 ### Run from client.rb
 
@@ -120,15 +120,15 @@ end
 
 ## Event Handlers
 
-{{% dsl_handler_summary %}}
+{{< readfile file="content/reusable/md/dsl_handler_summary.md" >}}
 
 ### on Method
 
-{{% dsl_handler_method_on %}}
+{{< readfile file="content/reusable/md/dsl_handler_method_on.md" >}}
 
 ### Event Types
 
-{{% dsl_handler_event_types %}}
+{{< readfile file="content/reusable/md/dsl_handler_event_types.md" >}}
 
 ### Examples
 
@@ -136,27 +136,27 @@ The following examples show ways to use the Handler DSL.
 
 #### Send Email
 
-{{% dsl_handler_slide_send_email %}}
+{{< readfile file="content/reusable/md/dsl_handler_slide_send_email.md" >}}
 
 ##### Define How Email is Sent
 
-{{% dsl_handler_slide_send_email_library %}}
+{{< readfile file="content/reusable/md/dsl_handler_slide_send_email_library.md" >}}
 
 ##### Add the Handler
 
-{{% dsl_handler_slide_send_email_handler %}}
+{{< readfile file="content/reusable/md/dsl_handler_slide_send_email_handler.md" >}}
 
 ##### Test the Handler
 
-{{% dsl_handler_slide_send_email_test %}}
+{{< readfile file="content/reusable/md/dsl_handler_slide_send_email_test.md" >}}
 
 #### etcd Locks
 
-{{% dsl_handler_example_etcd_lock %}}
+{{< readfile file="content/reusable/md/dsl_handler_example_etcd_lock.md" >}}
 
 #### HipChat Notifications
 
-{{% dsl_handler_example_hipchat %}}
+{{< readfile file="content/reusable/md/dsl_handler_example_hipchat.md" >}}
 
 ## Handlers and Cookbooks
 
@@ -581,4 +581,4 @@ end
 
 ### Community Handlers
 
-{{% handler_community_handlers %}}
+{{< readfile file="content/reusable/md/handler_community_handlers.md" >}}

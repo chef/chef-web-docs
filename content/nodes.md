@@ -13,9 +13,9 @@ product = ["client", "server"]
     weight = 30
 +++
 <!-- markdownlint-disable-file MD033 -->
-{{% node %}}
+{{< readfile file="content/reusable/md/node.md" >}}
 
-{{% node_types %}}
+{{< readfile file="content/reusable/md/node_types.md" >}}
 
 The key components of nodes that are under management by Chef include:
 
@@ -33,12 +33,12 @@ The key components of nodes that are under management by Chef include:
 <tbody>
 <tr>
 <td><p><img src="/images/icon_chef_client.svg" class="align-center" width="130" alt="image" /></p></td>
-<td><p>{{< readfile file="layouts/shortcodes/chef_client_summary.md" >}}</p>
-<p>{{< readfile file="layouts/shortcodes/security_key_pairs_chef_client.md" >}}</p></td>
+<td><p>{{< readfile file="content/reusable/md/chef_client_summary.md" >}}</p>
+<p>{{< readfile file="content/reusable/md/security_key_pairs_chef_client.md" >}}</p></td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_ohai.svg" class="align-center" width="130" alt="image" /></p></td>
-<td>{{< readfile file="layouts/shortcodes/ohai_summary.md" >}}</td>
+<td>{{< readfile file="content/reusable/md/ohai_summary.md" >}}</td>
 </tr>
 </tbody>
 </table>
@@ -78,7 +78,7 @@ Server. Chef Infra Client gets a copy of the node object from the Chef
 Infra Server during each Chef Infra Client run and places an updated
 copy on the Chef Infra Server at the end of each Chef Infra Client run.
 
-{{% node_attribute %}}
+{{< readfile file="content/reusable/md/node_attribute.md" >}}
 
 ### Attributes
 
@@ -115,11 +115,11 @@ See [Attributes](/attributes) for detailed information on the different types of
 
 ### Run-lists
 
-{{% node_run_list %}}
+{{< readfile file="content/reusable/md/node_run_list.md" >}}
 
 #### Run-list Format
 
-{{% node_run_list_format %}}
+{{< readfile file="content/reusable/md/node_run_list_format.md" >}}
 
 ## Managing Nodes
 

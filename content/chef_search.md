@@ -13,7 +13,7 @@ product = ["client", "server", "workstation"]
     weight = 70
 +++
 <!-- markdownlint-disable-file MD033 -->
-{{% search %}}
+{{< readfile file="content/reusable/md/search.md" >}}
 
 Many of the examples in this section use knife, but the search indexes
 and search query syntax can be used in many locations, including from
@@ -106,7 +106,7 @@ following search indexes are built:
 
 ## Query Syntax
 
-{{% search_query_syntax %}}
+{{< readfile file="content/reusable/md/search_query_syntax.md" >}}
 
 {{< note >}}
 
@@ -116,83 +116,83 @@ Search queries may not contain newlines.
 
 ## Filter Search Results
 
-{{% infra_lang_method_search_filter_result %}}
+{{< readfile file="content/reusable/md/infra_lang_method_search_filter_result.md" >}}
 
 ## Keys
 
-{{% search_key %}}
+{{< readfile file="content/reusable/md/search_key.md" >}}
 
 ### Nested Fields
 
-{{% search_key_nested %}}
+{{< readfile file="content/reusable/md/search_key_nested.md" >}}
 
 ### Examples
 
-{{% search_key_name %}}
+{{< readfile file="content/reusable/md/search_key_name.md" >}}
 
-{{% search_key_wildcard_question_mark %}}
+{{< readfile file="content/reusable/md/search_key_wildcard_question_mark.md" >}}
 
-{{% search_key_wildcard_asterisk %}}
+{{< readfile file="content/reusable/md/search_key_wildcard_asterisk.md" >}}
 
-{{% search_key_nested_starting_with %}}
+{{< readfile file="content/reusable/md/search_key_nested_starting_with.md" >}}
 
-{{% search_key_nested_range %}}
+{{< readfile file="content/reusable/md/search_key_nested_range.md" >}}
 
 ## Patterns
 
-{{% search_pattern %}}
+{{< readfile file="content/reusable/md/search_pattern.md" >}}
 
 ### Exact Matching
 
-{{% search_pattern_exact %}}
+{{< readfile file="content/reusable/md/search_pattern_exact.md" >}}
 
-{{% search_pattern_exact_key_and_item %}}
+{{< readfile file="content/reusable/md/search_pattern_exact_key_and_item.md" >}}
 
-{{% search_pattern_exact_key_and_item_string %}}
+{{< readfile file="content/reusable/md/search_pattern_exact_key_and_item_string.md" >}}
 
 ### Wildcard Matching
 
-{{% search_pattern_wildcard %}}
+{{< readfile file="content/reusable/md/search_pattern_wildcard.md" >}}
 
-{{% search_pattern_wildcard_any_node %}}
+{{< readfile file="content/reusable/md/search_pattern_wildcard_any_node.md" >}}
 
-{{% search_pattern_wildcard_node_contains %}}
+{{< readfile file="content/reusable/md/search_pattern_wildcard_node_contains.md" >}}
 
 ### Range Matching
 
-{{% search_pattern_range %}}
+{{< readfile file="content/reusable/md/search_pattern_range.md" >}}
 
-{{% search_pattern_range_in_between %}}
+{{< readfile file="content/reusable/md/search_pattern_range_in_between.md" >}}
 
-{{% search_pattern_range_exclusive %}}
+{{< readfile file="content/reusable/md/search_pattern_range_exclusive.md" >}}
 
 ### Fuzzy Matching
 
-{{% search_pattern_fuzzy %}}
+{{< readfile file="content/reusable/md/search_pattern_fuzzy.md" >}}
 
-{{% search_pattern_fuzzy_summary %}}
+{{< readfile file="content/reusable/md/search_pattern_fuzzy_summary.md" >}}
 
 ## Operators
 
-{{% search_boolean_operators %}}
+{{< readfile file="content/reusable/md/search_boolean_operators.md" >}}
 
-{{% search_boolean_operators_andnot %}}
+{{< readfile file="content/reusable/md/search_boolean_operators_andnot.md" >}}
 
 ### AND
 
-{{% search_boolean_and %}}
+{{< readfile file="content/reusable/md/search_boolean_and.md" >}}
 
 ### NOT
 
-{{% search_boolean_not %}}
+{{< readfile file="content/reusable/md/search_boolean_not.md" >}}
 
 ### OR
 
-{{% search_boolean_or %}}
+{{< readfile file="content/reusable/md/search_boolean_or.md" >}}
 
 ## Special Characters
 
-{{% search_special_characters %}}
+{{< readfile file="content/reusable/md/search_special_characters.md" >}}
 
 ## Targets
 
@@ -376,12 +376,12 @@ be used in templates as a variable, among other possible uses.
 
 ### Environments
 
-{{% environment %}}
+{{< readfile file="content/reusable/md/environment.md" >}}
 
-{{% search_environment %}}
+{{< readfile file="content/reusable/md/search_environment.md" >}}
 
 ### Data Bags
 
-{{% data_bag %}}
+{{< readfile file="content/reusable/md/data_bag.md" >}}
 
-{{% search_data_bag %}}
+{{< readfile file="content/reusable/md/search_data_bag.md" >}}

@@ -14,7 +14,7 @@ aliases = ["/resource.html"]
     weight = 10
 +++
 <!-- markdownlint-disable-file MD033 -->
-{{% resources_common %}}
+{{< readfile file="content/reusable/md/resources_common.md" >}}
 
 ## Resource Syntax
 

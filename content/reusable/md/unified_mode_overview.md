@@ -1,0 +1,2 @@
+
+Unified mode is a setting that will compile and converge a custom resource's action block in one pass and in the order that the code inside that block is composed, from beginning to end. This replaces Chef Infra's two-pass parsing with single-pass parsing so that resources are executed as soon as they are declared. This results in clearer code and requires less Ruby knowledge to understand the order of operations.

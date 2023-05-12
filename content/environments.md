@@ -13,7 +13,7 @@ product = ["client", "server"]
     weight = 60
 +++
 <!-- markdownlint-disable-file MD033 -->
-{{% environment %}}
+{{< readfile file="content/reusable/md/environment.md" >}}
 
 ## The `_default` Environment
 
@@ -30,11 +30,11 @@ patterns and workflow. For example, creating `production`, `staging`,
 
 {{< note >}}
 
-{{% notes_see_attributes_overview %}}
+{{< readfile file="content/reusable/md/notes_see_attributes_overview.md" >}}
 
 {{< /note >}}
 
-{{% environment_attribute %}}
+{{< readfile file="content/reusable/md/environment_attribute.md" >}}
 
 ### Environment Attribute Types
 
@@ -54,11 +54,11 @@ There are two types of attributes that can be used with environments:
 <tbody>
 <tr>
 <td><code>default</code></td>
-<td>{{< readfile file="layouts/shortcodes/node_attribute_type_default.md" >}}</td>
+<td>{{< readfile file="content/reusable/md/node_attribute_type_default.md" >}}</td>
 </tr>
 <tr>
 <td><code>override</code></td>
-<td>{{< readfile file="layouts/shortcodes/node_attribute_type_override.md" >}}</td>
+<td>{{< readfile file="content/reusable/md/node_attribute_type_override.md" >}}</td>
 </tr>
 </tbody>
 </table>
@@ -407,8 +407,8 @@ knife exec -E 'nodes.transform("chef_environment:dev") { |n| n.chef_environment(
 
 ### Search Environments
 
-{{% search_environment %}}
+{{< readfile file="content/reusable/md/search_environment.md" >}}
 
 ## Environments in Chef Solo
 
-{{% chef_solo_environments %}}
+{{< readfile file="content/reusable/md/chef_solo_environments.md" >}}

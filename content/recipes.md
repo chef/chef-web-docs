@@ -12,15 +12,15 @@ aliases = ["/recipes.html", "essentials_cookbook_recipes.html"]
     weight = 10
 +++
 
-{{% cookbooks_recipe %}}
+{{< readfile file="content/reusable/md/cookbooks_recipe.md" >}}
 
 ## Recipe Attributes
 
-{{% cookbooks_attribute %}}
+{{< readfile file="content/reusable/md/cookbooks_attribute.md" >}}
 
 {{< note >}}
 
-{{% notes_see_attributes_overview %}}
+{{< readfile file="content/reusable/md/notes_see_attributes_overview.md" >}}
 
 {{< /note >}}
 
@@ -56,7 +56,7 @@ The following sections show approaches to working with recipes.
 
 ### Use Data Bags
 
-{{% data_bag %}}
+{{< readfile file="content/reusable/md/data_bag.md" >}}
 
 The contents of a data bag can be loaded into a recipe. For example, a
 data bag named `apps` and a data bag item named `my_app`:
@@ -82,7 +82,7 @@ my_bag['repository'] #=> 'git://github.com/company/my_app.git'
 
 #### Secret Keys
 
-{{% data_bag_encryption_secret_key %}}
+{{< readfile file="content/reusable/md/data_bag_encryption_secret_key.md" >}}
 
 #### Store Keys on Nodes
 
@@ -131,7 +131,7 @@ depends 'apache2'
 
 ### Include Recipes
 
-{{% cookbooks_recipe_include_in_recipe %}}
+{{< readfile file="content/reusable/md/cookbooks_recipe_include_in_recipe.md" >}}
 
 ### Reload Attributes
 
@@ -330,7 +330,7 @@ sudo chef-solo -j /etc/chef/dna.json
 
 ### Use Search Results
 
-{{% search %}}
+{{< readfile file="content/reusable/md/search.md" >}}
 
 The results of a search query can be loaded into a recipe. For example,
 a simple search query (in a recipe) might look like this:
@@ -355,9 +355,9 @@ end
 
 ### Use Tags
 
-{{% chef_tags %}}
+{{< readfile file="content/reusable/md/chef_tags.md" >}}
 
-{{% cookbooks_recipe_tags %}}
+{{< readfile file="content/reusable/md/cookbooks_recipe_tags.md" >}}
 
 ### End Chef Infra Client Run
 

@@ -15,7 +15,11 @@ product = []
 
 {{< chef_automate_mark >}}
 
-{{% EOL_manage %}}
+{{< warning >}}
+
+{{< readfile file="content/reusable/md/EOL_manage.md" >}}
+
+{{< /warning >}}
 
 {{< note >}}
 
@@ -23,7 +27,7 @@ This topic is about using the Chef management console to manage roles.
 
 {{< /note >}}
 
-{{% role %}}
+{{< readfile file="content/reusable/md/role.md" >}}
 
 ## Manage
 
@@ -94,7 +98,7 @@ To view all roles uploaded to the Chef Infra Server organization:
 
 ## Run-lists
 
-{{% node_run_list %}}
+{{< readfile file="content/reusable/md/node_run_list.md" >}}
 
 ### Edit Role Run-list
 
@@ -118,7 +122,7 @@ To edit the run-list for a role:
 
 ## Default Attributes
 
-{{% node_attribute_type_default %}}
+{{< readfile file="content/reusable/md/node_attribute_type_default.md" >}}
 
 ### Edit Default Attributes
 
@@ -155,7 +159,7 @@ To view default attributes for a role:
 
 ## Override Attributes
 
-{{% node_attribute_type_override %}}
+{{< readfile file="content/reusable/md/node_attribute_type_override.md" >}}
 
 ### Edit Override Attributes
 

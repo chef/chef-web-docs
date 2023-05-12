@@ -23,9 +23,9 @@ aliases = ["/chef_client_security.html", "/auth.html"]
 
 ### chef-validator
 
-{{% security_chef_validator %}}
+{{< readfile file="content/reusable/md/security_chef_validator.md" >}}
 
-{{% security_chef_validator_context %}}
+{{< readfile file="content/reusable/md/security_chef_validator_context.md" >}}
 
 ## SSL Certificates
 

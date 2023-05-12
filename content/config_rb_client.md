@@ -16,7 +16,7 @@ aliases = ["/config_rb_client.html"]
 
 <!-- markdownlint-disable-file MD046 -->
 
-{{% config_rb_client_summary %}}
+{{< readfile file="content/reusable/md/config_rb_client_summary.md" >}}
 
 ## Settings
 
@@ -419,17 +419,17 @@ A job entry may also be `'job-name' => {:lock => true}`, which will check the `l
 
 ### Automatic Proxy Config
 
-{{% proxy_env %}}
+{{< readfile file="content/reusable/md/proxy_env.md" >}}
 
 ## .d Directories
 
-{{% config_rb_client_dot_d_directories %}}
+{{< readfile file="content/reusable/md/config_rb_client_dot_d_directories.md" >}}
 
 ## Ohai Settings
 
-{{% config_rb_ohai %}}
+{{< readfile file="content/reusable/md/config_rb_ohai.md" >}}
 
-{{% config_rb_ohai_settings %}}
+{{< readfile file="content/reusable/md/config_rb_ohai_settings.md" >}}
 
 ## Example
 

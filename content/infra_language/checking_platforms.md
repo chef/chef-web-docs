@@ -383,7 +383,7 @@ value_for_platform(
 
 ### Operators
 
-{{% cookbooks_version_constraints_operators %}}
+{{< readfile file="content/reusable/md/cookbooks_version_constraints_operators.md" >}}
 
 ### Examples
 

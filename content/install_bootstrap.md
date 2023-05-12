@@ -13,13 +13,13 @@ product = ["client", "workstation"]
     weight = 10
 +++
 
-{{% chef_client_bootstrap_node %}}
+{{< readfile file="content/reusable/md/chef_client_bootstrap_node.md" >}}
 
-{{% chef_client_bootstrap_stages %}}
+{{< readfile file="content/reusable/md/chef_client_bootstrap_stages.md" >}}
 
 ## knife bootstrap
 
-{{% install_chef_client %}}
+{{< readfile file="content/reusable/md/install_chef_client.md" >}}
 
 ### Run the bootstrap command
 
