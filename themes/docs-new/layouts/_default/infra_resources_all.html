@@ -174,31 +174,16 @@
               {{ readFile "content/reusable/md/infra_lang_method_registry_data_exists_syntax.md" | markdownify }}
 
               <h5 id="dsl-recipe-method-registry-get-subkeys">registry_get_subkeys</h5>
-              {{ $shortcode := "layouts/shortcodes/infra_lang_method_registry_get_subkeys.md" }}
+              {{ readFile "content/reusable/md/infra_lang_method_registry_get_subkeys.md" | markdownify }}
 
-              {{ if in (readFile $shortcode) "readFile" }}
-                {{ $shortcode_text := newScratch }}
-                {{ $shortcode_text.Set "text" "" }}
-                {{ range split (readFile $shortcode) "\n"}}
-                  {{ if in . "readFile" }}
-                    {{ if ne $shortcode_text "" }}
-                      {{ $shortcode_text.Get "text" | markdownify }}
-                      {{ $shortcode_text.Set "text" "" }}
-                    {{ end }}
+              <div class="admonition-note">
+                <p class="admonition-note-title">Note</p>
+                <div class="admonition-note-text">
+                  {{ readFile "content/reusable/md/notes_registry_key_not_if_only_if.md" | markdownify }}
+                </div>
+              </div>
 
-                    <p>
-                      {{ readFile (. | replaceRE `{{ readFile \"(layouts\/shortcodes\/\w+\.md)\" \| markdownify }}` "$1" ) | markdownify }}
-                    </p>
-
-                  {{ else }}
-                    {{ $shortcode_text.Add "text" . }}
-                    {{ $shortcode_text.Add "text" "\n" }}
-                  {{ end }}
-                {{ end }}
-                {{ $shortcode_text.Get "text" | markdownify }}
-              {{ else }}
-                {{ readFile $shortcode | markdownify }}
-              {{ end }}
+              {{ readFile "content/reusable/md/infra_lang_method_registry_get_subkeys_syntax.md" | markdownify }}
 
               <h5 id="dsl-recipe-method-registry-get-values">registry_get_values</h5>
               {{ $shortcode := "layouts/shortcodes/infra_lang_method_registry_get_values.md" }}
