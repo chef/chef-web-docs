@@ -565,3 +565,25 @@ This is text in a warning.
 This is text in a danger notice.
 
 {{< /danger >}}
+
+### Beta
+
+{{< beta >}}
+
+This text tells the user that a feature or product is in beta.
+
+{{< /beta >}}
+
+{{< beta >}}
+
+This text tells the user that a feature or product is in beta. Ad excepteur incididunt laboris labore nisi nulla tempor nisi sunt. Do in officia deserunt magna proident minim nisi amet aute minim deserunt minim ut. Do exercitation excepteur deserunt magna elit ullamco labore eu dolore non consequat dolor. Sint reprehenderit labore veniam veniam commodo aute cupidatat nisi dolor tempor id.
+
+{{< /beta >}}
+
+{{< beta >}}
+
+The first line in multiple paragraphs gets bumped below the Beta div.
+
+Id minim deserunt et ullamco quis minim consectetur esse esse reprehenderit. Commodo exercitation consequat laboris laborum aliquip cillum veniam. Et ad dolor quis deserunt duis excepteur voluptate exercitation officia dolore minim consectetur elit.
+
+{{< /beta >}}
