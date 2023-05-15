@@ -58,9 +58,21 @@ If a user ignores a danger notice, they may lose data, money, work, or expose th
 When writing text in a danger notice, use short direct language and be specific about what will happen if someone ignores a danger notice.
 
 ```md
-{{</* danger /*/>}}
+{{</* danger */>}}
 
 This is text in a danger notice.
 
-{{</* /danger /*/>}}
+{{</* /danger */>}}
+```
+
+## Beta
+
+Add a beta notice to alert users to beta features or products. Include links to any supporting information and add advice about contacting support before implementing a beta feature. Place this notice at the top of a page before any other text.
+
+```md
+{{</* beta */>}}
+
+This is text in a beta notice.
+
+{{</* /beta */>}}
 ```
