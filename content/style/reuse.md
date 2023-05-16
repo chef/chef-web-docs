@@ -15,8 +15,6 @@ gh_repo = "chef-web-docs"
 
 This page describes how to create reusable text files or code examples that can be added to multiple pages.
 
-## Reusable text files
-
 If there are sections of text or code examples that appear in more than one location in Chef's documentation, that text should be sourced from a single file.
 Store these files in a [headless subdirectory named `reusable`](#reusable-directory) in the content directory and use the [readfile shortcode](#readfile-shortcode) to add the file text to a page.
 
@@ -36,7 +34,7 @@ For example:
 
 - `content/server/reusable/md/FILENAME.md`
 - `content/server/reusable/rb/RUBY_EXAMPLE.rb`
-- `content/server/reusable/rb/GO_EXAMPLE.go`
+- `content/server/reusable/go/GO_EXAMPLE.go`
 
 ## readfile shortcode
 
