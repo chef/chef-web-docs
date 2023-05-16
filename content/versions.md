@@ -51,6 +51,8 @@ use by customers.
 
 {{< important >}}
 
+Chef Client in general follows an N-1 strategy. This means that while 15 and 16 are available, they are supported. Once 17 is released, 15 is immediately placed into EOL status and no longer supported.
+
 Unless otherwise stated, versions older than those listed below are EOL.
 
 {{< /important >}}
