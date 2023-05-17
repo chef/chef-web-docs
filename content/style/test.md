@@ -191,11 +191,15 @@ This is some text that introduces an ordered list.
 
 ### Unordered lists
 
+**Plain list**
+
 A plain unordered list:
 
 - item 1
 - item 2
 - item 3
+
+**Plain list with multiple paragraphs**
 
 A plain unordered list with additional paragraphs in list items:
 
@@ -213,6 +217,8 @@ A plain unordered list with additional paragraphs in list items:
 
 Note that the text of each list item is now enclosed in a paragraph tag while the items in the plain list just had a list item tag.
 
+**Plain list with sublist**
+
 Here's a regular list with a sublist:
 
 - item 1
@@ -222,6 +228,8 @@ Here's a regular list with a sublist:
   - subitem 3
 - item 3
 - item 4
+
+**Plain list with paragraph introducing sublist**
 
 Here's a regular list with a second paragraph introducing a sublist:
 
@@ -234,6 +242,8 @@ Here's a regular list with a second paragraph introducing a sublist:
   - subitem 3
 - item 3
 - item 4
+
+**List with multiple paragraphs in sublist items**
 
 Here's a regular list with additional paragraphs in list items and sublists:
 
@@ -253,29 +263,38 @@ Here's a regular list with additional paragraphs in list items and sublists:
   Additional pargraph for item 3. Consequat dolore nostrud quis ad consectetur pariatur. Mollit culpa sit adipisicing adipisicing sint officia. Commodo minim culpa mollit labore ad fugiat ut sit aute dolor esse.
 - item 4
 
-Indent unordered sub-list items **2 spaces**.
+**List items with code blocks**
 
-- This is a list item
-- This is another list item in the same list
-  - To make a sub-item, indent two spaces.
-    - This is a sub-sub-item. Indent two more spaces.
-  - Another sub-item.
+This is a list with code blocks included with each list item:
 
-<!-- separate lists -->
+- Aute consectetur elit officia nostrud in nostrud irure elit deserunt:
 
-- This is a new list. With Hugo, you need to use a HTML comment to separate two
-  consecutive lists. **The HTML comment needs to be at the left margin.**
-- Bullet lists can have paragraphs or block elements within them.
-
-  Indent the content to be the same as the first line of the bullet point.
-  **This paragraph and the code block line up with the first `B` in `Bullet`
-  above.**
-
-  ```bash
-  ls -l
+  ```ruby
+  print "Hello, World!\n"
   ```
 
-  - And a sub-list after some block-level content
+- Consequat qui non commodo laborum:
+
+  ```ruby
+  def sum_eq_n?(arr, n)
+    return true if arr.empty? && n == 0
+
+    arr.product(arr).reject { |a,b| a == b }.any? { |a,b| a + b == n }
+  end
+  ```
+
+  Another paragraph before a nested list item:
+
+  - nested list item code example:
+
+    ```ruby
+    z = { 'mike' => 75, 'bill' => 18, 'alice' => 32 }
+    z['joe'] = 44
+    print z['bill'], " ", z['joe'], " ", z["smith"], "\n"
+    print z.has_key?('mike'), " ", z.has_key?("jones"), "\n"
+    ```
+
+- Ea dolor reprehenderit amet nostrud Lorem sunt officia duis.
 
 ### Description List
 
