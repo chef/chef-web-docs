@@ -17,7 +17,7 @@ require (
 	github.com/inspec/inspec-aws/docs-chef-io v0.0.0-20220228151600-69aa036b1527 // indirect
 	github.com/inspec/inspec-azure/docs-chef-io v0.0.0-20220228040450-e1b23e65979a // indirect
 	github.com/inspec/inspec-habitat/docs-chef-io v0.0.0-20220218210405-bfd542da49fd // indirect
-	github.com/inspec/inspec/docs-chef-io v0.0.0-20230124055446-81e11ff940e0 // indirect
+	github.com/inspec/inspec/docs-chef-io v0.0.0-20230516013457-3ecb812aac86 // indirect
 	github.com/swiftype/swiftype-autocomplete-jquery v0.0.0-20190222215504-a90008d64b30 // indirect
 	github.com/swiftype/swiftype-search-jquery v1.1.0 // indirect
 	github.com/twitter/hogan.js v3.0.2+incompatible // indirect

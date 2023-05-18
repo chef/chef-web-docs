@@ -47,8 +47,8 @@ github.com/inspec/inspec-azure/docs-chef-io v0.0.0-20220228040450-e1b23e65979a h
 github.com/inspec/inspec-azure/docs-chef-io v0.0.0-20220228040450-e1b23e65979a/go.mod h1:93+uw8FTBAWybBZIn45FzO5vnZDBh51lgMwMP1vvIqo=
 github.com/inspec/inspec-habitat/docs-chef-io v0.0.0-20220218210405-bfd542da49fd h1:DyqDEbj+OfJEvigVO37AsEaZMqC71rLgfb7aGR2jEEI=
 github.com/inspec/inspec-habitat/docs-chef-io v0.0.0-20220218210405-bfd542da49fd/go.mod h1:Q4E7QBY4b7HDE2psfGT9jqvnLq1yfg5e9KWK4VTtI/M=
-github.com/inspec/inspec/docs-chef-io v0.0.0-20230124055446-81e11ff940e0 h1:YgO/CBXXowGtBcAZzpnKP0+iKbVFmA9AWkYjpEWPLjw=
-github.com/inspec/inspec/docs-chef-io v0.0.0-20230124055446-81e11ff940e0/go.mod h1:oudFvipU0DTMkp8+MiwdUGerVEoWcJG0MQciDEOd6G8=
+github.com/inspec/inspec/docs-chef-io v0.0.0-20230516013457-3ecb812aac86 h1:tII2F6ho4mSxcm/k9IbpmFC5SclsZkjTnvEsivBt2Oc=
+github.com/inspec/inspec/docs-chef-io v0.0.0-20230516013457-3ecb812aac86/go.mod h1:oudFvipU0DTMkp8+MiwdUGerVEoWcJG0MQciDEOd6G8=
 github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:xMI15A0UPsDsEKsMN9yxemIoYk6Tm2C1GtYGdfGttqA=
 github.com/swiftype/swiftype-autocomplete-jquery v0.0.0-20190222215504-a90008d64b30 h1:dhqLFBINtD1rMwwd5s9INu4BkciCvQUd+r+CWUYWIB4=
 github.com/swiftype/swiftype-autocomplete-jquery v0.0.0-20190222215504-a90008d64b30/go.mod h1:qnxTyatkwE84LvoaQLPaLB4h5M3n6Q2z+SB/96DcAK8=
