@@ -70,7 +70,7 @@ commercial agreement with Chef. Additional information is available in
 | Chef Infra Server | 15.x                     | GA               | n/a            |
 | Chef Habitat      | 0.81+                    | GA               | n/a            |
 | Chef InSpec       | 5.x                      | GA               | n/a            |
-| Chef Workstation  | 21.x (2021), 22.x (2022) | GA               | n/a            |
+| Chef Workstation  | 22.x (2022), 23.x (2023) | GA               | n/a            |
 
 {{< note >}}
 

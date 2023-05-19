@@ -299,7 +299,7 @@ versions for the Chef Workstation:
 </tr>
 <tr>
 <td>macOS</td>
-<td><code>x86_64</code></td>
+<td><code>x86_64</code>, <code>aarch64</code></td>
 <td><code>10.15</code>, <code>11.x</code>, <code>12.x</code></td>
 </tr>
 <tr>
