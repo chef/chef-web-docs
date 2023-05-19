@@ -26,6 +26,7 @@ For Chef applications and components, use:
 - Chef Infra Server (Formerly Chef Server)
 - Chef InSpec
 - Chef Manage
+- Policyfile (not policyfile or policy file)
 - Supermarket
 
 Always capitalize product names and never hyphenate a product name or refer to a product by its CLI command.
