@@ -299,23 +299,23 @@ versions for the Chef Workstation:
 </tr>
 <tr>
 <td>macOS</td>
-<td><code>x86_64</code></td>
+<td><code>x86_64</code>, <code>aarch64</code></td>
 <td><code>10.15</code>, <code>11.x</code>, <code>12.x</code></td>
 </tr>
 <tr>
 <td>Debian</td>
 <td><code>x86_64</code></td>
-<td><code>9</code>, <code>10</code>, <code>11</code></td>
+<td><code>10</code>, <code>11</code></td>
 </tr>
 <tr>
 <td>Red Hat Enterprise Linux</td>
 <td><code>x86_64</code></td>
-<td><code>7.x</code>, <code>8.x</code></td>
+<td><code>7.x</code>, <code>8.x</code>, <code>9.x</code></td>
 </tr>
 <tr>
 <td>Ubuntu</td>
 <td><code>x86_64</code></td>
-<td><code>16.04</code>, <code>18.04</code>, <code>20.04</code></td>
+<td><code>18.04</code>, <code>20.04</code>, <code>22.04</code></td>
 </tr>
 <tr>
 <td>Windows</td>
