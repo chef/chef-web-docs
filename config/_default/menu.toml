@@ -770,6 +770,12 @@ identifier = "inspec"
     parent = "inspec/resources"
     weight = 60
 
+    [[inspec]]
+    title = "Kubernetes Resources"
+    identifier = "inspec/resources/k8s"
+    parent = "inspec/resources"
+    weight = 70
+
 ####
 # End Chef InSpec Menu
 ####

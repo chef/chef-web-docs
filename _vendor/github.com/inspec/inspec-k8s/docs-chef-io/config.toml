@@ -1,0 +1,2 @@
+[params.inspec-k8s]
+gh_path = "https://github.com/inspec/inspec-k8s/tree/main/docs-chef-io/content/"

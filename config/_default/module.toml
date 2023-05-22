@@ -214,6 +214,31 @@
   target = "layouts"
 
 ###
+# Chef InSpec K8s Cloud Resources
+###
+
+[[imports]]
+  disable = false
+  ignoreConfig = false
+  path = "github.com/inspec/inspec-k8s/docs-chef-io"
+
+[[imports.mounts]]
+  source = "/static"
+  target = "static"
+
+[[imports.mounts]]
+  source = "assets"
+  target = "assets"
+
+[[imports.mounts]]
+  source = "content"
+  target = "content"
+
+[[imports.mounts]]
+  source = "layouts"
+  target = "layouts"
+
+###
 # Chef Workstation
 ###
 
