@@ -12,7 +12,7 @@ card made by the specified vendor.
 
 Consider the following snippet of JSON data:
 
-```javascript
+```json
 {"network":
   [
   //snipped...

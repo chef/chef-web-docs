@@ -4,7 +4,7 @@ by specifying the name of the data bag to which the item belongs and
 then the filename of the data bag item. The only structural requirement
 of a data bag item is that it must have an `id`:
 
-```javascript
+```json
 {
   /* This is a supported comment style */
   // This style is also supported

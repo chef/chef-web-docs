@@ -3,7 +3,7 @@ treated as a `normal` attribute. Setting attributes at other precedence
 levels is not possible. For example, attempting to update `override`
 attributes using the `-j` option:
 
-```javascript
+```json
 {
   "name": "dev-99",
   "description": "Install some stuff",
@@ -18,7 +18,7 @@ attributes using the `-j` option:
 
 will result in a node object similar to:
 
-```javascript
+```json
 {
   "name": "maybe-dev-99",
   "normal": {
