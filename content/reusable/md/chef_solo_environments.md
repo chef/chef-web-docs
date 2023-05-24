@@ -9,7 +9,7 @@ environment_path '/var/chef-solo/environments'
 
 Environment data looks like the following in JSON:
 
-```javascript
+```json
 {
   "name": "dev",
   "default_attributes": {
