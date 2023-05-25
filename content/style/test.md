@@ -294,11 +294,28 @@ This is a list with code blocks included with each list item:
     print z.has_key?('mike'), " ", z.has_key?("jones"), "\n"
     ```
 
+  - more text
+
+    - ```ruby
+      z = { 'mike' => 75, 'bill' => 18, 'alice' => 32 }
+      z['joe'] = 44
+      print z['bill'], " ", z['joe'], " ", z["smith"], "\n"
+      print z.has_key?('mike'), " ", z.has_key?("jones"), "\n"
+      ```
+
+      Voluptate elit dolore consectetur id ex commodo.
+
+    - ```sh
+      ls -l
+      ```
+
+      Voluptate elit dolore consectetur id ex commodo.
+
 - Ea dolor reprehenderit amet nostrud Lorem sunt officia duis.
 
 ### Description List
 
-Use description lists to define things like commands, command flags, options, or other terms. For example:
+Use description lists to define commands, command flags, options, or other terms. For example:
 
 plain text _(term in italics)_
 : Ex quis duis deserunt commodo.
@@ -320,7 +337,7 @@ term
 
 ### Checklists
 
-Checklists are technically bullet lists, but the bullets are suppressed by CSS.
+Checklists are an unordered list with a checkbox.
 
 - [ ] This is a checklist item
 - [x] This is a selected checklist item
@@ -364,15 +381,22 @@ Checklists are technically bullet lists, but the bullets are suppressed by CSS.
 
 ## Code Blocks
 
-You can create code blocks two different ways by surrounding the code block with
-three back-tick characters on lines before and after the code block. **Only use
-back-ticks (code fences) for code blocks.** This allows you to specify the
-language of the enclosed code, which enables syntax highlighting. It is also more
-predictable than using indentation.
+Eiusmod cupidatat excepteur tempor elit officia ipsum aute nulla ea do minim eu eu.
 
 ```bash
 ls -l
 ```
+
+Incididunt officia consequat aliquip amet quis elit culpa eiusmod duis esse nisi incididunt.
+
+```ruby
+z = { 'mike' => 75, 'bill' => 18, 'alice' => 32 }
+z['joe'] = 44
+print z['bill'], " ", z['joe'], " ", z["smith"], "\n"
+print z.has_key?('mike'), " ", z.has_key?("jones"), "\n"
+```
+
+Commodo adipisicing sunt nisi laborum laboris.
 
 ## Links
 

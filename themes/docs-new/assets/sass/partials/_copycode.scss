@@ -1,39 +1,36 @@
 .copy-code-button {
-    color: $charcoal;
-    background-color: $code-background;
-    border: 1px solid transparent;
-    border-radius: 2px 2px 0px 0px;
+  color: $charcoal;
+  background-color: $code-background;
+  border: 1px solid $light-light-gray;
+  border-radius: 2px 2px 0px 0px;
 
-    /* right-align */
-    display: block;
-    margin-left: auto;
-    margin-right: 0;
-
-    margin: 0px 0 -1px auto;
-    padding: 3px 8px 3px 8px;
-    font-size: 0.8em;
+  /* right-align */
+  display: block;
+  margin: 0 0 -1px auto;
+  padding: 5px 9px;
+  font-size: .9em;
 }
 
 .copy-code-button:hover {
-    cursor: pointer;
-    background-color: $code-background-hover;
+  cursor: pointer;
+  background-color: $code-background-hover;
 }
 
 .copy-code-button:focus {
-    /* Avoid an ugly focus outline on click in Chrome,
-       but darken the button for accessibility.
-       See https://stackoverflow.com/a/25298082/1481479 */
-    background-color: $code-background-focus;
-    outline: 0;
+  /* Avoid an ugly focus outline on click in Chrome,
+      but darken the button for accessibility.
+      See https://stackoverflow.com/a/25298082/1481479 */
+  background-color: $code-background-focus;
+  outline: 0;
 }
 
 .copy-code-button:active {
-    background-color: $code-background-active;
+  background-color: $code-background-active;
 }
 
 .highlight pre {
-    /* Avoid pushing up the copy buttons. */
-    margin-top: 0;
+  /* Avoid pushing up the copy buttons. */
+  margin-top: 0;
 }
 
 /* reduce spacing when block follows a p */
@@ -44,5 +41,5 @@ p + button.copy-code-button {
 @media print {
   .copy-code-button{
     display:none;
-  } 
+  }
 }
