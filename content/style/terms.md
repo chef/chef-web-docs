@@ -13,6 +13,8 @@ gh_repo = "chef-web-docs"
 
 This page provides guidance for correct terminology in Chef documentation.
 
+<!-- /* cSpell:disable */ -->
+
 ## B
 
 Backend
@@ -22,7 +24,6 @@ Backend
 
 Chef Infra Client
 : Use _Chef Infra Client_, not _client_, _Client_, _chef-client_, or _Chef Client_. Use _Infra Client_ in cases where [_Chef Infra Client_ is repeated in a paragraph]({{< relref "product_names#shorten-product-names" >}}).
-
 
 Chef Infra Server
 : Use _Chef Infra Server_, not _server_, _Server_, _chef-server_, or _Chef Server_. Use _Infra Server_ in cases where [_Chef Infra Server_ is repeated in a paragraph]({{< relref "product_names#shorten-product-names" >}}).
