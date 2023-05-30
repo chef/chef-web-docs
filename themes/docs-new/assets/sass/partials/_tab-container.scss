@@ -2,6 +2,10 @@
 // foundation_tabs, foundation_tab, foundation_tabs_panels, foundation_tabs_panel
 
 #main-content{
+  ul[role=tablist]{
+    margin-left: 0;
+  }
+
   ul.tabs{
     border: 2px solid $border;
     border-bottom: 1px solid $border;
