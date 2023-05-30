@@ -33,3 +33,6 @@ vendor
 docs_dictionary.txt
 chef_dictionary.txt
 
+# Local Netlify folder
+# https://docs.netlify.com/cli/get-started/#link-and-unlink-sites
+.netlify
