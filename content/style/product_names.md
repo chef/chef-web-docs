@@ -12,7 +12,7 @@ gh_repo = "chef-web-docs"
     weight = 30
 +++
 
-This page provides guidance on using Chef product names.
+This page provides guidance on using Chef product names. See the [Terms page]({{< relref "terms" >}}) for general guidance on terminology.
 
 ## Chef product names
 
