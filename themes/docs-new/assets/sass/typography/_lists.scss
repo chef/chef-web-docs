@@ -1,11 +1,8 @@
 #main-content-col,
 .content {
   ul, ol {
-    // margin-top: 1rem;
-    // margin-bottom: 1rem;
     margin: 1rem 0 1rem 2rem;
   }
-
 
   ol {
 
@@ -18,8 +15,8 @@
     }
   }
 
-  ul > li > p {
-    margin-bottom: .5rem;
+  ul > li > p:first-child {
+    margin: 0;
   }
 
   dl {
