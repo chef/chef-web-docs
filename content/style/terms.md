@@ -17,8 +17,11 @@ This page provides guidance for correct terminology in Chef documentation.
 
 ## B
 
-Backend
+backend
 : Use _backend_, not _back end_ or _back-end_.
+
+bastion host
+: Use _bastion host_, not _bastion_, _bastion server_, _bastion node_, _bastion workspace_, or _bastion machine_.
 
 ## C
 
@@ -30,7 +33,7 @@ Chef Infra Server
 
 ## F
 
-Frontend
+frontend
 : Use _frontend_, not _front end_ or _front-end_.
 
 ## O
@@ -41,4 +44,4 @@ on-premises
 ## P
 
 PostgreSQL
-: Use _PostgreSQL_, not _Postgres_.
+: Use _PostgreSQL_, not _Postgres_ or _Postgresql_.
