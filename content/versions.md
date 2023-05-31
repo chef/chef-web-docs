@@ -51,7 +51,7 @@ use by customers.
 
 {{< important >}}
 
-Chef Client in general follows an N-1 strategy. This means that while 15 and 16 are available, they are supported. Once 17 is released, 15 is immediately placed into EOL status and no longer supported.
+Chef Infra Client generally follows an N-1 support strategy. This means that if version 16 is the latest version, then both 15 and 16 are supported. As soon as version 17 is released, then 15 is placed in EOL status and no longer supported.
 
 Unless otherwise stated, versions older than those listed below are EOL.
 
