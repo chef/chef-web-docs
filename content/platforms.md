@@ -477,7 +477,7 @@ for platforms that use:
 
 #### Commercial Support
 
-See the [Chef Automate HA supported platforms](/automate/ha_platform_support/#software-requirements)
+See the [Chef Automate HA supported platforms](/automate/ha_on_premises_deployment_prerequisites/#software-requirements)
 documentation for a list of supported platforms for Chef Automate HA.
 
 ### Chef Backend
