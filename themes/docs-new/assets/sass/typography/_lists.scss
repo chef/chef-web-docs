@@ -23,17 +23,17 @@
     margin: 1rem 0;
 
     dt {
+      margin-bottom: 0;
       em {
-      font-weight: normal;
+        font-weight: normal;
       }
       code {
         font-weight: bold;
       }
-      margin-top: 1rem;
     }
 
     dd {
-      margin: 0 0 rem-calc(16px) rem-calc(30px);
+      margin: 0 0 1rem 1rem;
     }
   }
 }
