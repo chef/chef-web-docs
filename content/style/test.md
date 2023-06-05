@@ -317,14 +317,15 @@ This is a list with code blocks included with each list item:
 
 Use description lists to define commands, command flags, options, or other terms. For example:
 
+term
+second term with same definition
+: Term definition.
+
 plain text _(term in italics)_
 : Ex quis duis deserunt commodo.
 
 `code` _(`code` in italics **and bolded text in italics**)_ **and regular bolded text**
 : Reprehenderit eu ex dolore sunt reprehenderit ut consequat amet Lorem pariatur Lorem anim.
-
-term
-: Term definition.
 
 [another term](@)
 : Another term definition.
