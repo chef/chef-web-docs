@@ -7,7 +7,7 @@ knife search client "name:boo~"
 where `boo~` defines the fuzzy search pattern. This will return
 something similar to:
 
-```javascript
+```json
 {
   "total": 1,
   "start": 0,

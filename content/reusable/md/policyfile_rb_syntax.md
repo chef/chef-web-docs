@@ -6,4 +6,5 @@ name "name"
 run_list "ITEM", "ITEM", ...
 default_source :SOURCE_TYPE, *args
 cookbook "NAME" [, "VERSION_CONSTRAINT"] [, SOURCE_OPTIONS]
+ATTRIBUTE_TYPE['attribute'] = 'value'
 ```

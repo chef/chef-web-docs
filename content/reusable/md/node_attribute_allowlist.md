@@ -39,7 +39,7 @@ The recommended practice is to use `allowed_automatic_attributes` to allow speci
 
 For example, automatic attribute data similar to:
 
-```javascript
+```json
 {
   "filesystem" => {
     "/dev/disk0s2" => {

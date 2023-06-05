@@ -1,127 +1,39 @@
 #main-content-col,
 .content {
   ul, ol {
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin: 1rem 0 1rem 2rem;
   }
 
   ol {
-    > li {
-      margin-top: 1rem;
-    }
 
     > li > ol {
       list-style-type: lower-alpha;
     }
+
     > li > ul {
-      margin-top: rem-calc(8);
-      margin-bottom: rem-calc(8);
+      margin: 1rem 0 1rem 1rem;
     }
   }
 
-  ul {
-    list-style: none;
-
-    li {
-
-      &::before {
-        content: "\2022";
-        color: $blue;
-        display: inline-block;
-        width: 1em;
-        margin-left: -1em;
-        font-weight: 900;
-      }
-      p:first-child {
-        margin-top: -1.7em;
-        margin-bottom: 0;
-      }
-      div.highlight{
-        margin-top: -3em;
-        margin-bottom: 3em;
-      }
-      >button.copy-code-button{
-        margin-top: -2em;
-        margin-bottom: 3.7em;
-      }
-    }
-  }
-
-  ol.styled-nums,
-  div.styled-nums > ol {
-    @extend ul;
-    padding: 0;
-    margin-left: 0 !important;
-    margin-top: rem-calc(48);
-
-    @include breakpoint(large) {
-      margin-top: rem-calc(8);
-    };
-
-    li {
-      counter-increment: item;
-      margin-bottom: rem-calc(32);
-      padding-top: rem-calc(48);
-      padding-left: rem-calc(8);
-      position: relative;
-
-      @include breakpoint(medium) {
-        padding-left: rem-calc(40);
-        padding-top: 0;
-      }
-
-      &:before {
-        content: counter(item);
-        font-size: inherit;
-        font-family: inherit;
-        width: 32px;
-        height: 32px;
-        background: $blue;
-        border-radius: 50%;
-        color: $white;
-        text-align: center;
-        font-weight: 600;
-        line-height: 32px;
-        padding: 0;
-        display: inline-block;
-
-        @include breakpoint(small down) {
-          position: absolute;
-          top: 0;
-          left: 8px;
-          margin: 0;
-        }
-
-        @include breakpoint(medium) {
-          margin-left: -48px;
-          margin-right: 16px;
-        }
-
-      }
-    }
-
-    + .cta {
-      @include breakpoint(medium) {
-        margin-left: 48px;
-      }
-    }
+  ul > li > p:first-child {
+    margin: 0;
   }
 
   dl {
-    margin-top: rem-calc(36px);
+    margin: 1rem 0;
 
     dt {
+      margin-bottom: 0;
       em {
-      font-weight: normal;
+        font-weight: normal;
       }
       code {
         font-weight: bold;
       }
-      margin-top: 1rem;
     }
 
     dd {
-      margin: 0 0 rem-calc(16px) rem-calc(30px);
+      margin: 0 0 1rem 1rem;
     }
   }
 }

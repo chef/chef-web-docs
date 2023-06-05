@@ -191,11 +191,15 @@ This is some text that introduces an ordered list.
 
 ### Unordered lists
 
+**Plain list**
+
 A plain unordered list:
 
 - item 1
 - item 2
 - item 3
+
+**Plain list with multiple paragraphs**
 
 A plain unordered list with additional paragraphs in list items:
 
@@ -213,6 +217,8 @@ A plain unordered list with additional paragraphs in list items:
 
 Note that the text of each list item is now enclosed in a paragraph tag while the items in the plain list just had a list item tag.
 
+**Plain list with sublist**
+
 Here's a regular list with a sublist:
 
 - item 1
@@ -222,6 +228,8 @@ Here's a regular list with a sublist:
   - subitem 3
 - item 3
 - item 4
+
+**Plain list with paragraph introducing sublist**
 
 Here's a regular list with a second paragraph introducing a sublist:
 
@@ -234,6 +242,8 @@ Here's a regular list with a second paragraph introducing a sublist:
   - subitem 3
 - item 3
 - item 4
+
+**List with multiple paragraphs in sublist items**
 
 Here's a regular list with additional paragraphs in list items and sublists:
 
@@ -253,42 +263,69 @@ Here's a regular list with additional paragraphs in list items and sublists:
   Additional pargraph for item 3. Consequat dolore nostrud quis ad consectetur pariatur. Mollit culpa sit adipisicing adipisicing sint officia. Commodo minim culpa mollit labore ad fugiat ut sit aute dolor esse.
 - item 4
 
-Indent unordered sub-list items **2 spaces**.
+**List items with code blocks**
 
-- This is a list item
-- This is another list item in the same list
-  - To make a sub-item, indent two spaces.
-    - This is a sub-sub-item. Indent two more spaces.
-  - Another sub-item.
+This is a list with code blocks included with each list item:
 
-<!-- separate lists -->
+- Aute consectetur elit officia nostrud in nostrud irure elit deserunt:
 
-- This is a new list. With Hugo, you need to use a HTML comment to separate two
-  consecutive lists. **The HTML comment needs to be at the left margin.**
-- Bullet lists can have paragraphs or block elements within them.
-
-  Indent the content to be the same as the first line of the bullet point.
-  **This paragraph and the code block line up with the first `B` in `Bullet`
-  above.**
-
-  ```bash
-  ls -l
+  ```ruby
+  print "Hello, World!\n"
   ```
 
-  - And a sub-list after some block-level content
+- Consequat qui non commodo laborum:
+
+  ```ruby
+  def sum_eq_n?(arr, n)
+    return true if arr.empty? && n == 0
+
+    arr.product(arr).reject { |a,b| a == b }.any? { |a,b| a + b == n }
+  end
+  ```
+
+  Another paragraph before a nested list item:
+
+  - nested list item code example:
+
+    ```ruby
+    z = { 'mike' => 75, 'bill' => 18, 'alice' => 32 }
+    z['joe'] = 44
+    print z['bill'], " ", z['joe'], " ", z["smith"], "\n"
+    print z.has_key?('mike'), " ", z.has_key?("jones"), "\n"
+    ```
+
+  - more text
+
+    - ```ruby
+      z = { 'mike' => 75, 'bill' => 18, 'alice' => 32 }
+      z['joe'] = 44
+      print z['bill'], " ", z['joe'], " ", z["smith"], "\n"
+      print z.has_key?('mike'), " ", z.has_key?("jones"), "\n"
+      ```
+
+      Voluptate elit dolore consectetur id ex commodo.
+
+    - ```sh
+      ls -l
+      ```
+
+      Voluptate elit dolore consectetur id ex commodo.
+
+- Ea dolor reprehenderit amet nostrud Lorem sunt officia duis.
 
 ### Description List
 
-Use description lists to define things like commands, command flags, options, or other terms. For example:
+Use description lists to define commands, command flags, options, or other terms. For example:
+
+term
+second term with same definition
+: Term definition.
 
 plain text _(term in italics)_
 : Ex quis duis deserunt commodo.
 
 `code` _(`code` in italics **and bolded text in italics**)_ **and regular bolded text**
 : Reprehenderit eu ex dolore sunt reprehenderit ut consequat amet Lorem pariatur Lorem anim.
-
-term
-: Term definition.
 
 [another term](@)
 : Another term definition.
@@ -301,7 +338,7 @@ term
 
 ### Checklists
 
-Checklists are technically bullet lists, but the bullets are suppressed by CSS.
+Checklists are an unordered list with a checkbox.
 
 - [ ] This is a checklist item
 - [x] This is a selected checklist item
@@ -345,15 +382,22 @@ Checklists are technically bullet lists, but the bullets are suppressed by CSS.
 
 ## Code Blocks
 
-You can create code blocks two different ways by surrounding the code block with
-three back-tick characters on lines before and after the code block. **Only use
-back-ticks (code fences) for code blocks.** This allows you to specify the
-language of the enclosed code, which enables syntax highlighting. It is also more
-predictable than using indentation.
+Eiusmod cupidatat excepteur tempor elit officia ipsum aute nulla ea do minim eu eu.
 
 ```bash
 ls -l
 ```
+
+Incididunt officia consequat aliquip amet quis elit culpa eiusmod duis esse nisi incididunt.
+
+```ruby
+z = { 'mike' => 75, 'bill' => 18, 'alice' => 32 }
+z['joe'] = 44
+print z['bill'], " ", z['joe'], " ", z["smith"], "\n"
+print z.has_key?('mike'), " ", z.has_key?("jones"), "\n"
+```
+
+Commodo adipisicing sunt nisi laborum laboris.
 
 ## Links
 
@@ -565,3 +609,25 @@ This is text in a warning.
 This is text in a danger notice.
 
 {{< /danger >}}
+
+### Beta
+
+{{< beta >}}
+
+This text tells the user that a feature or product is in beta.
+
+{{< /beta >}}
+
+{{< beta >}}
+
+This text tells the user that a feature or product is in beta. Ad excepteur incididunt laboris labore nisi nulla tempor nisi sunt. Do in officia deserunt magna proident minim nisi amet aute minim deserunt minim ut. Do exercitation excepteur deserunt magna elit ullamco labore eu dolore non consequat dolor. Sint reprehenderit labore veniam veniam commodo aute cupidatat nisi dolor tempor id.
+
+{{< /beta >}}
+
+{{< beta >}}
+
+The first line in multiple paragraphs gets bumped below the Beta div.
+
+Id minim deserunt et ullamco quis minim consectetur esse esse reprehenderit. Commodo exercitation consequat laboris laborum aliquip cillum veniam. Et ad dolor quis deserunt duis excepteur voluptate exercitation officia dolore minim consectetur elit.
+
+{{< /beta >}}
