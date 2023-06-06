@@ -38,7 +38,7 @@ secret(name: 'test1', service: :aws_secrets_manager, config: { region: 'us-west-
 
 ### Akeyless Vault
 
-The secrets helper supports fetching secrets from Akeyless Vault using Akeyless' access key and access id.
+The secrets helper supports fetching secrets from Akeyless Vault using Akeyless' access key and access ID.
 
 #### Fetching Secrets From Akeyless Vault Using Access Key/ID
 
@@ -53,7 +53,7 @@ secret(name: '/secret/data/my_secret',
 
 ### Azure Key Vault
 
-The secrets helper supports fetching secrets from Akeyless Vault using Akeyless' access key and access id.
+The secrets helper supports fetching secrets from Azure Key Vault.
 
 #### Fetching Secrets From Azure Key Vault
 
