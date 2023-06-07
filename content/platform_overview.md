@@ -143,14 +143,13 @@ as well as visibility into your applications and infrastructure.
 
 ### Nodes
 
-Chef Automate gives you a data warehouse that accepts input from Chef
-Server, Chef Habitat, and Chef Automate workflow and compliance. It
-provides views into operational and workflow events. There is a query
-language available through the UI and customizable dashboards.
+Chef Automate gives you a data warehouse that accepts input from Chef Infra Server, Chef Habitat, and Chef Automate workflow and compliance.
+It provides views into operational and workflow events.
+There is a query language available through the UI and customizable dashboards.
 
 Here is an example of the Chef Automate dashboard.
 
-{{< figure src="/images/visibility1.png" width=700 alt="Image of Chef Automate dashboard showing the status of nodes under management with Chef Automate." >}}
+{{< figure src="/images/automate-dashboard.png" width=700 alt="Image of Chef Automate dashboard showing the status of nodes under management with Chef Automate." >}}
 
 ### Compliance
 
