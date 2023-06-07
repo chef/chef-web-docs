@@ -1,7 +1,7 @@
 <figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
     {{ $img_path := print "/static" (.Get "src") }}
     {{- if not (fileExists $img_path ) -}}
-      {{ warnf "Image missing %q in %s" $img_path .Position }}
+      {{ errorf "Image missing %q in %s" $img_path .Position }}
     {{- end -}}
     {{- if .Get "link" -}}
         <a href="{{ .Get "link" }}"{{ with .Get "target" }} target="{{ . }}"{{ end }}{{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
