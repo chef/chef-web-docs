@@ -67,8 +67,8 @@ sudo sed -i 's/SELINUX=enforcing/SELINUX=permissive/g' /etc/selinux/config
     #Run commands as sudo.
     sudo -- sh -c "
     #Download Chef Automate CLI.
-    curl https://packages.chef.io/files/current/latest/chef-automate-cli/chef-automate_linux_amd64.zip
-    | gunzip - > chef-automate && chmod +x chef-automate
+    curl https://packages.chef.io/files/current/latest/chef-automate-cli/chef-automate_linux_amd64.zip \
+    | gunzip - > chef-automate && chmod +x chef-automate \
     | cp -f chef-automate /usr/bin/chef-automate
 
     #Download the latest Airgapped Bundle.
@@ -115,7 +115,7 @@ sudo sed -i 's/SELINUX=enforcing/SELINUX=permissive/g' /etc/selinux/config
    - Give the `ssh_key_file` path; this key should have access to all the Machines or VMs.
    - We support only private key authentication.
    - Provide `backup_config` based on the type of backup storage you have. This field can be optionally left empty during deployment and can be patched at later point. Allowed values are `object_storage` and `file_system`.
-   - If `backup_config` is `object_storage`, make sure to fill values under `[object_storage.config]`
+   - If `backup_config` is `object_storage`, make sure to fill values under `[object_storage.config]`. User must create the bucket themselves and make sure to assign correct [IAM policy for bucket access](/automate/backup/#aws-s3-permissions) if you are using AWS s3.
    - Give `fqdn` as the DNS entry of Chef Automate, which LoadBalancer redirects to Chef Automate Machines or VM's. Example: `chefautomate.example.com`
    - Set the `admin_password` to what you want to use to login to Chef Automate, when you open up `chefautomate.example.com` in the Browser, for the username `admin`.
 
@@ -145,6 +145,7 @@ sudo sed -i 's/SELINUX=enforcing/SELINUX=permissive/g' /etc/selinux/config
 
 - Assuming 10+1 nodes (1 bastion, 2 for automate UI, 2 for Chef-server, 3 for Postgresql, 3 for Opensearch)
 - Following config will by default leave the backup configuration empty
+- To provide multiline certificates use triple quotes like `"""multiline certificate contents"""`
 
 {{< /note >}}
 
@@ -187,56 +188,61 @@ instance_count = "2"
 config_file = "configs/automate.toml"
 # Set enable_custom_certs = true to provide custom certificates during deployment
 enable_custom_certs = false
-# Add Automate load balancer root-ca and keys
-# root_ca = ""
-# private_key = ""
-# public_key = ""
+
+# Add Automate Load Balancer root-ca
+# root_ca = """root_ca_contents"""
+
+# Add Automate node internal public and private keys
+# private_key = """private_key_contents"""
+# public_key = """public_key_contents"""
+
 # Or you can provide certificates at the node level using the below fields
 # [[automate.config.certs_by_ip]]
 # ip = "A.B.C.D"
-# private_key = ""
-# public_key = ""
+# private_key = """private_key_contents"""
+# public_key = """public_key_contents"""
 [chef_server.config]
 instance_count = "2"
 # Set enable_custom_certs = true to provide custom certificates during deployment
 enable_custom_certs = false
-# Add Chef Server load balancer root-ca and keys
-# root_ca = ""
-# private_key = ""
-# public_key = ""
+
+# Add Chef Server node internal public and private keys
+# private_key = """private_key_contents"""
+# public_key = """public_key_contents"""
+
 # Or you can provide certificates at the node level using the below fields
 # [[chef_server.config.certs_by_ip]]
 # ip = "I.J.K.L"
-# private_key = ""
-# public_key = ""
+# private_key = """private_key_contents"""
+# public_key = """public_key_contents"""
 [opensearch.config]
 instance_count = "3"
 # Set enable_custom_certs = true to provide custom certificates during deployment
 enable_custom_certs = false
-# Add OpenSearch load balancer root-ca and keys
-# root_ca = ""
-# admin_key = ""
-# admin_cert = ""
-# private_key = ""
-# public_key = ""
+# Add OpenSearch root-ca and keys
+# root_ca = """root_ca_contents"""
+# admin_key = """admin_private_key_contents"""
+# admin_cert = """admin_public_key_contents"""
+# private_key = """private_key_contents"""
+# public_key = """public_key_contents"""
 # Or you can provide certificates at the node level using the below fields
 # [[opensearch.config.certs_by_ip]]
 # ip = "A1.A2.A3.A4"
-# private_key = ""
-# public_key = ""
+# private_key = """private_key_contents"""
+# public_key = """public_key_contents"""
 [postgresql.config]
 instance_count = "3"
 # Set enable_custom_certs = true to provide custom certificates during deployment
 enable_custom_certs = false
-# Add Postgresql load balancer root-ca and keys
-# root_ca = ""
-# private_key = ""
-# public_key = ""
+# Add Postgresql root-ca and keys
+# root_ca = """root_ca_contents"""
+# private_key = """private_key_contents"""
+# public_key = """public_key_contents"""
 # Or you can provide certificates at the node level using the below fields
 # [[postgresql.config.certs_by_ip]]
 # ip = "D1.D2.D3.D4"
-# private_key = ""
-# public_key = ""
+# private_key = """private_key_contents"""
+# public_key = """public_key_contents"""
 [existing_infra.config]
 ## === INPUT NEEDED ===
 # provide comma separate IP address of nodes, like ["192.0.0.1", "192.0.0.2", "192.0.0.2"]
@@ -267,8 +273,8 @@ postgresql_private_ips = ["D1.D2.D3.D4","E1.E2.E3.E4","F1.F2.F3.F4"]
 
 - Follow the Prerequisites for On-Premise deployment. Click [here](#prerequisites) to know more.
 - This deployment excludes the installation for Postgresql and OpenSearch as we are using the AWS Managed Services.
-- Set up AWS RDS Postgresql 13.5. Click [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html) to know more. Open the required port in Security Groups while creating AWS RDS Postgresql.
-- Set up AWS OpenSearch 1.2. Click [here](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html) to know more.
+- Set up AWS RDS PostgreSQL 13.5-R1. Click [here](/automate/create_amazon_rds/) to know more. Open the required port in Security Groups while creating AWS RDS Postgresql.
+- Set up AWS OpenSearch 1.3. Click [here](/automate/create_amazon_opensearch/) to know more.
 - For Backup and Restore with Managed Service. Click [here](/automate/managed_services/#prerequisites) to know more.
 - Create the Virtual Private Cloud (VPC) in AWS before starting or using default. Click [here](/automate/ha_vpc_setup/) to learn more about VPC and CIDR creation.
 - Get AWS credentials (`aws_access_key_id` and `aws_secret_access_key`) with privileges like: `AmazonS3FullAccess` and `AdministratorAccess`. Click [here](/automate/ha_iam_user/) to learn more about creating IAM Users.
@@ -281,7 +287,9 @@ Update Config with relevant data. Click [here](#sample-config-to-setup-on-premis
 
   - Provide instance count as `0` for both [opensearch.config] and [postgresql.config] and leave the values of opensearch_private_ips and postgresql_private_ips as an empty array.
   - Set `type` as `aws`, as these deployment steps are for Managed Services AWS Deployment. The default value is blank, which should change.
-  - Set `instance_url`, `superuser_username`, `superuser_password`, `dbuser_username`, `dbuser_password` for the **Managed AWS RDS Postgresql** created in the Prerequisite steps.
+  - Set `instance_url`, `superuser_username`, `superuser_password`, `dbuser_username`, `dbuser_password` for the **Managed AWS RDS Postgresql** created in the Prerequisite steps. 
+    - The master username value which you used while creating AWS RDS Postgresql can be used for both `superuser_username` and `dbuser_username`
+    - The master password value which you used while creating AWS RDS Postgresql can be used for both `superuser_password` and `dbuser_password`
   - Set `instance_url` as the URL with Port No. For example: `"database-1.c2kvay.eu-north-1.rds.amazonaws.com:5432"`
   - Set `opensearch_domain_name`, `opensearch_domain_url`, `opensearch_username`, `opensearch_user_password` for the **Managed AWS OpenSearch** created in the Prerequisite steps.
   - Set `opensearch_domain_url` as the URL without Port No. For example: `"vpc-automate-ha-cbyqy5q.eu-north-1.es.amazonaws.com"`.
@@ -364,6 +372,8 @@ Update Config with relevant data. Click [here](#sample-config-to-setup-on-premis
   - Provide instance count as `0` for both [opensearch.config] and [postgresql.config] and leave the values of opensearch_private_ips and postgresql_private_ips as an empty array.
   - Set `type` as `self-managed`, as these deployment steps are for Managed Services AWS Deployment. The default value is blank, which should change.
   - Set `instance_url`, `superuser_username`, `superuser_password`, `dbuser_username`, `dbuser_password` for your Self Managed RDS.
+    - You can use the same values for both `superuser_username` and `dbuser_username` too
+    - You can use the same values for both `superuser_password` and `dbuser_password` too
   - Set `instance_url` as the URL with Port No. For example: `"10.1.2.189:7432"`.
   - Provide the Root ca value of Postgresql `postgresql_root_cert`.
   - Set `opensearch_domain_name`, `opensearch_domain_url`, `opensearch_username`, `opensearch_user_password` for your Self Managed OpenSearch.
@@ -493,7 +503,7 @@ For example, if you have patched any external configurations like SAML or LDAP, 
 It's essential to ensure that the IP address of the nodes you are trying to add has sufficient resources and is reachable from the bastion host.
 {{< /warning >}}
 
-## Remove Any Nodes From Frontend Cluster OnPrem Deployment
+## Remove Single Node From Cluster on OnPrem Deployment
 
 {{< warning >}}
 
@@ -503,51 +513,39 @@ It's essential to ensure that the IP address of the nodes you are trying to add 
 
 - Below process can be done for `chef-server` and `automate`.
 
+- Only one node can be removed at a time irrespective of node type.
+
 {{< /warning >}}
 
-The commands require some arguments so that it can determine which types of nodes you want to remove from your HA setup from your bastion host. It needs the IP addresses of the nodes you want to remove as comma-separate values with no spaces in between.
+The command requires some arguments so that it can determine which types of nodes you want to remove from your HA setup from your bastion host. It needs the IP address of the node you want to remove.
 
 For example,
 
-- if you want to remove nodes with IP 10.1.2.23 to automate, you have to run the:
+- If you want to remove node of automate, you have to run the:
 
     ```sh
-    chef-automate node remove --automate-ip 10.1.2.23
+    chef-automate node remove --automate-ip "<automate-ip-address>"
     ```
 
-- If you want to remove nodes with IP 10.1.2.23 and 10.0.1.42 to chef-server you have to run the:
+- If you want to remove node of chef-server, you have to run the:
 
     ```sh
-    chef-automate node remove --chef-server-ip 10.1.2.23,10.0.1.42
+    chef-automate node remove --chef-server-ip "<chef-server-ip-address>"
     ```
 
-- If you want to remove nodes with IP 10.1.2.23 and 10.0.1.42 to OpenSearch, you have to run:
+- If you want to remove node of OpenSearch, you have to run the:
 
     ```sh
-    chef-automate node remove --opensearch-ip 10.1.2.23,10.0.1.42
+    chef-automate node remove --opensearch-ip "<opensearch-ip-address>"
     ```
 
-  - If you want to remove nodes with IP 10.1.2.23, 10.0.1.54 and 10.0.1.42 to PostgreSQL you have to run:
+- If you want to remove node of PostgreSQL you have to run:
 
     ```sh
-    chef-automate node remove --postgresql-ip 10.1.2.23,10.0.1.42,10.0.1.54
+    chef-automate node remove --postgresql-ip "<postgresql-ip-address>"
     ```
 
-You can mix and match different services to remove nodes across various services.
-
-- If you want to remove nodes with IP 10.1.2.23 to automate and nodes with IP 10.0.1.54 and 10.0.1.42 to PostgreSQL, you have to run:
-
-    ```sh
-    chef-automate node remove --automate-ip 10.1.2.23 --postgresql-ip 10.0.1.42,10.0.1.54
-    ```
-
-- If you want to remove nodes with IP 10.1.2.23 to automate, nodes with IP 10.1.0.36 and 10.0.1.233 to chef-server, and nodes with IP 10.0.1.54 and 10.0.1.42 to PostgreSQL you have to run:
-
-    ```sh
-    chef-automate node remove --automate-ip 10.1.2.23 --chef-server-ip 10.1.0.36,10.0.1.233  --postgresql-ip 10.0.1.42,10.0.1.54
-    ```
-
-Once the command executes, it will remove the supplied nodes from your automate setup. The changes might take a while.
+Once the command executes, it will remove the supplied node from your HA setup. The changes might take a while.
 
 - Make sure to remove the ip address of the deleted node from your loadbalancer configuration. For reference check [Load Balancer Configuration page](/automate/loadbalancer_configuration/)
 
@@ -565,7 +563,7 @@ Once the command executes, it will remove the supplied nodes from your automate 
 - First Add a New Node follow [this](#add-more-nodes-to-the-onprem-deployment).
 - Stop the Habitat Supervisior on the node .i.e going to be removed, use `systemctl stop hab-sup` command to stop the
   habitat supervisior.
-- Remove a Existing Node follow [this](#remove-any-nodes-from-frontend-cluster-onprem-deployment).
+- Remove a Existing Node follow [this](#remove-single-node-from-cluster-on-onprem-deployment).
 
 ## Uninstall chef automate HA
 

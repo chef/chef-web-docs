@@ -27,8 +27,8 @@ Follow the steps below to deploy Chef Automate High Availability (HA) on AWS (Am
 - If you want to use Default VPC, then you have to create Public and Private Subnet, if subnet are not available. Please refer [this](https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html)
 - We need 3 private and 3 public subnet in a vpc (1 subnet for each AZ). As of now we support dedicate subnet for each AZ.
 - We recommend to create a new VPC. And Bastion should be in the same VPC.
-- Setup AWS RDS Postgresql 13.5 in the same VPC where we have the basion and automate ha node going to be created. Click [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html) to know more.
-- Setup AWS OpenSearch 1.3.7 in the same VPC where we have the basion and automate ha node going to be created. Click [here](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html) to know more.
+- Setup AWS RDS PostgreSQL 13.5-R1 in the same VPC where we have the basion and automate ha node going to be created. Click [here](/automate/create_amazon_rds/) to know more.
+- Setup AWS OpenSearch 1.3 in the same VPC where we have the basion and automate ha node going to be created. Click [here](/automate/create_amazon_opensearch/) to know more.
 - For Backup with Managed Service we have only one option which is `Amazon S3`.
 - For Backup and Restore with Managed Service. Click [here](/automate/managed_services/#enabling-opensearch-backup-restore) to know more.
 - Get AWS credetials (`aws_access_key_id` and `aws_secret_access_key`) which have privileges like: `AmazonS3FullAccess`, `AdministratorAccess`. Click [here](/automate/ha_iam_user/) to know more on how to create IAM Users.
@@ -107,7 +107,8 @@ Set the above prerequisites in `~/.aws/credentials` in Bastion Host:
    - Give `ssh_port` if your AMI runs on custom **ssh port**. The default value is 22.
    - Give `ssh_key_file` path, downloaded from **AWS SSH Key Pair**, which you want to use to create all the VMs. This will let you access all the VMs.
    - We support only private key authentication.
-   - Set `backup_config` to `"s3"`. If `backup_config` is `s3`, set `s3_bucketName`.
+   - Set `backup_config` to `"s3"` or `efs`.
+   - If `backup_config` is `s3`, uncomment and set the value for following `s3_bucketName` attribute to your bucket name. If the bucket name does not exist, it will be created for you automatically.
    - Set `admin_password` to access Chef Automate UI for user `admin`.
    - Don't set `fqdn` for the AWS deployment.
    - Set `instance_count` for *Chef Automate*, *Chef Infra Server*, *Postgresql*, *OpenSearch*.
@@ -115,7 +116,7 @@ Set the above prerequisites in `~/.aws/credentials` in Bastion Host:
       - Set `profile`. The default value of `profile` is `"default"`.
       - Set `region`. The  default value of `region` is `"us-east-1"`.
       - Set `aws_vpc_id`, created in the Prerequisites step. Example: `"vpc12318h"`.
-      - If AWS VPC uses Subnet, set `private_custom_subnets` and `public_custom_subnets`. For example : `["subnet-07e469d218301533","subnet-07e469d218041534","subnet-07e469d283041535"]`.
+      - If AWS VPC uses Subnet, set `private_custom_subnets` to the 3 private subnets we created in prerequisites step and `public_custom_subnets` to the 3 public subnets we created in prerequisites step. For example : `["subnet-07e469d218301533","subnet-07e469d218041534","subnet-07e469d283041535"]`.
       - Set `ssh_key_pair_name`, an SSH Key Pair created as a Prerequisite. The pair value should be the name of the AWS SSH Key Pair without a `.pem` extension. The ssh key content should be the same as the content of `ssh_key_file`.
       - Set `setup_managed_services` as `true`, As these deployment steps are for Managed Services AWS Deployment. The default value is `false`, which should be changed.
         - Set `managed_opensearch_domain_name`, `managed_opensearch_domain_url`, `managed_opensearch_username`, `managed_opensearch_user_password` from the **Managed AWS OpenSearch** created in the Prerequisite steps.
@@ -123,6 +124,8 @@ Set the above prerequisites in `~/.aws/credentials` in Bastion Host:
         - For backup and restore configuration set `managed_opensearch_certificate`, `aws_os_snapshot_role_arn`, `os_snapshot_user_access_key_id`, `os_snapshot_user_access_key_secret`.  [Refer this document](/automate/managed_services/#enabling-opensearch-backup-restore) to create them and get their values.
         - Set `managed_rds_instance_url` as the URL with Port No. For example: `["database-1.c2kvay.eu-north-1.rds.amazonaws.com:5432"]`
         - Set `managed_rds_instance_url`, `managed_rds_superuser_username`, `managed_rds_superuser_password`, `managed_rds_dbuser_username`, `managed_rds_dbuser_password` from the **Managed AWS RDS Postgresql** created in the Prerequisite steps.
+          - The master username value which you used while creating AWS RDS Postgresql can be used for both `managed_rds_superuser_username` and `managed_rds_dbuser_username`
+          - The master password value which you used while creating AWS RDS Postgresql can be used for both `managed_rds_superuser_password` and `managed_rds_dbuser_password`
       - Set the `ami_id` value, which depends on the AWS Region and the Operating System image you want to use.
       - Use the [Hardware Requirement Calculator sheet](/calculator/automate_ha_hardware_calculator.xlsx) to get information on which instance type you will need for your load.
       - Set Instance Type for:
@@ -217,6 +220,8 @@ Check if Chef Automate UI is accessible by going to (Domain used for Chef Automa
 
 - Following config will create s3 bucket for backup.
 
+- To provide multiline certificates use triple quotes like `"""multiline certificate contents"""`
+
 {{< /note >}}
 
 ```config
@@ -236,26 +241,31 @@ backup_mount = ""
 [automate.config]
 admin_password = "MY-AUTOMATE-UI-PASSWORD"
 fqdn = ""
-instance_count = "1"
+instance_count = "2"
 config_file = "configs/automate.toml"
 enable_custom_certs = false
-# root_ca = ""
-# private_key = ""
-# public_key = ""
+
+# Add Automate Load Balancer root-ca
+# root_ca = """root_ca_contents"""
+
+# Add Automate node internal public and private keys
+# private_key = """private_key_contents"""
+# public_key = """public_key_contents"""
 
 [chef_server.config]
-instance_count = "1"
+instance_count = "2"
 enable_custom_certs = false
-# Add Chef Server load balancer root-ca and keys
-# private_key = ""
-# public_key = ""
+
+# Add Chef Server node internal public and private keys
+# private_key = """private_key_contents"""
+# public_key = """public_key_contents"""
 
 [opensearch.config]
-instance_count = "3"
+instance_count = "0"
 enable_custom_certs = false
 
 [postgresql.config]
-instance_count = "3"
+instance_count = "0"
 enable_custom_certs = false
 
 [aws.config]
