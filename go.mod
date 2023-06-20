@@ -4,7 +4,7 @@ go 1.16
 
 require (
 	github.com/chef/automate/components/docs-chef-io v0.0.0-20230608113604-7816d5bb2fb8 // indirect
-	github.com/chef/chef-server/docs-chef-io v0.0.0-20230316212916-ae2a66241efd // indirect
+	github.com/chef/chef-server/docs-chef-io v0.0.0-20230612084654-af0b0acd5c10 // indirect
 	github.com/chef/chef-workstation/docs-chef-io v0.0.0-20230522182910-be2a40c695ac // indirect
 	github.com/chef/compliance-profiles/docs-chef-io v0.0.0-20230510172906-f422006fc50c // indirect
 	github.com/chef/compliance-remediation-2022/docs-chef-io v0.0.0-20230509164248-bb54d1e7fbc3 // indirect
