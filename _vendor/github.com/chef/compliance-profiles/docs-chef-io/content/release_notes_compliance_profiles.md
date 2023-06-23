@@ -10,6 +10,26 @@ draft = false
     weight = 10
 +++
 
+## 20230623
+
+### New Features
+
+- CIS Ubuntu 22.04 v1.0.0 (Audit).
+- CIS SUSE Linux Enterprise 12v3.1.0 (Audit).
+- STIG Windows 11 v1r2. (Audit)
+- CIS Amazon EKS v1.0.0. (Audit)
+
+### Improvements
+
+- CIS RHEL 8 v2.0.0 fix for controls that require sudo permission which gave a false positive.
+- CIS RHEL 7 v3.1.1 fix for controls that require sudo permission which gave a false positive.
+- CIS CentOS Linux 8 v2.0.0 fix for controls that require sudo permission which gave a false positive.
+- CIS Azure Foundation v1.5.0 implemented Azure API & Powershell MSOnline cmdlet for controls (1.1, 1.2, 1.9, 1.11, 1.12).
+
+### Bug Fixes
+
+- CIS CentOS Linux 7 Benchmark v3.1.2 : UMASK wrong check issue(Control 5.5.5)
+
 ## 20230509
 
 ### New Features
