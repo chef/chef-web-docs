@@ -17,5 +17,4 @@ Single (' ') vs. double (" ") is important. This is because a backslash
 it as an escape.
 
 </div>
-
 </div>

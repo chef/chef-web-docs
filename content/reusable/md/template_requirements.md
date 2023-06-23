@@ -1,7 +1,7 @@
 To use a template, two things must happen:
 
-1.  A template resource must be added to a recipe
-2.  An Embedded Ruby (ERB) template must be added to a cookbook
+1. A template resource must be added to a recipe
+1. An Embedded Ruby (ERB) template must be added to a cookbook
 
 For example, the following template file and template resource settings
 can be used to manage a configuration file named `/etc/sudoers`. Within

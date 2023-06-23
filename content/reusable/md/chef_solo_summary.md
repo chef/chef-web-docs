@@ -10,16 +10,15 @@ configurations:
     components
 - Authentication or authorization
 
+<!-- markdownlint-disable-file MD033 -->
+
 <div class="admonition-note">
-
 <p class="admonition-note-title">Note</p>
-
 <div class="admonition-note-text">
 
 chef-solo can be run as a daemon.
 
 </div>
-
 </div>
 
 The chef-solo executable is run as a command-line tool.

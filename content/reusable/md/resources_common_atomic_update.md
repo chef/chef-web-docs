@@ -3,15 +3,15 @@ that file updates can be made when updating a binary or if disk space
 runs out.
 
 Atomic updates are enabled by default. They can be managed globally
-using the `file_atomic_update` setting in the `client.rb `file. They can
+using the `file_atomic_update` setting in the `client.rb` file. They can
 be managed for each resource using the `atomic_update` property
 that is available with the **cookbook_file**, **file**,
 **remote_file**, and **template** resources.
 
+<!-- markdownlint-disable-file MD033 -->
+
 <div class="admonition-note">
-
 <p class="admonition-note-title">Note</p>
-
 <div class="admonition-note-text">
 
 On certain platforms, and after a file has been moved into place, Chef
@@ -23,5 +23,4 @@ Windows platform, Chef Infra Client will create files so that ACL
 inheritance works as expected.
 
 </div>
-
 </div>

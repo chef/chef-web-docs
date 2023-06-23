@@ -7,9 +7,11 @@ copies.
 
 A directory structure:
 
-    /foo
-      /bar
-        /baz
+```plain
+/foo
+  /bar
+    /baz
+```
 
 The following example shows a way create a file in the `/baz` directory:
 

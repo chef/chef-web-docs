@@ -2,6 +2,8 @@ Set up Chef Automate to detect and scan the nodes in your Azure account by provi
 
 Chef Automate does not support Azure Government Cloud.
 
+<!-- markdownlint-disable-file MD002 -->
+
 ### Adding an Azure VM Node Manager
 
 When creating an Azure VM Node Manager, you will be required to provide:
@@ -57,4 +59,3 @@ From the **Scan Jobs** tab, select the "Create new job" button.
 Filter the regions for the scan job by specifying regions to include or exclude.
 
 ![Chef Automate Create Azure-API Scan Job](/images/automate/create-azure-api-scanjob.png)
-

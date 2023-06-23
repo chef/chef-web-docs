@@ -58,10 +58,10 @@ log 'call a notification' do
 end
 ```
 
+<!-- markdownlint-disable-file MD033 -->
+
 <div class="admonition-note">
-
 <p class="admonition-note-title">Note</p>
-
 <div class="admonition-note-text">
 
 Notifications and subscriptions do not need to be updated when packages
@@ -69,5 +69,4 @@ and versions are added or removed from the `package_name` or `version`
 properties.
 
 </div>
-
 </div>

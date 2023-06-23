@@ -6,6 +6,8 @@ detail.
 
 During a `knife bootstrap` bootstrap operation, the following happens:
 
+<!-- markdownlint-disable-file MD033 -->
+
 <table>
 <colgroup>
 <col style="width: 25%" />

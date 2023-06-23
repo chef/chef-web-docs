@@ -8,4 +8,4 @@ Server that provides users a way to manage the following objects:
 - Environments
 - Searching of indexed data
 - User accounts and user data for the individuals who have permission
-    to log on to and access the Chef server
+    to log on to and access Chef Infra Server

@@ -49,7 +49,7 @@ The node <%= node[:fqdn] %> thinks the x-men <%= @x_men %>
 
 Would render something like:
 
-```
+```plain
 The node latte thinks the x-men are keen
 ```
 

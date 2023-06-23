@@ -1,6 +1,8 @@
 `Chef::Log` will print log entries to the default logger that is configured for the machine on which Chef Infra Client is running. (To create a log entry that is built into the resource collection, use the [log resource](/resources/log/) instead of `Chef::Log`.)
 
-### Supported Log Levels
+<!-- markdownlint-disable-file MD002 -->
+
+### Supported log levels
 
 <table>
 <colgroup>

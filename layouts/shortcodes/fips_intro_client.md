@@ -19,9 +19,7 @@ Chef Infra Server. MD5 is used only to generate a unique hash identifier
 and is not used for any cryptographic purpose.
 
 </div>
-
 </div>
-
 Notes about FIPS:
 
 - May be enabled for nodes running on Windows and Enterprise

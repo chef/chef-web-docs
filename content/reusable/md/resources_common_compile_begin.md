@@ -24,6 +24,8 @@ converge action to `:nothing`.
 
 The following examples show when (and when not) to use `run_action`.
 
+<!-- markdownlint-disable-file MD036 -->
+
 **Using Custom Resources preferred to forcing to compile time**
 
 Compile time execution is often used to install gems before requiring
