@@ -7,7 +7,6 @@ product = []
 +++
 
 <!-- /* cSpell:disable */ -->
-<!-- markdownlint-disable-file MD036 -->
 
 This page is a "smoke test" document that we can use to test HTML, CSS, and template
 changes that affect the overall documentation.
@@ -191,6 +190,8 @@ This is some text that introduces an ordered list.
     Velit incididunt sunt velit fugiat occaecat commodo do labore minim qui cupidatat anim non. Aliquip reprehenderit voluptate aute consectetur dolore dolor eu nisi dolore cupidatat exercitation. Ipsum ullamco quis enim enim ipsum.
 
 ### Unordered lists
+
+<!-- markdownlint-disable MD036 -->
 
 **Plain list**
 
