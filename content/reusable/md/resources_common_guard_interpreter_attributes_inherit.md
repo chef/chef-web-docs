@@ -4,10 +4,10 @@ the `guard_interpreter` property is set to `:default`, `not_if` or
 `only_if` guard statements **do not inherit** properties that are
 defined by the **script**-based resource.
 
+<!-- markdownlint-disable-file MD033 -->
+
 <div class="admonition-warning">
-
 <p class="admonition-warning-title">Warning</p>
-
 <div class="admonition-warning-text">
 
 The **batch** and **powershell_script** resources inherit properties by
@@ -17,9 +17,7 @@ guard statement within a **batch** or **powershell_script** resource,
 respectively.
 
 </div>
-
 </div>
-
 For example, the `not_if` guard statement in the following resource
 example **does not inherit** the `environment` property:
 

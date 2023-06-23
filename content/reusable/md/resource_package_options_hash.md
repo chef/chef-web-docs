@@ -13,6 +13,5 @@ and are passed to the RubyGems DependencyInstaller:
 - `:security_policy`
 - `:wrappers`
 
-For more information about these options, see the RubyGems
-documentation:
-<https://docs.ruby-lang.org/en/2.2.0/Gem/DependencyInstaller.html>.
+For more information about these options, see the [RubyGems
+DependencyInstaller documentation](https://docs.ruby-lang.org/en/2.2.0/Gem/DependencyInstaller.html).

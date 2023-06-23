@@ -1,16 +1,16 @@
 The pattern for template specificity depends on two things: the lookup
 path and the source. The first pattern that matches is used:
 
-1.  `/host-$fqdn/$source`
-2.  `/$platform-$platform_version/$source`
-3.  `/$platform/$source`
-4.  `/default/$source`
-5.  `/$source`
+1. `/host-$fqdn/$source`
+1. `/$platform-$platform_version/$source`
+1. `/$platform/$source`
+1. `/default/$source`
+1. `/$source`
+
+<!-- markdownlint-disable-file MD033 -->
 
 <div class="admonition-note">
-
 <p class="admonition-note-title">Note</p>
-
 <div class="admonition-note-text">
 
 To specify a particular Windows version, use the [operating system
@@ -20,7 +20,6 @@ For example, a template in `templates/windows-6.3` will be deployed on
 systems installed with Windows 8.1.
 
 </div>
-
 </div>
 
 Use an array with the `source` property to define an explicit lookup

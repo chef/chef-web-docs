@@ -37,15 +37,17 @@ end
 
 A cookbook may have a `/files` directory structure like this:
 
-    files/
-       host-foo.example.com
-       ubuntu-20.04
-       ubuntu-20
-       ubuntu
-       redhat-8.2
-       redhat-7.8
-       ...
-       default
+```plain
+files/
+    host-foo.example.com
+    ubuntu-20.04
+    ubuntu-20
+    ubuntu
+    redhat-8.2
+    redhat-7.8
+    ...
+    default
+```
 
 and a resource that looks something like the following:
 
@@ -75,6 +77,8 @@ If the `apache2_module_conf_generate.pl` file was located in the
 cookbook directory under `files/host-foo.example.com/`, the specified
 file(s) would only be copied to the machine with the domain name
 foo.example.com.
+
+<!-- markdownlint-disable-file MD036 -->
 
 **Host Notation**
 

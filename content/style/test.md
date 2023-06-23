@@ -191,6 +191,8 @@ This is some text that introduces an ordered list.
 
 ### Unordered lists
 
+<!-- markdownlint-disable MD036 -->
+
 **Plain list**
 
 A plain unordered list:

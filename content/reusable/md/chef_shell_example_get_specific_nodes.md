@@ -6,10 +6,10 @@ sub-recipe named `delivery`, use chef-shell. For example:
 search(:node, 'recipes:postfix\:\:delivery')
 ```
 
+<!-- markdownlint-disable-file MD033 -->
+
 <div class="admonition-note">
-
 <p class="admonition-note-title">Note</p>
-
 <div class="admonition-note-text">
 
 Single (' ') vs. double (" ") is important. This is because a backslash
@@ -17,5 +17,4 @@ Single (' ') vs. double (" ") is important. This is because a backslash
 it as an escape.
 
 </div>
-
 </div>

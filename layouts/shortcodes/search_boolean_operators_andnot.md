@@ -22,5 +22,4 @@ knife search sample "id:foo AND -id:bar"
 ```
 
 </div>
-
 </div>

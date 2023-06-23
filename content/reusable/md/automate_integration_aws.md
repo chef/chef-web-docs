@@ -24,15 +24,15 @@ Filter instances for scanning by specifying either regions or tags by their keys
 
 ![Chef Automate Instance Credentials](/images/automate/instance-credentials.png)
 
-### AWS EC2 Node Discovery
+### AWS EC2 node discovery
 
 The service makes these API calls:
 
-* `STS-GetCallerIdentity`
-* `EC2-DescribeRegions`
-* `EC2-DescribeInstances`
-* `EC2-DescribeInstanceStatus`
-* `IAM-ListAccountAliases`
+- `STS-GetCallerIdentity`
+- `EC2-DescribeRegions`
+- `EC2-DescribeInstances`
+- `EC2-DescribeInstanceStatus`
+- `IAM-ListAccountAliases`
 
 Chef Automate's Node Manager discovers EC2 instances using polling and scan jobs.
 
@@ -46,24 +46,24 @@ Scan Jobs
 
 ![Chef Automate Create AWS-API Scan Job](/images/automate/create-aws-api-scanjob.png)
 
-### AWS API Scanning Endpoints
+### AWS API scanning endpoints
 
 The service makes calls to these APIs:
 
-* `STS-GetCallerIdentity`
-* `EC2-DescribeRegions`
-* `IAM-ListAccountAliases`
-* `IAM-GetAccountSummary`
-* `IAM-ListUsers`
+- `STS-GetCallerIdentity`
+- `EC2-DescribeRegions`
+- `IAM-ListAccountAliases`
+- `IAM-GetAccountSummary`
+- `IAM-ListUsers`
 
 Permissions: You'll need at least a global read permission; `arn:aws:iam::aws:policy/ReadOnlyAccess`
 
-## AWS Credential-less Scanning with Chef Automate
+## AWS credential-less scanning with Chef Automate
 
 For users running Chef Automate 2 in EC2, we invite you to try out our "AWS-EC2 Credential-less Scanning"!
 Please note that credential-less scanning is not supported for AWS GovCloud.
 
-### Ensure Minimum Permissions
+### Ensure minimum permissions
 
 Ensure the policy attached to the role used by the instance you have Chef Automate running on has at least these permissions:
 
@@ -91,19 +91,19 @@ Ensure the policy attached to the role used by the instance you have Chef Automa
 
 `"ssm:*"` uses a wildcard match on the AWS EC2 Systems Manager (SSM); You may wish to use a more restrictive policy.
 
-### Install AWS EC2 Systems Manager on Instances
+### Install AWS EC2 Systems Manager on instances
 
 Please follow the instructions on [AWS](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent.html)
 
-### Enable AWS EC2 Systems Manager on Instances
+### Enable AWS EC2 Systems Manager on instances
 
 To use the SSM scan job functionality, your instances must have access to `AmazonEC2RoleforSSM`, or `arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM`.
 
-### Adding an AWS EC2 Node Manager Using IAM Credentials
+### Adding an AWS EC2 Node Manager using IAM credentials
 
-When running in EC2, AWS has the ability to use the IAM role associated with your instance to create and use temporary credentials for accessing the AWS API. If you enable this feature, then you will not need to provide credentials for your AWS account. You will only be required to provide a name for your node manager. Chef Automate creates a node reference for each EC2 instance in your account, collecting all tags associated with each instance. Chef Automate calls the Amazon System Manager (SSM) to describe instance information and to get ping status for the SSM agent on all instances. A detect job is *not* run on the instances; all instances with an SSM ping status of "Online" will be marked as reachable.
+When running in EC2, AWS has the ability to use the IAM role associated with your instance to create and use temporary credentials for accessing the AWS API. If you enable this feature, then you will not need to provide credentials for your AWS account. You will only be required to provide a name for your node manager. Chef Automate creates a node reference for each EC2 instance in your account, collecting all tags associated with each instance. Chef Automate calls the Amazon System Manager (SSM) to describe instance information and to get ping status for the SSM agent on all instances. A detect job is _not_ run on the instances; all instances with an SSM ping status of "Online" will be marked as reachable.
 
-### Create a Scan Job Targeting Your AWS EC2 Instances using AWS SSM
+### Create a Scan Job targeting your AWS EC2 instances using AWS SSM
 
 The `ssm` Scan Job:
 
@@ -114,14 +114,14 @@ Your Automate instance must be reachable (open to incoming traffic) from the ins
 
 ![Chef Automate Create AWS-EC2 Scan Job](/images/automate/create-aws-ec2-scanjob.png)
 
-### AWS Credential-less Scanning
+### AWS credential-less scanning
 
 The service makes these API calls:
 
-* `STS-GetCallerIdentity`
-* `EC2-DescribeRegions`
-* `EC2-DescribeInstances`
-* `EC2-DescribeInstanceStatus`
-* `SSM-DescribeInstanceInformation`
-* `SSM-SendCommand`
-* `SSM-ListCommands`
+- `STS-GetCallerIdentity`
+- `EC2-DescribeRegions`
+- `EC2-DescribeInstances`
+- `EC2-DescribeInstanceStatus`
+- `SSM-DescribeInstanceInformation`
+- `SSM-SendCommand`
+- `SSM-ListCommands`

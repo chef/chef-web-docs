@@ -1,6 +1,8 @@
 The types of nodes that can be managed by Chef include, but are not
 limited to, the following:
 
+<!-- markdownlint-disable-file MD033 -->
+
 <table>
 <colgroup>
 <col style="width: 19%" />

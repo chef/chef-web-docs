@@ -14,5 +14,4 @@ Ruby is also a powerful and complete programming language:
 To learn more about Ruby, see:
 
 - [Ruby Documentation](https://www.ruby-lang.org/en/documentation/)
-- [Ruby Standard Library
-    Documentation](https://www.ruby-doc.org/stdlib/)
+- [Ruby Standard Library Documentation](https://www.ruby-doc.org/stdlib/)
