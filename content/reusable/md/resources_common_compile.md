@@ -1,10 +1,12 @@
 Chef Infra Client processes recipes in two phases:
 
+<!-- markdownlint-disable-file MD033 -->
+
 1. First, each resource in the node object is identified and a resource
    collection is built. All recipes are loaded in a specific order, and
    then the actions specified within each of them are identified. This
    is also referred to as the "compile phase".
-2. Next, Chef Infra Client configures the system based on the order of
+1. Next, Chef Infra Client configures the system based on the order of
    the resources in the resource collection. Each resource then
    examines the node and performs the necessary steps to complete the
    action. This is also referred to as the "execution phase".

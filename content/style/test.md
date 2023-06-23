@@ -7,6 +7,7 @@ product = []
 +++
 
 <!-- /* cSpell:disable */ -->
+<!-- markdownlint-disable-file MD036 -->
 
 This page is a "smoke test" document that we can use to test HTML, CSS, and template
 changes that affect the overall documentation.

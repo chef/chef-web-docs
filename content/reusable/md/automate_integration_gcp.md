@@ -1,4 +1,4 @@
-Run scans against your GCP account infrastructure using Chef Automate. Set up Chef Automate to detect and scan the nodes in your Google Cloud Platform (GCP) account by providing your GCP Credentials and creating a _GCP Node Manager_. To create a GCP Node Manager, navigate to _Node Integrations_, select `Create Integration`, and you should see _Google Cloud_ as one of your node management service options. See the Chef InSpec documentation for more infomation about [GCP resources](https://docs.chef.io/inspec/resources/#gcp).
+Run scans against your GCP account infrastructure using Chef Automate. Set up Chef Automate to detect and scan the nodes in your Google Cloud Platform (GCP) account by providing your GCP Credentials and creating a _GCP Node Manager_. To create a GCP Node Manager, navigate to _Node Integrations_, select `Create Integration`, and you should see _Google Cloud_ as one of your node management service options. See the Chef InSpec documentation for more information about [GCP resources](https://docs.chef.io/inspec/resources/#gcp).
 
 To run a GCP scan in Chef Automate:
 

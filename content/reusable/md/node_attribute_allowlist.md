@@ -18,7 +18,7 @@ Attributes are allowlisted by attribute type, with each attribute type being all
 
 : A hash that allowlists `override` attributes, preventing non-allowlisted attributes from being saved. For example: `['map - autohome/size']`. Default value: `nil`, all attributes are saved. If the hash is empty, no attributes are saved.
 
-<!-- markdownlint-disable-file MD033 -->
+<!-- markdownlint-disable-file MD002 -->
 
 #### Allowlisting Ohai (automatic) attributes
 

@@ -1,5 +1,7 @@
 A `Policyfile.rb` file may contain the following settings:
 
+<!-- markdownlint-disable-file MD006 MD007 MD046 MD033 -->
+
 `name "name"`
 
 : Required. The name of the policy. Use a name that reflects the
@@ -66,9 +68,7 @@ A `Policyfile.rb` file may contain the following settings:
   ```
 
   <div class="admonition-note">
-
   <p class="admonition-note-title">Note</p>
-
   <div class="admonition-note-text">
 
   If a run-list or any dependencies require a cookbook that is present
@@ -96,7 +96,6 @@ A `Policyfile.rb` file may contain the following settings:
   ```
 
   </div>
-
   </div>
 
 `cookbook "NAME" [, "VERSION_CONSTRAINT"] [, SOURCE_OPTIONS]`

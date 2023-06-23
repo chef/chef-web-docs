@@ -18,7 +18,7 @@ Attributes are blocklisted by attribute type, with each attribute type being blo
 
 : A hash that blocklists `override` attributes, preventing blocklisted attributes from being saved. For example: `['map - autohome/size']`. Default value: `nil`, all attributes are saved. If the array is empty, all attributes are saved.
 
-<!-- markdownlint-disable-file MD033 -->
+<!-- markdownlint-disable-file MD002 -->
 
 #### Blocklisting Ohai (automatic) attributes
 
