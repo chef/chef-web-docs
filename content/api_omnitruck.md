@@ -8,9 +8,9 @@ product = ["automate", "client", "server", "habitat", "inspec", "supermarket", "
 [menu]
   [menu.overview]
     title = "Omnitruck API"
-    identifier = "overview/packages_&_platforms/api_omnitruck.md Omnitruck API"
-    parent = "overview/packages_&_platforms"
-    weight = 50
+    identifier = "overview/packages_&_platforms/download/api_omnitruck.md Omnitruck API"
+    parent = "overview/packages_&_platforms/download"
+    weight = 15
 +++
 
 Chef's Omnitruck API powers the Chef Software install script as well as
@@ -150,7 +150,6 @@ This is a list of currently supported products that you can install with the Omn
 
 | Product | Product Key  |
 | ------- | ------------ |
-| Chef Automate | automate |
 | Chef Infra Client | chef |
 | Chef Backend | chef-backend |
 | Chef Infra Server | chef-server |

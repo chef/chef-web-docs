@@ -70,6 +70,12 @@ weight = 20
   weight = 30
 
     [[overview]]
+    title = "Download"
+    identifier = "overview/packages_&_platforms/download"
+    parent = "overview/packages_&_platforms"
+    weight = 50
+
+    [[overview]]
     title = "Licensing"
     identifier = "overview/packages_&_platforms/licensing"
     parent = "overview/packages_&_platforms"
