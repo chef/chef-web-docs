@@ -56,7 +56,7 @@ syntax_full_properties_list:
     `action` identifies which steps Chef Infra Client will take to bring the
     node into the desired state.
   - '`atomic_update`, `backup`, `checksum`, `content`, `force_unlink`, `group`, `inherits`,
-    `manage_symlink_source`, `mode`, `owner`, `path`, `rights`, `sensitive`, and `verify`
+    `manage_symlink_source`, `mode`, `owner`, `path`, `rights`, and `verify`
     are properties of this resource, with the Ruby type shown.'
 actions_list:
   ':create':
@@ -80,24 +80,28 @@ properties_list:
     ruby_type: 'true, false'
     required: false
     default_value: >-
-      False if modifying /etc/hosts, /etc/hostname, or /etc/resolv.conf within
+      false if modifying /etc/hosts, /etc/hostname, or /etc/resolv.conf within
       Docker containers. Otherwise default to the client.rb 'file_atomic_update'
       config value.
     description_list:
-      - markdown: >-
-          Perform atomic file updates on a per-resource basis. Set to `true` for
-          atomic file updates. Set to `false` for non-atomic file updates. This
-          setting overrides `file_atomic_update`, which is a global setting
+      - markdown: |
+          Perform atomic file updates on a per-resource basis.
+
+          Set to `true` for atomic file updates. Set to `false` for non-atomic file updates.
+
+          This setting overrides `file_atomic_update`, which is a global setting
           found in the `client.rb` file.
   - property: backup
     ruby_type: 'Integer, false'
     required: false
     default_value: '5'
     description_list:
-      - markdown: >-
+      - markdown: |
           The number of backups to be kept in `/var/chef/backup` (for UNIX- and
           Linux-based platforms) or `C:/chef/backup` (for the Microsoft Windows
-          platform). Set to `false` to prevent backups from being kept.
+          platform).
+
+          Set to `false` to prevent backups from being kept.
   - property: checksum
     ruby_type: String
     required: false
@@ -189,8 +193,10 @@ properties_list:
           `'0755'`.
 
 
-          The behavior is different depending on the platform. UNIX-
-          and Linux-based systems: A quoted 3-5 character string that defines
+          The behavior is different depending on the platform.
+
+
+          UNIX- and Linux-based systems: A quoted 3-5 character string that defines
           the octal mode that is passed to chmod. For example: `'755'`,
           `'0755'`, or `00755`. If the value is specified as a quoted string, it
           works exactly as if the `chmod` command was passed. If the value is
@@ -216,11 +222,10 @@ properties_list:
     ruby_type: 'Integer, String'
     required: false
     description_list:
-      - markdown: >-
+      - markdown: |
           A string or ID that identifies the group owner by user name or SID,
           including fully qualified user names such as `domain\user` or
           `user@domain`.
-
 
           If this value is not specified, existing owners remain
           unchanged and new owner assignments use the current user (when
@@ -230,13 +235,11 @@ properties_list:
     required: false
     default_value: The resource block's name
     description_list:
-      - markdown: >-
+      - markdown: |
           The full path to the file, including the file name and its extension.
           For example: /files/file.txt.
 
-
           Default value: the name of the resource block.
-
 
           Microsoft Windows: A path that begins with a forward slash `/`
           will point to the root of the current working directory of the Chef
@@ -258,12 +261,11 @@ properties_list:
     ruby_type: 'String, Block, Symbol'
     required: false
     description_list:
-      - markdown: >
+      - markdown: |
           Allows verification of a file's contents before it is created.
           Creates a temporary file and then allows execution of commands or
           Ruby code. If this code evaluates to `true`, the file is created. If
           the code evaluates to `false`, an error is raised.
-
 
           The types for this property are a block, string, or a symbol. When
           specified
@@ -275,7 +277,6 @@ properties_list:
           symbol it returns `true` if the verifier succeeds else it returns
           `false`.
 
-
           Currently suppported verifiers are `:yaml`, `:json` and
           `:systemd_unit`.
       - note:
@@ -283,22 +284,22 @@ properties_list:
             A block is arbitrary Ruby defined within the resource block by using
             the `verify` property. When a block returns `true`, Chef Infra
             Client will continue to update the file as appropriate.'
-      - markdown: >
+      - markdown: |
           For example, this should return `true`:
 
-            ```ruby
-            file '/tmp/baz'  do
-              verify { 1 == 1 }
-            end
-            ```
+          ```ruby
+          file '/tmp/baz'  do
+            verify { 1 == 1 }
+          end
+          ```
 
           This should also return `true`:
 
-            ```ruby
-            file '/etc/nginx.conf' do
-              verify 'nginx -t -c %{path}'
-            end
-            ```
+          ```ruby
+          file '/etc/nginx.conf' do
+            verify 'nginx -t -c %{path}'
+          end
+          ```
 
           In this example, the `%{path}` portion of this command is expanded
           to the temporary location where a copy of the file to be created
@@ -310,45 +311,45 @@ properties_list:
 
           This should return `true`:
 
-            ```ruby
-            file '/tmp/foo' do
-              content "hello"
-              verify do |path|
-                open(path).read.include?       "hello"
-              end
+          ```ruby
+          file '/tmp/foo' do
+            content "hello"
+            verify do |path|
+              open(path).read.include?       "hello"
             end
-            ```
+          end
+          ```
 
           Whereas, this should return `false`:
 
-            ```ruby
-            file '/tmp/foo' do
-              content "goodbye"
-              verify do |path|
-                open(path).read.include?       "hello"
-              end
+          ```ruby
+          file '/tmp/foo' do
+            content "goodbye"
+            verify do |path|
+              open(path).read.include?       "hello"
             end
-            ```
+          end
+          ```
 
           When using one of the built-in symbols(`:json`, `:yaml`, `:systemd_unit`)
 
           This should return `true`:
 
-            ```ruby
-            file 'foo.json' do
-              content '{"foo": "bar"}'
-              verify :json
-            end
-            ```
+          ```ruby
+          file 'foo.json' do
+            content '{"foo": "bar"}'
+            verify :json
+          end
+          ```
 
           Whereas, this should return `false`:
 
-            ```ruby
-            file 'foo.yaml' do
-                content "--- foo: 'foo-"
-                verify :yaml
-            end
-            ```
+          ```ruby
+          file 'foo.yaml' do
+              content "--- foo: 'foo-"
+              verify :yaml
+          end
+          ```
 
           If a string, block or symbol returns `false`, the Chef Infra Client run
           will stop and an error is raised.
