@@ -879,6 +879,12 @@ identifier = "chef_workstation"
       url = "/workstation/ctl_chef/#chef-generate-waiver"
 
       [[workstation]]
+      title = "chef license"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-license chef license"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/workstation/ctl_chef/#chef-license"
+
+      [[workstation]]
       title = "chef report cookbooks"
       identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-report-cookbooks chef report cookbooks"
       parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
