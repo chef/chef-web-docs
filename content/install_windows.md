@@ -30,7 +30,7 @@ There are several methods available to install Chef Infra Client depending on th
 
 ### Use MSI Installer
 
-A Microsoft Installer Package (MSI) is available for installing Chef Infra Client on a Windows machine at [Chef Downloads](https://www.chef.io/downloads/tools/infra-client?os=windows).
+A Microsoft Installer Package (MSI) is available for installing Chef Infra Client on a Windows machine at [Chef Downloads](https://www.chef.io/downloads).
 
 {{< readfile file="content/reusable/md/windows_msiexec.md" >}}
 

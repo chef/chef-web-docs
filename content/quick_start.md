@@ -15,8 +15,7 @@ product = ["client", "server"]
 
 The quickest way to get started using Chef Infra is to install Chef Workstation and create your first Chef Infra Cookbook:
 
-1. Install Chef Workstation:
-    <https://www.chef.io/downloads/tools/workstation>.
+1. Install Chef Workstation from [Chef Downloads](https://www.chef.io/downloads).
 
 2. Generate a Chef Infra repository with an example cookbook:
 
