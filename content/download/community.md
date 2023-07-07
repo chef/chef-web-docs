@@ -180,7 +180,7 @@ which will return something like:
 ```json
 sha1	"3c8a265a36c2ce7e5594ae894fafb248789464a2"
 sha256	"512c1eff0a4103e4a5c73b196d14393eddbf2b766a75e94ac9a9cb97d1fdd19c"
-url	"https://chefdownload-community.chef.io/stable/chef/download?license_id=&m=x86_64&p=ubuntu&pv=20.04&v=14.15.6"
+url	"https://chefdownload-community.chef.io/stable/chef/download?eol=false&m=x86_64&p=ubuntu&pv=20.04&v=14.15.6"
 version	"14.15.6"
 ```
 

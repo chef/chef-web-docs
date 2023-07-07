@@ -15,7 +15,7 @@ Trial users can use Chef's Trial Downloads API to download Chef software package
 
 ## License
 
-You are not required to get a license to use the Trial API to download products.
+You are not required to use a license to use the Chef Trial API to download products.
 However, you are limited to latest versions of Chef products if you don't have a license.
 [Contact Chef](https://www.chef.io/contact-us) if you'd like to request a trial license.
 
@@ -142,6 +142,12 @@ The API accepts the following parameters in a query string.
   Possible values: `true` or `false`.
 
   Default value: `false`.
+
+`license_id`
+: Your license ID.
+
+  A license is optional when using this API to download packages and view package metadata.
+  However, you are limited to the latest version of Chef products if you don't have one.
 
 `p`
 : The platform.

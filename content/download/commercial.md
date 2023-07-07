@@ -15,7 +15,8 @@ Commercial customers can use Chef's Commercial Downloads API to download Chef so
 
 ## License
 
-You will need a license to use this API. If you don't already have one, [contact Chef](https://www.chef.io/contact-us) to get a license.
+You must use a license to download packages and review metadata with this API.
+If you don't already have one, [contact Chef](https://www.chef.io/contact-us) to get a license.
 
 See [Chef's licensing documentation]({{< relref "chef_license" >}}) for more information on the Chef license.
 
@@ -40,7 +41,7 @@ The `architectures` endpoint returns a valid list of architecture that Chef prod
 Any of these architectures can be used in the `m` [query string](#parameters) value in various endpoints below.
 
 ```plain
-https://chefdownload-commerical.chef.io/architectures?license_id=<LICENSE_ID>
+https://chefdownload-commerical.chef.io/architectures
 ```
 
 ### platforms
@@ -48,7 +49,7 @@ https://chefdownload-commerical.chef.io/architectures?license_id=<LICENSE_ID>
 The `platforms` endpoint returns a list of valid platform keys along with full friendly names. Any of these platform keys can be used in the `p` [query string](#parameters) value in various endpoints below.
 
 ```plain
-https://chefdownload-commerical.chef.io/platforms?license_id=<LICENSE_ID>
+https://chefdownload-commerical.chef.io/platforms
 ```
 
 ### products
@@ -56,13 +57,13 @@ https://chefdownload-commerical.chef.io/platforms?license_id=<LICENSE_ID>
 The `products` endpoint returns a list of valid product keys. In the following endpoints, you can replace the `<PRODUCT>` string with a product key in the response of this endpoint.
 
 ```plain
-https://chefdownload-commerical.chef.io/products?license_id=<LICENSE_ID>
+https://chefdownload-commerical.chef.io/products
 ```
 
 Use `eol=true` to return EOL products.
 
 ```plain
-https://chefdownload-commerical.chef.io/products?eol=true&license_id=<LICENSE_ID>
+https://chefdownload-commerical.chef.io/products?eol=true
 ```
 
 ### packages
@@ -128,7 +129,7 @@ The API accepts the following parameters in a query string.
 `license_id`
 : Your license ID.
 
-  A license is required to use this API.
+  A license is required to download packages and retrieve package metadata with this API.
 
 `eol`
 : Whether to include EOL versions of a product or EOL products in the response.
