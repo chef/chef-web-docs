@@ -42,7 +42,7 @@ Chef Infra Server
 
 Chef Workstation
 
-: A collection of tools to aide in development of Chef Infra cookbooks. It uses the full stack installer to give you everything you need to get going in one package. You can download it at [Chef Workstation](https://www.chef.io/downloads/tools/workstation).
+: A collection of tools to aide in development of Chef Infra cookbooks. It uses the full stack installer to give you everything you need to get going in one package. You can download it at [Chef Downloads](https://www.chef.io/downloads).
 
 chef-client
 

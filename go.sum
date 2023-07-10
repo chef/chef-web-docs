@@ -3,8 +3,8 @@ github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
 github.com/chef/automate/components/docs-chef-io v0.0.0-20230608113604-7816d5bb2fb8 h1:O+VDcPLzHfVRVaSvWZTPywwli7n4sI1HYrco56pK7ME=
 github.com/chef/automate/components/docs-chef-io v0.0.0-20230608113604-7816d5bb2fb8/go.mod h1:juvLC7Rt33YOCgJ5nnfl4rWZRAbSwqjTbWmcAoA0LtU=
-github.com/chef/chef-server/docs-chef-io v0.0.0-20230621131704-389da5d3e3f8 h1:YeAvgC+Ox/IJkwpUV/J5tirmuSSjlTh7anlKqPT4L20=
-github.com/chef/chef-server/docs-chef-io v0.0.0-20230621131704-389da5d3e3f8/go.mod h1:gMSa25GUHmLimA0gjvRd3hs1buOBqkKPrdHzHvaJauY=
+github.com/chef/chef-server/docs-chef-io v0.0.0-20230706194022-b91aa30b4c99 h1:9Y95JNXbpkYxz7efwxBfNdhbD2IF4yiIHnUWBmVuUtQ=
+github.com/chef/chef-server/docs-chef-io v0.0.0-20230706194022-b91aa30b4c99/go.mod h1:gMSa25GUHmLimA0gjvRd3hs1buOBqkKPrdHzHvaJauY=
 github.com/chef/chef-workstation/docs-chef-io v0.0.0-20230710100518-6ac024bfa49e h1:FsMQ5T9GPtzgC5XozFn7kQyOLKNEOFk/wtaY4MNDinY=
 github.com/chef/chef-workstation/docs-chef-io v0.0.0-20230710100518-6ac024bfa49e/go.mod h1:gvoh6ov1YU98CVzBEWzEZeCLTRunfQ6r1VO7M3LFE9U=
 github.com/chef/compliance-profiles/docs-chef-io v0.0.0-20230623103238-3e312f1c2da0 h1:ZBQb0WcQ3TSZOHsW7ElaUlJQJvo3xWogNd8tON/ZLxc=
@@ -15,8 +15,8 @@ github.com/chef/desktop-config/docs-chef-io v0.0.0-20220405052948-5947f844edff h
 github.com/chef/desktop-config/docs-chef-io v0.0.0-20220405052948-5947f844edff/go.mod h1:90xAx6sIfgSL50M2KzeBmx7V7s7dlhQU3xpUkJO0qW0=
 github.com/chef/effortless/docs-chef-io v0.0.0-20211119164252-4ff3d53886be h1:QeeHFnUaNVQmTlxX3MT06Dgz8omORr5ZATVH7yLc96A=
 github.com/chef/effortless/docs-chef-io v0.0.0-20211119164252-4ff3d53886be/go.mod h1:Lfq+HjwAQwUJ41EPTO/8qbI1oJb2i415fR28d2Ig9kc=
-github.com/chef/supermarket/docs-chef-io v0.0.0-20230317105755-1f3d273b3f82 h1:Nhv0puii4R+Cr8tFkORHhavOxXSp2ATIlg6tHmiw/5k=
-github.com/chef/supermarket/docs-chef-io v0.0.0-20230317105755-1f3d273b3f82/go.mod h1:L0DhIJHTKsPYhAr9TrhAIg3KXtrS9BJF0XNHfGDDGGg=
+github.com/chef/supermarket/docs-chef-io v0.0.0-20230707131947-d0b3d65ae7a6 h1:+cr06FvS0yJskPAroKEc9kzxegSD8J4+SWu0QmBItkg=
+github.com/chef/supermarket/docs-chef-io v0.0.0-20230707131947-d0b3d65ae7a6/go.mod h1:L0DhIJHTKsPYhAr9TrhAIg3KXtrS9BJF0XNHfGDDGGg=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
 github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90 h1:p/a5iSATj0OjrqJLX/YKxYdGXhZzW58yyyNIC4JY4S0=
 github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90/go.mod h1:N/6F0+wmdvL6k0AjqyKIncMRClKAN92atjZdTLtYMaw=
@@ -37,8 +37,8 @@ github.com/google/go-cmp v0.3.0/go.mod h1:8QqcDgzrUqlUb/G2PQTWiueGozuR1884gddMyw
 github.com/google/go-cmp v0.3.1/go.mod h1:8QqcDgzrUqlUb/G2PQTWiueGozuR1884gddMywk6iLU=
 github.com/google/go-cmp v0.4.0/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
 github.com/google/go-cmp v0.5.0/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
-github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20230523193340-3c2aa8a1cffe h1:6NiuwBPL1mSt5Arxw/Yjs+9i8W3gWhJb1EOo01w77yY=
-github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20230523193340-3c2aa8a1cffe/go.mod h1:luAy42opPrAM/T6hsqDyW3CNBaAMgy+a6l0+oi8sw8U=
+github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20230710140513-c5d5a2448261 h1:DzcLym6E7p6Xr7c5lfzCM+0HjeUULkN7j/DYvFLwRf4=
+github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20230710140513-c5d5a2448261/go.mod h1:luAy42opPrAM/T6hsqDyW3CNBaAMgy+a6l0+oi8sw8U=
 github.com/inspec/inspec-alicloud/docs-chef-io v0.0.0-20220614123852-e453ba687370 h1:ExM/pqpJgy8gtu2gK6E8EiuolMy7BvcHSSvTzkf/Sm4=
 github.com/inspec/inspec-alicloud/docs-chef-io v0.0.0-20220614123852-e453ba687370/go.mod h1:tAazDDBtR5yCl/FNWHnrmkxpfxnOo9B99DyfRE7JH1c=
 github.com/inspec/inspec-aws/docs-chef-io v0.0.0-20220228151600-69aa036b1527 h1:uUaij/nZVKcjxg6wiyKdHZjUESGAXrnUPyFL8+YhfaU=

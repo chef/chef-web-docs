@@ -284,7 +284,7 @@ Sample kitchen.yml config:
 
 ### New Platforms
 
-ChefDK packages are now created for Ubuntu 20.04 and Debian 10! Additionally, we have increased package validation for our Windows 10 packages to ensure compatibility. See the [ChefDK Downloads Page](https://downloads.chef.io/chefdk) for a complete list of platforms.
+ChefDK packages are now created for Ubuntu 20.04 and Debian 10! Additionally, we have increased package validation for our Windows 10 packages to ensure compatibility. See the Chef Downloads Page for a complete list of platforms.
 
 ### macOS Binary Signing
 
@@ -1754,18 +1754,18 @@ hosts in nested directories.
 #### macOS 10.15 Support
 
 ChefDK is now validated against macOS 10.15 (Catalina) with packages
-available at [downloads.chef.io](https://downloads.chef.io/chefdk/).
+available at Chef Downloads.
 Additionally, ChefDK will no longer be validated against macOS 10.12.
 
 #### RHEL 8 Support
 
 ChefDK is now validated against RHEL 8 with packages available at
-[downloads.chef.io](https://downloads.chef.io/chefdk/).
+Chef Downloads.
 
 #### Windows 2019 Support
 
 ChefDK is now validated against Windows 2019 with packages available at
-[downloads.chef.io](https://downloads.chef.io/chefdk/).
+Chef Downloads.
 
 #### SLES 11 EOL
 
@@ -2204,7 +2204,7 @@ measurements in megabytes):
 ### Platform Support Updates
 
 macOS 10.14 (Mojave) is now fully tested and packages are available on
-downloads.chef.io.
+Chef Downloads.
 
 ### Security Updates
 
