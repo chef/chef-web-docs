@@ -1,17 +1,17 @@
 +++
-title = "Commercial Download"
+title = "Commercial API"
 draft = true
 gh_repo = "chef-web-docs"
 
 [menu]
   [menu.overview]
-    title = "Commercial"
+    title = "Commercial API"
     identifier = "overview/packages_&_platforms/download/Commercial"
     parent = "overview/packages_&_platforms/download"
     weight = 20
 +++
 
-Commercial customers can use Chef's Commercial Downloads API to download Chef software packages.
+Commercial customers can use Chef's Commercial API to download Chef software packages and view software package metadata.
 
 ## License
 
@@ -159,7 +159,7 @@ The API accepts the following parameters in a query string.
 : The version of the product to be installed.
 
   Versions typically take the form of `x.y.z` where x, y, and z are decimal numbers that are used to represent major (x), minor (y), and patch (z) versions.
-  One-part (x) and two-part (x.y) versions are allowed.
+  One-part (`x`) and two-part (`x.y`) versions are allowed.
 
   Default value: `latest`.
 

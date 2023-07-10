@@ -15,9 +15,9 @@ robots = "noindex"
     weight = 10
 +++
 
-Use one of Chef's download APIs to download packages of Chef's products.
+Use one of Chef's download APIs to download Chef software packages and get package metadata.
 
 There are two APIs available depending on the type of user you are:
 
-- [Omnitruck]({{< relref "api_omnitruck" >}}) for commercial and trial users
-- [Community]({{< relref "/download/community" >}}) for open source community users
+- [Omnitruck API]({{< relref "api_omnitruck" >}}) for commercial and trial users
+- [Community API]({{< relref "/download/community" >}}) for open source community users

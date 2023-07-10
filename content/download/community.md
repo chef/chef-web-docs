@@ -1,17 +1,17 @@
 +++
-title = "Community Download"
+title = "Community API"
 draft = false
 gh_repo = "chef-web-docs"
 
 [menu]
   [menu.overview]
-    title = "Community"
-    identifier = "overview/packages_&_platforms/download/Community"
+    title = "Community API"
+    identifier = "overview/packages_&_platforms/download/Community API"
     parent = "overview/packages_&_platforms/download"
-    weight = 40
+    weight = 30
 +++
 
-Chef community members can use Chef's Community Downloads API to download Chef software packages.
+Chef community members can use Chef's Community API to download Chef software packages and view software package metadata.
 
 ## License
 
@@ -147,7 +147,7 @@ The API accepts the following parameters in a query string.
 : The version of the product to be installed.
 
   Versions typically take the form of `x.y.z` where x, y, and z are decimal numbers that are used to represent major (x), minor (y), and patch (z) versions.
-  One-part (x) and two-part (x.y) versions are allowed.
+  One-part (`x`) and two-part (`x.y`) versions are allowed.
 
   Default value: `latest`.
 
