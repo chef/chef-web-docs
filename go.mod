@@ -9,7 +9,7 @@ require (
 	github.com/chef/compliance-profiles/docs-chef-io v0.0.0-20230623103238-3e312f1c2da0 // indirect
 	github.com/chef/compliance-remediation-2022/docs-chef-io v0.0.0-20230509164248-bb54d1e7fbc3 // indirect
 	github.com/chef/desktop-config/docs-chef-io v0.0.0-20220405052948-5947f844edff // indirect
-	github.com/chef/effortless/docs-chef-io v0.0.0-20211119164252-4ff3d53886be // indirect
+	github.com/chef/effortless/docs-chef-io v0.0.0-20230711123605-c8beb79aba4f // indirect
 	github.com/chef/supermarket/docs-chef-io v0.0.0-20230707131947-d0b3d65ae7a6 // indirect
 	github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90 // indirect
 	github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20230710140513-c5d5a2448261 // indirect

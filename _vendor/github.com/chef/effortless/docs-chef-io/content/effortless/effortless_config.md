@@ -17,7 +17,7 @@ Effortless Config is the pattern for managing your Chef Infra workloads. It uses
 
 ## Effortless Environment Set-up
 
-1. Install [Chef Workstation](https://downloads.chef.io/chef-workstation)
+1. Install [Chef Workstation](https://www.chef.io/downloads)
 1. Install [Chef Habitat]({{< relref "/habitat/install_habitat" >}})
 1. Configure Chef Habitat on your workstation by running `hab setup`
 
