@@ -35,9 +35,9 @@ To get the modules from the public GitHub repository, with the git tool installe
 git clone https://github.com/chef/chef-desktop-quick-setup
 ```
 
-Now we will install the tools required to support the modules:
+Now install the tools required to support the modules:
 
-1. [Chef Workstation](https://www.chef.io/downloads/tools/workstation): Installs the chef tools necessary to create the chef repo, install cookbooks, push policies to the created server, and setup local chef configuration.
+1. [Chef Workstation](https://www.chef.io/downloads): Installs the chef tools necessary to create the chef repo, install cookbooks, push policies to the created server, and setup local chef configuration.
 1. [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli): To run the modules.
 1. [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html): Terraform needs this to be able to communicate to the cloud provider. Read more about it in their documentation.
 1. PuTTy for Windows: Terraform modules will use this to get the keys from your server or perform actions that you would otherwise manually do.

@@ -15,7 +15,7 @@ Chef Workstation ships with Chef Infra Client, Chef InSpec, Chef CLI, Test Kitch
 
 ## Install Chef Workstation
 
-[Download Chef Workstation](https://www.chef.io/downloads/tools/workstation) and run the installer on the developer machine. Once downloaded, run the installer, accept the default options and wait for it to complete.
+[Download Chef Workstation](https://www.chef.io/downloads) and run the installer on the developer machine. Once downloaded, run the installer, accept the default options and wait for it to complete.
 
 Once the installation is complete, you can verify the installation by opening the command line and run:
 
