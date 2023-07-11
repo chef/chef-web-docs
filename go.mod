@@ -5,10 +5,10 @@ go 1.16
 require (
 	github.com/chef/automate/components/docs-chef-io v0.0.0-20230608113604-7816d5bb2fb8 // indirect
 	github.com/chef/chef-server/docs-chef-io v0.0.0-20230706194022-b91aa30b4c99 // indirect
-	github.com/chef/chef-workstation/docs-chef-io v0.0.0-20230710100518-6ac024bfa49e // indirect
+	github.com/chef/chef-workstation/docs-chef-io v0.0.0-20230711045531-fa0fe0b62f63 // indirect
 	github.com/chef/compliance-profiles/docs-chef-io v0.0.0-20230623103238-3e312f1c2da0 // indirect
 	github.com/chef/compliance-remediation-2022/docs-chef-io v0.0.0-20230509164248-bb54d1e7fbc3 // indirect
-	github.com/chef/desktop-config/docs-chef-io v0.0.0-20220405052948-5947f844edff // indirect
+	github.com/chef/desktop-config/docs-chef-io v0.0.0-20230711052355-bad26ce3ac0b // indirect
 	github.com/chef/effortless/docs-chef-io v0.0.0-20230711123605-c8beb79aba4f // indirect
 	github.com/chef/supermarket/docs-chef-io v0.0.0-20230707131947-d0b3d65ae7a6 // indirect
 	github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90 // indirect
