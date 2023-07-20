@@ -22,7 +22,6 @@ other components.
 
 {{% chef-server/ctl_chef_server_uninstall %}}
 
-
 ## Chef Workstation
 
 Chef Workstation can be uninstalled using the steps below that are
