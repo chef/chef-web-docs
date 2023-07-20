@@ -15,7 +15,7 @@ product = ["client", "server"]
 <!-- markdownlint-disable-file MD033 -->
 {{< readfile file="content/reusable/md/environment.md" >}}
 
-## The `_default` Environment
+## The `_default` environment
 
 Every Chef Infra Server organization must have at least one environment.
 Each organization starts out with a single `_default` environment. The
@@ -26,7 +26,7 @@ Additional environments can be created to reflect each organization's
 patterns and workflow. For example, creating `production`, `staging`,
 `testing`, and `development` environments.
 
-## Environment Attributes
+## Environment attributes
 
 {{< note >}}
 
@@ -36,7 +36,7 @@ patterns and workflow. For example, creating `production`, `staging`,
 
 {{< readfile file="content/reusable/md/environment_attribute.md" >}}
 
-### Environment Attribute Types
+### Environment attribute types
 
 There are two types of attributes that can be used with environments:
 
@@ -63,7 +63,7 @@ There are two types of attributes that can be used with environments:
 </tbody>
 </table>
 
-## Pinning Cookbooks in Environments
+## Pinning Cookbooks in environments
 
 Cookbook versions can be pinned in each environment, which allows you to
 control the rollout of new cookbook releases through successive testing
@@ -71,7 +71,7 @@ environments before releasing new cookbook versions into production
 environments. See the environment format examples below for the cookbook
 pinning syntax.
 
-## Environment Formats
+## Environment formats
 
 Environments may be stored on disk (any in source control) in two
 formats:
@@ -79,7 +79,7 @@ formats:
 - As Ruby ( a file that ends with `.rb`); this format is not available when running Chef Infra Client in local mode
 - As JSON (a file that ends with `.json`)
 
-### Chef Language
+### Chef language
 
 Each environment is defined as a Ruby file (a file that ends with
 `.rb`). Each environment file should contain the following
@@ -264,7 +264,7 @@ The JSON format has two additional settings:
 </tbody>
 </table>
 
-## Create Environments
+## Create environments
 
 An environment can be created in four different ways:
 
@@ -278,7 +278,7 @@ An environment can be created in four different ways:
 Once an environment exists on the Chef Infra Server, a node can be
 associated with that environment using the `chef_environment` method.
 
-## Manage Environments
+## Manage environments
 
 Once created, an environment can be managed in several ways:
 
@@ -301,7 +301,7 @@ The settings for environments can be modified and environments can be
 integrated into the larger infrastructure by associating them with nodes
 and by using recipes to call specific environment settings.
 
-### Find Environment from Recipe
+### Find environment from recipe
 
 Use the following syntax to find the current environment from a recipe:
 
@@ -315,7 +315,7 @@ or:
 node.chef_environment
 ```
 
-### Save in a Data Bag
+### Save in a data bag
 
 Values that are stored in a data bag are global to the organization and
 are available to any environment. There are two main strategies that can
@@ -353,7 +353,7 @@ within a data bag for each environment. However, this approach is more time-cons
 not scale to large environments or when the data must be stored in
 many data bag items.
 
-### Override Attributes in Roles
+### Override attributes in roles
 
 Environment attributes that are used with roles can be overridden.
 Typically, this is done by using attribute precedence, but sometimes it
@@ -370,7 +370,7 @@ mything = data_bag_item('things', 'mything')
 attribute_i_want = mything[node.chef_environment]
 ```
 
-### Set for a Node
+### Set for a node
 
 A node is considered to be associated with an environment when the
 `chef_environment` attribute is set. The `chef_environment` attribute
@@ -396,7 +396,7 @@ using the following methods:
     file ; when Chef Infra Client runs, it will pick up the value and
     then set the `chef_environment` attribute of the node
 
-### Move Nodes
+### Move nodes
 
 Use the `knife exec` subcommand to move nodes between environments, such
 as from a "dev" to a "production" environment. For example:
@@ -405,10 +405,10 @@ as from a "dev" to a "production" environment. For example:
 knife exec -E 'nodes.transform("chef_environment:dev") { |n| n.chef_environment("production") }'
 ```
 
-### Search Environments
+### Search environments
 
 {{< readfile file="content/reusable/md/search_environment.md" >}}
 
-## Environments in Chef Solo
+## Environments in chef-solo
 
 {{< readfile file="content/reusable/md/chef_solo_environments.md" >}}
