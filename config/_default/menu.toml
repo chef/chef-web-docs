@@ -992,12 +992,12 @@ weight = 10
 [[legacy]]
 title = "Legacy"
 identifier = "legacy"
-weight = 10
 
   [[legacy]]
   title = "Chef Manage"
   identifier = "legacy/manage"
   parent = "legacy"
+  weight = 10
 
 ####
 # End Legacy Menu
