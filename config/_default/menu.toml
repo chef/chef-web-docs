@@ -148,6 +148,12 @@ identifier = "automate"
     weight = 50
 
     [[automate]]
+    title = "Configuration"
+    identifier = "automate/deploy_high_availability/configuration"
+    parent = "automate/deploy_high_availability"
+    weight = 55
+
+    [[automate]]
     title = "Backup and Restore"
     identifier = "automate/deploy_high_availability/backup_and_restore"
     parent = "automate/deploy_high_availability"
