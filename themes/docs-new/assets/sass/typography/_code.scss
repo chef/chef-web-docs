@@ -20,7 +20,7 @@ a {
 
 pre {
   color: $charcoal;
-  background-color: $sidebargray;
+  background-color: $sidebar-gray;
   border: 1px solid $ash;
   border-radius: $border-radius-base;
   margin-bottom: rem-calc(16);
@@ -58,7 +58,7 @@ table {
   font-family: $font-family-monospace;
 
   .output {
-    color: $sidebargray;
+    color: $sidebar-gray;
   }
 }
 

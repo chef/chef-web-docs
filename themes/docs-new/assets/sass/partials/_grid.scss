@@ -86,7 +86,7 @@
   @include breakpoint(medium) {
     #main-content {
       position: relative;
-      background: linear-gradient(90deg, $sidebargray 50%, $white 50%);
+      background: linear-gradient(90deg, $sidebar-gray 50%, $white 50%);
     }
   }
 }
