@@ -10,7 +10,7 @@ preferred.
 **All Deployments**
 
 - 64-bit CPU architecture
-- CPU support for SSE4.2 extensions (Xeons starting in 2007 and Opterons in 2012)
+- CPU support for SSE4.2 extensions (Xeon processors starting in 2007 and Opteron processors in 2012)
 
 **Standalone Deployments**
 

@@ -97,7 +97,7 @@ This configuration file has the following settings for `ldap`:
     filters based on the `memberOf` attribute and only works with LDAP
     servers that provide such an attribute. In OpenLDAP, the `memberOf`
     overlay provides this attribute. For example, if the value of the
-    `memberOf` attribute is `CN=abcxyz,OU=users,DC=company,DC=com`, then
+    `memberOf` attribute is `CN=commonName,OU=users,DC=company,DC=com`, then
     use:
 
     ```ruby
@@ -176,7 +176,7 @@ This configuration file has the following settings for `ldap`:
 `ldap['tls_enabled']`
 
 :   Enable TLS. When enabled, communication with the LDAP server is done
-    using a secure SSL connection on a dedicated port. Synonymous with STARTTLS. This mode is rarely used. When `true`,
+    using a secure SSL connection on a dedicated port. Synonymous with StartTLS. This mode is rarely used. When `true`,
     `ldap['port']` is also set to `636`. Default value: `false`. Must be
     `false` when `ldap['ssl_enabled']` is `true`.
 
