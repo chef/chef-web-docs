@@ -10,6 +10,16 @@ draft = false
     weight = 20
 +++
 
+## 20230804
+
+### New Features
+
+- CIS Ubuntu 22.04 v1.0.0 (Remediation).
+
+### Improvements
+
+- CIS Windows Server 2012 R2 v2.5.0 | Modified remediation script for 18.2.1 to enable powershell 4 usage
+
 ## 20230509
 
 ### New Features
@@ -29,8 +39,8 @@ draft = false
 
 ### New Features
 
-CIS Alma Linux v2.0.0 (Remediation).
-CIS Oracle Linux 8 v2.0.0 (Remediation).
+- CIS Alma Linux v2.0.0 (Remediation).
+- CIS Oracle Linux 8 v2.0.0 (Remediation).
 
 ## 20220808
 
