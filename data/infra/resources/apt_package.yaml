@@ -20,16 +20,17 @@ syntax_description: |
   which will install the named package using all of the default options and the default action of `:install`.
 syntax_full_code_block: |-
   apt_package 'name' do
-    default_release              String
-    options                      String, Array
-    overwrite_config_files       true, false # default value: false
-    package_name                 String, Array
-    response_file                String
-    response_file_variables      Hash # default value: {}
-    source                       String
-    timeout                      String, Integer
-    version                      String, Array
-    action                       Symbol # defaults to :install if not specified
+    anchor_package_regex       true, false # default value: false
+    default_release            String
+    options                    String, Array
+    overwrite_config_files     true, false # default value: false
+    package_name               String, Array
+    response_file              String
+    response_file_variables    Hash # default value: {}
+    source                     String
+    timeout                    String, Integer
+    version                    String, Array
+    action                     Symbol # defaults to :install if not specified
   end
 syntax_properties_list: 
 syntax_full_properties_list:
@@ -37,7 +38,7 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`default_release`, `options`, `overwrite_config_files`, `package_name`, `response_file`,
+- "`anchor_package_regex`, `default_release`, `options`, `overwrite_config_files`, `package_name`, `response_file`,
   `response_file_variables`, `source`, `timeout`, and `version` are the properties
   available to this resource."
 actions_list:
@@ -60,6 +61,15 @@ actions_list:
   :unlock:
     markdown: Unlocks the apt package so that it can be upgraded to a newer version.
 properties_list:
+- property: anchor_package_regex
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  new_in: '18.3'
+  description_list:
+  - markdown: A Boolean flag that allows (`false`) or prevents (`true`) apt_package
+      from matching the named package with packages by regular expression if it can't
+      find a package with the exact same name.
 - property: default_release
   ruby_type: String
   required: false
@@ -133,5 +143,20 @@ examples: |
   ```ruby
   package 'apache2' do
     options '--no-install-recommends'
+  end
+  ```
+
+  **Prevent the apt_package resource from installing packages with pattern matching names**:
+
+  By default, the apt_package resource will install the named package.
+  If it can't find a package with the exact same name, it will treat the package name as regex string and match with any package that matches that regex.
+  This may lead Chef Infra Client to install one or more packages with names that match that regex.
+
+  In this example, `anchor_package_regex true` prevents the apt_package resource from installing matching packages if it can't find the `lua5.3` package.
+
+  ```ruby
+  apt_package 'lua5.3' do
+    version '5.3.3-1.1ubuntu2'
+    anchor_package_regex true
   end
   ```
