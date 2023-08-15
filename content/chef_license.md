@@ -25,7 +25,7 @@ governed under the Chef EULA, while the software projects remained
 governed by the Apache 2.0 license. To understand which license applies
 to those distributions, see the [versions page](/versions/). General
 information about this change can be found in our
-[announcement](https://blog.chef.io/2019/04/02/chef-software-announces-the-enterprise-automation-stack/).
+[announcement](https://www.chef.io/blog/chef-software-announces-the-enterprise-automation-stack).
 
 ## Chef EULA
 
