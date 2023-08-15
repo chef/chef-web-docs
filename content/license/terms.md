@@ -1,6 +1,6 @@
 +++
 title = "Chef Licensing Terms"
-draft = false
+draft = true
 gh_repo = "chef-web-docs"
 
 [menu]
