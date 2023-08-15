@@ -37,7 +37,7 @@ For Chef InSpec 6 and higher, there are three new end-user licenses which govern
 | Trial | Initial 30-day license renewable up to 90 days | Free | Advanced functionality enabled | Non-production workloads | Community support in Slack and solution architect support | Some features and scale may be restricted | Individual within an organization | Evaluate products in a non-production environment organization or company |
 | Commercial | Duration of contract, renewable and upgradable | Paid | Advanced functionality enabled | Production and Non-production workloads | Support per contract | Full product(s) and content per contract | Professional DevOps Engineer within an organization | Enterprise workloads |
 
-Licensing is available for non-profit, research and/or academic organizations through a special, free or highly discounted commercial license at [NPRA](https://www.chef.io/nonprofit-entitlement-program).
+Licensing is available for non-profit, research, and academic organizations through a special, free, or highly discounted commercial license in Progress Chef's [Non-Profit Entitlement Program](https://www.chef.io/nonprofit-entitlement-program).
 
 Official downstream distributions made from original Chef distributions (for example, CINC) are not affected by this license change.
 
