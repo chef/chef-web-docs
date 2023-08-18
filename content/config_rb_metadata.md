@@ -278,7 +278,7 @@ This configuration file has the following settings:
   Here is a list of all of the supported specific operating systems:
 
   ```ruby
-  %w( aix amazon centos fedora freebsd debian oracle mac_os_x redhat suse opensuseleap ubuntu windowszlinux ).each do |os|
+  %w( aix amazon centos fedora freebsd debian oracle mac_os_x redhat suse opensuseleap ubuntu windows zlinux ).each do |os|
     supports os
   end
   ```
