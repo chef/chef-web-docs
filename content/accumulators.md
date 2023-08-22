@@ -87,7 +87,7 @@ The following example shows how to:
 - Use `edit_resource` to find the template
 - Use `edit_resource` to add new variables to the existing collection
 
-_Note_: This uses the `||=` Ruby method to add a new Hash if one does not exist already.
+_Note_: This uses the `||=` Ruby method to add a new Hash if one doesn't exist already.
 
 ```ruby
 # action for the samba_server custom resource

@@ -4,3 +4,5 @@ level: error
 ignorecase: true
 swap:
   'policy file': Policyfile
+  'policyfile': Policyfile
+  'PolicyFile': Policyfile
