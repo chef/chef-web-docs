@@ -11,5 +11,3 @@ action:
     - '.?!'
 tokens:
   - '[a-z][.?!](?:\s|$)'
-exceptions:
-  - ':'
