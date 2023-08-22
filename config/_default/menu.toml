@@ -1037,13 +1037,6 @@ identifier = "support"
 url = "https://www.chef.io/support"
 weight = 120
 
-[[extra]]
-title = "Archive"
-identifier = "archive"
-url = "https://docs-archive.chef.io/"
-weight = 130
-
-
 ####
 # End Extra Menu
 ####

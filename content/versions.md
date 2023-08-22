@@ -44,9 +44,6 @@ This stage indicates that Chef has set a date after which the
 application or version will no longer be supported or recommended for
 use by customers.
 
-- As of the end of life date, the application will no longer be supported by Chef and will no longer be available for download
-- Documentation for the application will be moved to <https://docs-archive.chef.io>
-
 ### Versions and Status
 
 {{< important >}}
