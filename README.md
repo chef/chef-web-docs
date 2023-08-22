@@ -276,9 +276,9 @@ The `<CHEF_PRODUCT>` value comes from the Product Key in the [Product Matrix](ht
 
 Any content included in the release notes Markdown file will be included at the top of the page and the release notes will be appended below.
 
-## Documentation Snapshots
+## Archive of content from 2012 to 2016
 
-The previous scoped doc sets that were found on [docs.chef.io](https://docs.chef.io/release/) are no longer available in this repo. Instead, those doc sets are located at [Chef Docs Archive](https://docs-archive.chef.io/). The index page on the docs archive site provides links to them. The doc sets retain their unique left nav and can be used to view content at a particular point in time for a given release. In the future, snapshots will be added for major releases of products/projects or for products/projects/components that are no longer supported.
+Documentation deployed from chef-web-docs between 2013 to 2016 is archived in the [https://github.com/chef/docs-archive](docs-archive) repository.
 
 ## Archive of pre-2016 commit history
 
