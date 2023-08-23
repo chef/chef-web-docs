@@ -57,3 +57,4 @@ jobs:
       - uses: errata-ai/vale-action@reviewdog
         with:
           filter_mode: diff_context
+          fail_on_error: true
