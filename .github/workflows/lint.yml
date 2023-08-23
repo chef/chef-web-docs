@@ -49,20 +49,11 @@ jobs:
             !content/resources/_index.md
             !content/habitat/
             !infra_resources_readme.md
-  stylelint:
+  vale:
+    name: runner / vale
     runs-on: ubuntu-latest
     steps:
-      - name: "Download vale-chef"
-        uses: Legion2/download-release-action@v2.1.0
+      - uses: actions/checkout@v3
+      - uses: errata-ai/vale-action@reviewdog
         with:
-          repository: chef/vale-chef
-          tag: 'v0.2.4'
-          path: tools/vale/chef
-          token: "${{ secrets.GITHUB_TOKEN }}"
-      - uses: errata-ai/vale-action@v1
-        with:
-          config: https://raw.githubusercontent.com/chef/chef-web-docs/main/.vale.ini
-          files: __onlyModified
-        env: 
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-            
+          filter_mode: diff_context
