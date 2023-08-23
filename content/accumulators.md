@@ -10,8 +10,6 @@ gh_repo = "chef-web-docs"
     weight = 20
 +++
 
-It is important to be started with our project.
-
 This is an advanced topic. You should have already written a Custom Resource and be familiar with:
 
 - The built-in Chef Infra [`template`]({{< relref "resources/template" >}}) resource
