@@ -64,8 +64,8 @@ weight = 20
   weight = 20
 
     [[overview]]
-    title = "Reference"
-    identifier = "overview/licensing/reference"
+    title = "Private Licensing Service"
+    identifier = "overview/licensing/private"
     parent = "overview/licensing"
     weight = 999
 

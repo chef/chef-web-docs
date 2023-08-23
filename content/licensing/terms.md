@@ -1,26 +1,27 @@
 +++
 title = "Chef Licensing Terms"
-draft = true
+draft = false
 gh_repo = "chef-web-docs"
 
 [menu]
   [menu.overview]
     title = "Terms"
-    identifier = "overview/licensing/reference/Terms"
-    parent = "overview/licensing/reference"
+    identifier = "overview/licensing/Terms"
+    parent = "overview/licensing"
+    weight = 30
 +++
 
 Node
-: Individual component of your system, physical or virtual (for example, a server, workstation, IP router, virtual machine, or another device or component) that is assessed, installed, configured, updated, scanned and/or managed using any Chef product.
+: An individual component of your system, physical or virtual (for example, a server, workstation, IP router, virtual machine, or another device or component) that is assessed, installed, configured, updated, scanned and/or managed using any Chef product.
 
 Scan
-: Rules based of Inspection of a target. There can be many number of scans applied on a target.
+: A rules-based inspection of a target. There can be many scans applied to a target.
 
 Target
 : Each instance of infrastructure, software, configuration, cloud accounts, container hosts, or other technical resource that is the compliance target of one or more Chef InSpec profiles used by you. Each target can access a resource with its credentials and locations.
 
 Subscription License
-: One of the license types that continue until the expiration of the subscription period identified in the order, unless earlier terminated in accordance with the terms of the EULA.
+: One of the license types that continue until the expiration of the subscription period identified in the order, unless earlier terminated in accordance with the terms of the [Progress Chef End User License Agreement](https://www.chef.io/end-user-license-agreement).
 
 Licensed Unit
 : "License Unit" types/metrics include node, entitled content, service instance, target and/or endpoint.
@@ -39,7 +40,7 @@ Commercial Users
 
 Community Users
 : [Open Source] CINC Users. [Free] Infra <= 12, Inspec <= 3
-: Users that use older versions of Chef open-source software or downstream OSS distributions of Chef (CINC).
+  Users that use older versions of Chef open-source software or downstream OSS distributions of Chef (CINC).
 
 Open Source
 : Chef Code available to all under Apache License, Version 2.0. This is not same as access to any licensed Chef products or free Chef products.

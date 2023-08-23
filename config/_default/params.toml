@@ -7,3 +7,6 @@ robots = ''
 
 [chef-web-docs]
   gh_path = "https://github.com/chef/chef-web-docs/blob/main/content/"
+
+[license-service]
+gh_path = "https://github.com/chef/license-service/tree/main/docs-chef-io/content/"
