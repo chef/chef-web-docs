@@ -1,5 +1,4 @@
-# This config file is for Vale lints run with GitHub Actions.
-# See the .vale.ini file for lints run on a local workstation or with the VSCode extension.
+# This is a basic workflow to help you get started with Actions
 
 name: lint
 
