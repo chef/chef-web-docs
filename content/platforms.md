@@ -41,432 +41,11 @@ Chef does not explicitly test or provide builds for derived distributions other 
 
 The sections below list the platforms that Chef Software supports.
 
-### Chef Infra Client
+### Chef Automate
 
 #### Commercial Support
 
-The following table lists the commercially-supported platforms and versions for Chef Infra Client:
-
-<table>
-<colgroup>
-<col style="width: 30%" />
-<col style="width: 35%" />
-<col style="width: 35%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Platform</th>
-<th>Architecture</th>
-<th>Version</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>AIX</td>
-<td><code>powerpc</code></td>
-<td><code>7.1</code> (TL5 SP2 or higher, recommended), <code>7.2</code></td>
-</tr>
-<tr>
-<td>Amazon Linux</td>
-<td><code>x86_64</code>, <code>aarch64</code></td>
-<td><code>2.x</code></td>
-</tr>
-<tr>
-<td>CentOS</td>
-<td><code>x86_64</code>, <code>ppc64le</code> (7.x only), <code>ppc64</code> (7.x only), <code>aarch64</code> (7.x / 8.x only)</td>
-<td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
-</tr>
-<tr>
-<td>Debian</td>
-<td><code>x86_64</code><code>aarch64</code> (10.x/11.x only)</td>
-<td><code>9</code>, <code>10</code>, <code>11</code></td>
-</tr>
-<tr>
-<td>FreeBSD</td>
-<td><code>amd64</code></td>
-<td><code>11.x</code>, <code>12.x</code></td>
-</tr>
-<tr>
-<td>macOS</td>
-<td><code>x86_64</code>, <code>aarch64</code> (M1 processors)</td>
-<td><code>10.15</code>, <code>11.x</code>, <code>12.x</code></td>
-</tr>
-<tr>
-<td>Oracle Enterprise Linux</td>
-<td><code>x86_64</code><code>aarch64</code> (7.x / 8.x only)</td>
-<td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
-</tr>
-<tr>
-<td>Red Hat Enterprise Linux</td>
-<td><code>x86_64</code>, <code>ppc64le</code> (7.x only), <code>ppc64</code> (7.x only), <code>aarch64</code> (7.x / 8.x / 9.x only), <code>s390x</code></td>
-<td><code>6.x</code>, <code>7.x</code>, <code>8.x</code>, <code>9.x</code></td>
-</tr>
-<tr>
-<td>Solaris</td>
-<td><code>sparc</code>, <code>i86pc</code></td>
-<td><code>11.3 (16.17.4 and later only)</code>, <code>11.4</code></td>
-</tr>
-<tr>
-<td>SUSE Linux Enterprise Server</td>
-<td><code>x86_64</code>, <code>aarch64</code> (15.x only), <code>s390x</code></td>
-<td><code>12</code>, <code>15</code></td>
-</tr>
-<tr>
-<td>Ubuntu (LTS releases)</td>
-<td><code>x86_64</code>,<code>aarch64</code></td>
-<td><code>16.04</code>, <code>18.04</code>, <code>20.04</code></td>
-</tr>
-<tr>
-<td>Windows</td>
-<td><code>x86</code>, <code>x64</code></td>
-<td><code>8.1</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), both Desktop Experience and Server Core)</code><code>11</code>, <code>2022</code></td>
-</tr>
-</tbody>
-</table>
-
-#### Derived platforms
-
-The following table lists supported derived platforms and versions for Chef Infra Client.
-
-See our policy on [support for derived platforms](#support-for-derived-platforms) for more information.
-
-<table>
-<thead>
-<tr class="header">
-<th>Platform</th>
-<th>Architecture</th>
-<th>Version</th>
-<th>Parent platform</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>AlmaLinux</td>
-<td><code>x86_64</code>, <code>aarch64</code></td>
-<td><code>8.x</code></td>
-<td>CentOS</td>
-</tr>
-<tr>
-<td>Rocky Linux</td>
-<td><code>x86_64</code>, <code>aarch64</code></td>
-<td><code>8.x</code></td>
-<td>CentOS</td>
-</tr>
-</tbody>
-</table>
-
-#### Community Support
-
-The following platforms are supported only using the community:
-
-<table>
-<colgroup>
-<col style="width: 30%" />
-<col style="width: 35%" />
-<col style="width: 35%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Platform</th>
-<th>Architecture</th>
-<th>Version</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Alibaba Cloud Linux</td>
-<td><code>x86_64</code></td>
-<td>2.x</td>
-</tr>
-<tr>
-<td>Arch Linux</td>
-<td><code>x86_64</code></td>
-<td>current version</td>
-</tr>
-<tr>
-<td>Arista EOS</td>
-<td><code>x86_64</code></td>
-<td>current non-EOL releases</td>
-</tr>
-<tr>
-<td>CentOS Stream</td>
-<td><code>x86_64</code>, <code>aarch64</code></td>
-<td>current non-EOL releases</td>
-</tr>
-<tr>
-<td>Clear Linux</td>
-<td><code>x86_64</code></td>
-<td>current non-EOL releases</td>
-</tr>
-<tr>
-<td>Cumulus Linux</td>
-<td><code>x86_64</code></td>
-<td>current non-EOL releases</td>
-</tr>
-<tr>
-<td>Fedora</td>
-<td><code>x86_64</code>, <code>aarch64</code></td>
-<td>current non-EOL releases</td>
-</tr>
-<tr>
-<td>Kali Linux</td>
-<td><code>x86_64</code></td>
-<td>current non-EOL releases</td>
-</tr>
-<tr>
-<td>Linux Mint</td>
-<td><code>x86_64</code></td>
-<td>current non-EOL releases</td>
-</tr>
-<tr>
-<td>OpenIndiana Hipster</td>
-<td><code>x86_64</code></td>
-<td>current non-EOL releases</td>
-</tr>
-<tr>
-<td>openSUSE</td>
-<td><code>x86_64</code>, <code>aarch64</code></td>
-<td><code>15.x</code></td>
-</tr>
-<tr>
-<td>Pop!_OS</td>
-<td><code>x86_64</code></td>
-<td>current non-EOL releases</td>
-</tr>
-<tr>
-<td>Raspberry Pi OS</td>
-<td><code>aarch64</code></td>
-<td>current non-EOL releases</td>
-</tr>
-<tr>
-<td>SmartOS</td>
-<td><code>x86_64</code></td>
-<td>current non-EOL releases</td>
-</tr>
-<tr>
-<td>SUSE Linux Enterprise Desktop</td>
-<td><code>x86_64</code>, <code>aarch64</code> (15.x only)</td>
-<td><code>12.x</code>, <code>15.x</code></td>
-</tr>
-<tr>
-<td>Ubuntu</td>
-<td><code>x86_64</code>, <code>aarch64</code></td>
-<td>Current non-LTS releases</td>
-</tr>
-<tr>
-<td>Virtuozzo</td>
-<td><code>x86_64</code></td>
-<td>Current non-LTS releases</td>
-</tr>
-<tr>
-<td>Windows</td>
-<td><code>x64</code></td>
-<td><code>Windows Server, Semi-annual channel (SAC) (Server Core only)</code></td>
-</tr>
-<tr>
-<td>XCP-ng</td>
-<td><code>x86_64</code></td>
-<td>8.x</td>
-</tr>
-</tbody>
-</table>
-
-### Chef Workstation
-
-#### Commercial Support
-
-The following table lists the commercially-supported platforms and
-versions for the Chef Workstation:
-
-<table>
-<colgroup>
-<col style="width: 30%" />
-<col style="width: 35%" />
-<col style="width: 35%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Platform</th>
-<th>Architecture</th>
-<th>Version</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Amazon Linux</td>
-<td><code>x86_64</code></td>
-<td><code>2.x</code></td>
-</tr>
-<tr>
-<td>macOS</td>
-<td><code>x86_64</code>, <code>aarch64</code></td>
-<td><code>10.15</code>, <code>11.x</code>, <code>12.x</code></td>
-</tr>
-<tr>
-<td>Debian</td>
-<td><code>x86_64</code></td>
-<td><code>10</code>, <code>11</code></td>
-</tr>
-<tr>
-<td>Red Hat Enterprise Linux</td>
-<td><code>x86_64</code></td>
-<td><code>7.x</code>, <code>8.x</code>, <code>9.x</code></td>
-</tr>
-<tr>
-<td>Ubuntu</td>
-<td><code>x86_64</code></td>
-<td><code>18.04</code>, <code>20.04</code>, <code>22.04</code></td>
-</tr>
-<tr>
-<td>Windows</td>
-<td><code>x64</code></td>
-<td><code>8.1</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), Desktop Experience only)</code>, <code>11</code>, <code>2022</code></td>
-</tr>
-</tbody>
-</table>
-
-#### Derived platforms
-
-The following table lists supported derived platforms and versions for Chef Workstation.
-
-See our policy on [support for derived platforms](#support-for-derived-platforms) for more information.
-
-<table>
-<thead>
-<tr class="header">
-<th>Platform</th>
-<th>Architecture</th>
-<th>Version</th>
-<th>Parent platform</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>AlmaLinux</td>
-<td><code>x86_64</code></td>
-<td><code>8.x</code></td>
-<td>CentOS</td>
-</tr>
-<tr>
-<td>Rocky Linux</td>
-<td><code>x86_64</code></td>
-<td><code>8.x</code></td>
-<td>CentOS</td>
-</tr>
-</tbody>
-</table>
-
-### Chef InSpec
-
-#### Commercial Support
-
-The following table lists the commercially-supported platforms and versions for Chef InSpec:
-
-<table>
-<colgroup>
-<col style="width: 30%" />
-<col style="width: 35%" />
-<col style="width: 35%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Platform</th>
-<th>Architecture</th>
-<th>Version</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Amazon Linux</td>
-<td><code>x86_64</code>, <code>aarch64</code></td>
-<td><code>2.x</code></td>
-</tr>
-<tr>
-<td>Debian</td>
-<td><code>x86_64</code><code>aarch64</code> (10.x only)</td>
-<td><code>9</code>, <code>10</code>, <code>11</code></td>
-</tr>
-<tr>
-<td>macOS</td>
-<td><code>x86_64</code>, <code>aarch64</code> (M1 processors)</td>
-<td><code>10.15</code>, <code>11.x</code>, <code>12.x</code></td>
-</tr>
-<tr>
-<td>Oracle Enterprise Linux</td>
-<td><code>x86_64</code><code>aarch64</code> (7.x / 8.x only)</td>
-<td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
-</tr>
-<tr>
-<td>Red Hat Enterprise Linux</td>
-<td><code>x86_64</code>, <code>aarch64</code> (7.x and 8.x only)</td>
-<td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
-</tr>
-<tr>
-<td>SUSE Linux Enterprise Server</td>
-<td><code>x86_64</code>, <code>aarch64</code> (15.x only)</td>
-<td><code>12.x</code>, <code>15.x</code></td>
-</tr>
-<tr>
-<td>Ubuntu</td>
-<td><code>x86_64</code></td>
-<td><code>16.04</code>, <code>18.04</code>, <code>20.04</code></td>
-</tr>
-<tr>
-<td>Windows</td>
-<td><code>x86_64</code></td>
-<td><code>8.1</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019</code>, <code>11</code>, <code>2022</code></td>
-</tr>
-</tbody>
-</table>
-
-#### Derived platforms
-
-The following table lists supported derived platforms and versions for Chef InSpec.
-
-See our policy on [support for derived platforms](#support-for-derived-platforms) for more information.
-
-<table>
-<thead>
-<tr class="header">
-<th>Platform</th>
-<th>Architecture</th>
-<th>Version</th>
-<th>Parent platform</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>AlmaLinux</td>
-<td><code>x86_64</code>, <code>aarch64</code></td>
-<td><code>8.x</code></td>
-<td>CentOS</td>
-</tr>
-<tr>
-<td>Rocky Linux</td>
-<td><code>x86_64</code>, <code>aarch64</code></td>
-<td><code>8.x</code></td>
-<td>CentOS</td>
-</tr>
-</tbody>
-</table>
-
-Chef InSpec Target Mode (`inspec --target`) may be functional on
-additional platforms, versions, and architectures but are not validated
-by Chef Software, Inc.
-
-### Chef Infra Server
-
-#### Commercial Support
-
-{{% chef-server/adopted_platforms_server %}}
-
-### Chef Automate Server
-
-#### Commercial Support
-
-Commercial support for the [Chef Automate 2
-Server](/automate/system_requirements/) is available
-for platforms that use:
+Commercial support for the [Chef Automate](/automate/system_requirements/) is available for platforms that use:
 
 - a Linux kernel version of 3.2 or greater
 - `systemd` as the init system
@@ -486,47 +65,13 @@ documentation for a list of supported platforms for Chef Automate HA.
 
 The following table lists the commercially-supported platforms for Chef Backend, which is the high-availability solution for Chef Infra Server:
 
-<table>
-<colgroup>
-<col style="width: 30%" />
-<col style="width: 35%" />
-<col style="width: 35%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Platform</th>
-<th>Architecture</th>
-<th>Version</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CentOS</td>
-<td><code>x86_64</code></td>
-<td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
-</tr>
-<tr>
-<td>Oracle Enterprise Linux</td>
-<td><code>x86_64</code></td>
-<td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
-</tr>
-<tr>
-<td>Red Hat Enterprise Linux</td>
-<td><code>x86_64</code></td>
-<td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
-</tr>
-<tr>
-<td>SUSE Linux Enterprise Server</td>
-<td><code>x86_64</code></td>
-<td><code>12.x</code></td>
-</tr>
-<tr>
-<td>Ubuntu (LTS releases)</td>
-<td><code>x86_64</code></td>
-<td><code>16.04</code>, <code>18.04</code></td>
-</tr>
-</tbody>
-</table>
+| Platform | Architecture | Version |
+| --- | --- | --- |
+| CentOS | `x86_64` | `6.x`, `7.x`, `8.x` |
+| Oracle Enterprise Linux | `x86_64` | `6.x`, `7.x`, `8.x` |
+| Red Hat Enterprise Linux | `x86_64` | `6.x`, `7.x`, `8.x` |
+| SUSE Linux Enterprise Server | `x86_64` | `12.x` |
+| Ubuntu (LTS releases) | `x86_64` | `16.04`, `18.04` |
 
 #### Derived platforms
 
@@ -534,73 +79,119 @@ The following table lists supported derived platforms and versions for Chef Infr
 
 See our policy on [support for derived platforms](#support-for-derived-platforms) for more information.
 
-<table>
-<thead>
-<tr class="header">
-<th>Platform</th>
-<th>Architecture</th>
-<th>Version</th>
-<th>Parent platform</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>AlmaLinux</td>
-<td><code>x86_64</code></td>
-<td><code>8.x</code></td>
-<td>CentOS</td>
-</tr>
-<tr>
-<td>Rocky Linux</td>
-<td><code>x86_64</code></td>
-<td><code>8.x</code></td>
-<td>CentOS</td>
-</tr>
-</tbody>
-</table>
+| Platform | Architecture | Version | Parent platform |
+| --- | --- | --- | --- |
+| AlmaLinux | `x86_64` | `8.x` | CentOS |
+| Rocky Linux | `x86_64` | `8.x` | CentOS |
+
+### Chef Infra Client
+
+#### Commercial Support
+
+The following table lists the commercially-supported platforms and versions for Chef Infra Client:
+
+| Platform | Architecture | Version |
+| --- | --- | --- |
+| AIX | `powerpc` | `7.1` (TL5 SP2 or higher, recommended), `7.2` |
+| Amazon Linux | `x86_64`, `aarch64` | `2.x` |
+| CentOS | `x86_64`, `ppc64le` (7.x only), `ppc64` (7.x only), `aarch64` (7.x / 8.x only) | `6.x`, `7.x`, `8.x` |
+| Debian | `x86_64`, `aarch64` (10.x/11.x only) | `9`, `10`, `11` |
+| FreeBSD | `amd64` | `11.x`, `12.x` |
+| macOS | `x86_64`, `aarch64` (M1 processors) | `10.15`, `11.x`, `12.x` |
+| Oracle Enterprise Linux | `x86_64`, `aarch64` (7.x / 8.x only) | `6.x`, `7.x`, `8.x` |
+| Red Hat Enterprise Linux | `x86_64`, `ppc64le` (7.x only), `ppc64` (7.x only), `aarch64` (7.x / 8.x / 9.x only), `s390x` | `6.x`, `7.x`, `8.x`, `9.x` |
+| Solaris | `sparc`, `i86pc` | `11.3 (16.17.4 and later only)`, `11.4` |
+| SUSE Linux Enterprise Server | `x86_64`, `aarch64` (15.x only), `s390x` | `12`, `15` |
+| Ubuntu (LTS releases) | `x86_64`,`aarch64` | `16.04`, `18.04`, `20.04` |
+| Windows | `x86`, `x64` | `8.1`, `2012`, `2012 R2`, `2016`, `10 (all channels except "insider" builds)`, `2019 (Long-term servicing channel (LTSC), both Desktop Experience and Server Core)`, `11`, `2022` |
+
+#### Derived platforms
+
+The following table lists supported derived platforms and versions for Chef Infra Client.
+
+See our policy on [support for derived platforms](#support-for-derived-platforms) for more information.
+
+| Platform | Architecture | Version | Parent platform |
+| --- | --- | --- | --- |
+| AlmaLinux | `x86_64`, `aarch64` | `8.x` | CentOS |
+| Rocky Linux | `x86_64`, `aarch64` | `8.x` | CentOS |
+
+#### Community Support
+
+The following platforms are supported only using the community:
+
+| Platform | Architecture | Version |
+| --- | --- | --- |
+| Alibaba Cloud Linux | `x86_64` | 2.x |
+| Arch Linux | `x86_64` | current version |
+| Arista EOS | `x86_64` | current non-EOL releases |
+| CentOS Stream | `x86_64`, `aarch64` | current non-EOL releases |
+| Clear Linux | `x86_64` | current non-EOL releases |
+| Cumulus Linux | `x86_64` | current non-EOL releases |
+| Fedora | `x86_64`, `aarch64` | current non-EOL releases |
+| Kali Linux | `x86_64` | current non-EOL releases |
+| Linux Mint | `x86_64` | current non-EOL releases |
+| OpenIndiana Hipster | `x86_64` | current non-EOL releases |
+| openSUSE | `x86_64`, `aarch64` | `15.x` |
+| Pop!_OS | `x86_64` | current non-EOL releases |
+| Raspberry Pi OS | `aarch64` | current non-EOL releases |
+| SmartOS | `x86_64` | current non-EOL releases |
+| SUSE Linux Enterprise Desktop | `x86_64`, `aarch64` (15.x only) | `12.x`, `15.x` |
+| Ubuntu | `x86_64`, `aarch64` | Current non-LTS releases |
+| Virtuozzo | `x86_64` | Current non-LTS releases |
+| Windows | `x64` | `Windows Server, Semi-annual channel (SAC) (Server Core only)` |
+| XCP-ng | `x86_64` | 8.x |
+
+### Chef Infra Server
+
+#### Commercial Support
+
+{{< readfile file="content/server/reusable/md/adopted_platforms_server.md" >}}
+
+### Chef InSpec
+
+#### Commercial Support
+
+The following table lists the commercially-supported platforms and versions for Chef InSpec:
+
+| Platform | Architecture | Version |
+| --- | --- | --- |
+| Amazon Linux | `x86_64`, `aarch64` | `2.x` |
+| Debian | `x86_64`, `aarch64` (10.x only) | `9`, `10`, `11` |
+| macOS | `x86_64`, `aarch64` (M1 processors) | `10.15`, `11.x`, `12.x` |
+| Oracle Enterprise Linux | `x86_64`, `aarch64` (7.x / 8.x only) | `6.x`, `7.x`, `8.x` |
+| Red Hat Enterprise Linux | `x86_64`, `aarch64` (7.x and 8.x only) | `6.x`, `7.x`, `8.x` |
+| SUSE Linux Enterprise Server | `x86_64`, `aarch64` (15.x only) | `12.x`, `15.x` |
+| Ubuntu | `x86_64` | `16.04`, `18.04`, `20.04` |
+| Windows | `x86_64` | `8.1`, `2012`, `2012 R2`, `2016`, `10 (all channels except "insider" builds)`, `2019`, `11`, `2022` |
+
+#### Derived platforms
+
+The following table lists supported derived platforms and versions for Chef InSpec.
+
+See our policy on [support for derived platforms](#support-for-derived-platforms) for more information.
+
+| Platform | Architecture | Version | Parent platform |
+| --- | --- | --- | --- |
+| AlmaLinux | `x86_64`, `aarch64` | `8.x` | CentOS |
+| Rocky Linux | `x86_64`, `aarch64` | `8.x` | CentOS |
+
+Chef InSpec Target Mode (`inspec --target`) may be functional on
+additional platforms, versions, and architectures but are not validated
+by Chef Software, Inc.
 
 ### Chef Manage
 
 #### Commercial Support
 
-The following table lists the commercially-supported platforms for Chef Manage:
+The following table lists the commercially supported platforms for Chef Manage:
 
-<table>
-<colgroup>
-<col style="width: 30%" />
-<col style="width: 35%" />
-<col style="width: 35%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Platform</th>
-<th>Architecture</th>
-<th>Version</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CentOS</td>
-<td><code>x86_64</code></td>
-<td><code>7.x</code>, <code>8.x</code></td>
-</tr>
-<tr>
-<td>Oracle Enterprise Linux</td>
-<td><code>x86_64</code></td>
-<td><code>7.x</code>, <code>8.x</code></td>
-</tr>
-<tr>
-<td>Red Hat Enterprise Linux</td>
-<td><code>x86_64</code></td>
-<td><code>7.x</code>, <code>8.x</code></td>
-</tr>
-<tr>
-<td>Ubuntu (LTS releases)</td>
-<td><code>x86_64</code></td>
-<td><code>16.04</code>, <code>18.04</code>, <code>20.04</code></td>
-</tr>
-</tbody>
-</table>
+| Platform | Architecture | Version |
+| --- | --- | --- |
+| CentOS | `x86_64` | `7.x`, `8.x` |
+| Oracle Enterprise Linux | `x86_64` | `7.x`, `8.x` |
+| Red Hat Enterprise Linux | `x86_64` | `7.x`, `8.x` |
+| Ubuntu (LTS releases) | `x86_64` | `16.04`, `18.04`, `20.04` |
 
 #### Derived platforms
 
@@ -608,30 +199,37 @@ The following table lists supported derived platforms and versions for Chef Mana
 
 See our policy on [support for derived platforms](#support-for-derived-platforms) for more information.
 
-<table>
-<thead>
-<tr class="header">
-<th>Platform</th>
-<th>Architecture</th>
-<th>Version</th>
-<th>Parent platform</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>AlmaLinux</td>
-<td><code>x86_64</code></td>
-<td><code>8.x</code></td>
-<td>CentOS</td>
-</tr>
-<tr>
-<td>Rocky Linux</td>
-<td><code>x86_64</code></td>
-<td><code>8.x</code></td>
-<td>CentOS</td>
-</tr>
-</tbody>
-</table>
+| Platform | Architecture | Version | Parent platform |
+| --- | --- | --- | --- |
+| AlmaLinux | `x86_64` | `8.x` | CentOS |
+| Rocky Linux | `x86_64` | `8.x` | CentOS |
+
+### Chef Workstation
+
+#### Commercial Support
+
+The following table lists the commercially-supported platforms and
+versions for the Chef Workstation:
+
+| Platform | Architecture | Version |
+| --- | --- | --- |
+| Amazon Linux | `x86_64` | `2.x` |
+| macOS | `x86_64`, `aarch64` | `10.15`, `11.x`, `12.x` |
+| Debian | `x86_64` | `10`, `11` |
+| Red Hat Enterprise Linux | `x86_64` | `7.x`, `8.x`, `9.x` |
+| Ubuntu | `x86_64` | `18.04`, `20.04`, `22.04` |
+| Windows | `x64` | `8.1`, `2012`, `2012 R2`, `2016`, `10 (all channels except "insider" builds)`, `2019 (Long-term servicing channel (LTSC), Desktop Experience only)`, `11`, `2022` |
+
+#### Derived platforms
+
+The following table lists supported derived platforms and versions for Chef Workstation.
+
+See our policy on [support for derived platforms](#support-for-derived-platforms) for more information.
+
+| Platform | Architecture | Version | Parent platform |
+| --- | --- | --- | --- |
+| AlmaLinux | `x86_64` | `8.x` | CentOS |
+| Rocky Linux | `x86_64` | `8.x` | CentOS |
 
 ## Platform End-of-Life Policy
 
@@ -641,64 +239,19 @@ operating systems. Because different vendors use different terminology,
 the following table clarifies when Chef products are end-of-life
 according to those vendors' terms:
 
-<table>
-<colgroup>
-<col style="width: 74%" />
-<col style="width: 25%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Platform</th>
-<th>Vendor End-of-Life</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Amazon Linux</td>
-<td>End of Life</td>
-</tr>
-<tr>
-<td>Apple macOS</td>
-<td>Apple supports the last three macOS releases, for example: 10.15, 11.x, and 12.x. Apple does not officially publish EOL dates.</td>
-</tr>
-<tr>
-<td>Debian</td>
-<td>End of maintenance updates</td>
-</tr>
-<tr>
-<td>Enterprise Linux (covers Red Hat Enterprise Linux, CentOS)</td>
-<td>End of Production 3</td>
-</tr>
-<tr>
-<td>FreeBSD</td>
-<td>End of Life</td>
-</tr>
-<tr>
-<td>IBM AIX</td>
-<td>IBM End of Support Date</td>
-</tr>
-<tr>
-<td>Windows</td>
-<td>End of Extended Support</td>
-</tr>
-<tr>
-<td>Oracle Enterprise Linux</td>
-<td>Premier Support Ends</td>
-</tr>
-<tr>
-<td>Oracle Solaris</td>
-<td>Premier Support Ends</td>
-</tr>
-<tr>
-<td>SUSE Linux Enterprise Server</td>
-<td>General Support Ends</td>
-</tr>
-<tr>
-<td>Ubuntu Linux</td>
-<td>End of maintenance updates</td>
-</tr>
-</tbody>
-</table>
+| Platform | Vendor End-of-Life |
+| --- | --- |
+| Amazon Linux | End of Life |
+| Apple macOS | Apple supports the last three macOS releases, for example: 10.15, 11.x, and 12.x. Apple does not officially publish EOL dates. |
+| Debian | End of maintenance updates |
+| Enterprise Linux (covers Red Hat Enterprise Linux, CentOS) | End of Production 3 |
+| FreeBSD | End of Life |
+| IBM AIX | IBM End of Support Date |
+| Windows | End of Extended Support |
+| Oracle Enterprise Linux | Premier Support Ends |
+| Oracle Solaris | Premier Support Ends |
+| SUSE Linux Enterprise Server | General Support Ends |
+| Ubuntu Linux | End of maintenance updates |
 
 At Chef's option, additional support may be provided to customers beyond
 the vendor end-of-life in the above table. As such, the following table
@@ -706,144 +259,31 @@ indicates upcoming product end-of-life dates for particular platforms.
 On the Chef end-of-life date, Chef discontinues building software for
 that platform and version.
 
-<table>
-<colgroup>
-<col style="width: 54%" />
-<col style="width: 22%" />
-<col style="width: 22%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Platform and Version</th>
-<th>Vendor End-of-Life Date</th>
-<th>Chef End-of-Life Date</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Amazon Linux 201X</td>
-<td>Dec 31st, 2020</td>
-<td>Dec 31st, 2020</td>
-</tr>
-<tr>
-<td>Apple macOS 10.13</td>
-<td>Nov 13th, 2020</td>
-<td>Nov 13th, 2020</td>
-</tr>
-<tr>
-<td>Apple macOS 10.14</td>
-<td>Nov 12th, 2021</td>
-<td>Nov 12th, 2021</td>
-</tr>
-<tr>
-<td>Debian 7 (Wheezy)</td>
-<td>May 31st, 2018</td>
-<td>May 31st, 2018</td>
-</tr>
-<tr>
-<td>Debian 8 (Jessie)</td>
-<td>June 6th, 2020</td>
-<td>June 6th, 2020</td>
-</tr>
-<tr>
-<td>Debian 9 (Stretch)</td>
-<td>June 30th, 2022</td>
-<td>June 30th, 2022</td>
-</tr>
-<tr>
-<td>Enterprise Linux 5 (covers Red Hat Enterprise Linux, CentOS)</td>
-<td>April 30, 2017</td>
-<td>December 31, 2017</td>
-</tr>
-<tr>
-<td>Enterprise Linux 6 (covers Red Hat Enterprise Linux, CentOS)</td>
-<td>November 30, 2020</td>
-<td>No current planned EOL date</td>
-</tr>
-<tr>
-<td>Enterprise Linux 7 (covers Red Hat Enterprise Linux, CentOS)</td>
-<td>June 30, 2024</td>
-<td>June 30, 2024</td>
-</tr>
-<tr>
-<td>FreeBSD 10-STABLE</td>
-<td>October 31, 2018</td>
-<td>October 31, 2018</td>
-</tr>
-<tr>
-<td>FreeBSD 11-STABLE</td>
-<td>September 30, 2021</td>
-<td>September 30, 2021</td>
-</tr>
-<tr>
-<td>IBM AIX 6.1</td>
-<td>April 30, 2017</td>
-<td>December 31, 2017</td>
-</tr>
-<tr>
-<td>Windows Server 2008 (SP2)/R2 (SP1)</td>
-<td>January 13, 2015</td>
-<td>January 14, 2020</td>
-</tr>
-<tr>
-<td>Windows Server 2012/2012 R2</td>
-<td>October 10, 2023</td>
-<td>October 10, 2023</td>
-</tr>
-<tr>
-<td>Windows Server 2016</td>
-<td>November 11, 2027</td>
-<td>November 11, 2027</td>
-</tr>
-<tr>
-<td>Windows Server 2019</td>
-<td>October 10, 2028</td>
-<td>October 10, 2028</td>
-</tr>
-<tr>
-<td>Oracle Enterprise Linux 5</td>
-<td>June 30, 2017</td>
-<td>December 31, 2017</td>
-</tr>
-<tr>
-<td>Oracle Enterprise Linux 6</td>
-<td>March 31, 2021</td>
-<td>March 31, 2021</td>
-</tr>
-<tr>
-<td>Oracle Solaris 10</td>
-<td>January 30, 2018</td>
-<td>January 30, 2018</td>
-</tr>
-<tr>
-<td>Oracle Solaris 11.3</td>
-<td>January 30, 2021</td>
-<td>No current planned EOL date</td>
-</tr>
-<tr>
-<td>SUSE Linux Enterprise Server 11</td>
-<td>March 31, 2019</td>
-<td>March 31, 2019</td>
-</tr>
-<tr>
-<td>SUSE Linux Enterprise Server 12</td>
-<td>October 31, 2024</td>
-<td>October 31, 2024</td>
-</tr>
-<tr>
-<td>Ubuntu Linux 12.04 LTS</td>
-<td>April 30, 2017</td>
-<td>April 30, 2017</td>
-</tr>
-<tr>
-<td>Ubuntu Linux 14.04 LTS</td>
-<td>April 30, 2019</td>
-<td>April 30, 2019</td>
-</tr>
-<tr>
-<td>Ubuntu Linux 16.04 LTS</td>
-<td>April 30, 2021</td>
-<td>April 30, 2021</td>
-</tr>
-</tbody>
-</table>
+
+| Platform and Version | Vendor End-of-Life Date | Chef End-of-Life Date |
+| --- | --- | --- |
+| Amazon Linux 201X | Dec 31st, 2020 | Dec 31st, 2020 |
+| Apple macOS 10.13 | Nov 13th, 2020 | Nov 13th, 2020 |
+| Apple macOS 10.14 | Nov 12th, 2021 | Nov 12th, 2021 |
+| Debian 7 (Wheezy) | May 31st, 2018 | May 31st, 2018 |
+| Debian 8 (Jessie) | June 6th, 2020 | June 6th, 2020 |
+| Debian 9 (Stretch) | June 30th, 2022 | June 30th, 2022 |
+| Enterprise Linux 5 (covers Red Hat Enterprise Linux, CentOS) | April 30, 2017 | December 31, 2017 |
+| Enterprise Linux 6 (covers Red Hat Enterprise Linux, CentOS) | November 30, 2020 | No current planned EOL date |
+| Enterprise Linux 7 (covers Red Hat Enterprise Linux, CentOS) | June 30, 2024 | June 30, 2024 |
+| FreeBSD 10-STABLE | October 31, 2018 | October 31, 2018 |
+| FreeBSD 11-STABLE | September 30, 2021 | September 30, 2021 |
+| IBM AIX 6.1 | April 30, 2017 | December 31, 2017 |
+| Windows Server 2008 (SP2)/R2 (SP1) | January 13, 2015 | January 14, 2020 |
+| Windows Server 2012/2012 R2 | October 10, 2023 | October 10, 2023 |
+| Windows Server 2016 | November 11, 2027 | November 11, 2027 |
+| Windows Server 2019 | October 10, 2028 | October 10, 2028 |
+| Oracle Enterprise Linux 5 | June 30, 2017 | December 31, 2017 |
+| Oracle Enterprise Linux 6 | March 31, 2021 | March 31, 2021 |
+| Oracle Solaris 10 | January 30, 2018 | January 30, 2018 |
+| Oracle Solaris 11.3 | January 30, 2021 | No current planned EOL date |
+| SUSE Linux Enterprise Server 11 | March 31, 2019 | March 31, 2019 |
+| SUSE Linux Enterprise Server 12 | October 31, 2024 | October 31, 2024 |
+| Ubuntu Linux 12.04 LTS | April 30, 2017 | April 30, 2017 |
+| Ubuntu Linux 14.04 LTS | April 30, 2019 | April 30, 2019 |
+| Ubuntu Linux 16.04 LTS | April 30, 2021 | April 30, 2021 |
