@@ -124,9 +124,9 @@ To view data bag items for a data bag:
 
 ## Manage Permissions
 
-{{% chef-server/server_rbac_permissions %}}
+{{< readfile file="content/server/reusable/md/server_rbac_permissions.md" >}}
 
-{{% chef-server/server_rbac_permissions_object %}}
+{{< readfile file="content/server/reusable/md/server_rbac_permissions_object.md" >}}
 
 ### Set
 

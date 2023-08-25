@@ -62,47 +62,47 @@ following search indexes are built:
 
 ### Using Knife
 
-{{% chef-workstation/knife_search_summary %}}
+{{< readfile file="content/workstation/reusable/md/knife_search_summary.md" >}}
 
 #### Search by platform ID
 
-{{% chef-workstation/knife_search_by_platform_ids %}}
+{{< readfile file="content/workstation/reusable/md/knife_search_by_platform_ids.md" >}}
 
 #### Search by instance type
 
-{{% chef-workstation/knife_search_by_platform_instance_type %}}
+{{< readfile file="content/workstation/reusable/md/knife_search_by_platform_instance_type.md" >}}
 
 #### Search by recipe
 
-{{% chef-workstation/knife_search_by_recipe %}}
+{{< readfile file="content/workstation/reusable/md/knife_search_by_recipe.md" >}}
 
 #### Search by cookbook, then recipe
 
-{{% chef-workstation/knife_search_by_cookbook %}}
+{{< readfile file="content/workstation/reusable/md/knife_search_by_cookbook.md" >}}
 
 #### Search by node
 
-{{% chef-workstation/knife_search_by_node %}}
+{{< readfile file="content/workstation/reusable/md/knife_search_by_node.md" >}}
 
 #### Search by node and environment
 
-{{% chef-workstation/knife_search_by_node_and_environment %}}
+{{< readfile file="content/workstation/reusable/md/knife_search_by_node_and_environment.md" >}}
 
 #### Search for nested attributes
 
-{{% chef-workstation/knife_search_by_nested_attribute %}}
+{{< readfile file="content/workstation/reusable/md/knife_search_by_nested_attribute.md" >}}
 
 #### Search for multiple attributes
 
-{{% chef-workstation/knife_search_by_query_for_many_attributes %}}
+{{< readfile file="content/workstation/reusable/md/knife_search_by_query_for_many_attributes.md" >}}
 
 #### Search for nested attributes using a search query
 
-{{% chef-workstation/knife_search_by_query_for_nested_attribute %}}
+{{< readfile file="content/workstation/reusable/md/knife_search_by_query_for_nested_attribute.md" >}}
 
 #### Use a test query
 
-{{% chef-workstation/knife_search_test_query_for_ssh %}}
+{{< readfile file="content/workstation/reusable/md/knife_search_test_query_for_ssh.md" >}}
 
 ## Query Syntax
 

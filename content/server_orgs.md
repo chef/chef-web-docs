@@ -12,7 +12,7 @@ product = ["client", "server"]
     parent = "legacy/manage"
 +++
 <!-- markdownlint-disable-file MD033 MD024-->
-{{% chef-server/server_rbac %}}
+{{< readfile file="content/server/reusable/md/server_rbac.md" >}}
 
 The Chef Infra Server uses organizations, groups, and users to define
 role-based access control:
@@ -92,11 +92,11 @@ when:
 
 ### Permissions
 
-{{% chef-server/server_rbac_permissions %}}
+{{< readfile file="content/server/reusable/md/server_rbac_permissions.md" >}}
 
 #### Object Permissions
 
-{{% chef-server/server_rbac_permissions_object %}}
+{{< readfile file="content/server/reusable/md/server_rbac_permissions_object.md" >}}
 
 #### Global Permissions
 
@@ -634,92 +634,92 @@ Infra Server, that Chef Infra Client is added to the `clients` group:
 
 ## Server Admins
 
-{{% chef-server/server_rbac_server_admins %}}
+{{< readfile file="content/server/reusable/md/server_rbac_server_admins.md" >}}
 
 ### Scenario
 
-{{% chef-server/server_rbac_server_admins_scenario %}}
+{{< readfile file="content/server/reusable/md/server_rbac_server_admins_scenario.md" >}}
 
 #### Superuser Accounts
 
-{{% chef-server/server_rbac_server_admins_superusers %}}
+{{< readfile file="content/server/reusable/md/server_rbac_server_admins_superusers.md" >}}
 
 ### Manage server-admins Group
 
-{{% chef-server/ctl_chef_server_server_admin %}}
+{{< readfile file="content/server/reusable/md/ctl_chef_server_server_admin.md" >}}
 
 #### Add Members
 
-{{% chef-server/ctl_chef_server_server_admin_grant_user %}}
+{{< readfile file="content/server/reusable/md/ctl_chef_server_server_admin_grant_user.md" >}}
 
 #### Remove Members
 
-{{% chef-server/ctl_chef_server_server_admin_remove_user %}}
+{{< readfile file="content/server/reusable/md/ctl_chef_server_server_admin_remove_user.md" >}}
 
 #### List Membership
 
-{{% chef-server/ctl_chef_server_server_admin_list %}}
+{{< readfile file="content/server/reusable/md/ctl_chef_server_server_admin_list.md" >}}
 
 ## Manage Organizations
 
-{{% chef-server/ctl_chef_server_org %}}
+{{< readfile file="content/server/reusable/md/ctl_chef_server_org.md" >}}
 
 ### org-create
 
-{{% chef-server/ctl_chef_server_org_create %}}
+{{< readfile file="content/server/reusable/md/ctl_chef_server_org_create.md" >}}
 
 #### Syntax
 
-{{% chef-server/ctl_chef_server_org_create_syntax %}}
+{{< readfile file="content/server/reusable/md/ctl_chef_server_org_create_syntax.md" >}}
 
 #### Options
 
-{{% chef-server/ctl_chef_server_org_create_options %}}
+{{< readfile file="content/server/reusable/md/ctl_chef_server_org_create_options.md" >}}
 
 ### org-delete
 
-{{% chef-server/ctl_chef_server_org_delete %}}
+{{< readfile file="content/server/reusable/md/ctl_chef_server_org_delete.md" >}}
 
 #### Syntax
 
-{{% chef-server/ctl_chef_server_org_delete_syntax %}}
+{{< readfile file="content/server/reusable/md/ctl_chef_server_org_delete_syntax.md" >}}
 
 ### org-list
 
-{{% chef-server/ctl_chef_server_org_list %}}
+{{< readfile file="content/server/reusable/md/ctl_chef_server_org_list.md" >}}
 
 #### Syntax
 
-{{% chef-server/ctl_chef_server_org_list_syntax %}}
+{{< readfile file="content/server/reusable/md/ctl_chef_server_org_list_syntax.md" >}}
 
 #### Options
 
-{{% chef-server/ctl_chef_server_org_list_options %}}
+{{< readfile file="content/server/reusable/md/ctl_chef_server_org_list_options.md" >}}
 
 ### org-show
 
-{{% chef-server/ctl_chef_server_org_show %}}
+{{< readfile file="content/server/reusable/md/ctl_chef_server_org_show.md" >}}
 
 #### Syntax
 
-{{% chef-server/ctl_chef_server_org_show_syntax %}}
+{{< readfile file="content/server/reusable/md/ctl_chef_server_org_show_syntax.md" >}}
 
 ### org-user-add
 
-{{% chef-server/ctl_chef_server_org_user_add %}}
+{{< readfile file="content/server/reusable/md/ctl_chef_server_org_user_add.md" >}}
 
 #### Syntax
 
-{{% chef-server/ctl_chef_server_org_user_add_syntax %}}
+{{< readfile file="content/server/reusable/md/ctl_chef_server_org_user_add_syntax.md" >}}
 
 #### Options
 
-{{% chef-server/ctl_chef_server_org_user_add_options %}}
+{{< readfile file="content/server/reusable/md/ctl_chef_server_org_user_add_options.md" >}}
 
 ### org-user-remove
 
-{{% chef-server/ctl_chef_server_org_user_remove %}}
+{{< readfile file="content/server/reusable/md/ctl_chef_server_org_user_remove.md" >}}
 
 #### Syntax
 
-{{% chef-server/ctl_chef_server_org_user_remove_syntax %}}
+{{< readfile file="content/server/reusable/md/ctl_chef_server_org_user_remove_syntax.md" >}}

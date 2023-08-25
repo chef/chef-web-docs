@@ -37,7 +37,7 @@ Every node that will be configured by Chef Infra Client and every workstation th
 
 ### Chef Infra Server, On-premises or in Cloud Environment
 
-{{% chef-server/system_requirements_server_hardware %}} {{% chef-server/system_requirements_server_software %}}
+{{< readfile file="content/server/reusable/md/system_requirements_server_hardware.md" >}} {{< readfile file="content/server/reusable/md/system_requirements_server_software.md" >}}
 
 ## Chef Infra Client
 
