@@ -45,7 +45,7 @@ The following attributes **SHOULD** be in the user LDAP record:
 To configure the Chef Infra Server to use Active Directory or LDAP do
 the following:
 
-1. Install the Chef management console (if it is not already).
+1. Install the Chef management console (if it's not already).
 
 1. Add the following settings to the `/etc/opscode/chef-server.rb`
     file. These settings must be added to the `chef-server.rb` file on
@@ -144,7 +144,7 @@ the following:
       filters based on the `memberOf` attribute and only works with LDAP
       servers that provide such an attribute. In OpenLDAP, the `memberOf`
       overlay provides this attribute. For example, if the value of the
-      `memberOf` attribute is `CN=abcxyz,OU=users,DC=company,DC=com`, then
+      `memberOf` attribute is `CN=common_name,OU=users,DC=company,DC=com`, then
       use:
 
       ```ruby
