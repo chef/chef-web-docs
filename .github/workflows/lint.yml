@@ -1,4 +1,5 @@
-# This is a basic workflow to help you get started with Actions
+# This config file is for Vale lints run with GitHub Actions.
+# See the .vale.ini file for lints run on a local workstation or with the VSCode extension.
 
 name: lint
 
@@ -57,5 +58,6 @@ jobs:
       - uses: errata-ai/vale-action@reviewdog
         with:
           files: '["archetypes", "assets","content", "data", "layouts", "static", "themes"]'
+          vale_flags: "--config=tools/vale/.vale-github-action.ini"
           filter_mode: diff_context
           fail_on_error: true
