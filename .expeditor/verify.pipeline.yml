@@ -10,7 +10,6 @@ steps:
     expeditor:
       executor:
         docker:
-    example: This is an abnormally advanced topic.
 
   - label: Verify Cookstyle MD pages
     command:

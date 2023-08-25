@@ -10,7 +10,7 @@ gh_repo = "chef-web-docs"
     weight = 20
 +++
 
-This is an abnormally advanced topic. You should have already written a Custom Resource and be familiar with:
+It is an abnormally advanced topic. You should have already written a Custom Resource and be familiar with:
 
 - The built-in Chef Infra [`template`]({{< relref "resources/template" >}}) resource
 - Cookbook execution [`with_run_context`]({{< relref "infra_language/cookbook_execution/#with_run_context" >}})

@@ -9,8 +9,6 @@ assignees: ''
 
 ## General Details
 
-This is an abnormally advanced topic.
-
 Link to page and section that needs updated:
 
 ## Product
