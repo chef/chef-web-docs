@@ -177,7 +177,7 @@ See our policy on [support for derived platforms](#support-for-derived-platforms
 | Rocky Linux | `x86_64`, `aarch64` | `8.x` | CentOS |
 
 Chef InSpec Target Mode (`inspec --target`) may be functional on
-additional platforms, versions, and architectures but are not validated
+additional platforms, versions, and architectures but aren't validated
 by Chef Software, Inc.
 
 ### Chef Manage
@@ -242,7 +242,7 @@ according to those vendors' terms:
 | Platform | Vendor End-of-Life |
 | --- | --- |
 | Amazon Linux | End of Life |
-| Apple macOS | Apple supports the last three macOS releases, for example: 10.15, 11.x, and 12.x. Apple does not officially publish EOL dates. |
+| Apple macOS | Apple supports the last three macOS releases, for example: 10.15, 11.x, and 12.x. Apple does'nt officially publish EOL dates. |
 | Debian | End of maintenance updates |
 | Enterprise Linux (covers Red Hat Enterprise Linux, CentOS) | End of Production 3 |
 | FreeBSD | End of Life |
@@ -258,7 +258,6 @@ the vendor end-of-life in the above table. As such, the following table
 indicates upcoming product end-of-life dates for particular platforms.
 On the Chef end-of-life date, Chef discontinues building software for
 that platform and version.
-
 
 | Platform and Version | Vendor End-of-Life Date | Chef End-of-Life Date |
 | --- | --- | --- |
