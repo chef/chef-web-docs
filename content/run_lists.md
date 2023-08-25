@@ -30,29 +30,29 @@ Infra Server.
 
 ### Quotes, Windows
 
-{{% chef-workstation/knife_common_windows_quotes %}}
+{{< readfile file="content/workstation/reusable/md/knife_common_windows_quotes.md" >}}
 
 #### Import-Module chef
 
-{{% chef-workstation/knife_common_windows_quotes_module %}}
+{{< readfile file="content/workstation/reusable/md/knife_common_windows_quotes_module.md" >}}
 
 ### run_list add
 
-{{% chef-workstation/knife_node_run_list_add %}}
+{{< readfile file="content/workstation/reusable/md/knife_node_run_list_add.md" >}}
 
 {{< readfile file="content/reusable/md/node_run_list_format.md" >}}
 
 #### Syntax
 
-{{% chef-workstation/knife_node_run_list_add_syntax %}}
+{{< readfile file="content/workstation/reusable/md/knife_node_run_list_add_syntax.md" >}}
 
 #### Options
 
-{{% chef-workstation/knife_node_run_list_add_options %}}
+{{< readfile file="content/workstation/reusable/md/knife_node_run_list_add_options.md" >}}
 
 {{< note >}}
 
-{{% chef-workstation/knife_common_see_all_config_options %}}
+{{< readfile file="content/workstation/reusable/md/knife_common_see_all_config_options.md" >}}
 
 {{< /note >}}
 
@@ -62,31 +62,31 @@ The following examples show how to use this knife subcommand:
 
 ##### Add a role
 
-{{% chef-workstation/knife_node_run_list_add_role %}}
+{{< readfile file="content/workstation/reusable/md/knife_node_run_list_add_role.md" >}}
 
 ##### Add roles and recipes
 
-{{% chef-workstation/knife_node_run_list_add_roles_and_recipes %}}
+{{< readfile file="content/workstation/reusable/md/knife_node_run_list_add_roles_and_recipes.md" >}}
 
 ##### Add a recipe with a FQDN
 
-{{% chef-workstation/knife_node_run_list_add_recipe_with_fqdn %}}
+{{< readfile file="content/workstation/reusable/md/knife_node_run_list_add_recipe_with_fqdn.md" >}}
 
 ##### Add a recipe with a cookbook
 
-{{% chef-workstation/knife_node_run_list_add_recipe_with_cookbook %}}
+{{< readfile file="content/workstation/reusable/md/knife_node_run_list_add_recipe_with_cookbook.md" >}}
 
 ##### Add the default recipe
 
-{{% chef-workstation/knife_node_run_list_add_default_recipe %}}
+{{< readfile file="content/workstation/reusable/md/knife_node_run_list_add_default_recipe.md" >}}
 
 ### run_list remove
 
-{{% chef-workstation/knife_node_run_list_remove %}}
+{{< readfile file="content/workstation/reusable/md/knife_node_run_list_remove.md" >}}
 
 #### Syntax
 
-{{% chef-workstation/knife_node_run_list_remove_syntax %}}
+{{< readfile file="content/workstation/reusable/md/knife_node_run_list_remove_syntax.md" >}}
 
 #### Options
 
@@ -94,7 +94,7 @@ This command does not have any specific options.
 
 {{< note >}}
 
-{{% chef-workstation/knife_common_see_all_config_options %}}
+{{< readfile file="content/workstation/reusable/md/knife_common_see_all_config_options.md" >}}
 
 {{< /note >}}
 
@@ -104,19 +104,19 @@ The following examples show how to use this knife subcommand:
 
 ##### Remove a role
 
-{{% chef-workstation/knife_node_run_list_remove_role %}}
+{{< readfile file="content/workstation/reusable/md/knife_node_run_list_remove_role.md" >}}
 
 ##### Remove a run-list
 
-{{% chef-workstation/knife_node_run_list_remove_run_list %}}
+{{< readfile file="content/workstation/reusable/md/knife_node_run_list_remove_run_list.md" >}}
 
 ### run_list set
 
-{{% chef-workstation/knife_node_run_list_set %}}
+{{< readfile file="content/workstation/reusable/md/knife_node_run_list_set.md" >}}
 
 #### Syntax
 
-{{% chef-workstation/knife_node_run_list_set_syntax %}}
+{{< readfile file="content/workstation/reusable/md/knife_node_run_list_set_syntax.md" >}}
 
 #### Options
 
@@ -133,11 +133,11 @@ verify the status of run-lists.
 
 #### View status, include run-lists
 
-{{% chef-workstation/knife_status_include_run_lists %}}
+{{< readfile file="content/workstation/reusable/md/knife_status_include_run_lists.md" >}}
 
 #### View status using a query
 
-{{% chef-workstation/knife_status_returned_by_query %}}
+{{< readfile file="content/workstation/reusable/md/knife_status_returned_by_query.md" >}}
 
 ## Run-lists, Applied
 

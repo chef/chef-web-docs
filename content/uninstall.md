@@ -20,7 +20,7 @@ other components.
 
 ## Chef Infra Server
 
-{{% chef-server/ctl_chef_server_uninstall %}}
+{{< readfile file="content/server/reusable/md/ctl_chef_server_uninstall.md" >}}
 
 ## Chef Workstation
 

@@ -451,4 +451,4 @@ It is important that settings in the [client.rb file](/config_rb_client/)---`che
 
 ##### Setting the initial run-list
 
-{{% chef-workstation/ctl_chef_client_bootstrap_initial_run_list %}}
+{{< readfile file="content/workstation/reusable/md/ctl_chef_client_bootstrap_initial_run_list.md" >}}

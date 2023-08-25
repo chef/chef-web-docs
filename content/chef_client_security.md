@@ -15,11 +15,11 @@ aliases = ["/chef_client_security.html", "/auth.html"]
 +++
 <!-- markdownlint-disable-file MD033 -->
 
-{{% chef-server/chef_auth %}}
+{{< readfile file="content/server/reusable/md/chef_auth.md" >}}
 
 ## Authentication
 
-{{% chef-server/chef_auth_authentication %}}
+{{< readfile file="content/server/reusable/md/chef_auth_authentication.md" >}}
 
 ### chef-validator
 
@@ -35,7 +35,7 @@ The following information applies to on-premises Chef Infra Server and does not 
 
 {{< /warning >}}
 
-{{% chef-server/server_security_ssl_cert_client %}}
+{{< readfile file="content/server/reusable/md/server_security_ssl_cert_client.md" >}}
 
 ### trusted_certs Directory
 
@@ -141,11 +141,11 @@ Run the `knife ssl check` subcommand to verify the state of the SSL certificate,
 
 ##### Verified
 
-{{% chef-workstation/knife_ssl_check_verify_server_config %}}
+{{< readfile file="content/workstation/reusable/md/knife_ssl_check_verify_server_config.md" >}}
 
 ##### Unverified
 
-{{% chef-workstation/knife_ssl_check_bad_ssl_certificate %}}
+{{< readfile file="content/workstation/reusable/md/knife_ssl_check_bad_ssl_certificate.md" >}}
 
 #### knife ssl fetch
 
@@ -153,4 +153,4 @@ Run the `knife ssl fetch` to download the self-signed certificate from the Chef 
 
 ##### Verify Checksums
 
-{{% chef-workstation/knife_ssl_fetch_verify_certificate %}}
+{{< readfile file="content/workstation/reusable/md/knife_ssl_fetch_verify_certificate.md" >}}

@@ -458,7 +458,7 @@ by Chef Software, Inc.
 
 #### Commercial Support
 
-{{% chef-server/adopted_platforms_server %}}
+{{< readfile file="content/server/reusable/md/adopted_platforms_server.md" >}}
 
 ### Chef Automate Server
 

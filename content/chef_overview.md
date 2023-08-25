@@ -128,7 +128,7 @@ Some important tools and components of Chef Workstation include:
 <tbody>
 <tr>
 <td><p><img src="/images/icon_workstation.svg" class="align-center" width="130" alt="image" /></p></td>
-<td>{{< readfile file="layouts/shortcodes/chef-workstation/chef_workstation.md" >}}</td>
+<td>{{< readfile file="content/workstation/reusable/md/chef_workstation.md" >}}</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_ctl_chef.svg" class="align-center" width="130" alt="image" /></p>
@@ -155,7 +155,7 @@ Some important tools and components of Chef Workstation include:
 </tr>
 <tr>
 <td><p><img src="/images/icon_kitchen.svg" class="align-center" width="130" alt="image" /></p></td>
-<td>{{< readfile file="layouts/shortcodes/chef-workstation/test_kitchen.md" >}}</td>
+<td>{{< readfile file="content/workstation/reusable/md/test_kitchen.md" >}}</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_chefspec.svg" class="align-center" width="130" alt="image" /></p></td>
@@ -267,7 +267,7 @@ The key components of nodes that are under management by Chef include:
 
 ## The Chef Infra Server
 
-{{% chef-server/chef_server %}}
+{{< readfile file="content/server/reusable/md/chef_server.md" >}}
 
 <table>
 <colgroup>
