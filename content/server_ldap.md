@@ -45,9 +45,9 @@ The following attributes **SHOULD** be in the user LDAP record:
 To configure the Chef Infra Server to use Active Directory or LDAP do
 the following:
 
-1.  Install the Chef management console (if it is not already).
+1. Install the Chef management console (if it is not already).
 
-1.  Add the following settings to the `/etc/opscode/chef-server.rb`
+1. Add the following settings to the `/etc/opscode/chef-server.rb`
     file. These settings must be added to the `chef-server.rb` file on
     each machine in the Chef Infra Server frontend deployment of a High
     Availability installation as well as on Chef servers in a standalone
@@ -89,9 +89,9 @@ the following:
       the administrator or manager user. This user needs to have read
       access to all LDAP users that require authentication. The Chef Infra
       Server must do an LDAP search before any user can log in. Many
-      Active Directory and LDAP systems do not allow an anonymous bind. If
+      Active Directory and LDAP systems don't allow an anonymous bind. If
       anonymous bind is allowed, leave the `bind_dn` and `bind_password`
-      settings blank. If anonymous bind is not allowed, a user with `READ`
+      settings blank. If anonymous bind isn't allowed, a user with `READ`
       access to the directory is required. This user must be specified as
       an LDAP distinguished name similar to:
 
@@ -119,7 +119,7 @@ the following:
     : Legacy configuration for the password of the binding user. The
       password for the user specified by `ldap['bind_dn']`. Leave this
       value and `ldap['bind_dn']` unset if anonymous bind is sufficient.
-      Default value: `nil`. As of Chef Server 12.14, this is no longer the
+      Default value: `nil`. As of Chef Infra Server 12.14, this is no longer the
       preferred command.
 
       Please use `chef-server-ctl set-secret ldap bind_password` from the
@@ -193,15 +193,15 @@ the following:
 
     `ldap['system_adjective']`
 
-    : A descriptive name for the login system that is displayed to users
+    : A descriptive name for the login system that's displayed to users
       in the Chef Infra Server management console. If a value like
       "corporate" is used, then the Chef management console user interface
-      will display strings like "the corporate login server", "corporate
-      login", or "corporate password." Default value: `AD/LDAP`.
+      will display strings like "the corporate login server," "corporate
+      login," or "corporate password." Default value: `AD/LDAP`.
 
       {{< warning spaces=6 >}}
 
-      This setting **isn't** used by the Chef Infra Server. It is used only by the Chef management console.
+      This setting **isn't** used by the Chef Infra Server. It's used only by the Chef management console.
 
       {{< /warning >}}
 
@@ -226,7 +226,6 @@ the following:
 
       {{< /note >}}
 
-
     {{< note spaces=4 >}}
 
     If the `chef-server.rb` file doesn't exist, create a file called
@@ -234,7 +233,7 @@ the following:
 
     {{< /note >}}
 
-1.  {{< readfile file="content/server/reusable/md/install_chef_server_reconfigure.md" >}}
+1. {{< readfile file="content/server/reusable/md/install_chef_server_reconfigure.md" >}}
 
 At this point, all users should be able to use their Active Directory or
 LDAP usernames and passwords to log in to the Chef Infra Server.
