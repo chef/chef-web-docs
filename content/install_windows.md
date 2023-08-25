@@ -22,11 +22,11 @@ There are several methods available to install Chef Infra Client depending on th
 
 ### Use knife CLI
 
-{{% chef-workstation/knife_windows_summary %}}
+{{< readfile file="content/workstation/reusable/md/knife_windows_summary.md" >}}
 
 #### Necessary Ports
 
-{{% chef-workstation/knife_windows_winrm_ports %}}
+{{< readfile file="content/workstation/reusable/md/knife_windows_winrm_ports.md" >}}
 
 ### Use MSI Installer
 

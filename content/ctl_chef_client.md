@@ -88,7 +88,7 @@ This command has the following options:
 
 `-F FORMAT`, `--format FORMAT`
 
-: {{% chef-workstation/ctl_chef_client_options_format %}}
+: {{< readfile file="content/workstation/reusable/md/ctl_chef_client_options_format.md" >}}
 
 `--force-formatter`
 
@@ -480,7 +480,7 @@ version 12 endpoints, except `/universe`.
 **Create an encrypted data bag for use with Chef Infra Client local
 mode**
 
-{{% chef-workstation/knife_data_bag_from_file_create_encrypted_local_mode %}}
+{{< readfile file="content/workstation/reusable/md/knife_data_bag_from_file_create_encrypted_local_mode.md" >}}
 
 ## Run in FIPS Mode
 
@@ -488,7 +488,7 @@ mode**
 
 **Bootstrap a node using FIPS**
 
-{{% chef-workstation/knife_bootstrap_node_fips %}}
+{{< readfile file="content/workstation/reusable/md/knife_bootstrap_node_fips.md" >}}
 
 ## Run as a Service
 
@@ -531,7 +531,7 @@ supported.
 
 ## Run with Elevated Privileges
 
-{{% chef-workstation/ctl_chef_client_elevated_privileges %}}
+{{< readfile file="content/workstation/reusable/md/ctl_chef_client_elevated_privileges.md" >}}
 
 ### Linux
 
@@ -574,7 +574,7 @@ ways this can be done:
 
 ### Windows
 
-{{% chef-workstation/ctl_chef_client_elevated_privileges_windows %}}
+{{< readfile file="content/workstation/reusable/md/ctl_chef_client_elevated_privileges_windows.md" >}}
 
 ## Run as Non-root User
 
@@ -899,4 +899,4 @@ sudo killall -USR1 chef-client
 
 **Setting the initial run-list using a JSON file**
 
-{{% chef-workstation/ctl_chef_client_bootstrap_initial_run_list %}}
+{{< readfile file="content/workstation/reusable/md/ctl_chef_client_bootstrap_initial_run_list.md" >}}

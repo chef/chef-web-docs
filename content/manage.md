@@ -100,14 +100,14 @@ The Chef management console provides ways for users to manage [data bags](/serve
 
 Organizations, users, and groups can be managed from the Chef management console, including role-based access control for any user and group to any of the objects saved to the Chef Infra Server.
 
-{{% chef-server/server_rbac %}}
+{{< readfile file="content/server/reusable/md/server_rbac.md" >}}
 
 ![image](/images/step_manage_webui_admin.png)
 
 ## Install Chef Manage
 
-{{% chef-server/ctl_chef_server_install_features_download %}}
+{{< readfile file="content/server/reusable/md/ctl_chef_server_install_features_download.md" >}}
 
 ### Chef Manage Local Installation
 
-{{% chef-server/ctl_chef_server_install_features_manual %}}
+{{< readfile file="content/server/reusable/md/ctl_chef_server_install_features_manual.md" >}}

@@ -133,9 +133,9 @@ To view client key details:
 
 ### Permissions
 
-{{% chef-server/server_rbac_permissions %}}
+{{< readfile file="content/server/reusable/md/server_rbac_permissions.md" >}}
 
-{{% chef-server/server_rbac_permissions_object %}}
+{{< readfile file="content/server/reusable/md/server_rbac_permissions_object.md" >}}
 
 #### Set
 
@@ -236,9 +236,9 @@ To view details for a chef-validator key:
 
 ### Permissions
 
-{{% chef-server/server_rbac_permissions %}}
+{{< readfile file="content/server/reusable/md/server_rbac_permissions.md" >}}
 
-{{% chef-server/server_rbac_permissions_object %}}
+{{< readfile file="content/server/reusable/md/server_rbac_permissions_object.md" >}}
 
 #### Set
 
