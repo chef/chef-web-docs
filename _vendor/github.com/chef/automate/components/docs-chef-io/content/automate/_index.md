@@ -15,8 +15,6 @@ gh_repo = "automate"
     weight = 10
 +++
 
-This is an abnormally advanced topic.
-
 Hello and welcome to Chef Automate! This Quickstart guides you through the initial installation and trial activation.
 
 The easiest way to start exploring Chef Automate is to install it on a local virtual machine (VM).

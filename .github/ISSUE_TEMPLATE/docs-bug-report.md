@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-## General Details
+## General details
 
 Link to page and section that needs updated:
 
