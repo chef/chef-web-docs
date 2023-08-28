@@ -9,7 +9,7 @@ autocorrection: true
 target_chef_version: 13.0+
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   powershell_script 'Create Directory' do
@@ -23,7 +23,7 @@ examples: |2-
   end
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   powershell_script 'Create Directory' do

@@ -8,7 +8,7 @@ autocorrection: true
 target_chef_version: 13.3+
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   zypper_repo 'apache' do
@@ -19,7 +19,7 @@ examples: |2-
   end
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   zypper_repository 'apache' do

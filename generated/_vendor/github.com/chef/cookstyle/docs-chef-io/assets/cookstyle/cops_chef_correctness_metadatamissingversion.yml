@@ -8,7 +8,7 @@ target_chef_version: All Versions
 examples: |-
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   name 'foo'

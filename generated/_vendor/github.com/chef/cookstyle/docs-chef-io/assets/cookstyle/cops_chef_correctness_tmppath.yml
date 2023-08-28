@@ -7,13 +7,13 @@ autocorrection: false
 target_chef_version: All Versions
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   remote_file '/tmp/large-file.tar.gz' do
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   remote_file "#{Chef::Config[:file_cache_path]}/large-file.tar.gz" do

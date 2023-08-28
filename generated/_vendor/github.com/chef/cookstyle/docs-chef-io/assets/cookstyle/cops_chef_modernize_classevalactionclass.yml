@@ -8,7 +8,7 @@ autocorrection: true
 target_chef_version: 12.9+
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   action_class.class_eval do
@@ -16,7 +16,7 @@ examples: |2-
   end
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   action_class do

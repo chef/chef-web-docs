@@ -10,7 +10,7 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   node['platform'] == 'ubuntu'
@@ -21,7 +21,7 @@ examples: |2-
   node['platform'].eql?('ubuntu')
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   platform?('ubuntu')

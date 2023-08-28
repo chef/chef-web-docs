@@ -8,7 +8,7 @@ autocorrection: true
 target_chef_version: 15.5+
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   node['cloud']['provider'] == 'alibaba'
@@ -23,7 +23,7 @@ examples: |2-
   node['cloud']['provider'] == 'softlayer'
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   alibaba?

@@ -10,7 +10,7 @@ autocorrection: false
 target_chef_version: 14.3+
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   shell_out_compact('foo')
@@ -23,7 +23,7 @@ examples: |2-
   shell_out_compact_timeout!('foo')
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   shell_out('foo')

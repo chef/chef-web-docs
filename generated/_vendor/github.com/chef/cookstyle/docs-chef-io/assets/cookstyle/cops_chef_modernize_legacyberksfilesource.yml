@@ -9,7 +9,7 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   source 'http://community.opscode.com/api/v3'
@@ -18,7 +18,7 @@ examples: |2-
   site :opscode
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   source 'https://supermarket.chef.io'

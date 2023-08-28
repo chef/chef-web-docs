@@ -10,7 +10,7 @@ autocorrection: true
 target_chef_version: 16.3+
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   macos_userdefaults 'set a value' do
@@ -20,7 +20,7 @@ examples: |2-
   end
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   macos_userdefaults 'set a value' do

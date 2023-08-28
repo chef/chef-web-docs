@@ -9,7 +9,7 @@ autocorrection: false
 target_chef_version: All Versions
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   value_for_platform_family(
@@ -18,7 +18,7 @@ examples: |2-
   )
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   value_for_platform_family(

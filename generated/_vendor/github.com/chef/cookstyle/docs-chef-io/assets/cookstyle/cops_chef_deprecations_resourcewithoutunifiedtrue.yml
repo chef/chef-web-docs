@@ -13,7 +13,7 @@ autocorrection: true
 target_chef_version: 15.3+
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
    resource_name :foo
@@ -24,7 +24,7 @@ examples: |2-
    end
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
    resource_name :foo

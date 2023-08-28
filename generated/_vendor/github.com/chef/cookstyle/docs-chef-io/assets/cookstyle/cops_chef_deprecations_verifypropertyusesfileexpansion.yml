@@ -8,7 +8,7 @@ autocorrection: true
 target_chef_version: 12.5+
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   file '/etc/nginx.conf' do
@@ -16,7 +16,7 @@ examples: |2-
   end
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   file '/etc/nginx.conf' do

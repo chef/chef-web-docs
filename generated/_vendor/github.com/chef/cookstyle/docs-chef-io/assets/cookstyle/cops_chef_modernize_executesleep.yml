@@ -9,7 +9,7 @@ autocorrection: false
 target_chef_version: 15.5+
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   execute "sleep 60" do
@@ -24,7 +24,7 @@ examples: |2-
   end
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   chef_sleep '60'

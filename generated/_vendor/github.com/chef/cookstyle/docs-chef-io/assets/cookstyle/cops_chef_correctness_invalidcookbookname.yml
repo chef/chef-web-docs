@@ -7,13 +7,13 @@ autocorrection: false
 target_chef_version: All Versions
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   name 'foo.bar'
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   name 'foo_bar'

@@ -10,7 +10,7 @@ autocorrection: true
 target_chef_version: 12.14+
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   yum_repository 'OurCo' do
@@ -21,7 +21,7 @@ examples: |2-
   end
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   yum_repository 'OurCo' do

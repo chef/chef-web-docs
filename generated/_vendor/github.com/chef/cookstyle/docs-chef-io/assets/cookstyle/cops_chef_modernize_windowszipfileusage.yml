@@ -8,7 +8,7 @@ autocorrection: false
 target_chef_version: 15.0+
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   windows_zipfile 'C:\\files\\' do

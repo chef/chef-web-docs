@@ -10,7 +10,7 @@ autocorrection: false
 target_chef_version: 14.0+
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   execute "Delete chef-client service" do
@@ -19,7 +19,7 @@ examples: |2-
   end
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   windows_service 'chef-client' do

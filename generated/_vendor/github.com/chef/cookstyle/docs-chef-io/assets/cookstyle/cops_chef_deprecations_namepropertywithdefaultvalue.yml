@@ -13,14 +13,14 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   property :config_file, String, default: 'foo', name_property: true
   attribute :config_file, String, default: 'foo', name_attribute: true
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   property :config_file, String, name_property: true

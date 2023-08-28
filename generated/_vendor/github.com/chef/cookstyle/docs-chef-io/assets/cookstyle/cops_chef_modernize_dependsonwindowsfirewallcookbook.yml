@@ -9,7 +9,7 @@ autocorrection: true
 target_chef_version: 14.7+
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   depends 'windows_firewall'

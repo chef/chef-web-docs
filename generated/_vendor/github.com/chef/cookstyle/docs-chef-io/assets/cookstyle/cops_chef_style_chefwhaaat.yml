@@ -8,14 +8,14 @@ autocorrection: false
 target_chef_version: All Versions
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   Chef makes software
   Chef configures your systems
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   Chef Software makes software

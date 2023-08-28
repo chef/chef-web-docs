@@ -8,13 +8,13 @@ autocorrection: true
 target_chef_version: 15.5+
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   node['init_package'] == 'systemd'
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   systemd?

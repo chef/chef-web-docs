@@ -9,7 +9,7 @@ autocorrection: false
 target_chef_version: 14.0+
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   file '/etc/sysctl.d/ipv4.conf' do
@@ -22,7 +22,7 @@ examples: |2-
   end
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   sysctl 'net.ipv4.ip_local_port_range' do

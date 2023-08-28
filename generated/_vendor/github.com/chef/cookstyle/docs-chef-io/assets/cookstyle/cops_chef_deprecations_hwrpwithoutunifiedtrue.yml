@@ -13,7 +13,7 @@ autocorrection: false
 target_chef_version: 15.3+
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
    class Chef
@@ -30,7 +30,7 @@ examples: |2-
    end
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
    class Chef

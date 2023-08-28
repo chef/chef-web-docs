@@ -9,7 +9,7 @@ autocorrection: false
 target_chef_version: 15.8+
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   template '/etc/foo' do
@@ -22,7 +22,7 @@ examples: |2-
   end
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   template '/etc/foo' do

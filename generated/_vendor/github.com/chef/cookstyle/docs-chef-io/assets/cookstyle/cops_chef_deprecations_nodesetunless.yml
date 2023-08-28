@@ -10,13 +10,13 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   node.set_unless['foo'] = true
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   node.normal_unless['foo'] = true

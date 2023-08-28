@@ -9,7 +9,7 @@ autocorrection: true
 target_chef_version: 13.0+
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   windows_task 'chef ad-join leave start time' do
@@ -20,7 +20,7 @@ examples: |2-
   end
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   windows_task 'chef ad-join leave start time' do

@@ -8,13 +8,13 @@ autocorrection: false
 target_chef_version: 13.9+
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   property :foo, String
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   property :foo, String, description: "Set the important thing to..."

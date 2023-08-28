@@ -8,7 +8,7 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   remote_directory '/etc/my.conf' do
@@ -25,7 +25,7 @@ examples: |2-
   end
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   remote_directory '/etc/my.conf' do

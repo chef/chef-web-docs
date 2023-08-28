@@ -2,15 +2,18 @@
     {{ $data := .Content | unmarshal }}
     {{ $filename := $data.full_name }}
     {{ $filename = print (replaceRE `\/` "_" $data.full_name) ".md" | lower }}
-    {{ $filepath := print "workstation/cookstyle/" $filename }}
+    {{ $filepath := print "workstation/cookstyle/cops/" $filename }}
+    {{ $alias_path := strings.TrimRight ".md" $filepath }}
+    {{ $alias_path := replace $alias_path "/cops" "" }}
 
     {{/* Generate page frontmatter */}}
-    {{ $frontmatter := print "+++\ntitle = \"" $data.short_name "\"\n\n+++\n\n"}}
+    {{ $frontmatter := print "+++\ntitle = \"" $data.full_name "\"\naliases = [\"/" $alias_path "/\"]\n\n+++\n\n"}}
 
     {{/* Generate page content */}}
     {{ $content := "<!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->\n\n" }}
-    {{ $content = print $content "The department is: `" $data.short_name "`\n\n" }}
-    {{ $content = print $content "The full name of the cop is: `" $data.full_name "`\n\n" }}
+
+    {{ $content = print $content "[Cookstyle cops page](/workstation/cookstyle/cops/)\n\n"}}
+    {{ $content = print $content "The Cookstyle cops department: `" $data.department "`\n\n" }}
 
     {{ $contentTable := "| Enabled by default | Supports autocorrection | Target Chef Version |\n" }}
     {{ $contentTable = print $contentTable "| --- | --- | --- |\n" }}
@@ -30,7 +33,7 @@
 
     {{ $content = print $content $data.description "\n\n" }}
 
-    {{ $content = print $content "## Examples\n\n"}}
+    {{ $content = print $content "## Examples\n"}}
     {{ $content = print $content $data.examples "\n\n"}}
 
     {{ $attributesTable := "<table>\n<tbody><tr>\n<th>Name</th>\n<th>Default value</th>\n<th>Configurable values</th>\n</tr>\n<tr>\n" }}

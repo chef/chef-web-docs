@@ -8,7 +8,7 @@ autocorrection: true
 target_chef_version: 15.0+
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   depends 'libarchive'
@@ -18,7 +18,7 @@ examples: |2-
   end
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   archive_file "C:\file.zip" do

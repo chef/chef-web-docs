@@ -8,14 +8,14 @@ autocorrection: false
 target_chef_version: All Versions
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   Copyright:: 2019 YOUR_NAME
   Copyright:: 2019 YOUR_COMPANY_NAME
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   Copyright:: 2019 Tim Smith

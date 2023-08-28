@@ -8,14 +8,14 @@ autocorrection: false
 target_chef_version: All Versions
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   property :size, regex: /^\d+[KMGTP]$/
   attribute :size, regex: /^\d+[KMGTP]$/
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   property :size, String, regex: /^\d+[KMGTP]$/
