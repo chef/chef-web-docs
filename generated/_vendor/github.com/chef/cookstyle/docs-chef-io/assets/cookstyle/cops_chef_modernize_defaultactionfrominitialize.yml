@@ -5,13 +5,13 @@ department: Chef/Modernize
 description: |-
   The default actions can now be specified using the `default_action` helper instead of using the @action variable in the resource provider initialize method. In general we recommend against writing HWRPs, but if HWRPs are necessary you should utilize as much of the resource DSL as possible.
 
-   #### correct
+   ### correct
    default_action :create
 autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   def initialize(*args)
@@ -19,7 +19,7 @@ examples: |2-
     @action = :create
   end
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   def initialize(*args)

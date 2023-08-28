@@ -9,13 +9,13 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   depends 'chef_nginx'
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   depends 'nginx'

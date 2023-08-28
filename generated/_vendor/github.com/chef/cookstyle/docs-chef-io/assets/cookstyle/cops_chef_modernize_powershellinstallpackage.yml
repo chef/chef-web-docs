@@ -5,13 +5,13 @@ department: Chef/Modernize
 description: |-
   Use the powershell_package resource built into Chef Infra Client instead of the powershell_script resource to run Install-Package
 
-   #### correct
+   ### correct
    powershell_package 'docker'
 autocorrection: false
 target_chef_version: 12.16+
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   powershell_script 'Expand website' do

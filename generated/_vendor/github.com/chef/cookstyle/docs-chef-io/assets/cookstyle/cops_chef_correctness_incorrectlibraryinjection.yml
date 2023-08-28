@@ -8,7 +8,7 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   ::Chef::Recipe.send(:include, Filebeat::Helpers)
@@ -17,7 +17,7 @@ examples: |2-
   ::Chef::Provider.include Filebeat::Helpers
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   ::Chef::DSL::Recipe.send(:include, Filebeat::Helpers) # covers previous Recipe & Provider classes

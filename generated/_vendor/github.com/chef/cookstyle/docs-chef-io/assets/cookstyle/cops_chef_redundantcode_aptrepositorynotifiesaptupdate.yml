@@ -8,7 +8,7 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   apt_repository 'my repo' do
@@ -19,7 +19,7 @@ examples: |2-
   end
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   apt_repository 'my repo' do

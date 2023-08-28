@@ -8,7 +8,7 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   node['platform'].to_s
@@ -20,7 +20,7 @@ examples: |2-
   node['name'].to_s
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   node['platform']

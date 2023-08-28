@@ -2,6 +2,17 @@
 
 {{ $departments := slice }}
 {{ $pageLinks := dict }}
+{{ $copDefinitions := dict
+    "Chef/Correctness" "These cops detect incorrect cookbook code."
+    "Chef/Deprecations" "These cops check for deprecations that might block upgrading Chef Infra Client."
+    "Chef/Effortless" "These cops detects cookbook code that must be corrected before moving to the [effortless pattern](/effortless/)."
+    "Chef/Modernize" "These cops detect cookbooks that could be simplified and modernized."
+    "Chef/RedundantCode" "These cops detect redundant cookbook code."
+    "Chef/Security" "These cops detect potential security issues in your cookbook code."
+    "Chef/Sharing" "These cops detect issues that prevent sharing cookbooks with other teams or with the Chef community."
+    "Chef/Style" "These cops check for stylistic problems in your cookbook code."
+    "InSpec/Deprecations" "These cops detect deprecations in [Chef InSpec](/inspec/) code."
+}}
 
 {{ range resources.Match "cookstyle/cops_*" }}
     {{ $data := .Content | unmarshal }}
@@ -30,9 +41,11 @@
 
 {{ range $deparment, $cops := $pageLinks }}
     {{ $pageText = print $pageText "\n## " $deparment "\n\n" }}
+    {{ $pageText = print $pageText ( index $copDefinitions $deparment) "\n\n" }}
+
     {{ range $cop := $cops }}
         {{ $copFile := (replaceRE `\/` "_" $cop) | lower }}
-        {{ $copPath := print "/workstation/cookstyle/" $copFile }}
+        {{ $copPath := print "/workstation/cookstyle/cops/" $copFile }}
         {{ $copName := replaceRE `\w+\/` "" $cop }}
         {{ $pageText = print $pageText "- [" $copName "](" $copPath ")\n" }}
     {{ end }}
@@ -40,7 +53,7 @@
 
 {{ $fileText := print $frontmatterText $pageText }}
 
-{{ $filepath := print "workstation/cookstyle/cops.md" }}
+{{ $filepath := print "workstation/cookstyle/cops/_index.md" }}
 {{ $file := $fileText | resources.FromString $filepath }}
 {{ $output := $file.RelPermalink }}
 

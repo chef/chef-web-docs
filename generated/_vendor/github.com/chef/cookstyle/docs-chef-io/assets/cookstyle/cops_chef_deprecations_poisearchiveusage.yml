@@ -8,7 +8,7 @@ autocorrection: false
 target_chef_version: 15.0+
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   poise_archive 'https://example.com/myapp.tgz' do
@@ -16,7 +16,7 @@ examples: |2-
   end
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   archive_file 'https://example.com/myapp.tgz' do

@@ -8,7 +8,7 @@ autocorrection: true
 target_chef_version: 14.4+
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   openssl_x509 '/etc/httpd/ssl/mycert.pem' do
@@ -19,7 +19,7 @@ examples: |2-
   end
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   openssl_x509_certificate '/etc/httpd/ssl/mycert.pem' do

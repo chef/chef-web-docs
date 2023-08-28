@@ -11,14 +11,14 @@ autocorrection: false
 target_chef_version: 12.7+
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   include_recipe 'apt::default'
   include_recipe 'apt'
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   apt_update

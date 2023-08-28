@@ -9,7 +9,7 @@ target_chef_version: 13.9+
 examples: |-
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   resource_name :foo

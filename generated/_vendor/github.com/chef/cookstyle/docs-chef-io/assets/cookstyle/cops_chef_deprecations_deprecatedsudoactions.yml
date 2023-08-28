@@ -9,7 +9,7 @@ autocorrection: true
 target_chef_version: 14.0+
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   sudo 'admins' do
@@ -19,7 +19,7 @@ examples: |2-
   end
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   sudo 'admins' do

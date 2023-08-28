@@ -8,7 +8,7 @@ autocorrection: true
 target_chef_version: 14.0+
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   Windows::VersionHelper.nt_version
@@ -17,7 +17,7 @@ examples: |2-
   Windows::VersionHelper.workstation_version?
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   node['platform_version'].to_f

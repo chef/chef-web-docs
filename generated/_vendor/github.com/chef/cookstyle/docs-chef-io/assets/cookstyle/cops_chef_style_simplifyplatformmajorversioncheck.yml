@@ -11,7 +11,7 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   node['platform_version'].split('.').first
@@ -20,7 +20,7 @@ examples: |2-
   node['platform_version'].split('.')[0].to_i
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
 

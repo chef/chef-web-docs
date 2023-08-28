@@ -7,7 +7,7 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   source_url 'http://github.com/something/something'
@@ -16,7 +16,7 @@ examples: |2-
   source_url 'http://gitlab.com/something/something'
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   source_url 'http://github.com/something/something'

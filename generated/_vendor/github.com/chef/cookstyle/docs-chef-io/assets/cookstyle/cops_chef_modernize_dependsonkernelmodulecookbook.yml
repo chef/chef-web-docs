@@ -8,7 +8,7 @@ autocorrection: true
 target_chef_version: 14.3+
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   depends 'kernel_module'

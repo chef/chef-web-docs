@@ -8,13 +8,13 @@ autocorrection: true
 target_chef_version: 12.11+
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   Mixlib::ShellOut.new('foo').run_command
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   shell_out('foo')

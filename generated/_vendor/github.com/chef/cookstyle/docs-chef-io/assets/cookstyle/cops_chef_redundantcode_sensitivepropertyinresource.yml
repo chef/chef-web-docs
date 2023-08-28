@@ -5,11 +5,11 @@ department: Chef/RedundantCode
 description: |-
   Every Chef Infra resource already includes a sensitive property with a default value of false.
 
-  #### incorrect
+  ### incorrect
   property :sensitive, [true, false], default: false
 autocorrection: true
 target_chef_version: All Versions
-examples: 
+examples:
 version_added: 5.16.0
 enabled: true
 included_file_paths:

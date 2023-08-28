@@ -8,7 +8,7 @@ autocorrection: true
 target_chef_version: 14.0+
 examples: |2-
 
-  #### incorrect
+  ### incorrect
 
   ```ruby
   mac_os_x_userdefaults 'full keyboard access to all controls' do
@@ -18,7 +18,7 @@ examples: |2-
   end
   ```
 
-  #### correct
+  ### correct
 
   ```ruby
   macos_userdefaults 'full keyboard access to all controls' do
