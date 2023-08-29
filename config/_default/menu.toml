@@ -133,25 +133,13 @@ identifier = "automate"
     title = "Prerequisites"
     identifier = "automate/deploy_high_availability/ha_prerequisites"
     parent = "automate/deploy_high_availability"
-    weight = 15
+    weight = 20
 
     [[automate]]
     title = "Deployment"
     identifier = "automate/deploy_high_availability/deployment"
     parent = "automate/deploy_high_availability"
     weight = 40
-
-    [[automate]]
-    title = "Disaster Recovery"
-    identifier = "automate/deploy_high_availability/disaster_recovery"
-    parent = "automate/deploy_high_availability"
-    weight = 50
-
-    [[automate]]
-    title = "Configuration"
-    identifier = "automate/deploy_high_availability/configuration"
-    parent = "automate/deploy_high_availability"
-    weight = 55
 
     [[automate]]
     title = "Backup and Restore"
@@ -166,22 +154,34 @@ identifier = "automate"
     weight = 80
 
     [[automate]]
-    title = "Certificates"
-    identifier = "automate/deploy_high_availability/certificates"
+    title = "Manage HA Cluster"
+    identifier = "automate/deploy_high_availability/manage_ha_cluster"
     parent = "automate/deploy_high_availability"
     weight = 100
 
     [[automate]]
-    title = "Troubleshooting"
-    identifier = "automate/deploy_high_availability/troubleshooting"
+    title = "Configuration"
+    identifier = "automate/deploy_high_availability/configuration"
     parent = "automate/deploy_high_availability"
     weight = 120
 
     [[automate]]
-    title = "Reference"
-    identifier = "automate/deploy_high_availability/reference"
+    title = "Disaster Recovery"
+    identifier = "automate/deploy_high_availability/disaster_recovery"
     parent = "automate/deploy_high_availability"
     weight = 140
+
+    [[automate]]
+    title = "Certificates"
+    identifier = "automate/deploy_high_availability/certificates"
+    parent = "automate/deploy_high_availability"
+    weight = 160
+
+    [[automate]]
+    title = "References"
+    identifier = "automate/deploy_high_availability/reference"
+    parent = "automate/deploy_high_availability"
+    weight = 180
 
   [[automate]]
   title = "Configure"
