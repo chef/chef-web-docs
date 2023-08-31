@@ -8,16 +8,16 @@ gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Loadbalancer Configuration"
-    parent = "automate/deploy_high_availability"
-    identifier = "automate/deploy_high_availability/loadbalancer_configuration.md Loadbalancer Configuration"
-    weight = 20
+    parent = "automate/deploy_high_availability/reference"
+    identifier = "automate/deploy_high_availability/reference/loadbalancer_configuration.md Loadbalancer Configuration"
+    weight = 200
 +++
 
 {{< warning >}}
 {{% automate/ha-warn %}}
 {{< /warning >}}
 
-This guide will show you how to configure a load balancer for Chef Automate and Chef Infra Server. Below are some examples of load balancer setups.
+This is the sample guide will show you how to configure a load balancer for Chef Automate and Chef Infra Server. For more details check with expert in your organization.
 
 ## Load Balancer Setup Examples
 

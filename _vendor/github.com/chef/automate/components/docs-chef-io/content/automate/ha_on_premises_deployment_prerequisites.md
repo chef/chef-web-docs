@@ -20,7 +20,7 @@ automate = "On-Premises Prerequisites"
 The below prerequisites are according to the standard Chef Automate HA setup. You can contact the customer success manager or account manager if you use any specified version not mentioned here or a third-party extension or software.
 {{< /warning >}}
 
-Before installing Chef automate HA in On-premises deployment mode, ensure you have taken a quick tour of this prerequisite page.
+Before installing Chef Automate HA in On-premises deployment mode, ensure you have taken a quick tour of this prerequisite page.
 
 ## Chef Automate Architecture
 
@@ -78,7 +78,7 @@ Current Automate HA integrates with the following non-Chef tools:
 {{< note >}}
 
 - Refer to [Performance Benchmarks](/automate/ha_performance_benchmarks) for more details on the hardware requirements.
-- Make sure the hardware requirement is not lesser than the recommended [Minimum Hardware Requirement](/automate/ha_on_premises_deployment_prerequisites/#minimum-hardware-requirement)
+- Make sure the hardware requirement is not less than the recommended [Minimum Hardware Requirement](/automate/ha_on_premises_deployment_prerequisites/#minimum-hardware-requirement)
 
 {{< /note >}}
 
@@ -86,11 +86,11 @@ Current Automate HA integrates with the following non-Chef tools:
 
 | Instance          | Count | vCPU | RAM | Storage Size(/hab) | AWS Machine Type | Additional Space  |
 | ----------------- | ----- | ---- | --- | ------------------ | ---------------- | ----------------- |
-| Chef Automate     | 2     | 2    | 8   | 200 GB             | m5.large         | /tmp=5% /root=20% |
-| Chef Infra Server | 2     | 2    | 8   | 200 GB             | m5.large         | /tmp=5% /root=20% |
-| PostgreSQL DB     | 3     | 2    | 8   | 200 GB             | m5.large         | /tmp=5% /root=20% |
-| OpenSearch DB     | 3     | 2    | 8   | 200 GB             | m5.large         | /tmp=5% /root=20% |
-| Bastion Machine   | 1     | 2    | 8   | 200 GB             | m5.large         | /tmp=5% /root=20% |
+| Chef Automate     | 2     | 2    | 8   | 200 GB             | m5.large         | /var/tmp=5% /root=20% |
+| Chef Infra Server | 2     | 2    | 8   | 200 GB             | m5.large         | /var/tmp=5% /root=20% |
+| PostgreSQL DB     | 3     | 2    | 8   | 200 GB             | m5.large         | /var/tmp=5% /root=20% |
+| OpenSearch DB     | 3     | 2    | 8   | 200 GB             | m5.large         | /var/tmp=5% /root=20% |
+| Bastion Machine   | 1     | 2    | 8   | 200 GB             | m5.large         | /var/tmp=5% /root=20% |
 
 {{< note >}}
 For production, OpenSearch volume size also depends on the number of nodes and frequency of Chef Infra Client runs and compliance scans.
@@ -114,8 +114,8 @@ The first column in the table below represents the source of the connection. The
 
 |               | Chef Automate  | Chef Infra Server | PostgreSQL                          | OpenSearch                           | Bastion | Automate Load Balancer |
 |---------------|----------------|-------------------|-------------------------------------|--------------------------------------|---------| ------------- |
-| Chef Automate |                |                   | 7432                                | 9200                                 |         |               |
-| Infra Server  |                |                   | 7432                                | 9200                                 |         | 443              |
+| Chef Automate |                |                   | 7432, 9631                                | 9200, 9631                                  |         |               |
+| Infra Server  |                |                   | 7432, 9631                                 | 9200, 9631                                  |         | 443              |
 | PostgreSQL    |                |                   | 9631, 7432, 5432, 6432, 9638<br/>UDP 9638 |                                      |         |               |
 | OpenSearch    |                |                   |                                     | 9631, 9200, 9300, 9638 <br/>UDP 9638 |         |               |
 | Bastion       | 22, 9631, 9638, 7799 | 22, 9631, 9638, 7799    | 22, 9631, 9638, 7432, 7799                | 22, 9631, 9638, 9200, 7799                 |         | 22            |
@@ -137,6 +137,7 @@ The first column in the table below represents the source of the connection. The
 | TCP      | 7432        | HAProxy, which redirects to PostgreSQL Leader            |
 | TCP      | 6432        | Re-elect PostgreSQL Leader if PostgreSQL leader is down  |
 | TCP      | 5432        | Allows PostgreSQL nodes to connect with each other       |
+| TCP/UDP  | 7799        | Allows bastion to connect with automate-verify service   |
 
 ## Certificates
 
@@ -155,20 +156,20 @@ The on-premises deployment specific pre-requisites are as follows:
 
 ### Infra Server
 
-- Chef Automate HA comes with bundled Infra Server, and it is recommended not to use any external server in Automate HA. Using an external server will lose the Automate HA functionalities, and things may not work as expected.
+- Chef Automate HA comes with a bundled Infra Server, and it is recommended not to use any external server in Automate HA. Using an external server will lose the Automate HA functionalities, and things may not work as expected.
 
 ### Access
 
 - All Virtual Machines or Machines should be up and running.
 - We need a local user `hab` and local group `hab` linked together to complete the deployment process successfully.
 - If they are unavailable, the SSH user should have privileges to create local users and groups so that the deployment process can create the required local user `hab` and local group `hab`.
-- Currently we only support local Linux users and groups for Installation flow. We don't support AD or LDAP managed users in nodes.
+- Currently, we only support local Linux users and groups for Installation flow. We don't support AD or LDAP managed users in nodes.
 - The SElinux config should either be disabled or permissive.
 
 ### Storage Space
 
-- Operating System Root Volume (`/`) must be at least 40GB. Temporary space (`/var/tmp`) must be at least 5GB.
-- Separate Hab volume should be provisioned and mounted at `/hab` with at least 100GB free space for all nodes except OpenSearch.
+- Operating System Root Volume (`/`) must be at least 40GB. Temporary space (`/var/tmp`) must be at least 10GB.
+- Separate Hab volume should be provisioned and mounted at `/hab` with at least 200GB for all nodes except OpenSearch.
 - For OpenSearch nodes, /hab volume should be calculated based on the data retention policy, and use the [Performance Benchmarks](/automate/ha_performance_benchmarks) for estimation.
 
 ### SSH User
@@ -216,7 +217,7 @@ Configure the backup only with **S3** when using AWS managed databases.
 Things to keep in mind while upgrading are:
 
 - Backend upgrades will restart the backend service, which takes time for the cluster to be healthy.
-- Upgrade command currently supports only minor upgrades.
+- The Upgrade command currently supports only minor upgrades.
 - A downtime will occur while upgrading the **frontend**, **backend** or the **workspace**.
 - Rolling upgrades are not supported.
 
@@ -246,7 +247,7 @@ To know more about the on-premises deployment disaster recovery, visit our [Disa
 
 | Existing System | Supported Setup Type | Minimum Eligible System Version | Maximum Eligible System Version |  Pre-requisite Before Migration |
 |-----------------|----------------------|---------------------------------|-----------|------------------------------|
-| Chef Automate | [Standalone](/automate/install/) | Automate 2020XXXXXX |    | To migrate to Managed OpenSearch Automate HA cluster, the current standalone Chef Automate version should be at most 4.3.0. |
+| Chef Automate | [Standalone](/automate/install/) | Automate 2020XXXXXX |    | To migrate to the Managed OpenSearch Automate HA cluster, the current standalone Chef Automate version should be at most 4.3.0. |
 | Chef Backend | [Chef Backend Cluster](/server/install_server_ha/) | Backend 2.X and Infra Server 14.X | Chef Infra Server 15.4.0 | Chef Backend using PostgreSQL storage for Cookbooks should only migrate to Automate HA. | 
 | Chef Infra Server | [Standalone](/server/install_server/#standalone)<br />[Tiered](/server/install_server_tiered/) | Infra server 14.XXX | Chef Infra Server 15.4.0 | Chef Infra Server using PostgreSQL storage for Cookbooks should only migrate to Automate HA. |
 | A2HA | PS Lead A2HA On-Premises Deployment |Chef Automate version 20201230192246 | Chef Automate Version 20220223121207 | The A2HA cluster-mounted backup file system should also be attached to Automate HA cluster.<br />In case of In-Place migration, the volume having `/hab` should have more than 60% free space on each node. |

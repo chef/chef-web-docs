@@ -169,16 +169,16 @@ identifier = "automate"
     title = "Disaster Recovery"
     identifier = "automate/deploy_high_availability/disaster_recovery"
     parent = "automate/deploy_high_availability"
-    weight = 140
+    weight = 124
 
     [[automate]]
     title = "Certificates"
     identifier = "automate/deploy_high_availability/certificates"
     parent = "automate/deploy_high_availability"
-    weight = 160
+    weight = 125
 
     [[automate]]
-    title = "References"
+    title = "Reference"
     identifier = "automate/deploy_high_availability/reference"
     parent = "automate/deploy_high_availability"
     weight = 180
