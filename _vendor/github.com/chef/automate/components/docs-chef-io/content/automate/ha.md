@@ -16,7 +16,7 @@ gh_repo = "automate"
 {{% automate/ha-warn %}}
 {{< /warning >}}
 
-**High availability (HA)** refers to a system or application that offers a high level of operational availability. This means that the entire site or application will not be down if one server goes down due to traffic overload or other issues. HA represents the application remains available with no interruption. We achieve high availability when an application continues to operate even when one or more underlying components fail.
+**High availability (HA)** refers to a system or application that offers high operational availability. This means the entire site or application will not be down if one server goes down due to traffic overload or other issues. HA represents the application remains available with no interruption. We achieve high availability when an application continues to operate even when one or more underlying components fail.
 
 Thus, HA is designed to avoid loss of service by reducing or managing failures and minimizing unscheduled downtime (when your system or network is not available for use or is unresponsive) that happens due to power outages or failure of a component.
 
@@ -37,8 +37,9 @@ HA architecture includes the cluster of the *Chef Automate*, *Chef Server*, *Pos
 ![High Availability Architecture](/images/automate/ha_arch_aws_managedservices.png)
 
 {{< note >}}
-Chef Automate HA for Managed Services has default port 7392 for Managed Postgresql and 9200 for Managed Opensearch. You can also change to your custom port.
+Chef Automate HA for Managed Services has default port 7392 for Managed PostgreSQL and 9200 for Managed OpenSearch. You can also change to your custom port.
 {{< /note >}}
+
 ### Chef Automate HA Architecture for OnPremise Non-Managed Minimum Node Cluster
 
 ![High Availability Architecture](/images/automate/ha_arch_minnode_cluster.png)
@@ -69,6 +70,8 @@ In this, we expect VM (Virtual machine) or Bare Metal machines (Physical machine
 
 After this, installation steps will Deploy Chef Automate, Chef Infra Server, Postgresql DB, and OpenSearch DB to the relevant VMs or Physical Machines as provided in Config.
 
+Please refer [Performance Bench marking](https://docs.chef.io/automate/ha_performance_benchmarks/#performance-benchmarks) for more info.
+
 ### Cloud Deployment using Amazon Web Services (AWS)
 
 The two-step deployment process is as shown below:
@@ -76,3 +79,7 @@ The two-step deployment process is as shown below:
 - Provisioning Infrastructure. (Optional, if already manually done)
 - Deployment of services on the provisioned infrastructure.
   - Installation of *PostgreSQL*, *OpenSearch*, *Chef Automate*, and *Chef Infra Server* will be done in this step.
+
+## Performance (Benchmarking)
+
+Please refer to the [Performance Benchmarking document](/automate/ha_performance_benchmarks/) for the detailed performance benchmark numbers
