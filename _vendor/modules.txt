@@ -11,7 +11,7 @@
 # github.com/chef/chef-workstation/docs-chef-io v0.0.0-20230825063757-78835dd97b00
 # github.com/chef/supermarket/docs-chef-io v0.0.0-20230825213130-d1341bfd3d5d
 # github.com/chef/effortless/docs-chef-io v0.0.0-20230711123605-c8beb79aba4f
-# github.com/chef/compliance-profiles/docs-chef-io v0.0.0-20230623103238-3e312f1c2da0
+# github.com/chef/compliance-profiles/docs-chef-io v0.0.0-20230904102656-f8fff0821d49
 # github.com/chef/compliance-remediation-2022/docs-chef-io v0.0.0-20230809063034-95b117807a75
 # github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90
 # github.com/swiftype/swiftype-autocomplete-jquery v0.0.0-20190222215504-a90008d64b30

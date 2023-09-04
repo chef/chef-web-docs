@@ -10,9 +10,16 @@ draft = false
     weight = 10
 +++
 
+## 20230905
+
+### New features
+
+- CIS Oracle Solaris 11.4 v1.0.0(Audits)
+- CIS Windows Server 2019 v2.0.0(Audits)
+
 ## 20230623
 
-### New Features
+### New features
 
 - CIS Ubuntu 22.04 v1.0.0 (Audit).
 - CIS SUSE Linux Enterprise 12v3.1.0 (Audit).
@@ -26,13 +33,13 @@ draft = false
 - CIS CentOS Linux 8 v2.0.0 fix for controls that require sudo permission which gave a false positive.
 - CIS Azure Foundation v1.5.0 implemented Azure API & Powershell MSOnline cmdlet for controls (1.1, 1.2, 1.9, 1.11, 1.12).
 
-### Bug Fixes
+### Bug fixes
 
 - CIS CentOS Linux 7 Benchmark v3.1.2 : UMASK wrong check issue(Control 5.5.5)
 
 ## 20230509
 
-### New Features
+### New features
 
 - CIS Oracle MySQL Community Server 5.7 v2.0.0 (Audit).
 - CIS Azure Foundation v1.5.0 (Audit).
@@ -43,7 +50,7 @@ draft = false
 
 ## 20221212
 
-### New Features
+### New features
 
 - CIS VMWare ESXi 7.0 v1.1.0 (Audit).
 - CIS Rocky Linux 8 v1.0.0 (Audit).
@@ -55,7 +62,7 @@ draft = false
 
 - Added platform support for CIS RHEL 7 v3.1.1. & CIS Amazon Linux 2 v2.0.0.
 
-### Bug Fixes
+### Bug fixes
 
 - Added platform support for Amazon Linux 2, RHEL 7 and RHEL 8.
 - Optimized redundant API calls by caching SharePoint tenant library for CIS Microsoft Office 365.
@@ -63,20 +70,20 @@ draft = false
 
 ## 20220913
 
-### New Features
+### New features
 
 - CIS Alma Linux v2.0.0 (Audit).
 - CIS Oracle Linux 8 v2.0.0 (Audit).
 - CIS Google Kubernetes Engine v1.2.0 (Audit).
 - CIS MS Office 365 v1.4.0.
 
-### Bug Fixes
+### Bug fixes
 
 - CIS MS Office 365 v1.4.0 scale fix for control 4.3, 5.2, and 5.1 (Audit).
 
 ## 20220808
 
-### New Features
+### New features
 
 - CIS Apache HTTP Server 2.4 v2.0.0 (Audit).
 - CIS Windows Server 2022 v1.0.0 (Audit).
@@ -90,6 +97,6 @@ draft = false
 - CIS Oracle 18c v1.0.0 (added audit procedure to manual controls and removed special characters in the control's title).
 - CIS Oracle 19c v1.0.0 (added audits procedure to manual controls and removed special characters in the control's title).
 
-### Bug Fixes
+### Bug fixes
 
 - CIS RHEL 8 v2.0.0 fix for control 6.2.7 implementation mismatch (Audit).
