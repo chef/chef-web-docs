@@ -10,9 +10,9 @@ automate = "AWS Deployment Prerequisites"
     weight = 30
 +++
 
-{{< warning >}}
+{{< note >}}
 {{% automate/ha-warn %}}
-{{< /warning >}}
+{{< /note >}}
 
 {{< warning >}}
 The below prerequisites are according to the standard Chef Automate HA setup. You can contact the customer success manager or account manager if you use any specified version not mentioned here or a third-party extension or software.
@@ -50,8 +50,10 @@ The operating system and the supported version for different nodes in AWS deploy
 | Ubuntu (64 Bit OS)                   | 16.04.x, 18.04.x, 20.04.x                                                                                                                                                                                                                                 |
 | Centos (64 Bit OS)                   | 7                                                                                                                                                                                                                                                         |
 | Amazon Linux 2 (64 Bit OS)           | 2 (kernel 5.10)                                                                                                                                                                                                                                           |
-| SUSE Linux Enterprise Server         | 12.5                                                                                                                                                                                                                                                      |
+| SUSE Linux Enterprise Server         | 12.5                                                                                                                                                        
+                                                                                              |
 
+Please provide AMI Id as per above list of supported operating systems.
 ### Minimum Supported Chef Tool Versions
 
 Current Automate HA supports integration with the following Chef tools:
@@ -61,7 +63,7 @@ Current Automate HA supports integration with the following Chef tools:
 -   Chef Infra Client: 17.0.242+
 -   Chef Habitat: 0.81+
 
-We do not support **Chef Manage** and **Supermarket** integration in the ongoing Automate version.
+We do not support **Chef Manage** integration in the ongoing Automate version.
 
 ### External Supported Softwares
 
@@ -85,6 +87,7 @@ Current Automate HA integrates with the following non-Chef tools:
 
 - Refer to [Performance Benchmarks](/automate/ha_performance_benchmarks) for more details on the hardware requirements.
 - Make sure the hardware requirement in not lesser than the recommended [Minimum Hardware Requirement](/automate/ha_aws_deployment_prerequisites/#minimum-hardware-requirement)
+- Contact your network manager to set up the above pre-requisites.
 
 {{< /note >}}
 
@@ -169,6 +172,7 @@ The AWS deployment specific pre-requisites are as follows:
 -   Three private and three public subnets in a VPC (1 subnet for each AZ) are needed. As of now, only dedicated subnets for each AZ are supported.
 -   It is recommended to create a new VPC.
 -   Bastion must be in the same VPC for deployment.
+-   It is recommended to use subnet IDs over CIDR, CIDR will only work if VPC has sufficient range available to create new subnets.
 -   **In AWS Managed Services:**
     -   Setup [AWS RDS PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html) 13.5 in the same VPC.
     -   Setup [AWS OpenSearch](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html) of version 1.3 in the same VPC.
@@ -200,6 +204,7 @@ The AWS deployment specific pre-requisites are as follows:
 -   The user's SSH key should be generated using algorithm `ed25519` without a passphrase.
 -   This SSH user should be a local Linux user on the Bastion machine.
 -   This SSH user should have sudo privileges on the Bastion machine.
+-   SSH user should have write permission in nodes.
 -   Use the SSH user to access all machines using the same SSH private key.
 
 ### Cluster Setup
@@ -240,7 +245,7 @@ Things to keep in mind while upgrading are:
 ## Disaster Recovery
 
 Chef Automate HA supports disaster recovery in active/passive mode. The primary cluster will be in active mode, and the disaster recovery cluster will be in passive mode.
-Active/Active Disaster Recovery is not supported right now as we do not support streaming of data across clusters and automatic failover switching of clusters.
+Active/Active Disaster Recovery is not supported right now as we do not support streaming of data across clusters and automatic fail over switching of clusters.
 
 The requirements for disaster recovery setup (Active/Passive) are:
 

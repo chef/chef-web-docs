@@ -17,9 +17,7 @@ gh_repo = "automate"
 ## Command Usage
 
 ```bash
-sudo -- sh -c "
-chef-automate config gen config.toml
-"
+ chef-automate config gen config.toml
 ```
 
 `config.toml` is the file where all the generated config will be saved at the end, you can choose to not provide this then the output will be shown to stdout.
@@ -35,10 +33,10 @@ Refer the fields below to generate Chef Automate High Availability (HA) configur
 
 ## SSH User and Group
 
-- `ssh user name` user name to ssh to cluster instances Example `~/.ssh/my-key.pem`.
+- `ssh user name` user name to ssh to cluster instances.
 - `ssh group name` group name which is associated with ssh user.
 - `ssh port no` port to do ssh, default is 22 incase you have different port then provide the ssh port number.
-- `ssh key file path` ssh key file path, same will be used to ssh to cluster instances.
+- `ssh key file path` ssh key file path, same will be used to ssh to cluster instances Example `~/.ssh/my-key.pem`.
 
 ## Automate Load Balancer FQDN
 
@@ -53,7 +51,7 @@ Refer the fields below to generate Chef Automate High Availability (HA) configur
 ## Chef Server Load Balancer FQDN
 
 - `Chef Server FQDN` automate FQDN name Example `chefserver.example.com`.
-- `Chef Server FQDN ARN` for Aws deployment ARN name is required for Chef Serversss FQDN domain.
+- `Chef Server FQDN ARN` for Aws deployment ARN name is required for Chef Servers FQDN domain.
 - `Chef Server FQDN Root Certificate` ssl root certificate for Chef Server FQDN domain.
 
 ## Number of Nodes in Automate HA Cluster

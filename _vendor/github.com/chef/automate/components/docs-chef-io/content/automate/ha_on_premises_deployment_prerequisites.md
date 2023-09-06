@@ -12,9 +12,9 @@ automate = "On-Premises Prerequisites"
     weight = 20
 +++
 
-{{< warning >}}
+{{< note >}}
 {{% automate/ha-warn %}}
-{{< /warning >}}
+{{< /note >}}
 
 {{< warning >}}
 The below prerequisites are according to the standard Chef Automate HA setup. You can contact the customer success manager or account manager if you use any specified version not mentioned here or a third-party extension or software.
@@ -63,7 +63,7 @@ Current Automate HA supports integration with the following Chef tools:
 - Chef Infra Client: 17.0.242+
 - Chef Habitat: 0.81+
 
-We do not support **Chef Manage** and **Supermarket** integration in the ongoing Automate version.
+We do not support **Chef Manage** integration in the ongoing Automate version.
 
 ### External Supported Softwares
 
@@ -79,6 +79,7 @@ Current Automate HA integrates with the following non-Chef tools:
 
 - Refer to [Performance Benchmarks](/automate/ha_performance_benchmarks) for more details on the hardware requirements.
 - Make sure the hardware requirement is not less than the recommended [Minimum Hardware Requirement](/automate/ha_on_premises_deployment_prerequisites/#minimum-hardware-requirement)
+- Contact your network manager to set up the above pre-requisites.
 
 {{< /note >}}
 
@@ -150,6 +151,7 @@ Generate the certificates using recommended tools and supported algorithms and v
 
 To understand how to generate certificates, refer to the [Certificate Generation](/automate/ha_cert_selfsign/#creating-a-certificate) documentation.
 
+
 ## Deployment Specific Pre-requisites
 
 The on-premises deployment specific pre-requisites are as follows:
@@ -178,6 +180,7 @@ The on-premises deployment specific pre-requisites are as follows:
 - The user's SSH key should be generated using algorithms `ed25519` and `RSA(2048)` without a passphrase.
 - This SSH user should be a local Linux user on all the machines.
 - This SSH user should have sudo privileges on all the machines.
+- SSH user should have write permission in nodes.
 - The SSH user should access all machines using the same SSH private key.
 
 ### Cluster Setup
@@ -225,7 +228,7 @@ Things to keep in mind while upgrading are:
 
 Chef Automate HA supports disaster recovery in active/passive mode. The primary cluster will be in active mode, and the disaster recovery cluster will be in passive mode.
 
-Active/Active Disaster Recovery is not supported right now as we do not support streaming of data across clusters and automatic failover switching of clusters.
+Active/Active Disaster Recovery is not supported right now as we do not support streaming of data across clusters and automatic fail-over switching of clusters.
 
 The requirements for disaster recovery setup (Active/Passive) are:
 

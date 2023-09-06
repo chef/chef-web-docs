@@ -12,9 +12,9 @@ gh_repo = "automate"
     weight = 10
 +++
 
-{{< warning >}}
+{{< note >}}
 {{% automate/ha-warn %}}
-{{< /warning >}}
+{{< /note >}}
 
 **High availability (HA)** refers to a system or application that offers high operational availability. This means the entire site or application will not be down if one server goes down due to traffic overload or other issues. HA represents the application remains available with no interruption. We achieve high availability when an application continues to operate even when one or more underlying components fail.
 
@@ -22,7 +22,7 @@ Thus, HA is designed to avoid loss of service by reducing or managing failures a
 
 ## Chef Automate High Availability (HA)
 
-The Chef Automate HA equates to reliability, efficiency, and productivity, built on **Redundancy** and **Failover**. It aids in addressing significant issues like service failure and zone failure.
+The Chef Automate HA equates to reliability, efficiency, and productivity, built on **Redundancy** and **Fail-over**. It aids in addressing significant issues like service failure and zone failure.
 
 ## Chef Automate HA Architecture
 
@@ -37,7 +37,7 @@ HA architecture includes the cluster of the *Chef Automate*, *Chef Server*, *Pos
 ![High Availability Architecture](/images/automate/ha_arch_aws_managedservices.png)
 
 {{< note >}}
-Chef Automate HA for Managed Services has default port 7392 for Managed PostgreSQL and 9200 for Managed OpenSearch. You can also change to your custom port.
+Chef Automate HA for Managed Services has default port 5432 for Managed PostgreSQL and 9200 for Managed OpenSearch. You can also change to your custom port.
 {{< /note >}}
 
 ### Chef Automate HA Architecture for OnPremise Non-Managed Minimum Node Cluster

@@ -11,9 +11,9 @@ gh_repo = "automate"
     weight = 200
 +++
 
-{{< warning >}}
+{{< note >}}
 {{% automate/ha-warn %}}
-{{< /warning >}}
+{{< /note >}}
 
 This section will discuss deploying Chef Automate HA on-premise machines with chef managed database. Please see the [On-Premises Prerequisites](/automate/ha_on_premises_deployment_prerequisites/) page and move ahead with the following sections of this page.
 
@@ -22,7 +22,7 @@ This section will discuss deploying Chef Automate HA on-premise machines with ch
 - PLEASE DO NOT MODIFY THE WORKSPACE PATH; it should always be "/hab/a2_deploy_workspace".
 - We currently don't support AD managed users in nodes. We only support local Linux users.
 - If you have configured a sudo password for the user, you must create an environment variable `sudo_password` and set the password as the variable's value. Example: `export sudo_password=<password>`. And then, run all sudo commands with the `sudo -E or --preserve-env` option. Example: `sudo -E ./chef-automate deploy config.toml --airgap-bundle automate.aib`. This is required for the `chef-automate` CLI to run the commands with sudo privileges. Please refer [this](/automate/ha_sudo_password/) for details.
-
+- If SELinux is enabled, deployment with configure it to `permissive` (Usually in case of RHEL SELinux is enabled)
 {{< /warning >}}
 
 ## Steps to run on Bastion Host Machine
@@ -88,33 +88,48 @@ You can also view the [Sample Config](#sample-config).
 
 ## Steps to Deploy
 
-1. Continue with the deployment after generating the config:
+1. The following command will run the deployment. The deploy command will run the verify command internally, to skip a verification process during deploy command use `--skip-verify` flag
 
     ```bash
-    #Run commands as sudo.
-    sudo -- sh -c "
-    #Print data in the config
-    cat config.toml
-    #Run deploy command to deploy `automate.aib` with set `config.toml`
     chef-automate deploy config.toml --airgap-bundle automate.aib
-    "
     ```
 
-1. Verify the deployment by checking status summary
+   To skip verification in the deploy command, use `--skip-verify` flag
+    ```bash
+     chef-automate deploy config.toml --airgap-bundle automate.aib --skip-verify
+    ```
+
+## Verify Deployment
+
+1. Once the deployment is successful, Get the consolidate status of the cluster
 
     ```bash
-    #Run commands as sudo.
-    sudo -- sh -c "
-    #After Deployment is done successfully. Check the status of Chef Automate HA services
-    chef-automate status summary
-    "
+     chef-automate status summary
+    ```
+
+1.  Get the service status from each node
+
+    ```bash
+     chef-automate status
+    ```
+
+1. Post Deployment, you can run the verification command  
+
+    ```bash
+     chef-automate verfiy
+    ```
+
+1. Get the  cluster Info
+
+    ```bash
+     chef-automate info
     ```
 
     Check if Chef Automate UI is accessible by going to (Domain used for Chef Automate) [https://chefautomate.example.com](https://chefautomate.example.com).
     After successful deployment, proceed with following...
       1. Create user and orgs, Click [here](/automate/ha_node_bootstraping/#create-users-and-organization) to learn more about user and org creation
       1. Workstation setup, Click [here](/automate/ha_node_bootstraping/#workstation-setup) to learn more about workstation setup
-      1. Node bootstrapping,  Click [here](/automate/ha_node_bootstraping/#bootstraping-a-node) to learn more about node bootstraping.
+      1. Node bootstrapping,  Click [here](/automate/ha_node_bootstraping/#bootstraping-a-node) to learn more about node bootstrapping.
 
 ## Backup/Restore
 
