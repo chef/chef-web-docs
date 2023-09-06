@@ -13,9 +13,9 @@ gh_repo = "automate"
     weight = 205
 +++
 
-{{< warning >}}
+{{< note >}}
 {{% automate/ha-warn %}}
-{{< /warning >}}
+{{< /note >}}
 
 This page explains the Amazon VPC and CIDR notations concepts. You need to provide these values in `config.toml` values to deploy Chef Automate High Availability (HA) using AWS.
 
@@ -55,7 +55,7 @@ The default limit to create a VPC in a region is *5*. However, if the VPCs used 
 
 {{< note >}}
 
-You require a minimum of three node clusters for ElaticSearcg and Postgres-sql instances.
+You require a minimum of three node clusters for ElasticSearch and PostgreSQL instances.
 
 {{< /note >}}
 

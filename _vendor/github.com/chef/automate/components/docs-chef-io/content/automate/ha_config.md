@@ -14,6 +14,10 @@ gh_repo = "automate"
 +++
 
 {{< note >}}
+{{% automate/ha-warn %}}
+{{< /note >}}
+
+{{< note >}}
 
 - All the nodes will apply the Frontend patch/set wherever the Postgresql and OpenSearch changes will be used to only one cluster node.
 - After patching/setting any configuration, certain services will restart. The time required for your services to regain stability may vary depending on the amount of data stored in your system.
@@ -37,9 +41,13 @@ To show the configuration for Automate cluster, run the following command:
 
 ```bash
 chef-automate config show --automate
-#or
+```
+or
+```bash
 chef-automate config show -a
-#or
+```
+or
+```bash
 chef-automate config show --a2
 ```
 
@@ -49,9 +57,13 @@ To show the configuration for the Chef Server cluster, run the following command
 
 ```bash
 chef-automate config show --chef_server
-#or
+```
+or
+```bash
 chef-automate config show -c
-#or
+```
+or
+```bash
 chef-automate config show --cs
 ```
 
@@ -61,9 +73,13 @@ To show the configuration for the Postgresql cluster, run the following command:
 
 ```bash
 chef-automate config show --postgresql
-#or
+```
+or
+```bash
 chef-automate config show -p
-#or
+```
+or
+```bash
 chef-automate config show --pg
 ```
 
@@ -73,9 +89,13 @@ To show the configuration for the OpenSearch cluster, run the following command:
 
 ```bash
 chef-automate config show --opensearch
-#or
+```
+or
+```bash
 chef-automate config show -o
-#or
+```
+or
+```bash
 chef-automate config show --os
 ```
 
@@ -89,9 +109,13 @@ To patch configuration for the Frontend cluster (includes Automate and Chef Serv
 
 ```bash
 chef-automate config patch path/to/automate-config.toml --frontend
-#or
+```
+or
+```bash
 chef-automate config patch path/to/automate-config.toml -f
-#or
+```
+or
+```bash
 chef-automate config patch path/to/automate-config.toml --fe
 ```
 
@@ -101,9 +125,13 @@ To patch the configuration for Automate cluster, run the following command:
 
 ```bash
 chef-automate config patch path/to/automate-config.toml --automate
-#or
+```
+or
+```bash
 chef-automate config patch path/to/automate-config.toml -a
-#or
+```
+or
+```bash
 chef-automate config patch path/to/automate-config.toml --a2
 ```
 
@@ -113,9 +141,13 @@ To patch the configuration for the Chef Server cluster, run the following comman
 
 ```bash
 chef-automate config patch path/to/chef_server-config.toml --chef_server
-#or
+```
+or
+```bash
 chef-automate config patch path/to/chef_server-config.toml -c
-#or
+```
+or
+```bash
 chef-automate config patch path/to/chef_server-config.toml --cs
 ```
 
@@ -128,9 +160,13 @@ To patch the configuration for the Postgresql cluster, run the following command
 
 ```bash
 chef-automate config patch path/to/postgresql-config.toml --postgresql
-#or
+```
+or
+```bash
 chef-automate config patch path/to/postgresql-config.toml -p
-#or
+```
+or
+```bash
 chef-automate config patch path/to/postgresql-config.toml --pg
 ```
 
@@ -143,9 +179,13 @@ To patch the configuration for the OpenSearch cluster, run the following command
 
 ```bash
 chef-automate config patch path/to/opensearch-config.toml --opensearch
-#or
+```
+or
+```bash
 chef-automate config patch path/to/opensearch-config.toml -o
-#or
+```
+or
+```bash
 chef-automate config patch path/to/opensearch-config.toml --os
 ```
 
@@ -159,9 +199,13 @@ To set the configuration for Automate cluster, run the following command:
 
 ```bash
 chef-automate config set path/to/automate-config.toml --automate
-#or
+```
+or
+```bash
 chef-automate config set path/to/automate-config.toml -a
-#or
+```
+or
+```bash
 chef-automate config set path/to/automate-config.toml --a2
 ```
 
@@ -171,9 +215,13 @@ To set the configuration for the Chef Server cluster, run the following command:
 
 ```bash
 chef-automate config set path/to/chef_server-config.toml --chef_server
-#or
+```
+or
+```bash
 chef-automate config set path/to/chef_server-config.toml -c
-#or
+```
+or
+```bash
 chef-automate config set path/to/chef_server-config.toml --cs
 ```
 
@@ -186,9 +234,13 @@ To set the configuration for the Postgresql cluster, run the following command:
 
 ```bash
 chef-automate config set path/to/postgresql-config.toml --postgresql
-#or
+```
+or
+```bash
 chef-automate config set path/to/postgresql-config.toml -p
-#or
+```
+or
+```bash
 chef-automate config set path/to/postgresql-config.toml --pg
 ```
 
@@ -201,9 +253,13 @@ To set the configuration for the OpenSearch cluster, run the following command:
 
 ```bash
 chef-automate config set path/to/opensearch-config.toml --opensearch
-#or
+```
+or
+```bash
 chef-automate config set path/to/opensearch-config.toml -o
-#or
+```
+or
+```bash
 chef-automate config set path/to/opensearch-config.toml --os
 ```
 

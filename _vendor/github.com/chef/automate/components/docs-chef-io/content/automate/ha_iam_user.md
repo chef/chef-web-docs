@@ -13,9 +13,9 @@ gh_repo = "automate"
     weight = 220
 +++
 
-{{< warning >}}
+{{< note >}}
 {{% automate/ha-warn %}}
-{{< /warning >}}
+{{< /note >}}
 
 AWS Identity and Access Management (IAM) is a web service that helps you securely control access to AWS resources. You can use IAM to control who is authenticated (signed in) and authorized (has permissions) to use resources.
 
@@ -42,7 +42,7 @@ Once we have an AWS account, we'll need to create an IAM user to programmaticall
 1.  Select **IAM** from the list of services from the AWS console. The **IAM dashboard** screen appears.
     {{< figure src="/images/automate/ha_aws_iam.png" alt="AWS IAM Dashboard">}}
 1.  Select **Users** from the **Access management** menu on the left.
-1.  Select **Add Users**. The **Set User Details** screen appears.
+1.  Select **Create Users**. The **Specify user details** screen appears.
 1.  Enter the user name for the new user and other necessary details.
     {{< figure src="/images/automate/ha_aws_iam_user.png" alt="AWS IAM User Creation">}}
 1.  Check the **Access key - Programmatic access** option under the **Select AWS access type** section.
