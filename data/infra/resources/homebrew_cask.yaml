@@ -11,7 +11,7 @@ resource_new_in: '14.0'
 syntax_full_code_block: |-
   homebrew_cask 'name' do
     cask_name          String # default value: 'name' unless specified
-    homebrew_path      String # default value: "/usr/local/bin/brew"
+    homebrew_path      String
     install_cask       true, false # default value: true
     options            String
     owner              String, Integer # default value: "Calculated default username"
@@ -43,7 +43,6 @@ properties_list:
 - property: homebrew_path
   ruby_type: String
   required: false
-  default_value: "/usr/local/bin/brew"
   description_list:
   - markdown: The path to the homebrew binary.
 - property: install_cask
