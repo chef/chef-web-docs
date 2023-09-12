@@ -1,24 +1,25 @@
-Tags can be added and removed. Machines can be checked to see if they
-already have a specific tag. To use tags in your recipe simply add the
-following:
+You can add tags, remove tags, and check if nodes have a specific tag.
+
+To add a tag in your recipe, use `tag` with the tag name you want to apply to a node.
 
 ```ruby
-tag('mytag')
+tag('tag-name')
 ```
 
-To test if a machine is tagged, add the following:
+To test if a machine is tagged with a specific tag, use `tagged?` with the tag name.
 
 ```ruby
-tagged?('mytag')
+tagged?('tag-name')
 ```
 
-to return `true` or `false`. `tagged?` can also use an array as an
-argument.
+This will return `true` or `false`.
 
-To remove a tag:
+`tagged?` also accepts an array as an argument.
+
+Remove a tag using `untag`.
 
 ```ruby
-untag('mytag')
+untag('tag-name')
 ```
 
 For example:
@@ -41,5 +42,5 @@ Will return something like this:
 
 ```none
 [Thu, 22 Jul 2010 18:01:45 +0000] INFO: Hey I'm machine
-[Thu, 22 Jul 2010 18:01:45 +0000] INFO: I has no tagz
+[Thu, 22 Jul 2010 18:01:45 +0000] INFO: I am not tagged
 ```
