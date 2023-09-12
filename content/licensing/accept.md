@@ -88,32 +88,11 @@ Chef Software products are also distributed as `hab` packages. When Chef product
 
 Some Chef products distributed as `hab` packages contain servers. In these cases, Chef Habitat runs the server products as a supervisor. See the below sections for information on how to accept the license for these products when they are distributed as `hab` packages.
 
-<table>
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 79%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Product</th>
-<th>Version</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Chef Infra Server</td>
-<td>&gt;= 13.0</td>
-</tr>
-<tr>
-<td>Chef Automate</td>
-<td>&gt;= 2.0</td>
-</tr>
-<tr>
-<td>Supermarket</td>
-<td>&gt;= 4.0</td>
-</tr>
-</tbody>
-</table>
+| Product           | Version |
+|-------------------|---------|
+| Chef Infra Server | >= 13.0 |
+| Chef Automate     | >= 2.0  |
+| Supermarket       | >= 4.0  |
 
 Server products are typically installed and managed by some kind of process supervisor. Chef Software server products do not allow interactive license acceptance because process supervisors do not allow interactivity. Instead, the license is accepted during the `reconfigure` command or `upgrade` command for the Omnibus ctl command. For example:
 
