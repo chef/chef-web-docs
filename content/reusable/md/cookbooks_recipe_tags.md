@@ -25,15 +25,15 @@ untag('tag-name')
 For example:
 
 ```ruby
-tag('machine')
+tag('test_node')
 
-if tagged?('machine')
+if tagged?('test_node')
   Chef::Log.info("Hey I'm #{node['tags']}")
 end
 
-untag('machine')
+untag('test_node')
 
-unless tagged?('machine')
+unless tagged?('test_node')
   Chef::Log.info('I am not tagged')
 end
 ```
@@ -41,6 +41,6 @@ end
 Will return something like this:
 
 ```none
-[Thu, 22 Jul 2010 18:01:45 +0000] INFO: Hey I'm machine
+[Thu, 22 Jul 2010 18:01:45 +0000] INFO: Hey I'm test_node
 [Thu, 22 Jul 2010 18:01:45 +0000] INFO: I am not tagged
 ```
