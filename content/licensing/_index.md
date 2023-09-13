@@ -29,11 +29,11 @@ Source code reuse is unchanged and follows the [Apache 2.0](#apache-20) model fo
 
 The commercial distributions of our products--such as Chef Infra Client, Chef Habitat, or Chef InSpec--are governed by either the [Chef End User License Agreement (Chef EULA)](https://www.chef.io/end-user-license-agreement) or your commercial agreement with Progress Software Corporation. You must accept these terms when using the distributions for the first time. For additional information on how to accept the license, see [Accepting the Chef License](accept) documentation.
 
-If you have a license from before April 2019 (referred to as the Chef Master License and Services Agreement, or MLSA), please consult the [Chef versions documentation](https://docs.chef.io/versions/) to understand which license applies.
+If you have a license from before April 2019 (referred to as the Chef Master License and Services Agreement, or MLSA), please consult the [Chef versions documentation](/versions/) to understand which license applies.
 
 ## Apache 2.0
 
-The [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt) governs the reuse of source code of open source Progress Chef projects--including Chef Infra Client ("chef"), Chef InSpec, and Chef Habitat--unless specified otherwise in the project's repository.
+The [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt) governs the reuse of source code of open-source Progress Chef projects--including Chef Infra Client ("chef"), Chef InSpec, and Chef Habitat--unless specified otherwise in the project's repository.
 Source code is released publicly through repositories in these organizations:
 
 - [Progress Chef](https://github.com/chef)
@@ -46,7 +46,6 @@ Intermediate products--such as binaries, modules, containers, and executables (i
 
 For further questions, please contact [Chef Developer Relations](https://community.chef.io/).
 
-
 ## License tiers
 
 Starting with Chef InSpec 6, there are three license tiers that have different entitlements: free, trial, and commercial.
@@ -56,8 +55,7 @@ Upon installation of Chef InSpec, you must accept the basic [Progress Chef EULA]
 |------------|------------------------------------|--------------------------------|-----------------------------------------|-----------------------------------------------------------|----------------------------------------------------|
 | Free       | Perpetual requiring annual renewal | Basic                          | Non-production workloads                | Community support in Slack                                | Personal and non-commercial use                    |
 | Trial      | 30-days, renewable up to 90 days   | Advanced functionality enabled | Non-production workloads                | Community support in Slack and solution architect support | Evaluate products in a non-production environment. |
-| Commercial | Renewable and upgradable           | Advanced functionality enabled | Production and Non-production workloads | Support per contract                                      | Enterprise workloads                               |
-
+| Commercial | Renewable and upgradable           | Advanced functionality enabled | Production and Non-production workloads | Support by contract                                      | Enterprise workloads                               |
 
 Licensing is available for non-profit, research, and academic organizations through a special, free, or highly discounted commercial license in [Progress Chef's Non-Profit Entitlement Program](https://www.chef.io/nonprofit-entitlement-program).
 
@@ -71,8 +69,6 @@ The basic license information collected includes which applications are in use, 
 Licensed customer may opt to send additional telemetry and usage data to Progress Chef.
 This telemetry is used to tailor recommendations to customers, develop new features, and optimize the customer experience.
 
-<!-- 
-
+<!--
 Can the customer see this data? Can they opt-in / out regularly? Link to another article on what this is, maybe the telemetry service?
-
 -->
