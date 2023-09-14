@@ -26,16 +26,16 @@ This configuration file has the following settings:
 : A 3rd-party formatter. (See [nyan-cat](https://github.com/andreacampi/nyan-cat-chef-formatter) for an example of a 3rd-party formatter.) Each formatter requires its own entry.
 
 `allowed_automatic_attributes`
-: A hash that allows `default` attributes, preventing non-allowed attributes from being saved.
+: An array that allows `automatic` attributes, preventing non-allowed attributes from being saved.
 
 `allowed_default_attributes`
-: A hash that allows `default` attributes, preventing non-allowed attributes from being saved.
+: An array that allows `default` attributes, preventing non-allowed attributes from being saved.
 
 `allowed_normal_attributes`
-: A hash that allows `normal` attributes, preventing non-allowed attributes from being saved.
+: An array that allows `normal` attributes, preventing non-allowed attributes from being saved.
 
 `allowed_override_attributes`
-: A hash that allows `override` attributes, preventing non-allowed attributes from being saved.
+: An array that allows `override` attributes, preventing non-allowed attributes from being saved.
 
 `authentication_protocol_version`
 : Sets the authentication protocol that is used to communicate with Chef Infra Server. For example, specify protocol version 1.3 to enable support for SHA-256 algorithms:
@@ -51,22 +51,22 @@ This configuration file has the following settings:
     {{< /note >}}
 
 `automatic_attribute_blacklist`
-: A hash that blocks `automatic` attributes, preventing blocked attributes from being saved. **Deprecated. EOL Chef Infra Client 18 (April 2022)**: Use `blocked_automatic_attributes`.
+: An array that blocks `automatic` attributes, preventing blocked attributes from being saved. **Deprecated. EOL Chef Infra Client 18 (April 2022)**: Use `blocked_automatic_attributes`.
 
 `automatic_attribute_whitelist`
-: A hash that allows `automatic` attributes, preventing non-allowed attributes from being saved. **Deprecated. EOL Chef Infra Client 18 (April 2022)**: Use `allowed_automatic_attributes`.
+: An array that allows `automatic` attributes, preventing non-allowed attributes from being saved. **Deprecated. EOL Chef Infra Client 18 (April 2022)**: Use `allowed_automatic_attributes`.
 
 `blocked_automatic_attributes`
-: A hash that blocks `automatic` attributes, preventing blocked attributes from being saved.
+: An array that blocks `automatic` attributes, preventing blocked attributes from being saved.
 
 `blocked_default_attributes`
-: A hash that blocks `default` attributes, preventing block attributes from being saved.
+: An array that blocks `default` attributes, preventing block attributes from being saved.
 
 `blocked_normal_attributes`
-: A hash that allows `automatic` attributes, preventing non-allowed attributes from being saved.
+: An array allows `normal` attributes, preventing non-allowed attributes from being saved.
 
 `blocked_override_attributes`
-: A hash that blocks `override` attributes, preventing blocked attributes from being saved.
+: An array blocks `override` attributes, preventing blocked attributes from being saved.
 
 `cache_path`
 : The home directory for the user that runs Chef Infra Client as a non-root user.
@@ -142,10 +142,10 @@ This configuration file has the following settings:
 : When enabled, Chef Infra Client raises an error if it cannot successfully POST to the data collector server. Default value: `false`.
 
 `default_attribute_blacklist`
-: A hash that blocks `default` attributes, preventing block attributes from being saved. **Deprecated. EOL Chef Infra Client 18 (April 2022)**: Use `blocked_default_attributes`.
+: normal that blocks `default` attributes, preventing block attributes from being saved. **Deprecated. EOL Chef Infra Client 18 (April 2022)**: Use `blocked_default_attributes`.
 
 `default_attribute_whitelist`
-: A hash that allows `default` attributes, preventing non-allowed attributes from being saved. **Deprecated. EOL Chef Infra Client 18 (April 2022)**: Use `allowed_default_attributes`.
+: normal that allows `default` attributes, preventing non-allowed attributes from being saved. **Deprecated. EOL Chef Infra Client 18 (April 2022)**: Use `allowed_default_attributes`.
 
 `diff_disabled`
 : Cause Chef Infra Client to create a diff when changes are made to a file. Default value: `false`.
@@ -310,19 +310,16 @@ This configuration file has the following settings:
 : The location in which nodes are stored during a Chef Infra Client run in local mode. Default value: `/var/chef/node`.
 
 `normal_attribute_blacklist`
-: A hash that blocks `normal` attributes, preventing blocked attributes from being saved. **Deprecated. EOL Chef Infra Client 18 (April 2022)**: Use `blocked_normal_attributes`.
+: An array that blocks `normal` attributes, preventing blocked attributes from being saved. **Deprecated. EOL Chef Infra Client 18 (April 2022)**: Use `blocked_normal_attributes`.
 
 `override_attribute_blacklist`
-: A hash that blocks `override` attributes, preventing blocked attributes from being saved. **Deprecated. EOL Chef Infra Client 18 (April 2022)**: Use `blocked_override_attributes`.
+: An array that blocks `override` attributes, preventing blocked attributes from being saved. **Deprecated. EOL Chef Infra Client 18 (April 2022)**: Use `blocked_override_attributes`.
 
 `normal_attribute_whitelist`
-: A hash that allows `normal` attributes, preventing non-allowed attributes from being saved. **Deprecated. EOL Chef Infra Client 18 (April 2022)**: Use `allowed_normal_attributes`.
-
-`override_normal_attributes`
-: A hash that allows `override` attributes, preventing non-allowed attributes from being saved.
+: An array that allows `normal` attributes, preventing non-allowed attributes from being saved. **Deprecated. EOL Chef Infra Client 18 (April 2022)**: Use `allowed_normal_attributes`.
 
 `override_attribute_whitelist`
-: A hash that allows `override` attributes, preventing non-allowed attributes from being saved. **Deprecated. EOL Chef Infra Client 18 (April 2022)**: Use `allowed_override_attributes`.
+: An array that allows `override` attributes, preventing non-allowed attributes from being saved. **Deprecated. EOL Chef Infra Client 18 (April 2022)**: Use `allowed_override_attributes`.
 
 `pid_file`
 : The location in which a process identification number (pid) is saved. An executable, when started as a daemon, writes the pid to the specified file. Default value: `/tmp/name-of-executable.pid`.
