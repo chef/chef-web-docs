@@ -131,11 +131,15 @@ These products install or manage Chef on a remote instance. If a user has accept
 
 Test Kitchen isn't owned by or covered by the Chef license, but installing Chef Infra Client on a test instance is covered by the EULA. Without accepting the license, the converge will fail on the test instance.
 
-The Chef provisioner in Test Kitchen \>= 2.3 has been updated to simplify accepting this license on behalf of the test instance. Users can set the `CHEF_LICENSE` environment variable or add `chef_license: accept` to their provisioner config in their **kitchen.yml**. Specifying **accept** will attempt to persist the license acceptance locally. If a local license marker file is detected, no configuration is required; acceptance is automatically transferred to the test instance.
+The Chef provisioner in Test Kitchen \>= 2.3 has been updated to simplify accepting this license on behalf of the test instance.
+Users can set the `CHEF_LICENSE` environment variable or add `chef_license: accept` to their provisioner config in the `kitchen.yml` file.
+If you specify `accept`, Test Kitchen will attempt to persist the license acceptance locally.
+If Test Kitchen detects a local license marker file, no configuration is required; acceptance is automatically transferred to the test instance.
 
 To disable this persistence, specify `accept-no-persist` on every test instance converge.
 
-`kitchen-inspec` uses Chef InSpec as a library, and isn't covered by the EULA when installed as a gem, but is covered by the EULA when packaged as part of the Chef Workstation installation. Accept the license in a similar way to the Chef Infra Client license - specify the `CHEF_LICENSE` environment variable, specify the `chef_license` config under the verifier section in `kitchen.yml` or persist the acceptance locally.
+`kitchen-inspec` uses Chef InSpec as a library and isn't covered by the EULA when installed as a gem, but is covered by the EULA when packaged as part of the Chef Workstation installation.
+Accept the license in a similar way to the Chef Infra Client license - specify the `CHEF_LICENSE` environment variable, specify the `chef_license` config under the verifier section in `kitchen.yml` or persist the acceptance locally.
 
 ##### Test Kitchen: Pin to Chef 14
 

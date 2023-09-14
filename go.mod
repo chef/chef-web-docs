@@ -1,6 +1,6 @@
 module github.com/chef/chef-web-docs
 
-go 1.16
+go 1.18
 
 require (
 	github.com/chef/automate/components/docs-chef-io v0.0.0-20231027151655-61e0a5d70b2c // indirect
