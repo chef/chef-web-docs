@@ -14,14 +14,10 @@
       {{- end -}}
     {{- end }}
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700" rel="stylesheet">
-    {{ if in .Params.product "automate" }}
-    <link rel="stylesheet" type="text/css" href="/automate-api-stylesheet.css">
-    {{ else }}
-    <link rel="stylesheet" type="text/css" href="{{ $.Page.Params.style_sheet }}">
-    {{ end }}
+    <link rel="stylesheet" type="text/css" href="/api-stylesheet.css">
   </head>
   <body>
-    {{ if in .Params.product "automate" }}
+    {{ if eq $.Page.Params.title "Chef Automate API" }}
       <div id="top-container">
         <span id="top-container-return">
           <a class="return" style="position: static;" href="{{ $.Page.Params.return_page }}">Return to Docs</a>
