@@ -22,6 +22,7 @@ syntax_full_code_block: |-
     repo_name          String # default value: 'name' unless specified
     trusted            true, false # default value: false
     uri                String
+    options            String, Array # default value: []
     action             Symbol # defaults to :add if not specified
   end
 syntax_properties_list: 
@@ -113,6 +114,12 @@ properties_list:
   description_list:
   - markdown: Determines whether you should treat all packages from this repository
       as authenticated regardless of signature.
+- property: options
+  ruby_type: String, Array
+  required: false
+  default_value: "[]"
+  description_list:
+  - markdown: Additional options to set for the repository.
 - property: uri
   ruby_type: String
   required: false
@@ -181,6 +188,18 @@ examples: |
     distribution 'xenial-cdh4'
     components   ['contrib']
     key          'http://archive.cloudera.com/debian/archive.key'
+  end
+  ```
+
+  **Add repository that needs custom options**:
+  ```ruby
+  apt_repository 'corretto' do
+    uri          'https://apt.corretto.aws'
+    arch         'amd64'
+    distribution 'stable'
+    components   ['main']
+    options      ['target-=Contents-deb']
+    key          'https://apt.corretto.aws/corretto.key'
   end
   ```
 

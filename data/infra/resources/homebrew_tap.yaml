@@ -10,7 +10,7 @@ resource_description_list:
 resource_new_in: '14.0'
 syntax_full_code_block: |-
   homebrew_tap 'name' do
-    homebrew_path      String # default value: "/usr/local/bin/brew"
+    homebrew_path      String
     owner              String # default value: "Calculated default username"
     tap_name           String # default value: 'name' unless specified
     url                String
@@ -35,7 +35,6 @@ properties_list:
 - property: homebrew_path
   ruby_type: String
   required: false
-  default_value: "/usr/local/bin/brew"
   description_list:
   - markdown: The path to the Homebrew binary.
 - property: owner
