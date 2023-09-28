@@ -30,7 +30,7 @@ Licensing is available for non-profit, research, and academic organizations thro
 ### Chef EULA
 
 The [Chef End User License Agreement (Chef EULA)](https://www.chef.io/end-user-license-agreement) or your commercial agreement with Progress Software Corporation
-goverens the commercial distributions of Progress Chef products--such as Chef Infra Client, Chef Habitat, or Chef InSpec. You must accept these terms when using the distributions for the first time. For additional information on how to accept the license, see [Accepting the Chef License](accept) documentation.
+governs the commercial distributions of Progress Chef products--such as Chef Infra Client, Chef Habitat, or Chef InSpec. You must accept these terms when using the distributions for the first time. For additional information on how to accept the license, see [Accepting the Chef License](accept) documentation.
 
 ### Chef MLSA
 

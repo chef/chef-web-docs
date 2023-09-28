@@ -209,7 +209,7 @@ provisioner "chef" {
 
 #### Vagrant
 
-You can accept tjhe license with the arguments API:
+You can accept the license with the arguments API:
 
 ```ruby
 config.vm.provision 'chef_zero' do |chef|
