@@ -50,9 +50,9 @@ properties_list:
   - markdown: |-
       The name or uid of the Homebrew owner to be used by Chef Infra Client when executing a command.
 
-      Chef Infra Client, by default, will attempt to execute a Homebrew command as the owner of the `/usr/local/bin/brew` executable. If that executable does not exist, Chef Infra Client will attempt to find the user by executing `which brew`. If that executable cannot be found, Chef Infra Client will print an error message: `Could not find the 'brew' executable in /usr/local/bin or anywhere on the path.`.
+      Chef Infra Client, by default, will attempt to execute a Homebrew command as the owner of the `/usr/local/bin/brew` executable on x86_64 machines or `/opt/homebrew/bin/brew` executable on arm64 machines. If that executable doesn't exist, Chef Infra Client will attempt to find the user by executing `which brew`. If that executable can't be found, Chef Infra Client will print an error message: `Couldn't find the 'brew' executable anywhere on the path.`.
 
-      Set this property to specify the Homebrew owner for situations where Chef Infra Client cannot automatically detect the correct owner.'
+      Set this property to specify the Homebrew owner for situations where Chef Infra Client can't automatically detect the correct owner.'
 - property: options
   ruby_type: String, Array
   required: false
