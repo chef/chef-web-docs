@@ -63,7 +63,7 @@ documentation for a list of supported platforms for Chef Automate HA.
 
 #### Commercial Support
 
-The following table lists the commercially-supported platforms for Chef Backend, which is the high-availability solution for Chef Infra Server:
+The following table lists the commercially-supported platforms for Chef Backend, which is the high-availability solution for Chef Infra Server.
 
 | Platform | Architecture | Version |
 | --- | --- | --- |
@@ -88,7 +88,7 @@ See our policy on [support for derived platforms](#support-for-derived-platforms
 
 #### Commercial Support
 
-The following table lists the commercially-supported platforms and versions for Chef Infra Client:
+The following table lists the commercially-supported platforms and versions for Chef Infra Client.
 
 | Platform | Architecture | Version |
 | --- | --- | --- |
@@ -118,7 +118,7 @@ See our policy on [support for derived platforms](#support-for-derived-platforms
 
 #### Community Support
 
-The following platforms are supported only using the community:
+The following platforms are supported only using the community.
 
 | Platform | Architecture | Version |
 | --- | --- | --- |
@@ -152,7 +152,7 @@ The following platforms are supported only using the community:
 
 #### Commercial Support
 
-The following table lists the commercially-supported platforms and versions for Chef InSpec:
+The following table lists the commercially-supported platforms and versions for Chef InSpec.
 
 | Platform | Architecture | Version |
 | --- | --- | --- |
@@ -163,7 +163,7 @@ The following table lists the commercially-supported platforms and versions for 
 | Red Hat Enterprise Linux | `x86_64`, `aarch64` (7.x and 8.x only) | `6.x`, `7.x`, `8.x` |
 | SUSE Linux Enterprise Server | `x86_64`, `aarch64` (15.x only) | `12.x`, `15.x` |
 | Ubuntu | `x86_64` | `16.04`, `18.04`, `20.04` |
-| Windows | `x86_64` | `8.1`, `2012`, `2012 R2`, `2016`, `10 (all channels except "insider" builds)`, `2019`, `11`, `2022` |
+| Windows | `x86_64` | `8.1`, `2012`, `2012 R2`, `2016`, `10` (all channels except "insider" builds), `2019`, `11`, `2022` |
 
 #### Derived platforms
 
@@ -184,7 +184,7 @@ by Chef Software, Inc.
 
 #### Commercial Support
 
-The following table lists the commercially supported platforms for Chef Manage:
+The following table lists the commercially supported platforms for Chef Manage.
 
 | Platform | Architecture | Version |
 | --- | --- | --- |
@@ -208,8 +208,7 @@ See our policy on [support for derived platforms](#support-for-derived-platforms
 
 #### Commercial Support
 
-The following table lists the commercially-supported platforms and
-versions for the Chef Workstation:
+The following table lists the commercially-supported platforms and versions for the Chef Workstation.
 
 | Platform | Architecture | Version |
 | --- | --- | --- |
@@ -233,11 +232,8 @@ See our policy on [support for derived platforms](#support-for-derived-platforms
 
 ## Platform End-of-Life Policy
 
-Chef's products on particular platforms and versions reach
-end-of-life on the same date as the vendor EOL milestone for that
-operating systems. Because different vendors use different terminology,
-the following table clarifies when Chef products are end-of-life
-according to those vendors' terms:
+Chef's products on particular platforms and versions reach end-of-life on the same date as the vendor EOL milestone for that operating systems.
+Because different vendors use different terminology, the following table clarifies when Chef products are end-of-life according to those vendors' terms.
 
 | Platform | Vendor End-of-Life |
 | --- | --- |
