@@ -1,20 +1,22 @@
 +++
-title = "Accepting the Chef License"
+title = "Accept the Chef License"
 draft = false
 gh_repo = "chef-web-docs"
 aliases = ["/chef_license_accept.html", "/chef_license_accept/"]
 
 [menu]
   [menu.overview]
-    title = "Accepting License"
+    title = "Accept License"
     identifier = "overview/licensing/Accepting License"
     parent = "overview/licensing"
     weight = 20
 +++
 
-This page aims to document how to accept the Chef license and set a license ID for all Progress Chef products.
-For an overview of the license, see the [Chef license](/licensing/) documentation.
-Progress Chef has two licenses: MLSA and EULA. The MLSA applies to customers with a commercial contract with Progress Chef, and the EULA covers all other cases.
+This document describes how to accept the Chef license.
+
+For an overview of Chef's license, see the [Chef license](/licensing/) documentation.
+Progress Chef has two licenses: Master License and Services Agreement (MLSA) and End User License Agreement (EULA).
+The MLSA applies to customers with a commercial contract with Progress Chef, and the EULA covers all other cases.
 
 ## Accept the Chef MLSA
 
@@ -37,14 +39,7 @@ Products below are split below into two categories: workstation and server. Affe
 - Chef InSpec \>= 4.0
 - Chef Habitat \>= 0.80
 
-These products are typically installed on a user's workstation. Two common methods for accepting the license are:
-
-1. `--chef-license <value>` argument passed to the command line invocation.
-1. `CHEF_LICENSE="<value>"` as an environment variable.
-    `<value>` can be specified as one of the following:
-    1. `accept` - Accepts the license and attempts to persist a marker file locally. Persisting these marker files means future invocations don't require accepting the license again.
-    1. `accept-silent` - Similar to `accept` except no messaging is sent to STDOUT
-    1. `accept-no-persist` - Similar to `accept-silent` except no marker file is persisted. Future invocation will require accepting the license again.
+These products are typically installed on a user's workstation. You can accept the Chef EULA using a [command line option](#command-line-option) or [environment variable](#environment-variable).
 
 If no command line argument or environment variable is set, these products will attempt to request acceptance through an interactive prompt. If the prompt can't be displayed, then the product will fail with an exit code 172.
 
@@ -52,13 +47,50 @@ If the product attempts to persist the accepted license and fails, a message wil
 
 Please see [License File Persistence](https://github.com/chef/license-acceptance#license-file-persistence) for details about persisted marker files.
 
-The `--chef-license` command line argument isn't backwards compatible to older non-EULA versions. If you are managing a multi-version environment, we recommend using the environment variable as that's ignored by older versions.
-
 Products with specific features or differences from this general behavior are documented below.
+
+### Command line option
+
+Use the `--chef-license <value>` argument to accept the Chef EULA.
+
+```sh
+inspec exec profile_name --chef-license <value>
+```
+
+Replace `<value>` with one of the following options.
+
+`accept`
+: Accept the license and attempts to persist a marker file locally. Persisting these marker files means future invocations don't require accepting the license again.
+
+`accept-silent`
+: Similar to `accept`, but no messaging is sent to STDOUT.
+
+`accept-no-persist`
+: Similar to `accept-silent`, but no marker file is persisted. Future invocation will require accepting the license again.
+
+### Environment variable
+
+Use the `CHEF_LICENSE="<value>"` environment variable to accept the Chef EULA.
+
+```sh
+export CHEF_LICENSE="<value>"
+inspec exec profile_name
+```
+
+Replace `<value>` with one of the following options.
+
+`accept`
+: Accept the license and attempts to persist a marker file locally. Persisting these marker files means future invocations don't require accepting the license again.
+
+`accept-silent`
+: Similar to `accept`, but no messaging is sent to STDOUT.
+
+`accept-no-persist`
+: Similar to `accept-silent`, but no marker file is persisted. Future invocation will require accepting the license again.
 
 #### Chef Workstation
 
-Chef Workstation contains multiple Progress Chef products. When invoking the `chef` command line tool and accepting the license, users are required to accept the license for all the embedded products as well. The same license applies to all products, but each product must have its own license acceptance. `chef <command> --chef-license accept` will accept the license for Chef Workstation, Chef Infra Client, and Chef InSpec. For example, `chef env --chef-license accept`.
+Chef Workstation contains multiple Progress Chef products. When invoking the `chef` command line tool and accepting the license, you must accept the license for all the embedded products as well. The same license applies to all products, but each product must have its own license acceptance. `chef <command> --chef-license accept` will accept the license for Chef Workstation, Chef Infra Client, and Chef InSpec. For example, `chef env --chef-license accept`.
 
 #### Chef Infra Client
 

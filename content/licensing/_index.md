@@ -15,17 +15,21 @@ aliases = ["/chef_license.html", "/chef_license/", "/license/"]
     weight = 10
 +++
 
-Either the [Chef End User License Agreement (Chef EULA)](#chef-eula) or your commercial agreement with Progress Software Corporation governs commercial distributions of Chef products. The [Apache License, Version 2.0](#apache-20) governs the reuse of source code of open-source Progress Chef projects.
+This document gives an overview of Chef product licenses and license tiers.
 
-Chef licenses come in [three different license tiers](#license-tiers) depending on your use case.
+Before you can use distributions of Chef products, you must [accept the Chef End User License Agreement (Chef EULA)](accept).
 
-Before you can use distributions of Chef products, you must [accept the Chef license](accept). You must also [add a license key](add_license) if you use the following products:
+The following products also require a [license key](license_key):
 
 - Chef InSpec 6 or greater
 
 Licensing is available for non-profit, research, and academic organizations through a special, free, or highly discounted commercial license in [Progress Chef's Non-Profit Entitlement Program](https://www.chef.io/nonprofit-entitlement-program).
 
 ## Licenses
+
+All Chef products are governed by the [Chef End User License Agreement (Chef EULA)](#chef-eula) or the [Chef Master License and Services Agreement (Chef MLSA)](#chef-mlsa). The source code of open-source Chef projects is governed by the [Apache 2.0 license](#apache-20).
+
+Third-party software included in our distributions may have individual licenses which are listed in the `/opt/<PRODUCT-NAME>/LICENSE` file. You can find individual copies of all referenced licenses in the `/opt/<PRODUCT-NAME>/LICENSES` directory.
 
 ### Chef EULA
 
@@ -38,7 +42,7 @@ The [Chef Master License and Services Agreement (Chef MLSA)](https://www.chef.io
 
 ### Apache 2.0
 
-The [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt) governs the reuse of source code of open-source Progress Chef projects--including Chef Infra Client ("chef"), Chef InSpec, and Chef Habitat--unless specified otherwise in the project's repository.
+The [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt) governs the reuse of source code of open-source Progress Chef projects---including Chef Infra Client ("chef"), Chef InSpec, and Chef Habitat---unless specified otherwise in the project's repository.
 Source code is released publicly through repositories in these organizations:
 
 - [Progress Chef](https://github.com/chef)
@@ -53,22 +57,10 @@ For further questions, please contact [Chef Developer Relations](https://communi
 
 ## License tiers
 
-Progress Chef offers three license tiers that have different entitlements: free, trial, and commercial.
+Progress Chef offers three license tiers that have different entitlements: Free, Trial, and Commercial.
 
-| License    | Duration                           | Features                       | Intended environment                    | Support Model                                             | Intended uses                                      |
-|------------|------------------------------------|--------------------------------|-----------------------------------------|-----------------------------------------------------------|----------------------------------------------------|
-| Free       | Perpetual requiring annual renewal | Basic                          | Non-production workloads                | Community support in Slack                                | Personal and non-commercial use                    |
-| Trial      | 30-days, renewable up to 90 days   | Advanced functionality enabled | Non-production workloads                | Community support in Slack and solution architect support | Evaluate products in a non-production environment. |
-| Commercial | Renewable and upgradable           | Advanced functionality enabled | Production and Non-production workloads | Support by contract                                      | Enterprise workloads                               |
-
-## Usage data
-
-The Progress Chef EULA requires that basic license information be transmitted to Chef for all products.
-The basic license information collected includes which Chef applications are in use, their versions, and the license(s) that govern those products.
-
-Licensed customers may opt to send additional telemetry and usage data to Progress Chef.
-This telemetry is used to tailor recommendations to customers, develop new features, and optimize the customer experience.
-
-<!--
-Can the customer see this data? Can they opt-in / out regularly? Link to another article on what this is, maybe the telemetry service?
--->
+| License | Duration | Environment | Support | Uses |
+|---|---|---|---|---|
+| Free | Unlimited | Non-production workloads | Community support in Slack | Personal and non-commercial use |
+| Trial | 30 days | Non-production workloads | Community support in Slack and solution architect support | Product evaluation in a non-production environment |
+| Commercial | Renewable | Production and non-production workloads | Support by contract | Enterprise workloads |

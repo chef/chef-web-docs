@@ -12,7 +12,7 @@ gh_repo = "chef-web-docs"
 +++
 
 Node
-: An individual component of your system, physical or virtual (for example, a server, workstation, IP router, virtual machine, or another device or component) that's assessed, installed, configured, updated, scanned and/or managed using any Chef product.
+: An individual component of your system, physical or virtual (for example, a server, workstation, IP router, virtual machine, or another device or component), that's assessed, installed, configured, updated, scanned and/or managed using any Chef product.
 
 Scan
 : A rules-based inspection of a target. There can be many scans applied to a target.
