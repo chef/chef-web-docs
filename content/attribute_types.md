@@ -11,7 +11,7 @@ gh_repo = "chef-web-docs"
     parent = "chef_infra/cookbook_reference/attributes"
 +++
 
-Chef Infra Client uses six types of attributes to determine the value that is applied to a node during a Chef Infra Client run.
+Chef Infra Client uses six types of attributes to determine the value that's applied to a node during a Chef Infra Client run.
 In addition, Chef Infra Client gathers attribute values from up to five locations.
 The combination of attribute types and sources makes up to 15 different competing values available during a Chef Infra Client run.
 
@@ -34,4 +34,3 @@ The attribute types are:
 
 `automatic`
 : {{< readfile file="content/reusable/md/node_attribute_type_automatic.md" >}}
-
