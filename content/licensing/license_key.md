@@ -25,13 +25,11 @@ The following products require a Chef License key to run:
 
 Chef products accept a license key with either an environment variable or as a command line argument.
 
-License data is stored locally in configuration file at `$HOME/.chef/licenses.yaml`.
+License data is stored locally in a configuration file at `$HOME/.chef/licenses.yaml`.
 
 ### Command line option
 
 Use the `--chef-license-key` command line option to add a license key.
-
-For example
 
 ```sh
 <CHEF_PRODUCT_COMMAND> --chef-license-key <LICENSE_KEY>
@@ -40,8 +38,6 @@ For example
 ### Environment variable
 
 Use the `CHEF_LICENSE_KEY` environment variable to add a license.
-
-For example
 
 ```sh
 export CHEF_LICENSE_KEY=<LICENSE_KEY>
