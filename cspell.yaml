@@ -1,0 +1,49 @@
+---
+# Version of the setting file. Always 0.2
+version: '0.2'
+
+# language - current active spelling language
+language: en_US
+
+dictionaries:
+- chef
+- docs
+
+dictionaryDefinitions:
+- name: chef
+  path: https://raw.githubusercontent.com/chef/chef_dictionary/main/chef.txt
+  description: Custom Chef Dictionary
+- name: docs
+  path: https://raw.githubusercontent.com/chef/chef_dictionary/main/docs.txt
+  description: Custom Docs Dictionary
+
+# flagWords - list of words to be always considered incorrect
+# This is useful for offensive words and common spelling errors.
+# For example "hte" should be "the"
+
+flagWords:
+- hte
+ignorePaths:
+- ".expeditor/**/*"
+- "**/*.yml"
+- "**/*.toml"
+- archetypes/*.md
+- _vendor/**/*
+- cspell.yaml
+- public/**
+- themes/docs-new/node_modules/**
+- resources/**
+
+# Ignore patterns list
+# https://cspell.org/configuration/patterns/
+ignoreRegExpList:
+  # ignore URLs with predefined pattern - https://github.com/streetsidesoftware/cspell/blob/main/packages/cspell-lib/src/lib/Settings/RegExpPatterns.ts#L3
+- Urls
+  # ignore URLs in a Markdown link
+- "\\]\\([\\w|/|#|\\.|_|\\-]+\\)"
+- "/'s\\b/"
+- "/'d\\b/"
+- "/^\\s*```[\\s\\S]*?^\\s*```/gm"
+- "{{(.+)(?=}})"
+words:
+- Grammarly

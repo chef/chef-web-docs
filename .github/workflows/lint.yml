@@ -27,8 +27,8 @@ jobs:
           incremental_files_only: true
           inline: error
           strict: true
-          # Path to `cspell.json`
-          config: 'cspell.json'
+          # Path to CSpell config file
+          config: 'cspell.yaml'
   markdownlint:
     runs-on: ubuntu-latest
     steps:
