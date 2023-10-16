@@ -29,7 +29,7 @@ ignorePaths:
 - "**/*.toml"
 - archetypes/*.md
 - _vendor/**/*
-- cspell.json
+- cspell.yaml
 - public/**
 - themes/docs-new/node_modules/**
 - resources/**

@@ -32,7 +32,7 @@ lint: bundle
 ## See:
 ## - https://cspell.org/docs/getting-started/
 ## - https://cspell.org/configuration/
-## - and cspell.json file.
+## - and cspell.yaml file.
 spellcheck:
 	cspell --no-progress "**/*.{md, html, js, yml, yaml, toml, json}"
 
