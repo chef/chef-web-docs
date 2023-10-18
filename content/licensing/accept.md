@@ -13,10 +13,9 @@ aliases = ["/chef_license_accept.html", "/chef_license_accept/"]
 +++
 
 This document describes how to accept the End User License Agreement (EULA) and Master License and Services Agreement (MLSA).
-For an overview of Chef's license, see the [Chef license](/licensing/) documentation.
+For an overview of Chef's license, see the [Chef License](/licensing/) documentation.
 
 Chef has two licenses: Master License and Services Agreement (MLSA) and End User License Agreement (EULA).
-The MLSA applies to customers with a commercial contract with Chef, and the EULA covers all other cases.
 
 ## Accept the Chef MLSA
 
@@ -26,23 +25,23 @@ You can accept the Chef MLSA using one of the following ways:
 2. Run the `chef-<PRODUCT-NAME>-ctl reconfigure` command using the `--chef-license=accept` option. This automatically types `yes` and skips printing the Chef MLSA.
 3. Add a `.license.accepted` file to the `/var/opt/<PRODUCT-NAME>/` directory. The contents of this file don't matter. As long as this file exists in this directory, the Chef MLSA is accepted and the reconfigure process won't prompt for `yes`.
 
+### Chef Automate
+
+The Chef Automate reconfigure tool---`automate-ctl`---walks users through the install and setup of Chef Automate.
+Accept the Chef MLSA after that in the browser. Follow the in-product prompts.
+
 ## Accept the Chef EULA
 
 If no command line argument or environment variable is set, Chef products attempt to request acceptance through an interactive prompt. If the prompt can't be displayed, the product will fail with an exit code 172.
 
 If the product attempts to persist the accepted license and fails, a message is sent to STDOUT but product invocation will continue successfully.
-In a future invocation, you must accept the license again.
+In a future invocation, you must accept the Chef License again.
 
 See [License File Persistence](https://github.com/chef/license-acceptance#license-file-persistence) for details about persisted marker files.
 
-### Chef Automate
-
-The Chef Automate reconfigure tool---`automate-ctl`---walks users through the install and setup of Chef Automate.
-The Chef license is accepted after that in the browser. Please follow the in-product prompts.
-
 ### Chef Habitat
 
-You can accept the Chef Habitat license using a `hab` CLI command or with an environment variable.
+You can accept the Chef License using a `hab` CLI command or with an environment variable.
 
 If the license isn't accepted through either of these methods, Chef Habitat will request that you accept the license through an interactive prompt.
 
@@ -58,26 +57,26 @@ Chef Habitat accepts the following license acceptance options:
 
 #### Command line option
 
-You can use the `hab` CLI to accept the license.
+You can use the `hab` CLI to accept the Chef License.
 
 ```sh
-hab license <value>
+hab license <LICENSE_OPTION>
 ```
 
 #### Environment variable
 
-You can set an environment variable to accept the license. For example:
+You can set an environment variable to accept the Chef License. For example:
 
 ```sh
-export HAB_LICENSE="<VALUE>"
+export HAB_LICENSE="<LICENSE_OPTION>"
 hab -V
 ```
 
-Replace `<VALUE>` with one of the license options.
+Replace `<LICENSE_OPTION>` with one of the Chef License options.
 
 #### CI environment
 
-To accept the license in CI or other automated environments:
+To accept the Chef License in CI or other automated environments:
 
 - If your `hab` commands run as root, create an empty file on the filesystem at `/hab/accepted-licenses/habitat`.
 - If your `hab` commands run as a user other than root, create an empty file at `$HOME/.hab/accepted-licenses/habitat`.
@@ -87,7 +86,7 @@ To accept the license in CI or other automated environments:
 
 If the Chef Habitat license prompt can't be displayed, then the product fails with an exit code 172.
 If Chef Habitat can't persist the accepted license, it sends a message STDOUT but the product invocation will continue successfully.
-You must accept the license again in a future invocation.
+You must accept the Chef License again in a future invocation.
 
 #### Chef products as `hab` packages
 
@@ -104,55 +103,28 @@ The following Chef server products are distributed as `hab` packages that Chef H
 
 Server products are typically installed and managed by some kind of process supervisor.
 Chef server products don't allow interactive license acceptance because process supervisors don't allow interactivity.
-Instead, accept the license during the `reconfigure` command or `upgrade` command for the Omnibus ctl command.
+Instead, accept the Chef License during the `reconfigure` command or `upgrade` command for the Omnibus ctl command.
 
 ##### Command line option
 
-Accept the license with the command line option. For example:
+Accept the Chef License with the command line option. For example:
 
 ```sh
-chef-server-ctl reconfigure --chef-license=<value>
+chef-server-ctl reconfigure --chef-license=<LICENSE_OPTION>
 ```
 
 ##### Environment variable
 
-Accept the license with an environment variable. For example:
+Accept the Chef License with an environment variable. For example:
 
 ```sh
-CHEF_LICENSE="accept-no-persist" supermarket-ctl reconfigure
+CHEF_LICENSE="<LICENSE_OPTION>" supermarket-ctl reconfigure
 ```
 
 ##### Config file
 
-You can also accept the Chef license using the omnibus configuration file.
+You can also accept the Chef License using the omnibus configuration file.
 Specify `chef_license 'accept'` in the `chef-server.rb` or `supermarket.rb` configuration.
-
-### Chef InSpec
-
-Chef InSpec accepts a license using a command line option or environment variable.
-
-#### Options
-
-Chef InSpec accepts the following license acceptance options:
-
-{{< readfile file="content/licensing/reusable/md/license_accept_options.md" >}}
-
-#### Command line option
-
-Accept the Chef license with a command line invocation.
-
-```sh
-inspec exec <PROFILE_NAME> --chef-license <value>
-```
-
-#### Environment variable
-
-Accept the Chef license by setting an environment variable. For example:
-
-```sh
-export CHEF_LICENSE="<value>"
-inspec exec <PROFILE_NAME>
-```
 
 ### Chef Infra Client
 
@@ -166,30 +138,34 @@ Chef Infra Client accepts the following license acceptance options:
 
 #### Command line option
 
-Accept the Chef license with a command line invocation.
+Accept the Chef License with a command line invocation.
 
 ```sh
-chef-client --chef-license <value>
+chef-client --chef-license <LICENSE_OPTION>
 ```
 
 #### Environment variable
 
-Accept the Chef license by setting an environment variable. For example:
+Accept the Chef License by setting an environment variable. For example:
 
 ```sh
-export CHEF_LICENSE="<value>"
+export CHEF_LICENSE="<LICENSE_OPTION>"
 chef-client OPTION VALUE
 ```
 
 #### Config file
 
-Add `chef_license 'accept'` to the Chef Infra Client config file.
+You can accept the Chef License with the Chef Infra Client or Knife config files.
 
-On a workstation, you can set this in the [`~/.chef/config.rb`](/workstation/config_rb/) or `~/.chef/knife.rb` files, and on a node you can set this in the [`/etc/chef/client.rb`](/config_rb_client/) file.
+On a workstation, you can set this in the [`~/.chef/config.rb` or `~/.chef/knife.rb` files](/workstation/config_rb/), and on a node you can set this in the [`/etc/chef/client.rb`]({{< relref "/config_rb_client" >}}) file.
+
+```ruby
+chef_license "<LICENSE_OPTION>"
+```
 
 ### Chef Infra Server
 
-When installed as a system package, users accept the license with the `chef-server-ctl` command or with the [`chef-server.rb`](/server/config_rb_server/) file.
+When installed as a system package, users accept the Chef License with the `chef-server-ctl` command or with the [`chef-server.rb`](/server/config_rb_server/) file.
 
 #### Options
 
@@ -199,30 +175,57 @@ Chef Infra Server accepts the following license acceptance options:
 
 #### Command line option
 
-You can accept the license with the `chef-server-ctl` command.
+You can accept the Chef License with the `chef-server-ctl` command.
 
 ```sh
-chef-server-ctl reconfigure --chef-license=<value>
+chef-server-ctl reconfigure --chef-license=<LICENSE_OPTION>
 ```
 
 #### Config file
 
-You can accept the license with the [`chef-server.rb`](/server/config_rb_server/) file.
+You can accept the Chef License with the [`chef-server.rb`](/server/config_rb_server/) file.
 
 ```ruby
-chef_license "accept"
+chef_license "<LICENSE_OPTION>"
 ```
 
 #### Chef Habitat package
 
-Chef Infra Server is also distributed as a `hab` package and run using the Chef Habitat Supervisor. In this mode, users accept the license by setting the correct configuration values. The key is `chef_license.acceptance`.
+Chef Infra Server is also distributed as a `hab` package and run using the Chef Habitat Supervisor. In this mode, users accept the Chef License by setting the correct configuration values. The key is `chef_license.acceptance`.
 
 For example, against a supervisor running Chef Infra Server, run `echo "chef_license.acceptance = accept" | hab config apply server.default 100`. See the [Chef Habitat config updates documentation](/habitat/service_updates/) for more information about how to apply this configuration to a service group.
+
+### Chef InSpec
+
+Chef InSpec accepts a license using a command line option or environment variable.
+
+#### Options
+
+Chef InSpec accepts the following license acceptance options:
+
+{{< readfile file="content/licensing/reusable/md/license_accept_options.md" >}}
+
+#### Command line option
+
+Accept the Chef License with a command line invocation.
+
+```sh
+inspec exec <INSPEC_PROFILE_NAME> --chef-license <LICENSE_OPTION>
+```
+
+#### Environment variable
+
+Accept the Chef License by setting an environment variable. For example:
+
+```sh
+export CHEF_LICENSE="<LICENSE_OPTION>"
+inspec exec <INSPEC_PROFILE_NAME>
+```
 
 ### Chef Workstation
 
 Chef Workstation is bundled with several Chef products.
-When invoking the `chef` command line tool and accepting the license, you must accept the license for all the embedded products as well.
+When invoking the `chef` command line tool and accepting the Chef License, you must accept the license for all the embedded products as well.
 The same license applies to all products, but each product must have its own license acceptance.
 
 #### Options
@@ -233,15 +236,15 @@ Chef Workstation accepts the following license acceptance options:
 
 #### Command line option
 
-Use the `chef` executable to accept the license to accept the license for Chef Workstation, Chef Infra Client, and Chef InSpec.
+Use the [`chef` executable](/workstation/ctl_chef/) to accept the Chef License for Chef Workstation, Chef Infra Client, and Chef InSpec.
 
 ```sh
-chef <command> --chef-license <value>
+chef <command> --chef-license <LICENSE_OPTION>
 ```
 
 ### Remote management products
 
-If a user has accepted the appropriate product license locally, the following remote management products that can install or manage Chef products on a remote instance, will transfer the license acceptance to the remote instance.
+If a user has accepted the appropriate product license locally, the following remote management products that can install or manage Chef products on a remote instance, will transfer the Chef License acceptance to the remote instance.
 
 - Test Kitchen
 - `knife bootstrap` in Chef Infra Client
@@ -255,7 +258,7 @@ We aim to support this behavior so Workstation users don't have their workflow a
 
 #### Test Kitchen
 
-Test Kitchen isn't owned by or covered by the Chef license, but installing Chef Infra Client on a test instance is covered by the EULA. Without accepting the license, the converge will fail on the test instance.
+Test Kitchen isn't owned by or covered by the Chef License, but installing Chef Infra Client on a test instance is covered by the EULA. Without accepting the Chef License, the converge will fail on the test instance.
 
 Users can set the `CHEF_LICENSE` environment variable or add `chef_license: accept` to their provisioner config in the [`kitchen.yml` file](/workstation/kitchen/#kitchenyml).
 If you specify `accept`, Test Kitchen will attempt to persist the license acceptance locally.
@@ -275,7 +278,7 @@ But if a user installs Chef Workstation and the first command they run is `knife
 
 #### `chef-run`
 
-To accept the license using the [`chef-run` executable](/workstation/chef_run/), complete one of the following three tasks:
+To accept the Chef License using the [`chef-run` executable](/workstation/chef_run/), complete one of the following three tasks:
 
 - Pass the `--chef-license` command line flag
 - Set the `CHEF_LICENSE` environment variable
@@ -288,7 +291,7 @@ To accept the license using the [`chef-run` executable](/workstation/chef_run/),
 
 #### Vagrant
 
-You can accept the license with the arguments API:
+You can accept the Chef License with the arguments API:
 
 ```ruby
 config.vm.provision 'chef_zero' do |chef|
