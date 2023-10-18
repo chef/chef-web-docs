@@ -193,7 +193,8 @@ chef_license "<LICENSE_OPTION>"
 
 Chef Infra Server is also distributed as a `hab` package and run using the Chef Habitat Supervisor. In this mode, users accept the Chef License by setting the correct configuration values. The key is `chef_license.acceptance`.
 
-For example, against a supervisor running Chef Infra Server, run `echo "chef_license.acceptance = accept" | hab config apply server.default 100`. See the [Chef Habitat config updates documentation](/habitat/service_updates/) for more information about how to apply this configuration to a service group.
+For example, against a Supervisor running Chef Infra Server, run `echo "chef_license.acceptance = accept" | hab config apply server.default 100`.
+See the [Chef Habitat config updates documentation]({{< relref "/habitat/service_updates" >}}) for more information about how to apply this configuration to a service group.
 
 ### Chef InSpec
 
