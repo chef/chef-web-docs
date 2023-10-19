@@ -149,7 +149,7 @@ There is a query language available through the UI and customizable dashboards.
 
 Here is an example of the Chef Automate dashboard.
 
-{{< figure src="/images/automate-dashboard.png" width=700 alt="Image of Chef Automate dashboard showing the status of nodes under management with Chef Automate." >}}
+{{< figure src="/images/automate-dashboard.png" width=700 alt="Chef Automate dashboard showing the status of nodes monitored with Chef Automate." >}}
 
 ### Compliance
 
