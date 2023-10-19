@@ -17,7 +17,7 @@ limited to, the following:
 <tbody>
 <tr class="odd">
 <td><p><img src="/images/icon_node_type_server.svg" class="align-center" width="130" alt="" /></p></td>
-<td>A physical node is typically a server or a virtual machine, but it can be any active device attached to a network that is capable of sending, receiving, and forwarding information over a communications channel. In other words, a physical node is any active device attached to a network that can run a Chef Infra Client and also allow that Chef Infra Client to communicate with a Chef Infra Server.</td>
+<td>A physical node is typically a server or a virtual machine, but it can be any active device attached to a network that's capable of sending, receiving, and forwarding information over a communications channel. In other words, a physical node is any active device attached to a network that can run a Chef Infra Client and also allow that Chef Infra Client to communicate with a Chef Infra Server.</td>
 </tr>
 <tr class="even">
 <td><p><img src="/images/icon_node_type_cloud_public.svg" class="align-center" width="130" alt="" /></p></td>
@@ -29,11 +29,11 @@ limited to, the following:
 </tr>
 <tr class="even">
 <td><p><img src="/images/icon_node_type_network_device.svg" class="align-center" width="130" alt="" /></p></td>
-<td>A network node is any networking device---a switch, a router---that is being managed by a Chef Infra Client, such as networking devices by Juniper Networks, Arista, Cisco, and F5. Use Chef to automate common network configurations, such as physical and logical Ethernet link properties and VLANs, on these devices.</td>
+<td>A network node is any networking device---a switch, a router---that's being managed by a Chef Infra Client, such as networking devices by Juniper Networks, Arista, Cisco, and F5. Use Chef to automate common network configurations, such as physical and logical Ethernet link properties and VLANs, on these devices.</td>
 </tr>
 <tr class="odd">
 <td><p><img src="/images/icon_node_type_container.svg" class="align-center" width="130" alt="" /></p></td>
-<td>Containers are an approach to virtualization that allows a single operating system to host many working configurations, where each working configuration---a container---is assigned a single responsibility that is isolated from all other responsibilities. Containers are popular as a way to manage distributed and scalable applications and services.</td>
+<td>Containers are an approach to virtualization that allows a single operating system to host many working configurations, where each working configuration---a container---is assigned a single responsibility that's isolated from all other responsibilities. Containers are popular as a way to manage distributed and scalable applications and services.</td>
 </tr>
 </tbody>
 </table>

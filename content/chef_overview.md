@@ -28,7 +28,7 @@ product = ["client", "server", "workstation"]
 - **Chef Infra Server** acts as [a hub for configuration
     data](/server/). Chef Infra Server stores cookbooks,
     the policies that are applied to nodes, and metadata that describes
-    each registered node that is being managed by Chef. Nodes use the
+    each registered node that's being managed by Chef. Nodes use the
     Chef Infra Client to ask the Chef Infra Server for configuration
     details, such as recipes, templates, and file distributions.
 
@@ -68,7 +68,7 @@ Chef Infra has the following major components:
 </tr>
 <tr>
 <td><p><img src="/images/icon_ruby.svg" class="align-center" width="130" alt="" /></p></td>
-<td><p>Ruby is the programming language that is the authoring syntax for cookbooks. Most recipes are simple patterns (blocks that define properties and values that map to specific configuration items like packages, files, services, templates, and users. The full power of Ruby is available for when you need a programming language.</p></td>
+<td><p>Ruby is the programming language that's the authoring syntax for cookbooks. Most recipes are simple patterns (blocks that define properties and values that map to specific configuration items like packages, files, services, templates, and users. The full power of Ruby is available for when you need a programming language.</p></td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_node.svg" class="align-center" width="130" alt="" /></p></td>
@@ -76,7 +76,7 @@ Chef Infra has the following major components:
 </tr>
 <tr>
 <td><p><img src="/images/icon_chef_client.svg" class="align-center" width="130" alt="" /></p></td>
-<td><p>Chef Infra Client is installed on each node that is managed with Chef Infra. Chef Infra Client configures the node locally by performing the tasks specified in the run-list. Chef Infra Client will also pull down any required configuration data from the Chef Infra Server during a Chef Infra Client run.</p></td>
+<td><p>Chef Infra Client is installed on each node that's managed with Chef Infra. Chef Infra Client configures the node locally by performing the tasks specified in the run-list. Chef Infra Client will also pull down any required configuration data from the Chef Infra Server during a Chef Infra Client run.</p></td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_chef_server.svg" class="align-center" width="130" alt="" /></p></td>
@@ -210,13 +210,13 @@ Cookbooks are comprised of the following components:
 <tr>
 <td><p><img src="/images/icon_cookbook_recipes.svg" class="align-center" width="130" alt="" /></p></td>
 <td><p>{{< readfile file="content/reusable/md/cookbooks_recipe.md" >}}</p>
-<p>The Chef Infra Client will run a recipe only when asked. When the Chef Infra Client runs the same recipe more than once, the results will be the same system state each time. When a recipe is run against a system, but nothing has changed on either the system or in the recipe, the Chef Infra Client will not change anything.</p>
+<p>The Chef Infra Client will run a recipe only when asked. When the Chef Infra Client runs the same recipe more than once, the results will be the same system state each time. When a recipe is run against a system, but nothing has changed on either the system or in the recipe, the Chef Infra Client won't change anything.</p>
 <p>{{< readfile file="content/reusable/md/infra_lang_summary.md" >}}</p></td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_cookbook_resources.svg" class="align-center" width="130" alt="" /></p></td>
 <td><p>{{< readfile file="content/reusable/md/resources_common.md" >}}</p>
-<p>Chef has <a href="/resources/">many built-in resources</a> that cover all of the most common actions across all of the most common platforms. You can <a href="/custom_resources/">build your own resources</a> to handle any situation that is not covered by a built-in resource.</p></td>
+<p>Chef has <a href="/resources/">many built-in resources</a> that cover all of the most common actions across all of the most common platforms. You can <a href="/custom_resources/">build your own resources</a> to handle any situation that's not covered by a built-in resource.</p></td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_cookbook_templates.svg" class="align-center" width="130" alt="" /></p></td>
@@ -224,7 +224,7 @@ Cookbooks are comprised of the following components:
 </tr>
 <tr>
 <td><p><img src="/images/icon_cookbook_tests.svg" class="align-center" width="130" alt="" /></p></td>
-<td>Testing cookbooks improves the quality of those cookbooks by ensuring they are doing what they are supposed to do and that they are authored in a consistent manner. Unit and integration testing validates the recipes in cookbooks. Syntax testing---often called linting---validates the quality of the code itself. The following tools are popular tools used for testing Chef recipes: Test Kitchen, ChefSpec, and Cookstyle.</td>
+<td>Testing cookbooks improves the quality of those cookbooks by ensuring they're doing what they're supposed to do and that they're authored in a consistent manner. Unit and integration testing validates the recipes in cookbooks. Syntax testing---often called linting---validates the quality of the code itself. The following tools are popular tools used for testing Chef recipes: Test Kitchen, ChefSpec, and Cookstyle.</td>
 </tr>
 </tbody>
 </table>

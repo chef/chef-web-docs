@@ -31,7 +31,7 @@ role-based access control:
 <tbody>
 <tr>
 <td><p><img src="/images/icon_server_organization.svg" class="align-center" width="130" alt="" /></p></td>
-<td>An organization is the top-level entity for role-based access control in the Chef Infra Server. Each organization contains the default groups (<code>admins</code>, <code>clients</code>, and <code>users</code>, plus <code>billing_admins</code> for the hosted Chef Infra Server), at least one user and at least one node (on which the Chef Infra Client is installed). The Chef Infra Server supports multiple organizations. The Chef Infra Server includes a single default organization that is defined during setup. Additional organizations can be created after the initial setup and configuration of the Chef Infra Server.</td>
+<td>An organization is the top-level entity for role-based access control in the Chef Infra Server. Each organization contains the default groups (<code>admins</code>, <code>clients</code>, and <code>users</code>, plus <code>billing_admins</code> for the hosted Chef Infra Server), at least one user and at least one node (on which the Chef Infra Client is installed). The Chef Infra Server supports multiple organizations. The Chef Infra Server includes a single default organization that's defined during setup. Additional organizations can be created after the initial setup and configuration of the Chef Infra Server.</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_server_groups.svg" class="align-center" width="130" alt="" /></p></td>
@@ -40,11 +40,11 @@ role-based access control:
 </tr>
 <tr>
 <td><p><img src="/images/icon_server_users.svg" class="align-center" width="130" alt="" /></p></td>
-<td>A user is any non-administrator human being who will manage data that is uploaded to the Chef Infra Server from a workstation or who will log on to the Chef management console web user interface. The Chef Infra Server includes a single default user that is defined during setup and is automatically assigned to the <code>admins</code> group.</td>
+<td>A user is any non-administrator human being who will manage data that's uploaded to the Chef Infra Server from a workstation or who will log on to the Chef management console web user interface. The Chef Infra Server includes a single default user that's defined during setup and is automatically assigned to the <code>admins</code> group.</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_chef_client.svg" class="align-center" width="130" alt="" /></p></td>
-<td>A client is an actor that has permission to access the Chef Infra Server. A client is most often a node (on which the Chef Infra Client runs), but is also a workstation (on which knife runs), or some other machine that is configured to use the Chef Infra Server API. Each request to the Chef Infra Server that is made by a client uses a private key for authentication that must be authorized by the public key on the Chef Infra Server.</td>
+<td>A client is an actor that has permission to access the Chef Infra Server. A client is most often a node (on which the Chef Infra Client runs), but is also a workstation (on which knife runs), or some other machine that's configured to use the Chef Infra Server API. Each request to the Chef Infra Server that's made by a client uses a private key for authentication that must be authorized by the public key on the Chef Infra Server.</td>
 </tr>
 </tbody>
 </table>
@@ -223,7 +223,7 @@ The Chef Infra Server includes the following default groups:
 </tr>
 <tr>
 <td><code>users</code></td>
-<td>The <code>users</code> group defines the list of users who use knife and the Chef management console to interact with objects and object types. In general, think of this permission as "all of the non-admin human actors who work with data that is uploaded to and/or downloaded from the Chef server".</td>
+<td>The <code>users</code> group defines the list of users who use knife and the Chef management console to interact with objects and object types. In general, think of this permission as "all of the non-admin human actors who work with data that's uploaded to and/or downloaded from the Chef server".</td>
 </tr>
 </tbody>
 </table>
