@@ -81,7 +81,7 @@ Chef Infra has the following major components:
 <tr>
 <td><p><img src="/images/icon_chef_server.svg" class="align-center" width="130" alt="" /></p></td>
 <td><p>The Chef Infra Server acts as a hub of information. Cookbooks and policy settings are uploaded to the Chef Infra Server by users from workstations.</p>
-<p>The Chef Infra Client accesses the Chef Infra Server from the node on which it is installed to get configuration data, performs searches of historical Chef Infra Client run data, and then pulls down the necessary configuration data. After a Chef Infra Client run is finished, the Chef Infra Client uploads updated run data to the Chef Infra Server.</p></td>
+<p>The Chef Infra Client accesses the Chef Infra Server from the node on which it's installed to get configuration data, performs searches of historical Chef Infra Client run data, and then pulls down the necessary configuration data. After a Chef Infra Client run is finished, the Chef Infra Client uploads updated run data to the Chef Infra Server.</p></td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_chef_supermarket.svg" class="align-center" width="130" alt="" /></p></td>

@@ -215,7 +215,7 @@ The Chef Infra Server includes the following default groups:
 </tr>
 <tr>
 <td><code>clients</code></td>
-<td>The <code>clients</code> group defines the list of nodes on which a Chef Infra Client is installed and under management by Chef. In general, think of this permission as "all of the non-human actors---Chef Infra Client, in almost every case---that get data from, and/or upload data to, the Chef server". Newly-created Chef Infra Client instances are added to this group automatically.</td>
+<td>The <code>clients</code> group defines the list of nodes on which a Chef Infra Client is installed and under management by Chef. In general, think of this permission as "all of the non-human actors---Chef Infra Client, in almost every case---that get data from, and/or upload data to, Chef Infra Server." Newly-created Chef Infra Client instances are added to this group automatically.</td>
 </tr>
 <tr>
 <td><code>public_key_read_access</code></td>
@@ -223,7 +223,7 @@ The Chef Infra Server includes the following default groups:
 </tr>
 <tr>
 <td><code>users</code></td>
-<td>The <code>users</code> group defines the list of users who use knife and the Chef management console to interact with objects and object types. In general, think of this permission as "all of the non-admin human actors who work with data that's uploaded to and/or downloaded from the Chef server".</td>
+<td>The <code>users</code> group defines the list of users who use knife and the Chef management console to interact with objects and object types. In general, think of this permission as "all of the non-admin human actors who work with data that's uploaded to and/or downloaded from Chef Infra Server."</td>
 </tr>
 </tbody>
 </table>
