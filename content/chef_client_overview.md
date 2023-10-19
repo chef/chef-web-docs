@@ -35,7 +35,7 @@ Chef Infra Client's Compliance Phase lets you automatically execute compliance a
 </colgroup>
 <tbody>
 <tr>
-<td><p><img src="/images/icon_chef_client.svg" class="align-center" width="130" alt="image" /></p></td>
+<td><p><img src="/images/icon_chef_client.svg" class="align-center" width="130" alt="" /></p></td>
 <td><p>{{< readfile file="content/reusable/md/chef_client_summary.md" >}}</p>
 <p>{{< readfile file="content/reusable/md/security_key_pairs_chef_client.md" >}}</p></td>
 </tr>
