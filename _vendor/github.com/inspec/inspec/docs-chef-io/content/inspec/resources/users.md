@@ -17,7 +17,7 @@ Use the `users` Chef InSpec audit resource to look up all local users available 
 
 ### Installation
 
-{{% inspec/inspec_installation %}}
+This resource is distributed along with Chef InSpec itself. You can use it automatically.
 
 ### Version
 
@@ -142,7 +142,7 @@ The `badpasswordattempts` property tests the count of bad password attempts for 
 
 where `0` is the count of bad passwords for a user.
 On Linux based operating systems it relies on `lastb` and for Windows it uses information stored for the user object.
-These settings will reset to `0` depending on your operating system configuration.
+These settings will be resetted to `0` depending on your operating system configuration.
 
 ## Examples
 

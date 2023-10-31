@@ -23,7 +23,7 @@ The `groups` resource uses the following system groups:
 
 ### Installation
 
-{{% inspec/inspec_installation %}}
+This resource is distributed along with Chef InSpec itself. You can use it automatically.
 
 ### Version
 

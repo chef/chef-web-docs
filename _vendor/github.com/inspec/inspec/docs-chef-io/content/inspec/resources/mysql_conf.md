@@ -17,7 +17,7 @@ Use the `mysql_conf` Chef InSpec audit resource to test the contents of the conf
 
 ### Installation
 
-{{% inspec/inspec_installation %}}
+This resource is distributed along with Chef InSpec itself. You can use it automatically.
 
 ### Version
 

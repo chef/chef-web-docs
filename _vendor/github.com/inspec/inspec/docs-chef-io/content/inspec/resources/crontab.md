@@ -17,7 +17,7 @@ Use the `crontab` Chef InSpec audit resource to test the crontab entries for a p
 
 ### Installation
 
-{{% inspec/inspec_installation %}}
+This resource is distributed along with Chef InSpec itself. You can use it automatically.
 
 ### Version
 
@@ -55,9 +55,9 @@ The following examples show how to use this Chef InSpec audit resource.
       its('commands') { should include '/path/to/some/script -option arg' }
     end
 
-### Test that username's crontab entry for command '/home/username/build.sh' runs every minute
+### Test that myuser's crontab entry for command '/home/myuser/build.sh' runs every minute
 
-    describe crontab('username').commands('/home/username/build.sh') do
+    describe crontab('myuser').commands('/home/myuser/build.sh') do
       its('hours') { should cmp '*' }
       its('minutes') { should cmp '*' }
     end

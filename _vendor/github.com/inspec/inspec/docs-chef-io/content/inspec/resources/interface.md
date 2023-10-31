@@ -21,7 +21,7 @@ Use the `interface` Chef InSpec audit resource to test basic network adapter pro
 
 ### Installation
 
-{{% inspec/inspec_installation %}}
+This resource is distributed along with Chef InSpec itself. You can use it automatically.
 
 ### Version
 

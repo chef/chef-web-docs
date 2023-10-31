@@ -11,8 +11,6 @@ platform = "azure"
     parent = "inspec/resources/azure"
 +++
 
-{{< inspec/azurerm_deprecated resource="azure_virtual_machines" >}}
-
 Use the `azurerm_virtual_machines` InSpec audit resource to test properties related to
 virtual machines for a resource group.
 
@@ -132,7 +130,9 @@ Gives a list of all the virtual machine names in the resource group.
 
 ## Matchers
 
-{{% inspec/inspec_matchers_link %}}
+This InSpec audit resource has the following special matchers. For a full list of
+available matchers, please visit our [Universal Matchers
+page](/inspec/matchers/).
 
 ### exists
 

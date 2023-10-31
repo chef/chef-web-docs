@@ -17,7 +17,7 @@ Use the `postfix_conf` Chef InSpec audit resource to test the main configuration
 
 ### Installation
 
-{{% inspec/inspec_installation %}}
+This resource is distributed along with Chef InSpec itself. You can use it automatically.
 
 ### Version
 
@@ -42,7 +42,7 @@ When using `postfix_conf` with a custom configuration directory, the following s
 
 where
 
-- `'path'` is the path to your Postfix configuration (ex. '/etc/path/to/postfix/main.cf')
+- `'path'` is the path to your Postfix configuration (ex. '/etc/my/postfix/path/main.cf')
 
 ## Properties
 

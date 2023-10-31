@@ -11,15 +11,13 @@ platform = "azure"
     parent = "inspec/resources/azure"
 +++
 
-{{< inspec/azurerm_deprecated resource="azure_management_group" >}}
-
 Use the `azurerm_management_group` InSpec audit resource to test properties related to a
 management group.
 
 ## Azure REST API version
 
 This resource interacts with version `2018-03-01-preview` of the Azure
-Management API. For more information see the [official Azure documentation](https://docs.microsoft.com/en-us/java/api/com.azure.resourcemanager.loganalytics.models.managementgroups?view=azure-java-preview).
+Management API. For more information see the [official Azure documentation](https://docs.microsoft.com/en-us/rest/api/resources/managementgroups/get).
 
 At the moment, there doesn't appear to be a way to select the version of the
 Azure API docs. If you notice a newer version being referenced in the official
@@ -251,17 +249,19 @@ requests are always welcome.
 
 ## Matchers
 
-{{% inspec/inspec_matchers_link %}}
+This InSpec audit resource has the following special matchers. For a full list of
+available matchers, please visit our [Universal Matchers
+page](/inspec/matchers/).
 
 ### exists
 
     # If a management group is found it will exist
-    describe azurerm_management_group(group_id: 'MyGroupId') do
+    describe azurerm_management_group(groupd_id: 'MyGroupId') do
       it { should exist }
     end
 
     # management groups that aren't found will not exist
-    describe azurerm_management_group(group_id: 'DoesNotExist') do
+    describe azurerm_management_group(groupd_id: 'DoesNotExist') do
       it { should_not exist }
     end
 

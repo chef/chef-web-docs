@@ -17,7 +17,7 @@ Use the `iptables` Chef InSpec audit resource to test rules that are defined in 
 
 ### Installation
 
-{{% inspec/inspec_installation %}}
+This resource is distributed along with Chef InSpec itself. You can use it automatically.
 
 ### Version
 

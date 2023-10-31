@@ -11,8 +11,6 @@ platform = "azure"
     parent = "inspec/resources/azure"
 +++
 
-{{< inspec/azurerm_deprecated resource="azure_webapp" >}}
-
 Use the `azurerm_webapp` InSpec audit resource to test properties of an Azure Webapp.
 
 ## Azure REST API version
@@ -100,7 +98,7 @@ The Resource Group as well as the Webapp name.
 - `auth_settings`
 - `configuration`
 
-All of the attributes are available via dot notation. This is an example of the currently available attributes.
+All of the attributes are avialable via dot notation. This is an example of the currently available attributes.
 
 ```ruby
 control 'azurerm_webapp' do
@@ -130,7 +128,9 @@ requests are always welcome.
 
 ## Matchers
 
-{{% inspec/inspec_matchers_link %}}
+This InSpec audit resource has the following special matchers. For a full list of
+available matchers, please visit our [Universal Matchers
+page](/inspec/matchers/).
 
 ### using_latest?(stack)
 

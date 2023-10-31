@@ -17,7 +17,7 @@ Use the `sshd_config` Chef InSpec audit resource to test configuration data for 
 
 ### Installation
 
-{{% inspec/inspec_installation %}}
+This resource is distributed along with Chef InSpec itself. You can use it automatically.
 
 ### Version
 

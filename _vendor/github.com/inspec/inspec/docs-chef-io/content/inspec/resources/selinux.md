@@ -19,7 +19,7 @@ The `selinux` resource extracts and exposes data reported by the `sestatus`, `se
 
 ### Installation
 
-{{% inspec/inspec_installation %}}
+This resource is distributed along with Chef InSpec itself. You can use it automatically.
 
 ### Version
 

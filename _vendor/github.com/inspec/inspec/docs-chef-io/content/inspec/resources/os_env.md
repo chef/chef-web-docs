@@ -17,7 +17,7 @@ Use the `os_env` Chef InSpec audit resource to test the environment variables fo
 
 ### Installation
 
-{{% inspec/inspec_installation %}}
+This resource is distributed along with Chef InSpec itself. You can use it automatically.
 
 ### Version
 

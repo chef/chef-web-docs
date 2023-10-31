@@ -11,8 +11,6 @@ platform = "azure"
     parent = "inspec/resources/azure"
 +++
 
-{{< inspec/azurerm_deprecated resource="azure_aks_cluster" >}}
-
 Use the `azurerm_aks_cluster` InSpec audit resource to test properties of an Azure AKS Cluster.
 
 ## Azure REST API version
@@ -119,7 +117,9 @@ requests are always welcome.
 
 ## Matchers
 
-{{% inspec/inspec_matchers_link %}}
+This InSpec audit resource has the following special matchers. For a full list of
+available matchers, please visit our [Universal Matchers
+page](/inspec/matchers/).
 
 ### exists
 

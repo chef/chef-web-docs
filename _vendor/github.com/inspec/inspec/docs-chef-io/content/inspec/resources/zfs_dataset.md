@@ -17,7 +17,7 @@ Use the `zfs_dataset` Chef InSpec audit resource to test the ZFS datasets on Fre
 
 ### Installation
 
-{{% inspec/inspec_installation %}}
+This resource is distributed along with Chef InSpec itself. You can use it automatically.
 
 ### Version
 

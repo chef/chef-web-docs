@@ -11,72 +11,45 @@ platform = "os"
     parent = "inspec/resources/os"
 +++
 
-Use the `processes` Chef InSpec audit resource to test the properties of system programs.
+Use the `processes` Chef InSpec audit resource to test properties for programs that are running on the system.
 
 ## Availability
 
 ### Installation
 
-The Chef InSpec distributes this resource.
+This resource is distributed along with Chef InSpec itself. You can use it automatically.
 
 ### Version
 
-This resource is available from InSpec 1.0 version.
+This resource first became available in v1.0.0 of InSpec.
 
 ## Syntax
 
-A `processes` resource block declares the process name that must be tested and defines one or more property and value pairs.
+A `processes` resource block declares the name of the process to be tested, and then declares one (or more) property/value pairs:
 
-    describe processes('NAME') do
-      its('property_name') { should eq ['VALUE'] }
+    describe processes('process_name') do
+      its('property_name') { should eq ['property_value'] }
     end
 
-> where
->
-> - `process_name` specifies the name of the process to test. If the value is a string, it is converted to a `Regexp`. You can pass a `Regexp` directly for more accurate results. If left blank returns all processes.
-> - `property_name` is a valid property of this resource.
-> - `property_value` is the expected value for the specified property.
+where
 
-## Properties
-
-The specific properties of this resource are: `labels`, `pids`, `cpus`, `mem`, `vsz`, `rss`, `tty`, `states`, `start`, `time`, `users`, `commands`, `count`, and `list`
-
-Usage of these properties is as follows:
-
-    its('property_name') { should eq ['VALUE'] }
-
-## Matchers
-
-For a full list of available matchers, please visit the [matchers page](/inspec/matchers/).
-
-The specific matcher of this resource is: `be_running`.
-
-### be_running
-
-The `be_running` matcher tests if the named process is running:
-
-    it { should be_running }
+- `processes('process_name')` specifies the name of a process to check. If this is a string, it will be converted to a Regexp. For more specificity, pass a Regexp directly. If left blank, all processes will be returned.
+- `property_name` may be used to test user (`its('users')`) and state properties (`its('states')`)
 
 ## Examples
 
 The following examples show how to use this Chef InSpec audit resource.
 
-### Test if the mysqld process list length is 1
+### Test if the list length for the mysqld process is 1
 
-    describe processes('SQLD') do
+    describe processes('mysqld') do
       its('list.length') { should eq 1 }
     end
 
-### Test if the mysqld process count is 1
-
-    describe processes('SQLD') do
-      its('count') { should eq 1 }
-    end
-
-### Test if the user owns the process
+### Test if the process is owned by a specific user
 
     describe processes('init') do
-      its('users') { should eq ['ROOT'] }
+      its('users') { should eq ['root'] }
     end
 
     describe processes('winlogon') do
@@ -90,7 +63,7 @@ The following examples show how to use this Chef InSpec audit resource.
     end
 
     describe processes('windows_process') do
-      its('labels') { should cmp "HIGH" }
+      its('labels') { should cmp "High" }
     end
 
 ### Test if a process exists on the system
@@ -99,15 +72,11 @@ The following examples show how to use this Chef InSpec audit resource.
       it { should exist }
     end
 
-### Test if a process is running on the system
-
-    describe processes('some_process') do
-      it { should be_running }
-    end
-
 ### Test for a process using a specific Regexp
 
-Use `regexp` if the process name is too common for a string to find it uniquely. You may need to include whitespace characters.
+If the process name is too common for a string to uniquely find it,
+you may use a regexp. Inclusion of whitespace characters may be
+needed.
 
     describe processes(Regexp.new("/usr/local/bin/swap -d")) do
       its('list.length') { should eq 1 }
@@ -115,11 +84,13 @@ Use `regexp` if the process name is too common for a string to find it uniquely.
 
 ### Notes for auditing Windows systems
 
-Sometimes there is no direct comparison between different operating systems and system properties. Most of the `property_name` do align between the various operating systems.
+Sometimes with system properties there isn't a direct comparison between different operating systems.
+Most of the `property_name`'s do align between the different OS's.
 
-However, there are some exceptions. For example, within Linux operating system, `states` offer multiple properties. Windows operating systems do not have a direct comparison on a single property. Hence, `states` is mapped to the property of `Responding` and determines a boolean (true/false) flag if the process is hung.
+There are however some exception's, for example, within linux `states` offers multiple properties.
+Windows doesn't have direct comparison that is a single property so instead `states` is mapped to the property of `Responding`, This is a boolean true/false flag to help determine if the process is hung.
 
-The following mapping table aids you in understanding the Unix field property mapping to the Windows `Get-Process` property:
+Below is a mapping table to help you understand what property the unix field maps to the windows `Get-Process` Property
 
 | _unix ps field_ | _windows PowerShell Property_ |
 | :-------------: | :---------------------------: |
@@ -135,3 +106,13 @@ The following mapping table aids you in understanding the Unix field property ma
 |      time       |      TotalProcessorTime       |
 |      users      |           UserName            |
 |    commands     |             Path              |
+
+## Matchers
+
+For a full list of available matchers, please visit our [matchers page](/inspec/matchers/).
+
+### property_name
+
+The `property_name` matcher tests the named property for the specified value:
+
+    its('property_name') { should eq ['property_value'] }

@@ -18,7 +18,7 @@ Microsoft and application vendors use scheduled tasks to perform a variety of sy
 
 ### Installation
 
-{{% inspec/inspec_installation %}}
+This resource is distributed along with Chef InSpec itself. You can use it automatically.
 
 ### Version
 
@@ -70,9 +70,9 @@ The following examples show how to use this Chef InSpec resource.
       it { should exist }
     end
 
-## Gathering Task Names
+## Gathering Tasknames
 
-Rather than use the GUI, you can use the `schtasks.exe` to output a full list of tasks available on the system
+Rather then use the GUI you can use the `schtasks.exe` to output a full list of tasks available on the system
 
 `schtasks /query /FO list`
 

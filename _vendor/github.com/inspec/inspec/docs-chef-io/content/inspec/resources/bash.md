@@ -17,7 +17,7 @@ Use the `bash` Chef InSpec audit resource to test an arbitrary command that is r
 
 ### Installation
 
-{{% inspec/inspec_installation %}}
+This resource is distributed along with Chef InSpec itself. You can use it automatically.
 
 ### Version
 

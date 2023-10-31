@@ -17,7 +17,7 @@ Use the `etc_group` Chef InSpec audit resource to test groups that are defined o
 
 ### Installation
 
-{{% inspec/inspec_installation %}}
+This resource is distributed along with Chef InSpec itself. You can use it automatically.
 
 ### Version
 

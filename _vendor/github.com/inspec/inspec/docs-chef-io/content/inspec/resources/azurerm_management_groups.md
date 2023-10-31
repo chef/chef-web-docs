@@ -11,15 +11,13 @@ platform = "azure"
     parent = "inspec/resources/azure"
 +++
 
-{{< inspec/azurerm_deprecated resource="azure_management_groups" >}}
-
 Use the `azurerm_management_groups` InSpec audit resource to test properties related to
 management groups.
 
 ## Azure REST API version
 
 This resource interacts with version `2018-03-01-preview` of the Azure
-Management API. For more information see the [official Azure documentation](https://docs.microsoft.com/en-us/java/api/com.azure.resourcemanager.loganalytics.models.managementgroups.list?view=azure-java-preview).
+Management API. For more information see the [official Azure documentation](https://docs.microsoft.com/en-us/rest/api/resources/managementgroups/list).
 
 At the moment, there doesn't appear to be a way to select the version of the
 Azure API docs. If you notice a newer version being referenced in the official

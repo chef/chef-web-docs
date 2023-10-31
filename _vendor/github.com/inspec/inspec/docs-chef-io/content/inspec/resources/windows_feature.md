@@ -17,7 +17,7 @@ Use the `windows_feature` Chef InSpec audit resource to test features on Windows
 
 ### Installation
 
-{{% inspec/inspec_installation %}}
+This resource is distributed along with Chef InSpec itself. You can use it automatically.
 
 ### Version
 

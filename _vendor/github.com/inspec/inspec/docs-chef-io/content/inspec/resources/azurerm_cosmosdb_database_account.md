@@ -11,15 +11,13 @@ platform = "azure"
     parent = "inspec/resources/azure"
 +++
 
-{{< inspec/azurerm_deprecated resource="azure_cosmosdb_database_account" >}}
-
 Use the `azurerm_cosmosdb_database_account` InSpec audit resource to test properties and configuration of
 an Azure CosmosDb Database Account within a Resource Group.
 
 ## Azure REST API version
 
 This resource interacts with version `2015-04-08` of the Azure Management API. For more
-information see the [Official Azure Documentation](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure.service/new-azureprofile?view=azuresmps-4.0.0).
+information see the [Official Azure Documentation](https://docs.microsoft.com/en-us/rest/api/cosmos-db-resource-provider/databaseaccounts/get).
 
 At the moment, there doesn't appear to be a way to select the version of the
 Azure API docs. If you notice a newer version being referenced in the official
@@ -104,7 +102,7 @@ Indicates the type of database account, e.g. `GlobalDocumentDB`, `MongoDB`
 
 ### tags
 
-Resource tags applied to the Cosmos DB Account.
+Resource tags applied to the ComsosDb Account.
 
 ### properties
 
@@ -128,7 +126,9 @@ requests are always welcome.
 
 ## Matchers
 
-{{% inspec/inspec_matchers_link %}}
+This InSpec audit resource has the following special matchers. For a full list of
+available matchers, please visit our [Universal Matchers
+page](/inspec/matchers/).
 
 ### exists
 

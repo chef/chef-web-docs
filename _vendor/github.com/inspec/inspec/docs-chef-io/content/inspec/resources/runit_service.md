@@ -17,7 +17,7 @@ Use the `runit_service` Chef InSpec audit resource to test a service using runit
 
 ### Installation
 
-{{% inspec/inspec_installation %}}
+This resource is distributed along with Chef InSpec itself. You can use it automatically.
 
 ### Version
 

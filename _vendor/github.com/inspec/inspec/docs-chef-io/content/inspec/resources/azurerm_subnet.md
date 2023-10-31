@@ -11,8 +11,6 @@ platform = "azure"
     parent = "inspec/resources/azure"
 +++
 
-{{< inspec/azurerm_deprecated resource="azure_subnet" >}}
-
 Use the `azurerm_subnet` InSpec audit resource to test properties related to a
 subnet for a given virtual network.
 
@@ -123,13 +121,13 @@ The subnet's id.
 Id will be in
 format:
 
-    '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/Inspec-VNet/subnets/Inspec-Subnet'
+    '/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/Inspec-Azure-mmclane/providers/Microsoft.Network/virtualNetworks/Inspec-VNet/subnets/Inspec-Subnet'
 
 ### name
 
 The subnets's name.
 
-    its('name') { should eq('SubnetName') }
+    its('name') { should eq('MySubnetName') }
 
 ### type
 
@@ -165,7 +163,9 @@ requests are always welcome.
 
 ## Matchers
 
-{{% inspec/inspec_matchers_link %}}
+This InSpec audit resource has the following special matchers. For a full list of
+available matchers, please visit our [Universal Matchers
+page](/inspec/matchers/).
 
 ### exists
 

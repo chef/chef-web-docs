@@ -19,7 +19,7 @@ is a standalone structure with its own distribution and execution flow.
 
 A profile should have the following structure:
 
-```yaml
+```YAML
 examples/profile
 ├── README.md
 ├── controls
@@ -63,11 +63,10 @@ Each profile must have an `inspec.yml` file that defines the following informati
 - Use `supports` to specify a list of supported platform targets.
 - Use `depends` to define a list of profiles on which this profile depends.
 - Use `inputs` to define a list of inputs you can use in your controls.
-- Use `gem_dependencies` to specify a list of profile gem dependencies that is required to be installed for the profile to function correctly.
 
 `name` is required; all other profile settings are optional. For example:
 
-```yaml
+```YAML
 name: ssh
 title: Basic SSH
 maintainer: Chef Software, Inc.
@@ -81,15 +80,12 @@ supports:
 depends:
   - name: profile
     path: ../path/to/profile
-gem_dependencies:
-  - name: "gem-name"
-    version: ">= 2.0.0"
 inspec_version: "~> 2.1"
 ```
 
 The `inspec.yml` also supports embedded ERB in the file. For example:
 
-```yaml
+```YAML
 name: dummy
 title: InSpec Profile
 maintainer: The Authors
@@ -130,7 +126,7 @@ platforms. The new families can restrict the platform family to `os`, `aws`, `az
 
 For example, to target anything running Debian Linux, use:
 
-```yaml
+```YAML
 name: ssh
 supports:
   - platform-name: debian
@@ -138,7 +134,7 @@ supports:
 
 To target only Ubuntu version 20.04, use:
 
-```yaml
+```YAML
 name: ssh
 supports:
   - platform-name: ubuntu
@@ -147,7 +143,7 @@ supports:
 
 To target the entire release of Ubuntu version 20.x, use:
 
-```yaml
+```YAML
 name: ssh
 supports:
   - platform-name: ubuntu
@@ -156,7 +152,7 @@ supports:
 
 To target the Red Hat and derivative platforms such as CentOS and Oracle Linux, use:
 
-```yaml
+```YAML
 name: ssh
 supports:
   - platform-family: redhat
@@ -164,7 +160,7 @@ supports:
 
 To target the entire Windows 2019 platform family, including Datacenter and Core Servers, use:
 
-```yaml
+```YAML
 name: ssh
 supports:
   - platform-name: windows_server_2019*
@@ -172,7 +168,7 @@ supports:
 
 To target anything running on Amazon AWS, use:
 
-```yaml
+```YAML
 name: ssh
 supports:
   - platform: aws
@@ -180,7 +176,7 @@ supports:
 
 To target all of these examples in a single `inspec.yml` file, use:
 
-```yaml
+```YAML
 name: ssh
 supports:
   - platform-name: debian
@@ -206,7 +202,7 @@ needs to be specified in the including profile’s `inspec.yml` file in the `dep
 section. For each profile to be included, a location for the profile from where
 to be fetched and a name for the profile should be included. For example:
 
-```yaml
+```YAML
 depends:
 - name: linux-baseline
   url: https://github.com/dev-sec/linux-baseline/archive/master.tar.gz
@@ -221,7 +217,7 @@ Chef InSpec supports a number of dependency sources.
 The `path` setting defines a profile that is located on disk. This setting is
 typically used during development of profiles and when debugging profiles.
 
-```yaml
+```YAML
 depends:
 - name: my-profile
   path: /absolute/path
@@ -235,17 +231,17 @@ The `url` setting specifies a profile that is located at an HTTP- or HTTPS-based
 URL. The profile must be accessible via a HTTP GET operation and must be a valid
 profile archive (zip, tar, or tar.gz format).
 
-```yaml
+```YAML
 depends:
 - name: my-profile
   url: https://my.domain/path/to/profile.tgz
 - name: profile-via-git
-  url: https://github.com/username/myprofile-repo/archive/master.tar.gz
+  url: https://github.com/myusername/myprofile-repo/archive/master.tar.gz
 ```
 
 `url` also supports basic authentication.
 
-```yaml
+```YAML
 depends:
 - name: my-profile
   url: https://my.domain/path/to/profile.tgz
@@ -260,7 +256,7 @@ optional settings for branch, tag, commit, version, and relative_path. The sourc
 location is translated into a URL upon resolution. This type of dependency supports
 version constraints via semantic versioning as git tags.
 
-```yaml
+```YAML
 depends:
 - name: git-profile
   git: http://url/to/repo
@@ -278,7 +274,7 @@ on Chef Supermarket. The source location is translated into a URL upon resolutio
 
 For example:
 
-```yaml
+```YAML
 depends:
 - name: supermarket-profile
   supermarket: supermarket-username/supermarket-profile
@@ -293,21 +289,10 @@ or Chef Compliance server.
 
 For example:
 
-```yaml
+```YAML
 depends:
 - name: linux
   compliance: base/linux
-```
-## Gem Dependencies
-
-Any profile with ruby gem dependencies that need to be installed can be specified using the `gem_dependencies` settings in the `inspec.yml` metadata file.
-
-For example, if you required any ruby library in a custom resource that needs a specific gem to be installed, then you can specify those gems in the metadata file. Chef InSpec will prompt to install the gems to `~/.inspec/gems` when you run your profile the first time. To skip the prompt and automatically install, pass the `--auto-install-gems` option to `inspec exec`.
-
-```yaml
-gem_dependencies:
-  - name: "mongo"
-    version: ">= 2.3.12"
 ```
 
 ## Vendoring Dependencies
@@ -404,44 +389,6 @@ As with the prior example, only `baseline-2` and `baseline-4` are executed, but
 if `baseline-2` fails, it will report with an impact of `0.5` instead of the
 originally-intended `1.0` impact.
 
-## Including or Selecting controls from a profile with same name and different version.
-
-When an inspec profile has dependency on another profile to it's specific version, then the controls can be included or selected by using profile name with version separated by `-`.
-
-Here, the Profile - A has following dependency:
-
-```yaml
-name: profile-a
-depends:
-  - name: ssh
-    git: https://github.com/dev-sec/ssh-baseline.git
-    tag: 2.6.0
-```
-
-And Profile - B has following dependency:
-
-```yaml
-name: profile-b
-depends:
-  - name: ssh
-    git: https://github.com/dev-sec/ssh-baseline.git
-    tag: 2.7.0
-```
-
-Controls of these profiles can be included or required in a profile in a following manner:
-
-```ruby
-include_controls "ssh-2.6.0"
-include_controls "ssh-2.7.0"
-```
-
-OR
-
-```ruby
-require_controls "ssh-2.6.0"
-require_controls "ssh-2.7.0"
-```
-
 ## Using Resources from an Included Profile
 
 By default, all of the custom resources from a listed dependency are available
@@ -449,7 +396,7 @@ for use in your profile. If two of your dependencies provide a resource with
 the same name, you can use the `require_resource` DSL function to
 disambiguate the two:
 
-```yaml
+```YAML
 require_resource(profile: 'my_dep', resource: 'my_res',
                   as: 'my_res2')
 ```
@@ -473,7 +420,7 @@ of a profile. They are accessed by their name relative to this folder with
 
 Here is an example for reading and testing a list of ports. The folder structure is:
 
-```yaml
+```YAML
 examples/profile
 ├── controls
 │   ├── example.rb
@@ -484,7 +431,7 @@ examples/profile
 
 With `services.yml` containing:
 
-```yaml
+```YAML
 - service_name: httpd-alpha
   port: 80
 - service_name: httpd-beta

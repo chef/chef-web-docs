@@ -17,7 +17,7 @@ Use the `ssh_config` Chef InSpec audit resource to test OpenSSH client configura
 
 ### Installation
 
-{{% inspec/inspec_installation %}}
+This resource is distributed along with Chef InSpec itself. You can use it automatically.
 
 ### Version
 

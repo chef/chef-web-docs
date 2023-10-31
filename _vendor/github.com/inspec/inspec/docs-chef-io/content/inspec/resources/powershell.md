@@ -17,7 +17,7 @@ Use the `powershell` Chef InSpec audit resource to test a Powershell script on t
 
 ### Installation
 
-{{% inspec/inspec_installation %}}
+This resource is distributed along with Chef InSpec itself. You can use it automatically.
 
 ### Version
 

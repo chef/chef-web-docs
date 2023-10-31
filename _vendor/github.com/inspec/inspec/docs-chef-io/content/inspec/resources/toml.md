@@ -17,7 +17,7 @@ Use the `toml` Chef InSpec audit resource to test settings in a TOML file.
 
 ### Installation
 
-{{% inspec/inspec_installation %}}
+This resource is distributed along with Chef InSpec itself. You can use it automatically.
 
 ### Version
 

@@ -17,7 +17,7 @@ Use the `chrony_conf` Chef InSpec audit resource to test the synchronization set
 
 ### Installation
 
-{{% inspec/inspec_installation %}}
+This resource is distributed along with Chef InSpec itself. You can use it automatically.
 
 <!-- TODO: needs version number -->
 <!-- ### Version

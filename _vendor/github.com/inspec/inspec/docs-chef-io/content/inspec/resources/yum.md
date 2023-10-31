@@ -17,7 +17,7 @@ Use the `yum` Chef InSpec audit resource to test packages in the Yum repository.
 
 ### Installation
 
-{{% inspec/inspec_installation %}}
+This resource is distributed along with Chef InSpec itself. You can use it automatically.
 
 ### Version
 

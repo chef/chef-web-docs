@@ -13,33 +13,37 @@ platform = "os"
 
 Use the `x509_certificate` Chef InSpec audit resource to test the fields and validity of an x.509 certificate.
 
-X.509 certificate uses public or private key pairs to sign and encrypt communications and documents over a network. These certificates are also used for network authentication. Examples include Secure Sockets Layer (SSL) certificates, Secure/Multipurpose Internet Mail Extensions (S/MIME) certificates, and Virtual Private Network (VPN) authentication certificates.
+X.509 certificates use public/private key pairs to sign and encrypt documents
+or communications over a network. They may also be used for authentication.
+
+Examples include SSL certificates, S/MIME certificates and VPN authentication
+certificates.
 
 ## Availability
 
 ### Installation
 
-Chef InSpec distributes this resource.
+This resource is distributed along with Chef InSpec itself. You can use it automatically.
 
 ### Version
 
-This resource is available from InSpec version 1.18.
+This resource first became available in v1.18.0 of InSpec.
 
 ## Syntax
 
 An `x509_certificate` resource block declares a certificate `key file` to be tested.
 
-    describe x509_certificate('certificate.pem') do
+    describe x509_certificate('mycertificate.pem') do
       its('validity_in_days') { should be > 30 }
     end
 
 The `filepath` property can also be used.
 
-    describe x509_certificate(filepath: 'certificate.pem') do
+    describe x509_certificate(filepath: 'mycertificate.pem') do
       its('validity_in_days') { should be > 30 }
     end
 
-This resource also supports passing the content of the certificate.
+The resource also supports passing in the certificate content.
 
     cert_content = file('certificate.pem').content
 
@@ -47,116 +51,114 @@ This resource also supports passing the content of the certificate.
       its('validity_in_days') { should be > 30 }
     end
 
-The `content` value is used if the `content` and `filepath` are specified.
+If both `content` and `filepath` is given, the value passed in `content` is used.
 
 ## Properties
 
 ### subject.XX
 
-The `subject` (string) property accesses the individual subject elements.
+`subject` property makes it easier to access individual subject elements.
 
-    describe x509_certificate('/etc/pki/www.example.com.pem') do
-      its('subject.CN') { should eq "www.example.com" }
+    describe x509_certificate('/etc/pki/www.mywebsite.com.pem') do
+      its('subject.CN') { should eq "www.mywebsite.com" }
     end
 
-### subject_dn
+### subject_dn (String)
 
-The `subject_dn` (string) property returns the distinguished name of the subject field. It contains many fields separated by forward slashes (/). The field identifiers are the same ones used by OpenSSL to generate Certificate Signing Requests (CSR's) and certificates. To access the parsed version, use `subject.XX` instead.
+The `subject_dn` string returns the distinguished name of the subject field. It contains several fields separated by forward slashes. The field identifiers are the same ones used by OpenSSL to generate CSR's and certs. Use `subject.XX` instead to access the parsed version.
 
-For example, `/C=US/L=Seattle/O=Chef Software Inc/OU=Chefs/CN=Richard Nixon`
+e.g. `/C=US/L=Seattle/O=Chef Software Inc/OU=Chefs/CN=Richard Nixon`
 
-    describe x509_certificate('/etc/pki/www.example.com.pem') do
-      its('subject_dn') { should match "CN=www.example.com" }
+    describe x509_certificate('/etc/pki/www.mywebsite.com.pem') do
+      its('subject_dn') { should match "CN=www.mywebsite.com" }
     end
 
 ### issuer.XX
 
-The `issuer` (string) property accesses the individual issuer elements.
+`issuer` makes it easier to access individual issuer elements.
 
-    describe x509_certificate('/etc/pki/www.example.com.pem') do
+    describe x509_certificate('/etc/pki/www.mywebsite.com.pem') do
       its('issuer.CN') { should eq "Acme Trust CA" }
     end
 
-### issuer_dn
+### issuer_dn (String)
 
-During the certificate signing process, the `issuer_dn` (string) property is the distinguished name from a Certificate Authority (CA). This property states which authority is guaranteeing the identity of the certificate.
+The `issuer_dn` is the distinguished name from a CA (certificate authority) during the
+certificate signing process. It describes which authority is guaranteeing the
+identity of our certificate.
 
-For example, `/C=US/L=Seattle/CN=Acme Trust CA/emailAddress=support@acmetrust.org`
+e.g. `/C=US/L=Seattle/CN=Acme Trust CA/emailAddress=support@acmetrust.org`
 
-    describe x509_certificate('/etc/pki/www.example.com.pem') do
-      its('issuer_cn') { should match "CN=NAME CA" }
+    describe x509_certificate('/etc/pki/www.mywebsite.com.pem') do
+      its('issuer_cn') { should match "CN=Acme Trust CA" }
     end
 
-### public_key
+### public_key (String)
 
-The `public_key` (string) property returns a base64 encoded public key in PEM format.
+The `public_key` property returns a base64 encoded public key in PEM format.
 
-    describe x509_certificate('/etc/pki/www.example.com.pem') do
+    describe x509_certificate('/etc/pki/www.mywebsite.com.pem') do
       its('public_key') { should match "-----BEGIN PUBLIC KEY-----\nblah blah blah..." }
     end
 
-### key_length
+### key_length (Integer)
 
-The `key_length` (integer) property calculates the number of bits in the public key. If the length of bits in the public key increases, the public keys are secure. However, at the cost of speed and compatibility.
+The `key_length` property calculates the number of bits in the public key.
+More bits increase security, but at the cost of speed and in extreme cases, compatibility.
 
-    describe x509_certificate('/etc/pki/www.example.com.pem') do
+    describe x509_certificate('/etc/pki/www.mywebsite.com.pem') do
       its('key_length') { should be 2048 }
     end
 
-### keylength
+### signature_algorithm (String)
 
-The `keylength` (integer) property is an alias of the `key_length` property.
+The `signature_algorithm` property describes which hash function was used by the CA to
+sign the certificate.
 
-    describe x509_certificate('/etc/pki/www.example.com.pem') do
-      its('keylength') { should be 2048 }
-    end
-
-### signature_algorithm
-
-The `signature_algorithm` (string) property describes the CA's hash function to sign the certificate.
-
-    describe x509_certificate('/etc/pki/www.example.com.pem') do
+    describe x509_certificate('/etc/pki/www.mywebsite.com.pem') do
       its('signature_algorithm') { should be 'sha256WithRSAEncryption' }
     end
 
-### validity_in_days
+### validity_in_days (Float)
 
-The `validity_in_days` (float) property is used to check the validity of the certificates.
+The `validity_in_days` property can be used to check that certificates are not in
+danger of expiring soon.
 
-    describe x509_certificate('/etc/pki/www.example.com.pem') do
+    describe x509_certificate('/etc/pki/www.mywebsite.com.pem') do
       its('validity_in_days') { should be > 30 }
     end
 
-### not_before and not_after
+### not_before and not_after (Time)
 
-The `not_before` and `not_after` (time) properties expose the start and end dates of certificate validity. These dates are exposed as Ruby **Time** class and perform date calculations.
+The `not_before` and `not_after` properties expose the start and end dates of certificate
+validity. They are exposed as ruby Time class so that date arithmetic can be easily performed.
 
-    describe x509_certificate('/etc/pki/www.example.com.pem') do
+    describe x509_certificate('/etc/pki/www.mywebsite.com.pem') do
       its('not_before') { should be <= Time.utc.now }
       its('not_after')  { should be >= Time.utc.now }
     end
 
-### serial
+### serial (Integer)
 
-The `serial` (integer) property exposes the certificate's serial number. The CA sets the serial number during the signing process and should be unique within that CA.
+The `serial` property exposes the serial number of the certificate. The serial number is set by the CA during the signing process and should be unique within that CA.
 
-    describe x509_certificate('/etc/pki/www.example.com.pem') do
+    describe x509_certificate('/etc/pki/www.mywebsite.com.pem') do
       its('serial') { should eq 9623283588743302433 }
     end
 
-### version
+### version (Integer)
 
-The `version` (integer) property exposes the certificate version.
+The `version` property exposes the certificate version.
 
-    describe x509_certificate('/etc/pki/www.example.com.pem') do
+    describe x509_certificate('/etc/pki/www.mywebsite.com.pem') do
       its('version') { should eq 2 }
     end
 
-### extensions
+### extensions (Hash)
 
-The `extensions` (hash) property is mainly used to determine the purpose of the certificate.
+The `extensions` hash property is mainly used to determine what the certificate can be used for.
 
-    describe x509_certificate('/etc/pki/www.example.com.pem') do
+    describe x509_certificate('/etc/pki/www.mywebsite.com.pem') do
       # Check what extension categories we have
       its('extensions') { should include 'keyUsage' }
       its('extensions') { should include 'extendedKeyUsage' }
@@ -173,53 +175,4 @@ The `extensions` (hash) property is mainly used to determine the purpose of the 
 
       # Check examples of 'subjectAltName'
       its('extensions.subjectAltName') { should include 'email:support@chef.io' }
-    end
-
-### email
-
-The `email` (string) property checks for the email address of the certificate. This is equivalent to invoking the property `subject.emailAddress`.
-
-    describe x509_certificate('/etc/pki/www.example.com.pem') do
-      its('email') { should_not be_empty }
-      its('email') { should eq 'admin@example.com' }
-    end
-
-### subject_alt_names
-
-The `subject_alt_names` (string) property checks for the subject alternative names (additional host names) of the certificate.
-
-    describe x509_certificate('/etc/pki/www.example.com.pem') do
-      its('subject_alt_names') { should include 'DNS:example.com' }
-      its('subject_alt_names') { should include 'DNS:www.example.com' }
-    end
-
-## Matchers
-
-For a full list of available matchers, please visit our [matchers page](https://docs.chef.io/inspec/matchers/).
-
-The specific matchers of this resource are: `be_valid`, `be_certificate` and `have_purpose`.
-
-### be_valid
-
-The `be_valid` matcher tests if the specified certificate is valid.
-
-    describe x509_certificate('/etc/pki/www.example.com.pem') do
-      it { should be_valid }
-    end
-
-### be_certificate
-
-The `be_certificate` matcher tests if the specified content or file is a certificate.
-
-    describe x509_certificate('/etc/pki/www.example.com.pem') do
-      it { should be_certificate }
-    end
-
-### have_purpose
-
-The `have_purpose` matcher tests if the certificate meets the specified purpose.
-
-    describe x509_certificate('/etc/pki/www.example.com.pem') do
-      it { should have_purpose('SSL client CA : Yes') }
-      it { should have_purpose('SSL server CA : Yes') }
     end

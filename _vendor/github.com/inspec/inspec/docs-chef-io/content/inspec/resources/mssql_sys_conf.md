@@ -15,7 +15,7 @@ Use the `mssql_sys_conf` Chef InSpec audit resource to test the configuration of
 
 ## Installation
 
-{{% inspec/inspec_installation %}}
+This resource is distributed along with Chef InSpec itself. You can use it automatically.
 
 ## Requirements
 

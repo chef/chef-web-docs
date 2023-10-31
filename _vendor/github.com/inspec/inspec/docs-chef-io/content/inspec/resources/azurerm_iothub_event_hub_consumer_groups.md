@@ -11,8 +11,6 @@ platform = "azure"
     parent = "inspec/resources/azure"
 +++
 
-{{< inspec/azurerm_deprecated resource="azure_iothub_event_hub_consumer_groups" >}}
-
 Use the `azurerm_iothub_event_hub_consumer_groups` InSpec audit resource to test properties and configuration of
 an Azure IoT Hub Event Hub Consumer Groups within a Resource Group.
 
@@ -49,7 +47,7 @@ This resource first became available in 1.11.0 of the inspec-azure resource pack
 
 The `resource_group`, `resource_name` and `event_hub_endpoint` must be given as a parameter.
 
-    describe azurerm_iothub_event_hub_consumer_groups(resource_group: 'my-rg', resource_name 'my-iot-hub', event_hub_endpoint: 'event-hub') do
+    describe azurerm_iothub_event_hub_consumer_groups(resource_group: 'my-rg', resource_name 'my-iot-hub', event_hub_endpoint: 'myeventhub') do
       its('names') { should include "my-consumer-group"}
       its('types') { should include 'Microsoft.Devices/IotHubs/EventHubEndpoints/ConsumerGroups' }
     end
@@ -58,7 +56,7 @@ The `resource_group`, `resource_name` and `event_hub_endpoint` must be given as 
 
 If a IoT Hub Event Hub Consumer Groups is referenced with a valid `Resource Group`, `Resource Name` and `Event Hub Endpoint`
 
-    describe azurerm_iothub_event_hub_consumer_groups(resource_group: 'my-rg', resource_name 'my-iot-hub', event_hub_endpoint: 'event-hub') do
+    describe azurerm_iothub_event_hub_consumer_groups(resource_group: 'my-rg', resource_name 'my-iot-hub', event_hub_endpoint: 'myeventhub') do
       it { should exist }
     end
 
@@ -122,11 +120,13 @@ requests are always welcome.
 
 ## Matchers
 
-{{% inspec/inspec_matchers_link %}}
+This InSpec audit resource has the following special matchers. For a full list of
+available matchers, please visit our [Universal Matchers
+page](/inspec/matchers/).
 
 ### exists
 
-    describe azurerm_iothub_event_hub_consumer_group(resource_group: 'my-rg', resource_name 'my-iot-hub', event_hub_endpoint: 'event-hub') do
+    describe azurerm_iothub_event_hub_consumer_group(resource_group: 'my-rg', resource_name 'my-iot-hub', event_hub_endpoint: 'myeventhub') do
       it { should exist }
     end
 
