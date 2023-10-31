@@ -10,6 +10,14 @@ draft = false
     weight = 10
 +++
 
+## 20231030
+
+### New Features
+
+- STIG Windows Server 2022 v1.2.0(Audits)
+- CIS Windows Server 2022 v2.0.0(Audits)
+- CIS Windows Server 2016 v2.0.0(Audits)
+
 ## 20230905
 
 ### New features
