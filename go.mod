@@ -6,7 +6,7 @@ require (
 	github.com/chef/automate/components/docs-chef-io v0.0.0-20231027151655-61e0a5d70b2c // indirect
 	github.com/chef/chef-server/docs-chef-io v0.0.0-20230929110551-e5bebd3e433d // indirect
 	github.com/chef/chef-workstation/docs-chef-io v0.0.0-20230906065503-8f1a978813f8 // indirect
-	github.com/chef/compliance-profiles/docs-chef-io v0.0.0-20230904102656-f8fff0821d49 // indirect
+	github.com/chef/compliance-profiles/docs-chef-io v0.0.0-20231031143423-5ffd549d4a19 // indirect
 	github.com/chef/compliance-remediation-2022/docs-chef-io v0.0.0-20230809063034-95b117807a75 // indirect
 	github.com/chef/desktop-config/docs-chef-io v0.0.0-20230711052355-bad26ce3ac0b // indirect
 	github.com/chef/effortless/docs-chef-io v0.0.0-20230711123605-c8beb79aba4f // indirect
