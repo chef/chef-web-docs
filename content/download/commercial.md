@@ -171,10 +171,12 @@ This is a list of currently supported products that you can install with this AP
 
 | Product | Product Key  |
 | ------- | ------------ |
+| Chef Automate | automate |
 | Chef Infra Client | chef |
 | Chef Backend | chef-backend |
 | Chef Infra Server | chef-server |
 | Chef Workstation | chef-workstation |
+| Chef Habitat | habitat |
 | Chef InSpec | inspec |
 | Management Console | manage |
 | Supermarket | supermarket |
