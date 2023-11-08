@@ -19,7 +19,7 @@ See [Chef's licensing documentation]({{< relref "chef_license" >}}) for more inf
 
 ## Endpoints
 
-The Chef Commercial Download API has the following endpoints:
+The Chef Community Download API has the following endpoints:
 
 - `/architectures`
 - `/platforms`
@@ -43,7 +43,7 @@ https://chefdownload-community.chef.io/architectures
 
 ### platforms
 
-The `platforms` endpoint returns a list of valid platform keys along with full friendly names. Any of these platform keys can be used in the `p` [query string](#parameters) value in various endpoints below.
+The `platforms` endpoint returns a list of valid platform keys along with full product names. Any of these platform keys can be used in the `p` [query string](#parameters) value in various endpoints below.
 
 ```plain
 https://chefdownload-community.chef.io/platforms
@@ -65,7 +65,7 @@ https://chefdownload-community.chef.io/products?eol=true
 
 ### packages
 
-Use `packages` to get a full list of all packages for a particular release channel and product.
+Use `packages` to get a list of all packages for a particular release channel and product.
 
 By default, it returns packages for the latest version.
 
