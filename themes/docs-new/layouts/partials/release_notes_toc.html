@@ -21,7 +21,26 @@
           {{ $versionsUrl = (print "https://omnitruck.chef.io/stable/" $product "/versions/all") }}
         {{ end }}
 
-        {{ $versions := getJSON $versionsUrl }}
+        {{ $versions := "" }}
+
+        {{ $headers := dict "Cache-Control" "no-cache" "Connection" "keep-alive" }}
+        {{ $cacheKey := print $versionsUrl (now.Format "20060102") (div now.Hour 6) | md5 }}
+        {{ $opts :=  dict "headers" $headers "key" $cacheKey }}
+
+        {{- if hasPrefix $versionsUrl "https://" -}}
+          {{- with resources.GetRemote $versionsUrl $opts -}}
+            {{ with .Err }}
+              {{ errorf "%s" . }}
+            {{ else }}
+              {{ $unmarshalOpts := dict "delimiter" "," }}
+              {{ $versions = . | transform.Unmarshal $unmarshalOpts }}
+            {{ end }}
+          {{ else }}
+            {{ errorf "Unable to get remote resource %q" $versionsUrl }}
+          {{ end }}
+        {{ else }}
+          {{ $versions = getJSON $versionsUrl }}
+        {{ end }}
 
         {{/* We have a current version of Infra Client that they want release notes for on the Client release notes page. */}}
         {{/* This allows us to add current release version numbers of Client to the list of version numbers */}}
