@@ -320,6 +320,19 @@
   target = "content"
 
 ###
+# Local License Service
+###
+
+[[imports]]
+  disable = false
+  ignoreConfig = false
+  path = "github.com/chef/license-service/docs-chef-io"
+
+[[imports.mounts]]
+  source = "content/licensing/local_license_service"
+  target = "content/licensing/local_license_service"
+
+###
 ## Mount generated/genereted_content to content
 ###
 
