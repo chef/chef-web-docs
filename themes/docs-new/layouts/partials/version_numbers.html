@@ -15,7 +15,7 @@
 {{ $versions := "" }}
 
 {{ $headers := dict "Cache-Control" "no-cache" "Connection" "keep-alive" }}
-{{ $cacheKey := print $versionsUrl (now.Format "20060102") (div now.Hour 6) | md5 }}
+{{ $cacheKey := print $versionsUrl (now.Format "20060102") (now.Hour) | md5 }}
 {{ $opts :=  dict "headers" $headers "key" $cacheKey }}
 
 {{- if hasPrefix $versionsUrl "https://" -}}
