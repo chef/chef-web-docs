@@ -15,6 +15,8 @@ github.com/chef/desktop-config/docs-chef-io v0.0.0-20230711052355-bad26ce3ac0b h
 github.com/chef/desktop-config/docs-chef-io v0.0.0-20230711052355-bad26ce3ac0b/go.mod h1:90xAx6sIfgSL50M2KzeBmx7V7s7dlhQU3xpUkJO0qW0=
 github.com/chef/effortless/docs-chef-io v0.0.0-20230711123605-c8beb79aba4f h1:6+VjBykE1b9LGfJEBstSKLAGJySrhu6NY162gz+cnxo=
 github.com/chef/effortless/docs-chef-io v0.0.0-20230711123605-c8beb79aba4f/go.mod h1:Lfq+HjwAQwUJ41EPTO/8qbI1oJb2i415fR28d2Ig9kc=
+github.com/chef/license-service/docs-chef-io v0.0.0-20231109163703-41a47f861346 h1:DB0UwtZ2I3utBAr+4TrA8+rPEgjO6hh+OdvcZDQHoh4=
+github.com/chef/license-service/docs-chef-io v0.0.0-20231109163703-41a47f861346/go.mod h1:leNCF0KadV7zjm7YpVegNnbmWYUFXgaPKHP4tTDacos=
 github.com/chef/supermarket/docs-chef-io v0.0.0-20231004141257-7ada2c50bece h1:qCHZDu6a+UgOvMvLRsT9wAfi7P2+uKQm+H1kvpeZ7k4=
 github.com/chef/supermarket/docs-chef-io v0.0.0-20231004141257-7ada2c50bece/go.mod h1:L0DhIJHTKsPYhAr9TrhAIg3KXtrS9BJF0XNHfGDDGGg=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=

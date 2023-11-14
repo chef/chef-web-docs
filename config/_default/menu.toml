@@ -58,16 +58,28 @@ identifier = "overview"
 weight = 20
 
   [[overview]]
+  title = "Licensing"
+  identifier = "overview/licensing"
+  parent = "overview"
+  weight = 20
+
+    [[overview]]
+    title = "Chef Local License Service"
+    identifier = "overview/licensing/local"
+    parent = "overview/licensing"
+    weight = 999
+
+  [[overview]]
   title = "Community"
   identifier = "overview/community"
   parent = "overview"
-  weight = 20
+  weight = 30
 
   [[overview]]
   title = "Packages & Platforms"
   identifier = "overview/packages_&_platforms"
   parent = "overview"
-  weight = 30
+  weight = 40
 
     [[overview]]
     title = "Download"
@@ -75,17 +87,11 @@ weight = 20
     parent = "overview/packages_&_platforms"
     weight = 50
 
-    [[overview]]
-    title = "Licensing"
-    identifier = "overview/packages_&_platforms/licensing"
-    parent = "overview/packages_&_platforms"
-    weight = 60
-
   [[overview]]
   title = "Style Guide"
   identifier = "overview/style"
   parent = "overview"
-  weight = 80
+  weight = 90
 
     [[overview]]
     title = "Formatting"

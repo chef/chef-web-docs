@@ -1,6 +1,6 @@
 extends: substitution
 message: "Use '%s' instead of '%s'"
-level: error
+level: warning
 ignorecase: false
 swap:
   '(?:[^\s]*) ?Automate': Chef Automate
@@ -18,4 +18,4 @@ swap:
   '(?:[^\s]* ){0,2}Builder': Chef Habitat Builder
   'Depot': Chef Habitat Artifact storage
   '(?:[^\s]* ){0,2}Studio': Chef Habitat Studio
-  '(?:[^\s]* ){0,2}Supervisor': Chef Habitat Supervisor
+  '(?<!Chef Habitat) Supervisor': Chef Habitat Supervisor
