@@ -139,7 +139,7 @@ This configuration file has the following settings:
   gem 'chef-sugar'
   ```
 
-  {{< warning spaces=4 >}}
+  {{< warning >}}
 
   Use the `gem` setting only for making external chef libraries shipped as gems accessible in a Chef Infra Client run for libraries and attribute files. The `gem` setting in `metadata.rb` allows for the early installation of this specific type of gem, with the fundamental limitation that it cannot install native gems.
 
@@ -227,7 +227,7 @@ This configuration file has the following settings:
     ohai_version '~> 8'
     ```
 
-    {{< note spaces=4 >}}
+    {{< note >}}
 
     This setting is not visible in Chef Supermarket.
 

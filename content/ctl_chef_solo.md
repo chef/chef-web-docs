@@ -72,7 +72,7 @@ This command has the following options:
 
     {{< readfile file="content/reusable/md/node_ctl_run_list.md" spaces=4 >}}
 
-    {{< warning spaces=4 >}}
+    {{< warning >}}
 
     {{< readfile file="content/reusable/md/node_ctl_attribute.md">}}
 

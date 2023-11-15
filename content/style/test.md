@@ -99,10 +99,17 @@ mind:
 Indent ordered sub-list items **3 spaces**.
 
 1. This is a list item
-2. This is another list item in the same list. The number you use in Markdown
+1. This is another list item in the same list. The number you use in Markdown
    does not necessarily correlate to the number in the final output. By
    convention, we keep them in sync.
-3. {{< note >}}
+1. {{< note >}}
+   For single-digit numbered lists, using two spaces after the period makes
+   interior block-level content line up better along tab-stops.
+   {{< /note >}}
+
+1. Some text before a note. Then the note:
+
+   {{< note >}}
    For single-digit numbered lists, using two spaces after the period makes
    interior block-level content line up better along tab-stops.
    {{< /note >}}
@@ -111,7 +118,10 @@ Indent ordered sub-list items **3 spaces**.
 
 1. This is a new list. With Hugo, you need to use a HTML comment to separate
    two consecutive lists. **The HTML comment needs to be at the left margin.**
-2. Numbered lists can have paragraphs or block elements within them.
+
+   The HTML comment `<!-- separate lists -->` is between this list item and the previous one.
+
+1. Numbered lists can have paragraphs or block elements within them.
 
    Indent the content to be the same as the first line of the bullet
    point. **This paragraph and the code block line up with the `N` in
@@ -153,6 +163,11 @@ This is some text that introduces an ordered list.
         - item 1
         - item 2
         - code in item3 `chef-backend-ctl cleanse`
+        - A note as part of a list item:
+
+          {{< note >}}
+          Some text in the note.
+          {{< /note >}}
 
         1. another ordered list item
         1. Ea excepteur duis eiusmod duis laboris anim eiusmod. Est officia dolore veniam exercitation. Do cupidatat ea duis minim labore proident dolore sit dolore et. Elit Lorem aliqua incididunt sint.
@@ -216,6 +231,12 @@ A plain unordered list with additional paragraphs in list items:
   A long paragraph in item 3. Duis quis minim anim reprehenderit id in velit ut commodo deserunt Lorem qui aliqua. Sint duis dolore commodo et irure sunt. Labore ut reprehenderit excepteur eiusmod id ea dolore consectetur laborum sint magna. Qui aliqua consectetur tempor deserunt aliquip. Eiusmod deserunt dolore deserunt ea aliquip non fugiat. Duis tempor exercitation laborum aute ut sit do occaecat proident. Adipisicing qui ex do nulla pariatur ullamco pariatur magna proident.
 
 - item 4
+
+  {{< note >}}
+
+  Some text in a note related to item 4.
+
+  {{< /note >}}
 
 Note that the text of each list item is now enclosed in a paragraph tag while the items in the plain list just had a list item tag.
 
@@ -353,6 +374,7 @@ Checklists are an unordered list with a checkbox.
   {{< foundation_tab active="true" panel-link="ruby-panel" tab-text="Ruby">}}
   {{< foundation_tab panel-link="python-panel" tab-text="Python" >}}
   {{< foundation_tab panel-link="golang-panel" tab-text="Go" >}}
+  {{< foundation_tab panel-link="note-panel" tab-text="Notes" >}}
 {{< /foundation_tabs >}}
 
 {{< foundation_tabs_panels tabs-id="ruby-python-go-panel" >}}
@@ -377,6 +399,19 @@ Checklists are an unordered list with a checkbox.
       fmt.Println("Hello, world!")
   }
   ```
+  {{< /foundation_tabs_panel >}}
+  {{< foundation_tabs_panel panel-id="note-panel" >}}
+  This tests how notes function in a panel.
+
+  {{< note >}}
+
+  Some words in a note.
+
+  ```ruby
+  puts 'Hello, world!'
+  ```
+
+  {{< /note >}}
   {{< /foundation_tabs_panel >}}
 {{< /foundation_tabs_panels >}}
 
@@ -479,7 +514,7 @@ tables, use HTML instead.
   <tr>
     <td>Body cell 1</td>
     <td>Body cell with a note in it:
-      {{< note spaces=6 >}}
+      {{< note >}}
         Some text in a note.
       {{< /note >}}
     </td>
