@@ -378,6 +378,7 @@ some_term
   ```ruby
   puts 'Hello, world!'
   ```
+
   {{< /foundation_tabs_panel >}}
 
   {{< foundation_tabs_panel panel-id="powershell-panel1" >}}
@@ -664,7 +665,6 @@ Recommend inside a list:
     {{< recommend >}}
     Back up the server.
     {{< /recommend >}}
-
 
 ## Notices
 
