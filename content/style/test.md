@@ -359,6 +359,35 @@ plain text _(term in italics)_
 
 : Adding square brackets and the `(@)` symbol around the term (`[another term](@)`) adds a [linkable ID to the term](#another-term).
 
+Foundation panel in a description list.
+
+some_term
+: A bunch of text defining the term.
+
+  More info:
+
+  {{< foundation_tabs tabs-id="bash-powershell-panel1" >}}
+  {{< foundation_tab active="true" panel-link="bash-panel1" tab-text="A panel">}}
+  {{< foundation_tab panel-link="powershell-panel1" tab-text="Another panel" >}}
+  {{< /foundation_tabs >}}
+
+  {{< foundation_tabs_panels tabs-id="bash-powershell-panel1" >}}
+  {{< foundation_tabs_panel active="true" panel-id="bash-panel1" >}}
+  Text in a panel.
+
+  ```ruby
+  puts 'Hello, world!'
+  ```
+  {{< /foundation_tabs_panel >}}
+
+  {{< foundation_tabs_panel panel-id="powershell-panel1" >}}
+  Text in another panel.
+  {{< /foundation_tabs_panel >}}
+  {{< /foundation_tabs_panels >}}
+
+another_term
+: A bunch of text defining the term.
+
 ### Checklists
 
 Checklists are an unordered list with a checkbox.
@@ -620,6 +649,22 @@ You should back up the server.
 {{< recommend >}}
 Back up the server.
 {{< /recommend >}}
+
+Recommend inside a list:
+
+- item 1
+- item 2
+
+  {{< recommend not >}}
+  You should back up the server.
+  {{< /recommend >}}
+
+  - subitem 1
+
+    {{< recommend >}}
+    Back up the server.
+    {{< /recommend >}}
+
 
 ## Notices
 
