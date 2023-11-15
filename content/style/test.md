@@ -100,7 +100,7 @@ Indent ordered sub-list items **3 spaces**.
 
 1. This is a list item
 1. This is another list item in the same list. The number you use in Markdown
-   does not necessarily correlate to the number in the final output. By
+   doesn't necessarily correlate to the number in the final output. By
    convention, we keep them in sync.
 1. {{< note >}}
    For single-digit numbered lists, using two spaces after the period makes

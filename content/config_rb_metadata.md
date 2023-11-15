@@ -141,9 +141,9 @@ This configuration file has the following settings:
 
   {{< warning >}}
 
-  Use the `gem` setting only for making external chef libraries shipped as gems accessible in a Chef Infra Client run for libraries and attribute files. The `gem` setting in `metadata.rb` allows for the early installation of this specific type of gem, with the fundamental limitation that it cannot install native gems.
+  Use the `gem` setting only for making external chef libraries shipped as gems accessible in a Chef Infra Client run for libraries and attribute files. The `gem` setting in `metadata.rb` allows for the early installation of this specific type of gem, with the fundamental limitation that it can't install native gems.
 
-  Do not install native gems with the `gem` setting in `metadata.rb` . The `gem` setting is not a general purpose replacement for the [chef_gem resource](/resources/chef_gem/), and does not internally re-use the `chef_gem` resource. Native gems require C compilation and must not be installed with `metadata.rb` because `metadata.rb` runs before any recipe code runs. Consequently, Chef Infra Client cannot install the C compilers before the gem installation occurs. Instead, install native gems with the `chef_gem` resource called from the recipe code. You'll also need to use the `build_essential` resource in the recipe code to install the prerequisite compilers onto the system.
+  Don't install native gems with the `gem` setting in `metadata.rb`. The `gem` setting is not a general purpose replacement for the [chef_gem resource](/resources/chef_gem/), and does not internally re-use the `chef_gem` resource. Native gems require C compilation and must not be installed with `metadata.rb` because `metadata.rb` runs before any recipe code runs. Consequently, Chef Infra Client Linux install the C compilers before the gem installation occurs. Instead, install native gems with the `chef_gem` resource called from the recipe code. You'll also need to use the `build_essential` resource in the recipe code to install the prerequisite compilers onto the system.
 
   Pure ruby gems can also be installed with `metadata.rb`.
 
