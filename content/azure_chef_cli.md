@@ -58,7 +58,7 @@ This command has the following options:
 
 `-a`, `--auto-update-client`
 
-: Automatically update Chef Infra Client. Set to `true` to automatically update the version of the Azure Chef Extension when the virtual machine is restarted. For example, if this option is enabled, a virtual machine that has version `1205.12.2.0` will be updated automatically to `1205.12.2.1` when it is published. Default value: `false`.
+: Automatically update Chef Infra Client. Set to `true` to automatically update the version of the Azure Chef Extension when the virtual machine is restarted. For example, if this option is enabled, a virtual machine that has version `1205.12.2.0` will be updated automatically to `1205.12.2.1` when it's published. Default value: `false`.
 
 `-b`, `--disable`
 
@@ -146,17 +146,17 @@ The extension has the following options that can be provided in the
 
 : Tells the extension whether the supplied validation key is `plaintext` or `base64encoded`.
 
-  {{< note spaces=4 >}}
+  {{< note >}}
 
-  If using the Chef extension in an ARM template, it is recommended that you base64 encode your validation key and set this option to `base64encoded`
+  If using the Chef extension in an ARM template, it's recommended that you base64 encode your validation key and set this option to `base64encoded`
 
   {{< /note >}}
 
 `bootstrap_version`
 
-: The version of Chef Infra Client that will be installed on the system. **linux only**
+: The version of Chef Infra Client that will be installed on the system. **Linux only**
 
-  {{< note spaces=4 >}}
+  {{< note >}}
   Due to constraints in Azure, the `bootstrap_version` option is only available on the `LinuxChefClient` extension.
   {{< /note >}}
 
@@ -168,7 +168,7 @@ The extension has the following options that can be provided in the
 
 : Specifies a local path to install Chef Infra Client from. This feature is mainly used for cases where there are restrictions on internet access.
 
-  {{< note spaces=4 >}}
+  {{< note >}}
   Azure extensions have network access limitations. See the [Azure documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/features-linux#network-access) for more information.
   {{< /note >}}
 
@@ -188,7 +188,7 @@ The extension has the following options that can be provided in the
 
 : A hash of the following options: `chef_node_name`, `chef_server_url`, `environment`, `secret`, and `validation_client_name`.
 
-  {{< note spaces=4 >}}
+  {{< note >}}
 
   Options that are supplied in the bootstrap items will take precedence over any conflicts found in the `client.rb` file.
 

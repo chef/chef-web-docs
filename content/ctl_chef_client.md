@@ -122,7 +122,7 @@ This command has the following options:
 
     Use this option to set the `chef_environment` value for a node.
 
-    {{< note spaces=4 >}}
+    {{< note >}}
 
     Any environment specified for `chef_environment` by a JSON file will take precedence over an environment specified by the `--environment` option when both options are part of the same command.
 
@@ -148,7 +148,7 @@ This command has the following options:
 
     {{< readfile file="content/reusable/md/node_ctl_attribute.md" >}}
 
-    {{< note spaces=4 >}}
+    {{< note >}}
 
     This has set the `normal` attribute
     `node['override_attributes']['apptastic']`.
@@ -707,7 +707,7 @@ threads. To increase the system process limits:
     chsec -f /etc/security/limits -s default -a "nofiles=50000"
     ```
 
-    {{< note spaces="4" >}}
+    {{< note >}}
 
     The previous commands may be run against the root user, instead of
     default. For example:

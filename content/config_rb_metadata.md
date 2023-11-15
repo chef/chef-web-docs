@@ -25,7 +25,7 @@ aliases = ["/config_rb_metadata.html"]
 
 ## Error Messages
 
-The Chef Infra Server will only try to distribute the cookbooks that are needed to configure an individual node. This is determined by identifying the roles and recipes that are assigned directly to that system, and then to expand the list of dependencies, and then to deliver that entire set to the node. In some cases, if the dependency is not specified in the cookbook's metadata, the Chef Infra Server may not treat that dependency as a requirement, which will result in an error message. If an error message is received from the Chef Infra Server about cookbook distribution, verify the `depends` entries in the `metadata.rb` file, and then try again.
+The Chef Infra Server will only try to distribute the cookbooks that are needed to configure an individual node. This is determined by identifying the roles and recipes that are assigned directly to that system, and then to expand the list of dependencies, and then to deliver that entire set to the node. In some cases, if the dependency isn't specified in the cookbook's metadata, the Chef Infra Server may not treat that dependency as a requirement, which will result in an error message. If an error message is received from the Chef Infra Server about cookbook distribution, verify the `depends` entries in the `metadata.rb` file, and then try again.
 
 {{< note >}}
 
@@ -35,7 +35,7 @@ A metadata.json file can be edited directly, should temporary changes be require
 
 ## Version Constraints
 
-Many fields in a cookbook's metadata allow the user to constrain versions. There are a set of operators common to all fields:
+Many fields in a cookbook's metadata allow the user to constrain versions. The following operators are common to all fields:
 
 <!-- markdownlint-disable MD033 -->
 <table>
@@ -106,7 +106,7 @@ This configuration file has the following settings:
 
 `depends`
 
-: This field requires that a cookbook with a matching name and version exists on the Chef Infra Server. When the match exists, the Chef Infra Server includes the dependency as part of the set of cookbooks that are sent to the node during a Chef Infra Client run. It is important that the `depends` field contain accurate data. If a dependency statement is inaccurate, Chef Infra Client may not be able to complete the configuration of the system. All [version constraint operators](#version-constraints) are applicable to this field.
+: This field requires that a cookbook with a matching name and version exists on the Chef Infra Server. When the match exists, the Chef Infra Server includes the dependency as part of the set of cookbooks that are sent to the node during a Chef Infra Client run. It's important that the `depends` field contain accurate data. If a dependency statement is inaccurate, Chef Infra Client may not be able to complete the configuration of the system. All [version constraint operators](#version-constraints) are applicable to this field.
 
   For example, to set a dependency a cookbook named `cats`:
 
@@ -139,11 +139,11 @@ This configuration file has the following settings:
   gem 'chef-sugar'
   ```
 
-  {{< warning spaces=4 >}}
+  {{< warning >}}
 
-  Use the `gem` setting only for making external chef libraries shipped as gems accessible in a Chef Infra Client run for libraries and attribute files. The `gem` setting in `metadata.rb` allows for the early installation of this specific type of gem, with the fundamental limitation that it cannot install native gems.
+  Use the `gem` setting only for making external chef libraries shipped as gems accessible in a Chef Infra Client run for libraries and attribute files. The `gem` setting in `metadata.rb` allows for the early installation of this specific type of gem, with the fundamental limitation that it can't install native gems.
 
-  Do not install native gems with the `gem` setting in `metadata.rb` . The `gem` setting is not a general purpose replacement for the [chef_gem resource](/resources/chef_gem/), and does not internally re-use the `chef_gem` resource. Native gems require C compilation and must not be installed with `metadata.rb` because `metadata.rb` runs before any recipe code runs. Consequently, Chef Infra Client cannot install the C compilers before the gem installation occurs. Instead, install native gems with the `chef_gem` resource called from the recipe code. You'll also need to use the `build_essential` resource in the recipe code to install the prerequisite compilers onto the system.
+  Don't install native gems with the `gem` setting in `metadata.rb`. The `gem` setting isn't a general purpose replacement for the [chef_gem resource](/resources/chef_gem/), and doesn't internally re-use the `chef_gem` resource. Native gems require C compilation and must not be installed with `metadata.rb` because `metadata.rb` runs before any recipe code runs. Consequently, Chef Infra Client Linux install the C compilers before the gem installation occurs. Instead, install native gems with the `chef_gem` resource called from the recipe code. You'll also need to use the `build_essential` resource in the recipe code to install the prerequisite compilers onto the system.
 
   Pure ruby gems can also be installed with `metadata.rb`.
 
@@ -151,7 +151,7 @@ This configuration file has the following settings:
 
 `issues_url`
 
-: The URL for the location in which a cookbook's issue tracking is maintained. This setting is also used by Chef Supermarket. In Chef Supermarket, this value is used to define the destination for the "View Issues" link.
+: The URL of the location in which a cookbook's issue tracking is maintained. This setting is also used by Chef Supermarket. In Chef Supermarket, this value is used to define the destination for the "View Issues" link.
 
   For example:
 
@@ -199,7 +199,7 @@ This configuration file has the following settings:
 
 `maintainer_email`
 
-: The email address for the person responsible for maintaining a cookbook. Only one email can be listed here, so if this needs to be forwarded to multiple people consider using an email address that is already setup for mail forwarding.
+: The email address for the person responsible for maintaining a cookbook. Only one email can be listed here, so if this needs to be forwarded to multiple people consider using an email address that's already setup for mail forwarding.
 
     For example:
 
@@ -227,9 +227,9 @@ This configuration file has the following settings:
     ohai_version '~> 8'
     ```
 
-    {{< note spaces=4 >}}
+    {{< note >}}
 
-    This setting is not visible in Chef Supermarket.
+    This setting isn't visible in Chef Supermarket.
 
     {{< /note >}}
 
@@ -245,7 +245,7 @@ This configuration file has the following settings:
 
 `source_url`
 
-: The URL for the location in which a cookbook's source code is maintained. This setting is also used by Chef Supermarket. In Chef Supermarket, this value is used to define the destination for the "View Source" link.
+: The URL of the location in which a cookbook's source code is maintained. This setting is also used by Chef Supermarket. In Chef Supermarket, this value is used to define the destination for the "View Source" link.
 
     For example:
 

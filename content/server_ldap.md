@@ -53,7 +53,7 @@ the following:
     Availability installation as well as on Chef servers in a standalone
     installation.
 
-    {{< warning spaces=4 >}}
+    {{< warning >}}
 
     The following settings **MUST** be in the config file for LDAP
     authentication to Active Directory to work:
@@ -99,7 +99,7 @@ the following:
       'CN=user,OU=Employees,OU=Domainuser,DC=example,DC=com'
       ```
 
-      {{< note spaces=6 >}}
+      {{< note >}}
 
       If you need to escape characters in a distinguished name, such as
       when using Active Directory, they must be [escaped with a backslash
@@ -176,13 +176,13 @@ the following:
       Default value: `false`. Must be `false` when `ldap['tls_enabled']`
       is `true`.
 
-      {{< note spaces=6 >}}
+      {{< note >}}
 
       Enable SSL for Active Directory.
 
       {{< /note >}}
 
-      {{< note spaces=6 >}}
+      {{< note >}}
 
       Previous versions of the Chef Infra Server used the
       `ldap['ssl_enabled']` setting to first enable SSL, and then the
@@ -199,7 +199,7 @@ the following:
       will display strings like "the corporate login server," "corporate
       login," or "corporate password." Default value: `AD/LDAP`.
 
-      {{< warning spaces=6 >}}
+      {{< warning >}}
 
       This setting **isn't** used by the Chef Infra Server. It's used only by the Chef management console.
 
@@ -217,7 +217,7 @@ the following:
       `ldap['port']` is also set to `636`. Default value: `false`. Must be
       `false` when `ldap['ssl_enabled']` is `true`.
 
-      {{< note spaces=6 >}}
+      {{< note >}}
 
       Previous versions of the Chef Infra Server used the
       `ldap['ssl_enabled']` setting to first enable SSL, and then the
@@ -226,7 +226,7 @@ the following:
 
       {{< /note >}}
 
-    {{< note spaces=4 >}}
+    {{< note >}}
 
     If the `chef-server.rb` file doesn't exist, create a file called
     `chef-server.rb` and put it in the `/etc/opscode/` directory.
