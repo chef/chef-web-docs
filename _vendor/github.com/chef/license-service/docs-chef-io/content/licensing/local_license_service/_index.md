@@ -29,6 +29,12 @@ After installing Local License Service and uploading licensing data, users can c
 Chef applications cache license keys that they've received from Local License Service while they're running and must reconnect to Local License Service to retrieve a license key when they restart.
 Local License Service can automatically synchronize commercial licenses from Chef's licensing server (assuming the service has internet connectivity).
 
+## Compatibility
+
+The Chef Local License Service can provide licenses to following Chef products:
+
+- Chef InSpec 6 and greater
+
 ## Get Chef Local License Service
 
 Contact [Chef Support](https://community.progress.com/s/products/chef) to gain access to the deployment binaries for this service.
