@@ -35,7 +35,7 @@ Replace the following:
 : The identifier or name for this secret.
 
 `<VERSION>`
-The secret version. If a service supports versions and you don't provide a version, the Secrets Management Integration helper fetches the latest version.
+: The secret version. If a service supports versions and you don't provide a version, the Secrets Management Integration helper fetches the latest version.
 
   Secret versions supported with:
 
