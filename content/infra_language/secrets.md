@@ -27,13 +27,15 @@ Use the following syntax to fetch secrets:
 secret(name: '<SECRET_NAME>', version: '<VERSION>', service: <SERVICE>, config: {key: value})
 ```
 
+<!-- markdownlint-disable MD006 MD007 -->
+
 Replace the following:
 
 `<SECRET_NAME>`
 : The identifier or name for this secret.
 
-`VERSION`
-: The secret version. If a service supports versions and you don't provide a version, the Secrets Management Integration helper fetches the latest version.
+`<VERSION>`
+The secret version. If a service supports versions and you don't provide a version, the Secrets Management Integration helper fetches the latest version.
 
   Secret versions supported with:
 
@@ -52,6 +54,8 @@ Replace the following:
 
 `config`
 : Use `config` to set key/value settings passed to a secrets manager. For example, to set the AWS region that a secret is stored in with AWS Secrets Manager, add `config: {region: 'us-west-2'}`.
+
+<!-- markdownlint-enable MD006 MD007 -->
 
 ### Set defaults
 
@@ -78,6 +82,22 @@ with_secret_service(<SERVICE>) do
     value2 = secret(name: "<SECRET_NAME_2>")
     value3 = secret(name: "<SECRET_NAME_3>")
   end
+end
+```
+
+Define a default secret service and then fetch secrets with different configs:
+
+```ruby
+default_secret_service(<SERVICE>)
+
+with_secret_config(key: "<VALUE>") do
+  secret_1 = secret(name: "<SECRET_NAME_1>")
+  secret_2 = secret(name: "<SECRET_NAME_2>")
+end
+
+with_secret_config(key: "<OTHER_VALUE>") do
+  secret_3 = secret(name: "<SECRET_NAME_3>")
+  secret_4 = secret(name: "<SECRET_NAME_4>")
 end
 ```
 
@@ -128,22 +148,6 @@ Fetch a specific version of an Azure Key Vault secret:
 
 ```ruby
 secret(name: '<VAULT_NAME/SECRET_NAME>', version: 'v1', service: :azure_key_vault)
-```
-
-Define a default secret service and then fetch multiple secrets from different client IDs:
-
-```ruby
-default_secret_service(:azure_key_vault)
-
-with_secret_config(client_id: "<CLIENT_ID>") do
-  secret_1 = secret(name: "<SECRET_NAME_1>")
-  secret_2 = secret(name: "<SECRET_NAME_2>")
-end
-
-with_secret_config(client_id: "<OTHER_CLIENT_ID>") do
-  secret_3 = secret(name: "<SECRET_NAME_3>")
-  secret_4 = secret(name: "<SECRET_NAME_4>")
-end
 ```
 
 ### HashiCorp Vault
