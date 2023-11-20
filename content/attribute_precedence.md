@@ -41,7 +41,14 @@ precedence:
 
 Attribute precedence, when viewed as a table:
 
-![image](/images/overview_chef_attributes_table.png)
+|                | Attribute Files | Node/Recipe | Environment| Role |
+|----------------|-----------------|-------------|------------|------|
+| default        | 1               | 2           | 3          | 4    |
+| force_default  | 5               | 6           |            |      |
+| normal         | 7               | 8           |            |      |
+| override       | 9               | 10          | 12         | 11   |
+| force_override | 13              | 14          |            |      |
+| automatic      |                 |             | 15         |      |
 
 ## Examples
 
