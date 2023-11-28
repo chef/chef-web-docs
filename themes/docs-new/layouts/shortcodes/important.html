@@ -1,4 +1,6 @@
 <div class="admonition-important">
-    <p class="admonition-important-title">Important</p>
-    <div class="admonition-important-text">{{- .Inner | markdownify -}}</div>
+  <p class="admonition-important-title">Important</p>
+  <div class="admonition-important-text">
+    {{- trim .InnerDeindent "\r\n" | .Page.RenderString -}}
+  </div>
 </div>

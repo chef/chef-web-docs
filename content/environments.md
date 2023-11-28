@@ -384,7 +384,7 @@ using the following methods:
     file, and then using `knife bootstrap -e environment_name` to
     bootstrap the changes to the specified environment
 
-    {{< note spaces=4 >}}
+    {{< note >}}
 
     After the environment has been set using bootstrap, the environment is
     set in the client.rb file and may not be modified using the `edit` argument of the `knife node`

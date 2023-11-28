@@ -11,5 +11,5 @@ toc_layout = "release_notes_toc"
     title = "Chef Workstation"
     identifier = "release_notes/release_notes.md Chef Workstation"
     parent = "release_notes"
-    weight = 90
+    weight = 100
 +++
