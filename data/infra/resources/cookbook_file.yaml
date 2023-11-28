@@ -11,6 +11,11 @@ resource_description_list:
 - shortcode: resource_cookbook_file_summary.md
 - markdown: |-
     During a Chef Infra Client run, the checksum for each local file is calculated and then compared against the checksum for the same file as it currently exists in the cookbook on the Chef Infra Server. A file is not transferred when the checksums match. Only files that require an update are transferred from the Chef Infra Server to a node.
+syntax_description: "A **cookbook_file** resource block manages files by using files\
+  \ that\nexist within a cookbook's `/files` directory. For example, to write the\n\
+  home page for an Apache website:\n\n```ruby\ncookbook_file '/var/www/customers/public_html/index.php'\
+  \ do\n  source 'index.php'\n  owner 'web_admin'\n  group 'web_admin'\n  mode '0755'\n\
+  \  action :create\nend\n```"
 syntax_full_code_block: |-
   cookbook_file 'name' do
     atomic_update              true, false
