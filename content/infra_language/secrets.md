@@ -11,128 +11,209 @@ gh_repo = "chef-web-docs"
     parent = "chef_infra/infra_language"
 +++
 
-The Secrets Management Integration helper is a beta feature starting in Chef Infra Client 17.5 and became a fully supported feature in Chef Infra Client 18. This helper allows you to access secrets from the following secrets management systems within your Infra recipes or resources:
+The Secrets Management Integration helper is a beta feature starting in Chef Infra Client 17.5 and became a fully supported feature in Chef Infra Client 18.
+This helper allows you to access secrets from the following secrets management systems within your Infra recipes or resources:
 
 - AWS Secrets Manager
 - Akeyless Vault
 - Azure Key Vault
 - HashiCorp Vault
 
-## Secrets Manager Support
+## Syntax
 
-### AWS Secrets Manager
-
-The secrets helper supports fetching secrets from AWS Secrets Manager from IAM roles applied to instances.
-
-#### Fetching an AWS Secrets Manager secret
+Use the following syntax to fetch secrets:
 
 ```ruby
-secret(name: 'test1', service: :aws_secrets_manager)
+secret(name: '<SECRET_NAME>', version: '<VERSION>', service: <SERVICE>, config: {key: value})
 ```
 
-#### Specifying the AWS Region containing the secret
+<!-- markdownlint-disable MD006 MD007 -->
+
+Replace the following:
+
+`<SECRET_NAME>`
+: The identifier or name for this secret.
+
+`<VERSION>`
+: The secret version. If a service supports versions and you don't provide a version, the Secrets Management Integration helper fetches the latest version.
+
+  Secret versions supported with:
+
+  - AWS Secrets Manager
+  - Azure Key Vault
+
+`<SERVICE>`
+: The secret manager.
+
+  Allowed values:
+
+  - `:akeyless_vault`
+  - `:aws_secrets_manager`
+  - `:azure_key_vault`
+  - `:hashi_vault`
+
+`config`
+: Use `config` to set key/value settings passed to a secrets manager. For example, to set the AWS region that a secret is stored in with AWS Secrets Manager, add `config: {region: 'us-west-2'}`.
+
+<!-- markdownlint-enable MD006 MD007 -->
+
+### Set defaults
+
+You can set a default service and service configuration and then the Secrets Management Integration helper will use those settings every time you request a secret.
+This is useful if you want to request more than one secret from the same service.
+
+Use the `default_secret_service` and `default_secret_config` to define a default service and service configuration:
 
 ```ruby
-secret(name: 'test1', service: :aws_secrets_manager, config: { region: 'us-west-2' })
+default_secret_service(<SERVICE>)
+default_secret_config(key: "value")
+
+value1 = secret(name: "<SECRET_NAME_1>")
+value2 = secret(name: "<SECRET_NAME_2>")
+value3 = secret(name: "<SECRET_NAME_3>")
 ```
+
+Or wrap your secret definitions using `with_secret_service` and `with_secret_config`:
+
+```ruby
+with_secret_service(<SERVICE>) do
+  with_secret_config(key: "value") do
+    value1 = secret(name: "<SECRET_NAME_1>")
+    value2 = secret(name: "<SECRET_NAME_2>")
+    value3 = secret(name: "<SECRET_NAME_3>")
+  end
+end
+```
+
+Define a default secret service and then fetch secrets with different configs:
+
+```ruby
+default_secret_service(<SERVICE>)
+
+with_secret_config(key: "<VALUE>") do
+  secret_1 = secret(name: "<SECRET_NAME_1>")
+  secret_2 = secret(name: "<SECRET_NAME_2>")
+end
+
+with_secret_config(key: "<OTHER_VALUE>") do
+  secret_3 = secret(name: "<SECRET_NAME_3>")
+  secret_4 = secret(name: "<SECRET_NAME_4>")
+end
+```
+
+## Examples
 
 ### Akeyless Vault
 
-The secrets helper supports fetching secrets from Akeyless Vault using Akeyless' access key and access ID.
-
-#### Fetching Secrets From Akeyless Vault Using Access Key/ID
+Fetch secrets from Akeyless Vault using the access key and access ID:
 
 ```ruby
-secret(name: '/secret/data/my_secret',
+secret(name: '<SECRET_NAME>',
        service: :akeyless_vault,
        config: {
-         access_key: '12345678910=',
-         access_id: 'p-12345678910'
+         access_key: '<ACCESS_KEY>',
+         access_id: '<ACCESS_ID>'
       })
+```
+
+### AWS Secrets Manager
+
+Fetch a secret from AWS Secrets Manager:
+
+```ruby
+secret(name: '<SECRET_NAME>', service: :aws_secrets_manager)
+```
+
+Specify an AWS region:
+
+```ruby
+secret(name: '<SECRET_NAME>', service: :aws_secrets_manager, config: { region: '<AWS_REGION>' })
 ```
 
 ### Azure Key Vault
 
-The secrets helper supports fetching secrets from Azure Key Vault.
-
-#### Fetching Secrets From Azure Key Vault
+Fetch secrets from Azure Key Vault:
 
 ```ruby
-secret(name: 'vault-name/test-secret-1', service: :azure_key_vault)
+secret(name: '<VAULT_NAME/SECRET_NAME>', service: :azure_key_vault)
 ```
 
-#### Fetching a specific version of an Azure Key Vault secret
+Specify the vault name in the config:
 
 ```ruby
-secret(name: 'vault-name/test1', version: 'v1', service: :azure_key_vault)
+secret(name: '<SECRET_NAME>', service: :azure_key_vault, config: { vault: '<VAULT_NAME>' })
+```
+
+Fetch a specific version of an Azure Key Vault secret:
+
+```ruby
+secret(name: '<VAULT_NAME/SECRET_NAME>', version: 'v1', service: :azure_key_vault)
 ```
 
 ### HashiCorp Vault
 
-#### Fetching Secrets From HashiCorp Vault Using AWS IAM
+Fetch secrets from HashiCorp Vault using AWS IAM:
 
 ```ruby
-secret(name: 'secret/example',
+secret(name: '<PATH/TO/SECRET>',
       service: :hashi_vault,
       config: {
         vault_addr: 'vault.example.com',
-        role_name: 'example-role'
+        role_name: '<ROLE>'
       })
 ```
 
-#### Fetching Secrets From HashiCorp Vault Using Tokens
+Fetch secrets from HashiCorp Vault using tokens:
 
 ```ruby
-secret(name: 'secret/example',
+secret(name: '<PATH/TO/SECRET>',
       service: :hashi_vault,
       config: {
         vault_addr: 'vault.example.com',
         auth_method: :token,
-        token: '123456'
+        token: '<TOKEN_STRING>'
       })
 ```
 
-#### Fetching Secrets From HashiCorp Vault Using AppRole Authentication
-
-Fetching secret data using an AppRole ID and an associated AppRole Secret ID:
+Fetch secrets from HashiCorp Vault using AppRole ID and an associated AppRole Secret ID:
 
 ```ruby
-secret(name: 'secret/example',
+secret(name: '<PATH/TO/SECRET>',
       service: :hashi_vault,
       config: {
         vault_addr: 'vault.example.com',
         auth_method: :approle,
-        approle_id: "11111111-abcd-1111-abcd-111111111111",
-        approle_secret_id: "22222222-abcd-2222-abcd-222222222222"
+        approle_id: "<APPROLE_ID_STRING>",
+        approle_secret_id: "<APPROLE_SECRET_ID_STRING>"
       })
 ```
 
-Fetching secret data using a token and an AppRole name creates a Secret ID associated with that AppRole:
+Fetch secrets using a token and an AppRole name creates a Secret ID associated with that AppRole:
 
 ```ruby
-secret(name: 'secret/example',
+secret(name: '<PATH/TO/SECRET>',
       service: :hashi_vault,
       config: {
         vault_addr: 'vault.example.com',
         auth_method: :approle,
-        approle_name: "my-approle",
-        token: '123456'
+        approle_name: "<APPROLE_NAME>",
+        token: '<TOKEN_STRING>'
       })
 ```
 
-## Using in Cookbooks
+### Fetch secrets in cookbooks
 
-The secrets helper returns a text string, so it can be used anywhere in Chef Infra where you might hard code a value or access a value from a data bag.
+The secrets helper returns a text string, so you can use it anywhere in Chef Infra where you might hard code a value or access a value from a data bag.
 
-### Writing a Secret To a File
+Write a secret to a file:
 
 ```ruby
 file '/home/ubuntu/aws-secret' do
-  content secret(name: 'test1', service: :aws_secrets_manager)
+  content secret(name: '<SECRET_NAME>', service: :aws_secrets_manager)
 end
 ```
 
-### Passing a Secret to a Template
+Pass a secret to a template:
 
 ```ruby
 template '/etc/my_fancy_service/my_fancy_service.conf' do
