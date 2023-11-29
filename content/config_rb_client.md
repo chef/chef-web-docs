@@ -211,8 +211,12 @@ This configuration file has the following settings:
 `enable_reporting`
 : Cause Chef Infra Client to send run data to Chef Automate server.
 
+  Default value: `true`
+
 `enable_reporting_url_fatals`
 : Cause a Chef Infra Client run to fail when run data can't be sent to the Chef Automate server (for any reason).
+
+  Default value: `false`
 
 `enable_selinux_file_permission_fixup`
 : SELinux environments only. Cause Chef Infra Client to attempt to apply the correct file permissions to an updated file using the `restorecon` command. Set to `false` to prevent Chef Infra Client from attempting this action.
