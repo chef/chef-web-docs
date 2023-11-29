@@ -316,7 +316,7 @@ cookbook in which the recipe is located is available to the system on
 which chef-solo is running. For example, a file named `dna.json`
 contains the following details:
 
-```none
+```json
 {
   "run_list": ["recipe[apache2]"]
 }

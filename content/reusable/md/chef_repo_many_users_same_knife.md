@@ -9,7 +9,7 @@ when each chef-repo points to a different chef server or organization.
 
 Example config.rb:
 
-```none
+```ruby
 current_dir = File.dirname(__FILE__)
   user = ENV['CHEF_USER'] || ENV['USER']
   node_name                user

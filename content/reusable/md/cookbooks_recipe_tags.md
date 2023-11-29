@@ -40,7 +40,7 @@ end
 
 Will return something like this:
 
-```none
+```plain
 [Thu, 22 Jul 2010 18:01:45 +0000] INFO: Hey I'm test_node
 [Thu, 22 Jul 2010 18:01:45 +0000] INFO: I am not tagged
 ```

@@ -49,7 +49,7 @@ knife data bag from file BAG_NAME ITEM_NAME.json
 
 will load the following file:
 
-```none
+```plain
 data_bags/BAG_NAME/ITEM_NAME.json
 ```
 
@@ -255,7 +255,7 @@ knife data bag show passwords mysql
 where "passwords" is the name of the data bag and "mysql" is the name of
 the data bag item. This will return something similar to:
 
-```none
+```bash
 id:   mysql
 pass:
 cipher:         aes-256-cbc
@@ -319,7 +319,7 @@ items for each environment.
 A data bag that is storing a top-level key for an environment might look
 something like this:
 
-```none
+```json
 {
   "id": "some_data_bag_item",
   "production" : {
