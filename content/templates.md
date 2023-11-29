@@ -33,23 +33,28 @@ The `custom_web` cookbook directory with a template has the structure:
 
 ```text
 . cookbooks
- - custom_web
-   - recipes
-     - default.rb
-   - templates
-     - http.erb
-   - test
-     - integration
-        -  default
-           -  default_test.rb
-   - .gitignore
-   - CHANGELOG.md
-   - chefignore
-   - kitchen.yml
-   - LICENSE
-   - metadata.rb
-   - Policyfile.rb
-   - README.md
+├── README.md
+└── custom_web
+    ├── CHANGELOG.md
+    ├── LICENSE
+    ├── Policyfile.rb
+    ├── README.md
+    ├── chefignore
+    ├── compliance
+    │   ├── README.md
+    │   ├── inputs
+    │   ├── profiles
+    │   └── waivers
+    ├── kitchen.yml
+    ├── metadata.rb
+    ├── recipes
+    │   └── default.rb
+    ├── templates
+    │   └── httpd.erb
+    └── test
+        └── integration
+            └── default
+                └── default_test.rb
 ```
 
 ## Requirements

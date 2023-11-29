@@ -11,7 +11,7 @@ aliases = ["/chef_repo.html"]
     parent = "chef_infra/cookbook_reference"
     weight = 15
 +++
-<!-- markdownlint-disable-file MD033 -->
+
 {{< readfile file="content/reusable/md/chef_repo_description.md" >}}
 
 ## Generate the chef-repo
@@ -28,94 +28,88 @@ chef generate repo REPO_NAME
 
 {{< /note >}}
 
-## Directory Structure
+## Directory structure
 
-The chef-repo contains several directories, each with a README file that describes what it is for and how to use that directory when managing systems.
+The chef-repo contains several directories, each with a README file that describes what it's for and how to use that directory when managing systems.
 
 The default structure of a new chef-repo is:
 
-```output
+```plain
 . chef-repo
-  - cookbooks
-    - README.md
-    - example
-      - attribtes
-        - default.rb
-      - recipes
-        - default.rb
-      - metadata.rb
-      - README.md
-  - data_bags
-      - example
-        - example_item.json
-      - README.md
-  - policyfiles
-      - README.md
-  - .chef-repo.txt
-  - chefignore
-  - License
-  - README.md
+├── LICENSE
+├── README.md
+├── chefignore
+├── cookbooks
+│   ├── README.md
+│   └── example
+│       ├── README.md
+│       ├── attributes
+│       │   ├── README.md
+│       │   └── default.rb
+│       ├── metadata.rb
+│       └── recipes
+│           ├── README.md
+│           └── default.rb
+├── data_bags
+│   ├── README.md
+│   └── example
+│       ├── README.md
+│       └── example_item.json
+└── policyfiles
+    └── README.md
 ```
 
-### cookbooks/
+### cookbooks
 
-This directory contains the cookbooks that are used to configure systems in the infrastructure which are are downloaded from the [Chef Supermarket](https://supermarket.chef.io/) or created locally. The Chef Infra Client uses cookbooks to configuring the systems in the organization. Each cookbook can be configured to contain cookbook-specific copyright, email, and license data.
+The `cookbooks` directory contains cookbooks that configure systems in the infrastructure which are are downloaded from the [Chef Supermarket](https://supermarket.chef.io/) or created locally. The Chef Infra Client uses cookbooks to configuring the systems in the organization. Each cookbook can be configured to contain cookbook-specific copyright, email, and license data.
 
-### data_bags/
+### data_bags
 
-The `data_bags/` directory is used to store all the data bags that exist for an organization. Each sub-directory corresponds to a single data bag on the Chef Infra Server and contains a JSON file corresponding to each data bag item.
+The `data_bags` directory is used to store all the data bags that exist for an organization. Each sub-directory corresponds to a single data bag on the Chef Infra Server and contains a JSON file corresponding to each data bag item.
 
-### policyfiles/
+### policyfiles
 
-The `policyfiles/` directory is used to store Policyfiles in the `.rb` format that define the set of cookbooks and attributes to apply to specific systems managed by the Chef Infra Server.
+The `policyfiles` directory is used to store Policyfiles in the `.rb` format that define the set of cookbooks and attributes to apply to specific systems managed by the Chef Infra Server.
 
-## chefignore Files
+### chefignore
 
-The chefignore file is used to tell knife which cookbook files in the chef-repo should be ignored when uploading data to the Chef Infra Server. The type of data that should be ignored includes swap files, version control data, build output data, and so fort. The chefignore file uses the `File.fnmatch` Ruby syntax to define the ignore patterns using `*`, `**`, and `?` wildcards.
+A `chefignore` file tells knife which cookbook files in the chef-repo it should ignore when uploading data to the Chef Infra Server.
+Include swap files, version control data, and build output data in a `chefignore` file.
 
-- A pattern is relative to the cookbook root
-- A pattern may contain relative directory names
-- A pattern may match all files in a directory
+The `chefignore` file has the following rules:
 
-The chefignore file can be located in any subdirectory of a chef-repo: `/`, `/cookbooks`, `/cookbooks/COOKBOOK_NAME/`, etc. It should contain sections similar to the following:
+- Patterns use `*`, `**`, and `?` wildcards to match files and directories as defined by the `File.fnmatch` Ruby method.
+- A pattern is relative to the directory it's included in.
+- A pattern may contain relative directory names.
+- A pattern may match all files in a directory.
+- You can add a `chefignore` file to any subdirectory of a chef-repo. For example, `/`, `/cookbooks`, `/cookbooks/COOKBOOK_NAME/`, etc.
+- Lines that start with `#` are comments.
 
-```none
-## section
+Group types of ignored files in sections similar to the following:
+
+```plain
+## OS generated files
 *ignore_pattern
 
-## section
-ignore_pattern*
-
-## section
-**ignore_pattern
-
-## section
-ignore_pattern**
-
-## section
-?ignore_pattern
-
-## section
-ignore_pattern?
+## Editors
+another_ignore_pattern*
 ```
 
-### Examples
+See Ruby's [`File.fnmatch` documentation](https://ruby-doc.org/core-2.5.1/File.html#method-c-fnmatch) for information on creating matching file patterns.
 
-The following example shows how to add entries to the `chefignore` file.
+#### Examples
 
-#### Ignore editor swap files
+Many text editors leave files behind. To prevent knife from uploading these files to the Chef Infra Server, add an entry to the `chefignore` file.
 
-Many text editors leave files behind. To prevent these files from being uploaded to the Chef Infra Server, add an entry to the `chefignore` file.
+For Emacs backup files:
 
-For Emacs:
-
-```none
+```plain
 *~
 ```
 
-and for vim:
+and for Vim swap files:
 
-```none
+```plain
 *.sw[a-z]
 ```
 
