@@ -84,7 +84,7 @@ library-based resources and providers that do not declare provides in
 which case your Chef Infra Client run is likely full of a compilation of
 warnings and deprecations:
 
-```none
+```plain
 * foo[it] action doit[2016-12-07T14:28:59-08:00] WARN: Class Chef::Provider::Foo does not declare 'provides :foo'.
   [2016-12-07T14:28:59-08:00] WARN: This will no longer work in Chef Infra Client 13: you must use 'provides' to use the resource's DSL.
   (up to date)

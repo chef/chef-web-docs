@@ -6,7 +6,7 @@ to the top-level, flattening them into compound fields that support
 wildcard search patterns.
 
 By combining wildcards with range-matching patterns and wildcard
-queries, it is possible to perform powerful searches, such as using
+queries, it's possible to perform powerful searches, such as using
 the vendor part of the MAC address to find every node that has a network
 card made by the specified vendor.
 
@@ -69,13 +69,13 @@ Consider the following snippet of JSON data:
 Before this data is indexed on the Chef Infra Server, the nested fields
 are extracted into the top level, similar to:
 
-```none
+```ruby
 "broadcast" => "192.168.0.255",
 "flags"     => ["UP", "BROADCAST", "SMART", "RUNNING", "SIMPLEX", "MULTICAST"]
 "mtu"       => "1500"
 ```
 
-which allows searches like the following to find data that is present in
+which allows searches like the following to find data that's present in
 this node:
 
 ```ruby
@@ -98,7 +98,7 @@ This data is also flattened into various compound fields, which follow
 the same pattern as the JSON hierarchy and use underscores (`_`) to
 separate the levels of data, similar to:
 
-```none
+```ruby
 # ...snip...
 "network_interfaces_en1_addresses_192.0.2.0_broadcast" => "192.168.0.255",
 "network_interfaces_en1_addresses_fe80::fa1e:tldr_family"  => "inet6",
@@ -106,7 +106,7 @@ separate the levels of data, similar to:
 # ...snip...
 ```
 
-which allows searches like the following to find data that is present in
+which allows searches like the following to find data that's present in
 this node:
 
 ```ruby
@@ -115,7 +115,7 @@ node "network_interfaces_en1_addresses:192.0.2.0"
 
 This flattened data structure also supports using wildcard compound
 fields, which allow searches to omit levels within the JSON data
-structure that are not important to the search query. In the following
+structure that aren't important to the search query. In the following
 example, an asterisk (`*`) is used to show where the wildcard can exist
 when searching for a nested field:
 

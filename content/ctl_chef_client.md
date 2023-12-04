@@ -723,7 +723,7 @@ threads. To increase the system process limits:
 When the system process limits are too low, an error is returned similar
 to:
 
-```none
+```bash
 Error Syncing Cookbooks:
 ==================================================================
 

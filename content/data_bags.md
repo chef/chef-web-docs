@@ -49,7 +49,7 @@ knife data bag from file BAG_NAME ITEM_NAME.json
 
 will load the following file:
 
-```none
+```plain
 data_bags/BAG_NAME/ITEM_NAME.json
 ```
 
@@ -221,7 +221,7 @@ arguments and the following options:
 
 | Option             | Description                                                   |
 |--------------------|-------------------------------------------------------------|
-| `--secret SECRET`    | The encryption key that is used for values contained within a data bag item. If `secret` is not specified, Chef Infra Client looks for a secret at the path specified by the `encrypted_data_bag_secret` setting in the client.rb file. |
+| `--secret SECRET`    | The encryption key that's used for values contained within a data bag item. If `secret` is not specified, Chef Infra Client looks for a secret at the path specified by the `encrypted_data_bag_secret` setting in the client.rb file. |
 | `--secret-file FILE` | The path to the file that contains the encryption key.           |
 
 ### Secret Keys
@@ -255,7 +255,7 @@ knife data bag show passwords mysql
 where "passwords" is the name of the data bag and "mysql" is the name of
 the data bag item. This will return something similar to:
 
-```none
+```bash
 id:   mysql
 pass:
 cipher:         aes-256-cbc
@@ -316,10 +316,10 @@ be used to store shared environment data within a data bag: by using a
 top-level key that corresponds to the environment or by using separate
 items for each environment.
 
-A data bag that is storing a top-level key for an environment might look
+A data bag stores a top-level key for an environment might look
 something like this:
 
-```none
+```json
 {
   "id": "some_data_bag_item",
   "production" : {

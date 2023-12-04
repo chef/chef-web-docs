@@ -23,13 +23,13 @@ There are multiple causes of the Chef 401 "Unauthorized" error, so please use th
 If you're receiving an error like the following it most likely means you'll need to regenerate the ORGANIZATION-validator.pem file:
 
 ```bash
-INFO: Client key /etc/chef/client.pem is not present - registering
+INFO: Client key /etc/chef/client.pem isn't present - registering
 INFO: HTTP Request Returned 401 Unauthorized: Failed to authenticate as ORGANIZATION-validator. Ensure that your node_name and client key are correct.
 FATAL: Stacktrace dumped to c:/chef/cache/chef-stacktrace.out
 FATAL: Net::HTTPClientException: 401 "Unauthorized"
 ```
 
-#### Troubleshooting Steps
+#### Troubleshooting steps
 
 1. Check if the ORGANIZATION-validator.pem file exists in one of the following locations:
 
@@ -56,22 +56,23 @@ ERROR: Failed to authenticate to https://api.opscode.com/organizations/ORGANIZAT
 Response:  Failed to authenticate as USERNAME. Ensure that your node_name and client key are correct.
 ```
 
-### Troubleshooting Steps
+### Troubleshooting steps
 
-* Verify you have the correct values in your config.rb file, especially for the `node_name` and `client_key` settings.
+- Verify you have the correct values in your config.rb file, especially for the `node_name` and `client_key` settings.
 
-* Check if the file referenced in the `client_key` setting (usually USER.pem) exists. Some common locations include:
-  * `~/.chef`
-  * `~/projects/current_project/.chef`
-  * `/etc/chef`
+- Check if the file referenced in the `client_key` setting (usually USER.pem) exists. Some common locations include:
+
+  - `~/.chef`
+  - `~/projects/current_project/.chef`
+  - `/etc/chef`
 
     If one is present, verify that it has the correct read permissions.
 
-* If there's no client.rb file, regenerate it and ensure the values for the `node_name` and `client_key` settings are correct.
+- If there's no client.rb file, regenerate it and ensure the values for the `node_name` and `client_key` settings are correct.
 
 ### Organization not found
 
-If you see this error when trying to recreate the ORGANIZATION-validator.pem, it is possible that Chef Infra Client itself was deleted. In this situation, the ORGANIZATION-validator.pem will need to be recreated. In these directions, `ORGANIZATION` should be replaced with the name of your organization.
+If you see this error when trying to recreate the ORGANIZATION-validator.pem, it's possible that Chef Infra Client itself was deleted. In this situation, the ORGANIZATION-validator.pem will need to be recreated. In these directions, `ORGANIZATION` should be replaced with the name of your organization.
 
 {{< readfile file="content/reusable/md/manage_webui_policy_validation_reset_key.md" >}}
 
@@ -80,7 +81,7 @@ If you see this error when trying to recreate the ORGANIZATION-validator.pem, it
 If the system clock drifts more than 15 minutes from the actual time, the following type of error will be shown:
 
 ```bash
-INFO: Client key /etc/chef/client.pem is not present - registering
+INFO: Client key /etc/chef/client.pem isn't present - registering
 INFO: HTTP Request Returned 401 Unauthorized: Failed to authenticate as ORGANIZATION-validator. Synchronize the clock on your host.
 FATAL: Stacktrace dumped to /var/chef/cache/chef-stacktrace.out
 FATAL: Net::HTTPClientException: 401 "Unauthorized"
@@ -92,7 +93,7 @@ To resolve this error, synchronize the clock with an NTP server.
 
 The general `Net::HTTPClientException: 401 "Unauthorized"` error will usually occur for one of two reasons.
 
-#### Troubleshooting Steps
+#### Troubleshooting steps
 
 1. Make sure your `client.pem` is valid.
 
@@ -126,7 +127,7 @@ The general `Net::HTTPClientException: 401 "Unauthorized"` error will usually oc
 2. Make sure to use the same `node_name` as the initial Chef Infra Client run.
 
     This can happen for a number of reasons. For example, if the
-    client.rb file does not specify the correct node name and the
+    client.rb file doesn't specify the correct node name and the
     system's hostname has changed.
 
     Running `chef-client -l debug` will identify the node name being
@@ -157,7 +158,7 @@ FATAL: Net::HTTPClientException: 403 "Forbidden"
 
 this is an indication that there is an issue with permissions on the Chef Infra Server.
 
-### Troubleshooting Steps
+### Troubleshooting steps
 
 In Chef, there are two different types of permissions issues, object specific and global permissions. To figure out which type of permission issue you're experiencing, run Chef Infra Client again using the `-l debug` options to see debugging output.
 
@@ -196,8 +197,8 @@ To fix object permissions:
 
 HTTP 500 is a non-specific error message. The full error message for the error Chef Infra Client is receiving can be found in one of the following log files:
 
-* `/var/log/opscode/opscode-account/current`
-* `/var/log/opscode/opscode-erchef/current`
+- `/var/log/opscode/opscode-account/current`
+- `/var/log/opscode/opscode-erchef/current`
 
 The error will likely found in a stacktrace from the application error. In some cases the error message will clearly indicate a problem with another service which can be investigated further. For non-obvious errors, please contact Chef and attach the log files.
 
@@ -234,7 +235,7 @@ In working with Chef, you'll most likely encounter issues in your regular workfl
 If you're seeing an error like:
 
 ```bash
-Client key /etc/chef/client.pem is notresent - registering
+Client key /etc/chef/client.pem isn'tresent - registering
 WARN: Failed to read the private key /etc/che/validation.pem: #<Errno::ENOENT: No such file or directory - /etc/chef/validation.pem>
 FATAL: Stacktrace dumped to /etc/chef/cache/chef-stacktrace.out
 FATAL: Chef::Exceptions::PrivateKeyMissing: I cannot read /etc/chef/validation.pem, which you told me to use to sign requests
@@ -242,14 +243,14 @@ FATAL: Chef::Exceptions::PrivateKeyMissing: I cannot read /etc/chef/validation.p
 
 It means that Chef Infra Client could not find your validation.pem.
 
-#### Troubleshooting Steps
+#### Troubleshooting steps
 
 1. Make sure your `validation.pem` or `ORGANIZATION-validator.pem` is downloaded and accessible by the current user.
 2. Make sure your client.rb points to the location of your validator pem.
 
 ### Commit or stash your changes
 
-This is not really an error, but can be confusing to new users. When you try to install a cookbook with changes that have not been committed to git you will get this error:
+This isn't an error, but can be confusing to new users. When you try to install a cookbook with changes that you haven't committed to Git, you will get this error:
 
 ```bash
 Installing getting-started to /home/jes/chef-repo/.chef/../cookbooks
@@ -260,7 +261,7 @@ ERROR: You have uncommitted changes to your cookbook repo:
 Commit or stash your changes before importing cookbooks
 ```
 
-#### Troubleshooting Steps
+#### Troubleshooting steps
 
 Solve this by committing the cookbook changes. For example, the following command would commit all new changes with the message "updates".
 
@@ -282,7 +283,7 @@ WARN: No such file or directory - /etc/chef/client.rb
 FATAL: Chef::Exceptions::PrivateKeyMissing: I cannot read /etc/chef/validation.pem, which you told me to use to sign requests!
 ```
 
-#### Troubleshooting Steps
+#### Troubleshooting steps
 
 Work around this issue by supplying the full path to the client.rb file:
 
@@ -290,21 +291,21 @@ Work around this issue by supplying the full path to the client.rb file:
 chef-client -c /etc/chef/client.rb
 ```
 
-### Pivotal.rb does not exist
+### Pivotal.rb doesn't exist
 
 If you're seeing an error like:
 
 ```bash
-ERROR: CONFIGURATION ERROR:Specified config file /etc/opscode/pivotal.rb does not exist
+ERROR: CONFIGURATION ERROR:Specified config file /etc/opscode/pivotal.rb doesn't exist
 ```
 
-#### Troubleshooting Steps
+#### Troubleshooting steps
 
 Run the following to restart all of the services:
 
-> ```bash
-> chef-server-ctl reconfigure
-> ```
+```bash
+chef-server-ctl reconfigure
+```
 
 Because the Chef Infra Server is composed of many different services that work together to create a functioning system, this step may take a few minutes to complete.
 
@@ -318,21 +319,21 @@ The following error messages may be present when configuring the Chef Infra Serv
 
 The value of `postgresql['external']` has been changed.
 
-#### Possible Causes
+#### Possible causes
 
-* This setting must be set before running
+- This setting must be set before running
     `chef-server-ctl reconfigure`, and may not be changed after
 
 {{< warning >}}
 
-Upgrading is not supported at this time.
+Upgrading isn't supported at this time.
 
 {{< /warning >}}
 
 #### Resolution
 
-* Back up the data using `knife ec backup`, create a new backend instance, and then restore the data
-* Re-point front end machines at the new backend instance **or** assign the new backend instance the name/VIP of the old backend instance (including certificates, keys, and so on)
+- Back up the data using `knife ec backup`, create a new backend instance, and then restore the data
+- Re-point frontend machines at the new backend instance **or** assign the new backend instance the name/VIP of the old backend instance (including certificates and keys)
 
 ### CSPG010 (cannot connect)
 
@@ -340,12 +341,12 @@ Upgrading is not supported at this time.
 
 Cannot connect to PostgreSQL on the remote server.
 
-#### Possible Causes
+#### Possible causes
 
-* PostgreSQL is not running on the remote server
-* The port used by PostgreSQL is blocked by a firewall on the remote server
-* Network routing configuration is preventing access to the host
-* When using Amazon Web Services (AWS), rules for security groups are preventing the Chef Infra Server from communicating with PostgreSQL
+- PostgreSQL isn't running on the remote server
+- The port used by PostgreSQL is blocked by a firewall on the remote server
+- Network routing configuration is preventing access to the host
+- When using Amazon Web Services (AWS), rules for security groups are preventing the Chef Infra Server from communicating with PostgreSQL
 
 ### CSPG011 (cannot authenticate)
 
@@ -353,10 +354,10 @@ Cannot connect to PostgreSQL on the remote server.
 
 Cannot authenticate to PostgreSQL on the remote server.
 
-#### Possible Causes
+#### Possible causes
 
-* Incorrect password specified for `db_superuser_password`
-* Incorrect user name specified for `db_superuser`
+- Incorrect password specified for `db_superuser_password`
+- Incorrect user name specified for `db_superuser`
 
 ### CSPG012 (incorrect rules)
 
@@ -365,18 +366,18 @@ Cannot authenticate to PostgreSQL on the remote server.
 Cannot connect to PostgreSQL on the remote server because rules in
 `pg_hba` are incorrect.
 
-#### Possible Causes
+#### Possible causes
 
-* There is no `pg_hba.conf` rule for the `db_superuser` in PostgreSQL
-* A rule exists for the `db_superuser` in `pg_hba.conf`, but it does not specify `md5` access
-* A rule in `pg_hba.conf` specifies an incorrect originating address
+- No `pg_hba.conf` rule exists for the `db_superuser` in PostgreSQL
+- A rule exists for the `db_superuser` in `pg_hba.conf`, but it doesn't specify `md5` access
+- A rule in `pg_hba.conf` specifies an incorrect originating address
 
 #### Resolution
 
 Entries in the `pg_hba.conf` file should allow:
 
-* All user names that originate from any Chef Infra Server instance using `md5` authentication.
-* A specific application names: `$db_superuser` (the configured superuser name in the chef-server.rb file), `oc_id`, `oc_id_ro`, `opscode_chef`, `opscode_chef_ro`, `bifrost`, and `bifrost_ro`
+- All user names that originate from any Chef Infra Server instance using `md5` authentication.
+- A specific application names: `$db_superuser` (the configured superuser name in the chef-server.rb file), `oc_id`, `oc_id_ro`, `opscode_chef`, `opscode_chef_ro`, `bifrost`, and `bifrost_ro`
 
 ##### pg_hba.conf User Names
 
@@ -430,13 +431,13 @@ SELECT pg_reload_conf();
 
 Rules in the `pg_hba.conf` file should allow only specific application names:
 
-* `$db_superuser` (the configured superuser name in the chef-server.rb file)
-* `oc_id`
-* `oc_id_ro`
-* `opscode_chef`
-* `opscode_chef_ro`
-* `bifrost`
-* `bifrost_ro`
+- `$db_superuser` (the configured superuser name in the chef-server.rb file)
+- `oc_id`
+- `oc_id_ro`
+- `opscode_chef`
+- `opscode_chef_ro`
+- `bifrost`
+- `bifrost_ro`
 
 ### CSPG013 (incorrect permissions)
 
@@ -444,11 +445,11 @@ Rules in the `pg_hba.conf` file should allow only specific application names:
 
 The `db_superuser` account has incorrect permissions.
 
-#### Possible Causes
+#### Possible causes
 
-* The `db_superuser` account has not been granted `SUPERUSER` access
+- The `db_superuser` account hasn't been granted `SUPERUSER` access
 
-* The `db_superuser` account has not been granted `CREATE DATABASE` and `CREATE ROLE` privileges
+- The `db_superuser` account hasn't been granted `CREATE DATABASE` and `CREATE ROLE` privileges
 
     ```bash
     ALTER ROLE "$your_db_superuser_name" WITH SUPERUSER
@@ -466,24 +467,24 @@ The `db_superuser` account has incorrect permissions.
 
 Bad version of PostgreSQL.
 
-#### Possible Causes
+#### Possible causes
 
-* The remote server is not running PostgreSQL version 9.2.x
+- The remote server isn't running PostgreSQL version 9.2.x
 
 ### CSPG015 (missing database)
 
 #### Reason
 
-The database template `template1` does not exist.
+The database template `template1` doesn't exist.
 
-#### Possible Causes
+#### Possible causes
 
-* The `template1` database template has been removed from the remote
+- The `template1` database template has been removed from the remote
     server
 
 #### Resolution
 
-* Run the following command (as a superuser):
+- Run the following command (as a superuser):
 
     ```bash
     CREATE DATABASE template1 TEMPLATE template0
@@ -501,15 +502,15 @@ The database template `template1` does not exist.
 
 One (or more) of the PostgreSQL databases already exists.
 
-#### Possible Causes
+#### Possible causes
 
-* The `opscode_chef`, `oc_id`, and/or `bifrost` databases already exist on the remote machine
-* The PostgreSQL database exists for another application
+- The `opscode_chef`, `oc_id`, and/or `bifrost` databases already exist on the remote machine
+- The PostgreSQL database exists for another application
 
 #### Resolution
 
-* Verify that the `opscode_chef`, `oc_id`, and/or `bifrost` databases exist, and then verify that they are not being used by another internal application
-* Back up the PostgreSQL data, remove the existing databases, and reconfigure the Chef server
+- Verify that the `opscode_chef`, `oc_id`, and/or `bifrost` databases exist, and then verify that they're not being used by another internal application
+- Back up the PostgreSQL data, remove the existing databases, and reconfigure the Chef server
 
 ### CSPG017 (user exists)
 
@@ -517,15 +518,15 @@ One (or more) of the PostgreSQL databases already exists.
 
 One (or more) of the PostgreSQL predefined users already exists.
 
-#### Possible Causes
+#### Possible causes
 
-* The `opscode_chef`, `ospcode_chef_ro`, `bifrost`, `bifrost_ro`, `oc_id`, or `oc_id_ro` users already exist on the remote machine
-* The `postgresql['vip']` setting is configured to a remote host, but `postgresql['external']` is not set to `true`, which causes the `opscode_chef` and `ospcode_chef_ro` users to be created before the machine is reconfigured, which will return a permissions error
-* Existing, valid naming conflicts are present, where the users were created independently of the Chef server
+- The `opscode_chef`, `ospcode_chef_ro`, `bifrost`, `bifrost_ro`, `oc_id`, or `oc_id_ro` users already exist on the remote machine
+- The `postgresql['vip']` setting is configured to a remote host, but `postgresql['external']` isn't set to `true`, which causes the `opscode_chef` and `ospcode_chef_ro` users to be created before the machine is reconfigured, which will return a permissions error
+- Existing, valid naming conflicts are present, where the users were created independently of the Chef server
 
 #### Resolution
 
-* Run the following, if it is safe to do so, to update the user name that is specified in the error message:
+- Run the following, if it's safe to do so, to update the user name that's specified in the error message:
 
     ```bash
     DROP ROLE "name-of-user";
@@ -533,9 +534,9 @@ One (or more) of the PostgreSQL predefined users already exists.
 
     or change the name of the user by updating following settings in the chef-server.rb configuration file:
 
-    ```none
+    ```ruby
     oc_id['sql_user'] = 'alternative_username'
-    oc_id['sql_ro_user'] = alternative_username_for_ro_access'
+    oc_id['sql_ro_user'] = 'alternative_username_for_ro_access'
     opscode_erchef['sql_user'] = 'alternative_username'
     opscode_erchef['sql_ro_user'] = 'alternative_username_for_ro_access'
     oc_bifrost['sql_ro_user'] = 'alternative_username'

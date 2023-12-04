@@ -193,7 +193,7 @@ knife cookbook upload redis --force
 Without the `--force` option specified, an error will be returned
 similar to:
 
-```none
+```bash
 Version 0.0.0 of cookbook redis is frozen. Use --force to override
 ```
 

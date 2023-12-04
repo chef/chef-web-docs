@@ -21,13 +21,13 @@ Chef Software products and to provide direct download URLs.
 
 The URL from which these downloads can be obtained has the following syntax:
 
-```none
+```plain
 https://omnitruck.chef.io/<CHANNEL>/<PRODUCT>/download?p=$PLATFORM&pv=$PLATFORM_VERSION&m=$MACHINE_ARCH&v=latest&prerelease=false&nightlies=false
 ```
 
 or:
 
-```none
+```plain
 https://omnitruck.chef.io/<CHANNEL>/<PRODUCT>/metadata?p=$PLATFORM&pv=$PLATFORM_VERSION&m=$MACHINE_ARCH&v=latest&prerelease=false&nightlies=false
 ```
 
@@ -40,13 +40,13 @@ single step.
 
 The `/metadata` and/or `/download` endpoints can be used to download packages for all products:
 
-```none
+```plain
 https://omnitruck.chef.io/<CHANNEL>/<PRODUCT>/download?p=$PLATFORM&pv=$PLATFORM_VERSION&m=$MACHINE_ARCH&v=latest
 ```
 
 or:
 
-```none
+```plain
 https://omnitruck.chef.io/<CHANNEL>/<PRODUCT>/metadata?p=$PLATFORM&pv=$PLATFORM_VERSION&m=$MACHINE_ARCH&v=latest
 ```
 
@@ -164,13 +164,13 @@ This is a list of currently supported products that you can install with the Omn
 
 To get the latest supported build for Ubuntu 20.04, enter the following:
 
-```none
+```plain
 https://omnitruck.chef.io/stable/chef/metadata?p=ubuntu&pv=20.04&m=x86_64
 ```
 
 to return something like:
 
-```none
+```plain
 sha1 3fe8e8a2f443675f9b82e876cdac8200104451f2
 sha256 9f1c1a2c0b1f4e8494664386437bf32f0cb5cbfbd4cb9d23e327767fc65581dc
 url https://packages.chef.io/files/stable/chef/17.7.29/ubuntu/20.04/chef_17.7.29-1_amd64.deb

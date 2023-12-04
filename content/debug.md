@@ -308,7 +308,7 @@ override[:test][:source] = 'attributes override'
 
 To debug the location in which the value of `node[:test][:source]` is set, use chef-shell and run a command similar to:
 
-```none
+```ruby
 pp node.debug_value('test', 'source')
 ```
 
