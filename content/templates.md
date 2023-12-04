@@ -41,16 +41,16 @@ The `custom_web` cookbook directory with a template has the structure:
     ├── README.md
     ├── chefignore
     ├── compliance
-    │   ├── README.md
-    │   ├── inputs
-    │   ├── profiles
-    │   └── waivers
+    │   ├── README.md
+    │   ├── inputs
+    │   ├── profiles
+    │   └── waivers
     ├── kitchen.yml
     ├── metadata.rb
     ├── recipes
-    │   └── default.rb
+    │   └── default.rb
     ├── templates
-    │   └── httpd.erb
+    │   └── httpd.erb
     └── test
         └── integration
             └── default
