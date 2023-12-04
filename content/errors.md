@@ -29,7 +29,7 @@ FATAL: Stacktrace dumped to c:/chef/cache/chef-stacktrace.out
 FATAL: Net::HTTPClientException: 401 "Unauthorized"
 ```
 
-#### Troubleshooting Steps
+#### Troubleshooting steps
 
 1. Check if the ORGANIZATION-validator.pem file exists in one of the following locations:
 
@@ -56,7 +56,7 @@ ERROR: Failed to authenticate to https://api.opscode.com/organizations/ORGANIZAT
 Response:  Failed to authenticate as USERNAME. Ensure that your node_name and client key are correct.
 ```
 
-### Troubleshooting Steps
+### Troubleshooting steps
 
 - Verify you have the correct values in your config.rb file, especially for the `node_name` and `client_key` settings.
 
@@ -93,7 +93,7 @@ To resolve this error, synchronize the clock with an NTP server.
 
 The general `Net::HTTPClientException: 401 "Unauthorized"` error will usually occur for one of two reasons.
 
-#### Troubleshooting Steps
+#### Troubleshooting steps
 
 1. Make sure your `client.pem` is valid.
 
@@ -158,7 +158,7 @@ FATAL: Net::HTTPClientException: 403 "Forbidden"
 
 this is an indication that there is an issue with permissions on the Chef Infra Server.
 
-### Troubleshooting Steps
+### Troubleshooting steps
 
 In Chef, there are two different types of permissions issues, object specific and global permissions. To figure out which type of permission issue you're experiencing, run Chef Infra Client again using the `-l debug` options to see debugging output.
 
@@ -243,14 +243,14 @@ FATAL: Chef::Exceptions::PrivateKeyMissing: I cannot read /etc/chef/validation.p
 
 It means that Chef Infra Client could not find your validation.pem.
 
-#### Troubleshooting Steps
+#### Troubleshooting steps
 
 1. Make sure your `validation.pem` or `ORGANIZATION-validator.pem` is downloaded and accessible by the current user.
 2. Make sure your client.rb points to the location of your validator pem.
 
 ### Commit or stash your changes
 
-This isn't really an error, but can be confusing to new users. When you try to install a cookbook with changes that have not been committed to git you will get this error:
+This isn't an error, but can be confusing to new users. When you try to install a cookbook with changes that you haven't committed to Git, you will get this error:
 
 ```bash
 Installing getting-started to /home/jes/chef-repo/.chef/../cookbooks
@@ -261,7 +261,7 @@ ERROR: You have uncommitted changes to your cookbook repo:
 Commit or stash your changes before importing cookbooks
 ```
 
-#### Troubleshooting Steps
+#### Troubleshooting steps
 
 Solve this by committing the cookbook changes. For example, the following command would commit all new changes with the message "updates".
 
@@ -283,7 +283,7 @@ WARN: No such file or directory - /etc/chef/client.rb
 FATAL: Chef::Exceptions::PrivateKeyMissing: I cannot read /etc/chef/validation.pem, which you told me to use to sign requests!
 ```
 
-#### Troubleshooting Steps
+#### Troubleshooting steps
 
 Work around this issue by supplying the full path to the client.rb file:
 
@@ -299,7 +299,7 @@ If you're seeing an error like:
 ERROR: CONFIGURATION ERROR:Specified config file /etc/opscode/pivotal.rb doesn't exist
 ```
 
-#### Troubleshooting Steps
+#### Troubleshooting steps
 
 Run the following to restart all of the services:
 
