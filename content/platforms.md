@@ -63,7 +63,7 @@ documentation for a list of supported platforms for Chef Automate HA.
 
 #### Commercial Support
 
-The following table lists the commercially-supported platforms for Chef Backend, which is the high-availability solution for Chef Infra Server.
+The following table lists the commercially supported platforms for Chef Backend, which is the high-availability solution for Chef Infra Server.
 
 | Platform | Architecture | Version |
 | --- | --- | --- |
@@ -88,7 +88,7 @@ See our policy on [support for derived platforms](#support-for-derived-platforms
 
 #### Commercial Support
 
-The following table lists the commercially-supported platforms and versions for Chef Infra Client.
+The following table lists the commercially supported platforms and versions for Chef Infra Client.
 
 | Platform | Architecture | Version |
 | --- | --- | --- |
@@ -152,7 +152,7 @@ The following platforms are supported only using the community.
 
 #### Commercial Support
 
-The following table lists the commercially-supported platforms and versions for Chef InSpec.
+The following table lists the commercially supported platforms and versions for Chef InSpec.
 
 {{< readfile file="content/inspec/reusable/md/support_commercial_platforms.md" >}}
 
@@ -192,16 +192,9 @@ See our policy on [support for derived platforms](#support-for-derived-platforms
 
 #### Commercial Support
 
-The following table lists the commercially-supported platforms and versions for the Chef Workstation.
+The following table lists the commercially supported platforms and versions for the Chef Workstation.
 
-| Platform | Architecture | Version |
-| --- | --- | --- |
-| Amazon Linux | `x86_64` | `2.x` |
-| macOS | `x86_64`, `aarch64` | `10.15`, `11.x`, `12.x` |
-| Debian | `x86_64` | `10`, `11` |
-| Red Hat Enterprise Linux | `x86_64` | `7.x`, `8.x`, `9.x` |
-| Ubuntu | `x86_64` | `18.04`, `20.04`, `22.04` |
-| Windows | `x64` | `8.1`, `2012`, `2012 R2`, `2016`, `10 (all channels except "insider" builds)`, `2019 (Long-term servicing channel (LTSC), Desktop Experience only)`, `11`, `2022` |
+{{< readfile file = "content/workstation/reusable/md/workstation_supported_platforms.md" >}}
 
 #### Derived platforms
 
@@ -209,10 +202,7 @@ The following table lists supported derived platforms and versions for Chef Work
 
 See our policy on [support for derived platforms](#support-for-derived-platforms) for more information.
 
-| Platform | Architecture | Version | Parent platform |
-| --- | --- | --- | --- |
-| AlmaLinux | `x86_64` | `8.x` | CentOS |
-| Rocky Linux | `x86_64` | `8.x` | CentOS |
+{{< readfile file = "content/workstation/reusable/md/workstation_supported_derived_platforms.md" >}}
 
 ## Platform End-of-Life Policy
 
