@@ -65,24 +65,23 @@ chef generate resource cookbooks/custom_web site
 The `custom_web` cookbook directory with a custom resource has the structure:
 
 ```text
-- cookbooks
-  - custom_web
-    - recipes
-      - default.rb
-    - resources
-      - site.rb
-    - test
-      - integration
-        - default
-          - default_test.rb
-    - .gitignore
-    - CHANGELOG.md
-    - chefignore
-    - kitchen.yml
-    - LICENSE
-    - metadata.rb
-    - Policyfile.rb
-    - README.md
+. cookbooks
+└── custom_web
+    ├── CHANGELOG.md
+    ├── LICENSE
+    ├── Policyfile.rb
+    ├── README.md
+    ├── chefignore
+    ├── kitchen.yml
+    ├── metadata.rb
+    ├── recipes
+    │   └── default.rb
+    ├── resources
+    │   └── site.rb
+    └── test
+        └── integration
+            └── default
+              └── default_test.rb
 ```
 
 ### Example Resource

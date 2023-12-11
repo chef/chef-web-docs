@@ -30,7 +30,7 @@ For example:
 knife data bag create DATA_BAG_NAME (DATA_BAG_ITEM)
 ```
 
-Use the `from file` arguement to update data bag items:
+Use the `from file` argument to update data bag items:
 
 ```bash
 knife data bag from file BAG_NAME ITEM_NAME.json
@@ -58,7 +58,7 @@ Chef Infra Server use the following command:
 knife data bag from file admins charlie.json
 ```
 
-In some cases, such as when knife is not being run from the root
+In some cases, such as when knife isn't being run from the root
 directory for the chef-repo, the full path to the data bag item may be
 required. For example:
 
@@ -76,7 +76,7 @@ create the data bag folders and data bag item JSON files. For example:
 mkdir data_bags/admins
 ```
 
-would create a data bag folder named "admins". The equivalent command
+would create a data bag folder named `admins`. The equivalent command
 for using knife is:
 
 ```bash
@@ -129,7 +129,7 @@ private git repository and the new lines converted to `\n`.
 
 All data bags are stored in the `data_bags` directory of the chef-repo.
 This directory structure is understood by knife so that the full path
-does not need to be entered when working with data bags from the command
+doesn't need to be entered when working with data bags from the command
 line. An example of the `data_bags` directory structure:
 
 ```text
@@ -223,7 +223,7 @@ arguments and the following options:
 
 | Option             | Description                                                   |
 |--------------------|-------------------------------------------------------------|
-| `--secret SECRET`    | The encryption key that's used for values contained within a data bag item. If `secret` is not specified, Chef Infra Client looks for a secret at the path specified by the `encrypted_data_bag_secret` setting in the client.rb file. |
+| `--secret SECRET`    | The encryption key that's used for values contained within a data bag item. If `secret` isn't specified, Chef Infra Client looks for a secret at the path specified by the `encrypted_data_bag_secret` setting in the client.rb file. |
 | `--secret-file FILE` | The path to the file that contains the encryption key.           |
 
 ### Secret keys
@@ -246,8 +246,8 @@ is saved.
 
 ### Verify encryption
 
-When the contents of a data bag item are encrypted, they will not be
-readable until they are decrypted. Encryption can be verified with a
+When the contents of a data bag item are encrypted, they won't be
+readable until they're decrypted. Encryption can be verified with a
 knife command similar to:
 
 ```bash
@@ -313,7 +313,7 @@ Data bags can be accessed in the following ways:
 ### Environments
 
 Values that are stored in a data bag are global to the organization and
-are available to any environment. There are two main strategies that can
+are available to any environment. The two main strategies that can
 be used to store shared environment data within a data bag: by using a
 top-level key that corresponds to the environment or by using separate
 items for each environment.
@@ -368,7 +368,7 @@ The Chef Infra Language provides access to data bags and data bag items
 - `data_bag(bag)`, where `bag` is the name of the data bag.
 - `data_bag_item('bag_name', 'item', 'secret')`, where `bag` is the
     name of the data bag and `item` is the name of the data bag item. If
-    `'secret'` is not specified, Chef Infra Client will look for a
+    `'secret'` isn't specified, Chef Infra Client will look for a
     secret at the path specified by the `encrypted_data_bag_secret`
     setting in the client.rb file.
 
@@ -409,7 +409,7 @@ using the key specified above, or (if none is specified) by the
 #### Create and edit
 
 Creating and editing the contents of a data bag or a data bag item from
-a recipe is not recommended. The recommended method of updating a data
+a recipe isn't recommended. The recommended method of updating a data
 bag or a data bag item is to use knife and the `knife data bag`
 subcommand. If this action must be done from a recipe, please note the
 following:
@@ -421,7 +421,7 @@ following:
     Infra Client is making updates to a data bag at a time.
 - Altering data bags from the node when using the open source Chef
     Infra Server requires the node's API client to be granted admin
-    privileges. In most cases, this is not advisable.
+    privileges. In most cases, this isn't advisable.
 
 and then take steps to ensure that any subsequent actions are done
 carefully. The following examples show how a recipe can be used to
@@ -504,8 +504,8 @@ data bag are accessible from a directory structure that exists on the
 same machine as chef-solo. The location of this directory is
 configurable using the `data_bag_path` option in the solo.rb file. The
 name of each sub-directory corresponds to a data bag and each JSON file
-within a sub-directory corresponds to a data bag item. Search is not
-available in recipes when they are run with chef-solo; use the
+within a sub-directory corresponds to a data bag item. Search isn't
+available in recipes when they're run with chef-solo; use the
 `data_bag()` and `data_bag_item()` functions to access data bags and
 data bag items.
 
