@@ -511,8 +511,7 @@ data bag items.
 
 {{< note >}}
 
-Use the `chef-solo-search` cookbook library (developed by Chef community
-member "edelight" and available from GitHub) to add data bag search
+Use the `chef-solo-search` cookbook library to add data bag search
 capabilities to a chef-solo environment:
 <https://github.com/edelight/chef-solo-search>.
 

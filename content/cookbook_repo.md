@@ -30,7 +30,7 @@ chef generate repo REPO_NAME
 The default structure of the cookbooks directory is:
 
 ```plain
-.
+. chef-repo
 └── cookbooks
     ├── README.md
     └── example
