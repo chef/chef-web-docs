@@ -81,7 +81,7 @@ The `custom_web` cookbook directory with a custom resource has the structure:
     └── test
         └── integration
             └── default
-              └── default_test.rb
+                └── default_test.rb
 ```
 
 ### Example Resource
