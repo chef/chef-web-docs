@@ -15,25 +15,22 @@ product = ["client", "server"]
 
 {{< readfile file="content/reusable/md/data_bag.md" >}}
 
-## Create a Data Bag
+## Create a data bag
 
-A data bag can be created in two ways: using knife or manually. In
-general, using knife to create data bags is recommended, but as long as
-the data bag folders and data bag item JSON files are created correctly,
+You can create a data bag in two ways: using knife or manually.
+We recommend using knife, but as long as you create the data bag folders and item JSON files correctly,
 either method is safe and effective.
 
-### Create a Data Bag with Knife
+### Create a data bag with knife
 
-knife can be used to create data bags and data bag items when the
-`knife data bag` subcommand is run with the `create` argument. For
-example:
+Use the `knife data bag create` command to create data bags and data bag items.
+For example:
 
 ```bash
 knife data bag create DATA_BAG_NAME (DATA_BAG_ITEM)
 ```
 
-knife can be used to update data bag items using the `from file`
-argument:
+Use the `from file` argument to update data bag items:
 
 ```bash
 knife data bag from file BAG_NAME ITEM_NAME.json
@@ -61,7 +58,7 @@ Chef Infra Server use the following command:
 knife data bag from file admins charlie.json
 ```
 
-In some cases, such as when knife is not being run from the root
+In some cases, such as when knife isn't being run from the root
 directory for the chef-repo, the full path to the data bag item may be
 required. For example:
 
@@ -79,7 +76,7 @@ create the data bag folders and data bag item JSON files. For example:
 mkdir data_bags/admins
 ```
 
-would create a data bag folder named "admins". The equivalent command
+would create a data bag folder named `admins`. The equivalent command
 for using knife is:
 
 ```bash
@@ -102,7 +99,7 @@ equivalent command for using knife is:
 knife data bag create admins charlie
 ```
 
-## Store Data in a Data Bag
+## Store data in a data bag
 
 When the chef-repo is cloned from GitHub, the following occurs:
 
@@ -128,42 +125,47 @@ When deploying from a private repository using a data bag, use the
 where `ssh_private_key` is the same SSH private key as used with a
 private git repository and the new lines converted to `\n`.
 
-### Directory Structure
+### Directory structure
 
 All data bags are stored in the `data_bags` directory of the chef-repo.
 This directory structure is understood by knife so that the full path
-does not need to be entered when working with data bags from the command
+doesn't need to be entered when working with data bags from the command
 line. An example of the `data_bags` directory structure:
 
 ```text
-- data_bags
-    -  admins
-        -  charlie.json
-        -  bob.json
-        -  tom.json
-    -  db_users
-        -  charlie.json
-        -  bob.json
-        -  sarah.json
-    -  db_config
-        -  small.json
-        -  medium.json
-        -  large.json
+. chef-repo
+└── data_bags
+    ├── README.md
+    ├─── admins
+    │    ├── README.md
+    │    ├── charlie.json
+    │    ├── bob.json
+    │    └── tom.json
+    ├─── db_users
+    │    ├── README.md
+    │    ├── charlie.json
+    │    ├── bob.json
+    │    └── sarah.json
+    └─── db_config
+         ├── README.md
+         ├── small.json
+         ├── medium.json
+         └── large.json
 ```
 
 where `admins`, `db_users`, and `db_config` are the names of individual
-data bags and all of the files that end with `.json` are the individual
+data bags and all the files that end with `.json` are the individual
 data bag items.
 
-### Data Bag Items
+### Data bag items
 
 {{< readfile file="content/reusable/md/data_bag_item.md" >}}
 
-## Encrypt a Data Bag Item
+## Encrypt a data bag item
 
 {{< readfile file="content/reusable/md/data_bag_encryption.md" >}}
 
-### Encryption Versions
+### Encryption versions
 
 The manner by which a data bag item is encrypted depends on the Chef
 Infra Client version used. See the following:
@@ -213,7 +215,7 @@ Chef Infra Client 13.0+
 
 - Option to  disable version 0, 1, and 2
 
-### Knife Options
+### Knife options
 
 knife can encrypt and decrypt data bag items when the `knife data bag`
 subcommand is run with the `create`, `edit`, `from file`, or `show`
@@ -221,10 +223,10 @@ arguments and the following options:
 
 | Option             | Description                                                   |
 |--------------------|-------------------------------------------------------------|
-| `--secret SECRET`    | The encryption key that's used for values contained within a data bag item. If `secret` is not specified, Chef Infra Client looks for a secret at the path specified by the `encrypted_data_bag_secret` setting in the client.rb file. |
+| `--secret SECRET`    | The encryption key that's used for values contained within a data bag item. If `secret` isn't specified, Chef Infra Client looks for a secret at the path specified by the `encrypted_data_bag_secret` setting in the client.rb file. |
 | `--secret-file FILE` | The path to the file that contains the encryption key.           |
 
-### Secret Keys
+### Secret keys
 
 {{< readfile file="content/reusable/md/data_bag_encryption_secret_key.md" >}}
 
@@ -242,10 +244,10 @@ location in which the file that contains the secret-key is located.
 knife will ask for user credentials before the encrypted data bag item
 is saved.
 
-### Verify Encryption
+### Verify encryption
 
-When the contents of a data bag item are encrypted, they will not be
-readable until they are decrypted. Encryption can be verified with a
+When the contents of a data bag item are encrypted, they won't be
+readable until they're decrypted. Encryption can be verified with a
 knife command similar to:
 
 ```bash
@@ -287,18 +289,18 @@ that will return JSON output similar to:
 }
 ```
 
-## Edit a Data Bag Item
+## Edit a data bag item
 
 A data bag can be edited in two ways: using knife or by using the Chef
 management console.
 
-### Edit a Data Bag with Knife
+### Edit a data bag with knife
 
 {{< readfile file="content/workstation/reusable/md/knife_data_bag_edit.md" >}}
 
 {{< readfile file="content/workstation/reusable/md/knife_data_bag_edit_item.md" >}}
 
-## Use Data Bags
+## Use data bags
 
 Data bags can be accessed in the following ways:
 
@@ -311,7 +313,7 @@ Data bags can be accessed in the following ways:
 ### Environments
 
 Values that are stored in a data bag are global to the organization and
-are available to any environment. There are two main strategies that can
+are available to any environment. The two main strategies that can
 be used to store shared environment data within a data bag: by using a
 top-level key that corresponds to the environment or by using separate
 items for each environment.
@@ -366,7 +368,7 @@ The Chef Infra Language provides access to data bags and data bag items
 - `data_bag(bag)`, where `bag` is the name of the data bag.
 - `data_bag_item('bag_name', 'item', 'secret')`, where `bag` is the
     name of the data bag and `item` is the name of the data bag item. If
-    `'secret'` is not specified, Chef Infra Client will look for a
+    `'secret'` isn't specified, Chef Infra Client will look for a
     secret at the path specified by the `encrypted_data_bag_secret`
     setting in the client.rb file.
 
@@ -404,10 +406,10 @@ using the key specified above, or (if none is specified) by the
 `Chef::Config[:encrypted_data_bag_secret]` method, which defaults to
 `/etc/chef/encrypted_data_bag_secret`.
 
-#### Create and Edit
+#### Create and edit
 
 Creating and editing the contents of a data bag or a data bag item from
-a recipe is not recommended. The recommended method of updating a data
+a recipe isn't recommended. The recommended method of updating a data
 bag or a data bag item is to use knife and the `knife data bag`
 subcommand. If this action must be done from a recipe, please note the
 following:
@@ -419,7 +421,7 @@ following:
     Infra Client is making updates to a data bag at a time.
 - Altering data bags from the node when using the open source Chef
     Infra Server requires the node's API client to be granted admin
-    privileges. In most cases, this is not advisable.
+    privileges. In most cases, this isn't advisable.
 
 and then take steps to ensure that any subsequent actions are done
 carefully. The following examples show how a recipe can be used to
@@ -456,7 +458,7 @@ sam['Full Name'] = 'Samantha'
 sam.save
 ```
 
-#### Create Users
+#### Create users
 
 Chef Infra Client can create users on systems based on the contents of a
 data bag. For example, a data bag named "admins" can contain a data bag
@@ -502,15 +504,14 @@ data bag are accessible from a directory structure that exists on the
 same machine as chef-solo. The location of this directory is
 configurable using the `data_bag_path` option in the solo.rb file. The
 name of each sub-directory corresponds to a data bag and each JSON file
-within a sub-directory corresponds to a data bag item. Search is not
-available in recipes when they are run with chef-solo; use the
+within a sub-directory corresponds to a data bag item. Search isn't
+available in recipes when they're run with chef-solo; use the
 `data_bag()` and `data_bag_item()` functions to access data bags and
 data bag items.
 
 {{< note >}}
 
-Use the `chef-solo-search` cookbook library (developed by Chef community
-member "edelight" and available from GitHub) to add data bag search
+Use the `chef-solo-search` cookbook library to add data bag search
 capabilities to a chef-solo environment:
 <https://github.com/edelight/chef-solo-search>.
 

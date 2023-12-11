@@ -28,16 +28,15 @@ cookbooks be added to an archive. For example:
 tar zcvf chef-solo.tar.gz ./cookbooks
 ```
 
-If multiple cookbook directories are being used, chef-solo expects the
+If you use multiple cookbook directories, chef-solo expects the
 tar.gz archive to have a directory structure similar to the following:
 
 ```text
-cookbooks/
-  |---- cbname1/
-    |--attributes/ ... etc
-  ...
-  |---- cbname2/
-    |--attributes/
+. cookbooks
+├── cookbook-name-1
+│   └── attributes
+└── cookbook-name-2
+    └── attributes
 ```
 
 The `cookbook_path` variable in the solo.rb file must include both
@@ -80,7 +79,7 @@ run-list. For example:
 }
 ```
 
-## Data Bags
+## Data bags
 
 A data bag is defined using JSON. chef-solo will look for data bags in
 `/var/chef/data_bags`, but this location can be modified by changing the
