@@ -3,6 +3,7 @@ title = "Download Chef Tools"
 draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
+aliases = ["/api_omnitruck.html"]
 
 [cascade]
   product = []
@@ -23,8 +24,8 @@ Use one of Chef's download APIs to download Chef software packages and get packa
 
 There are two APIs available depending on the type of user you are:
 
-- [Omnitruck API]({{< relref "api_omnitruck" >}}) for commercial and trial users
-- [Community API]({{< relref "/download/community" >}}) for open source community users
+- [Commercial API]({{< relref "commercial" >}}) for commercial users
+- [Community API]({{< relref "community" >}}) for open source community users
 
 ## Download page
 
