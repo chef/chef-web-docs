@@ -20,9 +20,7 @@ This page provides guidance on downloading Chef products.
 
 ## Download APIs
 
-Use one of Chef's download APIs to download Chef software packages and get package metadata.
-
-There are two APIs available depending on the type of user you are:
+Chef has two download APIs for downloading software packages and retrieving package metadata:
 
 - [Commercial API]({{< relref "commercial" >}}) for commercial users
 - [Community API]({{< relref "community" >}}) for open source community users
