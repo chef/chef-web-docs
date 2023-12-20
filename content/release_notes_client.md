@@ -12,5 +12,5 @@ toc_layout = "release_notes_toc"
     title = "Chef Infra Client"
     identifier = "release_notes/release_notes_client.md Chef Infra Client"
     parent = "release_notes"
-    weight = 40
+    weight = 50
 +++

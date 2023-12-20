@@ -2,15 +2,8 @@
 title = "Omnitruck API"
 draft = false
 gh_repo = "chef-web-docs"
-aliases = ["/api_omnitruck.html"]
-product = ["automate", "client", "server", "habitat", "inspec", "supermarket", "workstation"]
-
-[menu]
-  [menu.overview]
-    title = "Omnitruck API"
-    identifier = "overview/packages_&_platforms/download/api_omnitruck.md Omnitruck API"
-    parent = "overview/packages_&_platforms/download"
-    weight = 15
+product = []
+robots = "noindex"
 +++
 
 Chef's Omnitruck API powers the Chef Software install script as well as
