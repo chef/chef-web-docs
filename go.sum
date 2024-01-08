@@ -17,8 +17,8 @@ github.com/chef/effortless/docs-chef-io v0.0.0-20230711123605-c8beb79aba4f h1:6+
 github.com/chef/effortless/docs-chef-io v0.0.0-20230711123605-c8beb79aba4f/go.mod h1:Lfq+HjwAQwUJ41EPTO/8qbI1oJb2i415fR28d2Ig9kc=
 github.com/chef/license-service/docs-chef-io v0.0.0-20231117105514-d3f3d53ba2dd h1:I4Rgzposq3E5Dd+swVEry+rs3zvEKSN29NS3noKRcTY=
 github.com/chef/license-service/docs-chef-io v0.0.0-20231117105514-d3f3d53ba2dd/go.mod h1:leNCF0KadV7zjm7YpVegNnbmWYUFXgaPKHP4tTDacos=
-github.com/chef/supermarket/docs-chef-io v0.0.0-20231004141257-7ada2c50bece h1:qCHZDu6a+UgOvMvLRsT9wAfi7P2+uKQm+H1kvpeZ7k4=
-github.com/chef/supermarket/docs-chef-io v0.0.0-20231004141257-7ada2c50bece/go.mod h1:L0DhIJHTKsPYhAr9TrhAIg3KXtrS9BJF0XNHfGDDGGg=
+github.com/chef/supermarket/docs-chef-io v0.0.0-20240108083346-2a3969cbfd05 h1:G41HG7Z9I1yjhCo4OrH4RQW9ByKk6hkA3nXXs9Ekmzs=
+github.com/chef/supermarket/docs-chef-io v0.0.0-20240108083346-2a3969cbfd05/go.mod h1:L0DhIJHTKsPYhAr9TrhAIg3KXtrS9BJF0XNHfGDDGGg=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
 github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90 h1:p/a5iSATj0OjrqJLX/YKxYdGXhZzW58yyyNIC4JY4S0=
 github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90/go.mod h1:N/6F0+wmdvL6k0AjqyKIncMRClKAN92atjZdTLtYMaw=
