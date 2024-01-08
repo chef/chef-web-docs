@@ -26,49 +26,53 @@ Chef SaaS SSO feature supports major SAML authentication as per the current supp
 
 * [Microsoft 365 and Azure AD IDP configuration for SSO](https://chefio.atlassian.net/wiki/spaces/CPSK/pages/2712142486/Azure+AD+and+Microsoft+365+IDP+configuration+for+SSO)
 
-## User SSO integration Journey
+## User SSO Integration Journey
 
 ### Prerequisites
 
-Only SaaS admins will be able to access this feature. 
+* The User SSO Integration Journey feature is accessible only for the SaaS admins.
 
-Supported IDP is up and ready 
+* Supported IDP is up and ready.
 
-How to enable SSO for Chef-SaaS 
+### Enable SSO for Chef-SaaS
 
-To access the Single Sign-on UI navigate to https://your_automate_url. 
+1. To access the Single sign-on UI, navigate to your [Chef Automate UI](https://your_automate_url).
 
-Log in as an admin user. 
+1. Log in as an admin user.
 
-Modify your browser URL with sso. 
+1. Modify your browser URL with SSO.
 
-Remove everything after https://your_automate_url/ from your automate url and add /sso 
-ex :- https://your_automate_url/dashboard/event-feed will become https://your_automate_url/sso 
+    * Remove everything after `https://your_automate_url/` from your automate url and add `/sso`. For Example: `https://your_automate_url/dashboard/event-feed` will become `https://your_automate_url/sso`
 
-On navigating to https://your_automate_url/sso you will be authenticated and authorized for admin-level privileges and redirected to the Chef-SaaS SSO UI. 
+    * On navigating to `https://your_automate_url/sso` you will be authenticated and authorized for admin-level privileges and redirected to the Chef-SaaS SSO UI.
 
- 
+    IMAGE
 
-Fill the form fields with the values provided by your IDP 
+1. Fill the form fields with the values provided by your IDP.
 
-SSO URL - Single Sign-On URL is provided by your IDP.  
+    * **SSO URL:** Single Sign-On URL is provided by your IDP.
 
-Email Attribute - The attribute setup in IDP for user email.  
+    * **Email Attribute:** The attribute setup in IDP for user e-mail.
 
-Username Attribute - The attribute setup in IDP for the username. 
+    * **Username Attribute:** The attribute setup in IDP for the username.
 
-Entity Issuer URL- This value will be https://your_automate_url/dex/callback 
+    * **Entity Issuer URL:** The value will be `https://your_automate_url/dex/callback`.
 
-CA Certificate - Ca certificate provided by your IDP. This value should include the -----BEGIN CERTIFICATE----- and -----END CERTIFICATE----- markers. 
-Certificate will be validated for syntactical or semantical errors before submitting the config.  
+    * **CA Certificate:** Ca certificate provided by the IDP. The value should include the following markers:
 
-Please refer to this link in case of any errors or validation failures. 
+    ```sh
+    -----BEGIN CERTIFICATE----- and -----END CERTIFICATE-----
+    ```
 
-Click on Submit to set the SSO config. Submit button will be enabled if and only if form validation passes.  
+    Certificates will be validated for syntactical or semantical errors before submitting the config.
 
-An indication icon will run until setup process is completed. 
+1. Refer to the [link](https://chefio.atlassian.net/wiki/spaces/CPSK/pages/2666037294) if any error or validation failures arises.
 
- 
+1. Select **Submit** to set the SSO config. Submit button will be enabled if the form validation is passes.
+
+1. An indication icon will run until setup process is completed. Refer to the image below:
+
+IMAGE
 
 When the request is completed, you will be able to see if your set up is complete or if there are errors with the configuration.  
 
