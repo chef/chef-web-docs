@@ -1,7 +1,6 @@
 +++
 title = "Configure SSO for Chef SaaS"
 draft = false
-
 [menu]
   [menu.saas]
     title = "Configure SSO"
@@ -10,13 +9,14 @@ draft = false
     weight = 40
 +++
 
+
 Single sign-on (SSO) is an authentication method that enables you to securely authenticate and use all services with just one set of credentials. The steps are as follows:
 
-1. Login to automate. Once done, open the **https://your_automate_url/sso** URL in new tab.
+1. Login to automate. Once done, open the **https://your_automate_url/sso** URL in a new tab.
 
-2. The above URL will redirect you to the SAML setup page where the you(admin) can set up the Single sign-on configuration using the UI provided.
+1. The above URL will redirect you to the SAML setup page where you(admin) can set up the Single sign-on configuration using the UI provided.
 
-3. The Chef SaaS SSO feature supports only SAML-based IDP authentication as of now and will support IDPs according to the [Automate Documentation](https://docs.chef.io/automate/saml/).
+1. The Chef SaaS SSO feature supports only SAML-based IDP authentication as of now and will support IDPs according to the [Automate Documentation](https://docs.chef.io/automate/saml/).
 
 ## IDP Configuration
 
@@ -26,11 +26,12 @@ Chef SaaS SSO feature supports major SAML authentication as per the current supp
 
 * [Microsoft 365 and Azure AD IDP configuration for SSO](https://chefio.atlassian.net/wiki/spaces/CPSK/pages/2712142486/Azure+AD+and+Microsoft+365+IDP+configuration+for+SSO)
 
+
 ## User SSO Integration Journey
 
 ### Prerequisites
 
-* The User SSO Integration Journey feature is accessible only for the SaaS admins.
+* The User SSO Integration Journey feature is accessible only to the SaaS admins.
 
 * Supported IDP is up and ready.
 
@@ -42,10 +43,9 @@ Chef SaaS SSO feature supports major SAML authentication as per the current supp
 
 1. Modify your browser URL with SSO.
 
-    * Remove everything after `https://your_automate_url/` from your automate url and add `/sso`. For Example: `https://your_automate_url/dashboard/event-feed` will become `https://your_automate_url/sso`
+    * Remove everything after `https://your_automate_url/` from your automate URL and add `/sso`. For Example: `https://your_automate_url/dashboard/event-feed` will become `https://your_automate_url/sso`
 
     * On navigating to `https://your_automate_url/sso` you will be authenticated and authorized for admin-level privileges and redirected to the Chef-SaaS SSO UI.
-
     IMAGE
 
 1. Fill the form fields with the values provided by your IDP.
@@ -68,31 +68,31 @@ Chef SaaS SSO feature supports major SAML authentication as per the current supp
 
 1. Refer to the [link](https://chefio.atlassian.net/wiki/spaces/CPSK/pages/2666037294) if any error or validation failures arises.
 
-1. Select **Submit** to set the SSO config. Submit button will be enabled if the form validation is passes.
+1. Select **Submit** to set the SSO config. The submit button will be enabled if the form validation is passed.
 
-1. An indication icon will run until setup process is completed. Refer to the image below:
+1. An indication icon will run until the setup process is completed. Refer to the image below:
 
     IMAGE
 
-1. When the request is completed, you will be able to see if your set up is complete or if there are errors with the configuration.
+1. When the request is completed, you will be able to see if your setup is complete or if there are errors with the configuration.
 
-    * If request completes user will see SSO Request is complete. Config applied successfully.
+    * If the request completes user will see the SSO Request is complete. Config applied successfully.
 
     * If the request fails user will see SSO Request Failed with an appropriate message.
 
 ### Delete the SSO integration
 
-The steps to delete the SSO integration is as follows:
+The steps to delete the SSO integration are as follows:
 
-1. Remove **Configuration** button will be enabled once config is present. Click on it to remove the config.
+1. Remove the **Configuration** button will be enabled once the config is present. Click on it to remove the config.
 
-1. A popup will appear to confirm if user wants to remove config or not.
+1. A popup will appear to confirm if a user wants to remove the config or not.
 
-IMAGE
+    IMAGE
 
 1. Select **Remove** to start the config removal process.
 
-    * An indication icon will be present until configuration is removed. Admin will see SSO request is complete Config removed Successfully.
+    * An indication icon will be present until the configuration is removed. Admin will see SSO request is complete Config removed Successfully.
 
     * In case of error admin will see SSO Request Failed with an appropriate message.
 
@@ -106,7 +106,7 @@ Assuming that the admin has set up its IDP, the admin can go ahead and provide t
 
 1. **Username Attribute:** It is used to refer to a username. The attribute configured in IDP for the username can be passed here.
 
-1. **Entity Issuer URL:** It contains the value of the Identifier (Entity ID). This should be your automate URL with dex callback. Ensure that this is a valid url. Ex- https://your_automate_url/dex/callback
+1. **Entity Issuer URL:** It contains the value of the Identifier (Entity ID). This should be your automate URL with dex callback. Ensure that this is a valid URL. Ex- https://your_automate_url/dex/callback
 
 1. **CA Certificate:** This is the (Base64) Certificate value generated by your IDP on app configuration. Ensure that this certificate has -----BEGIN CERTIFICATE----- and -----END CERTIFICATE----- markers. This value should be used as it is and should not contain /n sequences.
 
@@ -133,10 +133,9 @@ Admins can now select **Cancel** used to override the field data that was edited
 1. Click on Create App Integration.
 
     IMAGE
-
 1. Select SAML 2.0, and select next.
 
-1. You will be redirected to page where you can create your app.
+1. You will be redirected to a page where you can create your app.
 
     IMAGE
 
@@ -164,23 +163,21 @@ Admins can now select **Cancel** used to override the field data that was edited
 
 1. Add users who can login using this app.
 
-    * Click on Assignments then Click on Assign and then to assign to people. Select users from list to add users on the app.
+    * Click on Assignments then Click on Assign and then to assign to people. Select users from the list to add users to the app.
 
     IMAGE
 
-1. Your app will be created click on view SAML setup instruction as shown in below image:
+1. Your app will be created click on view SAML setup instructions as shown below image:
 
-IMAGE
+    IMAGE
 
-1. Your Okta account is setup now. You can use config provided by okta to setup SAML on automate.
+1. Your Okta account is set up now. You can use the config provided by Okta to set up SAML on automate.
 
-Multiple options can be selected.
-
-For use with Azure AD
+Multiple options can be selected for use with Azure AD
 
 ### Before You Start
 
-This guide assumes you have the following set up:
+This guide assumes you have the following setup:
 
 1. Azure AD / Microsoft 365 with Azure AD access
 
@@ -188,15 +185,15 @@ This guide assumes you have the following set up:
 
 1. Chef Automate 2.0 or later version
 
-Steps are as follows:
+The steps are as follows:
 
 1. Create an Application in Azure.
 
     * Go azure AD portal ([https://portal.azure.com]) and login into it.
 
-    * Under Enterprise applications, Select New application and then select Create your own application to create a new application.
+    * Under Enterprise applications, Select New application and then select Create your application to create a new application.
 
-    * Provide name for application.
+    * Provide a name for the application.
 
     * Select Non-Gallery Application option.
 
@@ -206,7 +203,7 @@ Steps are as follows:
 
     * Under the Single Sign-On option, fill out the following information:
 
-        * In section 1 – Basic SAML Configuration, enter following:
+        * In section 1 – Basic SAML Configuration, enter the following:
 
           IMAGE
 
@@ -274,7 +271,7 @@ Steps are as follows:
 
             * Logout URL.
 
-    * After setup, go to Users and groups for assigning users and groups to the application.
+    * After setup, go to Users and Groups to assign users and groups to the application.
 
       IMAGE
 
@@ -284,21 +281,22 @@ Steps are as follows:
 
     * Log into chef-automate and then switch to SSO UI i.e https://{your-chef-automate-fqdn}/sso
 
-    * Fill the required values:
+    * Fill in the required values:
 
-        * **CA Information:** this is the X.509 Certificate from section 3 above. Copy the downloaded certificate contents and paste as the value for CA Information.
+        * **CA Information:** This is the X.509 Certificate from section 3 above. Copy the downloaded certificate contents and paste them as the value for CA Information.
 
-        * **SSO URL:** This is the value for Identity Provider Single Sign-On URL. Use the Login URL value from Section 4 above.
+        * **SSO URL:** This is the value for the Identity Provider Single Sign-On URL. Use the Login URL value from Section 4 above.
 
         IMAGE
 
-        * **Email Attribute:** This is the name of the claim for email. (eg: In our case, it is emailaddress)
+        * **Email Attribute:** This is the name of the email claim. (eg: In our case, it is emailaddress)
 
-        * **Username Attribute:** This is the name of the claim for username. (eg: In our case, it is username)
+        * **Username Attribute:** This is the name of the claim for the username. (eg: In our case, it is username)
 
-        * **Entity Issuer:** This should be the URL provide in section 1 for Identifier (Entity ID). (eg: In our case, it ishttps://{your-chef-automate-fqdn}/dex/callback)
+        * **Entity Issuer:** This should be the URL provided in section 1 for Identifier (Entity ID). (eg: In our case, it ishttps://{your-chef-automate-fqdn}/dex/callback)
 
-        * **Name Id Policy Format:** This should be the Unique User Identifier (Name ID) value from value column for Name ID present in square brackets. eg:- user.userprincipalname [nameid-format:emailAddress]and add it to end of urn:oasis:names:tc:SAML:1.1:.
+        * **Name Id Policy Format:** This should be the Unique User Identifier (Name ID) value from the value column for Name ID present in square brackets. eg:- user.
+        userprincipalname [nameid-format:emailAddress]and add it to the end of urn:oasis:names:tc:SAML:1.1:.
 
         IMAGE
 
@@ -326,6 +324,6 @@ These values are accepted for name_id_policy_format:
 
 * urn:oasis:names:tc:SAML:2.0:nameid-format:transient
 
-Click Submit button to patch the SSO settings on chef-automate
+Click the Submit button to patch the SSO settings on the chef-automate
 
 Multiple options can be selected.

@@ -1,7 +1,6 @@
 +++
 title = "Get Started with Chef SaaS"
 draft = false
-
 [menu]
   [menu.saas]
     title = "Get Started"
@@ -10,120 +9,167 @@ draft = false
     weight = 20
 +++
 
-This guide is a quick start for Chef SaaS.
+This getting started guide will walk through the necessary setup and configuration for Chef SaaS to connect and begin to utilize the solution.
 
-## Quick Start for Automate SAAS
+## Prerequisites
 
-Steps to start your Automate SaaS journey is given below:
+1. A System to install Chef Workstation
 
-{{< note >}} Prerequisites: Workstation setup already installed. {{< /note >}}
+    * Supported Platforms and System Requirements - https://docs.chef.io/workstation/install_workstation/
 
-1. Once you have the credentials, verify it by logging in to the environment through the Automate user interface.
+1. Chef SaaS Starter Kit (Provided by Progress Chef)
 
-1. Once you have logged in, test the `admin` user and connect their Workstation to SaaS.
+    * SaaS Environment URL
 
-If you do not have a workstation setup, follow the steps given below:
+    * SaaS Credentials
 
-1. [Install](https://downloads.chef.io/tools/workstation) Chef Workstation.
+    * Pivotal PEM file for the initial setup of the environment (this PEM is only temporary and will be replaced in a later step)
 
-1. You will receive an e-mail in your provided mail id. The e-mail contains the server information. Use the server information to create your connection to Automate SaaS.
+## Connect to Chef SaaS
 
-1. Once you are connected, start connecting the nodes to Automate SaaS.
+Connect to the URL provided by Progress Chef and log in with the admin account credentials to ensure that the environment is ready to be configured.
 
-## Workstation Test
+## Add an Infra Server in Chef SaaS Web UI
 
-To start with the Workstation Test, go through the [Getting Started](https://docs.chef.io/workstation/getting_started/) section of Workstation.
+Connected to the Chef SaaS Automate Web User Interface, following these steps to add the Infra Server to the environment. 
 
-### Configure Your User Credentials File
+1. Select Infrastructure in the top navigation.
 
-Your `.chef` directory contains a credentials file for communicating with the **Chef Infra Server**. You can generate the `.chef` file by running Knife Configure or by following the prompts.
+1. Select Chef Infra Servers in the left-hand navigation.
 
-The knife configure command requires the following values:
+1. Click Add Chef Infra Server
 
-* **Chef Server URL:** The full URL to your Chef Infra Server including the `org`.
-* **Client Name:** The client name of the Server Administrator created for you.
+1. Enter the following fields:
 
-Your Chef administrator should provide the following information:
+    * Provide a unique Name for the Chef Infra Server.
+
+    * Ensure that the Type selected is FQDN.
+
+    * Enter the FQDN by copying the same URL used to connect to the Automate Web User Interface. (Example: mycompany-demo.saas.chef.io)
+
+      IMAGE
+
+1. Select Add Chef Infra Server.
+
+## Download Chef Workstation
+
+https://downloads.chef.io/tools/workstation
+
+## Install Chef Workstation
+
+https://docs.chef.io/workstation/install_workstation/
+
+## Setup Chef Workstation
+
+### Setup Chef Repo
+
+If you’re setting up Chef for the very first time in your organization, then you will need a Chef Infra repository for saving your cookbooks and other work. The chef-repo is a directory on your workstation that stores everything you need to define your infrastructure with Chef Infra:
+
+1. Cookbooks (including recipes, attributes, custom resources, libraries, and templates)
+
+1. Data bags
+
+1. Policyfiles
+
+Use the chef generate repo command to create your Chef Infra repository. For example, to create a repository called chef-repo:
 
 ```sh
-current_dir = File.dirname(__FILE__)
-log_level                :info
-log_location         	STDOUT
-node_name            	"hshefu"
-client_key           	"#{current_dir}/hshefu.pem"
-chef_server_url      	https://api.chef.io/organizations/4thcafe-web-team
-cookbook_path            ["#{current_dir}/../cookbooks"]
+chef generate repo chef-repo
 ```
 
-Use the `chef_server_url` and `node_name` values from the file when running knife configure.
+### Setup Chef Credentials file
 
-## Verify Client-to-Server Communication
+To continue configuring Workstation with Chef SaaS, a credentials file must be created.  This file will be updated with new credentials that are created later in the setup.
 
-To verify that the Chef Workstation can connect to the Chef Infra Server:
+1. On the workstation run: knife configure init
 
-Run the following command on the command line:
+1. This will prompt you with several questions:
 
-### Knife Client List
+    * Enter the Chef Server URL provided in the Starter Kit (Example: mycompany-demo.saas.chef.io)
 
-### Workstation Setup
+    * For the existing username or clientname for the API, enter pivotal which is the Super User account provided in the Starter Kit.
 
-1. To set up the workstation on your instance follow these steps:
+1. Ensure that the pivotal.pem file provided in the Starter Kit is copied to the ~/.chef directory before running any additional commands with Knife.
 
-    * Install the latest version of Chef Workstation on the Ubuntu system. Install the version using the command shown below:
+The credentials file that gets created in the ~/.chef directory should look similar to this:
 
-    ```sh
-    wget https://packages.chef.io/files/stable/chef-workstation/21.2.524/ubuntu/20.04/chef-workstation_21.2.524-1_amd64.deb
-    ```
+IMAGE
 
-    * For Deb packaging run the following command:
+### Create Organization in CLI
 
-    ```sh
-    dpkg -i chef-workstation_21.2.524-1_amd64.deb
-    ```
+A Chef Organization must be added to the Infra Server and act as a top-level entity for role-based access control. Use the knife org create command to create your Chef Organization. For example, to create an Organization called myorg:
 
-    * Verify installation by running the following command:
+```sh
+Knife org create myorg “My New Organization”
+```
 
-    ```sh
-    chef -v
-    ```
+The private key for the organization’s validator client is returned.
 
-    For additional information refer to the [Install Workstation](https://docs.chef.io/workstation/install_workstation/) page.
+### Create a User in CLI
 
-    * Generate `chef-repo` using the following command:
+A new user must be created which will be associated with the new Chef Organization and will be leveraged in the credentials file. Use the knife user create command to create your new user account. For example, to create a User named chefadmin:
 
-    ```sh
-    chef generate repo chef-repo
-    ```
+```sh
+knife user create chefadmin --first-name Chef --last-name Admin --email chefadmin@mycompany.com –password securepassword -f chefadmin.pem
+```
 
-    For additional information refer to the [Getting Started](https://docs.chef.io/workstation/getting_started/) page of Workstation.
+Ensure the new chefadmin.pem file that is created with this command is copied to the ~/.chef directory before updating the credentials file later in this document.
 
-    * Paste the `pem` file of user inside `/root/.chef/<pem_file_of_user>`.
+### Add New User to Organization in CLI
 
-    * Paste the `pem` file of node you want to bootstrap inside `/root/.ssh/<pem_file_of_node>`.
+Now that the Organization and User are created, the two must be associated together. Use the knife org user command to add the user to an organization. For example, to add the User named chefadmin to the Organization called myorg:
 
-    * Edit credentials file using the following command:
+```sh
+knife org user add myorg chefadmin
+```
 
-    ```sh
-    vi /root/.chef/credentials
-    ```
+### Update the Credentials file to use a new account
 
-    Provide the name of the user created in **chef_server**, the correct path of `pem` file of the user, and the chef server URL and organization name.
+The credentials file under the ~/.chef directory on the Chef Workstation must be updated to reflect the new Organization, User, and PEM file.
 
-    ```sh
-    [default]
-    client_name = "<name_of_user>"
-    client_key = "/root/.chef/<pem_file_of_user>"
-    chef_server_url = "https://demo-server.saas.chef.io/organizations/<name_of_organization>/"
-    ```
+1. Navigate to ~/.chef
 
-    * Run bootstrap command using the following command:
+1. Modify the credentials file
+    * Change the client_name to the new account that was created (Example: chefadmin)
 
-    ```sh
-    knife bootstrap <Public_ip> -i ~/<pem_file_of_node> -U ubuntu -N <name_of_node> --sudo
-    ```
+    * Change the client_key to the new PEM file that was created (Example: ‘home/admin/.chef/chefadmin.pem’
 
-* **Public IP**: Public IP is the IP address of node which we are bootstrapping.
+    * Change the chef_server_url to include the new Organization (Example: ‘https://mycompany-demo.saas.chef.io/organizations/myorg’
 
-* **pem_file_of_node**: `pem` file of node which we have saved at `/root/.ssh/<pem_file_of_node>`.
+    * Save and Quit
 
-* **name_of_node**: You can provide any name to your node.
+      IMAGE
+
+### Create Organization in Web User Interface
+
+The following steps will add the Organization in the Chef SaaS Web User Interface to allow for visualization of Cookbooks, Data Bags, Nodes, Policyfiles, etc. Connect to the URL provided by Progress Chef and log in with the admin account credentials.
+
+1. Select Infrastructure in the top navigation.
+
+1. Select Chef Infra Servers in the left-hand navigation.
+
+1. Select the Infra Server that was created earlier.
+
+1. Click Add Chef Organization.
+
+    * Provide the Name of the Organization that was created earlier in the CLI. (Example: myorg)
+
+    * For Admin User, enter the new account that was created earlier (Example: chefadmin)
+
+    * For Admin Key, paste the contents of the new PEM file that was created along with the account (Example: chefadmin.pem)
+
+    * Click Add Chef Organization
+
+IMAGE
+
+### Run Knife SSL Check
+
+Chef SaaS leverages public certificates to ensure a secure connection to the service. It is always best to run an SSL check on the Workstation to verify that the certificate is trusted to eliminate any connection issues.
+
+1. Run the following command:  knife SSL check and ensure a successful message is displayed.
+
+### Run Knife client list
+
+Lastly, run a client list command to verify that a successful connection can be made to the new organization.
+
+1. Run the following command: knife client list and ensure a validator entry is returned (Example: myorg-validator)
