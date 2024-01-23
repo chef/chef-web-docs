@@ -11,7 +11,7 @@ description: |-
    search(:node, '*:*', start: 0)
 autocorrection: true
 target_chef_version: All Versions
-examples:
+examples: 
 version_added: 5.11.0
 enabled: true
 excluded_file_paths:
