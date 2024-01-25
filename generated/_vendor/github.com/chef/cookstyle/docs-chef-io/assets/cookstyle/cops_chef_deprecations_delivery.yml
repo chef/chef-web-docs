@@ -9,7 +9,7 @@ description: |-
   or Delivery cookbooks. The contents of this directory are now obsolete and should be removed.
 autocorrection: false
 target_chef_version: All Versions
-examples:
+examples: 
 version_added: 7.31.0
 enabled: true
 included_file_paths:
