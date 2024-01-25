@@ -10,20 +10,39 @@ resource_description_list:
 resource_new_in: '16.0'
 syntax_full_code_block: |-
   user_ulimit 'name' do
+    as_hard_limit              String, Integer
+    as_limit                   String, Integer
+    as_soft_limit              String, Integer
     core_hard_limit            String, Integer
     core_limit                 String, Integer
     core_soft_limit            String, Integer
+    cpu_hard_limit             String, Integer
+    cpu_limit                  String, Integer
+    cpu_soft_limit             String, Integer
     filehandle_hard_limit      String, Integer
     filehandle_limit           String, Integer
     filehandle_soft_limit      String, Integer
     filename                   String
+    locks_limit                String, Integer
+    maxlogins_hard_limit       String, Integer
+    maxlogins_limit            String, Integer
+    maxlogins_soft_limit       String, Integer
     memory_limit               String, Integer
+    msgqueue_hard_limit        String, Integer
+    msgqueue_limit             String, Integer
+    msgqueue_soft_limit        String, Integer
     process_hard_limit         String, Integer
     process_limit              String, Integer
     process_soft_limit         String, Integer
+    rss_hard_limit             String, Integer
+    rss_limit                  String, Integer
+    rss_soft_limit             String, Integer
     rtprio_hard_limit          String, Integer
     rtprio_limit               String, Integer
     rtprio_soft_limit          String, Integer
+    sigpending_hard_limit      String, Integer
+    sigpending_limit           String, Integer
+    sigpending_soft_limit      String, Integer
     stack_hard_limit           String, Integer
     stack_limit                String, Integer
     stack_soft_limit           String, Integer
@@ -37,11 +56,15 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`core_hard_limit`, `core_limit`, `core_soft_limit`, `filehandle_hard_limit`, `filehandle_limit`,
-  `filehandle_soft_limit`, `filename`, `memory_limit`, `process_hard_limit`, `process_limit`,
-  `process_soft_limit`, `rtprio_hard_limit`, `rtprio_limit`, `rtprio_soft_limit`,
-  `stack_hard_limit`, `stack_limit`, `stack_soft_limit`, `username`, and `virt_limit`
-  are the properties available to this resource."
+- "`as_hard_limit`, `as_limit`, `as_soft_limit`, `core_hard_limit`, `core_limit`,
+  `core_soft_limit`, `cpu_hard_limit`, `cpu_limit`, `cpu_soft_limit`, `filehandle_hard_limit`,
+  `filehandle_limit`, `filehandle_soft_limit`, `filename`, `locks_limit`, `maxlogins_hard_limit`,
+  `maxlogins_limit`, `maxlogins_soft_limit`, `memory_limit`, `msgqueue_hard_limit`,
+  `msgqueue_limit`, `msgqueue_soft_limit`, `process_hard_limit`, `process_limit`,
+  `process_soft_limit`, `rss_hard_limit`, `rss_limit`, `rss_soft_limit`, `rtprio_hard_limit`,
+  `rtprio_limit`, `rtprio_soft_limit`, `sigpending_hard_limit`, `sigpending_limit`,
+  `sigpending_soft_limit`, `stack_hard_limit`, `stack_limit`, `stack_soft_limit`,
+  `username`, and `virt_limit` are the properties available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -50,6 +73,21 @@ actions_list:
   :delete:
     markdown: Delete an existing ulimit configuration file.
 properties_list:
+- property: as_hard_limit
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown:
+- property: as_limit
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown:
+- property: as_soft_limit
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown:
 - property: core_hard_limit
   ruby_type: String, Integer
   required: false
@@ -61,6 +99,21 @@ properties_list:
   description_list:
   - markdown:
 - property: core_soft_limit
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown:
+- property: cpu_hard_limit
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown:
+- property: cpu_limit
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown:
+- property: cpu_soft_limit
   ruby_type: String, Integer
   required: false
   description_list:
@@ -86,7 +139,42 @@ properties_list:
   default_value: lazy default
   description_list:
   - markdown:
+- property: locks_limit
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown:
+- property: maxlogins_hard_limit
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown:
+- property: maxlogins_limit
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown:
+- property: maxlogins_soft_limit
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown:
 - property: memory_limit
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown:
+- property: msgqueue_hard_limit
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown:
+- property: msgqueue_limit
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown:
+- property: msgqueue_soft_limit
   ruby_type: String, Integer
   required: false
   description_list:
@@ -106,6 +194,21 @@ properties_list:
   required: false
   description_list:
   - markdown:
+- property: rss_hard_limit
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown:
+- property: rss_limit
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown:
+- property: rss_soft_limit
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown:
 - property: rtprio_hard_limit
   ruby_type: String, Integer
   required: false
@@ -117,6 +220,21 @@ properties_list:
   description_list:
   - markdown:
 - property: rtprio_soft_limit
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown:
+- property: sigpending_hard_limit
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown:
+- property: sigpending_limit
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown:
+- property: sigpending_soft_limit
   ruby_type: String, Integer
   required: false
   description_list:

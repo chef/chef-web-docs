@@ -6,27 +6,9 @@ resources_common_properties: true
 resource: powershell_script
 resource_description_list:
 - markdown: |-
-    Use the **powershell_script** resource to execute a script using the Windows PowerShell interpreter, much like how the script
-    and script-based resources **bash**, **csh**, **perl**, **python**, and **ruby** are used. The **powershell_script** resource
-    is specific to the Microsoft Windows platform, but may use both the Windows PowerShell interpreter or the PowerShell Core (pwsh)
-    interpreter as of Chef Infra Client 16.6 and later.
+    Use the **powershell_script** resource to execute a script using the Windows PowerShell interpreter, much like how the script and script-based resources **bash**, **csh**, **perl**, **python**, and **ruby** are used. The **powershell_script** resource is specific to the Microsoft Windows platform, but may use both the Windows PowerShell interpreter or the PowerShell Core (pwsh) interpreter as of Chef Infra Client 16.6 and later.
 
-    The **powershell_script** resource creates and executes a temporary file rather than running the command inline. Commands that are
-    executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run.
-    Use `not_if` and `only_if` conditionals to guard this resource for idempotence.
-syntax_description: |
-  A **powershell_script** resource block executes a batch script using the Windows PowerShell interpreter.
-  For example, writing to an interpolated path:
-
-  ```ruby
-  powershell_script 'write-to-interpolated-path' do
-    code <<-EOH
-    $stream = [System.IO.StreamWriter] "#{Chef::Config[:file_cache_path]}/powershell-test.txt"
-    $stream.WriteLine("In #{Chef::Config[:file_cache_path]}...word.")
-    $stream.close()
-    EOH
-  end
-  ```
+    The **powershell_script** resource creates and executes a temporary file rather than running the command inline. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use `not_if` and `only_if` conditionals to guard this resource for idempotence.
 syntax_full_code_block: |-
   powershell_script 'name' do
     code                        String
@@ -47,6 +29,7 @@ syntax_full_code_block: |-
     password                    String
     returns                     Integer, Array # default value: 0
     timeout                     Integer, String, Float # default value: 3600
+    use_inline_powershell       true, false # default value: false
     user                        String, Integer
     action                      Symbol # defaults to :run if not specified
   end
@@ -56,31 +39,16 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`architecture`, `code`, `command`, `convert_boolean_return`, `creates`, `cwd`, `domain`,
-  `elevated`, `environment`, `flags`, `group`, `guard_interpreter`, `input`, `interpreter`, `live_stream`,
-  `password`, `returns`, `timeout`, and `user` are the properties available
-  to this resource."
+- "`code`, `command`, `convert_boolean_return`, `creates`, `cwd`, `default_env`, `domain`,
+  `elevated`, `environment`, `flags`, `group`, `input`, `interpreter`, `live_stream`,
+  `login`, `password`, `returns`, `timeout`, `use_inline_powershell`, and `user` are
+  the properties available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :run:
     markdown: Run a command. (default)
 properties_list:
-- property: architecture
-  ruby_type: Symbol
-  required: false
-  description_list:
-  - markdown: 'The architecture of the process under which a script is executed. If
-
-      a value is not provided, Chef Infra Client defaults to the correct
-
-      value for the architecture, as determined by Ohai. An exception is
-
-      raised when anything other than `:i386` is specified for a 32-bit
-
-      process. Possible values: `:i386` (for 32-bit processes) and
-
-      `:x86_64` (for 64-bit processes).'
 - property: code
   ruby_type: String
   required: true
@@ -128,6 +96,14 @@ properties_list:
   required: false
   description_list:
   - markdown: The current working directory from which the command will be run.
+- property: default_env
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  new_in: '14.2'
+  description_list:
+  - markdown: When true this enables ENV magic to add path_sanity to the PATH and
+      force the locale to English+UTF-8 for parsing output
 - property: domain
   ruby_type: String
   required: false
@@ -161,32 +137,12 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: | 
-      A string that is passed to the Windows PowerShell command
-      value (Windows PowerShell 3.0+):
-
-      - `-NoLogo`
-      - `-NonInteractive`
-      - `-NoProfile`
-      - `-ExecutionPolicy Bypass`
-      - `-InputFormat None`
+  - markdown: A string that's passed to the Windows PowerShell command
 - property: group
   ruby_type: String, Integer
   required: false
   description_list:
   - markdown: The group name or group ID that must be changed before running a command.
-- property: guard_interpreter
-  ruby_type: Symbol
-  required: false
-  default_value: :powershell_script
-  description_list:
-  - markdown: 'When this property is set to `:powershell_script`, the 64-bit
-
-      version of the Windows PowerShell shell will be used to evaluate
-
-      strings values for the `not_if` and `only_if` properties. Set this
-
-      value to `:default` to use the 32-bit version of the cmd.exe shell.'
 - property: input
   ruby_type: String
   required: false
@@ -212,7 +168,7 @@ properties_list:
   required: false
   new_in: '12.21'
   description_list:
-  - markdown: '**Windows only**. The password of the user specified by the user property.
+  - markdown: 'Windows only: The password of the user specified by the user property.
       This property is mandatory if user is specified on Windows and may only be specified
       if user is specified. The sensitive property for this resource will automatically
       be set to true if password is specified.'
@@ -229,6 +185,16 @@ properties_list:
   default_value: '3600'
   description_list:
   - markdown: The amount of time (in seconds) a command is to wait before timing out.
+- property: use_inline_powershell
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  new_in: '18.4'
+  description_list:
+  - markdown: Use the inline PowerShell DLL rather than shelling out. The PowerShell DLL is faster,
+      but its semantics could be different from shelling out. In particular,
+      it doesn't allow for streaming output, nor does it allow for passing custom
+      parameters to the interpreter.
 - property: user
   ruby_type: String, Integer
   required: false
