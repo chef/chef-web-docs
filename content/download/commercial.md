@@ -1,6 +1,5 @@
 +++
 title = "Commercial API"
-draft = true
 gh_repo = "chef-web-docs"
 
 [menu]

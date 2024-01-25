@@ -4,4 +4,4 @@ link: 'https://docs.microsoft.com/en-us/style-guide/numbers'
 nonword: true
 level: warning
 tokens:
-  - '\b\d+\s?[-–]\s?\d+\b'
+  - '(?<!\d\-)\b\d+\s?[-–]\s?\d+\b(?!\-\d)'

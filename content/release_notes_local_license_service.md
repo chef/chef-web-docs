@@ -8,7 +8,7 @@ product = []
     title = "Chef Local License Service"
     identifier = "release_notes/Chef Local License Service"
     parent = "release_notes"
-    weight = 70
+    weight = 80
 +++
 
 Chef Local License Service provides license keys to commercially licensed Chef software in an online or air-gapped environment.
