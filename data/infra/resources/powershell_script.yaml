@@ -37,7 +37,6 @@ syntax_full_code_block: |-
     input                       String
     interpreter                 String # default value: "powershell"
     live_stream                 true, false # default value: false
-    login                       true, false # default value: false
     password                    String
     returns                     Integer, Array # default value: 0
     timeout                     Integer, String, Float # default value: 3600
@@ -53,7 +52,7 @@ syntax_full_properties_list:
   the desired state."
 - "`code`, `command`, `convert_boolean_return`, `creates`, `cwd`, `default_env`, `domain`,
   `elevated`, `environment`, `flags`, `group`, `input`, `interpreter`, `live_stream`,
-  `login`, `password`, `returns`, `timeout`, `use_inline_powershell`, and `user` are
+  `password`, `returns`, `timeout`, `use_inline_powershell`, and `user` are
   the properties available to this resource."
 actions_list:
   :nothing:
