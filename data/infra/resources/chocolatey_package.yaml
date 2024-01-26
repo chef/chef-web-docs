@@ -53,19 +53,13 @@ actions_list:
   :purge:
     markdown: Purge a package. This action typically removes the configuration files
       as well as the package.
-  :reconfig:
-    markdown:
-  :lock:
-    markdown:
-  :unlock:
-    markdown:
 properties_list:
 - property: bulk_query
   ruby_type: true, false
   required: false
   default_value: 'false'
   description_list:
-  - markdown: Bulk query the chocolatey server?  This will cause the provider to list
+  - markdown: Whether to bulk query the Chocolatey server. This makes the provider list
       all packages instead of doing individual queries.
 - property: list_options
   ruby_type: String
@@ -113,9 +107,8 @@ properties_list:
   required: false
   default_value: 'false'
   description_list:
-  - markdown: Use choco list for getting the locally installed packages, rather than
-      reading the nupkg database directly?  This defaults to false, since reading
-      the package data is faster.
+  - markdown: Whether to use `choco list` for getting locally installed packages instead of querying for NuGet package files.
+      This defaults to `false` since reading the package data is faster.
 - property: user
   ruby_type: String
   required: false
