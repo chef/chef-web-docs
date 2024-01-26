@@ -10,27 +10,30 @@ identifier = "inspec/resources/azure/azure_key_vaults Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_key_vaults` InSpec audit resource to test properties related to key vaults for a resource group or the entire subscription.
+Use the `azure_key_vaults` InSpec audit resource to test the properties related to key vaults for a resource group or the entire subscription.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-An `azure_key_vaults` resource block returns all Azure key vaults, either within a Resource Group (if provided), or within an entire Subscription.
+An `azure_key_vaults` resource block returns all Azure key vaults, either within a resource group (if provided) or the entire subscription.
+
 ```ruby
 describe azure_key_vaults do
   #...
 end
 ```
-or
+
+Or
+
 ```ruby
-describe azure_key_vaults(resource_group: 'my-rg') do
+describe azure_key_vaults(resource_group: 'RESOURCE_GROUP') do
   #...
 end
 ```
@@ -44,7 +47,7 @@ end
 ## Properties
 
 `ids`
-: A list of the unique resource ids.
+: A list of the unique resource IDs.
 
 : **Field**: `id`
 
@@ -73,27 +76,33 @@ end
 
 : **Field**: `properties`
 
-{{% inspec_filter_table %}}
+{{< note >}}
+
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 ## Examples
 
-**Loop through Key Vaults by Their Ids  .**
+### Loop through key vaults by their IDs
 
 ```ruby
 azure_key_vaults.ids.each do |id|
   describe azure_key_vault(resource_id: id) do
     it { should exist }
   end
-end  
-```     
-**Test that There are Key Vaults that Includes a Certain String in their Names (Client Side Filtering)   .**
+end
+```
+
+### Test to ensure there are key vaults that include a certain string in their names (Client Side Filtering)
 
 ```ruby
 describe azure_key_vaults.where { name.include?('deployment') } do
   it { should exist }
 end
-```    
-**Test that There are Key Vaults that Includes a Certain String in their Names (Server Side Filtering via Generic Resource - Recommended)   .**
+```
+
+### Test to ensure there are key vaults that include a certain string in their names (Server Side Filtering via Generic Resource - Recommended)
 
 ```ruby
 describe azure_generic_resources(resource_provider: 'Microsoft.KeyVault/vaults', substring_of_name: 'deployment') do
@@ -103,24 +112,30 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
+
+### not_exists
+
+```ruby
+# Should not exist if no key vaults are in the resource group.
+
+describe azure_key_vaults(resource_group: 'RESOURCE_GROUP') do
+  it { should_not exist }
+end
+```
 
 ### exists
 
 ```ruby
-# Should not exist if no key vaults are in the resource group
+# Should exist if the filter returns at least one key vault.
 
-describe azure_key_vaults(resource_group: 'MyResourceGroup') do
-  it { should_not exist }
-end
-
-# Should exist if the filter returns at least one key vault
-
-describe azure_key_vaults(resource_group: 'MyResourceGroup') do
+describe azure_key_vaults(resource_group: 'RESOURCE_GROUP') do
   it { should exist }
 end
 ```
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

@@ -10,15 +10,15 @@ identifier = "inspec/resources/azure/azure_virtual_network_gateway Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_virtual_network_gateway` InSpec audit resource to test the properties and configuration of an Azure virtual network gateway.
+Use the `azure_virtual_network_gateway` InSpec audit resource to test the properties and configuration of an Azure Virtual Network Gateway.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -34,7 +34,7 @@ end
 
 `resource_group` _(REQUIRED)_
 
-: The Azure resource group that the targeted resource resides in.
+: The Azure resource group where the targeted resource resides.
 
 `name` _(REQUIRED)_
 
@@ -67,15 +67,15 @@ end
 : The provisioning state of the virtual network gateway resource.
 
 `properties.vpnClientConfiguration`
-: The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
+: The reference to the VpnClientConfiguration resource, which represents the P2S VpnClient configurations.
 
-For properties applicable to all resources, such as `type`, `name`, `id`, `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
+For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
 Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/network-gateway/virtual-network-gateways/get) for other available properties. Any attribute in the response is accessed with the key names separated by dots (`.`).
 
 ## Examples
 
-**Test the VPN client protocol of a virtual network gateway.**
+### Test the VPN client protocol of a virtual network gateway
 
 ```ruby
 describe azure_virtual_network_gateway(resource_group: 'RESOURCE_GROUP', name: 'VIRTUAL_NETWORK_NAME') do
@@ -90,13 +90,17 @@ This InSpec audit resource has the following special matchers. For a full list o
 ### exists
 
 ```ruby
-# If we expect a virtual network gateway to always exist
+# If we expect a virtual network gateway to always exist.
 
 describe azure_virtual_network_gateway(resource_group: 'RESOURCE_GROUP', name: 'VIRTUAL_NETWORK_NAME') do
   it { should exist }
 end
+```
 
-# If we expect virtual network gateway to never exist
+### not_exists
+
+```ruby
+# If we expect a virtual network gateway to never exist.
 
 describe azure_virtual_network_gateway(resource_group: 'RESOURCE_GROUP', name: 'VIRTUAL_NETWORK_NAME') do
   it { should_not exist }
@@ -105,4 +109,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="reader" %}}
+{{% inspec-azure/azure_permissions_service_principal role="reader" %}}

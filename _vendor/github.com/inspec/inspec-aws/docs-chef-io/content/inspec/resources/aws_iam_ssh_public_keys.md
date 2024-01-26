@@ -14,9 +14,9 @@ Use the `aws_iam_ssh_public_keys` InSpec audit resource to test the properties o
 
 For additional information, including details on parameters and properties, see the [AWS documentation on AWS IAM AccessKey.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html).
 
-## Installation
+## Install
 
-{{% inspec_aws_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_aws_install.md" >}}
 
 ## Syntax
 
@@ -100,7 +100,7 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
 
 The control passes if the `list` method returns at least one result.
 
@@ -152,4 +152,4 @@ end
 
 ## AWS Permissions
 
-{{% aws_permissions_principal action="IAM:Client:ListSSHPublicKeysResponse" %}}
+{{% inspec-aws/aws_permissions_principal action="IAM:Client:ListSSHPublicKeysResponse" %}}

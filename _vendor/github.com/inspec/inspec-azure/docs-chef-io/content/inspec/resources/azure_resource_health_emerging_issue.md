@@ -10,15 +10,15 @@ identifier = "inspec/resources/azure/azure_resource_health_emerging_issue Resour
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_resource_health_emerging_issue` InSpec audit resource to test properties related to a Azure Resource Health Emerging issue.
+Use the `azure_resource_health_emerging_issue` InSpec audit resource to test the properties related to an Azure Resource Health Emerging issue.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -42,7 +42,6 @@ end
 `name`
 : Name of the Azure Resource Health emerging issue to test.
 
-
 ## Properties
 
 `id`
@@ -52,10 +51,10 @@ end
 : The name of the resource.
 
 `type`
-: The type of the resource.
+: The type of resource.
 
 `properties.statusActiveEvents`
-: The list of emerging issues of active event type.
+: The list of emerging issues of the active event type.
 
 `properties.statusBanners`
 : The list of emerging issues of banner type.
@@ -63,15 +62,14 @@ end
 `properties.refreshTimestamp`
 : Timestamp for when last time refreshed for ongoing emerging issue.
 
-
-For properties applicable to all resources, such as `type`, `name`, `id`, `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
+For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
 Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/resourcehealth/emerging-issues/get) for other properties available.
 Any attribute in the response may be accessed with the key names separated by dots (`.`).
 
 ## Examples
 
-**Test that there are emerging issues with an active event type.**
+### Test that there are emerging issues with an active event type
 
 ```ruby
 describe azure_resource_health_emerging_issue(name: 'default') do
@@ -86,11 +84,16 @@ This InSpec audit resource has the following special matchers. For a full list o
 ### exists
 
 ```ruby
-# If a emerging issue is found, it will exist
+# If an emerging issue is found, it will exist.
 describe azure_resource_health_emerging_issue(name: 'default') do
   it { should exist }
 end
-# If no emerging issues are found, it will not exist
+```
+
+### not_exists
+
+```ruby
+# If no emerging issues are found, it will not exist.
 describe azure_resource_health_emerging_issue(name: 'default') do
   it { should_not exist }
 end
@@ -98,4 +101,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

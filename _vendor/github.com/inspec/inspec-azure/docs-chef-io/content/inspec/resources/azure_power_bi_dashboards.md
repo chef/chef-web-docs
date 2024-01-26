@@ -14,11 +14,11 @@ Use the `azure_power_bi_dashboards` InSpec audit resource to test the properties
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -54,23 +54,26 @@ end
 : **Field**: `displayName`
 
 `embedUrls`
-: List of all dashboard embed urls.
+: List of all dashboard embed URLs.
 
 : **Field**: `embedUrl`
 
 `isReadOnly`
-: List of all ReadOnly dashboards.
+: List of all read-only dashboards.
 
 : **Field**: `isReadOnlies`
 
+{{< note >}}
 
-{{% inspec_filter_table %}}
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/power-bi/dashboards/get-dashboards) for other properties available.
 
 ## Examples
 
-**Loop throughPower BI Dashboards by their IDs.**
+### Loop throughPower BI Dashboards by their IDs
 
 ```ruby
 azure_power_bi_dashboards.ids.each do |id|
@@ -80,7 +83,7 @@ azure_power_bi_dashboards.ids.each do |id|
 end
 ```
 
-**Test to ensure all Power BI dashboards are ready only.**
+### Test to ensure all Power BI dashboards are ready-only
 
 ```ruby
 describe azure_power_bi_dashboards.where(isReadOnly: true) do
@@ -90,18 +93,20 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
 ```ruby
-# Should not exist if no Power BI dashboards are present in the group
+# Should not exist if no Power BI dashboards are present in the group.
 
 describe azure_power_bi_dashboards do
   it { should_not exist }
 end
 
-# Should exist if the filter returns at least one Power BI dashboard in the group
+# Should exist if the filter returns at least one Power BI dashboard in the group.
 
 describe azure_power_bi_dashboards do
   it { should exist }

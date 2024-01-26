@@ -14,9 +14,9 @@ Use the `aws_cloudwatch_log_group` InSpec audit resource to test properties of a
 
 For additional information, including details on parameters and properties, see the [AWS documentation on CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogGroups.html).
 
-## Installation
+## Install
 
-{{% inspec_aws_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_aws_install.md" >}}
 
 ## Syntax
 
@@ -40,6 +40,11 @@ end
 
 : This resource accepts a single parameter, the log group name which uniquely identifies the CloudWatch Log Group.
   This can be passed either as a string or as a `log_group_name: 'value'` key-value entry in a hash.
+
+`limit` _(optional)_
+
+: This resource accepts a single parameter, an integer representing the number of results allowed to return. If not passed, in, this defaults to `1`, which will only return the first match to the `log_group_name`.
+  This can be passed as a `limit: 'value'` key-value entry in a hash.
 
 ## Properties
 

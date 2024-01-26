@@ -10,22 +10,22 @@ identifier = "inspec/resources/azure/azure_data_factory Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_data_factory` InSpec audit resource to test properties of an Azure data factory.
+Use the `azure_data_factory` InSpec audit resource to test the properties of an Azure Data Factory.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-`resource_group` and Data Factory `name` must be given as parameters.
+`resource_group` and Data Factory `name` are required parameters.
 
 ```ruby
-describe azure_data_factory(resource_group: resource_group, name: factory_name) do
+describe azure_data_factory(resource_group: RESOURCE_GROUP, name: NAME) do
   it { should exist }
   its('name') { should eq factory_name }
   its('type') { should eq 'Microsoft.DataFactory/factories' }
@@ -35,21 +35,20 @@ end
 ## Parameters
 
 `resource_group`
-: Azure resource group that the targeted resource resides in. `MyResourceGroup`.
+: Azure resource group where the targeted resource resides.
 
 `name`
 : The factory name.
 
-Both the parameter sets needs be provided for a valid query:
-- `resource_group` and `name`
+Both the parameter sets need to be provided for a valid query: `resource_group` and `name`.
 
 ## Properties
 
 `resource_group`
-: Azure resource group that the targeted resource resides in. `MyResourceGroup`.
+: Azure resource group that the targeted resource resides in.
 
 `name`
-: Name of the Azure resource to test. `MyDf`.
+: Name of the Azure resource to test.
 
 `type`
 : The resource type.
@@ -80,7 +79,7 @@ Both the parameter sets needs be provided for a valid query:
 
 ## Examples
 
-**Test that a Data Factory exists.**
+### Test that a Data Factory exists
 
 ```ruby
 describe azure_data_factory(resource_group: resource_group, name: 'DATA_FACTORY_NAME') do
@@ -88,7 +87,7 @@ describe azure_data_factory(resource_group: resource_group, name: 'DATA_FACTORY_
 end
 ```
 
-**Test that a Data Factory does not exist.**
+### Test that a Data Factory does not exist
 
 ```ruby
 describe azure_data_factory(resource_group: resource_group, name: 'DATA_FACTORY_NAME') do
@@ -96,10 +95,10 @@ describe azure_data_factory(resource_group: resource_group, name: 'DATA_FACTORY_
 end
 ```
 
-**Test properties of a Data Factory.**
+### Test properties of a Data Factory
 
 ```ruby
-describe azure_data_factory(resource_group: resource_group, name: 'df_name') do
+describe azure_data_factory(resource_group: `RESOURCE_GROUP`, name: 'NAME') do
   its('repo_configuration_type') { should include REPO_CONFIGURATION_TYPE }
   its('repo_configuration_project_name') { should include REPO_CONFIGURATION_PROJECT_NAME }
   its('repo_configuration_account_name') { should include REPO_CONFIGURATION_ACCOUNT_NAME }
@@ -112,4 +111,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}
