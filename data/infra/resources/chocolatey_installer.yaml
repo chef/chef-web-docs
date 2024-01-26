@@ -31,29 +31,28 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :install:
-    markdown: Installs Chocolatey package manager (default)
+    markdown: Installs Chocolatey package manager (default).
   :uninstall:
-    markdown: Uninstall Chocolatey package manager
+    markdown: Uninstall Chocolatey package manager.
   :upgrade:
-    markdown: Upgrades the Chocolatey package manager
+    markdown: Upgrades the Chocolatey package manager.
 properties_list:
 - property: chocolatey_version
   ruby_type: String
   required: false
   description_list:
   - markdown: Specifies a target version of Chocolatey to install. By default, the
-      latest stable version is installed. This will use the value in $env:ChocolateyVersion
-      by default, if that environment variable is present. This parameter is ignored
-      if download_url is set.
+      latest stable version is installed. This will use the value in `$env:ChocolateyVersion`
+      by default if that environment variable is present. This parameter is ignored
+      if you set `download_url`.
 - property: download_url
   ruby_type: String
   required: false
   description_list:
-  - markdown: The URL to download Chocolatey from. This sets the value of $env:ChocolateyDownloadUrl
+  - markdown: The URL to download Chocolatey from. This sets the value of `$env:ChocolateyDownloadUrl`
       and causes the installer to choose an alternate download location. If this is
-      not set, Chocolatey is downloaded from the official Chocolatey community
-      repository. It can also be used for offline installation
-      by providing a path to a Chocolatey.nupkg.
+      not set, this resource downloads Chocolatey from the official Chocolatey community
+      repository. You can set a path to a `chocolatey.nupkg` file for offline installation.
 - property: ignore_proxy
   ruby_type: true, false
   required: false
@@ -85,10 +84,9 @@ properties_list:
   required: false
   default_value: 'false'
   description_list:
-  - markdown: If set, uses built-in Windows decompression tools instead of 7zip when
-      unpacking the downloaded nupkg. This will be set by default if use_native_unzip
-      is set to a value other than 'false' or '0'. This parameter will be ignored
-      in PS 5+ in favour of using the Expand-Archive built in PowerShell cmdlet directly.
+  - markdown: If `true`, this resource uses built-in Windows decompression tools instead of 7zip when
+      unpacking the downloaded NuPkg file. This parameter is ignored in PowerShell 5+ in favour of using
+      the `Expand-Archive` built-in PowerShell cmdlet directly.
 examples: "**Install Chocolatey**\n\n```ruby\nchocolatey_installer 'latest' do\n  action
   :install\nend\n```\n\n**Uninstall Chocolatey**\n\n```ruby\nchocolatey_installer
   'Some random verbiage' do\n  action :uninstall\nend\n```\n\n**Install Chocolatey
