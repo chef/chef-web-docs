@@ -10,19 +10,19 @@ identifier = "inspec/resources/azure/azure_container_group Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_container_group` InSpec audit resource to test properties related to an Azure container group.
+Use the `azure_container_group` InSpec audit resource to test the properties related to an Azure container group.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-`name` is a required parameter and `resource_group` could be provided as an optional parameter.
+`name` is a required parameter, and `resource_group` could be provided as an optional parameter.
 
 ```ruby
 describe azure_container_group(resource_group: 'RESOURCE_GROUP_NAME', name: 'CONTAINER_GROUP_NAME') do
@@ -45,10 +45,9 @@ end
 : Name of the Azure container group to test.
 
 `resource_group`
-: Azure resource group that the targeted resource resides in. `MyResourceGroup`.
+: Azure resource group where the targeted resource resides.
 
-The parameter set should be provided for a valid query:
-- `resource_group` and `name`
+The parameter sets that should be provided for a valid query are `resource_group` and `name`.
 
 ## Properties
 
@@ -67,15 +66,13 @@ The parameter set should be provided for a valid query:
 `properties`
 : The properties of the resource.
 
+For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
-For properties applicable to all resources, such as `type`, `name`, `id`, `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
-
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/container-instances/container-groups/get) for other properties available.
-Any attribute in the response may be accessed with the key names separated by dots (`.`).
+Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/container-instances/container-groups/get) for other properties available. Any attribute in the response may be accessed with the key names separated by dots (`.`).
 
 ## Examples
 
-**Test that the container group has a public IP address.**
+### Test that the container group has a public IP address
 
 ```ruby
 describe azure_container_group(resource_group: 'RESOURCE_GROUP_NAME', name: 'CONTAINER_GROUP_NAME') do
@@ -90,13 +87,17 @@ This InSpec audit resource has the following special matchers. For a full list o
 ### exists
 
 ```ruby
-# If a container group is found it will exist
+# If a container group is found, it will exist.
 
 describe azure_container_group(resource_group: 'RESOURCE_GROUP_NAME', name: 'CONTAINER_GROUP_NAME') do
   it { should exist }
 end
+```
 
-# container groups that aren't found will not exist
+### not_exists
+
+```ruby
+# container groups that are not found, will not exist.
 describe azure_container_group(resource_group: 'RESOURCE_GROUP_NAME', name: 'CONTAINER_GROUP_NAME') do
   it { should_not exist }
 end
@@ -104,4 +105,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

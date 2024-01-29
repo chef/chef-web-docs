@@ -10,19 +10,19 @@ identifier = "inspec/resources/azure/azure_power_bi_gateway Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_power_bi_gateway` InSpec audit resource to test the properties related to Azure Power BI gateway.
+Use the `azure_power_bi_gateway` InSpec audit resource to test the properties related to an Azure Power BI gateway.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-`gateway_id` is a required parameter.
+The `gateway_id` is a required parameter.
 
 ```ruby
 describe azure_power_bi_gateway(gateway_id: 'GATEWAY_ID') do
@@ -33,7 +33,6 @@ end
 ## Parameters
 
 `gateway_id` _(required)_
-
 : The gateway ID.
 
 ## Properties
@@ -59,7 +58,7 @@ Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/p
 
 ## Examples
 
-**Test that the Power BI gateway's exponent is `AQAB`.**
+### Test that the Power BI gateway's exponent is 'AQAB'
 
 ```ruby
 describe azure_power_bi_gateway(gateway_id: 'GATEWAY_ID')  do
@@ -74,11 +73,18 @@ This InSpec audit resource has the following special matchers. For a full list o
 ### exists
 
 ```ruby
-# If the Azure Power BI gateway is found, it will exist
+# If the Azure Power BI gateway is found, it will exist.
+
 describe azure_power_bi_gateway(gateway_id: 'GATEWAY_ID')  do
   it { should exist }
 end
-# if the Azure Power BI gateway is not found, it will not exist
+```
+
+### not_exists
+
+```ruby
+# if the Azure Power BI gateway is not found, it will not exist.
+
 describe azure_power_bi_gateway(gateway_id: 'GATEWAY_ID')  do
   it { should_not exist }
 end

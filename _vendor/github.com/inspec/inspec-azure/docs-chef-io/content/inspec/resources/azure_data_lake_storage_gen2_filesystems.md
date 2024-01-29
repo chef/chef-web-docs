@@ -14,11 +14,11 @@ Use the `azure_data_lake_storage_gen2_filesystems` InSpec audit resource to test
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -43,17 +43,17 @@ end
 ## Properties
 
 `names`
-: Unique names for all Azure Storage account Filesystems.
+: Unique names for all Azure Storage Account Filesystems.
 
 : **Field**: `name`
 
 `lastModifieds`
-: Last modified timestamps of Azure Storage account Filesystem.
+: Last modified timestamps of Azure Storage Account Filesystem.
 
 : **Field**: `lastModified`
 
 `eTags`
-: A list of eTags for all the Azure Storage account Filesystems.
+: A list of eTags for all the Azure Storage Account Filesystems.
 
 : **Field**: `eTag`
 
@@ -67,12 +67,16 @@ end
 
 : **Field**: `DenyEncryptionScopeOverrides`
 
-{{% inspec_filter_table %}}
+{{< note >}}
+
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/storageservices/datalakestoragegen2/filesystem/list) for other properties available.
 
 ## Examples
 
-**Loop Through Data Lake Storage Gen2 Filesystems by Their Names and Verify That Each Exists.**
+### Loop through Data Lake Storage Gen2 Filesystems by their names and verify that each exists
 
 ```ruby
 azure_data_lake_storage_gen2_filesystems(account_name: 'ACCOUNT_NAME').names.each do |name|
@@ -82,7 +86,7 @@ azure_data_lake_storage_gen2_filesystems(account_name: 'ACCOUNT_NAME').names.eac
 end
 ```
 
-**Test To Ensure Data Lake Storage Gen2 Filesystems With ‘$account-encryption-key’ Encryption Scope.**
+### Test To ensure Data Lake Storage Gen2 Filesystems With ‘$account-encryption-key’ encryption scope
 
 ```ruby
 describe azure_data_lake_storage_gen2_filesystems(account_name: 'ACCOUNT_NAME').where(DefaultEncryptionScope: '$account-encryption-key') do
@@ -92,18 +96,24 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
 ```ruby
-# Should not exist if no Data Lake Storage Gen2 filesystems are present in the project and in the resource group
+# Should not exist if no Data Lake Storage Gen2 filesystems are present in the project and the resource group.
 
 describe azure_data_lake_storage_gen2_filesystems(account_name: 'ACCOUNT_NAME') do
   it { should_not exist }
 end
+```
 
-# Should exist if the filter returns at least one Data Lake Storage Gen2 filesystem in the project and in the resource group
+### not_exists
+
+```ruby
+# Should exist if the filter returns at least one Data Lake Storage Gen2 filesystem in the project and the resource group.
 
 describe azure_data_lake_storage_gen2_filesystems(account_name: 'ACCOUNT_NAME') do
   it { should exist }
@@ -112,4 +122,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

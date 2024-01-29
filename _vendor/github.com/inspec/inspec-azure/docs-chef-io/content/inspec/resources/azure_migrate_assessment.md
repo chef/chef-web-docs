@@ -10,15 +10,15 @@ identifier = "inspec/resources/azure/azure_migrate_assessment Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_migrate_assessment` InSpec audit resource to test the properties related to Azure Migrate assessment.
+Use the `azure_migrate_assessment` InSpec audit resource to test the properties related to the Azure Migrate assessment.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -44,7 +44,7 @@ end
 : Name of the Azure Migrate assessment to test.
 
 `resource_group`
-: Azure resource group where the targeted resource resides in.
+: Azure resource group where the targeted resource resides.
 
 `project_name`
 : Azure Migrate assessment project.
@@ -52,9 +52,7 @@ end
 `group_name`
 : Unique name of a group within a project.
 
-The parameter set should be provided for a valid query:
-
-- `resource_group`, `project_name`, `group_name`, and `name`.
+The parameter set should be provided for a valid query are `resource_group`, `project_name`, `group_name`, and `name`.
 
 ## Properties
 
@@ -77,7 +75,7 @@ The parameter set should be provided for a valid query:
 : Storage type selected for this disk.
 
 `properties.currency`
-: Currency to report prices in.
+: Currency to report the prices.
 
 `properties.sizingCriterion`
 : Assessment sizing criterion.
@@ -91,7 +89,7 @@ Refer to the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/mig
 
 ## Examples
 
-**Test that the migrate assessments has a minimum scaling factor.**
+### Test that the migrate assessments have a minimum scaling factor
 
 ```ruby
 describe azure_migrate_assessment(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME', group_name: 'GROUP_NAME', NAME: 'ASSESSMENT_NAME') do
@@ -106,12 +104,18 @@ This InSpec audit resource has the following special matchers. For a full list o
 ### exists
 
 ```ruby
-# If a Migrate Assessments is found, it will exist
+# If a Migrate Assessment is found, it will exist.
+
 describe azure_migrate_assessment(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME', group_name: 'GROUP_NAME', NAME: 'ASSESSMENT_NAME') do
   it { should exist }
 end
+```
 
-# if Migrate Assessments are not found, it will not exist
+### not_exists
+
+```ruby
+# If Migrate Assessments are not found, it will not exist.
+
 describe azure_migrate_assessment(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME', group_name: 'GROUP_NAME', NAME: 'ASSESSMENT_NAME') do
   it { should_not exist }
 end
@@ -119,4 +123,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

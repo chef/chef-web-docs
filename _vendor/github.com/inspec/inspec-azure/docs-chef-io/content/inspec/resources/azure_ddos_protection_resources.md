@@ -10,19 +10,19 @@ identifier = "inspec/resources/azure/azure_ddos_protection_resources Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_ddos_protection_resources` InSpec audit resource to test properties of DDoS protection plans in a resource group.
+Use the `azure_ddos_protection_resources` InSpec audit resource to test the properties of DDoS protection plans in a resource group.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-An `azure_ddos_protection_resources` resource block returns all Azure bastion hosts, either within a Resource Group (if provided)
+An `azure_ddos_protection_resources` resource block returns all Azure bastion hosts, within a resource group (if provided).
 
 ```ruby
 describe azure_ddos_protection_resources(resource_group: 'RESOURCE_GROUP') do
@@ -33,7 +33,7 @@ end
 ## Parameters
 
 `resource_group`
-: Azure resource group that the targeted resource resides in.
+: Azure resource group where the targeted resource resides.
 
 ## Properties
 
@@ -63,19 +63,21 @@ end
 : **Field**: `type`
 
 `resource_guids`
-: The resource GUID property of the DDoS protection plan resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+: The resource GUID property of the DDoS protection plan resource. It uniquely identifies the resource, even if the user changes its name or migrates the resource across subscriptions or resource groups.
 
 : **Field**: `resource_guid`
 
+{{< note >}}
 
-{{% inspec_filter_table %}}
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
 
-Also, refer to the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/virtualnetwork/ddos-protection-plans/list) for all available properties.
-Access any attribute in the response by separating the key names with a period (`.`).
+{{< /note>}}
+
+Also, refer to the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/virtualnetwork/ddos-protection-plans/list) for all available properties. Access any attribute in the response by separating the key names with a period (`.`).
 
 ## Examples
 
-**Ensure that the DDoS protection plan resource is in successful state.**
+### Test to ensure that the DDoS protection plan resource is in a successful state
 
 ```ruby
 describe azure_ddos_protection_resources(resource_group: 'RESOURCE_GROUP') do
@@ -83,7 +85,7 @@ describe azure_ddos_protection_resources(resource_group: 'RESOURCE_GROUP') do
 end
 ```
 
-**Ensure that a DDoS protection plan resource is from a location.**
+### Test to ensure that a DDoS protection plan resource is from a location
 
 ```ruby
 describe azure_ddos_protection_resources(resource_group: 'RESOURCE_GROUP') do
@@ -91,7 +93,7 @@ describe azure_ddos_protection_resources(resource_group: 'RESOURCE_GROUP') do
 end
 ```
 
-**Test if any DDoS protection plan exists in the resource group.**
+### Test if any DDoS protection plan exists in the resource group
 
 ```ruby
 describe azure_ddos_protection_resources(resource_group: 'RESOURCE_GROUP') do
@@ -101,12 +103,14 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
 ```ruby
-# Should not exist if no bastion hots are in the resource group
+# Should not exist if no bastion hots are in the resource group.
 
 describe azure_ddos_protection_resources(resource_group: 'RESOURCE_GROUP') do
   it { should_not exist }
@@ -115,4 +119,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

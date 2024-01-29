@@ -10,24 +10,26 @@ identifier = "inspec/resources/azure/azure_virtual_machine Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_virtual_machine` InSpec audit resource to test properties related to a virtual machine.
+Use the `azure_virtual_machine` InSpec audit resource to test the properties related to a virtual machine.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-`resource_group` and virtual machine `name` or the `resource_id` must be given as a parameter.
+`resource_group` and virtual machine `name`, or the `resource_id` are required parameters.
+
 ```ruby
-describe azure_virtual_machine(resource_group: 'MyResourceGroup', name: 'MyVmName') do
+describe azure_virtual_machine(resource_group: 'RESOURCE_GROUP', name: 'VM_NAME') do
   it { should exist }
 end
 ```
+
 ```ruby
 describe azure_virtual_machine(resource_id: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/virtualMachines/{vmName}') do
   it { should exist }
@@ -37,15 +39,16 @@ end
 ## Parameters
 
 `resource_group`
-: Azure resource group that the targeted resource resides in. `MyResourceGroup`.
+: Azure resource group where the targeted resource resides.
 
 `name`
-: Name of the Azure resource to test. `MyVM`.
+: Name of the Azure resource to test.
 
 `resource_id`
-: The unique resource ID. `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/virtualMachines/{vmName}`.
+: The unique resource ID.
 
 Either one of the parameter sets can be provided for a valid query:
+
 - `resource_id`
 - `resource_group` and `name`
 
@@ -81,20 +84,20 @@ Either one of the parameter sets can be provided for a valid query:
 `data_disk_names`
 : The virtual machine's data disk names. `its('data_disk_names') { should include('DataDisk1') }`.
 
-For properties applicable to all resources, such as `type`, `name`, `id`, `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
+For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachines/get#virtualmachine) for other properties available. 
-Any attribute in the response may be accessed with the key names separated by dots (`.`).
+Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachines/get#virtualmachine) for other properties available. Any attribute in the response may be accessed with the key names separated by dots (`.`).
 
 ## Examples
 
-**Ensure that the Virtual Machine has the Expected Data Disks.**
+### Ensure that the virtual machine has the expected data Disks
 
 ```ruby
 describe azure_virtual_machine(resource_group: 'MyResourceGroup', name: 'MyVmName') do
   its('data_disk_names') { should include('DataDisk1') }
 end
 ```
+
 **Ensure that the Virtual Machine has the Expected Monitoring Agent Installed.**
 
 ```ruby
@@ -110,46 +113,49 @@ This InSpec audit resource has the following special matchers. For a full list o
 ### exists
 
 ```ruby
-# If a virtual machine is found it will exist
+# If a virtual machine is found, it will exist.
 
-describe azure_virtual_machine(resource_group: 'MyResourceGroup', name: 'MyVmName') do
+describe azure_virtual_machine(resource_group: 'RESOURCE_GROUP', name: 'VM_NAME') do
   it { should exist }
 end
 
-# virtual machines that aren't found will not exist
-describe azure_virtual_machine(resource_group: 'MyResourceGroup', name: 'DoesNotExist') do
+# virtual machines that are not found, will not exist.
+
+describe azure_virtual_machine(resource_group: 'RESOURCE_GROUP', name: 'VM_NAME') do
   it { should_not exist }
 end
 ```
+
 ### have_only_approved_extensions
 
 ```ruby
-# Check if a virtual machine has only approved extensions. If an extension
+# Check if a virtual machine has only approved extensions. The check will fail if an extension is used that's not on the list.
 
-# is used that's not in the list then the check will fail.
-describe azure_virtual_machine(resource_group: 'MyResourceGroup', name: 'MyVmName') do
+describe azure_virtual_machine(resource_group: 'RESOURCE_GROUP', name: 'VM_NAME') do
   it { should have_only_approved_extensions(['ApprovedExtension', 'OtherApprovedExtensions']) }
 end
 ```
+
 ### have_monitoring_agent_installed
 
 ```ruby
-# Will be true if the MicrosoftMonitoringAgent is installed (Windows only)
+# Will be true if the MicrosoftMonitoringAgent is installed (Windows only).
 
 describe azure_virtual_machine(resource_group: 'MyResourceGroup', name: 'MyVmName') do
   it { should have_monitoring_agent_installed }
 end
 ```
+
 ### have_endpoint_protection_installed
 
 ```ruby
 # Will be true if any of the given extensions are installed.
 
-describe azure_virtual_machine(resource_group: 'MyResourceGroup', name: 'MyVmName') do
+describe azure_virtual_machine(resource_group: 'RESOURCE_GROUP', name: 'VM_NAME') do
   it { should have_endpoint_protection_installed(['Extension1', 'Extension2']) }
 end
 ```
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

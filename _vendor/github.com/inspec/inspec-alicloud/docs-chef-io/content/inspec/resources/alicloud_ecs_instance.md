@@ -159,7 +159,7 @@ end
 
 ## Matchers
 
-{{% inspec_matchers_link %}}
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
 
 ### exist
 
@@ -179,5 +179,5 @@ it { should_not exist }
 
 Your Principal will need the `ecs:DescribeInstances`, `ecs:DescribeInstanceAttribute` and `ecs:DescribeInstanceRamRole` actions with Effect set to Allow.
 
-{{% alibaba_access_management_doc %}}
-{{% alibaba_authentication_ecs_api_doc %}}
+{{< readfile file="content/inspec/resources/reusable/md/alibaba_access_management_doc.md" >}}
+{{< readfile file="content/inspec/resources/reusable/md/alibaba_authentication_ecs_api_doc.md" >}}

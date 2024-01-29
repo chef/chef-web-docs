@@ -10,15 +10,15 @@ identifier = "inspec/resources/azure/azure_container_groups Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_container_groups` InSpec audit resource to test properties related to all Azure container groups within a subscription.
+Use the `azure_container_groups` InSpec audit resource to test the properties related to all Azure container groups within a subscription.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -62,7 +62,7 @@ This resource does not require any parameters.
 : **Field**: `tags`
 
 `properties`
-: A list of Properties all the resources.
+: A list of properties all the resources.
 
 : **Field**: `properties`
 
@@ -77,7 +77,7 @@ This resource does not require any parameters.
 : **Field**: `init_containers`
 
 `image_registry_credentials`
-: A list of image registry credentials by which the container group is created from.
+: A list of image registry credentials through which the container group is created.
 
 : **Field**: `image_registry_credentials`
 
@@ -102,7 +102,7 @@ This resource does not require any parameters.
 : **Field**: `volumes`
 
 `skus`
-: A list SKU for a container group.
+: A list SKUs for a container group.
 
 : **Field**: `sku`
 
@@ -111,11 +111,15 @@ This resource does not require any parameters.
 
 : **Field**: `restart_policy`
 
-{{% inspec_filter_table %}}
+{{< note >}}
+
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 ## Examples
 
-**Loop through container groups by their names.**
+### Test to loop through container groups by their names
 
 ```ruby
 azure_container_groups.names.each do |name|
@@ -125,7 +129,7 @@ azure_container_groups.names.each do |name|
 end
 ```
 
-**Test that there are container groups with valid name.**
+### Test to ensure there are container groups with valid name
 
 ```ruby
 describe azure_container_groups.where(name: 'CONTAINER_GROUP_NAME') do
@@ -135,18 +139,24 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
 ```ruby
-# Should not exist if no container groups are present in the subscription
+# Should not exist if no container groups are present in the subscription.
 
 describe azure_container_groups do
   it { should_not exist }
 end
+```
 
-# Should exist if the filter returns at least one container group in the subscription
+### not_exists
+
+```ruby
+# Should exist if the filter returns at least one container group in the subscription.
 
 describe azure_container_groups do
   it { should exist }
@@ -155,4 +165,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

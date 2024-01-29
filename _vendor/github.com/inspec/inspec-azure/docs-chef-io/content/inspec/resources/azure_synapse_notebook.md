@@ -10,15 +10,15 @@ identifier = "inspec/resources/azure/azure_synapse_notebook Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_synapse_notebook` InSpec audit resource to test properties related to a Azure Synapse notebook in a Synapse workspace.
+Use the `azure_synapse_notebook` InSpec audit resource to test the properties related to an Azure Synapse notebook in a Synapse workspace.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -66,8 +66,7 @@ This resource requires the `endpoint` and `name` parameters for a valid query.
 `properties`
 : The properties of the notebook.
 
-
-For properties applicable to all resources, such as `type`, `name`, `id`, `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
+For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
 Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/synapse/data-plane/notebook/get-notebook) for other available properties.
 
@@ -75,7 +74,7 @@ Access any property in the response by separating the key names with a period (`
 
 ## Examples
 
-**Test that there are four cores for each executor.**
+### Test that there are four cores for each executor
 
 ```ruby
 describe azure_synapse_notebook(endpoint: 'WORKSPACE_DEVELOPMENT_ENDPOINT', name: 'NOTEBOOK_NAME') do
@@ -83,7 +82,7 @@ describe azure_synapse_notebook(endpoint: 'WORKSPACE_DEVELOPMENT_ENDPOINT', name
 end
 ```
 
-**Test that the notebook uses the Python kernel.**
+### Test that the notebook uses the Python kernel
 
 ```ruby
 describe azure_synapse_notebook(endpoint: 'WORKSPACE_DEVELOPMENT_ENDPOINT', name: 'NOTEBOOK_NAME') do
@@ -97,17 +96,19 @@ This InSpec audit resource has the following special matchers. For a full list o
 
 ### exists
 
-If a Synapse Notebook is found it will exist
-
 ```ruby
+# If a Synapse Notebook is found, it will exist.
+
 describe azure_synapse_notebook(endpoint: 'WORKSPACE_DEVELOPMENT_ENDPOINT', name: 'NOTEBOOK_NAME') do
   it { should exist }
 end
 ```
 
-Synapse Notebooks that aren't found will not exist
+### not_exists
 
 ```ruby
+# Synapse Notebooks that aren't found, will not exist.
+
 describe azure_synapse_notebook(endpoint: 'WORKSPACE_DEVELOPMENT_ENDPOINT', name: 'NOTEBOOK_NAME') do
   it { should_not exist }
 end
@@ -115,4 +116,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

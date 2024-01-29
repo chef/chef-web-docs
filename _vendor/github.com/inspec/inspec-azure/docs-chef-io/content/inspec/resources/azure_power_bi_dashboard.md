@@ -14,15 +14,15 @@ Use the `azure_power_bi_dashboard` InSpec audit resource to test the properties 
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-`dashboard_id` is a required parameter and `group_id` is an optional parameter.
+`dashboard_id` is a required parameter, and `group_id` is an optional parameter.
 
 ```ruby
 describe azure_power_bi_dashboard(group_id: 'GROUP_ID', dashboard_id: 'dashboard_ID') do
@@ -49,7 +49,7 @@ end
 : The dashboard display name.
 
 `embedUrl`
-: The dashboard embed url.
+: The dashboard embed URL.
 
 `isReadOnly`
 : Is ReadOnly dashboard.
@@ -60,7 +60,7 @@ Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/p
 
 ## Examples
 
-**Test that the Power BI Dashboard is read only.**
+### Test that the Power BI Dashboard is read-only
 
 ```ruby
 describe azure_power_bi_dashboard(group_id: 'GROUP_ID', dashboard_id: 'DASHBOARD_ID')  do
@@ -75,13 +75,17 @@ This InSpec audit resource has the following special matchers. For a full list o
 ### exists
 
 ```ruby
-# Should exist if the Power BI dashboard is present in the group
+# Should exist if the Power BI dashboard is present in the group.
 
 describe azure_power_bi_dashboard(group_id: 'GROUP_ID', dashboard_id: 'dashboard_ID')  do
   it { should exist }
 end
+```
 
-# Should not exist if the Power BI dashboard is not present in the group
+### not_exists
+
+```ruby
+# Should not exist if the Power BI dashboard is not present in the group.
 
 describe azure_power_bi_dashboard(group_id: 'GROUP_ID', dashboard_id: 'dashboard_ID')  do
   it { should_not exist }

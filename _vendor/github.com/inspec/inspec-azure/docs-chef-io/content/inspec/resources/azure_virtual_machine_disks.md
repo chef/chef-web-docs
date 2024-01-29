@@ -10,27 +10,30 @@ identifier = "inspec/resources/azure/azure_virtual_machine_disks Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_virtual_machine_disks` InSpec audit resource to test properties related to disks for a resource group or the entire subscription.
+Use the `azure_virtual_machine_disks` InSpec audit resource to test the properties related to disks for a resource group or the entire subscription.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-An `azure_virtual_machine_disks` resource block returns all disks, either within a Resource Group (if provided), or within an entire Subscription.
+An `azure_virtual_machine_disks` resource block returns all disks within a resource group (if provided) or an entire subscription.
+
 ```ruby
 describe azure_virtual_machine_disks do
   it { should exist }
 end
 ```
-or
+
+Or
+
 ```ruby
-describe azure_virtual_machine_disks(resource_group: 'my-rg') do
+describe azure_virtual_machine_disks(resource_group: 'RESOURCE_GROUP') do
   it { should exist }
 end
 ```
@@ -44,7 +47,7 @@ end
 ## Properties
 
 `ids`
-: A list of the unique resource ids.
+: A list of the unique resource IDs.
 
 : **Field**: `id`
 
@@ -59,7 +62,7 @@ end
 : **Field**: `resource_group`
 
 `names`
-: A list of names all the disks.
+: A list of names for all the disks.
 
 : **Field**: `name`
 
@@ -78,35 +81,42 @@ end
 
 : **Field**: `tags`
 
-{{% inspec_filter_table %}}
+{{< note >}}
+
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 ## Examples
 
-**Filter the Attached Disks.**
+### Filter the attached disks
 
 ```ruby
-describe azure_virtual_machine_disks(resource_group: 'MyResourceGroup').where(attached: true) do
+describe azure_virtual_machine_disks(resource_group: 'RESOURCE_GROUP').where(attached: true) do
   it { should exist }
   its('count') { should eq 3}
 end
-```   
-**Loop through Disks by Their Ids  .**
+```
+
+### Loop through disks by their IDs
 
 ```ruby
 azure_virtual_machine_disks.ids.each do |id|
   describe azure_virtual_machine_disk(resource_id: id) do
     it { should exist }
   end
-end  
-``` 
-**Test that There are Disks that Include a Certain String in their Names (Client Side Filtering)   .**
+end
+```
+
+### Test that there are disks that include a certain string in their names (Client Side Filtering)
 
 ```ruby
-describe azure_virtual_machine_disks(resource_group: 'MyResourceGroup').where { name.include?('Windows') } do
+describe azure_virtual_machine_disks(resource_group: 'RESOURCE_GROUP').where { name.include?('Windows') } do
   it { should exist }
 end
-```    
-**Test that There are Disks that Include a Certain String in their Names (Server Side Filtering via Generic Resource - Recommended)   .**
+```
+
+### Test that there are disks that include a certain string in their names (Server Side Filtering via Generic Resource - Recommended)
 
 ```ruby
 describe azure_generic_resources(resource_provider: 'Microsoft.Compute/disks', substring_of_name: 'Windows') do
@@ -116,18 +126,24 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
 ```ruby
-# Should not exist if no disks are in the resource group
+# Should not exist if no disks are in the resource group.
 
-describe azure_virtual_machine_disks(resource_group: 'MyResourceGroup') do
+describe azure_virtual_machine_disks(resource_group: 'RESOURCE_GROUP') do
   it { should_not exist }
 end
+```
 
-# Should exist if the filter returns a single virtual machine
+### not_exists
+
+```ruby
+# Should exist if the filter returns a single virtual machine.
 
 describe azure_virtual_machine_disks.where(attached: true ) do
   it { should exist }
@@ -136,4 +152,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

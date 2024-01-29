@@ -14,15 +14,15 @@ Use the `azure_power_bi_dashboard_tiles` InSpec audit resource to test the prope
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-An `azure_power_bi_dashboard_tiles` resource block returns all Azure Power BI dashboard tiles within dashboard and a group.
+An `azure_power_bi_dashboard_tiles` resource block returns all Azure Power BI dashboard tiles within a dashboard and a group.
 
 ```ruby
 describe azure_power_bi_dashboard_tiles(dashboard_id: 'dashboard_ID') do
@@ -57,7 +57,7 @@ end
 : **Field**: `title`
 
 `embedUrls`
-: List of all dashboard embed urls.
+: List of all dashboard embed URLs.
 
 : **Field**: `embedUrl`
 
@@ -81,13 +81,16 @@ end
 
 : **Field**: `datasetId`
 
+{{< note >}}
 
-{{% inspec_filter_table %}}
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/power-bi/dashboards/get-dashboards) for other properties available.
 
 ## Examples
 
-**Loop through Power BI dashboard tiles by their IDs.**
+### Loop through Power BI dashboard tiles by their IDs
 
 ```ruby
 azure_power_bi_dashboard_tiles.ids.each do |id|
@@ -97,7 +100,7 @@ azure_power_bi_dashboard_tiles.ids.each do |id|
 end
 ```
 
-**Test to ensure all Power BI dashboard tiles that are in top left corner.**
+### Test to ensure all Power BI dashboard tiles that are in the top left corner
 
 ```ruby
 describe azure_power_bi_dashboard_tiles.where(rowSpan: true) do
@@ -107,7 +110,9 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
@@ -117,8 +122,12 @@ This InSpec audit resource has the following special matchers. For a full list o
 describe azure_power_bi_dashboard_tiles do
   it { should_not exist }
 end
+```
 
-# Use should_not to test for an Azure Power BI dashboard tile that should not be in the resource group
+### not_exists
+
+```ruby
+# Use should_not to test for an Azure Power BI dashboard tile that should not be in the resource group.
 
 describe azure_power_bi_dashboard_tiles do
   it { should exist }

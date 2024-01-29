@@ -10,24 +10,26 @@ identifier = "inspec/resources/azure/azure_mysql_server Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_mysql_server` InSpec audit resource to test properties and configuration of an Azure MySQL Server.
+Use the `azure_mysql_server` InSpec audit resource to test the properties and configuration of an Azure MySQL server.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-`resource_group` and `name` or the `resource_id` must be given as a parameter.
+`resource_group` and `name`, or the `resource_id` are required parameters.
+
 ```ruby
-describe azure_mysql_server(resource_group: 'inspec-resource-group-9', name: 'example_server') do
+describe azure_mysql_server(resource_group: 'RESOURCE_GROUP', name: 'SERVER_NAME') do
   it { should exist }
 end
 ```
+
 ```ruby
 describe azure_mysql_server(resource_id: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.DBforMySQL/servers/{serverName}') do
   it { should exist }
@@ -37,21 +39,22 @@ end
 ## Parameters
 
 `resource_group`
-: Azure resource group that the targeted resource resides in. `MyResourceGroup`.
+: Azure resource group where the targeted resource resides.
 
 `name`
-: Name of the MySql server to test. `MyServer`.
+: Name of the MySql server to test.
 
 `server_name`
-: Name of the MySql server to test. `MyServer`. This is for backward compatibility, use `name` instead.
+: Name of the MySql server to test. This is for backward compatibility. Use `name` instead.
 
 `resource_id`
-: The unique resource ID. `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.DBforMySQL/servers/{serverName}`.
+: The unique resource ID.
 
 `firewall_rules_api_version`
-: The endpoint api version for the `firewall_rules` property. The latest version will be used unless provided.
+: The endpoint API version for the `firewall_rules` property. The latest version will be used unless provided.
 
 Either one of the parameter sets can be provided for a valid query:
+
 - `resource_id`
 - `resource_group` and `name`
 - `resource_group` and `server_name`
@@ -64,35 +67,39 @@ Either one of the parameter sets can be provided for a valid query:
 `sku`
 : The SKU (pricing tier) of the server.
 
-For properties applicable to all resources, such as `type`, `name`, `id`, `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
+For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/get#server) for other properties available. 
+Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/mysql/singleserver/servers(2017-12-01)/get) for other properties available.
+
 Any attribute in the response may be accessed with the key names separated by dots (`.`).
 
 ## Examples
 
-**Test If a MySQL Server is Referenced with a Valid Name.**
+### Test if a MySQL server is referenced with a valid name
 
 ```ruby
-describe azure_mysql_server(resource_group: 'my-rg', name: 'sql-server-1') do
+describe azure_mysql_server(resource_group: 'RESOURCE_GROUP', name: 'SERVER_NAME') do
   it { should exist }
 end
 ```
-**Test If a MySQL Server is Referenced with an Invalid Name.**
+
+### Test if a MySQL server is referenced with an invalid name
 
 ```ruby
-describe azure_mysql_server(resource_group: 'my-rg', name: 'i-dont-exist') do
+describe azure_mysql_server(resource_group: 'RESOURCE_GROUP', name: 'i-dont-exist') do
   it { should_not exist }
 end
-```    
-**Test If a MySQL Server Has Firewall Rules Set.**
+```
+
+### Test if a MySQL server has firewall rules set
 
 ```ruby
-describe azure_mysql_server(resource_group: 'my-rg', name: 'my-server') do
+describe azure_mysql_server(resource_group: 'RESOURCE_GROUP', name: 'SERVER_NAME') do
   its('firewall_rules') { should_not be_empty }
 end
-```        
-**Test a MySQL Server's Fully Qualified Domain Name, Location and Public Network Access Status.**
+```
+
+### Test a MySQL server's fully qualified domain name, location, and public network access status
 
 ```ruby
 describe azure_mysql_server(resource_id: '/subscriptions/.../my-server') do
@@ -109,11 +116,11 @@ This InSpec audit resource has the following special matchers. For a full list o
 ### exists
 
 ```ruby
-describe azure_mysql_server(resource_group: 'my-rg', server_name: 'server-name-1') do
+describe azure_mysql_server(resource_group: 'RESOURCE_GROUP', server_name: 'SERVER_NAME-1') do
   it { should exist }
 end
 ```
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}
