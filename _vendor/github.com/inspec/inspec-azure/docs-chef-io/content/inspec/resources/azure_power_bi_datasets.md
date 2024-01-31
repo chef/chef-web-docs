@@ -14,11 +14,11 @@ Use the `azure_power_bi_datasets` InSpec audit resource to test the properties o
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -33,7 +33,6 @@ end
 ## Parameters
 
 `group_id` _(optional)_
-
 : The workspace ID.
 
 ## Properties
@@ -49,12 +48,12 @@ end
 : **Field**: `name`
 
 `addRowsAPIEnableds`
-: List of boolean flags which describes whether the dataset allows adding new rows.
+: List of boolean flags which describe whether the dataset allows adding new rows.
 
 : **Field**: `addRowsAPIEnabled`
 
 `isRefreshables`
-: List of boolean flags that represent refreshable parameter of datasets.
+: List of boolean flags that represent refreshable parameters of datasets.
 
 : **Field**: `isRefreshable`
 
@@ -64,22 +63,26 @@ end
 : **Field**: `isEffectiveIdentityRequired`
 
 `isEffectiveIdentityRolesRequireds`
-: List of boolean flags that describes whether RLS is defined inside the PBIX file.
+: List of boolean flags that describe whether `RLS` is defined inside the `PBIX` file.
 
 : **Field**: `isEffectiveIdentityRolesRequired`
 
 `isOnPremGatewayRequireds`
-: List of boolean flags that describes whether dataset requires an On-premises Data Gateway.
+: List of boolean flags that describe whether the dataset requires an On-premises Data Gateway.
 
 : **Field**: `isOnPremGatewayRequired`
 
-{{% inspec_filter_table %}}
+{{< note >}}
+
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/power-bi/datasets/get-datasets) for other properties available.
 
 ## Examples
 
-**Test to ensure Power BI dataset is refreshable.**
+### Test to ensure the Power BI dataset is refreshable
 
 ```ruby
 describe azure_power_bi_datasets.where(isRefreshable: true) do
@@ -89,17 +92,24 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
 ```ruby
-# Should not exist if no Power BI datasets are present
+# Should not exist if no Power BI datasets are present.
 
 describe azure_power_bi_datasets do
   it { should_not exist }
 end
-# Should exist if the filter returns at least one Power BI datasets
+```
+
+### not_exists
+
+```ruby
+# Should exist if the filter returns at least one Power BI dataset.
 
 describe azure_power_bi_datasets do
   it { should exist }

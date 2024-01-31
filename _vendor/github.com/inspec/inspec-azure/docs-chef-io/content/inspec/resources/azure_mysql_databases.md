@@ -10,21 +10,22 @@ identifier = "inspec/resources/azure/azure_mysql_databases Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_mysql_databases` InSpec audit resource to test properties and configuration of Azure MySQL Databases.
+Use the `azure_mysql_databases` InSpec audit resource to test the properties and configuration of Azure MySQL Databases.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-The `resource_group`, and `server_name` must be given as a parameter.
+The `resource_group` and `server_name` are required parameters.
+
 ```ruby
-describe azure_mysql_databases(resource_group: 'my-rg', server_name: 'my-server') do
+describe azure_mysql_databases(resource_group: 'RESOURCE_GROUP', server_name: 'SERVER_NAME') do
   it { should exist }
 end
 ```
@@ -32,15 +33,15 @@ end
 ## Parameters
 
 `resource_group`
-: Azure resource group that the targeted resource resides in. `MyResourceGroup`.
+: Azure resource group where the targeted resource resides.
 
 `server_name`
-: The name of the server in which the database resides. `serverName`.
+: The name of the server in which the database resides.
 
 ## Properties
 
 `ids`
-: A list of the unique resource ids.
+: A list of the unique resource IDs.
 
 : **Field**: `id`
 
@@ -64,47 +65,59 @@ end
 
 : **Field**: `properties`
 
-{{% inspec_filter_table %}}
+{{< note >}}
+
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 ## Examples
 
-**Check Resources are Present.**
+### Check resources are present
 
-````ruby
-describe azure_mysql_databases(resource_group: 'my-rg', server_name: 'my-server') do
+```ruby
+describe azure_mysql_databases(resource_group: 'RESOURCE_GROUP', server_name: 'SERVER_NAME') do
     it            { should exist }
     its('names')  { should include 'my-db' }
 end
-````
-**Filter the Results to Include Only those with Names Match the Given String Value.**
+```
+
+### Filter the results to include only those with names match the specified string value
 
 ```ruby
-describe azure_mysql_databases.(resource_group: 'my-rg', server_name: 'my-server').where{ name.eql?('production-db') } do
+describe azure_mysql_databases.(resource_group: 'RESOURCE_GROUP', server_name: 'SERVER_NAME').where{ name.eql?('production-db') } do
   it { should exist }
 end
 ```
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
-The control will pass if the filter returns at least one result. Use `should_not` if you expect zero matches.
-```ruby
-# If we expect resources to exist
+The control passes if the filter returns at least one result. Use `should_not` if you expect zero matches.
 
-describe azure_mysql_databases(resource_group: 'ExampleGroup', server_name: 'my-server') do
+```ruby
+# If we expect resources to exist.
+
+describe azure_mysql_databases(resource_group: 'EXAMPLEGROUP', server_name: 'SERVER_NAME') do
   it { should exist }
 end
+```
 
-# If we expect resources not to exist
+### not_exists
 
-describe azure_mysql_databases(resource_group: 'ExampleGroup', server_name: 'my-server') do
+```ruby
+# If we expect resources not to exist.
+
+describe azure_mysql_databases(resource_group: 'EXAMPLEGROUP', server_name: 'SERVER_NAME') do
   it { should_not exist }
 end
 ```
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

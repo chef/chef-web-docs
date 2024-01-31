@@ -10,24 +10,26 @@ identifier = "inspec/resources/azure/azure_virtual_machine_disk Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_virtual_machine_disk` InSpec audit resource to test properties and configuration of an Azure disk.
+Use the `azure_virtual_machine_disk` InSpec audit resource to test the properties and configuration of an Azure disk.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-`resource_group` and `name` or the `resource_id` must be given as a parameter.
+`resource_group` and `name`, or the `resource_id` are required parameters.
+
 ```ruby
-describe azure_virtual_machine_disk(resource_group: 'inspec-resource-group-9', name: 'example_disk') do
+describe azure_virtual_machine_disk(resource_group: 'RESOURCE_GROUP', name: 'EXAMPLE_DISK') do
   it { should exist }
 end
 ```
+
 ```ruby
 describe azure_virtual_machine_disk(resource_id: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/disks/{diskName}') do
   it { should exist }
@@ -37,12 +39,13 @@ end
 ## Parameters
 
 `resource_group`
-: Azure resource group that the targeted resource resides in. `MyResourceGroup`.
+: Azure resource group where the targeted resource resides.
 
 `name`
-: Name of the disk to test. `MyDisk`.
+: Name of the disk to test.
 
 Either one of the parameter sets can be provided for a valid query:
+
 - `resource_id`
 - `resource_group` and `name`
 
@@ -65,58 +68,65 @@ Either one of the parameter sets can be provided for a valid query:
 
 <superscript>*</superscript> The disk can still be encrypted at rest with a platform key, even though the `encryption_enabled` is `nil`. It is recommended to see [here](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disk-encryption) for more details on disk encryption.
 
-For properties applicable to all resources, such as `type`, `name`, `location`, `id`, `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
+For properties applicable to all resources, such as `type`, `name`, `location`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/compute/disks/get#disk) for other properties available. 
-Any attribute in the response may be accessed with the key names separated by dots (`.`), eg. `properties.<attribute>`.
+Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/compute/disks/get#disk) for other properties available.
+Any attribute in the response may be accessed with the key names separated by dots (`.`). For example, `properties.<attribute>`.
 
 ## Examples
 
-**Test If a Disk is Referenced with a Valid Name.**
+### Test if a disk is referenced with a valid name
 
 ```ruby
-describe azure_virtual_machine_disk(resource_group: 'my-rg', name: 'os_disk') do
+describe azure_virtual_machine_disk(resource_group: 'RESOURCE_GROUP', name: 'OS_DISK') do
   it { should exist }
 end
 ```
-**Test If a Disk is Referenced with an Invalid Name.**
+
+### Test if a disk is referenced with an invalid name
 
 ```ruby
-describe azure_virtual_machine_disk(resource_group: 'my-rg', name: 'i-dont-exist') do
+describe azure_virtual_machine_disk(resource_group: 'RESOURCE_GROUP', name: 'i-dont-exist') do
   it { should_not exist }
 end
-```    
-**Test the VM that the Disk is Attached.**
+```
+
+### Test the VM that the disk is attached
 
 ```ruby
-describe azure_virtual_machine_disk(resource_group: 'my-rg', name: 'os_disk') do
+describe azure_virtual_machine_disk(resource_group: 'RESOURCE_GROUP', name: 'OS_DISK') do
   its('managedBy') { should cmp '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/virtualMachines/{vmName}' }
 end
-```   
-**Test the Type of Key Used to Encrypt the Data at Rest.**
+```
+
+### Test the key type used to encrypt the data at rest
 
 ```ruby
-describe azure_virtual_machine_disk(resource_group: 'my-rg', name: 'os_disk') do
+describe azure_virtual_machine_disk(resource_group: 'RESOURCE_GROUP', name: 'OS_DISK') do
   its('rest_encryption_type') { should cmp 'EncryptionAtRestWithPlatformKey' }
 end
-```        
-**Test a Disk's Size in Bytes.**
+```
+
+### Test a disk's size in bytes
 
 ```ruby
-describe azure_virtual_machine_disk(resource_group: 'my-rg', name: 'os_disk') do
+describe azure_virtual_machine_disk(resource_group: 'RESOURCE_GROUP', name: 'OS_DISK') do
   its('properties.diskSizeBytes') { should cmp 136367308800 }
 end
 ```
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### attached
 
 Test if a disk is attached to a virtual machine.
+
 ```ruby
-describe azure_virtual_machine_disk(resource_group: 'my-rg', name: 'os_disk') do
+describe azure_virtual_machine_disk(resource_group: 'RESOURCE_GROUP', name: 'OS_DISK') do
   it { should be_attached }
 end
 ```
@@ -124,18 +134,23 @@ end
 ### exists
 
 ```ruby
-# If we expect a resource to always exist
+# If we expect a resource to always exist.
 
-describe azure_virtual_machine_disk(resource_group: 'my-rg', name: 'os_disk') do
+describe azure_virtual_machine_disk(resource_group: 'RESOURCE_GROUP', name: 'OS_DISK') do
   it { should exist }
 end
-# If we expect a resource to never exist
+```
 
-describe azure_virtual_machine_disk(resource_group: 'my-rg', name: 'os_disk') do
+### not_exists
+
+```ruby
+# If we expect a resource to never exist.
+
+describe azure_virtual_machine_disk(resource_group: 'RESOURCE_GROUP', name: 'OS_DISK') do
   it { should_not exist }
 end
 ```
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

@@ -10,21 +10,22 @@ identifier = "inspec/resources/azure/azure_storage_account_blob_containers Resou
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_storage_account_blob_containers` InSpec audit resource to test properties and configuration of Blob Containers within an Azure Storage Account.
+Use the `azure_storage_account_blob_containers` InSpec audit resource to test the properties and configuration of Blob Containers within an Azure Storage Account.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-The `resource_group`, and `storage_account_name` must be given as a parameter.
+The `resource_group` and `storage_account_name` are required parameters.
+
 ```ruby
-describe azurerm_storage_account_blob_containers(resource_group: 'rg', storage_account_name: 'production') do
+describe azurerm_storage_account_blob_containers(resource_group: 'RESOURCE_GROUP', storage_account_name: 'PRODUCTION') do
   its('names') { should include 'my-container'}
 end
 ```
@@ -32,15 +33,15 @@ end
 ## Parameters
 
 `resource_group`
-: Azure resource group that the targeted resource resides in. `MyResourceGroup`.
+: Azure resource group where the targeted resource resides.
 
 `storage_account_name`
-: The name of the storage account within the specified resource group. `accountName`.
+: The name of the storage account within the specified resource group.
 
 ## Properties
 
 `ids`
-: A list of the unique resource ids.
+: A list of the unique resource IDs.
 
 : **Field**: `id`
 
@@ -64,35 +65,44 @@ end
 
 : **Field**: `etag`
 
-{{% inspec_filter_table %}}
+{{< note >}}
+
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 ## Examples
 
-**Check If a Specific Container Exists.**
+### Check if a specific container exists
 
 ```ruby
-describe azurerm_storage_account_blob_containers(resource_group: 'rg', storage_account_name: 'production') do
+describe azurerm_storage_account_blob_containers(resource_group: 'RESOURCE_GROUP', storage_account_name: 'PRODUCTION') do
   its('names') { should include('my-container') }
 end
 ```
 
-**exists.**
+### exists
 
-The control will pass if the filter returns at least one result. Use `should_not` if you expect zero matches.
+The control passes if the filter returns at least one result. Use `should_not` if you expect zero matches.
+
 ```ruby
-**If we expect at least one resource to exists on a specified account.**
+**If we expect at least one resource to exist on a specified account.**
 
-describe azurerm_storage_account_blob_containers(resource_group: 'rg', storage_account_name: 'production') do
+describe azurerm_storage_account_blob_containers(resource_group: 'RESOURCE_GROUP', storage_account_name: 'PRODUCTION') do
   it { should exist }
 end
+```
 
-**If we expect not to exist any containers on a specified account.**
+### not_exists
 
-describe azurerm_storage_account_blob_containers(resource_group: 'rg', storage_account_name: 'production') do
+```ruby
+**If we expect not to exist containers on a specified account.**
+
+describe azurerm_storage_account_blob_containers(resource_group: 'RESOURCE_GROUP', storage_account_name: 'PRODUCTION') do
   it { should_not exist }
 end
 ```
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

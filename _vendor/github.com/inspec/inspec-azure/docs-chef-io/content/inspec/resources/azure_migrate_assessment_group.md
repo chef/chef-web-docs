@@ -14,11 +14,11 @@ Use the `azure_migrate_assessment_group` InSpec audit resource to test the prope
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -44,14 +44,12 @@ end
 : Name of the Azure Migrate assessment group to test.
 
 `resource_group`
-: Azure resource group that the targeted resource resides in.
+: Azure resource group where the targeted resource resides.
 
 `project_name`
 : Azure Migrate assessment project.
 
-The parameter set should be provided for a valid query:
-
-- `resource_group`, `project_name`, and `name`.
+The parameter set that should be provided for a valid query is `resource_group`, `project_name`, and `name`.
 
 ## Properties
 
@@ -62,7 +60,7 @@ The parameter set should be provided for a valid query:
 : Name of the group.
 
 `type`
-: Object type. `Microsoft.Migrate/assessmentProjects/groups`.
+: Object type.
 
 `eTag`
 : For optimistic concurrency control.
@@ -71,7 +69,7 @@ The parameter set should be provided for a valid query:
 : Properties of the group.
 
 `properties.areAssessmentsRunning`
-: If the assessments are in running state.
+: If the assessments are in a running state.
 
 `properties.assessments`
 : List of references to assessments created on this group.
@@ -85,7 +83,7 @@ Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/m
 
 ## Examples
 
-**Test the migrate assessment group has at least 5 machines.**
+### Test the migrate assessment group has at least five machines
 
 ```ruby
 describe azure_migrate_assessment_group(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME', name: 'GROUP_NAME') do
@@ -100,11 +98,18 @@ This InSpec audit resource has the following special matchers. For a full list o
 ### exists
 
 ```ruby
-# If a Migrate Assessment Group is found, it will exist
+# If a Migrate Assessment Group is found, it will exist.
+
 describe azure_migrate_assessment_group(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME', name: 'GROUP_NAME') do
   it { should exist }
 end
-# if Migrate Assessment Group is not found, it will not exist
+```
+
+### not_exists
+
+```ruby
+# If Migrate Assessment Group is not found, it will not exist.
+
 describe azure_migrate_assessment_group(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME', name: 'GROUP_NAME') do
   it { should_not exist }
 end
@@ -112,4 +117,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

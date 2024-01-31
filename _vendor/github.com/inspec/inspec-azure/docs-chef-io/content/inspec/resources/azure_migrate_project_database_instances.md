@@ -10,15 +10,15 @@ identifier = "inspec/resources/azure/azure_migrate_project_database_instances Re
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_migrate_project_database_instances` InSpec audit resource to test properties of all Azure Migrate project database instances in a migrate project.
+Use the `azure_migrate_project_database_instances` InSpec audit resource to test the properties of all Azure Migrate Project database instances in a migrate project.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -34,7 +34,7 @@ end
 
 `resource_group` _(required)_
 
-: Name of the Azure Resource Group that migrate project is part of.
+: Name of the Azure Resource Group where the migrate project is part.
 
 `project_name` _(required)_
 
@@ -78,7 +78,7 @@ end
 : **Field**: `lastUpdatedTime`
 
 `enqueueTimes`
-: The times the message were enqueued.
+: The time when the message was enqueued.
 
 : **Field**: `enqueueTimes`
 
@@ -127,11 +127,15 @@ end
 
 : **Field**: `solutionNames`
 
-{{% inspec_filter_table %}}
+{{< note >}}
+
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 ## Examples
 
-**Loop through Migrate project database instances by their names.**
+### Loop through Migrate Project database instances by their names
 
 ```ruby
 azure_migrate_project_database_instances(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME').names.each do |name|
@@ -141,7 +145,7 @@ azure_migrate_project_database_instances(resource_group: 'RESOURCE_GROUP', proje
 end
 ```
 
-**Test that there are Migrate project database instances that are of SQL instance types.**
+### Test that there are Migrate Project database instances that are of SQL instance types
 
 ```ruby
 describe azure_migrate_project_database_instances(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME').where{ instanceTypes.include?('SQL') } do
@@ -151,17 +155,24 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
 ```ruby
-# Should not exist if no Migrate project database instances are present in the project and in the resource group
+# Should not exist if no Migrate Project database instances are present in the project and the resource group.
 
 describe azure_migrate_project_database_instances(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME') do
   it { should_not exist }
 end
-# Should exist if the filter returns at least one Migrate project database instances in the project and in the resource group
+```
+
+### not_exists
+
+```ruby
+# Should exist if the filter returns at least one Migrate project database instance in the project and the resource group.
 
 describe azure_migrate_project_database_instances(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME') do
   it { should exist }
@@ -170,4 +181,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

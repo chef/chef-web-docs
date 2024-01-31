@@ -106,7 +106,7 @@ end
 
 ## Matchers
 
-{{% inspec_matchers_link %}}
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
 
 ### exist
 
@@ -142,5 +142,5 @@ This will check whether the requested user has a login profile for console acces
 
 Your Principal will need the following permissions action with Effect set to Allow: `ram:Getuser`, `ram:GetLoginProfile`, `ram:ListAccessKeys`.
 
-{{% alibaba_access_management_doc %}}
-{{% alibaba_authentication_ram_api_doc %}}
+{{< readfile file="content/inspec/resources/reusable/md/alibaba_access_management_doc.md" >}}
+{{< readfile file="content/inspec/resources/reusable/md/alibaba_authentication_ram_api_doc.md" >}}

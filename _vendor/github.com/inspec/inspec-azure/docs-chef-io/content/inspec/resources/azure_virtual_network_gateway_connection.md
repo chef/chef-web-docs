@@ -14,11 +14,11 @@ Use the `azure_virtual_network_gateway_connection` InSpec audit resource to test
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -33,13 +33,12 @@ end
 ## Parameters
 
 `name`
-: Name of the Azure Virtual Network Gateway Connection to test.
+: Name of the Azure Virtual Network Gateway connection to test.
 
 `resource_group`
 : Azure resource group name where the targeted resource resides.
 
-The parameter set should be provided for a valid query:
-- `resource_group` and `name`
+The parameter set should be provided for a valid query is `resource_group` and `name`.
 
 ## Properties
 
@@ -70,13 +69,13 @@ The parameter set should be provided for a valid query:
 `properties.ipsecPolicies`
 : The IPSec Policies to be considered by this connection.
 
-For properties applicable to all resources, such as `type`, `name`, `id`, `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
+For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
 Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/network-gateway/virtual-network-gateway-connections/get) for other properties available. Any attribute in the response is accessed with the key names separated by dots (`.`).
 
 ## Examples
 
-**Test that the Virtual Network Gateway connection protocol is IKEv1.**
+### Test that the Virtual Network Gateway connection protocol is IKEv1
 
 ```ruby
 describe azure_virtual_network_gateway_connection(resource_group: 'RESOURCE_GROUP', name: 'VIRTUAL_NETWORK_NAME') do
@@ -91,13 +90,17 @@ This InSpec audit resource has the following special matchers. For a full list o
 ### exists
 
 ```ruby
-# If a Virtual Network Gateway Connection is found it will exist
+# If a Virtual Network Gateway connection is found, it will exist.
 
 describe azure_virtual_network_gateway_connection(resource_group: 'RESOURCE_GROUP', name: 'VIRTUAL_NETWORK_NAME') do
   it { should exist }
 end
+```
 
-# if Virtual Network Gateway Connection is not found it will not exist
+### not_exists
+
+```ruby
+# If Virtual Network Gateway connection is not found, it will not exist.
 
 describe azure_virtual_network_gateway_connection(resource_group: 'RESOURCE_GROUP', name: 'VIRTUAL_NETWORK_NAME') do
   it { should_not exist }
@@ -106,4 +109,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="reader" %}}
+{{% inspec-azure/azure_permissions_service_principal role="reader" %}}

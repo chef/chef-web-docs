@@ -10,15 +10,15 @@ identifier = "inspec/resources/azure/azure_express_route_circuit Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_express_route_circuit` InSpec audit resource to test properties of an Azure ExpressRoute circuit resource.
+Use the `azure_express_route_circuit` InSpec audit resource to test the properties of an Azure ExpressRoute circuit resource.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -41,7 +41,7 @@ end
 ## Parameters
 
 `resource_group`
-: The Azure resource group that the targeted resource resides in.
+: The Azure resource group where the targeted resource resides.
 
 `circuit_name`
 : The name of the ExpressRoute circuit.
@@ -49,12 +49,12 @@ end
 `resource_id`
 : The resource ID of the ExpressRoute circuit.
 
-Provide the `resource_group` and `name` parameters, or the `resource_id` for a valid query.
+Provide the `resource_group` and `name` parameters, or the `resource_id` parameter for a valid query.
 
 ## Properties
 
 `resource_group`
-: The name of the resource group that the ExpressRoute circuit resource resides in.
+: The name of the resource group where the ExpressRoute circuit resource resides.
 
 `name`
 : The name of the ExpressRoute circuit.
@@ -78,16 +78,16 @@ Provide the `resource_group` and `name` parameters, or the `resource_id` for a v
 : The name of the ExpressRoute circuit service provider name.
 
 `service_provider_provisioning_state`
-: The service provider provisioning state of the ExpressRoute circuit resource. Possible values are, `NotProvisioned`, `Provisioning`, `Provisioned`, and `Deprovisioning`.
+: The service provider provisioning state of the ExpressRoute circuit resource. Possible values are `NotProvisioned`, `Provisioning`, `Provisioned`, and `Deprovisioning`.
 
 `service_key`
 : The ServiceKey.
 
 `stag`
-: The identifier of the circuit traffic. Outer tag for QinQ encapsulation.
+: The identifier of the circuit traffic. Outer tag for `QinQ` encapsulation.
 
 `global_reach_enabled`
-: Flag denoting global reach status.  `boolean`.
+: Flag denoting global reach status. `boolean`.
 
 `allow_global_reach`
 : Flag to enable Global Reach on the ExpressRoute circuit. `boolean`.
@@ -96,10 +96,10 @@ Provide the `resource_group` and `name` parameters, or the `resource_id` for a v
 : The GatewayManager Etag.
 
 `allow_classic_operations`
-: Whether "Allow Classic Operations" is set to `true` or `false`.
+: Whether `Allow Classic Operations` is set to `true` or `false`.
 
 `circuit_provisioning_state`
-: The CircuitProvisioningState state of the resource.
+: The `CircuitProvisioningState` state of the resource.
 
 `sku_name`
 : The name of the SKU.
@@ -110,12 +110,11 @@ Provide the `resource_group` and `name` parameters, or the `resource_id` for a v
 `sku_family`
 : The family of the SKU. Possible values are: `UnlimitedData` and `MeteredData`.
 
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/expressroute/express-route-circuits/get) for other properties available.
-Any attribute in the response may be accessed with the key names separated by dots (`.`).
+Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/expressroute/express-route-circuits/get) for other properties available. Any attribute in the response may be accessed with the key names separated by dots (`.`).
 
 ## Examples
 
-**Test the an ExpressRoute circuit resource has the correct type.**
+### Test an ExpressRoute circuit resource has the correct type
 
 ```ruby
 describe azure_express_route_circuit(resource_group: 'RESOURCE_GROUP', circuit_name: 'EXPRESS_CIRCUIT_NAME') do
@@ -123,7 +122,7 @@ describe azure_express_route_circuit(resource_group: 'RESOURCE_GROUP', circuit_n
 end
 ```
 
-**Test the an ExpressRoute circuit resource is in successful state.**
+### Test an ExpressRoute circuit resource is in a successful state
 
 ```ruby
 describe azure_express_route_circuit(resource_group: 'RESOURCE_GROUP', circuit_name: 'EXPRESS_CIRCUIT_NAME') do
@@ -131,7 +130,7 @@ describe azure_express_route_circuit(resource_group: 'RESOURCE_GROUP', circuit_n
 end
 ```
 
-**Test the location of an ExpressRoute circuit resource.**
+### Test the location of an ExpressRoute circuit resource
 
 ```ruby
 describe azure_express_route_circuit(resource_group: 'RESOURCE_GROUP', circuit_name: 'EXPRESS_CIRCUIT_NAME') do
@@ -146,18 +145,23 @@ This InSpec audit resource has the following special matchers. For a full list o
 ### exists
 
 ```ruby
-# If a express circuit resource is found it will exist
+# If an express circuit resource is found, it will exist.
 
-describe azure_express_route_circuit(resource_group: 'MyResourceGroup', circuit_name: 'mycircuit_name') do
+describe azure_express_route_circuit(resource_group: 'RESOURCE_GROUP', circuit_name: 'EXPRESS_CIRCUIT_NAME') do
   it { should exist }
 end
+```
 
-# express circuit resources that aren't found will not exist
-describe azure_express_route_circuit(resource_group: 'MyResourceGroup', circuit_name: 'DoesNotExist') do
+### not_exists
+
+```ruby
+# If an express circuit resources that aren't found, will not exist.
+
+describe azure_express_route_circuit(resource_group: 'RESOURCE_GROUP', circuit_name: 'DOESNOTEXIST') do
   it { should_not exist }
 end
 ```
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}
