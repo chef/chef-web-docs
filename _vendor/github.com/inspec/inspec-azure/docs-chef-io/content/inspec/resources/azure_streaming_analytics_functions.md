@@ -10,19 +10,19 @@ identifier = "inspec/resources/azure/azure_streaming_analytics_functions Resourc
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_streaming_analytics_functions` InSpec audit resource to test properties and configuration of multiple Azure streaming analytics functions.
+Use the `azure_streaming_analytics_functions` InSpec audit resource to test the properties and configuration of multiple Azure Streaming Analytics functions.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-An `azure_streaming_analytics_functions` resource block returns all functions  under a job.
+An `azure_streaming_analytics_functions` resource block returns all functions under a job.
 
 ```ruby
 describe azure_streaming_analytics_functions(resource_group: "RESOURCE_GROUP", job_name: "AZURE_STREAMING_JOB_NAME") do
@@ -34,7 +34,7 @@ end
 
 `resource_group` _(required)_
 
-: Azure resource group that the targeted resource resides in.
+: Azure resource group where the targeted resource resides.
 
 `job_name` _(required)_
 
@@ -43,7 +43,7 @@ end
 ## Properties
 
 `ids`
-: A list of the unique resource ids.
+: A list of the unique resource IDs.
 
 : **Field**: `id`
 
@@ -63,13 +63,17 @@ end
 : **Field**: `properties`
 
 Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/streamanalytics/) for other properties available.
-Any attribute in the response may be accessed with the key names separated by dots (`.`), eg. `properties.<attribute>`.
+Any attribute in the response may be accessed with the key names separated by dots (`.`). For example, `properties.<attribute>`.
 
-{{% inspec_filter_table %}}
+{{< note >}}
+
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 ## Examples
 
-**Test that the names should be an array.**
+### Test that the names should be an array
 
 ```ruby
 describe azure_streaming_analytics_functions(resource_group: "RESOURCE_GROUP", job_name: "AZURE_STREAMING_JOB_NAME") do
@@ -80,16 +84,21 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
-The control will pass if the filter returns at least one result.
+The control passes if the filter returns at least one result.
+
 ```ruby
 describe azure_streaming_analytics_functions(resource_group: "RESOURCE_GROUP", job_name: "AZURE_STREAMING_JOB_NAME") do
   it { should exist }
 end
 ```
+
+### not_exists
 
 Use `should_not` if you expect zero matches.
 
@@ -101,4 +110,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

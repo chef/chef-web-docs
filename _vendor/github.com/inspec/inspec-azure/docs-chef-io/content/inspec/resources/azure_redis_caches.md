@@ -10,19 +10,19 @@ identifier = "inspec/resources/azure/azure_redis_caches Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_redis_caches` InSpec audit resource to test properties of multiple Azure Redis caches in a resource group or in an entire subscription.
+Use the `azure_redis_caches` InSpec audit resource to test the properties of multiple Azure Redis caches in a resource group or an entire subscription.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-An `azure_redis_caches` resource block returns all Azure Redis caches within a Resource Group.
+An `azure_redis_caches` resource block returns all Azure Redis caches within a resource group.
 
 ```ruby
 describe azure_redis_caches(resource_group: 'RESOURCE_GROUP') do
@@ -40,12 +40,10 @@ end
 
 ## Parameters
 
-The parameter should be provided for a valid query
-
-- `resource_group`
+The parameter should be provided for a valid query is `resource_group`.
 
 `resource_group`
-: Azure resource group that the targeted resource resides in. `MyResourceGroup`.
+: Azure resource group where the targeted resource resides.
 
 ## Properties
 
@@ -55,7 +53,7 @@ The parameter should be provided for a valid query
 : **Field**: `id`
 
 `names`
-: A list of name for all the Resource names.
+: A list of name for all the resource names.
 
 : **Field**: `name`
 
@@ -70,7 +68,7 @@ The parameter should be provided for a valid query
 : **Field**: `location`
 
 `properties`
-: A list of properties all the resources.
+: A list of properties for all the resources.
 
 : **Field**: `properties`
 
@@ -100,17 +98,17 @@ The parameter should be provided for a valid query
 : **Field**: `instances_ssl_ports`
 
 `is_master_instance`
-: A list of Redis instance is_master flag.
+: A list of Redis instance `is_master` flag.
 
 : **Field**: `is_master_instance`
 
 `is_primary_instance`
-: A list of Redis instance is_primary flag.
+: A list of Redis instance `is_primary` flag.
 
 : **Field**: `is_primary_instance`
 
 `max_clients`
-: A list of max clients in redis configuration.
+: A list of max clients in Redis configuration.
 
 : **Field**: `max_clients`
 
@@ -120,7 +118,7 @@ The parameter should be provided for a valid query
 : **Field**: `max_memory_reserved`
 
 `max_fragmentation_memory_reserves`
-: A list of max fragmentation memory reserves in redis configuration.
+: A list of max fragmentation memory reserves in Redis configuration.
 
 : **Field**: `max_fragmentation_memory_reserved`
 
@@ -174,11 +172,15 @@ The parameter should be provided for a valid query
 
 : **Field**: `linked_servers`
 
-{{% inspec_filter_table %}}
+{{< note >}}
+
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 ## Examples
 
-**Loop through Redis Caches by their names.**
+### Loop through Redis Caches by their names
 
 ```ruby
 azure_redis_caches(resource_group: 'RESOURCE_GROUP').names.each do |name|
@@ -188,7 +190,7 @@ azure_redis_caches(resource_group: 'RESOURCE_GROUP').names.each do |name|
 end
 ```
 
-**Test that there is Redis cache with a specific string in its names using client-side filtering.**
+### Test that there is Redis cache with a specific string in its names using client-side filtering
 
 ```ruby
 describe azure_redis_caches(resource_group: 'RESOURCE_GROUP').where { name.include?('spec-client') } do
@@ -198,18 +200,24 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
 ```ruby
-# Should not exist if no redis caches are in the resource group
+# Should not exist if no Redis caches are in the resource group.
 
 describe azure_redis_caches(resource_group: 'RESOURCE_GROUP') do
   it { should_not exist }
 end
+```
 
-# Should exist if the filter returns at least one redis cache
+### not_exists
+
+```ruby
+# Should exist if the filter returns at least one Redis cache.
 
 describe azure_redis_caches(resource_group: 'RESOURCE_GROUP') do
   it { should exist }
@@ -218,4 +226,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

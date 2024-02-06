@@ -14,11 +14,11 @@ Use the `azure_power_bi_gateways` InSpec audit resource to test the properties r
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -29,8 +29,6 @@ describe azure_power_bi_gateways do
   #...
 end
 ```
-
-## Parameters
 
 ## Properties
 
@@ -59,13 +57,16 @@ end
 
 : **Field**: `modulus`
 
+{{< note >}}
 
-{{% inspec_filter_table %}}
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/power-bi/Gateways/get-Gateways) for other  available properties.
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
+Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/power-bi/Gateways/get-Gateways) for other available properties.
 
 ## Examples
 
-**Loop through Power BI gateways by their IDs.**
+### Loop through Power BI gateways by their IDs
 
 ```ruby
 azure_power_bi_gateways.ids.each do |id|
@@ -75,7 +76,7 @@ azure_power_bi_gateways.ids.each do |id|
 end
 ```
 
-**Test to ensure all Power BI gateways exponent is `AQAB`.**
+### Test to ensure all Power BI gateways exponent is 'AQAB'
 
 ```ruby
 describe azure_power_bi_gateways.where(exponent: 'AQAB') do
@@ -85,17 +86,24 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
 ```ruby
-# Should not exist if no Power BI gateways are present
+# Should not exist if no Power BI gateways are present.
 
 describe azure_power_bi_gateways do
   it { should_not exist }
 end
-# Should exist if the filter returns at least one Power BI gateways
+```
+
+### not_exists
+
+```ruby
+# Should exist if the filter returns at least one Power BI gateway.
 
 describe azure_power_bi_gateways do
   it { should exist }

@@ -10,19 +10,19 @@ identifier = "inspec/resources/azure/azure_migrate_project_machines Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_migrate_project_machines` InSpec audit resource to test the properties related to all Azure Migrate project machines within a project.
+Use the `azure_migrate_project_machines` InSpec audit resource to test the properties related to all Azure Migrate Project machines within a project.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-An `azure_migrate_project_machines` resource block returns all Azure Migrate project machines within a project.
+An `azure_migrate_project_machines` resource block returns all Azure Migrate Project machines within a project.
 
 ```ruby
 describe azure_migrate_project_machines(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME') do
@@ -33,13 +33,12 @@ end
 ## Parameters
 
 `resource_group`
-: Azure resource group that the targeted resource resides in.
+: Azure resource group where the targeted resource resides.
 
 `project_name`
 : Azure Migrate project name.
 
-The parameter set should be provided for a valid query:
-- `resource_group` and `project_name`.
+The parameter set that should be provided for a valid query is `resource_group` and `project_name`.
 
 ## Properties
 
@@ -64,17 +63,17 @@ The parameter set should be provided for a valid query:
 : **Field**: `properties`
 
 `discoveryData`
-: The discovery details of all the machine published by various sources.
+: The discovery details of all the machines published by various sources.
 
 : **Field**: `discoveryData`
 
 `assessmentData`
-: The assessment details of all the machine published by various sources.
+: The assessment details of all the machines published by various sources.
 
 : **Field**: `assessmentData`
 
 `migrationData`
-: The migration details of all the machine published by various sources.
+: The migration details of all the machines published by various sources.
 
 : **Field**: `migrationData`
 
@@ -83,11 +82,15 @@ The parameter set should be provided for a valid query:
 
 : **Field**: `lastUpdatedTime`
 
-{{% inspec_filter_table %}}
+{{< note >}}
+
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 ## Examples
 
-**Loop through migrate project machines by their names.**
+### Loop through Migrate Project machines by their names
 
 ```ruby
 azure_migrate_project_machines(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME').names.each do |name|
@@ -97,7 +100,7 @@ azure_migrate_project_machines(resource_group: 'RESOURCE_GROUP', project_name: '
 end
 ```
 
-**Test that there are migrate project machines with Windows OS.**
+### Test that there are Migrate Project machines with Windows OS
 
 ```ruby
 describe azure_migrate_project_machines(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME').where{ discoveryData.detect{ |data| data[:osType] == 'WINDOWSGUEST' } } do
@@ -105,7 +108,7 @@ describe azure_migrate_project_machines(resource_group: 'RESOURCE_GROUP', projec
 end
 ```
 
-**Test that the migrate project machines is of BIOS boot type.**
+### Test that the Migrate Project machines are of BIOS boot type
 
 ```ruby
 describe azure_migrate_project_machines(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME').where{ discoveryData.detect{ |data| data[:extendedInfo][:bootType] == 'BIOS' } } do
@@ -115,16 +118,25 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
 ```ruby
-# Should not exist, if no migrate project machines are present in the project and in the resource group
+# Should not exist if no Migrate Project machines are present in the project and the resource group.
+
 describe azure_migrate_project_machines(resource_group: 'migrate_vms', project_name: 'zoneA_migrate_project') do
   it { should_not exist }
 end
-# Should exist, if the filter returns at least one migrate project machines in the project and in the resource group
+```
+
+### not_exists
+
+```ruby
+# Should exist if the filter returns at least one Migrate Project machine in the project and the resource group.
+
 describe azure_migrate_project_machines(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME') do
   it { should exist }
 end
@@ -132,4 +144,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

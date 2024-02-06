@@ -14,11 +14,11 @@ Use the `azure_virtual_network_gateway_connections` InSpec audit resource to tes
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -92,15 +92,19 @@ The parameter set should be provided for a valid query:
 : **Field**: `datacenterManagementServerName`
 
 `ipsecPolicies`
-: A list of all The IPSec Policies to be considered by this connection.
+: A list of all the IPSec policies to be considered by this connection.
 
 : **Field**: `ipsecPolicies`
 
-<superscript>*</superscript> For information on how to use filter criteria on plural resources refer to [FilterTable usage](https://github.com/inspec/inspec/blob/master/dev-docs/filtertable-usage.md). Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/network-gateway/virtual-network-gateway-connections/list) for other properties available.
+{{< note >}}
+
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 ## Examples
 
-**Loop through Virtual Network Gateway connection by their names.**
+### Loop through Virtual Network Gateway connection by their names
 
 ```ruby
 azure_virtual_network_gateway_connections(resource_group: 'RESOURCE_GROUP').names.each do |name|
@@ -110,7 +114,7 @@ azure_virtual_network_gateway_connections(resource_group: 'RESOURCE_GROUP').name
 end
 ```
 
-**Test that there are Virtual Network Gateway connection with IPsec type .**
+### Test that there are Virtual Network Gateway connections with IPsec type
 
 ```ruby
 describe azure_virtual_network_gateway_connections(resource_group: 'RESOURCE_GROUP').where(connectionType: 'VPN_CONNECTION_TYPE') do
@@ -120,18 +124,24 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
 ```ruby
-# Should not exist if no Virtual Network Gateway Connection are present in the project and in the resource group
+# Should not exist if no Virtual Network Gateway connection is present in the project and the resource group.
 
 describe azure_virtual_network_gateway_connections(resource_group: 'RESOURCE_GROUP') do
   it { should_not exist }
 end
+```
 
-# Should exist if the filter returns at least one Virtual Network Gateway Connection in the project and in the resource group
+### not_exists
+
+```ruby
+# Should exist if the filter returns at least one Virtual Network Gateway connection in the project and the resource group.
 
 describe azure_virtual_network_gateway_connections(resource_group: 'RESOURCE_GROUP') do
   it { should exist }
@@ -140,4 +150,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="reader" %}}
+{{% inspec-azure/azure_permissions_service_principal role="reader" %}}

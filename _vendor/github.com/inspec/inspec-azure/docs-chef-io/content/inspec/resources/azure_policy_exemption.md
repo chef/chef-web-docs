@@ -10,15 +10,15 @@ identifier = "inspec/resources/azure/azure_policy_exemption Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_policy_exemption` InSpec audit resource to test properties related to a Azure Policy Exemption.
+Use the `azure_policy_exemption` InSpec audit resource to test the properties related to an Azure Policy Exemption.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -67,7 +67,7 @@ end
 : The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
 
 `properties.exemptionCategory`
-: The policy exemption category. Possible values are Waiver and Mitigated.
+: The policy exemption category. Possible values are `Waiver` and `Mitigated`.
 
 `properties.displayName`
 : The display name of the policy exemption.
@@ -78,14 +78,14 @@ end
 `systemData.createdBy`
 : The identity that created the resource.
 
-For properties applicable to all resources, such as `type`, `name`, `id`, `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
+For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
 Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/policy/policy-exemptions/get) for other properties available.
 Any attribute in the response may be accessed with the key names separated by dots (`.`).
 
 ## Examples
 
-**Test that the policy exemption category is `Waiver`.**
+### Test that the policy exemption category is `Waiver`
 
 ```ruby
 describe azure_policy_exemption(name: 'POLICY_EXEMPTION_NAME') do
@@ -93,7 +93,7 @@ describe azure_policy_exemption(name: 'POLICY_EXEMPTION_NAME') do
 end
 ```
 
-**Test that the definition reference ID list includes a particular reference ID.**
+### Test that the definition reference ID list includes a particular reference ID
 
 ```ruby
 describe azure_policy_exemption(resource_group: 'RESOURCE_GROUP', name: 'POLICY_EXEMPTION_NAME') do
@@ -108,13 +108,18 @@ This InSpec audit resource has the following special matchers. For a full list o
 ### exists
 
 ```ruby
-# If a policy exemption is found it will exist
+# If a policy exemption is found, it will exist.
 
 describe azure_policy_exemption(name: 'POLICY_EXEMPTION_NAME') do
   it { should exist }
 end
+```
 
-# policy exemptions that aren't found will not exist
+### not_exists
+
+```ruby
+# policy exemptions that aren't found will not exist.
+
 describe azure_policy_exemption('3b8b3f3bbec24cd6af583694') do
   it { should_not exist }
 end
@@ -122,4 +127,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

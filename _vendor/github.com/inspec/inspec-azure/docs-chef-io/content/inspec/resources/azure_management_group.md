@@ -10,24 +10,26 @@ identifier = "inspec/resources/azure/azure_management_group Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_management_group` InSpec audit resource to test properties of an Azure management group.
+Use the `azure_management_group` InSpec audit resource to test the properties of an Azure management group.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
 An `azure_management_group` resource block identifies a management group by its `name` or the `resource_id`.
+
 ```ruby
-describe azure_management_group(name: 'abcd-1234') do
+describe azure_management_group(name: 'ABCD-1234') do
   it { should exist }
 end
 ```
+
 ```ruby
 describe azure_management_group(resource_id: '/providers/Microsoft.Management/managementGroups/{groupId}') do
   it { should exist }
@@ -46,35 +48,36 @@ end
 : The unique resource ID. `/providers/Microsoft.Management/managementGroups/{groupId}`.
 
 `expand`
-: Optional. The `expand: 'children'` includes children in the response. `expand: 'path'` includes the path from the root group to the current group.
+: Optional. The `expand: 'children'` includes children in the response. The `expand: 'path'` includes the path from the root group to the current group.
 
 `recurse`
 : Optional. The `recurse: true` includes the entire hierarchy in the response. Note that `expand: 'children'` will be set if `recurse` is set to `true`.
 
-`filter`
-: Optional. A filter which allows the exclusion of subscriptions from results (i.e. `filter: 'children.childType ne Subscription'`).
+`filter` _Optional_
+: A filter allows the exclusion of subscriptions from results (i.e., `filter: 'children.childType ne Subscription'`).
 
 Either one of the parameter sets can be provided for a valid query along with the optional parameters:
+
 - `resource_id`
 - `name`
-- `group_id` 
+- `group_id`
 
 ## Properties
 
 `tenant_id`
-: The management group tenant id.
+: The management group tenant ID.
 
 `parent_name`
 : The management group parent name.
 
 `parent_id`
-: The management group parent resource id. `/providers/Microsoft.Management/managementGroups/{groupId}`.
+: The management group parent resource ID. `/providers/Microsoft.Management/managementGroups/{groupId}`.
 
 `children_display_names`
 : The list of management group children display names.
 
 `children_ids`
-: The list of management group children ids.
+: The list of management group children IDs.
 
 `children_names`
 : The list of management group children names.
@@ -82,23 +85,23 @@ Either one of the parameter sets can be provided for a valid query along with th
 `children_types`
 : The list of management group children types.
 
-For properties applicable to all resources, such as `type`, `name`, `id`, `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
+For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/resources/managementgroups/get#managementgroup) for other properties available. 
-Any attribute in the response may be accessed with the key names separated by dots (`.`).
+Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/managementgroups/management-groups/get) for other properties available. Any attribute in the response may be accessed with the key names separated by dots (`.`).
 
 ## Examples
 
-**Test Tenant ID, Parent Name, Children Display Name.**
+### Test Tenant ID, Parent Name, Children Display Name
 
 ```ruby
-describe azure_management_group(group_id: 'abc-1234', recurse: true, expand: 'children') do
+describe azure_management_group(group_id: 'ABC-1234', recurse: true, expand: 'CHILDREN') do
   its('tenant_id') { should eq('00000000-0000-0000-0000-000000000000') }
   its('parent_name') { should eq('MyGroupsParentName') }
   its('children_display_names') { should include('I am a child of the group!') }
 end
 ```
-See [integration tests](../../test/integration/verify/controls/azurerm_management_group.rb) for more examples.
+
+See [integration tests](https://github.com/inspec/inspec-azure/blob/main/test/integration/verify/controls/azure_management_group.rb) for more examples.
 
 ## Matchers
 
@@ -107,19 +110,23 @@ This InSpec audit resource has the following special matchers. For a full list o
 ### exists
 
 ```ruby
-# If we expect a resource to always exist
+# If we expect a resource to always exist.
 
-describe azure_management_group(name: 'abcd-1234') do
+describe azure_management_group(name: 'ABCD-1234') do
   it { should exist }
 end
+```
 
-# If we expect a resource to never exist
+### not_exists
 
-describe azure_management_group(name: 'abcd-1234') do
+```ruby
+# If we expect a resource to never exist.
+
+describe azure_management_group(name: 'ABCD-1234') do
   it { should_not exist }
 end
 ```
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

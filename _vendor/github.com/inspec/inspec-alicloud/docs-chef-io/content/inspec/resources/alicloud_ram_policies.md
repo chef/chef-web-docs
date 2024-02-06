@@ -109,5 +109,5 @@ end
 
 Your Principal will need the `ram:ListPolicies` and `ram:ListEntitiesForPolicy` actions with Effect set to Allow.
 
-{{% alibaba_access_management_doc %}}
-{{% alibaba_authentication_ram_api_doc %}}
+{{< readfile file="content/inspec/resources/reusable/md/alibaba_access_management_doc.md" >}}
+{{< readfile file="content/inspec/resources/reusable/md/alibaba_authentication_ram_api_doc.md" >}}

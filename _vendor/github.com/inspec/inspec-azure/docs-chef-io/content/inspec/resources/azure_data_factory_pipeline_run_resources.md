@@ -10,17 +10,17 @@ identifier = "inspec/resources/azure/azure_data_factory_pipeline_run_resources R
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_data_factory_pipeline_run_resources` InSpec audit resource to test the properties multiple Azure Data Factory pipeline runs for a resource group or the entire subscription.
+Use the `azure_data_factory_pipeline_run_resources` InSpec audit resource to test the properties of multiple Azure Data Factory pipeline runs for a resource group or the entire subscription.
 
-For additional information, see the [`Azure Data Factory pipeline runs API documentation`](https://docs.microsoft.com/en-us/rest/api/datafactory/pipeline-runs/query-by-factory).
+For additional information, see the [`API documentation on Azure Data Factory pipeline runs`](https://docs.microsoft.com/en-us/rest/api/datafactory/pipeline-runs/query-by-factory).
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -36,12 +36,11 @@ end
 
 `resource_group` _(required)_
 
-: Azure resource group that the targeted resource resides in.
+: Azure resource group where the targeted resource resides.
 
 `factory_name` _(required)_
 
 : Azure factory name for which pipeline runs are retrieved.
-
 
 ## Properties
 
@@ -75,11 +74,15 @@ end
 
 : **Field**: `runEnd`
 
-<superscript>*</superscript> For information on how to use filter criteria on plural resources, refer to [FilterTable usage](https://github.com/inspec/inspec/blob/master/dev-docs/filtertable-usage.md).
+{{< note >}}
+
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 ## Examples
 
-**Filter pipeline runs in a resource group by properties.**
+### Filter pipeline runs in a resource group by properties
 
 ```ruby
 describe azure_data_factory_pipeline_run_resources(resource_group: `RESOURCE_GROUP`, factory_name: 'FACTORY_NAME') do
@@ -102,7 +105,7 @@ end
 ### Test that there aren't any pipeline runs in a resource group
 
 ```ruby
-# Should not exist if no pipeline runs are in the resource group
+# Should not exist if no pipeline runs are in the resource group.
 
 describe azure_data_factory_pipeline_run_resources(resource_group: `RESOURCE_GROUP`, factory_name: 'FACTORY_NAME') do
   it { should_not exist }
@@ -111,4 +114,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}
