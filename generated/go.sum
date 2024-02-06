@@ -1,4 +1,4 @@
-github.com/chef/cookstyle v7.32.3+incompatible h1:7ZJ3ZdAOAnElLm2nI3FycomDGAZLXXghCX2AsFpd6s8=
-github.com/chef/cookstyle v7.32.3+incompatible/go.mod h1:KUadmsdBr7Hpo5dtGVQMiwb8KlC91W3j1lfc0yuVwtw=
-github.com/chef/cookstyle/docs-chef-io v0.0.0-20230825054940-2971520aef80 h1:qR1b+TF26odPlERq2C75CrFcIFmJ9TJCjGEs2fUT/0c=
-github.com/chef/cookstyle/docs-chef-io v0.0.0-20230825054940-2971520aef80/go.mod h1:1JOEECsW9ozt1/RmprJjAQEvCrOHobpWepSQJRQOhnY=
+github.com/chef/cookstyle v7.32.8+incompatible h1:/TRU03BE6XMorXedRW4kg9/kKc+OnarTvGMhc+9COvU=
+github.com/chef/cookstyle v7.32.8+incompatible/go.mod h1:KUadmsdBr7Hpo5dtGVQMiwb8KlC91W3j1lfc0yuVwtw=
+github.com/chef/cookstyle/docs-chef-io v0.0.0-20240206215225-64410f1feded h1:BVbNH4t77v237/8B94pu+Pfp4DlPMm7zwNYF6bsfdXY=
+github.com/chef/cookstyle/docs-chef-io v0.0.0-20240206215225-64410f1feded/go.mod h1:1JOEECsW9ozt1/RmprJjAQEvCrOHobpWepSQJRQOhnY=
