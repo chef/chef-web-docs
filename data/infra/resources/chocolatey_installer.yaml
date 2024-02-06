@@ -7,7 +7,7 @@ resource: chocolatey_installer
 resource_description_list:
 - markdown: Use the chocolatey_installer resource to install the Chocolatey package manager. Use the chocolatey_feature resource to customize
     your install and the chocolatey_package resource to install packages.
-resource_new_in: '18.3'
+resource_new_in: '18.4'
 syntax_full_code_block: |-
   chocolatey_installer 'name' do
     chocolatey_version      String
@@ -65,8 +65,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: The password to use to build a proxy credential with. Will be consumed
-      by the proxy_credential property if both this property and proxy_user are set.
+  - markdown: The password used to connect to the proxy server with. If set, you must also set `proxy_user`.
 - property: proxy_url
   ruby_type: String
   required: false
@@ -76,9 +75,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: The username to use to build a proxy credential with. Will be consumed
-      by the proxy_credential property if both this property and proxy_password are
-      set
+  - markdown: The username used to connect to the proxy server with. If set, you must also set `proxy_password`.
 - property: use_native_unzip
   ruby_type: true, false
   required: false

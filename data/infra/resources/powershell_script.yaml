@@ -12,6 +12,7 @@ resource_description_list:
 syntax_description: |
   A **powershell_script** resource block executes a batch script using the Windows PowerShell interpreter.
   For example, writing to an interpolated path:
+
   ```ruby
   powershell_script 'write-to-interpolated-path' do
     code <<-EOH
@@ -28,7 +29,6 @@ syntax_full_code_block: |-
     convert_boolean_return      true, false # default value: false
     creates                     String
     cwd                         String
-    default_env                 true, false # default value: false
     domain                      String
     elevated                    true, false # default value: false
     environment                 Hash
@@ -50,7 +50,7 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`code`, `command`, `convert_boolean_return`, `creates`, `cwd`, `default_env`, `domain`,
+- "`code`, `command`, `convert_boolean_return`, `creates`, `cwd`, `domain`,
   `elevated`, `environment`, `flags`, `group`, `input`, `interpreter`, `live_stream`,
   `password`, `returns`, `timeout`, `use_inline_powershell`, and `user` are
   the properties available to this resource."
@@ -60,16 +60,6 @@ actions_list:
   :run:
     markdown: Run a command. (default)
 properties_list:
-- property: architecture
-  ruby_type: Symbol
-  required: false
-  description_list:
-  - markdown: 'The architecture of the process under which a script is executed. If
-      a value is not provided, Chef Infra Client defaults to the correct
-      value for the architecture, as determined by Ohai. An exception is
-      raised when anything other than `:i386` is specified for a 32-bit
-      process. Possible values: `:i386` (for 32-bit processes) and
-      `:x86_64` (for 64-bit processes).'
 - property: code
   ruby_type: String
   required: true
@@ -117,14 +107,6 @@ properties_list:
   required: false
   description_list:
   - markdown: The current working directory from which the command will be run.
-- property: default_env
-  ruby_type: true, false
-  required: false
-  default_value: 'false'
-  new_in: '14.2'
-  description_list:
-  - markdown: When true this enables ENV magic to add path_sanity to the PATH and
-      force the locale to English+UTF-8 for parsing output
 - property: domain
   ruby_type: String
   required: false
@@ -205,7 +187,7 @@ properties_list:
   required: false
   new_in: '12.21'
   description_list:
-  - markdown: '**Windows only**: The password of the user specified by the user property.
+  - markdown: '**Windows only** The password of the user specified by the user property.
       This property is mandatory if user is specified on Windows and may only be specified
       if user is specified. The sensitive property for this resource will automatically
       be set to true if password is specified.'
