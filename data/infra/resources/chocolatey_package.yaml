@@ -18,16 +18,18 @@ resource_description_list:
 resource_new_in: '12.7'
 syntax_full_code_block: |-
   chocolatey_package 'name' do
-    list_options      String
-    options           String, Array
-    package_name      String, Array
-    password          String
-    returns           Integer, Array # default value: [0, 2]
-    source            String
-    timeout           String, Integer
-    user              String
-    version           String, Array
-    action            Symbol # defaults to :install if not specified
+    bulk_query          true, false # default value: false
+    list_options        String
+    options             String, Array
+    package_name        String, Array
+    password            String
+    returns             Integer, Array # default value: [0, 2]
+    source              String
+    timeout             String, Integer
+    use_choco_list      true, false # default value: false
+    user                String
+    version             String, Array
+    action              Symbol # defaults to :install if not specified
   end
 syntax_properties_list:
 syntax_full_properties_list:
@@ -35,8 +37,9 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`list_options`, `options`, `package_name`, `password`, `returns`, `source`, `timeout`,
-  `user`, and `version` are the properties available to this resource."
+- "`bulk_query`, `list_options`, `options`, `package_name`, `password`, `returns`,
+  `source`, `timeout`, `use_choco_list`, `user`, and `version` are the properties
+  available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -51,6 +54,13 @@ actions_list:
     markdown: Purge a package. This action typically removes the configuration files
       as well as the package.
 properties_list:
+- property: bulk_query
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  description_list:
+  - markdown: Whether to bulk query the Chocolatey server. This makes the provider list
+      all packages instead of doing individual queries.
 - property: list_options
   ruby_type: String
   required: false
@@ -86,15 +96,19 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'The optional path to a package on the local file system or a
-      reachable UNC path. Ensure that the path specified is to the
-      **folder** containing the chocolatey package(s), not to the package
-      itself.'
+  - markdown: The optional path to a package on the local file system.
 - property: timeout
   ruby_type: String, Integer
   required: false
   description_list:
   - markdown: The amount of time (in seconds) to wait before timing out.
+- property: use_choco_list
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  description_list:
+  - markdown: Whether to use `choco list` for getting locally installed packages instead of querying for NuGet package files.
+      This defaults to `false` since reading the package data is faster.
 - property: user
   ruby_type: String
   required: false
