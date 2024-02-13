@@ -29,13 +29,13 @@ Commercial support is limited to the platforms listed in the "Commercial Support
 
 ### Community Support
 
-Community support for platforms means that members of the Chef community have contributed to these platforms and Chef does not actively work to maintain this functionality. Chef does not explicitly test community supported platforms as part of the development and release process.
+Community support for platforms means that members of the Chef community have contributed to these platforms and Chef doesn't actively work to maintain this functionality. Chef doesn't explicitly test community supported platforms as part of the development and release process.
 
 Many of these platforms are forks, clones, or otherwise derivative of platforms that Chef commercially supports. Continued functionality for these platforms is likely, but not guaranteed. Unsupported platforms may have missing or non-operative functionality. As always, we welcome community contributions from anyone looking to expand community support for platforms in Chef products.
 
 ### Support for Derived Platforms
 
-Chef does not explicitly test or provide builds for derived distributions other than those in our supported platform list. However, if the derived distribution is a direct rebuild of the originating distribution and has not diverged in functionality or packaged dependencies, Chef will support our customers through our normal channels.
+Chef doesn't explicitly test or provide builds for derived distributions other than those in our supported platform list. However, if the derived distribution is a direct rebuild of the originating distribution and hasn't diverged in functionality or packaged dependencies, Chef will support our customers through our normal channels.
 
 ## Platforms
 
@@ -68,7 +68,7 @@ The following table lists the commercially supported platforms for Chef Backend,
 | Platform | Architecture | Version |
 | --- | --- | --- |
 | CentOS | `x86_64` | `6.x`, `7.x`, `8.x` |
-| Oracle Enterprise Linux | `x86_64` | `6.x`, `7.x`, `8.x` |
+| Oracle Enterprise Linux | `x86_64` | `7.x`, `8.x` |
 | Red Hat Enterprise Linux | `x86_64` | `6.x`, `7.x`, `8.x` |
 | SUSE Linux Enterprise Server | `x86_64` | `12.x` |
 | Ubuntu (LTS releases) | `x86_64` | `16.04`, `18.04` |
@@ -94,11 +94,11 @@ The following table lists the commercially supported platforms and versions for 
 | --- | --- | --- |
 | AIX | `powerpc` | `7.1` (TL5 SP2 or higher, recommended), `7.2`, `7.3` |
 | Amazon Linux | `x86_64`, `aarch64` | `2.x` |
-| CentOS | `x86_64`, `ppc64le` (7.x only), `ppc64` (7.x only), `aarch64` (7.x / 8.x only) | `6.x`, `7.x`, `8.x` |
+| CentOS | `x86_64`, `ppc64le`, `ppc64`, `aarch64` | `7.x` |
 | Debian | `x86_64`, `aarch64` | `10`, `11` |
 | FreeBSD | `amd64` | `12.x` |
 | macOS | `x86_64`, `aarch64` (M1 processors) | `11.x`, `12.x` |
-| Oracle Enterprise Linux | `x86_64`, `aarch64` (7.x / 8.x only) | `6.x`, `7.x`, `8.x` |
+| Oracle Enterprise Linux | `x86_64`, `aarch64` | `7.x`, `8.x` |
 | Red Hat Enterprise Linux | `x86_64`, `ppc64le` (7.x only), `ppc64` (7.x only), `aarch64`, `s390x` (7.x / 8.x only) | `7.x`, `8.x`, `9.x` |
 | Rocky Linux | `x86_64`, `aarch64` | `8.x`, `9.x` |
 | Solaris | `sparc`, `i86pc` | `11.3` (16.17.4 and later only), `11.4`  |
@@ -172,7 +172,7 @@ The following table lists the commercially supported platforms for Chef Manage.
 
 | Platform | Architecture | Version |
 | --- | --- | --- |
-| CentOS | `x86_64` | `7.x`, `8.x` |
+| CentOS | `x86_64` | `7.x` |
 | Oracle Enterprise Linux | `x86_64` | `7.x`, `8.x` |
 | Red Hat Enterprise Linux | `x86_64` | `7.x`, `8.x` |
 | Ubuntu (LTS releases) | `x86_64` | `16.04`, `18.04`, `20.04` |
@@ -212,7 +212,7 @@ Because different vendors use different terminology, the following table clarifi
 | Platform | Vendor End-of-Life |
 | --- | --- |
 | Amazon Linux | End of Life |
-| Apple macOS | Apple supports the last three macOS releases, for example: 10.15, 11.x, and 12.x. Apple does'nt officially publish EOL dates. |
+| Apple macOS | Apple supports the last three macOS releases, for example: 10.15, 11.x, and 12.x. Apple doesn't officially publish EOL dates. |
 | Debian | End of maintenance updates |
 | Enterprise Linux (covers Red Hat Enterprise Linux, CentOS) | End of Production 3 |
 | FreeBSD | End of Life |
@@ -232,27 +232,43 @@ that platform and version.
 | Platform and Version | Vendor End-of-Life Date | Chef End-of-Life Date |
 | --- | --- | --- |
 | Amazon Linux 201X | Dec 31st, 2020 | Dec 31st, 2020 |
+| Amazon Linux 2 | Jun 30, 2025 | Jun 30, 2025 |
+| Amazon Linux 2023 | Mar 15, 2028 | Mar 15, 2028 |
 | Apple macOS 10.13 | Nov 13th, 2020 | Nov 13th, 2020 |
 | Apple macOS 10.14 | Nov 12th, 2021 | Nov 12th, 2021 |
+| CentOS 6 | Nov 30, 2020 | Nov 30, 2020 |
+| CentOS 7 | Jun 30, 2024 | Jun 30, 2024 |
+| CentOS 8 | Dec 31, 2021 | Dec 31, 2021 |
 | Debian 7 (Wheezy) | May 31st, 2018 | May 31st, 2018 |
 | Debian 8 (Jessie) | June 6th, 2020 | June 6th, 2020 |
 | Debian 9 (Stretch) | June 30th, 2022 | June 30th, 2022 |
-| Enterprise Linux 5 (covers Red Hat Enterprise Linux, CentOS) | April 30, 2017 | December 31, 2017 |
-| Enterprise Linux 6 (covers Red Hat Enterprise Linux, CentOS) | November 30, 2020 | No current planned EOL date |
-| Enterprise Linux 7 (covers Red Hat Enterprise Linux, CentOS) | June 30, 2024 | June 30, 2024 |
+| Debian 10 (Buster) | June 30th, 2024 | June 30th, 2024 |
+| Debian 11 (Bullseye) | June 30th, 2026 | June 30th, 2026 |
 | FreeBSD 10-STABLE | October 31, 2018 | October 31, 2018 |
 | FreeBSD 11-STABLE | September 30, 2021 | September 30, 2021 |
-| IBM AIX 6.1 | April 30, 2017 | December 31, 2017 |
-| Windows Server 2008 (SP2)/R2 (SP1) | January 13, 2015 | January 14, 2020 |
-| Windows Server 2012/2012 R2 | October 10, 2023 | October 10, 2023 |
-| Windows Server 2016 | November 11, 2027 | November 11, 2027 |
-| Windows Server 2019 | October 10, 2028 | October 10, 2028 |
+| IBM AIX 7.1 | Apr 30, 2023 | Apr 30, 2023  |
+| IBM AIX 7.2 | No current planned EOL date | No current planned EOL date |
+| IBM AIX 7.3 | Nov 30, 2026 | Nov 30, 2026 |
 | Oracle Enterprise Linux 5 | June 30, 2017 | December 31, 2017 |
 | Oracle Enterprise Linux 6 | March 31, 2021 | March 31, 2021 |
-| Oracle Solaris 10 | January 30, 2018 | January 30, 2018 |
+| Oracle Enterprise Linux 7 | December 1, 2024 | December 1, 2024 |
+| Oracle Enterprise Linux 8 | July 1, 2029 | July 1, 2029 |
 | Oracle Solaris 11.3 | January 30, 2021 | No current planned EOL date |
+| Oracle Solaris 11.4 | November 31, 2031 | November 31, 2031 |
+| Red Hat Enterprise Linux 5 | April 30, 2017 | December 31, 2017 |
+| Red Hat Enterprise Linux 6 | November 30, 2020 | November 30, 2020 |
+| Red Hat Enterprise Linux 7 | June 30, 2024 | June 30, 2024 |
+| Red Hat Enterprise Linux 8 | May 31, 2029 | May 31, 2029 |
+| Red Hat Enterprise Linux 9 | May 31, 2032 | May 31, 2032 |
 | SUSE Linux Enterprise Server 11 | March 31, 2019 | March 31, 2019 |
 | SUSE Linux Enterprise Server 12 | October 31, 2024 | October 31, 2024 |
 | Ubuntu Linux 12.04 LTS | April 30, 2017 | April 30, 2017 |
 | Ubuntu Linux 14.04 LTS | April 30, 2019 | April 30, 2019 |
 | Ubuntu Linux 16.04 LTS | April 30, 2021 | April 30, 2021 |
+| Ubuntu Linux 18.04 LTS | May 31, 2023 | May 31, 2023 |
+| Ubuntu Linux 20.04 LTS | Apr 02, 2025 | Apr 02, 2025 |
+| Ubuntu Linux 22.04 LTS | Apr 01, 2027 | Apr 01, 2027 |
+| Windows Server 2008 (SP2)/R2 (SP1) | January 13, 2015 | January 14, 2020 |
+| Windows Server 2012/2012 R2 | October 10, 2023 | October 10, 2023 |
+| Windows Server 2016 | November 11, 2027 | November 11, 2027 |
+| Windows Server 2019 | October 10, 2028 | October 10, 2028 |
