@@ -8,6 +8,12 @@
 [build.processing]
   skip_processing = true
 
+[dev]
+  # local development with the Netlify CLI
+  command = "make serve"
+  targetPort = 1313
+  port = 8000
+
 [context.production]
   command = "make bundle; hugo --gc --minify --enableGitInfo"
   [context.production.environment]
