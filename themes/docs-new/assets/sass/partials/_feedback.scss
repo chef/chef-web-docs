@@ -16,13 +16,20 @@
     height:200px;
   }
 
-  #feedback-form-thank-you-message{
-    display: none;
+  .visually-hidden{
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
   }
 
-  #feedback-min-characters{
-    color: $lightgray;
-    margin-bottom: 1rem;
+  #feedback-form-thank-you-message{
+    display: none;
   }
 
   input[type=submit]{
