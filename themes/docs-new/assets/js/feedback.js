@@ -55,13 +55,12 @@ Feedback Form
 const feedbackCharactersMinimumId = $("#feedback-min-characters");
 const feedbackButtonId = $("#feedback-form-submit-feedback");
 const feedbackId = $("#feedback-form-feedback");
-const minFeedbackLength = 100
+const minFeedbackLength = 1
 
 /*
 function feedbackLength()
-feedback-form-feedback input requires 100 character minimum
+feedback-form-feedback input requires 1 character minimum
 Submit button feedback-form-submit-feedback is disabled until min character requirement is met
-feedback-min-characters label updates as number of characters changes
 */
 
 function feedbackLength(){
@@ -69,10 +68,7 @@ function feedbackLength(){
 
   if (feedbackLength >= minFeedbackLength){
     feedbackButtonId.prop("disabled", false);
-    feedbackCharactersMinimumId.text("0 characters left");
   } else {
-    const remainingCharLength = minFeedbackLength - feedbackLength
-    feedbackCharactersMinimumId.text(remainingCharLength + " characters left");
     feedbackButtonId.prop("disabled", true);
   }
 }
@@ -96,17 +92,15 @@ function validate(event)  {
 function submitContactFormFeedback(event) {
 
   const reCaptchaResponse = grecaptcha.getResponse();
-  const emailId = $("#feedback-form-email");
   const responseMessageId = $("#feedback-form-thank-you-message");
 
-  const email = emailId.val();
   const feedback = feedbackId.val();
   const pageUrl = $("#feedback-form-page-url").val();
   const ghUrl = $("#feedback-form-gh-url").val();
   const pageTitle = $("#feedback-form-page-title").val();
   const product = $("#feedback-form-chef-product").val();
+  const productVersion = $('#feedback-form-chef-product-version').val();
   const data = {
-    email : email,
     feedback : feedback,
     pageUrl : pageUrl,
     ghUrl : ghUrl,
@@ -128,7 +122,6 @@ function submitContactFormFeedback(event) {
     success: function () {
       // clear form and show a success message
       // console.log("User input successfully submitted!")
-      emailId.val("");
       feedbackId.val("");
       responseMessageId.show();
       feedbackButtonId.prop("disabled", true);

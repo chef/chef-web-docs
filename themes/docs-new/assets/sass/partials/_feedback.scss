@@ -13,16 +13,11 @@
   }
 
   &-form-feedback{
-    height:200px;
+    height:250px;
   }
 
   #feedback-form-thank-you-message{
     display: none;
-  }
-
-  #feedback-min-characters{
-    color: $lightgray;
-    margin-bottom: 1rem;
   }
 
   input[type=submit]{
