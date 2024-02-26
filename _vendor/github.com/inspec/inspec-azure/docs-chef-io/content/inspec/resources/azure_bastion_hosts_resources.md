@@ -10,22 +10,22 @@ identifier = "inspec/resources/azure/azure_bastion_hosts_resources Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_bastion_hosts_resources` InSpec audit resource to test properties of Azure Bastion hosts for a resource group or the entire subscription.
+Use the `azure_bastion_hosts_resources` InSpec audit resource to test the properties of Azure Bastion hosts for a resource group or the entire subscription.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-An `azure_bastion_hosts_resource` resource block returns all Azure Bastion hots, either within a Resource Group (if provided)
+An `azure_bastion_hosts_resource` resource block returns all Azure Bastion hosts within a resource group (if provided).
 
 ```ruby
-describe azure_bastion_hosts_resources(resource_group: 'my-rg') do
+describe azure_bastion_hosts_resources(resource_group: 'RESOURCE_GROUP') do
   ..
 end
 ```
@@ -68,11 +68,15 @@ end
 
 : **Field**: `properties`
 
-{{% inspec_filter_table %}}
+{{< note >}}
+
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 ## Examples
 
-**Ensure that the Bastion hosts resource has is from same type.**
+### Test to ensure that the Bastion hosts resource is from the same type
 
 ```ruby
 describe azure_bastion_hosts_resources(resource_group: 'RESOURCE_GROUP') do
@@ -80,7 +84,7 @@ describe azure_bastion_hosts_resources(resource_group: 'RESOURCE_GROUP') do
 end
 ```
 
-**Ensure that the Bastion hosts resource is in successful state.**
+### Test to ensure that the Bastion hosts resource is in a successful state
 
 ```ruby
 describe azure_bastion_hosts_resources(resource_group: 'RESOURCE_GROUP') do
@@ -88,7 +92,7 @@ describe azure_bastion_hosts_resources(resource_group: 'RESOURCE_GROUP') do
 end
 ```
 
-**Ensure that the Bastion hosts resource is from same location.**
+### Test to ensure that the Bastion hosts resource is from the same location
 
 ```ruby
 describe azure_bastion_hosts_resources(resource_group: 'RESOURCE_GROUP') do
@@ -96,7 +100,7 @@ describe azure_bastion_hosts_resources(resource_group: 'RESOURCE_GROUP') do
 end
 ```
 
-**Test if any Bastion hosts exist in the resource group.**
+### Test if any Bastion hosts exist in the resource group
 
 ```ruby
 describe azure_bastion_hosts_resources(resource_group: 'RESOURCE_GROUP') do
@@ -106,12 +110,14 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
 ```ruby
-# Should not exist if no Bastion hots are in the resource group
+# Should not exist if no Bastion hots are in the resource group.
 
 describe azure_bastion_hosts_resources(resource_group: 'RESOURCE_GROUP') do
   it { should_not exist }
@@ -120,4 +126,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

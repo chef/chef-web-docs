@@ -14,11 +14,11 @@ Use the `azure_data_lake_storage_gen2_path` InSpec audit resource to test the pr
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -40,7 +40,7 @@ end
 : The filesystem identifier.
 
 `account_name` _(required)_
-: Azure Storage Account Name.
+: Azure Storage account name.
 
 `name` _(required)_
 : The file or directory path.
@@ -51,7 +51,7 @@ end
 ## Properties
 
 `last_modified`
-: Last Modified Timestamp of the resource.
+: Last modified timestamp of the resource.
 
 `etag`
 : HTTP strong entity tag value.
@@ -63,35 +63,34 @@ end
 : Request ID.
 
 `x_ms_version`
-: Version of the API.
+: API version.
 
 `date`
-: Date String of the request.
+: Date string of the request.
 
 `content_length`
-: Content Length of the file.
+: Content-Length of the file.
 
 `content_type`
-: Content Type.
+: Content type.
 
 `content_md5`
-: MD5 of the Content uploaded.
+: MD5 of the content uploaded.
 
 `accept_ranges`
 : File size described measurement. `bytes`.
 
 `x_ms_resource_type`
-: Resource Type of the uploaded. `file`.
+: Resource type of the uploaded. `file`.
 
 `x_ms_lease_state`
 : If the file is available or not.
 
 `x_ms_lease_status`
-: Status of lease.
+: Status of the lease.
 
 `x_ms_server_encrypted`
 : If the file is encrypted on the server.
-
 
 For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
@@ -99,7 +98,7 @@ Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/s
 
 ## Examples
 
-**Test that the Data Lake Storage Gen 2 Filesystem Path is server encrypted.**
+### Test that the Data Lake Storage Gen 2 Filesystem Path is server encrypted
 
 ```ruby
 describe azure_data_lake_storage_gen2_path(account_name: 'ACCOUNT_NAME', filesystem: 'FILE_SYSTEM', name: 'PATHNAME')  do
@@ -114,12 +113,18 @@ This InSpec audit resource has the following special matchers. For a full list o
 ### exists
 
 ```ruby
-# If the Data Lake Storage Gen 2 Filesystem is found, it will exist
+# If the Data Lake Storage Gen 2 Filesystem is found, it will exist.
+
 describe azure_data_lake_storage_gen2_path(account_name: 'ACCOUNT_NAME', filesystem: 'FILE_SYSTEM', name: 'PATHNAME')  do
   it { should exist }
 end
+```
 
-# if the Data Lake Storage Gen 2 Filesystem is not found, it will not exist
+### not_exists
+
+```ruby
+# if the Data Lake Storage Gen 2 Filesystem is not found, it will not exist.
+
 describe azure_data_lake_storage_gen2_path(account_name: 'ACCOUNT_NAME', filesystem: 'FILE_SYSTEM', name: 'PATHNAME')  do
   it { should_not exist }
 end
@@ -127,4 +132,4 @@ end
 
 ## Azure Permissions
 
-Your [Service Principal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal) must be set up with a `contributor` role on the subscription and `Storage Blob Data Contributor` role on the ADLS Gen2 Storage Account you wish to test.
+Your [Service Principal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal) must be set up with a `contributor` role on the subscription and `Storage Blob Data Contributor` role on the **ADLS Gen2 Storage Account** you wish to test.

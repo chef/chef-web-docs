@@ -14,11 +14,11 @@ Use the `azure_power_bi_app` InSpec audit resource to test the properties relate
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -59,7 +59,7 @@ Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/p
 
 ## Examples
 
-**Test that the Power BI app is published by inspec-devs.**
+### Test that the Power BI app is published by inspec-devs
 
 ```ruby
 describe azure_power_bi_app(app_id: 'APP_ID')  do
@@ -74,11 +74,18 @@ This InSpec audit resource has the following special matchers. For a full list o
 ### exists
 
 ```ruby
-# If the Azure Power BI app is found, it will exist
+# If the Azure Power BI app is found, it will exist.
+
 describe azure_power_bi_app(app_id: 'APP_ID')  do
   it { should exist }
 end
-# if the Azure Power BI app is not found, it will not exist
+```
+
+### not_exists
+
+```ruby
+# if the Azure Power BI app is not found, it will not exist.
+
 describe azure_power_bi_app(app_id: 'APP_ID')  do
   it { should_not exist }
 end

@@ -14,11 +14,11 @@ Use the `azure_power_bi_dataset_datasources` Chef InSpec audit resource to test 
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -33,11 +33,9 @@ end
 ## Parameters
 
 `dataset_id` _(required)_
-
 : The dataset ID.
 
 `group_id` _(optional)_
-
 : The workspace ID.
 
 ## Properties
@@ -62,13 +60,17 @@ end
 
 : **Field**: `connectionDetails`
 
-{{% inspec_filter_table %}}
+{{< note >}}
+
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/power-bi/datasets/get-datasources) for other properties available.
 
 ## Examples
 
-**Verify that a Power BI dataset data source for a server exists.**
+### Verify that a Power BI dataset data source for a server exists
 
 ```ruby
 describe azure_power_bi_dataset_datasources(dataset_id: 'DATASET_ID').where{ connectionDetails[:server] == 'CONNECTION_SERVER' } do
@@ -82,7 +84,7 @@ This Chef InSpec audit resource has the following special matchers. For a full l
 
 ### exists
 
-**Verify that a Power BI dataset data source is not present.**
+Verify that a Power BI dataset data source is not present.
 
 ```ruby
 describe azure_power_bi_dataset_datasources(dataset_id: 'DATASET_ID') do
@@ -90,9 +92,11 @@ describe azure_power_bi_dataset_datasources(dataset_id: 'DATASET_ID') do
 end
 ```
 
-**Verify that at least one Power BI dataset data source exists.**
+### not_exists
 
-```
+Verify that at least one Power BI dataset data source exists.
+
+``` ruby
 describe azure_power_bi_dataset_datasources(dataset_id: 'DATASET_ID') do
   it { should exist }
 end

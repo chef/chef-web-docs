@@ -10,19 +10,19 @@ identifier = "inspec/resources/azure/azure_sql_virtual_machine_group Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_sql_virtual_machine_group` InSpec audit resource to test properties related to an Azure SQL virtual machine group.
+Use the `azure_sql_virtual_machine_group` InSpec audit resource to test the properties related to an Azure SQL virtual machine group.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-`name`, `resource_group` are required parameters.
+`name` and `resource_group` are required parameters.
 
 ```ruby
 describe azure_sql_virtual_machine_group(resource_group: 'RESOURCE_GROUP', name: 'SQL_VIRTUAL_MACHINE_GROUP') do
@@ -46,12 +46,12 @@ end
 
 `resource_group` _(required)_
 
-: Azure resource group that the targeted resource resides in.
+: Azure resource group where the targeted resource resides.
 
 ## Properties
 
 `id`
-: Resource Id.
+: Resource ID.
 
 `name`
 : Resource name.
@@ -68,14 +68,13 @@ end
 `properties.provisioningState`
 : State of the resource.
 
+For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
-For properties applicable to all resources, such as `type`, `name`, `id`, `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
-
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/sqlvm/sql-virtual-machine-groups/get) for other properties available.
+Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/sqlvm/2021-11-01-preview/sql-virtual-machine-groups/get) for other properties available.
 
 ## Examples
 
-**Test that the SQL virtual machine group is provisioned successfully.**
+### Test that the SQL virtual machine group is provisioned successfully
 
 ```ruby
 describe azure_sql_virtual_machine_group(resource_group: 'RESOURCE_GROUP', name: 'SQL_VIRTUAL_MACHINE_GROUP') do
@@ -90,12 +89,17 @@ This InSpec audit resource has the following special matchers. For a full list o
 ### exists
 
 ```ruby
-# If a SQL virtual machine group is found it will exist
+# If a SQL virtual machine group is found, it will exist.
 
 describe azure_sql_virtual_machine_group(resource_group: 'RESOURCE_GROUP', name: 'SQL_VIRTUAL_MACHINE_GROUP') do
   it { should exist }
 end
-# if SQL virtual machine group is not found it will not exist
+```
+
+### not_exists
+
+```ruby
+# If SQL virtual machine group is not found, it will not exist.
 
 describe azure_sql_virtual_machine_group(resource_group: 'RESOURCE_GROUP', name: 'SQL_VIRTUAL_MACHINE_GROUP') do
   it { should_not exist }
@@ -104,4 +108,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="reader" %}}
+{{% inspec-azure/azure_permissions_service_principal role="reader" %}}

@@ -10,24 +10,26 @@ identifier = "inspec/resources/azure/azure_event_hub_authorization_rule Resource
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_event_hub_authorization_rule` InSpec audit resource to test properties and configuration of an Azure Event Hub Authorization Rule within a Resource Group.
+Use the `azure_event_hub_authorization_rule` InSpec audit resource to test the properties and configuration of an Azure Event Hub Authorization Rule within a resource group.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-`resource_group`, `namespace_name`, `event_hub_endpoint` and `name` or the `resource_id` must be given as a parameter.
+`resource_group`, `namespace_name`, `event_hub_endpoint` and `name`, or the `resource_id` are required parameters.
+
 ```ruby
-describe azure_event_hub_authorization_rule(resource_group: 'my-rg', namespace_name: 'my-event-hub-ns', event_hub_endpoint: 'myeventhub', name: 'my-auth-rule') do
+describe azure_event_hub_authorization_rule(resource_group: 'RESOURCE_GROUP', namespace_name: 'EVENT_NAME', event_hub_endpoint: 'HUB_NAME', name: 'AUTH_RULE') do
   it { should exist }
 end
 ```
+
 ```ruby
 describe azure_event_hub_authorization_rule(resource_id: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/authorizationRules/{authorizationRuleName}') do
   it { should exist }
@@ -37,7 +39,7 @@ end
 ## Parameters
 
 `resource_group`
-: Azure resource group that the targeted resource resides in. `resource-group-name`.
+: Azure resource group where the targeted resource resides.
 
 `namespace_name`
 : The unique name of the Event Hub Namespace.
@@ -46,38 +48,39 @@ end
 : The unique name of the Event Hub Name.
 
 `name`
-: The unique name of the targeted resource. `resource-name`.
+: The unique name of the targeted resource.
 
 `authorization_rule`
 : Alias for the `name` parameter.
 
 `resource_id`
-: The unique resource ID. `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/authorizationRules/{authorizationRuleName}`.
+: The unique resource ID.
 
 Either one of the parameter sets can be provided for a valid query:
+
 - `resource_id`
-- `resource_group`, `namespace_name`, `event_hub_endpoint` and `name`
-- `resource_group`, `namespace_name`, `event_hub_endpoint` and `authorization_rule`
+- `resource_group`, `namespace_name`, `event_hub_endpoint`, and `name`
+- `resource_group`, `namespace_name`, `event_hub_endpoint`, and `authorization_rule`
 
 ## Properties
 
 `properties.rights`
 : The list of rights associated with the rule.
 
-For properties applicable to all resources, such as `type`, `name`, `id`, `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
+For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/eventhub/2017-04-01/authorization%20rules%20-%20event%20hubs/getauthorizationrule) for other properties available. 
-Any attribute in the response may be accessed with the key names separated by dots (`.`).
+Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/eventhub/stable/authorization-rules-event-hubs/get-authorization-rule?tabs=HTTP) for other properties available. Any attribute in the response may be accessed with the key names separated by dots (`.`).
 
 ## Examples
 
-**Test the Name of an Authorization Rule.**
+### Test the name of an Authorization Rule
 
 ```ruby
-describe azure_event_hub_authorization_rule(resource_group: 'my-rg', namespace_name: 'my-event-hub-ns', event_hub_endpoint: 'myeventhub', name: 'my-auth-rule') do
+describe azure_event_hub_authorization_rule(resource_group: 'RESOURCE_GROUP', namespace_name: 'EVENT_NAME', event_hub_endpoint: 'HUB_NAME', name: 'AUTH_RULE') do
   its('name') { should cmp 'my-auth-rule' }
 end
 ```
+
 ```ruby
 describe azure_event_hub_authorization_rule(resource_id: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/authorizationRules/{authorizationRuleName}') do
   its('name') { should cmp 'my-auth-rule' }
@@ -91,19 +94,23 @@ This InSpec audit resource has the following special matchers. For a full list o
 ### exists
 
 ```ruby
-# If we expect the resource to always exist
+# If we expect the resource to always exist.
 
-describe azure_event_hub_authorization_rule(resource_group: 'my-rg', namespace_name: 'my-event-hub-ns', event_hub_endpoint: 'myeventhub', name: 'my-auth-rule') do
+describe azure_event_hub_authorization_rule(resource_group: 'RESOURCE_GROUP', namespace_name: 'EVENT_NAME', event_hub_endpoint: 'HUB_NAME', name: 'AUTH_RULE') do
   it { should exist }
 end
+```
 
-# If we expect the resource not to exist
+### not_exists
 
-describe azure_event_hub_authorization_rule(resource_group: 'my-rg', namespace_name: 'my-event-hub-ns', event_hub_endpoint: 'myeventhub', name: 'my-auth-rule') do
+```ruby
+# If we expect the resource not to exist.
+
+describe azure_event_hub_authorization_rule(resource_group: 'RESOURCE_GROUP', namespace_name: 'EVENT_NAME', event_hub_endpoint: 'HUB_NAME', name: 'AUTH_RULE') do
   it { should_not exist }
 end
 ```
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

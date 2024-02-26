@@ -14,11 +14,11 @@ Use the `azure_migrate_assessments` InSpec audit resource to test the properties
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -33,13 +33,12 @@ end
 ## Parameters
 
 `resource_group`
-: Azure resource group that the targeted resource resides in.
+: Azure resource group where the targeted resource resides.
 
 `project_name`
 : Azure Migrate assessments project name.
 
-The parameter set should be provided for a valid query:
-- `resource_group` and `project_name`
+The parameter set that should be provided for a valid query are `resource_group` and `project_name`.
 
 ## Properties
 
@@ -74,7 +73,7 @@ The parameter set should be provided for a valid query:
 : **Field**: `azureDiskType`
 
 `azureHybridUseBenefits`
-: AHUB discount on windows virtual machines of all the assessments.
+: A HUB discount on windows virtual machines for all the assessments.
 
 : **Field**: `azureHybridUseBenefit`
 
@@ -89,12 +88,12 @@ The parameter set should be provided for a valid query:
 : **Field**: `azureOfferCode`
 
 `azurePricingTiers`
-: Pricing tiers for Size evaluation.
+: Pricing tiers for size evaluation.
 
 : **Field**: `azurePricingTier`
 
 `azureStorageRedundancies`
-: Storage Redundancy types offered by Azure.
+: Storage redundancy types offered by Azure.
 
 : **Field**: `azureStorageRedundancy`
 
@@ -114,17 +113,17 @@ The parameter set should be provided for a valid query:
 : **Field**: `createdTimestamp`
 
 `currencies`
-: Currencies to report prices in.
+: Currencies to report the prices.
 
 : **Field**: `currency`
 
 `discountPercentages`
-: Custom discount percentages to be applied on final costs.
+: Custom discount percentages to be applied to final costs.
 
 : **Field**: `discountPercentage`
 
 `eaSubscriptionIds`
-: Enterprise agreement subscription arm ids.
+: Enterprise agreement subscription arm IDs.
 
 : **Field**: `eaSubscriptionId`
 
@@ -189,7 +188,7 @@ The parameter set should be provided for a valid query:
 : **Field**: `scalingFactor`
 
 `sizingCriterions`
-: Assessment sizing criterions.
+: Assessment sizing criteria.
 
 : **Field**: `sizingCriterion`
 
@@ -199,7 +198,7 @@ The parameter set should be provided for a valid query:
 : **Field**: `stage`
 
 `statuses`
-: Whether the assessments have been created and is valid.
+: Whether the assessments have been created and are valid.
 
 : **Field**: `status`
 
@@ -219,11 +218,16 @@ The parameter set should be provided for a valid query:
 : **Field**: `vmUptime`
 
 Refer to the [Azure Migrate assements documentation](https://docs.microsoft.com/en-us/rest/api/migrate/assessment/assessments/list-by-project) for additional information.
-{{% inspec_filter_table %}}
+
+{{< note >}}
+
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 ## Examples
 
-**Loop through migrate assessments by their names.**
+### Loop through migrate assessments by their names
 
 ```ruby
 azure_migrate_assessments(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME'.names.each do |name|
@@ -233,7 +237,7 @@ azure_migrate_assessments(resource_group: 'RESOURCE_GROUP', project_name: 'PROJE
 end
 ```
 
-**Test to ensure migrate assessments exist with local redundancy.**
+### Test to ensure migrate assessments exist with local redundancy
 
 ```ruby
 describe azure_migrate_assessments(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME').where(azureStorageRedundancy: 'LocallyRedundant') do
@@ -243,18 +247,24 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
 ```ruby
-# Should not exist if no Migrate Assessments are present in the project and in the resource group
+# Should not exist if no Migrate Assessments are present in the project and the resource group.
 
 describe azure_migrate_assessments(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME') do
   it { should_not exist }
 end
+```
 
-# Should exist if the filter returns at least one Migrate Assessment in the project and in the resource group
+### not_exists
+
+```ruby
+# Should exist if the filter returns at least one Migrate Assessment in the project and the resource group.
 
 describe azure_migrate_assessments(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME') do
   it { should exist }
@@ -263,4 +273,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

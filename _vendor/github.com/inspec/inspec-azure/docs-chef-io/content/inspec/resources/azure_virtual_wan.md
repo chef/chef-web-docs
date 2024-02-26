@@ -10,15 +10,15 @@ identifier = "inspec/resources/azure/azure_virtual_wan Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_virtual_wan` InSpec audit resource to test the properties related to a Azure Virtual WAN in a given resource group.
+Use the `azure_virtual_wan` InSpec audit resource to test the properties related to an Azure Virtual WAN in a given resource group.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -69,7 +69,7 @@ end
 : VPN encryption to be disabled or not.
 
 `properties.allowBranchToBranchTraffic`
-: True if branch to branch traffic is allowed.
+: True if branch-to-branch traffic is allowed.
 
 `properties.office365LocalBreakoutCategory`
 : The office local breakout category.
@@ -77,13 +77,13 @@ end
 `properties.type`
 : The type of the Virtual WAN.
 
-For properties applicable to all resources, such as `type`, `name`, `id`, `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
+For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
 Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/virtualwan/virtual-wans/get) for other properties available. Any attribute in the response may be accessed with the key names separated by dots (`.`).
 
 ## Examples
 
-**Test that a Virtual WAN's Encryption is not disabled.**
+### Test that a Virtual WAN's encryption is not disabled
 
 ```ruby
 describe azure_virtual_wan(resource_group: 'RESOURCE_GROUP', name: 'DEFAULT_WAN') do
@@ -98,12 +98,18 @@ This InSpec audit resource has the following special matchers. For a full list o
 ### exists
 
 ```ruby
-# If a Virtual WAN is found, it will exist
+# If a Virtual WAN is found, it will exist.
+
 describe azure_virtual_wan(resource_group: 'RESOURCE_GROUP', name: 'DEFAULT_WAN') do
   it { should exist }
 end
+```
 
-# If no Virtual WAN's are found, it will not exist
+### not_exists
+
+```ruby
+# If no Virtual WAN's are found, it will not exist.
+
 describe azure_virtual_wan(resource_group: 'RESOURCE_GROUP', name: 'DEFAULT_WAN') do
   it { should_not exist }
 end
@@ -111,4 +117,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

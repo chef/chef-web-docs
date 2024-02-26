@@ -10,24 +10,26 @@ identifier = "inspec/resources/azure/azure_network_interface Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_network_interface` InSpec audit resource to test properties and configuration of Azure Network Interface.
+Use the `azure_network_interface` InSpec audit resource to test the properties and configuration of the Azure Network interface.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-An `azure_network_interface` resource block identifies an AKS Cluster by `name` and `resource_group` or the `resource_id`.
+An `azure_network_interface` resource block identifies an AKS Cluster by `name` and `resource_group`, or the `resource_id`.
+
 ```ruby
-describe azure_network_interface(resource_group: 'example', name: 'networkInterfaceName') do
+describe azure_network_interface(resource_group: 'RESOURCE_GROUP', name: 'NETWORKINTERFACENAME') do
   it { should exist }
 end
 ```
+
 ```ruby
 describe azure_network_interface(resource_id: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{networkInterfaceName}') do
   it { should exist }
@@ -37,15 +39,16 @@ end
 ## Parameters
 
 `resource_group`
-: Azure resource group that the targeted resource resides in. `MyResourceGroup`.
+: Azure resource group where the targeted resource resides.
 
 `name`
-: Name of the AKS cluster to test. `networkInterfaceName`.
+: Name of the AKS cluster to test.
 
 `resource_id`
-: The unique resource ID. `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{networkInterfaceName}`.
+: The unique resource ID.
 
 Either one of the parameter sets can be provided for a valid query:
+
 - `resource_id`
 - `resource_group` and `name`
 
@@ -75,24 +78,26 @@ Either one of the parameter sets can be provided for a valid query:
 `has_public_address_ip?`
 : Indicates whether the interrogated network interface has a public IP address.
 
-For properties applicable to all resources, such as `type`, `name`, `id`, `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
+For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
 Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/virtualnetwork/networkinterfaces/get#networkinterface) for other properties available.
-Any attribute in the response may be accessed with the key names separated by dots (`.`), eg. `properties.<attribute>`.
+
+Any attribute in the response may be accessed with the key names separated by dots (`.`). For example, `properties.<attribute>`.
 
 ## Examples
 
-**Test if IP Forwarding is Enabled.**
+### Test if IP forwarding is enabled
 
 ```ruby
-describe azure_network_interface(resource_group: 'my-rg', name: 'networkInterfaceName') do
+describe azure_network_interface(resource_group: 'RESOURCE_GROUP', name: 'NETWORK_INTERFACE_NAME') do
   its('properties.enableIPForwarding') { should be_true }
 end
 ```
-**Test if the Primary IP Configuration is Set to Correct Private IP Address.**
+
+### Test if the primary IP configuration is set to correct private IP address
 
 ```ruby
-describe azure_network_interface(resource_group: 'my-rg', name: 'networkInterfaceName') do
+describe azure_network_interface(resource_group: 'RESOURCE_GROUP', name: 'NETWORK_INTERFACE_NAME') do
   its('private_ip') { should cmp '172.16.2.6' }
 end
 ```
@@ -103,9 +108,10 @@ This InSpec audit resource has the following special matchers. For a full list o
 
 ### be_primary
 
-Tests if a network interface is the primary network interface on a Virtual Machine.
+Tests if a network interface is the primary network interface on a virtual machine.
+
 ```ruby
-describe azure_network_interface(resource_group: 'my-rg', name: 'networkInterfaceName') do
+describe azure_network_interface(resource_group: 'RESOURCE_GROUP', name: 'NETWORK_INTERFACE_NAME') do
   it {should be_primary}
 end
 ```
@@ -113,8 +119,9 @@ end
 ### have_public_address_ip
 
 Test if a network interface has a public IP address.
+
 ```ruby
-describe azure_network_interface(resource_group: 'my-rg', name: 'networkInterfaceName') do
+describe azure_network_interface(resource_group: 'RESOURCE_GROUP', name: 'NETWORK_INTERFACE_NAME') do
   it { should have_public_address_ip}
 end
 ```
@@ -122,25 +129,33 @@ end
 ### have_private_address_ip
 
 Test if a network interface has a private IP address.
+
 ```ruby
-describe azure_network_interface(resource_group: 'my-rg', name: 'networkInterfaceName') do
+describe azure_network_interface(resource_group: 'RESOURCE_GROUP', name: 'NETWORK_INTERFACE_NAME') do
   it { should have_private_address_ip}
 end
 ```
+
 ### exists
 
 ```ruby
-# If we expect 'networkInterfaceName' to always exist
-describe azure_network_interface(resource_group: 'my-rg', name: 'networkInterfaceName') do
+# If we expect 'NETWORK_INTERFACE_NAME' to always exist.
+
+describe azure_network_interface(resource_group: 'RESOURCE_GROUP', name: 'NETWORK_INTERFACE_NAME') do
   it { should exist }
 end
+```
 
-# If we expect 'networkInterfaceName' to never exist
-describe azure_network_interface(resource_group: 'my-rg', name: 'networkInterfaceName') do
+### not_exists
+
+```ruby
+# If we expect 'NETWORK_INTERFACE_NAME' to never exist.
+
+describe azure_network_interface(resource_group: 'RESOURCE_GROUP', name: 'NETWORK_INTERFACE_NAME') do
   it { should_not exist }
 end
 ```
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

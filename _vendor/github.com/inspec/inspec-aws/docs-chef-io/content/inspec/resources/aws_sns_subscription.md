@@ -14,9 +14,9 @@ Use the `aws_sns_subscription` InSpec audit resource to test detailed properties
 
 For additional information, including details on parameters and properties, see the [AWS documentation on SNS](https://docs.aws.amazon.com/sns/latest/dg/sns-getting-started.html).
 
-## Installation
+## Install
 
-{{% inspec_aws_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_aws_install.md" >}}
 
 ## Syntax
 
@@ -32,28 +32,28 @@ end
 
 `subscription_arn` _(required)_
 
-: This resource accepts a single parameter, the subscription_arn. 
+: This resource accepts a single parameter, the subscription_arn.
   This can be passed either as a string or as a `subscription_arn: 'value'` key-value entry in a hash.
 
 ## Properties
 
 `arn`
-: An integer indicating the minimum number of instances in the auto scaling group.
+: The subscription's ARN.
 
 `owner`
-: An integer indicating the maximum number of instances in the auto scaling group.
+: The subscription's owner.
 
 `raw_message_delivery`
-: An integer indicating the desired  number of instances in the auto scaling group.
+: Indicates whether the subscription is raw or JSON.
 
 `topic_arn`
-: The name of the auto scaling launch configuration associated with the auto scaling group.
+: The ARN of the subscription's topic.
 
 `protocol`
-: An array of strings corresponding to the subnet IDs associated with the auto scaling group.
+: The subscription's protocol.
 
 `confirmation_was_authenticated`
-: An hash with each key-value pair corresponding to a tag associated with the entity.
+: Indicates whether the subscription confirmation request was authenticated.
 
 ## Examples
 
@@ -130,6 +130,6 @@ end
 
 ## AWS Permissions
 
-{{% aws_permissions_principal action="SNS:Client:GetSubscriptionAttributesResponse" %}}
+{{% inspec-aws/aws_permissions_principal action="SNS:Client:GetSubscriptionAttributesResponse" %}}
 
 You can find detailed documentation at [Actions, Resources, and Condition Keys for Amazon SNS](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsns.html).

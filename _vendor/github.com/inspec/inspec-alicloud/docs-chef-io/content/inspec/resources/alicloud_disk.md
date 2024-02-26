@@ -108,7 +108,7 @@ end
 
 ## Matchers
 
-{{% inspec_matchers_link %}}
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
 
 ### exist
 
@@ -138,7 +138,7 @@ it { should be_encrypted }
 
 ### Alicloud Permissions
 
-{{% alicloud_principal_action action="ecs:DescribeDisks" %}}
+{{% inspec-alicloud/alicloud_principal_action action="ecs:DescribeDisks" %}}
 
-{{% alibaba_access_management_doc %}}
-{{% alibaba_authentication_ecs_api_doc %}}
+{{< readfile file="content/inspec/resources/reusable/md/alibaba_access_management_doc.md" >}}
+{{< readfile file="content/inspec/resources/reusable/md/alibaba_authentication_ecs_api_doc.md" >}}

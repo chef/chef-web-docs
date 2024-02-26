@@ -10,22 +10,22 @@ identifier = "inspec/resources/azure/azure_db_migration_services Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_db_migration_services` InSpec audit resource to test properties related to Azure DB Migration Service for a resource group or the entire subscription.
+Use the `azure_db_migration_services` InSpec audit resource to test the properties related to Azure DB Migration Service for a resource group or the entire subscription.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-An `azure_db_migration_services` resource block returns all Azure DB Migration Services within a Resource Group.
+An `azure_db_migration_services` resource block returns all Azure DB Migration Services within a resource group.
 
 ```ruby
-describe azure_db_migration_services(resource_group: 'my-rg') do
+describe azure_db_migration_services(resource_group: 'RESOURCE_GROUP') do
   #...
 end
 ```
@@ -33,7 +33,7 @@ end
 or
 
 ```ruby
-describe azure_db_migration_services(resource_group: 'my-rg') do
+describe azure_db_migration_services(resource_group: 'RESOURCE_GROUP') do
   #...
 end
 ```
@@ -47,12 +47,12 @@ end
 ## Properties
 
 `ids`
-: A list of the unique resource ids.
+: A list of the unique resource IDs.
 
 : **Field**: `id`
 
 `names`
-: A list of name for all the Resource names.
+: A list of names for all the resource names.
 
 : **Field**: `name`
 
@@ -72,7 +72,7 @@ end
 : **Field**: `kind`
 
 `etags`
-: A list of HTTP strong entity tag value.
+: A list of HTTP strong entity tag values.
 
 : **Field**: `etag`
 
@@ -107,25 +107,29 @@ end
 : **Field**: `virtual_nic_id`
 
 `virtual_subnet_ids`
-: A list of vitual subnet IDs from the properties.
+: A list of virtual subnet IDs from the properties.
 
 : **Field**: `virtual_subnet_id`
 
-{{% inspec_filter_table %}}
+{{< note >}}
+
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 ## Examples
 
-**Loop through DB Migration Services by their names.**
+### Loop through DB Migration Services by their names
 
 ```ruby
-azure_db_migration_services(resource_group: 'my-rg').names.each do |name|
+azure_db_migration_services(resource_group: 'RESOURCE_GROUP').names.each do |name|
   describe azure_db_migration_service(service_name: name) do
     it { should exist }
   end
 end
 ```
 
-**Test that there are DB Migration Services that includes a certain string in their names (Client Side Filtering).**
+### Test that there are DB Migration Services that includes a certain string in their names (Client Side Filtering)
 
 ```ruby
 describe azure_db_migration_services(resource_group: 'my-rg').where { name.include?('UAT') } do
@@ -135,18 +139,24 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
 ```ruby
-# Should not exist if no db migration service are in the resource group
+# Should not exist if no db migration service are in the resource group.
 
 describe azure_db_migration_services(resource_group: 'my-rg') do
   it { should_not exist }
 end
+```
 
-# Should exist if the filter returns at least one db migration service
+### not_exists
+
+```ruby
+# Should exist if the filter returns at least one db migration service.
 
 describe azure_db_migration_services(resource_group: 'my-rg') do
   it { should exist }
@@ -155,4 +165,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

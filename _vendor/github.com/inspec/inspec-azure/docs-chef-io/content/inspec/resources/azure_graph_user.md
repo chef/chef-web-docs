@@ -10,15 +10,15 @@ identifier = "inspec/resources/azure/azure_graph_user Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_graph_user` InSpec audit resource to test properties of an Azure Active Directory user within a Tenant.
+Use the `azure_graph_user` InSpec audit resource to test the properties of an Azure Active Directory user within a Tenant.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -43,9 +43,10 @@ Either one of the following parameters is mandatory.
 : **Example**: `abcd-1234-efabc-5678`
 
 `user_id`
-: Globally unique identifier. (For backward compatibility.).
+: Globally unique identifier (For backward compatibility).
 
 : **Example**: `abcd-1234-efabc-5678`
+
 ## Properties
 
 `id`
@@ -116,14 +117,15 @@ Either one of the following parameters is mandatory.
 
 ## Examples
 
-**Test If an Active Directory User Account is Referenced with a Valid ID.**
+### Test if an Active Directory user account is referenced with a valid ID
 
 ```ruby
 describe azure_graph_user(id: 'someValidId')
   it { should exist }
 end
 ```
-**Test If an Active Directory User Account is Referenced with an Invalid ID.**
+
+### Test if an Active Directory user Account is referenced with an invalid ID
 
 ```ruby
 describe azure_graph_user(id: 'someInvalidId')
@@ -133,7 +135,9 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 

@@ -10,19 +10,19 @@ identifier = "inspec/resources/azure/azure_policy_insights_query_result Resource
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_policy_insights_query_result` InSpec audit resource to test properties and configuration of an Azure Policy Insights query result.
+Use the `azure_policy_insights_query_result` InSpec audit resource to test the properties and configuration of an Azure Policy Insights query result.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-`policy_definition` and the `resource_id` must be given as a parameter.
+The `policy_definition` and the `resource_id` are required parameters.
 
 ```ruby
 describe azure_policy_insights_query_result(policy_definition: 'de875639-505c-4c00-b2ab-bb290dab9a54', resource_id: '/subscriptions/80b824de-ec53-4116-9868-3deeab10b0cd/resourcegroups/jfm-winimgbuilderrg2/providers/microsoft.virtualmachineimages/imagetemplates/win1021h1') do
@@ -45,6 +45,7 @@ end
 : The unique resource ID. `/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderId}`.
 
 Submit both parameters for a valid query:
+
 - `resource_id`
 - `policy_definition`
 
@@ -66,7 +67,7 @@ Submit both parameters for a valid query:
 : Policy definition name.
 
 `policy_definition_action`
-: Policy definition action, i.e. effect.
+: Policy definition action. For example, `effect`.
 
 `compliance_state`
 : Compliance state of the resource.
@@ -75,7 +76,13 @@ Submit both parameters for a valid query:
 : Effective parameters for the policy assignment.
 
 `is_compliant`
-: Flag which states whether the resource is compliant against the policy assignment it was evaluated against. This property is deprecated; please use ComplianceState instead.
+: Flag indicating whether the resource is compliant against the policy assignment it was evaluated.
+
+{{< note >}}
+
+This property is deprecated; please use `ComplianceState` instead.
+
+{{< /note >}}
 
 `policy_assignment_owner`
 : Policy assignment owner.
@@ -105,17 +112,16 @@ Submit both parameters for a valid query:
 : Policy definition category.
 
 `management_group_ids`
-: Comma separated list of management group IDs, which represent the hierarchy of the management groups the resource is under.
+: Comma separated list of management group IDs, which represent the hierarchy of the management groups the resource is part of.
 
 `compliance_reason_code`
 : Populated with the failure error code sometimes.
 
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/policy/policystates/listqueryresultsforsubscription#policystate) for other properties available.
-Any attribute in the response may be accessed with the key names separated by dots (`.`), eg. `properties.<attribute>`.
+Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/policy/policystates/listqueryresultsforsubscription#policystate) for other properties available. Any attribute in the response may be accessed with the key names separated by dots (`.`). For example, `properties.<attribute>`.
 
 ## Examples
 
-**Test a Policy definition resource type.**
+### Test a policy definition resource type
 
 ```ruby
 describe azure_policy_insights_query_result(policy_definition: 'de875639-505c-4c00-b2ab-bb290dab9a54',  resource_id: '/subscriptions/80b824de-ec53-4116-9868-3deeab10b0cd/resourcegroups/jfm-winimgbuilderrg2/providers/microsoft.virtualmachineimages/imagetemplates/win1021h1') do
@@ -123,7 +129,7 @@ describe azure_policy_insights_query_result(policy_definition: 'de875639-505c-4c
 end
 ```
 
-**Test a Policy definition policy assignment scope.**
+### Test a policy definition and policy assignment scope
 
 ```ruby
 describe azure_policy_insights_query_result(policy_definition: 'de875639-505c-4c00-b2ab-bb290dab9a54', resource_id: '/subscriptions/80b824de-ec53-4116-9868-3deeab10b0cd/resourcegroups/jfm-winimgbuilderrg2/providers/microsoft.virtualmachineimages/imagetemplates/win1021h1') do
@@ -133,7 +139,9 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### compliant
 
@@ -148,12 +156,17 @@ end
 ### exists
 
 ```ruby
-# If we expect a resource to always exist
+# If we expect a resource to always exist.
 
 describe azure_policy_insights_query_result(policy_definition: 'de875639-505c-4c00-b2ab-bb290dab9a54', resource_id: '/subscriptions/80b824de-ec53-4116-9868-3deeab10b0cd/resourcegroups/jfm-winimgbuilderrg2/providers/microsoft.virtualmachineimages/imagetemplates/win1021h1') do
   it { should exist }
 end
-# If we expect a resource to never exist
+```
+
+### not_exists
+
+```ruby
+# If we expect a resource to never exist.
 
 describe azure_policy_insights_query_result(policy_definition: 'de875639-505c-4c00-b2ab-bb290dab9a54', resource_id: '/subscriptions/80b824de-ec53-4116-9868-3deeab10b0cd/resourcegroups/jfm-winimgbuilderrg2/providers/microsoft.virtualmachineimages/imagetemplates/win1021h1') do
   it { should_not exist }
@@ -162,4 +175,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

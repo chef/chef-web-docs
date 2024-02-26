@@ -158,7 +158,7 @@ its('attachment_count') { should be eq 7 }
 
 This InSpec audit resource has the following special matchers.
 
-{{% inspec_matchers_link %}}
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
 
 ### exist
 
@@ -297,5 +297,5 @@ it { should have_statement(Resource: /acs:oss.+:(sally|kim)/) }
 
 Your Principal will need the `ram:GetPolicy` and `ram:ListEntitiesForPolicy` actions with Effect set to Allow.
 
-{{% alibaba_access_management_doc %}}
-{{% alibaba_authentication_ram_api_doc %}}
+{{< readfile file="content/inspec/resources/reusable/md/alibaba_access_management_doc.md" >}}
+{{< readfile file="content/inspec/resources/reusable/md/alibaba_authentication_ram_api_doc.md" >}}

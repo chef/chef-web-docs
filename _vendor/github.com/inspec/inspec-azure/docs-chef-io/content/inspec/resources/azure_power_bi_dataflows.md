@@ -14,11 +14,11 @@ Use the `azure_power_bi_dataflows` InSpec audit resource to test the properties 
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -35,23 +35,41 @@ end
 `group_id`
 : The Workspace ID.
 
-
 ## Properties
 
-|Property                   | Description                                                            | Filter Criteria<superscript>*</superscript> |
-|---------------------------|------------------------------------------------------------------------|------------------|
-| objectIds                 | List of all Power BI dataflow IDs.                                     | `objectId`       |
-| names                     | List of all the Power BI dataflow names.                               | `name`           |
-| descriptions              | List of all the Power BI dataflow descriptions.                        | `description`    |
-| modelUrls                 | List of all URLs to the dataflow definition file                       | `modelUrl`       |                                                          | `modelUrl` |
+`objectIds`
 
+: List of all Power BI dataflow IDs.
 
-<superscript>*</superscript> For information on how to use filter criteria on plural resources refer to [FilterTable usage](https://github.com/inspec/inspec/blob/master/dev-docs/filtertable-usage.md).
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/power-bi/dataflows/get-dataflows) for other properties available.
+: **Field**: `objectId`
+
+`names`
+
+: List of all the Power BI dataflow names.
+
+: **Field**: `name`
+
+`descriptions`
+
+: List of all the Power BI dataflow descriptions.
+
+: **Field**: `descriptions`
+
+`modelUrls`
+
+: List of all URLs to the dataflow definition file
+
+: **Field**: `modelUrl`
+
+{{< note >}}
+
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 ## Examples
 
-**Test to ensure Power BI Dataflow for Finance exists.**
+### Test to ensure Power BI Dataflow for Finance exists
 
 ```ruby
 describe azure_power_bi_dataflows(group_id: 'GROUP_ID').where(name: 'DATAFLOW_NAME') do
@@ -61,17 +79,24 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
 ```ruby
-# Should not exist if no Power BI dataflows are present
+# Should not exist if no Power BI dataflows are present.
 
 describe azure_power_bi_dataflows(group_id: 'GROUP_ID') do
   it { should_not exist }
 end
-# Should exist if the filter returns at least one Power BI dataflows
+```
+
+### not_exists
+
+```ruby
+# Should exist if the filter returns at least one Power BI dataflows.
 
 describe azure_power_bi_dataflows(group_id: 'GROUP_ID') do
   it { should exist }

@@ -139,5 +139,5 @@ end
 
 Your Principal will need the following permissions action with Effect set to Allow: `ram:Listusers`, `ram:GetLoginProfile`, `ram:ListAccessKeys`, `ram:GetUserMFAInfo`
 
-{{% alibaba_access_management_doc %}}
-{{% alibaba_authentication_ram_api_doc %}}
+{{< readfile file="content/inspec/resources/reusable/md/alibaba_access_management_doc.md" >}}
+{{< readfile file="content/inspec/resources/reusable/md/alibaba_authentication_ram_api_doc.md" >}}

@@ -66,3 +66,7 @@ describe k8s_pod(namespace: 'NAMESPACE', name: 'NAME') do
   it { should exist }
 end
 ```
+
+## Matchers
+
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}

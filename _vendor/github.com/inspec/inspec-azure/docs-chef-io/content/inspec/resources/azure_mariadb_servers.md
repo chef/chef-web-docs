@@ -10,27 +10,30 @@ identifier = "inspec/resources/azure/azure_mariadb_servers Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_mariadb_servers` InSpec audit resource to test properties and configuration of multiple Azure MariaDB Servers.
+Use the `azure_mariadb_servers` InSpec audit resource to test the properties and configuration of multiple Azure MariaDB Servers.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-An `azure_mariadb_servers` resource block returns all Azure MariaDB Servers, either within a Resource Group (if provided), or within an entire Subscription.
+An `azure_mariadb_servers` resource block returns all Azure MariaDB Servers within a resource group (if provided) or the entire subscription.
+
 ```ruby
 describe azure_mariadb_servers do
   #...
 end
 ```
-or
+
+Or
+
 ```ruby
-describe azure_mariadb_servers(resource_group: 'my-rg') do
+describe azure_mariadb_servers(resource_group: 'RESOURCE_GROUP') do
   #...
 end
 ```
@@ -44,7 +47,7 @@ end
 ## Properties
 
 `ids`
-: A list of the unique resource ids.
+: A list of the unique resource IDs.
 
 : **Field**: `id`
 
@@ -78,7 +81,11 @@ end
 
 : **Field**: `properties`
 
-{{% inspec_filter_table %}}
+{{< note >}}
+
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 ## Examples
 
@@ -87,38 +94,44 @@ end
 ```ruby
 describe azure_mariadb_servers do
   it            { should exist }
-  its('names')  { should include 'my-server-name' }
+  its('names')  { should include 'MY-SERVER-NAME' }
 end
 ```
-**Filters the Results to Include Only Those Servers which Include the Given Name (Client Side Filtering).**
+
+### Filters the results to include only those servers that have the specified name (Client Side Filtering)
 
 ```ruby
 describe azure_mariadb_servers.where{ name.include?('production') } do
   it { should exist }
 end
 ```
-**Filters the Results to Include Only Those Servers which Reside in a Given Location (Client Side Filtering).**
+
+### Filters the results to include only those servers which reside in a specified location (Client Side Filtering)
 
 ```ruby
 describe azure_mariadb_servers.where{ location.eql?('westeurope') } do
   it { should exist }
 end
-```    
-**Filters the Results to Include Only Those Servers which Reside in a Given Location and Include the Given Name (Server Side Filtering - Recommended).**
+```
+
+### Filters the results to include only those servers which reside in a specified location and has the specified name (Server Side Filtering - Recommended)
 
 ```ruby
 describe azure_generic_resources(resource_provider: 'Microsoft.DBforMariaDB/servers', substring_of_name: 'production', location: 'westeurope') do
-  it {should exist}  
+  it {should exist}
 end
 ```
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
-The control will pass if the filter returns at least one result. Use `should_not` if you expect zero matches.
+The control passes if the filter returns at least one result. Use `should_not` if you expect zero matches.
+
 ```ruby
 describe azure_mariadb_servers do
   it { should exist }
@@ -127,4 +140,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

@@ -10,24 +10,26 @@ identifier = "inspec/resources/azure/azure_resource_group Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_resource_group` InSpec audit resource to test properties and configuration of an Azure resource group.
+Use the `azure_resource_group` InSpec audit resource to test the properties and configuration of an Azure resource group.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-`name` or the `resource_id` must be given as a parameter.
+`name` or the `resource_id` are required parameters.
+
 ```ruby
-describe azure_resource_group(name: 'my_resource_group') do
+describe azure_resource_group(name: 'RESOURCE_GROUP') do
   it { should exist }
 end
 ```
+
 ```ruby
 describe azure_resource_group(resource_id: '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}') do
   it { should exist }
@@ -37,12 +39,13 @@ end
 ## Parameters
 
 `name`
-: Name of the resource group. `resourceGroupName`.
+: Name of the resource group.
 
 `resource_id`
-: The unique resource ID. `/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}`.
+: The unique resource ID.
 
 Either one of the parameter sets can be provided for a valid query:
+
 - `resource_id`
 - `name`
 
@@ -51,55 +54,63 @@ Either one of the parameter sets can be provided for a valid query:
 `properties.provisioningState`
 : The provisioning state. `Succeeded`.
 
-For properties applicable to all resources, such as `type`, `name`, `id`, `location`, `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
+For properties applicable to all resources, such as `type`, `name`, `id`, `location`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/resources/policydefinitions/get#policydefinition) for other properties available. 
-Any attribute in the response may be accessed with the key names separated by dots (`.`), eg. `properties.<attribute>`.
+Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/policy/policy-definitions/get) for other properties available. Any attribute in the response may be accessed with the key names separated by dots (`.`). For example, `properties.<attribute>`.
 
 ## Examples
 
-**Test a Resource Group Location.**
+### Test a resource group location
 
 ```ruby
-describe azure_resource_group(name: 'my_resource_group') do
+describe azure_resource_group(name: 'RESOURCE_GROUP') do
   its('location') { should cmp 'eastus' }
 end
 ```
-**Test a Resource Group Provisioning State.**
+
+### Test a resource group provisioning state
 
 ```ruby
-describe azure_resource_group(name: 'my_resource_group') do
+describe azure_resource_group(name: 'RESOURCE_GROUP') do
   its('properties.provisioningState') { should cmp 'Succeeded' }
 end
-```    
-**Test a Resource Group Tags.**
+```
+
+### Test a resource group tags
 
 ```ruby
-describe azure_resource_group(name: 'my_resource_group') do
+describe azure_resource_group(name: 'RESOURCE_GROUP') do
   its('tags') { should include(:owner) }
   its('tags') { should include(owner: 'InSpec') }
 end
-```    
+```
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
 ```ruby
-# If we expect a resource group to always exist
+# If we expect a resource group to always exist.
 
-describe azure_resource_group(name: 'my_resource_group') do
+describe azure_resource_group(name: 'RESOURCE_GROUP') do
   it { should exist }
 end
-# If we expect a resource group to never exist
+```
 
-describe azure_resource_group(name: 'my_resource_group') do
+### not_exists
+
+```ruby
+# If we expect a resource group to never exist.
+
+describe azure_resource_group(name: 'RESOURCE_GROUP') do
   it { should_not exist }
 end
 ```
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

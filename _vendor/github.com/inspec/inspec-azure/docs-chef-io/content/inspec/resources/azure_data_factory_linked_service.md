@@ -14,11 +14,11 @@ Use the `azure_data_factory_linked_service` InSpec audit resource to test the pr
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -32,7 +32,7 @@ end
 ## Parameters
 
 `resource_group`
-: Azure resource group that the targeted resource resides in.
+: Azure resource group where the targeted resource resides.
 
 `factory_name`
 : The factory name.
@@ -63,7 +63,7 @@ All the parameter sets are required for a valid query:
 
 ## Examples
 
-**Test that a Linked Service exists.**
+### Test that a linked service exists
 
 ```ruby
 describe azure_data_factory_linked_service(resource_group: `RESOURCE_GROUP`, factory_name: `FACTORY_NAME`, linked_service_name: `LINKED_SERVICE_NAME`) do
@@ -71,7 +71,7 @@ describe azure_data_factory_linked_service(resource_group: `RESOURCE_GROUP`, fac
 end
 ```
 
-**Test that a linked service does not exist.**
+### Test that a linked service does not exist
 
 ```ruby
 describe azure_data_factory_linked_service(resource_group: `RESOURCE_GROUP`, factory_name: `FACTORY_NAME`, linked_service_name: 'should not exit') do
@@ -79,7 +79,7 @@ describe azure_data_factory_linked_service(resource_group: `RESOURCE_GROUP`, fac
 end
 ```
 
-**Test properties of a linked service.**
+### Test properties of a linked service
 
 ```ruby
 describe azure_data_factory_linked_service(resource_group: `RESOURCE_GROUP`, name: 'FACTORY_NAME') do
@@ -91,4 +91,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

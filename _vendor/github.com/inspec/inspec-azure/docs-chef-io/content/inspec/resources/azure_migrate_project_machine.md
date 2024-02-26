@@ -10,19 +10,19 @@ identifier = "inspec/resources/azure/azure_migrate_project_machine Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_migrate_project_machine` InSpec audit resource to test the properties related to an Azure Migrate project machine.
+Use the `azure_migrate_project_machine` InSpec audit resource to test the properties related to an Azure Migrate Project machine.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-`resource_group`, `project_name` and `name` are required parameters.
+`resource_group`, `project_name`, and `name` are required parameters.
 
 ```ruby
 describe azure_migrate_project_machine(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME', name: 'PROJECT_MACHINE_NAME') do
@@ -41,25 +41,23 @@ end
 ## Parameters
 
 `name`
-: Name of the Azure Migrate project machine to test.
+: Name of the Azure Migrate Project machine to test.
 
 `resource_group`
-: Azure resource group that the targeted resource resides in.
+: Azure resource group where the targeted resource resides.
 
 `project_name`
-: Azure Migrate assessment project name.
+: Azure Migrate Assessment Project name.
 
-The parameter set must be provided for a valid query:
-
-- `resource_group`, `project_name`, and `name`.
+The parameter set that must be provided for a valid query is `resource_group`, `project_name`, and `name`.
 
 ## Properties
 
 `id`
-: Path reference to the Migrate project machine.
+: Path reference to the Migrate Project machine.
 
 `name`
-: Unique name of a Migrate project machine.
+: Unique name of a Migrate Project machine.
 
 `type`
 : Type of the object. `Microsoft.Migrate/MigrateProjects/Databases`.
@@ -81,11 +79,13 @@ The parameter set must be provided for a valid query:
 
 For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/migrate/projects/machines/get-machine) for other properties available. Any attribute in the response nested within properties may be accessed with the key names separated by dots (`.`), and attributes nested in the **assessmentData** are pluralized and listed as a collection.
+Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/migrate/projects/machines/get-machine) for other properties available. 
+
+Any attribute in the response nested within properties may be accessed with the key names separated by dots (`.`), and attributes nested in the **assessmentData** are pluralized and listed as a collection.
 
 ## Examples
 
-**Test that the migrate project machine has a Windows OS.**
+### Test that the Migrate Project machine has a Windows OS
 
 ```ruby
 describe azure_migrate_project_machine(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME', name: 'PROJECT_MACHINE_NAME') do
@@ -100,11 +100,18 @@ This InSpec audit resource has the following special matchers. For a full list o
 ### exists
 
 ```ruby
-# If a migrate project machine is found, it will exist
+# If a migrate project machine is found, it will exist.
+
 describe azure_migrate_project_machine(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME', name: 'PROJECT_MACHINE_NAME') do
   it { should exist }
 end
-# if migrate project machine is not found, it will not exist
+```
+
+### not_exists
+
+```ruby
+# If migrate project machine is not found, it will not exist.
+
 describe azure_migrate_project_machine(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME', name: 'PROJECT_MACHINE_NAME') do
   it { should_not exist }
 end
@@ -112,4 +119,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

@@ -14,11 +14,11 @@ Use the `azure_migrate_project_events` InSpec audit resource to test the propert
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -33,14 +33,12 @@ end
 ## Parameters
 
 `resource_group`
-: Azure resource group that the targeted resource resides in.
+: Azure resource group where the targeted resource resides.
 
 `project_name`
 : Azure Migrate Project.
 
-The parameter set should be provided for a valid query:
-
-- `resource_group` and `project_name`.
+The parameter set that should be provided for a valid query is `resource_group` and `project_name`.
 
 ## Properties
 
@@ -100,17 +98,21 @@ The parameter set should be provided for a valid query:
 : **Field**: `solution`
 
 `clientRequestIds`
-: The client request Ids of the payload for which the event is reported.
+: The client request IDs of the payload for which the event is reported.
 
 : **Field**: `clientRequestId`
 
-{{% inspec_filter_table %}}
+{{< note >}}
+
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 For more details on the available properties, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/migrate/projects/events/enumerate-events).
 
 ## Examples
 
-**Loop through migrate project events by their names.**
+### Loop through Migrate Project events by their names
 
 ```ruby
 azure_migrate_project_events(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME').names.each do |name|
@@ -120,7 +122,7 @@ azure_migrate_project_events(resource_group: 'RESOURCE_GROUP', project_name: 'PR
 end
 ```
 
-**Test that there are migrate project events for databases.**
+### Test that there are Migrate Project events for databases
 
 ```ruby
 describe azure_migrate_project_events(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME').where(instanceType: 'Databases') do
@@ -130,16 +132,25 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
+
+### not_exists
+
+```ruby
+# Should not exist if no migrate project events are present in the project and the resource group.
+
+describe azure_migrate_project_events(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME') do
+  it { should_not exist }
+end
+```
 
 ### exists
 
 ```ruby
-# Should not exist, if no migrate project events are present in the project and in the resource group
-describe azure_migrate_project_events(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME') do
-  it { should_not exist }
-end
-# Should exist, if the filter returns at least one migrate project events in the project and in the resource group
+# Should exist if the filter returns at least one migrate project event in the project and the resource group.
+
 describe azure_migrate_project_events(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME') do
   it { should exist }
 end
@@ -147,4 +158,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

@@ -92,3 +92,7 @@ end
   it { should_have_command?('COMMAND') }
 end
 ```
+
+## Matchers
+
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}

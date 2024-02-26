@@ -10,15 +10,15 @@ identifier = "inspec/resources/azure/azure_migrate_assessment_machines Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_migrate_assessment_machines` InSpec audit resource to test properties related to all Azure Migrate assessment machines within a project.
+Use the `azure_migrate_assessment_machines` InSpec audit resource to test the properties related to all Azure Migrate assessment machines within a project.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -34,11 +34,11 @@ end
 
 `resource_group` _(required)_
 
-: Azure resource group that the targeted resource resides in.
+: Azure resource group where the targeted resource resides.
 
 `project_name` _(required)_
 
-: The Azure Migrate Assessment Project.
+: The Azure Migrate Assessment project.
 
 ## Properties
 
@@ -68,22 +68,22 @@ end
 : **Field**: `properties`
 
 `bootTypes`
-: A list of boot type of the machines.
+: A list of boot machines.
 
 : **Field**: `bootType`
 
 `createdTimestamps`
-: Times when this machine was created.
+: Time when this machine is created.
 
 : **Field**: `createdTimestamp`
 
 `datacenterManagementServerArmIds`
-: A list of ARM IDs of the data center as tracked by the Microsoft.OffAzure.
+: A list of ARM IDs of the data center as tracked by the `Microsoft.OffAzure`.
 
 : **Field**: `datacenterManagementServerArmId`
 
 `datacenterManagementServerNames`
-: Name of the servers hosting the datacenter management solution.
+: Name of the servers hosting the data center management solution.
 
 : **Field**: `datacenterManagementServerName`
 
@@ -93,32 +93,32 @@ end
 : **Field**: `description`
 
 `discoveryMachineArmIds`
-: A list of ARM IDs of the machine as tracked by the Microsoft.OffAzure.
+: A list of ARM IDs of the machine as tracked by the `Microsoft.OffAzure`.
 
 : **Field**: `discoveryMachineArmId`
 
 `disks`
-: Dictionary of disks attached to all the machines. Key is ID of disk. Value is a disk object.
+: Dictionary of disks attached to all the machines. The key is disk ID. Value is a disk object.
 
 : **Field**: `disks`
 
 `displayNames`
-: User readable names of all the machines as defined by the user in their private datacenter.
+: User readable names of all the machines as defined by the user in their private data center.
 
 : **Field**: `displayName`
 
 `groups`
-: A List of references to the groups that the machine is member of.
+: A List of references to the groups where the machine is a member.
 
 : **Field**: `groups`
 
 `megabytesOfMemories`
-: A list of Memories in Megabytes.
+: A list of memories in Megabytes.
 
 : **Field**: `megabytesOfMemory`
 
 `networkAdapters`
-: Dictionary of network adapters attached to all the machines. Key is ID of network adapter. Value is a network adapter object.
+: Dictionary of network adapters attached to all the machines. The key is the network adapter ID. Value is a network adapter object.
 
 : **Field**: `networkAdapters`
 
@@ -143,15 +143,19 @@ end
 : **Field**: `operatingSystemVersion`
 
 `updatedTimestamps`
-: Time when the machines were last updated.
+: Time when the machines are last updated.
 
 : **Field**: `updatedTimestamp`
 
-{{% inspec_filter_table %}}
+{{< note >}}
+
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 ## Examples
 
-**Loop through Migrate assessment machines by their names.**
+### Loop through migrate assessment machines by their names
 
 ```ruby
 azure_migrate_assessment_machines(resource_group: 'RESOURCE_GROUP', project_name: 'MIGRATE_ASSESSMENT_PROJECT_NAME').names.each do |name|
@@ -161,7 +165,7 @@ azure_migrate_assessment_machines(resource_group: 'RESOURCE_GROUP', project_name
 end
 ```
 
-**Test that there are Migrate assessment machines with BIOS boot type.**
+### Test that there are migrate assessment machines with BIOS boot type
 
 ```ruby
 describe azure_migrate_assessment_machines(resource_group: 'RESOURCE_GROUP', project_name: 'MIGRATE_ASSESSMENT_PROJECT_NAME').where(bootType: 'BIOS') do
@@ -171,18 +175,24 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
 ```ruby
-# Should not exist if no Migrate assessment machines are present in the project and in the resource group
+# Should not exist if no migrate assessment machines are present in the project and the resource group.
 
 describe azure_migrate_assessment_machines(resource_group: 'RESOURCE_GROUP', project_name: 'MIGRATE_ASSESSMENT_PROJECT_NAME') do
   it { should_not exist }
 end
+```
 
-# Should exist if the filter returns at least one Migrate assessment machines in the project and in the resource group
+### not_exists
+
+```ruby
+# Should exist if the filter returns at least one migrate assessment machine in the project and the resource group.
 
 describe azure_migrate_assessment_machines(resource_group: 'RESOURCE_GROUP', project_name: 'MIGRATE_ASSESSMENT_PROJECT_NAME') do
   it { should exist }
@@ -191,4 +201,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

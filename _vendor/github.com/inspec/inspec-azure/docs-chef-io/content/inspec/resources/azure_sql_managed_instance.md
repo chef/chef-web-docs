@@ -14,15 +14,15 @@ Use the `azure_sql_managed_instance` InSpec audit resource to test the propertie
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-`name`, `resource_group` are required parameters.
+`name` and`resource_group` are required parameters.
 
 ```ruby
 describe azure_sql_managed_instance(resource_group: 'RESOURCE_GROUP', name: 'INSTANCE_NAME') do
@@ -44,9 +44,9 @@ end
 : Name of the Azure SQL managed instances to test.
 
 `resource_group`
-: Azure resource group that the targeted resource resides in.
+: Azure resource group where the targeted resource resides.
 
-The parameter set should be provided for a valid query: `resource_group` and `name`
+The parameter set that should be provided for a valid query is `resource_group` and `name`.
 
 ## Properties
 
@@ -63,25 +63,25 @@ The parameter set should be provided for a valid query: `resource_group` and `na
 : Resource location.
 
 `properties`
-: The properties of the SQL Managed Instance.
+: The properties of the SQL-Managed Instance.
 
 `properties.minimalTlsVersion`
-: Minimal TLS version. Allowed values are 'None', '1.0', '1.1', '1.2'.
+: Minimal TLS version. Allowed values are `None`, `1.0`, `1.1`, and `1.2`.
 
 `properties.maintenanceConfigurationId`
-: Specifies maintenance configuration id to apply to this managed instance.
+: Specifies maintenance configuration ID to apply to this managed instance.
 
 `properties.provisioningState`
-: Provisioning state of the SQL managed instance.
+: Provisioning state of the SQL-managed instance.
 
 `sku.name`
-: The name of the SKU, typically, a letter with a number code. For example, P3.
+: The name of the SKU, typically a letter with a number code. For example, `P3`.
 
-For properties applicable to all resources, such as `type`, `name`, `id`, `properties` refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}). Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/sql/2021-02-01-preview/managed-instances/get) for other properties available.
+For properties applicable to all resources, such as `type`, `name`, `id`, and `properties` refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}). Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/sql/2021-02-01-preview/managed-instances/get) for other properties available.
 
 ## Examples
 
-**Test that the SQL managed instances is provisioned successfully.**
+### Test that the SQL managed instances are provisioned successfully
 
 ```ruby
 describe azure_sql_managed_instance(resource_group: 'RESOURCE_GROUP', name: 'INSTANCE_NAME') do
@@ -96,11 +96,18 @@ This InSpec audit resource has the following special matchers. For a full list o
 ### exists
 
 ```ruby
-# If a SQL managed instance is found, it will exist
+# If a SQL-managed instance is found, it will exist.
+
 describe azure_sql_managed_instance(resource_group: 'RESOURCE_GROUP', name: 'INSTANCE_NAME') do
   it { should exist }
 end
-# if SQL managed instance is not found, it will not exist
+```
+
+### not_exists
+
+```ruby
+# if SQL managed instance is not found, it will not exist.
+
 describe azure_sql_managed_instance(resource_group: 'RESOURCE_GROUP', name: 'INSTANCE_NAME') do
   it { should_not exist }
 end
@@ -108,4 +115,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="reader" %}}
+{{% inspec-azure/azure_permissions_service_principal role="reader" %}}

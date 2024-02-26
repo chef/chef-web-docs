@@ -10,15 +10,15 @@ identifier = "inspec/resources/azure/azure_migrate_assessment_groups Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_migrate_assessment_groups` InSpec audit resource to test properties related to all Azure Migrate assessment groups within a project.
+Use the `azure_migrate_assessment_groups` InSpec audit resource to test the properties related to all Azure Migrate assessment groups within a project.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -33,13 +33,12 @@ end
 ## Parameters
 
 `resource_group`
-: Azure resource group that the targeted resource resides in.
+: Azure resource group where the targeted resource resides.
 
 `project_name`
 : Azure Migrate assessment project.
 
-The parameter set should be provided for a valid query:
-- `resource_group` and `project_name`.
+The parameter set that should be provided for a valid query is `resource_group` and `project_name`.
 
 ## Properties
 
@@ -103,11 +102,15 @@ The parameter set should be provided for a valid query:
 
 : **Field**: `updatedTimestamp`
 
-<superscript>*</superscript> For information on how to use filter criteria on plural resources refer to [FilterTable usage](https://github.com/inspec/inspec/blob/master/dev-docs/filtertable-usage.md). Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/migrate/assessment/groups/list-by-project) for the complete list of properties available.
+{{< note >}}
+
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 ## Examples
 
-**Loop through migrate assessment groups by their names.**
+### Loop through migrate assessment groups by their names
 
 ```ruby
 azure_migrate_assessment_groups(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME').names.each do |name|
@@ -117,7 +120,7 @@ azure_migrate_assessment_groups(resource_group: 'RESOURCE_GROUP', project_name: 
 end
 ```
 
-**Test that the assessments are running for migrate assessment groups.**
+### Test that the assessments are running for migrating assessment groups
 
 ```ruby
 describe azure_migrate_assessment_groups(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME').where(areAssessmentsRunning: true) do
@@ -127,17 +130,24 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
 ```ruby
-# Should not exist if no Migrate Assessment Groups are present in the project
+# Should not exist if no Migrate Assessment groups are present in the project.
 
 describe azure_migrate_assessment_groups(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME') do
   it { should_not exist }
 end
-# Should exist if the filter returns at least one Migrate Assessment Groups in the project
+```
+
+### not_exists
+
+```ruby
+# Should exist if the filter returns at least one Migrate Assessment groups in the project.
 
 describe azure_migrate_assessment_groups(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME') do
   it { should exist }
@@ -146,4 +156,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

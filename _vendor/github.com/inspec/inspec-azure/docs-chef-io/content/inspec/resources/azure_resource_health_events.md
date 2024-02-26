@@ -10,15 +10,15 @@ identifier = "inspec/resources/azure/azure_resource_health_events Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_resource_health_events` InSpec audit resource to test properties related to all Azure Resource Health events for the subscription.
+Use the `azure_resource_health_events` InSpec audit resource to test the properties related to all Azure Resource Health events for the subscription.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -40,14 +40,16 @@ end
 
 ## Parameters
 
-**Note**
+{{< note >}}
 
 To list all service health events in a subscription, do not provide any parameters.
 To list events for a particular resource, pass in all three parameters listed below.
 If one or more parameters are missing then all events in a subscription will be returned.
 
+{{< /note >}}
+
 `resource_group`
-: Azure resource group that the targeted resource resides in.
+: Azure resource group where the targeted resource resides.
 
 `resource_type`
 : The name of the resource type.
@@ -77,14 +79,17 @@ If one or more parameters are missing then all events in a subscription will be 
 
 : **Field**: `properties`
 
+{{< note >}}
 
-{{% inspec_filter_table %}}
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 See the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/resourcehealth/events/list-by-single-resource) for other available properties.
 
 ## Examples
 
-**Test that there are health events that have a service issue.**
+### Test that there are health events that have a service issue
 
 ```ruby
 describe azure_resource_health_events.where{ properties.select{|prop| prop.eventType == 'ServiceIssue' } } do
@@ -92,7 +97,7 @@ describe azure_resource_health_events.where{ properties.select{|prop| prop.event
 end
 ```
 
-**Test that there are health events for a particular resource.**
+### Test that there are health events for a particular resource
 
 ```ruby
 describe azure_resource_health_events(resource_group: 'RESOURCE_GROUP', resource_type: 'RESOURCE_TYPE', resource_id: 'RESOURCE_ID') do
@@ -102,18 +107,24 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
 ```ruby
-# Should not exist if no service health events are present in the subscription
+# Should not exist if no service health events are present in the subscription.
 
 describe azure_resource_health_events do
   it { should_not exist }
 end
+```
 
-# Should exist if the filter returns at least one service health events in the subscription
+### not_exists
+
+```ruby
+# Should exist if the filter returns at least one service health events in the subscription.
 
 describe azure_resource_health_events do
   it { should exist }
@@ -122,4 +133,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

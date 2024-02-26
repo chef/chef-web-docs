@@ -12,15 +12,15 @@ parent = "inspec/resources/azure"
 
 Use the `azure_data_factory_pipeline_run_resource` InSpec audit resource to test the properties of an Azure Data Factory pipeline run.
 
-For additional information, see the [`Azure Data Factory pipeline runs API documentation`](https://docs.microsoft.com/en-us/rest/api/datafactory/pipeline-runs/query-by-factory).
+For additional information, see the [`Azure API documentation on Data Factory pipeline runs`](https://docs.microsoft.com/en-us/rest/api/datafactory/pipeline-runs/query-by-factory).
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -34,7 +34,7 @@ end
 
 `resource_group` _(required)_
 
-: Azure resource group that the targeted resource resides in.
+: Azure resource group where the targeted resource resides.
 
 `factory_name` _(required)_
 
@@ -69,7 +69,7 @@ end
 
 ## Examples
 
-**Test properties of a pipeline runs.**
+### Test properties of a pipeline runs
 
 ```ruby
 describe azure_data_factory_pipeline_run_resource(resource_group: `RESOURCE_GROUP`, name: 'FACTORY_NAME', run_id: `RUN_ID`) do
@@ -99,4 +99,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

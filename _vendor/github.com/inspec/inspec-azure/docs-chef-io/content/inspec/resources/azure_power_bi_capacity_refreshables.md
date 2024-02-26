@@ -14,11 +14,11 @@ Use the `azure_power_bi_capacity_refreshables` InSpec audit resource to test the
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -33,24 +33,22 @@ end
 ## Parameters
 
 `capacity_id` _(optional)_
-
 : The capacity ID.
-
 
 ## Properties
 
 `ids`
-: List of all Power Bi Capacity refreshable IDs.
+: List of all Power BI Capacity refreshable IDs.
 
 : **Field**: `id`
 
 `names`
-: List of all the Power Bi Capacity refreshable names.
+: List of all the Power BI Capacity refreshable names.
 
 : **Field**: `name`
 
 `kinds`
-: List of all the Power Bi Capacity refreshable kinds.
+: List of all the Power BI Capacity refreshable kinds.
 
 : **Field**: `kind`
 
@@ -79,13 +77,17 @@ end
 
 : **Field**: `averageDuration`
 
-{{% inspec_filter_table %}}
+{{< note >}}
+
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 For additional information, refer to the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/power-bi/capacities/get-refreshables) for other properties available.
 
 ## Examples
 
-**Test to ensure Power BI Capacity refreshable schedules are enabled.**
+### Test to ensure Power BI Capacity refreshable schedules are enabled
 
 ```ruby
 describe azure_power_bi_capacity_refreshables do
@@ -95,16 +97,23 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
 ```ruby
-# Should not exist if no Power BI Capacity refreshables are present
+# Should not exist if no Power BI Capacity refreshables are present.
 
 describe azure_power_bi_capacity_refreshables do
   it { should_not exist }
 end
+```
+
+### not_exists
+
+```ruby
 # Should exist if the filter returns at least one Power BI Capacity refreshables
 
 describe azure_power_bi_capacity_refreshables do

@@ -14,11 +14,11 @@ Use the `azure_power_bi_dataflow` InSpec audit resource to test the properties o
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -44,7 +44,6 @@ end
 
 : The workspace ID.
 
-
 ## Properties
 
 `name`
@@ -59,14 +58,13 @@ end
 `modelUrl`
 : A URL to the dataflow definition file (model.json).
 
-
 For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
 Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/power-bi/dataflows/get-dataflows) for other properties available.
 
 ## Examples
 
-**Test that the Power BI dataflow name exists.**
+### Test that the Power BI dataflow name exists
 
 ```ruby
 describe azure_power_bi_dataflow(group_id: 'GROUP_ID', name: 'DATAFLOW_ID')  do
@@ -89,7 +87,9 @@ describe azure_power_bi_dataflow(group_id: 'GROUP_ID', name: 'DATAFLOW_ID')  do
 end
 ```
 
-Use `should_not` to test the entity does not exist.
+### not_exists
+
+Use `should_not` to test if the entity does not exist.
 
 ```ruby
 describe azure_power_bi_dataflow(group_id: 'GROUP_ID', name: 'DATAFLOW_ID')  do

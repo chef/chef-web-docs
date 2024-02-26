@@ -10,15 +10,15 @@ identifier = "inspec/resources/azure/azure_sql_virtual_machines Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_sql_virtual_machines` InSpec audit resource to test properties of all Azure SQL virtual machines.
+Use the `azure_sql_virtual_machines` InSpec audit resource to test the properties of all Azure SQL virtual machines.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -34,7 +34,7 @@ end
 
 `resource_group` _(optional)_
 
-: Azure resource group that the targeted resource resides in.
+: Azure resource group where the targeted resource resides.
 
 ## Properties
 
@@ -44,7 +44,7 @@ end
 : **Field**: `id`
 
 `names`
-: A list of resource Names.
+: A list of resource names.
 
 : **Field**: `name`
 
@@ -68,11 +68,15 @@ end
 
 : **Field**: `provisioningState`
 
-{{% inspec_filter_table %}}
+{{< note >}}
+
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 ## Examples
 
-**Loop through SQL virtual machines by their names.**
+### Loop through SQL virtual machines by their names
 
 ```ruby
 azure_sql_virtual_machines(resource_group: 'RESOURCE_GROUP').names.each do |name|
@@ -82,7 +86,7 @@ azure_sql_virtual_machines(resource_group: 'RESOURCE_GROUP').names.each do |name
 end
 ```
 
-**Test that there are SQL virtual machines that are successfully provisioned.**
+### Test that there are SQL virtual machines that are successfully provisioned
 
 ```ruby
 describe azure_sql_virtual_machines(resource_group: 'RESOURCE_GROUP').where(provisioningState: 'Succeeded') do
@@ -92,17 +96,24 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
 ```ruby
-# Should not exist if no SQL virtual machines are present
+# Should not exist if no SQL virtual machines are present.
 
 describe azure_sql_virtual_machines(resource_group: 'RESOURCE_GROUP') do
   it { should_not exist }
 end
-# Should exist if the filter returns at least one SQL virtual machines
+```
+
+### not_exists
+
+```ruby
+# Should exist if the filter returns at least one SQL virtual machine.
 
 describe azure_sql_virtual_machines(resource_group: 'RESOURCE_GROUP') do
   it { should exist }
@@ -111,4 +122,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="reader" %}}
+{{% inspec-azure/azure_permissions_service_principal role="reader" %}}

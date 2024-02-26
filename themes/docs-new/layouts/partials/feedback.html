@@ -40,36 +40,28 @@
     <div class="cell auto" id="feedback-section">
 
       <p class="feedback-request">How can we improve this document?</p>
-      <form id="feedback-form">
-        <label for="feedback-form-email">Provide an email address if you'd like a response from the Docs Team. <span class="optional">(optional)</span></label>
-        <input type="email" id="feedback-form-email" name="email" placeholder="E-mail">
-        <label for="feedback-form-feedback" id="feedback-label">How can we improve this page? Please be specific.</label>
-        <textarea id="feedback-form-feedback" name="message" rows="4" cols="50" onkeyup="feedbackLength()" placeholder="Enter your feedback here. Try to be as specific as possible."></textarea>
-        <label for="feedback-form-feedback" id="feedback-min-characters">Enter at least 100 characters.</label>
-        <input type="hidden" id="feedback-form-page-url" name="url" value="{{ .Permalink }}">
-        <input type="hidden" id="feedback-form-gh-url" name="gh_url" value="{{ $gh_file_path }}">
-        <input type="hidden" id="feedback-form-page-title" name="title" value="{{ .Title }}">
+      <form
+        name="Chef Docs Feedback"
+        id="feedback-form"
+        data-netlify="true"
+        data-netlify-honeypot="verification"
+        method="POST"
+        >
+        {{ $productVersion := "None" }}
+        {{ if (isset .Params "product-version") }}
+          {{ $productVersion = index .Params "product-version" }}
+        {{ end }}
+        <input type="hidden" id="feedback-form-page-title" name="page_title" value="{{ .Title }}">
         <input type="hidden" id="feedback-form-chef-product" name="product" value="{{ .Params.product }}">
-        {{ if or (hugo.IsProduction) (eq hugo.Environment "branch-deploy") -}}
-          <div class="g-recaptcha"
-            data-sitekey="6LffyK4kAAAAAEfN35Ba1POsTAjXejP3Ya9CcRts"
-            data-callback="submitContactFormFeedback"
-            data-size="invisible">
-          </div>
-        {{- else if (eq hugo.Environment "staging") -}}
-          <div class="g-recaptcha"
-            data-sitekey="6Lf0EvokAAAAABQM_HQWT8CL_CvUL80p9xTp2o4b"
-            data-callback="submitContactFormFeedback"
-            data-size="invisible">
-          </div>
-        {{- else -}}
-          <div class="g-recaptcha"
-            data-sitekey="6LfR2MMkAAAAAN2fOkrd00cbS_e44lElwQZNVC8Y"
-            data-callback="submitContactFormFeedback"
-            data-size="invisible">
-          </div>
-        {{- end }}
-        <button id="feedback-form-submit-feedback" onclick="validate(event)" disabled>Submit Feedback</button>
+        <input type="hidden" id="feedback-form-chef-product-version" name="version" value="{{ $productVersion }}">
+        <input type="hidden" id="feedback-form-page-url" name="url" value="{{ .Permalink }}">
+        <input type="hidden" id="feedback-form-gh-url" name="github_url" value="{{ $gh_file_path }}">
+        <textarea id="feedback-form-feedback" name="message" rows="4" cols="50" onkeyup="feedbackLength()" placeholder="Enter your feedback here. Be as specific as possible."></textarea>
+        <label class="visually-hidden">
+          Do not fill in this field.
+          <input name="verification">
+        </label>
+        <button id="feedback-form-submit-feedback" type="submit" disabled>Submit Feedback</button>
       </form>
 
       <p id="feedback-form-thank-you-message">

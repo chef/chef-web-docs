@@ -14,15 +14,16 @@ Use the `azure_policy_exemptions` InSpec audit resource to test properties relat
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-An `azure_policy_exemptions` resource block returns all Azure Policy Exemptions within a Subscription.
+An `azure_policy_exemptions` resource block returns all Azure Policy Exemptions within a subscription.
+
 ```ruby
 describe azure_policy_exemptions do
   #...
@@ -34,12 +35,12 @@ end
 ## Properties
 
 `ids`
-: A list of the unique resource ids.
+: A list of the unique resource IDs.
 
 : **Field**: `id`
 
 `names`
-: A list of names for all the Resources.
+: A list of names for all the resources.
 
 : **Field**: `name`
 
@@ -49,7 +50,7 @@ end
 : **Field**: `type`
 
 `properties`
-: A list of Properties all the resources.
+: A list of properties for all the resources.
 
 : **Field**: `properties`
 
@@ -64,27 +65,27 @@ end
 : **Field**: `policy_assignment_id`
 
 `policy_definition_reference_ids`
-: A list of Policy Definition Reference Ids.
+: A list of Policy Definition Reference IDs.
 
 : **Field**: `policy_definition_reference_ids`
 
 `exemption_categories`
-: A list of categories of Exemptions.
+: A list of categories of exemptions.
 
 : **Field**: `exemption_category`
 
 `display_names`
-: A list of display names of the Exemptions.
+: A list of display names of the exemptions.
 
 : **Field**: `display_name`
 
 `descriptions`
-: A list of descriptions of the Exemptions. .
+: A list of descriptions of the exemptions.
 
 : **Field**: `description`
 
 `metadata`
-: A list of metadata info of the Exemptions.
+: A list of metadata info of the exemptions.
 
 : **Field**: `metadata`
 
@@ -94,7 +95,7 @@ end
 : **Field**: `created_by`
 
 `created_by_types`
-: A list of type of creators of the exemptions.
+: A list of the type of creators of the exemptions.
 
 : **Field**: `created_by_type`
 
@@ -104,56 +105,66 @@ end
 : **Field**: `created_at`
 
 `last_modified_by`
-: A list of last modifiers of the exemptions.
+: A list of the last modifiers of the exemptions.
 
 : **Field**: `last_modified_by`
 
 `last_modified_by_types`
-: A list of type of the modifiers of the exemptions.
+: A list of the type of modifiers of the exemptions.
 
 : **Field**: `last_modified_by_type`
 
 `last_modified_at`
-: A list of modified_at timestamps of the exemptions.
+: A list of `modified_at` timestamps of the exemptions.
 
 : **Field**: `last_modified_at`
 
+{{< note >}}
 
-{{% inspec_filter_table %}}
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 ## Examples
 
-**Loop through Policy Exemptions by Their Names.**
+### Loop through Policy Exemptions by their names
 
 ```ruby
 azure_policy_exemptions.names.each do |name|
   describe azure_policy_exemption(name: name) do
     it { should exist }
   end
-end  
-```     
-**Test that There are Policy Exemptions that are of waiver exemption category .**
+end
+```
+
+### Test that there are Policy Exemptions that are of waiver exemption category
 
 ```ruby
 describe azure_policy_exemptions.where(exemption_category: 'Waiver') do
   it { should exist }
 end
-```    
+```
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
 
-### exists
+This resource has the following special matchers.
+
+### not_exists
 
 ```ruby
-# Should not exist if no policy exemptions are present in the subscription
+# Should not exist if no policy exemptions are present in the subscription.
 
 describe azure_policy_exemptions do
   it { should_not exist }
 end
+```
 
-# Should exist if the filter returns at least one policy exemption in the subscription
+### exists
+
+```ruby
+# Should exist if the filter returns at least one policy exemption in the subscription.
 
 describe azure_policy_exemptions do
   it { should exist }
@@ -162,4 +173,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

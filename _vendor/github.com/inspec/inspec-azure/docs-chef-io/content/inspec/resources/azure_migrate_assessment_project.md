@@ -14,11 +14,11 @@ Use the `azure_migrate_assessment_project` InSpec audit resource to test the pro
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -41,14 +41,12 @@ end
 ## Parameters
 
 `name`
-: Name of the Azure Migrate assessment Project to test.
+: Name of the Azure Migrate assessment project to test.
 
 `resource_group`
-: Azure resource group that the targeted project resides in.
+: Azure resource group where the targeted project resides.
 
-The parameter set should be provided for a valid query:
-
-- `resource_group` and `name`.
+The parameter set that should be provided for a valid query is `resource_group` and `name`.
 
 ## Properties
 
@@ -56,7 +54,7 @@ The parameter set should be provided for a valid query:
 : Path reference to the project.
 
 `name`
-: Name of the project.
+: Project name.
 
 `type`
 : Type of the object.
@@ -68,13 +66,13 @@ The parameter set should be provided for a valid query:
 : Properties of the project.
 
 `location`
-: Azure location in which project is created.
+: Azure location in which the project is created.
 
 `properties.assessmentSolutionId`
-: Assessment solution ARM id tracked by `Microsoft.Migrate/migrateProjects`.
+: Assessment solution ARM ID tracked by `Microsoft.Migrate/migrateProjects`.
 
 `properties.customerStorageAccountArmId`
-: The ARM ID of the storage account used for interactions when public access is disabled.
+: The ARM ID of the storage account is used for interactions when public access is disabled.
 
 `properties.privateEndpointConnections`
 : The list of private endpoint connections to the project.
@@ -91,7 +89,7 @@ Refer to the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/mig
 
 ## Examples
 
-**Test that the migrate assessment project has a minimum scaling factor.**
+### Test that the migrate assessment project has a minimum scaling factor
 
 ```ruby
 describe azure_migrate_assessment_project(resource_group: 'RESOURCE_GROUP', name: 'ASSESSMENT_PROJECT_NAME') do
@@ -106,12 +104,18 @@ This InSpec audit resource has the following special matchers. For a full list o
 ### exists
 
 ```ruby
-# If a Migrate Assessment Project is found, it will exist
+# If a Migrate Assessment project is found, it will exist.
+
 describe azure_migrate_assessment_project(resource_group: 'RESOURCE_GROUP', name: 'ASSESSMENT_PROJECT_NAME') do
   it { should exist }
 end
+```
 
-# if Migrate Assessment Project is not found, it will not exist
+### not_exists
+
+```ruby
+# If Migrate Assessment project is not found, it will not exist.
+
 describe azure_migrate_assessment_project(resource_group: 'RESOURCE_GROUP', name: 'ASSESSMENT_PROJECT_NAME') do
   it { should_not exist }
 end
@@ -119,4 +123,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

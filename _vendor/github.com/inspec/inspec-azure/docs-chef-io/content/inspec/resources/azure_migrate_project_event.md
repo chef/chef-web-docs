@@ -14,15 +14,15 @@ Use the `azure_migrate_project_event` InSpec audit resource to test the properti
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-`resource_group`, `project_name` and `name` are required parameters.
+`resource_group`, `project_name`, and `name` are required parameters.
 
 ```ruby
 describe azure_migrate_project_event(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME', name: 'PROJECT_EVENT_NAME') do
@@ -40,17 +40,15 @@ end
 ## Parameters
 
 `name`
-: Name of the Azure Migrate project event to test.
+: Name of the Azure Migrate Project event to test.
 
 `resource_group`
-: Azure resource group that the targeted resource resides in.
+: Azure resource group where the targeted resource resides.
 
 `project_name`
-: Azure Migrate assessment project name.
+: Azure Migrate Assessment Project name.
 
-The parameter set should be provided for a valid query:
-
-- `resource_group`, `project_name`, and `name`.
+The parameter set should be provided for a valid query is `resource_group`, `project_name`, and `name`.
 
 ## Properties
 
@@ -74,7 +72,7 @@ Any attribute in the response nested within properties is accessed with the key 
 
 ## Examples
 
-**Test that the migrate project event is of servers instanceType.**
+### Test that the Migrate project event is of servers 'instanceType'
 
 ```ruby
 describe azure_migrate_project_event(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME', name: 'PROJECT_EVENT_NAME') do
@@ -89,11 +87,18 @@ This InSpec audit resource has the following special matchers. For a full list o
 ### exists
 
 ```ruby
-# If a migrate project event is found, it will exist
+# If a migrate project event is found, it will exist.
+
 describe azure_migrate_project_event(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME', name: 'PROJECT_EVENT_NAME') do
   it { should exist }
 end
-# if migrate project event is not found, it will not exist
+```
+
+### not_exists
+
+```ruby
+# if migrate project event is not found, it will not exist.
+
 describe azure_migrate_project_event(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME', name: 'PROJECT_EVENT_NAME') do
   it { should_not exist }
 end
@@ -101,4 +106,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

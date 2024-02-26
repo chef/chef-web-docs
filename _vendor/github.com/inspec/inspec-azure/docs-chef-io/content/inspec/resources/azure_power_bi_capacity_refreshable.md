@@ -14,11 +14,11 @@ Use the `azure_power_bi_capacity_refreshable` InSpec audit resource to test the 
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -53,7 +53,7 @@ end
 : The refreshable kind.
 
 `name`
-: Display name of refreshable.
+: Display refreshable name.
 
 `startTime`
 : The start time of the window for which summary data exists.
@@ -76,14 +76,13 @@ end
 `refreshSchedule.enabled`
 : Is the refresh enabled.
 
-
 For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
 Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/power-bi/capacities/get-refreshable-for-capacity) for other properties available.
 
 ## Examples
 
-**Test that the Power BI Capacity refreshable schedule is enabled.**
+### Test that the Power BI Capacity refreshable schedule is enabled
 
 ```ruby
 describe azure_power_bi_capacity_refreshable(capacity_id: 'CAPACITY_ID', name: 'REFRESHABLE_ID')  do
@@ -98,11 +97,17 @@ This InSpec audit resource has the following special matchers. For a full list o
 ### exists
 
 ```ruby
-# If the Power BI Capacity refreshable is found, it will exist
+# If the Power BI Capacity refreshable is found, it will exist.
+
 describe azure_power_bi_capacity_refreshable(capacity_id: 'CAPACITY_ID', name: 'REFRESHABLE_ID')  do
   it { should exist }
 end
-# if the Power BI Capacity refreshable is not found, it will not exist
+```
+
+### not_exists
+
+```ruby
+# if the Power BI Capacity refreshable is not found, it will not exist.
 describe azure_power_bi_capacity_refreshable(capacity_id: 'CAPACITY_ID', name: 'REFRESHABLE_ID')  do
   it { should_not exist }
 end

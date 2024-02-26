@@ -10,27 +10,30 @@ identifier = "inspec/resources/azure/azure_network_security_groups Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_network_security_groups` InSpec audit resource to enumerate Network Security Groups.
+Use the `azure_network_security_groups` InSpec audit resource to enumerate the Network Security groups.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-An `azure_network_security_groups` resource block returns all Azure network security groups, either within a Resource Group (if provided), or within an entire Subscription.
+An `azure_network_security_groups` resource block returns all Azure network security groups within a resource group or an entire subscription.
+
 ```ruby
 describe azure_network_security_groups do
   #...
 end
 ```
-or
+
+Or
+
 ```ruby
-describe azure_network_security_groups(resource_group: 'my-rg') do
+describe azure_network_security_groups(resource_group: 'RESOURCE_GROUP') do
   #...
 end
 ```
@@ -44,7 +47,7 @@ end
 ## Properties
 
 `ids`
-: A list of the unique resource ids.
+: A list of the unique resource IDs.
 
 : **Field**: `id`
 
@@ -72,19 +75,23 @@ end
 : A list of all properties of all the resources.
 
 : **Field**: `properties`
-{{% inspec_filter_table %}}
+{{< note >}}
+
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 ## Examples
 
-**Test that an Example Resource Group Has the Named Network Security Group.**
+### Test that an example resource group has the named network security group
 
 ```ruby
-describe azure_network_security_groups(resource_group: 'ExampleGroup') do
+describe azure_network_security_groups(resource_group: 'EXAMPLEGROUP') do
   its('names') { should include('ExampleNetworkSecurityGroup') }
 end
 ```
 
-**Filters the Network Security Groups at Azure API to Only Those that Match the Given Name via Generic Resource (Recommended).**
+### Filters the Network Security groups at Azure API to only those that match the specified name via a generic resource (Recommended)
 
 ```ruby
 **Fuzzy string matching.**
@@ -102,23 +109,32 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
-The control will pass if the resource returns a result. Use `should_not` if you expect zero matches.
+The control passes if the resource returns a result. Use `should_not` if you expect zero matches.
+
 ```ruby
-# If we expect 'ExampleGroup' Resource Group to have Network Security Groups
-describe azure_network_security_groups(resource_group: 'ExampleGroup') do
+# If we expect the 'EXAMPLEGROUP' resource group to have Network Security groups.
+
+describe azure_network_security_groups(resource_group: 'EXAMPLEGROUP') do
   it { should exist }
 end
+```
 
-# If we expect 'EmptyExampleGroup' Resource Group to not have Network Security Groups
-describe azure_network_security_groups(resource_group: 'EmptyExampleGroup') do
+### not_exists
+
+```ruby
+# If we expect the 'EmptyExampleGroup' resource group to not have Network Security groups.
+
+describe azure_network_security_groups(resource_group: 'EMPTYEXAMPLEGROUP') do
   it { should_not exist }
 end
 ```
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="reader" %}}
+{{% inspec-azure/azure_permissions_service_principal role="reader" %}}

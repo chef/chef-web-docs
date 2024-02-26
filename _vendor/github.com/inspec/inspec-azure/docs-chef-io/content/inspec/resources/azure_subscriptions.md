@@ -10,19 +10,20 @@ identifier = "inspec/resources/azure/azure_subscriptions Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_subscriptions` InSpec audit resource to test properties and configuration of all Azure subscriptions for a tenant.
+Use the `azure_subscriptions` InSpec audit resource to test the properties and configuration of all Azure subscriptions for a tenant.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-An `azure_subscriptions` resource block returns all subscription for a tenant.
+An `azure_subscriptions` resource block returns all subscriptions for a tenant.
+
 ```ruby
 describe azure_subscriptions do
   it { should exist }
@@ -36,7 +37,7 @@ This resource does not require any parameters.
 ## Properties
 
 `ids`
-: A list of the subscription ids.
+: A list of the subscription IDs.
 
 : **Field**: `id`
 
@@ -51,29 +52,36 @@ This resource does not require any parameters.
 : **Field**: `tags`
 
 `tenant_ids`
-: A list of tenant ids of all the subscriptions.
+: A list of tenant IDs of all the subscriptions.
 
 : **Field**: `tenant_id`
 
-{{% inspec_filter_table %}}
+{{< note >}}
+
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 ## Examples
 
-**Check a Specific Subscription is Present.**
+### Check a specific subscription is present
 
 ```ruby
 describe azure_subscriptions do
   its('names')  { should include 'my-subscription' }
 end
-``` 
+```
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
-The control will pass if the filter returns at least one result. Use `should_not` if you expect zero matches.
+The control passes if the filter returns at least one result. Use `should_not` if you expect zero matches.
+
 ```ruby
 describe azure_subscriptions do
   it { should exist }
@@ -82,4 +90,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

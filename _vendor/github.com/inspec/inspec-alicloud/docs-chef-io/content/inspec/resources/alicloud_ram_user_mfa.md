@@ -58,7 +58,7 @@ end
 
 ## Matchers
 
-{{% inspec_matchers_link %}}
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
 
 ### exist
 
@@ -76,7 +76,7 @@ it { should_not exist }
 
 ### Alicloud Permissions
 
-{{% alicloud_principal_action action="ram:GetUserMFAInfo" %}}
+{{% inspec-alicloud/alicloud_principal_action action="ram:GetUserMFAInfo" %}}
 
-{{% alibaba_access_management_doc %}}
-{{% alibaba_authentication_ram_api_doc %}}
+{{< readfile file="content/inspec/resources/reusable/md/alibaba_access_management_doc.md" >}}
+{{< readfile file="content/inspec/resources/reusable/md/alibaba_authentication_ram_api_doc.md" >}}

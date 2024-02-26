@@ -72,4 +72,4 @@ end
 
 ## Matchers
 
-{{% inspec/inspec_matchers_link %}}
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}

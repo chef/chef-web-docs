@@ -10,15 +10,15 @@ identifier = "inspec/resources/azure/azure_migrate_project_database_instance Res
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_migrate_project_database_instance` InSpec audit resource to test properties of a single Azure Migrate project database instance.
+Use the `azure_migrate_project_database_instance` InSpec audit resource to test the properties of a single Azure Migrate Project database instance.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -39,14 +39,13 @@ end
 
 ## Parameters
 
-
 `name` _(required)_
 
 : Unique name of a database in Azure migration hub.
 
 `resource_group` _(required)_
 
-: Name of the Azure Resource Group that migrate project is part of.
+: Name of the Azure Resource Group where the migrate project is part.
 
 `project_name` _(required)_
 
@@ -73,7 +72,7 @@ end
 : The database instances summary per solution.
 
 `enqueueTimes`
-: The times the message were enqueued.
+: The time when the message was enqueued.
 
 `extendedInfos`
 : The extended properties of the database server.
@@ -105,15 +104,15 @@ end
 `solutionNames`
 : The names of the solution that sent the data.
 
-
-For properties applicable to all resources, such as `type`, `name`, `id`, `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
+For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
 Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/migrate/projects/databases/get-database) for other properties available.
-Any attribute in the response nested within properties may be accessed with the key names separated by dots (`.`) and attributes nested in the assessment data is pluralized and listed as collection.
+
+Any attribute in the response nested within properties may be accessed with the key names separated by dots (`.`), and attributes nested in the assessment data is pluralized and listed as a collection.
 
 ## Examples
 
-**Test that the Migrate project database instance has a SQL instanceType.**
+### Test that the Migrate Project database instance has a SQL instanceType
 
 ```ruby
 describe azure_migrate_project_database_instance(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME', name: 'DB_NAME') do
@@ -128,12 +127,17 @@ This InSpec audit resource has the following special matchers. For a full list o
 ### exists
 
 ```ruby
-# If a Migrate project database instance is found it will exist
+# If a Migrate Project database instance is found, it will exist.
 
 describe azure_migrate_project_database_instance(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME', name: 'DB_NAME') do
   it { should exist }
 end
-# if Migrate project database instance is not found it will not exist
+```
+
+### not_exists
+
+```ruby
+# If Migrate Project database instance is not found, it will not exist.
 
 describe azure_migrate_project_database_instance(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME', name: 'DB_NAME') do
   it { should_not exist }
@@ -142,4 +146,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

@@ -10,15 +10,15 @@ identifier = "inspec/resources/azure/azure_power_bi_dataset Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_power_bi_dataset` InSpec audit resource to test the properties related to Azure Power BI dataset.
+Use the `azure_power_bi_dataset` InSpec audit resource to test the properties related to an Azure Power BI dataset.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -37,11 +37,9 @@ end
 ## Parameters
 
 `name` _(required)_
-
 : The dataset ID.
 
 `group_id` _(optional)_
-
 : The workspace ID.
 
 ## Properties
@@ -67,14 +65,13 @@ end
 `isOnPremGatewayRequired`
 : dataset requires an On-premises Data Gateway.
 
-
 For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
 Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/power-bi/datasets/get-dataset) for other properties available.
 
 ## Examples
 
-**Test that the Power BI dataset requires an on-prem gateway.**
+### Test that the Power BI dataset requires an on-prem gateway
 
 ```ruby
 describe azure_power_bi_dataset(name: 'DATASET_ID')  do
@@ -90,11 +87,18 @@ This InSpec audit resource has the following special matchers. For a full list o
 ### exists
 
 ```ruby
-# If the Power BI dataset is found, it will exist
+# If the Power BI dataset is found, it will exist.
+
 describe azure_power_bi_dataset(name: 'DATASET_ID')  do
   it { should exist }
 end
-# if the Power BI dataset is not found, it will not exist
+```
+
+### not_exists
+
+```ruby
+# if the Power BI dataset is not found, it will not exist.
+
 describe azure_power_bi_dataset(name: 'DATASET_ID')  do
   it { should_not exist }
 end

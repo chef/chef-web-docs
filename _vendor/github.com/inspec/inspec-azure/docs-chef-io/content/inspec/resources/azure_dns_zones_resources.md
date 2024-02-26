@@ -10,19 +10,19 @@ identifier = "inspec/resources/azure/azure_dns_zones_resources Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_dns_zones_resources` InSpec audit resource to test properties related to all Azure DNS zones for a resource group or an entire subscription.
+Use the `azure_dns_zones_resources` InSpec audit resource to test the properties related to all Azure DNS zones for a resource group or an entire subscription.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-An `azure_dns_zones_resources` resource block returns all Azure DNS Zones within within a resource group.
+An `azure_dns_zones_resources` resource block returns all Azure DNS Zones within a resource group.
 
 ```ruby
 describe azure_dns_zones_resources do
@@ -76,11 +76,15 @@ This resource does not require any parameters.
 
 : **Field**: `name_servers`
 
-{{% inspec_filter_table %}}
+{{< note >}}
+
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 ## Examples
 
-**Test that a DNS zone has has the correct type.**
+### Test that a DNS zone has the correct type
 
 ```ruby
 describe azure_dns_zones_resources do
@@ -88,7 +92,7 @@ describe azure_dns_zones_resources do
 end
 ```
 
-**Test that a DNS zone resource has a `Succeeded` provisioning state.**
+### Test that a DNS zone resource has a 'Succeeded' provisioning state
 
 ```ruby
 describe azure_dns_zones_resources do
@@ -96,7 +100,7 @@ describe azure_dns_zones_resources do
 end
 ```
 
-**Test that a DNS zone has the `global` location.**
+### Test that a DNS zone has the 'global' location
 
 ```ruby
 describe azure_dns_zones_resources do
@@ -104,7 +108,7 @@ describe azure_dns_zones_resources do
 end
 ```
 
-**Test if any Azure DNS zone exists in the resource group.**
+### Test if any Azure DNS zone exists in the resource group
 
 ```ruby
 describe azure_dns_zones_resources do
@@ -114,11 +118,13 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
-Test that there aren't any Azure DNS zones in the resource group.
+Test that there are not any Azure DNS zones in the resource group.
 
 ```ruby
 describe azure_dns_zones_resources do
@@ -128,4 +134,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

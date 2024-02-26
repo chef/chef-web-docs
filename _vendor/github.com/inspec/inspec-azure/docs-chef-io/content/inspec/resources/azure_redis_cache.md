@@ -14,11 +14,11 @@ Use the `azure_redis_cache` InSpec audit resource to test the properties related
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -44,14 +44,12 @@ end
 ## Parameters
 
 `resource_group`
-: Azure resource group that the targeted resource resides in. `MyResourceGroup`.
+: Azure resource group where the targeted resource resides.
 
 `name`
 : Name of the Azure Redis cache to test.
 
-The parameter set should be provided for a valid query:
-
-- `resource_group` and `name`
+The parameter set should be provided for a valid query are `resource_group` and `name`.
 
 ## Properties
 
@@ -59,10 +57,10 @@ The parameter set should be provided for a valid query:
 : Resource ID.
 
 `name`
-: Redis Cache Name.
+: Redis cache name.
 
 `location`
-: Redis Cache Location.
+: Redis cache location.
 
 `type`
 : Resource type.
@@ -71,13 +69,13 @@ The parameter set should be provided for a valid query:
 : Resource tags.
 
 `properties.sku.name`
-: The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium).
+: The type of Redis cache to deploy. Valid values are `Basic`, `Standard`, and `Premium`.
 
 `properties.sku.family`
-: The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
+: The SKU family to use. Valid values are `C` and `P` (C = Basic/Standard, P = Premium).
 
 `properties.sku.capacity`
-: The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
+: The size of the Redis cache to deploy. Valid values are `C` (Basic/Standard; family: 0, 1, 2, 3, 4, 5, 6) and `P` (Premium, family: 1, 2, 3, 4).
 
 `properties.provisioningState`
 : The resource's provisioning state.
@@ -88,14 +86,14 @@ The parameter set should be provided for a valid query:
 `properties.enableNonSslPort`
 : Specifies whether the non-SSL Redis server port (6379) is enabled.
 
-For properties applicable to all resources, such as `type`, `name`, `id`, `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
+For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
 Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/redis/redis/get) for other properties available.
 Any attribute in the response may be accessed with the key names separated by dots (`.`).
 
 ## Examples
 
-**Test that the Redis instance's provisioning status equals 'Succeeded'.**
+### Test that the Redis instance's provisioning status equals 'Succeeded'
 
 ```ruby
 describe azure_redis_cache(resource_group: 'RESOURCE_GROUP', name: 'REDIS_CACHE_NAME') do
@@ -103,9 +101,9 @@ describe azure_redis_cache(resource_group: 'RESOURCE_GROUP', name: 'REDIS_CACHE_
 end
 ```
 
-**Test that the Redis instance Skuname equals 'Standard'.**
+### Test that the Redis instance Skuname equals 'Standard'
 
-**Skuname** is the Redis cache to deploy. Valid values are `Basic`, `Standard`, `Premium`.
+**Skuname** is the Redis cache to deploy. Valid values are `Basic`, `Standard`, and `Premium`.
 
 ```ruby
 describe azure_redis_cache(resource_group: 'RESOURCE_GROUP', name: 'REDIS_CACHE_NAME') do
@@ -120,13 +118,18 @@ This InSpec audit resource has the following special matchers. For a full list o
 ### exists
 
 ```ruby
-# If a redis cache is found it will exist
+# If a Redis cache is found, it will exist.
 
 describe azure_redis_cache(resource_group: 'RESOURCE_GROUP', name: 'REDIS_CACHE_NAME') do
   it { should exist }
 end
+```
 
-# Redis Caches that aren't found will not exist
+### not_exists
+
+```ruby
+
+# Redis Caches that aren't found, will not exist.
 describe azure_redis_cache(resource_group: 'RESOURCE_GROUP', name: 'REDIS_CACHE_NAME') do
   it { should_not exist }
 end
@@ -134,7 +137,7 @@ end
 
 ### be_enabled_non_ssl_port
 
-Ensure that the Redis Cache supports non-SSL ports.
+Ensure that the Redis cache supports non-SSL ports.
 
 ```ruby
 describe azure_redis_cache(resource_group: 'RESOURCE_GROUP', name: 'REDIS_CACHE_NAME') do
@@ -144,4 +147,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

@@ -10,26 +10,27 @@ identifier = "inspec/resources/azure/azure_policy_definitions Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_policy_definitions` InSpec audit resource to test properties and configuration of multiple Azure policy definitions.
+Use the `azure_policy_definitions` InSpec audit resource to test the properties and configuration of multiple Azure Policy definitions.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
-An `azure_policy_definitions` resource block returns all policy definitions, either built-in (if `built_in_only: true`), or within a subscription.
+An `azure_policy_definitions` resource block returns all policy definitions built-in (if `built_in_only: true`) or within a subscription.
+
 ```ruby
 describe azure_policy_definitions do
   it { should exist }
 end
 ```
 
-or
+Or
 
 ```ruby
 describe azure_policy_definitions(built_in_only: true) do
@@ -46,7 +47,7 @@ end
 ## Properties
 
 `ids`
-: A list of the unique resource ids.
+: A list of the unique resource IDs.
 
 : **Field**: `id`
 
@@ -90,40 +91,49 @@ end
 
 : **Field**: `properties`
 
-{{% inspec_filter_table %}}
+{{< note >}}
+
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 ## Examples
 
-**Check a Specific Policy Definition is Present.**
+### Check a specific Policy definition is present
 
 ```ruby
 describe azure_policy_definitions do
   its('names')  { should include 'my-policy' }
 end
 ```
-**Filters the Results to Include Only Those Policy Definitions which Include the Given Name.**
+
+### Filters the results to include only those Policy definitions which include the specified name
 
 ```ruby
 describe azure_policy_definitions.where{ name.include?('my-policy') } do
   it { should exist }
 end
 ```
-**Filters the Results to Include Only The Custom Policy Definitions.**
+
+### Filters the results to include only the custom Policy definitions
 
 ```ruby
 describe azure_policy_definitions.where(policy_type: "Custom") do
   it { should exist }
   its('count') { should be 15 }
 end
-```    
+```
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
-The control will pass if the filter returns at least one result. Use `should_not` if you expect zero matches.
+The control passes if the filter returns at least one result. Use `should_not` if you expect zero matches.
+
 ```ruby
 describe azure_policy_definitions do
   it { should exist }
@@ -132,4 +142,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

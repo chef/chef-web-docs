@@ -10,15 +10,15 @@ identifier = "inspec/resources/azure/azure_sql_virtual_machine_group_availabilit
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_sql_virtual_machine_group_availability_listener` InSpec audit resource to test properties related to an Azure SQL virtual machine group availability listener.
+Use the `azure_sql_virtual_machine_group_availability_listener` InSpec audit resource to test the properties related to an Azure SQL virtual machine group availability listener.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -43,11 +43,11 @@ end
 
 `resource_group` _(required)_
 
-: Azure resource group that the targeted resource resides in.
+: Azure resource group where the targeted resource resides.
 
 `sql_virtual_machine_group_name` _(required)_
 
-: The Azure SQL virtual machine group name
+: The Azure SQL virtual machine group name.
 
 ## Properties
 
@@ -66,14 +66,13 @@ end
 `properties.provisioningState`
 : State of the resource.
 
-
-For properties applicable to all resources, such as `type`, `name`, `id`, `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
+For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
 Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfmeshrp-api-application_get) for other properties available.
 
 ## Examples
 
-**Test that the SQL virtual machine group availability listener is provisioned successfully.**
+### Test that the SQL virtual machine group availability listener is provisioned successfully
 
 ```ruby
 describe azure_sql_virtual_machine_group_availability_listener(resource_group: 'RESOURCE_GROUP', sql_virtual_machine_group_name: 'SQL_VIRTUAL_MACHINE_GROUP_NAME', name: 'AVAILABILITY_LISTENER_NAME') do
@@ -88,12 +87,17 @@ This InSpec audit resource has the following special matchers. For a full list o
 ### exists
 
 ```ruby
-# If a SQL virtual machine group availability listener is found it will exist
+# If a SQL virtual machine group availability listener is found, it will exist.
 
 describe azure_sql_virtual_machine_group_availability_listener(resource_group: 'RESOURCE_GROUP', sql_virtual_machine_group_name: 'SQL_VIRTUAL_MACHINE_GROUP_NAME', name: 'AVAILABILITY_LISTENER_NAME') do
   it { should exist }
 end
-# if SQL virtual machine group availability listener is not found it will not exist
+```
+
+### not_exists
+
+```ruby
+# if SQL virtual machine group availability listener is not found, it will not exist
 
 describe azure_sql_virtual_machine_group_availability_listener(resource_group: 'RESOURCE_GROUP', sql_virtual_machine_group_name: 'SQL_VIRTUAL_MACHINE_GROUP_NAME', name: 'AVAILABILITY_LISTENER_NAME') do
   it { should_not exist }
@@ -102,4 +106,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="reader" %}}
+{{% inspec-azure/azure_permissions_service_principal role="reader" %}}

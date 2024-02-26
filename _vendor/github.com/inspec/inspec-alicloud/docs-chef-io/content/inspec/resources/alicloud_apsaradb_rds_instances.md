@@ -126,7 +126,7 @@ end
 
 ## Matchers
 
-{{% inspec_matchers_link %}}
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
 
 ### exist
 
@@ -148,6 +148,6 @@ end
 
 ### Alicloud Permissions
 
-{{% alicloud_principal_action action="rds:DescribeDBInstances" %}}
+{{% inspec-alicloud/alicloud_principal_action action="rds:DescribeDBInstances" %}}
 
 You can find documentation at [Use RAM to manage ApsaraDB for RDS permissions](https://www.alibabacloud.com/help/doc-detail/58932.htm#section-rhd-4ll-5gb).

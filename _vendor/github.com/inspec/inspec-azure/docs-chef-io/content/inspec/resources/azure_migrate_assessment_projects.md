@@ -14,11 +14,11 @@ Use the `azure_migrate_assessment_projects` InSpec audit resource to test the pr
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -57,7 +57,7 @@ This resource does not require any parameters.
 : **Field**: `eTag`
 
 `locations`
-: Azure locations in which project is created.
+: Azure locations in which the project is created.
 
 : **Field**: `location`
 
@@ -72,32 +72,32 @@ This resource does not require any parameters.
 : **Field**: `properties`
 
 `assessmentSolutionIds`
-: Assessment solution ARM ids tracked by `Microsoft.Migrate/migrateProjects`.
+: Assessment solution ARM IDs tracked by `Microsoft.Migrate/migrateProjects`.
 
 : **Field**: `assessmentSolutionId`
 
 `createdTimestamps`
-: Times when this project was created. Date-Time represented in ISO-8601 format.
+: Times when this project is created. Date-Time is represented in ISO-8601 format.
 
 : **Field**: `createdTimestamp`
 
 `customerStorageAccountArmIds`
-: The ARM ids of the storage account used for interactions when public access is disabled.
+: The ARM IDs of the storage account used for interactions when public access is disabled.
 
 : **Field**: `customerStorageAccountArmId`
 
 `customerWorkspaceIds`
-: The ARM ids of service map workspace created by customer.
+: The ARM IDs of the service map workspace created by customer.
 
 : **Field**: `customerWorkspaceId`
 
 `customerWorkspaceLocations`
-: Locations of service map workspace created by customer.
+: Locations of the service map workspace created by customer.
 
 : **Field**: `customerWorkspaceLocation`
 
 `lastAssessmentTimestamps`
-: Times when last assessment is created.
+: Times when the last assessment is created.
 
 : **Field**: `lastAssessmentTimestamp`
 
@@ -132,12 +132,12 @@ This resource does not require any parameters.
 : **Field**: `provisioningState`
 
 `publicNetworkAccesses`
-: Public Network Access for all the projects.
+: Public network access for all the projects.
 
 : **Field**: `publicNetworkAccess`
 
 `serviceEndpoints`
-: Service Endpoints of all the projects.
+: Service endpoints of all the projects.
 
 : **Field**: `serviceEndpoint`
 
@@ -146,11 +146,15 @@ This resource does not require any parameters.
 
 : **Field**: `updatedTimestamp`
 
-{{% inspec_filter_table %}}
+{{< note >}}
+
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 ## Examples
 
-**Loop through migrate assessment projects by their names.**
+### Loop through migrate assessment projects by their names
 
 ```ruby
 azure_migrate_assessment_projects.names.each do |name|
@@ -160,7 +164,7 @@ azure_migrate_assessment_projects.names.each do |name|
 end
 ```
 
-**Test to ensure that migrate assessment projects in West Europe location.**
+### Test to ensure that migrate assessment projects in West Europe location
 
 ```ruby
 describe azure_migrate_assessment_projects.where(location: 'westeurope') do
@@ -170,18 +174,24 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
 ```ruby
-# Should not exist if no Migrate Assessment Projects are present in the subscription
+# Should not exist if no Migrate Assessment projects are present in the subscription.
 
 describe azure_migrate_assessment_projects do
   it { should_not exist }
 end
+```
 
-# Should exist if the filter returns at least one Migrate Assessment Projects in the subscription
+### not_exists
+
+```ruby
+# Should exist if the filter returns at least one Migrate Assessment project in the subscription.
 
 describe azure_migrate_assessment_projects do
   it { should exist }
@@ -190,4 +200,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

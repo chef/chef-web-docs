@@ -10,15 +10,15 @@ identifier = "inspec/resources/azure/azure_migrate_project_solution Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_migrate_project_solution` InSpec audit resource to test the properties related to an Azure Migrate Project Solution.
+Use the `azure_migrate_project_solution` InSpec audit resource to test the properties related to an Azure Migrate Project solution.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -44,14 +44,12 @@ end
 : Name of the Azure Migrate project solution to test.
 
 `resource_group`
-: Azure resource group that the targeted resource resides in.
+: Azure resource group where the targeted resource resides.
 
 `project_name`
 : Azure Migrate project.
 
-The parameter set should be provided for a valid query:
-
-- `resource_group`, `project_name`, and `name`.
+The parameter set should be provided for a valid query is`resource_group`, `project_name`, and `name`.
 
 ## Properties
 
@@ -88,7 +86,7 @@ Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/m
 
 ## Examples
 
-**Test that the migrate project solution is defined for assessment.**
+### Test that the Migrate Project solution is defined for assessment
 
 ```ruby
 describe azure_migrate_project_solution(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME', name: 'PROJECT_SOLUTION_NAME') do
@@ -103,12 +101,18 @@ This InSpec audit resource has the following special matchers. For a full list o
 ### exists
 
 ```ruby
-# If a Migrate Project Solution is found, it will exist
+# If a Migrate Project solution is found, it will exist.
+
 describe azure_migrate_project_solution(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME', name: 'PROJECT_SOLUTION_NAME') do
   it { should exist }
 end
+```
 
-# if Migrate Project Solution are not found, it will not exist
+### not_exists
+
+```ruby
+# If Migrate Project solutions are not found, it will not exist.
+
 describe azure_migrate_project_solution(resource_group: 'RESOURCE_GROUP', project_name: 'PROJECT_NAME', name: 'PROJECT_SOLUTION_NAME') do
   it { should_not exist }
 end
@@ -116,4 +120,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}

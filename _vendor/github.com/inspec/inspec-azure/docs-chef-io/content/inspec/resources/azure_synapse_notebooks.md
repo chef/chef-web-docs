@@ -10,15 +10,15 @@ identifier = "inspec/resources/azure/azure_synapse_notebooks Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_synapse_notebooks` InSpec audit resource to test properties related to all Azure Synapse notebooks in a Synapse Analytics workspace.
+Use the `azure_synapse_notebooks` InSpec audit resource to test the properties related to all Azure Synapse notebooks in a Synapse Analytics workspace.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
-{{% inspec_azure_common_parameters %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_common_parameters.md" >}}
 
-## Installation
+## Install
 
-{{% inspec_azure_install %}}
+{{< readfile file="content/inspec/resources/reusable/md/inspec_azure_install.md" >}}
 
 ## Syntax
 
@@ -32,7 +32,7 @@ end
 
 ## Parameters
 
-This resource requires the `endpoint` parameter for valid query.
+This resource requires the `endpoint` parameter for a valid query.
 
 `endpoint`
 : The Azure Synapse workspace development endpoint.
@@ -40,12 +40,12 @@ This resource requires the `endpoint` parameter for valid query.
 ## Properties
 
 `ids`
-: A list of the unique Fully qualified resource IDs.
+: A list of the unique fully qualified resource IDs.
 
 : **Field**: `id`
 
 `names`
-: A list of name for all the Synapse notebooks.
+: A list of names for all the Synapse notebooks.
 
 : **Field**: `name`
 
@@ -55,7 +55,7 @@ This resource requires the `endpoint` parameter for valid query.
 : **Field**: `type`
 
 `properties`
-: A list of Properties all the notebooks.
+: A list of properties for all the notebooks.
 
 : **Field**: `properties`
 
@@ -64,12 +64,15 @@ This resource requires the `endpoint` parameter for valid query.
 
 : **Field**: `tags`
 
+{{< note >}}
 
-{{% inspec_filter_table %}}
+{{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
+
+{{< /note>}}
 
 ## Examples
 
-**Loop through Synapse Notebooks by their names.**
+### Loop through Synapse Notebooks by their names
 
 ```ruby
 azure_synapse_notebooks(endpoint: 'WORKSPACE_DEVELOPMENT_ENDPOINT').names.each do |name|
@@ -79,7 +82,7 @@ azure_synapse_notebooks(endpoint: 'WORKSPACE_DEVELOPMENT_ENDPOINT').names.each d
 end
 ```
 
-**Test that there are Synapse Notebooks that include a certain string in their names (Client Side Filtering).**
+### Test that there are Synapse Notebooks that include a certain string in their names (Client Side Filtering)
 
 ```ruby
 describe azure_synapse_notebooks(endpoint: 'WORKSPACE_DEVELOPMENT_ENDPOINT').where { name.include?('analytics-trends') } do
@@ -89,21 +92,25 @@ end
 
 ## Matchers
 
-This InSpec audit resource has the following special matchers. For a full list of available matchers, please visit our [Universal Matchers page](https://www.inspec.io/docs/reference/matchers/).
+{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
 
 ### exists
 
-Should not exist if there aren't any Synapse notebooks in the resource group.
-
 ```ruby
+# Should not exist if there aren't any Synapse notebooks in the resource group.
+
 describe azure_synapse_notebooks(endpoint: 'WORKSPACE_DEVELOPMENT_ENDPOINT') do
   it { should_not exist }
 end
 ```
 
-Should exist if the filter returns at least one Synapse notebook.
+### not_exists
 
 ```ruby
+# Should exist if the filter returns at least one Synapse notebook.
+
 describe azure_synapse_notebooks(endpoint: 'WORKSPACE_DEVELOPMENT_ENDPOINT') do
   it { should exist }
 end
@@ -111,4 +118,4 @@ end
 
 ## Azure Permissions
 
-{{% azure_permissions_service_principal role="contributor" %}}
+{{% inspec-azure/azure_permissions_service_principal role="contributor" %}}
