@@ -1,29 +1,28 @@
+# Chef documentation
+
 <!-- markdownlint-disable-file MD002 MD033 MD041-->
 This GitHub Repository is the source for the Chef documentation published on [docs.chef.io](https://docs.chef.io/).
 
-The [<https://github.com/chef/chef-web-docs>](https://github.com/chef/chef-web-docs) repository contains:
+The [chef/chef-web-docs](https://github.com/chef/chef-web-docs) repository contains:
 
-- Source code for the documentation theme
+- Source code for the Chef documentation theme
 - Markdown files for much of the Chef Infra Client content
 - Configuration files
-- Vendored files for documentation from other repositories that are presented on docs.chef.io.
+- Vendored documentation from other repositories that are presented on docs.chef.io.
 
-This README.md covers information on building and previewing documentation. The House Style Guide and more detailed information about Hugo and our documentation tools are published in the documentation:
+## Style guide
 
-- [Basics](https://docs.chef.io/style_guide/). (Similar to content on this page)
-- [Chef House Style](https://docs.chef.io/style_guide/chef_house/)
-- [Hugo](https://docs.chef.io/style_guide/hugo/)
-- [Markdown](https://docs.chef.io/style_guide/markdown/)
-- [Content Reuse and Shortcodes](https://docs.chef.io/style_guide/reuse/)
-- [Tools](https://docs.chef.io/style_guide/tools/)
+See the [Chef Documentation Style Guide](https://docs.chef.io/style/) for style guidance.
+If you don't find style guidance in the Chef Documentation Style Guide, use [Google's Style Guide](https://developers.google.com/style) or [Microsoft's Style Guide](https://learn.microsoft.com/en-us/style-guide/welcome/).
 
-## Distributed Documentation
+## Distributed documentation
 
-The Chef documentation source is highly distributed and depends on [Hugo modules](https://gohugo.io/hugo-modules/) to pull in documentation from other Chef repositories. The content from those repositories is [vendored](#hugo-vendoring) in chef-web-docs.
+The Chef documentation source is highly distributed and depends on [Hugo modules](https://gohugo.io/hugo-modules/) to pull in documentation from other Chef repositories.
+The content from those repositories is [vendored](#hugo-vendoring) in chef-web-docs.
 
-To make changes to the content in those repositories, submit pull requests to the appropriate repository. Do not submit pull requests to the vendored files in chef-web-docs. We will update those changes after they're merged or after a new version of a product is released.
+To make changes to the content in those repositories, submit pull requests to the appropriate repository. don't submit pull requests to the vendored files in chef-web-docs. We will update those changes after they're merged or after a new version of a product is released.
 
-## GitHub Repositories with Documentation
+## GitHub repositories with documentation
 
 - Chef Automate: [<https://github.com/chef/automate/tree/main/components/docs-chef-io>](https://github.com/chef/automate/tree/main/components/docs-chef-io
 )
@@ -45,7 +44,7 @@ To make changes to the content in those repositories, submit pull requests to th
 - Chef InSpec Habitat [<https://github.com/inspec/inspec-habitat/tree/main/docs-chef-io>](https://github.com/inspec/inspec-habitat/tree/main/docs-chef-io
 )
 
-## The Fastest Way to Contribute
+## DCO signoff
 
 The fastest way to change the documentation is to edit a page on the
 GitHub website using the GitHub UI.
@@ -71,23 +70,30 @@ confirm your pull request. The CI system will do some checks and add a comment
 to your PR with the results.
 
 The Chef Documentation Team can normally merge pull requests within seven days. We'll
-fix build errors before we merge, so you do not have to
+fix build errors before we merge, so you don't have to
 worry about passing all of the CI checks, but it might add an extra
 few days. The important part is submitting your change.
 
-## Local Development Environment
+## Local development environment
 
 The Chef Documentation website is built using:
 
-- [Hugo](https://gohugo.io/) 0.104.3 or higher
-- [Node](https://www.nodejs.com) 10.0.0 or higher
-- [NPM](https://www.npmjs.com/) 5.6.0 or higher
-- [Go](https://golang.org/dl/) 1.12 or higher
+- [Hugo](https://gohugo.io/) 0.123.4 or higher
+- [Node](https://www.nodejs.com) 20.0.0 or higher
+- [NPM](https://www.npmjs.com/) 10.4.0 or higher
+- [Go](https://golang.org/dl/) 1.22 or higher
 
-To install Hugo, NPM, and Go on Windows and macOS:
+To install Hugo, NPM, and Go on Windows, run:
 
-- On macOS run: `brew install hugo node go`
-- On Windows run: `choco install hugo-extended nodejs golang`
+```ps1
+choco install hugo-extended nodejs golang
+```
+
+To install Hugo, NPM, and Go on macOS, run:
+
+```sh
+brew install hugo node go
+```
 
 To install Hugo on Ubuntu, run:
 
@@ -95,7 +101,12 @@ To install Hugo on Ubuntu, run:
 - `snap install node --classic --channel=12`
 - `snap install hugo --channel=extended`
 
-### Troubleshooting Your Development Environment
+### Netlify development
+
+You can use the Netlify CLI to 
+
+
+### Troubleshoot your development environment
 
 To clean your local development environment:
 
@@ -106,37 +117,43 @@ To clean your local development environment:
   in addition to the functions of `make clean` described above. Those node
   modules will be reinstalled the next time you run `make serve`.
 
-## Build and Preview the Docs
+## Build and preview the docs
 
 There are two ways to preview documentation:
 
 - Submit a PR and look at the Netlify preview.
 - Build the documentation locally.
 
-### Submit a PR and Look at the Netlify Preview
+### Submit a PR and look at the Netlify preview
 
-We have configured Netlify to generate deploy previews of pull requests to the chef-web-docs repository. Netlify will add a comment to the PR with a link to the deploy preview after it finishes building the preview.
+Netlify generates deploy previews of pull requests made on the chef-web-docs repository and adds a link to the pull request page.
+This is automatic for members of the Chef GitHub organization; the Documentation Team can manually trigger Netlify to build previews from contributors who aren't members of the Chef GitHub organization.
 
-Netlify will automatically build deploy previews for PRs from contributors who are members of the Chef GitHub organization. The Documentation Team can manually tell Netlify to build previews from contributors who are not members of the Chef GitHub organization.
-
-### Build and Preview the Docs Locally
+### Build and preview the docs locally
 
 - Run `make serve`
 - go to [http://localhost:1313](http://localhost:1313)
 
-Note that this repository consumes content from other repositories using Hugo modules.
-That content is stored in the `_vendor` directory. `make serve` uses the
-content in your local `_vendor` directory instead of from its source GitHub repository
-OR from a local copy of a repository.
+#### Build and preview using Netlify CLI
 
-#### Build and Preview the Docs from the Source Repositories
+You can use the [Netlify CLI](https://docs.netlify.com/cli/local-development/) to build and preview documentation locally.
+This is useful for previewing redirects configured in the `netlify.toml` file.
+
+Requirements:
+
+- all the requirements for building this site locally
+- [Netlify CLI](https://docs.netlify.com/cli/get-started/#installation)
+
+Run `netlify dev` to preview the site using the Netlify CLI.
+
+#### Build and preview the docs from the source repositories
 
 - Run `make serve_ignore_vendor`
 
 Some Chef documentation is stored in private repositories so this option is only
 available to Progress Chef employees.
 
-## Hugo Vendoring
+## Hugo vendoring
 
 [Vendoring](https://gohugo.io/commands/hugo_mod_vendor/) stores all of the module content
 from other repositories in the `_vendor` directory at the commit specified by
@@ -155,7 +172,7 @@ is the same as `make serve` except it adds the `--ignoreVendor` flag. This will
 build the documentation from the GitHub repositories or from a local copy of a repository
 if the `go.mod` file specifies pulling content from a local repository. (see above)
 
-### Update Hugo Modules
+### Update Hugo modules
 
 Hugo modules are pinned to a particular commit of the master branch in their repository.
 If you look in the `go.mod` and `go.sum` files, you'll notice that each repository
@@ -214,7 +231,7 @@ The `hugo mod clean` command removes references to commits in the
 See Hugo's [documentation](https://gohugo.io/hugo-modules/use-modules/#update-modules)
 for additional information about updating Hugo Modules.
 
-### What if Hugo Does not Want to Update a Module
+### What if Hugo doesn't update a module
 
 Sometimes Hugo and Git can be a bit difficult and will not update a module cleanly or will leave
 references to older commits of a module in the go.sum file.
@@ -230,14 +247,14 @@ If you are still having trouble, try rebuilding the go.mod and go.sum files:
 1. Update the references to the other GitHub repositories, `hugo mod get -u`.
 1. The previous step will update all modules to the latest commit of their source
    repositories.
-   If you do not want that, look at the git history of those files and manually edit the
+   If you don't want that, look at the git history of those files and manually edit the
    go.mod and go.sum files to keep the older commits for the modules that
-   you do not want to update.
+   you don't want to update.
 1. Run `hugo mod tidy`. This probably will not do anything on newly initialized go.mod
    and go.sum files, but it cannot hurt either.
 1. Vendor the modules in chef-web-docs, `hugo mod vendor`.
 
-## Release Notes
+## Release notes
 
 Release notes are added to release notes pages using Hugo's [`resource.getRemote` function](https://gohugo.io/hugo-pipes/introduction/#get-resource-with-resourcesget-and-resourcesgetremote) and content from [https://omnitruck.chef](omnitruck.chef.io) and [https://packages.chef.io](packages.chef.io).
 
@@ -253,7 +270,7 @@ Each release note page comes from a Markdown file from `https://packages.chef.io
 
 If a release note Markdown file is not returned from packages.chef.io, the release note for that version will show the text, "This release does not have any release notes."
 
-### Previewing Release Notes Locally
+### Previewing release notes locally
 
 Release note pages are only generated in the production environment. Running `make serve` will not build any of the content in the release note pages.
 
@@ -261,7 +278,7 @@ Run `make production` to build and preview the release notes.
 
 Run `make clean_all` to purge locally cached release note files.
 
-### Adding Release Note Pages
+### Add release note pages
 
 To add a release notes page to chef-web-docs, add the following to a Markdown page:
 
@@ -276,18 +293,15 @@ The `<CHEF_PRODUCT>` value comes from the Product Key in the [Product Matrix](ht
 
 Any content included in the release notes Markdown file will be included at the top of the page and the release notes will be appended below.
 
-## Archive of content from 2012 to 2016
-
-Documentation deployed from chef-web-docs between 2013 to 2016 is archived in the [https://github.com/chef/docs-archive](docs-archive) repository.
-
 ## Archive of pre-2016 commit history
 
-The commit history of this repo before February 12, 2016 has been archived to the [chef-web-docs-2016 repo](https://github.com/chef-boneyard/chef-web-docs-2016) to save space. No changes to the archive repo will be merged; it is just for historical purposes.
+The commit history of this repo before February 12, 2016 has been archived to the [chef-web-docs-2016 repo](https://github.com/chef-boneyard/chef-web-docs-2016) to save space. No changes to the archive repo will be merged; it's just for historical purposes.
 
-## Sending Feedback
+## Send feedback
 
 We love getting feedback. You can use:
 
+- Each page has a feedback form at the bottom of the page.
 - Email --- Send an email to chef-docs@progress.com for documentation bugs,
   ideas, thoughts, and suggestions. This email address is not a
   support email address, however. If you need support, contact Chef
