@@ -10,11 +10,11 @@ gh_repo = "chef-web-docs"
     parent = "overview/style/formatting"
 +++
 
-This document provides guidance on when and how to creates notes, warning, and danger notices in documentation.
+This document provides guidance on when and how to create note, warning, and danger notices in documentation.
 
-In general, notes, warnings, and admonitions are not the best way to present important information.
+In general, notes, warnings, and admonitions aren't the best way to present important information.
 Before using them, ask yourself how important the information is.
-If you want the information to be returned in a search result, then it is better for the information to have its own topic or section heading.
+If you want the information to be returned in a search result, then it's better for the information to have its own topic or section heading.
 
 Note, warning, and danger notice boxes have a different color than the surrounding text so they can be spotted within a document.
 If you must use a note or warning, bracket the text of the note or warning in a **note**, **warning**, or **danger** shortcode.
@@ -23,7 +23,7 @@ If you must use a note or warning, bracket the text of the note or warning in a 
 
 A note adds useful but not essential information.
 This may include information that makes a task easier or provides a shortcut to completing a task more quickly.
-There is no danger or risk to a system if a note is ignored.
+There's no danger or risk to a system if a note is ignored.
 
 Add a note using the note shortcode:
 
