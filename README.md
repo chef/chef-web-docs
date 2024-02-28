@@ -1,7 +1,7 @@
 # Chef documentation
 
 <!-- markdownlint-disable-file MD002 MD033 MD041-->
-This GitHub Repository is the source for the Chef documentation published on [docs.chef.io](https://docs.chef.io/).
+This GitHub repository is the source for the Chef documentation published on [docs.chef.io](https://docs.chef.io/).
 
 The [chef/chef-web-docs](https://github.com/chef/chef-web-docs) repository contains:
 
@@ -100,11 +100,6 @@ To install Hugo on Ubuntu, run:
 - `apt install -y build-essential`
 - `snap install node --classic --channel=12`
 - `snap install hugo --channel=extended`
-
-### Netlify development
-
-You can use the Netlify CLI to 
-
 
 ### Troubleshoot your development environment
 
