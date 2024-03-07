@@ -1,5 +1,13 @@
 ## See Hugo's docs on module mounts: https://gohugo.io/hugo-modules/configuration/
 
+noProxy = 'none'
+noVendor = ''
+private = '*.*'
+proxy = 'direct'
+#replacements = ''
+vendorClosest = false
+workspace = ''
+
 ###
 # Chef Automate
 ###
@@ -344,45 +352,6 @@
   source = "generated/generated_content"
   target = "content"
 
-###
-# Non Docs Content Mounts Below
-###
-
-###
-## Module mounts for packages added with NPM
-###
-
-[[mounts]]
-  source = "themes/docs-new/node_modules/jquery/dist"
-  target = "assets/js/vendor/jquery"
-
-[[mounts]]
-  source = "themes/docs-new/node_modules/what-input/dist"
-  target = "assets/js/vendor/what-input"
-
-[[mounts]]
-  source = "themes/docs-new/node_modules/@fortawesome/fontawesome-free/js"
-  target = "assets/js/vendor/fontawesome-free"
-
-[[mounts]]
-  source = "themes/docs-new/node_modules/foundation-sites/dist/js"
-  target = "assets/js/vendor/foundation-sites"
-
-[[mounts]]
-  source = "themes/docs-new/node_modules/redoc/bundles"
-  target = "assets/js/vendor/redoc"
-
-###
-## Fontawesome font and SCSS modules
-###
-
-[[mounts]]
-  source = "themes/docs-new/node_modules/@fortawesome/fontawesome-free/webfonts"
-  target = "static/fonts/fontawesome"
-
-[[mounts]]
-  source = "themes/docs-new/node_modules/@fortawesome/fontawesome-free/scss"
-  target = "assets/sass/vendor/fontawesome"
 
 ## Mount static directory so the images work
 
@@ -391,33 +360,56 @@
   target = "static"
 
 ###
-## Import and mount non-docs repositories
+# Mount Hugo theme
 ###
 
 [[imports]]
-  path = "github.com/cowboy/jquery-hashchange"
+  disable = false
+  ignoreConfig = false
+  ignoreImports = false
+  path = "github.com/chef/chef-docs-theme"
 
 [[imports.mounts]]
-  source = "jquery.ba-hashchange.min.js"
-  target = "assets/js/vendor/cowboy/jquery.ba-hashchange.min.js"
-
-[[imports]]
-  path = "github.com/swiftype/swiftype-autocomplete-jquery"
+  source = "static"
+  target = "static"
 
 [[imports.mounts]]
-  source = "jquery.swiftype.autocomplete.js"
-  target = "assets/js/vendor/swiftype/jquery.swiftype.autocomplete.js"
-
-[[imports]]
-  path = "github.com/swiftype/swiftype-search-jquery"
+  source = "layouts"
+  target = "layouts"
 
 [[imports.mounts]]
-  source = "jquery.swiftype.search.js"
-  target = "assets/js/vendor/swiftype/jquery.swiftype.search.js"
-
-[[imports]]
-  path = "github.com/twitter/hogan.js"
+  source = "data"
+  target = "data"
 
 [[imports.mounts]]
-  source = "web/builds/3.0.2/hogan-3.0.2.min.js"
-  target = "assets/js/vendor/twitter/hogan-3.0.2.min.js"
+  source = "assets"
+  target = "assets"
+
+[[module.mounts]]
+  source = 'archetypes'
+  target = 'archetypes'
+
+
+###
+# NPM packages imported with package.hugo.json from chef-docs-theme
+###
+
+[[mounts]]
+  source = "node_modules/redoc/bundles/redoc.standalone.js"
+  target = "assets/redoc/bundles/redoc.standalone.js"
+
+[[mounts]]
+  source = "node_modules/foundation-sites/dist/js/foundation.min.js"
+  target = "assets/js/vendor/foundation-sites/dist/js/foundation.min.js"
+
+[[mounts]]
+  source = "node_modules/jquery/dist/jquery.min.js"
+  target = "assets/js/vendor/jquery/dist/jquery.min.js"
+
+###
+# SCSS files imported with package.hugo.json from chef-docs-theme
+###
+
+[[mounts]]
+  source = "node_modules/foundation-sites"
+  target = "assets/sass/foundation-sites"

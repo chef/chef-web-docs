@@ -31,7 +31,7 @@ ignorePaths:
 - _vendor/**/*
 - cspell.yaml
 - public/**
-- themes/docs-new/node_modules/**
+- node_modules/**
 - resources/**
 
 # Ignore patterns list
