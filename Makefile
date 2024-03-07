@@ -3,10 +3,10 @@
 SHELL=bash
 
 bundle:
-	pushd themes/docs-new && make bundle && popd
+	npm install
 
-clean_all:
-	pushd themes/docs-new && make clean_all && popd
+clean:
+	rm -rf node_modules
 	rm -rf resources/
 	rm -rf public/
 	hugo mod clean
@@ -28,6 +28,10 @@ serve_ignore_vendor: bundle
 
 lint: bundle
 	hugo -D
+
+update_theme:
+	hugo mod get -u github.com/chef/chef-docs-theme
+	hugo mod npm pack
 
 ## See:
 ## - https://cspell.org/docs/getting-started/

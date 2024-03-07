@@ -1,0 +1,7 @@
+name = 'Chef Docs Theme'
+license = 'Creative Commons Attribution 3.0 Unported'
+licenselink = 'https://github.com/chef/chef-docs-theme/LICENSE'
+description = 'Theme for Chef documentation'
+
+# The home page of the theme, where the source can be found
+homepage = 'https://github.com/chef/chef-docs-theme'

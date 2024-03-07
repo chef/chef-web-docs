@@ -1,9 +1,0 @@
-<link rel="shortcut icon" type="image/png" href="{{ "images/progress-emoticon.ico" | relURL }}" />
-{{- $options := (dict "includePaths" (slice "node_modules")) -}}
-{{ if hugo.Environment | eq "development" }}
-  {{- $style := resources.Get "sass/main.scss" | toCSS $options }}
-  <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
-{{ else }}
-  {{- $style := resources.Get "sass/main.scss" | toCSS $options | minify }}
-  <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
-{{ end }}
