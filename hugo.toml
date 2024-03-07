@@ -1,7 +1,7 @@
 baseURL = "https://docs.chef.io/"
 languageCode = "en-us"
 title = "Chef Web Docs"
-theme = "docs-new"
+
 enableGitInfo = true
 pluralizeListTitles = false
 disableKinds = ["taxonomy", "term"]
