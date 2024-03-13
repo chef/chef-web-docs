@@ -1,5 +1,5 @@
 +++
-title = "Chef Compliance Remediation Release Notes"
+title = "Chef Compliance Remediation release notes"
 draft = false
 
 [menu]
@@ -10,9 +10,30 @@ draft = false
     weight = 20
 +++
 
+## 20240226
+
+### New features
+
+- CIS Alma Linux 8 v2.0.0 (Remediation)
+- CIS RHEL 8 v2.0.0 (Remediation)
+- CIS RHEL 9 v1.0.0 (Remediation)
+- CIS Windows Server 22 v2.0.0 (Remediation)
+- CIS Windows 16 v2.0.0 (Remediation)
+- CIS Windows 2019 v2.0.0 (Remediation)
+- CIS RHEL 7 v3.1.1 (Remediation)
+
+### Bug fixes
+
+Updated the following remediation profiles to fix an issue where controls were returning to an unremediated state after restart:
+
+- CIS Alma Linux 8 v2.0.0
+- RHEL 8 v2.0.0
+- RHEL 9 v1.0.0
+- Ubuntu 22.04
+
 ## 20230804
 
-### New Features
+### New features
 
 - CIS Ubuntu 22.04 v1.0.0 (Remediation).
 
@@ -22,13 +43,13 @@ draft = false
 
 ## 20230509
 
-### New Features
+### New features
 
 - CIS RHEL 8 v2.0.0 (Remediation).
 
 ## 20221212
 
-### New Features
+### New features
 
 - CIS Rocky Linux v1.0.0 (Remediation).
 - STIG Windows Server 2019 V2R2 (Remediation).
@@ -37,14 +58,14 @@ draft = false
 
 ## 20220913
 
-### New Features
+### New features
 
 - CIS Alma Linux v2.0.0 (Remediation).
 - CIS Oracle Linux 8 v2.0.0 (Remediation).
 
 ## 20220808
 
-### New Features
+### New features
 
 - CIS Apache HTTP Server 2.4 v2.0.0 (Remediation).
 - CIS Windows Server 2022 v1.0.0 (Remediation).
