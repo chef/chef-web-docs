@@ -36,7 +36,7 @@ blocked_automatic_attributes [['filesystem', '/dev/diskos2']]
 {{< note >}}
 
 In **Chef Infra Client 16.3**, the node Blacklist and Whitelist features were deprecated and renamed to Blocklist and Allowlist.
-In **Chef Infra Client 18** these features became EOL.
+In **Chef Infra Client 18.4.12** these features became EOL.
 For backwards compatibility, the old configuration values will continue to work through Chef Infra Client 17.x
 
 See each section below for the appropriate legacy configuration values if you are running legacy clients in your organization.
