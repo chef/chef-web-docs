@@ -15,7 +15,7 @@ This getting started guide will walk through the necessary setup and configurati
 
 1. A System to install Chef Workstation
 
-    * Supported Platforms and System Requirements - https://docs.chef.io/workstation/install_workstation/
+    * Supported [Platforms and System Requirements](https://docs.chef.io/workstation/install_workstation/)
 
 1. Chef SaaS Starter Kit (Provided by Progress Chef)
 
@@ -31,7 +31,7 @@ Connect to the URL provided by Progress Chef and log in with the admin account c
 
 ## Add an Infra Server in Chef SaaS Web UI
 
-Connected to the Chef SaaS Automate Web User Interface, following these steps to add the Infra Server to the environment. 
+Connected to the Chef SaaS Automate Web User Interface, following these steps to add the Infra Server to the environment.
 
 1. Select Infrastructure in the top navigation.
 
@@ -53,11 +53,11 @@ Connected to the Chef SaaS Automate Web User Interface, following these steps to
 
 ## Download Chef Workstation
 
-https://downloads.chef.io/tools/workstation
+Download the Chef Workstation from the [Chef Downloads](https://downloads.chef.io/tools/workstation) page.
 
 ## Install Chef Workstation
 
-https://docs.chef.io/workstation/install_workstation/
+To install the Chef Workstation, go through our extended [Instal Chef Workstation](https://docs.chef.io/workstation/install_workstation/) page.
 
 ## Setup Chef Workstation
 
@@ -132,9 +132,9 @@ The credentials file under the ~/.chef directory on the Chef Workstation must be
 1. Modify the credentials file
     * Change the client_name to the new account that was created (Example: chefadmin)
 
-    * Change the client_key to the new PEM file that was created (Example: ‘home/admin/.chef/chefadmin.pem’
+    * Change the client_key to the new PEM file that was created (Example: [home/admin/.chef/chefadmin.pem](https://mycompany-demo.saas.chef.io/organizations/myorg))
 
-    * Change the chef_server_url to include the new Organization (Example: ‘https://mycompany-demo.saas.chef.io/organizations/myorg’
+    * Change the chef_server_url to include the new Organization (Example: [https://mycompany-demo.saas.chef.io/organizations/myorg](https://mycompany-demo.saas.chef.io/organizations/myorg))
 
     * Save and Quit
 
