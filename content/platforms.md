@@ -93,7 +93,7 @@ The following table lists the commercially supported platforms and versions for 
 | Platform | Architecture | Version |
 | --- | --- | --- |
 | AIX | `powerpc` | `7.1` (TL5 SP2 or higher, recommended), `7.2`, `7.3` |
-| Amazon Linux | `x86_64`, `aarch64` | `2.x` |
+| Amazon Linux | `x86_64`, `aarch64` | `2.x`, `2023` |
 | CentOS | `x86_64`, `ppc64le`, `ppc64`, `aarch64` | `7.x` |
 | Debian | `x86_64`, `aarch64` | `10`, `11` |
 | FreeBSD | `amd64` | `12.x` |

@@ -1,5 +1,5 @@
 +++
-title = "Hugo Shortcodes"
+title = "Hugo shortcodes"
 draft = false
 gh_repo = "chef-web-docs"
 
@@ -13,7 +13,8 @@ gh_repo = "chef-web-docs"
 
 This page describes shortcodes that we use in Chef documentation.
 
-[Shortcodes](https://gohugo.io/content-management/shortcodes/) add short snippets of Hugo code, Markdown, or HTML to a page. For example, the readfile shortcode can add a text file to a page, the note shortcode puts text inside an HTML div, and the [automate_cli_commands shortcode](https://github.com/chef/automate/blob/main/components/docs-chef-io/layouts/shortcodes/automate/automate_cli_commands.html) reads through YAML files and outputs formatted text from those files.
+[Shortcodes](https://gohugo.io/content-management/shortcodes/) add short snippets of Hugo code, Markdown, or HTML to a page.
+For example, the `readfile` shortcode can add a text file to a page, the `note` shortcode puts text inside an HTML div, and the [automate_cli_commands shortcode](https://github.com/chef/automate/blob/main/components/docs-chef-io/layouts/shortcodes/automate/automate_cli_commands.html) reads through YAML files and outputs formatted text from those files.
 
 ## Notices
 
@@ -58,16 +59,54 @@ This is text in a warning.
 {{</* /danger */>}}
 ```
 
-## fontawesome shortcode
+## `figure` shortcode
+
+Use the figure shortcode to add images to a page.
+
+Basic example:
+
+```md
+{{</* figure src="path/to/image" */>}}
+```
+
+`figure` accepts the following parameters:
+
+`src`
+: The path to the image file. Required.
+
+`link`
+: An HTML link. Optional
+
+`target`
+: The target attribute for a link. Optional.
+
+`alt`
+: Alt text for an image.
+
+`title`
+: Image title. Optional.
+
+`caption`
+: An image caption. Optional.
+
+`class`
+: A class to add to an image. Optional.
+
+`height`
+: The image height. Optional.
+
+`width`
+: The image width. Optional.
+
+## `fontawesome` shortcode
 
 {{< readfile file="content/style/reusable/md/fontawesome_shortcode.md" >}}
 
 ## Foundation tabs container
 
-There are four shortcodes that can be combined together to create a container that will allow
-the user to click on a tab to reveal content in a matching panel. For example, you
-may want to display matching Ruby and YAML code blocks. You can create two tabs,
-one titled **Ruby** and the other **YAML**, and the user could click on one tab to show
+You can combine four shortcodes to create a tabbed container that allows users to click on a tab to reveal content in a matching panel.
+For example, you may want to display matching Ruby and YAML code blocks.
+You can create two tabs, one titled **Ruby** and the other **YAML**, and the user can click on one tab to show
 the Ruby code block and another tab to show the YAML code block. See the [example](#example)
 below.
 
@@ -84,9 +123,8 @@ The container consists of two parts, the tabs and the panels.
 
 ### Tabs
 
-Each tab is created with a `foundation_tab` shortcode. Use as many `foundation_tab`
-shortcodes as you need to display the number of code blocks or text blocks that
-you want the user to be able click on and reveal.
+Each tab is created with a `foundation_tab` shortcode.
+Use as many `foundation_tab` shortcodes as you need to display the number of code blocks or text blocks that you want the user to be able to click on and reveal.
 
 All `foundation_tab` shortcodes must be contained within opening and closing `foundation_tabs` shortcodes.
 
@@ -111,13 +149,12 @@ The **`foundation_tab`** shortcode has three parameters:
 
 `active`
 
-: Use `active="true"` to highlight the tab that user will see when they first load
-the page. Only add this value to one tab. The matching `foundation_tabs_panel`
-should also have `active="true"` in its parameters.
+: Use `active="true"` to highlight the tab that the user will see when they first load the page.
+  Only add this value to one tab. The matching `foundation_tabs_panel` should also have `active="true"` in its parameters.
 
 `panel-link`
-: This is the value of the panel ID that this tab will link to. This must be identical to
-  the `panel-id` value in the matching `foundation_tabs_panel` shortcode.
+: This is the value of the panel ID that this tab will link to.
+  This must be identical to the `panel-id` value in the matching `foundation_tabs_panel` shortcode.
 
 `tab-text`
 : The text in the tab that the user will click on.
@@ -125,7 +162,7 @@ should also have `active="true"` in its parameters.
 ### Panels
 
 Each tab has a matching panel which is created with `foundation_tabs_panel` shortcodes.
-The Markdown text that is displayed in each panel must be contained in opening and
+The Markdown text that's displayed in each panel must be contained in opening and
 closing `foundation_tabs_panel` shortcodes.
 
 All `foundation_tab_panel` shortcodes must contained within opening and closing
@@ -165,9 +202,9 @@ The **`foundation_tabs_panel`** shortcode has two parameters:
   add this value to one panel.
 
 `panel-id`
-: The HTML ID attribute of the panel. This value must be identical to the `panel-link` value
-  in the matching `foundation_tab` shortcode that will link to this panel. This
-  value must be unique HTML ID on the page.
+: The HTML ID attribute of the panel.
+  This value must be identical to the `panel-link` value in the matching `foundation_tab` shortcode that will link to this panel.
+  This value must be a unique HTML ID on the page.
 
 ### Example
 
@@ -247,11 +284,11 @@ and `panel-id`/`panel-link` values must be unique HTML IDs on the page.
 
 <!-- markdownlint-enable MD046 MD032 -->
 
-## readfile shortcode
+## `readfile` shortcode
 
-The readfile shortcode adds text from a file to a page. You can add a Markdown file, HTML file, or code file by specifying the path to the file from the project root directory.
+The `readfile` shortcode adds text from a file to a page. You can add a Markdown file, HTML file, or code file by specifying the path to the file from the project root directory.
 
-By default it accepts a Markdown file:
+By default, it accepts a Markdown file:
 
 ```markdown
 {{</* readfile file="content/workstation/reusable/md/example.md" */>}}
@@ -277,10 +314,10 @@ or:
 
 See the [full list of highlighting languages and aliases](https://gohugo.io/content-management/syntax-highlighting/#list-of-chroma-highlighting-languages) that Hugo accepts.
 
-## relref shortcode
+## `relref` shortcode
 
 We recommend using Hugo's built-in [relref shortcode](https://gohugo.io/content-management/shortcodes/#ref-and-relref) for making relative links to other pages in Chef's documentation.
-If a link is made to a page that does not exist, the site build will fail when Hugo generates a preview of the site.
+If a link is made to a page that doesn't exist, the site build will fail when Hugo generates a preview of the site.
 This will help us prevent dead links in our own documentation if a page is moved or deleted.
 
 To format link to pages:
@@ -296,11 +333,11 @@ To format links to headings:
 
 {{< note >}}
 
-relref doesn't validate links to headings, only page links. Double checkout your headings when adding or updating heading links.
+`relref` doesn't validate links to headings, only page links. Double-check your headings when adding or updating heading links.
 
 {{< /note >}}
 
-## svg shortcode
+## `svg` shortcode
 
 The svg shortcode will add an inline SVG icon to a string of text.
 
@@ -318,21 +355,21 @@ Click on the web asset icon ({{< svg file="themes/docs-new/static/images/web-ass
 
 ## Create a new shortcode
 
-Shortcode files are written in **Markdown** or **HTML** and are stored in [`layouts/shortcodes`](https://github.com/chef/chef-web-docs/tree/main/layouts/shortcodes) or [`themes/docs-new/layouts/shortcodes`](https://github.com/chef/chef-web-docs/tree/main/themes/docs-new/layouts/shortcodes) in the `chef/chef-web-docs` repository.
+Shortcode files are written in Markdown or HTML and are stored in [`layouts/shortcodes`](https://github.com/chef/chef-web-docs/tree/main/layouts/shortcodes) or [`themes/docs-new/layouts/shortcodes`](https://github.com/chef/chef-web-docs/tree/main/themes/docs-new/layouts/shortcodes) in the `chef/chef-web-docs` repository.
 
 In repositories other than chef-web-docs, store shortcodes in `layouts/shortcodes/REPOSITORY_NAME/`.
 
 ### Add a shortcode to a page
 
-There are two types of shortcodes, **Markdown** and **HTML**. The type of shortcode determines how it is added to a page and how Hugo processes the text when it renders the page into HTML.
+The two types of shortcodes are Markdown and HTML. The shortcode type determines how it's added to a page and how Hugo processes the text when it renders the page into HTML.
 
 {{< note >}}
-If you add a **Markdown** shortcode to a page using **HTML** shortcode delimiters, Hugo will assume that the text is already formatted in HTML and will not run the shortcode file through its Markdown processor, leaving the bare Markdown in the HTML page output.
+If you add a Markdown shortcode to a page using HTML shortcode delimiters, Hugo will assume that the text is already formatted in HTML and won't run the shortcode file through its Markdown processor, leaving the bare Markdown in the HTML page output.
 {{< /note >}}
 
 #### Markdown shortcodes
 
-A Markdown shortcode must be processed into HTML by Hugo when the site is built.
+A Markdown shortcode must be processed into HTML when Hugo builds the site.
 
 To include a Markdown shortcode in a page, wrap the name of the shortcode file, without the file type suffix, in between double curly braces and percent characters, `{{%/* SHORTCODE */%}}`. For example, if you wanted to add the [`chef.md`](https://github.com/chef/chef-web-docs/blob/main/layouts/shortcodes/chef.md) shortcode to a page, add the following text to the Markdown page:
 
@@ -348,7 +385,7 @@ For shortcodes located in a repository other than chef-web-docs, use `{{%/* REPO
 
 #### HTML shortcodes
 
-To include an HTML shortcode in a page, wrap the name of the shortcode file, without the file type suffix, in between double curly braces and angle brackets, `{{</* SHORTCODE */>}}`. For example, add the following text to a page if you wanted to add the [`chef_automate_mark.html`](https://github.com/chef/chef-web-docs/blob/main/themes/docs-new/layouts/shortcodes/chef_automate_mark.html) shortcode:
+To include an HTML shortcode in a page, wrap the name of the shortcode file, without the file type suffix, in between double curly braces and angle brackets, `{{</* SHORTCODE */>}}`. For example, add the following text to a page if you want to add the [`chef_automate_mark.html`](https://github.com/chef/chef-web-docs/blob/main/themes/docs-new/layouts/shortcodes/chef_automate_mark.html) shortcode:
 
 ```markdown
 {{</* chef_automate_mark */>}}
@@ -368,9 +405,9 @@ The [Fontawesome Shortcode](#fontawesome-shortcode) accepts named parameters. Fo
 
 See the [Fontawesome Shortcode](#fontawesome-shortcode) section for more examples.
 
-### Nested Content
+### Nested content
 
-We have some shortcodes that nest around Markdown content that is included in the text of a page. Those shortcodes are all written in HTML. Note the slash `/` before the name of the closing shortcode.
+Some shortcodes nest around Markdown text. Those shortcodes are closed with a forward slash `/` before the name of the closing shortcode. For example:
 
 ```md
 {{</* shortcode_name */>}}

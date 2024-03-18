@@ -1,5 +1,5 @@
 +++
-title = "Chef Compliance Audit Profiles Release Notes"
+title = "Chef Compliance Audit Profiles release notes"
 draft = false
 
 [menu]
@@ -10,9 +10,23 @@ draft = false
     weight = 10
 +++
 
+## 20240226
+
+### New features
+
+Added the following compliance profiles:
+
+- CIS Amazon Linux 2023 v1.0.0 (Audits)
+- CIS Apple Mac OS 13.0 Ventura v2.0.0 (Audits)
+- CIS Windows Server 2012r2 v3.0.0 (Audits)
+
+### Bug fixes
+
+- Fixed the CIS CentOS Linux 7 v3.1.2 Benchmark Level 1 - Server profile to correctly audit password content.
+
 ## 20231030
 
-### New Features
+### New features
 
 - STIG Windows Server 2022 v1.2.0(Audits)
 - CIS Windows Server 2022 v2.0.0(Audits)
