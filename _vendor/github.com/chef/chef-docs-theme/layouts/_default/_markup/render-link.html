@@ -1,7 +1,0 @@
-{{- if eq .Destination "@" -}}
-  <span id="{{ .PlainText | anchorize }}">{{ .Text | safeHTML }}</span>
-{{- else -}}
-  <a href="{{ .Destination }}">{{ .Text | safeHTML }}</a>
-{{- end -}}
-
-{{/* See https://gohugo.io/templates/render-hooks/ and https://discourse.gohugo.io/t/automatically-add-id-attribute-to-dt-element/38191 */}}
