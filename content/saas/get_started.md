@@ -13,11 +13,11 @@ This getting started guide will walk through the necessary setup and configurati
 
 ## Prerequisites
 
-1. A System to install Chef Workstation
+* A System to install Chef Workstation
 
     * Supported [Platforms and System Requirements](https://docs.chef.io/workstation/install_workstation/)
 
-1. Chef SaaS Starter Kit (Provided by Progress Chef)
+* Chef SaaS Starter Kit (Provided by Progress Chef)
 
     * SaaS Environment URL
 
@@ -65,11 +65,11 @@ To install the Chef Workstation, go through our extended [Instal Chef Workstatio
 
 If you’re setting up Chef for the very first time in your organization, then you will need a Chef Infra repository for saving your cookbooks and other work. The chef-repo is a directory on your workstation that stores everything you need to define your infrastructure with Chef Infra:
 
-1. Cookbooks (including recipes, attributes, custom resources, libraries, and templates)
+* Cookbooks (including recipes, attributes, custom resources, libraries, and templates)
 
-1. Data bags
+* Data bags
 
-1. Policyfiles
+* Policyfiles
 
 Use the chef generate repo command to create your Chef Infra repository. For example, to create a repository called chef-repo:
 

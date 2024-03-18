@@ -18,25 +18,25 @@ If you have already upgraded to Chef Automate 2.0, no further installation, upgr
 
 ## Prerequisites
 
-1. Running Automate 2.0 in AWS OpsWorks.
+* Running Automate 2.0 in AWS OpsWorks.
 
-1. A Chef SaaS Environment. Refer to the [Getting Started](/get_started/) with Chef SaaS page.
+* A Chef SaaS Environment. Refer to the [Getting Started](/get_started/) with Chef SaaS page.
 
-1. An S3 bucket provided by Progress Chef.
+* An S3 bucket provided by Progress Chef.
 
 ## Advantages to migrate from AWS OpsWorks to Chef SaaS
 
 Advantages to migrate from AWS OpsWorks to Chef SaaS is given below:
 
-1. Customer reviews ans reduced current data as needed.
+* Customer reviews ans reduced current data as needed.
 
-1. Creates Data Backup.
+* Creates Data Backup.
 
-1. Chef creates SaaS account.
+* Chef creates SaaS account.
 
-1. Chef restores backup.
+* Chef restores backup.
 
-1. Register nodes with Chef SaaS.
+* Register nodes with Chef SaaS.
 
 ## Prepare DNS for cutover
 
