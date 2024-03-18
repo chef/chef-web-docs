@@ -16,7 +16,17 @@ This guide will walk you through the migration scenarios from AWS OPSWorks to Ch
 
 If you have already upgraded to Chef Automate 2.0, no further installation, upgrade or maintenance is required.
 
-Advantages to migrate from AWS OPSWorks to Chef SaaS is given below:
+## Prerequisites
+
+1. Running Automate 2.0 in AWS OpsWorks.
+
+1. A Chef SaaS Environment. Refer to the Getting Started with Chef SaaS page.
+
+1. An S3 bucket provided by Progress Chef.
+
+## Advantages to migrate from AWS OpsWorks to Chef SaaS
+
+Advantages to migrate from AWS OpsWorks to Chef SaaS is given below:
 
 1. Customer reviews ans reduced current data as needed.
 
@@ -28,44 +38,30 @@ Advantages to migrate from AWS OPSWorks to Chef SaaS is given below:
 
 1. Register nodes with Chef SaaS.
 
-The steps to migrate from  AWS OPSWorks to Chef SaaS is given below:
+## Prepare DNS for cutover
 
-1. You will get a SaaS environment to start the process. The image is given below:
+As part of the migration process, we deploy with a Blue/Green method that links to your existing public DNS. Refer to an example shown in the image below:
 
-    IMAGE
+IMAGE
 
-1. Once the environment is created, the environment will be inserted under the monitoring tools.
+## Backup OpsWorks
 
-    IMAGE
+You can take the backup of your OpsWorks using the following steps:
 
-1. As a part of the process, a deployment will take place in a Blue/Green method which will directly link to your public DNS.
+1. Connect to the existing AWS OpsWorks environment and take a backup.
 
-    IMAGE
+1. Create a `.zip` file of the OpsWorks backup.
 
-1. Once the environment is created, you will get:
+1. Copy the backup .zip file to provide the S3 Bucket. (This bucket will expire in 7 days after the environment is set up and will only allow one backup file. If you provide two or more .zip files, the last upload will remain in the bucket)
 
-    * Created default admin user.
+## Restore OpsWorks backup to Chef SaaS
 
-    * Created Master PEM and Pivitol User PEM file.
+The restore process is taken care by Progress Chef Engineers. You will be notified by your account manager once the restoration is complete.
 
-    The above pointers will ensure that the environment can be used as a fresh environment.
+## Verify Restore
 
-1. Once you receive the generic information that the SaaS environment is ready it is time to make a backup of the OPSWorks environment.
+Once the restore is complete, you can log into the Chef SaaS using your OpsWorks credentials. Once logged in, you will see data in the environment upto day of the backup. This will include users, cookbooks, client runs, etc.
 
-    IMAGE
+## Update DNS
 
-1. Download the backup in **.zip** format, once it is created.
-
-    IMAGE
-
-1. While created a SaaS environment, a S3 bucket has also been created that can be used for storing the backup. The S3 bucket expires in 14 days after the environment set up and will only allow once backup file per bucket. If you provide two or more files, only the last upload will remain in the bucket.
-
-    IMAGE
-
-1. Once the above steps are done, a backup will be restores into your new SaaS environment.
-
-    IMAGE
-
-1. Once the restoring is done, you can login to Chef SaaS using your OPSWorks credentials. After logging in, you will see data in the environment up to the day of the backup. This will include users, cookbooks, client runs, ECT.
-
-The last step will be to point you OPSWorks Nodes to the Chef SaaS DNS to have node data flow going forward.
+The final step in the migration process will point your OpsWorks Nodes to the new Chef SaaS DNS to have node data flow going forward.
