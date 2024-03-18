@@ -1,6 +1,0 @@
-{{/* useful for sorting semver version numbers in order. */}}
-{{/* See also the release_notes page layout, release_notes_toc partial, and zero_prefix_trim partial */}}
-{{- $padSize := 6 }}
-{{- $paddedString := replaceRE "(\\d+)" (print (strings.Repeat (sub $padSize 1) "0") "$1") . }}
-{{- $trimmedString := replaceRE (print "0+(\\d{" $padSize "})") "$1" $paddedString }}
-{{- return $trimmedString }}

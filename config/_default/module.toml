@@ -1,7 +1,7 @@
 ## See Hugo's docs on module mounts: https://gohugo.io/hugo-modules/configuration/
 
 noProxy = 'none'
-noVendor = ''
+noVendor = 'github.com/chef/chef-docs-theme'
 private = '*.*'
 proxy = 'direct'
 #replacements = ''
