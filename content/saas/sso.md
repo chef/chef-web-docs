@@ -123,7 +123,7 @@ Defaults to urn:oasis:names:tc:SAML:2.0:nameid-format:persistent.
 
 Admins can now select **Cancel** used to override the field data that was edited.
 
-**For use with Okta**
+#### For use with Okta
 
 1. Visit the [Okta](https://okta.com) page and login into your account.
 
