@@ -1,0 +1,93 @@
+{{ define "main" }}
+<main id="main-content-col" tabindex="-1">
+  <div id="col-content" data-swiftype-index='true'>
+    <div id="{{ anchorize ( .Title )}}"><h1>{{ .Title }}</h1></div>
+    <button type="button" class="TOC-button hide-for-large hide-for-print" data-toggle="offCanvasRightTOC" data-close="left-nav-off-canvas" data-swiftype-index='false'>
+      <i class="fas fa-bars"></i> Table of Contents
+    </button>
+
+    <div class="prose">
+      {{ .Content }}
+      {{ if or (hugo.IsProduction) ( eq hugo.Environment "staging") ( eq hugo.Environment "branch-deploy")}}
+        {{ with $product := $.Param "release_notes" }}
+
+          {{ $partialData := dict "product" $product "chefVersions" $.Site.Data.releases.chef.current }}
+          {{ $versionsCorrectOrder := partial "version_numbers.html" $partialData }}
+
+          {{- range $versionsCorrectOrder }}
+
+            {{- $version := "" -}}
+
+            {{- if eq $product "automate" -}}
+              {{- $version = index . "version" -}}
+            {{- else -}}
+              {{- $version = . -}}
+            {{- end -}}
+
+            {{- $mdUrl := print "https://packages.chef.io/release-notes/" $product "/" $version ".md" -}}
+
+            {{- $fullName := "" -}}
+            {{- if (eq $product "automate") -}}
+              {{- $fullName = "Chef Automate" -}}
+            {{- else if (eq $product "chef-backend")}}
+              {{- $fullName = "Chef Backend" -}}
+            {{- else if (eq $product "inspec-alicloud") -}}
+              {{- $fullName = "Alibaba Cloud Resource" -}}
+            {{- else if (eq $product "inspec-aws") -}}
+              {{- $fullName = "AWS Cloud Resource" -}}
+            {{- else if (eq $product "inspec-azure") -}}
+              {{- $fullName = "Azure Cloud Resource" -}}
+            {{- else if (eq $product "inspec-gcp") -}}
+              {{- $fullName = "GCP Cloud Resource" -}}
+            {{- else if (eq $product "habitat") -}}
+              {{- $fullName = "Chef Habitat" -}}
+            {{- else if (eq $product "inspec") -}}
+              {{- $fullName = "Chef InSpec" -}}
+            {{- else if (eq $product "chef")}}
+              {{- $fullName = "Chef Infra Client" -}}
+            {{- else if (eq $product "chef-server") -}}
+              {{- $fullName = "Chef Infra Server" -}}
+            {{- else if (eq $product "manage") -}}
+              {{- $fullName = "Chef Manage" -}}
+            {{- else if (eq $product "supermarket") -}}
+              {{- $fullName = "Chef Supermarket" -}}
+            {{- else if (eq $product "chef-workstation") -}}
+              {{- $fullName = "Chef Workstation" -}}
+            {{- end -}}
+
+            <h2 id="{{ $version }}">{{ $fullName }} {{ $version }}</h2>
+            <a href="{{ $mdUrl }}" class="display-none">{{ $mdUrl }}</a>
+
+            {{- if eq $product "automate"}}
+              <p><i>Released on {{ time.Format "January 2, 2006" .release_date }}</i></p>
+            {{- end -}}
+
+            {{/* Define GetRemote options */}}
+            {{ $headers := dict "Cache-Control" "no-cache" "Connection" "keep-alive" }}
+            {{ $cacheKey := print $mdUrl (now.Format "20060102") (div now.Hour 6) | md5 }}
+            {{ $opts :=  dict "headers" $headers "key" $cacheKey }}
+
+            {{- $remoteResponse := resources.GetRemote $mdUrl $opts -}}
+
+            {{- if eq $remoteResponse nil -}}
+              <p>This release does not have any release notes.</p>
+            {{- else -}}
+              {{- $content := $remoteResponse.Content -}}
+              {{- $content = replaceRE `\n#### ` "\n##### " $content -}}
+              {{- $content = replaceRE `\n### ` "\n#### " $content -}}
+              {{- $content = replaceRE `\n## ` "\n### " $content -}}
+              {{- $content = replaceRE `^## ` "### " $content -}}
+              {{- $content = $content | markdownify -}}
+              {{- $regexp := `<h(\d) id="([\w|\-\.]+)">` -}}
+              {{- $replaceString := print "<h${1} id=\"" $version "-${2}\">" }}
+              {{- $content = replaceRE $regexp $replaceString $content -}}
+              {{- $content | safeHTML -}}
+            {{- end -}}
+
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</main>
+{{ end }}

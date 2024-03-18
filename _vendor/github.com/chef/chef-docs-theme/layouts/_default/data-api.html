@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {{- with .Params.description -}}
+      <meta name="description" content="{{.}}" />
+    {{- end -}}
+    <title>{{.Title}}</title>
+    <!-- needed for adaptive design -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{ with .Params.product -}}
+      {{- range $tag := . -}}
+        <meta class="swiftype" name="chef-product" data-type="string" content="{{ $tag }}" />
+      {{- end -}}
+    {{- end }}
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/api-stylesheet.css">
+  </head>
+  <body>
+    {{ if eq $.Page.Params.title "Chef Automate API" }}
+      <div id="top-container">
+        <span id="top-container-return">
+          <a class="return" style="position: static;" href="{{ $.Page.Params.return_page }}">Return to Docs</a>
+        </span>
+        <span id="top-container-messages">
+          <span class="top-container-message container-note">
+            <p id="top-container-note" class="top-container-admonition">Note</p>
+            <div class="top-container-text">
+            <p>Some API endpoints are not available in Chef Automate 3.x and earlier. Contact your Chef account representative for more information.</p>
+            </div>
+          </span>
+        </span>
+      </div>
+    {{ else }}
+      <a class="return" href="{{ $.Page.Params.return_page }}">Return to Docs</a>
+    {{ end }}
+    <ReDoc spec-url="{{ $.Page.Params.api_file_path }}" scroll-y-offset="34"></ReDoc>
+    {{ $redocJs := resources.Get "redoc/bundles/redoc.standalone.js" }}
+    <script type="text/javascript" src="{{ $redocJs.RelPermalink }}"></script>
+  </body>
+</html>

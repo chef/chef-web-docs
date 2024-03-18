@@ -1,0 +1,21 @@
+
+<footer id="footer" class="hide-for-print">
+  <div class="grid-container">
+    <div class="grid-x align-middle">
+      <div class="cell small-12 large-9">
+        <ul class="menu vertical medium-horizontal">
+          <li><a href="/sitemap/" target="_self">Site Map</a></li>
+          <li><a href="https://www.chef.io/online-master-agreement" target="_blank">Licensing</a></li>
+          <li><a href="https://www.progress.com/legal/terms-of-use" target="_blank">Terms of Use</a></li>
+          <li><a href="https://www.progress.com/legal/trademarks" target="_blank">Trademark Policy</a></li>
+          <li><a href="https://www.progress.com/legal/privacy-policy" target="_blank">Privacy Policy</a></li>
+          <li><a href="https://www.progress.com/legal/cookie-policy" target="_blank">Cookie Policy</a></li>
+        </ul>
+        {{ if and (ne .Kind "taxonomy") (ne .Kind "taxonomyTerm") (ne .Kind "404")}}
+          <p class="modified">Page Last Modified: {{ dateFormat "January 2, 2006" .Lastmod }}</p>
+        {{ end }}
+        <p class="legal">Copyright &copy; {{ now.Format "2006" }} Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>

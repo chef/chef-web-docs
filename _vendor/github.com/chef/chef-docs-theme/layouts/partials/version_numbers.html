@@ -1,0 +1,64 @@
+{{ $product := .product }}
+{{ $chefVersions := .chefVersions }}
+
+{{ $versionsUrl := ""}}
+{{ if eq $product "automate" }}
+  {{ $versionsUrl = "https://packages.chef.io/releases/current/automate.json"}}
+{{ else if (eq $product "habitat") }}
+  {{ $versionsUrl = "assets/release-notes/habitat/release-versions.json" }}
+{{ else if (hasPrefix $product "inspec-") }}
+  {{ $versionsUrl = print "_vendor/github.com/inspec/"  $product "/docs-chef-io/assets/release-notes/" $product "/release-dates.json" }}
+{{ else }}
+  {{ $versionsUrl = (print "https://omnitruck.chef.io/stable/" $product "/versions/all") }}
+{{ end }}
+
+{{ $versions := "" }}
+
+{{ $headers := dict "Cache-Control" "no-cache" "Connection" "keep-alive" }}
+{{ $cacheKey := print $versionsUrl (now.Format "20060102") (now.Hour) | md5 }}
+{{ $opts :=  dict "headers" $headers "key" $cacheKey }}
+
+{{- if hasPrefix $versionsUrl "https://" -}}
+  {{- with resources.GetRemote $versionsUrl $opts -}}
+    {{ with .Err }}
+      {{ errorf "%s" . }}
+    {{ else }}
+      {{ $unmarshalOpts := dict "delimiter" "," }}
+      {{ $versions = . | transform.Unmarshal $unmarshalOpts }}
+    {{ end }}
+  {{ else }}
+    {{ errorf "Unable to get remote resource %q" $versionsUrl }}
+  {{ end }}
+{{ else }}
+  {{ $versions = getJSON $versionsUrl }}
+{{ end }}
+
+
+{{/* We have a current version of Infra Client that they want release notes for on the Client release notes page. */}}
+{{/* This allows us to add current release version numbers of Client to the list of version numbers */}}
+{{/* that we want to include in the Client release notes. */}}
+{{- $current_versions := slice -}}
+{{- if eq $product "chef" -}}
+  {{- $versions = append $chefVersions $versions -}}
+  {{- $paddedVersions := apply $versions "partial" "zero_prefix_pad" "." }}
+  {{- $sortedVersions := (sort $paddedVersions "value" "desc") }}
+  {{- $versions = apply $sortedVersions "partial" "zero_prefix_trim" "." }}
+{{- end -}}
+
+{{- $versionsCorrectOrder := slice -}}
+
+{{- if eq $product "automate" -}}
+  {{- $len := len $versions -}}
+  {{- range seq $len -}}
+    {{- $versionsCorrectOrder = $versionsCorrectOrder | append (index $versions (sub $len .)) -}}
+  {{- end -}}
+{{- else if eq $product "chef" -}}
+    {{- $versionsCorrectOrder = $versions -}}
+{{ else }}
+  {{ $len := len $versions }}
+  {{- range seq $len -}}
+    {{- $versionsCorrectOrder = $versionsCorrectOrder | append (index $versions (sub $len .)) }}
+  {{ end }}
+{{- end -}}
+
+{{ return $versionsCorrectOrder }}

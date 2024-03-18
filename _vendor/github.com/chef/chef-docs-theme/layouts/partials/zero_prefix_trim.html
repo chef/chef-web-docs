@@ -1,0 +1,3 @@
+{{/* useful for sorting semver version numbers in order. */}}
+{{/* See also the release_notes page layout, release_notes_toc partial, and zero_prefix_pad partial */}}
+{{- return replaceRE "0+(\\d+)" "$1" . }}

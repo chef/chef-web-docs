@@ -1,0 +1,92 @@
+#utility-bar, #menu, #footer {
+  flex-shrink: 0;
+}
+
+#main-content {
+  // Make sure the header offset does not layer above the nav
+  z-index: 0;
+
+  > .grid-container {
+    height: 100%;
+
+    > .grid-x {
+      height: 100%;
+
+      .position-left{
+        width: 260px;
+      }
+    }
+  }
+
+  #col-content {
+    background-color: $white;
+    height: 100%;
+    word-wrap: break-word;
+    min-height: 100vh;
+
+    p img {
+      display: block;
+      margin: rem-calc(32) auto;
+      -webkit-box-shadow: $box-shadow;
+      -moz-box-shadow: $box-shadow;
+      box-shadow: $box-shadow;
+      border: 1px solid transparent;
+      padding: 1rem;
+      cursor: pointer;
+      @include breakpoint(large) {
+        max-width: 100%;
+      }
+      @include breakpoint(xlarge) {
+        max-width: 75%;
+      }
+    }
+
+    figure {
+      display: inline-block;
+      text-align: center;
+      font-style: italic;
+      font-size: smaller;
+      text-indent: 0;
+      border: 1px solid transparent;
+      -webkit-box-shadow: $box-shadow;
+      -moz-box-shadow: $box-shadow;
+      box-shadow: $box-shadow;
+      padding: 0.5rem;
+      margin: rem-calc(32) auto;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      @include breakpoint(large) {
+        max-width: 100%;
+      }
+      @include breakpoint(xlarge) {
+        max-width: 75%;
+      }
+
+      img {
+        padding: 1rem;
+        cursor: pointer;
+      }
+      &.figure-no-shadow {
+        padding: 0;
+        border: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+      }
+    }
+
+    .no-shadow {
+      box-shadow: none;
+    }
+  }
+}
+
+.has-sidebar {
+  @include breakpoint(medium) {
+    #main-content {
+      position: relative;
+      background: linear-gradient(90deg, $sidebar-gray 50%, $white 50%);
+    }
+  }
+}
