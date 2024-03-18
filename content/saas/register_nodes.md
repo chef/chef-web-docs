@@ -39,9 +39,9 @@ IMAGE
 
 IMAGE
 
-`default[‘your_client']['chef_server_old'] = ‘<Old chef-server URL>’ `
+`default[‘your_client']['chef_server_old'] = ‘<Old chef-server URL>’`
 
-`default[‘your_client']['chef_server_new'] = ‘<New chef-server URL>`
+`default[‘your_client']['chef_server_new'] = ‘<New chef-server URL>'`
 
 * Recipe
 
