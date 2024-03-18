@@ -20,7 +20,7 @@ If you have already upgraded to Chef Automate 2.0, no further installation, upgr
 
 1. Running Automate 2.0 in AWS OpsWorks.
 
-1. A Chef SaaS Environment. Refer to the Getting Started with Chef SaaS page.
+1. A Chef SaaS Environment. Refer to the [Getting Started](/get_started/) with Chef SaaS page.
 
 1. An S3 bucket provided by Progress Chef.
 
