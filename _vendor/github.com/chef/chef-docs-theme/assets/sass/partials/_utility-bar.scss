@@ -1,0 +1,44 @@
+nav#utility-bar {
+  background-color: $topbar-background;
+  border-bottom: 1px solid $border;
+  height: 60px;
+  padding: .2rem 1rem;
+  @include top-bar-unstack;
+
+  a.utility-bar-brand {
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+
+    .chef {
+      width: 200px;
+      height: auto;
+    }
+  }
+
+  ul.top-nav {
+    a {
+      font-weight: 600;
+      font-size: .9rem;
+      line-height: 26px;
+      color: $charcoal;
+      padding: .5rem;
+      &:hover {
+        color:$blue-darker;
+      }
+      &.chef-conf-link {
+        >.braces {
+          color:$orange-lighter;
+        }
+      }
+    }
+  }
+
+  button.utility-bar-nav-bars {
+    color: $charcoal;
+    display: inline-block;
+    font-size: 1.1rem;
+    margin: .5rem;
+  }
+}

@@ -1,0 +1,343 @@
+#swiftype-modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+  &-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    height: 90%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+#swiftype-lower-container{
+  overflow-y: hidden;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+
+  #swiftype-modal-content-container{
+    margin: 0 1rem 1rem 0;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      padding-top: 0;
+      display: inline;
+      position: relative;
+    }
+
+    #swiftype-container-left-sidebar {
+      padding-top: 1rem;
+      flex-grow: 0;
+
+      span#swiftype-custom-facets-toggle-caret{
+        color: $accordionmenu-arrow-color;
+        margin-left: .5rem;
+      }
+
+      label {
+        font-size: .8rem;
+      }
+      #swiftype-custom-facets{
+        >ul{
+          margin: 1em 0;
+          ul{
+            margin-left: 1em;
+          }
+        }
+        ul {
+          list-style-type: none;
+          input {
+            margin-bottom: .75em;
+          }
+        }
+      }
+    }
+
+    #swiftype-results-container{
+      display: flex;
+      flex-direction: column;
+      overflow-y: hidden;
+      height: 100%;
+      flex-grow: 1;
+      padding-top: 16px;
+
+      #swiftype-results-heading{
+        flex-grow: 0;
+      }
+      #swiftype-search-results {
+        overflow-y: scroll;
+        flex-direction: column;
+        padding-right: 10px;
+        width: 100%;
+        flex: 1 1 auto;
+        margin-left: 0;
+        a {
+          padding: .5rem 0;
+          border-bottom: 1px solid $border-dark;
+          display: block;
+          width: 100%;
+          >span {
+            display: inherit;
+            overflow: hidden;
+            &.st-result-title {
+              font-size: 15px;
+              font-weight: 500;
+              line-height: 1.2;
+            }
+            &.st-result-detail {
+              font-size: 12px;
+              font-weight: 400;
+              line-height: 1.4;
+              color:$lightgray;
+              em {
+                color: $gray
+              }
+              >.st-result-highlight-product{
+                color:red;
+                display: none;
+              }
+            }
+          }
+        }
+        >.st-page {
+          border-bottom: 1px solid $border-dark;
+          overflow:hidden;
+          >a {
+            position: relative;
+            border-bottom: none;
+            width: auto;
+            &.st-prev {
+              float: left;
+            }
+            &.st-next {
+              float: right;
+            }
+          }
+        }
+        > div.st-spelling-suggestion {
+          > a {
+            display: inline;
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  #swiftype-modal-content {
+    width: 100%;
+    height: 100%;
+  }
+  .st-result-detail-body {
+      display: none;
+  }
+  #swiftype-lower-container {
+    #swiftype-modal-content-container {
+      flex-direction: column;
+    }
+  }
+  #swiftype-custom-facets {
+    display: none;
+  }
+}
+
+///////
+// Search Input
+///////
+
+#left-nav-off-canvas-top-bar {
+  @include top-bar-unstack;
+  .search {
+    display: inline-block;
+    margin-right: 1rem;
+  }
+  .close-button {
+    position: relative;
+    margin: 0 0 0 1rem;
+    display: inline-block;
+    right: 0;
+    top: 0;
+  }
+  form > input.swiftype-search-autocomplete {
+    width: 100%;
+  }
+}
+
+#left-nav-on-canvas {
+  form > input.swiftype-search-autocomplete {
+    width: 90%;
+  }
+}
+
+
+
+form > input.swiftype-search {
+
+  &-input {
+    padding: 7px 11px 7px 28px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    border-radius: $border-radius-base;
+    border: 1px solid #ccc;
+    outline: none;
+    background: #fcfcfc url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAUFJREFUeNqU0j0oRWEcx/Hj3ifvlMHL7C1lY7mDwUBKkoksBjKJxWIQu7xlOybDLVGukhhMZDFbxGBS8nIjKR3E96nf0dPjuuVfn+6tc35P//P8/yYMw8CpbgygGQlcYw8H+Ai8MvotxQImgt81hk1M4cEPF2IV43jCGo7wjk5MYhhlGMKbG+7BKO4wiGPn8DO1vIN+jGA9fpjQaUksecG4zjGPL3VQ5IZb9OAw+LtO1FkjatxwUuEoTzjSbRu9/xO+0W97nnArqvXuoxve1/9p1OUIlmNGU7EX9+KGt3GKNuyiC5WoQAe2NJFP3PpzzmoR0khpxle6h3pnkeKJPCPjbtglerVFfWhSVxfqJtK4qrChTMY4XdjVm9O21aIA92LrFcv6HHtAsclxQVnxa0WfsqgDUib4X9muStCA2W8BBgDJ0EeGeFZ8WAAAAABJRU5ErkJggg==) no-repeat 5px 8px;
+  }
+
+  &-autocomplete {
+    margin: 0 0 0 10px;
+    display: inline-block;
+    height: 2.5em;
+  }
+}
+
+#swiftype-modal-search-form {
+  form > #swiftype-search-form-modal {
+    width: 100%;
+    margin-right: 10px;
+    box-sizing: border-box;
+    height: 32px;
+  }
+
+
+  #swiftype-close-button {
+    font-size: .9rem;
+    margin-left: 10px;
+    padding: 6px;
+    border: 1px solid $border-dark;
+    border-radius: $border-radius-base;
+
+    &:hover {
+      color: $white;
+      background-color: $body-font-color;
+    }
+  }
+}
+
+/////
+// Autocomplete Search Results
+/////
+
+.swiftype-widget .autocomplete {
+  border-radius: $border-radius-base;
+  background-color: $white;
+  display: block;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  text-align: left;
+}
+
+.swiftype-widget .autocomplete ul {
+  background-color: #fff;
+  display: block;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  text-align: left;
+}
+
+.swiftype-widget .autocomplete li {
+  border-top: 1px solid $border;
+  cursor: pointer;
+  padding: 10px 8px;
+  font-size: 12px;
+  font-weight: 400;
+  list-style-type: none;
+  background-image: none;
+  margin: 0;
+}
+
+.swiftype-widget .autocomplete li:first-child {
+  -webkit-border-radius: 3px 3px 0 0;
+  -moz-border-radius: 3px 3px 0 0;
+  -ms-border-radius: 3px 3px 0 0;
+  -o-border-radius: 3px 3px 0 0;
+  border-radius: 3px 3px 0 0;
+}
+
+.swiftype-widget .autocomplete li:last-child {
+  -webkit-border-radius: 0 0 3px 3px;
+  -moz-border-radius: 0 0 3px 3px;
+  -ms-border-radius: 0 0 3px 3px;
+  -o-border-radius: 0 0 3px 3px;
+  border-radius: 0 0 3px 3px;
+}
+
+.swiftype-widget .autocomplete li.active {
+  background-color: $menu-item-background-active;
+}
+
+.swiftype-widget .autocomplete li span {
+  line-height: 16px;
+  margin: 0;
+  padding: 0;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+
+.swiftype-widget .autocomplete li span.swiftype-auto-result-title{
+  font-weight: bold;
+  color: $blue-darker;
+  overflow: hidden;
+  display: block;
+}
+
+.swiftype-widget .autocomplete li span.swiftype-auto-result-detail{
+  color: $lightgray;
+  overflow: hidden;
+  display: block;
+}
+
+
+.swiftype-widget .autocomplete li span.swiftype-auto-result-title em {
+  color: #0b2644;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.swiftype-widget .autocomplete li.active span.swiftype-auto-result-title{
+  color: $menu-item-color-active;
+}

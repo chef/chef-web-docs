@@ -1,0 +1,74 @@
+{{ if ne .Params.feedback false }}
+{{ $gh_file_path := string "None" }}
+<div id="feedback" class="hide-for-print" data-swiftype-index='false'>
+
+  <div class="grid-x grid-padding-x">
+    <div class="cell xlarge-4">
+      <div id="feedback-buttons">
+
+        <p class="feedback-request">Was this page helpful?</p>
+        <button type="button" class="feedback-yes"><i class="fa-regular fa-thumbs-up"></i>Yes</button>
+        <button type="button" class="feedback-no"><i class="fa-regular fa-thumbs-down"></i>No</button>
+
+      </div>
+
+      {{ if and (.File) (.Params.gh_repo) (index .Site.Params .Params.gh_repo)}}
+      <div id="feedback-edit-on-github">
+
+        {{ $gh_file_path = print (index .Site.Params .Params.gh_repo "gh_path") (.File.Path) }}
+        <p class="feedback-request">Help us improve this document.</p>
+        <a href="{{ index .Site.Params .Params.gh_repo "gh_path" }}{{ .File.Path }}" alt="Link to page on GitHub repository" class="button">
+          <i class="fa-solid fa-code-merge"></i>Edit this page on GitHub
+        </a>
+      </div>
+
+      {{ end }}
+
+      <div id="feedback-support">
+
+        <p class="feedback-request">Still stuck?</p>
+        <a href="https://www.chef.io/support/" class="button">
+          <i class="fa-regular fa-comments"></i>Contact Support
+        </a>
+        <a href="https://community.chef.io/" class="button">
+          <i class="fa-solid fa-user-group"></i>Ask The Community
+        </a>
+
+      </div>
+    </div>
+
+    <div class="cell auto" id="feedback-section">
+
+      <p class="feedback-request">How can we improve this document?</p>
+      <form
+        name="Chef Docs Feedback"
+        id="feedback-form"
+        data-netlify="true"
+        data-netlify-honeypot="verification"
+        method="POST"
+        >
+        {{ $productVersion := "None" }}
+        {{ if (isset .Params "product-version") }}
+          {{ $productVersion = index .Params "product-version" }}
+        {{ end }}
+        <input type="hidden" id="feedback-form-page-title" name="page_title" value="{{ .Title }}">
+        <input type="hidden" id="feedback-form-chef-product" name="product" value="{{ .Params.product }}">
+        <input type="hidden" id="feedback-form-chef-product-version" name="version" value="{{ $productVersion }}">
+        <input type="hidden" id="feedback-form-page-url" name="url" value="{{ .Permalink }}">
+        <input type="hidden" id="feedback-form-gh-url" name="github_url" value="{{ $gh_file_path }}">
+        <textarea id="feedback-form-feedback" name="message" rows="4" cols="50" onkeyup="feedbackLength()" placeholder="Enter your feedback here. Be as specific as possible."></textarea>
+        <label class="visually-hidden">
+          Do not fill in this field.
+          <input name="verification">
+        </label>
+        <button id="feedback-form-submit-feedback" type="submit" disabled>Submit Feedback</button>
+      </form>
+
+      <p id="feedback-form-thank-you-message">
+        Thank you for your feedback!
+      </p>
+
+    </div>
+  </div>
+</div>
+{{ end }}
