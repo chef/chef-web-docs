@@ -1,0 +1,47 @@
+{{ $product := .Params.version_docs_product }}
+
+{{$formalProductName := ""}}
+{{ if eq $product "chef" }}
+  {{ $formalProductName = "Chef Infra Client" }}
+{{ else if eq $product "chef-server" }}
+  {{ $formalProductName = "Chef Infra Server" }}
+{{ else if eq $product "chef-workstation" }}
+  {{ $formalProductName = "Chef Workstation" }}
+{{ else if eq $product "inspec" }}
+  {{ $formalProductName = "Chef InSpec" }}
+{{ else if eq $product "habitat" }}
+  {{ $formalProductName = "Chef Habitat" }}
+{{ else if eq $product "desktop-config" }}
+  {{ $formalProductName = "Chef Desktop" }}
+{{ else if eq $product "product_a" }}
+  {{ $formalProductName = "Product A" }}
+{{ else if eq $product "product_b" }}
+  {{ $formalProductName = "Product B" }}
+{{ else }}
+  {{ $formalProductName = "Name Missing" }}
+{{ end }}
+
+{{ $versions := index .Site.Params $product "versions" }}
+
+{{ $float_string_versions := slice }}
+{{ range $versions }}
+  {{ $float_string_versions = $float_string_versions | append (replaceRE "_" "." . ) }}
+{{ end }}
+
+{{ $float_string_versions = sort $float_string_versions "value" "desc" }}
+
+{{ $sorted_versions := slice }}
+{{ range $float_string_versions }}
+  {{ $sorted_versions = $sorted_versions | append (replaceRE "\\." "_" . ) }}
+{{ end }}
+
+<div id="chef-product-version-dropdown" data-chef-product-key="{{ $product }}" data-default-version="{{ $product }}_{{ (index $sorted_versions 0) }}">
+  <label id="chef-product-version-dropdown-label" for="chef_product">Version:</label>
+  <select id="chef-product-version-dropdown-select" name="chef_product" onchange="selectProductVersion()" >
+    {{ range $version_index, $float_version := $float_string_versions }}
+      <option data-product="{{ $product }}" data-version="{{  $float_version }}" value="{{ $product }}_{{ index $sorted_versions $version_index }}">
+        {{$formalProductName}} {{ $float_version }}
+      </option>
+    {{ end }}
+  </select>
+</div>
