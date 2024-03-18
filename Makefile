@@ -1,27 +1,47 @@
 # we use pushd/popd here, and /bin/sh of our chefes/buildkite image is not bash
 # so we have to override the default shell here
-SHELL=bash
+SHELL=bash -eou pipefail
 
-bundle:
+npm:
 	npm install
+
+bundle: npm netlify_dart_sass
+
+clean_hugo_mod:
+	hugo mod clean
 
 clean:
 	rm -rf node_modules
+	rm -rf dart-sass
 	rm -rf resources/
 	rm -rf public/
-	hugo mod clean
 
-serve: bundle
+clean_all: clean clean_hugo_mod
+
+serve: npm
 	hugo server --buildDrafts --noHTTPCache --buildFuture
 
-metrics: bundle
+metrics: npm
 	hugo --gc --minify --enableGitInfo --templateMetrics --templateMetricsHints
 
-nodrafts: bundle
+nodrafts: npm
 	hugo server --noHTTPCache --buildFuture
 
 production: bundle
-	hugo server --buildDrafts --noHTTPCache --buildFuture --environment production
+	hugo --gc --minify --enableGitInfo
+
+deploy_preview: bundle
+	hugo --gc --minify --enableGitInfo --buildFuture
+
+netlify_dart_sass:
+	# Hugo requires dart-sass to transpile CSS, but Netlify doesn't support it.
+	# See https://gohugo.io/functions/resources/tocss/#netlify
+	@DART_SASS_VERSION="1.71.0"; \
+	echo $${DART_SASS_VERSION}; \
+	curl -LJO https://github.com/sass/dart-sass/releases/download/$${DART_SASS_VERSION}/dart-sass-$${DART_SASS_VERSION}-linux-x64.tar.gz; \
+	tar -xf dart-sass-$${DART_SASS_VERSION}-linux-x64.tar.gz; \
+	rm dart-sass-$${DART_SASS_VERSION}-linux-x64.tar.gz; \
+	export PATH=/opt/build/repo/dart-sass:$PATH; \
 
 serve_ignore_vendor: bundle
 	hugo server --buildDrafts --noHTTPCache --buildFuture --ignoreVendorPaths github.com/**
@@ -57,7 +77,7 @@ resource_files:
 # Verifies that all Cookstyle MD pages exist
 verify_cookstyle_pages:
 	dataDir=generated/_vendor/github.com/chef/cookstyle/docs-chef-io/assets/cookstyle; \
-	markdownDir=generated/generated_content/workstation/cookstyle; \
+	markdownDir=generated/generated_content/workstation/cookstyle/cops; \
 	for f in $$(ls $${dataDir}); \
 		do mdFile="$${f/.yml/.md}"; \
 		mdFilePath="$${markdownDir}/$${mdFile/cops_/}"; \
@@ -65,7 +85,7 @@ verify_cookstyle_pages:
 			echo "$${mdFilePath} does not exist."; \
 		fi; \
 	done; \
-	if test ! -f "generated/generated_content/workstation/cookstyle/cops.md"; then \
-			echo "generated/generated_content/workstation/cookstyle/cops.md does not exist."; \
+	if test ! -f "generated/generated_content/workstation/cookstyle/cops/_index.md"; then \
+			echo "generated/generated_content/workstation/cookstyle/cops/_index.md does not exist."; \
 	fi; \
 

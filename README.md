@@ -293,7 +293,9 @@ for additional information about updating Hugo Modules.
 
 ### Update chef-docs-theme module
 
-The theme for this site is deployed from 
+The theme for this site is sourced from [chef/chef-docs-theme](https://github.com/chef/chef-docs-theme).
+
+Run `make update_theme` to update the theme module and Node package dependencies.
 
 ### What if Hugo doesn't update a module
 
