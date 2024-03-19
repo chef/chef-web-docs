@@ -36,12 +36,12 @@ deploy_preview: bundle
 netlify_dart_sass:
 	# Hugo requires dart-sass to transpile CSS, but Netlify doesn't support it.
 	# See https://gohugo.io/functions/resources/tocss/#netlify
-	@DART_SASS_VERSION="1.71.0"; \
+	@DART_SASS_VERSION="1.72.0"; \
 	echo $${DART_SASS_VERSION}; \
 	curl -LJO https://github.com/sass/dart-sass/releases/download/$${DART_SASS_VERSION}/dart-sass-$${DART_SASS_VERSION}-linux-x64.tar.gz; \
 	tar -xf dart-sass-$${DART_SASS_VERSION}-linux-x64.tar.gz; \
 	rm dart-sass-$${DART_SASS_VERSION}-linux-x64.tar.gz; \
-	export PATH=/opt/build/repo/dart-sass:$PATH; \
+	export PATH=/opt/build/repo/dart-sass:$$PATH; \
 
 serve_ignore_vendor: bundle
 	hugo server --buildDrafts --noHTTPCache --buildFuture --ignoreVendorPaths github.com/**
