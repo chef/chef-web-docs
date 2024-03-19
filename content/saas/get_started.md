@@ -13,11 +13,11 @@ This getting started guide will walk through the necessary setup and configurati
 
 ## Prerequisites
 
-* A System to install Chef Workstation
+1. A System to install Chef Workstation
 
     * Supported [Platforms and System Requirements](https://docs.chef.io/workstation/install_workstation/)
 
-* Chef SaaS Starter Kit (Provided by Progress Chef)
+1. Chef SaaS Starter Kit (Provided by Progress Chef)
 
     * SaaS Environment URL
 
