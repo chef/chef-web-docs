@@ -25,15 +25,32 @@ Once everything has been set up and restored to the new Chef environment, the no
 
 ## Obtain example Cookbook/Recipe to point nodes to new Chef SaaS instance
 
-Progress Chef has developed a Cookbook and Recipe that can run against all nodes under management in the AWS OpsWorks environment. This Cookbook will redirect all nodes to the new Chef SaaS instance. Some sample images of the cookbooks, PolicyFile.rb, attribute file and recipe file are shown below:
+Progress Chef has developed a Cookbook and Recipe that can run against all nodes under management in the AWS OpsWorks environment. This Cookbook will redirect all nodes to the new Chef SaaS instance. Some samples of the cookbooks, PolicyFile.rb, attribute file and recipe file are shown below:
 
-* Cookbook:
+* Cookbook
 
 IMAGE
 
 * PolicyFile.rb
 
-IMAGE
+```ruby
+# Policyfile.rb  Describe how you want Chef Infra Client to build your system.
+#
+# For more information on the Policyfule feature, visit https://docs.chef.io/policyfile
+
+# A name that describes what the system you're building with Chef docs.
+
+name 'your_client'
+
+# Where to find external cookbooks:
+default_source :supermarket
+
+# run_list: chef_client will run there recipes in the order specified.
+run_list 'your_client::default'
+
+# Specify a custom source for a single cookbook:
+cookbook 'your_client', path: '.'
+```
 
 * Attribute
 
