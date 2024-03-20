@@ -40,9 +40,13 @@ Advantages to migrate from AWS OpsWorks to Chef SaaS is given below:
 
 ## Prepare DNS for cutover
 
-As part of the migration process, we deploy with a Blue/Green method that links to your existing public DNS. Refer to an example shown in the image below:
+As part of the migration process, we deploy with a Blue/Green method that links to your existing public DNS. Refer to an example shown in the code snippet below:
 
-IMAGE
+```ruby
+# The external fully qualified domain name.
+# When the application is deployed you should be able to access 'https://<fqdn>/' to login.
+fqdn = "june15.opsworks.chef.co"
+```
 
 ## Backup OpsWorks
 

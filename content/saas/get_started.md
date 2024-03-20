@@ -37,7 +37,7 @@ Connected to the Chef SaaS Automate Web User Interface, following these steps to
 
 1. Select Chef Infra Servers in the left-hand navigation.
 
-1. Click Add Chef Infra Server
+1. Select **Add Chef Infra Server**
 
 1. Enter the following fields:
 
@@ -47,9 +47,9 @@ Connected to the Chef SaaS Automate Web User Interface, following these steps to
 
     * Enter the FQDN by copying the same URL used to connect to the Automate Web User Interface. (Example: mycompany-demo.saas.chef.io)
 
-      IMAGE
+      {{< figure src="/images/automate/add-chef-server-popup-menu-with-error.png" width="500" alt="Add Chef Server Form">}}
 
-1. Select Add Chef Infra Server.
+1. Select **Add Chef Infra Server**.
 
 ## Download Chef Workstation
 
@@ -91,9 +91,14 @@ To continue configuring Workstation with Chef SaaS, a credentials file must be c
 
 1. Ensure that the pivotal.pem file provided in the Starter Kit is copied to the ~/.chef directory before running any additional commands with Knife.
 
-The credentials file that gets created in the ~/.chef directory should look similar to this:
+The credentials file that gets created in the ~/.chef directory looks like as shown below:
 
-IMAGE
+```ruby
+[default]
+client_name         - 'pivotal'
+client_key          = '/home/admin/.chef/pivotal.pem'
+chef_server_url     - 'https://mycompany-demo.saas.chef.io'
+```
 
 ### Create Organization in CLI
 
@@ -138,7 +143,12 @@ The credentials file under the ~/.chef directory on the Chef Workstation must be
 
     * Save and Quit
 
-      IMAGE
+    ```ruby
+    [default]
+    client_name         - 'chefadmin'
+    client_key          = '/home/admin/.chef/chefadmin.pem'
+    chef_server_url     - 'https://mycompany-demo.saas.chef.io/organization/myorg'
+    ```
 
 ### Create Organization in Web User Interface
 
@@ -150,7 +160,7 @@ The following steps will add the Organization in the Chef SaaS Web User Interfac
 
 1. Select the Infra Server that was created earlier.
 
-1. Click Add Chef Organization.
+1. Select **Add Chef Organization**.
 
     * Provide the Name of the Organization that was created earlier in the CLI. (Example: myorg)
 
@@ -158,9 +168,9 @@ The following steps will add the Organization in the Chef SaaS Web User Interfac
 
     * For Admin Key, paste the contents of the new PEM file that was created along with the account (Example: chefadmin.pem)
 
-    * Click Add Chef Organization
+    * Select **Add Chef Organization**
 
-IMAGE
+{{< figure src="/images/automate/add-chef-organization-popup-menu.png" width="500" alt="Add Chef Organization Form">}}
 
 ### Run Knife SSL Check
 
