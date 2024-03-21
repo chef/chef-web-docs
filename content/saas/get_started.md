@@ -66,12 +66,10 @@ To install the Chef Workstation, go through our extended [Instal Chef Workstatio
 If you’re setting up Chef for the very first time in your organization, then you will need a Chef Infra repository for saving your cookbooks and other work. The chef-repo is a directory on your workstation that stores everything you need to define your infrastructure with Chef Infra:
 
 * Cookbooks (including recipes, attributes, custom resources, libraries, and templates)
-
 * Data bags
-
 * Policyfiles
 
-Use the chef generate repo command to create your Chef Infra repository. For example, to create a repository called chef-repo:
+Use the [chef generate repo](https://docs.chef.io/workstation/ctl_chef/#chef-generate-repo) command to create your Chef Infra repository. For example, to create a repository called chef-repo:
 
 ```sh
 chef generate repo chef-repo
@@ -102,7 +100,7 @@ chef_server_url     - 'https://mycompany-demo.saas.chef.io'
 
 ### Create Organization in CLI
 
-A Chef Organization must be added to the Infra Server and act as a top-level entity for role-based access control. Use the knife org create command to create your Chef Organization. For example, to create an Organization called myorg:
+A Chef Organization must be added to the Infra Server and act as a top-level entity for role-based access control. Use the [knife org create](https://docs.chef.io/workstation/knife_org/) command to create your Chef Organization. For example, to create an Organization called myorg:
 
 ```sh
 Knife org create myorg “My New Organization”
@@ -112,7 +110,7 @@ The private key for the organization’s validator client is returned.
 
 ### Create a User in CLI
 
-A new user must be created which will be associated with the new Chef Organization and will be leveraged in the credentials file. Use the knife user create command to create your new user account. For example, to create a User named chefadmin:
+A new user must be created which will be associated with the new Chef Organization and will be leveraged in the credentials file. Use the [knife user create](https://docs.chef.io/workstation/knife_user/) command to create your new user account. For example, to create a User named chefadmin:
 
 ```sh
 knife user create chefadmin --first-name Chef --last-name Admin --email chefadmin@mycompany.com –password securepassword -f chefadmin.pem
@@ -122,7 +120,7 @@ Ensure the new chefadmin.pem file that is created with this command is copied to
 
 ### Add New User to Organization in CLI
 
-Now that the Organization and User are created, the two must be associated together. Use the knife org user command to add the user to an organization. For example, to add the User named chefadmin to the Organization called myorg:
+Now that the Organization and User are created, the two must be associated together. Use the [knife org user](https://docs.chef.io/workstation/knife_org/) command to add the user to an organization. For example, to add the User named chefadmin to the Organization called myorg:
 
 ```sh
 knife org user add myorg chefadmin
@@ -176,7 +174,7 @@ The following steps will add the Organization in the Chef SaaS Web User Interfac
 
 Chef SaaS leverages public certificates to ensure a secure connection to the service. It is always best to run an SSL check on the Workstation to verify that the certificate is trusted to eliminate any connection issues.
 
-1. Run the following command:  knife SSL check and ensure a successful message is displayed.
+1. Run the following command:  knife SSL checks and ensure a successful message is displayed.
 
 ### Run Knife client list
 

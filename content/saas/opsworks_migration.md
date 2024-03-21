@@ -24,7 +24,7 @@ If you have already upgraded to Chef Automate 2.0, no further installation, upgr
 
 * An S3 bucket provided by Progress Chef.
 
-## Advantages to migrate from AWS OpsWorks to Chef SaaS
+## High level steps to migrate from AWS OpsWorks to Chef SaaS (REPHRASE)
 
 Advantages to migrate from AWS OpsWorks to Chef SaaS is given below:
 
@@ -48,7 +48,7 @@ As part of the migration process, we deploy with a Blue/Green method that links 
 fqdn = "june15.opsworks.chef.co"
 ```
 
-## Backup OpsWorks
+## Backup OpsWorks (NEW SECTION SHOULD BE ADDED)
 
 You can take the backup of your OpsWorks using the following steps:
 
