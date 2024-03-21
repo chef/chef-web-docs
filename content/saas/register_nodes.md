@@ -19,17 +19,17 @@ Once everything has been set up and restored to the new Chef environment, the no
 
 * Restoration performed of AWS OpsWorks to Chef SaaS.
 
-* Splay mode and baseline are up to 2 client runs an hour. Refer to the [Chef Infra Client](https://docs.chef.io/ctl_chef_client/) page for more details on how to configure splay mode in client.rb file.
+* Splay mode and baseline are up to 2 client runs an hour. Refer to the [Chef Infra Client](https://docs.chef.io/ctl_chef_client/) page for more details on how to configure splay mode in the `client.rb` file.
 
-* 1 compliance scans an hour.
+* One compliance scan an hour.
 
-## Obtain example Cookbook/Recipe to point nodes to new Chef SaaS instance
+## Obtain an example Cookbook/Recipe to point nodes to the new Chef SaaS instance
 
 Progress Chef has developed a Cookbook and Recipe that can run against all nodes under management in the AWS OpsWorks environment. This Cookbook will redirect all nodes to the new Chef SaaS instance. Some samples of the cookbooks, PolicyFile.rb, attribute file and recipe file are shown below:
 
 * Cookbook
 
-IMAGE
+{{< figure src="/static/images/saas-cookbook-folder.png" alt="Cookbook Folder">}}
 
 * PolicyFile.rb
 
