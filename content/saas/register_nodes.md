@@ -54,7 +54,7 @@ cookbook 'your_client', path: '.'
 
 * Attribute
 
-IMAGE
+{{< figure src="/static/images/saas-attributes-folder.png" alt="Attributes Folder">}}
 
 `default[‘your_client']['chef_server_old'] = ‘<Old chef-server URL>’`
 
