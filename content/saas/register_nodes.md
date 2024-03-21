@@ -29,7 +29,7 @@ Progress Chef has developed a Cookbook and Recipe that can run against all nodes
 
 * Cookbook
 
-{{< figure src="/static/images/saas-cookbook-folder.png" alt="Cookbook Folder">}}
+{{< figure src="/images/saas-cookbook-folder.png" alt="Cookbook Folder">}}
 
 * PolicyFile.rb
 
@@ -54,7 +54,7 @@ cookbook 'your_client', path: '.'
 
 * Attribute
 
-{{< figure src="/static/images/saas-attributes-folder.png" alt="Attributes Folder">}}
+{{< figure src="/images/saas-attributes-folder.png" alt="Attributes Folder">}}
 
 `default[‘your_client']['chef_server_old'] = ‘<Old chef-server URL>’`
 
@@ -62,4 +62,4 @@ cookbook 'your_client', path: '.'
 
 * Recipe
 
-IMAGE
+{{< figure src="/images/saas-recipes-folder.png" alt="Recipes Folder">}}
