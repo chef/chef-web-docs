@@ -46,6 +46,9 @@ netlify_dart_sass:
 serve_ignore_vendor: bundle
 	hugo server --buildDrafts --noHTTPCache --buildFuture --ignoreVendorPaths github.com/**
 
+test_theme: bundle
+	HUGO_MODULE_WORKSPACE=hugo.work hugo server --buildDrafts --noHTTPCache --buildFuture --ignoreVendorPaths "github.com/chef/chef-docs-theme"
+
 lint: bundle
 	hugo -D
 
