@@ -284,6 +284,56 @@ and `panel-id`/`panel-link` values must be unique HTML IDs on the page.
 
 <!-- markdownlint-enable MD046 MD032 -->
 
+## `highlight` shortcode
+
+You can add code examples using the `highlight` shortcode. 
+
+For example, this:
+
+    {{</* highlight ruby */>}}
+    puts 'Hello, world!'
+    {{</* /highlight */>}}
+
+produces:
+
+{{< highlight ruby >}}
+puts 'Hello, world!'
+{{< / highlight >}}
+
+You can also add line numbers and highlight specific lines.
+
+This is the code for this example:
+
+    {{</* highlight ruby "linenos=table,hl_lines=3 5-7,linenostart=10" */>}}
+    require 'chef/config'
+    require 'chef/log'
+    require 'chef/rest'
+
+    chef_server_url = 'https://chefserver.com'
+    client_name = 'clientname'
+    signing_key_filename = '/path/to/pem/for/clientname'
+
+    rest = Chef::REST.new(chef_server_url, client_name, signing_key_filename)
+    puts rest.get_rest('/clients')
+    {{</* / highlight */>}}
+
+produces this:
+
+{{< highlight ruby "linenos=table,hl_lines=3 5-7,linenostart=10" >}}
+require 'chef/config'
+require 'chef/log'
+require 'chef/rest'
+
+chef_server_url = 'https://chefserver.com'
+client_name = 'clientname'
+signing_key_filename = '/path/to/pem/for/clientname'
+
+rest = Chef::REST.new(chef_server_url, client_name, signing_key_filename)
+puts rest.get_rest('/clients')
+{{< / highlight >}}
+
+See [Hugo's documentation](https://gohugo.io/content-management/syntax-highlighting/#highlight-shortcode) for more information.
+
 ## `readfile` shortcode
 
 The `readfile` shortcode adds text from a file to a page. You can add a Markdown file, HTML file, or code file by specifying the path to the file from the project root directory.
