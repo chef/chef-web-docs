@@ -9,23 +9,23 @@ draft = false
     weight = 50
 +++
 
-Once everything has been set up and restored to the new Chef environment, the nodes under management must be redirected from AWS OpsWorks to Chef SaaS. This guide will provide recommendations on how this can be accomplished.
+Once everything has been set up and restored to the new Chef environment, the nodes under management must be redirected from AWS OpsWorks to Chef SaaS. This guide will provide recommendations on how to accomplish this.
 
 ## Prerequisites
 
 * Running Automate 2.0 in AWS OpsWorks.
 
-* A Chef SaaS Environment. Refer to the [Getting Started](/get_started/) with Chef SaaS page.
+* A Chef SaaS Environment. For more information, refer to the [Getting Started](/get_started/) with the Chef SaaS page.
 
-* Restoration performed of AWS OpsWorks to Chef SaaS.
+* Restoration is performed on AWS OpsWorks for Chef SaaS.
 
-* Splay mode and baseline are up to 2 client runs an hour. Refer to the [Chef Infra Client](https://docs.chef.io/ctl_chef_client/) page for more details on how to configure splay mode in the `client.rb` file.
+* Splay mode and baseline are up to 2 client runs an hour. Refer to the [Chef Infra Client](https://docs.chef.io/ctl_chef_client/) page for more details on configuring splay mode in the `client.rb` file.
 
 * One compliance scan an hour.
 
 ## Obtain an example Cookbook/Recipe to point nodes to the new Chef SaaS instance
 
-Progress Chef has developed a Cookbook and Recipe that can run against all nodes under management in the AWS OpsWorks environment. This Cookbook will redirect all nodes to the new Chef SaaS instance. Some samples of the cookbooks, PolicyFile.rb, attribute file and recipe file are shown below:
+Progress Chef has developed a Cookbook and Recipe that can run against all nodes under management in the AWS OpsWorks environment. This Cookbook will redirect all nodes to the new Chef SaaS instance. Some samples of the cookbooks, PolicyFile.rb, attribute file, and recipe file, are:
 
 * Cookbook
 
@@ -38,14 +38,13 @@ Progress Chef has developed a Cookbook and Recipe that can run against all nodes
 #
 # For more information on the Policyfule feature, visit https://docs.chef.io/policyfile
 
-# A name that describes what the system you're building with Chef docs.
-
+# A name that describes the system you're building with Chef docs.
 name 'your_client'
 
 # Where to find external cookbooks:
 default_source :supermarket
 
-# run_list: chef_client will run there recipes in the order specified.
+# run_list: chef_client will run their recipes in the order specified.
 run_list 'your_client::default'
 
 # Specify a custom source for a single cookbook:
@@ -57,7 +56,6 @@ cookbook 'your_client', path: '.'
 {{< figure src="/images/saas-attributes-folder.png" alt="Attributes Folder">}}
 
 `default[‘your_client']['chef_server_old'] = ‘<Old chef-server URL>’`
-
 `default[‘your_client']['chef_server_new'] = ‘<New chef-server URL>'`
 
 * Recipe
