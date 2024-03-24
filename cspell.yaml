@@ -32,5 +32,6 @@ ignoreRegExpList:
 words:
   - chefadmin
   - clientname
+  - emailaddress
   - Grammarly
   - myorg
