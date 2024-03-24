@@ -32,6 +32,8 @@ ignoreRegExpList:
 words:
   - chefadmin
   - clientname
+  - cutover
   - emailaddress
   - Grammarly
   - myorg
+  - Opswork

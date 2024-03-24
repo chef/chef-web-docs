@@ -21,7 +21,7 @@ If you have already upgraded to Chef Automate 2.0, no further installation, upgr
 
 * A Chef SaaS Environment. Refer to the [Getting Started](/get_started/) with the Chef SaaS page.
 
-* An S3 bucket provided by Progress Chef.
+* An S3 bucket was provided by Progress Chef.
 
 ## High-level steps to migrate from AWS OpsWorks to Chef SaaS (REPHRASE)
 
@@ -47,15 +47,84 @@ As part of the migration process, we deploy a Blue/Green method that links to yo
 fqdn = "june15.opsworks.chef.co"
 ```
 
-## Backup OpsWorks (NEW SECTION SHOULD BE ADDED)
+## Backup OpsWorks
 
-You can take the backup of your OpsWorks using the following steps:
+OpsWorks for chef-automate can have two configuration setups.
 
-1. Connect to the existing AWS OpsWorks environment and take a backup.
+* Cluster with SSH access
+* Cluster without SSH access
 
-1. Create a `.zip` file of the OpsWorks backup.
+Both types of clusters will have SSM access. Customers should be able to log in to the Opswork chef-automate instance and follow the below steps to create a backup. By default, Opswork has the manual backup feature, which creates a backup in S3 that can be used in case customers are not able to log in to an instance via SSH/SSM.
 
-1. Copy the backup .zip file to provide the S3 Bucket. (This bucket will expire seven days after the environment is set up and will only allow one backup file. If you provide two or more .zip files, the last upload will remain in the bucket)
+## Steps to access SSH/SSH
+
+For the customers with SSH/SSM access, follow the below steps to create a backup
+
+1. Login to the Opswork EC2 instance via SSH/SSM from the EC2 console.
+
+1. Create a `patch.toml` as below:
+
+  ```sh
+  $ cat patch.toml
+
+  [global.v1.backups]
+  location = "filesystem"
+
+  [global.v1.backups.filesystem]
+  path = "/var/opt/chef-automate/backups/"
+  ```
+
+1. Apply the patch:
+
+  ```sh
+  chef-automate config patch patch.toml
+  ```
+
+  Check the chef-automate status and wait for all the services to turn healthy.
+
+1. Run backup create command:
+
+  ```sh
+  sudo chef-automate backup create
+  sudo chef-automate bootstrap bundle create bootstrap.abb
+  ```
+
+  {{< figure src="/images/backup-create-command-output.png" alt="Backup Create Command">}}
+
+  You will get the Success message once the backup process is complete, as shown in the screenshot above. The backup data will be available in /var/opt/chef-automate/backups/
+
+1. Zip the backup and share it with the chef team. Include the timestamp-based directory, `automate-elasticsearch-data`, `.tmp` directory, and `bootstrap.abb`.
+
+  ```sh
+  [root@ip-10-200-140-7 backups]# ls -a /var/opt/chef-automate/backups/
+  20230605230117  automate-elasticsearch-data .tmp bootstrap.abb
+
+  [root@ip-10-200-140-7 backups]# zip -r backup.zip automate-elasticsearch-data 20230605230117 .tmp bootstrap.abb
+  [root@ip-10-200-140-7 backups]# ls -a
+  20230605230117  automate-elasticsearch-data .tmp bootstrap.abb  backup.zip
+  ```
+
+  Customers can share the Backup using pre-signed URLs. The SOP provides steps for sharing the backup with the chef team.
+
+For the customers without SSH/SSM access, follow the below steps to create a backup:
+
+1. Go to the AWS **Opswork** console.
+
+1. Choose the server you want to back up on the **Chef Automate servers** page.
+
+1. On the properties page for the server, in the left navigation pane, choose **Backups**.
+
+1. Choose **Create Backup**.
+
+1. The manual backup is finished when the page shows a green checkmark in the backup's **Status** column.
+
+  {{< figure src="/images/saas-status-column.png" alt="Status Column">}}
+
+1. Now go to the AWS S3 console and find the opswork bucket in which the backups are stored.
+
+  {{< figure src="/images/saas-aws-console.png" alt="AWS s3 Console">}}
+
+  Zip the latest timestamp-based directory and automate-elasticsearch-data directory and share it with the chef team.
 
 ## Restore OpsWorks backup to Chef SaaS
 
