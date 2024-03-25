@@ -21,19 +21,19 @@ support, see the [Supported Versions](/versions/) page.
 
 We offer two levels of support for platforms (operating systems), [Commercial Support]({{< relref "#commercial-support">}}) and [Community Support]({{< relref "#community-support" >}}).
 
-### Commercial Support
+### Commercial support
 
 Commercial support for platforms is part of paid maintenance contracts with Chef Software. Support contracts allow you to open tickets and receive service level agreement (SLA) assistance from our support desk. Commercially supported platforms are extensively tested as part of Chef's development and release process. Commercial support follows the lifecycle of the underlying operating system vendor.
 
 Commercial support is limited to the platforms listed in the "Commercial Support" tables--platforms not listed in these tables are unsupported.
 
-### Community Support
+### Community support
 
 Community support for platforms means that members of the Chef community have contributed to these platforms and Chef doesn't actively work to maintain this functionality. Chef doesn't explicitly test community supported platforms as part of the development and release process.
 
 Many of these platforms are forks, clones, or otherwise derivative of platforms that Chef commercially supports. Continued functionality for these platforms is likely, but not guaranteed. Unsupported platforms may have missing or non-operative functionality. As always, we welcome community contributions from anyone looking to expand community support for platforms in Chef products.
 
-### Support for Derived Platforms
+### Support for derived platforms
 
 Chef doesn't explicitly test or provide builds for derived distributions other than those in our supported platform list. However, if the derived distribution is a direct rebuild of the originating distribution and hasn't diverged in functionality or packaged dependencies, Chef will support our customers through our normal channels.
 
@@ -43,7 +43,7 @@ The sections below list the platforms that Chef Software supports.
 
 ### Chef Automate
 
-#### Commercial Support
+#### Commercial support
 
 Commercial support for the [Chef Automate](/automate/system_requirements/) is available for platforms that use:
 
@@ -54,14 +54,14 @@ Commercial support for the [Chef Automate](/automate/system_requirements/) is av
 
 ### Chef Automate HA
 
-#### Commercial Support
+#### Commercial support
 
 See the [Chef Automate HA supported platforms](/automate/ha_on_premises_deployment_prerequisites/#software-requirements)
 documentation for a list of supported platforms for Chef Automate HA.
 
 ### Chef Backend
 
-#### Commercial Support
+#### Commercial support
 
 The following table lists the commercially supported platforms for Chef Backend, which is the high-availability solution for Chef Infra Server.
 
@@ -86,7 +86,7 @@ See our policy on [support for derived platforms](#support-for-derived-platforms
 
 ### Chef Infra Client
 
-#### Commercial Support
+#### Commercial support
 
 The following table lists the commercially supported platforms and versions for Chef Infra Client.
 
@@ -116,7 +116,7 @@ See our policy on [support for derived platforms](#support-for-derived-platforms
 | --- | --- | --- | --- |
 | AlmaLinux | `x86_64`, `aarch64` | `8.x` | CentOS |
 
-#### Community Support
+#### Community support
 
 The following platforms are supported only using the community.
 
@@ -144,13 +144,13 @@ The following platforms are supported only using the community.
 
 ### Chef Infra Server
 
-#### Commercial Support
+#### Commercial support
 
 {{< readfile file="content/server/reusable/md/adopted_platforms_server.md" >}}
 
 ### Chef InSpec
 
-#### Commercial Support
+#### Commercial support
 
 The following table lists the commercially supported platforms and versions for Chef InSpec.
 
@@ -166,7 +166,7 @@ See our policy on [support for derived platforms](#support-for-derived-platforms
 
 ### Chef Manage
 
-#### Commercial Support
+#### Commercial support
 
 The following table lists the commercially supported platforms for Chef Manage.
 
@@ -190,7 +190,7 @@ See our policy on [support for derived platforms](#support-for-derived-platforms
 
 ### Chef Workstation
 
-#### Commercial Support
+#### Commercial support
 
 The following table lists the commercially supported platforms and versions for the Chef Workstation.
 
@@ -204,9 +204,9 @@ See our policy on [support for derived platforms](#support-for-derived-platforms
 
 {{< readfile file = "content/workstation/reusable/md/workstation_supported_derived_platforms.md" >}}
 
-## Platform End-of-Life Policy
+## Platform end-of-life policy
 
-Chef's products on particular platforms and versions reach end-of-life on the same date as the vendor EOL milestone for that operating systems.
+Chef's products on particular platforms and versions reach end-of-life on the same date as the vendor EOL milestone for that operating system.
 Because different vendors use different terminology, the following table clarifies when Chef products are end-of-life according to those vendors' terms.
 
 | Platform | Vendor End-of-Life |

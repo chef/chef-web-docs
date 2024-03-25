@@ -1,5 +1,9 @@
 .DS_Store
 
+# Hugo/Go workspace files
+*.work
+*.work.sum
+
 # ignore doctree files in translation folders
 *.doctree
 *.pickle
@@ -25,6 +29,9 @@ results/
 static/fonts/fontawesome
 node_modules
 vendor
+
+# dart-sass files for local dev testing
+/dart-sass
 
 # temp file created by hugo
 .hugo_build.lock
