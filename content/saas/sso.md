@@ -134,7 +134,7 @@ Admins can now select **Cancel** to override the edited field data.
 
 1. Fill in the config information as shown in the below image and select next.
 
-    * Single sign-on URL: This should be the URL for your automate server plus /dex/callback. For example [https://your_automate_url/dex/callback](https://your_automate_url/dex/callback)](https://your_automate_url/dex/callback)
+    * Single sign-on URL: This should be the URL for your automate server plus /dex/callback. For example [https://your_automate_url/dex/callback](https://your_automate_url/dex/callback)
 
     * Audience URI: This will be the same URL as the Single sign-on URL
 
@@ -156,7 +156,7 @@ Admins can now select **Cancel** to override the edited field data.
 
 1. Add users who can log in using this app.
 
-    * Select Assignments, then Assign, and then assign to people. Select users from the list to add users to the app.
+    * Select Assignments, then Assign and then assign to people. Select users from the list to add users to the app.
 
     IMAGE
 
