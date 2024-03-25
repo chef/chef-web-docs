@@ -10,22 +10,22 @@
 
 [dev]
   # local development with the Netlify CLI
-  command = "make serve"
+  command = "bash ./scripts/local-server.sh"
   targetPort = 1313
   port = 8000
 
 [context.production]
-  command = "make bundle; hugo --gc --minify --enableGitInfo"
+  command = "bash ./scripts/netlify-deploy-production.sh"
   [context.production.environment]
     HUGO_ENV = "production"
 
 [context.deploy-preview]
-  command = "make bundle; hugo --gc --minify --enableGitInfo --buildFuture"
+  command = "bash ./scripts/netlify-deploy-preview.sh"
   [context.deploy-preview.environment]
     HUGO_ENV = "staging"
 
 [context.branch-deploy]
-  command = "make bundle; hugo --gc --minify --enableGitInfo"
+  command = "bash ./scripts/netlify-branch-deploy.sh"
   [context.branch-deploy.environment]
     HUGO_ENV = "branch-deploy"
 
