@@ -435,7 +435,6 @@ identifier = "server"
 # Chef Infra Menu
 ####
 
-
 [[infra]]
 title = "Chef Infra"
 identifier = "chef_infra"
@@ -653,6 +652,18 @@ identifier = "chef_infra"
 
 ####
 # End Chef Infra Menu
+####
+
+####
+# Chef SaaS Menu
+####
+
+[[saas]]
+title = "Chef SaaS"
+identifier = "chef_saas"
+
+####
+# End Chef SaaS Menu
 ####
 
 ####
