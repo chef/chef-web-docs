@@ -453,7 +453,6 @@ Checklists are an unordered list with a checkbox.
 
 Eiusmod cupidatat excepteur tempor elit officia ipsum aute nulla ea do minim eu eu.
 
-
 Commodo adipisicing sunt nisi laborum laboris.
 
 Code block using the [highlight shortcode](https://gohugo.io/content-management/syntax-highlighting/#example-highlight-shortcode):
@@ -464,8 +463,8 @@ require 'chef/log'
 require 'chef/rest'
 
 chef_server_url = 'https://chefserver.com'
-client_name = 'clientname'
-signing_key_filename = '/path/to/pem/for/clientname'
+client_name = 'client_name'
+signing_key_filename = '/path/to/pem/for/client_name'
 
 rest = Chef::REST.new(chef_server_url, client_name, signing_key_filename)
 puts rest.get_rest('/clients')
@@ -475,18 +474,22 @@ Dolore est deserunt pariatur voluptate.
 
 This is the code for this example:
 
+<!-- markdownlint-disable MD046 -->
+
     {{</* highlight ruby "linenos=table,hl_lines=3 5-7,linenostart=10" */>}}
     require 'chef/config'
     require 'chef/log'
     require 'chef/rest'
 
     chef_server_url = 'https://chefserver.com'
-    client_name = 'clientname'
-    signing_key_filename = '/path/to/pem/for/clientname'
+    client_name = 'client_name'
+    signing_key_filename = '/path/to/pem/for/client_name'
 
     rest = Chef::REST.new(chef_server_url, client_name, signing_key_filename)
     puts rest.get_rest('/clients')
     {{</* / highlight */>}}
+
+<!-- markdownlint-enable MD046 -->
 
 Add code using the readfile shortcode:
 
