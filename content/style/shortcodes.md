@@ -286,13 +286,17 @@ and `panel-id`/`panel-link` values must be unique HTML IDs on the page.
 
 ## `highlight` shortcode
 
-You can add code examples using the `highlight` shortcode. 
+You can add code examples using the `highlight` shortcode.
 
 For example, this:
+
+<!-- markdownlint-disable MD046 -->
 
     {{</* highlight ruby */>}}
     puts 'Hello, world!'
     {{</* /highlight */>}}
+
+<!-- markdownlint-enable MD046 -->
 
 produces:
 
@@ -304,18 +308,22 @@ You can also add line numbers and highlight specific lines.
 
 This is the code for this example:
 
+<!-- markdownlint-disable MD046 -->
+
     {{</* highlight ruby "linenos=table,hl_lines=3 5-7,linenostart=10" */>}}
     require 'chef/config'
     require 'chef/log'
     require 'chef/rest'
 
     chef_server_url = 'https://chefserver.com'
-    client_name = 'clientname'
-    signing_key_filename = '/path/to/pem/for/clientname'
+    client_name = 'client_name'
+    signing_key_filename = '/path/to/pem/for/client_name'
 
     rest = Chef::REST.new(chef_server_url, client_name, signing_key_filename)
     puts rest.get_rest('/clients')
     {{</* / highlight */>}}
+
+<!-- markdownlint-enable MD046 -->
 
 produces this:
 
@@ -325,8 +333,8 @@ require 'chef/log'
 require 'chef/rest'
 
 chef_server_url = 'https://chefserver.com'
-client_name = 'clientname'
-signing_key_filename = '/path/to/pem/for/clientname'
+client_name = 'client_name'
+signing_key_filename = '/path/to/pem/for/client_name'
 
 rest = Chef::REST.new(chef_server_url, client_name, signing_key_filename)
 puts rest.get_rest('/clients')
