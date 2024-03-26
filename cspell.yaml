@@ -25,14 +25,25 @@ flagWords:
 - hte
 ignorePaths:
 - ".expeditor/**/*"
-- "**/*.yml"
+- "**/*.sh"
+- "**/*.svg"
 - "**/*.toml"
+- "**/*.yml"
 - archetypes/*.md
+- /package*.json
 - _vendor/**/*
 - cspell.yaml
 - public/**
 - node_modules/**
 - resources/**
+- generated/**
+- '*.work'
+- '*.work.sum'
+- dart-sass/**/*
+- tools/**/*
+- go.mod
+- go.sum
+- Makefile
 
 # Ignore patterns list
 # https://cspell.org/configuration/patterns/
@@ -45,5 +56,3 @@ ignoreRegExpList:
 - "/'d\\b/"
 - "/^\\s*```[\\s\\S]*?^\\s*```/gm"
 - "{{(.+)(?=}})"
-words:
-- Grammarly
