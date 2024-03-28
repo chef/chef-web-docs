@@ -1,0 +1,18 @@
+{
+  "comments": {
+    "dependencies": {
+      "foundation-sites": "github.com/chef/chef-docs-theme",
+      "jquery": "github.com/chef/chef-docs-theme",
+      "redoc": "github.com/chef/chef-docs-theme"
+    },
+    "devDependencies": {}
+  },
+  "dependencies": {
+    "foundation-sites": "^6.8.1",
+    "jquery": "^3.7.1",
+    "redoc": "^2.1.3"
+  },
+  "devDependencies": {},
+  "name": "chef-web-docs",
+  "version": "0.1.0"
+}

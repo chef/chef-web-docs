@@ -1,7 +1,7 @@
 baseURL = "https://docs.chef.io/"
 languageCode = "en-us"
 title = "Chef Web Docs"
-theme = "docs-new"
+
 enableGitInfo = true
 pluralizeListTitles = false
 disableKinds = ["taxonomy", "term"]
@@ -53,7 +53,7 @@ notAlternative = true
     lineNoStart = 1
     lineNos = false
     lineNumbersInTable = true
-    noClasses = true
+    noClasses = false
     style = "friendly"
     tabWidth = 4
   [markup.tableOfContents]
