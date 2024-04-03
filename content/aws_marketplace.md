@@ -123,7 +123,7 @@ For additional information about these options, see [Amazon's documentation on C
 1. Enter your **Username** and **Password** and select **Sign In**.
 ![ ](/images/chef_automate_login.png "Chef Automate Login")
 
-1. Fill out the registration form and [Accept the Chef License](https://docs.chef.io/chef_license_accept/).
+1. Fill out the registration form and [Accept the Chef License](/licensing/accept/).
 
 1. Select **Register** to enter Chef Automate.
 ![ ](/images/WelcomePage.png "Welcome Page")
