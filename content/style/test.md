@@ -497,11 +497,15 @@ Add code using the readfile shortcode:
 
 And code without syntax highlighting:
 
+<!-- markdownlint-disable MD040 -->
+
 ```
 describe google_compute_networks(project: 'chef-gcp-inspec') do
 	its('network_names') { should include 'inspec-network' }
 end
 ```
+
+<!-- markdownlint-enable MD040 -->
 
 ### Inline code
 

@@ -304,7 +304,6 @@ produces:
 puts 'Hello, world!'
 {{< / highlight >}}
 
-
 ## `readfile` shortcode
 
 The `readfile` shortcode adds text from a file to a page. You can add a Markdown file, HTML file, or code file by specifying the path to the file from the project root directory.
