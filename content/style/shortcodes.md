@@ -304,43 +304,6 @@ produces:
 puts 'Hello, world!'
 {{< / highlight >}}
 
-You can also add line numbers and highlight specific lines.
-
-This is the code for this example:
-
-<!-- markdownlint-disable MD046 -->
-
-    {{</* highlight ruby "linenos=table,hl_lines=3 5-7,linenostart=10" */>}}
-    require 'chef/config'
-    require 'chef/log'
-    require 'chef/rest'
-
-    chef_server_url = 'https://chefserver.com'
-    client_name = 'client_name'
-    signing_key_filename = '/path/to/pem/for/client_name'
-
-    rest = Chef::REST.new(chef_server_url, client_name, signing_key_filename)
-    puts rest.get_rest('/clients')
-    {{</* / highlight */>}}
-
-<!-- markdownlint-enable MD046 -->
-
-produces this:
-
-{{< highlight ruby "linenos=table,hl_lines=3 5-7,linenostart=10" >}}
-require 'chef/config'
-require 'chef/log'
-require 'chef/rest'
-
-chef_server_url = 'https://chefserver.com'
-client_name = 'client_name'
-signing_key_filename = '/path/to/pem/for/client_name'
-
-rest = Chef::REST.new(chef_server_url, client_name, signing_key_filename)
-puts rest.get_rest('/clients')
-{{< / highlight >}}
-
-See [Hugo's documentation](https://gohugo.io/content-management/syntax-highlighting/#highlight-shortcode) for more information.
 
 ## `readfile` shortcode
 
@@ -404,12 +367,12 @@ The svg shortcode takes one parameter, `file`, which is the file path to the SVG
 For example:
 
 ```md
-Click on the web asset icon ({{</* svg file="themes/docs-new/static/images/web-asset.svg" */>}}).
+Click on the web asset icon ({{</* svg file="/static/images/web-asset.svg" */>}}).
 ```
 
 produces:
 
-Click on the web asset icon ({{< svg file="themes/docs-new/static/images/web-asset.svg" >}}).
+Click on the web asset icon ({{< svg file="/static/images/web-asset.svg" >}}).
 
 ## Create a new shortcode
 

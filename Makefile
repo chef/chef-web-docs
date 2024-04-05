@@ -17,13 +17,13 @@ clean:
 
 clean_all: clean clean_hugo_mod
 
-serve: npm
+serve: bundle
 	hugo server --buildDrafts --noHTTPCache --buildFuture
 
-metrics: npm
+metrics: bundle
 	hugo --gc --minify --enableGitInfo --templateMetrics --templateMetricsHints
 
-nodrafts: npm
+nodrafts: bundle
 	hugo server --noHTTPCache --buildFuture
 
 production: bundle
