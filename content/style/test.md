@@ -495,6 +495,14 @@ Add code using the readfile shortcode:
 
 {{< readfile file="data/test/test.json" highlight="json" >}}
 
+And code without syntax highlighting:
+
+```
+describe google_compute_networks(project: 'chef-gcp-inspec') do
+	its('network_names') { should include 'inspec-network' }
+end
+```
+
 ### Inline code
 
 This is an `inline block of code`.
