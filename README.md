@@ -144,26 +144,19 @@ For example:
 1. Add the following config information to the `hugo.work` file:
 
     ```go
-    go 1.22.0
+    go 1.22
 
     use .
     use ../path/to/local/chef-docs-theme
     ```
 
-1. Set the `hugo.work` as an environment variable in your terminal:
+1. Start the Hugo local server:
 
     ```sh
-    export HUGO_MODULE_WORKSPACE=hugo.work
+    make test_theme
     ```
 
-1. Start the local server:
-
-    ```sh
-    make serve_ignore_vendor
-    ```
-
-    This Make command ignores the Hugo modules stored in the `_vendor` directory.
-    If you start Hugo's local server normally, it will continue to source the theme from the `_vendor` directory.
+    This command adds the `hugo.work` file to the Hugo workspace and then ignores the contents of `chef-docs-theme` repo in the `_vendor` directory.
 
 ### Test theme branch
 
