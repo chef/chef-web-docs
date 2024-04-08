@@ -173,4 +173,12 @@ Chef SaaS leverages public certificates to ensure a secure connection to the ser
 
 Lastly, run a client list command to verify a successful connection to the new organization.
 
-1. Run the following command: knife client list and ensure a validator entry is returned (Example: myorg-validator)
+1. Run the following command: `knife client list` and ensure a validator entry is returned (Example: myorg-validator)
+
+{{< note >}}
+
+You will need to sign up for the [Customer Support](https://community.progress.com/s/supportlink-landing).
+
+Once you have created the user, [download](https://community.progress.com/s/downloads-chef) the Workstation for Amazon Linux 2.
+
+{{< /note >}}
