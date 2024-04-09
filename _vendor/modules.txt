@@ -14,10 +14,7 @@
 # github.com/chef/compliance-profiles/docs-chef-io v0.0.0-20240306070238-713aa7a8dd8e
 # github.com/chef/compliance-remediation-2022/docs-chef-io v0.0.0-20240313054833-ebbc45209efa
 # github.com/chef/license-service/docs-chef-io v0.0.0-20231117105514-d3f3d53ba2dd
-# github.com/chef/chef-docs-theme v0.0.0-20240325200949-00fdecaf8c51
-# github.com/FortAwesome/Font-Awesome v0.0.0-20240108205627-a1232e345536
 # github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90
-# github.com/twitter/hogan.js v3.0.2+incompatible
 # github.com/swiftype/swiftype-autocomplete-jquery v0.0.0-20190222215504-a90008d64b30
 # github.com/swiftype/swiftype-search-jquery v1.1.0
-# github.com/ten1seven/what-input v5.2.12+incompatible
+# github.com/twitter/hogan.js v3.0.2+incompatible

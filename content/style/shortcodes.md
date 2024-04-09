@@ -284,26 +284,6 @@ and `panel-id`/`panel-link` values must be unique HTML IDs on the page.
 
 <!-- markdownlint-enable MD046 MD032 -->
 
-## `highlight` shortcode
-
-You can add code examples using the `highlight` shortcode.
-
-For example, this:
-
-<!-- markdownlint-disable MD046 -->
-
-    {{</* highlight ruby */>}}
-    puts 'Hello, world!'
-    {{</* /highlight */>}}
-
-<!-- markdownlint-enable MD046 -->
-
-produces:
-
-{{< highlight ruby >}}
-puts 'Hello, world!'
-{{< / highlight >}}
-
 ## `readfile` shortcode
 
 The `readfile` shortcode adds text from a file to a page. You can add a Markdown file, HTML file, or code file by specifying the path to the file from the project root directory.
@@ -366,12 +346,12 @@ The svg shortcode takes one parameter, `file`, which is the file path to the SVG
 For example:
 
 ```md
-Click on the web asset icon ({{</* svg file="/static/images/web-asset.svg" */>}}).
+Click on the web asset icon ({{</* svg file="themes/docs-new/static/images/web-asset.svg" */>}}).
 ```
 
 produces:
 
-Click on the web asset icon ({{< svg file="/static/images/web-asset.svg" >}}).
+Click on the web asset icon ({{< svg file="themes/docs-new/static/images/web-asset.svg" >}}).
 
 ## Create a new shortcode
 

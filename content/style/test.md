@@ -42,7 +42,7 @@ This is in an H6 section.
 
 This is in an bolded section.
 
-## Inline elements
+## Inline Elements
 
 Inline elements show up within the text of paragraph, list item, admonition, or
 other block-level element.
@@ -54,7 +54,7 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
 fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 culpa qui officia deserunt mollit anim id est laborum.
 
-### Inline text styles
+### Inline Text Styles
 
 <!-- markdownlint-disable MD033 -->
 
@@ -71,7 +71,7 @@ culpa qui officia deserunt mollit anim id est laborum.
 
 <!-- markdownlint-enable MD033 -->
 
-## `readfile` shortcode
+## readfile Shortcode
 
 Use the `readfile` shortcode to add files to a page. This could be Markdown text or a code sample.
 
@@ -94,7 +94,7 @@ mind:
   between the lists, flush with the left-hand border. The first list won't end
   otherwise, no matter how many blank lines you put between it and the second.
 
-### Ordered lists
+### Ordered Lists
 
 Indent ordered sub-list items **3 spaces**.
 
@@ -336,7 +336,7 @@ This is a list with code blocks included with each list item:
 
 - Ea dolor reprehenderit amet nostrud Lorem sunt officia duis.
 
-### Description list
+### Description List
 
 Use description lists to define commands, command flags, options, or other terms. For example:
 
@@ -396,7 +396,7 @@ Checklists are an unordered list with a checkbox.
 - [ ] This is a checklist item
 - [x] This is a selected checklist item
 
-### Tab panels
+### Tab Panels
 
 <!-- markdownlint-disable MD031 -->
 
@@ -447,73 +447,22 @@ Checklists are an unordered list with a checkbox.
 
 <!-- markdownlint-enable MD031 -->
 
-## Code
-
-### Code blocks
+## Code Blocks
 
 Eiusmod cupidatat excepteur tempor elit officia ipsum aute nulla ea do minim eu eu.
 
-Commodo adipisicing sunt nisi laborum laboris.
-
-Code block using the [highlight shortcode](https://gohugo.io/content-management/syntax-highlighting/#example-highlight-shortcode):
-
-{{< highlight ruby "linenos=table,hl_lines=3 5-7,linenostart=10" >}}
-require 'chef/config'
-require 'chef/log'
-require 'chef/rest'
-
-chef_server_url = 'https://chefserver.com'
-client_name = 'client_name'
-signing_key_filename = '/path/to/pem/for/client_name'
-
-rest = Chef::REST.new(chef_server_url, client_name, signing_key_filename)
-puts rest.get_rest('/clients')
-{{< / highlight >}}
-
-Dolore est deserunt pariatur voluptate.
-
-This is the code for this example:
-
-<!-- markdownlint-disable MD046 -->
-
-    {{</* highlight ruby "linenos=table,hl_lines=3 5-7,linenostart=10" */>}}
-    require 'chef/config'
-    require 'chef/log'
-    require 'chef/rest'
-
-    chef_server_url = 'https://chefserver.com'
-    client_name = 'client_name'
-    signing_key_filename = '/path/to/pem/for/client_name'
-
-    rest = Chef::REST.new(chef_server_url, client_name, signing_key_filename)
-    puts rest.get_rest('/clients')
-    {{</* / highlight */>}}
-
-<!-- markdownlint-enable MD046 -->
-
-Add code using the readfile shortcode:
-
-{{< readfile file="data/test/test.json" highlight="json" >}}
-
-And code without syntax highlighting:
-
-<!-- markdownlint-disable MD040 -->
-
-```
-describe google_compute_networks(project: 'chef-gcp-inspec') do
-	its('network_names') { should include 'inspec-network' }
-end
+```bash
+ls -l
 ```
 
-<!-- markdownlint-enable MD040 -->
+Incididunt officia consequat aliquip amet quis elit culpa eiusmod duis esse nisi incididunt.
 
-### Inline code
-
-This is an `inline block of code`.
-
-Dolor Lorem commodo consequat non adipisicing officia duis.
-
-This is [`code` in a link](https://docs.chef.io/style/test/#code-blocks).
+```ruby
+z = { 'mike' => 75, 'bill' => 18, 'alice' => 32 }
+z['joe'] = 44
+print z['bill'], " ", z['joe'], " ", z["smith"], "\n"
+print z.has_key?('mike'), " ", z.has_key?("jones"), "\n"
+```
 
 Commodo adipisicing sunt nisi laborum laboris.
 
@@ -624,7 +573,7 @@ tables, use HTML instead.
 
 <!-- markdownlint-enable MD033 -->
 
-## Blockquotes and admonitions
+## Blockquotes and Admonitions
 
 Sidebars and admonitions provide ways to add visual importance to text. Use
 them sparingly.
@@ -668,7 +617,7 @@ Warnings point out something that could cause harm if ignored.
 The reader should proceed with caution. Ignoring this could break their deployment.
 {{< /danger >}}
 
-## `svg` shortcode
+## SVG Shortcode
 
 The SVG shortcode will add an inline SVG icon to a string of text:
 
