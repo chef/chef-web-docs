@@ -8,5 +8,5 @@ set -eou pipefail
 # Run 'netlify dev'
 ###
 
-npm install
+pushd themes/docs-new && npm install && popd
 hugo server -b localhost:1313

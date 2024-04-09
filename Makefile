@@ -1,21 +1,15 @@
 # we use pushd/popd here, and /bin/sh of our chefes/buildkite image is not bash
 # so we have to override the default shell here
-SHELL=bash -eou pipefail
+SHELL=bash
 
-# bundle is also executed from other repositories when people run local previews
 bundle:
-	npm install
+	pushd themes/docs-new && make bundle && popd
 
-clean_hugo_mod:
-	hugo mod clean --all
-
-clean:
-	rm -rf node_modules
-	rm -rf dart-sass
+clean_all:
+	pushd themes/docs-new && make clean_all && popd
 	rm -rf resources/
 	rm -rf public/
-
-clean_all: clean clean_hugo_mod
+	hugo mod clean
 
 serve: bundle
 	hugo server --buildDrafts --noHTTPCache --buildFuture
@@ -27,27 +21,13 @@ nodrafts: bundle
 	hugo server --noHTTPCache --buildFuture
 
 production: bundle
-	hugo --gc --minify --enableGitInfo
-
-deploy_preview: bundle
-	hugo --gc --minify --enableGitInfo --buildFuture
+	hugo server --buildDrafts --noHTTPCache --buildFuture --environment production
 
 serve_ignore_vendor: bundle
 	hugo server --buildDrafts --noHTTPCache --buildFuture --ignoreVendorPaths github.com/**
 
-test_theme: bundle
-	HUGO_MODULE_WORKSPACE=hugo.work hugo server --buildDrafts --noHTTPCache --buildFuture --ignoreVendorPaths "github.com/chef/chef-docs-theme"
-
-# https://gohugo.io/troubleshooting/audit/
-audit: bundle
-	HUGO_MINIFY_TDEWOLFF_HTML_KEEPCOMMENTS=true HUGO_ENABLEMISSINGTRANSLATIONPLACEHOLDERS=true hugo && grep -inorE "<\!-- raw HTML omitted -->|ZgotmplZ|\[i18n\]|\(<nil>\)|(&lt;nil&gt;)|hahahugo" public/
-
 lint: bundle
 	hugo -D
-
-update_theme:
-	hugo mod get -u github.com/chef/chef-docs-theme
-	hugo mod npm pack
 
 ## See:
 ## - https://cspell.org/docs/getting-started/
@@ -73,7 +53,7 @@ resource_files:
 # Verifies that all Cookstyle MD pages exist
 verify_cookstyle_pages:
 	dataDir=generated/_vendor/github.com/chef/cookstyle/docs-chef-io/assets/cookstyle; \
-	markdownDir=generated/generated_content/workstation/cookstyle/cops; \
+	markdownDir=generated/generated_content/workstation/cookstyle; \
 	for f in $$(ls $${dataDir}); \
 		do mdFile="$${f/.yml/.md}"; \
 		mdFilePath="$${markdownDir}/$${mdFile/cops_/}"; \
@@ -81,7 +61,7 @@ verify_cookstyle_pages:
 			echo "$${mdFilePath} does not exist."; \
 		fi; \
 	done; \
-	if test ! -f "generated/generated_content/workstation/cookstyle/cops/_index.md"; then \
-			echo "generated/generated_content/workstation/cookstyle/cops/_index.md does not exist."; \
+	if test ! -f "generated/generated_content/workstation/cookstyle/cops.md"; then \
+			echo "generated/generated_content/workstation/cookstyle/cops.md does not exist."; \
 	fi; \
 
