@@ -1,3 +1,4 @@
+{{- $browser := resources.Get "js/browser.js" -}}
 {{- $fontawesome := resources.Get "js/vendor/fontawesome-free/all.min.js" -}}
 {{- $foundation := resources.Get "js/vendor/foundation-sites/dist/js/foundation.min.js" -}}
 {{- $hashchange := resources.Get "js/vendor/cowboy/jquery.ba-hashchange.min.js" -}}
@@ -8,7 +9,7 @@
 {{- $swiftypeConfig := resources.Get "js/swiftype-config.js" -}}
 {{- $whatInput := resources.Get "js/vendor/what-input/what-input.min.js" -}}
 
-{{- $coreJs := slice $fontawesome $jquery $foundation $whatInput $hogan $hashchange $swiftypeAutocomplete $swiftype $swiftypeConfig -}}
+{{- $coreJs := slice $fontawesome $jquery $foundation $whatInput $browser $hogan $hashchange $swiftypeAutocomplete $swiftype $swiftypeConfig -}}
 
 {{ if hugo.Environment | eq "development" }}
   {{- $coreJs = $coreJs | resources.Concat "js/core-bundle.js" -}}
@@ -18,7 +19,6 @@
   <script src="{{ $coreJs.RelPermalink }}"></script>
 {{ end }}
 
-{{- $browser := resources.Get "js/browser.js" -}}
 {{- $chefHugo := resources.Get "js/chef-hugo.js" -}}
 {{- $copycodebutton := resources.Get "js/copy-code-button.js" -}}
 {{- $feedback := resources.Get "js/feedback.js" -}}
@@ -26,7 +26,8 @@
 {{- $inspecFilter := resources.Get "js/inspec-filter.js" -}}
 {{- $resourceNote := resources.Get "js/resource-note.js" -}}
 {{- $versionDocs := resources.Get "js/version-docs.js" -}}
-{{- $customJs := slice  $browser $copycodebutton $chefHugo $inspecFilter $resourceNote $versionDocs $feedback $imageModal -}}
+
+{{- $customJs := slice $copycodebutton $chefHugo $inspecFilter $resourceNote $versionDocs $feedback $imageModal -}}
 
 {{ if hugo.Environment | eq "development" }}
   {{- $customJs = $customJs | resources.Concat "js/custom-bundle.js" -}}

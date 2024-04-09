@@ -94,5 +94,5 @@ path = "github.com/ten1seven/what-input"
 disable = false
 
   [[module.imports.mounts]]
-  source = "dist/what-input.min.js"
-  target = "assets/js/vendor/what-input/what-input.min.js"
+  source = "dist"
+  target = "assets/js/vendor/what-input"
