@@ -143,14 +143,14 @@ For example:
 1. Restart the service on the Chef Infra Server.
 
    ```bash
-   chef-server-ctl restart SERVICE_NAME
+   chef-server-ctl restart <SERVICE_NAME>
    ```
 
-   Replace `SERVICE_NAME` with the name of the service you are restarting.
+   Replace `<SERVICE_NAME>` with the name of the service you are restarting.
 
    The `chef-server-ctl restart` subcommand restarts all services on the Chef Infra Server or a single service if you specify a service name.
 
-   When a service is successfully restarted it will return:
+   When the service restarts, it returns:
 
    ```sh
    ok: run: service_name: (pid 12345) 1s
