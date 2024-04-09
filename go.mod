@@ -1,9 +1,10 @@
 module github.com/chef/chef-web-docs
 
-go 1.18
+go 1.22
 
 require (
 	github.com/chef/automate/components/docs-chef-io v0.0.0-20240306133449-4e982f867599 // indirect
+	github.com/chef/chef-docs-theme v0.0.0-20240409164840-b4118d40c811 // indirect
 	github.com/chef/chef-server/docs-chef-io v0.0.0-20240320162132-10d96e306f90 // indirect
 	github.com/chef/chef-workstation/docs-chef-io v0.0.0-20240220152040-faf51299a28a // indirect
 	github.com/chef/compliance-profiles/docs-chef-io v0.0.0-20240306070238-713aa7a8dd8e // indirect
