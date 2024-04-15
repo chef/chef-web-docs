@@ -23,7 +23,7 @@ Once everything has been set up and restored to the new Chef environment, the no
 
 * One compliance scan an hour.
 
-## Obtain an example Cookbook/Recipe to point nodes to the new Chef SaaS instance
+## Redirect nodes to Chef SaaS
 
 Progress Chef has developed a Cookbook and Recipe that can run against all nodes under management in the AWS OpsWorks environment. This Cookbook will redirect all nodes to the new Chef SaaS instance. Some samples of the cookbooks, PolicyFile.rb, attribute file, and recipe file, are:
 

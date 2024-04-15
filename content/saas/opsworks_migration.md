@@ -3,7 +3,7 @@ title = "Migrate from AWS OpsWorks to Chef SaaS"
 draft = false
 [menu]
   [menu.saas]
-    title = "OpsWorks Migration"
+    title = " AWS OpsWorks Migration"
     identifier = "chef_infra/OpsWorks Migration"
     parent = "chef_saas"
     weight = 30
@@ -47,9 +47,9 @@ As part of the migration process, we deploy a Blue/Green method that links to yo
 fqdn = "june15.opsworks.chef.co"
 ```
 
-## Backup OpsWorks
+## Backup AWS OpsWorks
 
-OpsWorks for chef-automate can have two configuration setups.
+AWS OpsWorks for chef-automate can have two configuration setups.
 
 * Cluster with SSH access
 * Cluster without SSH access
@@ -65,8 +65,6 @@ For the customers with SSH/SSM access, follow the below steps to create a backup
 1. Create a `patch.toml` as below:
 
   ```sh
-  $ cat patch.toml
-
   [global.v1.backups]
   location = "filesystem"
 
@@ -120,20 +118,20 @@ For the customers without SSH/SSM access, follow the below steps to create a bac
 
   {{< figure src="/images/saas-status-column.png" alt="Status Column">}}
 
-1. Now go to the AWS S3 console and find the opswork bucket in which the backups are stored.
+1. Now go to the AWS S3 console and find the AWS OpsWorks bucket in which the backups are stored.
 
   {{< figure src="/images/saas-aws-console.png" alt="AWS s3 Console">}}
 
   Zip the latest timestamp-based directory and automate-elasticsearch-data directory and share it with the chef team.
 
-## Restore OpsWorks backup to Chef SaaS
+## Restore AWS OpsWorks backup to Chef SaaS
 
 Progress Chef Engineers handle the restoration process. Your account manager will notify you once the restoration is complete.
 
 ## Verify Restore
 
-Once the restore is complete, you can log into the Chef SaaS using your OpsWorks credentials. Once logged in, you will see data in the environment up to the day of the backup. This will include users, cookbooks, client runs, etc.
+Once the restore is complete, you can log into the Chef SaaS using your AWS OpsWorks credentials. Once logged in, you will see data in the environment up to the day of the backup. This will include users, cookbooks, client runs, etc.
 
 ## Update DNS
 
-The final step in the migration process will point your OpsWorks Nodes to the new Chef SaaS DNS so that node data flows forward.
+The final step in the migration process will point your AWS OpsWorks Nodes to the new Chef SaaS DNS so that node data flows forward.

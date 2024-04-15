@@ -22,11 +22,7 @@ This getting started guide will walk through the necessary setup and configurati
     * SaaS Credentials
     * Pivotal PEM file for the initial setup of the environment (the PEM is temporary, so replace it in a later step)
 
-## Connect to Chef SaaS
-
-Connect to the URL provided by Progress Chef and log in with the admin account credentials to ensure that the environment is ready to be configured.
-
-## Add an Infra Server in Chef SaaS Web UI
+## Add Chef Infra Server in Chef SaaS
 
 Connected to the Chef SaaS Automate Web User Interface, following these steps to add the Infra Server to the environment.
 
@@ -40,7 +36,7 @@ Connected to the Chef SaaS Automate Web User Interface, following these steps to
 
     * Provide a unique Name for the Chef Infra Server.
     * Ensure that the Type selected is FQDN.
-    * Enter the FQDN by copying the same URL used to connect to the Automate Web User Interface. (Example: mycompany-demo.saas.chef.io)
+    * Enter the FQDN by copying the same URL used to connect to the Chef SaaS. (Example: mycompany-demo.saas.chef.io)
       {{< figure src="/images/automate/add-chef-server-popup-menu-with-error.png" width="500" alt="Add Chef Server Form">}}
 
 1. Select **Add Chef Infra Server**.
