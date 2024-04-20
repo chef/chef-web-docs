@@ -9,7 +9,7 @@ draft = false
     weight = 30
 +++
 
-This guide will walk you through the migration scenarios from AWS OPSWorks to Chef SaaS.
+This guide will walk you through the migration scenarios from AWS OpsWorks to Chef SaaS.
 
 {{< note >}} Assuming that you have upgraded to Automate 2.0 {{< /note >}}
 
@@ -17,25 +17,11 @@ If you have already upgraded to Chef Automate 2.0, no further installation, upgr
 
 ## Prerequisites
 
+Before you start working for the migration from AWS OpsWorks to Chef SaaS, have a quick look to the following prerequisites:
+
 * Running Automate 2.0 in AWS OpsWorks.
-
-* A Chef SaaS Environment. Refer to the [Getting Started](/get_started/) with the Chef SaaS page.
-
-* An S3 bucket was provided by Progress Chef.
-
-## High-level steps to migrate from AWS OpsWorks to Chef SaaS
-
-The advantages of migrating from AWS OpsWorks to Chef SaaS are:
-
-* Customer reviews and reduced current data as needed.
-
-* Creates Data Backup.
-
-* Chef creates SaaS account.
-
-* Chef restores backup.
-
-* Register nodes with Chef SaaS.
+* A Chef SaaS Environment. Refer to the [Getting Started](/saas/get_started/) with the Chef SaaS page.
+* An S3 bucket is provided by Progress Chef.
 
 ## Prepare DNS for cutover
 
@@ -54,14 +40,13 @@ AWS OpsWorks for chef-automate can have two configuration setups.
 * Cluster with SSH access
 * Cluster without SSH access
 
-Both types of clusters will have SSM access. Customers should be able to log in to the Opswork chef-automate instance and follow the below steps to create a backup. By default, Opswork has the manual backup feature, which creates a backup in S3 that can be used in case customers are not able to log in to an instance via SSH/SSM.
+Both types of clusters will have SSM access. Customers should be able to log in to the AWS OpsWorks chef-automate instance and follow the below steps to create a backup. By default, AWS OpsWorks has the manual backup feature, which creates a backup in S3 that can be used in case customers are not able to log in to an instance via SSH/SSM.
 
 ## Steps to access SSH/SSH
 
 For the customers with SSH/SSM access, follow the below steps to create a backup
 
-1. Login to the Opswork EC2 instance via SSH/SSM from the EC2 console.
-
+1. Login to the AWS OpsWorks EC2 instance via SSH/SSM from the EC2 console.
 1. Create a `patch.toml` as below:
 
   ```sh
@@ -87,8 +72,6 @@ For the customers with SSH/SSM access, follow the below steps to create a backup
   sudo chef-automate bootstrap bundle create bootstrap.abb
   ```
 
-  {{< figure src="/images/backup-create-command-output.png" alt="Backup Create Command">}}
-
   You will get the Success message once the backup process is complete, as shown in the screenshot above. The backup data will be available in /var/opt/chef-automate/backups/
 
 1. Zip the backup and share it with the chef team. Include the timestamp-based directory, `automate-elasticsearch-data`, `.tmp` directory, and `bootstrap.abb`.
@@ -106,14 +89,10 @@ For the customers with SSH/SSM access, follow the below steps to create a backup
 
 For the customers without SSH/SSM access, follow the below steps to create a backup:
 
-1. Go to the AWS **Opswork** console.
-
+1. Go to the **AWS OpsWorks** console.
 1. Choose the server you want to back up on the **Chef Automate servers** page.
-
 1. On the properties page for the server, in the left navigation pane, choose **Backups**.
-
 1. Choose **Create Backup**.
-
 1. The manual backup is finished when the page shows a green checkmark in the backup's **Status** column.
 
   {{< figure src="/images/saas-status-column.png" alt="Status Column">}}
@@ -123,8 +102,6 @@ For the customers without SSH/SSM access, follow the below steps to create a bac
   {{< figure src="/images/saas-aws-console.png" alt="AWS s3 Console">}}
 
   Zip the latest timestamp-based directory and automate-elasticsearch-data directory and share it with the chef team.
-
-## Restore AWS OpsWorks backup to Chef SaaS
 
 Progress Chef Engineers handle the restoration process. Your account manager will notify you once the restoration is complete.
 

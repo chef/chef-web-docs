@@ -13,14 +13,12 @@ Once everything has been set up and restored to the new Chef environment, the no
 
 ## Prerequisites
 
+Before you start working on the Chef environment of Chef SaaS, have a quick look to the following prerequisites:
+
 * Running Automate 2.0 in AWS OpsWorks.
-
 * A Chef SaaS Environment. For more information, refer to the [Getting Started](/get_started/) with the Chef SaaS page.
-
 * Restoration is performed on AWS OpsWorks for Chef SaaS.
-
 * Splay mode and baseline are up to 2 client runs an hour. Refer to the [Chef Infra Client](https://docs.chef.io/ctl_chef_client/) page for more details on configuring splay mode in the `client.rb` file.
-
 * One compliance scan an hour.
 
 ## Redirect nodes to Chef SaaS
