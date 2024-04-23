@@ -15,18 +15,18 @@ Single sign-on (SSO) is an authentication method that enables you to securely au
 1. The above URL will redirect you to the SAML setup page, where you(the admin) can set up the Single sign-on configuration using the UI provided.
 1. The Chef SaaS SSO feature currently supports only SAML-based IDP authentication and will support IDPs according to the [Automate Documentation](https://docs.chef.io/automate/saml/).
 
-## IDP Configuration
+## IDP configuration
 
 Chef SaaS SSO feature supports primary SAML authentication as per the current supported IDP of Automate. Following are the sample steps to configure the IDPs based on the tried test use cases:
 
 * [OKTA IDP configuration for SSO](https://chefio.atlassian.net/wiki/spaces/CPSK/pages/2720694589/OKTA+IDP+configuration+for+SSO)
 * [Microsoft 365 and Azure AD IDP configuration for SSO](https://chefio.atlassian.net/wiki/spaces/CPSK/pages/2712142486/Azure+AD+and+Microsoft+365+IDP+configuration+for+SSO)
 
-## User SSO Integration Journey
+## User SSO integration journey
 
 ### Prerequisites
 
-The prerequisites to configure SSO for Chef SaaS are follows:
+The prerequisites to configure SSO for Chef SaaS are as follows:
 
 * The User SSO Integration Journey feature is accessible only to the Chef SaaS admins.
 * Supported IDP is up and ready.
@@ -46,10 +46,10 @@ The steps to enable SSO for Chef SaaS are as follows:
 1. Fill the form fields with the values provided by your IDP.
 
     * **SSO URL:** Single Sign-On URL is provided by your IDP.
-    * **Email Attribute:** The attribute is set up in IDP foruser e-mail.
+    * **Email Attribute:** The attribute is in IDP for user e-mail.
     * **Username Attribute:** The attribute is set up in IDP for the username.
     * **Entity Issuer URL:** The value will be `https://your_automate_url/dex/callback`.
-    * **CA Certificate:** Ca certificate provided by the IDP. The value should include the following markers:
+    * **CA Certificate:** CA certificate provided by the IDP. The value should include the following markers:
 
     ```sh
     -----BEGIN CERTIFICATE----- and -----END CERTIFICATE-----
@@ -57,13 +57,13 @@ The steps to enable SSO for Chef SaaS are as follows:
 
     Validate the certificates for syntactical or semantical errors before submitting the config.
 
-1. If any error or validation failures arises, see the [Semantical error](https://chefio.atlassian.net/wiki/spaces/CPSK/pages/2666037294) page.
+1. If any error or validation failures arise, see the [Semantical error](https://chefio.atlassian.net/wiki/spaces/CPSK/pages/2666037294) page.
 1. Select **Submit** to set the SSO config. The submit button will enable it if the form validation passes.
 1. An indication icon will run until the setup process is completed.
 
     {{< figure src="/images/indication-icon-saas.png" alt="Indication Icon">}}
 
-1. When the request is completed, you can see if your setup is complete or if configuration errors exist.
+1. When the request is completed, you can see if your setup is complete or configuration errors exist.
     * If the request is completed, the user will see the SSO Request is complete. Config applied successfully.
     * If the request fails, the user will see SSO Request Failed with an appropriate message.
 
@@ -72,12 +72,12 @@ The steps to enable SSO for Chef SaaS are as follows:
 The steps to delete the SSO integration are as follows:
 
 1. Remove the **Configuration** button. Once the configuration is present, it will be enabled. Select to remove the configuration.
-1. A popup will appear to confirm whether a user wants to remove the config.
+1. A popup will confirm whether a user wants to remove the config.
 
     {{< figure src="/images/popup-to-remove-config.png" alt="Popup to Remove Config">}}
 
 1. Select **Remove** to start the config removal process.
-    * An indication icon will be present until the configuration is removed. The admin will see that the SSO request is complete and that the configuration has been removed successfully.
+    * An indication icon will be present until the configuration is removed. The admin will see that the SSO request is complete and the configuration has been removed successfully.
     * In case of an error, the admin will see SSO Request Failed with an appropriate message.
 1. Select **Cancel** to avoid config removal.
 
@@ -86,39 +86,39 @@ Assuming the admin has set up its IDP, the admin can provide the necessary infor
 1. **SSO URL:** Your IDP provides a Single Sign-On URL. Ensure that it is valid.
 1. **Email Attribute:** This attribute refers to the user’s email. The attribute configured in IDP for user email can be passed here.
 1. **Username Attribute:** This attribute refers to a username. The attribute configured in IDP for the username can be passed here.
-1. **Entity Issuer URL:** It contains the value of the Identifier (Entity ID). This should be your automate URL with dex callback. Ensure that this is a valid URL. The sample URL is `https://your_automate_url/dex/callback`.
-1. **CA Certificate:** This is the (Base64) Certificate value generated by your IDP on app configuration. Ensure that this certificate has -----BEGIN CERTIFICATE----- and -----END CERTIFICATE----- markers. This value should be used as it is and should not contain /n sequences.
+1. **Entity Issuer URL:** It contains the value of the Identifier (Entity ID). This should be your automated URL with a dex callback. Ensure that this is a valid URL. The sample URL is `https://your_automate_url/dex/callback`.
+1. **CA Certificate:** This is the (Base64) Certificate value your IDP generates on app configuration. Ensure that this certificate has -----BEGIN CERTIFICATE----- and -----END CERTIFICATE----- markers. This value should be used as it is and should not contain /n sequences.
 1. **Group Attribute:** This field is optional, but if not provided, users authenticating via SSO will not be members of any teams.
-1. **Allowed Groups:** This field is optional. It provides a single sign-in for members of the listed groups and discards all user groups that are not on the list. Groups must be on the allowed_groups list to access Chef Automate.
+1. **Allowed Groups:** This field is optional. It provides a single sign-in for members of the listed groups and discards all user groups not on the list. Groups must be on the allowed_groups list to access Chef Automate.
 1. **Name Id Policy Format:** When provided, Chef Automate will request a name ID of the configured format in the SAML AuthnRequest.
-This is a mandatory field for Microsoft365 and Azure AD IDPs Defaults to `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`.
+This field is mandatory for Microsoft365 and Azure AD IDPs. It defaults to `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`.
 
-### Undo your Changes
+### Undo your changes
 
 Admins can now select **Cancel** to override the edited field data.
 
-#### For use with Okta
+#### For use Okta
 
-To use with Okta, follow the steps:
+To use Okta, follow the steps:
 
 1. Visit the [Okta](https://okta.com) page and log in to your account.
 1. Select Applications to create your **SAML** application.
 1. Select on Create App Integration.
 1. Select **SAML 2.0**, and select next.
 1. You will be redirected to a page where you can create your app.
-1. Fill in the config information as shown in the below image and select next.
-    * Single sign-on URL: This should be the URL for your automate server plus /dex/callback. For example `https://your_automate_url/dex/callback`
-    * Audience URI: This will be the same URL as the Single sign-on URL
-    * Default RelayState should be blank
-    * Name ID format should be Unspecified
-    * Application username should be Email
+1. Fill in the config information shown in the image below and select next.
+    * Single sign-on URL: This should be the URL for your automate server plus /dex/callback, such as `https://your_automate_url/dex/callback`.
+    * Audience URI: This will be the same URL as the Single sign-on URL.
+    * Default RelayState should be blank.
+    * Name ID format should be Unspecified.
+    * Application username should be Email.
     * Under attributes, you’ll want to create two:
         * Name: email | Value: user.email
         * Name: username | Value: user.login
 
 1. Select I'm an Okta customer, add an internal app, and select **Finish**.
-1. Add users who can log in using this app.
-    * Select Assignments, then Assign and then assign to people. Select users from the list to add users to the app.
+1. Add users who can log in using this application.
+    * Select Assignments, then Assign, and then assign to people. Select users from the list to add users to the application.
 
 1. Your application will be created. Select view SAML setup instructions.
 
@@ -126,7 +126,7 @@ To use with Okta, follow the steps:
 
 Multiple options can be selected for use with Azure AD.
 
-### Before You Start
+### Before you start
 
 This guide assumes you have the following setup:
 
@@ -192,7 +192,7 @@ The steps are as follows:
 
 1. Configure SAML on the Chef Automate via SSO UI
 
-    * Log into chef-automate and then switch to SSO UI, i.e. `https://{your-chef-automate-fqdn}/sso`.
+    * Log into chef-automate and then switch to SSO UI, i.e., `https://{your-chef-automate-fqdn}/sso`.
     * Fill in the required values:
         * **CA Information:** This is the X.509 Certificate from section 3 above. Copy the downloaded certificate contents and paste them as the value for CA Information.
         * **SSO URL:** This is the value for the Identity Provider Single Sign-On URL. Use the Login URL value from Section 4 above.
@@ -218,4 +218,4 @@ These values are accepted for name_id_policy_format:
 * urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
 * urn:oasis:names:tc:SAML:2.0:nameid-format:transient
 
-Select **Submit** button to patch the SSO settings on the Chef Automate multiple options can be selected.
+Select the **Submit** button to patch the SSO settings on the Chef Automate; multiple options can be selected.

@@ -9,14 +9,14 @@ draft = false
     weight = 50
 +++
 
-Once everything has been set up and restored to the new Chef environment, the nodes under management must be redirected from AWS OpsWorks to Chef SaaS. This guide will provide recommendations on how to accomplish this.
+Once everything has been set up and restored to the new Chef environment, redirect the nodes under management from AWS OpsWorks to Chef SaaS. This guide will provide recommendations on how to accomplish this.
 
 ## Prerequisites
 
-Before you start working on the Chef environment of Chef SaaS, have a quick look to the following prerequisites:
+Before you start working on the Chef environment of Chef SaaS, have a quick look at the following prerequisites:
 
 * Running Chef Automate 2.0 in AWS OpsWorks.
-* A Chef SaaS Environment. For more information, refer to the [Getting Started](/get_started/) with the Chef SaaS page.
+* A Chef SaaS Environment. Refer to the [Getting Started](/get_started/) with the Chef SaaS page for more information.
 * Restoration is performed on AWS OpsWorks for Chef SaaS.
 * Splay mode and baseline are up to 2 client runs an hour. Refer to the [Chef Infra Client](https://docs.chef.io/ctl_chef_client/) page for more details on configuring splay mode in the `client.rb` file.
 * One compliance scan an hour.
@@ -27,35 +27,35 @@ Progress Chef has developed a Cookbook and Recipe that can run against all nodes
 
 * Cookbook
 
-{{< figure src="/images/saas-cookbook-folder.png" alt="Cookbook Folder">}}
+    {{< figure src="/images/saas-cookbook-folder.png" alt="Cookbook Folder">}}
 
 * PolicyFile.rb
 
-```ruby
-# Policyfile.rb  Describe how you want Chef Infra Client to build your system.
-#
-# For more information on the Policyfule feature, visit https://docs.chef.io/policyfile
+    ```ruby
+    # Policyfile.rb  Describe how you want Chef Infra Client to build your system.
+    #
+    # For more information on the Policyfule feature, visit https://docs.chef.io/policyfile
 
-# A name that describes the system you're building with Chef docs.
-name 'your_client'
+    # A name that describes the system you're building with Chef docs.
+    name 'your_client'
 
-# Where to find external cookbooks:
-default_source :supermarket
+    # Where to find external cookbooks:
+    default_source :supermarket
 
-# run_list: chef_client will run their recipes in the order specified.
-run_list 'your_client::default'
+    # run_list: chef_client will run their recipes in the order specified.
+    run_list 'your_client::default'
 
-# Specify a custom source for a single cookbook:
-cookbook 'your_client', path: '.'
-```
+    # Specify a custom source for a single cookbook:
+    cookbook 'your_client', path: '.'
+    ```
 
 * Attribute
 
-{{< figure src="/images/saas-attributes-folder.png" alt="Attributes Folder">}}
+    {{< figure src="/images/saas-attributes-folder.png" alt="Attributes Folder">}}
 
-`default[‘your_client']['chef_server_old'] = ‘<Old chef-server URL>’`
-`default[‘your_client']['chef_server_new'] = ‘<New chef-server URL>'`
+    `default[‘your_client']['chef_server_old'] = ‘<Old chef-server URL>’`
+    `default[‘your_client']['chef_server_new'] = ‘<New chef-server URL>'`
 
 * Recipe
 
-{{< figure src="/images/saas-recipes-folder.png" alt="Recipes Folder">}}
+    {{< figure src="/images/saas-recipes-folder.png" alt="Recipes Folder">}}

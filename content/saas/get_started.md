@@ -13,18 +13,19 @@ This getting started guide will walk through the necessary setup and configurati
 
 ## Prerequisites
 
-Before you start working with Chef SaaS, have a quick look to the following prerequisites:
+Before you start working with Chef SaaS, have a quick look at the following prerequisites:
 
-1. A System to install Chef Workstation
-    * Supported [Platforms and System Requirements](https://docs.chef.io/workstation/install_workstation/)
-1. Chef SaaS Starter Kit (Provided by Progress Chef)
-    * SaaS Environment URL
-    * SaaS Credentials
-    * Pivotal PEM file for the initial setup of the environment (the PEM is temporary, so replace it in a later step)
+* A System to install Chef Workstation.
+  * Supported [Platforms and System Requirements](https://docs.chef.io/workstation/install_workstation/).
+
+* Chef SaaS Starter Kit (Provided by Progress Chef).
+  * SaaS Environment URL.
+  * SaaS Credentials.
+  * Pivotal PEM file for the initial setup of the environment (the PEM is temporary, so replace it later).
 
 ## Add Chef Infra Server in Chef SaaS
 
-Connected to the Chef SaaS Automate Web User Interface, following these steps to add the Chef Infra Server to the environment.
+Connected to the Chef SaaS Automate Web User Interface, follow these steps to add the Chef Infra Server to the environment.
 
 1. Select Infrastructure in the top navigation.
 1. Select Chef Infra Servers in the left-hand navigation.
@@ -43,19 +44,19 @@ Download the Chef Workstation from the [Chef Downloads](https://downloads.chef.i
 
 ## Install Chef Workstation
 
-To install the Chef Workstation, go through our extended [Install Chef Workstation](https://docs.chef.io/workstation/install_workstation/) page.
+Go through our extended [Install Chef Workstation](https://docs.chef.io/workstation/install_workstation/) page to install the Chef Workstation.
 
 ## Configure Chef Workstation
 
-### Set up Chef Credentials file
+### Set up the Chef Credentials file
 
-To continue configuring Workstation with Chef SaaS, a credentials file must be created. This file will be updated with new credentials created later in the setup.
+Create a credentials file to continue configuring Workstation with Chef SaaS. You can update the new credentials created later in the setup.
 
-1. On the workstation, run: `knife configure init`
+1. On the workstation, run: `knife configure init`.
 1. This will prompt you with several questions:
     * Enter the Chef Infra Server URL provided in the Starter Kit (Example: `mycompany-demo.saas.chef.io`)
-    * For the existing API username or clientname, enter pivotal, which is the Super User account provided in the Starter Kit.
-1. Copy the `pivotal.pem` file provided in the Starter Kit to the ~/.chef directory before running any additional commands with Knife.
+    * For the existing API username or clientname, enter the Super User account provided in the Starter Kit.
+1. Copy the `pivotal.pem` file in the Starter Kit to the ~/.chef directory before running additional commands with Knife.
 
 The credentials file that gets created in the `~/.chef` directory looks like as shown in the following code snippet:
 
@@ -78,7 +79,7 @@ The above code returns the private key for the organization’s validator client
 
 ### Create a User in CLI
 
-Create a new user associated with the new Chef Organization and leverage in the credentials file. Create your new user account using the [knife user create](https://docs.chef.io/workstation/knife_user/) command. For example, to create a User named chefadmin:
+Create a new user associated with the new Chef Organization and leverage in the credentials file. Create your new account using the [knife user create](https://docs.chef.io/workstation/knife_user/) command. For example, to create a User named chefadmin:
 
 ```sh
 knife user create chefadmin --first-name Chef --last-name Admin --email chefadmin@mycompany.com –password securepassword -f chefadmin.pem
@@ -86,7 +87,7 @@ knife user create chefadmin --first-name Chef --last-name Admin --email chefadmi
 
 Copy the new `chefadmin.pem` file created with this command to the `~/.chef` directory before updating the credentials file later in this document.
 
-### Add New User to Organization in CLI
+### Add new User to Organization in CLI
 
 Associate the created Organization and User to each other. Use the [knife org user](https://docs.chef.io/workstation/knife_org/) command to add the user to an organization. For example, to add the User named **chefadmin** to the Organization called **myorg**:
 
@@ -94,13 +95,13 @@ Associate the created Organization and User to each other. Use the [knife org us
 knife org user add myorg chefadmin
 ```
 
-### Update the Credentials file to use a new account
+### Update the credentials file to use a new account
 
 Update the credentials file under the `~/.chef` directory on the Chef Workstation to reflect the new Organization, User, and PEM file.
 
 1. Navigate to `~/.chef`.
 1. Modify the credentials file.
-    * Change the client_name to the new account that was created (Example: chefadmin).
+    * Change the client_name to the new account created (Example: chefadmin).
     * Change the client_key to the new PEM file that was created (Example: [home/admin/.chef/chefadmin.pem](https://mycompany-demo.saas.chef.io/organizations/myorg)).
     * Change the chef_server_url to include the new Organization (Example: `https://mycompany-demo.saas.chef.io/organizations/myorg`).
     * Save and Quit.
@@ -127,7 +128,7 @@ The following steps will add the Organization to the Chef SaaS Web User Interfac
 
 {{< figure src="/images/automate/add-chef-organization-popup-menu.png" width="500" alt="Add Chef Organization Form">}}
 
-### Run Knife SSL Check
+### Run Knife SSL check
 
 Chef SaaS leverages public certificates to ensure a secure connection to the service. To eliminate connection issues, it is always best to run an SSL check on the Workstation to verify that the certificate is trusted.
 
@@ -137,11 +138,11 @@ Chef SaaS leverages public certificates to ensure a secure connection to the ser
 
 Lastly, run a client list command to verify a successful connection to the new organization.
 
-* Run the following command: `knife client list` and ensure a validator entry is returned (Example: myorg-validator)
+* Run the following command: `knife client list` and ensure a validator entry is returned (Example: myorg-validator).
 
 {{< note >}}
 
-You will need to sign up for the [Customer Support](https://community.progress.com/s/supportlink-landing).
+You must sign up for the [Customer Support](https://community.progress.com/s/supportlink-landing).
 
 Once you have created the user, [download](https://community.progress.com/s/downloads-chef) the Workstation for Amazon Linux 2.
 
