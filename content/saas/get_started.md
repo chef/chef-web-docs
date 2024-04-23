@@ -24,11 +24,11 @@ Before you start working with Chef SaaS, have a quick look to the following prer
 
 ## Add Chef Infra Server in Chef SaaS
 
-Connected to the Chef SaaS Automate Web User Interface, following these steps to add the Infra Server to the environment.
+Connected to the Chef SaaS Automate Web User Interface, following these steps to add the Chef Infra Server to the environment.
 
 1. Select Infrastructure in the top navigation.
 1. Select Chef Infra Servers in the left-hand navigation.
-1. Select **Add Chef Infra Server**
+1. Select **Add Chef Infra Server**.
 1. Enter the following fields:
     * Provide a unique Name for the Chef Infra Server.
     * Ensure that the Type selected is FQDN.
@@ -43,7 +43,7 @@ Download the Chef Workstation from the [Chef Downloads](https://downloads.chef.i
 
 ## Install Chef Workstation
 
-To install the Chef Workstation, go through our extended [Instal Chef Workstation](https://docs.chef.io/workstation/install_workstation/) page.
+To install the Chef Workstation, go through our extended [Install Chef Workstation](https://docs.chef.io/workstation/install_workstation/) page.
 
 ## Configure Chef Workstation
 
@@ -53,11 +53,11 @@ To continue configuring Workstation with Chef SaaS, a credentials file must be c
 
 1. On the workstation, run: `knife configure init`
 1. This will prompt you with several questions:
-    * Enter the Chef Server URL provided in the Starter Kit (Example: mycompany-demo.saas.chef.io)
+    * Enter the Chef Infra Server URL provided in the Starter Kit (Example: `mycompany-demo.saas.chef.io`)
     * For the existing API username or clientname, enter pivotal, which is the Super User account provided in the Starter Kit.
-1. Copy the pivotal.pem file provided in the Starter Kit to the ~/.chef directory before running any additional commands with Knife.
+1. Copy the `pivotal.pem` file provided in the Starter Kit to the ~/.chef directory before running any additional commands with Knife.
 
-The credentials file that gets created in the ~/.chef directory looks like as shown below:
+The credentials file that gets created in the `~/.chef` directory looks like as shown in the following code snippet:
 
 ```ruby
 [default]
@@ -68,7 +68,7 @@ chef_server_url     - 'https://mycompany-demo.saas.chef.io'
 
 ### Create Organization in CLI
 
-Add the Chef Organization to the Infra Server and act as a top-level entity for role-based access control. Use the [knife org create](https://docs.chef.io/workstation/knife_org/) command to create your Chef Organization. For example, to create an Organization called myorg:
+Add the Chef Organization to the Chef Infra Server and act as a top-level entity for role-based access control. Use the [knife org create](https://docs.chef.io/workstation/knife_org/) command to create your Chef Organization. For example, to create an Organization called myorg:
 
 ```sh
 Knife org create myorg “My New Organization”
@@ -84,11 +84,11 @@ Create a new user associated with the new Chef Organization and leverage in the 
 knife user create chefadmin --first-name Chef --last-name Admin --email chefadmin@mycompany.com –password securepassword -f chefadmin.pem
 ```
 
-Copy the new chefadmin.pem file created with this command to the ~/.chef directory before updating the credentials file later in this document.
+Copy the new `chefadmin.pem` file created with this command to the `~/.chef` directory before updating the credentials file later in this document.
 
 ### Add New User to Organization in CLI
 
-Associate the created Organization and User to each other. Use the [knife org user](https://docs.chef.io/workstation/knife_org/) command to add the user to an organization. For example, to add the User named chefadmin to the Organization called myorg:
+Associate the created Organization and User to each other. Use the [knife org user](https://docs.chef.io/workstation/knife_org/) command to add the user to an organization. For example, to add the User named **chefadmin** to the Organization called **myorg**:
 
 ```sh
 knife org user add myorg chefadmin
@@ -96,14 +96,14 @@ knife org user add myorg chefadmin
 
 ### Update the Credentials file to use a new account
 
-Update the credentials file under the ~/.chef directory on the Chef Workstation to reflect the new Organization, User, and PEM file.
+Update the credentials file under the `~/.chef` directory on the Chef Workstation to reflect the new Organization, User, and PEM file.
 
 1. Navigate to `~/.chef`.
 1. Modify the credentials file.
-    * Change the client_name to the new account that was created (Example: chefadmin)
-    * Change the client_key to the new PEM file that was created (Example: [home/admin/.chef/chefadmin.pem](https://mycompany-demo.saas.chef.io/organizations/myorg))
-    * Change the chef_server_url to include the new Organization (Example: [https://mycompany-demo.saas.chef.io/organizations/myorg](https://mycompany-demo.saas.chef.io/organizations/myorg))
-    * Save and Quit
+    * Change the client_name to the new account that was created (Example: chefadmin).
+    * Change the client_key to the new PEM file that was created (Example: [home/admin/.chef/chefadmin.pem](https://mycompany-demo.saas.chef.io/organizations/myorg)).
+    * Change the chef_server_url to include the new Organization (Example: `https://mycompany-demo.saas.chef.io/organizations/myorg`).
+    * Save and Quit.
 
     ```ruby
     [default]
@@ -131,7 +131,7 @@ The following steps will add the Organization to the Chef SaaS Web User Interfac
 
 Chef SaaS leverages public certificates to ensure a secure connection to the service. To eliminate connection issues, it is always best to run an SSL check on the Workstation to verify that the certificate is trusted.
 
-* Run the following command:  knife SSL checks and ensure a successful message is displayed.
+* Run the following command: `knife SSL checks` and ensure a successful message is displayed.
 
 ### Run Knife client list
 

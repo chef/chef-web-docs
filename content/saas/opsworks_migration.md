@@ -25,7 +25,7 @@ Before you start working for the migration from AWS OpsWorks to Chef SaaS, have 
 
 ## Prepare DNS for cutover
 
-As part of the migration process, we deploy a Blue/Green method that links to your existing public DNS. Refer to an example shown in the code snippet below:
+As part of the migration process, we deploy a blue/green method that links to your existing public DNS. Refer to an example shown in the following code snippet:
 
 ```ruby
 # The external fully qualified domain name.
@@ -35,19 +35,19 @@ fqdn = "june15.opsworks.chef.co"
 
 ## Backup AWS OpsWorks
 
-AWS OpsWorks for chef-automate can have two configuration setups.
+AWS OpsWorks for Chef Automate can have two configuration setups.
 
 * Cluster with SSH access
 * Cluster without SSH access
 
-Both types of clusters will have SSM access. Customers should be able to log in to the AWS OpsWorks chef-automate instance and follow the below steps to create a backup. By default, AWS OpsWorks has the manual backup feature, which creates a backup in S3 that can be used in case customers are not able to log in to an instance via SSH/SSM.
+Both types of clusters will have SSM access. Customers should be able to log in to the AWS OpsWorks Chef Automate instance and follow the below steps to create a backup. By default, AWS OpsWorks has the manual backup feature, which creates a backup in S3 that can be used in case customers are not able to log in to an instance via SSH/SSM.
 
 ## Steps to access SSH/SSH
 
 For the customers with SSH/SSM access, follow the below steps to create a backup
 
 1. Login to the AWS OpsWorks EC2 instance via SSH/SSM from the EC2 console.
-1. Create a `patch.toml` as below:
+1. Create a `patch.toml` as shown in the following code snippet:
 
   ```sh
   [global.v1.backups]
@@ -72,7 +72,7 @@ For the customers with SSH/SSM access, follow the below steps to create a backup
   sudo chef-automate bootstrap bundle create bootstrap.abb
   ```
 
-  You will get the Success message once the backup process is complete, as shown in the screenshot above. The backup data will be available in /var/opt/chef-automate/backups/
+  You will get the **Success** message once the backup process is complete, as shown in the screenshot above. The backup data will be available in `/var/opt/chef-automate/backups/`
 
 1. Zip the backup and share it with the chef team. Include the timestamp-based directory, `automate-elasticsearch-data`, `.tmp` directory, and `bootstrap.abb`.
 
@@ -87,11 +87,11 @@ For the customers with SSH/SSM access, follow the below steps to create a backup
 
   Customers can share the Backup using pre-signed URLs. The SOP provides steps for sharing the backup with the chef team.
 
-For the customers without SSH/SSM access, follow the below steps to create a backup:
+For the customers without SSH/SSM access, follow the steps to create a backup:
 
 1. Go to the **AWS OpsWorks** console.
 1. Choose the server you want to back up on the **Chef Automate servers** page.
-1. On the properties page for the server, in the left navigation pane, choose **Backups**.
+1. On the properties page for the Chef Infra server, in the left navigation pane, choose **Backups**.
 1. Choose **Create Backup**.
 1. The manual backup is finished when the page shows a green checkmark in the backup's **Status** column.
 
@@ -107,8 +107,4 @@ Progress Chef Engineers handle the restoration process. Your account manager wil
 
 ## Verify Restore
 
-Once the restore is complete, you can log into the Chef SaaS using your AWS OpsWorks credentials. Once logged in, you will see data in the environment up to the day of the backup. This will include users, cookbooks, client runs, etc.
-
-## Update DNS
-
-The final step in the migration process will point your AWS OpsWorks Nodes to the new Chef SaaS DNS so that node data flows forward.
+Once the restore is complete, you can log into the Chef SaaS using the credentials of AWS OpsWorks. Once logged in, you will see data in the environment up to the day of the backup. This will include users, cookbooks, client runs, etc.
