@@ -21,3 +21,88 @@ The host connects via unified interface of [transport interface (train)](https:/
 
 ![Target Mode overview](/images/Target Mode.png)
 
+## Host System
+This is the system where Chef Infra Client will be executing from, the host system must have networking connectivity and credentials to connect with the target system. Cookbooks, or policy files can be retried from InfraServer, Supermarket, locally, or a Git repo (the same as any other Infra Client) For purposes of the description we will use Chef Workstation as the host system. Production deployments should either follow either a digital twin, pool, or Chef-360 Courier managed architecture.
+
+### Requirements
+There are two prerequisites to start using Chef Target Mode. The first is a credentials file, this provides the host with connectivity information to a target node. The second is a recipe compatible with target mode, which means it only contains resources that work with target mode.
+
+#### Credentials file
+This credentials file located in chef configuration directory `~/.chef/` on linux (and Mac) or `c:\Users\<username>\.chef` on windows hosts. In that directory a file named credentials (`~/.chef/credentials`) is required. The credentials file is the inventory or catalog of target nodes the host is permitted to connect to.
+
+> If running from a workstation host, this configuration will be shared with other workstation commands.
+
+SSH protocol is the primary protocol to connect with target systems. All other protocols as supported in the [Transport Interface](https://github.com/inspec/train) should also work.
+
+##### Sample credentials file
+
+###### SSH
+Sample config is below:
+
+~~~
+
+['Target-01']
+host = '192.168.0.251'
+user = 'root'
+key_files = '~/.keys/key-pair.pem'"
+
+['Target-02']
+host = '192.168.0.252'
+user = 'root'
+password = '123456'
+
+['Target-03']
+host = '192.168.0.252'
+user = 'root'
+password = '123456'
+
+protocol = ssh
+
+~~~
+
+Credentials for target system include following parameters:
+
+`host`      -> IP address of the target system
+
+`user`      -> username to execute on target system
+
+`password`  -> password of user to authenticate with target system
+
+> Each key-value pair of credential for each target system is used by train protocol for authentication during execution.
+
+###### WinRM
+Sample config is below:
+
+~~~
+
+['Target-01']
+host = '192.168.0.251'
+user = 'Administrator'
+key_files = '~/.keys/key-pair.pem'"
+
+['Target-02']
+host = '192.168.0.252'
+user = 'Administrator'
+password = '123456'
+
+['Target-03']
+host = '192.168.0.252'
+user = 'Administrator'
+password = '123456'
+
+protocol = winrm
+ssl: true
+self_signed: true
+
+~~~
+
+Credentials for target system include following parameters:
+
+`host`      -> IP address of the target system
+
+`user`      -> username to execute on target system
+
+`password`  -> password of user to authenticate with target system
+
+
+
