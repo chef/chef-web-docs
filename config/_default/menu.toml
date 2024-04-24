@@ -4,7 +4,7 @@
 ####
 
 [[main]]
-title = "Chef.io"
+title = "chef.io"
 identifier = "chef"
 url = "https://www.chef.io/"
 weight = 10
