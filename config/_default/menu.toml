@@ -2,23 +2,12 @@
 ####
 ## Main Menu ##
 ####
-[[main]]
-title = "CHEFCONF"
-identifier = "chefconf"
-url = "https://www.chef.io/chefconf"
-weight = 5
 
 [[main]]
 title = "Chef.io"
 identifier = "chef"
 url = "https://www.chef.io/"
 weight = 10
-
-[[main]]
-title = "Learn Chef"
-identifier = "learn chef"
-url = "https://learn.chef.io/"
-weight = 20
 
 [[main]]
 title = "Blog"
