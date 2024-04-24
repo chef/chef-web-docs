@@ -16,3 +16,5 @@ Target Mode was first released in Chef 15. It allows for the execution of Chef r
 Target mode eliminates the need for specific platform support by allowing the management of any system, target, or device's desired state without the need of a native client. Devices can be managed with compatible native resources or through custom resources. Once a target mode compatible recipe has been written it will allow the remote management of that node from any server, workstation, container or pipeline. Essentially, target mode is compatible with systems regardless of whether they have native Chef Infra Client builds.
 
 The host connects via unified interface of [transport interface (train)](https://github.com/inspec/train) to any agent using one of the train protocols and ensures that the agent or target system is in desired state and is manageable from the host system.
+
+> Target mode (also known as agent-less) is a way to remotely execute resources on the nodes.
