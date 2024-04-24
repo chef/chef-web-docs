@@ -19,7 +19,7 @@ The host connects via unified interface of [transport interface (train)](https:/
 
 > Target mode (also known as agent-less) is a way to remotely execute resources on the nodes.
 
-![Target Mode overview](/images/Target-Mode.png)
+![Target Mode overview](/images/TargetMode.png)
 
 ## Host System
 This is the system where Chef Infra Client will be executing from, the host system must have networking connectivity and credentials to connect with the target system. Cookbooks, or policy files can be retried from InfraServer, Supermarket, locally, or a Git repo (the same as any other Infra Client) For purposes of the description we will use Chef Workstation as the host system. Production deployments should either follow either a digital twin, pool, or Chef-360 Courier managed architecture.
