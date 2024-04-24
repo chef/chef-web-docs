@@ -27,16 +27,17 @@ This is the system where Chef Infra Client will be executing from, the host syst
 ### Requirements
 There are two prerequisites to start using Chef Target Mode. The first is a credentials file, this provides the host with connectivity information to a target node. The second is a recipe compatible with target mode, which means it only contains resources that work with target mode.
 
-#### Credentials file
+### Credentials file
 This credentials file located in chef configuration directory `~/.chef/` on linux (and Mac) or `c:\Users\<username>\.chef` on windows hosts. In that directory a file named credentials (`~/.chef/credentials`) is required. The credentials file is the inventory or catalog of target nodes the host is permitted to connect to.
 
 > If running from a workstation host, this configuration will be shared with other workstation commands.
 
 SSH protocol is the primary protocol to connect with target systems. All other protocols as supported in the [Transport Interface](https://github.com/inspec/train) should also work.
 
-##### Sample credentials file
+#### Sample credentials file
 
-###### SSH
+##### SSH
+
 Sample config is below:
 
 ~~~
@@ -70,7 +71,8 @@ Credentials for target system include following parameters:
 
 > Each key-value pair of credential for each target system is used by train protocol for authentication during execution.
 
-###### WinRM
+##### WinRM
+
 Sample config is below:
 
 ~~~
@@ -103,6 +105,107 @@ Credentials for target system include following parameters:
 `user`      -> username to execute on target system
 
 `password`  -> password of user to authenticate with target system
+
+### Target mode enabled resource
+
+Target mode needs to be enabled in all resources which needs to execute in target system. (see Custom resource below for more details). As an example
+
+~~~
+
+resource_name :example_resource
+resource_name :example_resource 
+provides :example_resource, target_mode: true
+....
+...
+..
+
+~~~
+
+#### Using Target Mode
+
+To enable target mode you have two prerequisites. First you require a credentials file on the host node, then you can add the -t command line argument to a check client run.
+
+~~~
+
+chef-client -t <credential_file_name parameter>
+
+~~~
+
+where,
+
+`-t` or `--target`  -> Target is the name of the target as mentioned in the credentials file.
+
+#### Using Target mode with Chef Zero
+
+To execute specific cookbook we need to provide an absolute path where the cookbook is available, like:
+
+~~~
+
+chef-client -z -t <target> /chef-repo/my-cookbooks/cookbook1.rb
+
+~~~
+
+## Target system
+
+This is the remote system where resources will be executed in target mode of operation. This system can be any remote system, edge device or cloud resource which can be reached by the host. 
+
+> Installation of Chef Infra Client on target system is not required.
+
+This system does not communicates back with Chef Infra Server.
+
+Example of target systems could be any edge device, wifi-routers, switches, relays, cloud resources, ip phones, router hubs, network management peripherals, etc.
+
+## Resources
+
+These are available in the host system. Resources which need to run on target systems using target mode method of execution need to have target mode enabled. Limited resources of Chef Infra Client currently support target mode of operation. Custom resources can be created for the type of system or target which needs to be monitored using target mode of operation for agent-less management of the target system.
+
+A resource will have the definition of what actions needs to be performed to bring the target system under management to desired state. Some resources are available as a part of Infra Client and there is also a mechanism to create custom resources. Depending on the specifics of the target system, either an available resource can be utilised or a custom resource can be written to manage the target system.
+
+To learn more about resources refer to [About Resources](https://docs.chef.io/resource/) page.
+
+### Custom resource
+
+Depending on the platform architecture of the remote system, custom resource can be created or defined. These custom resources should have `target_mode: true`. Custom resources can also be grouped into recipes which can be used to run on target systems.
+
+#### Example custom resource
+
+An example of a custom resource for an embedded system is given below:
+
+~~~
+
+resource_name :example_directory
+provides :example_directory, target_mode: true
+unified_mode true
+
+property :directory, String
+
+load_current_value do |new_resource|
+  dir = new_resource.directory
+  parsed = dir.match(%r{([^/]+$)})
+  path = ''
+  if parsed
+    path = dir[0..(dir.length - parsed[1].length - 1)]
+    dir = parsed[1]
+  end
+
+  tmp = __transport_connection.run_command( sprintf('ls -l %s | grep %s || echo -n', path, dir) )
+  
+  if tmp.match(Regexp.new(dir))
+    directory new_resource.directory
+  end
+end
+
+action :create do
+  converge_if_changed do
+    __transport_connection.run_command( sprintf('mkdir %s', new_resource.directory) )
+  end
+end
+
+~~~
+
+The above customer resource is an example of how to check and create a new directory. 
+
+To learn more on writing and using custom resources refer to the [Custom Resource Guide](https://docs.chef.io/custom_resources/).
 
 
 
