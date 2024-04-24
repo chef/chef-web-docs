@@ -18,3 +18,6 @@ Target mode eliminates the need for specific platform support by allowing the ma
 The host connects via unified interface of [transport interface (train)](https://github.com/inspec/train) to any agent using one of the train protocols and ensures that the agent or target system is in desired state and is manageable from the host system.
 
 > Target mode (also known as agent-less) is a way to remotely execute resources on the nodes.
+
+![Target Mode overview](/images/Target Mode.png)
+
