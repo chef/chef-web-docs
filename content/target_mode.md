@@ -92,7 +92,7 @@ host = '192.168.0.252'
 user = 'Administrator'
 password = '123456'
 
-protocol = winrm
+transport_protocol = winrm
 ssl: true
 self_signed: true
 
