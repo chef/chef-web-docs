@@ -41,17 +41,17 @@ SSH protocol is the primary protocol to connect with target systems. All other p
 Sample config is below:
 
 ~~~
-['Target-01']
-host = '192.168.0.251'
+['target.system.host.1.com']
+host = 'target.system.host.1.com'
 user = 'root'
 key_files = '~/.keys/key-pair.pem'"
 
-['Target-02']
-host = '192.168.0.252'
+['target.system.host.2.com']
+host = 'target.system.host.2.com'
 user = 'root'
 password = '123456'
 
-['Target-03']
+['192.168.0.252']
 host = '192.168.0.252'
 user = 'root'
 password = '123456'
@@ -69,40 +69,6 @@ Credentials for target system include following parameters:
 `password`  -> password of user to authenticate with target system
 
 > Each key-value pair of credential for each target system is used by train protocol for authentication during execution.
-
-##### WinRM
-
-Sample config is below:
-
-~~~
-['Target-01']
-host = '192.168.0.251'
-user = 'Administrator'
-key_files = '~/.keys/key-pair.pem'"
-
-['Target-02']
-host = '192.168.0.252'
-user = 'Administrator'
-password = '123456'
-
-['Target-03']
-host = '192.168.0.252'
-user = 'Administrator'
-password = '123456'
-
-transport_protocol = winrm
-ssl: true
-self_signed: true
-
-~~~
-
-Credentials for target system include following parameters:
-
-`host`      -> IP address of the target system
-
-`user`      -> username to execute on target system
-
-`password`  -> password of user to authenticate with target system
 
 ### Target mode enabled resource
 
