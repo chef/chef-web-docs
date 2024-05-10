@@ -117,7 +117,7 @@ These are available in the host system. Resources that need to run on target sys
 
 A resource defines the actions needed to bring the target system under management to the desired state. Some resources are available as part of Infra Client, and a mechanism exists to create custom resources. Depending on the specifics of the target system, you can utilize the available resource or write a custom resource to manage it.
 
-Refer to the [About Resources] page (https://docs.chef.io/resource/) to learn about resources.
+Refer to the [About Resources page](https://docs.chef.io/resource/) to learn about resources.
 
 ### Custom resource
 
@@ -157,11 +157,11 @@ action :create do
 end
 ```
 
-The above customer resource is an example of how to check and create a new directory. 
+The above customer resource is an example of how to check and create a new directory.
 
 Refer to the [Custom Resource Guide](https://docs.chef.io/custom_resources/) to learn more about writing and using custom resources.
 
-## Work with Chef Automate and Infra Server
+## Work with Chef Automate and Chef Infra Server
 
 ### Chef Infra Client
 
