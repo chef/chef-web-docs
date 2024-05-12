@@ -11,43 +11,90 @@ gh_repo = "chef-web-docs"
     weight = 80
 +++
 
-Target Mode, a powerful feature introduced in Chef 15, liberates system administrators and DevOps engineers from the need to install Chef Infra Client on remote systems. You can effortlessly manage the desired state of remote systems, edge devices, and cloud targets without the hassle of client or agent installation.
+Target Mode executes Chef Infra Client runs on nodes that don't have Chef Infra Client installed on them.
 
-Target mode flexibly manages any system, target, or device's desired state, eliminating the need for specific platform support. Whether you're working with compatible native resources or custom resources, once you write the target mode-compatible recipe, you gain the power to remotely manage that node from any server, workstation, container, or pipeline. Target mode is compatible with systems, regardless of whether they have native Chef Infra Client builds.
+The target node can be any remote system, edge device, or cloud resource that the host can reach. This includes edge devices, Wi-Fi routers, switches, relays, cloud resources, IP phones, router hubs, and network management peripherals.
 
-The host connects via the unified interface of the [transport interface (train)](https://github.com/inspec/train) to any agent using one of the train protocols and ensures that the agent or target system is in the desired state and manageable from the host system.
+## Transport Interface (Train)
 
-{{< note >}} Target mode (agent-less) is a way to execute resources on the nodes remotely. {{< /note >}}
+Target Mode uses [Transport Interface (Train)](https://github.com/inspec/train) to connect to nodes to and execute Chef Infra Client runs.
 
-![Target Mode overview](/images/TargetMode.png)
+Target Mode supports the following Train protocols:
 
-## Host System
+- SSH
+- Podman
+- VMware
 
-The host system used to execute the Chef Infra Client will be crucial in Target Mode. It must have networking connectivity and credentials to connect with the target system. Cookbooks or policy files can be retrieved from InfraServer, Supermarket, locally, or a Git repo, just like any other Infra Client. For this documentation, we will use Chef Workstation as the host system. However, in production deployments, you can follow either a digital twin, pool or Chef-360 Courier-managed architecture.
+## Requirements
 
-### Requirements
+Target Mode has the following requirements:
 
-Two prerequisites are needed to start using Chef Target Mode. The first is a credentials file, which provides the host with connectivity information to a target node. The second is a recipe compatible with the target mode, which only contains resources that work with the target mode.
+- A network-enabled system to execute Target Mode. For example, a local workstation with Chef Workstation installed.
+- A credentials file which provides the system with information to connect to a target node.
+- A recipe that only includes Target Mode-enabled resources.
 
-### Credentials file
+## Credentials file
 
-The credentials file, a crucial system component, is securely located in the chef configuration directory `/.chef/` on Linux (and Mac) or `c:\Users\<username>\.chef` on Windows hosts. This file, named credentials (`/.chef/credentials`), serves as the inventory or catalog of target nodes the host can connect to, ensuring the security and integrity of your system.
+The credentials file is located in `.chef/credentials` on Linux and Mac systems, or `c:\Users\<USERNAME>\.chef/credentials` on Windows.
+This file contains a list of nodes that the host can connect to.
 
-{{< note >}} The configuration is shared with other workstation commands if it is running from a workstation host. {{< /note >}}
+Define the list of nodes using the TOML file format.
 
-The SSH protocol is the primary protocol for connecting with target systems. All other protocols should also work as supported in the [Transport Interface](https://github.com/inspec/train).
+### Properties
 
-#### Sample credentials file
+Train supports the following target node properties that can be included in a credentials file:
 
-##### SSH
+`host`
+: The IP address or FQDN of the target node.
 
-Sample config is below:
+`port`
+: The port number of the target node. (optional)
+
+`user`
+: The user used to log in and execute Cookbooks on the target node. For example, `root`.
+
+`keys`
+: The path to a secret key used to log into the target node.
+
+`password`
+: A password string to log into the target node.
+
+`protocol`
+: The protocol to use to connect to the target node.
+
+### Examples
+
+Define the list of nodes in the credentials file using the TOML format. For example:
+
+```toml
+['<TARGET_FQDN>']
+host = '<TARGET_FQDN>'
+user = '<TARGET_SYSTEM_USER>'
+key_files = '<PATH_TO_PEM_FILE>'
+
+['<TARGET_IP_ADDRESS>']
+host = '<TARGET_IP_ADDRESS>'
+user = '<TARGET_SYSTEM_USER>'
+password = '<TARGET_SYSTEM_PASSWORD_STRING>'
+
+protocol = <PROTOCOL>
+```
+
+Replace the following:
+
+- `<TARGET_IP_ADDRESS>`: the IP address of the target node.
+- `<TARGET_FQDN>`: the fully qualified domain name of the target node.
+- `<TARGET_SYSTEM_USER>`: username to log into and execute Cookbooks on the target node.
+- `<TARGET_SYSTEM_PASSWORD_STRING>`: the password of the user to authenticate with the target node.
+- `<PROTOCOL>`: the Train transport protocol to connect to the target node.
+
+This example targets three nodes using SSH:
 
 ```ruby
 ['target.system.host.1.com']
 host = 'target.system.host.1.com'
 user = 'root'
-key_files = '~/.keys/key-pair.pem'"
+key_files = '~/.keys/key-pair.pem'
 
 ['target.system.host.2.com']
 host = 'target.system.host.2.com'
@@ -62,77 +109,38 @@ password = '123456'
 protocol = ssh
 ```
 
-Credentials for the target system include the following parameters:
-
-- `host`: IP address of the target system.
-- `user`: username to execute on the target system.
-- `password`: password of the user to authenticate with the target system.
-
-{{< note >}} Each key-value pair of credentials for each target system is used by train protocol for authentication during execution. {{< /note >}}
-
-### Target mode enabled resource
-
-Enable the Target mode in all resources executed in the target system. (see Custom resource below for more details). As an example:
-
-```ruby
-resource_name :example_resource
-resource_name :example_resource
-provides :example_resource, target_mode: true
-....
-...
-..
-```
-
-#### Using Target Mode
-
-To enable target mode, two prerequisites are needed. First, a credentials file on the host node must be created. Then, you can add the—t command line argument to a check client run.
-
-```ruby
-chef-client -t <credential_file_name parameter>
-```
-
-In the above code, `-t` or `--target` is the target's name, as the credentials file mentions.
-
-#### Using Target mode with Chef Zero
-
-To execute a specific cookbook, we need to provide an absolute path where the cookbook is available, like:
-
-```ruby
-chef-client -z -t <target> /chef-repo/my-cookbooks/cookbook1.rb
-```
-
-## Target system
-
-The Target system is the remote system to execute the resources in the target mode of operation. It can be any remote system, edge device, or cloud resource that the host can reach.
-
-{{< note >}} Installation of Chef Infra Client on the target system is not required. {{< /note >}}
-
-This system does not communicate back with the Chef Infra Server.
-
-Target systems could include any edge device, Wi-Fi routers, switches, relays, cloud resources, IP phones, router hubs, network management peripherals, etc.
-
 ## Resources
 
-These are available in the host system. Resources that need to run on target systems using the target mode method of execution need to have target mode enabled. Chef Infra Client's limited resources currently support the target mode of operation. Create Custom resources for the type of system or target that needs to be monitored using the target mode of operation for agent-less management of the target system.
+All resources included in a Cookbook must be enabled in Target Mode to run in Target Mode.
 
-A resource defines the actions needed to bring the target system under management to the desired state. Some resources are available as part of Infra Client, and a mechanism exists to create custom resources. Depending on the specifics of the target system, you can utilize the available resource or write a custom resource to manage it.
+The following Chef Infra Client resources are supported in Target Mode starting in Chef Infra Client 15.1.36:
 
-Refer to the [About Resources page](https://docs.chef.io/resource/) to learn about resources.
+- breakpoint
+- execute
+- log
+- ruby_block
+- systemd_unit
 
-### Custom resource
+### Custom resources
 
-Depending on the platform architecture of the remote system, custom resources can be created or defined. These custom resources should have `target_mode: true.` You can group the Custom resources into recipes, which you can use to run on target systems.
-
-#### Example custom resource
-
-An example of a custom resource for an embedded system is:
+To enable a custom resource to run in Target Mode, add `target_mode: true` to the resource definition. For example:
 
 ```ruby
-resource_name :example_directory
+provides :<RESOURCE_NAME>, target_mode: true
+....
+```
+
+See the [Custom Resources documentation]({{< relref "custom_resources" >}}) for more detailed documentation about creating custom resources.
+
+#### Example
+
+The following custom resource example checks for and creates a new directory and runs in Target Mode:
+
+```ruby
 provides :example_directory, target_mode: true
 unified_mode true
 
-property:directory, String
+property: directory, String
 
 load_current_value do |new_resource|
   dir = new_resource.directory
@@ -144,7 +152,7 @@ load_current_value do |new_resource|
   end
 
   tmp = __transport_connection.run_command( sprintf('ls -l %s | grep %s || echo -n', path, dir) )
-  
+
   if tmp.match(Regexp.new(dir))
     directory new_resource.directory
   end
@@ -157,53 +165,87 @@ action :create do
 end
 ```
 
-The above customer resource is an example of how to check and create a new directory.
+## Run Target Mode
 
-Refer to the [Custom Resource Guide](https://docs.chef.io/custom_resources/) to learn more about writing and using custom resources.
+Run the `chef-client` executable using `-t` or `--target` to target a specific node. For example:
 
-## Work with Chef Automate and Chef Infra Server
+```sh
+chef-client -t <TARGET_NAME>
+```
 
-### Chef Infra Client
+Replace `<TARGET_NAME>` with the IP address or fully qualified domain name of the host as defined in the credentials file.
 
-Chef does not include a way to schedule runs in target mode. For each device you want to manage (with Infra Server) remotely, you must create a new node in Chef—for example, inside the Chef Server. You should safely store the private key of that new device. A Target Mode-compatible runlist can be assigned.
+### Target Mode in Local Mode
 
-### Add Devices
+You can run Target Mode in [Local Mode]({{< relref "/ctl_chef_client#run-in-local-mode" >}}).
 
-First, we will add the client credentials to our `credentials` file, with its target name being the section heading. To authenticate against the server, we add the new device's private key under `/etc/chef/nodename/client.pem` so the Chef client can easily find it. In your `/etc/chef/client.rb`, specify the `chef_server_url` or any other settings you require.
+Local Mode runs chef-zero on a local machine to execute a chef-repo as if it were running on Chef Infra Server.
 
-### Set Schedule
+```sh
+chef-client -z -t <TARGET_NAME> /chef-repo/cookbooks/<COOKBOOK_NAME>.rb
+```
 
-Without a Target Mode runner inside the Chef server, we can use cron jobs instead.
+Replace `<TARGET_NAME>` with the IP address or fully qualified domain name of the host as defined in the credentials file.
+
+## Schedule Target Mode runs
+
+Target Mode doesn't have a way to schedule Chef Infra Client runs on a node, but you can configure Chef Automate or Chef Infra Server to execute Client runs using cron.
+
+### Requirements
+
+The server running Target Mode with cron has the following requirements:
+
+- a private key for the target node
+- a credentials file
+
+
+### Create a schedule
+
+This example creates a cron file that executes the Chef Infra Client run using Target Mode every thirty minutes.
 
 ```ruby
 cat > /etc/cron.d/nodename.cron <<EOF
 PATH="/opt/chefdk/bin:/opt/chefdk/embedded/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 GEM_ROOT="/opt/chefdk/embedded/lib/ruby/gems/2.6.0"
 
-0,30 * * * * * chef-runner /usr/bin/chef-client -t targetname
+0,30 * * * * * chef-runner /usr/bin/chef-client -t <TARGET_NAME>
 EOF
 ```
 
-{{< note >}} Please ensure you manage splay appropriately when using this method. You could use the `RANDOM_DELAY` variable (if your cron implementation features it) or have a random offset sleep `sleep $(numrandom 0..30)m` as a prefix to your command. {{< /note >}}
+{{< note >}}
 
-Afterward, your node will appear in Chef Server/Chef Automate, just like a regular node.
+Use splay to reduce the load on a server executing many Client runs. You could use the `RANDOM_DELAY` variable (if your cron implementation features it) or set a random sleep offset `sleep $(numrandom 0..30)m` as a prefix to your command.
 
-## Errors and troubleshoot
+{{< /note >}}
 
-Following are the Common errors and their potential troubleshooting steps:
+Afterwards, your node will appear in Chef Infra Server or Chef Automate just like a regular node.
 
-### The Chef client execute command is throwing an error
+## Troubleshooting
 
-Please check if `-z` or `--zero` is specified in the execution command. If not, please select `-t` or `—target`. Both are mandatory for the `chef-client` command to execute.
+The following are the common errors and their potential troubleshooting steps.
 
-If both are specified, please check for the correctness of the target system's hostname or IP address. Ensure the `host` is accessible via SSH to the `user` specified in the credentials file with the provided `password`.
+### `chef-client` execute error
 
-### Custom resources are not executing
+Verify that `-z` or `--zero` is specified in the execution command. If not, use  `-t` or `—target`. Both are required for the `chef-client` command to execute.
 
-Please refer to the example of a custom resource above. Ensure that `target_mode` is specified to `true`. If you use the resource in a recipe, please ensure all resources have `target_mode` set to `true`.
+If both are specified, verify that the target node's hostname or IP address is correct, that the host accessible using SSH, and that the user and password specified in the credentials file are correct.
 
-### OHAI data is not reporting back for the target system
+### Custom resources don't execute
 
-Network latency becomes very important as target systems need to report to the Chef Infra Server. Ensure the OHAI plugin can report data back by enabling the target mode using the `ohai --target ssh://foobar.example.org/` command.
+Verify that all resources have `target_mode` set to `true`. For example:
 
-If you have received some data and are not reporting others, it is a case of network latency. Upgrade your infrastructure and network speed to receive all the data as soon as it gets generated.
+```ruby
+provides :<RESOURCE_NAME>, target_mode: true
+```
+
+For more information, see the [custom resource example](#custom-resources).
+
+### Ohai data doesn't report data from the target node
+
+Verify that Ohai can report data back by enabling the Target Mode using the `ohai --target ssh://foobar.example.org/` command.
+
+Network latency can affect the ability of nodes to report data to Chef Infra Server.
+Ensure the Ohai plugin can report data back by enabling the Target Mode using the `ohai --target ssh://foobar.example.org/` command.
+
+If you have received some data and aren't reporting others, it's a case of network latency.
+Upgrade your infrastructure and network speed to receive all the data as soon as it's generated.
