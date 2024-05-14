@@ -36,6 +36,47 @@ The credentials file lists the nodes that Target Mode can connect to and the con
 
 The credentials file is located in `.chef/credentials` on Linux and Mac systems, or `c:\Users\<USERNAME>\.chef/credentials` on Windows.
 
+### Examples
+
+Define the list of nodes in the credentials file using the TOML format. For example:
+
+```toml
+['<TARGET_NAME>']
+host = '<TARGET>'
+user = '<TARGET_USER>'
+key_files = '<PATH_TO_SECRET_FILE>'
+
+protocol = ssh
+```
+
+Replace the following:
+
+- `<TARGET_NAME>` with a target node name.
+- `<TARGET>` with the IP address or FQDN of the target node.
+- `<TARGET_USER>` with the username to log into and execute Cookbooks on the target node. For example, `root`.
+- `<PATH_TO_SECRET_FILE>` with the path to the secret file to authenticate with the target node.
+
+This example adds credentials for three nodes using SSH:
+
+```toml
+['HOST-1']
+host = 'target.system.host.1.com'
+user = 'root'
+key_files = '~/.keys/key-pair.pem'
+
+['HOST-2']
+host = 'target.system.host.2.com'
+user = 'root'
+password = '123456'
+
+['192.168.0.252']
+host = '192.168.0.252'
+user = 'root'
+password = '123456'
+
+protocol = ssh
+```
+
 ### SSH properties
 
 <!-- markdownlint-disable MD007 MD006 -->
@@ -43,7 +84,7 @@ The credentials file is located in `.chef/credentials` on Linux and Mac systems,
 Target Mode supports the following SSH connection properties in a credentials file:
 
 `host`
-: The IP address or FQDN of a node.
+: (Required) The IP address or FQDN of a node.
 
 `port`
 : The port number of a node.
@@ -62,7 +103,7 @@ Target Mode supports the following SSH connection properties in a credentials fi
 : If connecting with a password, the password string to connect to a node.
 
 `protocol`
-: The protocol to use to connect to a node. Set to `ssh`. _required_
+: (Required) The protocol to use to connect to a node. Define this once for all nodes in the credentials file. Set to `ssh`.
 
 `ssh_config_file`
 : Whether to use an SSH config file. For example:
@@ -151,47 +192,6 @@ Target Mode supports the following SSH connection properties in a credentials fi
   Default value: `false`
 
 <!-- markdownlint-enable MD007 MD006 -->
-
-### Examples
-
-Define the list of nodes in the credentials file using the TOML format. For example:
-
-```toml
-['<TARGET_NAME>']
-host = '<TARGET>'
-user = '<TARGET_USER>'
-key_files = '<PATH_TO_SECRET_FILE>'
-
-protocol = ssh
-```
-
-Replace the following:
-
-- `<TARGET_NAME>` with a target node name.
-- `<TARGET>`: the IP address or FQDN of the target node.
-- `<TARGET_USER>`: username to log into and execute Cookbooks on the target node. For example, `root`.
-- `<PATH_TO_SECRET_FILE>`: the path to the secret file to authenticate with the target node.
-
-This example adds credentials for three nodes using SSH:
-
-```ruby
-['HOST-1']
-host = 'target.system.host.1.com'
-user = 'root'
-key_files = '~/.keys/key-pair.pem'
-
-['HOST-2']
-host = 'target.system.host.2.com'
-user = 'root'
-password = '123456'
-
-['192.168.0.252']
-host = '192.168.0.252'
-user = 'root'
-password = '123456'
-
-protocol = ssh
-```
 
 ## Resources
 
