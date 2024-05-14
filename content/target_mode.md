@@ -32,11 +32,11 @@ Target Mode has the following requirements:
 
 ## Credentials file
 
-This credentials file lists the nodes that Target Mode can connect to and the configuration for connecting to each node in TOML format.
+The credentials file lists the nodes that Target Mode can connect to and the configuration for connecting to each node in TOML format.
 
 The credentials file is located in `.chef/credentials` on Linux and Mac systems, or `c:\Users\<USERNAME>\.chef/credentials` on Windows.
 
-### SSH Properties
+### SSH properties
 
 <!-- markdownlint-disable MD007 MD006 -->
 
@@ -71,7 +71,7 @@ Target Mode supports the following SSH connection properties in a credentials fi
   - `/etc/ssh_config`
   - `/etc/ssh/ssh_config`
 
-  Settings defined credentials file override settings in the SSH config file.
+  Settings defined in the credentials file override settings in the SSH config file.
 
   Default value: `true`
 
@@ -277,7 +277,7 @@ Replace the following:
 You can run Target Mode in [Local Mode]({{< relref "/ctl_chef_client#run-in-local-mode" >}}).
 Local Mode runs chef-zero locally as a lightweight instance of Chef Infra Server to execute a Client run on target nodes.
 
-Use `-z` to run chef-zero:
+Use `-z` and `-t` to run Target Mode in Local Mode:
 
 ```sh
 chef-client -z -t <TARGET_NAME>
@@ -306,7 +306,7 @@ Afterward, your node appears in Chef Infra Server or Chef Automate just like a r
 
 {{< note >}}
 
-Use splay to reduce the load on a server that is executing many Client runs. You could use the `RANDOM_DELAY` variable (if your cron implementation features it) or set a random sleep offset `sleep $(numrandom 0..30)m` as a prefix to your command.
+Use splay to reduce the load on a server that's executing many Client runs. You could use the `RANDOM_DELAY` variable (if your cron implementation features it) or set a random sleep offset as a prefix to your command. For example, with Ubuntu's num-utils package: `sleep $(numrandom 0..30)m`.
 
 {{< /note >}}
 
