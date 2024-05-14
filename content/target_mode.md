@@ -38,6 +38,8 @@ The credentials file is located in `.chef/credentials` on Linux and Mac systems,
 
 ### SSH Properties
 
+<!-- markdownlint-disable MD007 MD006 -->
+
 Target Mode supports the following SSH connection properties in a credentials file:
 
 `host`
@@ -147,6 +149,8 @@ Target Mode supports the following SSH connection properties in a credentials fi
 : Whether the connection to the authentication agent (if any) will be forwarded to the remote machine.
 
   Default value: `false`
+
+<!-- markdownlint-enable MD007 MD006 -->
 
 ### Examples
 
