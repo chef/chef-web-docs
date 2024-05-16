@@ -17,7 +17,7 @@ The target node can be any remote system, edge device, or cloud resource that th
 
 ## Transport Interface (Train)
 
-Target Mode uses [Transport Interface (Train)](https://github.com/inspec/train) to connect to nodes to and execute Chef Infra Client runs.
+Target Mode uses [Transport Interface (Train)](https://github.com/inspec/train) to connect to nodes and execute Chef Infra Client runs.
 
 Target Mode supports the SSH Train protocol. The other Train protocols are experimental.
 
@@ -38,25 +38,10 @@ The credentials file is located in `.chef/credentials` on Linux and Mac systems,
 
 ### Examples
 
-Define the list of nodes in the credentials file using the TOML format. For example:
+Define the list of nodes in the credentials file using the TOML format.
+The connection settings for each node are defined using a [TOML Inline Table](https://toml.io/en/v1.0.0#inline-table).
 
-```toml
-['<TARGET_NAME>']
-host = '<TARGET>'
-user = '<TARGET_USER>'
-key_files = '<PATH_TO_SECRET_FILE>'
-
-protocol = ssh
-```
-
-Replace the following:
-
-- `<TARGET_NAME>` with a target node name.
-- `<TARGET>` with the IP address or FQDN of the target node.
-- `<TARGET_USER>` with the username to log into and execute Cookbooks on the target node. For example, `root`.
-- `<PATH_TO_SECRET_FILE>` with the path to the secret file to authenticate with the target node.
-
-This example adds credentials for three nodes using SSH:
+For example, this adds credentials for three nodes using SSH:
 
 ```toml
 ['HOST-1']
@@ -74,6 +59,85 @@ host = '192.168.0.252'
 user = 'root'
 password = '123456'
 
+protocol = ssh
+```
+
+The following example includes all possible connection options for a single node:
+
+```toml
+# Set <TARGET_NAME> to a name for the target node. This could be the node IP address or FQDN.
+['<TARGET_NAME>']
+
+# ==== Target node connection settings ====
+# host: The IP address or FQDN of a node. (Required)
+# port: The port number of a node. Default is '22'
+# ====
+
+host = '<IP_ADDRESS OR FQDN>'
+# port = '22'
+
+# ==== User authentication settings ====
+# user: The user used to connect to and execute Cookbooks on a node. Default is "root".
+# key_files: If connecting with a secret key, the path to a secret key used to connect to a node.
+# password: If connecting with a password, the password string to connect to a node.
+# ====
+
+# user = 'root'
+# key_files = '<PATH_TO_SECRET_FILE>'
+# password = '<PASSWORD_STRING>'
+
+# ssh_config_file: Whether to use settings from a local SSH config file. Default is 'true'.
+# ssh_config_file = true
+
+# ==== Keepalive settings ====
+# keepalive: Whether to keep the session alive. Default is true.
+# keepalive_interval: The keepalive interval. Default is 60 seconds.
+# ====
+
+# keepalive = true
+# keepalive_interval = '60'
+
+# ==== Connection attempt/delay settings ====
+# connection_timeout: The timeout (in seconds) used when connecting to the SSH target. Default is 15 seconds.
+# connection_retries: The number of connection retries. Default is 5.
+# connection_retry_sleep: The connection retry delay in seconds. Default is 1.
+# max_wait_until_ready: The maximum wait time for the SSH service to connect. Default is 600.
+# ====
+
+# connection_timeout = '15'
+# connection_retries = '5'
+# connection_retry_sleep = '1'
+# max_wait_until_ready = '600'
+
+# compression: Whether to use compression. Default is false.
+# compression = false
+
+# pty: Wether to use PTY to connect. Default is false.
+# pty = false
+
+# proxy_command: A proxy command to use to connect to the server. Default is 'nil'.
+# proxy_command = 'nil'
+
+# ==== Bastion host settings ====
+# bastion_host: A bastion host to connect to the target through. Default is 'nil'.
+# bastion_user: The bastion host user. Default is 'root'.
+# bastion_port: The port to connect to the bastion host. Default is '22'.
+# ====
+
+# bastion_host = 'nil'
+# bastion_user = 'root'
+# bastion_port = '22'
+
+# non_interactive: Whether to use a non-interactive session. Default is false.
+# non_interactive = false
+
+# verify_host_key: Whether to verify the host key. Default is false
+# verify_host_key = false
+
+# forward_agent: Whether the connection to the authentication agent (if any) will be forwarded to the remote machine. Default is false.
+# forward_agent = false
+
+# protocol: The protocol to use to connect to a node. Define this once for all nodes in the credentials file. Set to 'ssh'. (Required)
 protocol = ssh
 ```
 
@@ -127,7 +191,7 @@ Target Mode supports the following SSH connection properties in a credentials fi
   Default value: `60`
 
 `connection_timeout`
-: The timeout (in seconds) used when connecting to the SSH server.
+: The timeout (in seconds) used when connecting to the SSH target.
 
   Default value: `15`
 
@@ -199,13 +263,13 @@ All resources included in a Cookbook must be enabled in Target Mode to run in Ta
 
 The following Chef Infra Client resources are supported in Target Mode starting in Chef Infra Client 15.1.36:
 
-- apt_package
-- breakpoint
-- execute
-- log
-- ruby_block
-- service
-- systemd_unit
+- [apt_package]({{< relref "/resources/apt_package" >}})
+- [breakpoint]({{< relref "/resources/breakpoint" >}})
+- [execute]({{< relref "/resources/execute" >}})
+- [log]({{< relref "/resources/log" >}})
+- [ruby_block]({{< relref "/resources/ruby_block" >}})
+- [service]({{< relref "/resources/service" >}})
+- [systemd_unit]({{< relref "/resources/systemd_unit" >}})
 
 ### Custom resources
 
@@ -285,13 +349,13 @@ chef-client -z -t <TARGET_NAME>
 
 Replace `<TARGET_NAME>` with the name of the host as defined in the credentials file. For example, `HOST-1` in the [credential file example](#examples).
 
-## Schedule Client runs in Target Mode
+## Run Target Mode with Chef Automate or Chef Infra Server
 
-Target Mode doesn't have a way to schedule Chef Infra Client runs on a node, but you can configure Chef Automate or Chef Infra Server to execute Client runs using cron.
+You can configure Chef Automate or Chef Infra Server to run Target Mode on a regular schedule.
 
-### Create a schedule
+Target Mode doesn't have a way to schedule Chef Infra Client runs on a node, but you can create a cron file that executes Target Mode on a regular schedule.
 
-This example creates a cron file that executes the Chef Infra Client run using Target Mode every thirty minutes.
+For example, this create a cron file that executes Target Mode every thirty minutes:
 
 ```ruby
 cat > /etc/cron.d/nodename.cron <<EOF
@@ -302,7 +366,7 @@ GEM_ROOT="/opt/chefdk/embedded/lib/ruby/gems/2.6.0"
 EOF
 ```
 
-Afterward, your node appears in Chef Infra Server or Chef Automate just like a regular node.
+After the cron file is created, your node appears in Chef Infra Server or Chef Automate just like a regular node.
 
 {{< note >}}
 
