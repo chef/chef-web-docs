@@ -32,7 +32,7 @@ Target Mode has the following requirements:
 
 ## Credentials file
 
-The credentials file lists the nodes that Target Mode can connect to and the configuration for connecting to each node in TOML format.
+The credentials file defines the connection settings for each node in TOML format.
 
 The credentials file is located in `.chef/credentials` on Linux and Mac systems, or `c:\Users\<USERNAME>\.chef/credentials` on Windows.
 
