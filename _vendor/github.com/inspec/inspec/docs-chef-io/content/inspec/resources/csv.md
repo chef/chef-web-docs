@@ -15,9 +15,9 @@ Use the `csv` Chef InSpec audit resource to test configuration data in a CSV fil
 
 ## Availability
 
-### Install
+### Installation
 
-{{< readfile file="content/inspec/reusable/md/inspec_installation.md" >}}
+{{% inspec/inspec_installation %}}
 
 ### Version
 
@@ -72,4 +72,4 @@ The `name` property tests the value of `name` as read from a CSV file compared t
 
 ## Matchers
 
-{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+For a full list of available matchers, please visit our [matchers page](/inspec/matchers/).

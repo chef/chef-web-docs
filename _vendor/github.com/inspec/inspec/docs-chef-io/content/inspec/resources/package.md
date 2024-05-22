@@ -15,9 +15,9 @@ Use the `package` Chef InSpec audit resource to test if the named package and/or
 
 ## Availability
 
-### Install
+### Installation
 
-{{< readfile file="content/inspec/reusable/md/inspec_installation.md" >}}
+{{% inspec/inspec_installation %}}
 
 ### Version
 
@@ -119,9 +119,7 @@ Memcached is an in-memory key-value store that helps improve the performance of 
 
 ## Matchers
 
-{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
-
-This resource has the following special matchers.
+For a full list of available matchers, please visit our [matchers page](/inspec/matchers/).
 
 ### be_held
 

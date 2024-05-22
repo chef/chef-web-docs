@@ -27,7 +27,7 @@ version.
 
 ## Availability
 
-### Install
+### Installation
 
 This resource is available in the `inspec-azure` [resource
 pack](/inspec/glossary/#resource-pack). To use it, add the
@@ -130,9 +130,7 @@ requests are always welcome.
 
 ## Matchers
 
-{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
-
-This resource has the following special matchers.
+{{% inspec/inspec_matchers_link %}}
 
 ### using_latest?(stack)
 

@@ -28,7 +28,7 @@ version.
 
 ## Availability
 
-### Install
+### Installation
 
 This resource is available in the `inspec-azure` [resource
 pack](/inspec/glossary/#resource-pack). To use it,
