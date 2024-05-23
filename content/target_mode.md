@@ -59,7 +59,7 @@ host = '192.168.0.252'
 user = 'root'
 password = '123456'
 
-protocol = ssh
+transport_protocol = 'ssh'
 ```
 
 The following example includes all possible connection options for a single node:
@@ -137,8 +137,8 @@ host = '<IP_ADDRESS OR FQDN>'
 # forward_agent: Whether the connection to the authentication agent (if any) will be forwarded to the remote machine. Default is false.
 # forward_agent = false
 
-# protocol: The protocol to use to connect to a node. Define this once for all nodes in the credentials file. Set to 'ssh'. (Required)
-protocol = ssh
+# transport_protocol: The protocol to use to connect to a node. Define this once for all nodes in the credentials file. Set to 'ssh'. (Required)
+transport_protocol = 'ssh'
 ```
 
 ### SSH properties
@@ -166,7 +166,7 @@ Target Mode supports the following SSH connection properties in a credentials fi
 `password`
 : If connecting with a password, the password string to connect to a node.
 
-`protocol`
+`transport_protocol`
 : (Required) The protocol to use to connect to a node. Define this once for all nodes in the credentials file. Set to `ssh`.
 
 `ssh_config_file`
