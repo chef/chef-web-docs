@@ -126,7 +126,7 @@ examples: |
   end
   ```
 
-  **Install MySQL gem into Chef Infra Client***
+  **Install MySQL gem into Chef Infra Client**
   ```ruby
   apt_update
 
