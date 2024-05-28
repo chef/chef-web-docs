@@ -2,7 +2,7 @@
 ## is set by the menuOrder parameter below.
 menuOrder = ["overview", "automate",  "desktop", "habitat", "infra", "server", "inspec", "workstation", "effortless", "supermarket", "release_notes", "legacy", "extra"]
 
-site_search = false
+enable_search = true
 robots = ''
 
 [chef-web-docs]
