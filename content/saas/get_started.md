@@ -69,7 +69,7 @@ chef_server_url     - 'https://mycompany-demo.saas.chef.io'
 
 ### Create Organization in CLI
 
-Add the Chef Organization to the Chef Infra Server and act as a top-level entity for role-based access control. Use the [knife org create](https://docs.chef.io/workstation/knife_org/) command to create your Chef Organization. For example, to create an Organization called myorg:
+Add the Chef organization to the Chef Infra Server and act as a top-level entity for role-based access control. Use the [knife org create](https://docs.chef.io/workstation/knife_org/) command to create your Chef organization. For example, to create an Organization called myorg:
 
 ```sh
 Knife org create myorg “My New Organization”
@@ -79,7 +79,7 @@ The above code returns the private key for the organization’s validator client
 
 ### Create a User in CLI
 
-Create a new user associated with the new Chef Organization and leverage in the credentials file. Create your new account using the [knife user create](https://docs.chef.io/workstation/knife_user/) command. For example, to create a User named chefadmin:
+Create a new user associated with the new Chef organization and leverage in the credentials file. Create your new account using the [knife user create](https://docs.chef.io/workstation/knife_user/) command. For example, to create a User named chefadmin:
 
 ```sh
 knife user create chefadmin --first-name Chef --last-name Admin --email chefadmin@mycompany.com –password securepassword -f chefadmin.pem
