@@ -40,11 +40,11 @@ AWS OpsWorks for Chef Automate can have two configuration setups.
 * Cluster with SSH access
 * Cluster without SSH access
 
-Both types of clusters will have SSM access. Customers should be able to log in to the AWS OpsWorks Chef Automate instance and follow the below steps to create a backup. By default, AWS OpsWorks has the manual backup feature, which creates a backup in S3. You can use the S3 backup if you cannot log in to an instance via SSH/SSM.
+Both types of clusters will have SSM access. Customers should be able to log in to the AWS OpsWorks Chef Automate instance and follow the given steps to create a backup. By default, AWS OpsWorks has the manual backup feature, which creates a backup in S3. You can use the S3 backup if you cannot log in to an instance via SSH/SSM.
 
 ## Steps to access SSH/SSH
 
-For the customers with SSH/SSM access, follow the below steps to create a backup
+For the customers with SSH/SSM access, follow the steps to create a backup:
 
 1. Login to the AWS OpsWorks EC2 instance via SSH/SSM from the EC2 console.
 1. Create a `patch.toml` as shown in the following code snippet:
