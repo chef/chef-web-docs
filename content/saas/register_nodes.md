@@ -53,8 +53,8 @@ Progress Chef has developed a Cookbook and Recipe that can run against all nodes
 
     {{< figure src="/images/saas-attributes-folder.png" alt="Attributes Folder">}}
 
-    `default[‘your_client']['chef_server_old'] = ‘<Old chef-server URL>’`
-    `default[‘your_client']['chef_server_new'] = ‘<New chef-server URL>'`
+    `default['your_client']['chef_server_old'] = '<Old chef-server URL>'`
+    `default['your_client']['chef_server_new'] = '<New chef-server URL>'`
 
 * Recipe
 
