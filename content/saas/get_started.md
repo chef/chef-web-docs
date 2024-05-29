@@ -70,40 +70,45 @@ chef_server_url     - 'https://mycompany-example.com.chef.io' //Sample URL
 
 ### Create Organization in CLI
 
-Add the Chef organization to the Chef Infra Server and act as a top-level entity for role-based access control. Use the [knife org create](https://docs.chef.io/workstation/knife_org/) command to create your Chef organization. For example, to create an Organization called myorg:
+Add the Chef organization to the Chef Infra Server and act as a top-level entity for role-based access control. Use the [knife org create](https://docs.chef.io/workstation/knife_org/) command to create your Chef organization. For example, create an Organization:
 
 ```sh
-Knife org create myorg "My New Organization"
+Knife org create <ORGANIZATION_NAME> "My New Organization" //Replace <ORGANIZATION_NAME> with user\'s organization name.
 ```
 
 The above code returns the private key for the organization's validator client.
 
 ### Create a User in CLI
 
-Create a new user associated with the new Chef organization and leverage in the credentials file. Create your new account using the [knife user create](https://docs.chef.io/workstation/knife_user/) command. For example, to create a User named chefadmin:
+Create a new user associated with the new Chef organization and leverage in the credentials file. Create your new account using the [knife user create](https://docs.chef.io/workstation/knife_user/) command. For example, to create a User named:
 
 ```sh
-knife user create <USERNAME> --first-name <FIRSTNAME> --last-name <LASTNAME> --email <USERNAME@EXAMPLE>COM> -password <PASSWORD> -f chefadmin.pem
+knife user create <USERNAME> --first-name <FIRST_NAME> --last-name <LAST_NAME> --email <USERNAME@EXAMPLE>COM> -password <PASSWORD> -f chefadmin.pem
 knife user create chefadmin --first-name Chef --last-name Admin --email chefadmin@mycompany.com -password securepassword -f chefadmin.pem
 ```
 
 In the above snippet, replace:
 
 * \<USERNAME\> with the user's username.
-* \<FIRSTNAME\> with the user's first name.
-* \<LASTNAME\> with the user's last name.
+* \<FIRST_NAME\> with the user's first name.
+* \<LAST_NAME\> with the user's last name.
 * \<USERNAME@EXAMPLE.COM\> with the user's e-mail id.
 * \<PASSWORD\> with the user's password.
 
-Copy the new `chefadmin.pem` file created with this command to the `~/.chef` directory before updating the credentials file later in this document.
+Copy the new `.pem` file created with this command to the `~/.chef` directory before updating the credentials file later in this document.
 
 ### Add new User to Organization in CLI
 
-Associate the created Organization and User to each other. Use the [knife org user](https://docs.chef.io/workstation/knife_org/) command to add the user to an organization. For example, to add the User named **chefadmin** to the Organization called **myorg**:
+Associate the created Organization and User to each other. Use the [knife org user](https://docs.chef.io/workstation/knife_org/) command to add the user to an organization. For example, to add the User to the Organization:
 
 ```sh
-knife org user add myorg chefadmin
+knife org user add <USERNAME> <ORGANIZATION_NAME>
 ```
+
+In the above code, replace:
+
+* \<USERNAME\> with the user's username.
+* \<ORGANIZATION_NAME\> with user's organization name.
 
 ### Update the credentials file to use a new account
 
@@ -111,15 +116,15 @@ Update the credentials file under the `~/.chef` directory on the Chef Workstatio
 
 1. Navigate to `~/.chef`.
 1. Modify the credentials file.
-    * Change the **client_name** to the new account created (Example: `chefadmin`).
-    * Change the **client_key** to the new PEM file that was created (Example: `home/admin/.chef/chefadmin.pem`).
+    * Change the **client_name** to the new account created (Example: `<USERNAME>`).
+    * Change the **client_key** to the new PEM file that was created (Example: `home/admin/.chef/<USERNAME>.pem`).
     * Change the **chef_server_url** to include the new Organization (Example: `https://mycompany-example.com.chef.io/organizations/myorg`).
     * Save and Quit.
 
     ```ruby
     [default]
-    client_name         - 'chefadmin'
-    client_key          = '/home/admin/.chef/chefadmin.pem'
+    client_name         - 'CLIENT_NAME'
+    client_key          = '/home/admin/.chef/<USER_NAME>.pem'
     chef_server_url     - 'https://mycompany-example.com.chef.io/organization/myorg'
     ```
 
@@ -132,8 +137,8 @@ The following steps will add the Organization to the Chef SaaS Web User Interfac
 1. Select the Infra Server created previously.
 1. Select **Add Chef Organization**.
     * Provide the Name of the Organization created earlier in the CLI (Example: `myorg`).
-    * For Admin User, enter the new account created previously (Example: `chefadmin`).
-    * For Admin Key, paste the contents of the new PEM file created previously along with the account (Example: `chefadmin.pem`).
+    * For Admin User, enter the new account created previously (Example: `<USER_NAME>`).
+    * For Admin Key, paste the contents of the new PEM file created previously along with the account (Example: `<USER_NAME>.pem`).
     * Select **Add Chef Organization**.
 
 {{< figure src="/images/automate/add-chef-organization-popup-menu.png" width="500" alt="Add Chef Organization Form">}}
