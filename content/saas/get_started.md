@@ -56,7 +56,7 @@ Create a credentials file to continue configuring Workstation with Chef SaaS. Yo
 1. On the workstation, run: `knife configure init`.
 1. This will prompt you with several questions:
     * Enter the Chef Infra Server URL provided in the Starter Kit (Example: `mycompany-example.com.chef.io`)
-    * For the existing API **username** or **clientname**, enter the Super User account provided in the Starter Kit.
+    * For the existing API **username** or **client_name**, enter the Super User account provided in the Starter Kit.
 1. Copy the `pivotal.pem` file in the Starter Kit to the `~/.chef` directory before running additional commands with Knife.
 
 The credentials file that gets created in the `~/.chef` directory looks like as shown in the following code snippet:
@@ -83,8 +83,17 @@ The above code returns the private key for the organization’s validator client
 Create a new user associated with the new Chef organization and leverage in the credentials file. Create your new account using the [knife user create](https://docs.chef.io/workstation/knife_user/) command. For example, to create a User named chefadmin:
 
 ```sh
+knife user create <USERNAME> --first-name <FIRSTNAME> --last-name <LASTNAME> --email <USERNAME@EXAMPLE>COM> –password <PASSWORD> -f chefadmin.pem
 knife user create chefadmin --first-name Chef --last-name Admin --email chefadmin@mycompany.com –password securepassword -f chefadmin.pem
 ```
+
+In the above snippet, replace:
+
+* \<USERNAME\> with the user's username.
+* \<FIRSTNAME\> with the user's first name.
+* \<LASTNAME\> with the user's last name.
+* \<USERNAME@EXAMPLE.COM\> with the user's e-mail id.
+* \<PASSWORD\> with the user's password.
 
 Copy the new `chefadmin.pem` file created with this command to the `~/.chef` directory before updating the credentials file later in this document.
 
@@ -102,9 +111,9 @@ Update the credentials file under the `~/.chef` directory on the Chef Workstatio
 
 1. Navigate to `~/.chef`.
 1. Modify the credentials file.
-    * Change the client_name to the new account created (Example: `chefadmin`).
-    * Change the client_key to the new PEM file that was created (Example: `home/admin/.chef/chefadmin.pem`).
-    * Change the chef_server_url to include the new Organization (Example: `https://mycompany-example.com.chef.io/organizations/myorg`).
+    * Change the **client_name** to the new account created (Example: `chefadmin`).
+    * Change the **client_key** to the new PEM file that was created (Example: `home/admin/.chef/chefadmin.pem`).
+    * Change the **chef_server_url** to include the new Organization (Example: `https://mycompany-example.com.chef.io/organizations/myorg`).
     * Save and Quit.
 
     ```ruby
@@ -129,13 +138,13 @@ The following steps will add the Organization to the Chef SaaS Web User Interfac
 
 {{< figure src="/images/automate/add-chef-organization-popup-menu.png" width="500" alt="Add Chef Organization Form">}}
 
-### Run Knife SSL check
+### Verify SSL configuration
 
 Chef SaaS leverages public certificates to ensure a secure connection to the service. To eliminate connection issues, it is always best to run an SSL check on the Workstation to verify that the certificate is trusted.
 
-* Run the following command: `knife SSL checks` and ensure a successful message is displayed.
+* Run the following command: `knife ssl checks` and ensure a successful message is displayed.
 
-### Run Knife client list
+### Verify Knife client list
 
 Lastly, run a client list command to verify a successful connection to the new organization.
 
