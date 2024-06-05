@@ -25,7 +25,7 @@ Chef SaaS supports the following IDps:
 
 It's crucial to note that your account must hold the Administrator policy to access the SSO user interface. This policy is automatically granted to members of the admin team.
 
-Rest assured, the process of adding a SAML configuration for Chef SaaS is straightforward and easy to follow. Here are the simple instructions to guide you through.
+Use the following instructions to add a SAML configuration in Chef SaaS.
 
 1. Login to your Chef SaaS account and append `/sso` to your fully qualified domain name in your browser toolbar. For example, `https://automate.example.com/sso`.
 
