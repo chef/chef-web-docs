@@ -15,8 +15,7 @@ This guide shows you how to set up and configure Chef SaaS.
 
 Before you start working with Chef SaaS, have a quick look at the following prerequisites:
 
-* A System to install Chef Workstation.
-  * Supported [Platforms and System Requirements](/workstation/install_workstation/).
+* [Chef Workstation](/workstation/install_workstation/)
 
 * Chef SaaS Starter Kit (Provided by Progress Chef).
   * SaaS Environment URL.
