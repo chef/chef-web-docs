@@ -61,3 +61,8 @@
   from = "/plugin_knife_windows.html"
   to = "/workstation/knife_windows/"
   status = 301
+
+[[redirects]]
+  from = "/360/beta/*"
+  to = "https://release-beta--chef-360.netlify.app/360/beta/:splat"
+  status = 200
