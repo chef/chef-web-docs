@@ -15,21 +15,20 @@ Once everything has been set up and restored to the new Chef environment, redire
 
 Before you start working on the Chef environment of Chef SaaS, have a quick look at the following prerequisites:
 
-* Running Chef Automate 2.0 in AWS OpsWorks.
-* A Chef SaaS Environment. Refer to the [Getting Started](/saas/get_started/) with the Chef SaaS page for more information.
-* Restoration is performed on AWS OpsWorks for Chef SaaS.
-* Splay mode and baseline are up to two client runs an hour. Refer to the [Chef Infra Client](/ctl_chef_client/) page for more details on configuring splay mode in the `client.rb` file.
-* One compliance scan an hour.
+- Running Chef Automate 2.0 in AWS OpsWorks.
+- A Chef SaaS Environment. Refer to the [Getting Started](/saas/get_started/) with the Chef SaaS page for more information.
+- Restoration is performed on AWS OpsWorks for Chef SaaS.
+- Splay mode and baseline are up to two client runs an hour. Refer to the [Chef Infra Client](/ctl_chef_client/) page for more details on configuring splay mode in the `client.rb` file.
+- One compliance scan an hour.
 
 ## Redirect nodes to Chef SaaS
 
 Progress Chef has developed a Cookbook and Recipe that can run against all nodes under management in the AWS OpsWorks environment. This Cookbook will redirect all nodes to the new Chef SaaS instance. Some samples of the cookbooks, PolicyFile.rb, attribute file, and recipe file, are:
 
-* Cookbook
+To redirect nodes from AWS OpsWorks to Chef SaaS:
 
-    {{< figure src="/images/saas-cookbook-folder.png" alt="Cookbook Folder">}}
-
-* PolicyFile.rb
+1. Create a [new cookbook](/cookbooks/#generate-a-cookbook).
+1. Update the [Policyfile](/config_rb_policyfile/) with the following content:
 
     ```ruby
     # Policyfile.rb  Describe how you want Chef Infra Client to build your system.
@@ -49,13 +48,12 @@ Progress Chef has developed a Cookbook and Recipe that can run against all nodes
     cookbook 'your_client', path: '.'
     ```
 
-* Attribute
+1. Add attributes for the new and old server:
 
-    {{< figure src="/images/saas-attributes-folder.png" alt="Attributes Folder">}}
+    `default['your_client']['chef_server_old'] = '<OLD_CHEF_SERVER_URL>'`
+    `default['your_client']['chef_server_new'] = '<NEW_CHEF_SERVER_URL>'`
 
-    `default['your_client']['chef_server_old'] = '<Old chef-server URL>'`
-    `default['your_client']['chef_server_new'] = '<New chef-server URL>'`
+1. Upload the new cookbook to your server on AWS OpsWorks.
+1. Log into Chef SaaS after the next Infra Client run to verify that the nodes have redirect to Chef SaaS.
 
-* Recipe
-
-    {{< figure src="/images/saas-recipes-folder.png" alt="Recipes Folder">}}
+Contact your SA if you need help.
