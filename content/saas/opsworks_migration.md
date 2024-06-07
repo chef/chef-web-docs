@@ -83,11 +83,11 @@ If you don't have SSH/SSM access, follow these steps to create a backup:
 1. Select **Create backup**.
 1. The manual backup is finished when the page shows a green checkmark in the backup's **Status** column.
 
-    {{< figure src="/images/saas-status-column.png" alt="Status Column">}}
+    {{< figure src="/images/saas/saas-status-column.png" alt="Chef Automate showing list of backups on AWS OpsWorks.">}}
 
 1. In the AWS S3 console, find the AWS OpsWorks bucket where the backups are stored.
 
-    {{< figure src="/images/saas-aws-console.png" alt="AWS s3 Console">}}
+    {{< figure src="/images/saas/saas-aws-console.png" alt="AWS S3 console showing list of Automate server backups.">}}
 
 1. Zip the latest `timestamp-based` directory and `automate-elasticsearch-data` directory and share it with the Chef team.
 
