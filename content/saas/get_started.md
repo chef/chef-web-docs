@@ -33,7 +33,7 @@ Follow these steps in the Chef SaaS Automate Web User Interface to add the Chef 
     * Provide a unique name for the Chef Infra Server.
     * Enter the **FQDN** by copying the same URL used to connect to Chef SaaS, for example: **saas-example.com**.
 
-      {{< figure src="/images/automate/add-chef-server-popup-menu-with-error.png" width="500" alt="Add Chef Server Form">}}
+      {{< figure src="/images/saas/add-chef-server-popup-menu.png" width="500" alt="Enter Chef Infra Server name and FQDN in the Add Chef Infra Server dialog.">}}
 
 1. Click **Add Chef Infra Server**.
 
