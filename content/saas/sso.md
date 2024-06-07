@@ -11,32 +11,32 @@ draft = false
     weight = 40
 +++
 
-Single sign-on (SSO) is an authentication method that enables you to securely authenticate and use all services with just one set of credentials.
+Single Sign-On (SSO) is an authentication method that enables you to securely authenticate and use all services with just one set of credentials.
 
 ## Chef SaaS SAML configuration
 
-Chef SaaS users can login using a SAML-based external identity provider (IdP).
+Chef SaaS users can log in using a SAML-based external Identity Provider (IdP).
 
-Chef SaaS supports the following IDps:
+Chef SaaS supports the following IdPs:
 
 {{< readfile file="content/automate/reusable/md/saml_supported_identity_providers.md" >}}
 
 ### Add SAML configuration
 
-It's crucial to note that your account must hold the Administrator policy to access the SSO user interface. This policy is automatically granted to members of the admin team.
+{{< note >}}It is crucial to note that your account must hold the Administrator policy to access the SSO user interface. This policy is automatically granted to members of the admin team.{{< /note >}}
 
 Use the following instructions to add a SAML configuration in Chef SaaS.
 
-1. Login to your Chef SaaS account and append `/sso` to your fully qualified domain name in your browser toolbar. For example, `https://automate.example.com/sso`.
+1. Log in to your Chef SaaS account and append `/sso` to your fully qualified domain name in your browser toolbar. For example, `https://automate.example.com/sso`.
 
 1. On the Chef SaaS SSO page, enter the following information:
 
    SSO URL
-   : The single sign-on URL provided by the IDP.
+   : The single sign-on URL provided by the IdP.
    : _Required_
 
    Email Attribute
-   : The user email attribute is set in the IDP.
+   : The user email attribute is set in the IdP.
    : _Required_
 
    Username Attribute
@@ -44,11 +44,11 @@ Use the following instructions to add a SAML configuration in Chef SaaS.
    : _Required_
 
    Entity Issuer URL
-   : The authorization callback URL of your Chef SaaS deployment. The URL is your Chef SaaS deployment's fully qualified domain name appended with `dex/callback`. For example, `https://automate.example.com/dex/callback`.
+   : The authorization callback URL of your Chef SaaS deployment. The URL is your Chef SaaS deployment's Fully Qualified Domain Name (FQDN) appended with `dex/callback`. For example, `https://automate.example.com/dex/callback`.
    : _Required_
 
    CA Certificate
-   : The full certificate provided by the IDP. Include `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----` at the beginning and end of the certificate string.
+   : The full certificate provided by the IdP. Include `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----` at the beginning and end of the certificate string.
    : _Required_
 
    Group Attribute
@@ -57,7 +57,7 @@ Use the following instructions to add a SAML configuration in Chef SaaS.
    : _Optional_
 
    Allowed Groups
-   : The groups in the IDP that have single sign-on access to Chef SaaS.
+   : The groups in the IdP that have SSO access to Chef SaaS.
    : _Optional_
 
    Name ID Policy Format
@@ -75,22 +75,22 @@ Use the following instructions to add a SAML configuration in Chef SaaS.
      - `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`
      - `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`
 
-1. After entering these fields, select **Submit** to add the user SSO configuration. After Chef SaaS validates all form values, the **Submit** button is enabled.
+1. After entering these fields, click **Submit** to add the user SSO configuration. After Chef SaaS validates all form values, the **Submit** button is enabled.
 
    The SSO page refreshes, showing the filled-in SAML configuration fields with a message at the top that says, "SSO Request is complete. Config applied successfully."
 
 If the new SSO configuration fails, you can edit and submit the form again.
 
-### Delete SAML configuration
+### Delete the SAML configuration
 
 Your account must have the [Administrator policy]({{< relref "/automate/policies" >}}) to access the SSO user interface. Members of the [admins team]({{< relref "/automate/teams" >}}) have this by default.
 
-As a user with the Administrator policy, you have the power to manage your SSO configurations. Here's how you can remove an existing SAML configuration in Chef SaaS.
+As a user with the Administrator policy, you have the power to manage your SSO configurations. You can remove an existing SAML configuration in Chef SaaS by following these steps:
 
-1. Login to your Chef SaaS account and append `/sso` to your fully qualified domain name in your browser toolbar. For example, `https://automate.example.com/sso`.
+1. Log in to your Chef SaaS account and append `/sso` to your FQDN in your browser toolbar. For example, `https://automate.example.com/sso`.
 
-1. Select the **Remove Configuration** button on the Chef SaaS SSO page.
+1. Click **Remove Configuration** on the Chef SaaS SSO page.
 
-1. A dialog box asks you to confirm that you want to remove the configuration. Select **Remove** to remove the SSO configuration.
+1. A dialog box asks you to confirm that you want to remove the configuration. Click **Remove** to remove the SSO configuration.
 
    The SSO page refreshes, showing empty SAML configuration fields and a message at the top that says, "SSO Request is complete. Config removed successfully."

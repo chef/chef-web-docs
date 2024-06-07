@@ -21,7 +21,7 @@ Ensure configurations are applied consistently in every environment with Infrast
 
 ## Chef Cloud Security
 
-End-to-end Security Management Software that prevents security incidents and maintains compliance across your cloud-native assets.
+End-to-end security management software that prevents security incidents and maintains compliance across your cloud-native assets.
 
 ## Chef Compliance
 
@@ -31,4 +31,4 @@ Maintain compliance and prevent security incidents across heterogeneous estates 
 
 Empowering IT resource managers through automation to improve efficiency while reducing risk across IT resources.
 
-To know more about the configuration for Chef SaaS to connect and utilize the solution, see the [Get Started with Chef SaaS](/saas/get_started/) page.
+To find out more about the configuration for Chef SaaS, refer to the [Get Started with Chef SaaS](/saas/get_started/) page.
