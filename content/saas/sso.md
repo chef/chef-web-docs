@@ -75,7 +75,7 @@ Use the following instructions to add a SAML configuration in Chef SaaS.
      - `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`
      - `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`
 
-1. After entering these fields, click **Submit** to add the user SSO configuration. After Chef SaaS validates all form values, the **Submit** button is enabled.
+1. After entering these fields, select **Submit** to add the user SSO configuration. After Chef SaaS validates all form values, the **Submit** button is enabled.
 
    The SSO page refreshes, showing the filled-in SAML configuration fields with a message at the top that says, "SSO Request is complete. Config applied successfully."
 
@@ -89,8 +89,8 @@ As a user with the Administrator policy, you have the power to manage your SSO c
 
 1. Log in to your Chef SaaS account and append `/sso` to your FQDN in your browser toolbar. For example, `https://automate.example.com/sso`.
 
-1. Click **Remove Configuration** on the Chef SaaS SSO page.
+1. Select **Remove Configuration** on the Chef SaaS SSO page.
 
-1. A dialog box asks you to confirm that you want to remove the configuration. Click **Remove** to remove the SSO configuration.
+1. A dialog box asks you to confirm that you want to remove the configuration. Select **Remove** to remove the SSO configuration.
 
    The SSO page refreshes, showing empty SAML configuration fields and a message at the top that says, "SSO Request is complete. Config removed successfully."
