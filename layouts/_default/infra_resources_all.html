@@ -1,0 +1,25 @@
+
+{{ define "main" }}
+  {{ $product := index .Params.data_path 0 }}
+
+  {{ .Content }}
+
+  {{ range $yaml_file := index $.Site.Data ( .Params.data_path )}}
+    {{ $resource := index $yaml_file "resource" }}
+    {{ $resource_ID := replace $resource "_" "-" }}
+    {{ if index $yaml_file "resource_reference" }}
+
+      <h2 id="{{ $resource_ID}}-resource">{{ $resource }} resource</h2>
+      {{ if eq $product "infra" }}
+        <a href="/resources/{{ $resource }}/">{{ $resource }} resource page</a>
+      {{ else }}
+        <a href="/{{ $product }}/resources/{{ $resource }}/">{{ $resource }} resource page</a>
+      {{ end }}
+
+    {{ end }}
+
+    {{ $partial_data := dict "yaml_file" $yaml_file "product" $product "resource_ID" $resource_ID "heading_base_level" 3 "include_resource_id" true }}
+    {{ partial "infra_resource_data" $partial_data }}
+
+  {{ end }}<!-- end range yaml files -->
+{{ end }}
