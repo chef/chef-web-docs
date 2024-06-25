@@ -4,12 +4,15 @@ putting them inside a `.d` configuration directory. For example:
 are loaded; other non-`.rb` files are ignored.
 
 Chef Infra Client itself requires that .rb files are stored in a directory named `client.d`, such as
+
 - `/etc/chef/client.d`
 
 Chef development tooling such as knife requires that .rb files are stored in a directory named `config.d`, such as
+
 - `~/.chef/config.d`
 
 Chef Solo requires that .rb files are stored in a directory named `solo.d`, such as
+
 - `~/chef/solo.d`
 
 (There is no support for a `knife.d` directory; use `config.d` instead.)
