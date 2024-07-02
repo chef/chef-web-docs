@@ -74,10 +74,10 @@ Interface-driven
 
 ### Supported platforms
 
-1. The Chef-360 Platform is a set of containers which run on standard Kubernetes environments. Most containers are 'scratch' containers and run on the default pod provided by the host. Some containers are on Debian base images. The Chef-360 Platform v1.0 release is packaged inside and is tested on a `k0s` distribution.
-1. The Chef-360 platform has three command-line interfaces which run on versions of Linux, Microsoft Windows, and MacOS on x86 or ARM architectures (as appropriate). These are available in the bundled tools container in the Chef-360 Platform distribution.
-1. The Chef-360 platform has three agents: the Habitat base module, a Node Management agent, and a Courier agent. The Habitat installer runs on all platforms indicated on the [Chef Habitat downloads page](https://community.chef.io/downloads/tools/habitat) (or your support portal if you have a commercial Chef license). We tested with the latest version of Habitat for this release. The agents are available in the bundled tools container in the Chef-360 Platform distribution.
-1. Chef-360 Platform relies on the following infrastructure components for its services:
+1. The Chef 360 Platform is a set of containers which run on standard Kubernetes environments. Most containers are 'scratch' containers and run on the default pod provided by the host. Some containers are on Debian base images. The Chef 360 Platform v1.0 release is packaged inside and is tested on a `k0s` distribution.
+1. The Chef 360 platform has three command-line interfaces which run on versions of Linux, Microsoft Windows, and MacOS on x86 or ARM architectures (as appropriate). These are available in the bundled tools container in the Chef 360 Platform distribution.
+1. The Chef 360 platform has three agents: the Habitat base module, a Node Management agent, and a Courier agent. The Habitat installer runs on all platforms indicated on the [Chef Habitat downloads page](https://community.chef.io/downloads/tools/habitat) (or your support portal if you have a commercial Chef license). We tested with the latest version of Habitat for this release. The agents are available in the bundled tools container in the Chef 360 Platform distribution.
+1. Chef 360 Platform relies on the following infrastructure components for its services:
 
     - Postgres v16.1
     - MinIO v2023.11.20
@@ -85,11 +85,11 @@ Interface-driven
     - NGINX v1.25.4
     - Mailhog v1.0.1 (optional)
 
-1. All open-source licenses used within Chef-360 Platform are cited in the `NOTICES.TXT` file accompanying each binary, including the command-lines.
+1. All open-source licenses used within Chef 360 Platform are cited in the `NOTICES.TXT` file accompanying each binary, including the command-lines.
 
 ### Known issues
 
-We have tested on the supported platforms listed above and intend on broadening this support in upcoming releases. Chef-360 Platform may operate correctly on other platforms; we just cannot guarantee it. Contact your customer success team with questions.
+We have tested on the supported platforms listed above and intend on broadening this support in upcoming releases. Chef 360 Platform may operate correctly on other platforms; we just cannot guarantee it. Contact your customer success team with questions.
 
 Chef 360 1.0 has the following known issues:
 
