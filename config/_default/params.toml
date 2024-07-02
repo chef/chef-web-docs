@@ -1,7 +1,22 @@
 ## The order of the menus (e.g. menu.infra, menu.inspec, etc...) in the left nav menu
 ## is set by the menuOrder parameter below.
-menuOrder = ["overview", "automate",  "desktop", "habitat", "infra", "server", "inspec", "saas", "workstation", "effortless", "supermarket", "release_notes", "legacy", "extra"]
-
+menuOrder = [
+  "overview",
+  "360",
+  "automate",
+  "desktop",
+  "habitat",
+  "infra",
+  "server",
+  "inspec",
+  "saas",
+  "workstation",
+  "effortless",
+  "supermarket",
+  "release_notes",
+  "legacy",
+  "extra"
+]
 enable_search = true
 robots = ''
 

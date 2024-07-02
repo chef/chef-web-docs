@@ -99,6 +99,19 @@ weight = 20
 ####
 
 ####
+# Chef 360 Menu
+####
+
+[[360]]
+title = "Chef 360 Platform"
+identifier = "360/1.0"
+url = "/360/1.0/"
+
+####
+# Chef 360 Menu
+####
+
+####
 # Chef Automate Menu
 ####
 
