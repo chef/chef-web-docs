@@ -9,15 +9,9 @@
 # github.com/inspec/inspec-habitat/docs-chef-io v0.0.0-20220218210405-bfd542da49fd
 # github.com/inspec/inspec-k8s/docs-chef-io v0.0.0-20240122032042-421355eaf502
 # github.com/chef/chef-workstation/docs-chef-io v0.0.0-20240604075832-44857ee271a3
-# github.com/chef/supermarket/docs-chef-io v0.0.0-20240216070409-e2c400562391
+# github.com/chef/supermarket/docs-chef-io v0.0.0-20240704074504-4c4829edb0c0
 # github.com/chef/effortless/docs-chef-io v0.0.0-20230711123605-c8beb79aba4f
 # github.com/chef/compliance-profiles/docs-chef-io v0.0.0-20240306070238-713aa7a8dd8e
 # github.com/chef/compliance-remediation-2022/docs-chef-io v0.0.0-20240313054833-ebbc45209efa
 # github.com/chef/license-service/docs-chef-io v0.0.0-20231117105514-d3f3d53ba2dd
 # github.com/chef/chef-docs-theme v0.0.0-20240702130936-2a15b495f5df
-# github.com/FortAwesome/Font-Awesome v0.0.0-20240108205627-a1232e345536
-# github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90
-# github.com/twitter/hogan.js v3.0.2+incompatible
-# github.com/swiftype/swiftype-autocomplete-jquery v0.0.0-20190222215504-a90008d64b30
-# github.com/swiftype/swiftype-search-jquery v1.1.0
-# github.com/ten1seven/what-input v5.2.12+incompatible
