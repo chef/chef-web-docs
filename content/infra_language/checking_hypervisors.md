@@ -25,6 +25,10 @@ Determine if the current node supports running guests under any virtualization e
 
 Determine if the current node is NOT running under any virtualization environment (bare-metal or hypervisor on metal).
 
+## hyperv?
+
+Determine if the current node is a Hyper-V guest.
+
 ## kvm?
 
 Determine if the current node is a KVM guest.
