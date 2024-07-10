@@ -27,7 +27,7 @@ Determine if the current node is NOT running under any virtualization environmen
 
 ## hyperv?
 
-Determing if the current node is a Hyper-V guest.
+Determine if the current node is a Hyper-V guest.
 
 ## kvm?
 
