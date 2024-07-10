@@ -18,6 +18,9 @@
           <div id="page-content">
 
             <main id="main-content-col" tabindex="-1">
+
+              {{ partial "breadcrumbs.html" . }}
+
               <div id="col-content" data-swiftype-index='true'>
                 <div id="{{ anchorize ( .Title )}}"><h1>{{ .Title }}</h1></div>
 
