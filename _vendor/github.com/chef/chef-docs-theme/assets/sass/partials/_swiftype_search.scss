@@ -185,18 +185,7 @@
     right: 0;
     top: 0;
   }
-  form > input.swiftype-search-autocomplete {
-    width: 100%;
-  }
 }
-
-#left-nav-on-canvas {
-  form > input.swiftype-search-autocomplete {
-    width: 90%;
-  }
-}
-
-
 
 form > input.swiftype-search {
 
@@ -212,7 +201,7 @@ form > input.swiftype-search {
   }
 
   &-autocomplete {
-    margin: 0 0 0 10px;
+    margin: 5px 0;
     display: inline-block;
     height: 2.5em;
   }

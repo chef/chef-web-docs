@@ -63,6 +63,6 @@
   status = 301
 
 [[redirects]]
-  from = "/360/beta/*"
-  to = "https://release-beta--chef-360.netlify.app/360/beta/:splat"
+  from = "/360/1.0/*"
+  to = "https://release-1-0--chef-360.netlify.app/360/1.0/:splat"
   status = 200
