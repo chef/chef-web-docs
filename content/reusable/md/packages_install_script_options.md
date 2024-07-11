@@ -23,9 +23,8 @@ supports the following options:
 `-P` (`-project` on Windows)
 
 :   The product name to install. Supported versions of Chef products are
-    `automate`, `chef`, `chef-server`, `inspec`, `chef-workstation`,
-    `chefdk`, `supermarket`, `chef-backend`, `push-jobs-client`, and
-    `push-jobs-server`. Default value: `chef`.
+    `chef`,`chef-backend`,`chef-server`, `inspec`, `chef-workstation`, `manage` and 
+    `supermarket`, and Default value: `chef`.
 
 `-s` (`-install_strategy` on Windows)
 
