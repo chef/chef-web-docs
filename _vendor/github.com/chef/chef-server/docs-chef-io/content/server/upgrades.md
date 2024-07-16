@@ -206,7 +206,7 @@ The following External PostgreSQL upgrade steps are provided as a courtesy only.
    apt-get update
    apt install ruby
    apt install make
-   curl -L https://chef.io/chef/install.sh | sudo bash -s -- -P chefdk
+   {{< readfile file="content/chef_install_script.md" >}}
    export PATH=$PATH:/root/.chefdk/gem/ruby/2.6.0/bin
    apt-get -y install gcc postgresql libpq-dev
    /opt/chefdk/embedded/bin/gem install knife-ec-backup -- --with-pg-config=/opt/opscode/embedded/postgresql/9.6/bin/pg_config

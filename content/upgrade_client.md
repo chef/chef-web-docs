@@ -23,13 +23,13 @@ To upgrade Chef Infra Client on a node from the command line, run the install sc
 Linux, macOS, and Unix-based hosts:
 
 ```bash
-curl -L https://chef.io/chef/install.sh | sudo bash
+{{< readfile file="content/chef_install_script.md" >}}
 ```
 
 Windows hosts:
 
 ```powershell
-. { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install
+{{< readfile file="content/chef_install_script.md" >}}
 ```
 
 ### Specifying the Version to Install
@@ -39,7 +39,7 @@ The install script accepts arguments to allow installing specific versions of Ch
 Linux, macOS, and Unix-based hosts:
 
 ```bash
-curl -L https://chef.io/chef/install.sh | sudo bash -s -- -v 17.9.26
+{{< readfile file="content/chef_install_script.md" >}}
 ```
 
 Windows hosts:
@@ -53,7 +53,7 @@ Windows hosts:
 The `knife ssh` command in Chef Workstation can be used to execute the install script on multiple Linux, macOS, and Unix-based hosts at once:
 
 ```bash
-knife ssh 'name:*' 'curl -L https://chef.io/chef/install.sh | sudo bash'
+{{< readfile file="content/chef_install_script.md" >}}
 ```
 
 ## Cookbook-Based Upgrade
