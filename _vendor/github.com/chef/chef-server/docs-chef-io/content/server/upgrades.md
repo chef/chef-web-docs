@@ -201,6 +201,8 @@ The following External PostgreSQL upgrade steps are provided as a courtesy only.
    the topology of your setup, your OS and distribution, and a range of other factors).
 
    For example:
+   Follow the Install Script for downloading the products
+   [Chef Software Install Script](/install_omnibus/)
 
    ```bash
    apt-get update
