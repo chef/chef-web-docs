@@ -22,15 +22,11 @@ To upgrade Chef Infra Client on a node from the command line, run the install sc
 
 Linux, macOS, and Unix-based hosts:
 
-```bash
-curl -L https://chef.io/chef/install.sh | sudo bash
-```
+- [Chef Software Install Script](/install_omnibus/)
 
 Windows hosts:
 
-```powershell
-. { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install
-```
+- [Chef Software Install Script](/install_omnibus/)
 
 ### Specifying the Version to Install
 
