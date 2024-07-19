@@ -58,17 +58,23 @@ weight = 20
     parent = "overview/licensing"
     weight = 999
 
+    [[overview]]
+    title = "Enterprise Chef"
+    identifier = "overview/enterprise"
+    parent = "overview"
+    weight = 30
+
   [[overview]]
   title = "Community"
   identifier = "overview/community"
   parent = "overview"
-  weight = 30
+  weight = 40
 
   [[overview]]
   title = "Packages & Platforms"
   identifier = "overview/packages_&_platforms"
   parent = "overview"
-  weight = 40
+  weight = 50
 
     [[overview]]
     title = "Download"
@@ -80,7 +86,7 @@ weight = 20
   title = "Style Guide"
   identifier = "overview/style"
   parent = "overview"
-  weight = 90
+  weight = 100
 
     [[overview]]
     title = "Formatting"
