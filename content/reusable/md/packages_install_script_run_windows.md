@@ -8,9 +8,11 @@ For Trial Persona use curl -L https://chefdownload-trial.chef.io/install.ps1
 
 For Opensource Persona use curl -L https://chefdownload-community.chef.io/install.ps1
 ```
+
 enter your licenseId in place of licenseId
 
 Once the script is download install using
+
 ```powershell
 .\downloadScript
 ```
