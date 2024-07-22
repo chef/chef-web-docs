@@ -13,7 +13,7 @@ Windows PowerShell:
 . { iwr -useb https://chefdownload-trial.chef.io/install.ps1 } | iex; install
 ```
 
-- For Commnunity Persona use
+- For Community Persona use
 
 ```powershell
 . { iwr -useb https://chefdownload-community.chef.io/install.ps1 } | iex; install
