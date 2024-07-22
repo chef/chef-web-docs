@@ -15,4 +15,3 @@ Once script is download install script
 ```bash
 bash downloadScript
 ```
-
