@@ -3,6 +3,8 @@ for example `/etc/chef/client.d`.
 
 To use a `.d` directory, create a directory with the same name as the configuration file but replace the `.rb` suffix with `.d`.
 
+The default locations for `.d` directories in Chef Infra are:
+
 - For Chef Infra Client, use `/etc/chef/client.d`.
 - For Chef development tooling such as knife, use `~/.chef/config.d`.
 - For Chef Solo, use `/etc/chef/solo.d`.
