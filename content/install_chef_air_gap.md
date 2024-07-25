@@ -161,12 +161,14 @@ custom template, and then modify the package and Ruby gem sources.
     template file name, be sure to replace `airgap.erb` with the
     template file you created during the last step.
 
-4. Update `airgap.erb` to replace `omnitruck.chef.io` with the URL of
+4. Update `airgap.erb` to replace `https://chefdownload-commercial.chef.io/install.sh?license_id=<YOUR LICENSE ID>` with  the URL of
     `install.sh` on your artifact store:
 
     ```ruby
     install_sh="<%= knife_config[:bootstrap_url] ? knife_config[:bootstrap_url] : "http://packages.example.com/install.sh" %>"
     ```
+
+     enter your licenseId in the place of YOUR LICENSE ID
 
 5. Still in your text editor, locate the following line near the bottom
     of your `airgap.erb` file:
