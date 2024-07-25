@@ -12,16 +12,74 @@ product = [""]
     weight = 10
 +++
 
-## Chef 360 Platform 1.0
+## Chef 360 Platform 1.0.2
 
 ### Release details
 
-- Version number: 1.0
-- Release date: 2 July, 2024
+- Version number: 1.0.2
+- Release date: July 22, 2024
+
+### Bug fixes
+
+- The `chef-courier-cli state run list-steps` command now lists all job instance steps.
+- The Shell Interpreter now correctly shows steps that failed on Windows nodes.
+- The `chef-platform-auth-cli user-account self get-role` now correctly lists HTTP verbs (for example `GET` or `POST`) in its response.
+
+### Supported skill versions
+
+| Skill                    | Skill name                | Habitat package                                                                                               | Version  |
+| -------------------------|---------------------------|---------------------------------------------------------------------------------------------------------------|----------|
+| Node Management Agent    | `node-management-agent`   | [chef-platform/node-management-agent](https://bldr.habitat.sh/#/pkgs/chef-platform/node-management-agent)     | 1.0.1    |
+| Courier Runner           | `courier-runner`          | [chef-platform/courier-runner](https://bldr.habitat.sh/#/pkgs/chef-platform/courier-runner)                   | 1.4.2    |
+| Gohai                    | `chef-gohai`              | [chef-platform/chef-gohai](https://bldr.habitat.sh/#/pkgs/chef-platform/chef-gohai)                           | 1.0.1    |
+| Shell Interpreter        | `shell-interpreter`       | [chef-platform/shell-interpreter](https://bldr.habitat.sh/#/pkgs/chef-platform/shell-interpreter)             | 1.0.2    |
+| Restart Interpreter      | `restart-interpreter`     | [chef-platform/restart-interpreter](https://bldr.habitat.sh/#/pkgs/chef-platform/restart-interpreter)         | 1.0.1    |
+| Infra Client Interpreter | `chef-client-interpreter` | [chef-platform/chef-client-interpreter](https://bldr.habitat.sh/#/pkgs/chef-platform/chef-client-interpreter) | 1.0.3    |
+| Inspec Interpreter       | `inspec-interpreter`      | [chef-platform/inspec-interpreter](https://bldr.habitat.sh/#/pkgs/chef-platform/inspec-interpreter)           | 1.0.3    |
+
+## Chef 360 Platform 1.0.1
+
+### Release details
+
+- Version number: 1.0.1
+- Release date: July 15, 2024
+
+### Improvements
+
+- In the previous release, you could not add more than one user-defined policy to a custom role.
+  You can now create custom roles with multiple policies with a single command.
+- The Courier Orchestrator service is now multi-threaded so that it can send multiple Courier jobs that are scheduled simultaneously.
+- We improved Chef 360 Platform enrollment failure messages so that they now show appropriate error messages for all stages of enrollment.
+- Upgraded Go to v1.22.5 in Chef 360 Platform Auth services and license services.
+
+### Bug fixes
+
+- You can now delete tags applied to nodes.
+- Chef 360 Platform now gives the correct health status for nodes with a large check-in interval.
+- You can now install Chef 360 Platform with a custom certificate.
+
+### Supported skill versions
+
+| Skill                    | Skill name                | Habitat package                                                                                               | Version  |
+| -------------------------|---------------------------|---------------------------------------------------------------------------------------------------------------|----------|
+| Node Management Agent    | `node-management-agent`   | [chef-platform/node-management-agent](https://bldr.habitat.sh/#/pkgs/chef-platform/node-management-agent)     | 1.0.1    |
+| Courier Runner           | `courier-runner`          | [chef-platform/courier-runner](https://bldr.habitat.sh/#/pkgs/chef-platform/courier-runner)                   | 1.4.1    |
+| Gohai                    | `chef-gohai`              | [chef-platform/chef-gohai](https://bldr.habitat.sh/#/pkgs/chef-platform/chef-gohai)                           | 1.0.1    |
+| Shell Interpreter        | `shell-interpreter`       | [chef-platform/shell-interpreter](https://bldr.habitat.sh/#/pkgs/chef-platform/shell-interpreter)             | 1.0.1    |
+| Restart Interpreter      | `restart-interpreter`     | [chef-platform/restart-interpreter](https://bldr.habitat.sh/#/pkgs/chef-platform/restart-interpreter)         | 1.0.1    |
+| Infra Client Interpreter | `chef-client-interpreter` | [chef-platform/chef-client-interpreter](https://bldr.habitat.sh/#/pkgs/chef-platform/chef-client-interpreter) | 1.0.2    |
+| Inspec Interpreter       | `inspec-interpreter`      | [chef-platform/inspec-interpreter](https://bldr.habitat.sh/#/pkgs/chef-platform/inspec-interpreter)           | 1.0.2    |
+
+## Chef 360 Platform 1.0.0
+
+### Release details
+
+- Version number: 1.0.0
+- Release date: July 2, 2024
 
 ### Overview
 
-This is the initial release of Progress Chef 360 platform. Chef Platform is a set of integrated software components and a surrounding ecosystem where value comes not only from individual features but from its ability to connect external tools, teams, data, and processes. We see Chef 360 platform as a way to take the power and benefits of policy as code and spread it to everyone who has a role in development, operations and security. In addition to that Chef 360 platform is an integrated ecosystem of tools providing not just value but also its ability to connect teams and tools together. It is a modern, cloud-native DevOps platform that democratizes DevOps by empowering IT operators and DevOps engineers to manage mission-critical infrastructure securely.
+This is the initial release of Progress Chef 360 Platform. Chef 360 Platform is a set of integrated software components and a surrounding ecosystem where value comes not only from individual features but from its ability to connect external tools, teams, data, and processes. We see Chef 360 Platform as a way to take the power and benefits of policy as code and spread it to everyone who has a role in development, operations and security. In addition to that Chef 360 Platform is an integrated ecosystem of tools providing not just value but also its ability to connect teams and tools together. It is a modern, cloud-native DevOps platform that democratizes DevOps by empowering IT operators and DevOps engineers to manage mission-critical infrastructure securely.
 
 When we set out to build a new platform we identified four primary guiding principles, used to help us make the right choices and stay aligned with our objectives.
 
@@ -38,7 +96,7 @@ This functionality empowers practitioners to execute ad hoc and unplanned duties
 
 ### Major services
 
-Chef 360 platform comes packaged with the following major categories of services. Each of these categories serves a very specific purpose in enabling the end-to-end functioning of every product made accessible through the Chef 360 platform.
+Chef 360 Platform comes packaged with the following major categories of services. Each of these categories serves a very specific purpose in enabling the end-to-end functioning of every product made accessible through the Chef 360 Platform.
 
 - Courier including services for scheduling, orchestrating, delivering and tracking state for jobs
 - Node management including centralized services and enrollment
@@ -69,14 +127,14 @@ User management:
 Interface-driven
 
 - Use rich APIs to automate any action against secure, authenticated endpoints.
-- Use one of the command-line interfaces (CLIs) to interact with the complete Chef 360 platform.
+- Use one of the command-line interfaces (CLIs) to interact with the complete Chef 360 Platform.
 - Try the user experience (UI) to visualize results and model new queries.
 
 ### Supported platforms
 
 1. The Chef 360 Platform is a set of containers which run on standard Kubernetes environments. Most containers are 'scratch' containers and run on the default pod provided by the host. Some containers are on Debian base images. The Chef 360 Platform v1.0 release is packaged inside and is tested on a `k0s` distribution.
-1. The Chef 360 platform has three command-line interfaces which run on versions of Linux, Microsoft Windows, and MacOS on x86 or ARM architectures (as appropriate). These are available in the bundled tools container in the Chef 360 Platform distribution.
-1. The Chef 360 platform has three agents: the Habitat base module, a Node Management agent, and a Courier agent. The Habitat installer runs on all platforms indicated on the [Chef Habitat downloads page](https://community.chef.io/downloads/tools/habitat) (or your support portal if you have a commercial Chef license). We tested with the latest version of Habitat for this release. The agents are available in the bundled tools container in the Chef 360 Platform distribution.
+1. The Chef 360 Platform has three command-line interfaces which run on versions of Linux, Microsoft Windows, and MacOS on x86 or ARM architectures (as appropriate). These are available in the bundled tools container in the Chef 360 Platform distribution.
+1. The Chef 360 Platform has three agents: the Habitat base module, a Node Management agent, and a Courier agent. The Habitat installer runs on all platforms indicated on the [Chef Habitat downloads page](https://community.chef.io/downloads/tools/habitat) (or your support portal if you have a commercial Chef license). We tested with the latest version of Habitat for this release. The agents are available in the bundled tools container in the Chef 360 Platform distribution.
 1. Chef 360 Platform relies on the following infrastructure components for its services:
 
     - Postgres v16.1
@@ -87,11 +145,23 @@ Interface-driven
 
 1. All open-source licenses used within Chef 360 Platform are cited in the `NOTICES.TXT` file accompanying each binary, including the command-lines.
 
+### Supported skill versions
+
+| Skill                    |  Habitat package                      | Version |
+|------------------------- | --------------------------------------|---------|
+| Node Management Agent    | chef-platform/node-management-agent   | 1.0.0   |
+| Courier Runner           | chef-platform/courier-runner          | 1.4.0   |
+| Gohai                    | chef-platform/chef-gohai              | 1.0.0   |
+| Shell Interpreter        | chef-platform/shell-interpreter       | 1.0.0   |
+| Restart Interpreter      | chef-platform/restart-interpreter     | 1.0.0   |
+| Infra Client Interpreter | chef-platform/chef-client-interpreter | 1.0.0   |
+| Inspec Interpreter       | chef-platform/inspec-interpreter      | 1.0.0   |
+
 ### Known issues
 
 We have tested on the supported platforms listed above and intend on broadening this support in upcoming releases. Chef 360 Platform may operate correctly on other platforms; we just cannot guarantee it. Contact your customer success team with questions.
 
-Chef 360 1.0 has the following known issues:
+Chef 360 Platform has the following known issues:
 
 - The Chef 360 Platform is not yet supported for environments which cannot access the internet, that is, air gapped environments.
 - Don't create a tenant name with the underscore character `_`, services will fail to start.

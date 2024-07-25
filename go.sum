@@ -16,8 +16,8 @@ github.com/chef/effortless/docs-chef-io v0.0.0-20230711123605-c8beb79aba4f h1:6+
 github.com/chef/effortless/docs-chef-io v0.0.0-20230711123605-c8beb79aba4f/go.mod h1:Lfq+HjwAQwUJ41EPTO/8qbI1oJb2i415fR28d2Ig9kc=
 github.com/chef/license-service/docs-chef-io v0.0.0-20231117105514-d3f3d53ba2dd h1:I4Rgzposq3E5Dd+swVEry+rs3zvEKSN29NS3noKRcTY=
 github.com/chef/license-service/docs-chef-io v0.0.0-20231117105514-d3f3d53ba2dd/go.mod h1:leNCF0KadV7zjm7YpVegNnbmWYUFXgaPKHP4tTDacos=
-github.com/chef/supermarket/docs-chef-io v0.0.0-20240216070409-e2c400562391 h1:r3v6VyduI+AN6UEKX38rIaKhYQ1Oi4XiJFLS6/Cp5ZQ=
-github.com/chef/supermarket/docs-chef-io v0.0.0-20240216070409-e2c400562391/go.mod h1:L0DhIJHTKsPYhAr9TrhAIg3KXtrS9BJF0XNHfGDDGGg=
+github.com/chef/supermarket/docs-chef-io v0.0.0-20240704074504-4c4829edb0c0 h1:sdQexhUFJpygGThnFfDi0tnYLV33pykzAowhdIjc8NY=
+github.com/chef/supermarket/docs-chef-io v0.0.0-20240704074504-4c4829edb0c0/go.mod h1:D+9mmEZxCwpdhZ8LrEODBWMwMufmJUubSt5NlU/lLB4=
 github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90 h1:p/a5iSATj0OjrqJLX/YKxYdGXhZzW58yyyNIC4JY4S0=
 github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90/go.mod h1:N/6F0+wmdvL6k0AjqyKIncMRClKAN92atjZdTLtYMaw=
 github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20240410132404-ec6d25dc198b h1:Ro7cUmzy6EEKQSUdIO+Avfw8qDIQitQUY/lVdD6Za2g=
