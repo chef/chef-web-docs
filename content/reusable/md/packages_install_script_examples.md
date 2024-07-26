@@ -1,16 +1,18 @@
 The following examples show how to use the Chef Software Install script.
 
-To install Chef Inspec 6.6.0:
+To install Infra Client 15.8.23:
+
+{{< note >}}Please replace `<YOUR LICENSE ID>` with your licenseId.{{< /note >}}
 
 ```bash
-curl -L https://chefdownload-commercial.chef.io/install.sh?license_id=<YOUR LICENSE ID> | sudo bash -s -- -v 6.6.0
+curl -L https://chefdownload-commericial.chef.io/install.sh?license_id=<YOUR LICENSE ID> | sudo bash -s -- -v 15.8.23
 ```
 
 To install the latest version of Chef Workstation on Windows
 from the `current` channel:
 
-```powershell
-. { iwr -useb https://chefdownload-commercial.chef.io/install.ps1?license_id=<YOUR LICENSE ID1> } | iex; install -channel stable -project inspec -version 6.6.0
-```
+{{< note >}}Please replace `<YOUR LICENSE ID>` with your licenseId.{{< /note >}}
 
-enter your licenseId in the place of YOUR LICENSE ID
+```powershell
+. { iwr -useb https://chefdownload-commericial.chef.io/install.ps1?license_id=<YOUR LICENSE ID> } | iex; install -channel current -project chef-workstation
+```

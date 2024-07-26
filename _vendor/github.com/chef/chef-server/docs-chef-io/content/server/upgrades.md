@@ -194,7 +194,8 @@ The following External PostgreSQL upgrade steps are provided as a courtesy only.
 
 1. Log into the Chef Infra Server machine.
 
-1. Consult the documentation on [`knife-ec-backup`](https://blog.chef.io/migrating-chef-server-knife-ec-backup-knife-tidy).Please follow steps memntioned in this document for installing the product using the install.sh  [Chef Software Install Script](/install_omnibus/)
+1. Consult the documentation on [`knife-ec-backup`](https://blog.chef.io/migrating-chef-server-knife-ec-backup-knife-tidy).
+   {{< note >}} Please follow steps mentioned in this documentation [Chef Software Install Script](/install_omnibus/). Enter your license id in place of `<YOUR LICENSE ID>`{{< /note >}}
 
    Install `knife-ec-backup`, if it not already installed. A sample session follows
    (note that your steps could differ, depending on the versions of your software,

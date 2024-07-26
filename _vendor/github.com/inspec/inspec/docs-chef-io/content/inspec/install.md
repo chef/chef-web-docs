@@ -19,10 +19,12 @@ To see which platforms and platform versions Chef InSpec is supported on, see th
 
 ### CLI
 
-You can install Chef InSpec using a curl script. For more information please refer to this Document [Chef Software Install Script](/install_omnibus/)
+You can install Chef InSpec using a curl script.
+
+{{< note >}}Please follow steps mentioned in this document [Chef Software Install Script](/install_omnibus/). Please replace `<YOUR LICENSE ID>` with your licenseId..{{< /note >}}
 
 ```bash
-curl -L https://chefdownload-commercial.chef.io/install.sh?license_id=<YOUR LICENSE ID> | sudo bash -s -- -P inspec
+curl -L https://chefdownload-commericial.chef.io/install.sh?license_id=<YOUR LICENSE ID> | sudo bash -s -- -P inspec
 ```
 
 ## Windows
@@ -34,10 +36,12 @@ then double-click on the `.msi` file to launch the installer and follow the prom
 
 ### Powershell
 
-You can install Chef InSpec using a powershell script. For more information please refer to this Document [Chef Software Install Script](/install_omnibus/)
+You can install Chef InSpec using a powershell script.
+
+{{< note >}}Please follow steps mentioned in this document [Chef Software Install Script](/install_omnibus/). Please replace `<YOUR LICENSE ID>` with your licenseId..{{< /note >}}
 
 ```powershell
-. { iwr -useb https://chefdownload-commercial.chef.io/install.ps1?license_id=<YOUR LICENSE ID1> } | iex; install -project inspec
+. { iwr -useb https://chefdownload-commericial.chef.io/install.ps1?license_id=<YOUR LICENSE ID> } | iex; install -project inspec
 ```
 
 Once you have installed Chef InSpec, run `inspec version` to verify that the installation
@@ -47,10 +51,11 @@ was successful.
 
 ### CLI
 
-The following curl script will install Chef InSpec for Ubuntu and Red Hat Enterprise Linux. For more information please refer to this Document [Chef Software Install Script](/install_omnibus/)
+The following curl script will install Chef InSpec for Ubuntu and Red Hat Enterprise Linux.
+{{< note >}}Please follow steps mentioned in this document [Chef Software Install Script](/install_omnibus/). Please replace `<YOUR LICENSE ID>` with your licenseId..{{< /note >}}
 
 ```bash
-curl -L https://chefdownload-commercial.chef.io/install.sh?license_id=<YOUR LICENSE ID | sudo bash -s -- -P inspec
+curl -L https://chefdownload-commericial.chef.io/install.sh?license_id=<YOUR LICENSE ID> | sudo bash -s -- -P inspec
 ```
 
 If you prefer, you can use a package manager to install Chef InSpec.
