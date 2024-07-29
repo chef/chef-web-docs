@@ -19,7 +19,8 @@ Chef Automate HA comes with five different types of deployment flows. This page 
 
 {{< warning >}}
 
-- We do not recommend the removal of any node from the backend cluster, but replacing the node is recommended. For the replacement of a node, click [here](#replace-node-in-automate-ha-cluster) for reference.
+- We do not recommend removing any node from the backend cluster, but replacing it is recommended. To learn more, see the [replace node in automate ha cluster](#replace-node-in-automate-ha-cluster) section.
+
 - Removal of nodes for PostgreSQL or OpenSearch is at your own risk and may result in data loss. Consult your database administrator before trying to delete PostgreSQL or OpenSearch nodes.
 - Below process can be done for `chef-server` and `automate`.
 - Only one node can be removed simultaneously, irrespective of a node type.
@@ -60,6 +61,20 @@ The command requires some arguments to determine which types of nodes you want t
 
     ```sh
     chef-automate node remove --postgresql-ip "<postgresql-ip-address>"
+    ```
+
+You can remove other unreachable nodes while removing a node.
+
+- To remove unreachable nodes while removing a node, pass the flag --remove-unreachable-node or -r like the example below:
+
+     ```sh
+     chef-automate node remove --automate-ip 10.1.2.23 --remove-unreachable-node
+    ```
+
+    or 
+
+     ```sh
+     chef-automate node remove --automate-ip 10.1.2.23 -r
     ```
 
 Once the command executes, it will remove the particular node from your HA setup. The command might take a while to complete.
@@ -104,6 +119,20 @@ The command requires some arguments to determine the type of node you want to re
 
     ```sh
     chef-automate node remove --postgresql-ip "<postgresql-ip-address>"
+    ```
+
+You can remove other unreachable nodes while removing a node.
+
+- To remove unreachable nodes while removing a node, pass the flag --remove-unreachable-node or -r like the example below:
+
+     ```sh
+     chef-automate node remove --automate-ip 10.1.2.23 --remove-unreachable-node
+    ```
+
+    or 
+
+     ```sh
+     chef-automate node remove --automate-ip 10.1.2.23 -r
     ```
 
 Once the command is executed, it will remove the particular node from your HA setup. The command might take a while to complete.
