@@ -12,6 +12,31 @@ product = [""]
     weight = 10
 +++
 
+## Chef 360 Platform 1.0.2
+
+### Release details
+
+- Version number: 1.0.2
+- Release date: July 22, 2024
+
+### Bug fixes
+
+- The `chef-courier-cli state run list-steps` command now lists all job instance steps.
+- The Shell Interpreter now correctly shows steps that failed on Windows nodes.
+- The `chef-platform-auth-cli user-account self get-role` now correctly lists HTTP verbs (for example `GET` or `POST`) in its response.
+
+### Supported skill versions
+
+| Skill                    | Skill name                | Habitat package                                                                                               | Version  |
+| -------------------------|---------------------------|---------------------------------------------------------------------------------------------------------------|----------|
+| Node Management Agent    | `node-management-agent`   | [chef-platform/node-management-agent](https://bldr.habitat.sh/#/pkgs/chef-platform/node-management-agent)     | 1.0.1    |
+| Courier Runner           | `courier-runner`          | [chef-platform/courier-runner](https://bldr.habitat.sh/#/pkgs/chef-platform/courier-runner)                   | 1.4.2    |
+| Gohai                    | `chef-gohai`              | [chef-platform/chef-gohai](https://bldr.habitat.sh/#/pkgs/chef-platform/chef-gohai)                           | 1.0.1    |
+| Shell Interpreter        | `shell-interpreter`       | [chef-platform/shell-interpreter](https://bldr.habitat.sh/#/pkgs/chef-platform/shell-interpreter)             | 1.0.2    |
+| Restart Interpreter      | `restart-interpreter`     | [chef-platform/restart-interpreter](https://bldr.habitat.sh/#/pkgs/chef-platform/restart-interpreter)         | 1.0.1    |
+| Infra Client Interpreter | `chef-client-interpreter` | [chef-platform/chef-client-interpreter](https://bldr.habitat.sh/#/pkgs/chef-platform/chef-client-interpreter) | 1.0.3    |
+| Inspec Interpreter       | `inspec-interpreter`      | [chef-platform/inspec-interpreter](https://bldr.habitat.sh/#/pkgs/chef-platform/inspec-interpreter)           | 1.0.3    |
+
 ## Chef 360 Platform 1.0.1
 
 ### Release details
