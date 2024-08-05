@@ -195,7 +195,6 @@ The following External PostgreSQL upgrade steps are provided as a courtesy only.
 1. Log into the Chef Infra Server machine.
 
 1. Consult the documentation on [`knife-ec-backup`](https://blog.chef.io/migrating-chef-server-knife-ec-backup-knife-tidy).
-   {{< note >}} Please follow steps mentioned in this documentation [Chef Software Install Script](/install_omnibus/). Enter your license id in place of `<YOUR LICENSE ID>`{{< /note >}}
 
    Install `knife-ec-backup`, if it not already installed. A sample session follows
    (note that your steps could differ, depending on the versions of your software,
@@ -207,10 +206,10 @@ The following External PostgreSQL upgrade steps are provided as a courtesy only.
    apt-get update
    apt install ruby
    apt install make
-   curl -L https://chefdownload-commericial.chef.io/install.sh?license_id=<YOUR LICENSE ID> | sudo bash -s -- -P chef
-   export PATH=$PATH:/root/.chef/gem/ruby/2.6.0/bin
+   curl -L https://chef.io/chef/install.sh | sudo bash -s -- -P chefdk
+   export PATH=$PATH:/root/.chefdk/gem/ruby/2.6.0/bin
    apt-get -y install gcc postgresql libpq-dev
-   /opt/chef/embedded/bin/gem install knife-ec-backup -- --with-pg-config=/opt/opscode/embedded/postgresql/9.6/bin/pg_config
+   /opt/chefdk/embedded/bin/gem install knife-ec-backup -- --with-pg-config=/opt/opscode/embedded/postgresql/9.6/bin/pg_config
    ```
 
 1. Configure `knife` if it is not already configured. A sample session follows (again, note that your steps could differ, depending on a range of factors).
@@ -237,7 +236,7 @@ The following External PostgreSQL upgrade steps are provided as a courtesy only.
 
    ```bash
    mkdir /backup
-   /opt/chef/embedded/bin/knife ec backup /backup
+   /opt/chefdk/embedded/bin/knife ec backup /backup
    ```
 
 1. If you are running Chef Infra Server version 12.17.15 or greater, proceed to the next step below. Otherwise consult the [upgrade matrix](#upgrade-matrix) and perform a stepped upgrade.
@@ -445,7 +444,7 @@ The following External PostgreSQL upgrade steps are provided as a courtesy only.
    Example:
 
    ```bash
-   /opt/chef/embedded/bin/knife ec restore /backup/
+   /opt/chefdk/embedded/bin/knife ec restore /backup/
    ```
 
 1. Do not continue upgrading PostgreSQL until you have an uncorrupted Chef Infra Server and an uncorrupted PostgreSQL database.
