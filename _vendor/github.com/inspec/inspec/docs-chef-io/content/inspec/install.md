@@ -34,7 +34,7 @@ then double-click on the `.msi` file to launch the installer and follow the prom
 
 ### Powershell
 
-You can install Chef InSpec using a powershell script.
+You can install Chef InSpec using the following Powershell script.
 
 ```powershell
 . { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install -project inspec
@@ -47,7 +47,7 @@ was successful.
 
 ### CLI
 
-The following curl script will install Chef InSpec for Ubuntu and Red Hat Enterprise Linux.
+The following curl script will install Chef InSpec for Ubuntu and Red Hat Enterprise Linux:
 
 ```bash
 curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -P inspec
