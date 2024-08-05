@@ -15,9 +15,9 @@ Use the `windows_hotfix` Chef InSpec audit resource to test if the hotfix has be
 
 ## Availability
 
-### Install
+### Installation
 
-{{< readfile file="content/inspec/reusable/md/inspec_installation.md" >}}
+{{% inspec/inspec_installation %}}
 
 ### Version
 
@@ -54,9 +54,7 @@ The following examples show how to use this Chef InSpec audit resource.
 
 ## Matchers
 
-{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
-
-This resource has the following special matchers.
+For a full list of available matchers, please visit our [matchers page](/inspec/matchers/).
 
 ### be_installed
 

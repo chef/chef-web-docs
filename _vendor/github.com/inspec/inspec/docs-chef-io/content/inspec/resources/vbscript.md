@@ -15,9 +15,9 @@ Use the `vbscript` Chef InSpec audit resource to test a VBScript on the Windows 
 
 ## Availability
 
-### Install
+### Installation
 
-{{< readfile file="content/inspec/reusable/md/inspec_installation.md" >}}
+{{% inspec/inspec_installation %}}
 
 ### Version
 
@@ -62,4 +62,4 @@ and tested for whitespace removal from standard output:
 
 ## Matchers
 
-{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+For a full list of available matchers, please visit our [matchers page](/inspec/matchers/).

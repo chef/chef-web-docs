@@ -15,9 +15,9 @@ Use the `bash` Chef InSpec audit resource to test an arbitrary command that is r
 
 ## Availability
 
-### Install
+### Installation
 
-{{< readfile file="content/inspec/reusable/md/inspec_installation.md" >}}
+{{% inspec/inspec_installation %}}
 
 ### Version
 
@@ -68,9 +68,7 @@ The `stdout` property returns the results of the command as returned in standard
 
 ## Matchers
 
-{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
-
-This resource has the following special matchers.
+For a full list of available matchers, please visit our [matchers page](/inspec/matchers/).
 
 ### exist
 

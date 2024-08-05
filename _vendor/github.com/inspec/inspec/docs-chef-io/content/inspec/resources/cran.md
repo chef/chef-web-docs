@@ -15,9 +15,9 @@ Use the `cran` Chef InSpec audit resource to test R modules that are installed f
 
 ## Availability
 
-### Install
+### Installation
 
-{{< readfile file="content/inspec/reusable/md/inspec_installation.md" >}}
+{{% inspec/inspec_installation %}}
 
 ### Version
 
