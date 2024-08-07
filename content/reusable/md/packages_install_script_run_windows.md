@@ -1,18 +1,16 @@
 On Windows systems, invoke the Chef Software Install script using
 Windows PowerShell:
 
-{{< note >}}Please replace `<YOUR LICENSE ID>` with your licenseId. For example license_id=testLicense01{{< /note >}}
+{{< note >}}
+Please replace `<YOUR LICENSE ID>` with your licenseId. You can get your license id from the
+download portal [Chef Download Portal](https://chef.io/downloads).
+Sample license Id example: de89a1c4-5fde-4fd7-9fd0-6e8307ca913d
+{{< /note >}}
 
 - For Commercial Persona use
 
 ```powershell
 . { iwr -useb https://chefdownload-commericial.chef.io/install.ps1?license_id=<YOUR LICENSE ID> } | iex; install
-```
-
-- For Trial Persona use
-
-```powershell
-. { iwr -useb https://chefdownload-trial.chef.io/install.ps1?license_id=<YOUR LICENSE ID> } | iex; install
 ```
 
 - For Community Persona use
