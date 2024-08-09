@@ -161,10 +161,10 @@ custom template, and then modify the package and Ruby gem sources.
     template file name, be sure to replace `airgap.erb` with the
     template file you created during the last step.
 
-4. Update `airgap.erb` to replace `https://chefdownload-commericial.chef.io/install.sh?license_id=<YOUR LICENSE ID>` with  the URL of
+4. Update `airgap.erb` to replace `https://chefdownload-commerical.chef.io/install.sh?license_id=<YOUR LICENSE ID>` with  the URL of
     `install.sh` on your artifact store:
 
-    {{< note >}}Please follow steps mentioned in this document [Chef Software Install Script](/install_omnibus/). Please replace `<YOUR LICENSE ID>` with your licenseId..{{< /note >}}
+    {{< note >}}Please follow steps mentioned in this document [Chef Software Install Script](/install_omnibus/). Please replace `<YOUR LICENSE ID>` with your licenseId.{{< /note >}}
 
     ```ruby
     install_sh="<%= knife_config[:bootstrap_url] ? knife_config[:bootstrap_url] : "http://packages.example.com/install.sh" %>"
