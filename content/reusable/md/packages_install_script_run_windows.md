@@ -10,7 +10,7 @@ Sample license Id example: de89a1c4-5fde-4fd7-9fd0-6e8307ca913d
 - For Commercial Persona use
 
 ```powershell
-. { iwr -useb https://chefdownload-commericial.chef.io/install.ps1?license_id=<YOUR LICENSE ID> } | iex; install
+. { iwr -useb https://chefdownload-commerical.chef.io/install.ps1?license_id=<YOUR LICENSE ID> } | iex; install
 ```
 
 - For Community Persona use

@@ -9,7 +9,7 @@ Sample license Id example: de89a1c4-5fde-4fd7-9fd0-6e8307ca913d
 - For Commercial Persona use
 
 ```bash
-curl -L https://chefdownload-commericial.chef.io/install.sh?license_id=<YOUR LICENSE ID> | sudo bash
+curl -L https://chefdownload-commerical.chef.io/install.sh?license_id=<YOUR LICENSE ID> | sudo bash
 ```
 
 - For Community Persona use

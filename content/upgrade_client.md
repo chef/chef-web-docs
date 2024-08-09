@@ -27,7 +27,7 @@ Linux, macOS, and Unix-based hosts:
 {{< note >}}Please follow steps mentioned in this document [Chef Software Install Script](/install_omnibus/).Please replace `<YOUR LICENSE ID>` with your licenseId.{{< /note >}}
 
 ```bash
-curl -L https://chefdownload-commericial.chef.io/install.sh?license_id=<YOUR LICENSE ID>| sudo bash
+curl -L https://chefdownload-commerical.chef.io/install.sh?license_id=<YOUR LICENSE ID>| sudo bash
 ```
 
 Windows hosts:
@@ -35,7 +35,7 @@ Windows hosts:
 {{< note >}}Please follow steps mentioned in this document [Chef Software Install Script](/install_omnibus/).Please replace `<YOUR LICENSE ID>` with your licenseId.{{< /note >}}
 
 ```powershell
-. { iwr -useb https://chefdownload-commericial.chef.io/install.ps1?license_id=<YOUR LICENSE ID> } | iex; install
+. { iwr -useb https://chefdownload-commerical.chef.io/install.ps1?license_id=<YOUR LICENSE ID> } | iex; install
 ```
 
 ### Specifying the Version to Install
@@ -44,28 +44,28 @@ The install script accepts arguments to allow installing specific versions of Ch
 
 Linux, macOS, and Unix-based hosts:
 
-{{< note >}}Please follow steps mentioned in this document [Chef Software Install Script](/install_omnibus/). Please replace `<YOUR LICENSE ID>` with your licenseId..{{< /note >}}
+{{< note >}}Please follow steps mentioned in this document [Chef Software Install Script](/install_omnibus/). Please replace `<YOUR LICENSE ID>` with your licenseId.{{< /note >}}
 
 ```bash
-curl -L https://chefdownload-commericial.chef.io/install.sh?license_id=<YOUR LICENSE ID> | sudo bash -s -- -v 17.9.26
+curl -L https://chefdownload-commerical.chef.io/install.sh?license_id=<YOUR LICENSE ID> | sudo bash -s -- -v 17.9.26
 ```
 
 Windows hosts:
 
-{{< note >}}Please follow steps mentioned in this document [Chef Software Install Script](/install_omnibus/). Please replace `<YOUR LICENSE ID>` with your licenseId..{{< /note >}}
+{{< note >}}Please follow steps mentioned in this document [Chef Software Install Script](/install_omnibus/). Please replace `<YOUR LICENSE ID>` with your licenseId.{{< /note >}}
 
 ```powershell
-. { iwr -useb https://chefdownload-commericial.chef.io/install.ps1?license_id=<YOUR LICENSE ID1> } | iex; install -version 17.9.26
+. { iwr -useb https://chefdownload-commerical.chef.io/install.ps1?license_id=<YOUR LICENSE ID1> } | iex; install -version 17.9.26
 ```
 
 ### Upgrading Multiple Hosts with Knife
 
 The `knife ssh` command in Chef Workstation can be used to execute the install script on multiple Linux, macOS, and Unix-based hosts at once:
 
-{{< note >}}Please follow steps mentioned in this document [Chef Software Install Script](/install_omnibus/). Please replace `<YOUR LICENSE ID>` with your licenseId..{{< /note >}}
+{{< note >}}Please follow steps mentioned in this document [Chef Software Install Script](/install_omnibus/). Please replace `<YOUR LICENSE ID>` with your licenseId.{{< /note >}}
 
 ```bash
-knife ssh 'name:*' 'curl -L https://chefdownload-commericial.chef.io/install.sh?license_id=<YOUR LICENSE ID> | sudo bash'
+knife ssh 'name:*' 'curl -L https://chefdownload-commerical.chef.io/install.sh?license_id=<YOUR LICENSE ID> | sudo bash'
 ```
 
 ## Cookbook-Based Upgrade
