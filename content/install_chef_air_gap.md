@@ -161,7 +161,7 @@ custom template, and then modify the package and Ruby gem sources.
     template file name, be sure to replace `airgap.erb` with the
     template file you created during the last step.
 
-4. Update `airgap.erb` to replace `https://omnitruck.chef.io/install.sh` with  the URL of
+4. Update `airgap.erb` to replace `omnitruck.chef.io` with  the URL of
     `install.sh` on your artifact store:
 
     ```ruby
