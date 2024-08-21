@@ -23,7 +23,7 @@ Chef Infra accepts a license key using one of two methods:
 
 For more information on Chef licenses, see [Chef's licensing documentation](/licensing/).
 
-You can [request a trial license](https://www.chef.io/licensing/Infra/license-generation-free-trial) if you'd like to try out Infra.
+You can [request a trial license](https://www.chef.io/license-generation-free-trial) if you'd like to try out Infra.
 
 ## Accept the Chef EULA
 
@@ -40,10 +40,6 @@ If the product attempts to persist the accepted license and fails, Chef Infra se
 
 Use the `--chef-license <value>` argument to accept the Chef EULA.
 
-```sh
-Infra exec <PROFILE_NAME> --chef-license <value>
-```
-
 Replace `<value>` with one of the following options.
 
 `accept`
@@ -58,11 +54,6 @@ Replace `<value>` with one of the following options.
 ### Environment variable
 
 Use the `CHEF_LICENSE="<value>"` environment variable to accept the Chef EULA.
-
-```sh
-export CHEF_LICENSE="<value>"
-Infra exec <PROFILE_NAME>
-```
 
 Replace `<value>` with one of the following options.
 
@@ -100,7 +91,6 @@ if no license key is already set and it doesn't detect an automated method of se
 1. At the first prompt, select **I already have a license ID**.
 
     ```bash
-    Infra shell
     ------------------------------------------------------------
       License ID Validation
 
@@ -111,7 +101,7 @@ if no license key is already set and it doesn't detect an automated method of se
       have received it in an email.
 
       If you are a commercial user, you can also find it in the
-      supportlink.chef.io portal.
+      https://community.progress.com/s/products/chef portal.
     ------------------------------------------------------------
 
     Please choose one of the options below (Press ↑/↓ arrow to move and Enter to select)
@@ -135,17 +125,6 @@ if no license key is already set and it doesn't detect an automated method of se
      Validity         : Unlimited
      No. Of Units     : 10 Targets
    ------------------------------------------------------------
-   Welcome to the interactive Infra Shell
-   To find out how to use it, type: help
-
-   You are currently running on:
-
-       Name:      mac_os_x
-       Families:  darwin, bsd, unix, os
-       Release:   22.5.0
-       Arch:      arm64
-
-   Infra> exit
    ```
 
 Chef Infra validates the license key, displays information about the license entitlements, and then executes the run.
