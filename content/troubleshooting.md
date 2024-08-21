@@ -17,7 +17,7 @@ The license key set with Chef Infra is not entitled to use Chef Infra. Each lice
 
 To resolve this issue, set a license key that is entitled to Chef Infra.
 
-See the [Chef Licensing documentation](/<provide-the-link>/) for more information.
+See the [Chef Licensing documentation](/licensing/) for more information.
 
 ## Unable to connect to the licensing server. Infra requires server communication to operate
 
