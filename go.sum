@@ -32,8 +32,8 @@ github.com/inspec/inspec-habitat/docs-chef-io v0.0.0-20220218210405-bfd542da49fd
 github.com/inspec/inspec-habitat/docs-chef-io v0.0.0-20220218210405-bfd542da49fd/go.mod h1:Q4E7QBY4b7HDE2psfGT9jqvnLq1yfg5e9KWK4VTtI/M=
 github.com/inspec/inspec-k8s/docs-chef-io v0.0.0-20240122032042-421355eaf502 h1:l3NT3O2TWWbp1XTeolWRNreLWoWornD4S8+h9uIVIc0=
 github.com/inspec/inspec-k8s/docs-chef-io v0.0.0-20240122032042-421355eaf502/go.mod h1:JwjkNHKgELWxc9esXuK3ELEGL371pK496OKrK+te3Lk=
-github.com/inspec/inspec/docs-chef-io v0.0.0-20240725161417-9e8c62dc0c3f h1:fYKOoUx0n7VTPDHF9aWh3W++5XrI6YfhqSDuZFbWZuo=
-github.com/inspec/inspec/docs-chef-io v0.0.0-20240725161417-9e8c62dc0c3f/go.mod h1:k41HVhnK+v9/X2qCX+axYBM6eME3kFeatloWoMLxXQU=
+github.com/inspec/inspec/docs-chef-io v0.0.0-20240820101400-312d42a6c6d9 h1:Suce6OvVbhpSSVvmSDNQ8oYlzl3BfcPSAsrMLygVWdU=
+github.com/inspec/inspec/docs-chef-io v0.0.0-20240820101400-312d42a6c6d9/go.mod h1:k41HVhnK+v9/X2qCX+axYBM6eME3kFeatloWoMLxXQU=
 github.com/swiftype/swiftype-autocomplete-jquery v0.0.0-20190222215504-a90008d64b30 h1:dhqLFBINtD1rMwwd5s9INu4BkciCvQUd+r+CWUYWIB4=
 github.com/swiftype/swiftype-autocomplete-jquery v0.0.0-20190222215504-a90008d64b30/go.mod h1:qnxTyatkwE84LvoaQLPaLB4h5M3n6Q2z+SB/96DcAK8=
 github.com/swiftype/swiftype-search-jquery v1.1.0 h1:VRYyWPQtf3Vl3B5W2xQJuFVoUBlBFGQ4tOTu94b8mNU=

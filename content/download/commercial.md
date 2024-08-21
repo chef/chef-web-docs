@@ -12,6 +12,10 @@ gh_repo = "chef-web-docs"
 
 Commercial customers can use Chef's Commercial API to download Chef software packages and view software package metadata.
 
+## Install script
+
+You can also use an install script from the API to download and install Chef packages. See the [Chef install script documentation](/chef_install_script/) for more information.
+
 ## License
 
 You must use a license ID to download packages and review metadata with this API.
