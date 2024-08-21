@@ -13,86 +13,61 @@ product = ["automate", "client", "server", "habitat", "inspec", "supermarket", "
     weight = 10
 +++
 
-Packages for Chef Software products may be installed using
-platform-native package repositories or the Chef Software Install script. Both
-installation methods support the following release channels:
+You can install packages for Chef Software products using platform-native package repositories.
 
-<table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 75%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Channel</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>stable</code></td>
-<td>A build from this channel is an "official" release that has passed full user acceptance testing. Artifacts in this channel are retained indefinitely.</td>
-</tr>
-<tr>
-<td><code>current</code></td>
-<td>A build from this channel is an "integration" build that has passed full testing, but has not been officially released. Artifacts in this channel are retained for 30 days and then removed automatically.</td>
-</tr>
-</tbody>
-</table>
+## Release channels
 
-Chef recommends using the stable channel when installing any of these
-products on production systems.
+{{< readfile file="content/reusable/md/release_channels.md" >}}
 
-## Package Repositories
+## Package repositories
 
-The `stable` and `current` release channels support the following
-package repositories:
+The `stable` and `current` release channels support the following package repositories:
 
-- Apt (Debian and Ubuntu platforms)
+- APT (Debian and Ubuntu platforms)
 - Yum (Enterprise Linux platforms)
 
-Chef Software's GPG public key can be downloaded
-[here](https://packages.chef.io/chef.asc).
+You can download Chef Software's GPG public key from [packages.chef.io](https://packages.chef.io/chef.asc).
 
 ### Debian / Ubuntu
 
-To set up an Apt package repository for Debian and Ubuntu platforms:
+To set up an APT package repository for Debian and Ubuntu platforms:
 
-1. Enable Apt to fetch packages over HTTPS:
+1. Enable APT to fetch packages over HTTPS:
 
     ```bash
     sudo apt-get install apt-transport-https
     ```
 
-2. Install the public key for Chef Software:
+1. Install the public key for Chef Software:
 
     ```bash
     wget -qO - https://packages.chef.io/chef.asc | sudo apt-key add -
     ```
 
-3. Create the Apt repository source file:
+1. Create the APT repository source file:
 
     ```bash
     echo "deb https://packages.chef.io/repos/apt/<CHANNEL> <DISTRIBUTION> main" > chef-<CHANNEL>.list
     ```
 
-    Replace `<CHANNEL>` with the release channel: `stable` or `current`.
+    Replace:
 
-    Replace `<DISTRIBUTION>` with the appropriate distribution name:
+    - `<CHANNEL>` with the release channel: `stable` or `current`.
+    - `<DISTRIBUTION>` with the appropriate distribution name. For example:
 
-    - For Debian 9: `stretch`
-    - For Debian 10: `buster`
-    - For Debian 11: `bullseye`
-    - For Ubuntu 18.04: `bionic`
-    - For Ubuntu 20.04: `focal`
+      - for Debian 9: `stretch`
+      - for Debian 10: `buster`
+      - for Debian 11: `bullseye`
+      - for Ubuntu 18.04: `bionic`
+      - for Ubuntu 20.04: `focal`
 
-4. Update the package repository list:
+1. Update the package repository list:
 
     ```bash
     sudo mv chef-stable.list /etc/apt/sources.list.d/
     ```
 
-5. Update the cache for the package repository:
+1. Update the cache for the package repository:
 
     ```bash
     sudo apt-get update
@@ -108,7 +83,7 @@ To set up a Yum package repository for Enterprise Linux platforms:
     sudo rpm --import https://packages.chef.io/chef.asc
     ```
 
-2. Create the Yum repository source file:
+1. Create the Yum repository source file:
 
     ```bash
     cat >chef-<CHANNEL>.repo <<EOL
@@ -121,12 +96,12 @@ To set up a Yum package repository for Enterprise Linux platforms:
     EOL
     ```
 
-    Replace `<CHANNEL>` with the release channel: `stable` or `current`.
+    Replace:
 
-    Replace `<VERSION>` with your Enterprise Linux version; the
-    allowable versions are `6`, `7`, or `8`.
+    - `<CHANNEL>` with the release channel: `stable` or `current`.
+    - `<VERSION>` with the version Enterprise Linux version.
 
-3. Update the package repository list:
+1. Update the package repository list:
 
     ```bash
     sudo yum-config-manager --add-repo chef-stable.repo
@@ -141,27 +116,3 @@ To set up a Yum package repository for Enterprise Linux platforms:
     ```bash
     sudo mv chef-stable.repo /etc/yum.repos.d/
     ```
-
-## Chef Software Install Script
-
-{{< readfile file="content/reusable/md/packages_install_script.md" >}}
-
-### Run the Chef Software Install Script
-
-{{< readfile file="content/reusable/md/packages_install_script_run.md" >}}
-
-#### UNIX and Linux
-
-{{< readfile file="content/reusable/md/packages_install_script_run_unix_linux.md" >}}
-
-#### Windows
-
-{{< readfile file="content/reusable/md/packages_install_script_run_windows.md" >}}
-
-### Chef Software Install Script Options
-
-{{< readfile file="content/reusable/md/packages_install_script_options.md" >}}
-
-### Examples
-
-{{< readfile file="content/reusable/md/packages_install_script_examples.md" >}}

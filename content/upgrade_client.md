@@ -16,58 +16,65 @@ aliases = ["/upgrade_client.html"]
 
 The following sections describe the upgrade process for Chef Infra Client. If you are also [upgrading the Chef Infra Server]({{< relref "/server/upgrades" >}}) complete that process **first** and **then** upgrade the Chef Infra Client.
 
-## Command Line Upgrades
+## Prerequisites
 
-To upgrade Chef Infra Client on a node from the command line, run the install script to install the latest Chef Infra Client release:
+Commercial users must have a license ID. You can get your license ID from the [Chef Downloads portal](https://chef.io/downloads).
 
-Please follow steps mentioned in this document [Chef Software Install Script](/install_omnibus/)
+For community users, see the [Chef install script documentation](/chef_install_script/).
 
-Linux, macOS, and Unix-based hosts:
+## Command line upgrades
 
-{{< note >}}Please follow steps mentioned in this document [Chef Software Install Script](/install_omnibus/).Please replace `<YOUR LICENSE ID>` with your licenseId.{{< /note >}}
+Use the [Chef install script](/chef_install_script/) to upgrade to the latest version of Chef Infra Client on a node from the command line.
+
+- On Linux, macOS, and Unix-based hosts:
+
+  ```bash
+  curl -L https://chefdownload-commerical.chef.io/install.sh?license_id=<LICENSE_ID> | sudo bash
+  ```
+
+  Replace `<LICENSE_ID>` with your license ID.
+
+- On Windows hosts:
+
+  ```powershell
+  . { iwr -useb https://chefdownload-commerical.chef.io/install.ps1?license_id=<LICENSE_ID> } | iex; install
+  ```
+
+  Replace `<LICENSE_ID>` with your license ID.
+
+### Specify the install version
+
+You can install a specific version of Chef Infra Client using the [Chef install script](/chef_install_script/).
+
+- Use the `-v` option to install a specific version on Linux, macOS, and Unix-based hosts. For example:
+
+  ```bash
+  curl -L https://chefdownload-commerical.chef.io/install.sh?license_id=<LICENSE_ID> | sudo bash -s -- -v 17.9.26
+  ```
+
+  Replace `<LICENSE_ID>` with your license ID.
+
+- Use the `-version` option to install a specific version on Windows hosts. For example:
+
+  ```powershell
+  . { iwr -useb https://chefdownload-commerical.chef.io/install.ps1?license_id=<LICENSE_ID> } | iex; install -version 17.9.26
+  ```
+
+  Replace `<LICENSE_ID>` with your license ID.
+
+### Upgrade multiple hosts with knife
+
+You can use the [`knife ssh` command](/workstation/knife_ssh/) in Chef Workstation to execute the install script on multiple Linux, macOS, and Unix-based hosts at once.
 
 ```bash
-curl -L https://chefdownload-commerical.chef.io/install.sh?license_id=<YOUR LICENSE ID>| sudo bash
+knife ssh <SEARCH_QUERY> 'curl -L https://chefdownload-commerical.chef.io/install.sh?license_id=<LICENSE_ID> | sudo bash'
 ```
 
-Windows hosts:
+Replace:
 
-{{< note >}}Please follow steps mentioned in this document [Chef Software Install Script](/install_omnibus/).Please replace `<YOUR LICENSE ID>` with your licenseId.{{< /note >}}
+- `<LICENSE_ID>` with your license ID
+- `<SEARCH_QUERY>` with a [node search query](/chef_search/)
 
-```powershell
-. { iwr -useb https://chefdownload-commerical.chef.io/install.ps1?license_id=<YOUR LICENSE ID> } | iex; install
-```
+## Cookbook-based upgrade
 
-### Specifying the Version to Install
-
-The install script accepts arguments to allow installing specific versions of Chef Infra Client on systems.
-
-Linux, macOS, and Unix-based hosts:
-
-{{< note >}}Please follow steps mentioned in this document [Chef Software Install Script](/install_omnibus/). Please replace `<YOUR LICENSE ID>` with your licenseId.{{< /note >}}
-
-```bash
-curl -L https://chefdownload-commerical.chef.io/install.sh?license_id=<YOUR LICENSE ID> | sudo bash -s -- -v 17.9.26
-```
-
-Windows hosts:
-
-{{< note >}}Please follow steps mentioned in this document [Chef Software Install Script](/install_omnibus/). Please replace `<YOUR LICENSE ID>` with your licenseId.{{< /note >}}
-
-```powershell
-. { iwr -useb https://chefdownload-commerical.chef.io/install.ps1?license_id=<YOUR LICENSE ID1> } | iex; install -version 17.9.26
-```
-
-### Upgrading Multiple Hosts with Knife
-
-The `knife ssh` command in Chef Workstation can be used to execute the install script on multiple Linux, macOS, and Unix-based hosts at once:
-
-{{< note >}}Please follow steps mentioned in this document [Chef Software Install Script](/install_omnibus/). Please replace `<YOUR LICENSE ID>` with your licenseId.{{< /note >}}
-
-```bash
-knife ssh 'name:*' 'curl -L https://chefdownload-commerical.chef.io/install.sh?license_id=<YOUR LICENSE ID> | sudo bash'
-```
-
-## Cookbook-Based Upgrade
-
-The [chef_client_updater](https://supermarket.chef.io/cookbooks/chef_client_updater) cookbook can be used to install or upgrade Chef Infra Client package on a node.
+Use the [chef_client_updater cookbook](https://supermarket.chef.io/cookbooks/chef_client_updater) to install or upgrade Chef Infra Client on a node.

@@ -14,10 +14,12 @@ Commercial customers can use Chef's Commercial API to download Chef software pac
 
 ## License
 
-You must use a license to download packages and review metadata with this API.
-If you don't already have one, [contact Chef](https://www.chef.io/contact-us) to get a license.
+You must use a license ID to download packages and review metadata with this API.
 
-See [Chef's licensing documentation]({{< relref "chef_license" >}}) for more information on the Chef license.
+You can get your license ID from the [Chef Downloads portal](https://chef.io/downloads),
+or [contact Chef](https://www.chef.io/contact-us) if you don't already have one.
+
+See [Chef's licensing documentation]({{< relref "licensing" >}}) for more information on the Chef license.
 
 ## Endpoints
 
@@ -118,7 +120,7 @@ https://chefdownload-commerical.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM
 The API accepts the following parameters in a query string.
 
 `<CHANNEL>`
-: The release channel to install from. See [Chef Software Packages](/packages/) for full details on the available channels.
+: The release channel to install from. For the available channels, see [release channels](#release-channels).
 
 `<PRODUCT>`
 : The Chef Software product to install.
@@ -164,11 +166,10 @@ The API accepts the following parameters in a query string.
 
 ## Chef product names
 
-See the [Supported Versions]({{< relref "versions" >}}) documentation for information about the support status of individual products.
+Use the following product keys to download packages or retrieve data for different Chef products.
+You can also use the [products endpoint](#products)
 
-This is a list of currently supported products that you can install with this API.
-
-| Product | Product Key  |
+| Product | Product key  |
 | ------- | ------------ |
 | Chef Automate | automate |
 | Chef Infra Client | chef |
@@ -180,17 +181,23 @@ This is a list of currently supported products that you can install with this AP
 | Management Console | manage |
 | Supermarket | supermarket |
 
+See the [supported versions]({{< relref "versions" >}}) documentation for information about the support status of individual products.
+
+### Release channels
+
+{{< readfile file="content/reusable/md/release_channels.md" >}}
+
 ## Examples
 
 ### Get the latest build
 
 To get the latest supported build of Chef Infra Client for Ubuntu 20.04, enter the following:
 
-```plain
+```sh
 https://chefdownload-commerical.chef.io/stable/chef/metadata?p=ubuntu&pv=20.04&m=x86_64&license_id=<LICENSE_ID>
 ```
 
-which will return something like:
+which returns something like:
 
 ```json
 sha1	"8e8ae315d4695f9c95efc0a1437d2d453f7ab116"
