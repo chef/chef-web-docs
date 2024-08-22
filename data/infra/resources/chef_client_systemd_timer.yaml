@@ -21,6 +21,7 @@ syntax_full_code_block: |-
     interval                 String # default value: "30min"
     job_name                 String # default value: "chef-client"
     run_on_battery           true, false # default value: true
+    service_umask            Integer, String
     splay                    String # default value: "5min"
     user                     String # default value: "root"
     action                   Symbol # defaults to :add if not specified
@@ -33,7 +34,7 @@ syntax_full_properties_list:
   the desired state."
 - "`accept_chef_license`, `chef_binary_path`, `config_directory`, `cpu_quota`, `daemon_options`,
   `delay_after_boot`, `description`, `environment`, `interval`, `job_name`, `run_on_battery`,
-  `splay`, and `user` are the properties available to this resource."
+  `service_umask`, `splay`, and `user` are the properties available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -116,6 +117,14 @@ properties_list:
   default_value: 'true'
   description_list:
   - markdown: Run the timer for Chef Infra Client if the system is on battery.
+- property: service_umask
+  ruby_type: Integer, String
+  required: false
+  new_in: '18.5'
+  description_list:
+  - markdown: Fix umask for hardened systems that have a changed default umask. This
+      changes the chef-client umask so any files or folders are created with new umask.
+      Recommend setting to stand install default of 0022.
 - property: splay
   ruby_type: String
   required: false
