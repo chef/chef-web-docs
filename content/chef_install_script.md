@@ -1,16 +1,16 @@
 +++
-title = "Chef Software Install Script"
+title = "Chef Software install script"
 draft = false
 gh_repo = "chef-web-docs"
-aliases = ["/install_omnibus.html", "/install_omnibus/", "/chef_install_script/"]
+aliases = ["/install_omnibus.html", "/install_omnibus/"]
 product = ["automate", "client", "server", "habitat", "inspec", "supermarket", "workstation"]
 
 [menu]
   [menu.overview]
-    title = "Install Script"
+    title = "Install script"
     identifier = "overview/packages_&_platforms/Install Script"
     parent = "overview/packages_&_platforms"
-    weight = 40
+    weight = 30
 +++
 
 You can use the Chef Software install script to install
@@ -176,7 +176,7 @@ In addition to the default install behavior, the Chef Software install script su
     the form x.y.z, where x, y, and z are decimal numbers that are used
     to represent major (x), minor (y), and patch (z) versions. A
     two-part version (x.y) is also allowed. For more information about
-    application versioning, see <https://semver.org/>.
+    application versioning, see [semver.org](https://semver.org/).
 
 ## Release channels
 

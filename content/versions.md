@@ -1,5 +1,5 @@
 +++
-title = "Supported Versions"
+title = "Supported versions"
 draft = false
 gh_repo = "chef-web-docs"
 aliases = ["/versions.html"]
@@ -7,10 +7,10 @@ product = ["automate", "client", "server", "habitat", "inspec", "supermarket", "
 
 [menu]
   [menu.overview]
-    title = "Supported Versions"
+    title = "Supported versions"
     identifier = "overview/packages_&_platforms/versions.md Supported Versions"
     parent = "overview/packages_&_platforms"
-    weight = 30
+    weight = 10
 +++
 
 This section lists the free and commercial Chef products and versions we
