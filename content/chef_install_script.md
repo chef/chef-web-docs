@@ -43,10 +43,10 @@ Use the Chef install script to install packages on UNIX, Linux, and macOS system
 
   Replace `<LICENSE_ID>` with your license ID.
 
-- Use the `-p` option to specify a Chef software application to install:
+- Use the `-P` option to specify a Chef software application to install:
 
   ```bash
-  curl -L https://chefdownload-commerical.chef.io/install.sh?license_id=<LICENSE_ID> | sudo bash -p <PROJECT>
+  curl -L https://chefdownload-commerical.chef.io/install.sh?license_id=<LICENSE_ID> | sudo bash -s -- -P <PROJECT>
   ```
 
   Replace:
@@ -95,10 +95,10 @@ Use the Chef install script to install packages on UNIX, Linux, and macOS system
   curl -L https://chefdownload-community.chef.io/install.sh | sudo bash
   ```
 
-- Use the `-p` option to specify a Chef application to install:
+- Use the `-P` option to specify a Chef application to install:
 
   ```bash
-  curl -L https://chefdownload-community.chef.io/install.sh | sudo bash -p <PROJECT>
+  curl -L https://chefdownload-community.chef.io/install.sh | sudo bash -s -- -P <PROJECT>
   ```
 
   Replace `<PROJECT>` with the application you want to install
