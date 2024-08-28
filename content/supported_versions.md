@@ -72,7 +72,7 @@ The following describes the general impact of a product reaching EOL. For more d
 - This stage indicates that Progress has set a date after which the application or version will no longer be supported or recommended for customers' use.
 - Products covered by active maintenance and support services at the time of an announced EOL will continue receiving Technical Support on the same terms as Sunset product releases for the duration of the purchased maintenance and support services.
 - Progress does not allow renewal of maintenance and support services for EOL products.
-- Once the existing maintenance and support services expire, Progress will not provide any further enhancements or fixes or entertain any new support cases. The existing product documentation, knowledgebase articles, and online user community discussions will remain the only support.
+- Once the existing maintenance and support services expire, Progress will not provide any further enhancements or fixes or entertain any new support cases. The existing product documentation, knowledge base articles, and online user community discussions will remain the only support.
 For more details on the Chef on Prem Life Cycle Policy, click here <policy link>
 
 ### Versions and Status
