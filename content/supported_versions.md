@@ -93,7 +93,7 @@ Chef has transitioned from N-1 and N-2 support policy to LTS++ and I++ support s
 
 ## Supported commercial distributions
 
-Use of these and later versions of these distributions must be by the Chef End User License Agreement or a commercial agreement with the Chef. Additional information is available in this announcement.
+Use of these and later versions of these distributions must be by the [Chef End User License Agreement](https://www.chef.io/end-user-license-agreement) or a commercial agreement with the Chef. Additional information is available in our blog post of [Introducing the New Chef](https://www.chef.io/blog/chef-software-announces-the-enterprise-automation-stack).
 
 | Product           | Version | Release | Lifecycle status | Release date | EOL date                              |
 |-------------------|---------|---------|------------------|--------------|---------------------------------------|
