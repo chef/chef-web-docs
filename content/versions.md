@@ -13,7 +13,7 @@ product = ["automate", "client", "server", "habitat", "inspec", "supermarket", "
     weight = 30
 +++
 
-This section lists the free and commercial Chef products and versions we currently support and will continue to support until the end of year 2024 or till Infra Client 18 is End of Life (which ever happens first). The lifecycle stage defines the involvement by Chef Software in updating and maintaining each product.
+This section lists the free and commercial Chef products and versions we currently support and will continue to support until the end of 2024 or until Infra Client 18 is End of Life (whichever happens first). The lifecycle stage defines Chef Software's involvement in updating and maintaining each product.
 
 ## Lifecycle Definitions
 
