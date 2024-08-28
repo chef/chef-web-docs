@@ -30,7 +30,7 @@ Progress Chef runs different releases that can run in parallel, and our customer
 - The software will get support depending on the timeline decided with LTS.
 - Upgrade planning is more manageable for customers since they know when the next LTS version will be out.
 
-### Non-Supported (NS) Releases – Technical/Private Preview/Alpha/Beta Release
+### Non-Supported (NS) Releases - Technical/Private Preview/Alpha/Beta Release
 
 - Progress may offer Technical/Private Previews containing Technical Preview Features on a Progress-hosted environment under the terms in the applicable End User License Agreement.
 - Progress may preview Features/Products planned to be released as future LTS features/products so that customers can validate if new features/products meet their use case and provide early feedback to Progress ahead of a general release.
@@ -85,8 +85,8 @@ Progress Chef has transitioned from N-1 and N-2 Support Policy to LTS++ and I++ 
   - For Example, Chef Infra 19 LTS is a significant version. All minor releases are like 19. X and patches are like 19.2.x and will fall under LTS support.
 - As the Product EOL date is predetermined, a new release is not required to publish this message.
 - There can be more than one Innovation release between the next LTS release. For example, Chef Infra 20 and 22 will be an Innovation Release, and the next LTS release can be Chef 23 LTS.
-- When LTS is released, it will have a declared sunset date of at most two years. The LTS will only be marked ‘Sunset’ when the date (>=2 yr) has elapsed, and a new LTS version is released. 'Sunset' in this context means the end of active support and the start of the EOL phase.
-- Customers will then have a specified migration time (no less than six months) declared as part of the LTS+ release. At the end of the “migration window,” LTS will be declared end of life. Customers may purchase extended migration support that will extend the time required to migrate to the new LTS version (up to a reasonable limit set by Progress).
+- When LTS is released, it will have a declared sunset date of at most two years. The LTS will only be marked ‘Sunset’ when the date (>=2 yr) has elapsed, and a new LTS version is released. `Sunset` in this context means the end of active support and the start of the EOL phase.
+- Customers will then have a specified migration time (no less than six months) declared as part of the LTS+ release. At the end of the "migration window", LTS will be declared end of life. Customers may purchase extended migration support that will extend the time required to migrate to the new LTS version (up to a reasonable limit set by Progress).
 - Upon releasing I+, the current Innovation release is EOL and subject to the migration window.
 
 ## Supported Commercial Distributions
