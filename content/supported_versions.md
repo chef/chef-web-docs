@@ -13,35 +13,37 @@ product = ["automate", "client", "server", "habitat", "inspec", "supermarket", "
     weight = 35
 +++
 
-This section lists the free and commercial On-Premises Chef products and versions we support based on our new Long-term support policy. This policy, which defines Chef Software's involvement in updating and maintaining each product, has significant implications for our customers and their products.
+This section lists the free and commercial On-Premises Chef products and versions we support based on our new long-term support policy. This policy, which defines Chef Software's involvement in updating and maintaining each product, has significant implications for our customers and their products.
 
-## Product Releases
+## Product releases
 
-Progress Chef runs different releases that can run in parallel, and our customers can adapt them based on their needs. Following are releases chef supports:
+Chef runs different releases that can run in parallel, and our customers can adapt them based on their needs. Following are releases of Chef supports:
 
-### Innovation (I) Release
+### Innovation (I) release
 
 - Innovation releases are designed for customers seeking faster modernization and innovation. Progress recommends using continuous integration and continuous delivery to help benefit from the more rapid release cadence. Innovation releases also allow all customers to explore features appearing in future LTS releases.
-- With the introduction of LTS in Chef, any other major release will be termed an Innovation Release. This release will be flexible and allow Progress Chef to release significant versions and new features without LTS.
+- With the introduction of LTS in Chef, any other major release will be termed an Innovation release. This release will be flexible and allow Chef to release significant versions and new features without LTS.
 
-### Long-Term Supported (LTS) Release
+### Long-term supported (LTS) release
 
-- From time to time, Progress may elect to designate a new release as Long-Term Supported (LTS). Customers who primarily look for stability and minimal change for their implementation over many years can adapt to the LTS release.
+- From time to time, Chef may elect to designate a new release as long-term supported (LTS). Customers who primarily look for stability and minimal change for their implementation over many years can adapt to the LTS release.
 - The software will get support depending on the timeline decided with LTS.
 - Upgrade planning is more manageable for customers since they know when the next LTS version will be out.
 
-### Non-Supported (NS) Releases - Technical/Private Preview/Alpha/Beta Release
+### Non-supported (NS) releases
 
-- Progress may offer Technical/Private Previews containing Technical Preview Features on a Progress-hosted environment under the terms in the applicable End User License Agreement.
-- Progress may preview Features/Products planned to be released as future LTS features/products so that customers can validate if new features/products meet their use case and provide early feedback to Progress ahead of a general release.
+Non-supported releases are ad hoc releases made according to the requirement. They can be technical, private preview, alpha, or beta release.
+
+- Progress may offer technical/private previews containing technical preview features on a Progress hosted environment under the terms in the applicable End User License Agreement.
+- Progress may preview features/products planned to be released as future LTS features/products so that customers can validate if new features/products meet their use case and provide early feedback to Progress ahead of a general release.
 - This release does not include CVE fixes, which Progress may choose to do.
-- Customers must move to GA release once GA is available for Chef products. We do not provide any support for any release candidates such as Alpha Beta or Private Preview post the GA launch.
+- Customers must move to GA release once GA is available for Chef products. We do not provide any support for any release candidates such as alpha, beta, or a private preview post the GA launch.
 
-### Lifecycle Definitions
+## Lifecycle definitions
 
 - Each Innovation and LTS release has its lifecycle starting at GA, migrates, and ends as described below:
 
-### Generally Available (GA)
+### Generally available (GA)
 
 This stage indicates that the product or version is actively developing and maintaining.
 
@@ -50,50 +52,50 @@ This stage indicates that the product or version is actively developing and main
 - Chef welcomes customer feature requests for the product roadmap for the application.
 - Progress will evaluate GA releases for certifications of new third-party products, including new operating system versions. If you are porting to a new operating system that has not previously been supported, the LTS versions will be considered.
 
-### Migration Phase (MP)
+### Migration phase (MP)
 
-- An LTS/I release enters the Migration Phase with the launch of the LTS+/I+ release. When the Sunset Phase starts, in parallel, the Migration Phase starts, which is the transition period provided to customers to move to LTS+/I+.
-- LTS and Innovation releases in the Migration Phase are fully supported. Progress will evaluate them for certifications on new operating environments but not for ports to new hardware systems.
-- If you encounter any problems using product releases in the Migration Phase, Progress will work with customers toward an appropriate resolution where possible if active maintenance and support services cover their licenses.
+- An LTS/I release enters the Migration phase with the launch of the LTS+/I+ release. When the Sunset phase starts, in parallel, the Migration phase starts, which is the transition period provided to customers to move to LTS+/I+.
+- LTS and Innovation releases in the Migration phase are fully supported. Progress will evaluate them for certifications on new operating environments but not for ports to new hardware systems.
+- If you encounter any problems using product releases in the Migration phase, Progress will work with customers toward an appropriate resolution where possible if active maintenance and support services cover their licenses.
 
-### Sunset Phase (Only for LTS releases)
+### Sunset phase (only for LTS releases)
 
-- After fulfilling the following conditions, an LTS release enters the Sunset Phase.
+- After fulfilling the following conditions, an LTS release enters the Sunset phase.
 - When the launch of the release is for two or more years, and
 - A new LTS version has been released.
 - The Sunset phase does not apply to Innovation releases. Once a subsequent Innovation release becomes available, the prior Innovation release immediately moves to the EOL life cycle phase with a given period of migration phase.
-- If you face any problem using product releases in the Sunset Phase, Progress will work with customers towards an appropriate resolution where possible if active maintenance and support services cover their licenses. The resolution includes the possibility of an Update provided by Progress. We are committed to continuous support even during the Sunset Phase, ensuring your confidence in our products.
-- Progress only provides standard support for the LTS release in the Sunset Phase if the customer has opted for Extended Paid Support. Progress recommends that customers plan to upgrade from Sunset Phase product releases using this document as a guideline.
+- If you face any problem using product releases in the Sunset phase, Progress will work with customers towards an appropriate resolution where possible if active maintenance and support services cover their licenses. The resolution includes the possibility of an update provided by Progress. We are committed to continuous support even during the Sunset phase, ensuring your confidence in our products.
+- Progress only provides standard support for the LTS release in the Sunset phase if the customer has opted for Extended Paid Support. Progress recommends that customers plan to upgrade from Sunset phase product releases using this document as a guideline.
 
-### End Of Life (EOL) Phase
+### End of Life (EOL) phase
 
 The following describes the general impact of a product reaching EOL. For more details, refer to the official EOL communication, usually emailing. You can also find this information [here].
 
 - This stage indicates that Progress has set a date after which the application or version will no longer be supported or recommended for customers' use.
-- Products covered by active maintenance and support services at the time of an announced EOL will continue receiving Technical Support on the same terms as Sunset product releases for the duration of the purchased maintenance and support services.
+- Products covered by active maintenance and support services at the time of an announced EOL will continue receiving technical support on the same terms as Sunset product releases for the duration of the purchased maintenance and support services.
 - Progress does not allow renewal of maintenance and support services for EOL products.
 - Once the existing maintenance and support services expire, Progress will not provide any further enhancements or fixes or entertain any new support cases. The existing product documentation, knowledge base articles, and online user community discussions will remain the only support.
 
-To know more about the Chef's Prem Life Cycle Policy, see [Prem Life Cycle Policy].
+To know more about the Chef's prem life cycle policy, see [Prem Life Cycle Policy].
 
-### Versions and Status
+### Versions and status
 
-Progress Chef has transitioned from N-1 and N-2 Support Policy to LTS++ and I++ Support Strategy. The Support strategy works like follows:
+Chef has transitioned from N-1 and N-2 support policy to LTS++ and I++ support strategy. The support strategy works like follows:
 
-- LTS for Progress Chef will be for three years.
+- LTS for Chef will be for three years.
 - LTS will follow the released version.
-  - For Example, Chef Infra 19 LTS is a significant version. All minor releases are like 19. X and patches are like 19.2.x and will fall under LTS support.
-- As the Product EOL date is predetermined, a new release is not required to publish this message.
-- There can be more than one Innovation release between the next LTS release. For example, Chef Infra 20 and 22 will be an Innovation Release, and the next LTS release can be Chef 23 LTS.
+  - For Example, Chef Infra Server 19 LTS is a significant version. All minor releases are like 19. X and patches are like 19.2.x and will fall under LTS support.
+- As the product EOL date is predetermined, a new release is not required to publish this message.
+- There can be more than one Innovation release between the next LTS release. For example, Chef Infra Server 20 and 22 will be an Innovation release, and the next LTS release can be Chef 23 LTS.
 - When LTS is released, it will have a declared sunset date of at most two years. The LTS will only be marked `Sunset` when the date (>=2 yr) has elapsed, and a new LTS version is released. `Sunset` in this context means the end of active support and the start of the EOL phase.
 - Customers will then have a specified migration time (no less than six months) declared as part of the LTS+ release. At the end of the "migration window", LTS will be declared end of life. Customers may purchase extended migration support that will extend the time required to migrate to the new LTS version (up to a reasonable limit set by Progress).
 - Upon releasing I+, the current Innovation release is EOL and subject to the migration window.
 
-## Supported Commercial Distributions
+## Supported commercial distributions
 
 Use of these and later versions of these distributions must be by the Chef End User License Agreement or a commercial agreement with the Chef. Additional information is available in this announcement.
 
-| Product           | Version | Release | Lifecycle Status | Release Date | EOL Date                              |
+| Product           | Version | Release | Lifecycle status | Release date | EOL date                              |
 |-------------------|---------|---------|------------------|--------------|---------------------------------------|
 | Chef Courier      | 1.0     | I       | GA               |              | 6 months after the release of I+      |
 | Chef 360 Platform | 1.0     | I       | GA               |              | 6 months after the release of I+      |
@@ -102,11 +104,11 @@ Use of these and later versions of these distributions must be by the Chef End U
 
 {{< note >}} Chef Backend does not directly require acceptance of the Chef EULA, but it does have functionality that requires its acceptance in other products. {{< /note >}}
 
-## Supported Free Distributions < to be updated by Eng.>
+## Supported free distributions < to be updated by Eng.>
 
 Use of the following distributions is governed by the Apache License, version 2.0.
 
-| Product     | Version | Lifecycle Status | EOL Date |
+| Product     | Version | Lifecycle status | EOL date |
 |-------------|---------|------------------|----------|
 | Supermarket | 5.x     | GA               | TBD      |
 
@@ -114,12 +116,14 @@ Use of the following distributions is governed by the Apache License, version 2.
 
 The following products are deprecated, so move to newer versions or products.
 
-| Product           | Version | Lifecycle Status | EOL Date |
+| Product           | Version | Lifecycle status | EOL date |
 |-------------------|---------|------------------|----------|
 | Chef Infra Client | 18.x    | TBD              | TBD      |
 | Chef InSpec       | 6.x     | TBD              | TBD      |
 
-## End of Life (EOL) Products < this list should remain the same and must be maintained in the future according to new policy>
+## End of Life (EOL) products
+
+The following list must be maintained in the future according to new policy.
 
 | Product                  | Version             | Lifecycle Status | EOL Date          |
 |--------------------------|---------------------|------------------|-------------------|
