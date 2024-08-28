@@ -73,7 +73,8 @@ The following describes the general impact of a product reaching EOL. For more d
 - Products covered by active maintenance and support services at the time of an announced EOL will continue receiving Technical Support on the same terms as Sunset product releases for the duration of the purchased maintenance and support services.
 - Progress does not allow renewal of maintenance and support services for EOL products.
 - Once the existing maintenance and support services expire, Progress will not provide any further enhancements or fixes or entertain any new support cases. The existing product documentation, knowledge base articles, and online user community discussions will remain the only support.
-For more details on the Chef on Prem Life Cycle Policy, click here <policy link>
+
+To know more about the Chef's Prem Life Cycle Policy, see [Prem Life Cycle Policy].
 
 ### Versions and Status
 
@@ -81,7 +82,7 @@ Progress Chef has transitioned from N-1 and N-2 Support Policy to LTS++ and I++ 
 
 - LTS for Progress Chef will be for three years.
 - LTS will follow the released version.
-    - For Example, Chef Infra 19 LTS is a significant version. All minor releases are like 19. X and patches are like 19.2.x and will fall under LTS support.
+  - For Example, Chef Infra 19 LTS is a significant version. All minor releases are like 19. X and patches are like 19.2.x and will fall under LTS support.
 - As the Product EOL date is predetermined, a new release is not required to publish this message.
 - There can be more than one Innovation release between the next LTS release. For example, Chef Infra 20 and 22 will be an Innovation Release, and the next LTS release can be Chef 23 LTS.
 - When LTS is released, it will have a declared sunset date of at most two years. The LTS will only be marked ‘Sunset’ when the date (>=2 yr) has elapsed, and a new LTS version is released. 'Sunset' in this context means the end of active support and the start of the EOL phase.
@@ -96,8 +97,8 @@ Use of these and later versions of these distributions must be by the Chef End U
 |-------------------|---------|---------|------------------|--------------|---------------------------------------|
 | Chef Courier      | 1.0     | I       | GA               |              | 6 months after the release of I+      |
 | Chef 360 Platform | 1.0     | I       | GA               |              | 6 months after the release of I+      |
-| Chef Infra Client | 19      | LTS     | GA               | <TBD>        | 3 years or more from the release date |
-| Chef InSpec       | 7       | LTS     | GA               | <TBD>        | 3 years or more from the release date |
+| Chef Infra Client | 19      | LTS     | GA               | TBD          | 3 years or more from the release date |
+| Chef InSpec       | 7       | LTS     | GA               | TBD          | 3 years or more from the release date |
 
 {{< note >}} Chef Backend does not directly require acceptance of the Chef EULA, but it does have functionality that requires its acceptance in other products. {{< /note >}}
 
@@ -135,7 +136,7 @@ The following products are deprecated, so move to newer versions or products.
 | Chef Push Jobs           | All                 | EOL              | December 31, 2020 |
 | Chef Replication/Sync    | All                 | EOL              | August 31, 2019   |
 | Chef Server DRBD HA      | All                 | EOL              | March 31, 2019    |
-| Chef Workflow (Delivery) | All                 | EOL              | December 31, 2020 | 
+| Chef Workflow (Delivery) | All                 | EOL              | December 31, 2020 |
 | Chef Workstation         | 20.12.205 and under | EOL              | December 31, 2021 |
 | Enterprise Chef          | All                 | EOL              | December 31, 2018 |
 | Reporting                | All                 | EOL              | December 31, 2018 |

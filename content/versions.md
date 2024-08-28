@@ -44,7 +44,7 @@ Chef Infra Client generally follows an N-1 support strategy. This means that if 
 
 Unless otherwise stated, versions older than those listed below are EOL.
 
-Chef Infra Client 19 and other chef products that will launch after Infra client 19 will follow new long term support policy. Please refer our new page for <supported version> for more details.
+Chef Infra Client 19 and other chef products that will launch after Infra client 19 will follow new long term support policy. Please refer our new page for [supported version] for more details.
 
 {{< /important >}}
 
