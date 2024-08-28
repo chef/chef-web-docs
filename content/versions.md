@@ -1,5 +1,5 @@
 +++
-title = "Supported Versions"
+title = "Supported Versions(till 2024)"
 draft = false
 gh_repo = "chef-web-docs"
 aliases = ["/versions.html"]
@@ -7,42 +7,34 @@ product = ["automate", "client", "server", "habitat", "inspec", "supermarket", "
 
 [menu]
   [menu.overview]
-    title = "Supported Versions"
-    identifier = "overview/packages_&_platforms/versions.md Supported Versions"
+    title = "Supported Versions(till 2024)"
+    identifier = "overview/packages_&_platforms/versions.md Supported Versions(till 2024)"
     parent = "overview/packages_&_platforms"
     weight = 30
 +++
 
-This section lists the free and commercial Chef products and versions we
-currently support. The lifecycle stage defines the involvement by Chef
-Software in updating and maintaining each product.
+This section lists the free and commercial Chef products and versions we currently support and will continue to support until the end of year 2024 or till Infra Client 18 is End of Life (which ever happens first). The lifecycle stage defines the involvement by Chef Software in updating and maintaining each product.
 
 ## Lifecycle Definitions
 
 ### Generally Available (GA)
 
-This stage indicates that the product or version is in active
-development and/or maintenance.
+This stage indicates that the product or version is in active development and/or maintenance.
 
-- Chef continues to provide releases to the application or version in response to customer needs and security vulnerabilities
-- Chef welcomes customer feature requests for the product roadmap for the application
+- Chef continues to provide releases to the application or version in response to customer needs and security vulnerabilities.
+- Chef welcomes customer feature requests for the product roadmap for the application.
 
 ### Deprecated
 
-This stage indicates that an application or version is no longer in
-active development and will eventually move to end of life status. Chef
-continues to provide support [according to our
-SLAs](https://www.chef.io/service-level-agreement/).
+This stage indicates that an application or version is no longer in active development and will eventually move to end of life status. Chef continues to provide support [according to our SLAs](https://www.chef.io/service-level-agreement/).
 
-- Chef no longer provides scheduled releases
-- Customers should use the GA alternative to these products; contact us for help with product selection and deployment
-- Chef may provide a release for a critical defect or security vulnerability
+- Chef no longer provides scheduled releases.
+- Customers should use the GA alternative to these products; contact us for help with product selection and deployment.
+- Chef may provide a release for a critical defect or security vulnerability.
 
 ### End of Life (EOL)
 
-This stage indicates that Chef has set a date after which the
-application or version will no longer be supported or recommended for
-use by customers.
+This stage indicates that Chef has set a date after which the application or version will no longer be supported or recommended for use by customers.
 
 ### Versions and Status
 
@@ -52,15 +44,13 @@ Chef Infra Client generally follows an N-1 support strategy. This means that if 
 
 Unless otherwise stated, versions older than those listed below are EOL.
 
+Chef Infra Client 19 and other chef products that will launch after Infra client 19 will follow new long term support policy. Please refer our new page for <supported version> for more details.
+
 {{< /important >}}
 
 ## Supported Commercial Distributions
 
-Use of these and later versions of these distributions must be in
-accordance with the [Chef End User License
-Agreement](https://www.chef.io/end-user-license-agreement) or a
-commercial agreement with Chef. Additional information is available in
-[this announcement](https://www.chef.io/blog/chef-software-announces-the-enterprise-automation-stack).
+Use of these and later versions of these distributions must be in accordance with the [Chef End User License Agreement](https://www.chef.io/end-user-license-agreement) or a commercial agreement with Chef. Additional information is available in [this announcement](https://www.chef.io/blog/chef-software-announces-the-enterprise-automation-stack).
 
 | Product           | Version                  | Lifecycle Status | EOL Date       |
 |-------------------|--------------------------|------------------|----------------|
@@ -71,18 +61,11 @@ commercial agreement with Chef. Additional information is available in
 | Chef InSpec       | 6.x                      | GA               | n/a            |
 | Chef Workstation  | 22.x (2022), 23.x (2023) | GA               | n/a            |
 
-{{< note >}}
-
-**Chef Backend** does not directly require acceptance of the Chef
-EULA, but it does have functionality that requires its acceptance in other
-products.
-
-{{< /note >}}
+{{< note >}} **Chef Backend** does not directly require acceptance of the Chef EULA, but it does have functionality that requires its acceptance in other products. {{< /note >}}
 
 ## Supported Free Distributions
 
-Use of the following distributions is governed by the Apache License,
-version 2.0.
+Use of the following distributions is governed by the Apache License, version 2.0.
 
 | Product     | Version | Lifecycle Status | EOL Date |
 |-------------|---------|------------------|----------|
@@ -90,8 +73,7 @@ version 2.0.
 
 ## Deprecated Products and Versions
 
-The following products are deprecated. Users are advised to move to
-newer versions or products.
+The following products are deprecated. Users are advised to move to newer versions or products.
 
 | Product           | Version | Lifecycle Status | EOL Date          |
 |-------------------|---------|------------------|-------------------|
