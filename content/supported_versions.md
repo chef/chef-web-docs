@@ -2,7 +2,6 @@
 title = "Future Supported Versions (LTS/Innovation)"
 draft = false
 gh_repo = "chef-web-docs"
-aliases = ["/versions.html"]
 product = ["automate", "client", "server", "habitat", "inspec", "supermarket", "workstation"]
 
 [menu]
