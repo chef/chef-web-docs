@@ -1,5 +1,5 @@
 +++
-title = "Supported Versions(LTS/Innovation)"
+title = "Future Supported Versions (LTS/Innovation)"
 draft = false
 gh_repo = "chef-web-docs"
 aliases = ["/versions.html"]
@@ -7,8 +7,8 @@ product = ["automate", "client", "server", "habitat", "inspec", "supermarket", "
 
 [menu]
   [menu.overview]
-    title = "Supported Versions(LTS/Innovation)"
-    identifier = "overview/packages_&_platforms/supported_versions.md Supported Versions(LTS/Innovation)"
+    title = "Future Supported Versions"
+    identifier = "overview/packages_&_platforms/supported_versions.md Future Supported Versions(LTS/Innovation)"
     parent = "overview/packages_&_platforms"
     weight = 35
 +++
@@ -17,12 +17,12 @@ This section lists the free and commercial On-Premises Chef products and version
 
 ## Product releases
 
-Chef runs different releases that can run in parallel, and our customers can adapt them based on their needs. Following are releases of Chef supports:
+Progress Chef runs different releases that can run in parallel, and our customers can adapt them based on their needs. Following are releases of Chef supports:
 
 ### Innovation (I) release
 
 - Innovation releases are designed for customers seeking faster modernization and innovation. Progress recommends using continuous integration and continuous delivery to help benefit from the more rapid release cadence. Innovation releases also allow all customers to explore features appearing in future LTS releases.
-- With the introduction of LTS in Chef, any other major release will be termed an Innovation release. This release will be flexible and allow Chef to release significant versions and new features without LTS.
+- With the introduction of LTS in Chef, any other major release will be termed an Innovation release. This release will be flexible and allow Progress Chef to release significant versions and new features without LTS.
 
 ### Long-term supported (LTS) release
 
@@ -80,9 +80,9 @@ To know more about the Chef's prem life cycle policy, see [Prem Life Cycle Polic
 
 ### Versions and status
 
-Chef has transitioned from N-1 and N-2 support policy to LTS++ and I++ support strategy. The support strategy works like follows:
+Progress Chef has transitioned from N-1 and N-2 support policy to LTS++ and I++ support strategy. The support strategy works like follows:
 
-- LTS for Chef will be for three years.
+- LTS for Progress Chef will be for three years.
 - LTS will follow the released version.
   - For Example, Chef Infra Server 19 LTS is a significant version. All minor releases are like 19. X and patches are like 19.2.x and will fall under LTS support.
 - As the product EOL date is predetermined, a new release is not required to publish this message.

@@ -1,5 +1,5 @@
 +++
-title = "Supported Versions(till 2024)"
+title = "Current Supported Versions"
 draft = false
 gh_repo = "chef-web-docs"
 aliases = ["/versions.html"]
@@ -7,11 +7,13 @@ product = ["automate", "client", "server", "habitat", "inspec", "supermarket", "
 
 [menu]
   [menu.overview]
-    title = "Supported Versions(till 2024)"
-    identifier = "overview/packages_&_platforms/versions.md Supported Versions(till 2024)"
+    title = "Current Supported Versions"
+    identifier = "overview/packages_&_platforms/versions.md Current Supported Versions"
     parent = "overview/packages_&_platforms"
     weight = 30
 +++
+
+{{< note >}} These supported versions will last until the LTS/Innovation comes into force at the end of the year 2024. {{< /note >}}
 
 This section lists the free and commercial Chef products and versions we currently support and will continue to support until the end of 2024 or until Infra Client 18 is End of Life (whichever happens first). The lifecycle stage defines Chef Software's involvement in updating and maintaining each product.
 
