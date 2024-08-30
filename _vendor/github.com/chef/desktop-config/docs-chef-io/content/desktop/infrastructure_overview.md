@@ -35,5 +35,5 @@ Once everything is configured and Chef client runs have been scheduled either vi
 
 With all this information, you are now ready to set up the Chef Desktop product for configuration and application management of your fleet. You can proceed further in one of the two ways:
 
-1. Create a demonstration setup with virtual endpoints or real devices to evaluate our product using our [quick start guide]({{< relref "/demonstration_setup.md" >}}).
+1. Create a demonstration setup with virtual endpoints or real devices to evaluate our product using our [quick start guide]({{< relref "demonstration_setup.md" >}}).
 2. [Read instructions]({{< relref "_index.md" >}}) on how to set up individual parts of the pattern for production with or without Zero Touch Deployment.

@@ -1,38 +1,25 @@
-Chef Infra Client supports reading multiple configuration files by
-putting them inside a `.d` configuration directory. For example:
-`/etc/chef/client.d`. All files that end in `.rb` in the `.d` directory
-are loaded; other non-`.rb` files are ignored.
+You can use multiple configuration files by putting them in `.d` configuration directories,
+for example `/etc/chef/client.d`.
 
-`.d` directories may exist in any location where the `client.rb`,
-`config.rb`, or `solo.rb` files are present, such as:
+To use a `.d` directory, create a directory with the same name as the configuration file but replace the `.rb` suffix with `.d`.
 
-- `/etc/chef/client.d`
-- `/etc/chef/config.d`
-- `~/chef/solo.d`
+The default locations for `.d` directories in Chef Infra are:
 
-(There is no support for a `knife.d` directory; use `config.d` instead.)
+- For Chef Infra Client, use `/etc/chef/client.d`.
+- For Chef development tooling such as knife, use `~/.chef/config.d`.
+- For Chef Solo, use `/etc/chef/solo.d`.
 
-For example, when using knife, the following configuration files would
-be loaded:
+The standard `.rb` configuration file and all configuration `.rb` files in the `.d` directory are merged as one file.
+For example, knife would load and merge the following files:
 
 - `~/.chef/config.rb`
 - `~/.chef/config.d/company_settings.rb`
 - `~/.chef/config.d/ec2_configuration.rb`
-- `~/.chef/config.d/old_settings.rb.bak`
 
-The `old_settings.rb.bak` file is ignored because it is not a
-configuration file. The `config.rb`, `company_settings.rb`, and
-`ec2_configuration` files are merged together as if they are a single
-configuration file.
+Non-`.rb` files in a `.d` directory are ignored, for example `old_settings.rb.bak`.
 
-<!-- markdownlint-disable-file MD033 -->
+{{< note >}}
 
-<div class="admonition-note">
-<p class="admonition-note-title">Note</p>
-<div class="admonition-note-text">
+If you have the same setting in multiple configuration files, ensure that it has the same value in all files.
 
-If multiple configuration files exists in a `.d` directory, ensure that
-the same setting has the same value in all files.
-
-</div>
-</div>
+{{< /note >}}
