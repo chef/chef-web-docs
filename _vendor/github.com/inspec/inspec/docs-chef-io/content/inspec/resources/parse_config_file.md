@@ -15,9 +15,9 @@ Use the `parse_config_file` Chef InSpec audit resource to test arbitrary configu
 
 ## Availability
 
-### Install
+### Installation
 
-{{< readfile file="content/inspec/reusable/md/inspec_installation.md" >}}
+{{% inspec/inspec_installation %}}
 
 ### Version
 
@@ -126,6 +126,10 @@ Use `standalone_comments: false`, to parse the following:
     'key = value # comment'
     params['key'] = 'value'
 
+## Matchers
+
+For a full list of available matchers, please visit our [matchers page](/inspec/matchers/).
+
 ## Examples
 
 The following examples show how to use this Chef InSpec audit resource.
@@ -155,7 +159,3 @@ The following examples show how to use this Chef InSpec audit resource.
     describe parse_config_file('/etc/sysctl.conf') do
      its(['kernel.domainname']) { should eq 'example.com' }
     end
-
-## Matchers
-
-{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}

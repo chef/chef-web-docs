@@ -15,9 +15,9 @@ Use the `iptables` Chef InSpec audit resource to test rules that are defined in 
 
 ## Availability
 
-### Install
+### Installation
 
-{{< readfile file="content/inspec/reusable/md/inspec_installation.md" >}}
+{{% inspec/inspec_installation %}}
 
 ### Version
 
@@ -72,9 +72,7 @@ Note that the rule specification must exactly match what's in the output of `ipt
 
 ## Matchers
 
-{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
-
-This resource has the following special matchers.
+For a full list of available matchers, please visit our [matchers page](/inspec/matchers/).
 
 ### have_rule
 
