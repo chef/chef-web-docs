@@ -38,7 +38,7 @@ Use the Chef install script to install packages on UNIX, Linux, and macOS system
 - By default the script installs the latest version of Chef Infra Client:
 
   ```bash
-  curl -L https://chefdownload-commerical.chef.io/install.sh?license_id=<LICENSE_ID> | sudo bash
+  curl -L https://chefdownload-commercial.chef.io/install.sh?license_id=<LICENSE_ID> | sudo bash
   ```
 
   Replace `<LICENSE_ID>` with your license ID.
@@ -46,7 +46,7 @@ Use the Chef install script to install packages on UNIX, Linux, and macOS system
 - Use the `-P` option to specify a Chef software application to install:
 
   ```bash
-  curl -L https://chefdownload-commerical.chef.io/install.sh?license_id=<LICENSE_ID> | sudo bash -s -- -P <PROJECT>
+  curl -L https://chefdownload-commercial.chef.io/install.sh?license_id=<LICENSE_ID> | sudo bash -s -- -P <PROJECT>
   ```
 
   Replace:
@@ -63,7 +63,7 @@ On Windows systems, you can install Chef software using the Powershell install s
 - By default the script installs the latest version of Chef Infra Client:
 
   ```powershell
-  . { iwr -useb https://chefdownload-commerical.chef.io/install.ps1?license_id=<LICENSE_ID> } | iex; install
+  . { iwr -useb https://chefdownload-commercial.chef.io/install.ps1?license_id=<LICENSE_ID> } | iex; install
   ```
 
   Replace `<LICENSE_ID>` with your license ID.
@@ -71,7 +71,7 @@ On Windows systems, you can install Chef software using the Powershell install s
 - Use the `-project` option to specify a Chef software application to install:
 
   ```powershell
-  . { iwr -useb https://chefdownload-commerical.chef.io/install.ps1?license_id=<LICENSE_ID> } | iex; install -project <PROJECT>
+  . { iwr -useb https://chefdownload-commercial.chef.io/install.ps1?license_id=<LICENSE_ID> } | iex; install -project <PROJECT>
   ```
 
   Replace:
@@ -189,7 +189,7 @@ The following examples show how to use the Chef Software install script.
 - Use the `-v` option to install Chef Infra Client 15.8.23 on Unix, Linux, or macOS hosts:
 
   ```bash
-  curl -L https://chefdownload-commerical.chef.io/install.sh?license_id=<LICENSE_ID> | sudo bash -s -- -v 15.8.23
+  curl -L https://chefdownload-commercial.chef.io/install.sh?license_id=<LICENSE_ID> | sudo bash -s -- -v 15.8.23
   ```
 
   Replace `<LICENSE_ID>` with your license ID.
@@ -197,7 +197,7 @@ The following examples show how to use the Chef Software install script.
 - To install the latest version of Chef Workstation on Windows from the `current` channel:
 
   ```powershell
-  . { iwr -useb https://chefdownload-commerical.chef.io/install.ps1?license_id=<LICENSE_ID> } | iex; install -channel current -project chef-workstation
+  . { iwr -useb https://chefdownload-commercial.chef.io/install.ps1?license_id=<LICENSE_ID> } | iex; install -channel current -project chef-workstation
   ```
 
   Replace `<LICENSE_ID>` with your license ID.

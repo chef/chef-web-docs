@@ -29,7 +29,7 @@ Use the [Chef install script](/chef_install_script/) to upgrade to the latest ve
 - On Linux, macOS, and Unix-based hosts:
 
   ```bash
-  curl -L https://chefdownload-commerical.chef.io/install.sh?license_id=<LICENSE_ID> | sudo bash
+  curl -L https://chefdownload-commercial.chef.io/install.sh?license_id=<LICENSE_ID> | sudo bash
   ```
 
   Replace `<LICENSE_ID>` with your license ID.
@@ -37,7 +37,7 @@ Use the [Chef install script](/chef_install_script/) to upgrade to the latest ve
 - On Windows hosts:
 
   ```powershell
-  . { iwr -useb https://chefdownload-commerical.chef.io/install.ps1?license_id=<LICENSE_ID> } | iex; install
+  . { iwr -useb https://chefdownload-commercial.chef.io/install.ps1?license_id=<LICENSE_ID> } | iex; install
   ```
 
   Replace `<LICENSE_ID>` with your license ID.
@@ -49,7 +49,7 @@ You can install a specific version of Chef Infra Client using the [Chef install 
 - Use the `-v` option to install a specific version on Linux, macOS, and Unix-based hosts. For example:
 
   ```bash
-  curl -L https://chefdownload-commerical.chef.io/install.sh?license_id=<LICENSE_ID> | sudo bash -s -- -v 17.9.26
+  curl -L https://chefdownload-commercial.chef.io/install.sh?license_id=<LICENSE_ID> | sudo bash -s -- -v 17.9.26
   ```
 
   Replace `<LICENSE_ID>` with your license ID.
@@ -57,7 +57,7 @@ You can install a specific version of Chef Infra Client using the [Chef install 
 - Use the `-version` option to install a specific version on Windows hosts. For example:
 
   ```powershell
-  . { iwr -useb https://chefdownload-commerical.chef.io/install.ps1?license_id=<LICENSE_ID> } | iex; install -version 17.9.26
+  . { iwr -useb https://chefdownload-commercial.chef.io/install.ps1?license_id=<LICENSE_ID> } | iex; install -version 17.9.26
   ```
 
   Replace `<LICENSE_ID>` with your license ID.
@@ -67,7 +67,7 @@ You can install a specific version of Chef Infra Client using the [Chef install 
 You can use the [`knife ssh` command](/workstation/knife_ssh/) in Chef Workstation to execute the install script on multiple Linux, macOS, and Unix-based hosts at once.
 
 ```bash
-knife ssh <SEARCH_QUERY> 'curl -L https://chefdownload-commerical.chef.io/install.sh?license_id=<LICENSE_ID> | sudo bash'
+knife ssh <SEARCH_QUERY> 'curl -L https://chefdownload-commercial.chef.io/install.sh?license_id=<LICENSE_ID> | sudo bash'
 ```
 
 Replace:
