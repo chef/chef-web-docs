@@ -10,6 +10,41 @@ draft = false
     weight = 10
 +++
 
+## 20240910
+
+### New Features
+
+- CIS Amazon Linux 2023 v1.0.0(Audits)
+- CIS Apple Mac OS 13.0 Ventura v2.0.0(Audits)
+- CIS Windows Server 2012r2 v3.0.0(Audits)
+- CIS MariaDB v1.0.0 (Audits)
+- CIS Azure Foundation v2.0.0 (Audits)
+- CIS AWS Foundation v2.0.0 (Audits)
+- CIS Microsoft Windows 11 Enterprise Benchmark v3.0.0
+- STIG Oracle Linux 8 v1.8.0
+- CIS RHEL7 v4.0.0(Audits)
+- CIS RHEL8 v3.0.0(Audits)
+- CIS Oracle Linux 9 v1.0.0(Audits)
+- CIS VMWare Esxi 7.0 v1.3.0(Audits)
+- CIS IBM AIX 7.2 Benchmark v1.1.0(Audits)
+- STIG Oracle Linux 8 v1.8.0(Audits)
+- CIS Windows Server 2016 v3.0.0(Audits)
+- CIS Windows Server 2019 v3.0.1(Audits)
+- STIG RHEL 9 v1.1.0(Audits)
+- STIG Microsoft IIS Server 10.0 v2(Audits)
+- STIG Postgres SQL Server v2(Audits)
+
+### Improvements
+
+- CIS CentOS Linux 7 v3.1.2 Benchmark Level 1 - Server controls were incorrect; improved the password regex check.
+- CIS Rhel 7 v3.1.1 code optimisation.
+- CIS RHEL 9 v1.0.0 for control 5.6.2 regex fixed for login path.
+- CIS RHEL 9 v1.0.0 fixed 17 controls to verify tests in defined commands and files.
+
+### Bug Fixes
+
+- RHEL 7v2.0.0 Control 1.2.3 Ensure gpgcheck is globally activated is showing as failing.
+
 ## 20240226
 
 ### New features
