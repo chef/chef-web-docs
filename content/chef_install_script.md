@@ -18,10 +18,10 @@ any Chef software---including Chef Infra Client, Chef Infra Server, and Chef InS
 
 This script does the following:
 
-- detects the platform, version, and architecture of the machine on which the installer is being executed
-- fetches the appropriate package, for the requested product and version
-- validates the package content by comparing SHA-256 checksums
-- installs the package
+- Detects the platform, version, and architecture of the machine on which the installer is being executed.
+- Fetches the appropriate package, for the requested product and version.
+- Validates the package content by comparing SHA-256 checksums.
+- Installs the package.
 
 ## Install using the Commercial API
 
@@ -35,24 +35,24 @@ You must have a license ID to use the install script from the Chef Commercial AP
 
 Use the Chef install script to install packages on UNIX, Linux, and macOS systems:
 
-- By default the script installs the latest version of Chef Infra Client:
+By default the script installs the latest version of Chef Infra Client:
 
-  ```bash
-  curl -L https://chefdownload-commercial.chef.io/install.sh?license_id=<LICENSE_ID> | sudo bash
-  ```
+```bash
+curl -L https://chefdownload-commercial.chef.io/install.sh?license_id=<LICENSE_ID> | sudo bash
+```
 
-  Replace `<LICENSE_ID>` with your license ID.
+Replace `<LICENSE_ID>` with your license ID.
 
-- Use the `-P` option to specify a Chef software application to install:
+Use the `-P` option to specify a Chef software application to install:
 
-  ```bash
-  curl -L https://chefdownload-commercial.chef.io/install.sh?license_id=<LICENSE_ID> | sudo bash -s -- -P <PROJECT>
-  ```
+```bash
+curl -L https://chefdownload-commercial.chef.io/install.sh?license_id=<LICENSE_ID> | sudo bash -s -- -P <PROJECT>
+```
 
-  Replace:
+Replace:
 
-  - `<LICENSE_ID>` with your license ID
-  - `<PROJECT>` with the application you want to install
+- `<LICENSE_ID>` with your license ID
+- `<PROJECT>` with the application you want to install
 
 For additional script install options, see the [script options](#script-options).
 
@@ -60,24 +60,24 @@ For additional script install options, see the [script options](#script-options)
 
 On Windows systems, you can install Chef software using the Powershell install script.
 
-- By default the script installs the latest version of Chef Infra Client:
+By default the script installs the latest version of Chef Infra Client:
 
-  ```powershell
-  . { iwr -useb https://chefdownload-commercial.chef.io/install.ps1?license_id=<LICENSE_ID> } | iex; install
-  ```
+```powershell
+. { iwr -useb https://chefdownload-commercial.chef.io/install.ps1?license_id=<LICENSE_ID> } | iex; install
+```
 
-  Replace `<LICENSE_ID>` with your license ID.
+Replace `<LICENSE_ID>` with your license ID.
 
-- Use the `-project` option to specify a Chef software application to install:
+Use the `-project` option to specify a Chef software application to install:
 
-  ```powershell
-  . { iwr -useb https://chefdownload-commercial.chef.io/install.ps1?license_id=<LICENSE_ID> } | iex; install -project <PROJECT>
-  ```
+```powershell
+. { iwr -useb https://chefdownload-commercial.chef.io/install.ps1?license_id=<LICENSE_ID> } | iex; install -project <PROJECT>
+```
 
-  Replace:
+Replace:
 
-  - `<LICENSE_ID>` with your license ID
-  - `<PROJECT>` with the application you want to install
+- `<LICENSE_ID>` with your license ID
+- `<PROJECT>` with the application you want to install
 
 For additional script install options, see the [script options](#script-options).
 
@@ -87,21 +87,21 @@ Community users can use the install script from the [Chef Community API](/downlo
 
 ### UNIX, Linux, and macOS
 
-Use the Chef install script to install packages on UNIX, Linux, and macOS systems:
+Use the Chef install script to install packages on UNIX, Linux, and macOS systems.
 
-- By default the script installs the latest available version of Chef Infra Client:
+By default the script installs the latest available version of Chef Infra Client:
 
-  ```bash
-  curl -L https://chefdownload-community.chef.io/install.sh | sudo bash
-  ```
+```bash
+curl -L https://chefdownload-community.chef.io/install.sh | sudo bash
+```
 
-- Use the `-P` option to specify a Chef application to install:
+Use the `-P` option to specify a Chef application to install:
 
-  ```bash
-  curl -L https://chefdownload-community.chef.io/install.sh | sudo bash -s -- -P <PROJECT>
-  ```
+```bash
+curl -L https://chefdownload-community.chef.io/install.sh | sudo bash -s -- -P <PROJECT>
+```
 
-  Replace `<PROJECT>` with the application you want to install
+Replace `<PROJECT>` with the application you want to install.
 
 For additional script install options, see the [script options](#script-options).
 
@@ -109,17 +109,17 @@ For additional script install options, see the [script options](#script-options)
 
 On Windows systems, you can install Chef software using the Powershell install script.
 
-- By default the script installs the latest available version of Chef Infra Client:
+By default the script installs the latest available version of Chef Infra Client:
 
-  ```powershell
-  . { iwr -useb https://chefdownload-community.chef.io/install.ps1 } | iex; install
-  ```
+```powershell
+. { iwr -useb https://chefdownload-community.chef.io/install.ps1 } | iex; install
+```
 
-- Use the `-project` option to specify a Chef application to install:
+Use the `-project` option to specify a Chef application to install:
 
-  ```powershell
-  . { iwr -useb https://chefdownload-community.chef.io/install.ps1 } | iex; install -project <PROJECT>
-  ```
+```powershell
+. { iwr -useb https://chefdownload-community.chef.io/install.ps1 } | iex; install -project <PROJECT>
+```
 
 For additional script install options, see the [script options](#script-options).
 
@@ -186,18 +186,18 @@ In addition to the default install behavior, the Chef Software install script su
 
 The following examples show how to use the Chef Software install script.
 
-- Use the `-v` option to install Chef Infra Client 15.8.23 on Unix, Linux, or macOS hosts:
+Use the `-v` option to install Chef Infra Client 15.8.23 on Unix, Linux, or macOS hosts:
 
-  ```bash
-  curl -L https://chefdownload-commercial.chef.io/install.sh?license_id=<LICENSE_ID> | sudo bash -s -- -v 15.8.23
-  ```
+```bash
+curl -L https://chefdownload-commercial.chef.io/install.sh?license_id=<LICENSE_ID> | sudo bash -s -- -v 15.8.23
+```
 
-  Replace `<LICENSE_ID>` with your license ID.
+Replace `<LICENSE_ID>` with your license ID.
 
-- To install the latest version of Chef Workstation on Windows from the `current` channel:
+To install the latest version of Chef Workstation on Windows from the `current` channel:
 
-  ```powershell
-  . { iwr -useb https://chefdownload-commercial.chef.io/install.ps1?license_id=<LICENSE_ID> } | iex; install -channel current -project chef-workstation
-  ```
+```powershell
+. { iwr -useb https://chefdownload-commercial.chef.io/install.ps1?license_id=<LICENSE_ID> } | iex; install -channel current -project chef-workstation
+```
 
-  Replace `<LICENSE_ID>` with your license ID.
+Replace `<LICENSE_ID>` with your license ID.
