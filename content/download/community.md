@@ -65,7 +65,7 @@ https://chefdownload-community.chef.io/products?eol=true
 
 ### packages
 
-Use `packages` to get a list of all packages for a particular release channel and product.
+Use `packages` to get a list of all packages for a particular product.
 
 By default, it returns packages for the latest version.
 
@@ -81,7 +81,7 @@ https://chefdownload-community.chef.io/stable/<PRODUCT>/packages?v=<VERSION_NUMB
 
 ### versions/all
 
-Use `versions/all` to return a list of versions of a product from a particular release channel.
+Use `versions/all` to return a list of versions of a product.
 
 ```plain
 https://chefdownload-community.chef.io/stable/<PRODUCT>/versions/all
@@ -89,7 +89,7 @@ https://chefdownload-community.chef.io/stable/<PRODUCT>/versions/all
 
 ### versions/latest
 
-Use `versions/latest` to return the latest version of a product from a particular release channel.
+Use `versions/latest` to return the latest version of a product.
 
 ```plain
 https://chefdownload-community.chef.io/stable/<PRODUCT>/versions/latest
@@ -153,7 +153,7 @@ The API accepts the following parameters in a query string.
 
 ## Chef product names
 
-See the [Supported Versions]({{< relref "versions" >}}) documentation for information about the support status of individual products.
+See the [Supported Versions documentation]({{< relref "versions" >}}) for information about the support status of individual products.
 
 This is a list of currently supported products that you can install with this API.
 
