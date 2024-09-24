@@ -1,4 +1,4 @@
-# github.com/chef/automate/components/docs-chef-io v0.0.0-20240729123819-c53229986942
+# github.com/chef/automate/components/docs-chef-io v0.0.0-20240919065256-e500b2c2b2f0
 # github.com/chef/desktop-config/docs-chef-io v0.0.0-20240814044820-5af667d41a43
 # github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20240410132404-ec6d25dc198b
 # github.com/chef/chef-server/docs-chef-io v0.0.0-20240920053744-03b58ff14f46
