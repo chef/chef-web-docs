@@ -12,12 +12,18 @@ gh_repo = "chef-web-docs"
 
 Commercial customers can use Chef's Commercial API to download Chef software packages and view software package metadata.
 
+## Install script
+
+You can also use an install script from the API to download and install Chef packages. See the [Chef install script documentation](/chef_install_script/) for more information.
+
 ## License
 
-You must use a license to download packages and review metadata with this API.
-If you don't already have one, [contact Chef](https://www.chef.io/contact-us) to get a license.
+You must use a license ID to download packages and review metadata with this API.
 
-See [Chef's licensing documentation]({{< relref "chef_license" >}}) for more information on the Chef license.
+You can get your license ID from the [Chef Downloads portal](https://chef.io/downloads),
+or [contact Chef](https://www.chef.io/contact-us) if you don't already have one.
+
+See [Chef's licensing documentation]({{< relref "licensing" >}}) for more information on the Chef license.
 
 ## Endpoints
 
@@ -40,7 +46,7 @@ The `architectures` endpoint returns a valid list of architecture that Chef prod
 Any of these architectures can be used in the `m` [query string](#parameters) value in various endpoints below.
 
 ```plain
-https://chefdownload-commerical.chef.io/architectures
+https://chefdownload-commercial.chef.io/architectures
 ```
 
 ### platforms
@@ -48,7 +54,7 @@ https://chefdownload-commerical.chef.io/architectures
 The `platforms` endpoint returns a list of valid platform keys along with full friendly names. Any of these platform keys can be used in the `p` [query string](#parameters) value in various endpoints below.
 
 ```plain
-https://chefdownload-commerical.chef.io/platforms
+https://chefdownload-commercial.chef.io/platforms
 ```
 
 ### products
@@ -56,13 +62,13 @@ https://chefdownload-commerical.chef.io/platforms
 The `products` endpoint returns a list of valid product keys. In the following endpoints, you can replace the `<PRODUCT>` string with a product key in the response of this endpoint.
 
 ```plain
-https://chefdownload-commerical.chef.io/products
+https://chefdownload-commercial.chef.io/products
 ```
 
 Use `eol=true` to return EOL products.
 
 ```plain
-https://chefdownload-commerical.chef.io/products?eol=true
+https://chefdownload-commercial.chef.io/products?eol=true
 ```
 
 ### packages
@@ -72,13 +78,13 @@ Use `packages` to get a full list of all packages for a particular release chann
 By default, it returns packages for the latest version.
 
 ```plain
-https://chefdownload-commerical.chef.io/<CHANNEL>/<PRODUCT>/packages?license_id=<LICENSE_ID>
+https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/packages?license_id=<LICENSE_ID>
 ```
 
 You can specify a version number with the `v` query string to get packages for a particular product version.
 
 ```plain
-https://chefdownload-commerical.chef.io/<CHANNEL>/<PRODUCT>/packages?v=<VERSION_NUMBER>&license_id=<LICENSE_ID>
+https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/packages?v=<VERSION_NUMBER>&license_id=<LICENSE_ID>
 ```
 
 ### versions/all
@@ -86,7 +92,7 @@ https://chefdownload-commerical.chef.io/<CHANNEL>/<PRODUCT>/packages?v=<VERSION_
 Use `versions/all` to return a list of versions of a product from a particular release channel.
 
 ```plain
-https://chefdownload-commerical.chef.io/<CHANNEL>/<PRODUCT>/versions/all?license_id=<LICENSE_ID>
+https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/versions/all?license_id=<LICENSE_ID>
 ```
 
 ### versions/latest
@@ -94,7 +100,7 @@ https://chefdownload-commerical.chef.io/<CHANNEL>/<PRODUCT>/versions/all?license
 Use `versions/latest` to return the latest version of a product from a particular release channel.
 
 ```plain
-https://chefdownload-commerical.chef.io/<CHANNEL>/<PRODUCT>/versions/latest?license_id=<LICENSE_ID>
+https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/versions/latest?license_id=<LICENSE_ID>
 ```
 
 ### metadata
@@ -102,7 +108,7 @@ https://chefdownload-commerical.chef.io/<CHANNEL>/<PRODUCT>/versions/latest?lice
 The `metadata` endpoint returns data about a particular package of a Chef product.
 
 ```plain
-https://chefdownload-commerical.chef.io/<CHANNEL>/<PRODUCT>/metadata?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
+https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/metadata?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
 ```
 
 ### download
@@ -110,7 +116,7 @@ https://chefdownload-commerical.chef.io/<CHANNEL>/<PRODUCT>/metadata?p=<PLATFORM
 The `download` endpoint downloads a particular package of a Chef product.
 
 ```plain
-https://chefdownload-commerical.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
+https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
 ```
 
 ## Parameters
@@ -118,7 +124,7 @@ https://chefdownload-commerical.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM
 The API accepts the following parameters in a query string.
 
 `<CHANNEL>`
-: The release channel to install from. See [Chef Software Packages](/packages/) for full details on the available channels.
+: The release channel to install from. For the available channels, see [release channels](#release-channels).
 
 `<PRODUCT>`
 : The Chef Software product to install.
@@ -164,11 +170,10 @@ The API accepts the following parameters in a query string.
 
 ## Chef product names
 
-See the [Supported Versions]({{< relref "versions" >}}) documentation for information about the support status of individual products.
+Use the following product keys to download packages or retrieve data for different Chef products.
+You can also use the [products endpoint](#products)
 
-This is a list of currently supported products that you can install with this API.
-
-| Product | Product Key  |
+| Product | Product key  |
 | ------- | ------------ |
 | Chef Automate | automate |
 | Chef Infra Client | chef |
@@ -180,22 +185,28 @@ This is a list of currently supported products that you can install with this AP
 | Management Console | manage |
 | Supermarket | supermarket |
 
+See the [supported versions]({{< relref "versions" >}}) documentation for information about the support status of individual products.
+
+### Release channels
+
+{{< readfile file="content/reusable/md/release_channels.md" >}}
+
 ## Examples
 
 ### Get the latest build
 
 To get the latest supported build of Chef Infra Client for Ubuntu 20.04, enter the following:
 
-```plain
-https://chefdownload-commerical.chef.io/stable/chef/metadata?p=ubuntu&pv=20.04&m=x86_64&license_id=<LICENSE_ID>
+```sh
+https://chefdownload-commercial.chef.io/stable/chef/metadata?p=ubuntu&pv=20.04&m=x86_64&license_id=<LICENSE_ID>
 ```
 
-which will return something like:
+which returns something like:
 
 ```json
 sha1	"8e8ae315d4695f9c95efc0a1437d2d453f7ab116"
 sha256	"86f14ae08237b4e24201436ecb83c08c29b68aed1d6ede0953a1b4547a920e36"
-url	"https://chefdownload-commerical.chef.io/stable/chef/download?license_id=<LICENSE_ID>&m=x86_64&p=ubuntu&pv=20.04"
+url	"https://chefdownload-commercial.chef.io/stable/chef/download?license_id=<LICENSE_ID>&m=x86_64&p=ubuntu&pv=20.04"
 version	"18.2.7"
 ```
 
@@ -204,11 +215,11 @@ version	"18.2.7"
 To use cURL to download a package directly, enter the following:
 
 ```bash
-curl -LOJ 'https://chefdownload-commerical.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&license_id=<LICENSE_ID>'
+curl -LOJ 'https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&license_id=<LICENSE_ID>'
 ```
 
 To use GNU Wget to download a package directly, enter the following:
 
 ```bash
-wget --content-disposition https://chefdownload-commerical.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&license_id=<LICENSE_ID>
+wget --content-disposition https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&license_id=<LICENSE_ID>
 ```

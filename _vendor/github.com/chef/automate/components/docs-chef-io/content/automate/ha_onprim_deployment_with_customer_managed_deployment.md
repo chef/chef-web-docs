@@ -15,11 +15,12 @@ gh_repo = "automate"
 {{% automate/ha-warn %}}
 {{< /note >}}
 
-This section will discuss deploying Chef Automate HA on-premise machines with a customer-managed database. Please see the [On-Premises Prerequisites](/automate/ha_on_premises_deployment_prerequisites/) page and move ahead with the following sections of this page.
+This section will discuss deploying Chef Automate HA on-premises machines with a customer-managed database. Please see the [On-Premises Prerequisites](/automate/ha_on_premises_deployment_prerequisites/) page and move ahead with the following sections of this page.
 
 {{< warning >}}
 
-If SELinux is enabled, deployment with configure it to `permissive` (Usually in case of RHEL SELinux is enabled)
+- If SELinux is enabled, deployment with configure it to `permissive` (Usually in case of RHEL SELinux is enabled)
+- The SSH user should have execute permissions on the `/tmp` directory.
 
 {{< /warning >}}
 

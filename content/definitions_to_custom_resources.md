@@ -12,8 +12,6 @@ product = ["client", "workstation"]
     weight = 50
 +++
 
-## Migrating from Definitions to Custom Resources
-
 The definitions feature in Chef Infra has been deprecated and will be removed in a future release. Please migrate existing definitions to Custom Resources.
 
 This guide describes how to migrate from an existing Definition to a Custom Resource.

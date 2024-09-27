@@ -3,9 +3,9 @@ module github.com/chef/chef-web-docs
 go 1.22
 
 require (
-	github.com/chef/automate/components/docs-chef-io v0.0.0-20240729123819-c53229986942 // indirect
+	github.com/chef/automate/components/docs-chef-io v0.0.0-20240926130942-4b98d9cf92f6 // indirect
 	github.com/chef/chef-docs-theme v0.0.0-20240702130936-2a15b495f5df // indirect
-	github.com/chef/chef-server/docs-chef-io v0.0.0-20240903162633-2a67bad1cad7 // indirect
+	github.com/chef/chef-server/docs-chef-io v0.0.0-20240920053744-03b58ff14f46 // indirect
 	github.com/chef/chef-workstation/docs-chef-io v0.0.0-20240809064339-878cb76b2b66 // indirect
 	github.com/chef/compliance-profiles/docs-chef-io v0.0.0-20240910135619-26c9a5bfa34f // indirect
 	github.com/chef/compliance-remediation-2022/docs-chef-io v0.0.0-20240313054833-ebbc45209efa // indirect
@@ -20,7 +20,7 @@ require (
 	github.com/inspec/inspec-azure/docs-chef-io v0.0.0-20240122032234-c1394fc25525 // indirect
 	github.com/inspec/inspec-habitat/docs-chef-io v0.0.0-20220218210405-bfd542da49fd // indirect
 	github.com/inspec/inspec-k8s/docs-chef-io v0.0.0-20240122032042-421355eaf502 // indirect
-	github.com/inspec/inspec/docs-chef-io v0.0.0-20240725161417-9e8c62dc0c3f // indirect
+	github.com/inspec/inspec/docs-chef-io v0.0.0-20240826082411-e34d735e7a5f // indirect
 	github.com/swiftype/swiftype-autocomplete-jquery v0.0.0-20190222215504-a90008d64b30 // indirect
 	github.com/swiftype/swiftype-search-jquery v1.1.0 // indirect
 	github.com/twitter/hogan.js v3.0.2+incompatible // indirect

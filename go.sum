@@ -1,9 +1,9 @@
-github.com/chef/automate/components/docs-chef-io v0.0.0-20240729123819-c53229986942 h1:Oay5aRIsaVTNCyGz1AtxcqHOmpNbpKS5QP/eN0NCsKA=
-github.com/chef/automate/components/docs-chef-io v0.0.0-20240729123819-c53229986942/go.mod h1:juvLC7Rt33YOCgJ5nnfl4rWZRAbSwqjTbWmcAoA0LtU=
+github.com/chef/automate/components/docs-chef-io v0.0.0-20240926130942-4b98d9cf92f6 h1:scrWEAK18Peqbtc3CxwxVaFp595kr+r8eYvYxW7qjQU=
+github.com/chef/automate/components/docs-chef-io v0.0.0-20240926130942-4b98d9cf92f6/go.mod h1:juvLC7Rt33YOCgJ5nnfl4rWZRAbSwqjTbWmcAoA0LtU=
 github.com/chef/chef-docs-theme v0.0.0-20240702130936-2a15b495f5df h1:R4S5OrcKY2CJHMShYHHeTqIzrAdPvX6bfDyho69Rll0=
 github.com/chef/chef-docs-theme v0.0.0-20240702130936-2a15b495f5df/go.mod h1:+Jpnv+LXE6dXu2xDcMzMc0RxRGuCPAoFxq5tJ/X6QpQ=
-github.com/chef/chef-server/docs-chef-io v0.0.0-20240903162633-2a67bad1cad7 h1:mXu0vlYn8MddHlCWzvaT2d712a83/DVeahGXh6+6Coo=
-github.com/chef/chef-server/docs-chef-io v0.0.0-20240903162633-2a67bad1cad7/go.mod h1:gMSa25GUHmLimA0gjvRd3hs1buOBqkKPrdHzHvaJauY=
+github.com/chef/chef-server/docs-chef-io v0.0.0-20240920053744-03b58ff14f46 h1:KKSufg3MDKPPzXN2Nv6vUGhx8LIYmYMo9ByQMFbj8Rk=
+github.com/chef/chef-server/docs-chef-io v0.0.0-20240920053744-03b58ff14f46/go.mod h1:gMSa25GUHmLimA0gjvRd3hs1buOBqkKPrdHzHvaJauY=
 github.com/chef/chef-workstation/docs-chef-io v0.0.0-20240809064339-878cb76b2b66 h1:mGSa2uVyyi8bHyluwmmd83UReZR9gqF/roi5v7lnv0s=
 github.com/chef/chef-workstation/docs-chef-io v0.0.0-20240809064339-878cb76b2b66/go.mod h1:u6KNpAJs9lTmRigxXsxX0dEywa5KLB40m1vbAalN0NI=
 github.com/chef/compliance-profiles/docs-chef-io v0.0.0-20240910135619-26c9a5bfa34f h1:HKF3kXruTA2Dwxg6m2yol6THwjfcBqlZrdzODHsysRA=
@@ -32,8 +32,8 @@ github.com/inspec/inspec-habitat/docs-chef-io v0.0.0-20220218210405-bfd542da49fd
 github.com/inspec/inspec-habitat/docs-chef-io v0.0.0-20220218210405-bfd542da49fd/go.mod h1:Q4E7QBY4b7HDE2psfGT9jqvnLq1yfg5e9KWK4VTtI/M=
 github.com/inspec/inspec-k8s/docs-chef-io v0.0.0-20240122032042-421355eaf502 h1:l3NT3O2TWWbp1XTeolWRNreLWoWornD4S8+h9uIVIc0=
 github.com/inspec/inspec-k8s/docs-chef-io v0.0.0-20240122032042-421355eaf502/go.mod h1:JwjkNHKgELWxc9esXuK3ELEGL371pK496OKrK+te3Lk=
-github.com/inspec/inspec/docs-chef-io v0.0.0-20240725161417-9e8c62dc0c3f h1:fYKOoUx0n7VTPDHF9aWh3W++5XrI6YfhqSDuZFbWZuo=
-github.com/inspec/inspec/docs-chef-io v0.0.0-20240725161417-9e8c62dc0c3f/go.mod h1:k41HVhnK+v9/X2qCX+axYBM6eME3kFeatloWoMLxXQU=
+github.com/inspec/inspec/docs-chef-io v0.0.0-20240826082411-e34d735e7a5f h1:UTHOiIMiMOKdbwMTLAeMfB//tiHQQSxpb01NMZP8ilo=
+github.com/inspec/inspec/docs-chef-io v0.0.0-20240826082411-e34d735e7a5f/go.mod h1:k41HVhnK+v9/X2qCX+axYBM6eME3kFeatloWoMLxXQU=
 github.com/swiftype/swiftype-autocomplete-jquery v0.0.0-20190222215504-a90008d64b30 h1:dhqLFBINtD1rMwwd5s9INu4BkciCvQUd+r+CWUYWIB4=
 github.com/swiftype/swiftype-autocomplete-jquery v0.0.0-20190222215504-a90008d64b30/go.mod h1:qnxTyatkwE84LvoaQLPaLB4h5M3n6Q2z+SB/96DcAK8=
 github.com/swiftype/swiftype-search-jquery v1.1.0 h1:VRYyWPQtf3Vl3B5W2xQJuFVoUBlBFGQ4tOTu94b8mNU=

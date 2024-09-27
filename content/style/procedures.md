@@ -22,7 +22,7 @@ The title or heading should briefly explain what the procedure will accomplish.
 Use the [bare infinitive](https://en.wikipedia.org/wiki/Infinitive#English) to form titles or headings for a set of procedures.
 Avoid using the _-ing_ form of a verb, either a [gerund](https://en.wikipedia.org/wiki/Gerund#Gerunds_in_English) or the [present participle](https://en.wikipedia.org/wiki/Participle#Modern_English).
 
-Use [sentence case](https://en.wikipedia.org/wiki/Letter_case#Sentence_case) for section headings and [title case](https://en.wikipedia.org/wiki/Title_case) for page headings.
+Use [sentence case](https://en.wikipedia.org/wiki/Letter_case#Sentence_case) for section headings and page titles.
 
 {{< recommend >}}
 

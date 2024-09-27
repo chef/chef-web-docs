@@ -18,7 +18,7 @@ automate = "AWS Deployment Prerequisites"
 The below prerequisites are according to the standard Chef Automate HA setup. You can contact the customer success manager or account manager if you use any specified version not mentioned here or a third-party extension or software.
 {{< /warning >}}
 
-Before installing Chef automate HA in AWS deployment mode, ensure you have taken a quick tour of this prerequisite page.
+Before installing Chef Automate HA in AWS deployment mode, ensure you have taken a quick tour of this prerequisite page.
 
 ## Chef Automate Architecture
 
@@ -207,6 +207,7 @@ The AWS deployment specific pre-requisites are as follows:
 -   This SSH user should have sudo privileges on the Bastion machine.
 -   SSH user should have write permission in nodes.
 -   Use the SSH user to access all machines using the same SSH private key.
+-   The SSH user should have execute permissions on the `/tmp` directory.
 
 ### Cluster Setup
 
