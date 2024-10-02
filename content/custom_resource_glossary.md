@@ -133,7 +133,11 @@ Chef Infra Client will only update the property values that require
 updates and will not make changes when the property values are already
 in the desired state.
 
+<!-- markdownlint-disable MD026 -->
+
 ## current_value_does_not_exist!
+
+<!-- markdownlint-enable MD026 -->
 
 When using the `load_current_value` block, use `current_value_does_not_exist!` to indicate that the value does not exist and that `current_resource` should therefore be `nil`.
 
@@ -399,7 +403,6 @@ where:
 - `sensitive new_resource.sensitive`
 
 Correctly use the properties of the __execute__ resource and not the identically-named override properties of the custom resource.
-
 
 ## partial
 
