@@ -86,38 +86,6 @@ host = '<IP_ADDRESS OR FQDN>'
 # key_files = '<PATH_TO_SECRET_FILE>'
 # password = '<PASSWORD_STRING>'
 
-# ssh_config_file: Whether to use settings from a local SSH config file. Default is 'true'.
-# ssh_config_file = true
-
-# ==== Keepalive settings ====
-# keepalive: Whether to keep the session alive. Default is true.
-# keepalive_interval: The keepalive interval. Default is 60 seconds.
-# ====
-
-# keepalive = true
-# keepalive_interval = '60'
-
-# ==== Connection attempt/delay settings ====
-# connection_timeout: The timeout (in seconds) used when connecting to the SSH target. Default is 15 seconds.
-# connection_retries: The number of connection retries. Default is 5.
-# connection_retry_sleep: The connection retry delay in seconds. Default is 1.
-# max_wait_until_ready: The maximum wait time for the SSH service to connect. Default is 600.
-# ====
-
-# connection_timeout = '15'
-# connection_retries = '5'
-# connection_retry_sleep = '1'
-# max_wait_until_ready = '600'
-
-# compression: Whether to use compression. Default is false.
-# compression = false
-
-# pty: Wether to use PTY to connect. Default is false.
-# pty = false
-
-# proxy_command: A proxy command to use to connect to the server. Default is 'nil'.
-# proxy_command = 'nil'
-
 # ==== Bastion host settings ====
 # bastion_host: A bastion host to connect to the target through. Default is 'nil'.
 # bastion_user: The bastion host user. Default is 'root'.
@@ -127,9 +95,6 @@ host = '<IP_ADDRESS OR FQDN>'
 # bastion_host = 'nil'
 # bastion_user = 'root'
 # bastion_port = '22'
-
-# non_interactive: Whether to use a non-interactive session. Default is false.
-# non_interactive = false
 
 # verify_host_key: Whether to verify the host key. Default is false
 # verify_host_key = false
@@ -141,11 +106,13 @@ host = '<IP_ADDRESS OR FQDN>'
 transport_protocol = 'ssh'
 ```
 
-### SSH properties
+### SSH parameters
 
 <!-- markdownlint-disable MD007 MD006 -->
 
-Target Mode supports the following SSH connection properties in a credentials file:
+Target Mode supports the following SSH connection parameters in a credentials file.
+
+Common parameters:
 
 `host`
 : (Required) The IP address or FQDN of a node.
@@ -169,91 +136,32 @@ Target Mode supports the following SSH connection properties in a credentials fi
 `transport_protocol`
 : (Required) The protocol to use to connect to a node. Define this once for all nodes in the credentials file. Set to `ssh`.
 
-`ssh_config_file`
-: Whether to use an SSH config file. For example:
-
-  - `~/.ssh/config`
-  - `/etc/ssh_config`
-  - `/etc/ssh/ssh_config`
-
-  Settings defined in the credentials file override settings in the SSH config file.
-
-  Default value: `true`
-
-`keepalive`
-: Whether to keep the session alive.
-
-  Default value: `true`
-
-`keepalive_interval`
-: The keepalive interval.
-
-  Default value: `60`
-
-`connection_timeout`
-: The timeout (in seconds) used when connecting to the SSH target.
-
-  Default value: `15`
-
-`connection_retries`
-: The number of connection retries.
-
-  Default value: `5`
-
-`connection_retry_sleep`
-: The connection retry delay in seconds.
-
-  Default value: `1`
-
-`max_wait_until_ready`
-: The maximum wait time for the SSH service to connect.
-
-  Default value: `600`
-
-`compression`
-: Whether to use compression.
-
-  Default value: `false`
-
-`pty`
-: Wether to use PTY to connect.
-
-  Default value: `false`
-
-`proxy_command`
-: A proxy command to use to connect to the server.
-
-  Default value: `nil`
+Additional parameters:
 
 `bastion_host`
 : A bastion host to connect to the target through.
 
   Default value: `nil`
 
-`bastion_user`
-: A bastion host user.
-
-  Default value: `"root"`
-
 `bastion_port`
 : A bastion host port.
 
   Default value: `22`
 
-`non_interactive`
-: Whether to use a non-interactive session.
+`bastion_user`
+: A bastion host user.
 
-  Default value: `false`
-
-`verify_host_key`
-: Whether to verify the host key.
-
-  Default value: `false`
+  Default value: `"root"`
 
 `forward_agent`
 : Whether the connection to the authentication agent (if any) will be forwarded to the remote machine.
 
   Default value: `false`
+
+`verify_host_key`
+:  Whether to verify the host key.
+
+  Allowed values: `true`, `false`. Default value: `false`
 
 <!-- markdownlint-enable MD007 MD006 -->
 
