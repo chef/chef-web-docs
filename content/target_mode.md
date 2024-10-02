@@ -11,7 +11,7 @@ gh_repo = "chef-web-docs"
     weight = 80
 +++
 
-Target Mode executes Chef Infra Client runs on nodes that don't have Chef Infra Client installed on them.
+{{< readfile file="content/reusable/md/target_mode_summary.md" >}}
 
 The target node can be any remote system, edge device, or cloud resource that the host can reach. This includes edge devices, Wi-Fi routers, switches, relays, cloud resources, IP phones, router hubs, and network management peripherals.
 
@@ -181,47 +181,13 @@ The following Chef Infra Client resources are supported in Target Mode starting 
 
 ### Custom resources
 
-To enable a custom resource to run in Target Mode, add `target_mode: true` to the resource definition. For example:
-
-```ruby
-provides :<RESOURCE_NAME>, target_mode: true
-...
-```
+{{< readfile file="/reusable/md/target_mode_custom_resource.md" >}}
 
 See the [Custom Resources documentation]({{< relref "custom_resources" >}}) for more detailed documentation about creating custom resources.
 
 #### Example
 
-The following custom resource example checks for and creates a new directory and runs in Target Mode:
-
-```ruby
-provides :example_directory, target_mode: true
-unified_mode true
-
-property: directory, String
-
-load_current_value do |new_resource|
-  dir = new_resource.directory
-  parsed = dir.match(%r{([^/]+$)})
-  path = ''
-  if parsed
-    path = dir[0..(dir.length - parsed[1].length - 1)]
-    dir = parsed[1]
-  end
-
-  tmp = __transport_connection.run_command( sprintf('ls -l %s | grep %s || echo -n', path, dir) )
-
-  if tmp.match(Regexp.new(dir))
-    directory new_resource.directory
-  end
-end
-
-action :create do
-  converge_if_changed do
-    __transport_connection.run_command( sprintf('mkdir %s', new_resource.directory) )
-  end
-end
-```
+{{< readfile file="/reusable/md/target_mode_custom_resource_example.md" >}}
 
 ## Run Target Mode
 

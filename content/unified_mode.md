@@ -16,6 +16,8 @@ product = ["client"]
 
 {{< readfile file="content/reusable/md/unified_mode_client_releases.md" >}}
 
+## Enable Unified Mode
+
 {{< readfile file="content/reusable/md/unified_mode_enable.md" >}}
 
 ## Unified Mode isolation
@@ -32,7 +34,7 @@ With the deferred execution of resources to converge time, the user has to under
 
 ### Elimination of lazy blocks
 
-Several aspects of the Chef Infra Language still work but are no longer necessary in Unified Mode. Unified mode eliminates the need for lazy blocks and the need to lazy Ruby code through a Ruby block.
+Several aspects of the Chef Infra Language still work but are no longer necessary in Unified Mode. Unified Mode eliminates the need for lazy blocks and the need to lazy Ruby code through a Ruby block.
 
 ### Rescue blocks and other Ruby constructs work correctly
 
@@ -80,7 +82,7 @@ end
 
 Since the remote_file and file resources execute at converge time, the Ruby code to parse the JSON needs to be wrapped in a `ruby_block` resource, the local variable then needs to be declared outside of that scope (requiring a deep knowledge of Ruby variable scoping rules), and then the content rendered into the file resource must be wrapped with `lazy` since the Ruby parses all arguments of properties at compile time instead of converge time.
 
-Unified mode simplifies this resource:
+Unified Mode simplifies this resource:
 
 ```ruby
 unified_mode true
@@ -100,7 +102,7 @@ action :doit do
 end
 ```
 
-Unified mode eliminates the need for the `ruby_block` resource, the `lazy` evaluation, and the variable declaration, simplifying how the cookbook is authored.
+Unified Mode eliminates the need for the `ruby_block` resource, the `lazy` evaluation, and the variable declaration, simplifying how the cookbook is authored.
 
 ### Recovery and exception handling
 

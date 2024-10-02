@@ -152,10 +152,31 @@ To add a custom resource to a recipe, call it by its resource name. For example,
 site 'foo'
 ```
 
+## Target Mode
+
+{{< readfile file="content/reusable/md/target_mode_summary.md" >}} For more information on Target Mode, see the [Target Mode documentation]({{< relref "/target_mode.md" >}}).
+
+{{< readfile file="/reusable/md/target_mode_custom_resource.md" >}}
+
+### Example
+
+{{< readfile file="/reusable/md/target_mode_custom_resource_example.md" >}}
+
+## Unified Mode
+
+{{< readfile file="content/reusable/md/unified_mode_overview.md" >}}
+
+For more information on Unified Mode, see the [Unified Mode documentation]({{< relref "/unified_mode.md" >}}).
+
+### Enable Unified Mode
+
+{{< readfile file="content/reusable/md/unified_mode_enable.md" >}}
+
 ## Learn more
 
 See these resources to learn more about custom resources:
 
 - See the LearnChef interactive tutorial: [Extending Chef Infra: Custom Resources](https://www.chef.io/training/tutorials).
 - For a description of available methods, see the [custom resources glossary]({{< relref "custom_resource_glossary" >}}).
+- For running resources in Target Mode, see the [Target Mode documentation]({{< relref "target_mode" >}}).
 - For running resources in Unified Mode, see the [Unified Mode documentation]({{< relref "unified_mode" >}}).

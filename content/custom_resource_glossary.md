@@ -621,6 +621,14 @@ the property. This prevents the contents of the property from being
 exported to data collection and sent to an Automate server or shown in the
 logs of the Chef Infra Client run.
 
+## target_mode
+
+{{< readfile file="content/reusable/md/target_mode_summary.md" >}}
+
+{{< readfile file="/reusable/md/target_mode_custom_resource.md" >}}
+
+For more information on Target Mode, see the [Target Mode documentation]({{< relref "/target_mode.md" >}}).
+
 ## unified_mode
 
 {{< readfile file="content/reusable/md/unified_mode_overview.md" >}}
