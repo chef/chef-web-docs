@@ -57,11 +57,11 @@ The `knife bootstrap` subcommand is used to run a bootstrap operation that insta
     [172.16.1.233] trying wget...
     [172.16.1.233] sha1  8d89f8ac2e7f52d170be8ec1c2a028a6449d7e3a
     sha256  85cc73bed06e8d6699fc5c0b26c20d2837bf03831873444febccfc8bfa561f00
-    url  https://packages.chef.io/files/stable/chef/16.1.16/ubuntu/20.04/chef_16.1.16-1_arm64.deb
+    url  https://chefdownload-commercial.chef.io/files/stable/chef/16.1.16/ubuntu/20.04/chef_16.1.16-1_arm64.deb
     version  16.1.16
     [172.16.1.233]
     [172.16.1.233] downloaded metadata file looks valid...
-    [172.16.1.233] downloading https://packages.chef.io/files/stable/chef/16.1.16/ubuntu/20.04/chef_16.1.16-1_arm64.deb
+    [172.16.1.233] downloading https://chefdownload-commercial.chef.io/files/stable/chef/16.1.16/ubuntu/20.04/chef_16.1.16-1_arm64.deb
       to file /tmp/install.sh.1628/chef_16.1.16-1_arm64.deb
     [172.16.1.233] trying wget...
     [172.16.1.233] Comparing checksum with sha256sum...
@@ -373,7 +373,7 @@ $file = "C:\Windows\System32\drivers\etc\hosts"
 $hosts | Add-Content $file
 
 ## Download the Chef Infra Client
-$clientURL = "https://packages.chef.io/files/stable/chef/12.19.36/windows/2012/chef-client-<version-here>.msi"
+$clientURL = "https://chefdownload-commercial.chef.io/files/stable/chef/12.19.36/windows/2012/chef-client-<version-here>.msi"
 $clientDestination = "C:\chef-client.msi"
 Invoke-WebRequest $clientURL -OutFile $clientDestination
 
