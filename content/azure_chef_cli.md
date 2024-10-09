@@ -289,7 +289,7 @@ The following examples show how Chef Infra Client can be installed and configure
         "validation_client_name": "my-chef-organization-validator"
       },
       "runlist": "recipe[awesome_customers_windows],recipe[iis],role[windows_base]",
-      "chef_package_url" : "https://my.packages.chef.io/chef-client-15.11.8-1-x64.msi",
+      "chef_package_url" : "https://my.chefdownload-commercial.chef.io/chef-client-15.11.8-1-x64.msi",
       "validation_key_format": "plaintext"
     },
     "protectedSettings": {

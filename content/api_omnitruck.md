@@ -166,7 +166,7 @@ to return something like:
 ```plain
 sha1 3fe8e8a2f443675f9b82e876cdac8200104451f2
 sha256 9f1c1a2c0b1f4e8494664386437bf32f0cb5cbfbd4cb9d23e327767fc65581dc
-url https://packages.chef.io/files/stable/chef/17.7.29/ubuntu/20.04/chef_17.7.29-1_amd64.deb
+url https://chefdownload-commercial.chef.io/files/stable/chef/17.7.29/ubuntu/20.04/chef_17.7.29-1_amd64.deb
 version 17.7.29
 ```
 
