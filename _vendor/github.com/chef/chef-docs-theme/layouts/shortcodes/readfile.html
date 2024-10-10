@@ -1,11 +1,25 @@
-{{$file := .Get "file"}}
+{{/* This shortcode accepts three parameters: */}}
+{{/* file: the path to a file. This is an absolute path from the project root. This is required. */}}
+{{/* html: whether this is HTML or not. This is optional. Allowed values are "true" or "false". */}}
+{{/* hightlight: the Chroma highlight language. This is optional. See https://gohugo.io/content-management/syntax-highlighting/ */}}
+{{/*             If the highlight value is different from the file suffix it will try to convert the file text to the highlight file type. */}}
+{{/*             This only works when converting between the following types: YAML, JSON, TOML, and XML. See https://gohugo.io/functions/transform/remarshal/ */}}
+{{/* If html isn't set to true and a highlight style isn't declared, it converts the file from Markdown to HTML. */}}
+
+{{- $file := .Get "file" -}}
 {{- if fileExists $file -}}
+  {{- $fileText := readFile $file -}}
   {{- if eq (.Get "html") "true" -}}
-    {{- $file  | readFile | safeHTML -}}
-  {{- else if  (.Get "highlight") -}}
-    {{-  highlight ($file  | readFile) (.Get "highlight") "" -}}
+    {{- $fileText | safeHTML -}}
+  {{- else if (.Get "highlight") -}}
+    {{ $highlight := .Get "highlight" }}
+    {{- if hasSuffix $file $highlight -}}
+      {{- highlight $fileText $highlight "" -}}
+    {{- else -}}
+      {{- highlight (transform.Remarshal $highlight $fileText) $highlight "" -}}
+    {{- end -}}
   {{- else -}}
-    {{ $file  | readFile | markdownify }}
+    {{ $fileText | markdownify }}
   {{- end -}}
 {{- else -}}
   {{ errorf "readfile did not find %q in %s" $file .Position }}
