@@ -1,0 +1,60 @@
+{{ define "main" }}
+<div id="swiftype-content">
+
+  <div id="swiftype-search-form" class="swiftype-search-form grid-x">
+    <form class="cell auto">
+      <input id="swiftype-search-form" class="swiftype-search-input" placeholder="Search..." aria-label="Search this site" id="st-overlay-search-input" />
+    </form>
+  </div>
+
+  <div id="swiftype-lower-container" class="grid-container fluid">
+    <div id="swiftype-content-container" class="grid-x grid-margin-x">
+      <!-- LEFT SIDEBAR -->
+      <div id="swiftype-container-left-sidebar" class="cell small-12 medium-shrink">
+        <div id="">Filters</div>
+        <span id="swiftype-custom-facets-toggle-caret" class="show-for-small-only">
+          <i class="fas fa-caret-down"></i>
+          <i class="fas fa-caret-up" style="display: none;"></i>
+        </span>
+        <div id="swiftype-custom-facets">
+          <div id="search-facet-product">Products</div>
+          <ul class="no-bullet">
+
+            {{- range .Site.Params.products -}}
+
+              <li>
+                <input type="checkbox" class="product-filter" name="chef-product" id="swiftype-facet-{{.product_key}}" value="{{.name}}">
+                <label for="swiftype-facet-chef-360">{{.name}}</label><br />
+              </li>
+
+            {{- end -}}
+
+          </ul>
+          <div id="search-facet-versions">Versions</div>
+          <ul class="no-bullet" id="product-versions">
+
+            {{- range .Site.Params.products -}}
+              {{- if .versions -}}
+                  {{ range .versions }}
+                  <li>
+                    <input type="checkbox" class="product-filter" name="chef-product" id="swiftype-facet-{{.}}" value="{{.}}">
+                    <label for="swiftype-facet-chef-360">{{.}}</label><br />
+                  </li>
+                  {{- end -}}
+              {{- end -}}
+
+            {{- end -}}
+
+          </ul>
+        </div>
+      </div>
+      <!-- RESULTS CONTAINER -->
+      <div id="swiftype-results-container" class="cell auto">
+        <div id="swiftype-results-heading"><h2>Search Results</h2></div>
+        <ul id="swiftype-search-results">
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}
