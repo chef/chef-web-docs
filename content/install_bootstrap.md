@@ -1,5 +1,5 @@
 +++
-title = "Bootstrap a Node"
+title = "Bootstrap a node"
 draft = false
 gh_repo = "chef-web-docs"
 aliases = ["/install_bootstrap.html"]
@@ -23,7 +23,7 @@ product = ["client", "workstation"]
 
 ### Run the bootstrap command
 
-The `knife bootstrap` subcommand is used to run a bootstrap operation that installs Chef Infra Client on the target node. The following steps describe how to bootstrap a node using knife.
+The `knife bootstrap` command is used to run a bootstrap operation that installs Chef Infra Client on the target node. The following steps describe how to bootstrap a node using knife.
 
 1. Identify the FQDN or IP address of the target node. The `knife bootstrap` command requires the FQDN or the IP address for the node to complete the bootstrap operation.
 
@@ -32,12 +32,17 @@ The `knife bootstrap` subcommand is used to run a bootstrap operation that insta
     In a command window, enter the following:
 
     ```bash
-    knife bootstrap 172.16.1.233 -U USERNAME --sudo
+    knife bootstrap <ADDRESS> -U <USERNAME> --sudo
     ```
 
-    where `172.16.1.233` is the IP address or the FQDN for the node, and `USERNAME` is the username you want to use to connect, and `--sudo` specifies to elevate privileges using the sudo command on UNIX-based systems.
+    Replace:
 
-    Then while the bootstrap operation is running, the command window will show something similar to the following:
+    - `<ADDRESS>` the IP address or the FQDN of the node
+    - `<USERNAME>` with the username used to connect to the node
+
+    The `--sudo` option elevates privileges using the sudo command on UNIX-based systems.
+
+    While the bootstrap operation is running, the command window returns something similar to the following:
 
     ```bash
     Enter password for ubuntu@172.16.1.233:
@@ -57,11 +62,11 @@ The `knife bootstrap` subcommand is used to run a bootstrap operation that insta
     [172.16.1.233] trying wget...
     [172.16.1.233] sha1  8d89f8ac2e7f52d170be8ec1c2a028a6449d7e3a
     sha256  85cc73bed06e8d6699fc5c0b26c20d2837bf03831873444febccfc8bfa561f00
-    url  https://chefdownload-commercial.chef.io/files/stable/chef/16.1.16/ubuntu/20.04/chef_16.1.16-1_arm64.deb
+    url  https://packages.chef.io/files/stable/chef/16.1.16/ubuntu/20.04/chef_16.1.16-1_arm64.deb
     version  16.1.16
     [172.16.1.233]
     [172.16.1.233] downloaded metadata file looks valid...
-    [172.16.1.233] downloading https://chefdownload-commercial.chef.io/files/stable/chef/16.1.16/ubuntu/20.04/chef_16.1.16-1_arm64.deb
+    [172.16.1.233] downloading https://packages.chef.io/files/stable/chef/16.1.16/ubuntu/20.04/chef_16.1.16-1_arm64.deb
       to file /tmp/install.sh.1628/chef_16.1.16-1_arm64.deb
     [172.16.1.233] trying wget...
     [172.16.1.233] Comparing checksum with sha256sum...
@@ -123,7 +128,7 @@ The `knife bootstrap` subcommand is used to run a bootstrap operation that insta
     client2
     ```
 
-## Validatorless and Legacy Validator Bootstraps
+## Validatorless and legacy validator bootstraps
 
 We recommended using "validatorless bootstrapping" to authenticate new nodes with the Chef Infra Server.
 
@@ -131,8 +136,8 @@ The legacy Chef Infra validator-based node bootstrapping process depended on usi
 
 Shortcomings of the legacy validator process are:
 
-* All users share the same key for bootstrapping new systems
-* Key sharing makes key rotation difficult, if it is compromised or if an employee leaves the organization.
+- All users share the same key for bootstrapping new systems
+- Key sharing makes key rotation difficult, if it is compromised or if an employee leaves the organization.
 
 The "validatorless bootstrap" generates a key for each node, which is then transferred to the new node and used to authenticate with the Chef Infra Server instead of relying on a shared "validator" key.
 
@@ -344,27 +349,28 @@ search_query:
 some:  content for them
 ```
 
-## Unattended Installs
+## Unattended installs
 
 Chef Infra Client can be installed using an unattended bootstrap. This allows Chef Infra Client to be installed from itself, without requiring SSH. For example, machines are often created using environments like AWS Auto Scaling, AWS CloudFormation, Rackspace Auto Scale, and PXE. In this scenario, using tooling for attended, single-machine installs like `knife bootstrap` or `knife CLOUD_PLUGIN create` is not practical because the machines are created automatically and someone cannot always be on-hand to initiate the bootstrap process.
 
 When Chef Infra Client is installed using an unattended bootstrap, remember that Chef Infra Client:
 
-* Must be able to authenticate to the Chef Infra Server
-* Must be able to configure a run-list
-* May require custom attributes, depending on the cookbooks that are being used
-* Must be able to access the chef-validator.pem so that it may create a new identity on the Chef Infra Server
-* Must have a unique node name; Chef Infra Client will use the FQDN for the host system by default
+- Must be able to authenticate to the Chef Infra Server
+- Must be able to configure a run-list
+- May require custom attributes, depending on the cookbooks that are being used
+- Must be able to access the chef-validator.pem so that it may create a new identity on the Chef Infra Server
+- Must have a unique node name; Chef Infra Client will use the FQDN for the host system by default
 
 When Chef Infra Client is installed using an unattended bootstrap, it may be built into an image that starts Chef Infra Client on boot, or installed using User Data or some other kind of post-deployment script. The type of image or User Data used depends on the platform on which the unattended bootstrap will take place.
 
-### Bootstrapping with User Data
+### Bootstrapping with user data
 
-The method used to inject a user data script into a server will vary depending on the infrastructure platform being used. For example, on AWS you can pass this data in as a text file using the command line tool.
+The method used to inject a user data script into a server varies depending on the infrastructure platform being used.
+For example, on AWS you can pass this data in as a text file using the command line.
 
 The following user data examples demonstrate the process of bootstrapping Windows and Linux nodes.
 
-#### PowerShell User Data
+#### PowerShell user data
 
 ```powershell
 ## Set host file so the instance knows where to find chef-server
@@ -373,7 +379,7 @@ $file = "C:\Windows\System32\drivers\etc\hosts"
 $hosts | Add-Content $file
 
 ## Download the Chef Infra Client
-$clientURL = "https://chefdownload-commercial.chef.io/files/stable/chef/12.19.36/windows/2012/chef-client-<version-here>.msi"
+$clientURL = "https://chefdownload-commercial.chef.io/files/stable/chef/12.19.36/windows/2012/chef-client-<CLIENT_VERSION>.msi"
 $clientDestination = "C:\chef-client.msi"
 Invoke-WebRequest $clientURL -OutFile $clientDestination
 
@@ -402,7 +408,7 @@ Set-Content -Path c:\chef\client.rb -Value $clientrb
 C:\opscode\chef\bin\chef-client.bat -j C:\chef\first-boot.json
 ```
 
-#### Bash User Data
+#### Bash user data
 
 ```bash
 #!/bin/bash -xev
