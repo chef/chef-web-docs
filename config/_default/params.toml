@@ -25,3 +25,48 @@ robots = ''
 
 [license-service]
 gh_path = "https://github.com/chef/license-service/tree/main/docs-chef-io/content/"
+
+
+[products]
+
+[products.360]
+name = "360 Platform"
+product_key = "360"
+versions = ['1.1', '1.0']
+
+[products.automate]
+name = "Automate"
+product_key = "automate"
+
+[products.desktop]
+name = "Desktop"
+product_key = "desktop"
+
+[products.habitat]
+name = "Habitat"
+product_key = "habitat"
+
+[products.infra_client]
+name = "Infra Client"
+product_key = "chef"
+versions = ['18', '17']
+
+[products.infra_server]
+name = "Infra Server"
+product_key = "chef-server"
+
+[products.inspec]
+name = "InSpec"
+product_key = "inspec"
+
+[products.saas]
+name = "SaaS"
+product_key = "saas"
+
+[products.supermarket]
+name = "Supermarket"
+product_key = "supermarket"
+
+[products.workstation]
+name = "Workstation"
+product_key = "chef-workstation"
