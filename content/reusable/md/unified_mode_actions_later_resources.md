@@ -1,7 +1,7 @@
 
 ## Actions on Later Resources
 
-Since unified mode executes your resource as it is compiled, `:immediate` notifications that execute later resources are handled differently than in the past.
+Since Unified Mode executes your resource as it is compiled, `:immediate` notifications that execute later resources are handled differently than in the past.
 
 ### `:immediate` Notifications to Later Resources
 
@@ -67,4 +67,4 @@ end
 
 Unified mode breaks custom resources that rely on the out-of-order execution of compile-time statements. Move any affected compile-time statements to the location in the code where they are intended to execute.
 
-Out-of-order execution is rare. Internally at Chef, none of our custom resources broke during our migration to unified mode. Instead, we discovered a few cases in which custom resource code was intended to run in order, but Chef Infra Client executed it out of order. In these cases, unified mode fixed errors instead of introducing bugs.
+Out-of-order execution is rare. Internally at Chef, none of our custom resources broke during our migration to unified mode. Instead, we discovered a few cases in which custom resource code was intended to run in order, but Chef Infra Client executed it out of order. In these cases, Unified Mode fixed errors instead of introducing bugs.
