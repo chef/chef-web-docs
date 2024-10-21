@@ -2,8 +2,6 @@
 title = "Download Chef Tools"
 draft = false
 gh_repo = "chef-web-docs"
-robots = "noindex"
-aliases = ["/api_omnitruck.html"]
 
 [cascade]
   product = []
