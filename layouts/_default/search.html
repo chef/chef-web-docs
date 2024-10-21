@@ -1,10 +1,14 @@
 {{ define "main" }}
-<div id="swiftype-content">
+<div id="swiftype-search">
 
-  <div id="swiftype-search-form" class="swiftype-search-form grid-x">
-    <form class="cell auto">
-      <input id="swiftype-search-form" class="swiftype-search-input" placeholder="Search..." aria-label="Search this site" id="st-overlay-search-input" />
-    </form>
+  <div id="swiftype-search-top-container">
+    <div id="swiftype-search-top-container-form" class="grid-x">
+      <form id="swiftype-search-top-container-form-input" class="cell auto">
+        <input id="swiftype-search-top-container-form-input" class="swiftype-search-input align-center" placeholder="Search..." aria-label="Search this site" id="st-overlay-search-input" />
+        <button id="swiftype-search-top-container-form-input-close">&#x2715;</button>
+      </form>
+      <button id="swiftype-search-top-container-form-input-search" class="cell shrink">Search</button>
+    </div>
   </div>
 
   <div id="swiftype-lower-container" class="grid-container fluid">
@@ -23,34 +27,34 @@
             {{- range .Site.Params.products -}}
 
               <li>
-                <input type="checkbox" class="product-filter" name="chef-product" id="swiftype-facet-{{.product_key}}" value="{{.name}}">
-                <label for="swiftype-facet-chef-360">{{.name}}</label><br />
+                <input type="checkbox" class="product-filter" name="chef-product" id="swiftype-facet-{{.product_key}}" value="{{.product_key}}">
+                <label for="swiftype-facet-{{.product_key}}">{{.name}}</label><br />
               </li>
 
             {{- end -}}
 
           </ul>
           <div id="search-facet-versions">Versions</div>
-          <ul class="no-bullet" id="product-versions">
-
-            {{- range .Site.Params.products -}}
-              {{- if .versions -}}
-                  {{ range .versions }}
-                  <li>
-                    <input type="checkbox" class="product-filter" name="chef-product" id="swiftype-facet-{{.}}" value="{{.}}">
-                    <label for="swiftype-facet-chef-360">{{.}}</label><br />
-                  </li>
-                  {{- end -}}
-              {{- end -}}
-
+          {{- range .Site.Params.products -}}
+          {{- if .versions -}}
+          <ul class="no-bullet" id="product-versions-{{ .product_key }}" class="product-versions">
+            {{ $product_key := .product_key }}
+            {{ range .versions }}
+            <li class="chef-product-version-{{ $product_key }}">
+              <input type="checkbox" class="product-filter {{ $product_key }}" name="chef-product-version" id="swiftype-facet-{{.}}" value="{{.}}">
+              <label for="swiftype-facet-{{ $product_key }}">{{.}}</label><br />
+            </li>
             {{- end -}}
 
           </ul>
+          {{- end -}}
+
+          {{- end -}}
         </div>
       </div>
       <!-- RESULTS CONTAINER -->
       <div id="swiftype-results-container" class="cell auto">
-        <div id="swiftype-results-heading"><h2>Search Results</h2></div>
+        <div id="swiftype-results-heading">Search Results</div>
         <ul id="swiftype-search-results">
         </ul>
       </div>

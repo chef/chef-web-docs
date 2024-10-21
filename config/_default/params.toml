@@ -17,7 +17,7 @@ menuOrder = [
   "legacy",
   "extra"
 ]
-enable_search = true
+
 robots = ''
 
 [chef-web-docs]
@@ -27,46 +27,75 @@ robots = ''
 gh_path = "https://github.com/chef/license-service/tree/main/docs-chef-io/content/"
 
 
+
+default_search_product_keys = ["chef-360-1.0", "automate", "desktop", "habitat", "client", "server", "inspec", "saas", "supermarket", "workstation"]
+
+# This populates the site search.
+# versions must be in order from newest version to oldest and must be a string.
 [products]
 
 [products.360]
 name = "360 Platform"
-product_key = "360"
-versions = ['1.1', '1.0']
+product_key = "chef-360"
+default = "chef-360-1.0"
+
+[[products.360.versions]]
+name = "1.1"
+key = "chef-360-1.1"
+
+[[products.360.versions]]
+name = "1.0"
+key = "chef-360-1.0"
 
 [products.automate]
 name = "Automate"
+default = "automate"
 product_key = "automate"
 
 [products.desktop]
 name = "Desktop"
+default = "desktop"
 product_key = "desktop"
 
 [products.habitat]
 name = "Habitat"
+default = "habitat"
 product_key = "habitat"
 
 [products.infra_client]
 name = "Infra Client"
-product_key = "chef"
-versions = ['18', '17']
+product_key = "client"
+default_version = "client"
+
+[[products.infra_client.versions]]
+name = '18'
+key = 'client-18'
+
+[[products.infra_client.versions]]
+name = '17'
+key = 'client-17'
 
 [products.infra_server]
 name = "Infra Server"
-product_key = "chef-server"
+default = "server"
+product_key = "server"
 
 [products.inspec]
 name = "InSpec"
+default = "inspec"
 product_key = "inspec"
 
 [products.saas]
 name = "SaaS"
+default = "saas"
 product_key = "saas"
 
 [products.supermarket]
 name = "Supermarket"
+default = "supermarket"
 product_key = "supermarket"
 
 [products.workstation]
 name = "Workstation"
-product_key = "chef-workstation"
+default = "workstation"
+product_key = "workstation"
