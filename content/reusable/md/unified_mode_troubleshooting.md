@@ -16,7 +16,7 @@ When designing a custom resource for unified mode:
 
 Some custom resources are designed to create and edit other sub-resources as part of the resource declaration. In unified mode, Chef Infra Client parses a resource code block that creates or edits a sub-resource and immediately tries to apply that change, even though the sub-resource does not yet exist. This results in the execution of an incomplete resource.
 
-For example, with unified mode enabled, this code from the dhcp cookbook is designed to create and edit a shared `dhcp_subnet` resource, but it will not work as expected:
+For example, with Unified Mode enabled, this code from the dhcp cookbook is designed to create and edit a shared `dhcp_subnet` resource, but it will not work as expected:
 
 ```ruby
 # 'edit_resource' results in an incomplete subresource
@@ -42,7 +42,7 @@ To correct custom resources that change sub-resources during their declaration, 
 
 #### Apply Properties in the Code Block
 
-This pattern declares the sub-resource in one code block and then changes it in the next code block. This is the preferred pattern in unified mode because all resources execute in order at compile time.
+This pattern declares the sub-resource in one code block and then changes it in the next code block. This is the preferred pattern in Unified Mode because all resources execute in order at compile time.
 
 ```ruby
 dhcp_subnet "#{new_resource.name}_sharedsubnet_#{subnet}" do
