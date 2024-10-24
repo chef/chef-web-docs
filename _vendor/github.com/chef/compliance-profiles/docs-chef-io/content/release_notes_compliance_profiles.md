@@ -101,7 +101,7 @@ Added the following compliance profiles:
 - CIS Oracle MySQL Community Server 5.7 v2.0.0 (Audit).
 - CIS Azure Foundation v1.5.0 (Audit).
 - CIS Redhat Openshift v1.3.0 (Audit).
-- CIS IBM AIX 7.1 v2.0.0 (Audit).
+- CIS IBM AIX 7.1 v2.1.0 (Audit).
 - CIS RHEL 8 v2.0.0 (Audit).
 - CIS RHEL 9 v1.0.0 (Audit).
 
