@@ -1,5 +1,7 @@
 {{ define "main" }}
-<div id="swiftype-search">
+
+{{ $defaultSearchKeys := delimit .Site.Params.search.default_search_product_keys `", "` }}
+<div id="swiftype-search" data-default-search-keys='["{{- $defaultSearchKeys | safeHTMLAttr -}}"]'>
 
   <div id="swiftype-search-top-container">
     <div id="swiftype-search-top-container-form" class="grid-x">
@@ -15,41 +17,55 @@
     <div id="swiftype-content-container" class="grid-x grid-margin-x">
       <!-- LEFT SIDEBAR -->
       <div id="swiftype-container-left-sidebar" class="cell small-12 medium-shrink">
-        <div id="">Filters</div>
-        <span id="swiftype-custom-facets-toggle-caret" class="show-for-small-only">
-          <i class="fas fa-caret-down"></i>
-          <i class="fas fa-caret-up" style="display: none;"></i>
-        </span>
-        <div id="swiftype-custom-facets">
-          <div id="search-facet-product">Products</div>
-          <ul class="no-bullet">
+        <div id="swiftype-filters">
+          <div id="">Filters</div>
+          <div id="swiftype-custom-facets">
+            <div id="swiftype-product-filters">
+              <div id="search-facet-product">Products</div>
+              <ul class="no-bullet">
 
-            {{- range .Site.Params.products -}}
+                {{- range .Site.Params.search.products -}}
+                  {{ $productKey := .product_key | anchorize }}
+                  {{ $productSearchKey := .product_key }}
+                  {{ $name := .name }}
+                  {{ with .versions }}
+                    {{ $latestVersion := anchorize (index . 0 "product_version_key") }}
+                    <li>
+                      <input type="checkbox" class="swiftype-product-with-versions" id="swiftype-facet-{{ $productKey }}" data-latest-version-checkbox="#swiftype-facet-{{ $latestVersion }}" data-version-list-id="#product-versions-{{ $productKey }}" >
+                      <label for="swiftype-facet-{{ $productKey }}">{{ $name }}</label><br />
+                    </li>
+                  {{ else }}
+                    <li>
+                      <input type="checkbox" class="product-filter" name="chef-product" id="swiftype-facet-{{ $productKey }}" value="{{ $productSearchKey }}">
+                      <label for="swiftype-facet-{{ $productKey }}">{{ $name }}</label><br />
+                    </li>
+                  {{ end }}
+                {{- end -}}
 
-              <li>
-                <input type="checkbox" class="product-filter" name="chef-product" id="swiftype-facet-{{.product_key}}" value="{{.product_key}}">
-                <label for="swiftype-facet-{{.product_key}}">{{.name}}</label><br />
-              </li>
+              </ul>
+            </div>
+            <div id="swiftype-version-filters">
+              <div id="search-facet-versions">Versions</div>
+              {{- range .Site.Params.search.products -}}
+              {{- if .versions -}}
+                {{ $productKey := anchorize .product_key }}
+                  <ul class="no-bullet swiftype-product-versions" id="product-versions-{{ $productKey }}">
 
-            {{- end -}}
+                    {{ range .versions }}
+                      {{ $productKeyVersion := anchorize .product_version_key }}
+                      {{ $productSearchKey := .product_version_key }}
+                      <li class="swiftype-product-version-{{ $productKeyVersion }}">
+                        <input type="checkbox" class="product-filter" name="chef-product" id="swiftype-facet-{{ $productKeyVersion }}" value="{{ $productSearchKey }}" data-product="{{ $productKey }}">
+                        <label for="swiftype-facet-{{ $productKeyVersion }}">{{.name}}</label><br />
+                      </li>
+                    {{- end -}}
 
-          </ul>
-          <div id="search-facet-versions">Versions</div>
-          {{- range .Site.Params.products -}}
-          {{- if .versions -}}
-          <ul class="no-bullet" id="product-versions-{{ .product_key }}" class="product-versions">
-            {{ $product_key := .product_key }}
-            {{ range .versions }}
-            <li class="chef-product-version-{{ $product_key }}">
-              <input type="checkbox" class="product-filter {{ $product_key }}" name="chef-product-version" id="swiftype-facet-{{.}}" value="{{.}}">
-              <label for="swiftype-facet-{{ $product_key }}">{{.}}</label><br />
-            </li>
-            {{- end -}}
+                  </ul>
+                {{- end -}}
 
-          </ul>
-          {{- end -}}
-
-          {{- end -}}
+              {{- end -}}
+            </div>
+          </div>
         </div>
       </div>
       <!-- RESULTS CONTAINER -->

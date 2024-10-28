@@ -26,76 +26,70 @@ robots = ''
 [license-service]
 gh_path = "https://github.com/chef/license-service/tree/main/docs-chef-io/content/"
 
+[search]
+# This populates the site search page with search filter parameters.
 
+# versions must be in order from newest/latest version to oldest and must be a string.
 
-default_search_product_keys = ["chef-360-1.0", "automate", "desktop", "habitat", "client", "server", "inspec", "saas", "supermarket", "workstation"]
+# default_search_product_keys defines the product search keys that are returned by search by default.
+# Use an empty string ("") for pages without a defined product
+# This includes the latest/newest version of products that where we deployed versioned docs.
+default_search_product_keys = ["", "chef-360-1.0", "automate", "desktop", "habitat", "client", "server", "inspec", "saas", "supermarket", "workstation"]
 
-# This populates the site search.
-# versions must be in order from newest version to oldest and must be a string.
-[products]
+[search.products]
 
-[products.360]
+[search.products.360]
 name = "360 Platform"
 product_key = "chef-360"
-default = "chef-360-1.0"
 
-[[products.360.versions]]
+[[search.products.360.versions]]
 name = "1.1"
-key = "chef-360-1.1"
+product_version_key = "chef-360-1.1"
 
-[[products.360.versions]]
+[[search.products.360.versions]]
 name = "1.0"
-key = "chef-360-1.0"
+product_version_key = "chef-360-1.0"
 
-[products.automate]
+[search.products.automate]
 name = "Automate"
-default = "automate"
 product_key = "automate"
 
-[products.desktop]
+[search.products.desktop]
 name = "Desktop"
-default = "desktop"
 product_key = "desktop"
 
-[products.habitat]
+[search.products.habitat]
 name = "Habitat"
-default = "habitat"
 product_key = "habitat"
 
-[products.infra_client]
+[search.products.infra_client]
 name = "Infra Client"
 product_key = "client"
-default_version = "client"
 
-[[products.infra_client.versions]]
-name = '18'
-key = 'client-18'
+[[search.products.infra_client.versions]]
+name = '18.0'
+product_version_key = 'client-18.0'
 
-[[products.infra_client.versions]]
+[[search.products.infra_client.versions]]
 name = '17'
-key = 'client-17'
+product_version_key = 'client-17'
 
-[products.infra_server]
+[search.products.infra_server]
 name = "Infra Server"
-default = "server"
 product_key = "server"
 
-[products.inspec]
+[search.products.inspec]
 name = "InSpec"
-default = "inspec"
 product_key = "inspec"
 
-[products.saas]
+[search.products.saas]
 name = "SaaS"
-default = "saas"
 product_key = "saas"
 
-[products.supermarket]
+[search.products.supermarket]
 name = "Supermarket"
-default = "supermarket"
 product_key = "supermarket"
 
-[products.workstation]
+[search.products.workstation]
 name = "Workstation"
-default = "workstation"
 product_key = "workstation"
