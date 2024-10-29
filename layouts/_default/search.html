@@ -4,12 +4,15 @@
 <div id="swiftype-search" data-default-search-keys='["{{- $defaultSearchKeys | safeHTMLAttr -}}"]'>
 
   <div id="swiftype-search-top-container">
-    <div id="swiftype-search-top-container-form" class="grid-x">
-      <form id="swiftype-search-top-container-form-input" class="cell auto">
-        <input id="swiftype-search-top-container-form-input" class="swiftype-search-input align-center" placeholder="Search..." aria-label="Search this site" id="st-overlay-search-input" />
-        <button id="swiftype-search-top-container-form-input-close">&#x2715;</button>
-      </form>
-      <button id="swiftype-search-top-container-form-input-search" class="cell shrink">Search</button>
+    <div id="swiftype-search-top-container-form" class="input-group">
+        <span class="input-group-label"><i class="fa fa-search"></i></span>
+        <input id="swiftype-search-top-container-form-input" class="swiftype-search-input input-group-field" type="text" placeholder="Search..." aria-label="Search this site" id="st-overlay-search-input" />
+        <div class="input-group-button">
+          <button id="swiftype-search-form-modal-input-close" class="swiftype-clear-input">&#x2715;</button>
+        </div>
+        <div class="input-group-button">
+          <input id="swiftype-search-top-container-form-input-search" type="submit" class="button" value="Submit">
+        </div>
     </div>
   </div>
 
