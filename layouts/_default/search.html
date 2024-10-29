@@ -4,28 +4,33 @@
 <div id="swiftype-search" data-default-search-keys='["{{- $defaultSearchKeys | safeHTMLAttr -}}"]'>
 
   <div id="swiftype-search-top-container">
-    <div id="swiftype-search-top-container-form" class="input-group">
+    <div id="swiftype-search-top-container-input" class="float-center">
+      <div id="swiftype-search-top-container-form" class="input-group">
         <span class="input-group-label"><i class="fa fa-search"></i></span>
         <input id="swiftype-search-top-container-form-input" class="swiftype-search-input input-group-field" type="text" placeholder="Search..." aria-label="Search this site" id="st-overlay-search-input" />
         <div class="input-group-button">
-          <button id="swiftype-search-form-modal-input-close" class="swiftype-clear-input">&#x2715;</button>
+          <input id="swiftype-search-top-container-input-clear" class="swiftype-clear-input" type="reset" value="&#x2715;" alt="Clear the search form">
         </div>
         <div class="input-group-button">
           <input id="swiftype-search-top-container-form-input-search" type="submit" class="button" value="Submit">
         </div>
+      </div>
     </div>
   </div>
 
   <div id="swiftype-lower-container" class="grid-container fluid">
     <div id="swiftype-content-container" class="grid-x grid-margin-x">
       <!-- LEFT SIDEBAR -->
-      <div id="swiftype-container-left-sidebar" class="cell small-12 medium-shrink">
+      <div id="swiftype-container-left-sidebar" class="cell small-12 medium-3">
         <div id="swiftype-filters">
-          <div id="">Filters</div>
+          <div id="swiftype-filters-heading" class="grid-x grid-padding-x align-justify">
+            <div id="swiftype-filters-title">Filters</div>
+            <div><button id="swiftype-clear-all-filters">Clear all</button></div>
+          </div>
           <div id="swiftype-custom-facets">
             <div id="swiftype-product-filters">
-              <div id="search-facet-product">Products</div>
-              <ul class="no-bullet">
+              <fieldset>
+              <legend id="search-facet-product">Products</legend>
 
                 {{- range .Site.Params.search.products -}}
                   {{ $productKey := .product_key | anchorize }}
@@ -33,37 +38,37 @@
                   {{ $name := .name }}
                   {{ with .versions }}
                     {{ $latestVersion := anchorize (index . 0 "product_version_key") }}
-                    <li>
+
                       <input type="checkbox" class="swiftype-product-with-versions" id="swiftype-facet-{{ $productKey }}" data-latest-version-checkbox="#swiftype-facet-{{ $latestVersion }}" data-version-list-id="#product-versions-{{ $productKey }}" >
                       <label for="swiftype-facet-{{ $productKey }}">{{ $name }}</label><br />
-                    </li>
+
                   {{ else }}
-                    <li>
+
                       <input type="checkbox" class="product-filter" name="chef-product" id="swiftype-facet-{{ $productKey }}" value="{{ $productSearchKey }}">
                       <label for="swiftype-facet-{{ $productKey }}">{{ $name }}</label><br />
-                    </li>
+
                   {{ end }}
                 {{- end -}}
 
-              </ul>
+              </fieldset>
             </div>
             <div id="swiftype-version-filters">
-              <div id="search-facet-versions">Versions</div>
+              <legend id="search-facet-versions">Versions</legend>
               {{- range .Site.Params.search.products -}}
               {{- if .versions -}}
                 {{ $productKey := anchorize .product_key }}
-                  <ul class="no-bullet swiftype-product-versions" id="product-versions-{{ $productKey }}">
+                  <fieldset class="swiftype-product-versions" id="product-versions-{{ $productKey }}">
 
                     {{ range .versions }}
                       {{ $productKeyVersion := anchorize .product_version_key }}
                       {{ $productSearchKey := .product_version_key }}
-                      <li class="swiftype-product-version-{{ $productKeyVersion }}">
+
                         <input type="checkbox" class="product-filter" name="chef-product" id="swiftype-facet-{{ $productKeyVersion }}" value="{{ $productSearchKey }}" data-product="{{ $productKey }}">
-                        <label for="swiftype-facet-{{ $productKeyVersion }}">{{.name}}</label><br />
-                      </li>
+                        <label for="swiftype-facet-{{ $productKeyVersion }}">{{ .name }}</label><br />
+
                     {{- end -}}
 
-                  </ul>
+                  </fieldset>
                 {{- end -}}
 
               {{- end -}}
