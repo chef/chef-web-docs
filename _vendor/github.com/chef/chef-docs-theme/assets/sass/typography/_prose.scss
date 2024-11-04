@@ -54,31 +54,6 @@
       margin-top: 1rem;
     }
   }
-  #chef-product-version-dropdown{
-    margin: -12px 0 26px 0;
-    &-label {
-      display: inline-block;
-      font-style: bold;
-      font-size: 1.25rem;
-    }
-    &-select {
-      display: inline-block;
-      width: auto;
-      border-radius: $border-radius-base;
-    }
-  }
-  .chef-product-version{
-    &-not-newest{
-      background-color: $ash;
-      padding: 1rem;
-      margin: 1.5rem;
-      border: 1px solid lightgray;
-      border-radius: $border-radius-base;
-      p {
-        margin: 0;
-      }
-    }
-  }
 }
 
 .responsive-table {

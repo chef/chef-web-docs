@@ -1,14 +1,9 @@
 {{ $currentPage := . }}
 {{ $currentSection := $currentPage.Section }}
-
+{{ if ne (.Param "left_nav") false }}
 <div id="left-nav-on-canvas" class="cell position-left off-canvas-absolute reveal-for-mediumlarge col-sidebar" data-off-canvas>
   <aside class="sticky sidebar hide-for-print" data-sticky data-top-anchor="utility-bar:bottom" data-btm-anchor="footer:top">
     <nav id="sidebar-nav">
-      <div class="search">
-        <form role="search">
-          <input type="search" class="swiftype-search-input swiftype-search-autocomplete" placeholder="Search..." role="search" aria-label="Documentation Search">
-        </form>
-      </div>
       <div class="nav">
         <ul class="vertical menu accordion-menu" data-accordion-menu>
           {{ partial "range_menu" . }}
@@ -17,3 +12,4 @@
     </nav>
   </aside>
 </div>
+{{ end }}

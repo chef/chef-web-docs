@@ -1,17 +1,23 @@
-<nav id="utility-bar" class = "hide-for-print top-bar">
+<nav id="utility-bar" class="hide-for-print top-bar">
 
   <a href="/" class="utility-bar-brand top-bar-left">
     <img src="{{ "images/progress-chef-primary-logo.svg" | relURL }}" alt="Chef Progress Logo" class="chef">
   </a>
 
-  <ul class="menu top-nav show-for-mediumlarge top-bar-right">
-    {{ range .Site.Menus.main }}
-      {{ if eq .Identifier "chefconf" }}
-        <li><a href="{{ .URL }}" class='chef-conf-link'><span class="braces">{</span>{{ .Title }}<span class="braces">}</span></a></li>
-      {{ else }}
-        <li><a href="{{ .URL }}">{{ .Title }}</a></li>
-      {{ end }}
-    {{ end }}
+  <ul class="menu top-nav top-bar-right">
+    {{- if and (ne (.Param "search") false) (ne (.Site.Param "search") false) -}}
+    <li id="swiftype-search-top-nav">
+      <button id="swiftype-search-magnifying-icon">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span id="swiftype-search-search-text" class="show-for-mediumlarge text-left">Search...</span>
+      </button>
+    </li>
+    {{- end -}}
+    {{- range .Site.Menus.main -}}
+
+    <li class="show-for-medium"><a href="{{ .URL }}">{{ .Title }}</a></li>
+
+    {{- end -}}
   </ul>
 
   <button id="header-toggle" type="button" class="utility-bar-nav-bars hide-for-mediumlarge top-bar-right" data-toggle="left-nav-off-canvas offCanvasTop1">

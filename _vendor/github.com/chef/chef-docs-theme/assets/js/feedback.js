@@ -104,6 +104,8 @@ function submitContactFormFeedback(event) {
     .catch((error) => alert(error));
 };
 
-document
-  .querySelector("#feedback-form")
-  .addEventListener("submit", submitContactFormFeedback);
+const feedbackForm = document.querySelector("#feedback-form");
+
+if (feedbackForm) {
+  feedbackForm.addEventListener("submit", submitContactFormFeedback);
+}
