@@ -31,9 +31,9 @@ gh_path = "https://github.com/chef/license-service/tree/main/docs-chef-io/conten
 
 # versions must be in order from newest/latest version to oldest and must be a string.
 
-# default_search_product_keys defines the product search keys that are returned by search by default.
+# default_search_product_keys defines the product search keys that are returned by search by default, ie when no product is selected in the search filters
 # Use an empty string ("") for pages without a defined product
-# This includes the latest/newest version of products that where we deployed versioned docs.
+# This includes the latest/newest version of products that have muliple versions of documentation deployed.
 default_search_product_keys = ["", "chef-360-1.0", "automate", "desktop", "habitat", "client", "server", "inspec", "saas", "supermarket", "workstation"]
 
 [search.products]
