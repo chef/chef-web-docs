@@ -10,12 +10,19 @@
 $(document).ready(function() {
 
   // Retrieve list of default search product keys from search page HTML and parse into JSON array
-  var defaultSearchProducts = $('#swiftype-search').data('default-search-keys');
+  let defaultSearchProducts = $('#swiftype-search').data('default-search-keys');
 
-  if (defaultSearchProducts) {
-    var defaultSearchProducts = JSON.stringify(defaultSearchProducts);
-    var defaultSearchProducts = JSON.parse(defaultSearchProducts);
+  function returnParsedJson(jsonString) {
+    if (jsonString) {
+      let stringifiedJSON = JSON.stringify(jsonString);
+      let parsedJSON = JSON.parse(stringifiedJSON);
+      return parsedJSON;
+    } else {
+      return null;
+    }
   }
+
+  let parsedDefaultSearchProducts = returnParsedJson(defaultSearchProducts);
 
   ///////////////////////////////////
   //
@@ -84,7 +91,7 @@ $(document).ready(function() {
 
   $("input#swiftype-search-top-container-form-input-search").on('click', function (event) {
     console.log('search')
-    var searchString = $('input#swiftype-search-top-container-form-input').val();
+    const searchString = $('input#swiftype-search-top-container-form-input').val();
     window.location.href = "/search/#stq=" + encodeURIComponent(searchString) + '&stp=1';
    });
 
@@ -179,7 +186,7 @@ $(document).ready(function() {
   };
 
   // Define default products used in search
-  searchConfig.facets['chef-products'] = defaultSearchProducts;
+  searchConfig.facets['chef-products'] = parsedDefaultSearchProducts;
 
   var resultTemplate = Hogan.compile([
     "<li>",
@@ -213,9 +220,9 @@ $(document).ready(function() {
 
   // Get all Chef products selected in product checkbox field
   // If no checkboxes are selected, return the default list of products
-  var getChefProducts = function(){
+  const getChefProducts = function(){
     if ($('#swiftype-product-filters :checkbox:checked').length === 0) {
-      searchConfig.facets['chef-products'] = defaultSearchProducts;
+      searchConfig.facets['chef-products'] = parsedDefaultSearchProducts;
       console.log('none checked', $(this));
     } else {
       searchConfig.facets['chef-products'] = $("#swiftype-custom-facets input:checkbox[name='chef-product']:checked, select.search-facet-versions:visible option:selected").map(function() {

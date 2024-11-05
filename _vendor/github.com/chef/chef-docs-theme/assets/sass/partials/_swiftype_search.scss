@@ -154,7 +154,6 @@
         padding-right: 10px;
         width: 100%;
         flex: 1 1 auto;
-        // margin-left: 0;
         margin: 0;
 
         li {
@@ -184,7 +183,6 @@
                 }
               }
               &.st-result-highlight-product{
-                // color:red;
                 display: none;
               }
             }
@@ -287,10 +285,6 @@ form > input.swiftype-search {
 
   &-form {
     width: 80%;
-  }
-
-  &-input {
-
   }
 
   &-autocomplete {
