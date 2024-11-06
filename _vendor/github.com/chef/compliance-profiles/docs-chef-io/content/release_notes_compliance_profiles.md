@@ -10,6 +10,15 @@ draft = false
     weight = 10
 +++
 
+## 20241106
+
+### New Features
+
+- CIS Oracle Linux 9 v2.0.0(Audits)
+- CIS Debian Linux 12 v1.0.1(Audits)
+- CIS Debian Linux 11 v2.0.0(Audits)
+- CIS Windows Server 2022 v3.0.0(Audits)
+
 ## 20240910
 
 ### New Features
