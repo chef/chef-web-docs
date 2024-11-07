@@ -32,7 +32,7 @@ $(document).ready(function() {
 
   function showSearchModal(event) {
     $("#swiftype-modal").show(250);
-    $("#swiftype-search-form-modal").focus();
+    $("#swiftype-search-form-modal-input").focus();
     event.stopPropagation();
   }
 
@@ -89,11 +89,36 @@ $(document).ready(function() {
     history.pushState({page: "Chef Documentation Search"}, "", "/search/")
   });
 
-  $("input#swiftype-search-top-container-form-input-search").on('click', function (event) {
-    console.log('search')
+  $("input#swiftype-search-top-container-form-input-search").on('click', function() {
     const searchString = $('input#swiftype-search-top-container-form-input').val();
     window.location.href = "/search/#stq=" + encodeURIComponent(searchString) + '&stp=1';
    });
+
+  // trigger hideCustomFacets function after resize ends
+  var debounce = function(fn, interval) {
+    let timer;
+    return function debounced(...args) {
+      clearTimeout(timer);
+      timer = setTimeout(function call() {
+        fn(...args);
+      }, interval);
+    };
+  }
+
+  // show and hide elements when resizing
+  var hideCustomFacets = function() {
+    if ($(this).width() > 768) {
+      $('#swiftype-custom-facet-products').show();
+      $("#search-facet-product-toggle-caret > svg.fa-caret-down").hide();
+      $("#search-facet-product-toggle-caret > svg.fa-caret-up").hide();
+    } else {
+      $('#swiftype-custom-facet-products').hide();
+      $("#search-facet-product-toggle-caret > svg.fa-caret-down").hide();
+      $("#search-facet-product-toggle-caret > svg.fa-caret-up").show();
+    }
+  }
+
+  $(window).resize(debounce(hideCustomFacets, 400));
 
   ///////////////////////////////////
   //
@@ -177,6 +202,12 @@ $(document).ready(function() {
     processLocationHash();
   };
 
+  $("#search-facet-product").click(function() {
+    if ($(window).width() < 860) {
+      $("#swiftype-custom-facet-products").toggle(500);
+      $("#search-facet-product-toggle-caret").find('svg').toggle();
+    }
+  });
 
   /////////////////////////
   // Handle Search Results
@@ -223,7 +254,6 @@ $(document).ready(function() {
   const getChefProducts = function(){
     if ($('#swiftype-product-filters :checkbox:checked').length === 0) {
       searchConfig.facets['chef-products'] = parsedDefaultSearchProducts;
-      console.log('none checked', $(this));
     } else {
       searchConfig.facets['chef-products'] = $("#swiftype-custom-facets input:checkbox[name='chef-product']:checked, select.search-facet-versions:visible option:selected").map(function() {
         return $(this).val()
