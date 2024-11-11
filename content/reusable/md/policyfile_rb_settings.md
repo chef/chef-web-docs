@@ -26,8 +26,12 @@ A `Policyfile.rb` file may contain the following settings:
   - `:supermarket`
 
   `:artifactory`
-  : Pulls cookbooks from an Artifactory server. Requires either `artifactory_api_key` to be set in `config.rb` or
-    `ARTIFACTORY_API_KEY` to be set in your environment.
+  : Pulls cookbooks from an Artifactory server.
+  There are two ways to authenticate:
+  - **API Key**: Set `artifactory_api_key` in config.rb or use the environment variable `ARTIFACTORY_API_KEY`.
+  - **Identity Token** : Set `artifactory_identity_token` in config.rb or use the environment variable `ARTIFACTORY_IDENTITY_TOKEN`.
+
+  **Note**: If both `ARTIFACTORY_API_KEY` and `ARTIFACTORY_IDENTITY_TOKEN` are set, `ARTIFACTORY_IDENTITY_TOKEN` will take precedence.
 
     For example, `default_source :artifactory, "https://artifactory.example/api/chef/my-supermarket"`.
 
