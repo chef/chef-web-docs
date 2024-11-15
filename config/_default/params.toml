@@ -21,6 +21,11 @@ menuOrder = [
 enable_search = true
 robots = ''
 
+# sitemaps lists sitemaps that are indexed by the main sitemap layout.
+# see:
+# - layouts/_default/sitemap.xml
+# - layouts/_default/home.sitemap-main.xml
+
 sitemaps = [
   "https://docs.chef.io/sitemap-main.xml",
   "https://docs.chef.io/360/1.0/sitemap.xml",

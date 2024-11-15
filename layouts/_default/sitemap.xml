@@ -6,3 +6,6 @@
   </sitemap>
 {{ end -}}
 </sitemapindex>
+
+<!-- https://developers.google.com/search/docs/crawling-indexing/sitemaps/large-sitemaps -->
+<!-- https://swiftype.com/documentation/site-search/crawler-configuration/sitemap -->
