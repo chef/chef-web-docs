@@ -17,8 +17,15 @@ menuOrder = [
   "legacy",
   "extra"
 ]
+
 enable_search = true
 robots = ''
+
+sitemaps = [
+  "https://docs.chef.io/sitemap-main.xml",
+  "https://docs.chef.io/360/1.0/sitemap.xml",
+  "https://docs.chef.io/360/1.1/sitemap.xml"
+]
 
 [chef-web-docs]
   gh_path = "https://github.com/chef/chef-web-docs/blob/main/content/"
