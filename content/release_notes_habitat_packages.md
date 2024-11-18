@@ -20,7 +20,7 @@ Release Channel: LTS-2024
 
 ### Linux x86 architecture
 
-| Origin |        Package Name       |        version       |      Ident     |
+| Origin |        Package Name       |        Version       |      Ident     |
 |--------|---------------------------|----------------------|----------------|
 | core   | 7zip                      | 17.05                | 20241018012028 |
 | core   | acl                       | 2.3.1                | 20241017110951 |
