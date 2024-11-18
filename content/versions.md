@@ -13,16 +13,14 @@ product = ["automate", "client", "server", "habitat", "inspec", "supermarket", "
     weight = 10
 +++
 
-This section lists the free and commercial Chef products and versions we
-currently support. The lifecycle stage defines the involvement by Chef
-Software in updating and maintaining each product.
+This section lists the free and commercial Chef products and versions we currently support.
+The lifecycle stage defines the involvement by Chef Software in updating and maintaining each product.
 
-## Lifecycle Definitions
+## Lifecycle definitions
 
 ### Generally Available (GA)
 
-This stage indicates that the product or version is in active
-development and/or maintenance.
+This stage indicates that the product or version is in active development and/or maintenance.
 
 - Chef continues to provide releases to the application or version in response to customer needs and security vulnerabilities
 - Chef welcomes customer feature requests for the product roadmap for the application
@@ -44,7 +42,7 @@ This stage indicates that Chef has set a date after which the
 application or version will no longer be supported or recommended for
 use by customers.
 
-### Versions and Status
+### Versions and status
 
 {{< important >}}
 
@@ -54,7 +52,7 @@ Unless otherwise stated, versions older than those listed below are EOL.
 
 {{< /important >}}
 
-## Supported Commercial Distributions
+## Supported commercial distributions
 
 Use of these and later versions of these distributions must be in
 accordance with the [Chef End User License
@@ -79,7 +77,7 @@ products.
 
 {{< /note >}}
 
-## Supported Free Distributions
+## Supported free distributions
 
 Use of the following distributions is governed by the Apache License,
 version 2.0.
@@ -88,20 +86,20 @@ version 2.0.
 |-------------|---------|------------------|----------|
 | Supermarket | 5.x     | GA               | TBD      |
 
-## Deprecated Products and Versions
+## Deprecated products and versions
 
 The following products are deprecated. Users are advised to move to
 newer versions or products.
 
-| Product           | Version | Lifecycle Status | EOL Date          |
-|-------------------|---------|------------------|-------------------|
-| Chef Backend      | 3.x     | Deprecated       | TBD               |
-| Chef Infra Client | 17.x    | Deprecated       | November 30, 2024 |
-| Chef Infra Server | 14.x    | Deprecated       | TBD               |
-| Chef InSpec       | 5.x     | Deprecated       | TBD               |
-| Chef Manage       | 2.5.x+  | Deprecated       | TBD               |
+| Product           | Version | Lifecycle Status | EOL Date       |
+|-------------------|---------|------------------|----------------|
+| Chef Backend      | 3.x     | Deprecated       | TBD            |
+| Chef Infra Client | 17.x    | Deprecated       | March 31, 2025 |
+| Chef Infra Server | 14.x    | Deprecated       | TBD            |
+| Chef InSpec       | 5.x     | Deprecated       | TBD            |
+| Chef Manage       | 2.5.x+  | Deprecated       | TBD            |
 
-## End of Life (EOL) Products
+## End of Life (EOL) products
 
 | Product                  | Version             | Lifecycle Status | EOL Date          |
 |--------------------------|---------------------|------------------|-------------------|
