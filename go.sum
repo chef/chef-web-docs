@@ -20,8 +20,8 @@ github.com/chef/supermarket/docs-chef-io v0.0.0-20241105172430-a362eded8f72 h1:m
 github.com/chef/supermarket/docs-chef-io v0.0.0-20241105172430-a362eded8f72/go.mod h1:D+9mmEZxCwpdhZ8LrEODBWMwMufmJUubSt5NlU/lLB4=
 github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90 h1:p/a5iSATj0OjrqJLX/YKxYdGXhZzW58yyyNIC4JY4S0=
 github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90/go.mod h1:N/6F0+wmdvL6k0AjqyKIncMRClKAN92atjZdTLtYMaw=
-github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20241115181736-d7fefb1e7d23 h1:yCEYVtJ1XB1g46HiUwsrww3ASB+jyhCoI/VWQe+2Exg=
-github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20241115181736-d7fefb1e7d23/go.mod h1:5GKz/BtTWeTr8vdVQPkvGDQkQ+xiGWLkDsPOXhu2Ps4=
+github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20241119140456-8605fc35e9b2 h1:wDPHFo/AIHAqttmz/A/k5lDV4FEDo9uois2cuDsRLmM=
+github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20241119140456-8605fc35e9b2/go.mod h1:5GKz/BtTWeTr8vdVQPkvGDQkQ+xiGWLkDsPOXhu2Ps4=
 github.com/inspec/inspec-alicloud/docs-chef-io v0.0.0-20240122032124-a1d2a214e170 h1:Q9jEEyv8nZAN5NgJXwMoqjngSz6Bc5ruNc9V72Hk4b4=
 github.com/inspec/inspec-alicloud/docs-chef-io v0.0.0-20240122032124-a1d2a214e170/go.mod h1:tAazDDBtR5yCl/FNWHnrmkxpfxnOo9B99DyfRE7JH1c=
 github.com/inspec/inspec-aws/docs-chef-io v0.0.0-20240122032232-049dcf822eef h1:r+GoVO6zbIAtusZ2w6MwUhtDAJicQkYbX0iWwZmuXfQ=
