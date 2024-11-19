@@ -14,7 +14,7 @@ product = ["habitat"]
 
 ## LTS-2024
 
-Release Date: DATE
+Release Date: November 18, 2024
 
 Release Channel: LTS-2024
 
