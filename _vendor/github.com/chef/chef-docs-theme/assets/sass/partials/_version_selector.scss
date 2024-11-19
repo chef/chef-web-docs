@@ -1,0 +1,28 @@
+.version-select {
+  margin-left: .5rem;
+  margin-bottom: 1rem;
+  &-label {
+    font-weight: bold;
+  }
+  &-menu {
+    li.version-select-menu-parent.is-dropdown-submenu-parent {
+      width: 100%;
+      border: 1px solid $border-dark;
+      border-radius: $border-radius-base;
+      margin-top: 10px;
+
+      a, a::after {
+        font-size: .8rem;
+        color: $charcoal;
+        font-weight: 600;
+        border-color: $charcoal transparent transparent;
+      }
+
+      >ul.version-selector-submenu {
+        width: 100%;
+        border: 1px solid $border-dark;
+        border-radius: 0 0 $border-radius-base $border-radius-base;
+      }
+    }
+  }
+}

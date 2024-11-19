@@ -2,7 +2,11 @@
 {{ $currentSection := $currentPage.Section }}
 {{ if ne (.Param "left_nav") false }}
 <div id="left-nav-on-canvas" class="cell position-left off-canvas-absolute reveal-for-mediumlarge col-sidebar" data-off-canvas>
+
   <aside class="sticky sidebar hide-for-print" data-sticky data-top-anchor="utility-bar:bottom" data-btm-anchor="footer:top">
+
+    {{ partial "on_canvas_top_bar" . }}
+
     <nav id="sidebar-nav">
       <div class="nav">
         <ul class="vertical menu accordion-menu" data-accordion-menu>
