@@ -12,5 +12,5 @@ toc_layout = "release_notes_toc"
     title = "Chef InSpec"
     identifier = "release_notes/release_notes_inspec.md Chef InSpec"
     parent = "release_notes"
-    weight = 70
+    weight = 80
 +++

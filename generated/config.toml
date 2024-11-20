@@ -1,6 +1,6 @@
 ## Config file for generated dir.
 
-disableKinds = [ "sitemap", "taxonomy", "term", "RSS", "sitemap"]
+disableKinds = [ "sitemap", "taxonomy", "term", "RSS"]
 publishDir = "generated_content"
 
 [module]

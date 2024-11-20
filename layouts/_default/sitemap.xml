@@ -1,0 +1,11 @@
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{{- range .Site.Params.sitemaps }}
+  <sitemap>
+    <loc>{{ . }}</loc>
+  </sitemap>
+{{ end -}}
+</sitemapindex>
+
+<!-- https://developers.google.com/search/docs/crawling-indexing/sitemaps/large-sitemaps -->
+<!-- https://swiftype.com/documentation/site-search/crawler-configuration/sitemap -->

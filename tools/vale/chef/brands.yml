@@ -5,7 +5,6 @@ ignorecase: false
 swap:
   'Microsoft Windows': Windows
   ' windows ': Windows
-  'linux': Linux
+  '(?<!\-)linux(?!\-)': Linux
 exceptions:
   - knife-windows
-

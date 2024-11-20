@@ -8,6 +8,7 @@ language: en_US
 dictionaries:
 - chef
 - docs
+- hab-docs
 
 dictionaryDefinitions:
 - name: chef
@@ -16,6 +17,9 @@ dictionaryDefinitions:
 - name: docs
   path: https://raw.githubusercontent.com/chef/chef_dictionary/main/docs.txt
   description: Custom Docs Dictionary
+- name: hab-docs
+  path: https://raw.githubusercontent.com/chef/chef_dictionary/main/hab-docs.txt
+  description: Custom Habitat Docs Dictionary
 
 # flagWords - list of words to be always considered incorrect
 # This is useful for offensive words and common spelling errors.
