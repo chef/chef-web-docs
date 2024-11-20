@@ -28,9 +28,9 @@ product = [""]
   Users with these roles can perform tenant management, organization management, node management, and Courier-specific actions.
   You can also use these roles as a reference for creating custom roles and policies based on business needs of your organization.
 
-  See the [System roles]({{< relref "administration/system_roles.md" >}}) and [System policies]({{< relref "administration/system_policies.md" >}}) documentation for more information.
+  See the [System roles](https://docs.chef.io/360/1.1/administration/system_roles.md) and [System policies](https://docs.chef.io/360/1.1/administration/system_policies) documentation for more information.
 
-- Added UI workflows to perform basic Courier job runs, manage nodes and filters and perform administrative actions. See the [Chef 360 Platform UI documentation]({{< relref "chef_360_ui" >}}) for more information.
+- Added UI workflows to perform basic Courier job runs, manage nodes and filters and perform administrative actions. See the [Chef 360 Platform UI documentation](https://docs.chef.io/360/1.1/chef_360_ui) for more information.
 
 - Chef 360 Platform now requires users to load their license keys. Users can run Chef Courier jobs until the license expiration date, after which users must renew their license keys to continue running Courier jobs.
 
@@ -44,7 +44,7 @@ product = [""]
   - CVE-2024-34161
 
 - Added an API to fetch global default settings.
-- You can now modify the number of Replicas for each service when deploying Chef 360 Platform. See the [install documentation]({{< relref "install/server/install#replicas-count" >}}) for more information.
+- You can now modify the number of Replicas for each service when deploying Chef 360 Platform. See the [install documentation](https://docs.chef.io/360/1.1/install/server/install#replicas-count) for more information.
 
 ### Bug fixes
 
