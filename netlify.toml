@@ -66,3 +66,8 @@
   from = "/360/1.0/*"
   to = "https://release-1-0--chef-360.netlify.app/360/1.0/:splat"
   status = 200
+
+[[redirects]]
+  from = "/360/1.1/*"
+  to = "https://release-1-1--chef-360.netlify.app/360/1.1/:splat"
+  status = 200
