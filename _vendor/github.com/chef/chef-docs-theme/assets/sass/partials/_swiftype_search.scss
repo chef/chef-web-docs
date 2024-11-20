@@ -1,31 +1,75 @@
 #swiftype-modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1000; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  display: none;
+  background-color: #fefefe;
+  left: 50%;
+  top: 90px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 10px;
+  font-size: 1rem;
+
+  @media (max-width: map-get($breakpoints, medium)) {
+    width: 100%;
+  }
+
+  @media not (max-width: map-get($breakpoints, medium)) {
+    width: 60%;
+  }
 
   &-content {
-    background-color: #fefefe;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    height: 90%;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    overflow-y: hidden;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    font-size: 1rem;
+    flex-direction: row;
+
+    #swiftype-search-form-modal {
+      flex: 1;
+      flex-shrink: 1;
+    }
+
+    #swiftype-search-close {
+
+      flex: 0;
+      position: relative;
+      top: -15px;
+
+      &-button {
+        display: inline;
+        vertical-align: text-top;
+        font-size: 1.5rem;
+        margin: 0 .5rem 0 .75rem;
+        margin-bottom: auto;
+      }
+    }
+
+    .input-group {
+      margin: 1rem;
+      min-width: 10px;
+    }
+
+    input {
+      border: 1px solid $border-dark;
+    }
+
+    #swiftype-search-form-modal-input{
+      border-right: none;
+      padding: 2px;
+    }
+
+    #swiftype-search-form-modal-input-clear {
+      background: none;
+      border-left: none;
+      padding: 0 10px;
+      margin-right: 5px;
+    }
+
   }
 }
 
-#swiftype-lower-container{
+#swiftype-lower-container {
   overflow-y: hidden;
   padding-bottom: 10px;
   display: flex;
@@ -33,7 +77,7 @@
   width: 100%;
   height: 100%;
 
-  #swiftype-modal-content-container{
+  #swiftype-content-container{
     margin: 0 1rem 1rem 0;
     overflow-y: hidden;
     display: flex;
@@ -41,40 +85,55 @@
     width: 100%;
     height: 100%;
 
-    h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-top: 1rem;
-      padding-top: 0;
-      display: inline;
-      position: relative;
-    }
-
     #swiftype-container-left-sidebar {
       padding-top: 1rem;
       flex-grow: 0;
 
-      span#swiftype-custom-facets-toggle-caret{
-        color: $accordionmenu-arrow-color;
-        margin-left: .5rem;
+      #swiftype-filters-heading{
+        border-bottom: 1px solid $border-dark;
+        padding: 10px 0;
       }
 
-      label {
-        font-size: .8rem;
+      #swiftype-filters-title {
+        font-size: 1.2rem;
+        font-weight: 700;
       }
-      #swiftype-custom-facets{
-        >ul{
-          margin: 1em 0;
-          ul{
-            margin-left: 1em;
-          }
+
+      #swiftype-clear-all-filters {
+        margin-top: 10px;
+      }
+
+      #swiftype-product-filters{
+        border-bottom: 1px solid $border-dark;
+        padding: 20px 0;
+
+        select {
+          width: 100%;
+          max-width: 120px;
+          border: 1px solid $border-dark;
+          height: 2rem;
+          border-radius: $border-radius-base;
         }
-        ul {
-          list-style-type: none;
-          input {
-            margin-bottom: .75em;
-          }
+      }
+
+      #search-facet-product {
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
+      #swiftype-version-filters {
+        border-bottom: 1px solid $border-dark;
+        padding: 20px 0;
+        display: none;
+
+        .swiftype-product-versions {
+          display: none;
         }
+      }
+
+      .search-facet-versions {
+        display: none;
+        margin: 0 0 1rem 1.5rem;
       }
     }
 
@@ -86,8 +145,10 @@
       flex-grow: 1;
       padding-top: 16px;
 
-      #swiftype-results-heading{
+      #swiftype-results-heading {
         flex-grow: 0;
+        font-size: 1.5rem;
+        font-weight: 600;
       }
       #swiftype-search-results {
         overflow-y: scroll;
@@ -95,42 +156,57 @@
         padding-right: 10px;
         width: 100%;
         flex: 1 1 auto;
-        margin-left: 0;
-        a {
-          padding: .5rem 0;
+        margin: 0;
+
+        li {
+          padding: 10px 0;
           border-bottom: 1px solid $border-dark;
-          display: block;
-          width: 100%;
-          >span {
-            display: inherit;
-            overflow: hidden;
-            &.st-result-title {
-              font-size: 15px;
-              font-weight: 500;
-              line-height: 1.2;
-            }
-            &.st-result-detail {
-              font-size: 12px;
-              font-weight: 400;
-              line-height: 1.4;
-              color:$lightgray;
-              em {
-                color: $gray
+          a {
+            padding: .5rem 0;
+
+            display: block;
+            text-decoration: none;
+            width: 100%;
+            >span {
+              display: inherit;
+              overflow: hidden;
+
+              &.st-result-detail-body, &.st-result-sections {
+                @media (max-width: map-get($breakpoints, medium)) {
+                  display: none;
+                }
               }
-              >.st-result-highlight-product{
-                color:red;
+
+              &.st-result-title {
+                font-size: 1.25rem;
+                font-weight: 500;
+                line-height: 1.2;
+              }
+              &.detail {
+                color: $charcoal;
+                padding: 2px 0;
+
+                em {
+                  font-weight: 500;
+
+                }
+              }
+              &.st-result-highlight-product{
                 display: none;
               }
             }
           }
         }
+
         >.st-page {
-          border-bottom: 1px solid $border-dark;
-          overflow:hidden;
+
           >a {
             position: relative;
             border-bottom: none;
             width: auto;
+            margin-top: 5px;
+            padding: 5px 0;
+            font-size: 1rem;
             &.st-prev {
               float: left;
             }
@@ -150,183 +226,55 @@
   }
 }
 
-@media (max-width: 768px) {
-  #swiftype-modal-content {
-    width: 100%;
-    height: 100%;
-  }
-  .st-result-detail-body {
-      display: none;
+///////
+// Swiftype Search
+///////
+
+#swiftype-search {
+  &-top-container {
+    &-input {
+      width: 80%;
+    }
+    &-form {
+      border-radius: $border-radius-base;
+      outline: none;
+
+      &-input {
+        padding: 10px;
+        font-size: 1rem;
+        width: 90%;
+        border: 1px solid $border-dark;
+        border-right: none;
+        height: 2.5rem;
+
+        &-clear {
+
+          font-size: 1rem;
+          padding: 10px;
+          border-left: none;
+          border-right: 1px solid $border-dark;
+          border-top: 1px solid $border-dark;
+          border-bottom: 1px solid $border-dark;
+
+          margin-right: 10px;
+          background-color: $white;
+
+          &:hover {
+            color: $white;
+            background-color: $body-font-color;
+          }
+
+        }
+      }
+    }
   }
   #swiftype-lower-container {
-    #swiftype-modal-content-container {
-      flex-direction: column;
+    #swiftype-custom-facets{
+      .swiftype-custom-facet-content {
+        @media (max-width: map-get($breakpoints, mediumlarge)) {
+          display: none;
+        }
+      }
     }
   }
-  #swiftype-custom-facets {
-    display: none;
-  }
-}
-
-///////
-// Search Input
-///////
-
-#left-nav-off-canvas-top-bar {
-  @include top-bar-unstack;
-  .search {
-    display: inline-block;
-    margin-right: 1rem;
-  }
-  .close-button {
-    position: relative;
-    margin: 0 0 0 1rem;
-    display: inline-block;
-    right: 0;
-    top: 0;
-  }
-}
-
-form > input.swiftype-search {
-
-  &-input {
-    padding: 7px 11px 7px 28px;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 16px;
-    border-radius: $border-radius-base;
-    border: 1px solid #ccc;
-    outline: none;
-    background: #fcfcfc url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAUFJREFUeNqU0j0oRWEcx/Hj3ifvlMHL7C1lY7mDwUBKkoksBjKJxWIQu7xlOybDLVGukhhMZDFbxGBS8nIjKR3E96nf0dPjuuVfn+6tc35P//P8/yYMw8CpbgygGQlcYw8H+Ai8MvotxQImgt81hk1M4cEPF2IV43jCGo7wjk5MYhhlGMKbG+7BKO4wiGPn8DO1vIN+jGA9fpjQaUksecG4zjGPL3VQ5IZb9OAw+LtO1FkjatxwUuEoTzjSbRu9/xO+0W97nnArqvXuoxve1/9p1OUIlmNGU7EX9+KGt3GKNuyiC5WoQAe2NJFP3PpzzmoR0khpxle6h3pnkeKJPCPjbtglerVFfWhSVxfqJtK4qrChTMY4XdjVm9O21aIA92LrFcv6HHtAsclxQVnxa0WfsqgDUib4X9muStCA2W8BBgDJ0EeGeFZ8WAAAAABJRU5ErkJggg==) no-repeat 5px 8px;
-  }
-
-  &-autocomplete {
-    margin: 5px 0;
-    display: inline-block;
-    height: 2.5em;
-  }
-}
-
-#swiftype-modal-search-form {
-  form > #swiftype-search-form-modal {
-    width: 100%;
-    margin-right: 10px;
-    box-sizing: border-box;
-    height: 32px;
-  }
-
-
-  #swiftype-close-button {
-    font-size: .9rem;
-    margin-left: 10px;
-    padding: 6px;
-    border: 1px solid $border-dark;
-    border-radius: $border-radius-base;
-
-    &:hover {
-      color: $white;
-      background-color: $body-font-color;
-    }
-  }
-}
-
-/////
-// Autocomplete Search Results
-/////
-
-.swiftype-widget .autocomplete {
-  border-radius: $border-radius-base;
-  background-color: $white;
-  display: block;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-  position: absolute;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
-  text-align: left;
-}
-
-.swiftype-widget .autocomplete ul {
-  background-color: #fff;
-  display: block;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
-  text-align: left;
-}
-
-.swiftype-widget .autocomplete li {
-  border-top: 1px solid $border;
-  cursor: pointer;
-  padding: 10px 8px;
-  font-size: 12px;
-  font-weight: 400;
-  list-style-type: none;
-  background-image: none;
-  margin: 0;
-}
-
-.swiftype-widget .autocomplete li:first-child {
-  -webkit-border-radius: 3px 3px 0 0;
-  -moz-border-radius: 3px 3px 0 0;
-  -ms-border-radius: 3px 3px 0 0;
-  -o-border-radius: 3px 3px 0 0;
-  border-radius: 3px 3px 0 0;
-}
-
-.swiftype-widget .autocomplete li:last-child {
-  -webkit-border-radius: 0 0 3px 3px;
-  -moz-border-radius: 0 0 3px 3px;
-  -ms-border-radius: 0 0 3px 3px;
-  -o-border-radius: 0 0 3px 3px;
-  border-radius: 0 0 3px 3px;
-}
-
-.swiftype-widget .autocomplete li.active {
-  background-color: $menu-item-background-active;
-}
-
-.swiftype-widget .autocomplete li span {
-  line-height: 16px;
-  margin: 0;
-  padding: 0;
-  text-overflow: ellipsis;
-  overflow-x: hidden;
-  white-space: nowrap;
-}
-
-.swiftype-widget .autocomplete li span.swiftype-auto-result-title{
-  font-weight: bold;
-  color: $blue-darker;
-  overflow: hidden;
-  display: block;
-}
-
-.swiftype-widget .autocomplete li span.swiftype-auto-result-detail{
-  color: $lightgray;
-  overflow: hidden;
-  display: block;
-}
-
-
-.swiftype-widget .autocomplete li span.swiftype-auto-result-title em {
-  color: #0b2644;
-  font-style: normal;
-  font-weight: bold;
-}
-
-.swiftype-widget .autocomplete li.active span.swiftype-auto-result-title{
-  color: $menu-item-color-active;
 }
