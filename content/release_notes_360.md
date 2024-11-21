@@ -28,7 +28,7 @@ product = [""]
   Users with these roles can perform tenant management, organization management, node management, and Courier-specific actions.
   You can also use these roles as a reference for creating custom roles and policies based on business needs of your organization.
 
-  See the [System roles](https://docs.chef.io/360/1.1/administration/system_roles.md) and [System policies](https://docs.chef.io/360/1.1/administration/system_policies) documentation for more information.
+  See the [System roles](https://docs.chef.io/360/1.1/administration/system_roles) and [System policies](https://docs.chef.io/360/1.1/administration/system_policies) documentation for more information.
 
 - Added UI workflows to perform basic Courier job runs, manage nodes and filters and perform administrative actions. See the [Chef 360 Platform UI documentation](https://docs.chef.io/360/1.1/chef_360_ui) for more information.
 
