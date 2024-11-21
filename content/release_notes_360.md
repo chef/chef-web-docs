@@ -12,6 +12,67 @@ product = [""]
     weight = 10
 +++
 
+## Chef 360 Platform 1.1
+
+### New features
+
+- RabbitMQ used for Chef Courier jobs now supports TLS-based communication.
+
+- We added the following system-defined roles:
+
+  - Tenant Admin
+  - Organization Admin
+  - Node Manager
+  - Courier Operator
+
+  Users with these roles can perform tenant management, organization management, node management, and Courier-specific actions.
+  You can also use these roles as a reference for creating custom roles and policies based on business needs of your organization.
+
+  See the [System roles](https://docs.chef.io/360/1.1/administration/system_roles.md) and [System policies](https://docs.chef.io/360/1.1/administration/system_policies) documentation for more information.
+
+- Added UI workflows to perform basic Courier job runs, manage nodes and filters and perform administrative actions. See the [Chef 360 Platform UI documentation](https://docs.chef.io/360/1.1/chef_360_ui) for more information.
+
+- Chef 360 Platform now requires users to load their license keys. Users can run Chef Courier jobs until the license expiration date, after which users must renew their license keys to continue running Courier jobs.
+
+### Improvements
+
+- Upgraded nginx to 1.26.2 to address the following CVEs:
+
+  - CVE-2024-32760
+  - CVE-2024-31079
+  - CVE-2024-35200
+  - CVE-2024-34161
+
+- Added an API to fetch global default settings.
+- You can now modify the number of Replicas for each service when deploying Chef 360 Platform. See the [install documentation](https://docs.chef.io/360/1.1/install/server/install#replicas-count) for more information.
+
+### Bug fixes
+
+- You can now redeploy Chef 360 Platform with updated configurations.
+- When downloading details of a job, the artifact URL is updated to HTTP or HTTPS dynamically in the artifact URL string based on the server configuration.
+- The payload for filtering by the enrollment level and health status attributes is now supported with operator and value fields similar to filtering by other attributes.
+
+  This change requires that all users running Chef 360 Platform 1.0.x must upgrade their skill versions on all nodes to versions supported in the Chef 360 Platform 1.1.
+  The previous release versions of these skills won't run if they're not updated.
+
+### Supported skill versions
+
+| Skill                    | Skill name                | Habitat package                                                                                               | Version  |
+| -------------------------|---------------------------|---------------------------------------------------------------------------------------------------------------|----------|
+| Node Management Agent    | `node-management-agent`   | [chef-platform/node-management-agent](https://bldr.habitat.sh/#/pkgs/chef-platform/node-management-agent)     | 1.0.3    |
+| Courier Runner           | `courier-runner`          | [chef-platform/courier-runner](https://bldr.habitat.sh/#/pkgs/chef-platform/courier-runner)                   | 1.4.4    |
+| Gohai                    | `chef-gohai`              | [chef-platform/chef-gohai](https://bldr.habitat.sh/#/pkgs/chef-platform/chef-gohai)                           | 1.0.3    |
+| Shell Interpreter        | `shell-interpreter`       | [chef-platform/shell-interpreter](https://bldr.habitat.sh/#/pkgs/chef-platform/shell-interpreter)             | 1.0.3    |
+| Restart Interpreter      | `restart-interpreter`     | [chef-platform/restart-interpreter](https://bldr.habitat.sh/#/pkgs/chef-platform/restart-interpreter)         | 1.0.2   |
+| Infra Client Interpreter | `chef-client-interpreter` | [chef-platform/chef-client-interpreter](https://bldr.habitat.sh/#/pkgs/chef-platform/chef-client-interpreter) | 1.0.4    |
+| Inspec Interpreter       | `inspec-interpreter`      | [chef-platform/inspec-interpreter](https://bldr.habitat.sh/#/pkgs/chef-platform/inspec-interpreter)           | 1.0.4    |
+
+### Known issues
+
+- Re-enrolling a node that's already enrolled to the same organization or a different organization isn't currently supported.
+  A node must be unenrolled manually if you want to re-enroll.
+- Evidence (log) files are downloaded without the `.zip` extension from the run details screen.
+
 ## Chef 360 Platform 1.0.2
 
 ### Release details

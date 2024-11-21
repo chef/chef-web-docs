@@ -33,6 +33,22 @@ nav#utility-bar {
         }
       }
     }
+
+  }
+
+  button#swiftype-search-magnifying-icon {
+    border: 1px solid $border;
+    background-color: $sidebar-gray;
+    border-radius: $border-radius-base;
+    padding: .5rem;
+    margin: .25rem;
+    &:hover {
+      color: $blue-darker;
+    }
+    #swiftype-search-search-text{
+      min-width: 170px;
+      display: inline-block;
+    }
   }
 
   button.utility-bar-nav-bars {

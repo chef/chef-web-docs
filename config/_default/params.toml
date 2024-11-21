@@ -18,7 +18,6 @@ menuOrder = [
   "extra"
 ]
 
-enable_search = true
 robots = ''
 
 # sitemaps lists sitemaps that are indexed by the main sitemap layout.
@@ -28,7 +27,8 @@ robots = ''
 
 sitemaps = [
   "https://docs.chef.io/sitemap-main.xml",
-  "https://docs.chef.io/360/1.0/sitemap.xml"
+  "https://docs.chef.io/360/1.0/sitemap.xml",
+  "https://docs.chef.io/360/1.1/sitemap.xml"
 ]
 
 [chef-web-docs]
@@ -36,3 +36,79 @@ sitemaps = [
 
 [license-service]
 gh_path = "https://github.com/chef/license-service/tree/main/docs-chef-io/content/"
+
+######### Site search ##########
+#
+# This populates the site search page with search filter parameters.
+#
+# default_search_product_keys = The product search keys that are returned by search by default, ie when no product is selected in the search filters
+#                               Use an empty string ("") for pages without a defined product.
+#                               Include the latest/newest version of products that have muliple versions of documentation deployed.
+#
+# search.products.<PRODUCT> = A map/object/dictionary/table/whatever of products and their versions.
+#                             This populates the left product search filter with product names and versions.
+#
+# name = The product name as it appears in the UI.
+# product_key, product_version_key = The key used to filter results by in Swiftype API calls.
+#                                    This product key is defined in the documatation frontmatter.
+#                                    For example, the "habitat" key is defined in the docs.chef.io/habitat page frontmatter.
+#                                    See here for example: https://github.com/habitat-sh/habitat/blob/main/components/docs-chef-io/content/habitat/_index.md?plain=1#L7
+#
+# search.products.<PRODUCT>.versions = A table of versions for a product.
+#                                      Versions must be in order from newest/latest version to oldest and must be a string.
+#
+################################
+
+[search]
+
+default_search_product_keys = ["", "chef-360-1.1", "automate", "desktop", "habitat", "client", "server", "inspec", "saas", "supermarket", "workstation"]
+
+[search.products]
+
+[search.products.360]
+name = "360 Platform"
+product_key = "chef-360"
+
+[[search.products.360.versions]]
+name = "1.1"
+product_version_key = "chef-360-1.1"
+
+[[search.products.360.versions]]
+name = "1.0"
+product_version_key = "chef-360-1.0"
+
+[search.products.automate]
+name = "Automate"
+product_key = "automate"
+
+[search.products.desktop]
+name = "Desktop"
+product_key = "desktop"
+
+[search.products.habitat]
+name = "Habitat"
+product_key = "habitat"
+
+[search.products.infra_client]
+name = "Infra Client"
+product_key = "client"
+
+[search.products.infra_server]
+name = "Infra Server"
+product_key = "server"
+
+[search.products.inspec]
+name = "InSpec"
+product_key = "inspec"
+
+[search.products.saas]
+name = "SaaS"
+product_key = "saas"
+
+[search.products.supermarket]
+name = "Supermarket"
+product_key = "supermarket"
+
+[search.products.workstation]
+name = "Workstation"
+product_key = "workstation"
