@@ -1,6 +1,6 @@
 +++
 title = "Chef Habitat package release notes"
-draft = false
+draft = true
 
 product = ["habitat"]
 
