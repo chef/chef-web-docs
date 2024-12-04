@@ -18,6 +18,8 @@ product = [""]
 
 - We replaced Mailhog, a local email testing service, with [Mailpit](https://mailpit.axllent.org/), which is a more secure service.
 
+  If you've been using Mailhog for email testing, update the port number to `31101` to use Mailpit.
+
 ### Improvements
 
 - You can now select saved node lists and node filters to target Courier jobs using the Courier Job Wizard in the Chef 360 Platform UI.
