@@ -19,8 +19,7 @@ product = ["client", "server"]
 
 {{< note >}}
 
-For more information about Policyfile, see [About
-Policyfile](/policyfile/)
+For more information, see the [Policyfile documentation](/policyfile/).
 
 {{< /note >}}
 
