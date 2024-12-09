@@ -26,18 +26,10 @@ Install and configure the Chef Infra Server, then install and configure
 Chef Workstation, and then run the bootstrap command from Chef
 Workstation to install Chef Infra Client on each node.
 
-## The Chef Infra Server
+## Chef Infra Server
 
-The following sections describe the various requirements for the Chef
-Infra Server.
-
-### Hosted Chef Infra Server Requirements
-
-Every node that will be configured by Chef Infra Client and every workstation that will upload data to the Chef Infra Server must be able to communicate with the hosted Chef server.
-
-### Chef Infra Server, On-premises or in Cloud Environment
-
-{{< readfile file="content/server/reusable/md/system_requirements_server_hardware.md" >}} {{< readfile file="content/server/reusable/md/system_requirements_server_software.md" >}}
+{{< readfile file="content/server/reusable/md/system_requirements_server_hardware.md" >}}
+{{< readfile file="content/server/reusable/md/system_requirements_server_software.md" >}}
 
 ## Chef Infra Client
 
