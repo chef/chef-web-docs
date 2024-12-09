@@ -104,7 +104,7 @@ The following table lists the commercially supported platforms and versions for 
 | Solaris | `sparc`, `i86pc` | `11.3` (16.17.4 and later only), `11.4`  |
 | SUSE Linux Enterprise Server | `x86_64`, `aarch64` (15.x only), `s390x` | `12`, `15` |
 | Ubuntu (LTS releases) | `x86_64`,`aarch64` (18.x and above) | `16.04`, `18.04`, `20.04`, `22.04` |
-| Windows | `x86_64` | `2012`, `2012 R2`, `2016`, `10` (all channels except "insider" builds), `2019` (Long-term servicing channel (LTSC), both Desktop Experience and Server Core), `11`, `2022` |
+| Windows | `x86_64` | `2016`, `10` (all channels except "insider" builds), `2019` (Long-term servicing channel (LTSC), both Desktop Experience and Server Core), `11`, `2022` |
 
 #### Derived platforms
 

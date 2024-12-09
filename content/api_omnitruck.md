@@ -130,7 +130,7 @@ Omnitruck accepts the following platforms:
 <td>Windows</td>
 <td><code>windows</code></td>
 <td><code>x86_64</code>, <code>i386</code></td>
-<td><code>7</code>, <code>8</code>, <code>10</code>, <span class="title-ref">2008r2</span>, <code>2012</code>, <code>2012r2</code>, <code>2016</code>, <code>2019</code>, <code>11</code>, <code>2022</code></td>
+<td><code>10</code>, <span class="title-ref">2016</span>, <code>2019</code>, <code>11</code>, <code>2022</code></td>
 </tr>
 </tbody>
 </table>
