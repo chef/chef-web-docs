@@ -26,7 +26,7 @@ The `stable` and `current` release channels support the following package reposi
 - APT (Debian and Ubuntu platforms)
 - Yum (Enterprise Linux platforms)
 
-You can download Chef Software's GPG public key from [chefdownload-commercial.chef.io](https://chefdownload-commercial.chef.io/chef.asc).
+You can download Chef Software's GPG public key from [packages.chef.io](https://packages.chef.io/chef.asc).
 
 ### Debian / Ubuntu
 
@@ -41,13 +41,13 @@ To set up an APT package repository for Debian and Ubuntu platforms:
 1. Install the public key for Chef Software:
 
     ```bash
-    wget -qO - https://chefdownload-commercial.chef.io/chef.asc | sudo apt-key add -
+    wget -qO - https://packages.chef.io/chef.asc | sudo apt-key add -
     ```
 
 1. Create the APT repository source file:
 
     ```bash
-    echo "deb https://chefdownload-commercial.chef.io/repos/apt/<CHANNEL> <DISTRIBUTION> main" > chef-<CHANNEL>.list
+    echo "deb https://packages.chef.io/repos/apt/<CHANNEL> <DISTRIBUTION> main" > chef-<CHANNEL>.list
     ```
 
     Replace:
@@ -80,7 +80,7 @@ To set up a Yum package repository for Enterprise Linux platforms:
 1. Install the public key for Chef Software:
 
     ```bash
-    sudo rpm --import https://chefdownload-commercial.chef.io/chef.asc
+    sudo rpm --import https://packages.chef.io/chef.asc
     ```
 
 1. Create the Yum repository source file:
@@ -89,7 +89,7 @@ To set up a Yum package repository for Enterprise Linux platforms:
     cat >chef-<CHANNEL>.repo <<EOL
     [chef-<CHANNEL>]
     name=chef-<CHANNEL>
-    baseurl=https://chefdownload-commercial.chef.io/repos/yum/<CHANNEL>/el/<VERSION>/\$basearch/
+    baseurl=https://packages.chef.io/repos/yum/<CHANNEL>/el/<VERSION>/\$basearch/
     gpgcheck=1
     # No auto-upgrade, as there are manual steps needed for Chef Infra Server upgrades
     enabled=0
