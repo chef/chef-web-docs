@@ -28,7 +28,16 @@ Workstation to install Chef Infra Client on each node.
 
 ## Chef Infra Server
 
+### Hardware requirements
+
+Chef Infra Server has the following hardware requirements:
+
 {{< readfile file="content/server/reusable/md/system_requirements_server_hardware.md" >}}
+
+### Software requirements
+
+Chef Infra Server has the following software requirements:
+
 {{< readfile file="content/server/reusable/md/system_requirements_server_software.md" >}}
 
 ## Chef Infra Client
