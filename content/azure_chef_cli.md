@@ -240,7 +240,7 @@ The following options can be provided to the extension through the `protectedSet
 
 ### Examples
 
-The following examples show how Chef Infra Client can be installed and configured from an ARM template.
+The following examples show how you can install and configure Chef Infra Client from an ARM template.
 
 #### Install the Azure Chef extension on a Linux system
 
@@ -331,6 +331,6 @@ The following examples show how Chef Infra Client can be installed and configure
 
 {{< note >}}
 
-Here we're also base64 encoding our validator key which is a recommended approach when using the Azure Chef extension in an ARM template.
+In this example the validator key is base64 encoded, which is a recommended approach when using the Azure Chef extension in an ARM template.
 
 {{< /note >}}
