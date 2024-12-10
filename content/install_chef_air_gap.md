@@ -73,7 +73,7 @@ The install script should be accessible from your artifact store.
 
 In this section you'll install the Chef Infra Server, and create your
 organization and user. Note that to configure Supermarket later
-in this guide, you will need a user that is a member of the `admins`
+in this guide, you will need a user that's a member of the `admins`
 group.
 
 1. Download the package from [Chef Downloads](https://www.chef.io/downloads).
@@ -445,17 +445,17 @@ When the bootstrap operation is finished, do the following:
 
 To reach the newly spun up private Chef Supermarket, the hostname must
 be resolvable from a workstation. For production use, the hostname
-should have a DNS entry in an appropriate domain that is trusted by each
+should have a DNS entry in an appropriate domain that's trusted by each
 user's workstation.
 
 1. Visit the Chef Supermarket hostname in the browser. A private Chef
     Supermarket will generate and use a self-signed certificate, if a
-    certificate is not supplied as part of the installation process (using
+    certificate isn't supplied as part of the installation process (using
     the wrapper cookbook).
 1. If an SSL notice is shown due to your self-signed certificate while
     connecting to Chef Supermarket using a web browser, accept the SSL
     certificate. A trusted SSL certificate should be used for private
-    Chef Supermarket that is used in production.
+    Chef Supermarket that's used in production.
 1. After opening Chef Supermarket in a web browser, click the **Create
     Account** link. A prompt to log in to the Chef Infra Server is
     shown. Authorize the Chef Supermarket to use the Chef Infra Server
@@ -466,7 +466,7 @@ user's workstation.
 The redirect URL specified for Chef Identity **MUST** match the FQDN
 hostname of the Chef Supermarket server. The URI must also be correct:
 `/auth/chef_oauth2/callback`. Otherwise, an error message similar to
-`The redirect uri included is not valid.` will be shown.
+`The redirect uri included isn't valid.` will be shown.
 
 {{< /note >}}
 
