@@ -12,5 +12,5 @@ toc_layout = "release_notes_toc"
     title = "Chef Infra Server"
     identifier = "release_notes/release_notes_server.md Chef Infra Server"
     parent = "release_notes"
-    weight = 60
+    weight = 70
 +++

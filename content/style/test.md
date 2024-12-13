@@ -73,7 +73,19 @@ culpa qui officia deserunt mollit anim id est laborum.
 
 ## `readfile` shortcode
 
-Use the `readfile` shortcode to add files to a page. This could be Markdown text or a code sample.
+Use the `readfile` shortcode to add file text to a page. This could be Markdown text or a code sample.
+
+### Markdown
+
+It's default is to add a Markdown file to a page:
+
+```md
+{{</* readfile file="path/to/markdown.md" */>}}
+```
+
+### Code highlighting
+
+It handles code highlighting. See the [Hugo documentation](https://gohugo.io/content-management/syntax-highlighting/#list-of-chroma-highlighting-languages) for a full list of syntaxes that it can highlight.
 
 You can add a JSON file like this:
 
@@ -81,9 +93,53 @@ You can add a JSON file like this:
 {{</* readfile file="data/test/test.json" highlight="json" */>}}
 ```
 
-which will produce this:
+which produces this:
 
 {{< readfile file="data/test/test.json" highlight="json" >}}
+
+It also converts data between XML, JSON, YAML, and TOML if the highlight value is different from the file type. For example:
+
+```md
+{{</* readfile file="data/test/test.json" highlight="yaml" */>}}
+```
+
+Which produces this:
+
+{{< readfile file="data/test/test.json" highlight="yaml" >}}
+
+It converts the data to alphabetical order, there's no way to change this behavior.
+
+### Ordered list
+
+If adding file text to an ordered list, you have to format and indent it correctly or it won't display data correctly. Note the three spaces and Markdown shortcode style.
+
+```md
+1. A data file:
+
+   {{%/* readfile file="data/test/test.json" highlight="json" */%}}
+
+1. The same data file:
+
+   {{%/* readfile file="data/test/test.json" highlight="json" */%}}
+```
+
+Which produces the following:
+
+1. A data file:
+
+   {{% readfile file="data/test/test.json" highlight="json" %}}
+
+1. The same data file:
+
+   {{% readfile file="data/test/test.json" highlight="json" %}}
+
+### HTML
+
+You can use `html="true"` to add an HTML file:
+
+```md
+{{</* readfile file="path/to/html_file.html" html="true" */>}}
+```
 
 ## Lists
 

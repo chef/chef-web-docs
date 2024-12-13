@@ -95,16 +95,16 @@ The following table lists the commercially supported platforms and versions for 
 | AIX | `powerpc` | `7.1` (TL5 SP2 or higher, recommended), `7.2`, `7.3` |
 | Amazon Linux | `x86_64`, `aarch64` | `2.x`, `2023` |
 | CentOS | `x86_64`, `ppc64le`, `ppc64`, `aarch64` | `7.x` |
-| Debian | `x86_64`, `aarch64` | `10`, `11` |
+| Debian | `x86_64` | `10`, `11` |
 | FreeBSD | `amd64` | `13.x` |
 | macOS | `x86_64`, `aarch64` (M1 processors) | `12.x` |
 | Oracle Enterprise Linux | `x86_64`, `aarch64` | `7.x`, `8.x` |
 | Red Hat Enterprise Linux | `x86_64`, `ppc64le` (7.x only), `ppc64` (7.x only), `aarch64`, `s390x` (7.x / 8.x only) | `7.x`, `8.x`, `9.x` |
-| Rocky Linux | `x86_64`, `aarch64` | `8.x`, `9.x` |
+| Rocky Linux | `x86_64` | `8.x`, `9.x` |
 | Solaris | `sparc`, `i86pc` | `11.3` (16.17.4 and later only), `11.4`  |
 | SUSE Linux Enterprise Server | `x86_64`, `aarch64` (15.x only), `s390x` | `12`, `15` |
-| Ubuntu (LTS releases) | `x86_64`,`aarch64` | `16.04`, `18.04`, `20.04`, `22.04` |
-| Windows | `x86`, `x64` | `2012`, `2012 R2`, `2016`, `10` (all channels except "insider" builds), `2019` (Long-term servicing channel (LTSC), both Desktop Experience and Server Core), `11`, `2022` |
+| Ubuntu (LTS releases) | `x86_64`,`aarch64` (18.x and above) | `16.04`, `18.04`, `20.04`, `22.04` |
+| Windows | `x86_64` | `2016`, `10` (all channels except "insider" builds), `2019` (Long-term servicing channel (LTSC), both Desktop Experience and Server Core), `11`, `2022` |
 
 #### Derived platforms
 

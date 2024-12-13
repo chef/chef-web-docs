@@ -10,6 +10,23 @@ draft = false
     weight = 10
 +++
 
+## 20241210
+
+### New Features
+
+- CIS MSSQL Server v1.1.0 (Audits)
+- CIS REHL 9 v2.0.0 (Audits)
+- CIS Ubuntu 24.04 v1.0.0 (Audits)
+
+## 20241106
+
+### New Features
+
+- CIS Oracle Linux 9 v2.0.0(Audits)
+- CIS Debian Linux 12 v1.0.1(Audits)
+- CIS Debian Linux 11 v2.0.0(Audits)
+- CIS Windows Server 2022 v3.0.0(Audits)
+
 ## 20240910
 
 ### New Features
@@ -101,7 +118,7 @@ Added the following compliance profiles:
 - CIS Oracle MySQL Community Server 5.7 v2.0.0 (Audit).
 - CIS Azure Foundation v1.5.0 (Audit).
 - CIS Redhat Openshift v1.3.0 (Audit).
-- CIS IBM AIX 7.1 v2.0.0 (Audit).
+- CIS IBM AIX 7.1 v2.1.0 (Audit).
 - CIS RHEL 8 v2.0.0 (Audit).
 - CIS RHEL 9 v1.0.0 (Audit).
 

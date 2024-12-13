@@ -1,8 +1,6 @@
 #left-nav-on-canvas {
-  margin-top: .5rem;
-  padding: rem-calc(18 0);
+  margin: .5rem 1rem 0 0;
   z-index: 50;
-  width: 260px;
   box-shadow: none;
 }
 
@@ -23,6 +21,9 @@
       color:$orange-lighter;
     }
   }
+  #top-bar-close {
+    height: 25px;
+  }
 }
 
 .sidebar {
@@ -33,10 +34,10 @@
 
 #sidebar-nav{
   height: 100%;
-  z-index: 25;
+  padding: 0 10px;
   overflow-y: scroll;
   overflow-x: hidden;
-  margin: 0 10px;
+
   &.offCanvas{
     width: inherit;
   }
@@ -45,11 +46,10 @@
     margin-bottom: 30px;
 
     > .accordion-menu {
-      font-size: rem-calc(14px);
 
       > li {
         > a {
-          font-weight: 700;
+          font-weight: 600;
         }
 
         a {
@@ -60,6 +60,7 @@
           &:focus {
             outline: none;
           }
+          padding: .75rem 0 .75rem 1rem;
         }
       }
 

@@ -13,7 +13,7 @@ toc_layout = "release_notes_toc"
     title = "Chef Manage"
     identifier = "release_notes/release_notes_manage.md Chef Manage"
     parent = "release_notes"
-    weight = 90
+    weight = 95
 +++
 
 Chef Manage provides a web-based user interface that manages Chef Infra nodes and other policy objects, such as data bags and roles, on the instance of Chef Infra Server that it's installed on.
