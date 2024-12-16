@@ -227,7 +227,7 @@ When the default attribute precedence `node['foo']['bar']` is removed:
 node.rm_default('foo', 'bar') #=> {'baz' => 52, 'thing' => 'allthestuff'}
 ```
 
-What is left under `'foo'` is only `'bat'`:
+What's left under `'foo'` is only `'bat'`:
 
 ```ruby
 node.attributes.combined_default['foo'] #=> {'bat' => { 'things' => [5,6] } }

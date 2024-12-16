@@ -233,7 +233,7 @@ that behavior. The Community Advocate may:
 - Allow time for the violator to correct the behavior.
 
 The Community Advocate should take the following steps if the behavior
-is not brought in-line with our guidelines or the incident isn't
+isn't brought in-line with our guidelines or the incident isn't
 resolved:
 
 - Consult with another Community Organizer to make a judgment call

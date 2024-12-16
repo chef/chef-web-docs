@@ -92,9 +92,9 @@ end
 
 ## Library Resources/Providers
 
-Library resources are discouraged since you can shoot yourself in the foot. They used to be encouraged back before Chef Infra Client 12.0 `provides` was introduced since it allowed for renaming the resource so that it did not have to be prefixed by the cookbook name.
+Library resources are discouraged since you can shoot yourself in the foot. They used to be encouraged back before Chef Infra Client 12.0 `provides` was introduced since it allowed for renaming the resource so that it didn't have to be prefixed by the cookbook name.
 
-There are many ways to go wrong writing library providers. One of the biggest issues is that internal Chef Infra Client code superficially looks like a library provider, but it's not. Chef internal resources don't inherit from `LWRPBase` and we've had to manually create resources directly through `Chef::Resource::File.new()`, we also have not been able to `use_inline_resources` and not had access to other niceties that cookbook authors have had access to for years now. We've got some modernization of internal Chef cookbook code now and resources like `apt_update` and `apt_repository` in core have started to be written more like cookbook code should be written, but core resources are actually behind the curve and are bad code examples.
+There are many ways to go wrong writing library providers. One of the biggest issues is that internal Chef Infra Client code superficially looks like a library provider, but it's not. Chef internal resources don't inherit from `LWRPBase` and we've had to manually create resources directly through `Chef::Resource::File.new()`, we also haven't been able to `use_inline_resources` and not had access to other niceties that cookbook authors have had access to for years now. We've got some modernization of internal Chef cookbook code now and resources like `apt_update` and `apt_repository` in core have started to be written more like cookbook code should be written, but core resources are actually behind the curve and are bad code examples.
 
 in `libraries/resource_my_resource.rb`:
 
@@ -176,7 +176,7 @@ action :run do
 end
 ```
 
-That is the magic of `use_inline_resources` (and why `use_inline_resources` is turned on by default in Chef Infra Client 12.5 resources) The sub-resources are defined in a sub-resource collection which is compiled and converged as part of the provider executing. Any resources that update in the sub-resource collection cause the resource itself to be updated automatically. Notifications then fire normally off the resource. It also works to arbitrary levels of nesting of sub-sub-sub-resources being updating causing the wrapping resources to update and fire notifications.
+That's the magic of `use_inline_resources` (and why `use_inline_resources` is turned on by default in Chef Infra Client 12.5 resources) The sub-resources are defined in a sub-resource collection which is compiled and converged as part of the provider executing. Any resources that update in the sub-resource collection cause the resource itself to be updated automatically. Notifications then fire normally off the resource. It also works to arbitrary levels of nesting of sub-sub-sub-resources being updating causing the wrapping resources to update and fire notifications.
 
 This also gets the why-run case correct. If all the work that you do in your resource is done by calling sub-resources, then why-run should work automatically. All your sub-resources will be NO-OP'd and will report what they would have done instead of doing it.
 

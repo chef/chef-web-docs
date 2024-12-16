@@ -152,7 +152,7 @@ action :doit do
 end
 ```
 
-We are now enforcing this as the correct way to write resources.
+We're now enforcing this as the correct way to write resources.
 
 Note that this namespace collision between custom resources and
 subresources occurs with properties that aren't also being immediately

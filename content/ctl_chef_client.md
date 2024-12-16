@@ -687,9 +687,9 @@ Infra Client on a logical partition (LPAR). When the system process
 limits are too low, the Chef Infra Client won't be able to create
 threads. To increase the system process limits:
 
-1. Validate that the system process limits have not already been increased.
+1. Validate that the system process limits haven't already been increased.
 
-2. If they have not been increased, run the following commands as a root user:
+2. If they haven't been increased, run the following commands as a root user:
 
     ```bash
     chsec -f /etc/security/limits -s default -a "rss=-1"

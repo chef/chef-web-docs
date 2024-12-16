@@ -805,7 +805,7 @@ vulnerabilities:
 
 ### Habitat Packages
 
-We are now publishing Habitat packages for ChefDK 4. See
+We're now publishing Chef Habitat packages for ChefDK 4. See
 [chef/chef-dk](https://bldr.habitat.sh/#/pkgs/chef/chef-dk) on Habitat
 Depot for a complete list of available versions.
 
@@ -2251,7 +2251,7 @@ cookbook(s) given on the command line.
 
 ### Deprecations
 
-- `chef generate app` - Application repos were a pattern that did not
+- `chef generate app` - Application repos were a pattern that didn't
     take off.
 - `chef generate lwrp` - Use <span class="title-ref">chef generate
     resource</span>. Every supported release of Chef supports custom
@@ -2665,7 +2665,7 @@ cookbook(s) given on the command line.
 
 - **New tools bundled**
 
-    We are now shipping these tools as part of ChefDK:
+    We're now shipping these tools as part of ChefDK:
 
     - [kitchen-digitalocean](https://github.com/test-kitchen/kitchen-digitalocean)
     - [kitchen-google](https://github.com/test-kitchen/kitchen-google)
@@ -2831,7 +2831,7 @@ every version of Chef.
 
 The release of Foodcritic 11 also marks the creation of the Foodcritic
 org on [GitHub](https://github.com/foodcritic), which makes it easier to
-get involved in writing rules and contributing code. We are excited to
+get involved in writing rules and contributing code. We're excited to
 start building more of a community around Foodcritic, and can't wait to
 see what the community cooks up.
 

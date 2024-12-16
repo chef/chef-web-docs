@@ -9,7 +9,7 @@ aliases = "/deprecations_custom_resource_cleanups.html"
 
 +++
 
-We are continuously improving and streamlining the way custom resources
+We're continuously improving and streamlining the way custom resources
 work in Chef, to make it easier for cookbook authors and Chef developers
 to build resources.
 
@@ -39,7 +39,7 @@ Otherwise, remove the `default: nil` statement from the property.
 ## Invalid Defaults
 
 Current versions of Chef emit a warning when a property's default value
-is not valid. This is often because the type of the default value
+isn't valid. This is often because the type of the default value
 doesn't match the specification of the property. For example:
 
 ```ruby
