@@ -199,7 +199,7 @@ in the same manner as internal incidents.
 
 Any physical violence *or* intimidation, threatened or acted on, is a
 serious offense and will result in immediate exclusion from the
-community and appropriate follow up with law enforcement. No, we'ren't
+community and appropriate follow up with law enforcement. No, we're not
 kidding.
 
 ## Procedure for Handling Disagreements and Incidents
