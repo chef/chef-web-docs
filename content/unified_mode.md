@@ -22,7 +22,10 @@ product = ["client"]
 
 ## Unified Mode isolation
 
-If a Unified Mode resource calls a non-Unified Mode resource, the called resource is not executed in Unified Mode. Each resource maintains its own state whether it is in Unified Mode or not. You do not need to modify a custom resource that calls a Unified Mode resource since the calling context will not affect the resource's execution. Resources using Unified Mode may call resources not using Unified Mode and vice versa.
+If a Unified Mode resource calls a non-Unified Mode resource, the called resource isn't executed in Unified Mode.
+Each resource maintains its own state whether it's in Unified Mode or not.
+You don't need to modify a custom resource that calls a Unified Mode resource since the calling context won't affect the resource's execution.
+Resources using Unified Mode may call resources not using Unified Mode and vice versa.
 
 ## Benefits of Unified Mode
 
@@ -34,11 +37,12 @@ With the deferred execution of resources to converge time, the user has to under
 
 ### Elimination of lazy blocks
 
-Several aspects of the Chef Infra Language still work but are no longer necessary in Unified Mode. Unified Mode eliminates the need for lazy blocks and the need to lazy Ruby code through a Ruby block.
+Several aspects of the Chef Infra Language still work but are no longer necessary in Unified Mode.
+Unified Mode eliminates the need for lazy blocks and the need to lazy Ruby code through a Ruby block.
 
 ### Rescue blocks and other Ruby constructs work correctly
 
-In Unified Mode, it is now easy to write a rescue wrapper around a Chef Infra resource:
+In Unified Mode, it's now easy to write a rescue wrapper around a Chef Infra resource:
 
 ```ruby
 begin
@@ -118,7 +122,7 @@ action :install do
 
   # the downloading of this file acts as a guard for all the later
   # resources -- but if the download is successful while the later
-  # resources fail for some transient issue, will will not redownload on
+  # resources fail for some transient issue, will won't redownload on
   # the next run -- we lose our edge trigger.
   #
   remote_file "/tmp/redis-#{version}.tar.gz" do
@@ -150,7 +154,7 @@ end
 
 This simplified example shows how to trap exceptions from resources using normal Ruby syntax and to clean up the resource. Without Unified Mode, this syntax is impossible. Normally when the [execute]({{< relref "resources/execute" >}}) resources are parsed, they only create the objects in the `resource_collection` to later be evaluated so that no exception is thrown while Ruby is parsing the `action` block. Every action is delayed to the later converge phase. In Unified Mode, the resource runs when Ruby is done parsing its block, so exceptions happen in-line with Ruby parsing and the rescue clause now works as expected.
 
-This is useful because the TAR extraction throws an exception (for example, the node could be out of disk space), which deletes the TAR file. The next time Chef Infra Client runs, the TAR file will be redownload. If the resource did not have file cleanup after an exception, the TAR file would remain on the client node even though the resource is not complete and the extraction did not happen, leaving the resource in a broken, indeterminate state.
+This is useful because the TAR extraction throws an exception (for example, the node could be out of disk space), which deletes the TAR file. The next time Chef Infra Client runs, the TAR file will be redownload. If the resource did not have file cleanup after an exception, the TAR file would remain on the client node even though the resource isn't complete and the extraction did not happen, leaving the resource in a broken, indeterminate state.
 
 {{< readfile file="content/reusable/md/unified_mode_actions_later_resources.md" >}}
 

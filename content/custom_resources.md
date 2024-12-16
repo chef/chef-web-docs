@@ -36,7 +36,7 @@ Follow these steps to create a new custom resource:
 
 1. Generate a new custom resource.
 
-    The `resources` directory does not exist by default in a cookbook.
+    The `resources` directory doesn't exist by default in a cookbook.
     Generate the `resources` directory and a resource file from the `chef-repo/cookbooks` directory with the command:
 
     ```bash
@@ -140,7 +140,7 @@ where:
 - `site` is the name of the custom resource. The `provides` statement makes the custom resource available for use recipes.
 - `homepage` sets the default HTML for the `index.html` file with a default value of `'<h1>Hello world!</h1>'`
 - the `action` block uses the built-in collection of resources to tell Chef Infra Client how to install Apache, start the service, and then create the contents of the file located at `/var/www/html/index.html`
-- `action :create` is the default resource (because it is listed first); `action :delete` must be called specifically (because it is not the default action)
+- `action :create` is the default resource (because it's listed first); `action :delete` must be called specifically (because it's not the default action)
 
 Once written, you can use a custom resource in a recipe with the same syntax as Chef Infra Client built-in resources.
 
