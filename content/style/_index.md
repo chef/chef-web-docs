@@ -30,7 +30,7 @@ Our main repository for [docs.chef.io](https://docs.chef.io) is called [chef-web
 
 - The `chef-web-docs` repo contains a `content` directory which holds most the Markdown files in the doc set.
 - The `static/images` directory stores the image files used in the docs.
-- The `config.toml` tells Hugo how to build the navigation menus and contains other Hugo settings. don't modify this file.
+- The `config.toml` tells Hugo how to build the navigation menus and contains other Hugo settings. Don't modify this file.
 
 ### Repository locations
 

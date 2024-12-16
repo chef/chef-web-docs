@@ -39,7 +39,7 @@ Community members may fulfill many roles including mentoring, teaching,
 and connecting with other members of the community.
 
 Be careful in the words that you choose. Be kind to others. Practice
-empathy. don't insult or put down others. Remember that sexist, racist,
+empathy. Don't insult or put down others. Remember that sexist, racist,
 ableist, ageist, and other exclusionary jokes can be offensive to those
 around you. If you think your conversation is making another community
 member uncomfortable *or* if they tell you so, stop immediately, make
