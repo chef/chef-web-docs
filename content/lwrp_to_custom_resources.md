@@ -14,7 +14,7 @@ product = ["client", "workstation"]
 
 ## Overview
 
-It is no longer recommended to write resources in the __Light Weight Resource Provider (LWRP)__ format.
+It's no longer recommended to write resources in the __Light Weight Resource Provider (LWRP)__ format.
 
 This guide describes how to migrate from an existing LWRP to a Custom Resource.
 
@@ -39,7 +39,7 @@ These files are merged into one, and moved into the resources directory.
 
 ## Drop LWRP classes
 
-LWRPs used classes to separate Provider and Resource behaviors, but Custom Resources do not need this distinction. This means that we remove the class definitions in their entirety, as shown in the following example:
+LWRPs used classes to separate Provider and Resource behaviors, but Custom Resources don't need this distinction. This means that we remove the class definitions in their entirety, as shown in the following example:
 
 ```ruby
 #rvm/libraries/resource_rvm_ruby.rb
@@ -98,7 +98,7 @@ end
 
 ## Remove Attributes
 
-It is best practice to use properties to change the behavior of resources.
+It's best practice to use properties to change the behavior of resources.
 
 In the previous example example we used an attribute to change the `installer_url`.
 

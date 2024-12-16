@@ -3,8 +3,8 @@ The following example shows a series of fatal `Chef::Log` entries:
 ```ruby
 unless node['splunk']['upgrade_enabled']
   Chef::Log.fatal('The chef-splunk::upgrade recipe was added to the node,')
-  Chef::Log.fatal('but the attribute `node["splunk"]["upgrade_enabled"]` was not set.')
-  Chef::Log.fatal('I am bailing here so this node does not upgrade.')
+  Chef::Log.fatal('but the attribute `node["splunk"]["upgrade_enabled"]` wasn't set.')
+  Chef::Log.fatal('I am bailing here so this node doesn't upgrade.')
   raise
 end
 
@@ -32,7 +32,7 @@ if node['splunk']['accept_license']
   end
 else
   Chef::Log.fatal('You did not accept the license (set node["splunk"]["accept_license"] to true)')
-  Chef::Log.fatal('Splunk is stopped and cannot be restarted until the license is accepted!')
+  Chef::Log.fatal('Splunk is stopped and can't be restarted until the license is accepted!')
   raise
 end
 ```

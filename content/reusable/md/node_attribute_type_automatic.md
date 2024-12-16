@@ -1,3 +1,3 @@
-An `automatic` attribute contains data that is identified by Ohai at the
+An `automatic` attribute contains data that's identified by Ohai at the
 beginning of every Chef Infra Client run. An `automatic` attribute
-cannot be modified and always has the highest attribute precedence.
+can't be modified and always has the highest attribute precedence.

@@ -29,7 +29,7 @@ override_attributes(
 )
 ```
 
-But what if all of the web servers are not the same? What if some of the web servers required a single attribute to have a different value? You could store these settings in two locations, once just like the preceding example and once just like the following:
+But what if all of the web servers aren't the same? What if some of the web servers required a single attribute to have a different value? You could store these settings in two locations, once just like the preceding example and once just like the following:
 
 ```ruby
 override_attributes(
@@ -44,7 +44,7 @@ override_attributes(
 )
 ```
 
-But that is not efficient, especially because most of them are identical. The deep merge capabilities of Chef Infra Client allows attributes to be layered across cookbooks, recipes, roles, and environments. This allows an attribute to be reused across nodes, making use of default attributes set at the cookbook level, but also providing a way for certain attributes (with a higher attribute precedence) to be applied only when they are supposed to be.
+But that'sn't efficient, especially because most of them are identical. The deep merge capabilities of Chef Infra Client allows attributes to be layered across cookbooks, recipes, roles, and environments. This allows an attribute to be reused across nodes, making use of default attributes set at the cookbook level, but also providing a way for certain attributes (with a higher attribute precedence) to be applied only when they're supposed to be.
 
 For example, a role named `baseline.rb`:
 
@@ -115,7 +115,7 @@ to produce results like this:
          }
 ```
 
-Even though the `web.rb` file does not contain attributes and values for `minspareservers`, `maxspareservers`, `serverlimit`, `maxclients`, and `maxrequestsperchild`, the deep merge capabilities pulled them in.
+Even though the `web.rb` file doesn't contain attributes and values for `minspareservers`, `maxspareservers`, `serverlimit`, `maxclients`, and `maxrequestsperchild`, the deep merge capabilities pulled them in.
 
 ## Attribute Array Logic
 
@@ -153,7 +153,7 @@ role_or_environment 2 { :x => '1' , :y => '2' }
 { :x => '1', :y => '2' }
 ```
 
-When items cannot be merged through substitution, the original data is overwritten.
+When items can't be merged through substitution, the original data is overwritten.
 
 ### Addition
 

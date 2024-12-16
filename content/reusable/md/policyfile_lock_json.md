@@ -8,5 +8,5 @@ describes:
 - Attributes included with the Policyfile
 
 A `Policyfile.lock.json` file is associated with a specific policy
-group, which means it is associated with one (or more) nodes that use the same
+group, which means it's associated with one (or more) nodes that use the same
 revision of a given policy.

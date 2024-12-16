@@ -19,7 +19,7 @@ The following are prerequisites for migrating nodes from AWS OpsWorks to Chef Sa
 - A Chef SaaS environment must be configured. Refer to the [Getting Started with Chef SaaS](/saas/get_started/) page.
 - Restoration is performed on AWS OpsWorks for Chef SaaS.
 - Splay mode and baseline are up to two client runs an hour. Refer to the [Chef Infra Client](/ctl_chef_client/) page for more details on configuring splay mode in the `client.rb` file.
-- There must be one compliance scan per hour.
+- There must be one compliance scan each hour.
 
 ## Redirect nodes to Chef SaaS
 

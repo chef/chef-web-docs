@@ -120,7 +120,7 @@ that:
 
 ### Download
 
-To download a cookbook when git is not used for version source control,
+To download a cookbook when git isn't used for version source control,
 run the following command:
 
 ```bash

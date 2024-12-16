@@ -1,4 +1,4 @@
-Search indexes allow queries to be made for any type of data that is
+Search indexes allow queries to be made for any type of data that's
 indexed by the Chef Infra Server, including data bags (and data bag
 items), environments, nodes, and roles. A defined query syntax is used
 to support search patterns like exact, wildcard, range, and fuzzy. A

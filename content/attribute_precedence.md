@@ -29,7 +29,7 @@ The attribute precedence order for the sources "roles" and "environments" are op
 Applying the role `override` first lets you use the same role in a set of environments.
 Applying the environment `override` on top of the role `override` lets you define a subset of these with environment-specific settings.
 
-This is useful if you have an environment that is different within a sub-set of a role. For example, the role for an application server may exist in all environments, but one environment may use a different database server.
+This is useful if you have an environment that's different within a sub-set of a role. For example, the role for an application server may exist in all environments, but one environment may use a different database server.
 
 {{< /note >}}
 
@@ -211,7 +211,7 @@ node.default['foo'] = {
 And some role attributes:
 
 ```ruby
-# Please do not ever do this in real code :)
+# Please don't ever do this in real code :)
 node.role_default['foo']['bar']['thing'] = 'otherstuff'
 ```
 
@@ -252,7 +252,7 @@ node.default['foo'] = {
 And some role attributes:
 
 ```ruby
-# Please do not ever do this in real code :)
+# Please don't ever do this in real code :)
 node.role_default['foo']['bar']['thing'] = 'otherstuff'
 ```
 
@@ -425,7 +425,7 @@ Given the following code structure:
 
 ```ruby
 node.default['foo']['bar'] = {'a' => 'b'}
-# Please do not ever do this in real code :)
+# Please don't ever do this in real code :)
 node.role_default['foo']['bar'] = {'c' => 'd'}
 node.default!['foo']['bar'] = {'d' => 'e'}
 ```
@@ -443,7 +443,7 @@ Given the following code structure:
 
 ```ruby
 node.default['foo']['bar'] = {'a' => 'b'}
-# Please do not ever do this in real code :)
+# Please don't ever do this in real code :)
 node.role_default['foo']['bar'] = {'c' => 'd'}
 node.force_default!['foo']['bar'] = {'d' => 'e'}
 ```
@@ -473,7 +473,7 @@ node.default['foo'] = {
 And some attributes:
 
 ```ruby
-# Please do not ever do this in real code :)
+# Please don't ever do this in real code :)
 node.role_default['foo']['bar']['baz'] = 55
 node.force_default['foo']['bar']['baz'] = 66
 ```

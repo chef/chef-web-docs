@@ -1,7 +1,7 @@
 An automatic attribute is a specific detail about a node, such as an IP
 address, a host name, a list of loaded kernel modules, and so on.
 Automatic attributes are detected by Ohai and are then used by Chef
-Infra Client to ensure that they are handled properly during every Chef
+Infra Client to ensure that they're handled properly during every Chef
 Infra Client run. The most commonly accessed automatic attributes are:
 
 <table>
@@ -30,7 +30,7 @@ Infra Client run. The most commonly accessed automatic attributes are:
 </tr>
 <tr>
 <td><code>node['ipaddress']</code></td>
-<td>The IP address for a node. If the node has a default route, this is the IPV4 address for the interface. If the node does not have a default route, the value for this attribute should be <code>nil</code>. The IP address for default route is the recommended default value.</td>
+<td>The IP address for a node. If the node has a default route, this is the IPV4 address for the interface. If the node doesn't have a default route, the value for this attribute should be <code>nil</code>. The IP address for default route is the recommended default value.</td>
 </tr>
 <tr>
 <td><code>node['macaddress']</code></td>
@@ -58,7 +58,7 @@ Infra Client run. The most commonly accessed automatic attributes are:
 </tr>
 <tr>
 <td><code>node['ohai_time']</code></td>
-<td>The time at which Ohai was last run. This attribute is not commonly used in recipes, but it is saved to the Chef Infra Server and can be accessed using the <code>knife status</code> subcommand.</td>
+<td>The time at which Ohai was last run. This attribute isn't commonly used in recipes, but it's saved to the Chef Infra Server and can be accessed using the <code>knife status</code> subcommand.</td>
 </tr>
 </tbody>
 </table>

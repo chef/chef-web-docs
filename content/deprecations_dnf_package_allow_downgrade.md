@@ -8,9 +8,9 @@ sitemapExclude = true
 aliases = "/deprecations_dnf_package_allow_downgrade.html"
 +++
 
-The underlying `dnf` command in Red Hat based operating systems does not
+The underlying `dnf` command in Red Hat based operating systems doesn't
 require `--allow-downgrade` like the previous `yum` command did. This
-property does not affect the `dnf_resource` resource execution and
+property doesn't affect the `dnf_resource` resource execution and
 should be removed.
 
 ## Remediation

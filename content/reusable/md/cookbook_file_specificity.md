@@ -61,7 +61,7 @@ end
 ```
 
 This resource is matched in the same order as the `/files` directory
-structure. For a node that is running Ubuntu 20.04, the second item
+structure. For a node that's running Ubuntu 20.04, the second item
 would be the matching item and the location to which the file identified
 in the **cookbook_file** resource would be distributed:
 

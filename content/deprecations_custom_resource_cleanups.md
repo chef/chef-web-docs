@@ -20,14 +20,14 @@ releases.
 
 In current versions of Chef, `nil` was often used to mean that a
 property had no good default, and needed to be set by the user. However,
-it is often to useful to set a property to `nil`, meaning that it is not
-set and should be ignored. In Chef Infra Client 13, it is an error to set
-`default: nil` on a property if that property does not allow `nil` as a
+it's often to useful to set a property to `nil`, meaning that it's not
+set and should be ignored. In Chef Infra Client 13, it's an error to set
+`default: nil` on a property if that property doesn't allow `nil` as a
 valid value.
 
 ### Remediation
 
-If it is valid for the property to be set to nil, then update the
+If it's valid for the property to be set to nil, then update the
 property to include that.
 
 ```ruby
@@ -40,7 +40,7 @@ Otherwise, remove the `default: nil` statement from the property.
 
 Current versions of Chef emit a warning when a property's default value
 is not valid. This is often because the type of the default value
-does not match the specification of the property. For example:
+doesn't match the specification of the property. For example:
 
 ```ruby
 property :my_property, [ String ], default: []
@@ -83,8 +83,8 @@ otherwise specified), but not both.
 ## Overriding provides?
 
 Some providers override the `provides?` method, used to check whether
-they are a valid provider on the current platform. In Chef Infra Client 13,
-this will cause an error if the provider does not also register
+they're a valid provider on the current platform. In Chef Infra Client 13,
+this will cause an error if the provider doesn't also register
 themselves with the `provides` call.
 
 ### Example
@@ -105,13 +105,13 @@ def provides?
 end
 ```
 
-## do not use the updated method
+## don't use the updated method
 
 The `updated=(true_or_false)` method is deprecated and will be removed
 from Chef Infra Client 13. This method never performed its intended job, as
 notifications from the resource would not fire, and in general its use
 has always been buggy. The Chef Infra Client notification code checks
-`updated_by_last_action?` instead, so setting that is recommended as a
+`updated_by_last_action?` instead, so setting that's recommended as a
 substitute. See the
 [updated_by_last_action](/custom_resources_notes/#updated-by-last-action)
 documentation for more information.
@@ -142,7 +142,7 @@ action :foo do
 end
 ```
 
-## do not use the dsl_name method
+## don't use the dsl_name method
 
 The `dsl_name` method is deprecated and will be removed from Chef Infra Client. It has been replaced by `resource_name`.
 
@@ -158,10 +158,10 @@ my_resource = MyResource.dsl_name
 my_resource = MyResource.resource_name
 ```
 
-## do not use the provider_base method
+## don't use the provider_base method
 
 The `Resource.provider_base` allows the developer to specify an
 alternative module to load providers from, rather than `Chef::Provider`.
-It is deprecated and will be removed in Chef Infra Client 13. Instead, the
+It's deprecated and will be removed in Chef Infra Client 13. Instead, the
 provider should call `provides` to register itself, or the resource
 should call `provider` to specify the provider to use.

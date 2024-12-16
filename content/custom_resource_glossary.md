@@ -524,7 +524,7 @@ provides :custom_resource_name, platform_family: 'rhel'
 # Provide custom_resource_name to all linux machines
 provides :custom_resource_name, os: 'linux'
 
-# Provide custom_resource_name, useful if your resource file is not named the same as the resource you want to provide
+# Provide custom_resource_name, useful if your resource file isn't named the same as the resource you want to provide
 provides :custom_resource_name
 ```
 

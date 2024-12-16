@@ -27,7 +27,7 @@ This page mentions multiple ways of building custom resources. Chef Software rec
 This is the recommended way of writing resources for all users. There are two gotchas which we're working through:
 
 1. For helper functions that you used to write in your provider code or used to mixin to your provider code, you have to use an `action_class do ... end` block.
-1. You cannot subclass, and must use mixins for code-sharing (which is really a best practice anyway -- for example, see languages like rust which do not support sub-classing).
+1. You can't subclass, and must use mixins for code-sharing (which is really a best practice anyway -- for example, see languages like rust which don't support sub-classing).
 
 in `resources/whatever.rb`:
 
@@ -57,7 +57,7 @@ end
 
 ## "Old school" LWRPS
 
-This method is not recommended, but is preferable to writing library resources/providers (as described below). It has the same functionality as library providers, only you cannot subclass and must use mixins for code sharing (which is good).
+This method isn't recommended, but is preferable to writing library resources/providers (as described below). It has the same functionality as library providers, only you can't subclass and must use mixins for code sharing (which is good).
 
 in `resources/my_resource.rb`:
 
@@ -94,14 +94,14 @@ end
 
 Library resources are discouraged since you can shoot yourself in the foot. They used to be encouraged back before Chef Infra Client 12.0 `provides` was introduced since it allowed for renaming the resource so that it did not have to be prefixed by the cookbook name.
 
-There are many ways to go wrong writing library providers. One of the biggest issues is that internal Chef Infra Client code superficially looks like a library provider, but it is not. Chef internal resources do not inherit from `LWRPBase` and we have had to manually create resources directly through `Chef::Resource::File.new()`, we also have not been able to `use_inline_resources` and not had access to other niceties that cookbook authors have had access to for years now. We have got some modernization of internal Chef cookbook code now and resources like `apt_update` and `apt_repository` in core have started to be written more like cookbook code should be written, but core resources are actually behind the curve and are bad code examples.
+There are many ways to go wrong writing library providers. One of the biggest issues is that internal Chef Infra Client code superficially looks like a library provider, but it's not. Chef internal resources don't inherit from `LWRPBase` and we've had to manually create resources directly through `Chef::Resource::File.new()`, we also have not been able to `use_inline_resources` and not had access to other niceties that cookbook authors have had access to for years now. We've got some modernization of internal Chef cookbook code now and resources like `apt_update` and `apt_repository` in core have started to be written more like cookbook code should be written, but core resources are actually behind the curve and are bad code examples.
 
 in `libraries/resource_my_resource.rb`:
 
 ```ruby
 class MyBaseClass
   class Resource
-    class MyResource < Chef::Resource::LWRPBase # it is important to inherit from LWRPBase
+    class MyResource < Chef::Resource::LWRPBase # it's important to inherit from LWRPBase
       resource_name :my_resource
       provides :my_resource
 
@@ -117,7 +117,7 @@ in `libraries/resource_my_resource.rb`:
 ```ruby
 class MyBaseClass
   class Resource
-    class MyProvider < Chef::Provider::LWRPBase # it is important to inherit from LWRPBase
+    class MyProvider < Chef::Provider::LWRPBase # it's important to inherit from LWRPBase
       # you have to worry about this
       def whyrun_supported?
         true
@@ -129,8 +129,8 @@ class MyBaseClass
       end
 
       # NEVER use `def action_run` here -- you defeat use_inline_resources and will break notifications if you do
-      # If you do not understand how use_inline_resources is built and why you have to use the `action` method, and what the implications are and how resource notifications
-      # break if use_inline_resources is not used and/or is broken, then you should really not be using library providers+resources. You might feel "closer to the metal",
+      # If you don't understand how use_inline_resources is built and why you have to use the `action` method, and what the implications are and how resource notifications
+      # break if use_inline_resources isn't used and/or is broken, then you should really not be using library providers+resources. You might feel "closer to the metal",
       # but you're now using a chainsaw without any guard...
       action :run do
         a_helper()
@@ -196,9 +196,9 @@ action :run do
 end
 ```
 
-When the `converge_by` block is run in why-run mode, it will only log `touch "/tmp/foo"` and will not run the code inside the block.
+When the `converge_by` block is run in why-run mode, it will only log `touch "/tmp/foo"` and won't run the code inside the block.
 
-A `converge_by` block that is not wrapped in an idempotency check will always cause the resource to be updated, and will always cause notifications to fire. To prevent this, a properly written resource should wrap all `converge_by` checks with an idempotency check. The [`converge_if_changed`]({{< relref "custom_resources.md#converge_if_changed" >}}) block may be used instead which will wrap a `converge_by` block with an idempotency check for you.
+A `converge_by` block that'sn't wrapped in an idempotency check will always cause the resource to be updated, and will always cause notifications to fire. To prevent this, a properly written resource should wrap all `converge_by` checks with an idempotency check. The [`converge_if_changed`]({{< relref "custom_resources.md#converge_if_changed" >}}) block may be used instead which will wrap a `converge_by` block with an idempotency check for you.
 
 ```ruby
 action :run do
@@ -212,7 +212,7 @@ action :run do
 end
 ```
 
-Of course it is simpler to just use Chef Infra Client resources when you can. Compare the equivalent implementations:
+Of course it's simpler to just use Chef Infra Client resources when you can. Compare the equivalent implementations:
 
 ```ruby
 action :run do

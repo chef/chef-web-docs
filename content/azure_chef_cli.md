@@ -29,7 +29,7 @@ machines in Microsoft Azure.
 ### get-chef
 
 Use the `get-chef` command to get the details for the Azure Chef
-Extension that is running on the named virtual machine.
+Extension that's running on the named virtual machine.
 
 #### Syntax
 
@@ -78,7 +78,7 @@ This command has the following options:
 
 `-j JSON`, `--bootstrap-options JSON`
 
-: A JSON string that is added to the first run of a Chef Infra Client.
+: A JSON string that's added to the first run of a Chef Infra Client.
   For example:
 
   ```bash
@@ -208,7 +208,7 @@ The extension has the following options that can be provided in the
 
 `secret`
 
-: The encryption key that is used for values contained within a data bag item.
+: The encryption key that's used for values contained within a data bag item.
 
 `validation_client_name`
 

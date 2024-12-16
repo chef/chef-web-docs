@@ -51,10 +51,10 @@ end
 
 In some edge cases, this deprecation warning may mention that the
 property should be referred to as `current_resource.property_name`
-instead of `new_resource.property_name`, which is not a mistake; the
+instead of `new_resource.property_name`, which isn't a mistake; the
 user should instead use the `current_resource.property_name` to preserve
 prior behavior, or should modify their code to explicitly check the
-`current_resource` if the `new_resource` is not set. There are several
+`current_resource` if the `new_resource` isn't set. There are several
 possible remediations to this in the order of least complicated to the
 most compatible with the old behavior, and the user will need to select
 what works best for their use case:
@@ -67,22 +67,22 @@ content_to_set = new_resource.property_is_set?(:property_name) ? new_resource.pr
 
 Unfortunately, if you were reliant upon the old code's automatic
 switching between the `new_resource` and `current_resource` you will
-need to be explicit. Most users, however, were not aware that this was
+need to be explicit. Most users, however, weren't aware that this was
 occurring and moving that uncommon logic explicitly into the action code
-will produce more comprehensible code that is less reliant on subtle
+will produce more comprehensible code that's less reliant on subtle
 tricks of the API.
 
-It is also entirely possible that the access of the `current_resource`
+It's also entirely possible that the access of the `current_resource`
 was never intended by the user. If this behavior was undesired, the
 correct remediation would be to simply access the property through the
-`new_resource.property_name`. We cannot determine and accurately report
+`new_resource.property_name`. We can't determine and accurately report
 to the user when this deprecation message is incorrect, we can only
 report on compatible behavior. The suggestion of the deprecation warning
 to access the property through `current_resource.property_name` may be
-incorrect, and it is up to the discretion of the user to choose the
+incorrect, and it's up to the discretion of the user to choose the
 appropriate remediation for their needs.
 
-The fact that this is confusing behavior to explain is why it is being
+The fact that this is confusing behavior to explain is why it's being
 removed.
 
 ## Rationale
@@ -140,7 +140,7 @@ is being accessed outside of the file resource scope so it acquires it
 from the `new_resource` implicitly (in Chef Infra Client 12.5.1 and Chef
 Client 13.x)
 
-The way to remediate that is by specifying the `new_resource`:
+The way to remediate that's by specifying the `new_resource`:
 
 ```ruby
 property :content, String
@@ -155,7 +155,7 @@ end
 We are now enforcing this as the correct way to write resources.
 
 Note that this namespace collision between custom resources and
-subresources occurs with properties that are not also being immediately
+subresources occurs with properties that aren't also being immediately
 used, and so this fails as well:
 
 ```ruby
@@ -191,7 +191,7 @@ property :spiffyness, String
 
 action :doit do
   file '/tmp/file.xy' do
-    content new_resource.spiffyness # we are always referring to the outer custom resource's spiffiness property
+    content new_resource.spiffyness # we're always referring to the outer custom resource's spiffiness property
   end
 end
 ```

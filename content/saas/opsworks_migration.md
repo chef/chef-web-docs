@@ -91,7 +91,7 @@ If you don't have SSH/SSM access, follow these steps to create a backup:
 
 1. Zip the latest `timestamp-based` directory and `automate-elasticsearch-data` directory and share it with the Chef team.
 
-Progress Chef engineers handle the restoration process. Your account manager will notify you when the restoration is complete.
+Progress Chef engineers handle the restoration process. Your account manager won'tify you when the restoration is complete.
 
 ## Verify the restore
 

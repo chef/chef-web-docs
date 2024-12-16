@@ -37,13 +37,13 @@ department.
 
 You will only need to enable FIPS if you are a US non-military
 government agency, or contracting with one, and you are contractually
-obligated to meet federal government security standards. If you are not
-a US non-military governmental agency, or you are not contracting with
-one, and you are not contractually obligated to meet federal government
-security standards, then do not enable FIPS. Chef products have robust
+obligated to meet federal government security standards. If you aren't
+a US non-military governmental agency, or you aren't contracting with
+one, and you aren't contractually obligated to meet federal government
+security standards, then don't enable FIPS. Chef products have robust
 security standards even without FIPS, and FIPS prevents the use of
 certain hashing algorithms you might want to use, so we only recommend
-enabling FIPS if it is contractually necessary.
+enabling FIPS if it's contractually necessary.
 
 ## Supported Products
 
@@ -55,7 +55,7 @@ enabling FIPS if it is contractually necessary.
 
 **Unsupported:**
 
-FIPS mode is not supported for Chef Infra Server add-ons. This includes Chef Manage.
+FIPS mode isn't supported for Chef Infra Server add-ons. This includes Chef Manage.
 
 ## How to Enable FIPS Mode in the Operating System
 

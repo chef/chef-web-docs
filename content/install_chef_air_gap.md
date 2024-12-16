@@ -186,7 +186,7 @@ custom template, and then modify the package and Ruby gem sources.
     ```
 
     This appends the appropriate `rubygems_url` setting to the
-    `/etc/chef/client.rb` file that is created during bootstrap, which
+    `/etc/chef/client.rb` file that's created during bootstrap, which
     ensures that your nodes use your internal gem mirror.
 
 ### Configure knife
@@ -336,8 +336,8 @@ and then reference them from the recipe. For example, the data bag could
 be named `apps` and then a data bag item within the data bag could be
 named `supermarket`. The following attributes are required:
 
-- `chef_server_url`: the url for your chef server.
-- `chef_oauth2_app_id`: the Chef Identity uid from
+- `chef_server_url`: the URL of your Chef Infra Server.
+- `chef_oauth2_app_id`: the Chef Identity UID from
     `/etc/opscode/oc-id-applications/supermarket.json`
 - `chef_oauth2_secret`: The Chef Identity secret from
     `/etc/opscode/oc-id-applications/supermarket.json`

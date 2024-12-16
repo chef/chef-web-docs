@@ -73,7 +73,7 @@ the node, such as a network interface, a file system, the number of
 clients a service running on a node is capable of accepting, and so on.
 A run-list is an ordered list of recipes and/or roles that are run in an
 exact order. The node object consists of the run-list and node
-attributes, which is a JSON file that is stored on the Chef Infra
+attributes, which is a JSON file that's stored on the Chef Infra
 Server. Chef Infra Client gets a copy of the node object from the Chef
 Infra Server during each Chef Infra Client run and places an updated
 copy on the Chef Infra Server at the end of each Chef Infra Client run.
@@ -111,7 +111,7 @@ attributes from the attribute file, and the attributes set by the role
 will take precedence over the attributes specified in the cookbook's
 attribute files.
 
-See [Attributes](/attributes) for detailed information on the different types of node attributes and how they are used to set policy on nodes.
+See [Attributes](/attributes) for detailed information on the different types of node attributes and how they're used to set policy on nodes.
 
 ### Run-lists
 
@@ -128,4 +128,4 @@ You can manage nodes directly using Knife, Chef Automate, or by using command-li
 - [Knife](/workstation/knife/) can be used to create, edit, view, list, tag, and delete nodes.
 - Knife plug-ins can be used to create, edit, and manage nodes that are located on cloud providers.
 - Chef Infra Client can be used to manage node data using the command line and JSON files. Each JSON file contains a hash, the elements of which are added as node attributes. In addition, the `run_list` setting allows roles and/or recipes to be added to the node.
-- The command line can also be used to edit JSON files and files that are related to third-party services, such as Amazon EC2, where the JSON files can contain metadata fore each instance that is stored in a file on-disk and then read by Chef Infra Client as required.
+- The command line can also be used to edit JSON files and files that are related to third-party services, such as Amazon EC2, where the JSON files can contain metadata fore each instance that's stored in a file on-disk and then read by Chef Infra Client as required.

@@ -1,7 +1,7 @@
 This section contains a more detailed example of how Chef Infra Client
 manages recursive directory structures:
 
-- A cookbook named `cumbria` that is used to build a website
+- A cookbook named `cumbria` that's used to build a website
 - A subfolder in the `/files/default` directory named `/website`
 - A file named `index.html`, which is the root page for the website
 - Directories within `/website` named `/cities`, `/places`, and

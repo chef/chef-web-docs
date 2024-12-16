@@ -19,7 +19,7 @@ We're glad you want to contribute to a Chef project! This guide will help answer
 
 Not every contribution comes in the form of code. Submitting, confirming, and triaging issues is an important task for any project. At Chef we use GitHub to track all project issues.
 
-If you are familiar with Chef projects and know the component that is causing you a problem, you can file an issue in the corresponding GitHub project. All of our Open Source Software can be found in our GitHub organizations. All projects include GitHub issue templates to help gather information needed for a thorough review. The Chef GitHub organizations are:
+If you are familiar with Chef projects and know the component that's causing you a problem, you can file an issue in the corresponding GitHub project. All of our Open Source Software can be found in our GitHub organizations. All projects include GitHub issue templates to help gather information needed for a thorough review. The Chef GitHub organizations are:
 
 * [https://github.com/chef](https://github.com/chef)
 * [https://github.com/inspec](https://github.com/inspec)
@@ -43,13 +43,13 @@ If you require a response from Chef for each the terms of a support level agreem
 
 {{< note >}}
 
-Questions on how to use Chef Infra should be sent as Support Tickets if you have an SLA, or asked on the [Chef Software Mailing List](https://discourse.chef.io/), or [Chef Community Slack](https://community-slack.chef.io/). Bug Trackers are not appropriate for general purpose questions that are not bugs.
+Questions on how to use Chef Infra should be sent as Support Tickets if you have an SLA, or asked on the [Chef Software Mailing List](https://discourse.chef.io/), or [Chef Community Slack](https://community-slack.chef.io/). Bug Trackers aren't appropriate for general purpose questions that aren't bugs.
 
 {{< /note >}}
 
 ## Contribution Process
 
-We have a 4 step process for contributions:
+We have a four step process for contributions:
 
 1. Fork the project repository to your own GitHub account.
 2. Commit your changes to your fork, making sure to sign-off those changes for the Developer Certificate of Origin with `git commit -s`
@@ -74,14 +74,14 @@ It requires you to:
 
 * include a copy of the license in any redistribution you may make that includes Chef software;
 * provide clear attribution to Chef for any distributions that include Chef software; attribution can be done in the NOTICE file for an application, by adding yourself as an author/copyright holder to the HEADER for an individual file, and by placing text in a header file saying that new work is based on previous work
-* reuse work as long as the licensing terms of the reused work remains unchanged (that is, the Apache License Version 2 also applies to the reused work)
+* reuse work as long as the licensing terms of the reused work remains unchanged (that's, the Apache License Version 2 also applies to the reused work)
 
-It does not require you to:
+It doesn't require you to:
 
 * include the source of the Chef software itself, or of any modifications you may have made to it, in any redistribution you may assemble that includes it;
 * submit changes that you make to the software back to Chef (though such feedback is encouraged).
 
-It is our goal to run a successful, truly open source business. To that end, we are protecting our own rights by making them explicit in our choice of licensing: you have the same rights to our open source software that we do.
+It's our goal to run a successful, truly open source business. To that end, we're protecting our own rights by making them explicit in our choice of licensing: you have the same rights to our open source software that we do.
 
 ## Developer Certification of Origin (DCO)
 
@@ -118,11 +118,11 @@ By making a contribution to this project, I certify that:
     involved.
 ```
 
-Chef does not merge any pull requests made against a Chef-managed open source repository until each commit has been signed for the DCO, with three exceptions:
+Chef doesn't merge any pull requests made against a Chef-managed open source repository until each commit has been signed for the DCO, with three exceptions:
 
 * "Obvious Fixes" (as described below)
 * Pull requests made against the docs.chef.io documentation repository (<https://github.com/chef/chef-web-docs>)
-* Pull requests that contain only documentation updates made against projects where the documentation is embedded in the project's repository (that is, the `docs` directory in the `chef/inspec` repository)
+* Pull requests that contain only documentation updates made against projects where the documentation is embedded in the project's repository (that's, the `docs` directory in the `chef/inspec` repository)
 
 ## The "Obvious Fix" Rule
 
@@ -130,7 +130,7 @@ Chef's contribution policy is aimed at encouraging broad participation from our 
 
 As a general standard, Chef requires every contribution to by signed for the Developer Certificate of Origin (DCO).
 
-HOWEVER, small contributions such as fixing spelling errors, where the content is small enough to not be considered intellectual property, can be submitted by a contributor as a patch, without a DCO sign-off. If you submit an obvious fix without a DCO sign-off, then you are agreeing that your submission is not independently copyrightable. The purpose of this exception is to lower the barrier for new contributors to make contributions while retaining the integrity of the project and our community.
+HOWEVER, small contributions such as fixing spelling errors, where the content is small enough to not be considered intellectual property, can be submitted by a contributor as a patch, without a DCO sign-off. If you submit an obvious fix without a DCO sign-off, then you are agreeing that your submission isn't independently copyrightable. The purpose of this exception is to lower the barrier for new contributors to make contributions while retaining the integrity of the project and our community.
 
 ### How does the Obvious Fix Rule Work?
 
@@ -153,9 +153,9 @@ Date:   Wed Sep 18 11:44:40 2015 -0700
 
 ### What qualifies as an Obvious Fix?
 
-An obvious fix is a pull request that does not contain creative work. We rely on your judgment to determine what is "obvious"; if you're not sure, just ask by sending an email to: oss AT getchef DOT com.
+An obvious fix is a pull request that doesn't contain creative work. We rely on your judgment to determine what's "obvious"; if you're not sure, just ask by sending an email to: oss AT getchef DOT com.
 
-As a rule of thumb, changes are obvious fixes if they do not introduce any new functionality or creative thinking. As long as the change does not affect functionality, some likely examples include the following:
+As a rule of thumb, changes are obvious fixes if they don't introduce any new functionality or creative thinking. As long as the change doesn't affect functionality, some likely examples include the following:
 
 * Spelling/grammar fixes;
 * Correcting typos;

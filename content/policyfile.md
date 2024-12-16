@@ -35,7 +35,7 @@ Policyfile focuses that workflow onto the entire system, rather than the individ
 
 ### Safer Workflows
 
-Policyfile encourages safer workflows by making it easier to publish development versions of cookbooks to the Chef Infra Server without the risk of mutating the production versions and without requiring a complicated versioning scheme to work around cookbook mutability issues. Roles are mutable and those changes are applied only to the nodes specified by the policy. Policyfile does not require any changes to your normal workflows. Use the same repositories you are already using, the same cookbooks, and workflows. Policyfile will prevent an updated cookbook or role from being applied immediately to all machines.
+Policyfile encourages safer workflows by making it easier to publish development versions of cookbooks to the Chef Infra Server without the risk of mutating the production versions and without requiring a complicated versioning scheme to work around cookbook mutability issues. Roles are mutable and those changes are applied only to the nodes specified by the policy. Policyfile doesn't require any changes to your normal workflows. Use the same repositories you are already using, the same cookbooks, and workflows. Policyfile will prevent an updated cookbook or role from being applied immediately to all machines.
 
 ### Code Visibility
 
@@ -49,13 +49,13 @@ When running Chef Infra without a Policyfile, the exact set of cookbooks that ar
 
 These conditions are re-evaluated every time Chef Infra Client runs, which can make it harder to know which cookbooks will be run by Chef Infra Client or what the effects of updating a role or uploading a new cookbook will be.
 
-Policyfile simplifies this behavior by computing the cookbook set on the workstation, and then producing a readable document of that solution: a `Policyfile.lock.json` file. This pre-computed file is uploaded to the Chef Infra Server, and is then used in each Chef Infra Client run that is managed by that particular policy name and policy group.
+Policyfile simplifies this behavior by computing the cookbook set on the workstation, and then producing a readable document of that solution: a `Policyfile.lock.json` file. This pre-computed file is uploaded to the Chef Infra Server, and is then used in each Chef Infra Client run that's managed by that particular policy name and policy group.
 
 ### Less Expensive Computation
 
 When running Chef Infra without Policyfile, the Chef Infra Server loads dependency data for all known versions of all known cookbooks, and then runs an expensive computation to determine the correct set.
 
-Policyfile moves this computation to the workstation, where it is done less frequently.
+Policyfile moves this computation to the workstation, where it's done less frequently.
 
 ### Role and Environment Mutability
 
@@ -65,13 +65,13 @@ Policyfile effectively replaces roles and environments. Policyfile files are ver
 
 ### Cookbook Mutability
 
-When running Chef without Policyfile, existing versions of cookbooks are mutable. This is convenient for many use cases, especially if users upload in-development cookbook revisions to the Chef Infra Server. But this sometimes creates issues that are similar to role mutability by allowing those cookbook changes to be applied immediately to nodes that use that cookbook. Users account for this by rigorous testing processes to ensure that only fully integrated cookbooks are ever published. This process does enforce good development habits, but at the same time it should not be a required part of a workflow that ends with publishing an in-development cookbook to the Chef Infra Server for testing against real nodes. Policyfile solves this issue by using a cookbook publishing API for the Chef Infra Server that does not provide cookbook mutability. Name collisions are prevented by storing cookbooks by name and an opaque identifier that is computed from the content of the cookbook itself.
+When running Chef without Policyfile, existing versions of cookbooks are mutable. This is convenient for many use cases, especially if users upload in-development cookbook revisions to the Chef Infra Server. But this sometimes creates issues that are similar to role mutability by allowing those cookbook changes to be applied immediately to nodes that use that cookbook. Users account for this by rigorous testing processes to ensure that only fully integrated cookbooks are ever published. This process does enforce good development habits, but at the same time it shouldn't be a required part of a workflow that ends with publishing an in-development cookbook to the Chef Infra Server for testing against real nodes. Policyfile solves this issue by using a cookbook publishing API for the Chef Infra Server that doesn't provide cookbook mutability. Name collisions are prevented by storing cookbooks by name and an opaque identifier that's computed from the content of the cookbook itself.
 
-For example, name/version collisions can occur when users temporarily fork an upstream cookbook. Even if the user contributes their change and the maintainer is responsive, there may be a period of time where the user needs their fork to make progress. This situation presents a versioning dilemma: if the user does not update their own version, they must overwrite the existing copy of that cookbook on the Chef Infra Server, wheres if they do update the version number it might conflict with the version number of the future release of that upstream cookbook.
+For example, name/version collisions can occur when users temporarily fork an upstream cookbook. Even if the user contributes their change and the maintainer is responsive, there may be a period of time where the user needs their fork to make progress. This situation presents a versioning dilemma: if the user doesn't update their own version, they must overwrite the existing copy of that cookbook on the Chef Infra Server, wheres if they do update the version number it might conflict with the version number of the future release of that upstream cookbook.
 
 #### Opaque IDs
 
-The opaque identifier that is computed from the content of a cookbook is the only place where an opaque identifier is necessary. When working with Policyfile, be sure to:
+The opaque identifier that's computed from the content of a cookbook is the only place where an opaque identifier is necessary. When working with Policyfile, be sure to:
 
 * Use the same names and version constraints as normal in the `Policyfile.rb` file
 * Use the same references to cookbooks pulled from Chef Supermarket
@@ -84,7 +84,7 @@ The opaque identifier is mostly behind the scenes and is only visible once publi
 
 ### Environment Cookbooks
 
-Policyfile replaces the environment cookbook pattern that is often required by Berkshelf, along with a dependency solver and fetcher. That said, Policyfile does not replace all Berkshelf scenarios.
+Policyfile replaces the environment cookbook pattern that's often required by Berkshelf, along with a dependency solver and fetcher. That said, Policyfile doesn't replace all Berkshelf scenarios.
 
 ## Knife Commands
 
@@ -116,7 +116,7 @@ The following settings may be configured in the client.rb file for use with Poli
 
 `named_run_list`
 
-: The run-list associated with a policy file.
+: The run-list associated with a Policyfile.
 
 `policy_group`
 
@@ -142,7 +142,7 @@ A node may be bootstrapped to use Policyfile files. Use the following options as
 
 : The name of a policy, as identified by the `name` setting in a `Policyfile.rb` file.
 
-For a customized bootstrap process, add `policy_name` and `policy_group` to the first-boot JSON file that is passed to Chef Infra Client.
+For a customized bootstrap process, add `policy_name` and `policy_group` to the first-boot JSON file that's passed to Chef Infra Client.
 
 ## knife search
 
@@ -191,7 +191,7 @@ suites:
 
 {{< note >}}
 
-As `chef_zero` explicitly tests outside the context of a Chef Infra Server, the `policy_groups` concept is not applicable. The value of `policy_group` during a converge will be set to `local`.
+As `chef_zero` explicitly tests outside the context of a Chef Infra Server, the `policy_groups` concept isn't applicable. The value of `policy_group` during a converge will be set to `local`.
 
 {{< /note >}}
 

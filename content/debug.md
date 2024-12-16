@@ -36,7 +36,7 @@ Some simple ways to identify common issues that can trigger recipe and/or Chef I
 
 ### Knife
 
-Use the verbose logging that is built into knife:
+Use the verbose logging that's built into knife:
 
 `-V`, `--verbose`
 
@@ -44,17 +44,17 @@ Use the verbose logging that is built into knife:
 
 {{< note >}}
 
-Plugins do not always support verbose logging.
+Plugins don't always support verbose logging.
 
 {{< /note >}}
 
 ### Chef Infra Client
 
-Use the verbose logging that is built into Chef Infra Client:
+Use the verbose logging that's built into Chef Infra Client:
 
 `-l LEVEL`, `--log_level LEVEL`
 
-: The level of logging to be stored in a log file. Possible levels: `auto` (default), `debug`, `error`, `fatal`, `info`, `trace`, or `warn`. Default value: `warn` (when a terminal is available) or `info` (when a terminal is not available).
+: The level of logging to be stored in a log file. Possible levels: `auto` (default), `debug`, `error`, `fatal`, `info`, `trace`, or `warn`. Default value: `warn` (when a terminal is available) or `info` (when a terminal isn't available).
 
 `-L LOGLOCATION`, `--logfile c`
 
@@ -65,7 +65,7 @@ Use the verbose logging that is built into Chef Infra Client:
 Use the **log** resource to create log entries. The **log** resource
 behaves like any other resource: built into the resource collection
 during the compile phase, and then run during the execution phase. (To
-create a log entry that is not built into the resource collection, use
+create a log entry that'sn't built into the resource collection, use
 `Chef::Log` instead of the **log** resource.)
 
 {{< note >}}
@@ -177,7 +177,7 @@ chef-shell in Chef Infra Client mode, and then use those breakpoints to
 debug recipes. Breakpoints are ignored by Chef Infra Client during an
 actual Chef Infra Client run. That said, breakpoints are typically used
 to debug recipes only when running them in a non-production environment,
-after which they are removed from those recipes before the parent
+after which they're removed from those recipes before the parent
 cookbook is uploaded to the Chef Infra Server.
 
 #### Syntax
@@ -209,7 +209,7 @@ The breakpoint resource has the following actions:
 
 #### Attributes
 
-This resource does not have any properties.
+This resource doesn't have any properties.
 
 #### Examples
 
@@ -332,7 +332,7 @@ where
 
 * `set_unless_enabled` indicates if the attribute collection is in `set_unless` mode; this typically returns `false`
 * Each attribute type is listed in order of precedence
-* Each attribute value shown is the value that is set for that precedence level
+* Each attribute value shown is the value that's set for that precedence level
 * `:not_present` is shown for any attribute precedence level that has no attributes
 
 ### ignore_failure Method

@@ -26,17 +26,17 @@ Though a definition looks like a resource, and at first glance seems like it cou
 
 Definitions:
 
-- Are not true resources
+- Aren't true resources
 - Are processed when resource collection is compiled, not when a node
   is converged
-- Do not support common resource properties, such as `notifies`, `compile_time`,
+- Don't support common resource properties, such as `notifies`, `compile_time`,
   `subscribes`, `only_if`, `not_if`, and `sensitive`
-- Do not support input validation in passed arguments, unlike a
+- Don't support input validation in passed arguments, unlike a
   resource which supports validation with properties
-- Do not support `why-run` mode
-- Cannot report to Chef Automate
-- Cannot be tested with ChefSpec
-- Some Definition parameters have known bugs, and will not be fixed
+- Don't support `why-run` mode
+- Can't report to Chef Automate
+- Can't be tested with ChefSpec
+- Some Definition parameters have known bugs, and won't be fixed
 
 ## Syntax
 
@@ -44,7 +44,7 @@ A definition had four components:
 
 - A resource name
 - Zero or more arguments that define parameters and their default values;
-  if a default value was not specified, it was assumed to be `nil`
+  if a default value wasn't specified, it was assumed to be `nil`
 - A hash that could have been used within a definition's body to
   provide access to parameters and their values
 - The body of the definition
@@ -157,7 +157,7 @@ action :create do
 end
 ```
 
-Once written, a custom resource may be used in a recipe just like any resource that is built into Chef Infra. A custom resource gets its name from the cookbook and the name of its file in the `/resources` directory with an underscore (`_`) separating them. For example, a cookbook named `host` with a custom resource file named `porter.rb` in the `/resources` directory would be called `host_porter`. Use it in a recipe like this:
+Once written, a custom resource may be used in a recipe just like any resource that's built into Chef Infra. A custom resource gets its name from the cookbook and the name of its file in the `/resources` directory with an underscore (`_`) separating them. For example, a cookbook named `host` with a custom resource file named `porter.rb` in the `/resources` directory would be called `host_porter`. Use it in a recipe like this:
 
 ```ruby
 host_porter node['hostname'] do

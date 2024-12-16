@@ -15,13 +15,13 @@ later, Amazon Linux will be identified as the
 mirrored the structure and package naming of RHEL 5, and with the
 release of RHEL 6 Amazon Linux moved to closely resemble RHEL 6. With
 the release of RHEL 7 Red Hat switched to the systemd init system,
-however Amazon Linux has not yet decided to make that same switch. In
+however Amazon Linux hasn't yet decided to make that same switch. In
 addition to the init system differences, Amazon Linux has added many
 critical packages with their own unique naming conventions. This makes
 it hard for users to write cookbooks for RHEL that will work on
 Amazon Linux systems out of the box. To simplify multi-platform
 cookbook code and to make it more clear when cookbooks actually support
-Amazon Linux, we have created the '`amazon` platform family and removed
+Amazon Linux, we've created the '`amazon` platform family and removed
 Amazon Linux from the `rhel` platform family.
 
 ## Remediation

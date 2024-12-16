@@ -61,7 +61,7 @@ configuration file.
 
 ## Attributes
 
-chef-solo does not interact with the Chef Infra Server. Consequently,
+chef-solo doesn't interact with the Chef Infra Server. Consequently,
 node-specific attributes must be located in a JSON file on the target
 system, a remote location (such as Amazon Simple Storage Service (S3)),
 or a web server on the local network.

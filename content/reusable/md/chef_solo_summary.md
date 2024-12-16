@@ -1,7 +1,7 @@
 chef-solo is a command that executes Chef Infra Client in a way that
-does not require the Chef Infra Server to converge cookbooks.
+doesn't require the Chef Infra Server to converge cookbooks.
 chef-solo uses Chef Infra Client's [Chef local
-mode](/ctl_chef_client.html#run-in-local-mode), and **does not support**
+mode](/ctl_chef_client.html#run-in-local-mode), and **doesn't support**
 the following functionality present in Chef Infra Client / server
 configurations:
 
