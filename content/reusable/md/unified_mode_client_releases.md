@@ -1,7 +1,6 @@
+Unified Mode (`unified_mode true`) is the default behavior starting in Chef Infra Client 18 (April 2022).
 
-In Chef Infra Client 17 (April 2021) and some earlier versions, unified mode is not enabled by default. Enable unified mode on a custom resource with `unified_mode true`. Chef Infra Client displays a deprecation message with `unified_mode false`.
-
-In Chef Infra Client 18 (April 2022), `unified_mode true` will become the default behavior.
+See the following table for Chef Infra Client versions where Unified Mode can be enabled in custom resources:
 
 | Chef Infra Client | Unified Mode                  |
 |-------------------|-------------------------------|

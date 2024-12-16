@@ -3,15 +3,16 @@ title = "Target Mode"
 draft = false
 gh_repo = "chef-web-docs"
 
+product = ["client"]
+
 [menu]
   [menu.infra]
-    title = "Target Mode"
-    identifier = "chef_infra/features/Target Mode"
-    parent = "chef_infra/features"
-    weight = 80
+    identifier = "chef_infra/resources/Target Mode"
+    parent = "chef_infra/resources"
+    weight = 30
 +++
 
-Target Mode executes Chef Infra Client runs on nodes that don't have Chef Infra Client installed on them.
+{{< readfile file="content/reusable/md/target_mode_summary.md" >}}
 
 The target node can be any remote system, edge device, or cloud resource that the host can reach. This includes edge devices, Wi-Fi routers, switches, relays, cloud resources, IP phones, router hubs, and network management peripherals.
 
@@ -32,16 +33,17 @@ Target Mode has the following requirements:
 
 ## Credentials file
 
-The credentials file defines the connection settings for each node in TOML format.
+The credentials file defines the SSH connection settings for each node in TOML format.
 
-The credentials file is located in `~/.chef/credentials` on Linux and Mac systems, or `c:\Users\<USERNAME>\.chef\credentials` on Windows.
+Create a credentials file on the computer running Chef Workstation in the following location:
 
-### Examples
+- on Linux and macOS: `~/.chef/credentials`
+- on Windows: `c:\Users\<USERNAME>\.chef\credentials`
 
-Define the list of nodes in the credentials file using the TOML format.
-The connection settings for each node are defined using a [TOML Inline Table](https://toml.io/en/v1.0.0#inline-table).
+### Define node connections
 
-For example, this adds credentials for three nodes using SSH:
+Define connection settings for each node with an [inline table](https://toml.io/en/v1.0.0#inline-table).
+For example, this adds credentials for three nodes:
 
 ```toml
 ['HOST-1']
@@ -86,38 +88,6 @@ host = '<IP_ADDRESS OR FQDN>'
 # key_files = '<PATH_TO_SECRET_FILE>'
 # password = '<PASSWORD_STRING>'
 
-# ssh_config_file: Whether to use settings from a local SSH config file. Default is 'true'.
-# ssh_config_file = true
-
-# ==== Keepalive settings ====
-# keepalive: Whether to keep the session alive. Default is true.
-# keepalive_interval: The keepalive interval. Default is 60 seconds.
-# ====
-
-# keepalive = true
-# keepalive_interval = '60'
-
-# ==== Connection attempt/delay settings ====
-# connection_timeout: The timeout (in seconds) used when connecting to the SSH target. Default is 15 seconds.
-# connection_retries: The number of connection retries. Default is 5.
-# connection_retry_sleep: The connection retry delay in seconds. Default is 1.
-# max_wait_until_ready: The maximum wait time for the SSH service to connect. Default is 600.
-# ====
-
-# connection_timeout = '15'
-# connection_retries = '5'
-# connection_retry_sleep = '1'
-# max_wait_until_ready = '600'
-
-# compression: Whether to use compression. Default is false.
-# compression = false
-
-# pty: Wether to use PTY to connect. Default is false.
-# pty = false
-
-# proxy_command: A proxy command to use to connect to the server. Default is 'nil'.
-# proxy_command = 'nil'
-
 # ==== Bastion host settings ====
 # bastion_host: A bastion host to connect to the target through. Default is 'nil'.
 # bastion_user: The bastion host user. Default is 'root'.
@@ -127,9 +97,6 @@ host = '<IP_ADDRESS OR FQDN>'
 # bastion_host = 'nil'
 # bastion_user = 'root'
 # bastion_port = '22'
-
-# non_interactive: Whether to use a non-interactive session. Default is false.
-# non_interactive = false
 
 # verify_host_key: Whether to verify the host key. Default is false
 # verify_host_key = false
@@ -141,11 +108,13 @@ host = '<IP_ADDRESS OR FQDN>'
 transport_protocol = 'ssh'
 ```
 
-### SSH properties
+### Node connection parameters
 
 <!-- markdownlint-disable MD007 MD006 -->
 
-Target Mode supports the following SSH connection properties in a credentials file:
+Target Mode supports the following SSH connection parameters in a credentials file.
+
+Common parameters:
 
 `host`
 : (Required) The IP address or FQDN of a node.
@@ -169,91 +138,32 @@ Target Mode supports the following SSH connection properties in a credentials fi
 `transport_protocol`
 : (Required) The protocol to use to connect to a node. Define this once for all nodes in the credentials file. Set to `ssh`.
 
-`ssh_config_file`
-: Whether to use an SSH config file. For example:
-
-  - `~/.ssh/config`
-  - `/etc/ssh_config`
-  - `/etc/ssh/ssh_config`
-
-  Settings defined in the credentials file override settings in the SSH config file.
-
-  Default value: `true`
-
-`keepalive`
-: Whether to keep the session alive.
-
-  Default value: `true`
-
-`keepalive_interval`
-: The keepalive interval.
-
-  Default value: `60`
-
-`connection_timeout`
-: The timeout (in seconds) used when connecting to the SSH target.
-
-  Default value: `15`
-
-`connection_retries`
-: The number of connection retries.
-
-  Default value: `5`
-
-`connection_retry_sleep`
-: The connection retry delay in seconds.
-
-  Default value: `1`
-
-`max_wait_until_ready`
-: The maximum wait time for the SSH service to connect.
-
-  Default value: `600`
-
-`compression`
-: Whether to use compression.
-
-  Default value: `false`
-
-`pty`
-: Wether to use PTY to connect.
-
-  Default value: `false`
-
-`proxy_command`
-: A proxy command to use to connect to the server.
-
-  Default value: `nil`
+Additional parameters:
 
 `bastion_host`
 : A bastion host to connect to the target through.
 
   Default value: `nil`
 
-`bastion_user`
-: A bastion host user.
-
-  Default value: `"root"`
-
 `bastion_port`
 : A bastion host port.
 
   Default value: `22`
 
-`non_interactive`
-: Whether to use a non-interactive session.
+`bastion_user`
+: A bastion host user.
+
+  Default value: `"root"`
+
+`forward_agent`
+: Whether the connection to the authentication agent (if any) is forwarded to the remote machine.
 
   Default value: `false`
 
 `verify_host_key`
 : Whether to verify the host key.
 
-  Default value: `false`
-
-`forward_agent`
-: Whether the connection to the authentication agent (if any) will be forwarded to the remote machine.
-
-  Default value: `false`
+  Allowed values: `true`, `false`. Default value: `false`
 
 <!-- markdownlint-enable MD007 MD006 -->
 
@@ -273,47 +183,13 @@ The following Chef Infra Client resources are supported in Target Mode starting 
 
 ### Custom resources
 
-To enable a custom resource to run in Target Mode, add `target_mode: true` to the resource definition. For example:
-
-```ruby
-provides :<RESOURCE_NAME>, target_mode: true
-...
-```
+{{< readfile file="/reusable/md/target_mode_custom_resource.md" >}}
 
 See the [Custom Resources documentation]({{< relref "custom_resources" >}}) for more detailed documentation about creating custom resources.
 
 #### Example
 
-The following custom resource example checks for and creates a new directory and runs in Target Mode:
-
-```ruby
-provides :example_directory, target_mode: true
-unified_mode true
-
-property: directory, String
-
-load_current_value do |new_resource|
-  dir = new_resource.directory
-  parsed = dir.match(%r{([^/]+$)})
-  path = ''
-  if parsed
-    path = dir[0..(dir.length - parsed[1].length - 1)]
-    dir = parsed[1]
-  end
-
-  tmp = __transport_connection.run_command( sprintf('ls -l %s | grep %s || echo -n', path, dir) )
-
-  if tmp.match(Regexp.new(dir))
-    directory new_resource.directory
-  end
-end
-
-action :create do
-  converge_if_changed do
-    __transport_connection.run_command( sprintf('mkdir %s', new_resource.directory) )
-  end
-end
-```
+{{< readfile file="/reusable/md/target_mode_custom_resource_example.md" >}}
 
 ## Run Target Mode
 
@@ -323,7 +199,8 @@ Run the `chef-client` executable using `-t` or `--target` to target a specific n
 chef-client -t <TARGET_NAME>
 ```
 
-Replace `<TARGET_NAME>` with the name of the host as defined in the credentials file. For example, `HOST-1` in the [credential file example](#examples).
+Replace `<TARGET_NAME>` with the name of the host as defined in the credentials file.
+For example, `HOST-1` in the [credential file example](#define-node-connections).
 
 To execute a specific Cookbook in Target Mode, run:
 
@@ -347,7 +224,8 @@ Use `-z` and `-t` to run Target Mode in Local Mode:
 chef-client -z -t <TARGET_NAME>
 ```
 
-Replace `<TARGET_NAME>` with the name of the host as defined in the credentials file. For example, `HOST-1` in the [credential file example](#examples).
+Replace `<TARGET_NAME>` with the name of the host as defined in the credentials file.
+For example, `HOST-1` in the [credential file example](#define-node-connections).
 
 ## Run Target Mode with Chef Automate or Chef Infra Server
 
