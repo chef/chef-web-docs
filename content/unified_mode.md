@@ -7,12 +7,15 @@ product = ["client"]
 
 [menu]
   [menu.infra]
+    title = "Unified Mode"
     identifier = "chef_infra/resources/unified_mode.md Use Unified Mode"
     parent = "chef_infra/resources"
     weight = 20
 +++
 
 {{< readfile file="content/reusable/md/unified_mode_overview.md" >}}
+
+## Availability
 
 {{< readfile file="content/reusable/md/unified_mode_client_releases.md" >}}
 
