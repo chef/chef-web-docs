@@ -23,7 +23,7 @@ declare_resource(:resource_type, 'resource_name', resource_attrs_block)
 
 where:
 
-- `:resource_type` is the resource type, such as `:file` (for the **file** resource), `:template` (for the **template** resource), and so on. Any resource available to Chef may be declared.
+- `:resource_type` is the resource type, such as `:file` (for the **file** resource) or `:template` (for the **template** resource). Any resource available to Chef may be declared.
 - `resource_name` the property that's the default name of the resource, typically the string that appears in the `resource 'name' do` block of a resource (but not always); see the Syntax section for the resource to be declared to verify the default name property.
 - `resource_attrs_block` is a block in which properties of the instantiated resource are declared.
 
@@ -55,7 +55,7 @@ delete_resource(:resource_type, 'resource_name')
 
 where:
 
-- `:resource_type` is the resource type, such as `:file` (for the **file** resource), `:template` (for the **template** resource), and so on. Any resource available to Chef may be declared.
+- `:resource_type` is the resource type, such as `:file` (for the **file** resource) or `:template` (for the **template** resource). Any resource available to Chef may be declared.
 - `resource_name` the property that's the default name of the resource, typically the string that appears in the `resource 'name' do` block of a resource (but not always); see the Syntax section for the resource to be declared to verify the default name property.
 
 For example:
@@ -78,7 +78,7 @@ delete_resource!(:resource_type, 'resource_name')
 
 where:
 
-- `:resource_type` is the resource type, such as `:file` (for the **file** resource), `:template` (for the **template** resource), and so on. Any resource available to Chef Infra may be declared.
+- `:resource_type` is the resource type, such as `:file` (for the **file** resource) or `:template` (for the **template** resource). Any resource available to Chef Infra may be declared.
 - `resource_name` the property that's the default name of the resource, typically the string that appears in the `resource 'name' do` block of a resource (but not always); see the Syntax section for the resource to be declared to verify the default name property.
 
 For example:
@@ -102,7 +102,7 @@ edit_resource(:resource_type, 'resource_name', resource_attrs_block)
 
 where:
 
-- `:resource_type` is the resource type, such as `:file` (for the **file** resource), `:template` (for the **template** resource), and so on. Any resource available to Chef may be declared.
+- `:resource_type` is the resource type, such as `:file` (for the **file** resource) or `:template` (for the **template** resource). Any resource available to Chef may be declared.
 - `resource_name` the property that's the default name of the resource, typically the string that appears in the `resource 'name' do` block of a resource (but not always); see the Syntax section for the resource to be declared to verify the default name property.
 - `resource_attrs_block` is a block in which properties of the instantiated resource are declared.
 
@@ -142,7 +142,7 @@ edit_resource!(:resource_type, 'resource_name')
 
 where:
 
-- `:resource_type` is the resource type, such as `:file` (for the **file** resource), `:template` (for the **template** resource), and so on. Any resource available to Chef may be declared.
+- `:resource_type` is the resource type, such as `:file` (for the **file** resource) or `:template` (for the **template** resource). Any resource available to Chef may be declared.
 - `resource_name` the property that's the default name of the resource, typically the string that appears in the `resource 'name' do` block of a resource (but not always); see the Syntax section for the resource to be declared to verify the default name property.
 - `resource_attrs_block` is a block in which properties of the instantiated resource are declared.
 
@@ -167,7 +167,7 @@ find_resource(:resource_type, 'resource_name')
 
 where:
 
-- `:resource_type` is the resource type, such as `:file` (for the **file** resource), `:template` (for the **template** resource), and so on. Any resource available to Chef may be declared.
+- `:resource_type` is the resource type, such as `:file` (for the **file** resource) or `:template` (for the **template** resource). Any resource available to Chef may be declared.
 - `resource_name` the property that's the default name of the resource, typically the string that appears in the `resource 'name' do` block of a resource (but not always); see the Syntax section for the resource to be declared to verify the default name property.
 
 For example:
@@ -199,7 +199,7 @@ find_resource!(:resource_type, 'resource_name')
 
 where:
 
-- `:resource_type` is the resource type, such as `:file` (for the **file** resource), `:template` (for the **template** resource), and so on. Any resource available to Chef may be declared.
+- `:resource_type` is the resource type, such as `:file` (for the **file** resource) or `:template` (for the **template** resource). Any resource available to Chef may be declared.
 - `resource_name` the property that's the default name of the resource, typically the string that appears in the `resource 'name' do` block of a resource (but not always); see the Syntax section for the resource to be declared to verify the default name property.
 
 For example:

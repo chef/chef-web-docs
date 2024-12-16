@@ -49,7 +49,7 @@ Questions on how to use Chef Infra should be sent as Support Tickets if you have
 
 ## Contribution Process
 
-We have a four step process for contributions:
+Follow these steps to submit a contribution:
 
 1. Fork the project repository to your own GitHub account.
 2. Commit your changes to your fork, making sure to sign-off those changes for the Developer Certificate of Origin with `git commit -s`
@@ -114,7 +114,7 @@ By making a contribution to this project, I certify that:
     are public and that a record of the contribution (including
     all personal information I submit with it, including my
     sign-off) is maintained indefinitely and may be redistributed
-    consistent with this project or the open source license(s)
+    consistent with this project or the open source licenses
     involved.
 ```
 

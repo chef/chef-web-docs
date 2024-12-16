@@ -69,8 +69,8 @@ across the organization are unique.
 
 For Chef Infra Client, two important aspects of nodes are groups of
 attributes and run-lists. An attribute is a specific piece of data about
-the node, such as a network interface, a file system, the number of
-clients a service running on a node is capable of accepting, and so on.
+the node, such as a network interface, a file system, or the number of
+clients a service running on a node is capable of accepting.
 A run-list is an ordered list of recipes and/or roles that are run in an
 exact order. The node object consists of the run-list and node
 attributes, which is a JSON file that's stored on the Chef Infra
@@ -83,8 +83,8 @@ copy on the Chef Infra Server at the end of each Chef Infra Client run.
 ### Attributes
 
 An attribute is a specific detail about a node, such as an IP address, a
-host name, a list of loaded kernel modules, the version(s) of available
-programming languages that are available, and so on. An attribute may be
+host name, a list of loaded kernel modules, the versions of available
+programming languages that are available. An attribute may be
 unique to a specific node or it can be identical across every node in
 the organization. Attributes are most commonly set from a cookbook, by
 using knife, or are retrieved by Ohai from each node before every Chef

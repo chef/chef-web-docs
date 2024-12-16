@@ -75,7 +75,7 @@ default/apache2_module_conf_generate.pl
 
 If the `apache2_module_conf_generate.pl` file was located in the
 cookbook directory under `files/host-foo.example.com/`, the specified
-file(s) would only be copied to the machine with the domain name
+files would only be copied to the machine with the domain name
 foo.example.com.
 
 <!-- markdownlint-disable-file MD036 -->

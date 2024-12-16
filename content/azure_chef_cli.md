@@ -196,7 +196,7 @@ The extension has the following options that can be provided in the
 
 `chef_node_name`
 
-: Determines which configuration should be applied and sets the `client_name`, which is the name used when authenticating to a Chef Infra Server. The default value is the the Chef Infra Client FQDN, as detected by Ohai. In general, Chef recommends that you leave this setting blank and let Ohai assign the FQDN of the node as the `node_name` during each Chef Infra Client run.
+: Determines which configuration should be applied and sets the `client_name`, which is the name used when authenticating to a Chef Infra Server. The default value is the Chef Infra Client FQDN, as detected by Ohai. In general, Chef recommends that you leave this setting blank and let Ohai assign the FQDN of the node as the `node_name` during each Chef Infra Client run.
 
 `chef_server_url`
 

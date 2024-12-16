@@ -133,53 +133,6 @@ Community Organizers who don't follow or enforce the Code of Conduct in
 good faith may face temporary or permanent repercussions as determined
 by other members of the project's leadership.
 
-## Roles
-
-The following are the various roles of our **Community Organizers** and
-the person(s) assigned to each role:
-
-- The **Deciders** have final say on community guidelines and final
-    authority on correct actions and appeals.
-- The **Community Advocates** may be assigned for each area where the
-    community convenes online (Slack, email list, GitHub, etc.).
-    Community Advocates are volunteers who have the best interests of
-    our community in mind. They act in good faith to help enforce our
-    community guidelines and respond to incidents when they occur.
-- The **Project Maintainers** are expected to conduct their behavior
-    in line with the Code of Conduct and are individually responsible
-    for both escalating to a **Community Advocate** in case of
-    witnessing an incident, and helping to foster the community.
-- A **Community Member** is anyone who participates with the community
-    whether in-person or using online channels. Community members are
-    responsible for following the community guidelines, suggesting
-    updates to the guidelines when warranted, and helping enforce
-    community guidelines.
-
-<!-- markdownlint-disable MD033 -->
-
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Role</th>
-<th>Name</th>
-<th>Contact Info</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Community Advocate</td>
-<td>benny Vasquez</td>
-<td><a href="benny.vasquez@progress.com">benny.vasquez@progress.com</a></td>
-</tr>
-</tbody>
-</table>
-<!-- markdownlint-enable MD033 -->
-
 ## Consequences of Unacceptable Behavior
 
 Unacceptable behavior from any community member, including sponsors and

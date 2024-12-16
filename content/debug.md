@@ -134,7 +134,7 @@ include:
 
 * Using the **chef_handler** resource
 * Using the chef-shell and the **breakpoint** resource to add breakpoints to recipes, and to then step through the recipes using the breakpoints
-* Using the `debug_value` method from chef-shell to identify the location(s) from which attribute values are being set
+* Using the `debug_value` method from chef-shell to identify the locations from which attribute values are being set
 * Using the `ignore_failure` method in a recipe to force Chef Infra Client to move past an error to see what else is going on in the recipe, outside of a known failure
 * Using chef-solo to run targeted Chef Infra Client runs for specific scenarios
 
@@ -335,9 +335,9 @@ where
 * Each attribute value shown is the value that's set for that precedence level
 * `:not_present` is shown for any attribute precedence level that has no attributes
 
-### ignore_failure Method
+### ignore_failure method
 
-All resources share a set of common actions, attributes, and so on. Use the following attribute in a resource to help identify where an issue within a recipe may be located:
+All resources share a set of common actions, attributes, and other properties. Use the following attribute in a resource to help identify where an issue within a recipe may be located:
 
 | Attribute      | Description                                                                           |
 |----------------|---------------------------------------------------------------------------------------|

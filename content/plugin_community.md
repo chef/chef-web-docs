@@ -36,7 +36,7 @@ The following Ohai plugins are available from the open source community:
 <tbody>
 <tr>
 <td><a href="https://github.com/demonccc/chef-ohai-plugins/blob/master/dell.rb">dell.rb</a></td>
-<td>Adds some useful Dell server information to Ohai. For example: service tag, express service code, storage info, RAC info, and so on. To use this plugin, OMSA and SMBIOS applications need to be installed.</td>
+<td>Adds some useful Dell server information to Ohai. For example, service tag, express service code, storage info, or RAC info. To use this plugin, OMSA and SMBIOS applications need to be installed.</td>
 </tr>
 <tr>
 <td><a href="https://bitbucket.org/retr0h/ohai">ipmi.rb</a></td>

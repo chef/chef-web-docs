@@ -6,7 +6,7 @@ A `Policyfile.rb` file may contain the following settings:
 
 : Required. The name of the policy. Use a name that reflects the
   purpose of the machines against which the policy will run,
-  such as "application server", "chat server", "load balancer", and so on.
+  such as _application server_, _chat server_, or _load balancer_.
 
 `run_list "ITEM", "ITEM", ...`
 

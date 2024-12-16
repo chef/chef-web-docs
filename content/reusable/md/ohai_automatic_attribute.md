@@ -1,5 +1,5 @@
 An automatic attribute is a specific detail about a node, such as an IP
-address, a host name, a list of loaded kernel modules, and so on.
+address, a host name, or a list of loaded kernel modules.
 Automatic attributes are detected by Ohai and are then used by Chef
 Infra Client to ensure that they're handled properly during every Chef
 Infra Client run. The most commonly accessed automatic attributes are:

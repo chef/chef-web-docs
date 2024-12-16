@@ -631,7 +631,7 @@ When running the Chef Infra Client using the `--local-mode` option,
 Another example of running the Chef Infra Client as a non-root user
 involves using resources to pass sudo commands as as an attribute on the
 resource. For example, the **service** resource uses a series of
-`_command` attributes (like `start_command`, `stop_command`, and so on),
+`_command` attributes (like `start_command` or `stop_command`),
 the **package**-based resources use the `options` attribute, and the
 **script**-based resources use the `code` attribute.
 

@@ -246,7 +246,7 @@ of Chef comes out.
 </tr>
 <tr>
 <td><a href="/deprecations_map_collision/">CHEF-25</a></td>
-<td>Resource(s) in a cookbook collide with the same resource(s) now included in Chef Infra Client.</td>
+<td>Resources in a cookbook collide with the same resources now included in Chef Infra Client.</td>
 <td>XX.X</td>
 <td>15.0</td>
 </tr>

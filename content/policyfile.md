@@ -29,7 +29,7 @@ Policyfiles make it easier to test and promote code safely with a simpler interf
 
 ### Focused System Workflows
 
-The knife command line tool maps closely to the Chef Infra Server API and the objects defined by it: roles, environments, run-lists, cookbooks, data bags, nodes, and so on. Chef Infra Client assembles these pieces at run-time and configures a host to do useful work.
+The knife command line tool maps closely to the Chef Infra Server API and the objects defined by it, such as roles, environments, run-lists, cookbooks, data bags, or nodes. Chef Infra Client assembles these pieces at run-time and configures a host to do useful work.
 
 Policyfile focuses that workflow onto the entire system, rather than the individual components. For example, Policyfile describes whole systems, whereas each individual revision of the `Policyfile.lock.json` file uploaded to the Chef Infra Server describes a part of that system, inclusive of roles, environments, cookbooks, and the other Chef Infra Server objects necessary to configure that part of the system.
 

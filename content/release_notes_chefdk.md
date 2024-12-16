@@ -347,7 +347,7 @@ The Kitchen Hyper-V driver has updated from 0.5.3 to 0.5.4, which resolves failu
 
 **Kitchen DigitalOcean**
 
-The Kitchen DigitalOcean driver has updated from 0.10.5 to 0.11.0. This release adds slugs for Ubuntu 20.04 / RHEL 8 / Fedora 31 support, increases the the default instance memory size to 1GB, and adds support for VPCs. Thanks [@zmaupin](https://github.com/zmaupin), [@tolland](https://github.com/tolland), and [@gregf](https://github.com/gregf) for these improvements.
+The Kitchen DigitalOcean driver has updated from 0.10.5 to 0.11.0. This release adds slugs for Ubuntu 20.04 / RHEL 8 / Fedora 31 support, increases the default instance memory size to 1GB, and adds support for VPCs. Thanks [@zmaupin](https://github.com/zmaupin), [@tolland](https://github.com/tolland), and [@gregf](https://github.com/gregf) for these improvements.
 
 **Kitchen EC2**
 
@@ -2247,7 +2247,7 @@ for examples of the new syntax.
 
 The Chef CLI now includes a new option: <span class="title-ref">chef
 update --exclude-deps</span> for policyfiles which will only update the
-cookbook(s) given on the command line.
+cookbooks given on the command line.
 
 ### Deprecations
 
