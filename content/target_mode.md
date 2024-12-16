@@ -33,19 +33,17 @@ Target Mode has the following requirements:
 
 ## Credentials file
 
-The credentials file defines the connection settings for each node in TOML format.
+The credentials file defines the SSH connection settings for each node in TOML format.
 
 Create a credentials file on the computer running Chef Workstation in the following location:
 
 - on Linux and macOS: `~/.chef/credentials`
 - on Windows: `c:\Users\<USERNAME>\.chef\credentials`
 
-### Define node connection settings
+### Define node connections
 
-Define the list of nodes in the credentials file using the TOML format.
-The connection settings for each node are defined using a [TOML Inline Table](https://toml.io/en/v1.0.0#inline-table).
-
-For example, this adds credentials for three nodes using SSH:
+Define connection settings for each node with an [inline table](https://toml.io/en/v1.0.0#inline-table).
+For example, this adds credentials for three nodes:
 
 ```toml
 ['HOST-1']
@@ -201,7 +199,8 @@ Run the `chef-client` executable using `-t` or `--target` to target a specific n
 chef-client -t <TARGET_NAME>
 ```
 
-Replace `<TARGET_NAME>` with the name of the host as defined in the credentials file. For example, `HOST-1` in the [credential file example](#define-node-connection-settings).
+Replace `<TARGET_NAME>` with the name of the host as defined in the credentials file.
+For example, `HOST-1` in the [credential file example](#define-node-connections).
 
 To execute a specific Cookbook in Target Mode, run:
 
@@ -225,7 +224,8 @@ Use `-z` and `-t` to run Target Mode in Local Mode:
 chef-client -z -t <TARGET_NAME>
 ```
 
-Replace `<TARGET_NAME>` with the name of the host as defined in the credentials file. For example, `HOST-1` in the [credential file example](#define-node-connection-settings).
+Replace `<TARGET_NAME>` with the name of the host as defined in the credentials file.
+For example, `HOST-1` in the [credential file example](#define-node-connections).
 
 ## Run Target Mode with Chef Automate or Chef Infra Server
 
