@@ -11,7 +11,7 @@ aliases = ["/resource_common.html"]
     title = "Common Resource Functionality"
     identifier = "chef_infra/resources/resource_common.md Common Resource Functionality"
     parent = "chef_infra/resources"
-    weight = 30
+    weight = 40
 +++
 <!-- markdownlint-disable-file MD036 -->
 

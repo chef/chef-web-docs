@@ -3,12 +3,13 @@ title = "Target Mode"
 draft = false
 gh_repo = "chef-web-docs"
 
+product = ["client"]
+
 [menu]
   [menu.infra]
-    title = "Target Mode"
-    identifier = "chef_infra/features/Target Mode"
-    parent = "chef_infra/features"
-    weight = 80
+    identifier = "chef_infra/resources/Target Mode"
+    parent = "chef_infra/resources"
+    weight = 30
 +++
 
 {{< readfile file="content/reusable/md/target_mode_summary.md" >}}
