@@ -35,9 +35,12 @@ Target Mode has the following requirements:
 
 The credentials file defines the connection settings for each node in TOML format.
 
-The credentials file is located in `~/.chef/credentials` on Linux and Mac systems, or `c:\Users\<USERNAME>\.chef\credentials` on Windows.
+Create a credentials file on the computer running Chef Workstation in the following location:
 
-### Examples
+- on Linux and macOS: `~/.chef/credentials`
+- on Windows: `c:\Users\<USERNAME>\.chef\credentials`
+
+### Define node connection settings
 
 Define the list of nodes in the credentials file using the TOML format.
 The connection settings for each node are defined using a [TOML Inline Table](https://toml.io/en/v1.0.0#inline-table).
@@ -107,7 +110,7 @@ host = '<IP_ADDRESS OR FQDN>'
 transport_protocol = 'ssh'
 ```
 
-### SSH parameters
+### Node connection parameters
 
 <!-- markdownlint-disable MD007 MD006 -->
 
@@ -155,12 +158,12 @@ Additional parameters:
   Default value: `"root"`
 
 `forward_agent`
-: Whether the connection to the authentication agent (if any) will be forwarded to the remote machine.
+: Whether the connection to the authentication agent (if any) is forwarded to the remote machine.
 
   Default value: `false`
 
 `verify_host_key`
-:  Whether to verify the host key.
+: Whether to verify the host key.
 
   Allowed values: `true`, `false`. Default value: `false`
 
@@ -198,7 +201,7 @@ Run the `chef-client` executable using `-t` or `--target` to target a specific n
 chef-client -t <TARGET_NAME>
 ```
 
-Replace `<TARGET_NAME>` with the name of the host as defined in the credentials file. For example, `HOST-1` in the [credential file example](#examples).
+Replace `<TARGET_NAME>` with the name of the host as defined in the credentials file. For example, `HOST-1` in the [credential file example](#define-node-connection-settings).
 
 To execute a specific Cookbook in Target Mode, run:
 
@@ -222,7 +225,7 @@ Use `-z` and `-t` to run Target Mode in Local Mode:
 chef-client -z -t <TARGET_NAME>
 ```
 
-Replace `<TARGET_NAME>` with the name of the host as defined in the credentials file. For example, `HOST-1` in the [credential file example](#examples).
+Replace `<TARGET_NAME>` with the name of the host as defined in the credentials file. For example, `HOST-1` in the [credential file example](#define-node-connection-settings).
 
 ## Run Target Mode with Chef Automate or Chef Infra Server
 
