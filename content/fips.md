@@ -59,7 +59,7 @@ FIPS mode isn't supported for Chef Infra Server add-ons. This includes Chef Mana
 
 ## How to enable FIPS mode in the operating system
 
-### FIPS sernel settings
+### FIPS kernel settings
 
 Windows and Red Hat Enterprise Linux can both be configured for FIPS
 mode using a kernel-level setting. After FIPS mode is enabled at the

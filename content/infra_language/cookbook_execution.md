@@ -106,7 +106,7 @@ For example:
 
 ```ruby
 if node.attribute?('ipaddress')
-  # the node has an ipaddress
+  # the node has an IP address
 end
 ```
 

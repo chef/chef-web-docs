@@ -72,7 +72,7 @@ created in `FOLDERNAME` instead of the root folder.
 
 {{< /note >}}
 
-**Clone from a folder into the "Datacenter Root" directory:**
+**Clone from a folder into the data center root directory:**
 
 ```bash
 knife vsphere vm clone MACHINENAME --template TEMPLATENAME -f /path/to/template \
