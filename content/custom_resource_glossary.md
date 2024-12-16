@@ -58,7 +58,7 @@ end
 
 `coerce` is used to transform user input into a canonical form. The
 value is passed in, and the transformed value returned as output. Lazy
-values will __not__ be passed to this method until after they are
+values will __not__ be passed to this method until after they're
 evaluated.
 
 `coerce` is run in the context of the instance, which gives it access to
@@ -81,12 +81,12 @@ Use the `converge_if_changed` method inside an `action` block in a
 custom resource to compare the desired property values against the
 current property values (as loaded by the `load_current_value` method).
 Use the `converge_if_changed` method to ensure that updates only occur
-when property values on the system are not the desired property values
+when property values on the system aren't the desired property values
 and to otherwise prevent a resource from being converged.
 
 To use the `converge_if_changed` method, wrap it around the part of a
 recipe or custom resource that should only be converged when the current
-state is not the desired state:
+state isn't the desired state:
 
 ```ruby
 action :some_action do
@@ -130,7 +130,7 @@ end
 ```
 
 Chef Infra Client will only update the property values that require
-updates and will not make changes when the property values are already
+updates and won't make changes when the property values are already
 in the desired state.
 
 <!-- markdownlint-disable MD026 -->
@@ -139,7 +139,7 @@ in the desired state.
 
 <!-- markdownlint-enable MD026 -->
 
-When using the `load_current_value` block, use `current_value_does_not_exist!` to indicate that the value does not exist and that `current_resource` should therefore be `nil`.
+When using the `load_current_value` block, use `current_value_does_not_exist!` to indicate that the value doesn't exist and that `current_resource` should therefore be `nil`.
 
 ```ruby
 load_current_value do |new_resource|
@@ -238,7 +238,7 @@ Add `desired_state:` to set the desired state property for a resource.
 - When `true`, the state of the property is determined by the state of
   the system
 - When `false`, the value of the property impacts how the resource
-  executes, but it is not determined by the state of the system.
+  executes, but it's not determined by the state of the system.
 
 For example, if you were to write a resource to create volumes on a
 cloud provider you would need define properties such as `volume_name`,
@@ -302,7 +302,7 @@ load_current_value do
 end
 ```
 
-This ensures the values for `homepage` and `page_not_found` are not
+This ensures the values for `homepage` and `page_not_found` aren't
 changed to the default values when Chef Infra Client configures the
 node.
 
@@ -344,7 +344,7 @@ action :run do
 end
 ```
 
-The following properties are identical to the properties in the execute resource, which we are embedding in the custom resource.
+The following properties are identical to the properties in the execute resource, which we're embedding in the custom resource.
 
 - `property :cwd`
 - `property :environment`
@@ -486,7 +486,7 @@ The `property_is_set?` method will return `true` if the property is set.
 For example, the following custom resource creates and/or updates user
 properties, but not their password. The `property_is_set?` method checks
 if the user has specified a password and then tells Chef Infra Client
-what to do if the password is not identical:
+what to do if the password isn't identical:
 
 ```ruby
 action :create do
