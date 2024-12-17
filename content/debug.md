@@ -65,7 +65,7 @@ Use the verbose logging that's built into Chef Infra Client:
 Use the **log** resource to create log entries. The **log** resource
 behaves like any other resource: built into the resource collection
 during the compile phase, and then run during the execution phase. (To
-create a log entry that'sn't built into the resource collection, use
+create a log entry that isn't built into the resource collection, use
 `Chef::Log` instead of the **log** resource.)
 
 {{< note >}}

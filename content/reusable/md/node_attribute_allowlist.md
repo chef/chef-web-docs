@@ -51,7 +51,7 @@ To allowlist the `network` attributes and prevent the other attributes from bein
 allowed_automatic_attributes ['network/interfaces/']
 ```
 
-When a allowlist is defined, any attribute of that type that'sn't specified in that attribute allowlist **won't** be saved. So based on the previous allowlist for automatic attributes, the `filesystem` and `map - autohome` attributes won't be saved, but the `network` attributes will.
+When a allowlist is defined, any attribute of that type that isn't specified in that attribute allowlist **won't** be saved. So based on the previous allowlist for automatic attributes, the `filesystem` and `map - autohome` attributes won't be saved, but the `network` attributes will.
 
 Leave the value empty to prevent all attributes of that attribute type from being saved:
 

@@ -198,7 +198,7 @@ end
 
 When the `converge_by` block is run in why-run mode, it will only log `touch "/tmp/foo"` and won't run the code inside the block.
 
-A `converge_by` block that'sn't wrapped in an idempotency check will always cause the resource to be updated, and will always cause notifications to fire. To prevent this, a properly written resource should wrap all `converge_by` checks with an idempotency check. The [`converge_if_changed`]({{< relref "custom_resources.md#converge_if_changed" >}}) block may be used instead which will wrap a `converge_by` block with an idempotency check for you.
+A `converge_by` block that isn't wrapped in an idempotency check will always cause the resource to be updated, and will always cause notifications to fire. To prevent this, a properly written resource should wrap all `converge_by` checks with an idempotency check. The [`converge_if_changed`]({{< relref "custom_resources.md#converge_if_changed" >}}) block may be used instead which will wrap a `converge_by` block with an idempotency check for you.
 
 ```ruby
 action :run do
