@@ -1,4 +1,4 @@
-The types of nodes that can be managed by Chef include, but are not
+The types of nodes that can be managed by Chef include, but aren't
 limited to, the following:
 
 <!-- markdownlint-disable-file MD033 -->

@@ -74,7 +74,7 @@ Windows:
 </tbody>
 </table>
 
-After Chef Infra Client is installed, it is located at `C:\opscode`. The
+After Chef Infra Client is installed, it's located at `C:\opscode`. The
 main configuration file for Chef Infra Client is located at
 `C:\chef\client.rb`.
 
@@ -106,7 +106,7 @@ main configuration file for Chef Infra Client is located at
 
 {{< readfile file="content/workstation/reusable/md/knife_windows_summary.md" >}}
 
-Se the [knife windows](/workstation/knife_windows/) for more information.
+For more information, see the [`knife windows` documentation](/workstation/knife_windows/).
 
 #### Ports
 

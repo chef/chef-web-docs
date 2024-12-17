@@ -70,7 +70,7 @@ The following properties are common to every resource:
 `sensitive`
 : **Ruby Type:** true, false | **Default Value:** `false`
 
-  Ensure that sensitive resource data is not logged by Chef Infra Client.
+  Ensure that sensitive resource data isn't logged by Chef Infra Client.
 
 #### Examples
 

@@ -49,7 +49,7 @@ FATAL: Net::HTTPClientException: 401 "Unauthorized"
 
 ## Failed to authenticate to
 
-When the values for certain settings in the client.rb file---`node_name` and `client_key`---are incorrect, it will not be possible to authenticate to the Chef Infra Server. An error similar to the following is shown:
+When the values for certain settings in the client.rb file---`node_name` and `client_key`---are incorrect, it won't be possible to authenticate to the Chef Infra Server. An error similar to the following is shown:
 
 ```bash
 ERROR: Failed to authenticate to https://api.opscode.com/organizations/ORGANIZATION as USERNAME with key /path/to/USERNAME.pem
@@ -169,7 +169,7 @@ DEBUG: Sending HTTP Request to https://api.opscode.com/organizations/ORGNAME/nod
 ERROR: Running exception handlers
 ```
 
-The URL will help identify the type of permission issue. If the URL is an index action (that is, operating on a collection of resources, like `/nodes`) then this is a global permission. If the URL is operating on an instance of a collection (`/nodes/NODENAME`) then this is an object permission issue.
+The URL will help identify the type of permission issue. If the URL is an index action (that's, operating on a collection of resources, like `/nodes`) then this is a global permission. If the URL is operating on an instance of a collection (`/nodes/NODENAME`) then this is an object permission issue.
 
 To fix the global permissions:
 
@@ -185,7 +185,7 @@ To fix object permissions:
 
 1. Log in to the Chef management console and click on the failing object type (most likely **Nodes**).
 
-2. Click on the object in the list that is causing the error.
+2. Click on the object in the list that's causing the error.
 
 3. Click on the **Permissions** sub-tab. Which permission it needs, depends on the type of request that failed:
 
@@ -238,10 +238,10 @@ If you're seeing an error like:
 Client key /etc/chef/client.pem isn'tresent - registering
 WARN: Failed to read the private key /etc/che/validation.pem: #<Errno::ENOENT: No such file or directory - /etc/chef/validation.pem>
 FATAL: Stacktrace dumped to /etc/chef/cache/chef-stacktrace.out
-FATAL: Chef::Exceptions::PrivateKeyMissing: I cannot read /etc/chef/validation.pem, which you told me to use to sign requests
+FATAL: Chef::Exceptions::PrivateKeyMissing: I can't read /etc/chef/validation.pem, which you told me to use to sign requests
 ```
 
-It means that Chef Infra Client could not find your validation.pem.
+It means that Chef Infra Client couldn't find your validation.pem.
 
 #### Troubleshooting steps
 
@@ -271,7 +271,7 @@ git commit -am "Updating so I can install a site cookbook"
 
 Re-run the `knife supermarket install` subcommand again to install the community cookbook.
 
-### Cannot find config file
+### Can't find config file
 
 If you're seeing an error like:
 
@@ -280,7 +280,7 @@ WARN: ***************************************
 WARN: Can not find config file: /etc/chef/client.rb, using defaults.
 WARN: No such file or directory - /etc/chef/client.rb
 # ... output truncated ... #
-FATAL: Chef::Exceptions::PrivateKeyMissing: I cannot read /etc/chef/validation.pem, which you told me to use to sign requests!
+FATAL: Chef::Exceptions::PrivateKeyMissing: I can't read /etc/chef/validation.pem, which you told me to use to sign requests!
 ```
 
 #### Troubleshooting steps
@@ -335,11 +335,11 @@ Upgrading isn't supported at this time.
 - Back up the data using `knife ec backup`, create a new backend instance, and then restore the data
 - Re-point frontend machines at the new backend instance **or** assign the new backend instance the name/VIP of the old backend instance (including certificates and keys)
 
-### CSPG010 (cannot connect)
+### CSPG010 (can't connect)
 
 #### Reason
 
-Cannot connect to PostgreSQL on the remote server.
+Can't connect to PostgreSQL on the remote server.
 
 #### Possible causes
 
@@ -348,11 +348,11 @@ Cannot connect to PostgreSQL on the remote server.
 - Network routing configuration is preventing access to the host
 - When using Amazon Web Services (AWS), rules for security groups are preventing the Chef Infra Server from communicating with PostgreSQL
 
-### CSPG011 (cannot authenticate)
+### CSPG011 (can't authenticate)
 
 #### Reason
 
-Cannot authenticate to PostgreSQL on the remote server.
+Can't authenticate to PostgreSQL on the remote server.
 
 #### Possible causes
 
@@ -363,7 +363,7 @@ Cannot authenticate to PostgreSQL on the remote server.
 
 #### Reason
 
-Cannot connect to PostgreSQL on the remote server because rules in
+Can't connect to PostgreSQL on the remote server because rules in
 `pg_hba` are incorrect.
 
 #### Possible causes

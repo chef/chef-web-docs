@@ -155,7 +155,7 @@ See the [chef_handler Resource]({{< relref "/resources/chef_handler">}}) documen
 
 ### Chef Infra Client
 
-Start handlers can be distributed using the **chef-client** cookbook, which will install the handler on the target node during the initial configuration of the node. This ensures that the start handler is always present on the node so that it is available to Chef Infra Client at the start of every run.
+Start handlers can be distributed using the **chef-client** cookbook, which will install the handler on the target node during the initial configuration of the node. This ensures that the start handler is always present on the node so that it's available to Chef Infra Client at the start of every run.
 
 ## Custom Handlers
 
@@ -169,7 +169,7 @@ A custom handler can be created to support any situation. The easiest way to bui
 
 ### Syntax
 
-The syntax for a handler can vary, depending on what the the situations the handler is being asked to track, the type of handler being used, and so on. All custom exception and report handlers are defined using Ruby and must be a subclass of the `Chef::Handler` class.
+The syntax for a handler can vary depending on what the situations the handler is being asked to track, for example the handler type being used. All custom exception and report handlers are defined using Ruby and must be a subclass of the `Chef::Handler` class.
 
 ```ruby
 require 'chef/log'
@@ -187,8 +187,8 @@ where:
 
 - `require` ensures that the logging functionality of Chef Infra Client is available to the handler
 - `ModuleName` is the name of the module as it exists within the `Chef` library
-- `HandlerName` is the name of the handler as it is used in a recipe
-- `report` is an interface that is used to define the custom handler
+- `HandlerName` is the name of the handler as it's used in a recipe
+- `report` is an interface that's used to define the custom handler
 
 For example, the following shows a custom handler that sends an email that contains the exception data when a Chef Infra Client run fails:
 
@@ -298,7 +298,7 @@ end
 
 ### Optional Interfaces
 
-The following interfaces may be used in a handler in the same way as the `report` interface to override the default handler behavior in Chef Infra Client. That said, the following interfaces are not typically used in a handler and, for the most part, are completely unnecessary for a handler to work properly and/or as desired.
+The following interfaces may be used in a handler in the same way as the `report` interface to override the default handler behavior in Chef Infra Client. That said, the following interfaces aren't typically used in a handler and, for the most part, are completely unnecessary for a handler to work properly and/or as desired.
 
 #### data
 
@@ -378,7 +378,7 @@ The `run_status` object is initialized by Chef Infra Client before the `report` 
 
 `success?`
 
-: Show that a Chef Infra Client run succeeded when uncaught exceptions were not raised during a Chef Infra Client run. A report handler runs when the `success?` indicator is `true`.
+: Show that a Chef Infra Client run succeeded when uncaught exceptions weren't raised during a Chef Infra Client run. A report handler runs when the `success?` indicator is `true`.
 
 `updated_resources`
 
@@ -386,7 +386,7 @@ The `run_status` object is initialized by Chef Infra Client before the `report` 
 
 {{< note >}}
 
-These properties are not always available. For example, a start handler runs at the beginning of Chef Infra Client run, which means that properties like `end_time` and `elapsed_time` are still unknown and will be unavailable to the `run_status` object.
+These properties aren't always available. For example, a start handler runs at the beginning of Chef Infra Client run, which means that properties like `end_time` and `elapsed_time` are still unknown and will be unavailable to the `run_status` object.
 
 {{< /note >}}
 

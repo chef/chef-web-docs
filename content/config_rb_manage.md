@@ -104,7 +104,7 @@ This configuration file has the following settings:
 
 `recaptcha.fail_open`
 
-: If the reCAPTCHA service cannot be reached, allow to sign-up? Default value: `true`.
+: If the reCAPTCHA service can't be reached, allow to sign-up? Default value: `true`.
 
 `recaptcha.verify_url`
 
@@ -154,11 +154,11 @@ This configuration file has the following settings:
 
 `session_timeout`
 
-: The amount of time (in minutes) of inactivity before a user is logged out. When not set (or set to 0), a browser session will not have a timed expiration and will expire when the browser session ends, quits, or when the computer restarts, or when the absolute session time limit is hit (see `session_timeout_absolute`). Default value: `1440` (one day).
+: The amount of time (in minutes) of inactivity before a user is logged out. When not set (or set to 0), a browser session won't have a timed expiration and will expire when the browser session ends, quits, or when the computer restarts, or when the absolute session time limit is hit (see `session_timeout_absolute`). Default value: `1440` (one day).
 
 `session_timeout_absolute`
 
-: The amount of time (in minutes) after which a user will be logged out, regardless of activity. When not set (or set to 0), a browser session will not have a timed expiration unless a session is inactive longer than the session time limit (see `session_timeout`). Default value: `10080` (one week).
+: The amount of time (in minutes) after which a user will be logged out, regardless of activity. When not set (or set to 0), a browser session won't have a timed expiration unless a session is inactive longer than the session time limit (see `session_timeout`). Default value: `10080` (one week).
 
 `sign_in_page_message`
 
@@ -209,7 +209,7 @@ when connecting to the Infra Server. Most common setting: `"/etc/chef/trusted_ce
 
 `webapp.worker_timeout`
 
-: The amount of time (in seconds) that a worker can be silent before it is killed and restarted. Default value: `3600`.
+: The amount of time (in seconds) that a worker can be silent before it's killed and restarted. Default value: `3600`.
 
 ## Web UI Private Key
 

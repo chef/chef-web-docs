@@ -120,7 +120,7 @@ product = [""]
 
 ### Improvements
 
-- In the previous release, you could not add more than one user-defined policy to a custom role.
+- In the previous release, you couldn't add more than one user-defined policy to a custom role.
   You can now create custom roles with multiple policies with a single command.
 - The Courier Orchestrator service is now multi-threaded so that it can send multiple Courier jobs that are scheduled simultaneously.
 - We improved Chef 360 Platform enrollment failure messages so that they now show appropriate error messages for all stages of enrollment.
@@ -153,13 +153,13 @@ product = [""]
 
 ### Overview
 
-This is the initial release of Progress Chef 360 Platform. Chef 360 Platform is a set of integrated software components and a surrounding ecosystem where value comes not only from individual features but from its ability to connect external tools, teams, data, and processes. We see Chef 360 Platform as a way to take the power and benefits of policy as code and spread it to everyone who has a role in development, operations and security. In addition to that Chef 360 Platform is an integrated ecosystem of tools providing not just value but also its ability to connect teams and tools together. It is a modern, cloud-native DevOps platform that democratizes DevOps by empowering IT operators and DevOps engineers to manage mission-critical infrastructure securely.
+This is the initial release of Progress Chef 360 Platform. Chef 360 Platform is a set of integrated software components and a surrounding ecosystem where value comes not only from individual features but from its ability to connect external tools, teams, data, and processes. We see Chef 360 Platform as a way to take the power and benefits of policy as code and spread it to everyone who has a role in development, operations and security. In addition to that Chef 360 Platform is an integrated ecosystem of tools providing not just value but also its ability to connect teams and tools together. It's a modern, cloud-native DevOps platform that democratizes DevOps by empowering IT operators and DevOps engineers to manage mission-critical infrastructure securely.
 
 When we set out to build a new platform we identified four primary guiding principles, used to help us make the right choices and stay aligned with our objectives.
 
 - Automate everything (within reason), by providing you prescriptive ways to use the platform, while still retaining our core flexibility.
 - Reach everywhere, be that your data center, a cloud, a laptop, single board computer or even a satellite. We want to support you everywhere you are running a workload.
-- Embrace all users and skill levels. So we are making this platform not just with APIs and CLIs for automation but also with an intuitive UI.
+- Embrace all users and skill levels. So we're making this platform not just with APIs and CLIs for automation but also with an intuitive UI.
 - Embrace open standards. This means you get open interoperability to OpenAPI v3 services, cloud-native benefits by starting in Kubernetes at Chef 360's inception, and other security standards to make acceptance and adoption easy.
 
 Chef 360 Platform contains a host of services on which new products from Chef are being built. Progress Chef Courier is one such product. This release also is the initial release of Progress Chef Courier product.
@@ -233,16 +233,16 @@ Interface-driven
 
 ### Known issues
 
-We have tested on the supported platforms listed above and intend on broadening this support in upcoming releases. Chef 360 Platform may operate correctly on other platforms; we just cannot guarantee it. Contact your customer success team with questions.
+We've tested on the supported platforms listed above and intend on broadening this support in upcoming releases. Chef 360 Platform may operate correctly on other platforms; we just can't guarantee it. Contact your customer success team with questions.
 
 Chef 360 Platform has the following known issues:
 
-- The Chef 360 Platform is not yet supported for environments which cannot access the internet, that is, air gapped environments.
+- The Chef 360 Platform isn't yet supported for environments which can't access the internet, that's, air gapped environments.
 - Don't create a tenant name with the underscore character `_`, services will fail to start.
-- Don't change or modify the underlying Kubernetes configuration after installing v1.0; upgrades are not yet supported.
-- Upgrades to v1.0 are manual; automatic upgrades are not supported.
-- The message queues internally for Chef Courier job distribution and node enrollment do not support TLS.
-- Chef 360 Platform services do not work correctly on nodes using localhost DNS settings (`127.0.0.1`).
+- Don't change or modify the underlying Kubernetes configuration after installing v1.0; upgrades aren't yet supported.
+- Upgrades to v1.0 are manual; automatic upgrades aren't supported.
+- The message queues internally for Chef Courier job distribution and node enrollment don't support TLS.
+- Chef 360 Platform services don't work correctly on nodes using localhost DNS settings (`127.0.0.1`).
 - Some Courier jobs run to completion---success or failure---and may not be cancellable. Additionally, if a Linux shell job is specified for a Windows node (or vice-versa), it should be manually verified as working since some scripts may have 3rd party dependencies on a given platform.
 - Several features including node filters and exemptions, un-enrolling and re-enrolling a node, and multi-node deployment under development and will be available in a subsequent release.
 - The user experience (UI) is experimental and being updated frequently now so some users of the distribution channel and containers may see improvements and screen changes between operations.

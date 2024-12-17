@@ -18,6 +18,7 @@ This page provides guidance on using Chef product names. See the [Terms page]({{
 
 For Chef applications and components, use:
 
+- Chef 360 Platform
 - Chef Automate
 - Chef Backend
 - Chef Habitat
@@ -33,7 +34,7 @@ Always capitalize product names and never hyphenate a product name or refer to a
 
 ## Shorten product names
 
-It is awkward to refer to the full product name all the time.
+It's awkward to refer to the full product name all the time.
 Use the full product name the first time it's used in a page or paragraph and then use the shortened product name afterward.
 
 ## Using _the_ before product names

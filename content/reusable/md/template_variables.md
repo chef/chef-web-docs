@@ -12,9 +12,9 @@ A statement is delimited by a modifier, such as `if`, `elsif`, and
 
 ```ruby
 if false
-# this will not happen
+# this won't happen
 elsif nil
-      # this will not either
+      # this won't either
     end
 ```
 

@@ -47,7 +47,7 @@ end
 ```
 
 The only environment being altered is the one being passed to the child
-process that is started by the **bash** resource. This will not affect
+process that's started by the **bash** resource. This won't affect
 the Chef Infra Client environment or any child processes.
 
 ## Work with Recipes
@@ -106,13 +106,13 @@ mysql_creds['pass'] # will be decrypted
 
 ### Assign Dependencies
 
-If a cookbook has a dependency on a recipe that is located in another
+If a cookbook has a dependency on a recipe that's located in another
 cookbook, that dependency must be declared in the metadata.rb file for
 that cookbook using the `depends` keyword.
 
 {{< note >}}
 
-Declaring cookbook dependencies is not required with chef-solo.
+Declaring cookbook dependencies isn't required with chef-solo.
 
 {{< /note >}}
 
@@ -273,7 +273,7 @@ to a run-list is similar to:
 }
 ```
 
-where `::default_recipe` is implied (and does not need to be specified).
+where `::default_recipe` is implied (and doesn't need to be specified).
 On a node, these recipes can be assigned to a node's run-list similar
 to:
 
@@ -395,7 +395,7 @@ end
 where `platform?('windows')` is the condition set on the `return`
 keyword. When the condition is met, stop processing the recipe. This
 approach is useful when there is no need to continue processing, such as
-when a package cannot be installed. In this situation, it is OK for a
+when a package can't be installed. In this situation, it's OK for a
 recipe to stop processing.
 
 #### raise Keyword
@@ -490,7 +490,7 @@ specify the message to be raised.
 
 Use `node.run_state` to stash transient data during a Chef Infra Client
 run. This data may be passed between resources, and then evaluated
-during the execution phase. `run_state` is an empty Hash that is always
+during the execution phase. `run_state` is an empty Hash that's always
 discarded at the end of a Chef Infra Client run.
 
 For example, the following recipe will install the Apache web server,
@@ -520,7 +520,7 @@ end
 
 where:
 
-- The **ruby_block** resource declares a `block` of Ruby code that is
+- The **ruby_block** resource declares a `block` of Ruby code that's
     run during the execution phase of a Chef Infra Client run
 - The `if` statement randomly chooses PHP or Perl, saving the choice
     to `node.run_state['scripting_language']`

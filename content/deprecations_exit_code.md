@@ -8,7 +8,7 @@ sitemapExclude = true
 aliases = "/deprecations_exit_code.html"
 +++
 
-In older versions of Chef Infra Client, it was not possible to discern why a
+In older versions of Chef Infra Client, it wasn't possible to discern why a
 chef run exited simply by examining the error code. This makes it
 tricky for tools such as Test Kitchen to reason about the status of a
 Chef Infra Client run. Starting in Chef Infra Client 12.11, there are now well
@@ -23,9 +23,9 @@ them](https://github.com/chef/chef-rfc/blob/main/rfc062-exit-status.md).
 
 ## Remediation
 
-If you have built automation that is dependent on the old behavior of
+If you have built automation that's dependent on the old behavior of
 Chef Infra Client, we strongly recommend updating it to support the extended
-set of exit codes. However, it is still possible to enable the old
+set of exit codes. However, it's still possible to enable the old
 behavior. Add the setting
 
 ```ruby

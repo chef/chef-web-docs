@@ -351,7 +351,7 @@ some:  content for them
 
 ## Unattended installs
 
-Chef Infra Client can be installed using an unattended bootstrap. This allows Chef Infra Client to be installed from itself, without requiring SSH. For example, machines are often created using environments like AWS Auto Scaling, AWS CloudFormation, Rackspace Auto Scale, and PXE. In this scenario, using tooling for attended, single-machine installs like `knife bootstrap` or `knife CLOUD_PLUGIN create` is not practical because the machines are created automatically and someone can't always be on-hand to initiate the bootstrap process.
+Chef Infra Client can be installed using an unattended bootstrap. This allows Chef Infra Client to be installed from itself, without requiring SSH. For example, machines are often created using environments like AWS Auto Scaling, AWS CloudFormation, Rackspace Auto Scale, and PXE. In this scenario, using tooling for attended, single-machine installs like `knife bootstrap` or `knife CLOUD_PLUGIN create` isn't practical because the machines are created automatically and someone can't always be on-hand to initiate the bootstrap process.
 
 When Chef Infra Client is installed using an unattended bootstrap, remember that Chef Infra Client:
 
@@ -428,7 +428,7 @@ EOF
 cd /etc/chef/
 
 # Install chef
-curl -L https://omnitruck.chef.io/install.sh | bash || error_exit 'could not install chef'
+curl -L https://omnitruck.chef.io/install.sh | bash || error_exit "couldn't install chef"
 
 # Create first-boot.json
 cat > "/etc/chef/first-boot.json" << EOF

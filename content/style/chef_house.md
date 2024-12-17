@@ -17,7 +17,7 @@ We recommend that you use the conventions described in this guide when contribut
 
 ## Grammar
 
-Chef does not follow a specific grammar convention. Be clear and
+Chef doesn't follow a specific grammar convention. Be clear and
 consistent as often as possible. Follow the established patterns in the
 docs.
 
@@ -60,11 +60,11 @@ Use the `4thcafe.com` domain for generic domains and email addresses in the docu
 
 ### Example Names
 
-do not reveal personal information in examples, such as the names of real people, real email addresses, or phone numbers.
+don't reveal personal information in examples, such as the names of real people, real email addresses, or phone numbers.
 
-do not use the names of bands, musicians, or characters from works that are under copyright.
+don't use the names of bands, musicians, or characters from works that are under copyright.
 
-When writing about security, follow the accepted convention and use "Alice" and "Bob". Following this convention helps readers see that they are reading a topic about security and integrate the Chef information with their existing knowledge.
+When writing about security, follow the accepted convention and use "Alice" and "Bob". Following this convention helps readers see that they're reading a topic about security and integrate the Chef information with their existing knowledge.
 
 Here is a list of some example names for you to use (the last names are translations of "Chef"):
 

@@ -23,8 +23,8 @@ This section covers the basics of Ruby.
 
 ### Verify Syntax
 
-Many people who are new to Ruby often find that it does not take
-long to get up to speed with the basics. For example, it is useful to
+Many people who are new to Ruby often find that it doesn't take
+long to get up to speed with the basics. For example, it's useful to
 know how to check the syntax of a Ruby file, such as the contents of a
 cookbook named `my_cookbook.rb`:
 
@@ -93,18 +93,18 @@ Embed Ruby in a string:
 ```ruby
 x = 'Bob'
 "Hi, #{x}"      # => "Hi, Bob"
-'Hello, #{x}'   # => "Hello, \#{x}" Notice that single quotes do not work with #{}
+'Hello, #{x}'   # => "Hello, \#{x}" Notice that single quotes don't work with #{}
 ```
 
 #### Escape Character
 
 Use the backslash character (`\`) as an escape character when quotes
-must appear within strings. However, you do not need to escape single
+must appear within strings. However, you don't need to escape single
 quotes inside double quotes. For example:
 
 ```ruby
 'It\'s alive!'                        # => "It's alive!"
-"Won\'t you read Grant\'s book?"      # => "will not you read Grant's book?"
+"Won\'t you read Grant\'s book?"      # => "won't you read Grant's book?"
 ```
 
 #### Interpolation
@@ -144,7 +144,7 @@ false           # => false
 nil             # => nil
 0               # => true ( the only false values in Ruby are false
                 #    and nil; in other words: if it exists in Ruby,
-                #    even if it exists as zero, then it is true.)
+                #    even if it exists as zero, then it's true.)
 1 == 1          # => true ( == tests for equality )
 1 == true       # => false ( == tests for equality )
 ```
@@ -157,8 +157,8 @@ Work with basic untruths (`!` means not!):
 !true           # => false
 !false          # => true
 !nil            # => true
-1 != 2          # => true (1 is not equal to 2)
-1 != 1          # => false (1 is not equal to itself)
+1 != 2          # => true (1 isn't equal to 2)
+1 != 1          # => false (1 isn't equal to itself)
 ```
 
 #### Convert Truths
@@ -169,7 +169,7 @@ Convert something to either true or false (`!!` means not not!!):
 !!true          # => true
 !!false         # => false
 !!nil           # => false (when pressed, nil is false)
-!!0             # => true (zero is NOT false).
+!!0             # => true (zero isn't false).
 ```
 
 ### Arrays
@@ -225,7 +225,7 @@ end
 
 ### Hash
 
-A Hash is a list with keys and values. Sometimes hashes do not have a set
+A Hash is a list with keys and values. Sometimes hashes don't have a set
 order:
 
 ```ruby
@@ -264,9 +264,9 @@ Use conditions! For example, an `if` statement
 
 ```ruby
 if false
-  # this will not happen
+  # this won't happen
 elsif nil
-  # this will not either
+  # this won't either
 else
   # code here will run though
 end
@@ -278,7 +278,7 @@ or a `case` statement:
 x = 'dog'
 case x
 when 'fish'
- # this will not happen
+ # this won't happen
 when 'dog', 'cat', 'monkey'
   # this will run
 else
@@ -290,7 +290,7 @@ end
 
 An `if` statement can be used to specify part of a recipe to be used
 when certain conditions are met. `else` and `elsif` statements can be
-used to handle situations where either the initial condition is not met
+used to handle situations where either the initial condition isn't met
 or when there are other possible conditions that can be met. Since this
 behavior is 100% Ruby, do this in a recipe the same way here as anywhere
 else.
@@ -307,7 +307,7 @@ end
 
 `if` can be used as a modifier that executes the left side of an expression
 if the right side of the expression is true. The `if` modifier expression must
-be a single line, and `else` and `elsif` statements are not supported.
+be a single line, and `else` and `elsif` statements aren't supported.
 
 In the following example, the `do_ubuntu_thing` function will execute if the platform on a node is Ubuntu.
 
@@ -461,7 +461,7 @@ Name things uniformly for their system and component. For example:
 - directories: `foo/bar` (if specific to component), `foo` (if not).
     For example: `/var/log/foo/bar`.
 
-Name attributes after the recipe in which they are primarily used. for example
+Name attributes after the recipe in which they're primarily used. for example
 `node['postgresql']['server']`.
 
 ### Parameter Order
@@ -512,9 +512,9 @@ mode 755
 
 ### Specify Resource Action?
 
-A resource declaration does not require the action to be specified
+A resource declaration doesn't require the action to be specified
 because Chef Infra Client will apply the default action for a resource
-automatically if it is not specified within the resource block. For
+automatically if it's not specified within the resource block. For
 example:
 
 ```ruby
@@ -537,7 +537,7 @@ end
 
 ### String Quoting
 
-Use single-quoted strings in all situations where the string does not
+Use single-quoted strings in all situations where the string doesn't
 need interpolation.
 
 #### Whitespace Arrays
@@ -676,7 +676,7 @@ template '/srv/wordpress_demo/wp-config.php' do
     auth_salt: 'arbitrary data source, such as a password',
     secure_auth_salt: 'vault. Node attributes could work',
     logged_in_salt: 'as well, but you take special care',
-    nonce_salt: 'so they are not saved to your chef-server.',
+    nonce_salt: 'so they're not saved to your chef-server.',
     allow_multisite: 'false'
   )
   action :create

@@ -34,12 +34,12 @@ where
 `principal`
 
 : Use to specify a group or user. The principal can be specified by
-  either name or SID. When using name, this is identical to what is
+  either name or SID. When using name, this is identical to what's
   entered in the login box for Windows, such as `user_name`,
   `domain\user_name`, or `user_name@fully_qualified_domain_name`. When
   using a SID, you may use either the standard string representation of
   a SID (S-R-I-S-S) or one of the [SDDL string constants](https://docs.microsoft.com/en-us/windows/win32/secauthz/sid-strings). Chef
-  Infra Client does not need to know if a principal is a user or a
+  Infra Client doesn't need to know if a principal is a user or a
   group.
 
 `option_type`
@@ -86,9 +86,9 @@ Some other important things to know when using the `rights` attribute:
 
 - Only inherited rights remain. All existing explicit rights on the
   object are removed and replaced.
-- If rights are not specified, nothing will be changed. Chef Infra
-  Client does not clear out the rights on a file or directory if
-  rights are not specified.
+- If rights aren't specified, nothing will be changed. Chef Infra
+  Client doesn't clear out the rights on a file or directory if
+  rights aren't specified.
 - Changing inherited rights can be expensive. Windows will
   propagate rights to all children recursively due to inheritance.
   This is a normal aspect of Windows, so consider the

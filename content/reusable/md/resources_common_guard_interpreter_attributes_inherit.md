@@ -1,7 +1,7 @@
 The `guard_interpreter` property is set to `:default` by default for the
 **bash**, **csh**, **perl**, **python**, and **ruby** resources. When
 the `guard_interpreter` property is set to `:default`, `not_if` or
-`only_if` guard statements **do not inherit** properties that are
+`only_if` guard statements **don't inherit** properties that are
 defined by the **script**-based resource.
 
 <!-- markdownlint-disable-file MD033 -->
@@ -19,7 +19,7 @@ respectively.
 </div>
 </div>
 For example, the `not_if` guard statement in the following resource
-example **does not inherit** the `environment` property:
+example **doesn't inherit** the `environment` property:
 
 ```ruby
 bash 'javatooling' do

@@ -43,7 +43,7 @@ before-breakpoint
 You can rewind and step through a Chef Infra Client run:
 
 ```bash
-chef:recipe > Chef::Log.level = :debug # debug logging will not turn on automatically in this case
+chef:recipe > Chef::Log.level = :debug # debug logging won't turn on automatically in this case
     => :debug
   chef:recipe > chef_run.rewind
     => 0

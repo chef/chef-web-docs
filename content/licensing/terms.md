@@ -27,7 +27,7 @@ Licensed Unit
 : "License Unit" types/metrics include node, entitled content, service instance, target and/or endpoint.
 
 Measurement of License Units/License Consumption Data
-: Measurement of usage of a license unit. It's a numerical value based on the bundle\SKU or add-on(s) customer has purchased.
+: Measurement of usage of a license unit. It's a numerical value based on the bundle\SKU or add-ons customer has purchased.
 
 Free-tier Users
 : Users using a Free License of Chef (User will only get the executable but restricted in some way), not the code base.

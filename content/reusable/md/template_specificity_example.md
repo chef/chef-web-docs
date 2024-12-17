@@ -20,7 +20,7 @@ end
 ```
 
 This resource would be matched in the same order as the `/templates`
-directory structure. For a node named `host-node-desktop` that is
+directory structure. For a node named `host-node-desktop` that's
 running Windows 8.1, the second item would be the matching item and the
 location:
 

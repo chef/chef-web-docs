@@ -29,7 +29,7 @@ machines in Microsoft Azure.
 ### get-chef
 
 Use the `get-chef` command to get the details for the Azure Chef
-Extension that is running on the named virtual machine.
+Extension that's running on the named virtual machine.
 
 #### Syntax
 
@@ -78,7 +78,7 @@ This command has the following options:
 
 `-j JSON`, `--bootstrap-options JSON`
 
-: A JSON string that is added to the first run of a Chef Infra Client.
+: A JSON string that's added to the first run of a Chef Infra Client.
   For example:
 
   ```bash
@@ -196,7 +196,7 @@ The extension has the following options that can be provided in the
 
 `chef_node_name`
 
-: Determines which configuration should be applied and sets the `client_name`, which is the name used when authenticating to a Chef Infra Server. The default value is the the Chef Infra Client FQDN, as detected by Ohai. In general, Chef recommends that you leave this setting blank and let Ohai assign the FQDN of the node as the `node_name` during each Chef Infra Client run.
+: Determines which configuration should be applied and sets the `client_name`, which is the name used when authenticating to a Chef Infra Server. The default value is the Chef Infra Client FQDN, as detected by Ohai. In general, Chef recommends that you leave this setting blank and let Ohai assign the FQDN of the node as the `node_name` during each Chef Infra Client run.
 
 `chef_server_url`
 
@@ -208,7 +208,7 @@ The extension has the following options that can be provided in the
 
 `secret`
 
-: The encryption key that is used for values contained within a data bag item.
+: The encryption key that's used for values contained within a data bag item.
 
 `validation_client_name`
 

@@ -16,7 +16,7 @@ aliases = ["/templates.html", "essentials_cookbook_templates.html"]
 
 {{< readfile file="content/reusable/md/template.md" >}}
 
-The `templates` directory does not exist by default in a cookbook.
+The `templates` directory doesn't exist by default in a cookbook.
 Generate the `templates` directory and a template file from the `chef-repo/cookbooks` directory with the command:
 
 ```bash

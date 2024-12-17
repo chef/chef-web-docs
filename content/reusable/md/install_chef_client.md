@@ -10,7 +10,7 @@ including an embedded version of Ruby, OpenSSL, parsers, libraries,
 and command line utilities.
 
 The Chef Infra Client installer puts everything into a unique directory
-(`/opt/chef/`) so that Chef Infra Client will not interfere with other
+(`/opt/chef/`) so that Chef Infra Client won't interfere with other
 applications that may be running on the target machine. Once installed,
 Chef Infra Client requires a few more configuration steps before it can
 perform its first Chef Infra Client run on a node.
