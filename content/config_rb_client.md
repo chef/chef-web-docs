@@ -585,10 +585,10 @@ This configuration file has the following settings:
 
 ## Example
 
-A sample client.rb file that contains the most simple way to connect to Hosted Chef
+The following `client.rb` file shows the simplest way to connect to Chef Infra Server:
 
 ```ruby
-chef_server_url  'https://api.chef.io/organizations/<orgname>'
+chef_server_url  'https://chef-server.example.com/organizations/ORGANIZATION'
 validation_client_name '<orgname>-validator'
 validation_key '/etc/chef/validator.pem'
 client_key '/etc/chef/client.pem'

@@ -370,13 +370,6 @@ identifier = "server"
   parent = "server"
   weight = 10
 
-    [[server]]
-    title = "Hosted Chef Server"
-    identifier = "server/overview/Hosted Chef Server"
-    parent = "server/overview"
-    url = "https://manage.chef.io/signup"
-    weight = 70
-
   [[server]]
   title = "Plan"
   identifier = "server/planning"
@@ -395,13 +388,6 @@ identifier = "server"
     parent = "server/installation"
     URL = "/install_chef_air_gap/#chef-infra-server"
     weight = 30
-
-    [[server]]
-    title = "Hosted Chef Server"
-    identifier = "server/installation/Hosted Chef Server"
-    parent = "server/installation"
-    URL = "https://manage.chef.io/signup"
-    weight = 40
 
   [[server]]
   title = "Configure"
