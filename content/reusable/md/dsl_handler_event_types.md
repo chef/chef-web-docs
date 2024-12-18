@@ -24,7 +24,7 @@ method block by declaring it as the event type.
 
 `:skipping_registration`
 
-: The Chef Infra Client is not registering with the Chef Infra Server because it already has a private key or because it does not need one.
+: The Chef Infra Client isn't registering with the Chef Infra Server because it already has a private key or because it doesn't need one.
 
 `:registration_start`
 
@@ -56,11 +56,11 @@ method block by declaring it as the event type.
 
 `:node_load_completed`
 
-: The Chef Infra Client successfully loaded node data from the Chef Infra Server. Default and override attributes for roles have been computed, but are not yet applied.
+: The Chef Infra Client successfully loaded node data from the Chef Infra Server. Default and override attributes for roles have been computed, but aren't yet applied.
 
 `:policyfile_loaded`
 
-: The policy file was loaded.
+: The Policyfile was loaded.
 
 `:cookbook_resolution_start`
 
@@ -280,11 +280,11 @@ method block by declaring it as the event type.
 
 `:resource_current_state_load_bypassed`
 
-: A resource's current state was not loaded because the resource does not support why-run mode.
+: A resource's current state wasn't loaded because the resource doesn't support why-run mode.
 
 `:resource_bypassed`
 
-: A resource action was skipped because the resource does not support why-run mode.
+: A resource action was skipped because the resource doesn't support why-run mode.
 
 `:resource_update_applied`
 
@@ -300,7 +300,7 @@ method block by declaring it as the event type.
 
 `:resource_failed`
 
-: A resource action has failed and will not be retried.
+: A resource action has failed and won't be retried.
 
 `:resource_updated`
 

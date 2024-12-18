@@ -15,7 +15,7 @@ end
 ```
 
 where the `command` property for the **execute** resource contains the
-command that is to be run and the `source` property for the **template**
+command that's to be run and the `source` property for the **template**
 resource specifies which template to use. The `notifies` property for
 the **template** specifies that the `execute[forward_ipv4]` (which is
 defined by the **execute** resource) should be queued up and run at the

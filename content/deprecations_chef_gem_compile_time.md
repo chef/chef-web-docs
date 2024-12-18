@@ -13,7 +13,7 @@ Originally, the [chef gem](/resources/chef_gem/) resource always ran
 during the <span class="title-ref">compile</span> phase (see this
 section on [Chef Infra Client
 runs](/chef_client_overview/#the-chef-client-run) for further
-details). It is now possible to control which phase the resource is run
+details). It's now possible to control which phase the resource is run
 in. Calling `chef_gem` without specifying the phase is now deprecated.
 
 This deprecation warning was added in Chef Infra Client 12.1.0, and using

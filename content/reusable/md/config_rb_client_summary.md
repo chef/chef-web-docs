@@ -6,4 +6,4 @@ The `client.rb` file configures Chef Infra Client on a node and has the followin
     this file is `/etc/chef/client.rb`.
 - Use the `--config` option from the command line to override the
     default location of the configuration file.
-- This file is not created by default
+- This file isn't created by default

@@ -43,7 +43,7 @@ following search indexes are built:
 </tr>
 <tr>
 <td><code>DATA_BAG_NAME</code></td>
-<td>A data bag is a global variable that is stored as JSON data and is accessible from a Chef Infra Server. The name of the search index is the name of the data bag. For example, if the name of the data bag was "admins" then a corresponding search query might look something like <code>search(:admins, "*:*")</code>.</td>
+<td>A data bag is a global variable that's stored as JSON data and is accessible from a Chef Infra Server. The name of the search index is the name of the data bag. For example, if the name of the data bag was "admins" then a corresponding search query might look something like <code>search(:admins, "*:*")</code>.</td>
 </tr>
 <tr>
 <td><code>environment</code></td>
@@ -51,7 +51,7 @@ following search indexes are built:
 </tr>
 <tr>
 <td><code>node</code></td>
-<td>A node is any server or virtual server that is configured to be maintained by a Chef Infra Client.</td>
+<td>A node is any server or virtual server that's configured to be maintained by a Chef Infra Client.</td>
 </tr>
 <tr>
 <td><code>role</code></td>
@@ -203,12 +203,12 @@ and any API client.
 ### Roles in Run-lists
 
 A search query can be made for roles that are at the top-level of a
-run-list and also for a role that is part of an expanded run-list.
+run-list and also for a role that's part of an expanded run-list.
 
 {{< note >}}
 
 The `roles` field is updated with each Chef Infra Client run; changes to
-a run-list will not affect `roles` until the next Chef Infra Client run
+a run-list won't affect `roles` until the next Chef Infra Client run
 on the node.
 
 {{< /note >}}
@@ -287,7 +287,7 @@ recipe is included by a role.
 {{< note >}}
 
 The `recipes` field is with each Chef Infra Client run; changes to a
-run-list will not affect `recipes` until the next Chef Infra Client run
+run-list won't affect `recipes` until the next Chef Infra Client run
 on the node.
 
 {{< /note >}}
@@ -320,7 +320,7 @@ on the node.
 </tbody>
 </table>
 
-If you just want to use each result of the search and do not care about
+If you just want to use each result of the search and don't care about
 the aggregate result you can provide a code block to the search method.
 Each result is then passed to the block:
 
@@ -339,7 +339,7 @@ typically a node (that runs Chef Infra Client) or a workstation (that
 runs knife), but can also be any other machine configured to use the
 Chef Infra Server API.
 
-Sometimes when a role is not fully defined (or implemented), it may be
+Sometimes when a role isn't fully defined (or implemented), it may be
 necessary for a machine to connect to a database, search engine, or some
 other service within an environment by using the settings located on
 another machine, such as a host name, IP address, or private IP address.
@@ -359,7 +359,7 @@ following knife query to view information about the node:
 knife search node "name:name_of_database_server" --long
 ```
 
-To access these settings as part of a recipe that is run on the web
+To access these settings as part of a recipe that's run on the web
 server, use code similar to:
 
 ```ruby

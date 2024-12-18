@@ -15,7 +15,7 @@ product = ["server"]
 The Chef Infra Server supports Active Directory and LDAP authentication,
 which enables users to log in to the Chef Infra Server using their
 corporate credential and the Manage interface. Without the Manage interface add-on installed,
-there is no need to enable the Chef Infra Server LDAP functionality. LDAP is not used with
+there is no need to enable the Chef Infra Server LDAP functionality. LDAP isn't used with
 Supermarket logins, nor with any Chef Infra Client related authentication.
 
 ## Configure LDAP
@@ -315,7 +315,7 @@ distinguishedName: CN=Robert Forster,OU=Employees,OU=Domain users,DC=opscodecorp
 
 {{< note >}}
 
-The `ldapsearch` command may need to be installed on the platform. It is
+The `ldapsearch` command may need to be installed on the platform. It's
 not included as part of the Chef Infra Server package.
 
 {{< /note >}}

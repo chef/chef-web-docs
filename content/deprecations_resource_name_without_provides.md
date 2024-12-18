@@ -47,7 +47,7 @@ is addressed in recipe mode.
 There is also the old standard that existed before resources could
 declare what they provided. In that standard, the resource was addressed
 by prepending the `cookbook_name` to the filename that the resource was declared in.
-That has remained unchanged and is not affected by this change.
+That has remained unchanged and isn't affected by this change.
 
 ## Remediation
 
@@ -77,9 +77,9 @@ end
 ```
 
 It also works to have the `provides` line come before the `resource_name`,
-the order does not matter.
+the order doesn't matter.
 
-For cookbooks which do not have to support Chef Infra Client 15 or before, the
+For cookbooks which don't have to support Chef Infra Client 15 or before, the
 `resource_name` can also be entirely omitted:
 
 ```ruby

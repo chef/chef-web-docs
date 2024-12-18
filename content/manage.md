@@ -22,7 +22,7 @@ product = []
 
 {{< note >}}
 
-Chef Automate 2 does not deploy Chef Manage alongside Chef Infra Server.
+Chef Automate 2 doesn't deploy Chef Manage alongside Chef Infra Server.
 
 {{< /note >}}
 

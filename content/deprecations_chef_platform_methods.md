@@ -64,7 +64,7 @@ provides :mysql_service, platform: "fedora", platform_version: ">= 19"
 ```
 
 This can also be directly sent to the provider class in library code,
-although this form is less encouraged (which does not mean the same
+although this form is less encouraged (which doesn't mean the same
 thing as discouraged -- but you gain better code organization with the
 prior code):
 
@@ -80,12 +80,12 @@ is supported back to Chef Infra Client 12.0, although some more advanced forms
 of the `provides` syntax were only introduced in Chef Infra Client 12.5.1.
 
 Also you may have found this web page due to deprecation of
-library-based resources and providers that do not declare provides in
+library-based resources and providers that don't declare provides in
 which case your Chef Infra Client run is likely full of a compilation of
 warnings and deprecations:
 
 ```plain
-* foo[it] action doit[2016-12-07T14:28:59-08:00] WARN: Class Chef::Provider::Foo does not declare 'provides :foo'.
+* foo[it] action doit[2016-12-07T14:28:59-08:00] WARN: Class Chef::Provider::Foo doesn't declare 'provides :foo'.
   [2016-12-07T14:28:59-08:00] WARN: This will no longer work in Chef Infra Client 13: you must use 'provides' to use the resource's DSL.
   (up to date)
 
@@ -105,7 +105,7 @@ Class.find is deprecated at 1 location:
 ```
 
 In this case, the initial warning that
-`Class Chef::Provider::Foo does not declare 'provides :foo'` is accurate
+`Class Chef::Provider::Foo doesn't declare 'provides :foo'` is accurate
 and gives the remediation.
 
 Code that looks like this:

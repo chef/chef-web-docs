@@ -35,7 +35,7 @@ resources, for example those used to send notifications to other
 resources and guards that help ensure that some resources are
 idempotent.
 
-For example, a resource that is used to install a tar.gz package for
+For example, a resource that's used to install a tar.gz package for
 version 1.16.1 may look something like this:
 
 ```ruby
@@ -48,7 +48,7 @@ end
 All actions have a default value. Only non-default behaviors of actions
 and properties need to be specified. For example, the **package**
 resource's default action is `:install` and the name of the package
-defaults to the `name` of the resource. Therefore, it is possible to
+defaults to the `name` of the resource. Therefore, it's possible to
 write a resource block that installs the latest tar.gz package like
 this:
 
@@ -90,7 +90,7 @@ See these guides for additional information about resources:
 </tr>
 <tr>
 <td><a href="/resources/">Resource Reference</a></td>
-<td>A reference guide that lists both the common and individual options available to every resource that is bundled into Chef.</td>
+<td>A reference guide that lists both the common and individual options available to every resource that's bundled into Chef.</td>
 </tr>
 <tr>
 <td><a href="/custom_resources/">Custom Resources</a></td>

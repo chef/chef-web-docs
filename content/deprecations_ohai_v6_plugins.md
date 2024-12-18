@@ -12,7 +12,7 @@ Ohai 7.0 released with Chef Infra Client 11.12 introduced an improved plugin
 DSL model. At the time we introduced deprecations for the existing
 plugin DSL, which we referred to as V6 plugins. In Ohai/Chef Infra Client 14
 we will remove the support for Ohai V6 plugins, causing a runtime error
-if they are used.
+if they're used.
 
 ## Remediation
 

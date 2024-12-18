@@ -30,8 +30,8 @@ This topic is about using the Chef management console to manage keys.
 A client is an actor that has permission to access the Chef Infra
 Server. A client is most often a node (on which the Chef Infra Client
 runs), but is also a workstation (on which knife runs), or some other
-machine that is configured to use the Chef Infra Server API. Each
-request to the Chef Infra Server that is made by a client uses a private
+machine that's configured to use the Chef Infra Server API. Each
+request to the Chef Infra Server that's made by a client uses a private
 key for authentication that must be authorized by the public key on the
 Chef Infra Server.
 

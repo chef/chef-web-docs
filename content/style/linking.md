@@ -67,7 +67,7 @@ To make a link in Markdown, put the link text in square brackets followed by the
 ### relref shortcode
 
 We recommend using Hugo's built-in [relref shortcode](https://gohugo.io/content-management/shortcodes/#ref-and-relref) for making relative links to other pages in Chef's documentation.
-If a link is made to a page that does not exist, the site build will fail when Hugo generates a preview of the site.
+If a link is made to a page that doesn't exist, the site build will fail when Hugo generates a preview of the site.
 This will help us prevent dead links in our own documentation if a page is moved or deleted.
 
 To format link to pages:

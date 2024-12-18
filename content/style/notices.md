@@ -53,7 +53,7 @@ This is text in a warning.
 Danger notices should be used when there are serious consequences for the user or their system.
 If a user ignores a danger notice, they may lose data, money, work, or expose themselves to a security vulnerability.
 
-**Use a danger notice only if it's absolutely necessary.**
+**Use a danger notice only if it's necessary.**
 
 When writing text in a danger notice, use short direct language and be specific about what will happen if someone ignores a danger notice.
 

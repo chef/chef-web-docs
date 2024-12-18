@@ -19,7 +19,7 @@ chef-solo.
 
 - This file is loaded every time this executable is run
 - The default location in which chef-solo expects to find this file is `/etc/chef/solo.rb`; use the `--config` option from the command line to change this location
-- This file is not created by default
+- This file isn't created by default
 - When a `solo.rb` file is present in this directory, the settings contained within that file will override the default configuration settings
 
 ## Settings
@@ -56,7 +56,7 @@ This configuration file has the following settings:
 
 `file_cache_path`
 
-: The location in which cookbooks (and other transient data) files are stored when they are synchronized. This value can also be used in recipes to download files with the **remote_file** resource.
+: The location in which cookbooks (and other transient data) files are stored when they're synchronized. This value can also be used in recipes to download files with the **remote_file** resource.
 
 `json_attribs`
 
@@ -64,7 +64,7 @@ This configuration file has the following settings:
 
 `lockfile`
 
-: The location of the Chef Infra Client lock file. This value is typically platform-dependent, so should be a location defined by `file_cache_path`. The default location of a lock file should not on an NF mount. Default value: a location defined by `file_cache_path`.
+: The location of the Chef Infra Client lock file. This value is typically platform-dependent, so should be a location defined by `file_cache_path`. The default location of a lock file shouldn't on an NF mount. Default value: a location defined by `file_cache_path`.
 
 `log_level`
 
@@ -96,7 +96,7 @@ This configuration file has the following settings:
 
 `run_lock_timeout`
 
-: The amount of time (in seconds) to wait for a Chef Infra Client lock file to be deleted. A Chef Infra Client run will not start when a lock file is present. If a lock file is not deleted before this time expires, the pending Chef Infra Client run will exit. Default value: not set (indefinite). Set to `0` to cause a second Chef Infra Client to exit immediately.
+: The amount of time (in seconds) to wait for a Chef Infra Client lock file to be deleted. A Chef Infra Client run won't start when a lock file is present. If a lock file isn't deleted before this time expires, the pending Chef Infra Client run will exit. Default value: not set (indefinite). Set to `0` to cause a second Chef Infra Client to exit immediately.
 
 `sandbox_path`
 

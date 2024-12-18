@@ -12,7 +12,7 @@ Chef Infra Client processes recipes in two phases:
    action. This is also referred to as the "execution phase".
 
 Typically, actions are processed during the execution phase of a Chef
-Infra Client run. However, sometimes it is necessary to run an action
+Infra Client run. However, sometimes it's necessary to run an action
 during the compile phase. For example, a resource can be configured to
 install a package during the compile phase to ensure that application is
 available to other resources during the execution phase.

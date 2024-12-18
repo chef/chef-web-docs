@@ -48,7 +48,7 @@ chef-manage-ctl help
 
 The `reconfigure` subcommand is used when changes are made to the
 manage.rb file to reconfigure the server. When changes are made to the
-manage.rb file, they will not be applied to the Chef management console
+manage.rb file, they won't be applied to the Chef management console
 configuration until after this command is run.
 
 This subcommand has the following syntax:
@@ -73,7 +73,7 @@ chef-manage-ctl show-config
 ## uninstall
 
 The `uninstall` subcommand is used to manage the hooks between runit and
-`sysvinit` or `upstart`. This subcommand does not [uninstall the Chef
+`sysvinit` or `upstart`. This subcommand doesn't [uninstall the Chef
 management console](/uninstall/#chef-manage) or remove `.rpm` or
 `.deb` files.
 

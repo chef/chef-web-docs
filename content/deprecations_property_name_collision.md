@@ -28,4 +28,4 @@ this will raise an exception and your Chef run will fail.
 ## Remediation
 
 Modify the resource and choose a different name for the property that
-does not conflict with an already-existing method name.
+doesn't conflict with an already-existing method name.

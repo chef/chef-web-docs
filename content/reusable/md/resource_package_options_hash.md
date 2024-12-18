@@ -1,4 +1,4 @@
-You should provide the install options as a hash if you are not using an explicit
+You should provide the install options as a hash if you aren't using an explicit
 `gem_binary` parameter with the `gem_package` resource. This approach allows the
 provider to install the gem without needing to spawn an external gem process.
 

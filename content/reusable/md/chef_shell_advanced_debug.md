@@ -1,4 +1,4 @@
-In chef-shell, it is possible to get verbose debugging using the tracing
+In chef-shell, it's possible to get verbose debugging using the tracing
 feature in Interactive Ruby (IRb). chef-shell provides a shortcut for
 turning tracing on and off. For example:
 

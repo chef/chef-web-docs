@@ -3,7 +3,7 @@ government computer security standard that specifies security
 requirements for cryptography. The current version of the standard is
 FIPS 140-2. Chef Infra Client can be configured to allow OpenSSL to
 enforce FIPS-validated security during a Chef Infra Client run. This
-will disable cryptography that is explicitly disallowed in
+will disable cryptography that's explicitly disallowed in
 FIPS-validated software, including certain ciphers and hashing
 algorithms. Any attempt to use any disallowed cryptography will cause
 Chef Infra Client to throw an exception during a Chef Infra Client run.
@@ -16,7 +16,7 @@ Chef Infra Client to throw an exception during a Chef Infra Client run.
 
 Chef uses MD5 hashes to uniquely identify files that are stored on the
 Chef Infra Server. MD5 is used only to generate a unique hash identifier
-and is not used for any cryptographic purpose.
+and isn't used for any cryptographic purpose.
 
 </div>
 </div>

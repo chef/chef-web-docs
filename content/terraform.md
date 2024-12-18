@@ -17,11 +17,11 @@ product = ["client", "server"]
 Terraform deprecated the Chef Provisioner in the [0.13.4](https://www.terraform.io/docs/language/resources/provisioners/chef.html) release and they will remove it in a future version. Terraform continues to support the Chef Provider.
 {{< /warning >}}
 
-[Terraform](https://www.terraform.io/) is an open-source infrastructure-as-code provisioning tool from [HashiCorp](https://www.hashicorp.com/). Terraform allows you to write code to define and provision infrastructure for the cloud, virtual machines, and on-premises machines. Terraform is not a configuration management tool, it is responsible for deploying, maintaining, and destroying the infrastructure that servers and applications run on. When Terraform creates cloud or virtual servers, it uses [Provisioners](https://www.terraform.io/docs/provisioners/index.html) to enable configuration management to manage them. When Terraform talks to APIs to define or configure resources, it uses [Providers](https://www.terraform.io/docs/providers/index.html) to request those resources.
+[Terraform](https://www.terraform.io/) is an open-source infrastructure-as-code provisioning tool from [HashiCorp](https://www.hashicorp.com/). Terraform allows you to write code to define and provision infrastructure for the cloud, virtual machines, and on-premises machines. Terraform isn't a configuration management tool, it's responsible for deploying, maintaining, and destroying the infrastructure that servers and applications run on. When Terraform creates cloud or virtual servers, it uses [Provisioners](https://www.terraform.io/docs/provisioners/index.html) to enable configuration management to manage them. When Terraform talks to APIs to define or configure resources, it uses [Providers](https://www.terraform.io/docs/providers/index.html) to request those resources.
 
 ## Chef Infra Provisioner
 
-The [Terraform Chef Provisioner](https://www.terraform.io/docs/provisioners/chef.html) bootstraps Terraform, provisioned with Chef Infra using SSH or WinRM, and configures them to work with a [Chef Infra Server](/server/). Standard bootstrap options such as Chef Infra versions, secrets, proxies, and assigning run lists using Policyfiles or Roles and Environments are all supported. The referenced documentation provides a complete list of supported options and an example of usage. HashiCorp provides support for the [Terraform Chef Provisioner](https://www.terraform.io/docs/provisioners/chef.html) and it is not officially supported by Chef Software.
+The [Terraform Chef Provisioner](https://www.terraform.io/docs/provisioners/chef.html) bootstraps Terraform, provisioned with Chef Infra using SSH or WinRM, and configures them to work with a [Chef Infra Server](/server/). Standard bootstrap options such as Chef Infra versions, secrets, proxies, and assigning run lists using Policyfiles or Roles and Environments are all supported. The referenced documentation provides a complete list of supported options and an example of usage. HashiCorp provides support for the [Terraform Chef Provisioner](https://www.terraform.io/docs/provisioners/chef.html) and it's not officially supported by Chef Software.
 
 ### Terraform and Chef Solo
 
@@ -47,7 +47,7 @@ resource "aws_instance" "web" {
 
 ## Chef Infra Provider
 
-The [Terraform Chef Provider](https://www.terraform.io/docs/providers/chef/index.html) allows you to manage Chef Infra Server resources (nodes, data bags, etc.) using the Chef Infra Server API. Policyfiles, cookbooks, clients, and ACLs are not currently managed with the Provider. The [Terraform Chef Provider documentation](https://www.terraform.io/docs/providers/chef/index.html) provides a complete list of supported options and an example of usage. HashiCorp provides support for the Terraform Chef Provider and it is not officially supported by Chef Software.
+The [Terraform Chef Provider](https://www.terraform.io/docs/providers/chef/index.html) allows you to manage Chef Infra Server resources (nodes, data bags, etc.) using the Chef Infra Server API. Policyfiles, cookbooks, clients, and ACLs aren't currently managed with the Provider. The [Terraform Chef Provider documentation](https://www.terraform.io/docs/providers/chef/index.html) provides a complete list of supported options and an example of usage. HashiCorp provides support for the Terraform Chef Provider and it's not officially supported by Chef Software.
 
 ## Additional Terraform Integrations
 

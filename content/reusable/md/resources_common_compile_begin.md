@@ -98,7 +98,7 @@ to download the file during compile time:
 
 This is considerably cleaner than the alternative of lazy evaluating both the parsing of the
 JSON and the rendering of the data into the file template, which will happen if
-the `remote_file` resource is not run at compile time:
+the `remote_file` resource isn't run at compile time:
 
 ```ruby
   # the execution of this is now deferred
@@ -106,7 +106,7 @@ the `remote_file` resource is not run at compile time:
     source "https://jsonplaceholder.typicode.com/users"
   end
 
-  # it is necessary due to lexical scoping issues to create this variable here
+  # it's necessary due to lexical scoping issues to create this variable here
   array = nil
 
   # the parsing of the JSON is now deferred due to the ruby_block
@@ -125,9 +125,9 @@ the `remote_file` resource is not run at compile time:
 This is an example of code that overuses deferred execution, uses more "lazy" evaluation, and is
 considerably harder to understand and write correctly.
 
-**Notifications will not work**
+**Notifications won't work**
 
-Resources that are executed during the compile phase cannot notify other
+Resources that are executed during the compile phase can't notify other
 resources. For example:
 
 ```ruby
@@ -140,7 +140,7 @@ end
 ```
 
 A better approach in this type of situation is to install the package
-before the resource collection is built to ensure that it is available
+before the resource collection is built to ensure that it's available
 to other resources later on.
 
 The best approach to this problem is to use [`unified mode`](/unified_mode/), which eliminates

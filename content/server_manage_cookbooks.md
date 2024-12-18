@@ -99,7 +99,7 @@ Infra Server are visible from the Chef management console.
 
 ### Download File
 
-To download a file that is located in a cookbook:
+To download a file that's located in a cookbook:
 
 1. Open the Chef management console.
 

@@ -1,4 +1,4 @@
-In some cases, the value for a property cannot be known until the
+In some cases, the value for a property can't be known until the
 execution phase of a Chef Infra Client run. In this situation, using
 lazy evaluation of property values can be helpful. Instead of a property
 being assigned a value, it may instead be assigned a code block. The
@@ -13,7 +13,7 @@ of the code block later on in the resource evaluation process (instead
 of immediately) and `{ code_block }` is arbitrary Ruby code that
 provides the value.
 
-For example, a resource that is **not** doing lazy evaluation:
+For example, a resource that's **not** doing lazy evaluation:
 
 ```ruby
 template 'template_name' do
@@ -22,7 +22,7 @@ template 'template_name' do
 end
 ```
 
-and a resource block that is doing lazy evaluation:
+and a resource block that's doing lazy evaluation:
 
 ```ruby
 template 'template_name' do

@@ -16,7 +16,7 @@ aliases = ["/chef_repo.html"]
 
 ## Generate the chef-repo
 
-Use the [chef generate repo command](/ctl_chef/#chef-generate-repo) to create your chef-repo directory along with the base folder structure. This command uses the `chef` command-line tool that is packaged as part of Chef Workstation to create a chef-repo.
+Use the [chef generate repo command](/ctl_chef/#chef-generate-repo) to create your chef-repo directory along with the base folder structure. This command uses the `chef` command-line tool that's packaged as part of Chef Workstation to create a chef-repo.
 
 ```bash
 chef generate repo REPO_NAME
@@ -24,7 +24,7 @@ chef generate repo REPO_NAME
 
 {{< note >}}
 
-`chef generate repo` generates a chef-repo that is configured for Policyfiles by default. To create a repository that is setup for Roles and Environments use the `--roles` flag when running the command.
+`chef generate repo` generates a chef-repo that's configured for Policyfiles by default. To create a repository that's setup for Roles and Environments use the `--roles` flag when running the command.
 
 {{< /note >}}
 

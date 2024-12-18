@@ -21,7 +21,7 @@ During every Chef Infra Client run, the following happens:
 <tbody>
 <tr>
 <td><strong>Get configuration data</strong></td>
-<td>Chef Infra Client gets process configuration data from the <a href="/config_rb_client/">client.rb</a> file on the <a href="/nodes/">node</a>, and then gets node configuration data from Ohai. One important piece of configuration data is the name of the node, which is found in the <code>node_name</code> attribute in the client.rb file or is provided by Ohai. If Ohai provides the name of a node, it is typically the FQDN for the node, which is always unique within an organization.</td>
+<td>Chef Infra Client gets process configuration data from the <a href="/config_rb_client/">client.rb</a> file on the <a href="/nodes/">node</a>, and then gets node configuration data from Ohai. One important piece of configuration data is the name of the node, which is found in the <code>node_name</code> attribute in the client.rb file or is provided by Ohai. If Ohai provides the name of a node, it's typically the FQDN for the node, which is always unique within an organization.</td>
 </tr>
 <tr>
 <td><strong>Authenticate to the Chef Infra Server</strong></td>
@@ -29,7 +29,7 @@ During every Chef Infra Client run, the following happens:
 </tr>
 <tr>
 <td><strong>Get, rebuild the node object</strong></td>
-<td>Chef Infra Client pulls down the node object from the Chef Infra Server and then rebuilds it. A node object is made up of the system attributes discovered by Ohai, the attributes set in Policyfiles or Cookbooks, and the run list of cookbooks. The first time Chef Infra Client runs on a node, it creates a node object from the default run-list. A node that has not yet had a Chef Infra Client run will not have a node object or a Chef Infra Server entry for a node object. On any subsequent Chef Infra Client runs, the rebuilt node object will also contain the run-list from the previous Chef Infra Client run.</td>
+<td>Chef Infra Client pulls down the node object from the Chef Infra Server and then rebuilds it. A node object is made up of the system attributes discovered by Ohai, the attributes set in Policyfiles or Cookbooks, and the run list of cookbooks. The first time Chef Infra Client runs on a node, it creates a node object from the default run-list. A node that hasn't yet had a Chef Infra Client run won't have a node object or a Chef Infra Server entry for a node object. On any subsequent Chef Infra Client runs, the rebuilt node object will also contain the run-list from the previous Chef Infra Client run.</td>
 </tr>
 <tr>
 <td><strong>Expand the run-list</strong></td>
@@ -66,7 +66,7 @@ During every Chef Infra Client run, the following happens:
 </tr>
 <tr>
 <td><strong>Stop, wait for the next run</strong></td>
-<td>When everything is configured and the Chef Infra Client run is complete, Chef Infra Client stops and waits until the next time it is asked to run.</td>
+<td>When everything is configured and the Chef Infra Client run is complete, Chef Infra Client stops and waits until the next time it's asked to run.</td>
 </tr>
 </tbody>
 </table>

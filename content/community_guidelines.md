@@ -39,7 +39,7 @@ Community members may fulfill many roles including mentoring, teaching,
 and connecting with other members of the community.
 
 Be careful in the words that you choose. Be kind to others. Practice
-empathy. do not insult or put down others. Remember that sexist, racist,
+empathy. Don't insult or put down others. Remember that sexist, racist,
 ableist, ageist, and other exclusionary jokes can be offensive to those
 around you. If you think your conversation is making another community
 member uncomfortable *or* if they tell you so, stop immediately, make
@@ -50,18 +50,18 @@ mind that the following guidelines apply equally to founders, mentors,
 those who submit new features/pull requests, and anyone who is seeking
 help and guidance.
 
-The following list is not exhaustive, but these few examples can help all
+The following list isn't exhaustive, but these few examples can help all
 of us communicate well, so that the community can work better together:
 
 - Use welcoming and inclusive language
 - Exercise patience and friendliness
 - Be respectful of differing viewpoints and experiences
 - Gracefully accept constructive criticism
-- Focus on what is best for the community
+- Focus on what's best for the community
 - Show empathy towards other community members
 
 The previous list applies to all forms of communication: Slack (or any
-web chat), Discourse, the issue tracker, and any other forum that is
+web chat), Discourse, the issue tracker, and any other forum that's
 used by the community.
 
 Please keep in mind that:
@@ -69,7 +69,7 @@ Please keep in mind that:
 - Your work will be used by other people, and you, in turn, will
     depend on the work of others.
 - Decisions that you make often will affect others in the community.
-- Disagreements happen, but should not be an excuse for poor behavior
+- Disagreements happen, but shouldn't be an excuse for poor behavior
     and bad manners. When disagreements do happen, let's work together
     to solve them effectively and in a way that ensures that everyone
     understands what the disagreements were.
@@ -78,11 +78,11 @@ Please keep in mind that:
     and oblique references in the same way that you do. Remember that
     and be kind to the other members of the community.
 - Be cautious about making assumptions about what someone does or does
-    not know about something - assuming that someone does not understand
+    not know about something - assuming that someone doesn't understand
     an issue and over explaining can be condescending (even when not
     intended to be so).
 - Sexist, racist, ableist, ageist, and other prejudicial or
-    exclusionary comments are not welcome in the community.
+    exclusionary comments aren't welcome in the community.
 
 ## Unacceptable Behavior
 
@@ -113,7 +113,7 @@ Conduct](https://www.chef.io/code-of-conduct/physical-spaces/).
 
 If you have any lack of clarity about behaviors we include in the
 definition of "harassment", please read the [Citizen Code of
-Conduct](http://citizencodeofconduct.org/). In particular, we do not
+Conduct](http://citizencodeofconduct.org/). In particular, we don't
 tolerate behavior that excludes people in socially marginalized groups.
 
 ## Enforcement/Getting Help
@@ -121,64 +121,17 @@ tolerate behavior that excludes people in socially marginalized groups.
 Instances of abusive, harassing, or otherwise unacceptable behavior
 should be reported by contacting any of the Community Advocates
 directly. Each person's contact information and role is listed in the
-repo that links to this document. If you were not linked here, then
+repo that links to this document. If you weren't linked here, then
 contact the [individuals listed below](#roles). All complaints will be
-reviewed, investigated, and will result in a response that is deemed
+reviewed, investigated, and will result in a response that's deemed
 necessary and appropriate to the circumstances. The project team is
 obligated to maintain confidentiality with regard to the reporter of an
 incident. Further details of specific enforcement policies may be posted
 separately.
 
-Community Organizers who do not follow or enforce the Code of Conduct in
+Community Organizers who don't follow or enforce the Code of Conduct in
 good faith may face temporary or permanent repercussions as determined
 by other members of the project's leadership.
-
-## Roles
-
-The following are the various roles of our **Community Organizers** and
-the person(s) assigned to each role:
-
-- The **Deciders** have final say on community guidelines and final
-    authority on correct actions and appeals.
-- The **Community Advocates** may be assigned for each area where the
-    community convenes online (Slack, email list, GitHub, etc.).
-    Community Advocates are volunteers who have the best interests of
-    our community in mind. They act in good faith to help enforce our
-    community guidelines and respond to incidents when they occur.
-- The **Project Maintainers** are expected to conduct their behavior
-    in line with the Code of Conduct and are individually responsible
-    for both escalating to a **Community Advocate** in case of
-    witnessing an incident, and helping to foster the community.
-- A **Community Member** is anyone who participates with the community
-    whether in-person or using online channels. Community members are
-    responsible for following the community guidelines, suggesting
-    updates to the guidelines when warranted, and helping enforce
-    community guidelines.
-
-<!-- markdownlint-disable MD033 -->
-
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Role</th>
-<th>Name</th>
-<th>Contact Info</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Community Advocate</td>
-<td>benny Vasquez</td>
-<td><a href="benny.vasquez@progress.com">benny.vasquez@progress.com</a></td>
-</tr>
-</tbody>
-</table>
-<!-- markdownlint-enable MD033 -->
 
 ## Consequences of Unacceptable Behavior
 
@@ -199,7 +152,7 @@ in the same manner as internal incidents.
 
 Any physical violence *or* intimidation, threatened or acted on, is a
 serious offense and will result in immediate exclusion from the
-community and appropriate follow up with law enforcement. No, we are not
+community and appropriate follow up with law enforcement. No, we're not
 kidding.
 
 ## Procedure for Handling Disagreements and Incidents
@@ -221,7 +174,7 @@ Community Advocates listed in the [Roles](#roles) section.
 Conduct](https://www.chef.io/code-of-conduct/physical-spaces/).
 
 When a Community Organizer or Project Maintainer notices someone
-behaving in a way that is outside of our guidelines (a violator), the
+behaving in a way that's outside of our guidelines (a violator), the
 Community Advocate should make every reasonable attempt to help curtail
 that behavior. The Community Advocate may:
 
@@ -233,7 +186,7 @@ that behavior. The Community Advocate may:
 - Allow time for the violator to correct the behavior.
 
 The Community Advocate should take the following steps if the behavior
-is not brought in-line with our guidelines or the incident is not
+isn't brought in-line with our guidelines or the incident isn't
 resolved:
 
 - Consult with another Community Organizer to make a judgment call
@@ -247,7 +200,7 @@ resolved:
 
 #### Documenting Incidents
 
-All incident reports will be kept in a private repository that is shared
+All incident reports will be kept in a private repository that's shared
 with the aforementioned Community Advocates and Deciders under the
 [Roles](#roles) section. No other individuals or project contributors
 will be given access to these incident reports. **This repo will hold no
@@ -267,7 +220,7 @@ The important information to report consists of:
     log, GitHub Issue, etc.).
 - Contact information for witnesses to the incident.
 
-If you feel your safety is in jeopardy, please do not hesitate to
+If you feel your safety is in jeopardy, please don't hesitate to
 contact local law enforcement.
 
 **Note:** Incidents that violate the Community Code of Conduct are
@@ -283,7 +236,7 @@ corrective action in response to any instances of unacceptable behavior.
 
 Community Organizers have the right and responsibility to remove, edit,
 or reject comments, commits, code, wiki edits, issues, messages, tweets,
-and other contributions that are not aligned with this Code of Conduct,
+and other contributions that aren't aligned with this Code of Conduct,
 or to ban temporarily or permanently any contributor for other behaviors
 that they deem inappropriate, threatening, offensive, or harmful.
 

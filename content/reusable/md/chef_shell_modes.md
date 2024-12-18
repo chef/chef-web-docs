@@ -1,4 +1,4 @@
-chef-shell is tool that is run using an Interactive Ruby (IRb) session.
+chef-shell is tool that's run using an Interactive Ruby (IRb) session.
 chef-shell currently supports recipe and attribute file syntax, as well
 as interactive debugging features. chef-shell has three run modes:
 

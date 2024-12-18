@@ -91,7 +91,7 @@ A higher level would tell users to log into an account.
 Both of these levels achieve the same goal, logging a user into an account, but the lower level splits the procedure into several smaller steps.
 This lower level is too low for must users and certainly too low for Chef's users.
 
-Higher level tasks give the user a better overview of the procedures and where they are while following a set of procedures.
+Higher level tasks give the user a better overview of the procedures and their location while following a set of procedures.
 Higher level tasks are also less likely to become obsolete when a product is updated.
 
 It's important to understand the users' skill level so steps can be written at the correct level.
@@ -99,7 +99,7 @@ It's important to understand the users' skill level so steps can be written at t
 ### Each step is an action
 
 Each step is an action that a user will perform or a decision that a user must make.
-If an action triggers a response from an application or a system, that response is not a step.
+If an action triggers a response from an application or a system, that response isn't a step.
 
 Use an [imperative verb](https://en.wikipedia.org/wiki/Imperative_mood#English) in the first sentence of every step to clarify the action that the user will take. Format each step as a separate ordered list item.
 
@@ -293,7 +293,7 @@ The config file specifies settings for the server.
 
 ### Avoid passive voice
 
-[Passive voice](https://en.wikipedia.org/wiki/Passive_voice#In_English) is often vague and it can be unclear who or what is performing an action.
+[Passive voice](https://en.wikipedia.org/wiki/Passive_voice#In_English) is often vague and it can be unclear who or what's performing an action.
 
 {{< recommend not >}}
 
@@ -361,7 +361,7 @@ Before upgrading, back up the node.
 
 ### Don't use _we_ when referring to the user
 
-_We_ are not doing anything. The user is doing something so use _you_ if you must, but it's better to use the implied _you_ in the [imperative mood](https://en.wikipedia.org/wiki/Imperative_mood#Usage) .
+_We_ aren't doing anything. The user is doing something so use _you_ if you must, but it's better to use the implied _you_ in the [imperative mood](https://en.wikipedia.org/wiki/Imperative_mood#Usage) .
 
 {{< recommend not >}}
 

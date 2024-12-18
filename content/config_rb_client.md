@@ -485,7 +485,7 @@ This configuration file has the following settings:
   Default value: `false`
 
 `splay`
-: A random number between zero and `splay` that is added to `interval`. Use splay to help balance the load on the Chef Infra Server by ensuring that many Chef Infra Client runs aren't occurring at the same interval.
+: A random number between zero and `splay` that's added to `interval`. Use splay to help balance the load on the Chef Infra Server by ensuring that many Chef Infra Client runs aren't occurring at the same interval.
 
   Default value: `nil`.
 
