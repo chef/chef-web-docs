@@ -12,6 +12,32 @@ product = [""]
     weight = 10
 +++
 
+## Chef 360 Platform 1.1.2
+
+### New features
+
+- We've added the Public Signature Key Expiry in the Admin Console configurations UI, which users can set according to their requirements.
+
+### Improvements
+
+- System roles are updated with the latest API, and documentation is changed to reflect these updates.
+
+### Bug fixes
+
+- Fixed the default expiry to 5 years - 2030-12-31, which will now unblock API Gateways and init job to create tenants and notifications through email.
+
+### Supported skill versions
+
+| Skill                                       | Skill name                             | Habitat package                                           | Version |
+|---------------------------|----------------------------|------------------------------------------|---------|
+| Node Management Agent | node-management-agent   | chef-platform/node-management-agent   | 1.0.3      |
+| Courier Runner                   | courier-runner                      | chef-platform/courier-runner                       | 1.4.4     |
+| Gohai                                   | chef-gohai                            | chef-platform/chef-gohai                             | 1.0.3      |
+| Shell Interpreter                 | shell-interpreter                   | chef-platform/shell-interpreter                    | 1.0.3      |
+| Restart Interpreter             | restart-interpreter                | chef-platform/restart-interpreter                | 1.0.2      |
+| Infra Client Interpreter      | chef-client-interpreter.        | chef-platform/chef-client-interpreter         | 1.0.4      |
+| Inspec Interpreter             | inspec-interpreter                | chef-platform/inspec-interpreter                 | 1.0.4      |
+
 ## Chef 360 Platform 1.1.1
 
 ### New features
