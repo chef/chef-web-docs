@@ -40,6 +40,21 @@ product = [""]
 
 ## Chef 360 Platform 1.1
 
+## Chef 360 Platform 1.1.1
+
+### New features
+
+- We replaced Mailhog, a local email testing service, with [Mailpit](https://mailpit.axllent.org/), which is a more secure service.
+
+  If you've been using Mailhog for email testing, update the port number to `31101` to use Mailpit.
+
+### Improvements
+
+- You can now select saved node lists and node filters to target Courier jobs using the Courier Job Wizard in the Chef 360 Platform UI.
+- You can now reuse job templates from existing Courier jobs to create a new Courier job in the Chef 360 Platform UI.
+
+## Chef 360 Platform 1.1.0
+
 ### New features
 
 - RabbitMQ used for Chef Courier jobs now supports TLS-based communication.
