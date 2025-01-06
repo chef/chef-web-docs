@@ -16,7 +16,7 @@ product = [""]
 
 ### New features
 
-- We have added the Public Signature Key Expiry in the Admin Console configurations UI, which users can set according to their requirements.
+- We've added the Public Signature Key Expiry in the Admin Console configurations UI, which users can set according to their requirements.
 
 ### Improvements
 
@@ -24,7 +24,7 @@ product = [""]
 
 ### Bug fixes
 
-- Fixed the default expiry to 5 years - 2030-12-31, which will now unblock API Gateways and init job to create tenants and notifications via email.
+- Fixed the default expiry to 5 years - 2030-12-31, which will now unblock API Gateways and init job to create tenants and notifications through email.
 
 ### Supported skill versions
 
