@@ -9,9 +9,9 @@ title = "Progress Chef Enterprise Edition"
     weight = 20
 +++
 
-The Enterprise edition of Progress Chef expands on the basic functionalities provided by the open-source version of Chef. It incorporates enhanced features and prompt and timely support. It is better tailored to address the demands of large and medium-sized enterprises, irrespective of the domain.
+The Enterprise edition of Progress Chef expands on the basic functionalities provided by the open-source version of Chef. It incorporates enhanced features and prompt and timely support. It's better tailored to address the demands of large and medium-sized enterprises, irrespective of the domain.
 
-Some of the features and services provided in Enterprise Chef that are not present in the Community edition are as follows:
+Some of the features and services provided in Enterprise Chef that aren't present in the Community edition are as follows:
 
 ## Supply chain integrity of distribution and SLOs
 

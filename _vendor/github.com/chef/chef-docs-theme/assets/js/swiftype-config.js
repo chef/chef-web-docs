@@ -67,11 +67,18 @@ $(document).ready(function() {
   // on pressing enter key, navigate to search page and submit search string
   $("input.swiftype-search-input").on('keypress', function (event) {
     if (event.keycode == 13 || event.which == 13) {
-       event.preventDefault();
-       window.location.href = "/search/#stq=" + encodeURIComponent($(this).val()) + '&stp=1';
-       hideSearchModal();
-     };
-   });
+      event.preventDefault();
+      window.location.href = "/search/#stq=" + encodeURIComponent($(this).val()) + '&stp=1';
+      hideSearchModal();
+    };
+  });
+
+  // on clicking modal search button, navigate to search page and submit search string
+  $("#swiftype-search-form-modal-input-search").click(function(){
+    const searchInput = $("input#swiftype-search-form-modal-input").val()
+    window.location.href = "/search/#stq=" + encodeURIComponent(searchInput) + '&stp=1';
+    hideSearchModal();
+  });
 
   ///////////////////////////////////
   //

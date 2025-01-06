@@ -22,7 +22,7 @@ Attributes are allowlisted by attribute type, with each attribute type being all
 
 #### Allowlisting Ohai (automatic) attributes
 
-The recommended practice is to use `allowed_automatic_attributes` to allow specific attributes populated by Ohai's system information gathering. Ohai gathers a large number of attributes that can consume a significant amount of storage space on the Chef Infra Server. Many of these attributes may be considered highly valuable, while others could be skipped without any impact to data available in search. Normal, default, and override attributes are typically much more important attributes used within cookbooks and are more likely to cause issues if they are omitted from an allowlist incorrectly.
+The recommended practice is to use `allowed_automatic_attributes` to allow specific attributes populated by Ohai's system information gathering. Ohai gathers a large number of attributes that can consume a significant amount of storage space on the Chef Infra Server. Many of these attributes may be considered highly valuable, while others could be skipped without any impact to data available in search. Normal, default, and override attributes are typically much more important attributes used within cookbooks and are more likely to cause issues if they're omitted from an allowlist incorrectly.
 
 For example, automatic attribute data similar to:
 
@@ -51,7 +51,7 @@ To allowlist the `network` attributes and prevent the other attributes from bein
 allowed_automatic_attributes ['network/interfaces/']
 ```
 
-When a allowlist is defined, any attribute of that type that is not specified in that attribute allowlist **will not** be saved. So based on the previous allowlist for automatic attributes, the `filesystem` and `map - autohome` attributes will not be saved, but the `network` attributes will.
+When a allowlist is defined, any attribute of that type that isn't specified in that attribute allowlist **won't** be saved. So based on the previous allowlist for automatic attributes, the `filesystem` and `map - autohome` attributes won't be saved, but the `network` attributes will.
 
 Leave the value empty to prevent all attributes of that attribute type from being saved:
 

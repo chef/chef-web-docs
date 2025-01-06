@@ -40,7 +40,7 @@ Cloud SDK](https://cloud.google.com/sdk/) and run the
 `gcloud auth application-default login` command, which will create the
 credentials file for you.
 
-If you already have a file you'd like to use that is in a different
+If you already have a file you'd like to use that's in a different
 location, set the `GOOGLE_APPLICATION_CREDENTIALS` environment variable
 with the full path to that file.
 

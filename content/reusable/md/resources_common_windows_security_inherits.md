@@ -46,6 +46,6 @@ directory 'C:\mordor\mount_doom' do
 end
 ```
 
-Because the `inherits` property is not specified, Chef Infra Client will
+Because the `inherits` property isn't specified, Chef Infra Client will
 default it to `true`, which will ensure that security settings for
 existing files remain unchanged.

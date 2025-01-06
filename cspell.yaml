@@ -6,11 +6,15 @@ version: '0.2'
 language: en_US
 
 dictionaries:
+- 360-docs
 - chef
 - docs
 - hab-docs
 
 dictionaryDefinitions:
+- name: 360-docs
+  path: https://raw.githubusercontent.com/chef/chef_dictionary/refs/heads/main/360-docs.txt
+  description: Custom Chef 360 Dictionary
 - name: chef
   path: https://raw.githubusercontent.com/chef/chef_dictionary/main/chef.txt
   description: Custom Chef Dictionary

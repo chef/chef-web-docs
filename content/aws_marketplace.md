@@ -101,7 +101,7 @@ AWS provides five VPCs for each region. If you require more VPCs, please contact
    1. Set the stack creation options:
 
       Timeout
-      : If specified and stack creation is not completed in that time, CloudFormation will roll back the stack.
+      : If specified and stack creation isn't completed in that time, CloudFormation will roll back the stack.
 
       Termination Protection
       : Termination protection prevents a user from deleting a stack.
@@ -118,7 +118,7 @@ For additional information about these options, see [Amazon's documentation on C
 1. Open your browser and paste the Chef Automate URL, which will open an alert page.
 
 1. Select **Advanced** and continue.
-![Select 'advanced' to bypass the warning that the page is not secure](/images/NotSecurePage.png "Not Secure Page").
+![Select 'advanced' to bypass the warning that the page isn't secure](/images/NotSecurePage.png "Not Secure Page").
 
 1. Enter your **Username** and **Password** and select **Sign In**.
 ![ ](/images/chef_automate_login.png "Chef Automate Login")

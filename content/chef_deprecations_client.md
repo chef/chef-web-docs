@@ -22,7 +22,7 @@ the change and how to fix it. For example:
 
 ```ruby
 Deprecated features used!
-  JSON auto inflation is not supported (CHEF-1) at (irb):7:in `irb_binding`.
+  JSON auto inflation isn't supported (CHEF-1) at (irb):7:in `irb_binding`.
   Please see /chef-client/deprecations/json_auto_inflate.html for further details and information on how to correct this problem.
 ```
 
@@ -44,9 +44,9 @@ deprecation errors are issued.
 
 Deprecation warnings are great for ensuring cookbooks are kept
 up-to-date and to prepare for major version upgrades, sometimes you just
-cannot fix a deprecation right away. Enabling
+can't fix a deprecation right away. Enabling
 `treat_deprecation_warnings_as_errors` mode in Test Kitchen integration
-tests often compounds the problem because it does not distinguish
+tests often compounds the problem because it doesn't distinguish
 between deprecations from community cookbooks and those in your own
 code.
 
@@ -83,7 +83,7 @@ provisioner:
         - recipes/install.rb:22
 ```
 
-You can also silence deprecations using a comment on the line that is
+You can also silence deprecations using a comment on the line that's
 raising the warning:
 
 ```ruby
@@ -120,13 +120,13 @@ of Chef comes out.
 </tr>
 <tr>
 <td><a href="/deprecations_json_auto_inflate/">CHEF-1</a></td>
-<td>Consumers of JSON are now required to be explicit in how it is turned in to a Chef object.</td>
+<td>Consumers of JSON are now required to be explicit in how it's turned in to a Chef object.</td>
 <td>12.7</td>
 <td>13.0</td>
 </tr>
 <tr>
 <td><a href="/deprecations_exit_code/">CHEF-2</a></td>
-<td>Chef's exit codes are now defined so that it is easy to understand why Chef exited.</td>
+<td>Chef's exit codes are now defined so that it's easy to understand why Chef exited.</td>
 <td>12.11</td>
 <td>13.0</td>
 </tr>
@@ -174,7 +174,7 @@ of Chef comes out.
 </tr>
 <tr>
 <td><a href="/deprecations_dnf_package_allow_downgrade/">CHEF-10</a></td>
-<td>DNF package provider and resource do not require <code>--allow-downgrade</code> anymore.</td>
+<td>DNF package provider and resource don't require <code>--allow-downgrade</code> anymore.</td>
 <td>12.18</td>
 <td>13.0</td>
 </tr>
@@ -246,7 +246,7 @@ of Chef comes out.
 </tr>
 <tr>
 <td><a href="/deprecations_map_collision/">CHEF-25</a></td>
-<td>Resource(s) in a cookbook collide with the same resource(s) now included in Chef Infra Client.</td>
+<td>Resources in a cookbook collide with the same resources now included in Chef Infra Client.</td>
 <td>XX.X</td>
 <td>15.0</td>
 </tr>
@@ -270,7 +270,7 @@ of Chef comes out.
 </tr>
 <tr>
 <td><a href="/deprecations_unified_mode/">CHEF-33</a></td>
-<td>Enabling unified mode in custom resources</td>
+<td>Enabling Unified Mode in custom resources</td>
 <td>17.0</td>
 </tr>
 <tr>

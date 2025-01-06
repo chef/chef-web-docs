@@ -21,7 +21,7 @@ A cookbook version always takes the form x.y.z, where x, y, and z are
 decimal numbers that are used to represent major (x), minor (y), and
 patch (z) versions. A two-part version (x.y) is also allowed.
 Alphanumeric version numbers (1.2.a3) and version numbers with more than
-three parts (1.2.3.4) are not allowed.
+three parts (1.2.3.4) aren't allowed.
 
 ## Constraints
 
@@ -34,9 +34,9 @@ operator cookbook_version_syntax
 
 {{< note >}}
 
-Single digit cookbook versions are not allowed. Cookbook versions must
+Single digit cookbook versions aren't allowed. Cookbook versions must
 specify at least the major and minor version. For example, use `1.0` or
-`1.0.1`; do not use `1`.
+`1.0.1`; don't use `1`.
 
 {{< /note >}}
 
@@ -123,7 +123,7 @@ not provided, `>= 0.0.0` is used as the default.
 <tbody>
 <tr>
 <td><p><code>depends</code></p></td>
-<td><p>Show that a cookbook has a dependency on another cookbook. Use a version constraint to define dependencies for cookbook versions: <code>&lt;</code> (less than), <code>&lt;=</code> (less than or equal to), <code>=</code> (equal to), <code>&gt;=</code> (greater than or equal to; also known as "optimistically greater than", or "optimistic"), <code>~&gt;</code> (approximately greater than; also known as "pessimistically greater than", or "pessimistic"), or <code>&gt;</code> (greater than). This field requires that a cookbook with a matching name and version exists on the Chef Infra Server. When the match exists, the Chef Infra Server includes the dependency as part of the set of cookbooks that are sent to the node when Chef Infra Client runs. It is important that the <code>depends</code> field contain accurate data. If a dependency statement is inaccurate, Chef Infra Client may not be able to complete the configuration of the system. For example:</p>
+<td><p>Show that a cookbook has a dependency on another cookbook. Use a version constraint to define dependencies for cookbook versions: <code>&lt;</code> (less than), <code>&lt;=</code> (less than or equal to), <code>=</code> (equal to), <code>&gt;=</code> (greater than or equal to; also known as "optimistically greater than", or "optimistic"), <code>~&gt;</code> (approximately greater than; also known as "pessimistically greater than", or "pessimistic"), or <code>&gt;</code> (greater than). This field requires that a cookbook with a matching name and version exists on the Chef Infra Server. When the match exists, the Chef Infra Server includes the dependency as part of the set of cookbooks that are sent to the node when Chef Infra Client runs. It's important that the <code>depends</code> field contain accurate data. If a dependency statement is inaccurate, Chef Infra Client may not be able to complete the configuration of the system. For example:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>depends <span class="st">&#39;opscode-base&#39;</span></span></code></pre></div>
 <p>or:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>depends <span class="st">&#39;opscode-github&#39;</span>, <span class="st">&#39;&gt; 1.0.0&#39;</span></span></code></pre></div>
@@ -132,7 +132,7 @@ not provided, `>= 0.0.0` is used as the default.
 </tr>
 <tr>
 <td><code>provides</code></td>
-<td>Add a recipe, definition, or resource that is provided by this cookbook, should the populated list be insufficient.</td>
+<td>Add a recipe, definition, or resource that's provided by this cookbook, should the populated list be insufficient.</td>
 </tr>
 <tr>
 <td><code>supports</code></td>
@@ -157,7 +157,7 @@ Or:
 cookbook 'runit', '= 4.2.0'
 ```
 
-If a cookbook is not explicitly given a version constraint the
+If a cookbook isn't explicitly given a version constraint the
 environment will assume the cookbook has no version constraint and will
 use any version of that cookbook with any node in the environment.
 
@@ -213,7 +213,7 @@ There are three solutions to this problem:
 
 In a CI/CD workflow where new cookbook versions are continually uploaded to a Chef Infra Server, the Chef Infra Server dependency solver must look at more and more cookbook versions while trying to solve the constraints given to it from the run list of each Chef Infra Client that starts up. Eventually, it runs out of time to produce a solution, times out, and the Chef Infra Client run fails as a result. The Chef Infra Server may also pick older cookbook versions than the versions that you intended.
 
-The dependency solver workers in a Chef Infra Server have a default timeout of five seconds. The solution is not to increase their timeout, but to control the problem so that the dependency solvers can solve it in a reasonable amount of time.
+The dependency solver workers in a Chef Infra Server have a default timeout of five seconds. The solution isn't to increase their timeout, but to control the problem so that the dependency solvers can solve it in a reasonable amount of time.
 
 ### Policyfiles
 
@@ -236,7 +236,7 @@ You can make a start at this by only uploading tested and blessed cookbook versi
 There are two strategies to consider when using version control as part
 of the cookbook management process:
 
-- Use maximum version control when it is important to keep every bit of data within version control
+- Use maximum version control when it's important to keep every bit of data within version control
 - Use branch tracking when cookbooks are being managed in separate environments using git branches and the versioning policy information is already stored in a cookbook's metadata.
 
 ### Branch Tracking

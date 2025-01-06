@@ -23,7 +23,7 @@ The syntax for the `shell_out` method is as follows:
 shell_out(command_args)
 ```
 
-where `command_args` is the command that is run against the node.
+where `command_args` is the command that's run against the node.
 
 ## shell_out!
 
@@ -35,4 +35,4 @@ The syntax for the `shell_out!` method is as follows:
 shell_out!(command_args)
 ```
 
-where `command_args` is the command that is run against the node. This method will return `true` or `false`.
+where `command_args` is the command that's run against the node. This method will return `true` or `false`.

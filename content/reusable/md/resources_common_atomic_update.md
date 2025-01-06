@@ -5,7 +5,7 @@ runs out.
 Atomic updates are enabled by default. They can be managed globally
 using the `file_atomic_update` setting in the `client.rb` file. They can
 be managed for each resource using the `atomic_update` property
-that is available with the **cookbook_file**, **file**,
+that's available with the **cookbook_file**, **file**,
 **remote_file**, and **template** resources.
 
 <!-- markdownlint-disable-file MD033 -->

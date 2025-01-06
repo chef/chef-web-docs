@@ -11,7 +11,7 @@ aliases = ["/resource_common.html"]
     title = "Common Resource Functionality"
     identifier = "chef_infra/resources/resource_common.md Common Resource Functionality"
     parent = "chef_infra/resources"
-    weight = 30
+    weight = 40
 +++
 <!-- markdownlint-disable-file MD036 -->
 
@@ -83,7 +83,7 @@ end
 **Update if not already updated**
 
 The following example shows how to use `not_if` to guard against running
-the `apt-get-update` command when a file already exists that is the same
+the `apt-get-update` command when a file already exists that's the same
 as the updated file:
 
 ```ruby
@@ -98,7 +98,7 @@ end
 
 The following example shows how to use a custom block of Ruby code to
 ensure that a node can resolve the host. If the node can resolve the
-host, Chef Infra Client will do nothing. If the node cannot resolve the
+host, Chef Infra Client will don'thing. If the node can't resolve the
 host, Chef Infra Client will configure the host:
 
 ```ruby
@@ -117,7 +117,7 @@ end
 
 The following example shows how to use `not_if` to prevent ZeroMQ from
 being installed when the node on which the install is to occur has a
-version of Red Hat Enterprise Linux that is older than version 6.0:
+version of Red Hat Enterprise Linux that's older than version 6.0:
 
 ```ruby
 ark 'test_autogen' do
@@ -154,7 +154,7 @@ necessary. In this case, three attributes exist in the
 The `only_if` attributes are used to test for the presence of these
 packages on the target node before then asking Chef Infra Client to
 complete the process of installing these packages. If the packages are
-already present, Chef Infra Client will do nothing.
+already present, Chef Infra Client will don'thing.
 
 ```ruby
 package 'libpcre3-dev' do
@@ -185,7 +185,7 @@ ruby_block 'remove ntp::undo from run list' do
 end
 ```
 
-**Re-register ASP.Net if it is already installed**
+**Re-register ASP.Net if it's already installed**
 
 The following example shows how to use `only_if` to ensure that Chef
 Infra Client will attempt to register ASP.NET only if the executable is

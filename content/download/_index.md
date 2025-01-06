@@ -3,6 +3,8 @@ title = "Download Chef Tools"
 draft = false
 gh_repo = "chef-web-docs"
 
+aliases = ["/downloads"]
+
 [cascade]
   product = []
 

@@ -23,7 +23,7 @@ Determine if the current node supports running guests under any virtualization e
 
 ## physical?
 
-Determine if the current node is NOT running under any virtualization environment (bare-metal or hypervisor on metal).
+Determine if the current node isn't running under any virtualization environment (bare-metal or hypervisor on metal).
 
 ## hyperv?
 
@@ -91,7 +91,7 @@ Determine if the current node is running as a vagrant guest.
 
 ## vagrant_key?
 
-Check if the `vagrant` key exists on the +node+ object. Note: This key is no longer populated by vagrant, but it is kept around for legacy purposes.
+Check if the `vagrant` key exists on the +node+ object. Note: This key is no longer populated by vagrant, but it's kept around for legacy purposes.
 
 ## vagrant_domain?
 

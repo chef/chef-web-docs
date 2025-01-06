@@ -23,7 +23,7 @@ Chef SaaS supports the following IdPs:
 
 ### Add SAML configuration
 
-{{< note >}}It is crucial to note that your account must hold the Administrator policy to access the SSO user interface. This policy is automatically granted to members of the admin team.{{< /note >}}
+{{< note >}}It's crucial to note that your account must hold the Administrator policy to access the SSO user interface. This policy is automatically granted to members of the admin team.{{< /note >}}
 
 Use the following instructions to add a SAML configuration in Chef SaaS.
 
@@ -53,7 +53,7 @@ Use the following instructions to add a SAML configuration in Chef SaaS.
 
    Group Attribute
    : The group attribute in the SAML assertion.
-     If not provided, users authenticating with SSO will not be a member of any [team]({{< relref "/automate/teams" >}}).
+     If not provided, users authenticating with SSO won't be a member of any [team]({{< relref "/automate/teams" >}}).
    : _Optional_
 
    Allowed Groups

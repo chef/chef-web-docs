@@ -13,7 +13,7 @@ product = ["client", "server", "workstation"]
     weight = 30
 +++
 
-## What is FIPS?
+## What's FIPS?
 
 Federal Information Processing Standards (FIPS) are federal standards
 for computer systems used by contractors of government agencies and
@@ -26,26 +26,26 @@ cryptographic modules under the FIPS 140-2 standard. The OpenSSL Object
 Module provides an API for invoking FIPS approved cryptographic
 functions from calling applications.
 
-### Who Should Enable FIPS?
+### Who should enable FIPS?
 
 You may be legally required to enable FIPS if you are a United States
 non-military government agency, or are contracting with one. If you are
 not sure if you need to enable FIPS, please check with your compliance
 department.
 
-### Who Should Not Enable FIPS?
+### Who shouldn't enable FIPS?
 
 You will only need to enable FIPS if you are a US non-military
 government agency, or contracting with one, and you are contractually
-obligated to meet federal government security standards. If you are not
-a US non-military governmental agency, or you are not contracting with
-one, and you are not contractually obligated to meet federal government
-security standards, then do not enable FIPS. Chef products have robust
+obligated to meet federal government security standards. If you aren't
+a US non-military governmental agency, or you aren't contracting with
+one, and you aren't contractually obligated to meet federal government
+security standards, then don't enable FIPS. Chef products have robust
 security standards even without FIPS, and FIPS prevents the use of
 certain hashing algorithms you might want to use, so we only recommend
-enabling FIPS if it is contractually necessary.
+enabling FIPS if it's contractually necessary.
 
-## Supported Products
+## Supported products
 
 **Supported:**
 
@@ -55,11 +55,11 @@ enabling FIPS if it is contractually necessary.
 
 **Unsupported:**
 
-FIPS mode is not supported for Chef Infra Server add-ons. This includes Chef Manage.
+FIPS mode isn't supported for Chef Infra Server add-ons. This includes Chef Manage.
 
-## How to Enable FIPS Mode in the Operating System
+## How to enable FIPS mode in the operating system
 
-### FIPS Kernel Settings
+### FIPS kernel settings
 
 Windows and Red Hat Enterprise Linux can both be configured for FIPS
 mode using a kernel-level setting. After FIPS mode is enabled at the
@@ -82,7 +82,7 @@ To enable FIPS on your platform follow these instructions:
 - [Windows](https://technet.microsoft.com/en-us/library/cc750357.aspx)
 - [Ubuntu](https://security-certs.docs.ubuntu.com/en/fips)
 
-## How to Enable FIPS Mode for the Chef Infra Server
+## How to enable FIPS mode for Chef Infra Server
 
 ### Prerequisites
 
@@ -92,14 +92,14 @@ To enable FIPS on your platform follow these instructions:
 ### Configuration
 
 If you have FIPS compliance enabled at the kernel level and install or
-reconfigure the Chef Infra Server then it will default to running in
+reconfigure Chef Infra Server then it will default to running in
 FIPS mode.
 
-To enable FIPS manually for the Chef Infra Server, can add `fips true`
+To enable FIPS manually for Chef Infra Server, can add `fips true`
 to the `/etc/opscode/chef-server.rb` and reconfigure. For more
 configuration information see [chef-server.rb Optional Settings](/server/config_rb_server_optional_settings/).
 
-## How to Enable FIPS Mode for the Chef Infra Client
+## How to enable FIPS mode for Chef Infra Client
 
 ### Prerequisites
 
@@ -110,6 +110,6 @@ configuration information see [chef-server.rb Optional Settings](/server/config_
 
 If you have FIPS compliance enabled at the kernel level, Chef Infra Client will default to running in FIPS mode. Otherwise, add `fips true` to the `/etc/chef/client.rb` or `C:\\chef\\client.rb`.
 
-#### Bootstrap a Node Using FIPS
+#### Bootstrap a node using FIPS
 
 {{< readfile file="content/workstation/reusable/md/knife_bootstrap_node_fips.md" >}}

@@ -10,7 +10,7 @@ draft = false
 +++
 <!-- markdownlint-disable-file MD036 -->
 
-Chef Infra Client evaluates attributes in the order that they are defined in the
+Chef Infra Client evaluates attributes in the order that they're defined in the
 run-list, including any attributes that are in the run-list as
 cookbook dependencies.
 
@@ -87,7 +87,7 @@ of the attribute priority methods:
 - `normal_unless`
 
 Use the `_unless` variants carefully (and only when necessary) because
-when they are used, attributes applied to nodes may become out of sync
+when they're used, attributes applied to nodes may become out of sync
 with the values in the cookbooks as these cookbooks are updated. This
 approach can create situations where two otherwise identical nodes end
 up having slightly different configurations and can also be a challenge
@@ -104,7 +104,7 @@ Use the following methods within the attributes file for a cookbook or within a 
 
 ### attribute?
 
-A useful method that is related to attributes is the `attribute?`
+A useful method that's related to attributes is the `attribute?`
 method. This method will check for the existence of an attribute, so
 that processing can be done in an attributes file or recipe, but only if
 a specific attribute exists.

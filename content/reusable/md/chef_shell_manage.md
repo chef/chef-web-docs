@@ -49,7 +49,7 @@ Which will return something similar to:
 ```
 
 The `list` command can take a code block, which will applied (but not
-saved), to each object that is returned from the server. For example:
+saved), to each object that's returned from the server. For example:
 
 ```bash
 chef (preprod) > nodes.list {|n| puts "#{n.name}: #{n.run_list}" }

@@ -1,6 +1,6 @@
-By default, chef-shell loads in standalone mode and does not connect to
+By default, chef-shell loads in standalone mode and doesn't connect to
 the Chef Infra Server. The chef-shell can be run as a Chef Infra Client
-to verify functionality that is only available when Chef Infra Client
+to verify functionality that's only available when Chef Infra Client
 connects to the Chef Infra Server, such as search functionality or
 accessing data stored in data bags.
 

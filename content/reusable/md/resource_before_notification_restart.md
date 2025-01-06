@@ -9,5 +9,5 @@ end
 ```
 
 With the `:before` notification, the action specified for the `nginx`
-resource will not run until action has been taken on the notified
+resource won't run until action has been taken on the notified
 resource (`php-fpm`).

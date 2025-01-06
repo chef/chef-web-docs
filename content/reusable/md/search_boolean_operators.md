@@ -1,5 +1,5 @@
 An operator can be used to ensure that certain terms are included in the
-results, are excluded from the results, or are not included even when
+results, are excluded from the results, or aren't included even when
 other aspects of the query match. Searches can use the following
 operators:
 

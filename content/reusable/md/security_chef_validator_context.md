@@ -1,4 +1,4 @@
-The private key does not yet exist the first time that Chef Infra Client runs from a new node.
+The private key doesn't yet exist the first time that Chef Infra Client runs from a new node.
 
 During the first Chef Infra Client run:
 

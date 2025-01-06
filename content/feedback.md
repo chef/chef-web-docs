@@ -14,7 +14,7 @@ product = []
 +++
 
 chef-docs hopes that the documentation is always just what you are
-looking for, but when that is not the case we do appreciate
+looking for, but when that isn't the case we do appreciate
 feedback. There are several ways to get feedback to chef-docs. For
 members of the Chef community, customers, or people who just want to
 send feedback, choose any of the following options:
@@ -28,7 +28,7 @@ suggestions for improving the documentation on a page. Be as detailed as possibl
 Use the feedback form at the bottom of this page for submitting general feedback
 about Chef's documentation.
 
-These forms are not for customer support. If you need support,
+These forms aren't for customer support. If you need support,
 contact [Chef support](https://supportlink.chef.io/).
 
 ## Email

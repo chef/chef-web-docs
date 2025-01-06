@@ -12,7 +12,7 @@ title = "Progress Chef Enterprise vs Community Edition"
 
 Enterprise Chef is the commercial offering of the Chef software suite. This version builds upon the core functionalities of open-source Chef, including advanced features, timely support and enhanced capabilities. All of which are designed to meet the needs of larger organizations and complex infrastructures.
 
-Features available in the Enterprise version that cannot be availed in the community edition include a GUI (graphical user interface), an analytics dashboard, a bulk grouping tool, customizable views, push functionality, and more.
+Features available in the Enterprise version that can't be availed in the community edition include a GUI (graphical user interface), an analytics dashboard, a bulk grouping tool, customizable views, push functionality, and more.
 
 For enterprises prioritizing scale and technical debt, the commercial version of Chef is the ideal choice. We strongly recommend Enterprise Chef, which provides advanced features, enhanced visibility and exceptional support, giving it an edge over the Community version.
 
@@ -24,13 +24,13 @@ To understand the advantages of Enterprise Chef over Community Chef, see the fol
 | ------------- | --------------- | --------------- |
 | Supply Chain Integrity of Distribution & SLOs.  | &#x2714; | X |
 | Public Company Standards for Managing Customer Environment Security Risks and Incidents  | &#x2714; | X |
-| SLA-based Priority Incident Response and Security Fixes on CVEs | Available via different tiers of Service  | X |
+| SLA-based Priority Incident Response and Security Fixes on CVEs | Available with different service tiers  | X |
 | Cyber Insurance & Indemnification Hand-holding | &#x2714; | X |
 | Progress Security Operation Centre (SOC) Support | &#x2714; | X |
 | Access to Chef Premium Content | &#x2714; | X |
 | 24/7 Support | &#x2714; | X |
-| Professional Services | Available via different tiers of service | X |
-| Priority Communication on Updated, Releases and New Features  | Regular Communications from all customer-facing teams | Communication with the community about new features and releases will not match the frequency of Enterprise users |
+| Professional Services | Available with different service tiers | X |
+| Priority Communication on Updated, Releases and New Features  | Regular Communications from all customer-facing teams | Communication with the community about new features and releases won't match the frequency of Enterprise users |
 | Access to Beta Releases | Prototype testing, feedback and driving product direction | X |
 | Completely Managed Solution (SaaS)  | &#x2714; | X |
 | HA Deployment Option | Available with Chef Automate and Chef SaaS  | X |

@@ -22,7 +22,7 @@ on virtual machines in Microsoft Azure.
 ### Get-AzureVMChefExtension
 
 Use the `Get-AzureVMChefExtension` cmdlet to get the details for the
-Azure Chef Extension that is running on the named virtual machine.
+Azure Chef Extension that's running on the named virtual machine.
 
 #### Syntax
 
@@ -70,11 +70,11 @@ This cmdlet has the following options:
 
 `-AutoUpdateChefClient`
 
-: Automatically update . Set to `true` to automatically update the version of the Azure Chef Extension when the virtual machine is restarted. For example, if this option is enabled, a virtual machine that has version `1205.12.2.0` will be updated automatically to `1205.12.2.1` when it is published.
+: Automatically update . Set to `true` to automatically update the version of the Azure Chef Extension when the virtual machine is restarted. For example, if this option is enabled, a virtual machine that has version `1205.12.2.0` will be updated automatically to `1205.12.2.1` when it's published.
 
 `-BootstrapOptions <string>`
 
-: A JSON string that is added to the first run of a Chef Infra Client.
+: A JSON string that's added to the first run of a Chef Infra Client.
 
   For example:
 

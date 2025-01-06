@@ -8,7 +8,7 @@ sitemapExclude = true
 aliases = "/deprecations_locale_lc_all.html"
 +++
 
-Setting the `LC_ALL` variable is NOT recommended. As a system-wide
+Setting the `LC_ALL` variable isn't recommended. As a system-wide
 setting, `LANG` should provide the desired behavior. `LC_ALL` is
 intended to be used for temporarily troubleshooting issues rather than
 an everyday system setting. Changing `LC_ALL` can break Chef's parsing

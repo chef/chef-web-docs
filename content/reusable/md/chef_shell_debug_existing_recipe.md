@@ -1,7 +1,7 @@
 chef-shell can be used to debug existing recipes. The recipe first needs
-to be added to a run-list for the node, so that it is cached when
+to be added to a run-list for the node, so that it's cached when
 starting chef-shell and then used for debugging. chef-shell will report
-which recipes are being cached when it is started:
+which recipes are being cached when it's started:
 
 ```bash
 loading configuration: none (standalone session)

@@ -10,7 +10,7 @@ present on a node, use one of the following attributes in a recipe:
     re-download the file.
 - The `checksum` attribute will ask Chef Infra Client to compare the
     checksum for the local file to the one at the remote location. If
-    they match, Chef Infra Client will not re-download the file. Using a
+    they match, Chef Infra Client won't re-download the file. Using a
     local checksum for comparison requires that the local checksum be
     the correct checksum.
 

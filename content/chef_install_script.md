@@ -140,14 +140,14 @@ In addition to the default install behavior, the Chef Software install script su
 
 : The directory into which a package is downloaded. When a package
   already exists in this directory and the checksum matches, the
-  package is not re-downloaded. When `-d` and `-f` are not specified,
+  package isn't re-downloaded. When `-d` and `-f` aren't specified,
   a package is downloaded to a temporary directory.
 
 `-f` (`-filename` on Windows)
 
 : The name of the file and the path at which that file is located.
   When a filename already exists at this path and the checksum
-  matches, the package is not re-downloaded. When `-d` and `-f` are
+  matches, the package isn't re-downloaded. When `-d` and `-f` are
   not specified, a package is downloaded to a temporary directory.
 
 `-P` (`-project` on Windows)

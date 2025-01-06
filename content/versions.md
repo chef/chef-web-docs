@@ -71,7 +71,7 @@ commercial agreement with Chef. Additional information is available in
 
 {{< note >}}
 
-**Chef Backend** does not directly require acceptance of the Chef
+**Chef Backend** doesn't directly require acceptance of the Chef
 EULA, but it does have functionality that requires its acceptance in other
 products.
 
