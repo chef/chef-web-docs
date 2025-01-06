@@ -12,6 +12,8 @@ product = [""]
     weight = 10
 +++
 
+## Chef 360 Platform 1.1
+
 ## Chef 360 Platform 1.1.2
 
 ### New features
@@ -38,7 +40,20 @@ product = [""]
 | Infra Client Interpreter      | chef-client-interpreter.        | chef-platform/chef-client-interpreter         | 1.0.4      |
 | Inspec Interpreter             | inspec-interpreter                | chef-platform/inspec-interpreter                 | 1.0.4      |
 
-## Chef 360 Platform 1.1
+## Chef 360 Platform 1.1.1
+
+### New features
+
+- We replaced Mailhog, a local email testing service, with [Mailpit](https://mailpit.axllent.org/), which is a more secure service.
+
+  If you've been using Mailhog for email testing, update the port number to `31101` to use Mailpit.
+
+### Improvements
+
+- You can now select saved node lists and node filters to target Courier jobs using the Courier Job Wizard in the Chef 360 Platform UI.
+- You can now reuse job templates from existing Courier jobs to create a new Courier job in the Chef 360 Platform UI.
+
+## Chef 360 Platform 1.1.0
 
 ### New features
 
