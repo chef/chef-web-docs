@@ -55,7 +55,7 @@ sudo pkgutil --forget com.getchef.pkg.chef-workstation
 To remove symlinks:
 
 > ```bash
-> sudo find /usr/local/bin -lname '`/opt/chef-workstation/*' -delete
+> sudo find /usr/local/bin -lname '/opt/chef-workstation/*' -delete
 > ```
 
 ### Red Hat Enterprise Linux
