@@ -14,17 +14,20 @@ product = [""]
 
 ## Chef 360 Platform 1.1.2
 
+Release date: December 26, 2024.
+
 ### New features
 
-- We've added the Public Signature Key Expiry in the Admin Console configurations UI, which users can set according to their requirements.
+- In the Admin Console configuration UI, you can now set a public key expiration date for API gateways. The default date is December 31, 2030.
 
 ### Improvements
 
-- System roles are updated with the latest API, and documentation is changed to reflect these updates.
+- Updated system-defined roles with the correct API endpoints.
 
 ### Bug fixes
 
-- Fixed the default expiry to 5 years - 2030-12-31, which will now unblock API Gateways and init job to create tenants and notifications through email.
+- Updated the default public key expiration date to December 31, 2030.
+  This fixes an issue where users couldn't create a new tenant or send e-mail to Mailpit.
 
 ### Supported skill versions
 
@@ -40,6 +43,8 @@ product = [""]
 
 ## Chef 360 Platform 1.1.1
 
+Release date: December 4, 2024.
+
 ### New features
 
 - We replaced Mailhog, a local email testing service, with [Mailpit](https://mailpit.axllent.org/), which is a more secure service.
@@ -52,6 +57,8 @@ product = [""]
 - You can now reuse job templates from existing Courier jobs to create a new Courier job in the Chef 360 Platform UI.
 
 ## Chef 360 Platform 1.1.0
+
+Release date: November 21, 2024.
 
 ### New features
 
@@ -114,10 +121,7 @@ product = [""]
 
 ## Chef 360 Platform 1.0.2
 
-### Release details
-
-- Version number: 1.0.2
-- Release date: July 22, 2024
+Release date: July 22, 2024.
 
 ### Bug fixes
 
@@ -139,10 +143,7 @@ product = [""]
 
 ## Chef 360 Platform 1.0.1
 
-### Release details
-
-- Version number: 1.0.1
-- Release date: July 15, 2024
+Release date: July 15, 2024
 
 ### Improvements
 
@@ -172,10 +173,7 @@ product = [""]
 
 ## Chef 360 Platform 1.0.0
 
-### Release details
-
-- Version number: 1.0.0
-- Release date: July 2, 2024
+Release date: July 2, 2024.
 
 ### Overview
 
