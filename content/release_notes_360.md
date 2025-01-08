@@ -98,7 +98,7 @@ Release date: November 21, 2024.
 - When downloading details of a job, the artifact URL is updated to HTTP or HTTPS dynamically in the artifact URL string based on the server configuration.
 - The payload for filtering by the enrollment level and health status attributes is now supported with operator and value fields similar to filtering by other attributes.
 
-  This change requires that all users running Chef 360 Platform 1.0.x must upgrade their skill versions on all nodes to versions supported in the Chef 360 Platform 1.1.
+  This change requires that all users running Chef 360 Platform 1.0.x must upgrade their skill versions on all nodes to versions supported in Chef 360 Platform version 1.1.
   The previous release versions of these skills won't run if they're not updated.
 
 ### Supported skill versions
@@ -194,7 +194,7 @@ This functionality empowers practitioners to execute ad hoc and unplanned duties
 
 ### Major services
 
-Chef 360 Platform comes packaged with the following major categories of services. Each of these categories serves a very specific purpose in enabling the end-to-end functioning of every product made accessible through the Chef 360 Platform.
+Chef 360 Platform comes packaged with the following major categories of services. Each of these categories serves a very specific purpose in enabling the end-to-end functioning of every product made accessible through Chef 360 Platform.
 
 - Courier including services for scheduling, orchestrating, delivering and tracking state for jobs
 - Node management including centralized services and enrollment
@@ -231,7 +231,7 @@ Interface-driven
 ### Supported platforms
 
 1. The Chef 360 Platform is a set of containers which run on standard Kubernetes environments. Most containers are 'scratch' containers and run on the default pod provided by the host. Some containers are on Debian base images. The Chef 360 Platform v1.0 release is packaged inside and is tested on a `k0s` distribution.
-1. The Chef 360 Platform has three command-line interfaces which run on versions of Linux, Microsoft Windows, and MacOS on x86 or ARM architectures (as appropriate). These are available in the bundled tools container in the Chef 360 Platform distribution.
+1. The Chef 360 Platform has three command-line interfaces which run on versions of Linux, Windows, and MacOS on x86 or ARM architectures (as appropriate). These are available in the bundled tools container in the Chef 360 Platform distribution.
 1. The Chef 360 Platform has three agents: the Habitat base module, a Node Management agent, and a Courier agent. The Habitat installer runs on all platforms indicated on the [Chef Habitat downloads page](https://community.chef.io/downloads/tools/habitat) (or your support portal if you have a commercial Chef license). We tested with the latest version of Habitat for this release. The agents are available in the bundled tools container in the Chef 360 Platform distribution.
 1. Chef 360 Platform relies on the following infrastructure components for its services:
 
