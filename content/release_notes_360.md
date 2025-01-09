@@ -12,7 +12,38 @@ product = [""]
     weight = 10
 +++
 
+## Chef 360 Platform 1.1.2
+
+Release date: December 26, 2024.
+
+### New features
+
+- In the Admin Console configuration UI, you can now set a public key expiration date for API gateways. The default date is December 31, 2030.
+
+### Improvements
+
+- Updated system-defined roles with the correct API endpoints.
+
+### Bug fixes
+
+- Updated the default public key expiration date to December 31, 2030.
+  This fixes an issue where users couldn't create a new tenant or send e-mail to Mailpit.
+
+### Supported skill versions
+
+| Skill                                       | Skill name                             | Habitat package                                           | Version |
+|---------------------------|----------------------------|------------------------------------------|---------|
+| Node Management Agent | node-management-agent   | chef-platform/node-management-agent   | 1.0.3      |
+| Courier Runner                   | courier-runner                      | chef-platform/courier-runner                       | 1.4.4     |
+| Gohai                                   | chef-gohai                            | chef-platform/chef-gohai                             | 1.0.3      |
+| Shell Interpreter                 | shell-interpreter                   | chef-platform/shell-interpreter                    | 1.0.3      |
+| Restart Interpreter             | restart-interpreter                | chef-platform/restart-interpreter                | 1.0.2      |
+| Infra Client Interpreter      | chef-client-interpreter.        | chef-platform/chef-client-interpreter         | 1.0.4      |
+| Inspec Interpreter             | inspec-interpreter                | chef-platform/inspec-interpreter                 | 1.0.4      |
+
 ## Chef 360 Platform 1.1.1
+
+Release date: December 4, 2024.
 
 ### New features
 
@@ -26,6 +57,8 @@ product = [""]
 - You can now reuse job templates from existing Courier jobs to create a new Courier job in the Chef 360 Platform UI.
 
 ## Chef 360 Platform 1.1.0
+
+Release date: November 21, 2024.
 
 ### New features
 
@@ -65,7 +98,7 @@ product = [""]
 - When downloading details of a job, the artifact URL is updated to HTTP or HTTPS dynamically in the artifact URL string based on the server configuration.
 - The payload for filtering by the enrollment level and health status attributes is now supported with operator and value fields similar to filtering by other attributes.
 
-  This change requires that all users running Chef 360 Platform 1.0.x must upgrade their skill versions on all nodes to versions supported in the Chef 360 Platform 1.1.
+  This change requires that all users running Chef 360 Platform 1.0.x must upgrade their skill versions on all nodes to versions supported in Chef 360 Platform version 1.1.
   The previous release versions of these skills won't run if they're not updated.
 
 ### Supported skill versions
@@ -88,10 +121,7 @@ product = [""]
 
 ## Chef 360 Platform 1.0.2
 
-### Release details
-
-- Version number: 1.0.2
-- Release date: July 22, 2024
+Release date: July 22, 2024.
 
 ### Bug fixes
 
@@ -113,10 +143,7 @@ product = [""]
 
 ## Chef 360 Platform 1.0.1
 
-### Release details
-
-- Version number: 1.0.1
-- Release date: July 15, 2024
+Release date: July 15, 2024
 
 ### Improvements
 
@@ -146,10 +173,7 @@ product = [""]
 
 ## Chef 360 Platform 1.0.0
 
-### Release details
-
-- Version number: 1.0.0
-- Release date: July 2, 2024
+Release date: July 2, 2024.
 
 ### Overview
 
@@ -170,7 +194,7 @@ This functionality empowers practitioners to execute ad hoc and unplanned duties
 
 ### Major services
 
-Chef 360 Platform comes packaged with the following major categories of services. Each of these categories serves a very specific purpose in enabling the end-to-end functioning of every product made accessible through the Chef 360 Platform.
+Chef 360 Platform comes packaged with the following major categories of services. Each of these categories serves a very specific purpose in enabling the end-to-end functioning of every product made accessible through Chef 360 Platform.
 
 - Courier including services for scheduling, orchestrating, delivering and tracking state for jobs
 - Node management including centralized services and enrollment
@@ -207,7 +231,7 @@ Interface-driven
 ### Supported platforms
 
 1. The Chef 360 Platform is a set of containers which run on standard Kubernetes environments. Most containers are 'scratch' containers and run on the default pod provided by the host. Some containers are on Debian base images. The Chef 360 Platform v1.0 release is packaged inside and is tested on a `k0s` distribution.
-1. The Chef 360 Platform has three command-line interfaces which run on versions of Linux, Microsoft Windows, and MacOS on x86 or ARM architectures (as appropriate). These are available in the bundled tools container in the Chef 360 Platform distribution.
+1. The Chef 360 Platform has three command-line interfaces which run on versions of Linux, Windows, and MacOS on x86 or ARM architectures (as appropriate). These are available in the bundled tools container in the Chef 360 Platform distribution.
 1. The Chef 360 Platform has three agents: the Habitat base module, a Node Management agent, and a Courier agent. The Habitat installer runs on all platforms indicated on the [Chef Habitat downloads page](https://community.chef.io/downloads/tools/habitat) (or your support portal if you have a commercial Chef license). We tested with the latest version of Habitat for this release. The agents are available in the bundled tools container in the Chef 360 Platform distribution.
 1. Chef 360 Platform relies on the following infrastructure components for its services:
 
