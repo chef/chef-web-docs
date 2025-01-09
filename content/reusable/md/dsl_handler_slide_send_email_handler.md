@@ -14,4 +14,4 @@ end
 - Use the `on` method to specify the event type
 
 Within the `on` block, tell Chef Infra Client how to handle the event
-when it is triggered.
+when it's triggered.

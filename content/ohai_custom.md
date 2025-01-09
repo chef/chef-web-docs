@@ -62,12 +62,12 @@ end
 where
 
 - Required. `(:Name)` is used to identify the plugin; when two plugins have the same `(:Name)`, those plugins are joined together and run as if they were a single plugin. This value must be a valid Ruby class name, starting with a capital letter and containing only alphanumeric characters
-- Required. `provides` is a comma-separated list of one (or more) attributes that are defined by this plugin. This attribute will become an automatic attribute (`node['attribute']`) after it is collected by Ohai at the start of a Chef Infra Client run. An attribute can also be defined using an `attribute/subattribute` pattern
+- Required. `provides` is a comma-separated list of one (or more) attributes that are defined by this plugin. This attribute will become an automatic attribute (`node['attribute']`) after it's collected by Ohai at the start of a Chef Infra Client run. An attribute can also be defined using an `attribute/subattribute` pattern
 - `depends` is a comma-separated list of one (or more) attributes that are collected by another plugin; as long as the value is collected by another Ohai plugin, it can be used by any plugin
 - `shared_method` defines code that can be shared among one (or more) `collect_data` blocks; for example, instead of defining a mash for each `collect_data` block, the code can be defined as a shared method, and then called from any `collect_data` block
-- `collect_data` is a block of Ruby code that is called by Ohai when it runs; one (or more) `collect_data` blocks can be defined in a plugin, but only a single `collect_data` block is ever run.
-- `collect_data(:default)` is the code block that runs when a node's platform is not defined by a platform-specific `collect_data` block
-- `collect_data(:platform)` is a platform-specific code block that is run when a match exists between the node's platform and this `collect_data` block; only one `collect_data` block may exist for each platform; possible values: `:aix`, `:darwin`, `:freebsd`, `:linux`, `:openbsd`, `:netbsd`, `:solaris2`, `:windows`, or any other value from `RbConfig::CONFIG['host_os']`
+- `collect_data` is a block of Ruby code that's called by Ohai when it runs; one (or more) `collect_data` blocks can be defined in a plugin, but only a single `collect_data` block is ever run.
+- `collect_data(:default)` is the code block that runs when a node's platform isn't defined by a platform-specific `collect_data` block
+- `collect_data(:platform)` is a platform-specific code block that's run when a match exists between the node's platform and this `collect_data` block; only one `collect_data` block may exist for each platform; possible values: `:aix`, `:darwin`, `:freebsd`, `:linux`, `:openbsd`, `:netbsd`, `:solaris2`, `:windows`, or any other value from `RbConfig::CONFIG['host_os']`
 - `my_data` is string (`a string value`) or an empty mash (`{ :setting_a => 'value_a', :setting_b => 'value_b' }`). This is used to define the data that should be collected by the plugin
 
 For example, the following plugin looks up data on virtual machines hosted in Amazon EC2, Google Compute Engine, Rackspace, Eucalyptus, Linode, OpenStack, and Microsoft Azure:
@@ -133,16 +133,16 @@ To see the rest of the code in this plugin, go to: <https://github.com/chef/ohai
 
 ## Ohai Methods
 
-The Ohai DSL is a Ruby DSL that is used to define an Ohai plugin and to ensure that Ohai collects the right data at the start of every Chef Infra Client run. The Ohai DSL is a small DSL with a single method that is specific to Ohai plugins. Because the Ohai DSL is a Ruby DSL, anything that can be done using Ruby can also be done when defining an Ohai plugin.
+The Ohai DSL is a Ruby DSL that's used to define an Ohai plugin and to ensure that Ohai collects the right data at the start of every Chef Infra Client run. The Ohai DSL is a small DSL with a single method that's specific to Ohai plugins. Because the Ohai DSL is a Ruby DSL, anything that can be done using Ruby can also be done when defining an Ohai plugin.
 
 ### collect_data
 
-The `collect_data` method is a block of Ruby code that is called by Ohai when it runs. One (or more) `collect_data` blocks can be defined in a plugin, but only a single `collect_data` block is ever run. The `collect_data` block that is run is determined by the platform on which the node is running, which is then matched up against the available `collect_data` blocks in the plugin.
+The `collect_data` method is a block of Ruby code that's called by Ohai when it runs. One (or more) `collect_data` blocks can be defined in a plugin, but only a single `collect_data` block is ever run. The `collect_data` block that's run is determined by the platform on which the node is running, which is then matched up against the available `collect_data` blocks in the plugin.
 
-- A `collect_data(:default)` block is used when Ohai is not able to match the platform of the node with a `collect_data(:platform)` block in the plugin
+- A `collect_data(:default)` block is used when Ohai isn't able to match the platform of the node with a `collect_data(:platform)` block in the plugin
 - A `collect_data(:platform)` block is required for each platform that requires non-default behavior
 
-When Ohai runs, if there is not a matching `collect_data` block for a platform, the `collect_data(:default)` block is used. The syntax for the `collect_data` method is:
+When Ohai runs, if there isn't a matching `collect_data` block for a platform, the `collect_data(:default)` block is used. The syntax for the `collect_data` method is:
 
 ```ruby
 collect_data(:default) do
@@ -229,7 +229,7 @@ end
 
 ### require
 
-The `require` method is a standard Ruby method that can be used to list files that may be required by a platform, such as an external class library. As a best practice, even though the `require` method is often used at the top of a Ruby file, it is recommended that the use of the `require` method be used as part of the platform-specific `collect_data` block. For example, the Ruby WMI is required with Windows:
+The `require` method is a standard Ruby method that can be used to list files that may be required by a platform, such as an external class library. As a best practice, even though the `require` method is often used at the top of a Ruby file, it's recommended that the use of the `require` method be used as part of the platform-specific `collect_data` block. For example, the Ruby WMI is required with Windows:
 
 ```ruby
 collect_data(:windows) do
@@ -263,7 +263,7 @@ require Mixin::ShellOut
 
 are both understood by the Ohai in the same way: `Ohai::Mixin::ShellOut`.
 
-When a class is an external class (and therefore should not have `Ohai::` prepended), use `::` to let the Ohai know. For example:
+When a class is an external class (and therefore shouldn't have `Ohai::` prepended), use `::` to let the Ohai know. For example:
 
 ```ruby
 ::External::Class::Library
@@ -271,7 +271,7 @@ When a class is an external class (and therefore should not have `Ohai::` prepen
 
 #### /common Directory
 
-The `/common` directory stores code that is used across all Ohai plugins. For example, a file in the `/common` directory named `virtualization.rb` that includes code like the following:
+The `/common` directory stores code that's used across all Ohai plugins. For example, a file in the `/common` directory named `virtualization.rb` that includes code like the following:
 
 ```ruby
 module Ohai
@@ -408,7 +408,7 @@ Ohai::Log.log_type('message')
 where
 
 - `log_type` can be `.debug`, `.info`, `.warn`, `.error`, or `.fatal`
-- `'message'` is the message that is logged.
+- `'message'` is the message that's logged.
 
 For example:
 
@@ -445,7 +445,7 @@ Use the `rescue` clause to make sure that a log message is always provided. For 
 
 ```ruby
 rescue LoadError => e
-  Ohai::Log.debug('ip_scopes: cannot load gem, plugin disabled: #{e}')
+  Ohai::Log.debug('ip_scopes: can't load gem, plugin disabled: #{e}')
 end
 ```
 
@@ -531,7 +531,7 @@ Ohai.plugin(:Hostname) do
     if info.first =~ /.+?\.(.*)/
       fqdn info.first
     else
-      # host is not in dns. optionally use:
+      # host isn't in dns. optionally use:
       # C:\WINDOWS\system32\drivers\etc\hosts
       fqdn Socket.gethostbyaddr(info.last).first
     end

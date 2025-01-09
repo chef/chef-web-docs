@@ -10,6 +10,14 @@ draft = false
     weight = 10
 +++
 
+## 20241210
+
+### New Features
+
+- CIS MSSQL Server v1.1.0 (Audits)
+- CIS REHL 9 v2.0.0 (Audits)
+- CIS Ubuntu 24.04 v1.0.0 (Audits)
+
 ## 20241106
 
 ### New Features

@@ -6,7 +6,7 @@ A `Policyfile.rb` file may contain the following settings:
 
 : Required. The name of the policy. Use a name that reflects the
   purpose of the machines against which the policy will run,
-  such as "application server", "chat server", "load balancer", and so on.
+  such as _application server_, _chat server_, or _load balancer_.
 
 `run_list "ITEM", "ITEM", ...`
 
@@ -79,12 +79,12 @@ A `Policyfile.rb` file may contain the following settings:
   <p class="admonition-note-title">Note</p>
   <div class="admonition-note-text">
 
-  If a run-list or any dependencies require a cookbook that is present
+  If a run-list or any dependencies require a cookbook that's present
   in more than one source, be explicit about which source is
   preferred. This will ensure that a cookbook is always pulled from an
   expected source. For example, an internally-developed cookbook named
   `chef-client` will conflict with the public `chef-client` cookbook
-  that is maintained by Chef. To specify a named source for a
+  that's maintained by Chef. To specify a named source for a
   cookbook:
 
   ```ruby
@@ -157,50 +157,50 @@ A `Policyfile.rb` file may contain the following settings:
 
 `include_policy "NAME", *args`
 
-: Specify a policyfile lock to be merged with this policy. Chef
+: Specify a Policyfile lock to be merged with this policy. Chef
   Workstation supports pulling this lock from a local or remote file,
   from a Chef Infra Server, or from a git repository. When the
-  policyfile lock is included, its run-list will appear before the
-  current policyfile's run-list. This setting requires that the solved
-  cookbooks appear as-is from the included policyfile lock. If
+  Policyfile lock is included, its run-list will appear before the
+  current Policyfile's run-list. This setting requires that the solved
+  cookbooks appear as-is from the included Policyfile lock. If
   conflicting attributes or cookbooks are provided, an error will be
   presented. See
   [RFC097](https://github.com/chef-boneyard/chef-rfc/blob/master/rfc097-policyfile-includes.md)
   for the full specifications of this feature.
 
-  Pull the policyfile lock from `./NAME.lock.json`:
+  Pull the Policyfile lock from `./NAME.lock.json`:
 
   ```ruby
   include_policy 'NAME', path: '.'
   ```
 
-  Pull the policyfile lock from `./foo.lock.json`.
+  Pull the Policyfile lock from `./foo.lock.json`.
 
   ```ruby
   include_policy 'NAME', path: './foo.lock.json'
   ```
 
-  Pull the policyfile lock `foo.lock.json` from the `example/foo` Git repository on the `git.example.com` Git server.
+  Pull the Policyfile lock `foo.lock.json` from the `example/foo` Git repository on the `git.example.com` Git server.
 
   ```ruby
   include_policy 'NAME', git: 'https://git.example.com/example/foo', path: 'foo.lock.json'
   ```
 
-  Pull the policyfile lock from `./bar.lock.json` with revision ID
+  Pull the Policyfile lock from `./bar.lock.json` with revision ID
   'revision1'.
 
   ```ruby
   include_policy 'NAME', policy_revision_id: 'revision1', path: './bar.lock.json'
   ```
 
-  Pull the policyfile lock from a remote server
+  Pull the Policyfile lock from a remote server
   `https://internal.example.com/foo.lock.json`.
 
   ```ruby
   include_policy 'NAME', remote: 'https://internal.example.com/foo.lock.json'
   ```
 
-  Pull the policyfile lock from a remote server
+  Pull the Policyfile lock from a remote server
   `https://internal.example.com/bar.lock.json` and with revision ID
   'revision1'.
 

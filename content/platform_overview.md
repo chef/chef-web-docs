@@ -13,7 +13,7 @@ product = ["automate", "client", "server", "habitat", "inspec", "workstation"]
     weight = 10
 +++
 
-Chef is an automation company. Ever since it was founded in 2008, we have
+Chef is an automation company. Ever since it was founded in 2008, we've
 been bringing together developers and system administrators with our
 namesake product, Chef Infra. Over the years, what we mean by automation
 has expanded. Today, Chef has a complete automation solution for both
@@ -30,7 +30,7 @@ development to production. Here's the complete Chef solution.
 
 [Chef Workstation](/workstation/) allows you to author cookbooks and administer your
 infrastructure. Chef Workstation runs on the computer you use everyday,
-whether it is Linux, macOS, or Windows.
+whether it's Linux, macOS, or Windows.
 
 Chef Workstation ships with Cookstyle, ChefSpec, Chef InSpec, and Test
 Kitchen testing tools. With them, you can make sure your Chef Infra code
@@ -71,7 +71,7 @@ upload your cookbooks.
 Chef Infra is constructed so that most of the computational effort
 occurs on the nodes rather than on the Chef Infra Server. A node
 represents any system you manage and is typically a virtual machine,
-container instance, or physical server. Basically, it is any compute
+container instance, or physical server. Basically, it's any compute
 resource in your infrastructure that's managed by Chef Infra. All nodes
 have Chef Infra Client installed on them, and Chef Infra Client is
 available for multiple platforms including Linux, macOS, Windows, AIX,
@@ -79,7 +79,7 @@ and Solaris.
 
 Periodically, Chef Infra Client contacts the Chef Infra Server to
 retrieve the latest cookbooks. If (and only if) the current state of the
-node does not conform to what the cookbook says it should be, Chef Infra
+node doesn't conform to what the cookbook says it should be, Chef Infra
 Client executes the cookbook instructions. This iterative process
 ensures that the network as a whole converges to the state envisioned by
 business policy.
@@ -91,7 +91,7 @@ application automation. Application automation means that the automation
 is packaged with the application and travels with it, no matter where
 that application is deployed. The unit of deployment becomes the
 application and its associated automation. The runtime environment,
-whether it is a container, bare metal, or PaaS does not in any way
+whether it's a container, bare metal, or PaaS doesn't in any way
 define the application.
 
 Chef Habitat is comprised of a packaging format and a supervisor. The
@@ -118,7 +118,7 @@ inspect the configuration of virtual resources by using their API.
 
 To get a sense of how the Chef InSpec language works, here are some
 examples. This Chef InSpec rule ensures that insecure services and
-protocols, such as telnet, are not used.
+protocols, such as telnet, aren't used.
 
 ```ruby
 describe package('telnetd') do

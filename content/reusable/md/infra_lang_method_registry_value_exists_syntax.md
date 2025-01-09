@@ -19,7 +19,7 @@ where:
     `HKEY_USERS`, `HKU`, `HKEY_CURRENT_USER`, and `HKCU`.
 - `{ name: 'NAME' }` is a hash that contains the name of the registry
     key value; if either `type:` or `:value` are specified in the hash,
-    they are ignored
+    they're ignored
 - `type:` represents the values available for registry keys in
     Windows. Use `:binary` for REG_BINARY, `:string` for
     REG_SZ, `:multi_string` for REG_MULTI_SZ, `:expand_string` for

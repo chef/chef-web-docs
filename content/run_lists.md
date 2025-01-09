@@ -90,7 +90,7 @@ The following examples show how to use this knife subcommand:
 
 #### Options
 
-This command does not have any specific options.
+This command doesn't have any specific options.
 
 {{< note >}}
 
@@ -120,7 +120,7 @@ The following examples show how to use this knife subcommand:
 
 #### Options
 
-This command does not have any specific options.
+This command doesn't have any specific options.
 
 #### Examples
 

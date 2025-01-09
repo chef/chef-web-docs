@@ -12,7 +12,7 @@ gh_repo = "chef-web-docs"
 
 The following sections describe the section heading pattern that Chef is using for topic titles, H1s, H2s, H3s and H4s.
 
-As a general rule, limit the number of heading levels to no more than two within a topic. There can be exceptions, especially if the document is large, but remember that HTML TOC structures usually have width limitations (on the display side) and the more structure within a TOC, the harder it can be for users to figure out what is in it.
+As a general rule, limit the number of heading levels to no more than two within a topic. There can be exceptions, especially if the document is large, but remember that HTML TOC structures usually have width limitations (on the display side) and the more structure within a TOC, the harder it can be for users to figure out what's in it.
 
 Unless the topics are about installing things or about API endpoints, the headings should never wrap. Keep them to a single line.
 
@@ -26,7 +26,7 @@ Don't use headings to define CLI commands, properties, parameters, or other term
 
 ## H1
 
-The H1 heading is reserved for the page title which is created by the Hugo page template. The Markdown file text should not have any H1 headings.
+The H1 heading is reserved for the page title which is created by the Hugo page template. The Markdown file text shouldn't have any H1 headings.
 
 ## H2
 

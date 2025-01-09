@@ -61,7 +61,7 @@ end
 ```
 
 This resource is matched in the same order as the `/files` directory
-structure. For a node that is running Ubuntu 20.04, the second item
+structure. For a node that's running Ubuntu 20.04, the second item
 would be the matching item and the location to which the file identified
 in the **cookbook_file** resource would be distributed:
 
@@ -75,7 +75,7 @@ default/apache2_module_conf_generate.pl
 
 If the `apache2_module_conf_generate.pl` file was located in the
 cookbook directory under `files/host-foo.example.com/`, the specified
-file(s) would only be copied to the machine with the domain name
+files would only be copied to the machine with the domain name
 foo.example.com.
 
 <!-- markdownlint-disable-file MD036 -->

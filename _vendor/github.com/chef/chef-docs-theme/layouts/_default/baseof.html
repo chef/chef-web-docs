@@ -44,8 +44,6 @@
                 <div id="onCanvasRightTOC" class="cell off-canvas position-right toc off-canvas-absolute reveal-for-large" data-off-canvas >
                   {{ partial .Params.toc_layout . }}
                 </div>
-              {{ else if (.Params.version_docs_product)}}
-                {{ partial "versioned-docs-toc" . }}
               {{ else }}
                 <div id="onCanvasRightTOC" class="cell off-canvas position-right toc off-canvas-absolute reveal-for-large" data-off-canvas >
                   {{ partial "table-of-contents" . }}

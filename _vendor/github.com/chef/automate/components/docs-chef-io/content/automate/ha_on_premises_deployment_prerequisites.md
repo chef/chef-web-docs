@@ -76,7 +76,7 @@ We do not support **Chef Manage** integration in the ongoing Automate version.
 
 Current Automate HA integrates with the following non-Chef tools:
 
-- **SQL Database:** PostgreSQL: 13.14
+- **SQL Database:** PostgreSQL: 13.18
 - **NoSQL Database:** OpenSearch: 1.3.7
 - **Load Balancer:** NGINX: 1.21.3 or HA Proxy: 2.2.18 or AWS Application Load Balancer
 
@@ -87,7 +87,7 @@ Current Automate HA integrates with the following non-Chef tools:
 - Refer to [Performance Benchmarks](/automate/ha_performance_benchmarks) for more details on the hardware requirements.
 - Make sure the hardware requirement is not less than the recommended [Minimum Hardware Requirement](/automate/ha_on_premises_deployment_prerequisites/#minimum-hardware-requirement)
 - Contact your network manager to set up the above pre-requisites.
-
+- We recommended that all the hardware/VMs be in the same region/data center.
 {{< /note >}}
 
 ### Minimum Hardware Requirement

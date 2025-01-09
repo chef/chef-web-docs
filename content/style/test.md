@@ -581,7 +581,7 @@ link target in parentheses. [Link to chef.io](https://chef.io/) or
 
 <!-- markdownlint-disable MD033-->
 
-You can also use HTML, but it is not preferred.
+You can also use HTML, but it's not preferred.
 <a href="https://chef.io/">Link to chef.io</a>
 
 ## Images
@@ -623,7 +623,7 @@ You can also use HTML for images, but we don't recommend it.
 
 ## Tables
 
-Simple tables have one row per line, and columns are separated by `|`
+Simple tables have one row for each line, and columns are separated by `|`
 characters. The header is separated from the body by cells containing nothing
 but at least three `-` characters. For ease of maintenance, try to keep all the
 cell separators even, even if you heed to use extra space.

@@ -72,7 +72,7 @@ created in `FOLDERNAME` instead of the root folder.
 
 {{< /note >}}
 
-**Clone from a folder into the "Datacenter Root" directory:**
+**Clone from a folder into the data center root directory:**
 
 ```bash
 knife vsphere vm clone MACHINENAME --template TEMPLATENAME -f /path/to/template \
@@ -235,7 +235,7 @@ knife[:vro_base_url] = 'https://vra.example.local:8281'
 : The number of seconds to wait for the server to complete. Increase this if your vRealize Automation environments takes more than 10 minutes to give you a server. Default value: 600 seconds.
 
 `--bootstrap-version`
-: Specify a specific Chef Infra Client version if your group is not current.
+: Specify a specific Chef Infra Client version if your group isn't current.
 
 #### Usage Examples
 
@@ -244,7 +244,7 @@ knife[:vro_base_url] = 'https://vra.example.local:8281'
 If you want to create a server from a catalog blueprint, find the catalog ID with the
 `knife vra catalog list` command. After the resource is created, knife will attempt to bootstrap it.
 
-Each blueprint may require different parameters to complete provisioning. See your vRealize Automation administrator with questions. knife will attempt to provide any helpful error messages from vRealize Automation if they are available.
+Each blueprint may require different parameters to complete provisioning. See your vRealize Automation administrator with questions. knife will attempt to provide any helpful error messages from vRealize Automation if they're available.
 
 ```bash
 knife vra server create CATALOG_ID --name NAME --project-id PROJECT_ID \
@@ -299,7 +299,7 @@ the Chef Infra Server.
 
 **Execute a vRealize Orchestrator workflow:**
 
-This requires the workflow name. If your workflow name is not unique in your vRealize Orchestrator workflow list, you
+This requires the workflow name. If your workflow name isn't unique in your vRealize Orchestrator workflow list, you
 can specify a workflow ID with `--vro-workflow-id ID`. You can find the workflow ID from the vRealize Orchestrator UI; however, the workflow name is still required.
 
 ```bash
@@ -336,7 +336,7 @@ Chef:
 - Leverages the typical Test Kitchen workflow for vCenter \> 5.0+
 - There is a
     [kitchen-vsphere](https://rubygems.org/gems/kitchen-vsphere) gem,
-    but it is not supported at this time
+    but it's not supported at this time
 
 #### Usage Examples
 
@@ -463,7 +463,7 @@ platforms:
 [[GitHub]](https://github.com/chef-partners/kitchen-vro)
 
 - An integration point with vRealize Orchestrator and Test Kitchen
-- Leverages specific Workflows in vRealize Orchestrator if it is required by VMware
+- Leverages specific Workflows in vRealize Orchestrator if it's required by VMware
     admins
 
 #### Usage Examples

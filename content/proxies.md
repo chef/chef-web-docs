@@ -15,7 +15,7 @@ aliases = ["/proxies.html"]
 +++
 
 In an environment that requires proxies to reach the Internet, many Chef
-commands will not work until they are configured correctly. To configure
+commands won't work until they're configured correctly. To configure
 Chef to work in an environment that requires proxies, set the
 `http_proxy`, `https_proxy`, `ftp_proxy`, and/or `no_proxy` environment
 variables to specify the proxy settings using a lowercase value.
@@ -33,7 +33,7 @@ check the environment variables. Run the following:
 env | grep -i http_proxy
 ```
 
-If an environment variable is set, it **MUST** be lowercase. If it is
+If an environment variable is set, it **MUST** be lowercase. If it's
 not, add a lowercase version of that proxy variable to the shell (for example
 `~/.bashrc`) using one (or more) the following commands.
 
@@ -159,7 +159,7 @@ environments that use an FTP proxy:
 ### No Proxy
 
 The `no_proxy` setting is used to specify addresses for which the proxy
-should not be used. This can be a single address or a comma-separated
+shouldn't be used. This can be a single address or a comma-separated
 list of addresses.
 
 Example:
@@ -172,7 +172,7 @@ no_proxy 'test.example.com,test.example2.com,test.example3.com'
 
 Wildcard matching may be used in the `no_proxy` list---such as
 `no_proxy '*.*.example.*'`---however, many situations require hostnames
-to be specified explicitly (that is, "without wildcards").
+to be specified explicitly (that's, "without wildcards").
 
 {{< /note >}}
 

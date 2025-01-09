@@ -94,7 +94,7 @@ where `file` is the type of resource, `/etc/hosts` is the name, and `f.mode` is 
 
 ### attribute?
 
-Use the `attribute?` method to ensure that certain actions only execute in the presence of a particular node attribute. The `attribute?` method will return true if one of the listed node attributes matches a node attribute that is detected by Ohai during every Chef Infra Client run.
+Use the `attribute?` method to ensure that certain actions only execute in the presence of a particular node attribute. The `attribute?` method will return true if one of the listed node attributes matches a node attribute that's detected by Ohai during every Chef Infra Client run.
 
 The syntax for the `attribute?` method is as follows:
 
@@ -106,7 +106,7 @@ For example:
 
 ```ruby
 if node.attribute?('ipaddress')
-  # the node has an ipaddress
+  # the node has an IP address
 end
 ```
 

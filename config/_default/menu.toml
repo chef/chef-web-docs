@@ -110,11 +110,24 @@ weight = 20
 
 [[360]]
 title = "Chef 360 Platform"
+identifier = "360"
+
+[[360]]
+title = "version 1.1"
+parent = "360"
+identifier = "360/1.1"
+url = "/360/1.1/"
+weight = 10
+
+[[360]]
+title = "version 1.0"
+parent = "360"
 identifier = "360/1.0"
 url = "/360/1.0/"
+weight = 20
 
 ####
-# Chef 360 Menu
+# End Chef 360 Menu
 ####
 
 ####
@@ -476,6 +489,14 @@ identifier = "chef_infra"
     identifier = "chef_infra/features/ohai"
     parent = "chef_infra/features"
     weight = 20
+
+    [[infra]]
+    title = "Target Mode"
+    identifier = "chef_infra/features/Target Mode"
+    parent = "chef_infra/features"
+    url = "/target_mode/"
+    weight = 80
+
 
   [[infra]]
   title = "Integrations"

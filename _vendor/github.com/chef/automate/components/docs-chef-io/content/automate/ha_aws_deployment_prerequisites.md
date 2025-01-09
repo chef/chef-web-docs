@@ -78,7 +78,7 @@ Current Automate HA integrates with the following non-Chef tools:
 
 **In AWS Managed Services**
 
--   **SQL Database:** AWS RDS PostgreSQL: 13.14
+-   **SQL Database:** AWS RDS PostgreSQL: 13.18
 -   **NoSQL Database:** AWS OpenSearch: 1.3
 -   **Load Balancer:** External not supported
 
@@ -89,7 +89,8 @@ Current Automate HA integrates with the following non-Chef tools:
 - Refer to [Performance Benchmarks](/automate/ha_performance_benchmarks) for more details on the hardware requirements.
 - Make sure the hardware requirement in not lesser than the recommended [Minimum Hardware Requirement](/automate/ha_aws_deployment_prerequisites/#minimum-hardware-requirement)
 - Contact your network manager to set up the above pre-requisites.
-
+- We recommended that all hardware/VMs be in the same region/data center.
+  
 {{< /note >}}
 
 ### Minimum Hardware Requirement

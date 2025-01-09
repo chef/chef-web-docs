@@ -10,7 +10,7 @@ aliases = "/deprecations_attributes.html"
 
 +++
 
-We are continuously improving and streamlining the way attributes work
+We're continuously improving and streamlining the way attributes work
 in Chef, to make it easier for users to reason about and safely
 configure their servers.
 

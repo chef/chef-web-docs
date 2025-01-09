@@ -70,7 +70,7 @@ The following properties are common to every resource:
 `sensitive`
 : **Ruby Type:** true, false | **Default Value:** `false`
 
-  Ensure that sensitive resource data is not logged by Chef Infra Client.
+  Ensure that sensitive resource data isn't logged by Chef Infra Client.
 
 #### Examples
 
@@ -175,7 +175,7 @@ template '/tmp/somefile' do
 end
 ```
 
-**Create a file with a Ruby block, but only if "/etc/passwd" does not exist**
+**Create a file with a Ruby block, but only if "/etc/passwd" doesn't exist**
 
 The following example shows how to use the `only_if` condition to create
 a file based on a template, and then use Ruby to specify a condition:

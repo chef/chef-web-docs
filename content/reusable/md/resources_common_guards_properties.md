@@ -1,4 +1,4 @@
-The following properties can be used to define a guard that is evaluated
+The following properties can be used to define a guard that's evaluated
 during the execution phase of a Chef Infra Client run:
 
 `not_if`

@@ -40,7 +40,7 @@ This command has the following options:
 
 `-f`, `--[no-]fork`
 
-: Contains Chef Infra Client runs in a secondary process with dedicated RAM. When a Chef Infra Client run is complete, the RAM is returned to the master process. This option helps ensure that a Chef Infra Client uses a steady amount of RAM over time because the master process does not run recipes. This option also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Use `--no-fork` to disable running Chef Infra Client in fork node. Default value: `--fork`. This option may not be used in the same command with the `--daemonize` and `--interval` options.
+: Contains Chef Infra Client runs in a secondary process with dedicated RAM. When a Chef Infra Client run is complete, the RAM is returned to the master process. This option helps ensure that a Chef Infra Client uses a steady amount of RAM over time because the master process doesn't run recipes. This option also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Use `--no-fork` to disable running Chef Infra Client in fork node. Default value: `--fork`. This option may not be used in the same command with the `--daemonize` and `--interval` options.
 
 `-F FORMAT`, `--format FORMAT`
 
@@ -80,7 +80,7 @@ This command has the following options:
 
 `-l LEVEL`, `--log_level LEVEL`
 
-: The level of logging to be stored in a log file. Possible levels: `auto` (default), `debug`, `error`, `fatal`, `info`, `trace`, or `warn`. Default value: `warn` (when a terminal is available) or `info` (when a terminal is not available).
+: The level of logging to be stored in a log file. Possible levels: `auto` (default), `debug`, `error`, `fatal`, `info`, `trace`, or `warn`. Default value: `warn` (when a terminal is available) or `info` (when a terminal isn't available).
 
 `-L LOGLOCATION`, `--logfile c`
 
@@ -88,7 +88,7 @@ This command has the following options:
 
 `--legacy-mode`
 
-: Cause Chef Infra Client to use the original chef-solo mode instead of chef local mode. This is not recommended. **Removed in Chef Infra Client 14.**
+: Cause Chef Infra Client to use the original chef-solo mode instead of chef local mode. This isn't recommended. **Removed in Chef Infra Client 14.**
 
 `--minimal-ohai`
 
@@ -118,7 +118,7 @@ This command has the following options:
 
 `-s SECONDS`, `--splay SECONDS`
 
-: A random number between zero and `splay` that is added to `interval`. Use splay to help balance the load on the Chef Infra Server by ensuring that many Chef Infra Client runs are not occurring at the same interval. When running Chef Infra Client at intervals, apply `--splay` and `--interval` values before a Chef Infra Client run.
+: A random number between zero and `splay` that's added to `interval`. Use splay to help balance the load on the Chef Infra Server by ensuring that many Chef Infra Client runs aren't occurring at the same interval. When running Chef Infra Client at intervals, apply `--splay` and `--interval` values before a Chef Infra Client run.
 
 `-u USER`, `--user USER`
 

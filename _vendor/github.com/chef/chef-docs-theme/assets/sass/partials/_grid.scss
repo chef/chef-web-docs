@@ -28,7 +28,6 @@
       display: block;
       margin: rem-calc(32) auto;
       -webkit-box-shadow: $box-shadow;
-      -moz-box-shadow: $box-shadow;
       box-shadow: $box-shadow;
       border: 1px solid transparent;
       padding: 1rem;
@@ -49,7 +48,6 @@
       text-indent: 0;
       border: 1px solid transparent;
       -webkit-box-shadow: $box-shadow;
-      -moz-box-shadow: $box-shadow;
       box-shadow: $box-shadow;
       padding: 0.5rem;
       margin: rem-calc(32) auto;
@@ -71,7 +69,6 @@
         padding: 0;
         border: none;
         -webkit-box-shadow: none;
-        -moz-box-shadow: none;
         box-shadow: none;
       }
     }

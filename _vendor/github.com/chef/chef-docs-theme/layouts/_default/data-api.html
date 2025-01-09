@@ -3,6 +3,7 @@
   <head>
     {{- with .Params.description -}}
       <meta name="description" content="{{.}}" />
+      <meta class="swiftype" name="description" data-type="string" content="{{.}}">
     {{- end -}}
     <title>{{.Title}}</title>
     <!-- needed for adaptive design -->
@@ -18,7 +19,7 @@
   </head>
   <body>
     {{ if eq $.Page.Params.title "Chef Automate API" }}
-      <div id="top-container">
+      <div id="top-container" class="hide-for-print" data-swiftype-index='false'>
         <span id="top-container-return">
           <a class="return" style="position: static;" href="{{ $.Page.Params.return_page }}">Return to Docs</a>
         </span>
@@ -32,7 +33,7 @@
         </span>
       </div>
     {{ else }}
-      <a class="return" href="{{ $.Page.Params.return_page }}">Return to Docs</a>
+      <a class="return hide-for-print" href="{{ $.Page.Params.return_page }}" data-swiftype-index='false'>Return to Docs</a>
     {{ end }}
     <ReDoc spec-url="{{ $.Page.Params.api_file_path }}" scroll-y-offset="34"></ReDoc>
     {{ $redocJs := resources.Get "redoc/bundles/redoc.standalone.js" }}

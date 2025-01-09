@@ -19,7 +19,7 @@ product = ["client", "server"]
 
 Every Chef Infra Server organization must have at least one environment.
 Each organization starts out with a single `_default` environment. The
-`_default` environment cannot be modified in any way. Nodes, roles,
+`_default` environment can't be modified in any way. Nodes, roles,
 run-lists, cookbooks (and cookbook versions), and attributes specific to
 an organization can only be associated with a custom environment.
 Additional environments can be created to reflect each organization's
@@ -76,7 +76,7 @@ pinning syntax.
 Environments may be stored on disk (any in source control) in two
 formats:
 
-- As Ruby ( a file that ends with `.rb`); this format is not available when running Chef Infra Client in local mode
+- As Ruby ( a file that ends with `.rb`); this format isn't available when running Chef Infra Client in local mode
 - As JSON (a file that ends with `.json`)
 
 ### Chef language
@@ -116,22 +116,22 @@ domain-specific attributes:
 </tr>
 <tr>
 <td><p><code>default_attributes</code></p></td>
-<td><p>Optional. A set of attributes to be applied to all nodes, assuming the node does not already have a value for the attribute. This is useful for setting global defaults that can then be overridden for specific nodes. If more than one role attempts to set a default value for the same attribute, the last role applied is the role to set the attribute value. When nested attributes are present, they are preserved. For example, to specify that a node that has the attribute <code>apache2</code> should listen on ports 80 and 443 (unless ports are already specified):</p>
+<td><p>Optional. A set of attributes to be applied to all nodes, assuming the node doesn't already have a value for the attribute. This is useful for setting global defaults that can then be overridden for specific nodes. If more than one role attempts to set a default value for the same attribute, the last role applied is the role to set the attribute value. When nested attributes are present, they're preserved. For example, to specify that a node that has the attribute <code>apache2</code> should listen on ports 80 and 443 (unless ports are already specified):</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb5-1"><a href="#cb5-1"></a>default_attributes <span class="st">&#39;apache2&#39;</span> =&gt; { <span class="st">&#39;listen_ports&#39;</span> =&gt;<span class="ot"> %w(</span><span class="st">80 443</span><span class="ot">)</span> }</span></code></pre></div></td>
 </tr>
 <tr>
 <td><p><code>description</code></p></td>
-<td><p>A description of the functionality that is covered. For example:</p>
+<td><p>A description of the functionality that's covered. For example:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb6-1"><a href="#cb6-1"></a>description <span class="st">&#39;The development environment&#39;</span></span></code></pre></div></td>
 </tr>
 <tr>
 <td><p><code>name</code></p></td>
-<td><p>A unique name within the organization. Each name must be made up of letters (uppercase and lowercase), numbers, underscores, and hyphens: [A-Z][a-z][0-9] and [_-]. Spaces are not allowed. For example:</p>
+<td><p>A unique name within the organization. Each name must be made up of letters (uppercase and lowercase), numbers, underscores, and hyphens: [A-Z][a-z][0-9] and [_-]. Spaces aren't allowed. For example:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb7-1"><a href="#cb7-1"></a>name <span class="st">&#39;dev01-24&#39;</span></span></code></pre></div></td>
 </tr>
 <tr>
 <td><p><code>override_attributes</code></p></td>
-<td><p>Optional. A set of attributes to be applied to all nodes, even if the node already has a value for an attribute. This is useful for ensuring that certain attributes always have specific values. If more than one role attempts to set an override value for the same attribute, the last role applied wins. When nested attributes are present, they are preserved. For example:</p>
+<td><p>Optional. A set of attributes to be applied to all nodes, even if the node already has a value for an attribute. This is useful for ensuring that certain attributes always have specific values. If more than one role attempts to set an override value for the same attribute, the last role applied wins. When nested attributes are present, they're preserved. For example:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb8-1"><a href="#cb8-1"></a>override_attributes <span class="st">&#39;apache2&#39;</span> =&gt; { <span class="st">&#39;max_children&#39;</span> =&gt; <span class="st">&#39;50&#39;</span> }</span></code></pre></div>
 <p>The parameters in a Ruby file are actually Ruby method calls, so parentheses can be used to provide clarity when specifying numerous or deeply-nested attributes. For example:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb9-1"><a href="#cb9-1"></a>override_attributes(</span>
@@ -196,7 +196,7 @@ cookbook_versions({
 Attributes are optional and can be set at the default and override
 levels. These will be processed according to attribute precedence. An
 environment attribute will be applied to all nodes within the
-environment, except in places where it is overridden by an attribute
+environment, except in places where it's overridden by an attribute
 with higher precedence. For example:
 
 ```ruby
@@ -288,7 +288,7 @@ Once created, an environment can be managed in several ways:
     control system. These files are pushed to the Chef Infra Server
     using the `knife environment` subcommand and the `from file`
     argument. This approach allows environment data to be dynamically
-    generated. This approach will not work unless these files are
+    generated. This approach won't work unless these files are
     defined in the proper format---Ruby file end with `.rb`; JSON files
     end with `.json`.
 
@@ -323,7 +323,7 @@ be used to store environment data within a data bag: by using a
 top-level key that corresponds to the environment or by using separate
 items for each environment.
 
-A data bag that is storing a top-level key for an environment might look
+A data bag that's storing a top-level key for an environment might look
 something like this:
 
 ```json
@@ -359,7 +359,7 @@ Environment attributes that are used with roles can be overridden.
 Typically, this is done by using attribute precedence, but sometimes it
 may be necessary to ensure that specific attributes are used based on
 the presence of specific environments. This type of scenario is best
-addressed in using a recipe that relies on a top-level key that is
+addressed in using a recipe that relies on a top-level key that's
 stored in a data bag.
 
 For example, to retrieve a value from a data bag based on a specific
@@ -374,8 +374,8 @@ attribute_i_want = mything[node.chef_environment]
 
 A node is considered to be associated with an environment when the
 `chef_environment` attribute is set. The `chef_environment` attribute
-cannot be set with normal or override attributes (in a role)
-because it is actually a method. An environment may be set explicitly
+can't be set with normal or override attributes (in a role)
+because it's actually a method. An environment may be set explicitly
 using the following methods:
 
 - By using the `knife edit` and `knife exec` subcommands
