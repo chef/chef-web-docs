@@ -181,6 +181,8 @@ manage.
 
 {{< readfile file="content/reusable/md/EOL_manage.md" >}}
 
+This document is no longer maintained.
+
 {{< /warning >}}
 
 <span class="title-ref">knife-acl</span> and the Chef Manage browser
