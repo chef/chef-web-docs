@@ -1,5 +1,5 @@
-github.com/chef/automate/components/docs-chef-io v0.0.0-20241202053455-d6fa3db8941a h1:EzM6PeCHWg2y1XcXr4axYo/tXmfaYHWjTBX6cAiCaJI=
-github.com/chef/automate/components/docs-chef-io v0.0.0-20241202053455-d6fa3db8941a/go.mod h1:juvLC7Rt33YOCgJ5nnfl4rWZRAbSwqjTbWmcAoA0LtU=
+github.com/chef/automate/components/docs-chef-io v0.0.0-20250109084654-0c4aab636f65 h1:9B9FOW9UjPo2jG0KkqWzzW9fDv0fVMJ/mTdiHuUfGEA=
+github.com/chef/automate/components/docs-chef-io v0.0.0-20250109084654-0c4aab636f65/go.mod h1:juvLC7Rt33YOCgJ5nnfl4rWZRAbSwqjTbWmcAoA0LtU=
 github.com/chef/chef-docs-theme v0.0.0-20241206202643-d5ef90c514a1 h1:1ASUjeDFUBsmMX6mMlqxYN4mGtsS4lJ7AkyYiw3FOd4=
 github.com/chef/chef-docs-theme v0.0.0-20241206202643-d5ef90c514a1/go.mod h1:+Jpnv+LXE6dXu2xDcMzMc0RxRGuCPAoFxq5tJ/X6QpQ=
 github.com/chef/chef-server/docs-chef-io v0.0.0-20250102024827-cf7f6c08943f h1:LjlFqIxJ0XgVlL91LvEjLwY2NHqsYK0vAlIOqd9HWzA=
