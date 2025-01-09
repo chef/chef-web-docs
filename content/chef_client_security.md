@@ -29,12 +29,6 @@ aliases = ["/chef_client_security.html", "/auth.html"]
 
 ## SSL Certificates
 
-{{< warning >}}
-
-The following information applies to on-premises Chef Infra Server and doesn't apply to Hosted Chef.
-
-{{< /warning >}}
-
 {{< readfile file="content/server/reusable/md/server_security_ssl_cert_client.md" >}}
 
 ### trusted_certs Directory
