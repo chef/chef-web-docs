@@ -19,6 +19,8 @@ aliases = ["/config_rb_manage.html"]
 
 {{< readfile file="content/reusable/md/EOL_manage.md" >}}
 
+This document is no longer maintained.
+
 {{< /warning >}}
 
 {{< danger >}}

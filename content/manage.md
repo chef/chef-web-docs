@@ -18,6 +18,8 @@ product = []
 
 {{< readfile file="content/reusable/md/EOL_manage.md" >}}
 
+This document is no longer maintained.
+
 {{< /warning >}}
 
 {{< note >}}

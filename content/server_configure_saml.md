@@ -19,6 +19,8 @@ product = []
 
 {{< readfile file="content/reusable/md/EOL_manage.md" >}}
 
+This document is no longer maintained.
+
 {{< /warning >}}
 
 Chef Manage can support logging in users using SAML authentication. In

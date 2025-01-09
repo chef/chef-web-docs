@@ -46,6 +46,7 @@ exceptions:
   - RSA
   - SCM
   - SCSS
+  - SDDL
   - SDK
   - SQL
   - SSH
