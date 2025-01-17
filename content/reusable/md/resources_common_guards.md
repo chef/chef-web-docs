@@ -16,4 +16,4 @@ a string value or a Ruby block value:
 A guard property is useful for ensuring that a resource is idempotent by
 allowing that resource to test for the desired state as it's being
 executed, and then if the desired state is present, for Chef Infra
-Client to don'thing.
+Client to do nothing.

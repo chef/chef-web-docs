@@ -440,7 +440,7 @@ made:
 
 For example, the **service** resource can be used to start a service. If
 the action is `:start`, then the service will start if it's not running
-and don'thing if it's running. If a service is installed from a
+and do nothing if it's running. If a service is installed from a
 package, then Chef Infra Client can't check to see if the service is
 running until after the package is installed. In that case, why-run mode
 will indicate what Chef Infra Client would do about the state of the
