@@ -13,7 +13,7 @@
 # github.com/chef/effortless/docs-chef-io v0.0.0-20230711123605-c8beb79aba4f
 # github.com/chef/compliance-profiles/docs-chef-io v0.0.0-20241211025148-fb9cb1f3e2bc
 # github.com/chef/compliance-remediation-2022/docs-chef-io v0.0.0-20240313054833-ebbc45209efa
-# github.com/chef/license-service/docs-chef-io v0.0.0-20231117105514-d3f3d53ba2dd
+# github.com/chef/license-service/docs-chef-io v0.0.0-20250120051510-ae1de80f4621
 # github.com/chef/chef-docs-theme v0.0.0-20241206202643-d5ef90c514a1
 # github.com/FortAwesome/Font-Awesome v0.0.0-20240108205627-a1232e345536
 # github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90
