@@ -98,7 +98,7 @@ end
 
 The following example shows how to use a custom block of Ruby code to
 ensure that a node can resolve the host. If the node can resolve the
-host, Chef Infra Client will don'thing. If the node can't resolve the
+host, Chef Infra Client will do nothing. If the node can't resolve the
 host, Chef Infra Client will configure the host:
 
 ```ruby
@@ -154,7 +154,7 @@ necessary. In this case, three attributes exist in the
 The `only_if` attributes are used to test for the presence of these
 packages on the target node before then asking Chef Infra Client to
 complete the process of installing these packages. If the packages are
-already present, Chef Infra Client will don'thing.
+already present, Chef Infra Client will do nothing.
 
 ```ruby
 package 'libpcre3-dev' do
