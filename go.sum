@@ -2,10 +2,10 @@ github.com/chef/automate/components/docs-chef-io v0.0.0-20250109084654-0c4aab636
 github.com/chef/automate/components/docs-chef-io v0.0.0-20250109084654-0c4aab636f65/go.mod h1:juvLC7Rt33YOCgJ5nnfl4rWZRAbSwqjTbWmcAoA0LtU=
 github.com/chef/chef-docs-theme v0.0.0-20241206202643-d5ef90c514a1 h1:1ASUjeDFUBsmMX6mMlqxYN4mGtsS4lJ7AkyYiw3FOd4=
 github.com/chef/chef-docs-theme v0.0.0-20241206202643-d5ef90c514a1/go.mod h1:+Jpnv+LXE6dXu2xDcMzMc0RxRGuCPAoFxq5tJ/X6QpQ=
-github.com/chef/chef-server/docs-chef-io v0.0.0-20250102024827-cf7f6c08943f h1:LjlFqIxJ0XgVlL91LvEjLwY2NHqsYK0vAlIOqd9HWzA=
-github.com/chef/chef-server/docs-chef-io v0.0.0-20250102024827-cf7f6c08943f/go.mod h1:gMSa25GUHmLimA0gjvRd3hs1buOBqkKPrdHzHvaJauY=
-github.com/chef/chef-workstation/docs-chef-io v0.0.0-20241218133915-0bcc26e757cc h1:LYYo5bwhYsmdpLx53uKaOpRiGjFh4tWACjK+6XA7Eok=
-github.com/chef/chef-workstation/docs-chef-io v0.0.0-20241218133915-0bcc26e757cc/go.mod h1:u6KNpAJs9lTmRigxXsxX0dEywa5KLB40m1vbAalN0NI=
+github.com/chef/chef-server/docs-chef-io v0.0.0-20250122051915-0ae871a00deb h1:iDhOxNTUp7/SqANlBY9mP+/m8uQ5l74i+JqNqWKnji8=
+github.com/chef/chef-server/docs-chef-io v0.0.0-20250122051915-0ae871a00deb/go.mod h1:gMSa25GUHmLimA0gjvRd3hs1buOBqkKPrdHzHvaJauY=
+github.com/chef/chef-workstation/docs-chef-io v0.0.0-20250113133946-a9e5b83f6b41 h1:MYst8yOE8q6p8vgfzSEq/X1SRDfRQuRzD1OdCPA1ZRo=
+github.com/chef/chef-workstation/docs-chef-io v0.0.0-20250113133946-a9e5b83f6b41/go.mod h1:u6KNpAJs9lTmRigxXsxX0dEywa5KLB40m1vbAalN0NI=
 github.com/chef/compliance-profiles/docs-chef-io v0.0.0-20241211025148-fb9cb1f3e2bc h1:1XQ9lU2HIVdaJDmbZC3zptA6mGoOSwi6vs67wZgVRrw=
 github.com/chef/compliance-profiles/docs-chef-io v0.0.0-20241211025148-fb9cb1f3e2bc/go.mod h1:fsG7S6r66ZW6Af/sqq+OL3WNP+BoO4V1/Evwu98Noig=
 github.com/chef/compliance-remediation-2022/docs-chef-io v0.0.0-20240313054833-ebbc45209efa h1:H2kX1/99ggT3YoLlO6xe7FuqsWl0dETD0OXUvKCWrII=
