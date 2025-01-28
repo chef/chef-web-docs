@@ -473,11 +473,11 @@ default['audit']['profiles']['ssh'] = {
 
 ### quiet
 
-Controls verbosity of the Chef InSpec runner. Defaults to `true`. To turn this off, set the attribute `default['audit']['quiet']` to `false`.
+Suppresses output of the Chef InSpec runner. Defaults to `false`. To turn this on, set the attribute `default['audit']['quiet']` to `true`.
 
 ```ruby
 # verbose
-default['audit']['quiet'] = false
+default['audit']['quiet'] = true
 ```
 
 ### reporter
