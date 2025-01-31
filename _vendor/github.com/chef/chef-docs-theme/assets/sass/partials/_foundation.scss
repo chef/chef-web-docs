@@ -1,4 +1,6 @@
-// Styling for Foundation Tabs Shortcodes:
+// Styling for shortcode or layouts that use Foundation Framework elements.
+
+// Foundation tabs and panels styling
 // foundation_tabs, foundation_tab, foundation_tabs_panels, foundation_tabs_panel
 
 #main-content{
@@ -20,5 +22,12 @@
     margin-bottom: 2rem;
     border: 2px solid $border;
     border-top: 0;
+  }
+}
+
+// Foundation accordion
+#main-content-col {
+  ul.accordion {
+    margin-left: 0;
   }
 }
