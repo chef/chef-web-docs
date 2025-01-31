@@ -345,19 +345,24 @@ workspace = ''
 ###
 
 [[mounts]]
+  source = "generated/generated_content"
+  target = "content"
+
+###
+## Mount generated/genereted_content to content
+###
+
+[[mounts]]
   source = "content"
   target = "content"
 
 [[mounts]]
-  source = "generated/generated_content"
-  target = "content"
-
-
-## Mount static directory so the images work
-
-[[mounts]]
   source = "static"
   target = "static"
+
+[[mounts]]
+  source = "assets"
+  target = "assets"
 
 ###
 # Mount Hugo theme
@@ -413,3 +418,4 @@ workspace = ''
 [[mounts]]
   source = "node_modules/foundation-sites"
   target = "assets/sass/foundation-sites"
+
