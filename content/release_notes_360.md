@@ -72,7 +72,6 @@ Release date: February 14, 2025.
 | Infra Client Interpreter | `chef-client-interpreter` | [chef-platform/chef-client-interpreter](https://bldr.habitat.sh/#/pkgs/chef-platform/chef-client-interpreter) | 1.0.6    |
 | Inspec Interpreter       | `inspec-interpreter`      | [chef-platform/inspec-interpreter](https://bldr.habitat.sh/#/pkgs/chef-platform/inspec-interpreter)           | 1.0.6    |
 
-
 ## Chef 360 Platform 1.1.2
 
 Release date: December 26, 2024.
