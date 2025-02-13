@@ -71,6 +71,10 @@ name = "360 Platform"
 product_key = "chef-360"
 
 [[search.products.360.versions]]
+name = "1.2"
+product_version_key = "chef-360-1.2"
+
+[[search.products.360.versions]]
 name = "1.1"
 product_version_key = "chef-360-1.1"
 

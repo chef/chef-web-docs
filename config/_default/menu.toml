@@ -113,18 +113,25 @@ title = "Chef 360 Platform"
 identifier = "360"
 
 [[360]]
+title = "version 1.2"
+parent = "360"
+identifier = "360/1.2"
+url = "/360/1.2/"
+weight = 10
+
+[[360]]
 title = "version 1.1"
 parent = "360"
 identifier = "360/1.1"
 url = "/360/1.1/"
-weight = 10
+weight = 20
 
 [[360]]
 title = "version 1.0"
 parent = "360"
 identifier = "360/1.0"
 url = "/360/1.0/"
-weight = 20
+weight = 30
 
 ####
 # End Chef 360 Menu
