@@ -12,6 +12,66 @@ product = [""]
     weight = 10
 +++
 
+## Chef 360 Platform 1.2
+
+Release date: February 14, 2025.
+
+### New features
+
+- This release includes several enhancements to the graphical user interface to help users perform workflows entirely without using a command line:
+.
+  - You can now add and update tags associated with your nodes and use them in filters.
+  - In the Courier Job wizard, you can select from saved node lists or filters and preview the nodes in their selection.
+  - You can create a specific schedule for when a Courier job is performed.
+  - The Courier job summary now includes a lot more details for easier reference.
+  - While using the Courier job wizard users can now add multiple steps to the same job along with input, output variables, conditions for each step.
+  - All Courier job exceptions can now be added, edited, and removed through a dedicated screen for exceptions.
+
+- We've enhanced performance so users have control over how the Chef 360 Platform Server reacts to load according to their needs:
+
+  - For users deploying with a HELM chart, there is now an option to set the maximum concurrency limit for Chef Courier Job orchestrator.
+  - Node Management now sets a random splay interval for it's calls to Chef 360 Platform Server.
+
+- The Chef 360 Platform documentation is now shipped along with the installation package. Users who have network restrictions can access the documentation directly within their install.
+
+### Improvements
+
+- Chef 360 Platform now captures the timestamp for when a Courier job is marked as timed out.
+- You can now refresh tables on the Chef 360 Platform UI using a button and without the need to refresh the entire page.
+- Chef 360 SMTP settings now supports configurations for SendGrid to send emails.
+- `maxVersion` is now a mandatory configuration for Courier job skills used in a step.
+- Tenant admins can now give other users the tenant admin role.
+- We increased the Chef 360 Platform UI session timeout from 15 minutes.
+
+### Bug fixes
+
+- The downloaded CLIs no longer appear locked upon installation.
+- Courier job artifacts downloaded from the GUI now have a proper file extension.
+- We fixed error notifications that were showing multiple times.
+- Chef 360 Platform now correctly recognizes the URL a user-deployed Habitat Builder.
+- Node enrolment on Ubuntu 18 can be performed.
+- Self-signed system-generated SSL certificates now have the correct common name (CN).
+
+### Security updates
+
+- [CVE-2024-34155](https://nvd.nist.gov/vuln/detail/cve-2024-34155)
+- [CVE-2024-45341](https://nvd.nist.gov/vuln/detail/CVE-2024-45341)
+- [CVE-2024-45336](https://nvd.nist.gov/vuln/detail/CVE-2024-45336)
+- [CVE-2024-34158](https://nvd.nist.gov/vuln/detail/CVE-2024-34158)
+- [CVE-2024-34156](https://nvd.nist.gov/vuln/detail/cve-2024-34156)
+
+### Supported skill versions
+
+| Skill                    | Skill name                | Habitat package                                                                                               | Version  |
+| -------------------------|---------------------------|---------------------------------------------------------------------------------------------------------------|----------|
+| Node Management Agent    | `node-management-agent`   | [chef-platform/node-management-agent](https://bldr.habitat.sh/#/pkgs/chef-platform/node-management-agent)     | 1.0.4    |
+| Courier Runner           | `courier-runner`          | [chef-platform/courier-runner](https://bldr.habitat.sh/#/pkgs/chef-platform/courier-runner)                   | 1.4.6    |
+| Gohai                    | `chef-gohai`              | [chef-platform/chef-gohai](https://bldr.habitat.sh/#/pkgs/chef-platform/chef-gohai)                           | 1.2.1    |
+| Shell Interpreter        | `shell-interpreter`       | [chef-platform/shell-interpreter](https://bldr.habitat.sh/#/pkgs/chef-platform/shell-interpreter)             | 1.0.5    |
+| Restart Interpreter      | `restart-interpreter`     | [chef-platform/restart-interpreter](https://bldr.habitat.sh/#/pkgs/chef-platform/restart-interpreter)         | 1.0.4    |
+| Infra Client Interpreter | `chef-client-interpreter` | [chef-platform/chef-client-interpreter](https://bldr.habitat.sh/#/pkgs/chef-platform/chef-client-interpreter) | 1.0.6    |
+| Inspec Interpreter       | `inspec-interpreter`      | [chef-platform/inspec-interpreter](https://bldr.habitat.sh/#/pkgs/chef-platform/inspec-interpreter)           | 1.0.6    |
+
 ## Chef 360 Platform 1.1.2
 
 Release date: December 26, 2024.
