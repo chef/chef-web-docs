@@ -10,7 +10,7 @@
   "dependencies": {
     "foundation-sites": "^6.8.1",
     "jquery": "^3.7.1",
-    "redoc": "^2.1.3"
+    "redoc": "^2.4.0"
   },
   "devDependencies": {},
   "name": "chef-web-docs",
