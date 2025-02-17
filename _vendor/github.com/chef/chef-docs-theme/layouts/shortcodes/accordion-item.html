@@ -1,0 +1,7 @@
+<li class="accordion-item{{ if eq (.Get "is-active") "true" }} is-active {{ end }}" data-accordion-item>
+    <a href="#" class="accordion-title">{{ .Get "accordion-title" }}</a>
+
+    <div class="accordion-content" data-tab-content>
+        {{ .InnerDeindent | strings.TrimSpace | .Page.RenderString }}
+    </div>
+</li>

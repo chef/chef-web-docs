@@ -92,6 +92,7 @@ The Chef Documentation website is built using:
 - [Node](https://www.nodejs.com) 20.0.0 or higher
 - [NPM](https://www.npmjs.com/) 10.4.0 or higher
 - [Go](https://golang.org/dl/) 1.22 or higher
+- [Dart Sass](https://sass-lang.com/dart-sass/) 2.7.1
 
 To install Hugo, NPM, and Go on Windows, run:
 
