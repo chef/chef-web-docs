@@ -8,7 +8,7 @@
     "devDependencies": {}
   },
   "dependencies": {
-    "foundation-sites": "^6.8.1",
+    "foundation-sites": "~6.8.1",
     "jquery": "^3.7.1",
     "redoc": "^2.4.0"
   },
