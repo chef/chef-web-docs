@@ -53,6 +53,9 @@ lint: bundle
 
 update_theme:
 	hugo mod get -u github.com/chef/chef-docs-theme
+	rm -rf _vendor
+	hugo mod tidy
+	hugo mod vendor
 	hugo mod npm pack
 
 ## See:

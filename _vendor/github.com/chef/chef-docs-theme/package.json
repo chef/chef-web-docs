@@ -1,0 +1,18 @@
+{
+  "comments": {
+    "dependencies": {
+      "foundation-sites": "project",
+      "jquery": "project",
+      "redoc": "project"
+    },
+    "devDependencies": {}
+  },
+  "dependencies": {
+    "foundation-sites": "^6.8.1",
+    "jquery": "^3.7.1",
+    "redoc": "^2.4.0"
+  },
+  "devDependencies": {},
+  "name": "chef-docs-theme",
+  "version": "0.1.0"
+}
