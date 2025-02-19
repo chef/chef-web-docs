@@ -39,28 +39,17 @@
     Strict-Transport-Security = "max-age=2592000"
     Permissions-Policy = "vibrate=(), geolocation=(), midi=(), notifications=(), push=(), sync-xhr=(), microphone=(), camera=(), magnetometer=(), gyroscope=(), speaker=(), vibrate=(), fullscreen=(), payment=()"
 
-## redirects traffic from old InSpec docs inspec.io/docs/
+##############
+##
+## Site redirects
 ## https://docs.netlify.com/routing/redirects/#syntax-for-the-netlify-configuration-file
+## https://docs.netlify.com/routing/redirects/redirect-options/
+##
+##############
 
-[[redirects]]
-  from = "/inspec/reference/*"
-  to = "/inspec/:splat"
-  status = 301
-
-[[redirects]]
-  from = "/resource_*"
-  to = "/resources/:splat"
-  status = 301
-
-[[redirects]]
-  from = "/inspec_reference.html"
-  to = "/inspec/cli"
-  status = 301
-
-[[redirects]]
-  from = "/plugin_knife_windows.html"
-  to = "/workstation/knife_windows/"
-  status = 301
+####
+# Chef 360 Platform redirects
+####
 
 [[redirects]]
   from = "/360/1.0/*"
@@ -76,6 +65,15 @@
   from = "/360/1.2/*"
   to = "https://release-1-2--chef-360.netlify.app/360/1.2/:splat"
   status = 200
+
+[[redirects]]
+  from = "/360/latest/*"
+  to = "/360/1.2/:splat"
+  status = 301
+
+####
+# Chef Infra Client redirects
+####
 
 [[redirects]]
   from = "/client/rc1/*"
