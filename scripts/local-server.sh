@@ -8,7 +8,7 @@ set -eou pipefail
 # Run 'netlify dev'
 ###
 
+npm install
 npm ls
 
-npm install
 hugo server -b localhost:1313
