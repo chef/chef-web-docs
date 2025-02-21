@@ -52,7 +52,15 @@ Every Private Supermarket installation is unique. These are general steps for up
          rpm -Uvh /path/to/package/supermarket*.rpm
          ```
 
-  1. Start the Chef Supermarket services:
+  1. Determine the current installed PG (PostgreSQL) version which comes bundled with supermarket. This step will determine if we need to run the next step. Run the below command:
+
+        ```bash
+        sudo /opt/supermarket/embedded/bin/postgres --version
+        ```
+
+        If in the new version of supermarket the PG version is a major upgrade from the current installed PG version then skip the next step of starting supermarket.
+
+  1. Start the Chef Supermarket services (skip this step if there is any major version upgrade for PostgreSQL in the new version of supermarket):
 
         ```bash
         sudo supermarket-ctl start
@@ -111,7 +119,8 @@ Each Private Supermarket installation is unique. The PostgreSQL upgrade steps ar
     Back up the PostgreSQL database before upgrading so you can restore the full database to a previous release in the event of a failure in the upgrade steps below.
 
     ```bash
-    sudo -u supermarket /opt/supermarket/embedded/bin/pg_dumpall -U supermarket 1543 > /  tmp/supermarket-dump.sql
+    cd /
+    sudo -u supermarket /opt/supermarket/embedded/bin/pg_dumpall -U supermarket -p 15432 > /tmp/supermarket-dump.sql
     ```
 
 1. Vacuum the database:
@@ -121,6 +130,7 @@ Each Private Supermarket installation is unique. The PostgreSQL upgrade steps ar
     For more information on upgrading using `vacuumdb` see the PostgreSQL 13   documentation for [vacuumdb](https://www.postgresql.org/docs/13/app-vacuumdb.html).
 
       ```bash
+      cd /
       sudo -u supermarket /opt/supermarket/embedded/bin/vacuumdb --all --full -p 15432
       ```
 
