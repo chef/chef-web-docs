@@ -14,11 +14,11 @@ gh_repo = "supermarket"
 <!-- markdownlint-disable MD033 -->
 ## Upgrade Matrix
 
-  If running Supermarket 4.2, you can upgrade directly to the latest releases of Supermarket 5.0. If you are running a release with version less than 4.2 you must perform a stepped upgrade as outlined below.
+  If running Supermarket 4.2, you can upgrade directly to the latest releases of Supermarket 5.x. If you are running a release with version less than 4.2 you must perform a stepped upgrade as outlined below.
 
 Running Version | Upgrade Version | Supported Version
 ----------------|-----------------|------------------
-4.2             | 5.0             | Yes
+4.2             | 5.x             | Yes
 < 4.2           | 4.2             | No
 
 ## Supported Release
@@ -26,6 +26,16 @@ Running Version | Upgrade Version | Supported Version
 Chef Supermarket uses the PostgreSQL database. [PostgreSQL 9.3 is EOL](https://endoflife.date/postgresql) and Private Supermarket users should upgrade to [Supermarket 5.0](https://www.chef.io/downloads) or above and migrate to [PostgreSQL 13](https://www.postgresql.org/about/news/postgresql-13-released-2077/).
 
 Chef Software supports Supermarket 5.0 release and later. Earlier releases are not supported. For more information about supported Chef Software see the [Supported Versions](https://docs.chef.io/versions/#supported-commercial-distributions) documentation.
+
+## Supermarket Postgres Version Matrix
+
+Every version of supermarket has a certain version of PostgreSQL(PG) bundled inside. Please refer the below matrix to find the PG version mapped with the version of Supermarket. This matrix will be helpful in deciding whether certain steps should be run or skipped during the upgrade process of Supermarket.
+
+| Supermarket Version | Postgres Version |
+|---------------------|------------------|
+| >= 4.2 and < 5.0    | 9.3              |
+| >= 5.0 and < 5.2    | 13.4             |
+| >= 5.2              | 13.18            |
 
 ## Upgrade a Private Supermarket
 
@@ -58,7 +68,7 @@ Every Private Supermarket installation is unique. These are general steps for up
         sudo /opt/supermarket/embedded/bin/postgres --version
         ```
 
-        If in the new version of supermarket the PG version is a major upgrade from the current installed PG version then skip the next step of starting supermarket.
+        If in the new version of supermarket the PG version is a major upgrade from the current installed PG version then skip the next step of starting supermarket. For details on which version of supermarket installs which version of PG please refer this section: [Supermarket Postgres Version Matrix](#supermarket-postgres-version-matrix)
 
   1. Start the Chef Supermarket services (skip this step if there is any major version upgrade for PostgreSQL in the new version of supermarket):
 
