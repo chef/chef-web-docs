@@ -12,7 +12,39 @@ product = [""]
     weight = 10
 +++
 
-## Chef 360 Platform 1.2
+## Chef 360 Platform 1.2.1
+
+Release date: March 6, 2025
+
+### New features
+
+- The Chef 360 graphical user interface now supports language localization.
+
+### Improvements
+
+- HTTP security headers like the Cache-Control header are now passed in the API response.
+
+### Bug fixes
+
+- The Chef 360 Platform Job Summary page now shows the correct exception values for all corner conditions.
+
+### Security updates
+
+- We fixed an issue where a brute force attack could guess a one-time password. We've added checks to prevent this.
+
+### Supported skill versions
+
+| Skill                    | Skill name                | Habitat package                       | Version |
+|--------------------------|---------------------------|---------------------------------------|---------|
+| Courier Runner           | courier-runner            | chef-platform/courier-runner          | 1.4.6   |
+| Gohai                    | chef-gohai                | chef-platform/chef-gohai              | 1.2.2   |
+| Inspec Interpreter       | inspec-interpreter        | chef-platform/inspec-interpreter      | 1.0.6   |
+| Node Management Agent    | node-management-agent     | chef-platform/node-management-agent   | 1.0.4   |
+| Restart Interpreter      | restart-interpreter       | chef-platform/restart-interpreter     | 1.0.4   |
+| Shell Interpreter        | shell-interpreter         | chef-platform/shell-interpreter       | 1.0.5   |
+| Infra Client Interpreter | chef-client-interpreter   | chef-platform/chef-client-interpreter | 1.0.6   |
+
+## Chef 360 Platform 1.2.0
 
 Release date: February 14, 2025.
 
