@@ -26,7 +26,7 @@ Release date: March 6, 2025
 
 ### Bug fixes
 
-- The Chef 360 Platform Job Summary page now shows the correct exception values for all corner conditions.
+- The Chef 360 Platform Job Summary page now shows the correct exception values for all corner conditions.
 
 ### Security updates
 
