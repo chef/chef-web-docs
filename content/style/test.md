@@ -503,6 +503,59 @@ Checklists are an unordered list with a checkbox.
 
 <!-- markdownlint-enable MD031 -->
 
+### Accordions
+
+Basic two item accordion:
+
+{{< accordion-list data-multi-expand="true" data-allow-all-closed="true" >}}
+{{< accordion-item accordion-title="List item description" >}}
+Hello, world.
+{{< /accordion-item >}}
+{{< accordion-item accordion-title="Active item" is-active="true" >}}
+This is active by default
+{{< /accordion-item >}}
+{{< /accordion-list >}}
+
+Accordion in an ordered list:
+
+<!-- markdownlint-disable MD031 -->
+
+These are procedures:
+
+1. Do this.
+
+1. Do that:
+
+    {{< accordion-list data-multi-expand="true" data-allow-all-closed="true" >}}
+    {{< accordion-item accordion-title="Active item" is-active="true" >}}
+    This is active by default
+
+    ```json
+    {
+        "This": "is a sample json",
+        "for": "markdown and Hugo testing."
+    }
+    ```
+    {{< /accordion-item >}}
+    {{< /accordion-list >}}
+
+Accordion in an unordered list:
+
+This is a list:
+
+- Some text
+
+  {{< accordion-list data-multi-expand="true" data-allow-all-closed="true" >}}
+  {{< accordion-item accordion-title="List item description" >}}
+  Hello, world.
+  {{< /accordion-item >}}
+  {{< accordion-item accordion-title="Active item" is-active="true" >}}
+  This is active by default
+  {{< /accordion-item >}}
+  {{< /accordion-list >}}
+
+<!-- markdownlint-enable MD031 -->
+
 ## Code
 
 ### Code blocks
