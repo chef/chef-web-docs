@@ -518,6 +518,8 @@ This is active by default
 
 Accordion in an ordered list:
 
+<!-- markdownlint-disable MD031 -->
+
 These are procedures:
 
 1. Do this.
@@ -552,6 +554,7 @@ This is a list:
   {{< /accordion-item >}}
   {{< /accordion-list >}}
 
+<!-- markdownlint-enable MD031 -->
 
 ## Code
 
