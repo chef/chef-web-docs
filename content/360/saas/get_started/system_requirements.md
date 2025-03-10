@@ -13,7 +13,17 @@ weight = 20
 This guide describes two methods of enrolling nodes, either with a Chef Infra cookbook or with single-node enrollment from Chef 360 SaaS.
 See the node requirements for those methods in the following sections.
 
-For more information on these enrollment methods, see the node enrollment guide or the node enrollment documentation.
+### Ports
+
+Open the following default ports for outbound connections.
+
+| Port  | Description                  |
+|-------|------------------------------|
+| 443   | HTTPS                        |
+| 31050 | RabbitMQ AMQP/AMQP-TLS       |
+| 31000 | Nginx Reverse Proxy NodePort |
+| 22    | SSH (optional)               |
+| 80    | HTTP (optional)              |
 
 ### Cookbook-based enrollment
 
