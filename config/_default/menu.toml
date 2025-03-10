@@ -695,7 +695,7 @@ identifier = "chef_cloud"
     parent = "chef_cloud/360"
 
   [[cloud]]
-  title = "Chef Saas"
+  title = "Chef SaaS"
   identifier = "chef_cloud/saas"
   parent = "chef_cloud"
 
