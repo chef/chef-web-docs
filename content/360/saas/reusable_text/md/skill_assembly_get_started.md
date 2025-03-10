@@ -2,7 +2,6 @@
 
    {{% readfile file="_vendor/github.com/chef/samples/cohorts/skill-assembly.json" highlight="json" %}}
 
-
 1. Create the skill assembly:
 
     ```sh

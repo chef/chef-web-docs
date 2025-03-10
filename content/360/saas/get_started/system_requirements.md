@@ -32,11 +32,11 @@ Nodes enrolled with Chef 360 SaaS using a Chef Infra cookbook have the following
 - Nodes must have Chef Infra Client installed.
 - Nodes have a public DNS or public IP address that can be reached from `https://CUSTOMER_SUBDOMAIN.cloud.chef.io`.
 - Nodes must allow for outbound and inbound communication with <https://bldr.habitat.sh>
-- Nodes can’t have localhost (127.0.0.1) as an IP address.
+- Nodes can't have localhost (127.0.0.1) as an IP address.
 - You must have sudo privileges on the node.
 - Note: Requires Chef Infra Server or running Chef Infra Client in zero mode. For SaaS, this requires Chef 360 SaaS Enterprise.
 
-### Chef 360 platform-based enrollment
+### Chef 360 SaaS enrollment
 
 Nodes enrolled using single-node enrollment have the following requirements.
 
@@ -45,9 +45,9 @@ Connection requirements:
 - Nodes must be accessible with SSH or WinRM from `https://CUSTOMER_SUBDOMAIN.cloud.chef.io`.
 - Nodes must have a public DNS or public IP address that can be reached from `https://CUSTOMER_SUBDOMAIN.cloud.chef.io`.
 - Nodes must allow for outbound and inbound communication with <https://bldr.habitat.sh>
-- A node IP address can’t be localhost (127.0.0.1)
-- A node CIDR address can’t be in the same range as the Chef 360 SaaS services. The default CIDR range for Chef 360 SaaS services is `10.244.0.0/16` or `10.96.0.0/12`.
-- The node’s ports for RabbitMQ (31050) and the nginx API gateway (31000) must be open to Chef 360 SaaS. Additionally, the Chef 360 SaaS should allow inbound connections to these ports from the node.
+- A node IP address can't be localhost (127.0.0.1)
+- A node CIDR address can't be in the same range as the Chef 360 SaaS services. The default CIDR range for Chef 360 SaaS services is `10.244.0.0/16` or `10.96.0.0/12`.
+- The node's ports for RabbitMQ (31050) and the nginx API gateway (31000) must be open to Chef 360 SaaS.
 
 Nodes connected to with SSH have the following requirements:
 
@@ -57,7 +57,7 @@ Nodes connected to with SSH have the following requirements:
 
 Nodes connected to with WinRM have the following requirements:
 
-- Ports 5985–5986 must be open.
+- Ports 5985 and 5986 must be open.
 - Configure WinRM by running the following:
 
     ```ps1

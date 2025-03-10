@@ -38,7 +38,7 @@ Create node override settings for the Courier Runner and Gohai skills.
     {
         "item": {
             "settingId": "<SETTING_ID>"
-        ｝
+        }
     }
     ```
 
