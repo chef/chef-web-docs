@@ -65,4 +65,14 @@ Nodes connected to with WinRM have the following requirements:
     winrm set winrm/config/service/Auth '@{Basic="true"}'
     winrm set winrm/config/service '@{AllowUnencrypted="true"}'
     netsh advfirewall firewall add rule name="WinRM-HTTP" dir=in localport=5985 protocol=TCP action=allow
+    netsh advfirewall firewall add rule name="WinRM-HTTPS" dir=in localport=5986 protocol=TCP action=allow
     ```
+
+### Skill requirements
+
+Chef 360 Platform skills are supported on the following platforms.
+
+| OS      | Architecture | Version                       |
+| ------- | ------------ | ----------------------------- |
+| Linux   | x86_64       | Kernel 2.6.32 or later        |
+| Windows | x86_64       | Windows Server 2019 and later |
