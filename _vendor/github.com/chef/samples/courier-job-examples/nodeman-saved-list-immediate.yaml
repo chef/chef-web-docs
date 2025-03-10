@@ -1,0 +1,49 @@
+---
+name: nodeman-saved-list-immediate-linux
+description: demonstrating a courier job utilising a saved node list
+scheduleRule: immediate
+exceptionRules: []
+target:
+  executionType: sequential
+  groups:
+    - timeoutSeconds: 3000
+      batchSize:
+        type: number
+        value: 1
+      distributionMethod: batching
+      successCriteria:
+        - numRuns:
+            type: percent
+            value: 100
+          status: success
+      nodeListType: savedList
+      listId: "--LISTID1--"
+actions:
+  accessMode: agent
+  steps:
+    - name: step to sleep
+      interpreter:
+        skill:
+          minVersion: 1.0.0
+          maxVersion: 1.9.99
+        name: chef-platform/shell-interpreter
+      command:
+        linux:
+          - sleep 10
+        windows:
+          - timeout 10
+      inputs: {}
+      expectedInputs: {}
+      outputFieldRules: {}
+      retryCount: 2
+      failureBehavior:
+        action: retryThenFail
+        retryBackoffStrategy:
+          type: linear
+          delaySeconds: 1
+          arguments:
+            - 1
+            - 3
+            - 5
+      limits: {}
+      conditions: []

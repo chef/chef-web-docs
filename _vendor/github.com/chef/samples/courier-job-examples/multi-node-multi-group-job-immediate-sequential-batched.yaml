@@ -1,0 +1,69 @@
+---
+name: multi-node-multi-group-job-batching
+description:
+  demonstrating an immediate job executing sequential on multiple nodes
+  with batched rollout
+scheduleRule: immediate
+exceptionRules: []
+target:
+  executionType: sequential
+  groups:
+    - timeoutSeconds: 300
+      batchSize:
+        type: number
+        value: 2
+      distributionMethod: batching
+      successCriteria:
+        - numRuns:
+            type: percent
+            value: 100
+          status: success
+      nodeListType: nodes
+      nodeIdentifiers:
+        - "--NODE1--"
+        - "--NODE2--"
+        - "--NODE3--"
+        - "--NODE4--"
+        - "--NODE5--"
+    - timeoutSeconds: 300
+      batchSize:
+        type: number
+        value: 2
+      distributionMethod: batching
+      successCriteria:
+        - numRuns:
+            type: percent
+            value: 100
+          status: success
+      nodeListType: nodes
+      nodeIdentifiers:
+        - "--NODE6--"
+        - "--NODE7--"
+        - "--NODE8--"
+actions:
+  accessMode: agent
+  steps:
+    - name: step to sleep for a random period
+      interpreter:
+        skill:
+          minVersion: 1.0.0
+          maxVersion: 1.9.99
+        name: chef-platform/shell-interpreter
+      command:
+        linux:
+          - sleep $((RANDOM % 120))
+      inputs: {}
+      expectedInputs: {}
+      outputFieldRules: {}
+      retryCount: 1
+      failureBehavior:
+        action: retryThenFail
+        retryBackoffStrategy:
+          type: linear
+          delaySeconds: 1
+          arguments:
+            - 1
+            - 3
+            - 5
+      limits: {}
+      conditions: []

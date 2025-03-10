@@ -1,0 +1,17 @@
+{
+    "name": "chef-gohai",
+    "canister": {
+        "origin": "chef-platform",
+        "name": "chef-gohai",
+        "service": true
+    },
+    "configurationTemplates": [
+        {
+            "content": "W2dvaGFpXQpub2RlX2lkID0gInt7LmFnZW50Lm5vZGVJZH19Igpub2RlX3JvbGVfbGlua19pZCA9ICJ7ey5za2lsbC5ub2RlUm9sZUxpbmtJZH19IgpwbGF0Zm9ybV9jcmVkZW50aWFsc19wYXRoID0gInt7LnNraWxsLnBsYXRmb3JtQ3JlZGVudGlhbHNQYXRofX0iCmluc2VjdXJlID0ge3suYWdlbnQuaW5zZWN1cmV9fQpyb290X2NhX3BhdGggPSAie3suYWdlbnQucm9vdENhUGF0aH19IgoKW2FwaV0KdGVuYW50X2ZxZG5zID0gInt7LmFnZW50LnRlbmFudEZxZG5zfX0iCgpbbG9nZ2VyXQpsb2dfbGV2ZWwgPSAie3suc2V0dGluZ3MubG9nX2xldmVsfX0iCmxvZ190b19zdGRvdXQgPSB7ey5zZXR0aW5ncy5sb2dfdG9fc3Rkb3V0fX0KbG9nX3RvX2ZpbGUgPSB7ey5zZXR0aW5ncy5sb2dfdG9fZmlsZX19CmxvZ19maWxlX3BhdGggPSAie3suc2V0dGluZ3MubG9nX2ZpbGVfcGF0aH19Ig==",
+            "fileName": "user.toml",
+            "filePath": "/hab/user/chef-gohai/config",
+            "name": "default",
+            "windowsFilePath": "c:\\hab\\user\\chef-gohai\\config"
+        }
+    ]
+}

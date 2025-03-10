@@ -1,0 +1,9 @@
+{
+    "cohortId": "<COHORT_ID>",
+    "url": "<NODE_DNS_OR_PUBLIC_IP>",
+    "sshCredentials": {
+        "username": "<SSH_USER_NAME>",
+        "key": "<SSH_KEY>",
+        "port": <SSH_PORT>
+    }
+}

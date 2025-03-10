@@ -1,0 +1,6 @@
+{
+  "name": "<Name of cohort>",
+  "description": "<Description>",
+  "settingId": "<SettingsId from above>",
+  "skillAssemblyId": "<SkillAssemblyID from above>"
+}
