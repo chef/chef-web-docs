@@ -10,7 +10,7 @@ parent = "chef_cloud/360/get_started"
 weight = 40
 +++
 
-This page documents how to download and install the Chef 360 Platform CLIs and register your workstation with your Chef 360 Platform deployment.
+This page documents how to download and install the Chef 360 Platform CLIs and register your workstation with your Chef 360 SaaS deployment.
 
 ## Prerequisites
 
@@ -73,7 +73,7 @@ To create a profile, follow these steps:
 
     {{< note >}}
 
-    If you've configured Chef 360 Platform with a system-generated or custom certificate in the API/UI settings, use the following CLI arguments:
+    If you've configured Chef 360 SaaS with a system-generated or custom certificate in the API/UI settings, use the following CLI arguments:
 
     - If you don't have the root certificate authority, use the `--insecure` flag. This flag skips certificate validation.
     - If have the root certificate authority present, use the `--cafile <ABSOLUTE_PATH_TO_ROOT_CA_FILE>` flag.
@@ -86,7 +86,7 @@ To create a profile, follow these steps:
     - `<PROFILE_NAME>` with a profile name for the role that this profile will use. For example, add the `courier-operator` profile name for the `courier-operator` role.
     - `<TENANT_URL>` with the tenant URL, for example `https://chef360.example.com:31000`.
 
-    The CLI responds with an authorization code that includes a link to log into Chef 360 Platform.
+    The CLI responds with an authorization code that includes a link to log into Chef 360 SaaS.
 
     ```sh
     Device Id :  ac:de:48:00:11:22-admin-chef-courier-cli
@@ -106,19 +106,19 @@ To create a profile, follow these steps:
 
 1. Select the organization and role you would like to link to this profile and select **Submit**.
 
-    {{< figure src="/images/360/select-role.png" width="500px" alt="Chef 360 Platform organization and role selection screen." >}}
+    {{< figure src="/images/360/select-role.png" width="500px" alt="Chef 360 SaaS organization and role selection screen." >}}
 
-1. On the **Device Authorization** screen, Chef 360 Platform shows your OAuth code and you can select an expiration date for your session.
+1. On the **Device Authorization** screen, Chef 360 SaaS shows your OAuth code and you can select an expiration date for your session.
 
-   Chef 360 Platform automatically refreshes your access token up to this expiration date.
+   Chef 360 SaaS automatically refreshes your access token up to this expiration date.
 
    After entering this information, select **Authorize**.
 
-    {{< figure src="/images/360/setting-expiry-token.png" alt="Chef 360 Platform device authorization screen with OAuth token and expiration date." width="500px">}}
+    {{< figure src="/images/360/setting-expiry-token.png" alt="Chef 360 SaaS device authorization screen with OAuth token and expiration date." width="500px">}}
 
 1. Return to your terminal and enter `y` to continue.
 
-    The CLI displays your device profile and your workstation is authorized to access Chef 360 Platform services.
+    The CLI displays your device profile and your workstation is authorized to access Chef 360 SaaS services.
 
     ```sh
     Is the device authorised? (y or n)
@@ -158,6 +158,10 @@ To create a profile, follow these steps:
     Replace `<PROFILE_NAME>` with the name of the default profile.
 
 1. Repeat this procedure so that you have separate profiles for the Node Manager and Courier Operator roles.
+
+## Additional information
+
+- [Chef 360 CLI reference documentation](https://docs.chef.io/360/1.2/reference/cli/)
 
 ## Next step
 

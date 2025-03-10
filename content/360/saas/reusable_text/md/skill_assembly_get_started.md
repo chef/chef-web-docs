@@ -2,7 +2,6 @@
 
    {{% readfile file="_vendor/github.com/chef/samples/cohorts/skill-assembly.json" highlight="json" %}}
 
-   Replace each skill's version number with the version supported by the version of Chef 360 Platform that you're running. See the [Chef 360 Platform 1.2 release notes](https://docs.chef.io/360/1.2/release_notes) for the current supported skill versions.
 
 1. Create the skill assembly:
 

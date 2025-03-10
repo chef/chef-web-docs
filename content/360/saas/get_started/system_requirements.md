@@ -27,7 +27,7 @@ Open the following default ports for outbound connections.
 
 ### Cookbook-based enrollment
 
-Nodes enrolled with Chef 360 Platform using a Chef Infra cookbook have the following requirements:
+Nodes enrolled with Chef 360 SaaS using a Chef Infra cookbook have the following requirements:
 
 - Nodes must have Chef Infra Client installed.
 - Nodes have a public DNS or public IP address that can be reached from `https://CUSTOMER_SUBDOMAIN.cloud.chef.io`.
@@ -46,8 +46,8 @@ Connection requirements:
 - Nodes must have a public DNS or public IP address that can be reached from `https://CUSTOMER_SUBDOMAIN.cloud.chef.io`.
 - Nodes must allow for outbound and inbound communication with <https://bldr.habitat.sh>
 - A node IP address can’t be localhost (127.0.0.1)
-- A node CIDR address can’t be in the same range as the Chef 360 Platform services. The default CIDR range for Chef 360 Platform services is `10.244.0.0/16` or `10.96.0.0/12`.
-- The node’s ports for RabbitMQ (31050) and the nginx API gateway (31000) must be open to Chef 360 Platform. Additionally, the Chef 360 Platform should allow inbound connections to these ports from the node.
+- A node CIDR address can’t be in the same range as the Chef 360 SaaS services. The default CIDR range for Chef 360 SaaS services is `10.244.0.0/16` or `10.96.0.0/12`.
+- The node’s ports for RabbitMQ (31050) and the nginx API gateway (31000) must be open to Chef 360 SaaS. Additionally, the Chef 360 SaaS should allow inbound connections to these ports from the node.
 
 Nodes connected to with SSH have the following requirements:
 

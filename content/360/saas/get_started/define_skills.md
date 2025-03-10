@@ -20,7 +20,7 @@ A skill is an agent that gives you the ability to perform actions on a node to a
 
 ## Create skill definitions
 
-The following Chef 360 Platform skills are required or recommended for managing nodes, running actions, and returning action results:
+The following Chef 360 skills are required or recommended for managing nodes, running actions, and returning action results:
 
 - Courier Runner skill
 - Gohai skill

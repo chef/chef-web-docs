@@ -8,7 +8,7 @@ parent = "chef_cloud/360/get_started"
 weight = 100
 +++
 
-Node enrollment brings nodes under management by Chef 360 Platform.
+Node enrollment brings nodes under management by Chef 360 SaaS.
 
 This document demonstrates two different methods of node enrollment:
 
@@ -17,7 +17,7 @@ This document demonstrates two different methods of node enrollment:
 
 {{< note >}}
 
-This version of Chef 360 Platform doesn't support node re-enrollment.
+This version of Chef 360 SaaS doesn't support node re-enrollment.
 
 {{< /note >}}
 
@@ -32,7 +32,7 @@ Review the [node requirements]({{< relref "system_requirements#node-requirements
 ## Single-node enrollment
 
 Single-node enrollment enrolls nodes from the server side.
-With this method, you define connection and configuration details and push them up to Chef 360 Platform, which connects to each node and installs Chef Habitat, Chef Node Management, and any skills or agents assigned to a node cohort.
+With this method, you define connection and configuration details and push them up to Chef 360 SaaS, which connects to each node and installs Chef Habitat, Chef Node Management, and any skills or agents assigned to a node cohort.
 
 ### Enroll Linux nodes
 
@@ -120,7 +120,7 @@ To enroll a Windows node, follow these steps:
 
 ## Cookbook-based enrollment
 
-With cookbook-based enrollment, you enroll nodes from the client side by uploading a [cookbook](https://docs.chef.io/cookbooks/) with enrollment settings to Chef Infra Server and then Chef Infra Client enrolls the node with Chef 360 Platform.
+With cookbook-based enrollment, you enroll nodes from the client side by uploading a [cookbook](https://docs.chef.io/cookbooks/) with enrollment settings to Chef Infra Server and then Chef Infra Client enrolls the node with Chef 360 SaaS.
 
 ### Enroll nodes
 
@@ -168,15 +168,15 @@ To configure the cookbooks and define enrollment settings, follow these steps:
 
     Replace:
 
-    - `<CHEF_360_FQDN>` with the fully qualified domain name (FQDN) for your Chef 360 Platform deployment.
+    - `<CHEF_360_FQDN>` with the fully qualified domain name (FQDN) for your Chef 360 SaaS deployment.
     - `<ENROLLMENT_TYPE>` with either `full` or `partial` depending on the form of enrollment. Use `full` unless you must `partial`.
-    - `<API_PORT>` with the API port configured in Chef 360 Platform. The default value is `31000`.
-    - `<ACCESS_KEY>` with an access key for secure communication with Chef 360 Platform. Store securely using an [encrypted Chef data bag](https://docs.chef.io/data_bags/) or a [secrets manager](https://docs.chef.io/infra_language/secrets/).
-    - `<SECRET_KEY>` with a secret key for secure communication with Chef 360 Platform. Store securely using an [encrypted Chef data bag](https://docs.chef.io/data_bags/) or a [secrets manager](https://docs.chef.io/infra_language/secrets/).
+    - `<API_PORT>` with the API port configured in Chef 360 SaaS. The default value is `31000`.
+    - `<ACCESS_KEY>` with an access key for secure communication with Chef 360 SaaS. Store securely using an [encrypted Chef data bag](https://docs.chef.io/data_bags/) or a [secrets manager](https://docs.chef.io/infra_language/secrets/).
+    - `<SECRET_KEY>` with a secret key for secure communication with Chef 360 SaaS. Store securely using an [encrypted Chef data bag](https://docs.chef.io/data_bags/) or a [secrets manager](https://docs.chef.io/infra_language/secrets/).
     - `<COHORT_ID>` with a valid cohort UUID. The cohort defines all skills and settings installed on the node.
     - `<HABITAT_BUILDER_URL>` with the URL of the Chef Habitat Builder used by your organization. Default value: `https://bldr.habitat.sh`
     - `<VALID_DIR_PATH>` with a temporary working directory where all required builds are downloaded. Specify a valid path based on the OS. Default value: `/tmp`.
-    - `<UPGRADE_SKILLS>` with `true` or `false`. If `true`, Chef 360 Platform checks for the latest skill versions and installs them if found. Default value: `false`.
+    - `<UPGRADE_SKILLS>` with `true` or `false`. If `true`, Chef 360 SaaS checks for the latest skill versions and installs them if found. Default value: `false`.
 
 1. Push the wrapper cookbook or policy to the Chef Infra Server.
 
@@ -195,7 +195,7 @@ To configure the cookbooks and define enrollment settings, follow these steps:
 
 1. Include the wrapper cookbook in your node's run-list by adding it to a role or Policyfile. See the [run-list](https://docs.chef.io/run_lists/) and [role](https://docs.chef.io/roles/#manage-roles) documentation for more information.
 
-   The next time Chef Infra Client runs, it executes the `node_management_enroll` resource and the node is enrolled with Chef 360 Platform.
+   The next time Chef Infra Client runs, it executes the `node_management_enroll` resource and the node is enrolled with Chef 360 SaaS.
 
 ## Check the node enrollment status
 

@@ -29,7 +29,7 @@ This job template creates a job that's executed one node, it runs immediately, a
 
 ## Create the job
 
-When you add the job to Chef 360 Platform, the Courier Dispatcher sends the job definition to the Courier Runner on the specified node which determines when and how to run the job.
+When you add the job to Chef 360 SaaS, the Courier Dispatcher sends the job definition to the Courier Runner on the specified node which determines when and how to run the job.
 You can submit a job definition using a JSON, YAML, or TOML file. The default format is JSON.
 
 - Add the job run using the job template file:

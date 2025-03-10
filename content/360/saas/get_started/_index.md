@@ -1,5 +1,5 @@
 +++
-title = "Get started with Chef 360 Platform on-prem"
+title = "Get started with Chef 360 SaaS"
 linkTitle = "Get started"
 
 [menu.cloud]
@@ -9,7 +9,7 @@ parent = "chef_cloud/360/get_started"
 weight = 10
 +++
 
-This section provides quickstart guides for getting started with Chef 360 Platform and its tools.
+This section provides quickstart guides for getting started with Chef 360 SaaS and its tools.
 
 ## Get started guides
 

@@ -9,7 +9,7 @@ weight = 80
 +++
 
 When you created the Courier Runner skill definition in the previous section,
-it contained a base64-encoded TOML string in the value of `content` key. This TOML includes settings that can or should be overridden with settings for your Chef 360 Platform system.
+it contained a base64-encoded TOML string in the value of `content` key. This TOML includes settings that can or should be overridden with settings for your Chef 360 SaaS system.
 When Node Management runs on a node, it executes Courier Runner using values in the TOML file that are set by values stored in the Courier Runner's default settings or the Courier Runner's override settings.
 
 ## Prerequisites

@@ -56,3 +56,7 @@ If your login failed because you forgot your password or you missed the five min
 1. At your organization's login page (**`https://CUSTOMER_SUBDOMAIN.cloud.chef.io/app/hub`**), select **Forgot Password** and enter the email address you used sign up with Chef 360 SaaS.
 
 1. You'll receive an email with a link to reset your password. You have five minutes follow the link and create a new password.
+
+## Next step
+
+- [Install Chef 360 CLIs]({{< relref "install_cli" >}})
