@@ -1,0 +1,9 @@
+{
+  "name": "restart-interpreter",
+  "canister": {
+    "origin": "chef-platform",
+    "name": "restart-interpreter",
+    "service": false
+  },
+  "configurationTemplates": []
+}

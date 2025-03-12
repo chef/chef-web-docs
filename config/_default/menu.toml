@@ -677,15 +677,30 @@ identifier = "chef_infra"
 ####
 
 ####
-# Chef SaaS Menu
+# Chef Cloud Menu
 ####
 
-[[saas]]
-title = "Chef SaaS"
-identifier = "chef_saas"
+[[cloud]]
+title = "Chef Cloud"
+identifier = "chef_cloud"
+
+  [[cloud]]
+  title = "Chef 360 SaaS"
+  identifier = "chef_cloud/360"
+  parent = "chef_cloud"
+
+    [[cloud]]
+    title = "Get started"
+    identifier = "chef_cloud/360/get_started"
+    parent = "chef_cloud/360"
+
+  [[cloud]]
+  title = "Chef SaaS"
+  identifier = "chef_cloud/saas"
+  parent = "chef_cloud"
 
 ####
-# End Chef SaaS Menu
+# End Chef Cloud Menu
 ####
 
 ####

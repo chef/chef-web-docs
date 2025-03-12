@@ -1,0 +1,85 @@
+{
+  "name": "nodeman-query-immediate-linux",
+  "description": "Demonstrating a courier job using an adhoc search query against different sample atttributes as target",
+  "scheduleRule": "immediate",
+  "exceptionRules": [],
+  "target": {
+    "executionType": "sequential",
+    "groups": [
+      {
+        "timeoutSeconds": 3000,
+        "batchSize": {
+          "type": "number",
+          "value": 1
+        },
+        "distributionMethod": "batching",
+        "successCriteria": [
+          {
+            "numRuns": { "type": "percent", "value": 100 },
+            "status": "success"
+          }
+        ],
+        "nodeListType": "filter",
+        "filter": {
+          "constraints": {
+            "attributes": [
+              {
+                "name": "kernel_name",
+                "operator": "=",
+                "value": ["Linux"]
+              },
+              {
+                "name": "primary_ip",
+                "operator": "MATCHES",
+                "value": ["^172\\.31\\.29.*"]
+              }
+            ],
+            "skills": [
+              {
+                "name": "courier-runner",
+                "version": ["<= 1.9.996"]
+              },
+              {
+                "name": "chef-gohai",
+                "version": ["= 0.1.0"]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "actions": {
+    "accessMode": "agent",
+    "steps": [
+      {
+        "name": "step to sleep",
+        "interpreter": {
+          "skill": {
+            "minVersion": "1.0.0",
+            "maxVersion": "1.9.99"
+          },
+          "name": "chef-platform/shell-interpreter"
+        },
+        "command": {
+          "linux": ["sleep 10"],
+          "windows": ["timeout 10"]
+        },
+        "inputs": {},
+        "expectedInputs": {},
+        "outputFieldRules": {},
+        "retryCount": 2,
+        "failureBehavior": {
+          "action": "retryThenFail",
+          "retryBackoffStrategy": {
+            "type": "linear",
+            "delaySeconds": 1,
+            "arguments": [1, 3, 5]
+          }
+        },
+        "limits": {},
+        "conditions": []
+      }
+    ]
+  }
+}

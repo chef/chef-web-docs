@@ -1,0 +1,49 @@
+---
+name: multi-node-one-group-immediate-rolling
+description: demonstrating a immediate job executing sequential on batches of percentage
+scheduleRule: immediate
+exceptionRules: []
+target:
+  executionType: sequential
+  groups:
+    - timeoutSeconds: 300
+      batchSize:
+        type: percent
+        value: 20
+      distributionMethod: rolling
+      successCriteria:
+        - numRuns:
+            type: percent
+            value: 100
+          status: success
+      nodeListType: nodes
+      nodeIdentifiers:
+        - "--NODE1--"
+        - "--NODE2--"
+        - "--NODE3--"
+        - "--NODE4--"
+        - "--NODE5--"
+actions:
+  accessMode: agent
+  steps:
+    - name: step to sleep for a random period
+      interpreter:
+        skill:
+          minVersion: 1.0.0
+          maxVersion: 1.9.99
+        name: chef-platform/shell-interpreter
+      command:
+        linux:
+          - sleep $((RANDOM % 120))
+      inputs: {}
+      expectedInputs: {}
+      outputFieldRules: {}
+      retryCount: 1
+      failureBehavior:
+        action: retryThenFail
+        retryBackoffStrategy:
+          type: none
+          delaySeconds: 1
+          arguments: []
+      limits: {}
+      conditions: []
