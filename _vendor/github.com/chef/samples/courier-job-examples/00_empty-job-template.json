@@ -1,0 +1,89 @@
+{
+  "name":"<STRING>",
+  "description": "<STRING>",
+  "scheduleRule": "immediate|RRule",
+  "exceptionRules": [],
+  "target": {
+    "executionType": "sequential"|"parallel",
+    "groups":[
+      {
+        "timeoutSeconds": <INTEGER>,
+        "batchSize": {
+          "type": "number"|"percent",
+          "value": <INTEGER>
+        },
+        "distributionMethod": "rolling"|"batching",
+        "successCriteria": [
+          {
+            "numRuns": {
+              "type": "number"|"percent",
+              "value": <INTEGER>
+            },
+            "status": "success"|"failure"
+          }
+        ],
+        "nodeListType": "filter"|"savedFilter"|"savedList"|"nodes",
+        "listId": "<STRING>",
+        "filterId": <INTEGER>,
+        "nodeIdentifiers":["<STRING>"],
+        "filter": {}
+      }
+    ]
+  },
+  "actions": {
+    "accessMode": "agent",
+    "steps":
+    [
+      {
+        "name": "<STRING>",
+        "description": "<STRING>",
+        "command": {},
+        "inputs": {},
+        "interpreter": {
+          "skill": {
+            "minVersion": "",
+            "maxVersion": ""
+          },
+          "name": ""
+        },
+        "expectedInputs": {
+          "<INPUT_NAME>": {
+            "default": "<STRING>",
+            "required": <BOOLEAN>,
+            "sensitive": <BOOLEAN>
+          }
+        },
+        "outputFieldRules": {
+          "sourceType": "artifact"|"exitCode"|"file"|"output",
+          "source": "<STRING>",
+          "extractMethod": "regex"|"jsonPath"|"content",
+          "expression": "<STRING>",
+          "required": <BOOLEAN>,
+          "sensitive": <BOOLEAN>
+        },
+        "retryCount": <INTEGER>,
+        "failureBehavior": {
+          "action": "retryThenFail"|"retryThenIgnore",
+          "retryBackoffStrategy": {
+            "name": "none"|"linear"|"exponential"|"polynomial",
+            "delaySeconds": <INTEGER>,
+            "arguments": []
+          }
+        },
+        "limits": {
+          "cores": <INTEGER>,
+          "cpu": <FLOAT>,
+          "timeoutSeconds": <INTEGER>,
+        },
+        "conditions": [
+          {
+            "inputName": "<STRING>",
+            "negate": <BOOLEAN>,
+            "operator": "eq"|"gt"|"gte"|"lt"|"lte"|"matches"|"startsWith"|"endsWith"|"contains",
+            "value": "<STRING>"
+          }
+        ]
+      }
+    ]
+  }
+}

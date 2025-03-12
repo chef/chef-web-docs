@@ -2,10 +2,10 @@
 title = "Migrate from AWS OpsWorks to Chef SaaS"
 draft = false
 [menu]
-  [menu.saas]
+  [menu.cloud]
     title = " AWS OpsWorks Migration"
-    identifier = "chef_infra/OpsWorks Migration"
-    parent = "chef_saas"
+    identifier = "chef_cloud/saas/OpsWorks Migration"
+    parent = "chef_cloud/saas"
     weight = 30
 +++
 

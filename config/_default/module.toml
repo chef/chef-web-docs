@@ -365,6 +365,19 @@ workspace = ''
   target = "assets"
 
 ###
+# Mount chef/samples
+###
+
+[[imports]]
+  disable = false
+  ignoreConfig = false
+  path = "github.com/chef/samples"
+
+[[imports.mounts]]
+  source = '.'
+  target = 'static/samples'
+
+###
 # Mount Hugo theme
 ###
 

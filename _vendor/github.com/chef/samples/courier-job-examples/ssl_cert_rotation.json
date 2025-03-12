@@ -1,0 +1,185 @@
+{
+  "name": "Certificate rotation",
+  "description": "A job to demonstrate how on demand certificate rotation can be performed on servers. It uses inspec to check for expiry and shell for fixing",
+  "scheduleRule": "immediate",
+  "exceptionRules": [],
+  "target": {
+    "executionType": "sequential",
+    "groups": [
+      {
+        "timeoutSeconds": 120,
+        "batchSize": {
+          "type": "number",
+          "value": 1
+        },
+        "distributionMethod": "batching",
+        "successCriteria": [
+          {
+            "numRuns": {
+              "type": "percent",
+              "value": 100
+            },
+            "status": "success"
+          }
+        ],
+        "nodeListType": "nodes",
+        "nodeIdentifiers": ["--NODE1--"]
+      }
+    ]
+  },
+  "actions": {
+    "accessMode": "agent",
+    "steps": [
+      {
+        "interpreter": {
+          "skill": {
+            "minVersion": "1.0.0",
+            "maxVersion": "6.6.0"
+          },
+          "name": "chef-platform/inspec-interpreter"
+        },
+        "command": {
+          "exec": "scan",
+          "args": {
+            "path": "https://github.com/akshayparvatikar29/cert-compliance"
+          }
+        },
+        "inputs": {},
+        "expectedInputs": {},
+        "outputFieldRules": {
+          "INSPEC_VALUE": {
+            "source": "stdout",
+            "sourceType": "output",
+            "extractMethod": "regEx",
+            "expression": "0 successful",
+            "required": true,
+            "sensitive": false
+          }
+        },
+        "retryCount": 2,
+        "failureBehavior": {
+          "action": "retryThenFail",
+          "retryBackoffStrategy": {
+            "type": "none",
+            "delaySeconds": 1,
+            "arguments": [1, 3, 5]
+          }
+        },
+        "limits": {},
+        "conditions": [],
+        "name": "checking the certificate"
+      },
+      {
+        "interpreter": {
+          "skill": {
+            "minVersion": "1.0.0",
+            "maxVersion": "6.6.0"
+          },
+          "name": "chef-platform/shell-interpreter"
+        },
+        "inputs": {},
+        "expectedInputs": {
+          "INSPEC_VALUE": {
+            "type": "string",
+            "sensitive": false,
+            "required": true,
+            "default": ""
+          }
+        },
+        "outputFieldRules": {},
+        "conditions": [
+          {
+            "inputName": "INSPEC_VALUE",
+            "operator": "eq",
+            "value": "0 successful"
+          }
+        ],
+        "command": {
+          "linux": [
+            "sudo openssl genrsa -out /home/ec2-user/compliance/certificates/server-aug24.key 2048",
+            "sudo openssl req -new -key /home/ec2-user/compliance/certificates/server-aug24.key -out /home/ec2-user/compliance/certificates/server-aug24.csr -config /home/ec2-user/compliance/certificates/san.cnf",
+            "sudo openssl x509 -req -days 31 -in /home/ec2-user/compliance/certificates/server-aug24.csr -signkey /home/ec2-user/compliance/certificates/server-aug24.key -out /home/ec2-user/compliance/certificates/server-aug24.crt -extensions req_ext -extfile /home/ec2-user/compliance/certificates/san.cnf"
+          ]
+        },
+        "inputs": {},
+        "expectedInputs": {},
+        "outputFieldRules": {},
+        "retryCount": 2,
+        "failureBehavior": {
+          "action": "retryThenFail",
+          "retryBackoffStrategy": {
+            "type": "none",
+            "delaySeconds": 1,
+            "arguments": [1, 3, 5]
+          }
+        },
+        "limits": {},
+        "conditions": [],
+        "name": "creating certificate"
+      },
+      {
+        "interpreter": {
+          "skill": {
+            "minVersion": "1.0.0",
+            "maxVersion": "1.9.99"
+          },
+          "name": "chef-platform/shell-interpreter"
+        },
+        "command": {
+          "linux": [
+            "sudo printf '<VirtualHost *:443>\nServerName 34.224.75.161\nDocumentRoot /var/www/html\nSSLEngine on\nSSLCertificateFile /home/ec2-user/compliance/certificates/server-aug24.crt\nSSLCertificateKeyFile /home/ec2-user/compliance/certificates/server-aug24.key\n</VirtualHost>'>>/etc/httpd/conf.d/Certificate_Details.conf",
+            "sudo yum install mod_ssl"
+          ]
+        },
+        "inputs": {},
+        "expectedInputs": {},
+        "outputFieldRules": {},
+        "retryCount": 2,
+        "failureBehavior": {
+          "action": "retryThenFail",
+          "retryBackoffStrategy": {
+            "type": "linear",
+            "delaySeconds": 1,
+            "arguments": [1, 3, 5]
+          }
+        },
+        "limits": {},
+        "conditions": [],
+        "name": "create a file and add certificate details"
+      },
+      {
+        "interpreter": {
+          "skill": {
+            "minVersion": "1.0.0",
+            "maxVersion": "1.9.99"
+          },
+          "name": "chef-platform/shell-interpreter"
+        },
+        "command": {
+          "linux": [
+            "sudo systemctl restart httpd.service",
+            "sudo systemctl start firewalld",
+            "sudo systemctl enable firewalld",
+            "sudo firewall-cmd --add-service=https",
+            "sudo firewall-cmd --add-service=http"
+          ]
+        },
+        "inputs": {},
+        "expectedInputs": {},
+        "outputFieldRules": {},
+        "retryCount": 2,
+        "failureBehavior": {
+          "action": "retryThenFail",
+          "retryBackoffStrategy": {
+            "type": "linear",
+            "delaySeconds": 1,
+            "arguments": [1, 3, 5]
+          }
+        },
+        "limits": {},
+        "conditions": [],
+        "name": "Restart httpd service and setup firewall"
+      }
+    ]
+  }
+}

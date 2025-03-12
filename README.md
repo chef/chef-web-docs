@@ -18,7 +18,7 @@ If you don't find style guidance in the Chef Documentation Style Guide, use [Goo
 ## Distributed documentation
 
 The Chef documentation source is highly distributed and depends on [Hugo modules](https://gohugo.io/hugo-modules/) to pull in documentation from other Chef repositories.
-The content from those repositories is [vendored](#hugo-vendoring) in chef-web-docs.
+The content from those repositories is [vendored](#update-documentation-from-other-repositories) in chef-web-docs.
 
 To make changes to the content in those repositories, submit pull requests to the appropriate repository. don't submit pull requests to the vendored files in chef-web-docs. We will update those changes after they're merged or after a new version of a product is released.
 
@@ -70,25 +70,11 @@ fix build errors before we merge, so you don't have to
 worry about passing all of the CI checks, but it might add an extra
 few days. The important part is submitting your change.
 
-## Edit on GitHub links
-
-We use a partial `edit_on_github.html` to add "Edit on GitHub" links to each page.
-
-Each page should have a `gh_repo` parameter set to the value of the GitHub repository
-that the page comes from. For example, `gh_repo = "chef-server"`
-
-Each repository with documentation has a `config.toml` file with a `params.<REPOSITORY>`
-map and a `gh_path` parameter set to the path of the docs content directory in
-that repository.
-
-The `edit_on_github` partial appends the page file name to the end of `gh_path`
-parameter and adds the link to the text of the page.
-
 ## Local development environment
 
 The Chef Documentation website is built using:
 
-- [Hugo](https://gohugo.io/) 0.123.4 or higher
+- [Hugo](https://gohugo.io/) 0.142.0 or higher
 - [Node](https://www.nodejs.com) 20.0.0 or higher
 - [NPM](https://www.npmjs.com/) 10.4.0 or higher
 - [Go](https://golang.org/dl/) 1.22 or higher
@@ -124,14 +110,162 @@ To clean your local development environment:
   in addition to the functions of `make clean` described above. Those node
   modules will be reinstalled the next time you run `make serve`.
 
-## Site theme
+## Build and preview the docs
 
-The theme for this site is deployed from the [chef/chef-docs-theme](https://github.com/chef/chef-docs-theme/) repository.
+You can preview documentation using one of the following:
 
-### Node modules
+- Submit a PR and look at the Netlify preview.
+- Build the documentation locally.
 
-The Node modules defined in the `package.json` file are sourced from the `package.hugo.json` file in the `chef/chef-docs-theme` repository.
-To update these Node dependencies, update them in `chef/chef-docs-theme`, then [update the theme and the `package.json` file](#update-theme) in this repository.
+### Submit a PR and look at the Netlify preview
+
+Netlify generates deploy previews of pull requests made on the chef-web-docs repository and adds a link to the pull request page.
+This is automatic for members of the Chef GitHub organization; the Documentation Team can manually trigger Netlify to build previews from contributors who aren't members of the Chef GitHub organization.
+
+### Build and preview the docs locally
+
+- [Install the site dependencies](#local-development-environment).
+- Run `make serve`
+- go to [http://localhost:1313](http://localhost:1313)
+
+#### Build and preview using Netlify CLI
+
+You can use the [Netlify CLI](https://docs.netlify.com/cli/local-development/) to build and preview documentation locally.
+This is useful for previewing redirects configured in the `netlify.toml` file.
+
+Requirements:
+
+- [all the requirements for building this site locally](#local-development-environment)
+- [Netlify CLI](https://docs.netlify.com/cli/get-started/#installation)
+
+Run `netlify dev` to preview the site using the Netlify CLI.
+
+#### Build and preview the docs from the source repositories
+
+- Run `make serve_ignore_vendor`
+
+Some Chef documentation is stored in private repositories so this option is only
+available to Progress Chef employees.
+
+## Update documentation from other repositories
+
+We [vendor](https://gohugo.io/commands/hugo_mod_vendor/) most documentation, some Javascript dependencies, and our site theme in the `_vendor` directory.
+
+### Update vendored content
+
+To updated vendored content, follow these steps:
+
+1. Update the content from source repository using [`hugo mod get`](https://gohugo.io/commands/hugo_mod_get/). See the list of modules in the [`go.mod` file](https://github.com/chef/chef-web-docs/blob/main/go.mod) or the [module config file](https://github.com/chef/chef-web-docs/blob/main/config/_default/module.toml).
+
+    To update content to the latest commit in the main branch:
+
+    ```sh
+    hugo mod get -u github.com/<ORG>/<REPO>/<SUBDIRECTORY>
+    ```
+
+    You can also update a module to a particular Git SHA, branch, or tag. For example:
+
+    ```sh
+    hugo mod get -u github.com/<ORG>/<REPO>/<SUBDIRECTORY>@<GIT_SHA>
+    ```
+
+1. Update the vendored content.
+
+    ```sh
+    rm -rf _vendor
+    hugo mod tidy
+    hugo mod vendor
+    ```
+
+For example, to update the chef-workstation repository:
+
+```bash
+hugo mod get -u github.com/chef/chef-workstation/docs-chef-io
+rm -rf _vendor
+hugo mod tidy
+hugo mod vendor
+```
+
+This will update that repository to the most recent commit.
+
+You can also update a module to a repository tag. For example:
+
+```sh
+hugo mod get github.com/chef/chef-workstation/docs-chef-io@20.6.62
+rm -rf _vendor
+hugo mod tidy
+hugo mod vendor
+```
+
+And you can update a module to a Git commit. For example:
+
+```sh
+hugo mod get github.com/chef/chef-workstation/docs-chef-io@0ad84dd5fa8
+rm -rf _vendor
+hugo mod tidy
+hugo mod vendor
+```
+
+See [Hugo's documentation](https://gohugo.io/hugo-modules/use-modules/#update-modules) for additional information about updating Hugo Modules.
+
+### What if Hugo doesn't update a module
+
+Sometimes Hugo and Git are a bit difficult and won't update a module cleanly or will leave
+references to older commits of a module in the `go.sum` file.
+
+If you get an error indicating that Git can't find a repository that's already
+added as a module, try cleaning your Hugo cache using `hugo mod clean`, and if that doesn't work, restart your computer.
+
+If you still having trouble, try rebuilding the `go.mod` and `go.sum` files:
+
+1. Delete the `go.mod` and `go.sum` files.
+1. Re-initialize the Hugo modules, `hugo mod init github.com/chef/chef-web-docs`
+   This will generate a new, blank `go.mod` file.
+1. Update the references to the other GitHub repositories, `hugo mod get -u`.
+1. The previous step will update all modules to the latest commit of their source
+   repositories.
+   If you don't want that, look at the git history of those files and manually edit the
+   `go.mod` and `go.sum` files to keep the older commits for the modules that
+   you don't want to update.
+1. Run `hugo mod tidy`. This probably won't do anything on newly initialized go.mod
+   and `go.sum` files, but it can't hurt either.
+1. Vendor the modules in chef-web-docs, `hugo mod vendor`.
+
+## Docs site theme
+
+The theme for this site is sourced from [chef/chef-docs-theme](https://github.com/chef/chef-docs-theme).
+
+### Update theme
+
+Run `make update_theme` to update the site theme.
+
+### Update theme Javascript dependencies
+
+We source Javascript dependencies in the chef/chef-docs-theme repository using Node and GitHub.
+
+#### Node dependencies
+
+To update first-level Node dependencies:
+
+1. Update the dependency in the [chef/chef-docs-theme package.hugo.json file](https://github.com/chef/chef-docs-theme/blob/main/package.hugo.json).
+2. Update the [package.json file in chef/chef-docs-theme](https://github.com/chef/chef-docs-theme/blob/main/package.json) by running `hugo mod npm pack`
+3. Commit the package file updates to main in chef/chef-docs-theme.
+4. Update the theme in this repo by running `make update_theme`.
+
+To update transitive Node dependencies in this repo:
+
+- Run `npm update`.
+
+#### Javascript dependencies imported with Hugo
+
+We use Hugo to import JavaScript dependencies from GitHub repositories. You can see the full list in either the chef/chef-docs-theme [go.mod file](https://github.com/chef/chef-docs-theme/blob/main/go.mod) or the [`hugo.toml` file](https://github.com/chef/chef-docs-theme/blob/main/hugo.toml).
+
+To update these dependencies, follow these steps:
+
+1. Update the dependency in the go.mod file in chef/chef-docs-theme using the [`hugo mod get -u` command](https://gohugo.io/commands/hugo_mod_get/).
+2. Tidy the go.sum file with `hugo mod tidy`.
+3. Commit the changes to chef/chef-docs-theme
+4. Update the theme contents in this repo with `make update_theme`.
 
 ### Local theme testing
 
@@ -159,160 +293,19 @@ For example:
 
     This command adds the `hugo.work` file to the Hugo workspace and then ignores the contents of `chef-docs-theme` repo in the `_vendor` directory.
 
-### Test theme branch
+## Edit on GitHub links
 
-You can target a Git commit, branch, or tag when importing a module. This allows you to push a test branch up to `chef/chef-docs-theme` and then import it into this repository for local testing.
+We use a partial `edit_on_github.html` to add "Edit on GitHub" links to each page.
 
-For example:
+Each page should have a `gh_repo` parameter set to the value of the GitHub repository
+that the page comes from. For example, `gh_repo = "chef-server"`
 
-```sh
-hugo mod get -u github.com/chef/chef-docs-theme@<GIT_COMMIT_SHA>
-```
+Each repository with documentation has a `config.toml` file with a `params.<REPOSITORY>`
+map and a `gh_path` parameter set to the path of the docs content directory in
+that repository.
 
-or
-
-```sh
-hugo mod get -u github.com/chef/chef-docs-theme@<GIT_BRANCH>
-```
-
-### Update theme
-
-Run `make update_theme` to update the chef-docs-theme to the latest commit. This updates the theme and the theme's node dependencies.
-
-## Build and preview the docs
-
-You can preview documentation using one of the following:
-
-- Submit a PR and look at the Netlify preview.
-- Build the documentation locally.
-
-### Submit a PR and look at the Netlify preview
-
-Netlify generates deploy previews of pull requests made on the chef-web-docs repository and adds a link to the pull request page.
-This is automatic for members of the Chef GitHub organization; the Documentation Team can manually trigger Netlify to build previews from contributors who aren't members of the Chef GitHub organization.
-
-### Build and preview the docs locally
-
-- Run `make serve`
-- go to [http://localhost:1313](http://localhost:1313)
-
-#### Build and preview using Netlify CLI
-
-You can use the [Netlify CLI](https://docs.netlify.com/cli/local-development/) to build and preview documentation locally.
-This is useful for previewing redirects configured in the `netlify.toml` file.
-
-Requirements:
-
-- all the requirements for building this site locally
-- [Netlify CLI](https://docs.netlify.com/cli/get-started/#installation)
-
-Run `netlify dev` to preview the site using the Netlify CLI.
-
-#### Build and preview the docs from the source repositories
-
-- Run `make serve_ignore_vendor`
-
-Some Chef documentation is stored in private repositories so this option is only
-available to Progress Chef employees.
-
-## Hugo vendoring
-
-[Vendoring](https://gohugo.io/commands/hugo_mod_vendor/) stores all of the module content
-from other repositories in the `_vendor` directory at the commit specified by
-the `go.mod` file. When Hugo builds the documentation, it will grab content from
-the `_vendor` directory instead of the original repository OR a local copy of a
-that repository. To see which commits the vendored files reference, see the
-`_vendor/modules.txt` file.
-
-To vendor the modules in chef-web-docs, run `hugo mod vendor`.
-
-To update the vendored modules, first update the [Hugo module(s)](#update-hugo-modules),
-then run `hugo mod vendor`.
-
-To ignore the vendored files in a Hugo build, run `make serve_ignore_vendor`. This
-is the same as `make serve` except it adds the `--ignoreVendor` flag. This will
-build the documentation from the GitHub repositories or from a local copy of a repository
-if the `go.mod` file specifies pulling content from a local repository. (see above)
-
-### Update Hugo modules
-
-Hugo modules are pinned to a particular commit of the master branch in their repository.
-If you look in the `go.mod` and `go.sum` files, you'll notice that each repository
-specifies a git commit timestamp and SHA.
-
-To update a particular repo, run:
-
-```bash
-hugo mod get github.com/chef/repo_to_update/subdirectory
-hugo mod clean
-```
-
-Then [vendor](#hugo-vendoring) the documentation:
-
-```bash
-hugo mod vendor
-```
-
-For example, to update the chef-workstation repository:
-
-```bash
-hugo mod get github.com/chef/chef-workstation/docs-chef-io
-hugo mod clean
-hugo mod vendor
-```
-
-This will update that repository to the most recent commit.
-
-You can also update a module to a commit version number. For example:
-
-```sh
-hugo mod get github.com/chef/chef-workstation/docs-chef-io@20.6.62
-hugo mod clean
-hugo mod vendor
-```
-
-And you can update a module to a Git commit. For example:
-
-```sh
-hugo mod get github.com/chef/chef-workstation/docs-chef-io@0ad84dd5fa8
-hugo mod clean
-hugo mod vendor
-```
-
-The `hugo mod clean` command removes references to commits in the
-`go.mod` and `go.sum` files that are no longer relevant.
-
-See Hugo's [documentation](https://gohugo.io/hugo-modules/use-modules/#update-modules)
-for additional information about updating Hugo Modules.
-
-### Update chef-docs-theme module
-
-The theme for this site is sourced from [chef/chef-docs-theme](https://github.com/chef/chef-docs-theme).
-
-Run `make update_theme` to update the theme module and Node package dependencies.
-
-### What if Hugo doesn't update a module
-
-Sometimes Hugo and Git are a bit difficult and won't update a module cleanly or will leave
-references to older commits of a module in the `go.sum` file.
-
-If you get an error indicating that Git can't find a repository that's already
-added as a module, try restarting your computer.
-
-If you still having trouble, try rebuilding the `go.mod` and `go.sum` files:
-
-1. Delete the `go.mod` and `go.sum` files.
-1. Re-initialize the Hugo modules, `hugo mod init github.com/chef/chef-web-docs`
-   This will generate a new, blank `go.mod` file.
-1. Update the references to the other GitHub repositories, `hugo mod get -u`.
-1. The previous step will update all modules to the latest commit of their source
-   repositories.
-   If you don't want that, look at the git history of those files and manually edit the
-   `go.mod` and `go.sum` files to keep the older commits for the modules that
-   you don't want to update.
-1. Run `hugo mod tidy`. This probably won't do anything on newly initialized go.mod
-   and `go.sum` files, but it can't hurt either.
-1. Vendor the modules in chef-web-docs, `hugo mod vendor`.
+The `edit_on_github` partial appends the page file name to the end of `gh_path`
+parameter and adds the link to the text of the page.
 
 ## Release notes
 
@@ -362,7 +355,7 @@ The commit history of this repo before February 12, 2016 has been archived to th
 We love getting feedback. You can use:
 
 - Each page has a feedback form at the bottom of the page.
-- Email --- Send an email to chef-docs@progress.com for documentation bugs,
+- Email --- Send an email to <chef-docs@progress.com> for documentation bugs,
   ideas, thoughts, and suggestions. This email address isn't a
   support email address, however. If you need support, contact Chef
   support.

@@ -1,0 +1,8 @@
+{
+    "cohortId": "<COHORT_ID>",
+    "url": "<NODE_DNS_OR_PUBLIC_IP>",
+    "winRMCredentials": {
+        "username": "<WINDOWS_USERNAME>",
+        "password": "<WINDOWS_PASSWORD>"
+    }
+}
