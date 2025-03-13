@@ -15,7 +15,7 @@ Use the `x509_private_key` Chef InSpec audit resource to test the x509 private k
 
 ## Availability
 
-### Install
+### Installation
 
 The Chef InSpec distributes this resource.
 

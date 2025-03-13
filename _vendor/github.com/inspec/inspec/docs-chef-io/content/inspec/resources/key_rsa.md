@@ -17,9 +17,9 @@ This resource is mainly useful when used in conjunction with the x509_certificat
 
 ## Availability
 
-### Install
+### Installation
 
-{{< readfile file="content/inspec/reusable/md/inspec_installation.md" >}}
+{{% inspec/inspec_installation %}}
 
 ### Version
 
@@ -70,9 +70,7 @@ The `key_length` property allows testing the number of bits in the key pair.
 
 ## Matchers
 
-{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
-
-This resource has the following special matchers.
+For a full list of available matchers, please visit our [matchers page](/inspec/matchers/).
 
 ### public?
 

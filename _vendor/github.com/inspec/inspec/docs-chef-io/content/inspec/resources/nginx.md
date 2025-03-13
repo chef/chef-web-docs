@@ -17,9 +17,9 @@ Nginx resource extracts and exposes data reported by the command 'nginx -V'
 
 ## Availability
 
-### Install
+### Installation
 
-{{< readfile file="content/inspec/reusable/md/inspec_installation.md" >}}
+{{% inspec/inspec_installation %}}
 
 ### Version
 

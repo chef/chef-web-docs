@@ -15,7 +15,7 @@ Use the `cron` Chef InSpec audit resource to test the Crontab entries of a parti
 
 ## Availability
 
-### Install
+### Installation
 
 This resource is distributed with Chef InSpec.
 

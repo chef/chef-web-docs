@@ -15,9 +15,9 @@ Use the `inetd_conf` Chef InSpec audit resource to test if a service is listed i
 
 ## Availability
 
-### Install
+### Installation
 
-{{< readfile file="content/inspec/reusable/md/inspec_installation.md" >}}
+{{% inspec/inspec_installation %}}
 
 ### Version
 
@@ -98,4 +98,4 @@ then the same test will return `false` for `ftp` and the entire test will fail.
 
 ## Matchers
 
-{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+For a full list of available matchers, please visit our [matchers page](/inspec/matchers/).
