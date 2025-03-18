@@ -97,7 +97,7 @@ The following table lists the commercially supported platforms and versions for 
 | CentOS | `x86_64`, `ppc64le`, `ppc64`, `aarch64` | `7.x` |
 | Debian | `x86_64` | `10`, `11` |
 | FreeBSD | `amd64` | `13.x` |
-| macOS | `x86_64`, `aarch64` (M1 processors) | `12.x` |
+| macOS | `x86_64`, `aarch64` | `12.x` |
 | Oracle Enterprise Linux | `x86_64`, `aarch64` | `7.x`, `8.x` |
 | Red Hat Enterprise Linux | `x86_64`, `ppc64le` (7.x only), `ppc64` (7.x only), `aarch64`, `s390x` (7.x / 8.x only) | `7.x`, `8.x`, `9.x` |
 | Rocky Linux | `x86_64` | `8.x`, `9.x` |
