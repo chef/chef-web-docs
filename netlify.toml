@@ -79,3 +79,8 @@
   from = "/client/rc1/*"
   to = "https://release-rc1--chef-infra-client.netlify.app/client/rc1/:splat"
   status = 200
+
+[[redirects]]
+  from = "/client/rc2/*"
+  to = "https://release-rc2--chef-infra-client.netlify.app/client/rc2/:splat"
+  status = 200
