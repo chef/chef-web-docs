@@ -12,7 +12,6 @@ syntax_full_code_block: |-
   homebrew_cask 'name' do
     cask_name          String # default value: 'name' unless specified
     homebrew_path      String
-    install_cask       true, false # default value: true
     options            String
     owner              String, Integer # default value: "Calculated default username"
     action             Symbol # defaults to :install if not specified
@@ -23,7 +22,7 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`cask_name`, `homebrew_path`, `install_cask`, `options`, and `owner` are the properties
+- "`cask_name`, `homebrew_path`, `options`, and `owner` are the properties
   available to this resource."
 actions_list:
   :nothing:
@@ -45,12 +44,6 @@ properties_list:
   required: false
   description_list:
   - markdown: The path to the homebrew binary.
-- property: install_cask
-  ruby_type: true, false
-  required: false
-  default_value: 'true'
-  description_list:
-  - markdown: Automatically install the Homebrew cask tap, if necessary.
 - property: options
   ruby_type: String
   required: false
