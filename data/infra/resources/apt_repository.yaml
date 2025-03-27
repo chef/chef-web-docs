@@ -120,7 +120,7 @@ properties_list:
   default_value: 'true'
   description_list:
   - markdown: If set to true, Signed-By authenticates with the value of the key property.
-      If set to a string that is a file path or fingerprint, Signed-By authenticates
+      If set to a string that's a file path or fingerprint, Signed-By authenticates
       with that file or fingerprint.
 - property: trusted
   ruby_type: true, false
