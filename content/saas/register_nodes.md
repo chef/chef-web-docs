@@ -2,10 +2,10 @@
 title = "Redirect existing nodes to Chef SaaS"
 draft = false
 [menu]
-  [menu.saas]
+  [menu.cloud]
     title = "Redirect nodes"
-    identifier = "chef_infra/Register Nodes to Chef SaaS Environment"
-    parent = "chef_saas"
+    identifier = "chef_cloud/saas/Register Nodes to Chef SaaS Environment"
+    parent = "chef_cloud/saas"
     weight = 50
 +++
 

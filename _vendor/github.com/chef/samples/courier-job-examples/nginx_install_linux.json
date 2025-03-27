@@ -1,0 +1,222 @@
+{
+  "name": "nginx-install",
+  "description": "A simple demonstration that shows a multi-step job that declares outputs and evaluates inputs to install or configure applications conditionally",
+  "scheduleRule": "immediate",
+  "exceptionRules": [],
+  "target": {
+    "executionType": "sequential",
+    "groups": [
+      {
+        "timeoutSeconds": 160,
+        "batchSize": {
+          "type": "number",
+          "value": 1
+        },
+        "distributionMethod": "rolling",
+        "successCriteria": [
+          {
+            "numRuns": {
+              "type": "percent",
+              "value": 100
+            },
+            "status": "success"
+          }
+        ],
+        "nodeListType": "nodes",
+        "nodeIdentifiers": ["--NODE1--"]
+      }
+    ]
+  },
+  "actions": {
+    "accessMode": "agent",
+    "steps": [
+      {
+        "interpreter": {
+          "skill": {
+            "minVersion": "1.0.0",
+            "maxVersion": "1.9.99"
+          },
+          "name": "chef-platform/shell-interpreter"
+        },
+        "command": {
+          "linux": ["which nginx >/dev/null && echo true || echo false"]
+        },
+        "inputs": {},
+        "expectedInputs": {},
+        "outputFieldRules": {
+          "NGINX_FOUND": {
+            "source": "stdout",
+            "sourceType": "output",
+            "extractMethod": "content",
+            "expression": "",
+            "required": true,
+            "sensitive": false
+          }
+        },
+        "retryCount": 2,
+        "failureBehavior": {
+          "action": "retryThenFail",
+          "retryBackoffStrategy": {
+            "type": "linear",
+            "delaySeconds": 1,
+            "arguments": []
+          }
+        },
+        "limits": {},
+        "conditions": [],
+        "name": "a step to check nginx presence"
+      },
+      {
+        "interpreter": {
+          "skill": {
+            "minVersion": "1.0.0",
+            "maxVersion": "1.9.99"
+          },
+          "name": "chef-platform/shell-interpreter"
+        },
+        "inputs": {},
+        "expectedInputs": {
+          "NGINX_FOUND": {
+            "type": "string",
+            "sensitive": false,
+            "required": true,
+            "default": ""
+          }
+        },
+        "outputFieldRules": {},
+        "conditions": [
+          {
+            "inputName": "NGINX_FOUND",
+            "operator": "eq",
+            "value": "false\n"
+          }
+        ],
+        "command": {
+          "linux": [
+            "yum install nginx -y 2>&1 >/dev/null",
+            "systemctl enable nginx 2>&1 >/dev/null",
+            "systemctl start nginx 2>&1 >/dev/null"
+          ]
+        },
+        "retryCount": 2,
+        "failureBehavior": {
+          "action": "retryThenFail",
+          "retryBackoffStrategy": {
+            "type": "linear",
+            "delaySeconds": 1,
+            "arguments": []
+          }
+        },
+        "limits": {},
+        "name": "install nginx conditionally"
+      },
+      {
+        "interpreter": {
+          "skill": {
+            "minVersion": "1.0.0",
+            "maxVersion": "1.9.99"
+          },
+          "name": "chef-platform/shell-interpreter"
+        },
+        "command": {
+          "linux": [
+            "curl -s http://localhost:80 | grep 'hello world!' >/dev/null && echo true || echo false"
+          ]
+        },
+        "inputs": {},
+        "expectedInputs": {},
+        "outputFieldRules": {
+          "EXPECTED_PAGE_FOUND": {
+            "source": "stdout",
+            "sourceType": "output",
+            "extractMethod": "content",
+            "expression": "",
+            "required": true,
+            "sensitive": false
+          }
+        },
+        "retryCount": 2,
+        "failureBehavior": {
+          "action": "retryThenFail",
+          "retryBackoffStrategy": {
+            "type": "linear",
+            "delaySeconds": 1,
+            "arguments": []
+          }
+        },
+        "limits": {},
+        "conditions": [],
+        "name": "check if nginx is configured"
+      },
+      {
+        "interpreter": {
+          "skill": {
+            "minVersion": "1.0.0",
+            "maxVersion": "1.9.99"
+          },
+          "name": "chef-platform/shell-interpreter"
+        },
+        "inputs": {},
+        "expectedInputs": {
+          "EXPECTED_PAGE_FOUND": {
+            "type": "string",
+            "sensitive": false,
+            "required": true,
+            "default": ""
+          }
+        },
+        "outputFieldRules": {},
+        "conditions": [
+          {
+            "inputName": "EXPECTED_PAGE_FOUND",
+            "operator": "eq",
+            "value": "false\n"
+          }
+        ],
+        "command": {
+          "linux": [
+            "echo '<html><body><h1>hello world!</h1></body></html>' | sudo tee /usr/share/nginx/html/index.html > /dev/null"
+          ]
+        },
+        "retryCount": 2,
+        "failureBehavior": {
+          "action": "retryThenFail",
+          "retryBackoffStrategy": {
+            "type": "linear",
+            "delaySeconds": 1,
+            "arguments": []
+          }
+        },
+        "limits": {},
+        "name": "configure nginx if not already"
+      },
+      {
+        "interpreter": {
+          "skill": {
+            "minVersion": "1.0.0",
+            "maxVersion": "1.9.99"
+          },
+          "name": "chef-platform/shell-interpreter"
+        },
+        "command": {
+          "linux": ["curl -s http://localhost:80 | grep 'hello world!'"]
+        },
+        "inputs": {},
+        "expectedInputs": {},
+        "outputFieldRules": {},
+        "conditions": [],
+        "retryCount": 2,
+        "failureBehavior": {
+          "action": "retryThenFail",
+          "retryBackoffStrategy": {
+            "type": "linear",
+            "delaySeconds": 1,
+            "arguments": []
+          }
+        },
+        "limits": {},
+        "name": "check if nginx is properly configured"
+      }
+    ]
+  }
+}

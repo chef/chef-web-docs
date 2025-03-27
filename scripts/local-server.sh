@@ -9,4 +9,6 @@ set -eou pipefail
 ###
 
 npm install
+npm ls
+
 hugo server -b localhost:1313

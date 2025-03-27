@@ -113,18 +113,25 @@ title = "Chef 360 Platform"
 identifier = "360"
 
 [[360]]
+title = "version 1.2"
+parent = "360"
+identifier = "360/1.2"
+url = "/360/1.2/"
+weight = 10
+
+[[360]]
 title = "version 1.1"
 parent = "360"
 identifier = "360/1.1"
 url = "/360/1.1/"
-weight = 10
+weight = 20
 
 [[360]]
 title = "version 1.0"
 parent = "360"
 identifier = "360/1.0"
 url = "/360/1.0/"
-weight = 20
+weight = 30
 
 ####
 # End Chef 360 Menu
@@ -670,15 +677,30 @@ identifier = "chef_infra"
 ####
 
 ####
-# Chef SaaS Menu
+# Chef Cloud Menu
 ####
 
-[[saas]]
-title = "Chef SaaS"
-identifier = "chef_saas"
+[[cloud]]
+title = "Chef Cloud"
+identifier = "chef_cloud"
+
+  [[cloud]]
+  title = "Chef 360 SaaS"
+  identifier = "chef_cloud/360"
+  parent = "chef_cloud"
+
+    [[cloud]]
+    title = "Get started"
+    identifier = "chef_cloud/360/get_started"
+    parent = "chef_cloud/360"
+
+  [[cloud]]
+  title = "Chef SaaS"
+  identifier = "chef_cloud/saas"
+  parent = "chef_cloud"
 
 ####
-# End Chef SaaS Menu
+# End Chef Cloud Menu
 ####
 
 ####

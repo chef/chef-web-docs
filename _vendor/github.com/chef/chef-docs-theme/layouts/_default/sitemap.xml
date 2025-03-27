@@ -1,26 +1,37 @@
-{{  printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>" | safeHTML }}
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+{{- $format := "2006-01-02T15:04:05Z07:00" }}
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-{{ range .Data.Pages }}
-  {{- if or (eq (isset .Params "sitemapexclude") false) (ne .Params.sitemapExclude true) }}
-    <url>
-      <loc>{{ .Permalink }}</loc>{{ if not .Lastmod.IsZero }}
-      <lastmod>{{ safeHTML ( .Lastmod.Format "2006-01-02T15:04:05-07:00" ) }}</lastmod>{{ end }}{{ with .Sitemap.ChangeFreq }}
-      <changefreq>{{ . }}</changefreq>{{ end }}{{ if ge .Sitemap.Priority 0.0 }}
-      <priority>{{ .Sitemap.Priority }}</priority>{{ end }}{{ if .IsTranslated }}{{ range .Translations }}
-      <xhtml:link
-                  rel="alternate"
-                  hreflang="{{ .Language.Lang }}"
-                  href="{{ .Permalink }}"
-                  />{{ end }}
-      <xhtml:link
-                  rel="alternate"
-                  hreflang="{{ .Language.Lang }}"
-                  href="{{ .Permalink }}"
-                  />{{ end }}
-    </url>
-  {{- end }}
-{{  end }}
-</urlset>
+{{- range .Site.Pages -}}
 
-<!-- From https://dereckcurry.com/posts/excluding-pages-from-the-sitemap/ -->
+  {{- $lastMod := .Page.Lastmod.Format $format -}}
+  {{ with $.Site.Params.release_data.release_date }}
+    {{- $release_date := time.AsTime . -}}
+    {{- $release_date = $release_date.Format $format -}}
+    {{- if gt $release_date $lastMod -}}
+      {{- $lastMod = $release_date -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- if or (eq (isset .Params "sitemapexclude") false) (ne .Params.sitemapExclude true) -}}
+    {{- if .Permalink }}
+  <url>
+    <loc>{{ .Permalink }}</loc>{{ if $lastMod }}
+    <lastmod>{{ safeHTML ( $lastMod) }}</lastmod>{{ end }}{{ with .Sitemap.ChangeFreq }}
+    <changefreq>{{ . }}</changefreq>{{ end }}{{ if ge .Sitemap.Priority 0.0 }}
+    <priority>{{ .Sitemap.Priority }}</priority>{{ end }}{{ if .IsTranslated }}{{ range .Translations }}
+    <xhtml:link
+                rel="alternate"
+                hreflang="{{ .Language.LanguageCode }}"
+                href="{{ .Permalink }}"
+                />{{ end }}
+    <xhtml:link
+                rel="alternate"
+                hreflang="{{ .Language.LanguageCode }}"
+                href="{{ .Permalink }}"
+                />{{ end }}
+  </url>
+    {{- end -}}
+  {{- end -}}
+{{- end }}
+</urlset>

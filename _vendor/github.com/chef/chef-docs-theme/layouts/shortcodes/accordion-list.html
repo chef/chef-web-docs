@@ -1,0 +1,6 @@
+<ul class="accordion" data-accordion
+  {{- if eq (.Get "data-multi-expand") "true" }} data-multi-expand="true" {{ end -}}
+  {{- if eq (.Get "data-allow-all-closed") "true" }} data-allow-all-closed="true" {{ end -}}
+  >
+{{ .Inner }}
+</ul>

@@ -2,10 +2,10 @@
 title = "Get Started with Chef SaaS"
 draft = false
 [menu]
-  [menu.saas]
+  [menu.cloud]
     title = "Get Started"
-    identifier = "chef_infra/Get Started with Chef SaaS"
-    parent = "chef_saas"
+    identifier = "chef_cloud/saas/Get Started with Chef SaaS"
+    parent = "chef_cloud/saas"
     weight = 20
 +++
 

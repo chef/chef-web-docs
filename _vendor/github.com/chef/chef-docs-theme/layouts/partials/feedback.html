@@ -1,4 +1,4 @@
-{{ if ne .Params.feedback false }}
+{{ if and (ne .Params.feedback false) (ne .Site.Params.feedback false) }}
 {{ $gh_file_path := string "None" }}
 <div id="feedback" class="hide-for-print" data-swiftype-index='false'>
 

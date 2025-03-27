@@ -1,0 +1,53 @@
+{
+  "name": "my-skill-assembly",
+  "skills": [
+    {
+      "action": "add",
+      "skill": {
+        "name": "courier-runner",
+        "channel": "stable",
+        "value": ["1.4.6"]
+      }
+    },
+    {
+      "action": "add",
+      "skill": {
+        "channel": "stable",
+        "name": "chef-gohai",
+        "value": ["1.2.1"]
+      }
+    },
+    {
+      "action": "add",
+      "skill": {
+        "name": "shell-interpreter",
+        "channel": "stable",
+        "value": ["1.0.5"]
+      }
+    },
+    {
+      "action": "add",
+      "skill": {
+        "name": "inspec-interpreter",
+        "channel": "stable",
+        "value": ["1.0.6"]
+      }
+    },
+    {
+      "action": "add",
+      "skill": {
+        "name": "restart-interpreter",
+        "channel": "stable",
+        "value": ["1.0.4"]
+      }
+    },
+    {
+      "action": "add",
+      "skill": {
+        "name": "chef-client-interpreter",
+        "channel": "stable",
+        "value": ["1.0.6"]
+      }
+    }
+  ]
+}

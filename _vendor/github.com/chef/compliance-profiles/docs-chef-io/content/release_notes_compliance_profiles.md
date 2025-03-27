@@ -10,6 +10,15 @@ draft = false
     weight = 10
 +++
 
+## 20250206
+
+### New Features
+
+- STIG Windows 11 v2r2(Audits)
+- STIG Kubernetes Benchmark Version 2.2(Audits)
+- CIS PostgreSQL 16 v1.0.0(Audits)
+- CIS CIS Apache Tomcat 10 v1.1.0 (Audits)
+
 ## 20241210
 
 ### New Features
@@ -98,7 +107,7 @@ Added the following compliance profiles:
 - CIS Ubuntu 22.04 v1.0.0 (Audit).
 - CIS SUSE Linux Enterprise 12v3.1.0 (Audit).
 - STIG Windows 11 v1r2. (Audit)
-- CIS Amazon EKS v1.0.0. (Audit)
+- CIS Amazon EKS v1.3.0. (Audit)
 
 ### Improvements
 

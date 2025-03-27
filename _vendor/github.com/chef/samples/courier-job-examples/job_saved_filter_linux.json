@@ -1,0 +1,60 @@
+{
+  "name": "job saved filter",
+  "description": "demonstrating running a job using a saved filter",
+  "scheduleRule": "immediate",
+  "exceptionRules": [],
+  "target": {
+    "executionType": "sequential",
+    "groups": [
+      {
+        "timeoutSeconds": 300,
+        "batchSize": {
+          "type": "number",
+          "value": 5
+        },
+        "distributionMethod": "batching",
+        "successCriteria": [
+          {
+            "numRuns": { "type": "percent", "value": 100 },
+            "status": "success"
+          }
+        ],
+        "nodeListType": "savedFilter",
+        "filterId": "--FILTER ID--"
+      }
+    ]
+  },
+  "actions": {
+    "accessMode": "agent",
+    "steps": [
+      {
+        "name": "step to sleep",
+        "interpreter": {
+          "skill": {
+            "minVersion": "1.0.0",
+            "maxVersion": "1.9.99"
+          },
+          "name": "chef-platform/shell-interpreter"
+        },
+        "command": {
+          "linux": ["sleep 10"],
+          "windows": ["timeout 10"]
+        },
+        "inputs": {},
+        "expectedInputs": {},
+        "outputFieldRules": {},
+        "retryCount": 2,
+        "failureBehavior": {
+          "action": "retryThenFail",
+          "retryBackoffStrategy": {
+            "type": "linear",
+            "delaySeconds": 1,
+            "arguments": [1, 3, 5]
+          }
+        },
+        "limits": {},
+        "conditions": []
+      }
+    ]
+  }
+}

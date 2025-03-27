@@ -29,6 +29,9 @@ nodrafts: bundle
 production: bundle
 	hugo --gc --minify --enableGitInfo
 
+static: bundle
+	hugo --gc --enableGitInfo --cleanDestinationDir
+
 deploy_preview: bundle
 	hugo --gc --minify --enableGitInfo --buildFuture
 
@@ -37,6 +40,9 @@ serve_ignore_vendor: bundle
 
 test_theme: bundle
 	HUGO_MODULE_WORKSPACE=hugo.work hugo server --buildDrafts --noHTTPCache --buildFuture --ignoreVendorPaths "github.com/chef/chef-docs-theme"
+
+test_theme_production: bundle
+	HUGO_MODULE_WORKSPACE=hugo.work hugo server --buildDrafts --noHTTPCache --buildFuture --ignoreVendorPaths "github.com/chef/chef-docs-theme" --environment production
 
 # https://gohugo.io/troubleshooting/audit/
 audit: bundle
@@ -47,7 +53,12 @@ lint: bundle
 
 update_theme:
 	hugo mod get -u github.com/chef/chef-docs-theme
+	rm -rf _vendor
+	rm -rf node_modules
+	hugo mod tidy
+	hugo mod vendor
 	hugo mod npm pack
+	npm install
 
 ## See:
 ## - https://cspell.org/docs/getting-started/

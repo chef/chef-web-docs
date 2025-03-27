@@ -3,11 +3,11 @@ title = "Configure SSO for Chef SaaS"
 draft = false
 
 [menu]
-  [menu.saas]
+  [menu.cloud]
 
     title = "Configure SSO"
-    identifier = "chef_infra/Configure SSO"
-    parent = "chef_saas"
+    identifier = "chef_cloud/saas/Configure SSO"
+    parent = "chef_cloud/saas"
     weight = 40
 +++
 

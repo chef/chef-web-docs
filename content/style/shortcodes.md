@@ -284,6 +284,72 @@ and `panel-id`/`panel-link` values must be unique HTML IDs on the page.
 
 <!-- markdownlint-enable MD046 MD032 -->
 
+## Accordion list
+
+The Accordion shortcodes create a [Foundation Framework Accordion](https://get.foundation/sites/docs/accordion.html).
+
+To add an accordion, wrap the `accordion-list` shortcode around as many `accordion-item` shortcodes as you want.
+
+The following example creates an accordion list with a single list item:
+
+```markdown
+{{</* accordion-list */>}}
+{{</* accordion-item accordion-title="List item description" */>}}
+Hello, world.
+{{</* /accordion-item */>}}
+{{</* /accordion-list */>}}
+```
+
+### Parameters
+
+The `accordion-list` shortcode has the following parameters:
+
+`data-multi-expand`
+: Whether more than one list item can be displayed at the same time.
+
+  Default value: `false`
+
+`data-allow-all-closed`
+: Whether all list items can be closed at the same time.
+
+  Default value: `false`
+
+The `accordion-item` shortcode has the following parameters:
+
+`accordion-title`
+: The accordion item title.
+
+`is-active`
+: Whether the list item is active by default.
+
+  Default value: `false`
+
+### Examples
+
+The following example creates and accordion with two list items, the second is active by default, all items can be displayed at the same time, and both can be closed at the same time.
+
+```markdown
+{{</* accordion-list data-multi-expand="true" data-allow-all-closed="true" */>}}
+{{</* accordion-item accordion-title="List item description" */>}}
+Hello, world.
+{{</* /accordion-item */>}}
+{{</* accordion-item accordion-title="Active item" is-active="true" */>}}
+This is active by default
+{{</* /accordion-item */>}}
+{{</* /accordion-list */>}}
+```
+
+Which looks like this:
+
+{{< accordion-list data-multi-expand="true" data-allow-all-closed="true" >}}
+{{< accordion-item accordion-title="List item description" >}}
+Hello, world.
+{{< /accordion-item >}}
+{{< accordion-item accordion-title="Active item" is-active="true" >}}
+This is active by default
+{{< /accordion-item >}}
+{{< /accordion-list >}}
+
 ## `highlight` shortcode
 
 You can add code examples using the `highlight` shortcode.

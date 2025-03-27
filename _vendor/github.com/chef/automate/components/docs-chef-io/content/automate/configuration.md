@@ -394,7 +394,14 @@ Uncomment and change settings as needed, and then run `chef-automate config patc
 
 #### Encrypt Cookies with Custom Secret Key in OC-ID Service
 
-Now, you can configure and integrate an existing private Supermarket with Chef Automate. `secret_key_base` is an attribute introduced as optional setting in OC-ID service of Automate which will be used to encrypt the cookies and other information. By default a unique `secret_key_base` gets generated internally for the OC-ID service running as part of Chef Automate. If you want to set it to something custom you can assign it a random string which will be used by OC-ID as the `secret_key_base`. Below is the syntax to set the configuration for the OC-ID service.
+Now, you can configure and integrate an existing private Supermarket with Chef Automate.
+is an attribute
+introduced as optional setting in OC-ID service of Automate
+which will be used to encrypt the cookies and other information.
+By default, a unique `secret_key_base` gets generated internally for the OC-ID service running as part of Chef Automate.
+If you want to set it to something custom you can assign it a random string
+which will be used by OC-ID as the `secret_key_base`.
+Below is the syntax to set the configuration for the OC-ID service.
 
 ```toml
 [ocid.v1.sys.ocid]
@@ -473,6 +480,30 @@ In Chef Automate, enable the Content Security Policy header by patching the foll
 {{< warning >}}
 Enabling the CSP header may break the SAML login. This may happen if the IDP Login page has inline javascript, which the CSP header prevents from getting evaluated by default.
 {{< /warning >}}
+
+The default value of the content security policy is `default-src 'self'; frame-ancestors 'self';`.
+
+To configure the value of the content security policy, create a TOML file that contains the partial configuration below,
+and then run `chef-automate config patch </path/to/your-file.toml>` to deploy your change.
+
+```toml
+[load_balancer.v1.sys.ngx.http]
+  content_security_policy = "default-src 'none'; script-src 'self'; connect-src 'self'; img-src 'self'; style-src 'self';"
+```
+
+### X-XSS-Protection
+
+The HTTP [X-XSS-Protection](https://www.keycdn.com/blog/x-xss-protection) response header is a feature of Internet Explorer, Chrome, and Safari that stops pages from loading when they detect reflected cross-site scripting (XSS) attacks.
+
+The default value of the X-XSS-Protection header is `1; mode=block`.
+
+To configure the value of the X-XSS-Protection, create a TOML file that contains the partial configuration below,
+and then run `chef-automate config patch </path/to/your-file.toml>` to deploy your change.
+
+```toml
+[global.v1.sys.ngx.http]
+  x_xss_protection = "0"
+```
 
 ### Troubleshooting
 

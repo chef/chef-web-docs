@@ -1,0 +1,52 @@
+{
+  "name": "<STRING>",
+  "description": "<STRING>",
+  "exceptionRules":[],
+  "scheduleRule":"<STRING>",
+  "target": {
+    "executionType": "<STRING>",
+    "groups":[
+      {
+        "timeoutSeconds": <INTEGER>,
+        "batchSize": {
+            "type":"<STRING>",
+            "value": <INTEGER>
+        },
+        "distributionMethod":"<ENUM>",
+        "successCriteria": [{"status":"<ENUM>", "numRuns":{"type":"<ENUM>", "value":<INTEGER>}}],
+        "nodeListType": "<ENUM>",
+        "listId": "<STRING>",
+        "filterId": <INTEGER>,
+        "nodeIdentifiers":["<STRING>"],
+        "filter": {}
+      }
+    ]
+  },
+  "actions": {
+    "accessMode":"agent",
+    "steps":
+    [
+      {
+        "name": "<STRING>",
+        "interpreter": {
+          "name": "<STRING>",
+          "skill": {
+            "minVersion": "<STRING>",
+            "maxVersion": "<STRING>"
+          }
+        },
+        "command": {},
+        "inputs":{},
+        "expectedInputs":{},
+        "outputFieldRules":{},
+        "retryCount": <INTEGER>,
+        "limits":{},
+        "conditions":[],
+        "failureBehavior":{
+            "action":"retryThenFail",
+            "retryBackoffStrategy":{"name":"none", "delaySeconds":<INTEGER>}
+        }
+      }
+    ]
+  }
+}

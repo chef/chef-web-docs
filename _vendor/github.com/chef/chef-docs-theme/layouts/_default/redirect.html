@@ -2,9 +2,9 @@
 <html>
   <head>
     <title>{{ .Params.redirect_url }}</title>
-    <link rel="canonical" href="{{ .Params.redirect_url }}"/>
+    <link rel="canonical" href="{{ relURL .Params.redirect_url }}"/>
     <meta name="robots" content="noindex">
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <meta http-equiv="refresh" content="0; url={{ .Params.redirect_url }}"/>
+    <meta http-equiv="refresh" content="0; url={{ relURL .Params.redirect_url }}"/>
   </head>
 </html>

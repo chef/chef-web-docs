@@ -6,10 +6,10 @@ draft = false
   product = ["saas"]
 
 [menu]
-  [menu.saas]
+  [menu.cloud]
     title = "Overview"
-    identifier = "chef_infra/Overview"
-    parent = "chef_saas"
+    identifier = "chef_cloud/saas/Overview"
+    parent = "chef_cloud/saas"
     weight = 10
 +++
 
