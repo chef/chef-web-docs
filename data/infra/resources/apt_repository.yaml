@@ -19,21 +19,22 @@ syntax_full_code_block: |-
     key                String, Array, false # default value: []
     key_proxy          String, false
     keyserver          String, false # default value: "keyserver.ubuntu.com"
+    options            String, Array # default value: []
     repo_name          String # default value: 'name' unless specified
+    signed_by          String, true, false # default value: true
     trusted            true, false # default value: false
     uri                String
-    options            String, Array # default value: []
     action             Symbol # defaults to :add if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`apt_repository` is the resource."
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
 - "`arch`, `cache_rebuild`, `components`, `cookbook`, `deb_src`, `distribution`, `key`,
-  `key_proxy`, `keyserver`, `repo_name`, `trusted`, and `uri` are the properties available
-  to this resource."
+  `key_proxy`, `keyserver`, `options`, `repo_name`, `signed_by`, `trusted`, and `uri`
+  are the properties available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -99,6 +100,12 @@ properties_list:
   default_value: keyserver.ubuntu.com
   description_list:
   - markdown: The GPG keyserver where the key for the repo should be retrieved.
+- property: options
+  ruby_type: String, Array
+  required: false
+  default_value: "[]"
+  description_list:
+  - markdown: Additional options to set for the repository
 - property: repo_name
   ruby_type: String
   required: false
@@ -107,6 +114,14 @@ properties_list:
   description_list:
   - markdown: An optional property to set the repository name if it differs from the
       resource block's name. The value of this setting must not contain spaces.
+- property: signed_by
+  ruby_type: String, true, false
+  required: false
+  default_value: 'true'
+  description_list:
+  - markdown: If set to true, Signed-By authenticates with the value of the key property.
+      If set to a string that is a file path or fingerprint, Signed-By authenticates
+      with that file or fingerprint.
 - property: trusted
   ruby_type: true, false
   required: false
@@ -114,17 +129,13 @@ properties_list:
   description_list:
   - markdown: Determines whether you should treat all packages from this repository
       as authenticated regardless of signature.
-- property: options
-  ruby_type: String, Array
-  required: false
-  default_value: "[]"
-  description_list:
-  - markdown: Additional options to set for the repository.
 - property: uri
   ruby_type: String
   required: false
   description_list:
   - markdown: The base of the Debian distribution.
+target_mode:
+  support: full
 examples: |
   **Add repository with basic settings**:
 
