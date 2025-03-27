@@ -473,7 +473,9 @@ default['audit']['profiles']['ssh'] = {
 
 ### quiet
 
-Suppresses output of the Chef InSpec runner. Defaults to `false`. To turn this on, set the attribute `default['audit']['quiet']` to `true`.
+Starting in Chef Infra Client 18.7, use `quiet` to suppress output of the Chef InSpec runner. Defaults to `false`.
+
+To suppress InSpec runner output, set to `true`:
 
 ```ruby
 # verbose
