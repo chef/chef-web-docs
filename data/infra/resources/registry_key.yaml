@@ -28,12 +28,14 @@ syntax_description: "A **registry_key** resource block creates and deletes regis
   \ :create\nend\n```"
 syntax_full_code_block: |-
   registry_key 'name' do
-    architecture      Symbol # default value: :machine
-    key               String # default value: 'name' unless specified
-    recursive         true, false # default value: false
-    values            Hash, Array # default value: []
-    action            Symbol # defaults to :create if not specified
+    architecture             Symbol # default value: :machine
+    key                      String # default value: 'name' unless specified
+    only_record_changes      true, false # default value: true
+    recursive                true, false # default value: false
+    values                   Hash, Array # default value: []
+    action                   Symbol # defaults to :create if not specified
   end
+syntax_properties_list:
 syntax_full_properties_list:
 - '`registry_key` is the resource'
 - '`name` is the name of the resource block'
@@ -130,6 +132,14 @@ properties_list:
       `HKEY_CURRENT_CONFIG`, `HKCC`, `HKEY_CLASSES_ROOT`, `HKCR`,
 
       `HKEY_USERS`, `HKU`, `HKEY_CURRENT_USER`, and `HKCU`.'
+- property: only_record_changes
+  ruby_type: true, false
+  required: false
+  default_value: 'true'
+  new_in: '18.7'
+  description_list:
+  - markdown: Suppress reporting of the current value of sibling values in a registry
+      key. Setting this to false may result in a large number of values reported.
 - property: recursive
   ruby_type: true, false
   required: false
@@ -181,6 +191,20 @@ examples: |
   end
   ```
 
+  **Suppress reporting the sibling values of the values being updated in a registry key**
+
+  ```ruby
+  registry 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\CONTROL\Session Manager' do
+    values [{
+      name: 'ProtectionMode',
+      type: :dword,
+      data: 1
+    }]
+    only_record_changes true
+    action :create
+  end
+  ```
+
   **Create a registry key with binary data: "\x01\x02\x03"**:
 
   ```ruby
@@ -190,6 +214,7 @@ examples: |
       :type => :binary,
       :data => [0, 1, 2].map(&:chr).join
     }]
+
     action :create
   end
   ```
