@@ -10,6 +10,13 @@ draft = false
     weight = 10
 +++
 
+## 20250403
+
+### New Features
+
+- CIS Oracle Linux 8 v3.0.0 (Audits)
+- CIS Debian 12 v1.1.0 (Audits)
+
 ## 20250206
 
 ### New Features
