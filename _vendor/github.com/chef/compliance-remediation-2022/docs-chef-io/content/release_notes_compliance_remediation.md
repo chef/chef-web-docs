@@ -10,6 +10,12 @@ draft = false
     weight = 20
 +++
 
+## 20250403
+
+### New features
+
+- STIG RHEL 9 v1.1.0 (Remediation)
+
 ## 20240226
 
 ### New features

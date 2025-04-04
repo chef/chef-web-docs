@@ -74,4 +74,25 @@ properties_list:
   required: false
   description_list:
   - markdown: The version of a package to be installed or upgraded.
-examples:
+examples: |
+  **Install a package**
+
+  ```ruby
+  snap_package 'hello'
+  ```
+
+  **Upgrade a package**
+
+  ```ruby
+  snap_package 'hello' do
+    action :upgrade
+  end
+  ```
+
+  **Install a package with classic confinement**
+
+  ```ruby
+  snap_package 'hello' do
+    options 'classic'
+  end
+  ```
