@@ -67,7 +67,7 @@ commercial agreement with Chef. Additional information is available in
 | Chef Infra Server | 15.x                     | GA               | n/a            |
 | Chef Habitat      | 0.81+                    | GA               | n/a            |
 | Chef InSpec       | 6.x                      | GA               | n/a            |
-| Chef Workstation  | 22.x (2022), 23.x (2023) | GA               | n/a            |
+| Chef Workstation  | 24.x (2024), 25.x (2025) | GA               | n/a            |
 
 {{< note >}}
 
@@ -101,22 +101,22 @@ newer versions or products.
 
 ## End of Life (EOL) products
 
-| Product                  | Version             | Lifecycle Status | EOL Date          |
-|--------------------------|---------------------|------------------|-------------------|
-| Analytics                | All                 | EOL              | December 31, 2018 |
-| Chef Automate            | 1.x                 | EOL              | December 31, 2019 |
-| Chef Infra Client        | 16 and under        | EOL              | November 30, 2022 |
-| Chef Compliance Server   | All                 | EOL              | December 31, 2018 |
-| ChefDK                   | All                 | EOL              | December 31, 2020 |
-| Chef Infra Server        | 13.x                | EOL              | June 30, 2021     |
-| Chef InSpec              | 2 and under         | EOL              | December 31, 2019 |
-| Chef InSpec              | 3.x                 | EOL              | April 30, 2020    |
-| Chef InSpec              | 4.x                 | EOL              | November 14, 2023 |
-| Chef Provisioning        | All                 | EOL              | August 31, 2019   |
-| Chef Push Jobs           | All                 | EOL              | December 31, 2020 |
-| Chef Replication/Sync    | All                 | EOL              | August 31, 2019   |
-| Chef Server DRBD HA      | All                 | EOL              | March 31, 2019    |
-| Chef Workflow (Delivery) | All                 | EOL              | December 31, 2020 |
-| Chef Workstation         | 20.12.205 and under | EOL              | December 31, 2021 |
-| Enterprise Chef          | All                 | EOL              | December 31, 2018 |
-| Reporting                | All                 | EOL              | December 31, 2018 |
+| Product                  | Version              | Lifecycle Status | EOL Date          |
+|--------------------------|----------------------|------------------|-------------------|
+| Analytics                | All                  | EOL              | December 31, 2018 |
+| Chef Automate            | 1.x                  | EOL              | December 31, 2019 |
+| Chef Infra Client        | 16 and under         | EOL              | November 30, 2022 |
+| Chef Compliance Server   | All                  | EOL              | December 31, 2018 |
+| ChefDK                   | All                  | EOL              | December 31, 2020 |
+| Chef Infra Server        | 13.x                 | EOL              | June 30, 2021     |
+| Chef InSpec              | 2 and under          | EOL              | December 31, 2019 |
+| Chef InSpec              | 3.x                  | EOL              | April 30, 2020    |
+| Chef InSpec              | 4.x                  | EOL              | November 14, 2023 |
+| Chef Provisioning        | All                  | EOL              | August 31, 2019   |
+| Chef Push Jobs           | All                  | EOL              | December 31, 2020 |
+| Chef Replication/Sync    | All                  | EOL              | August 31, 2019   |
+| Chef Server DRBD HA      | All                  | EOL              | March 31, 2019    |
+| Chef Workflow (Delivery) | All                  | EOL              | December 31, 2020 |
+| Chef Workstation         | 23.12.1055 and under | EOL              | December 31, 2024 |
+| Enterprise Chef          | All                  | EOL              | December 31, 2018 |
+| Reporting                | All                  | EOL              | December 31, 2018 |
