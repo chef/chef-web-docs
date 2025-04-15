@@ -67,7 +67,7 @@ commercial agreement with Chef. Additional information is available in
 | Chef Infra Server | 15.x                     | GA               | n/a            |
 | Chef Habitat      | 0.81+                    | GA               | n/a            |
 | Chef InSpec       | 6.x                      | GA               | n/a            |
-| Chef Workstation  | 22.x (2022), 23.x (2023) | GA               | n/a            |
+| Chef Workstation  | 24.x (2024), 25.x (2025) | GA               | n/a            |
 
 {{< note >}}
 
@@ -117,6 +117,6 @@ newer versions or products.
 | Chef Replication/Sync    | All                 | EOL              | August 31, 2019   |
 | Chef Server DRBD HA      | All                 | EOL              | March 31, 2019    |
 | Chef Workflow (Delivery) | All                 | EOL              | December 31, 2020 |
-| Chef Workstation         | 20.12.205 and under | EOL              | December 31, 2021 |
+| Chef Workstation         | 23.12.1055 and under| EOL              | December 31, 2024 |
 | Enterprise Chef          | All                 | EOL              | December 31, 2018 |
 | Reporting                | All                 | EOL              | December 31, 2018 |
