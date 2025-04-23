@@ -75,7 +75,15 @@ To set up an APT package repository for Debian and Ubuntu platforms:
 
 ### Enterprise Linux
 
-To set up a Yum package repository for Enterprise Linux platforms:
+{{< note >}}
+
+Starting in Chef Infra Client 18.6.2, we upgraded the GPG signing algorithm used to sign RHEL packages from SHA1 to SHA256. RHEL 9 no longer supports the less secure SHA1 hashes.
+
+{{< /note >}}
+
+Before you begin, verify that you have the `yum-utils` package installed.
+
+To set up a Yum package repository for Enterprise Linux platforms, follow these steps:
 
 1. Install the public key for Chef Software:
 
@@ -99,20 +107,10 @@ To set up a Yum package repository for Enterprise Linux platforms:
     Replace:
 
     - `<CHANNEL>` with the release channel: `stable` or `current`.
-    - `<VERSION>` with the version Enterprise Linux version.
+    - `<VERSION>` with the Enterprise Linux version.
 
 1. Update the package repository list:
 
     ```bash
     sudo yum-config-manager --add-repo chef-stable.repo
-    ```
-
-    Note that the `yum-config-manager` command requires the `yum-utils`
-    package, which isn't installed on CentOS by default. You can
-    install the package by running `sudo yum install yum-utils`, or you
-    can use the `mv` command to add the repository to the
-    `/etc/yum.repos.d/` directory:
-
-    ```bash
-    sudo mv chef-stable.repo /etc/yum.repos.d/
     ```

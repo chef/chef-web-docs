@@ -62,7 +62,7 @@ gh_path = "https://github.com/chef/license-service/tree/main/docs-chef-io/conten
 
 [search]
 
-default_search_product_keys = ["", "chef-360-1.2", "automate", "desktop", "habitat", "client", "server", "inspec", "saas", "supermarket", "workstation"]
+default_search_product_keys = ["", "chef-360-saas", "chef-360-1.2", "automate", "desktop", "habitat", "client", "server", "inspec", "saas", "supermarket", "workstation"]
 
 [search.products]
 
@@ -81,6 +81,10 @@ product_version_key = "chef-360-1.1"
 [[search.products.360.versions]]
 name = "1.0"
 product_version_key = "chef-360-1.0"
+
+[search.products.360-saas]
+name = "360 SaaS"
+product_key = "chef-360-saas"
 
 [search.products.automate]
 name = "Automate"

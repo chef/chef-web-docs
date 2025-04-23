@@ -1,4 +1,4 @@
-The syntax for the `registry_dvalue_exists?` method is as follows:
+The syntax for the `registry_value_exists?` method is as follows:
 
 ```ruby
 registry_value_exists?(
