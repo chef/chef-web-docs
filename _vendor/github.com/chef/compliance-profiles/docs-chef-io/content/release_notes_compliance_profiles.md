@@ -16,13 +16,14 @@ draft = false
 
 - CIS Oracle Linux 8 v3.0.0 (Audits)
 - CIS Debian 12 v1.1.0 (Audits)
+- CIS VMware ESXi 8.0 Benchmark v1.1.0 (Audits)
 
 ## 20250206
 
 ### New Features
 
 - STIG Windows 11 v2r2(Audits)
-- STIG Kubernetes Benchmark Version 2.2(Audits)
+- STIG Kubernetes Benchmark Version 2.2 (Audits)
 - CIS PostgreSQL 16 v1.0.0(Audits)
 - CIS CIS Apache Tomcat 10 v1.1.0 (Audits)
 
