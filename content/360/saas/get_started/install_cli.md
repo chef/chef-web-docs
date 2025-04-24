@@ -25,10 +25,6 @@ This page documents how to download and install the Chef 360 Platform CLIs and r
 
 {{< readfile file="content/360/saas/reusable_text/md/install_bash_completion.md" >}}
 
-## Add your license
-
-{{< readfile file="content/360/saas/reusable_text/md/clis_add_license.md" >}}
-
 ## Verify profiles
 
 {{< readfile file="content/360/saas/reusable_text/md/clis_verify_profiles.md" >}}
