@@ -12,6 +12,38 @@ product = [""]
     weight = 10
 +++
 
+## Chef 360 Platform 1.3.0
+
+Release date: April 28, 2025.
+
+### New features
+
+- You can now deploy Chef 360 Platform in airgapped environments using a self-contained installation package.
+  Note that the self-contained package is significantly larger than the standard package.
+
+### Improvements
+
+- When you first deploy Chef 360 Platform, it now creates a default node cohort with the default skill assembly and corresponding settings during the initial deployment.
+  You can also use these default settings when creating a new organization. This improves the user experience when deploying Chef 360 Platform or creating a new organization.
+- We've added a button to the Chef 360 Platform Node Management UI that allows you to select nodes from a failed job and run a new job against those nodes.
+
+### Bug fixes
+
+- Resolved installation issues on Amazon Linux 2.
+- Enhanced error messages in the Chef 360 Platform GUI for better clarity.
+
+### Supported skill versions
+
+| Skill                         | Skill name                | Habitat package                                                                                               | Version |
+| ------------------------------|---------------------------|---------------------------------------------------------------------------------------------------------------|---------|
+| Chef Infra Client Interpreter | `chef-client-interpreter` | [chef-platform/chef-client-interpreter](https://bldr.habitat.sh/#/pkgs/chef-platform/chef-client-interpreter) | 1.0.6   |
+| Chef Inspec Interpreter       | `inspec-interpreter`      | [chef-platform/inspec-interpreter](https://bldr.habitat.sh/#/pkgs/chef-platform/inspec-interpreter)           | 1.0.7   |
+| Courier Runner                | `courier-runner`          | [chef-platform/courier-runner](https://bldr.habitat.sh/#/pkgs/chef-platform/courier-runner)                   | 1.4.7   |
+| Gohai                         | `chef-gohai`              | [chef-platform/chef-gohai](https://bldr.habitat.sh/#/pkgs/chef-platform/chef-gohai)                           | 1.2.4   |
+| Node Management Agent         | `node-management-agent`   | [chef-platform/node-management-agent](https://bldr.habitat.sh/#/pkgs/chef-platform/node-management-agent)     | 1.0.6   |
+| Restart Interpreter           | `restart-interpreter`     | [chef-platform/restart-interpreter](https://bldr.habitat.sh/#/pkgs/chef-platform/restart-interpreter)         | 1.0.4   |
+| Shell Interpreter             | `shell-interpreter`       | [chef-platform/shell-interpreter](https://bldr.habitat.sh/#/pkgs/chef-platform/shell-interpreter)             | 1.0.5   |
+
 ## Chef 360 Platform 1.2.1
 
 Release date: March 6, 2025
