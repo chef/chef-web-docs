@@ -186,7 +186,7 @@ To configure the cookbooks and define enrollment settings, follow these steps:
 
     Replace `<COOKBOOK_NAME>` with the name of the wrapper cookbook.
 
-1. On a computer registered with the Chef 360 Server, generate an access key and secret key:
+1. Generate an access key and secret key:
 
     ```bash
     chef-platform-auth-cli user-account self create-token --body '{"expiration": "<EXPIRATION_DATE>", "name": "<TOKEN_NAME>"}' --profile <PROFILE_NAME>
@@ -240,8 +240,8 @@ To configure the cookbooks and define enrollment settings, follow these steps:
     - `<CHEF_360_FQDN>` with the fully qualified domain name (FQDN) for your Chef 360 SaaS deployment.
     - `<ENROLLMENT_TYPE>` with either `full` or `partial` depending on the form of enrollment. Use `full` unless you must `partial`.
     - `<API_PORT>` with the API port configured in Chef 360 SaaS. The default value is `31000`.
-    - `<ACCESS_KEY>` with the access key for secure communication with Chef 360 SaaS. Store securely using an [encrypted Chef data bag](https://docs.chef.io/data_bags/) or a [secrets manager](https://docs.chef.io/infra_language/secrets/).
-    - `<SECRET_KEY>` with the secret key for secure communication with Chef 360 SaaS. Store securely using an [encrypted Chef data bag](https://docs.chef.io/data_bags/) or a [secrets manager](https://docs.chef.io/infra_language/secrets/).
+    - `<ACCESS_KEY>` with the access key for secure communication with Chef 360 SaaS.
+    - `<SECRET_KEY>` with the secret key for secure communication with Chef 360 SaaS.
     - `<COHORT_ID>` with a valid cohort UUID. The cohort defines all skills and settings installed on the node.
     - `<HABITAT_BUILDER_URL>` with the URL of the Chef Habitat Builder used by your organization. Default value: `https://bldr.habitat.sh`
     - `<VALID_DIR_PATH>` with a temporary working directory where all required builds are downloaded. Specify a valid path based on the OS. Default value: `/tmp`.
