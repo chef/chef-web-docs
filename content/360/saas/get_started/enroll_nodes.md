@@ -150,6 +150,74 @@ To configure the cookbooks and define enrollment settings, follow these steps:
     depends 'chef360-node-enroll', '~> 1.0.0'
     ```
 
+1. Create a copy of the Chef 360 SaaS public key and add it to the wrapper cookbook's `files` directory:
+
+    ```plaintext
+    -----BEGIN CERTIFICATE-----
+    MIIDXzCCAkegAwIBAgILBAAAAAABIVhTCKIwDQYJKoZIhvcNAQELBQAwTDEgMB4
+    GA1UECxMXR2xvYmFsU2lnbiBSb290IENBIC0gUjMxEzARBgNVBAoTCkdsb2JhbF
+    NpZ24xEzARBgNVBAMTCkdsb2JhbFNpZ24wHhcNMDkwMzE4MTAwMDAwWhcNMjkwM
+    zE4MTAwMDAwWjBMMSAwHgYDVQQLExdHbG9iYWxTaWduIFJvb3QgQ0EgLSBSMzET
+    MBEGA1UEChMKR2xvYmFsU2lnbjETMBEGA1UEAxMKR2xvYmFsU2lnbjCCASIwDQY
+    JKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMwldpB5BngiFvXAg7aEyiie/QV2Ec
+    WtiHL8RgJDx7KKnQRfJMsuS+FggkbhUqsMgUdwbN1k0ev1LKMPgj0MK66X17YUh
+    hB5uzsTgHeMCOFJ0mpiLx9e+pZo34knlTifBtc+ycsmWQ1z3rDI6SYOgxXG71uL
+    0gRgykmmKPZpO/bLyCiR5Z2KYVc3rHQU3HTgOu5yLy6c+9C7v/U9AOEGM+iCK65
+    TpjoWc4zdQQ4gOsC0p6Hpsk+QLjJg6VfLuQSSaGjlOCZgdbKfd/+RFO+uIEn8rU
+    AVSNECMWEZXriX7613t2Saer9fwRPvm2L7DWzgVGkWqQPabumDk3F2xmmFghcCA
+    wEAAaNCMEAwDgYDVR0PAQH/BAQDAgEGMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0O
+    BBYEFI/wS3+oLkUkrk1Q+mOai97i3Ru8MA0GCSqGSIb3DQEBCwUAA4IBAQBLQNv
+    AUKr+yAzv95ZURUm7lgAJQayzE4aGKAczymvmdLm6AC2upArT9fHxD4q/c2dKg8
+    dEe3jgr25sbwMpjjM5RcOO5LlXbKr8EpbsU8Yt5CRsuZRj+9xTaGdWPoO4zzUhw
+    8lo/s7awlOqzJCK6fBdRoyV3XpYKBovHd7NADdBj+1EbddTKJd+82cEHhXXipa0
+    095MJ6RMG3NzdvQXmcIfeg7jLQitChws/zyrVQ4PkX4268NXSb7hLi18YIvDQVE
+    TI53O9zJrlAGomecsMx86OyXShkDOOyyGeMlhLxS67ttVb9+E7gUJTb0o2HLO02
+    JQZR7rkpeDMdmztcpHWD9f
+    -----END CERTIFICATE-----
+    ```
+
+    This public key expires on March 18, 2029.
+
+1. Create an attribute file that includes the path to the public key. For example:
+
+    ```ruby
+    default['enroll']['root_ca'] = '<COOKBOOK_NAME>/files/default/root_ca.pem'
+    ```
+
+    Replace `<COOKBOOK_NAME>` with the name of the wrapper cookbook.
+
+1. On a computer registered with the Chef 360 Server, generate an access key and secret key:
+
+    ```bash
+    chef-platform-auth-cli user-account self create-token --body '{"expiration": "<EXPIRATION_DATE>", "name": "<TOKEN_NAME>"}' --profile <PROFILE_NAME>
+    ```
+
+    Replace:
+
+    - `<EXPIRATION_DATE>` with a date and time in ISO 8601 format (for example, `2027-12-31T11:42:23-05:00`).
+    - `<TOKEN_NAME>` with a meaningful token name for easy identification.
+    - `<PROFILE_NAME>` with a profile that has the node-manager role assigned to it.
+
+    The response includes an access key and secret key and is similar to the following:
+
+    ```json
+    {
+      "item": {
+        "accessKey": "6QIUKP4WIXD4RVAF0BQ3",
+        "expiration": "2027-12-31T11:42:23-05:00",
+        "id": "bcba5b7a-fb0b-4a62-b442-7ba7bda5e05a",
+        "name": "CI-CD Token",
+        "role": {
+          "id": "5fcb0235-1e56-4ece-8857-404a5d39a290",
+          "name": "tenant-admin"
+        },
+        "secretKey": "x6aCg1NckQoLsQnere26fmGgD0RiWOrf4RNXBhlg"
+      }
+    }
+    ```
+
+1. Store the access key and secret key using an [encrypted Chef data bag](https://docs.chef.io/data_bags/) or with a [secrets manager](https://docs.chef.io/infra_language/secrets/).
+
 1. Define the `node_management_enroll` resource in your wrapper cookbook's recipe:
 
     ```ruby
@@ -162,6 +230,7 @@ To configure the cookbooks and define enrollment settings, follow these steps:
       cohort_id '<COHORT_ID>'
       hab_builder_url '<HABITAT_BUILDER_URL>'
       working_dir_path '<VALID_DIR_PATH>'
+      root_ca <CHEF_360_SAAS_PUBLIC_KEY>
       upgrade_skills <UPGRADE_SKILLS>
     end
     ```
@@ -171,11 +240,12 @@ To configure the cookbooks and define enrollment settings, follow these steps:
     - `<CHEF_360_FQDN>` with the fully qualified domain name (FQDN) for your Chef 360 SaaS deployment.
     - `<ENROLLMENT_TYPE>` with either `full` or `partial` depending on the form of enrollment. Use `full` unless you must `partial`.
     - `<API_PORT>` with the API port configured in Chef 360 SaaS. The default value is `31000`.
-    - `<ACCESS_KEY>` with an access key for secure communication with Chef 360 SaaS. Store securely using an [encrypted Chef data bag](https://docs.chef.io/data_bags/) or a [secrets manager](https://docs.chef.io/infra_language/secrets/).
-    - `<SECRET_KEY>` with a secret key for secure communication with Chef 360 SaaS. Store securely using an [encrypted Chef data bag](https://docs.chef.io/data_bags/) or a [secrets manager](https://docs.chef.io/infra_language/secrets/).
+    - `<ACCESS_KEY>` with the access key for secure communication with Chef 360 SaaS. Store securely using an [encrypted Chef data bag](https://docs.chef.io/data_bags/) or a [secrets manager](https://docs.chef.io/infra_language/secrets/).
+    - `<SECRET_KEY>` with the secret key for secure communication with Chef 360 SaaS. Store securely using an [encrypted Chef data bag](https://docs.chef.io/data_bags/) or a [secrets manager](https://docs.chef.io/infra_language/secrets/).
     - `<COHORT_ID>` with a valid cohort UUID. The cohort defines all skills and settings installed on the node.
     - `<HABITAT_BUILDER_URL>` with the URL of the Chef Habitat Builder used by your organization. Default value: `https://bldr.habitat.sh`
     - `<VALID_DIR_PATH>` with a temporary working directory where all required builds are downloaded. Specify a valid path based on the OS. Default value: `/tmp`.
+    - `<CHEF_360_SAAS_PUBLIC_KEY>` with the attribute for the root CA public key. For example, `node['enroll']['root_ca']`.
     - `<UPGRADE_SKILLS>` with `true` or `false`. If `true`, Chef 360 SaaS checks for the latest skill versions and installs them if found. Default value: `false`.
 
 1. Push the wrapper cookbook or policy to the Chef Infra Server.
