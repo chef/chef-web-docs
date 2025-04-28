@@ -122,7 +122,7 @@ To enroll a Windows node, follow these steps:
 
 With cookbook-based enrollment, you enroll nodes from the client side by uploading a [cookbook](https://docs.chef.io/cookbooks/) with enrollment settings to Chef Infra Server and then Chef Infra Client enrolls the node with Chef 360 SaaS.
 
-### Enroll nodes
+### Enroll nodes with a cookbook
 
 The `chef-cookbook-enroll` cookbook uses the `node_management_enroll` custom resource and a [wrapper cookbook](https://www.chef.io/blog/writing-wrapper-cookbooks) to define enrollment settings.
 
