@@ -73,7 +73,7 @@
 
 [[redirects]]
   from = "/360/latest/*"
-  to = "/360/1.2/:splat"
+  to = "/360/1.3/:splat"
   status = 301
 
 ####
