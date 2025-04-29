@@ -52,10 +52,6 @@ This command has the following options:
 
 : Overrides a single configuration option. Can be used to override multiple configuration options by adding another `--config-option OPTION`.
 
-  ```ruby
-  property :db_password, String, sensitive: true
-  ```
-
 `--chef-zero-host HOST`
 
 : The host on which chef-zero is started.
