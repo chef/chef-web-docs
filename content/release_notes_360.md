@@ -19,7 +19,7 @@ Release date: April 29, 2025.
 ### New features
 
 - You can now deploy Chef 360 Platform in airgapped environments using a self-contained installation package.
-  Note that the self-contained package is significantly larger than the standard package.
+  Note that the size of the self-contained package is significantly larger than the standard package.
 
 ### Improvements
 
