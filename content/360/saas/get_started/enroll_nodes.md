@@ -120,7 +120,7 @@ To enroll a Windows node, follow these steps:
 
 ## Cookbook-based enrollment
 
-With cookbook-based enrollment, you enroll nodes from the client side by uploading a [cookbook](https://docs.chef.io/cookbooks/) with enrollment settings to Chef Infra Server and then Chef Infra Client enrolls the node with Chef 360 SaaS.
+With cookbook-based enrollment, you enroll nodes from the client side by uploading a [cookbook](/cookbooks/) with enrollment settings to Chef Infra Server and then Chef Infra Client enrolls the node with Chef 360 SaaS.
 
 ### Enroll nodes with a cookbook
 
@@ -144,13 +144,13 @@ To configure the cookbooks and define enrollment settings, follow these steps:
     chef generate cookbook <COOKBOOK_NAME>
     ```
 
-   In the [`metadata.rb` file](https://docs.chef.io/config_rb_metadata/) of your wrapper cookbook, add the following dependency to include the `chef-cookbook-enroll` cookbook:
+   In the [`metadata.rb` file](/config_rb_metadata/) of your wrapper cookbook, add the following dependency to include the `chef-cookbook-enroll` cookbook:
 
     ```ruby
     depends 'chef360-node-enroll', '~> 1.0.0'
     ```
 
-1. Create a copy of the Chef 360 SaaS public key and add it to the wrapper cookbook's `files` directory:
+1. Copy of the Chef 360 SaaS public key and add it to your wrapper cookbook:
 
     ```plaintext
     -----BEGIN CERTIFICATE-----
@@ -177,14 +177,6 @@ To configure the cookbooks and define enrollment settings, follow these steps:
     ```
 
     This public key expires on March 18, 2029.
-
-1. Create an attribute file that includes the path to the public key. For example:
-
-    ```ruby
-    default['enroll']['root_ca'] = '<COOKBOOK_NAME>/files/default/root_ca.pem'
-    ```
-
-    Replace `<COOKBOOK_NAME>` with the name of the wrapper cookbook.
 
 1. Generate an access key and secret key:
 
@@ -216,8 +208,6 @@ To configure the cookbooks and define enrollment settings, follow these steps:
     }
     ```
 
-1. Store the access key and secret key using an [encrypted Chef data bag](https://docs.chef.io/data_bags/) or with a [secrets manager](https://docs.chef.io/infra_language/secrets/).
-
 1. Define the `node_management_enroll` resource in your wrapper cookbook's recipe:
 
     ```ruby
@@ -229,8 +219,8 @@ To configure the cookbooks and define enrollment settings, follow these steps:
       secret_key '<SECRET_KEY>'
       cohort_id '<COHORT_ID>'
       hab_builder_url '<HABITAT_BUILDER_URL>'
-      working_dir_path '<VALID_DIR_PATH>'
       root_ca <CHEF_360_SAAS_PUBLIC_KEY>
+      working_dir_path '<VALID_DIR_PATH>'
       upgrade_skills <UPGRADE_SKILLS>
     end
     ```
@@ -240,30 +230,30 @@ To configure the cookbooks and define enrollment settings, follow these steps:
     - `<CHEF_360_FQDN>` with the fully qualified domain name (FQDN) for your Chef 360 SaaS deployment.
     - `<ENROLLMENT_TYPE>` with either `full` or `partial` depending on the form of enrollment. Use `full` unless you must `partial`.
     - `<API_PORT>` with the API port configured in Chef 360 SaaS. The default value is `31000`.
-    - `<ACCESS_KEY>` with the access key for secure communication with Chef 360 SaaS.
-    - `<SECRET_KEY>` with the secret key for secure communication with Chef 360 SaaS.
+    - `<ACCESS_KEY>` with the access key for secure communication with Chef 360 SaaS. This should be stored using an [encrypted Chef data bag](/data_bags/) or [secrets manager](/infra_language/secrets/).
+    - `<SECRET_KEY>` with the secret key for secure communication with Chef 360 SaaS. This should be stored using an [encrypted Chef data bag](/data_bags/) or [secrets manager](/infra_language/secrets/).
     - `<COHORT_ID>` with a valid cohort UUID. The cohort defines all skills and settings installed on the node.
     - `<HABITAT_BUILDER_URL>` with the URL of the Chef Habitat Builder used by your organization. Default value: `https://bldr.habitat.sh`
+    - `<CHEF_360_SAAS_PUBLIC_KEY>` if TLS is enabled, with the root CA public key. For example, `node['enroll']['root_ca']`.
     - `<VALID_DIR_PATH>` with a temporary working directory where all required builds are downloaded. Specify a valid path based on the OS. Default value: `/tmp`.
-    - `<CHEF_360_SAAS_PUBLIC_KEY>` with the attribute for the root CA public key. For example, `node['enroll']['root_ca']`.
     - `<UPGRADE_SKILLS>` with `true` or `false`. If `true`, Chef 360 SaaS checks for the latest skill versions and installs them if found. Default value: `false`.
 
 1. Push the wrapper cookbook or policy to the Chef Infra Server.
 
-    1. If you're using a role, [upload](https://docs.chef.io/workstation/knife_cookbook/#upload) the wrapper cookbook to the Chef Infra Server:
+    1. If you're using a role, [upload](/workstation/knife_cookbook/#upload) the wrapper cookbook to the Chef Infra Server:
 
         ```bash
         knife cookbook upload <WRAPPER_COOKBOOK_NAME> --cookbook-path <WRAPPER_COOKBOOK_DIR_PATH>
         ```
 
-    1. If you're using a Policyfile, [create `Policyfile.lock.json` file](https://docs.chef.io/workstation/ctl_chef/#chef-install) and [push](https://docs.chef.io/workstation/ctl_chef/#chef-push) the Policyfile to Chef Infra Server:
+    1. If you're using a Policyfile, [create `Policyfile.lock.json` file](/workstation/ctl_chef/#chef-install) and [push](/workstation/ctl_chef/#chef-push) the Policyfile to Chef Infra Server:
 
         ```bash
         chef install
         chef push <POLICY_GROUP> <POLICYFILE>
         ```
 
-1. Include the wrapper cookbook in your node's run-list by adding it to a role or Policyfile. See the [run-list](https://docs.chef.io/run_lists/) and [role](https://docs.chef.io/roles/#manage-roles) documentation for more information.
+1. Include the wrapper cookbook in your node's run-list by adding it to a role or Policyfile. See the [run-list](/run_lists/) and [role](/roles/#manage-roles) documentation for more information.
 
    The next time Chef Infra Client runs, it executes the `node_management_enroll` resource and the node is enrolled with Chef 360 SaaS.
 
