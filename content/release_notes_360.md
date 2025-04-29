@@ -14,7 +14,7 @@ product = [""]
 
 ## Chef 360 Platform 1.3.0
 
-Release date: April 28, 2025.
+Release date: April 29, 2025.
 
 ### New features
 
