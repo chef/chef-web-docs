@@ -157,7 +157,7 @@ To create a profile, follow these steps:
 
 ## Additional information
 
-- [Chef 360 CLI reference documentation](https://docs.chef.io/360/1.2/reference/cli/)
+- [Chef 360 CLI reference documentation](https://docs.chef.io/360/1.3/reference/cli/)
 
 ## Next step
 
