@@ -214,7 +214,7 @@ To configure the cookbooks and define enrollment settings, follow these steps:
     node_management_enroll 'Enroll Node' do
       chef_platform_url '<CHEF_360_FQDN>'
       enroll_type '<ENROLLMENT_TYPE>'
-      api_port '<API_PORT>'
+      api_port '443'
       access_key '<ACCESS_KEY>'
       secret_key '<SECRET_KEY>'
       cohort_id '<COHORT_ID>'
@@ -229,7 +229,6 @@ To configure the cookbooks and define enrollment settings, follow these steps:
 
     - `<CHEF_360_FQDN>` with the fully qualified domain name (FQDN) for your Chef 360 SaaS deployment.
     - `<ENROLLMENT_TYPE>` with either `full` or `partial` depending on the form of enrollment. Use `full` unless you must `partial`.
-    - `<API_PORT>` with the API port configured in Chef 360 SaaS. The default value is `31000`.
     - `<ACCESS_KEY>` with the access key for secure communication with Chef 360 SaaS. This should be stored using an [encrypted Chef data bag](/data_bags/) or [secrets manager](/infra_language/secrets/).
     - `<SECRET_KEY>` with the secret key for secure communication with Chef 360 SaaS. This should be stored using an [encrypted Chef data bag](/data_bags/) or [secrets manager](/infra_language/secrets/).
     - `<COHORT_ID>` with a valid cohort UUID. The cohort defines all skills and settings installed on the node.
