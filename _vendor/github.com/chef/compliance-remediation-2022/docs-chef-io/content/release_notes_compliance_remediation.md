@@ -10,7 +10,14 @@ draft = false
     weight = 20
 +++
 
-## 20250403
+## 20250506
+
+### New Features
+
+- STIG Windows Server 2022 v2.3.0 (Remediation)
+- CIS Rocky Linux 8 v1.0.0 (Remediation)
+
+## 20250324
 
 ### New features
 
