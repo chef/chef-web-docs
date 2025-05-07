@@ -15,9 +15,9 @@ Use the `systemd_service` Chef InSpec audit resource to test a service using Sys
 
 ## Availability
 
-### Install
+### Installation
 
-{{< readfile file="content/inspec/reusable/md/inspec_installation.md" >}}
+{{% inspec/inspec_installation %}}
 
 ### Version
 
@@ -48,9 +48,7 @@ The path to the service manager's control may be specified for situations where 
 
 ## Matchers
 
-{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
-
-This resource has the following special matchers.
+For a full list of available matchers, please visit our [matchers page](/inspec/matchers/).
 
 ### be_enabled
 

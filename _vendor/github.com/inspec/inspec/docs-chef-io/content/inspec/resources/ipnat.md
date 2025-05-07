@@ -15,9 +15,9 @@ Use the `ipnat` Chef InSpec audit resource to test rules that are defined for `I
 
 ## Availability
 
-### Install
+### Installation
 
-{{< readfile file="content/inspec/reusable/md/inspec_installation.md" >}}
+{{% inspec/inspec_installation %}}
 
 ## Syntax
 
@@ -55,9 +55,7 @@ The rule specification must match the output of `ipnat -l` that depends on how y
 
 ## Matchers
 
-{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
-
-This resource has the following special matchers.
+For a full list of available matchers, please visit our [matchers page](/inspec/matchers/).
 
 ### have_rule
 

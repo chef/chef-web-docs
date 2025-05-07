@@ -16,9 +16,9 @@ Microsoft and application vendors use scheduled tasks to perform a variety of sy
 
 ## Availability
 
-### Install
+### Installation
 
-{{< readfile file="content/inspec/reusable/md/inspec_installation.md" >}}
+{{% inspec/inspec_installation %}}
 
 ### Version
 
@@ -92,4 +92,4 @@ Please make sure you use the full TaskName (include the prefix `\`) within your 
 
 ## Matchers
 
-{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+For a full list of available matchers, please visit our [matchers page](/inspec/matchers/).

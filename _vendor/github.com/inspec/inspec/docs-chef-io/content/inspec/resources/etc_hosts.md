@@ -15,9 +15,9 @@ Use the `etc_hosts` Chef InSpec audit resource to test rules set to match IP add
 
 ## Availability
 
-### Install
+### Installation
 
-{{< readfile file="content/inspec/reusable/md/inspec_installation.md" >}}
+{{% inspec/inspec_installation %}}
 
 ### Version
 
@@ -91,4 +91,4 @@ The `all_host_names` property returns a two-dimensional string array where each 
 
 ## Matchers
 
-{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+For a full list of available matchers, please visit our [matchers page](/inspec/matchers/).

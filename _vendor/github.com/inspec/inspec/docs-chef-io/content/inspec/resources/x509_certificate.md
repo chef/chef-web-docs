@@ -17,7 +17,7 @@ X.509 certificate uses public or private key pairs to sign and encrypt communica
 
 ## Availability
 
-### Install
+### Installation
 
 Chef InSpec distributes this resource.
 

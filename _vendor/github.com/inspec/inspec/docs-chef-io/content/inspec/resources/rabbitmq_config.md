@@ -15,9 +15,9 @@ Use the `rabbitmq_config` Chef InSpec audit resource to test configuration data 
 
 ## Availability
 
-### Install
+### Installation
 
-{{< readfile file="content/inspec/reusable/md/inspec_installation.md" >}}
+{{% inspec/inspec_installation %}}
 
 ### Version
 
@@ -48,4 +48,4 @@ The following examples show how to use this Chef InSpec audit resource.
 
 ## Matchers
 
-{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+For a full list of available matchers, please visit our [matchers page](/inspec/matchers/).

@@ -15,9 +15,9 @@ Use the `sys_info` Chef InSpec audit resource to test for operating system prope
 
 ## Availability
 
-### Install
+### Installation
 
-{{< readfile file="content/inspec/reusable/md/inspec_installation.md" >}}
+{{% inspec/inspec_installation %}}
 
 ### Version
 
@@ -101,4 +101,4 @@ Currently supported arguments to `hostname` on Linux platforms are 'full'|'f'|'f
 
 ## Matchers
 
-{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+For a full list of available matchers, please visit our [matchers page](/inspec/matchers/).

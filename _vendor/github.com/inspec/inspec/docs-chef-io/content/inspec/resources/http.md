@@ -15,9 +15,9 @@ Use the `http` Chef InSpec audit resource to test an http endpoint.
 
 ## Availability
 
-### Install
+### Installation
 
-{{< readfile file="content/inspec/reusable/md/inspec_installation.md" >}}
+{{% inspec/inspec_installation %}}
 
 ### Version
 
@@ -271,4 +271,4 @@ In Chef InSpec 2.0, the HTTP test will automatically execute remotely whenever C
 
 ## Matchers
 
-{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+For a full list of available matchers, please visit our [matchers page](/inspec/matchers/).

@@ -15,9 +15,9 @@ Grub is a boot loader on the Linux platform used to load and then transfer contr
 
 ## Availability
 
-### Install
+### Installation
 
-{{< readfile file="content/inspec/reusable/md/inspec_installation.md" >}}
+{{% inspec/inspec_installation %}}
 
 ### Version
 
@@ -108,4 +108,4 @@ The following test verifies the `ramdisk_size` for the non-default kernel:
 
 ## Matchers
 
-{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+For a full list of available matchers, please visit our [matchers page](/inspec/matchers/).

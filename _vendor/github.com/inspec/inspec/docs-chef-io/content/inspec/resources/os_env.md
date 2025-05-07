@@ -15,9 +15,9 @@ Use the `os_env` Chef InSpec audit resource to test the environment variables fo
 
 ## Availability
 
-### Install
+### Installation
 
-{{< readfile file="content/inspec/reusable/md/inspec_installation.md" >}}
+{{% inspec/inspec_installation %}}
 
 ### Version
 
@@ -84,9 +84,7 @@ Chef Habitat uses the `os_env` resource to test environment variables. The envir
 
 ## Matchers
 
-{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
-
-This resource has the following special matchers.
+For a full list of available matchers, please visit our [matchers page](/inspec/matchers/).
 
 ### content
 
