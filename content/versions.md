@@ -98,6 +98,7 @@ newer versions or products.
 | Chef Infra Server | 14.x    | Deprecated       | TBD            |
 | Chef InSpec       | 5.x     | Deprecated       | TBD            |
 | Chef Manage       | 2.5.x+  | Deprecated       | TBD            |
+| Chef Vault        | All     | Deprecated       | TBD            |
 
 ## End of Life (EOL) products
 
