@@ -9,29 +9,29 @@ parent = "chef_cloud/360/get_started"
 weight = 10
 +++
 
-This section provides quickstart guides for getting started with Chef 360 SaaS and its tools.
+This section is a quickstart guide to using Chef 360 SaaS and its tools.
 
-## Get started guides
+## How Chef 360 SaaS works
 
-Before you begin with these guides, [review the system requirements]({{< relref "system_requirements" >}}).
+Chef 360 SaaS consists of three main components:
 
-Chef 360 SaaS guides:
+- **Chef 360 SaaS CLIs**: Users use the CLIs to define and invoke Chef Courier jobs, and configure user accounts, tenants, organizations, and nodes.
+- **Chef 360 SaaS**: Manages users, organizations, and tenants, schedules and distributes Courier jobs, and monitors nodes and job results.
+- **Chef skills**: Chef 360 SaaS installs skills on each node that manage the node, execute jobs, and report to Chef 360 SaaS.
 
-- [Set up Chef 360 SaaS]({{< relref "set_up" >}})
+## What this guide covers
 
-Chef 360 Platform CLI guides:
+This guide walks you through the following steps:
 
-- [Install and register the Chef 360 Platform CLIs]({{< relref "install_cli" >}})
+1. Installing Chef 360 SaaS in a single-node Kubernetes cluster.
+1. Installing Chef 360 SaaS CLIs on a local workstation and registering it with Chef 360 SaaS.
+1. Enrolling a node with Chef 360 SaaS. Nodes can be enrolled using a Chef 360 SaaS CLI or by uploading a Chef Infra cookbook if Chef Infra Client is already installed on the node.
+1. Defining and running a basic job on a node, and reviewing the job's execution details and the results of each step.
 
-Chef Node Management guides:
+## Before you begin
 
-- [Register the Node Management agent]({{< relref "register_node_agent" >}})
-- [Define skills]({{< relref "define_skills" >}})
-- [Create a skill assembly]({{< relref "create_skill_assembly" >}})
-- [Create override settings]({{< relref "override_settings" >}})
-- [Create a node cohort]({{< relref "node_cohort" >}})
-- [Enroll nodes]({{< relref "enroll_nodes" >}})
+- Review the [Chef 360 SaaS system requirements]({{< relref "/360/saas/system_requirements.md" >}}).
 
-Chef Courier job guides:
+## Next steps
 
-- [Run jobs with Chef Courier]({{< relref "jobs" >}})
+- [Set up Chef 360 SaaS]({{< relref "/360/saas/get_started/set_up.md" >}}).

@@ -8,34 +8,46 @@ parent = "chef_cloud/360/get_started"
 weight = 110
 +++
 
-A Courier job defines the actions performed on a node or set of nodes, the schedule that the actions are performed on, and the group of nodes that the actions are performed on.
-A job can be executed multiple times across multiple nodes for multiple actions.
+A Courier job specifies the actions to perform, the schedule for execution, and the target nodes where the actions will run. Jobs can execute multiple actions, across multiple nodes, and can run multiple times as defined by the schedule.
 
-## Prerequisites
+## How jobs are executed on a node
 
-- [Nodes are enrolled]({{< relref "enroll_nodes" >}}).
+Chef 360 SaaS uses skills to execute Courier jobs.
+For example, the Courier Runner is a skill that interprets jobs and executes them, the Shell interpreter is a skill that executes shell scripts included in a job, and the Node Management agent is a skill that manages nodes and other skills.
+
+In this example, the Courier Runner skill interprets the job definition and passes a shell command to the Shell interpreter.
+
+## Before you begin
+
+- You'll need at least one [enrolled node]({{< relref "enroll_nodes.md" >}}).
 
 ## Define a job
 
-Jobs are defined using a job template, which is a file in JSON, YAML, or TOML format that tells Chef Courier the name of the job, when the job should run, the nodes that the job should run on, and the actions that the job should take.
+You define a job with a job template, which is a JSON, YAML, or TOML file that tells Chef Courier the name of the job, when the job should run, the nodes that the job should run on, and the actions that the job should take.
 
-This job template creates a job that's executed one node, it runs immediately, and it uses the `chef-platform/shell-interpreter` to run the `sleep 10` command.
+This job template creates a job that's executed on one node, it runs immediately, and runs the `sleep 10` command using the Shell interpreter skill.
 
-- Create a file called `create-job-simple.json` and with the following JSON string:
+1. Get the ID of an enrolled node:
 
-  {{% readfile file="_vendor/github.com/chef/samples/courier-job-examples/create-job-simple.json" highlight="json" %}}
+    ```sh
+    chef-node-management-cli management node find-all-nodes
+    ```
 
-  Replace `<NODE_ID>` in the JSON file with the node identifier of your enrolled node.
+1. Create a JSON file with the following job definition:
 
-## Create the job
+   {{% readfile file="_vendor/github.com/chef/samples/courier-job-examples/create-job-simple.json" highlight="json" %}}
 
-When you add the job to Chef 360 SaaS, the Courier Dispatcher sends the job definition to the Courier Runner on the specified node which determines when and how to run the job.
+    Replace the node ID in the JSON file with the node identifier of an enrolled node.
+
+## Submit the job
+
+When you send the job to Chef 360 SaaS, the Courier Dispatcher sends the job definition to the Courier Runner on the specified node which determines when and how to run the job.
 You can submit a job definition using a JSON, YAML, or TOML file. The default format is JSON.
 
 - Add the job run using the job template file:
 
   ```sh
-  chef-courier-cli scheduler jobs add-job --body-file create-job-simple.json --profile <COURIER_OPERATOR_PROFILE_NAME>
+  chef-courier-cli scheduler jobs add-job --body-file <PATH_TO_JSON_FILE> --profile <COURIER_OPERATOR_PROFILE_NAME>
   ```
 
   The default file format is JSON, you can also submit the job using YAML or TOML using the `--body-format` option. For example:
@@ -71,7 +83,6 @@ A job instance is created every time the job executes. This job is set to run im
     The response is similar to the following:
 
     ```json
-
     {
       "items": [
         {
@@ -272,7 +283,7 @@ A job run is created for each target node in a job instance.
   }
   ```
 
-## Debug Courier jobs
+## Debug Chef Courier jobs
 
 You can also review the job step details by connecting to a node with SSH and checking the Courier Runner logs.
 
@@ -289,3 +300,10 @@ For a Windows node:
 cd C:\hab\svc\courier-runner\logs
 gc .\courier-log -Wait
 ```
+
+## More information
+
+To define and run jobs, see the following documentation:
+
+- [Create a Courier job](https://docs.chef.io/360/1.3/courier/jobs/).
+- [Create a Courier job template](https://docs.chef.io/360/1.3/courier/jobs/template/).

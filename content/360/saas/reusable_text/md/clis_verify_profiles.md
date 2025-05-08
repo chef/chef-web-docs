@@ -15,7 +15,7 @@ Use these commands to verify your profiles and credentials.
       2. default
     ```
 
-    You can use `list-profile-names` subcommand with any of the Chef 360 Platform CLIs to get a list of your profiles.
+    You can use `list-profile-names` subcommand with any of the Chef 360 SaaS CLIs to get a list of your profiles.
 
 1. Get details of your default profile using the `get-default-profile` subcommand:
 
@@ -39,4 +39,4 @@ Use these commands to verify your profiles and credentials.
     Insecure = true
     ```
 
-    You can use `get-default-profile` subcommand with any of the Chef 360 Platform CLIs to get your default profile.
+    You can use `get-default-profile` subcommand with any of the Chef 360 SaaS CLIs to get your default profile.

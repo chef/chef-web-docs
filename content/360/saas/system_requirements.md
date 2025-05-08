@@ -3,8 +3,8 @@ title = "Chef 360 SaaS system requirements"
 
 [menu.cloud]
 title = "System requirements"
-identifier = "chef_cloud/360/get_started/requirements"
-parent = "chef_cloud/360/get_started"
+identifier = "chef_cloud/360/requirements"
+parent = "chef_cloud/360"
 weight = 20
 +++
 
@@ -68,11 +68,16 @@ Nodes connected to with WinRM have the following requirements:
     netsh advfirewall firewall add rule name="WinRM-HTTPS" dir=in localport=5986 protocol=TCP action=allow
     ```
 
-### Skill requirements
+## Skill requirements
 
-Chef 360 Platform skills are supported on the following platforms.
+Chef 360 SaaS skills are supported on the following platforms.
 
 | OS      | Architecture | Version                       |
 | ------- | ------------ | ----------------------------- |
 | Linux   | x86_64       | Kernel 2.6.32 or later        |
 | Windows | x86_64       | Windows Server 2019 and later |
+
+Skills have the following dependencies:
+
+- The Chef Infra Client interpreter requires that [Chef Infra Client](/chef_client_overview/) is installed on the node.
+- The InSpec interpreter requires that [Chef InSpec](/inspec/) is installed on the node.

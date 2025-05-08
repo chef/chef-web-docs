@@ -13,7 +13,7 @@ This document describes how to login and configure Chef 360 SaaS, add users, and
 ## Prerequisites
 
 - If you don't already have one, you'll need a [Chef 360 SaaS account](https://www.chef.io/products/chef-360-saas) before you can get started.
-- Review the [system requirements]({{< relref "system_requirements" >}}).
+- Review the [system requirements]({{< relref "/360/saas/system_requirements" >}}).
 
 ## Login
 
