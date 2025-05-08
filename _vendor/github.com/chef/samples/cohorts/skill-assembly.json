@@ -1,12 +1,12 @@
 {
-  "name": "my-skill-assembly",
+  "name": "sample-skill-assembly",
   "skills": [
     {
       "action": "add",
       "skill": {
         "name": "courier-runner",
         "channel": "stable",
-        "value": ["1.4.6"]
+        "value": ["1.4.7"]
       }
     },
     {
@@ -14,7 +14,7 @@
       "skill": {
         "channel": "stable",
         "name": "chef-gohai",
-        "value": ["1.2.1"]
+        "value": ["1.2.4"]
       }
     },
     {
@@ -30,7 +30,7 @@
       "skill": {
         "name": "inspec-interpreter",
         "channel": "stable",
-        "value": ["1.0.6"]
+        "value": ["1.0.7"]
       }
     },
     {
