@@ -22,6 +22,12 @@ identifier = "habitat"
   weight = 20
 
   [[menu.habitat]]
+  title = "On-prem Builder"
+  identifier = "habitat/builder/on-prem"
+  parent = "habitat"
+  weight = 25
+
+  [[menu.habitat]]
   title = "Origins"
   identifier = "habitat/origins"
   parent = "habitat"
