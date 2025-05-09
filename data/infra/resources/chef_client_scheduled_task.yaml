@@ -63,7 +63,7 @@ properties_list:
 - property: config_directory
   ruby_type: String
   required: false
-  default_value: "/etc/chef"
+  default_value: C:/chef
   description_list:
   - markdown: The path of the config directory.
 - property: daemon_options

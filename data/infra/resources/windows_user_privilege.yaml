@@ -44,7 +44,7 @@ properties_list:
   description_list:
   - markdown: An optional property to add the privilege for the specified principal. Use
       only with add and remove action. The principal can either be a user, group, or
-      [special identity](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-special-identities-groups).'
+      [special identity](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-special-identities-groups).
 - property: privilege
   ruby_type: Array, String
   required: true
@@ -106,7 +106,7 @@ examples: |
   ```ruby
   windows_user_privilege 'Create Pagefile' do
     privilege      'SeCreatePagefilePrivilege'
-    users          ['BUILTIN\Guests']
+    principal      'BUILTIN\\Guests'
     action         :remove
   end
   ```
