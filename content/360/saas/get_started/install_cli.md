@@ -10,11 +10,11 @@ parent = "chef_cloud/360/get_started"
 weight = 40
 +++
 
-This page documents how to download and install the Chef 360 Platform CLIs and register your workstation with your Chef 360 SaaS deployment.
+This page documents how to download and install the Chef 360 SaaS CLIs and register your workstation with your Chef 360 SaaS deployment.
 
 ## Prerequisites
 
-- [Chef 360 SaaS configured]({{< relref "set_up" >}}).
+- [Chef 360 SaaS is configured]({{< relref "set_up" >}}).
 - `/usr/local/bin` is present in the PATH environment variable.
 
 ## Install CLIs
@@ -142,7 +142,7 @@ To create a profile, follow these steps:
 
 1. Optional: Set your new profile as the default profile.
 
-    The Chef 360 Platform CLIs use a default profile automatically in any command that accepts the `--profile` argument.
+    The Chef 360 SaaS CLIs use a default profile automatically in any command that accepts the `--profile` argument.
     If you don't set a default profile, you will have to specify it in each command with `--profile <PROFILE_NAME>`.
 
     Set a default profile:
@@ -155,10 +155,11 @@ To create a profile, follow these steps:
 
 1. Repeat this procedure so that you have separate profiles for the Node Manager and Courier Operator roles.
 
-## Additional information
+## More information
 
-- [Chef 360 CLI reference documentation](https://docs.chef.io/360/1.3/reference/cli/)
+- [Chef 360 Platform CLI reference documentation](https://docs.chef.io/360/1.3/reference/cli).
+- [Chef 360 Platform roles documentation](https://docs.chef.io/360/1.3/administration/system_roles/)
 
 ## Next step
 
-- [Register the Node Management agent]({{< relref "register_node_agent.md" >}}).
+- [Review the node management settings]({{< relref "node_management_settings" >}})

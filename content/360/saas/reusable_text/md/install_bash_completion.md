@@ -1,4 +1,4 @@
-Each Chef 360 Platform CLI has a `completion bash` subcommand. You must install the [bash-completion package](https://github.com/scop/bash-completion) to run these subcommands.
+Each Chef 360 SaaS CLI has a `completion bash` subcommand. You must install the [bash-completion package](https://github.com/scop/bash-completion) to run these subcommands.
 
 To install and configure the bash-completion package, follow these steps:
 

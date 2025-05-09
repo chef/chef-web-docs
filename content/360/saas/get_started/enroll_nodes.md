@@ -8,31 +8,47 @@ parent = "chef_cloud/360/get_started"
 weight = 100
 +++
 
-Node enrollment brings nodes under management by Chef 360 SaaS.
+When you enroll a node into a node cohort, Chef 360 Platform installs the Chef skills and skill settings that are defined for all nodes in that cohort.
+These skills allow Chef 360 Platform to manage the node, execute Chef Courier jobs, and report back to Chef 360 Platform.
+
+Chef 360 Platform installs the following skills in the default skill assembly:
+
+- **Chef Infra Client interpreter skill**: Executes Chef Infra Client runs.
+- **Courier Runner skill**: Interprets and executes Chef Courier jobs.
+- **Gohai skill**: Reports node attribute data to Chef 360 Platform.
+- **Inspec interpreter skill**: Executes Chef InSpec audits.
+- **Node Management agent**: Manages and installs other skills on the node.
+- **Restart interpreter skill**: Restarts nodes.
+- **Shell interpreter skill**: Executes shell scripts.
+
+For more information, see the [Chef 360 skills](https://docs.chef.io/360/1.3/node_management/skills/) documentation.
+
+## Node enrollment methods
 
 This document demonstrates two different methods of node enrollment:
 
 - cookbook-based enrollment
 - single-node enrollment
 
+For more information, see the [node enrollment documentation](https://docs.chef.io/360/1.3/node_management/enroll_nodes/).
+
 {{< note >}}
 
-This version of Chef 360 SaaS doesn't support node re-enrollment.
+Chef 360 Platform doesn't support node re-enrollment.
 
 {{< /note >}}
 
-## Prerequisites
+## Role requirements
 
-- [A node cohort has been created]({{< relref "node_cohort" >}}).
+To enroll nodes, use a profile with the [node-manager role](https://docs.chef.io/360/1.3/administration/system_roles/).
 
-## Requirements
+## Before you begin
 
-Review the [node requirements]({{< relref "system_requirements#node-requirements" >}}) before enrolling nodes.
+- Review the [node requirements]({{< relref "/360/saas/system_requirements#node-requirements" >}}).
 
 ## Single-node enrollment
 
-Single-node enrollment enrolls nodes from the server side.
-With this method, you define connection and configuration details and push them up to Chef 360 SaaS, which connects to each node and installs Chef Habitat, Chef Node Management, and any skills or agents assigned to a node cohort.
+Single-node enrollment allows you to enroll nodes directly from the server side. With this method, you specify the connection and configuration details for each node and upload them to Chef 360 Platform. Chef 360 Platform then connects to each node, installs Chef Habitat, Chef Node Management, and any skills or agents associated with the node's cohort.
 
 ### Enroll Linux nodes
 
