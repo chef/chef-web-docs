@@ -96,13 +96,28 @@ Run the following steps on Bastion Host Machine:
 
 ## Config Verify
 
-1. After successful provision, run verify config command:
+### Prerequisites
 
-    ```bash
-    sudo chef-automate verify -c config.toml
-    ```
+#### * Directory Structure
 
-    To know more about config verify, you can check [Config Verify Doc page](/automate/ha_verification_check/).
+- The verification cli needs `$HOME` environment variable to be available on all nodes. 
+- If in some case its not available then as a fallback the cli will be copied over to `/home/<ssh_user name>/`.
+  - `ssh_user name` is read from `ssh_user` property in `config.toml`
+- Every node must have the `$HOME` directory with minimum permissions `drwx------`.
+
+#### * Permission Requirements
+
+- The specified SSH user must have:
+  - Read (r), write (w), and execute (x) permissions.
+  - Ownership of the directory.
+
+After successful provision, run verify config command:
+
+```bash
+sudo chef-automate verify -c config.toml
+```
+
+To learn more about Config Verify, check the [Config Verify Doc page](/automate/ha_verification_check/).
 
 ## Steps to Deploy
 

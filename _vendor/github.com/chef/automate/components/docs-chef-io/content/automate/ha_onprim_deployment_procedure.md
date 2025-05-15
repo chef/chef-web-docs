@@ -101,15 +101,30 @@ You can also generate a configuration file using the `init-config` subcommand.
 
 ## Config Verify
 
-1. Verify the above config using the `verify` subcommand.
+### Prerequisites
 
-    ```bash
-    sudo chef-automate verify -c config.toml
-    ```
+#### * Directory Structure
 
-    To know more about config verify, check [Config Verify Documentation](/automate/ha_verification_check/).
+- The verification cli needs `$HOME` environment variable to be available on all nodes. 
+- If in some case its not available then as a fallback the cli will be copied over to `/home/<ssh_user name>/`.
+  - `ssh_user name` is read from `ssh_user` property in `config.toml`
+- Every node must have the `$HOME` directory with minimum permissions `drwx------`.
 
-    Once the verification completed successfully, proceed with the deployment. In case of failure, fix the issue and verify it by re-running the verify command.
+#### * Permission Requirements
+
+- The specified SSH user must have:
+  - Read (r), write (w), and execute (x) permissions.
+  - Ownership of the directory.
+
+Verify the above config using the `verify` subcommand.
+
+```bash
+sudo chef-automate verify -c config.toml
+```
+
+To learn more about Config Verify, check the [Config Verify Documentation](/automate/ha_verification_check/).
+
+Once the verification completed successfully, proceed with the deployment. In case of failure, fix the issue and verify it by re-running the verify command.
 
 ## Steps to Deploy
 
@@ -231,7 +246,10 @@ The bastion server can patch new configurations in all nodes. To know more see [
 - For the Frontend nodes you can use the same IP in Chef Automate and Chef Server.
 - For the Backend nodes you can use the same IP in PostgreSQL and OpenSearch.
 - To provide multiline certificates use triple quotes like `""" multiline certificate contents"""`.
-
+- Rebooting or restarting individual nodes outside a designated maintenance window should be avoided, especially during periods of high traffic.
+- This recommendation is based on our [performance benchmarking](/automate/ha_performance_benchmarks/#5-node-cluster-deployment) and is intended for customers managing up to 10,000 nodes under typical load conditions.
+- The 5 node Automate deployment pattern does not support dynamic scaling (i.e., adding or removing nodes). A 5 node deployment will always remain a 5 node setup.
+-  Transitioning to an 11 node deployment requires decommissioning the existing 5 node cluster entirely. The new 11 node architecture must be provisioned from scratch.
 {{< /note >}}
 
 ```config
