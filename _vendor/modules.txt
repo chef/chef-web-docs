@@ -8,7 +8,7 @@
 # github.com/inspec/inspec-azure/docs-chef-io v0.0.0-20240122032234-c1394fc25525
 # github.com/inspec/inspec-habitat/docs-chef-io v0.0.0-20220218210405-bfd542da49fd
 # github.com/inspec/inspec-k8s/docs-chef-io v0.0.0-20240122032042-421355eaf502
-# github.com/chef/chef-workstation/docs-chef-io v0.0.0-20250205062508-ee50345a4044
+# github.com/chef/chef-workstation/docs-chef-io v0.0.0-20250522055454-8df8550a2503
 # github.com/chef/supermarket/docs-chef-io v0.0.0-20241105172430-a362eded8f72
 # github.com/chef/effortless/docs-chef-io v0.0.0-20230711123605-c8beb79aba4f
 # github.com/chef/compliance-profiles/docs-chef-io v0.0.0-20250424114557-297ae97f62c2
