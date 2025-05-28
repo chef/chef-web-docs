@@ -10,6 +10,10 @@ draft = false
     weight = 20
 +++
 
+## 20250602
+
+CIS Windows Sever 2025 v1.0.0 (Remediation)
+
 ## 20250506
 
 ### New Features
