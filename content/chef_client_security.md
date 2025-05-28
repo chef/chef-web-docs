@@ -70,6 +70,8 @@ To use a custom CA bundle, update the environment variable to specify the path t
 
 ### client.rb file settings
 
+<!-- markdownlint-disable MD006 MD007 -->
+
 Use following [`client.rb` file]({{< relref "config_rb_client" >}}) settings to manage SSL certificate preferences:
 
 `local_key_generation`
@@ -110,6 +112,8 @@ Use following [`client.rb` file]({{< relref "config_rb_client" >}}) settings to 
   If `true`, Chef Infra Client always verifies the SSL certificate. If `false`, Chef Infra Client uses `ssl_verify_mode` to determine if the SSL certificate requires verification.
 
   Default value: `false`.
+
+<!-- markdownlint-enable MD006 MD007 -->
 
 ### knife CLI subcommands
 
