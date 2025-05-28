@@ -1,5 +1,5 @@
 +++
-title = "Chef Infra Client Security"
+title = "Chef Infra Client security"
 draft = false
 
 gh_repo = "chef-web-docs"
@@ -8,7 +8,7 @@ aliases = ["/chef_client_security.html", "/auth.html"]
 
 [menu]
   [menu.infra]
-    title = "Chef Infra Client Security"
+    title = "Chef Infra Client security"
     identifier = "chef_infra/security/chef_client_security.md Security"
     parent = "chef_infra/security"
     weight = 10
@@ -27,21 +27,21 @@ aliases = ["/chef_client_security.html", "/auth.html"]
 
 {{< readfile file="content/reusable/md/security_chef_validator_context.md" >}}
 
-## SSL Certificates
+## SSL certificates
 
 {{< readfile file="content/server/reusable/md/server_security_ssl_cert_client.md" >}}
 
-### trusted_certs Directory
+### trusted_certs directory
 
-Your organization may use a private Certificate Authority (CA) to generate SSL Certificates or they may create self-signed SSL certificates to use on internal networks or during software development and testing.
+You can use use a private certificate authority (CA) to generate SSL certificates or they may create self-signed SSL certificates to use on internal networks or during software development and testing.
 
-The `trusted_certs` directory on Chef Workstation and in Chef Infra Client works as a trusted certificate store for all communication in the Chef Infra system. Chef Infra trusts all SSL certificates stored in this directory--including certificates that aren't issued by a trusted Certificate Authority (CA).
+The `trusted_certs` directory on Chef Workstation and in Chef Infra Client works as a trusted certificate store for all communication in the Chef Infra system. Chef Infra trusts all SSL certificates stored in this directory---including certificates that aren't issued by a trusted certificate authority (CA).
 
 Place private and self-signed certificates in the `trusted_certs` directory to use them within Chef Infra Client and Workstation tools.
 
-Use the [chef_client_trusted_certificate]({{< relref "/resources/chef_client_trusted_certificate" >}}) Chef Infra Client resource to manage these certificates continuously.
+Use the [`chef_client_trusted_certificate`]({{< relref "/resources/chef_client_trusted_certificate" >}}) Chef Infra Client resource to manage these certificates continuously.
 
-#### trusted_certs Locations
+#### trusted_certs directory locations
 
 ##### Chef Workstation
 
@@ -50,7 +50,7 @@ When you install Chef Workstation, it creates a `trusted_certs` directory locate
 - Windows: `C:\.chef\trusted_certs`
 - All other systems: `~/.chef/trusted_certs`
 
-##### Chef Infra Client Nodes
+##### Chef Infra Client nodes
 
 When you bootstrap a node, the Chef Infra Client copies the SSL certificates for the Chef Infra Server onto the node. The `trusted_certs` directory on the node is located at:
 
@@ -68,70 +68,61 @@ A value for `SSL_CERT_FILE` isn't set by default. Unless updated, the locations 
 
 To use a custom CA bundle, update the environment variable to specify the path to the custom CA bundle. The first step to troubleshoot a failing SSL certificate is to verify the location of the `SSL_CERT_FILE`.
 
-### client.rb Settings
+### client.rb file settings
 
-Use following client.rb settings to manage SSL certificate preferences:
+Use following [`client.rb` file]({{< relref "config_rb_client" >}}) settings to manage SSL certificate preferences:
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Setting</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>local_key_generation</code></td>
-<td>Whether the Chef Infra Server or Chef Infra Client generates the private/public key pair. When <code>true</code>, Chef Infra Client generates the key pair, and then sends the public key to the Chef Infra Server. Default value: <code>true</code>.</td>
-</tr>
-<tr>
-<td><code>ssl_ca_file</code></td>
-<td>The file for the OpenSSL key. Chef Infra Client generates this setting automatically.</td>
-</tr>
-<tr>
-<td><code>ssl_ca_path</code></td>
-<td>The location of the OpenSSL key file. Chef Infra Client generates this setting automatically.</td>
-</tr>
-<tr>
-<td><code>ssl_client_cert</code></td>
-<td>The OpenSSL X.509 certificate for mutual certificate validation. Required for mutual certificate validation on the Chef Infra Server. Default value: <code>nil</code>.</td>
-</tr>
-<tr>
-<td><code>ssl_client_key</code></td>
-<td>The OpenSSL X.509 key used for mutual certificate validation. Required for mutual certificate validation on the Chef Infra Server. Default value: <code>nil</code>.</td>
-</tr>
-<tr>
-<td><p><code>ssl_verify_mode</code></p></td>
-<td><p>Set the verification mode for HTTPS requests. The recommended setting is<code>:verify_peer</code>. Depending on your OpenSSL configuration, you may need to set the <code>ssl_ca_path</code>. Default value: <code>:verify_peer</code>.</p>
-<ul>
-<li>Use <code>:verify_none</code> to run without validating any SSL certificates.</li>
-<li>Use <code>:verify_peer</code> to validate all SSL certificates, including the Chef Infra Server connections, S3 connections, and any HTTPS <strong>remote_file</strong> resource URLs used in a Chef Infra Client run.</li>
-</ul>
-</td>
-</tr>
-<tr>
-<td><code>verify_api_cert</code></td>
-<td>Verify the SSL certificate on the Chef Infra Server. Set to <code>true</code>, Chef Infra Client always verifies the SSL certificate. Set to <code>false</code>, Chef Infra Client uses <code>ssl_verify_mode</code> to determine if the SSL certificate requires verification. Default value: <code>false</code>.</td>
-</tr>
-</tbody>
-</table>
+`local_key_generation`
+: Whether the Chef Infra Server or Chef Infra Client generates the private/public key pair.
+  When `true`, Chef Infra Client generates the key pair and then sends the public key to the Chef Infra Server.
 
-### Knife Subcommands
+  Default value: `true`.
+
+`ssl_ca_file`
+: The file for the OpenSSL key. Chef Infra Client generates this setting automatically.
+
+`ssl_ca_path`
+: The location of the OpenSSL key file. Chef Infra Client generates this setting automatically.
+
+`ssl_client_cert`
+: The OpenSSL X.509 certificate for mutual certificate validation. Required for mutual certificate validation on the Chef Infra Server.
+
+  Default value: `nil`.
+
+`ssl_client_key`
+: The OpenSSL X.509 key used for mutual certificate validation. Required for mutual certificate validation on the Chef Infra Server.
+
+  Default value: `nil`.
+
+`ssl_verify_mode`
+: Set the verification mode for HTTPS requests. The recommended setting is `:verify_peer`. Depending on your OpenSSL configuration, you may need to set the `ssl_ca_path`.
+
+  Allowed values:
+
+  - Use `:verify_none` to run without validating any SSL certificates.
+  - Use `:verify_peer` to validate all SSL certificates, including the Chef Infra Server connections, S3 connections, and any HTTPS `remote_file` resource URLs used in a Chef Infra Client run.
+
+  Default value: `:verify_peer`.
+
+`verify_api_cert`
+: Verify the SSL certificate on the Chef Infra Server.
+
+  If `true`, Chef Infra Client always verifies the SSL certificate. If `false`, Chef Infra Client uses `ssl_verify_mode` to determine if the SSL certificate requires verification.
+
+  Default value: `false`.
+
+### knife CLI subcommands
 
 The Chef Infra Client includes two knife commands for managing SSL certificates:
 
-- Use [knife ssl check](/workstation/knife_ssl_check/) to troubleshoot SSL certificate issues
+- Use [knife ssl check](/workstation/knife_ssl_check/) to troubleshoot SSL certificate issues.
 - Use [knife ssl fetch](/workstation/knife_ssl_fetch/) to pull down a certificate from the Chef Infra Server to the `/.chef/trusted_certs` directory on the workstation.
 
-After the workstation has the correct SSL certificate, bootstrap operations from that workstation will use the certificate in the `/.chef/trusted_certs` directory during the bootstrap operation.
+After the workstation has the correct SSL certificate, bootstrap operations from that workstation uses the certificate in the `/.chef/trusted_certs` directory during the bootstrap operation.
 
 #### knife ssl check
 
-Run the `knife ssl check` subcommand to verify the state of the SSL certificate, and then use the response to help troubleshoot issues that may be present.
+Run [`knife ssl check`]({{< relref "/workstation/knife_ssl_check/" >}}) to verify the state of the SSL certificate, and then use the response to help troubleshoot any issues.
 
 ##### Verified
 
@@ -143,8 +134,8 @@ Run the `knife ssl check` subcommand to verify the state of the SSL certificate,
 
 #### knife ssl fetch
 
-Run the `knife ssl fetch` to download the self-signed certificate from the Chef Infra Server to the `/.chef/trusted_certs` directory on a workstation.
+Run [`knife ssl fetch`]({{< relref "/workstation/knife_ssl_fetch/" >}}) to download the self-signed certificate from the Chef Infra Server to the `/.chef/trusted_certs` directory on a workstation.
 
-##### Verify Checksums
+##### Verify checksums
 
 {{< readfile file="content/workstation/reusable/md/knife_ssl_fetch_verify_certificate.md" >}}
