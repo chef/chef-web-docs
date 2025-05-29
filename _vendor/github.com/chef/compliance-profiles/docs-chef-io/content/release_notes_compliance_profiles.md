@@ -10,6 +10,17 @@ draft = false
     weight = 10
 +++
 
+## 20250528
+
+### New Features
+
+- CIS IBM AIX 7 v1.0.0 (Audits) - will cover all versions of 7.
+- CIS Windows Server 2025 v1.0.0 (Audits).
+
+### Improvements
+
+- CIS RHEL 7 v4.0.0 (Audits) fixed attribute default value warning.
+
 ## 20250403
 
 ### New Features
