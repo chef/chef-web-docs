@@ -18,8 +18,8 @@ github.com/chef/license-service/docs-chef-io v0.0.0-20250120051510-ae1de80f4621 
 github.com/chef/license-service/docs-chef-io v0.0.0-20250120051510-ae1de80f4621/go.mod h1:leNCF0KadV7zjm7YpVegNnbmWYUFXgaPKHP4tTDacos=
 github.com/chef/samples v0.0.0-20250424163637-3393187e624c h1:wjPanPVse/MWOel7hQ2tx/YVO2taon1qv6DWtfNn6Fo=
 github.com/chef/samples v0.0.0-20250424163637-3393187e624c/go.mod h1:RiMNPQ6ddrNSgTOcBrYaEVicaP52xs9TQz4RA+XTreA=
-github.com/chef/supermarket/docs-chef-io v0.0.0-20241105172430-a362eded8f72 h1:mGnH8fxL69YfwoLP+mJP5fodAukQVf0A5lmF+7Cq/64=
-github.com/chef/supermarket/docs-chef-io v0.0.0-20241105172430-a362eded8f72/go.mod h1:D+9mmEZxCwpdhZ8LrEODBWMwMufmJUubSt5NlU/lLB4=
+github.com/chef/supermarket/docs-chef-io v0.0.0-20250602140848-cded623a3f5c h1:qwUIyVKomElUxOdGjCRarkP0eRQOHA7cdgr0/X8ZQbA=
+github.com/chef/supermarket/docs-chef-io v0.0.0-20250602140848-cded623a3f5c/go.mod h1:D+9mmEZxCwpdhZ8LrEODBWMwMufmJUubSt5NlU/lLB4=
 github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90 h1:p/a5iSATj0OjrqJLX/YKxYdGXhZzW58yyyNIC4JY4S0=
 github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90/go.mod h1:N/6F0+wmdvL6k0AjqyKIncMRClKAN92atjZdTLtYMaw=
 github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20250523161510-a254ccc738ad h1:ouEmy8zUhSus+Tqi0IDVktKo6OCCGQ84xmGNsDQfKdw=
