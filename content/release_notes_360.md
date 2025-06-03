@@ -12,6 +12,40 @@ product = [""]
     weight = 10
 +++
 
+## Chef 360 Platform 1.3.1
+
+Release date: June 3, 2025
+
+### New features
+
+- You can now deploy Chef 360 Platform and use AWS RDS, S3, and Secrets Manager to host databases, file storage, and secrets.
+- You can now use Courier job templates in the Chef 360 Platform UI to get started creating common Courier jobs.
+
+### Improvements
+
+- We improved error and warning messages in the Chef 360 Platform UI so they're more self-explanatory.
+- You can now create a Courier job using the list of node IDs from the data of a Courier job instance.
+
+### Bug fixes
+
+- We fixed an issue where you couldn't log in to the Chef 360 Platform UI and received a "connect: connection refused" error message.
+
+### Security updates
+
+- We added new enforcements to handle account lockouts during brute force attacks.
+
+### Supported skill versions
+
+| Skill                         | Skill name                | Habitat package                                                                                               | Version |
+| ------------------------------|---------------------------|---------------------------------------------------------------------------------------------------------------|---------|
+| Chef Infra Client Interpreter | `chef-client-interpreter` | [chef-platform/chef-client-interpreter](https://bldr.habitat.sh/#/pkgs/chef-platform/chef-client-interpreter) | 1.0.6   |
+| Chef Inspec Interpreter       | `inspec-interpreter`      | [chef-platform/inspec-interpreter](https://bldr.habitat.sh/#/pkgs/chef-platform/inspec-interpreter)           | 1.0.7   |
+| Courier Runner                | `courier-runner`          | [chef-platform/courier-runner](https://bldr.habitat.sh/#/pkgs/chef-platform/courier-runner)                   | 1.4.9   |
+| Gohai                         | `chef-gohai`              | [chef-platform/chef-gohai](https://bldr.habitat.sh/#/pkgs/chef-platform/chef-gohai)                           | 1.2.7   |
+| Node Management Agent         | `node-management-agent`   | [chef-platform/node-management-agent](https://bldr.habitat.sh/#/pkgs/chef-platform/node-management-agent)     | 1.0.8   |
+| Restart Interpreter           | `restart-interpreter`     | [chef-platform/restart-interpreter](https://bldr.habitat.sh/#/pkgs/chef-platform/restart-interpreter)         | 1.0.4   |
+| Shell Interpreter             | `shell-interpreter`       | [chef-platform/shell-interpreter](https://bldr.habitat.sh/#/pkgs/chef-platform/shell-interpreter)             | 1.0.5   |
+
 ## Chef 360 Platform 1.3.0
 
 Release date: April 29, 2025.
