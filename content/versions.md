@@ -104,7 +104,7 @@ newer versions or products.
 | Product                  | Version              | Lifecycle Status | EOL Date          |
 |--------------------------|----------------------|------------------|-------------------|
 | Analytics                | All                  | EOL              | December 31, 2018 |
-| Chef Automate            | 2.x                  | EOL              | May 13, 2022      |
+| Chef Automate            | 2.x and under        | EOL              | May 13, 2022      |
 | Chef Infra Client        | 16 and under         | EOL              | November 30, 2022 |
 | Chef Compliance Server   | All                  | EOL              | December 31, 2018 |
 | ChefDK                   | All                  | EOL              | December 31, 2020 |
