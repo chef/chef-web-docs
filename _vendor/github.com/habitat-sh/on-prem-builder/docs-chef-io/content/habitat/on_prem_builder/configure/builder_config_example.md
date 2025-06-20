@@ -3,13 +3,14 @@ title = "Example builder.env configuration file"
 
 [menu]
   [menu.habitat]
-    title = "builder.env example"
-    identifier = "habitat/builder/on-prem/builder.env"
-    parent = "habitat/builder/on-prem"
+    title = "Example builder.env config file"
+    identifier = "habitat/on-prem-builder/configure/builder.env"
+    parent = "habitat/on-prem-builder/configure"
     weight = 20
 +++
 
-This show an example Chef Habitat Builder `builder.env` configuration file.
+This is an example of the Chef Habitat Builder `builder.env` configuration file.
+Also, see the [`builder.env.sample` file](https://github.com/habitat-sh/on-prem-builder/blob/main/bldr.env.sample) in the on-prem-builder repository.
 
 ```shell
 #!/bin/bash

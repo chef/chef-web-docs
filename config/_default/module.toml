@@ -90,7 +90,7 @@ workspace = ''
 
 [[imports.mounts]]
   source = "content"
-  target = "content/habitat/builder_on_prem"
+  target = "content"
 
 [[imports.mounts]]
   source = "static"
