@@ -44,6 +44,9 @@ test_theme: bundle
 test_theme_production: bundle
 	HUGO_MODULE_WORKSPACE=hugo.work hugo server --buildDrafts --noHTTPCache --buildFuture --ignoreVendorPaths "github.com/chef/chef-docs-theme" --environment production
 
+test_on_prem_builder: bundle
+	HUGO_MODULE_WORKSPACE=hugo_builder.work hugo server --buildDrafts --noHTTPCache --buildFuture --ignoreVendorPaths "github.com/habitat-sh/on-prem-builder/docs-chef-io"
+
 # https://gohugo.io/troubleshooting/audit/
 audit: bundle
 	HUGO_MINIFY_TDEWOLFF_HTML_KEEPCOMMENTS=true HUGO_ENABLEMISSINGTRANSLATIONPLACEHOLDERS=true hugo && grep -inorE "<\!-- raw HTML omitted -->|ZgotmplZ|\[i18n\]|\(<nil>\)|(&lt;nil&gt;)|hahahugo" public/
