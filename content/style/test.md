@@ -779,9 +779,9 @@ The reader should proceed with caution. Ignoring this could break their deployme
 
 ## `svg` shortcode
 
-The SVG shortcode will add an inline SVG icon to a string of text:
+The SVG shortcode adds an inline SVG icon to a string of text:
 
-Click on the web asset icon ({{< svg file="themes/docs-new/static/images/web-asset.svg" >}}).
+Click on the web asset icon ({{< svg file="_vendor/github.com/chef/chef-docs-theme/static/images/web-asset.svg" >}}).
 
 ## Buttons
 
