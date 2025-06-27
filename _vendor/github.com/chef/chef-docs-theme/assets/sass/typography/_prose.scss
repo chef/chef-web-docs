@@ -41,6 +41,9 @@
 }
 
 #main-content{
+  .material-symbols-outlined, .material-icons {
+    vertical-align: bottom;
+  }
   .index-prose {
     li {
       margin-bottom: 0;
