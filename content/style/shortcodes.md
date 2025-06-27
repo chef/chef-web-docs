@@ -423,25 +423,47 @@ To format links to headings:
 
 {{< /note >}}
 
-## `svg` shortcode
+## `icons` shortcode
 
-The svg shortcode will add an inline SVG icon to a string of text.
+The `icons` shortcode renders [Google Material Symbols](https://fonts.google.com/icons) into a page.
 
-The svg shortcode takes one parameter, `file`, which is the file path to the SVG file.
+It accepts the following parameters:
 
-For example:
+`icon`
+: The Material Symbols icon name.
+
+`class`
+: Add the icon class.
+
+  Required value: `material-symbols-outlined`
+
+  Optional value: `icon-filled`. This renders the filled version of the icon.
+
+### Examples
+
+To add an icon, define the class and icon name. For example, this adds [Material Symbols description icon](https://fonts.google.com/icons?selected=Material+Symbols+Outlined:description:FILL@0;wght@400;GRAD@0;opsz@24&icon.query=description&icon.size=24&icon.color=%231f1f1f&icon.set=Material+Symbols&icon.style=Outlined):
 
 ```md
-Click on the web asset icon ({{</* svg file="/static/images/web-asset.svg" */>}}).
+Download {{</* icons class="material-symbols-outlined" icon="description" */>}} the file.
 ```
 
-produces:
+Which looks like this:
 
-Click on the web asset icon ({{< svg file="/static/images/web-asset.svg" >}}).
+Download {{< icons class="material-symbols-outlined" icon="description" >}} the file.
+
+You can add the [filled description icon](https://fonts.google.com/icons?selected=Material+Symbols+Outlined:description:FILL@1;wght@400;GRAD@0;opsz@24&icon.size=24&icon.color=%231f1f1f&icon.set=Material+Symbols) by adding the `icon-filled` class:
+
+```md
+Download {{</* icons class="material-symbols-outlined icon-filled" icon="description" */>}} the file.
+```
+
+Which looks like this:
+
+Download {{< icons class="material-symbols-outlined icon-filled" icon="description" >}} the file.
 
 ## Create a new shortcode
 
-Shortcode files are written in Markdown or HTML and are stored in [`layouts/shortcodes`](https://github.com/chef/chef-web-docs/tree/main/layouts/shortcodes) or [`themes/docs-new/layouts/shortcodes`](https://github.com/chef/chef-web-docs/tree/main/themes/docs-new/layouts/shortcodes) in the `chef/chef-web-docs` repository.
+You can create shortcodes in Markdown or HTML format in [`layouts/shortcodes`](https://github.com/chef/chef-web-docs/tree/main/layouts/shortcodes) or in the [chef/chef-docs-theme repository `layouts/shortcodes` directory](https://github.com/chef/chef-docs-theme/tree/main/layouts/shortcodes).
 
 In repositories other than chef-web-docs, store shortcodes in `layouts/shortcodes/REPOSITORY_NAME/`.
 

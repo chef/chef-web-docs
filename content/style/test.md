@@ -396,12 +396,32 @@ This is a list with code blocks included with each list item:
 
 Use description lists to define commands, command flags, options, or other terms. For example:
 
+<!-- markdownlint-disable MD046 -->
+
 term
 second term with same definition
 : Term definition.
 
+  ```sh
+  echo "term definition"
+  ```
+
+  Another paragaph.
+
 plain text _(term in italics)_
 : Ex quis duis deserunt commodo.
+
+  nested item
+  : nested item description
+
+    ```sh
+    echo "nested code example"
+    ```
+
+    And another paragraph.
+
+    additional nested item
+    : This is nested three levels.
 
 `code` _(`code` in italics **and bolded text in italics**)_ **and regular bolded text**
 : Reprehenderit eu ex dolore sunt reprehenderit ut consequat amet Lorem pariatur Lorem anim.
@@ -444,6 +464,8 @@ some_term
 
 another_term
 : A bunch of text defining the term.
+
+<!-- markdownlint-enable MD046 -->
 
 ### Checklists
 
@@ -777,15 +799,33 @@ Warnings point out something that could cause harm if ignored.
 The reader should proceed with caution. Ignoring this could break their deployment.
 {{< /danger >}}
 
-## `svg` shortcode
+## `icons` shortcode
 
-The SVG shortcode adds an inline SVG icon to a string of text:
+The icons shortcode adds a [Google Material Symbols icon](https://fonts.google.com/icons) to a page:
 
-Click on the web asset icon ({{< svg file="_vendor/github.com/chef/chef-docs-theme/static/images/web-asset.svg" >}}).
+```md
+Select the web asset icon ({{</* icons class="material-symbols-outlined" icon="web_asset" */>}}).
+```
+
+Renders the following:
+
+Select the web asset icon ({{< icons class="material-symbols-outlined" icon="web_asset" >}}).
+
+```md
+Download {{</* icons class="material-symbols-outlined" icon="description" */>}} the file.
+```
+
+Download {{< icons class="material-symbols-outlined" icon="description" >}} the file.
+
+```md
+Download {{</* icons class="material-symbols-outlined icon-filled" icon="description" */>}} the file.
+```
+
+Download {{< icons class="material-symbols-outlined icon-filled" icon="description" >}} the file.
 
 ## Buttons
 
-To create a link that looks like a button, just add add the `button` class to a link tag.
+To create a link that looks like a button, just add the `button` class to a link tag.
 
 ```html
 <a href="#buttons" class="button">Link To Button Heading</a>
