@@ -8,7 +8,9 @@
 {{ if hugo.Environment | eq "development" }}
   {{- $style := resources.Get "sass/main.scss" | toCSS $options }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@0..1" rel="stylesheet" />
 {{ else }}
   {{- $style := resources.Get "sass/main.scss" | toCSS $options | minify }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@0..1" rel="stylesheet" />
 {{ end }}
