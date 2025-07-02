@@ -1,5 +1,5 @@
 +++
-title = "About on-prem Chef Habitat Builder"
+title = "About Chef Habitat On-Prem Builder"
 
 [cascade]
   [cascade.params]
@@ -8,14 +8,17 @@ title = "About on-prem Chef Habitat Builder"
 
 [menu]
   [menu.habitat]
-    title = "About on-prem Builder"
+    title = "About On-Prem Builder"
     identifier = "habitat/on-prem-builder/overview"
     parent = "habitat/on-prem-builder"
     weight = 10
 +++
 
-You can deploy Chef Habitat Builder in an on-prem environment which allows you to privately host Chef Habitat packages and associated artifacts such as keys.
-You can direct Chef Habitat clients (such as the `hab` cli, Supervisors, and Studios) to your Builder on-prem deployment, which allows you to develop, execute, and manage packages without depending on the public Chef Habitat services.
+Chef Habitat On-Prem Builder is the preferred and fully supported method for hosting and managing Habitat packages within your organization's infrastructure.
+It provides a secure, private, and compliant environment for managing your software artifacts and is ideal for both connected and air-gapped environments.
+
+You can deploy Chef Habitat On-Prem Builder and privately host Chef Habitat packages and associated artifacts such as keys.
+You can direct Chef Habitat clients (such as the `hab` cli, Supervisors, and Studios) to your On-Prem Builder deployment, which allows you to develop, execute, and manage packages without depending on the public Chef Habitat services.
 
 ## Audience
 
@@ -25,23 +28,24 @@ This documentation is for anyone who wishes to host Chef Habitat packages in the
 
 Once installed, you'll be able to do the following:
 
-- Log into your Chef Habitat Builder on-prem website.
+- Log into Chef Habitat On-Prem Builder.
 - Create origins, keys, and access tokens.
 - Invite users to origins.
 - Upload and download Chef Habitat packages.
 - Promote and demote Chef Habitat packages to channels.
-- Normal interactions of the `hab` client with the Chef Habitat Builder API.
+- Normal interactions using the `hab` client with the Chef Habitat Builder API.
 - Package builds using the `hab` client and Chef Habitat Studio.
-- Import core packages from the upstream Chef Habitat Builder.
+- Import core packages from the upstream Chef Habitat SaaS Builder.
 
-The following Chef Habitat Builder features aren't available in an on-prem deployment:
+The following Chef Habitat SaaS Builder features aren't available with On-Prem Builder:
 
-- Automate package builds.
-- Automate package exports.
+- automated package builds
+- automated package exports
 
 ## Resources
 
 - [on-prem-builder GitHub repository](https://github.com/habitat-sh/on-prem-builder)
+- [habitat GitHub repository](https://github.com/habitat-sh/habitat)
 - [Progress Chef Community](https://community.progress.com/s/products/chef)
 - [Chef Community Slack](https://community.chef.io/slack)
 - [Chef Discourse](https://discourse.chef.io/)

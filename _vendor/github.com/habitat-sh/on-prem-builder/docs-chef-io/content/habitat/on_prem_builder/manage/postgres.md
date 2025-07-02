@@ -14,12 +14,12 @@ This page describes how to back up Habitat Builder user and package data that's 
 ## Habitat Builder data overview
 
 Habitat Builder's data is lightweight, so backup and disaster recovery strategies are straightforward.
-On-prem Builder has two types of data you should back up in case of a disaster:
+On-Prem Builder has two types of data you should back up in case of a disaster:
 
 - PostgreSQL package and user metadata
 - [MinIO Habitat artifacts](../minio#minio-artifact-backups)
 
-Ideally, coordinate the backup of the entire Builder on-prem cluster at the same time.
+Ideally, coordinate the backup of the entire On-Prem Builder cluster at the same time.
 However, because Habitat Builder stores only metadata and artifacts, you have some flexibility in the timing of your backup operations.
 If a package's metadata is missing from PostgreSQL, you can repopulate it by re-uploading the package with the `--force` flag, for example:
 

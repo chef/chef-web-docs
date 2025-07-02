@@ -1,5 +1,5 @@
 +++
-title = "Connect your workstation to your Chef Habitat Builder deployment"
+title = "Connect your workstation to your Chef Habitat On-Prem Builder deployment"
 
 [menu]
   [menu.habitat]
@@ -10,7 +10,7 @@ title = "Connect your workstation to your Chef Habitat Builder deployment"
 
 +++
 
-Follow the steps below to configure your workstation to connect with your Chef Habitat Builder deployment.
+Follow the steps below to configure your workstation to connect with your Chef Habitat On-Prem Builder deployment.
 
 ## Before you begin
 
@@ -23,9 +23,9 @@ If you don't already have a token, follow these steps to generate one:
 
 ## Configure your workstation
 
-To configure your workstation to connect to your deployment of Chef Habitat Builder, set the following environment variables:
+To configure your workstation to connect to your deployment of Chef Habitat On-Prem Builder, set the following environment variables:
 
-1. Set `HAB_BLDR_URL` to the URL of your Chef Habitat Builder deployment.
+1. Set `HAB_BLDR_URL` to the URL of your Chef Habitat On-Prem Builder deployment.
    For example:
 
    ```shell
@@ -38,7 +38,7 @@ To configure your workstation to connect to your deployment of Chef Habitat Buil
     export HAB_AUTH_TOKEN=<ON_PREM_BUILDER_INSTANCE_TOKEN>
     ```
 
-1. If your Chef Habitat Builder deployment uses SSL with a self-signed or untrusted certificate, set `SSL_CERT_FILE` to the correct certificate when connecting to your Habitat Builder.
+1. If your Chef Habitat On-Prem Builder deployment uses SSL with a self-signed or untrusted certificate, set `SSL_CERT_FILE` to the correct certificate when connecting to your Habitat Builder.
 
     ```shell
     export SSL_CERT_FILE=path/to/ssl-certificate.crt

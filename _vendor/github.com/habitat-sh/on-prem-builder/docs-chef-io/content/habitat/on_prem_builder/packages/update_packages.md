@@ -38,7 +38,7 @@ This package downloads packages from the public [SaaS Habitat Builder](https://b
 
 ### Bootstrap Builder in an internet-connected environment
 
-To refresh your on-prem Builder with the latest released Habitat packages, run the following commands.
+To refresh your On-Prem Builder with the latest released Habitat packages, run the following commands.
 
 Before you begin, you will need your [personal access token](https://bldr.habitat.sh/#/profile) that you use to communicate with the public Habitat Builder and the URL of your on-prem Habitat Builder deployment.
 
@@ -68,7 +68,7 @@ Before you begin, you will need your [personal access token](https://bldr.habita
 
 For airgapped Habitat Builder deployments, `pkg-sync` can't transfer packages from the public internet to your instance. In this case, you'll download packages on an internet-connected computer, transfer them to your airgapped Habitat Builder, and bulk upload them.
 
-Follow these steps to refresh an airgapped on-prem Builder with the latest stable Habitat packages:
+Follow these steps to refresh an airgapped On-Prem Builder with the latest stable Habitat packages:
 
 1. On an internet connected machine, install the `habitat/pkg-sync` package:
 

@@ -390,7 +390,7 @@ identifier = "habitat"
   weight = 20
 
   [[habitat]]
-  title = "On-prem Builder"
+  title = "On-Prem Builder"
   identifier = "habitat/on-prem-builder"
   parent = "habitat"
   weight = 30

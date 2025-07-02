@@ -9,7 +9,7 @@ title = "Separate Habitat Builder's backend services onto separate nodes"
     weight = 60
 +++
 
-Chef Habitat Builder uses MinIO to store Habitat artifact (`.hart`) files and PostgreSQL to store package and user metadata.
+Chef Habitat On-Prem Builder uses MinIO to store Habitat artifact (`.hart`) files and PostgreSQL to store package and user metadata.
 
 You can configure Habitat Builder to run the backend components---MinIO and PostgreSQL---on separate nodes.
 

@@ -56,7 +56,7 @@ Because Habitat Builder services need to communicate across your network between
 
 ## Create a Builder config file
 
-The `bldr.env` file for your single on-prem builder node contains most of the information you need to bootstrap a new frontend and is used to configure Builder durin installation.
+The `bldr.env` file for your single On-Prem Builder node contains most of the information you need to bootstrap a new frontend and is used to configure Builder durin installation.
 
 1. On each node that you plan run as a frontend node, clone the [habitat-sh/on-prem-builder repository](https://github.com/habitat-sh/) or download and extract an [on-prem-builder release](https://github.com/habitat-sh/on-prem-builder/releases).
 

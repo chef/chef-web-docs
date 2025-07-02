@@ -9,7 +9,7 @@ title = "Configure Habitat Builder logs"
     weight = 40
 +++
 
-This page explains how to configure Chef Habitat Builder logs.
+This page explains how to configure Chef Habitat On-Prem Builder logs.
 
 ## Supported log levels
 

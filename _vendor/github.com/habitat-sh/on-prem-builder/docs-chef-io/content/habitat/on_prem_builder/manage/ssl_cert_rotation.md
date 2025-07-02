@@ -8,7 +8,7 @@ title = "Rotate Habitat Builder's SSL certificates"
   weight = 40
 +++
 
-Chef Habitat Builder's web frontend runs on NGINX using the `habitat/builder-api-proxy` service.
+Chef Habitat On-Prem Builder's web frontend runs on NGINX using the `habitat/builder-api-proxy` service.
 The NGINX config for this service loads the SSL certificate and key from `/hab/svc/builder-api-proxy/files`.
 
 ## Rotate the SSL certificate and key

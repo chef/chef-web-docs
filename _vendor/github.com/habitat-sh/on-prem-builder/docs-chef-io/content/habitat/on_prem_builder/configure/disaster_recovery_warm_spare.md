@@ -1,5 +1,5 @@
 +++
-title = "Configure Chef Habitat Builder for disaster recovery or a warm spare deployment"
+title = "Configure Chef Habitat On-Prem Builder for disaster recovery or a warm spare deployment"
 
 [menu]
   [menu.habitat]
@@ -20,7 +20,7 @@ There is no fully on-premises solution for highly available Habitat Builder serv
 
 The following architecture diagram shows how data synchronization increases the availability of the Builder API and backend for disaster recovery and warm spare scenarios.
 
-![Habitat Builder on-premises architecture](/images/habitat/on_prem_builder/builder_architecture.png)
+![Habitat On-Prem Builderises architecture](/images/habitat/on_prem_builder/builder_architecture.png)
 
 ### Synchronize components
 
@@ -36,7 +36,7 @@ Habitat Builder has two types of data you should back up in case of a disaster o
 
 Back up or replicate all data using highly available storage systems as described in the following sections.
 
-Coordinate the entire Builder on-prem cluster backups to happen together.
+Coordinate the entire On-Prem Builder cluster backups to happen together.
 However, because Builder stores only metadata and artifacts, you have some flexibility in backup timing.
 If a package's metadata is missing from PostgreSQL, you can repopulate it by re-uploading the package with the `--force` flag.
 For example:

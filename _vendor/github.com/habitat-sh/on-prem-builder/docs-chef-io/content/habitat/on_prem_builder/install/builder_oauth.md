@@ -1,15 +1,15 @@
 +++
-title = "Install Chef Habitat Builder with OAuth services"
+title = "Install Chef Habitat On-Prem Builder with OAuth services"
 
 [menu]
   [menu.habitat]
-    title = "Install Builder using OAuth provider to authenticate"
+    title = "Install Builder"
     identifier = "habitat/on-prem-builder/install/o-auth"
     parent = "habitat/on-prem-builder/install"
     weight = 40
 +++
 
-This page documents how to deploy Chef Habitat Builder with a 3rd-party OAuth provider that provides authentication services.
+This page documents how to deploy Chef Habitat On-Prem Builder with a 3rd-party OAuth provider that provides authentication services.
 
 ## Before you begin
 
@@ -17,8 +17,8 @@ Before you begin, review [Habitat Builder's system requirements](../system_requi
 
 ### Configure an OAuth provider
 
-Chef Habitat Builder on-prem supports Chef Automate v2, Azure AD (OpenID Connect), GitHub, GitLab (OpenID Connect), Okta (OpenID Connect), and Atlassian Bitbucket (cloud) OAuth providers for authentication.
-You need to set up an OAuth application for your Chef Habitat Builder on-prem instance.
+Chef Habitat On-Prem Builder supports Azure AD (OpenID Connect), GitHub, GitLab (OpenID Connect), Okta (OpenID Connect), and Atlassian Bitbucket (cloud) OAuth providers for authentication.
+You need to set up an OAuth application for your Chef Habitat On-Prem Builder instance.
 
 Before you begin, refer to the for the OAuth provider that you plan to use:
 
@@ -53,11 +53,11 @@ If you want to use Artifactory instead of MinIO for object storage, see the [Art
 
 ### Get an SSL certificate
 
-By default, Chef Habitat Builder on-prem exposes the web UI and API through HTTP.
+By default, Chef Habitat On-Prem Builder exposes the web UI and API through HTTP.
 This setup is easier for evaluation, but for a secure and permanent installation you should enable SSL on these endpoints.
 
 To prepare, get an SSL certificate.
-You can use a self-signed certificate, but if you do, you need to install the certificate in the trusted chain on client machines that use the Chef Habitat Builder UI or APIs.
+You can use a self-signed certificate, but if you do, you need to install the certificate in the trusted chain on client machines that use the Chef Habitat On-Prem Builder UI or APIs.
 
 The following example command generates a self-signed certificate with OpenSSL:
 
@@ -79,7 +79,7 @@ SSL_CERT_FILE=ssl-certificate.crt hab pkg search -u https://localhost <SEARCH_TE
 
 ### Prerequisites for airgapped environments
 
-If you're installing Chef Habitat Builder in an airgapped environment, follow the steps below to download and install Chef Habitat and Chef Habitat packages in the airgapped environment.
+If you're installing Chef Habitat On-Prem Builder in an airgapped environment, follow the steps below to download and install Chef Habitat and Chef Habitat packages in the airgapped environment.
 
 With an internet-connected computer, follow these steps:
 
@@ -151,11 +151,11 @@ In the airgapped environment, complete these steps:
     sudo hab pkg install --binlink --force /hab/cache/artifacts/core-hab-*hart
     ```
 
-## Configure Chef Habitat Builder
+## Configure Chef Habitat On-Prem Builder
 
-Chef Habitat Builder is configured with a `bldr.env` file. Follow these steps to create and edit this file:
+Chef Habitat On-Prem Builder is configured with a `bldr.env` file. Follow these steps to create and edit this file:
 
-1. On the machine where you want to install Chef Habitat Builder, clone the [habitat-sh/on-prem-builder repository](https://github.com/habitat-sh/on-prem-builder/) or download a release from the [GitHub release page](https://github.com/habitat-sh/on-prem-builder/releases).
+1. On the machine where you want to install Chef Habitat On-Prem Builder, clone the [habitat-sh/on-prem-builder repository](https://github.com/habitat-sh/on-prem-builder/) or download a release from the [GitHub release page](https://github.com/habitat-sh/on-prem-builder/releases).
 
 1. In the repository root create a copy of the sample environment file:
 
@@ -175,7 +175,7 @@ Chef Habitat Builder is configured with a `bldr.env` file. Follow these steps to
 
     - To help improve Chef Habitat, you can set `ANALYTICS_ENABLED` to `true` and optionally provide your company name.
 
-## Install Chef Habitat Builder
+## Install Chef Habitat On-Prem Builder
 
 Follow these steps:
 
@@ -185,7 +185,7 @@ Follow these steps:
     ./install.sh
     ```
 
-    If the installation succeeds, you should see output similar to the following, showing that the Chef Habitat Builder on-prem services are loaded:
+    If the installation succeeds, you should see output similar to the following, showing that the Chef Habitat On-Prem Builder services are loaded:
 
     ```shell
     hab-sup(AG): The habitat/builder-datastore service was successfully loaded
@@ -206,16 +206,16 @@ Follow these steps:
 
 ## MinIO web UI
 
-Chef Habitat Builder on-prem stores package artifacts in [MinIO](https://github.com/minio/minio).
+Chef Habitat On-Prem Builder stores package artifacts in [MinIO](https://github.com/minio/minio).
 By default, the MinIO instance is available on port 9000 or on the port you specified in your `bldr.env` file.
 You can verify that the MinIO UI is available and log in with the credentials from your `bldr.env` file.
 A bucket for storing artifacts should already exist.
 
-## Chef Habitat Builder on-prem web UI
+## Chef Habitat On-Prem Builder web UI
 
-After all services are running, the Chef Habitat Builder on-prem UI is available at the configured hostname or IP address.
+After all services are running, the Chef Habitat On-Prem Builder UI is available at the configured hostname or IP address.
 
-Go to `http://<BUILDER_HOSTNAME_OR_IP>/#/sign-in` to access the Chef Habitat Builder on-prem UI.
+Go to `http://<BUILDER_HOSTNAME_OR_IP>/#/sign-in` to access the Chef Habitat On-Prem Builder UI.
 
 You can now sign in using your configured OAuth provider.
 

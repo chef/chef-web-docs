@@ -1,5 +1,5 @@
 +++
-title = "Troubleshooting Chef Habitat Builder on-prem"
+title = "Troubleshooting Chef Habitat On-Prem Builder"
 
 [menu]
   [menu.habitat]
@@ -88,12 +88,12 @@ If you were able to sign in to the authentication provider, but unable to authen
 
 If self-signed certificates are missing, verify the following:
 
-- If your self-signed certificates are missing, copy them into the `/hab/cache/ssl` directory. The latest version of Chef Habitat Builder expects certificates in that directory.
+- If your self-signed certificates are missing, copy them into the `/hab/cache/ssl` directory. The latest version of Chef Habitat On-Prem Builder expects certificates in that directory.
 
 - Name your certificate files using the pattern `appname-cert.cert` or `appname-cert.pem`. For example, `automate-cert.cert` or `automate-cert.pem`.
 
 - Don't use `cert.pem`, which is reserved for the Chef Habitat system.
-   If you overwrite this file, Chef Habitat Builder will fail.
+   If you overwrite this file, Chef Habitat On-Prem Builder will fail.
 
 After correcting those issues, restart the Chef Habitat services:
 
@@ -142,7 +142,7 @@ sudo systemctl restart hab-sup
 ### Error "Too many open files"
 
 If you see this error in the supervisor logs, you may need to increase the file ulimit on your system.
-Chef Habitat Builder on-prem includes an expanded file limit in its systemd configuration, but some distributions (for example, CentOS 7) may require additional configuration.
+Chef Habitat On-Prem Builder includes an expanded file limit in its systemd configuration, but some distributions (for example, CentOS 7) may require additional configuration.
 
 Add the following lines to the end of your `/etc/security/limits.conf` file, then restart your system:
 
@@ -174,8 +174,8 @@ Consider allocating more resources (for example, if running on a VM) or moving t
 
 ### Error uploading large packages
 
-By default, Chef Habitat Builder has a 2 GB package limit.
-If you need to increase this limit, update the Chef Habitat Builder on-prem configuration.
+By default, Chef Habitat On-Prem Builder has a 2 GB package limit.
+If you need to increase this limit, update the Chef Habitat On-Prem Builder configuration.
 
 To change the upload limit, follow these steps:
 
@@ -211,7 +211,7 @@ HAB_CLIENT_SOCKET_TIMEOUT=360 hab pkg upload -u <BLDR_URL> -z <AUTH_TOKEN> <HART
 
 ### Package shows up in the Builder UI and `hab pkg search`, but `hab pkg install` fails
 
-If you run into a situation where you have a package populated in the Chef Habitat Builder on-prem, but it is failing to install with a `Not Found` status, it is possible that there was a prior problem with populating the MinIO backend with the package artifact.
+If you run into a situation where you have a package populated in the Chef Habitat On-Prem Builder, but it is failing to install with a `Not Found` status, it is possible that there was a prior problem with populating the MinIO backend with the package artifact.
 
 If you have the package artifact on-disk (for example, in the `hab/cache/artifacts` directory), you can try to upload the missing package again with the following command (update the parameters as appropriate):
 
@@ -221,7 +221,7 @@ hab pkg upload -u <BLDR_URL> -z <AUTH_TOKEN> --force <PACKAGE_HART_FILE>
 
 ### on-prem-archive.sh fails during `populate-depot` with `403` error when uploading core packages
 
-When you populate your Chef Habitat Builder on-prem with upstream core packages, you might see a repeated error for every package:
+When you populate your Chef Habitat On-Prem Builder with upstream core packages, you might see a repeated error for every package:
 
 ```sh
 Uploading hart files.

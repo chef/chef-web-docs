@@ -10,7 +10,7 @@ title = "Manage your MinIO artifact store"
 +++
 
 [MinIO](https://min.io/) is an open source object storage server.
-Chef Habitat Builder on-prem uses MinIO to store Habitat artifact (`.hart`) files.
+Chef Habitat On-Prem Builder uses MinIO to store Habitat artifact (`.hart`) files.
 
 ## Habitat Builder data overview
 
@@ -20,9 +20,9 @@ Builder has two types of data you should back up in case of a disaster:
 - [Habitat package and user metadata stored with PostgreSQL](../postgres#postgresql-data-backups).
 - Habitat artifacts (`.hart`) files stored by MinIO.
 
-Chef Habitat Builder on-prem supports only MinIO artifact repositories.
+Chef Habitat On-Prem Builder supports only MinIO artifact repositories.
 
-Ideally you should run the entire Builder on-prem cluster backup at the same time.
+Ideally you should run the entire On-Prem Builder cluster backup at the same time.
 However, because Builder stores only metadata and artifacts, you have some flexibility in the timing of your backup operations.
 
 ## Backup Habitat artifacts stored by MinIO

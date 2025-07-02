@@ -24,7 +24,7 @@ To use an Artifactory instance as your object store, follow these steps:
 
 1. If you don't have it already on your system, clone the [habitat-sh/on-prem-builder repository](https://github.com/habitat-sh/on-prem-builder).
 1. Update your `bldr.env` file using the Artifactory settings in [`bldr.env.sample`](https://github.com/habitat-sh/on-prem-builder/blob/main/bldr.env.sample).
-1. Install Habitat Builder on-prem as usual with the `install.sh` script.
+1. Install Habitat On-Prem Builder as usual with the `install.sh` script.
 1. Optional: Sign in to Habitat Builder, create an origin, upload some packages, and verify that the packages appear in your specified Artifactory repository.
 
 If you have issues, see the support section below.
@@ -42,4 +42,4 @@ You can view it at: `http://localhost:8081/artifactory/webapp/#/home`
 
 ## Manage Builder artifacts on Artifactory
 
-If you use Artifactory for your Habitat Builder on-prem artifact store, read about [Artifactory's best practices for disaster recovery](https://jfrog.com/whitepaper/best-practices-for-artifactory-backups-and-disaster-recovery/).
+If you use Artifactory for your Habitat On-Prem Builder artifact store, read about [Artifactory's best practices for disaster recovery](https://jfrog.com/whitepaper/best-practices-for-artifactory-backups-and-disaster-recovery/).
