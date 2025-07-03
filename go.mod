@@ -16,7 +16,7 @@ require (
 	github.com/chef/supermarket/docs-chef-io v0.0.0-20250602140848-cded623a3f5c // indirect
 	github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90 // indirect
 	github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20250702222748-96be65849ec7 // indirect
-	github.com/habitat-sh/on-prem-builder/docs-chef-io v0.0.0-20250702232836-8870f0d4bc84 // indirect
+	github.com/habitat-sh/on-prem-builder/docs-chef-io v0.0.0-20250703001430-29646637f0b2 // indirect
 	github.com/inspec/inspec-alicloud/docs-chef-io v0.0.0-20240122032124-a1d2a214e170 // indirect
 	github.com/inspec/inspec-aws/docs-chef-io v0.0.0-20240122032232-049dcf822eef // indirect
 	github.com/inspec/inspec-azure/docs-chef-io v0.0.0-20240122032234-c1394fc25525 // indirect
