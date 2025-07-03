@@ -120,6 +120,6 @@ To restore your `builder` database manually, follow these steps:
    /hab/pkgs/core/postgresql/<VERSION>/<RELEASE>/bin/pg_restore --host=<URL_OF_PG_HOST> --dbname=builder builder.dump
    ```
 
-1. Start the on-prem Habitat Builder services.
+1. Start the Habitat On-Prem Builder services.
 
 Your database data should now be restored and ready for use!

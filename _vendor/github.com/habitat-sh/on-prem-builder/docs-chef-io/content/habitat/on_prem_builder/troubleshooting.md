@@ -35,7 +35,7 @@ If the initial install fails, check that you have outgoing connectivity, and tha
 
 If you have outgoing access with a proxy, ensure that HTTPS_PROXY is set correctly in your environment.
 
-Your on-prem Habitat Builder deployment also needs the following inbound port open:
+Your Habitat On-Prem Builder deployment also needs the following inbound port open:
 
 - port 80
 

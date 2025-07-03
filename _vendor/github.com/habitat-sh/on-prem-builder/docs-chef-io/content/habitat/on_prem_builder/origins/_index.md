@@ -13,10 +13,10 @@ An origin is a unique namespace in Chef Habitat Builder where you can store, sha
 Once created, you can'tt rename an origin, but you can delete or transfer it.
 For example, the _core_ origin contains foundational packages managed and versioned by the core Chef Habitat maintainers.
 
-You can create origins in an on-prem Habitat Builder deployment.
+You can create origins in an Habitat On-Prem Builder deployment.
 [Chef's public Habitat Builder](https://bldr.habitat.sh) doesn't support creating new origins.
 
-You can join existing origins by invitation or create your own origins in an on-prem Habitat Builder deployment.
+You can join existing origins by invitation or create your own origins in an Habitat On-Prem Builder deployment.
 
 ## Chef-owned origins
 
@@ -25,7 +25,7 @@ Progress Chef maintains the following origins:
 - **core**: Hosts packages for common dependencies and compilers maintained by Progress Chef.
 - **chef**: Hosts packages for Chef products like Chef Infra Client, Chef InSpec, and Chef Automate.
 - **chef-platform**: Hosts packages for Chef 360 Platform skills.
-- **habitat**: Hosts packages required for an on-prem Habitat Builder deployment.
+- **habitat**: Hosts packages required for an Habitat On-Prem Builder deployment.
 
 ## Origin user guides
 
@@ -38,5 +38,5 @@ See the following user guides for managing Chef Habitat origins:
 
 ## More information
 
-- [Manage packages in on-prem Habitat Builder](../packages/)
+- [Manage packages in Habitat On-Prem Builder](../packages/)
 - [Habitat packages](../packages/)

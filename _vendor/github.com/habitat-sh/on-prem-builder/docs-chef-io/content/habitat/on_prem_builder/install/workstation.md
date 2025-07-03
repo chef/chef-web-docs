@@ -18,7 +18,7 @@ Before you begin, you'll need to set or create an authentication token in your H
 
 If you don't already have a token, follow these steps to generate one:
 
-1. In the top right corner of your on-prem Habitat Builder site, select your Gravatar icon, then select **Profile**.
+1. In the top right corner of your Habitat On-Prem Builder site, select your Gravatar icon, then select **Profile**.
 1. On the profile page, generate your access token and save it securely.
 
 ## Configure your workstation

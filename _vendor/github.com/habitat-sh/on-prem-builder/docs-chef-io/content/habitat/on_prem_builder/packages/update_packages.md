@@ -16,7 +16,7 @@ This document lays out the steps to take in order to perform such an update.
 
 Chef Habitat and other Chef products are moving to long-term support (LTS) channels.
 Some of the new LTS-supported packages include native packages.
-To host LTS packages, you need to configure on-prem Habitat Builder to allow native package support.
+To host LTS packages, you need to configure Habitat On-Prem Builder to allow native package support.
 
 To enable native package support, follow this step:
 
@@ -33,14 +33,14 @@ To enable native package support, follow this step:
 
 ## Bootstrap Builder with Habitat packages
 
-Use the `habitat/pkg-sync`package to install and sync packages with an on-prem Habitat Builder deployment.
+Use the `habitat/pkg-sync`package to install and sync packages with an Habitat On-Prem Builder deployment.
 This package downloads packages from the public [SaaS Habitat Builder](https://bldr.habitat.sh) and performs a bulk upload to your Habitat Builder deployment.
 
 ### Bootstrap Builder in an internet-connected environment
 
 To refresh your On-Prem Builder with the latest released Habitat packages, run the following commands.
 
-Before you begin, you will need your [personal access token](https://bldr.habitat.sh/#/profile) that you use to communicate with the public Habitat Builder and the URL of your on-prem Habitat Builder deployment.
+Before you begin, you will need your [personal access token](https://bldr.habitat.sh/#/profile) that you use to communicate with the public Habitat Builder and the URL of your Habitat On-Prem Builder deployment.
 
 1. Install the `habitat/pkg-sync` package.
 
@@ -48,7 +48,7 @@ Before you begin, you will need your [personal access token](https://bldr.habita
     sudo hab pkg install habitat/pkg-sync --channel LTS-2024
     ```
 
-1. Sync packages from the public Habitat Builder to your on-prem Habitat Builder deployment:
+1. Sync packages from the public Habitat Builder to your Habitat On-Prem Builder deployment:
 
     ```bash
     hab pkg exec habitat/pkg-sync pkg-sync \

@@ -43,9 +43,9 @@ For a large deployment (thousands of nodes):
 
 ## Configure node ports
 
-The on-prem Habitat Builder `install.sh` script supports scaling frontend nodes as a deployment pattern.
+The Habitat On-Prem Builder `install.sh` script supports scaling frontend nodes as a deployment pattern.
 You must deploy new frontend nodes on separate compute resources from your initial on-prem deployment.
-Because Habitat Builder services need to communicate across your network between the frontend and backend nodes, you need to open the following ports to these nodes to ensure your on-prem Habitat Builder works correctly:
+Because Habitat Builder services need to communicate across your network between the frontend and backend nodes, you need to open the following ports to these nodes to ensure your Habitat On-Prem Builder works correctly:
 
 - TCP 9638 - Habitat configuration gossip
 - UDP 9638 - Habitat configuration gossip
@@ -70,7 +70,7 @@ The `bldr.env` file for your single On-Prem Builder node contains most of the in
 
    - Update the values of `OAUTH_REDIRECT_URL`, `OAUTH_CLIENT_ID`, and `OAUTH_CLIENT_SECRET` to match your on-premises OAuth2 provider.
 
-   - If your on-prem Habitat Builder cluster uses cloud services and you run multiple frontend instances, set `OAUTH_REDIRECT_URL` to your load balancer.
+   - If your Habitat On-Prem Builder cluster uses cloud services and you run multiple frontend instances, set `OAUTH_REDIRECT_URL` to your load balancer.
 
    - If you don't use cloud services, update the values of `POSTGRES_HOST` and `MINIO_ENDPOINT`.
 

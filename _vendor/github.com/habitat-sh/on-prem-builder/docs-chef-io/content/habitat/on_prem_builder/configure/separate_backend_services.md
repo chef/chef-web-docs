@@ -15,7 +15,7 @@ You can configure Habitat Builder to run the backend components---MinIO and Post
 
 ## Configure node ports
 
-Because Habitat Builder services need to communicate across your network between the frontend and backend nodes, you need to open the following ports to these nodes to ensure your on-prem Habitat Builder works correctly:
+Because Habitat Builder services need to communicate across your network between the frontend and backend nodes, you need to open the following ports to these nodes to ensure your Habitat On-Prem Builder works correctly:
 
 - TCP 9638 - Habitat configuration gossip
 - UDP 9638 - Habitat configuration gossip
@@ -30,7 +30,7 @@ Habitat Builder is configured using the `bldr.env` file, which contains all the 
 
 1. If you don't already have it on your node, clone the [habitat-sh/on-prem-builder repository](https://github.com/habitat-sh/on-prem-builder/) or download and extract one of the [on-prem-builder releases](https://github.com/habitat-sh/on-prem-builder/releases).
 
-1. If your node previously ran on-prem Habitat Builder components, run the [`uninstall.sh` script](https://github.com/habitat-sh/on-prem-builder/blob/main/uninstall.sh) to clean up your environment:
+1. If your node previously ran Habitat On-Prem Builder components, run the [`uninstall.sh` script](https://github.com/habitat-sh/on-prem-builder/blob/main/uninstall.sh) to clean up your environment:
 
    ```bash
    ./uninstall.sh
@@ -72,7 +72,7 @@ Habitat Builder is configured using the `bldr.env` file, which contains all the 
 
 1. If you don't already have it on your node, clone the [habitat-sh/on-prem-builder repository](https://github.com/habitat-sh/on-prem-builder/) or download and extract one of the [on-prem-builder releases](https://github.com/habitat-sh/on-prem-builder/releases).
 
-1. If your node previously ran on-prem Habitat Builder components, run the [`uninstall.sh` script](https://github.com/habitat-sh/on-prem-builder/blob/main/uninstall.sh) to clean up your environment:
+1. If your node previously ran Habitat On-Prem Builder components, run the [`uninstall.sh` script](https://github.com/habitat-sh/on-prem-builder/blob/main/uninstall.sh) to clean up your environment:
 
    ```bash
    ./uninstall.sh

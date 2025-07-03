@@ -1,5 +1,5 @@
 +++
-title = "Manage Habitat packages in on-prem Habitat Builder"
+title = "Manage Habitat packages in Habitat On-Prem Builder"
 
 [menu]
   [menu.habitat]

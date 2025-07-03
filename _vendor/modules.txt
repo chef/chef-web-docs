@@ -1,7 +1,7 @@
 # github.com/chef/automate/components/docs-chef-io v0.0.0-20250617123043-e9e3b2463824
 # github.com/chef/desktop-config/docs-chef-io v0.0.0-20240814044820-5af667d41a43
-# github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20250702222748-96be65849ec7
-# github.com/habitat-sh/on-prem-builder/docs-chef-io v0.0.0-20250703001430-29646637f0b2
+# github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20250703193412-93daafc684a8
+# github.com/habitat-sh/on-prem-builder/docs-chef-io v0.0.0-20250703193242-204bceb9833e
 # github.com/chef/chef-server/docs-chef-io v0.0.0-20250414141619-a0fb7ff68e94
 # github.com/inspec/inspec/docs-chef-io v0.0.0-20250123110211-42364d842e34
 # github.com/inspec/inspec-alicloud/docs-chef-io v0.0.0-20240122032124-a1d2a214e170
