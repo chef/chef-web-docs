@@ -68,6 +68,7 @@ commercial agreement with Chef. Additional information is available in
 | Chef Habitat      | 0.81+                    | GA               | n/a            |
 | Chef InSpec       | 6.x                      | GA               | n/a            |
 | Chef Workstation  | 24.x (2024), 25.x (2025) | GA               | n/a            |
+| Chef 360 Platform | 1.4                     | GA               | n/a            |
 
 {{< note >}}
 
