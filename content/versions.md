@@ -62,13 +62,13 @@ commercial agreement with Chef. Additional information is available in
 
 | Product           | Version                  | Lifecycle Status | EOL Date       |
 |-------------------|--------------------------|------------------|----------------|
+| Chef 360 Platform | Latest                   | GA               | n/a            |
 | Chef Automate     | Latest                   | GA               | n/a            |
 | Chef Infra Client | 18.x                     | GA               | n/a            |
 | Chef Infra Server | 15.x                     | GA               | n/a            |
 | Chef Habitat      | 0.81+                    | GA               | n/a            |
 | Chef InSpec       | 6.x                      | GA               | n/a            |
 | Chef Workstation  | 24.x (2024), 25.x (2025) | GA               | n/a            |
-| Chef 360 Platform | 1.4                     | GA               | n/a            |
 
 {{< note >}}
 
