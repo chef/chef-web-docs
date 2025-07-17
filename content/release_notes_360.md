@@ -33,7 +33,7 @@ Release date: July 17, 2025
 
 ### Preview features
 
-- An Ansible interpreter is now available invoke Ansible commands in a Courier job. For more information, see the [Ansible interpreter documentation](https://docs.chef.io/360/1.4/courier/interpreters/ansible/).
+- An Ansible interpreter is now available to execute Ansible playbooks in a Courier job. For more information, see the [Ansible interpreter documentation](https://docs.chef.io/360/1.4/courier/interpreters/ansible/).
 
 ### Supported skill versions
 
