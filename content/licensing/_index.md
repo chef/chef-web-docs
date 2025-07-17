@@ -21,7 +21,7 @@ Before you can use distributions of Chef products, you must [accept the Chef End
 
 The following products also require a [license key](license_key):
 
-- Chef InSpec 6 or greater
+- Chef InSpec 6
 
 Licensing is available for non-profit, research, and academic organizations through a special, free, or highly discounted commercial license in [Progress Chef's Non-Profit Entitlement Program](https://www.chef.io/nonprofit-entitlement-program).
 
