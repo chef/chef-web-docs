@@ -32,6 +32,7 @@ The Chef Community Download API has the following endpoints:
 - `/versions/latest`
 - `/metadata`
 - `/download`
+- `/fileName`
 
 See the [parameters section](#parameters) below to understand the query strings used in the following endpoint descriptions.
 
@@ -112,6 +113,14 @@ The `download` endpoint downloads a particular package of a Chef product.
 
 ```plain
 https://chefdownload-community.chef.io/stable/<PRODUCT>/download?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
+```
+
+### fileName
+
+The `fileName` endpoint returns the file name.
+
+```plain
+https://chefdownload-community.chef.io/<CHANNEL>/<PRODUCT>/fileName?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
 ```
 
 ## Parameters
@@ -196,7 +205,7 @@ version	"14.15.6"
 
 ### Download directly
 
-To use cURL to download a package directly, enter the following:
+To use curl to download a package directly, enter the following:
 
 ```bash
 curl -LOJ 'https://chefdownload-community.chef.io/stable/<PRODUCT>/download?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&license_id=<LICENSE_ID>'
