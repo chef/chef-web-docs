@@ -12,6 +12,41 @@ product = [""]
     weight = 10
 +++
 
+## Chef 360 Platform 1.4.0
+
+Release date: July 17, 2025
+
+### New features
+
+- The Chef Declarative State Management (DSM) service is now included in Chef 360 Platform.
+
+  Chef DSM acts as a central repository for configuration data.
+  It manages cookbooks, policies, and metadata for nodes managed by Chef Infra Client.
+  DSM enables nodes to efficiently request and receive configuration details, ensuring streamlined deployment and management processes. For more information, see the [Chef DSM documentation](https://docs.chef.io/360/1.4/dsm/).
+
+- Node enrollment can now be performed using a binary executable directly from the nodes.
+- All tables can now be exported as CSV files using the Chef 360 Platform UI.
+
+### Improvements
+
+- Courier now supports a larger number of parallel jobs.
+
+### Preview features
+
+- An Ansible interpreter is now available invoke Ansible commands in a Courier job. For more information, see the [Ansible interpreter documentation](https://docs.chef.io/360/1.4/courier/interpreters/ansible/).
+
+### Supported skill versions
+
+| Skill                         | Skill name               | Habitat package                       | Version |
+| ----------------------------- | ------------------------ | ------------------------------------- | ------- |
+| Courier Runner                | courier-runner           | chef-platform/courier-runner          | 1.5.1   |
+| Gohai                         | chef-gohai               | chef-platform/chef-gohai              | 1.2.9   |
+| Inspec Interpreter            | inspec-interpreter       | chef-platform/inspec-interpreter      | 1.0.8   |
+| Node Management Agent         | node-management-agent    | chef-platform/node-management-agent   | 1.0.9   |
+| Restart Interpreter           | restart-interpreter      | chef-platform/restart-interpreter     | 1.0.5   |
+| Shell Interpreter             | shell-interpreter        | chef-platform/shell-interpreter       | 1.0.6   |
+| Chef Infra Client Interpreter | chef-client-interpreter  | chef-platform/chef-client-interpreter | 18.7.3  |
+
 ## Chef 360 Platform 1.3.1
 
 Release date: June 3, 2025

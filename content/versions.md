@@ -62,6 +62,7 @@ commercial agreement with Chef. Additional information is available in
 
 | Product           | Version                  | Lifecycle Status | EOL Date       |
 |-------------------|--------------------------|------------------|----------------|
+| Chef 360 Platform | Latest                   | GA               | n/a            |
 | Chef Automate     | Latest                   | GA               | n/a            |
 | Chef Infra Client | 18.x                     | GA               | n/a            |
 | Chef Infra Server | 15.x                     | GA               | n/a            |
