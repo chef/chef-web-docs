@@ -10,13 +10,22 @@ draft = false
     weight = 20
 +++
 
+## 20250722
+
+### New features
+
+- CIS RHEL 9 v2.0.0 (Remediation)
+- CIS RHEL 8 v3.0.0 (Remediation)
+- CIS Ubuntu 24.04 v1.0.0 (Remediation)
+- CIS Postgres 16 v1.0.0 (Remediation)
+
 ## 20250528
 
 CIS Windows Sever 2025 v1.0.0 (Remediation)
 
 ## 20250506
 
-### New Features
+### New features
 
 - STIG Windows Server 2022 v2.3.0 (Remediation)
 - CIS Rocky Linux 8 v1.0.0 (Remediation)
