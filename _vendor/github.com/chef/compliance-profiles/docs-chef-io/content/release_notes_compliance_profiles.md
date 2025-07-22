@@ -10,9 +10,20 @@ draft = false
     weight = 10
 +++
 
+## 20250721
+
+### New features
+
+- CIS Oracle Database 23ai v1.0.0
+
+### Improvements
+
+- CIS Red Hat Enterprise Linux 9 v2.0.0 (Audits) optimized control 5.4.2.4 for password status.
+- CIS Postgresql 16 v1.0.0 (Audits) Optimized Postgres session usage.
+
 ## 20250528
 
-### New Features
+### New features
 
 - CIS IBM AIX 7 v1.0.0 (Audits) - will cover all versions of 7.
 - CIS Windows Server 2025 v1.0.0 (Audits).
@@ -23,7 +34,7 @@ draft = false
 
 ## 20250403
 
-### New Features
+### New features
 
 - CIS Oracle Linux 8 v3.0.0 (Audits)
 - CIS Debian 12 v1.1.0 (Audits)
@@ -31,7 +42,7 @@ draft = false
 
 ## 20250206
 
-### New Features
+### New features
 
 - STIG Windows 11 v2r2(Audits)
 - STIG Kubernetes Benchmark Version 2.2 (Audits)
@@ -40,7 +51,7 @@ draft = false
 
 ## 20241210
 
-### New Features
+### New features
 
 - CIS MSSQL Server v1.1.0 (Audits)
 - CIS REHL 9 v2.0.0 (Audits)
@@ -48,7 +59,7 @@ draft = false
 
 ## 20241106
 
-### New Features
+### New features
 
 - CIS Oracle Linux 9 v2.0.0(Audits)
 - CIS Debian Linux 12 v1.0.1(Audits)
@@ -57,7 +68,7 @@ draft = false
 
 ## 20240910
 
-### New Features
+### New features
 
 - CIS Amazon Linux 2023 v1.0.0(Audits)
 - CIS Apple Mac OS 13.0 Ventura v2.0.0(Audits)
