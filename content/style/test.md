@@ -823,6 +823,12 @@ Download {{</* icons class="material-symbols-outlined icon-filled" icon="descrip
 
 Download {{< icons class="material-symbols-outlined icon-filled" icon="description" >}} the file.
 
+Icons in a list:
+
+1. List item
+1. This is an icon {{< icons class="material-symbols-outlined icon-filled" icon="description" >}} in a list item.
+1. Next list item.
+
 ## Buttons
 
 To create a link that looks like a button, just add the `button` class to a link tag.
