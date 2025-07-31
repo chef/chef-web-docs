@@ -54,7 +54,7 @@ Both the parameter sets should be provided for a valid query: `resource_group` a
 `provisioning_state`
 : State of Bastion host name creation.
 
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/virtualnetwork/bastion-hosts/get) for other properties available. Any attribute in the response may be accessed with the key names separated by dots (`.`).
+Also, see the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/virtualnetwork/bastion-hosts/get) for other available properties. You can access any attribute in the response with the key names separated by dots (`.`).
 
 ## Examples
 

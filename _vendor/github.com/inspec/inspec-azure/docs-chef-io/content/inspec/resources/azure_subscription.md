@@ -97,7 +97,7 @@ This is because of the change in the Azure API terminology. It is advised to see
 
 For properties applicable to all resources, such as `type` and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/resources/subscriptions/get#subscription) for other properties available.  Any attribute in the response may be accessed with the key names separated by dots (`.`). For example, `properties.<attribute>`.
+Also, see the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/resources/subscriptions/get#subscription) for other available properties.  You can access any attribute in the response with the key names separated by dots (`.`). For example, `properties.<attribute>`.
 
 ## Examples
 

@@ -66,12 +66,12 @@ Either one of the parameter sets can be provided for a valid query:
 `properties.diskSizeBytes`
 : The size of the disk in bytes.
 
-<superscript>*</superscript> The disk can still be encrypted at rest with a platform key, even though the `encryption_enabled` is `nil`. It is recommended to see [here](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disk-encryption) for more details on disk encryption.
+<superscript>*</superscript> The disk can still be encrypted at rest with a platform key, even though the `encryption_enabled` is `nil`. See the [Azure Virtual Machines Server-side encryption documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disk-encryption) for more details on disk encryption.
 
 For properties applicable to all resources, such as `type`, `name`, `location`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/compute/disks/get#disk) for other properties available.
-Any attribute in the response may be accessed with the key names separated by dots (`.`). For example, `properties.<attribute>`.
+Also, see the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/compute/disks/get#disk) for other available properties.
+You can access any attribute in the response with the key names separated by dots (`.`). For example, `properties.<attribute>`.
 
 ## Examples
 

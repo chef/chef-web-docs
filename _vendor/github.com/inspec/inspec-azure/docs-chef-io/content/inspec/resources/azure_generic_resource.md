@@ -24,11 +24,11 @@ describe azure_generic_resource(resource_group: 'RESOURCE_GROUP', name: 'NAME') 
 end
 ```
 
-> where
->
-> - Resource parameters are used to query the Azure Resource Manager endpoint for the resource to be tested.
-> - `property` - This generic resource dynamically creates the properties on the fly based on the resource type that has been targeted.
-> - `value` - the expected output from the chosen property.
+where:
+
+- Resource parameters are used to query the Azure Resource Manager endpoint for the resource to be tested.
+- `property` - This generic resource dynamically creates the properties on the fly based on the resource type that has been targeted.
+- `value` - the expected output from the chosen property.
 
 ## Parameters
 
@@ -82,7 +82,7 @@ If the Azure Resource Manager endpoint returns multiple resources for a given qu
 
 ## Properties
 
-The properties that can be tested are dependent on the Azure Resource that is tested. One way to see what properties can be tested is by checking their API pages. For example, about virtual machines, see [here](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachines/get).
+The properties that can be tested are dependent on the Azure resource that is tested. One way to see what properties can be tested is by checking their API pages. For example, the [virtual machines API documentation](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachines/get).
 
 Also, the [Azure Resources Portal](https://resources.azure.com) can be used to select the resource you are interested in and see what can be tested.
 
@@ -174,7 +174,7 @@ describe azure_generic_resource(add_subscription_id: true, resource_uri: 'provid
 end
 ```
 
-For more examples, please see the [integration tests](/test/integration/verify/controls/azure_generic_resource.rb).
+For more examples, see the [integration tests](https://github.com/inspec/inspec-azure/blob/main/test/integration/verify/controls/azure_generic_resource.rb).
 
 ## Matchers
 

@@ -79,7 +79,7 @@ Either one of the parameter sets can be provided for a valid query:
 `tags`
 : Application-specific metadata in the form of key-value pairs.
 
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/keyvault/keys/get-key/get-key?tabs=HTTP) for more details. Any attribute in the response may be accessed with the key names separated by dots (`.`).
+Also, see the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/keyvault/keys/get-key/get-key?tabs=HTTP) for more details. You can access any attribute in the response with the key names separated by dots (`.`).
 
 ## Examples
 

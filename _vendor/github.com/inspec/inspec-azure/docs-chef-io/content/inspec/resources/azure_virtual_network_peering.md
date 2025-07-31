@@ -62,7 +62,7 @@ Either one of the parameter sets can be provided for a valid query:
 
 For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/virtualnetwork/virtual-network-peerings/get#virtualnetworkpeering) for other properties available. Any property in the response may be accessed with the key names separated by dots (`.`).
+Also, see the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/virtualnetwork/virtual-network-peerings/get#virtualnetworkpeering) for other available properties. Any property in the response may be accessed with the key names separated by dots (`.`).
 
 ## Examples
 

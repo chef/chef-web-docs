@@ -110,7 +110,7 @@ Provide the `resource_group` and `name` parameters, or the `resource_id` paramet
 `sku_family`
 : The family of the SKU. Possible values are: `UnlimitedData` and `MeteredData`.
 
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/expressroute/express-route-circuits/get) for other properties available. Any attribute in the response may be accessed with the key names separated by dots (`.`).
+Also, see the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/expressroute/express-route-circuits/get) for other available properties. You can access any attribute in the response with the key names separated by dots (`.`).
 
 ## Examples
 

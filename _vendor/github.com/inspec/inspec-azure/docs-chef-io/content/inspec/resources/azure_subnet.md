@@ -67,7 +67,7 @@ Provide one of the following parameter sets for a valid query:
 
 For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/virtualnetwork/subnets/get#subnet) for other properties available.
+Also, see the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/virtualnetwork/subnets/get#subnet) for other available properties.
 Any property in the response may be accessed with the key names separated by dots (`.`).
 
 ## Examples

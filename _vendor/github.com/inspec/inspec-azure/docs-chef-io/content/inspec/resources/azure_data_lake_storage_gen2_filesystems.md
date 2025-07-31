@@ -72,7 +72,7 @@ end
 {{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
 
 {{< /note>}}
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/storageservices/datalakestoragegen2/filesystem/list) for other properties available.
+Also, see the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/storageservices/datalakestoragegen2/filesystem/list) for other available properties.
 
 ## Examples
 
@@ -86,7 +86,7 @@ azure_data_lake_storage_gen2_filesystems(account_name: 'ACCOUNT_NAME').names.eac
 end
 ```
 
-### Test To ensure Data Lake Storage Gen2 Filesystems With ‘$account-encryption-key’ encryption scope
+### Test To ensure Data Lake Storage Gen2 Filesystems With ‘$account-encryption-key' encryption scope
 
 ```ruby
 describe azure_data_lake_storage_gen2_filesystems(account_name: 'ACCOUNT_NAME').where(DefaultEncryptionScope: '$account-encryption-key') do

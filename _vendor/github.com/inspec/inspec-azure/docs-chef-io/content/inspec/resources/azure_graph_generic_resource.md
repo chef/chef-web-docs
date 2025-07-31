@@ -28,11 +28,11 @@ describe azure_graph_generic_resource(resource: 'RESOURCE', id: 'GUID', select: 
 end
 ```
 
-> where:
->
-> - Resource parameters are used to query Azure Graph API endpoint for the resource to be tested.
-> - `property` - This generic resource dynamically creates the properties on the fly based on the property names provided with the `select` parameter.
-> - `value` is the expected output from the chosen property.
+where:
+
+- Resource parameters are used to query Azure Graph API endpoint for the resource to be tested.
+- `property` - This generic resource dynamically creates the properties on the fly based on the property names provided with the `select` parameter.
+- `value` is the expected output from the chosen property.
 
 ## Parameters
 
@@ -65,7 +65,7 @@ describe azure_graph_generic_resource(resource: 'USERS', id: 'jdoe@contoso.com',
 end
 ```
 
-For more examples, please see the [integration tests](https://github.com/inspec/inspec-azure/blob/main/test/integration/verify/controls/azure_graph_generic_resource.rb).
+For more examples, see the [integration tests](https://github.com/inspec/inspec-azure/blob/main/test/integration/verify/controls/azure_graph_generic_resource.rb).
 
 ## Matchers
 

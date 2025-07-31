@@ -83,7 +83,7 @@ end
 
 {{< /note>}}
 
-For additional information, refer to the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/power-bi/capacities/get-refreshables) for other properties available.
+For additional information, refer to the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/power-bi/capacities/get-refreshables) for other available properties.
 
 ## Examples
 

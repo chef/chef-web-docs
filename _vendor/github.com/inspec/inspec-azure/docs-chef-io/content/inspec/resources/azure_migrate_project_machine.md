@@ -79,7 +79,7 @@ The parameter set that must be provided for a valid query is `resource_group`, `
 
 For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/migrate/projects/machines/get-machine) for other properties available. 
+Also, see the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/migrate/projects/machines/get-machine) for other available properties. 
 
 Any attribute in the response nested within properties may be accessed with the key names separated by dots (`.`), and attributes nested in the **assessmentData** are pluralized and listed as a collection.
 

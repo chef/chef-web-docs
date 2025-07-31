@@ -19,7 +19,7 @@ require (
 	github.com/habitat-sh/on-prem-builder/docs-chef-io v0.0.0-20250703193242-204bceb9833e // indirect
 	github.com/inspec/inspec-alicloud/docs-chef-io v0.0.0-20240122032124-a1d2a214e170 // indirect
 	github.com/inspec/inspec-aws/docs-chef-io v0.0.0-20240122032232-049dcf822eef // indirect
-	github.com/inspec/inspec-azure/docs-chef-io v0.0.0-20240122032234-c1394fc25525 // indirect
+	github.com/inspec/inspec-azure/docs-chef-io v0.0.0-20250728075256-c374c23637d3 // indirect
 	github.com/inspec/inspec-habitat/docs-chef-io v0.0.0-20220218210405-bfd542da49fd // indirect
 	github.com/inspec/inspec-k8s/docs-chef-io v0.0.0-20240122032042-421355eaf502 // indirect
 	github.com/inspec/inspec/docs-chef-io v0.0.0-20250123110211-42364d842e34 // indirect
