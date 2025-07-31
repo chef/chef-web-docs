@@ -40,7 +40,7 @@ The following parameters can be passed for targeting specific users.
 : **Example**: `{ starts_with_given_name: 'J', starts_with_department: 'Core', country: 'United Kingdom', given_name: John}`
 
 `filter_free_text`
-: [OData](https://www.odata.org/getting-started/basic-tutorial/) query string in double quotes, `"`. Property names are in the camel case. Refer to [here](https://docs.microsoft.com/en-us/graph/query-parameters#filter-parameter) for more information.
+: [OData](https://www.odata.org/getting-started/basic-tutorial/) query string in double quotes, `"`. Property names are in the camel case. See the [Microsoft query parameters documentation](https://docs.microsoft.com/en-us/graph/query-parameters#filter-parameter) for more information.
 
 : **Example**: `"startswith(displayName,'J') and surname eq 'Doe'"` or `"userType eq 'Guest'"`
 

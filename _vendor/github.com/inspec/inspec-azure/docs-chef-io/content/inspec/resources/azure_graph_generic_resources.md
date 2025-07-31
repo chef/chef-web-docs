@@ -28,11 +28,11 @@ describe azure_graph_generic_resources(resource: 'RESOURCE', filter: {starts_wit
 end
 ```
 
-> where
->
-> - Resource parameters are used to query Azure Graph API endpoint for the resource to be tested.
-> - `property` - This generic resource dynamically creates the properties on the fly based on the type of resource that has been targeted and the parameters provided with the `select` parameter.
-> - `value` is the expected output from the chosen property.
+where:
+
+- Resource parameters are used to query Azure Graph API endpoint for the resource to be tested.
+- `property` - This generic resource dynamically creates the properties on the fly based on the type of resource that has been targeted and the parameters provided with the `select` parameter.
+- `value` is the expected output from the chosen property.
 
 ## Parameters
 

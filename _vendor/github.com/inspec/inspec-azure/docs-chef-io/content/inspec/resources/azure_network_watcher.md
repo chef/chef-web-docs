@@ -48,7 +48,7 @@ end
 : The unique resource ID.
 
 `flow_logs_api_version`
-: The flow log status endpoint API version used for creating `flow_logs` property. The latest version will be used unless provided. A network security group within the same region can be targeted for getting the flow log statuses. For more, see [here](https://docs.microsoft.com/en-us/rest/api/network-watcher/networkwatchers/getflowlogstatus).
+: The flow log status endpoint API version used for creating `flow_logs` property. The latest version will be used unless provided. A network security group within the same region can be targeted for getting the flow log statuses. For more information, see the [Azure Network Watchers Flow Log Status documentation](https://docs.microsoft.com/en-us/rest/api/network-watcher/networkwatchers/getflowlogstatus).
 
 `nsg_resource_id`
 : The unique resource ID of the network security group being targeted to get the flow log statuses. `/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups/{networkSecurityGroupName}`.
@@ -67,14 +67,14 @@ Either one of the parameter sets can be provided for a valid query:
 ## Properties
 
 `provisioning_state`
-: The provisioning state of the network watcher resource. For the valid values, see [here](https://docs.microsoft.com/en-us/rest/api/network-watcher/networkwatchers/get#provisioningstate).
+: The provisioning state of the network watcher resource. For the valid values, see the [Azure Network Watchers ProvisioningState documentation](https://docs.microsoft.com/en-us/rest/api/network-watcher/networkwatchers/get#provisioningstate).
 
 `flow_logs`
 : Information on the configuration of flow log and traffic analytics (optional) in [this format](https://docs.microsoft.com/en-us/rest/api/network-watcher/networkwatchers/getflowlogstatus#flowloginformation). All properties can be accessed via dot notation. For example, `flow_logs.properties.enabled`. This resource supports targeting network security groups defined at resource creation only.
 
 For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/network-watcher/networkwatchers/get#networkwatcher) for other properties available. Any attribute in the response may be accessed with the key names separated by dots (`.`).
+Also, see the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/network-watcher/networkwatchers/get#networkwatcher) for other available properties. You can access any attribute in the response with the key names separated by dots (`.`).
 
 ## Examples
 

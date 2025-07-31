@@ -108,7 +108,7 @@ The parameter set that should be provided for a valid query is `resource_group` 
 
 {{< /note>}}
 
-For more details on the available properties, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/migrate/projects/events/enumerate-events).
+For more details on the available properties, see the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/migrate/projects/events/enumerate-events).
 
 ## Examples
 

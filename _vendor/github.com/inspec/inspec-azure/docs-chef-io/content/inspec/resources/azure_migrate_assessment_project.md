@@ -85,7 +85,7 @@ The parameter set that should be provided for a valid query is `resource_group` 
 
 For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to the [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
-Refer to the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/migrate/assessment/projects/get) for other properties available. Access any attribute in the response by separating the key names with a period (`.`).
+Refer to the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/migrate/assessment/projects/get) for other available properties. Access any attribute in the response by separating the key names with a period (`.`).
 
 ## Examples
 

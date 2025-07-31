@@ -73,7 +73,7 @@ end
 {{< readfile file="content/inspec/reusable/md/inspec_filter_table.md" >}}
 
 {{< /note>}}
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/power-bi/apps/get-reports) for other properties available.
+Also, see the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/power-bi/apps/get-reports) for other available properties.
 
 ## Examples
 

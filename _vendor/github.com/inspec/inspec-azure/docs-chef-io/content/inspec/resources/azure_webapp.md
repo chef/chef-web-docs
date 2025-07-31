@@ -67,15 +67,15 @@ Either one of the parameter sets can be provided for a valid query along with th
 : Authentication/Authorization settings of the interrogated app with [these](https://docs.microsoft.com/en-us/rest/api/appservice/webapps/getauthsettings#siteauthsettings) properties.
 
 `configuration`
-: Configuration of an app, such as platform version, default documents, virtual applications, always on, and so on. For more see [here](https://docs.microsoft.com/en-us/rest/api/appservice/webapps/getconfiguration#siteconfigresource).
+: Configuration of an app, such as platform version, default documents, virtual applications, or always on. For more information, see the [Azure Web Apps SiteConfigResource documentation](https://docs.microsoft.com/en-us/rest/api/appservice/webapps/getconfiguration#siteconfigresource).
 
 `supported_stacks`
 : Available application frameworks and their versions with [these](https://docs.microsoft.com/en-us/rest/api/appservice/provider/getavailablestacks#applicationstackcollection) properties.
 
 For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/appservice/webapps/get#site) for other properties available.
-Any attribute in the response may be accessed with the key names separated by dots (`.`). For example, `properties.<attribute>`.
+Also, see the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/appservice/webapps/get#site) for other available properties.
+You can access any attribute in the response with the key names separated by dots (`.`). For example, `properties.<attribute>`.
 
 ## Examples
 
