@@ -646,6 +646,14 @@ which produces this:
 
 {{< readfile file="data/test/test.json" highlight="json" >}}
 
+And adding it to a list:
+
+1. List item.
+
+   {{% readfile file="data/test/test.json" highlight="json" %}}
+
+1. Next item.
+
 It also converts data between XML, JSON, YAML, and TOML if the highlight value is different from the file type. For example:
 
 ```md
@@ -667,9 +675,9 @@ If adding file text to an ordered list, you have to format and indent it correct
 
    {{%/* readfile file="data/test/test.json" highlight="json" */%}}
 
-1. The same data file:
+1. The same data file in YAML format:
 
-   {{%/* readfile file="data/test/test.json" highlight="json" */%}}
+   {{%/* readfile file="data/test/test.json" remarshal="toml" */%}}
 ```
 
 Which produces the following:
@@ -678,9 +686,9 @@ Which produces the following:
 
    {{% readfile file="data/test/test.json" highlight="json" %}}
 
-1. The same data file:
+1. The same data file in YAML format:
 
-   {{% readfile file="data/test/test.json" highlight="json" %}}
+   {{% readfile file="data/test/test.json" remarshal="toml" %}}
 
 #### HTML
 

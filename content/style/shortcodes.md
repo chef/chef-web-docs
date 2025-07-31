@@ -472,6 +472,12 @@ or:
 
 See the [full list of highlighting languages and aliases](https://gohugo.io/content-management/syntax-highlighting/#list-of-chroma-highlighting-languages) that Hugo accepts.
 
+It also converts between JSON, YAML, TOML, and XML data types using the `remarshal` option. For example:
+
+```md
+{{</* readfile file="data/test/test.json" remarshal="yaml" */>}}
+```
+
 ## `relref` shortcode
 
 We recommend using Hugo's built-in [relref shortcode](https://gohugo.io/content-management/shortcodes/#ref-and-relref) for making relative links to other pages in Chef's documentation.
