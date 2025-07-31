@@ -45,7 +45,7 @@ Release date: July 17, 2025
 | Node Management Agent         | node-management-agent    | chef-platform/node-management-agent   | 1.0.9   |
 | Restart Interpreter           | restart-interpreter      | chef-platform/restart-interpreter     | 1.0.5   |
 | Shell Interpreter             | shell-interpreter        | chef-platform/shell-interpreter       | 1.0.6   |
-| Chef Infra Client Interpreter | chef-client-interpreter  | chef-platform/chef-client-interpreter | 18.7.3  |
+| Chef Infra Client Interpreter | chef-client-interpreter  | chef-platform/chef-client-interpreter | 1.0.8   |
 
 ## Chef 360 Platform 1.3.1
 
