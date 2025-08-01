@@ -1,44 +1,56 @@
+// List styles
 #main-content-col,
 .content {
-  ul, ol {
-    margin: 1rem 0 1rem 2rem;
+
+  // Base list styles (exclude UI components)
+  ul:not([role="tablist"]):not(.accordion):not(.tabs),
+  ol {
+    margin: rem-calc(16) 0 rem-calc(16) rem-calc(32);
+
+    li:not([role="presentation"]):not(.accordion-item) {
+      margin: rem-calc(12) 0;
+    }
   }
 
+  // Ordered list specific styles
   ol {
-
-    > li > ol {
+    // Nested ordered lists use alphabetical numbering
+    li:not([role="presentation"]):not(.accordion-item) > ol {
       list-style-type: lower-alpha;
     }
 
-    > li > ul {
-      margin: 1rem 0 1rem 1rem;
+    // Nested unordered lists have reduced left margin
+    > li:not([role="presentation"]):not(.accordion-item) > ul:not([role="tablist"]):not(.accordion):not(.tabs) {
+      margin-left: rem-calc(16);
     }
   }
 
-  ul > li > p:first-child {
-    margin: 0;
-  }
-
+  // Definition lists
   dl {
-    margin: 1rem 0;
+    margin: rem-calc(16) 0;
 
+    // Definition terms
     dt {
       margin-bottom: 0;
+
       em {
         font-weight: normal;
       }
+
       code {
         font-weight: bold;
       }
     }
 
-    dl {
-      border-left: 4px solid $light-light-gray;
-      padding-left: 1rem;
+    // Definition descriptions
+    dd {
+      margin: rem-calc(16);
     }
 
-    dd {
-      margin: 1rem;
+    // Nested definition lists
+    dl {
+      border-left: rem-calc(4) solid $light-light-gray;
+      padding-left: rem-calc(16);
     }
   }
 }

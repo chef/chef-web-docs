@@ -71,76 +71,6 @@ culpa qui officia deserunt mollit anim id est laborum.
 
 <!-- markdownlint-enable MD033 -->
 
-## `readfile` shortcode
-
-Use the `readfile` shortcode to add file text to a page. This could be Markdown text or a code sample.
-
-### Markdown
-
-It's default is to add a Markdown file to a page:
-
-```md
-{{</* readfile file="path/to/markdown.md" */>}}
-```
-
-### Code highlighting
-
-It handles code highlighting. See the [Hugo documentation](https://gohugo.io/content-management/syntax-highlighting/#list-of-chroma-highlighting-languages) for a full list of syntaxes that it can highlight.
-
-You can add a JSON file like this:
-
-```md
-{{</* readfile file="data/test/test.json" highlight="json" */>}}
-```
-
-which produces this:
-
-{{< readfile file="data/test/test.json" highlight="json" >}}
-
-It also converts data between XML, JSON, YAML, and TOML if the highlight value is different from the file type. For example:
-
-```md
-{{</* readfile file="data/test/test.json" highlight="yaml" */>}}
-```
-
-Which produces this:
-
-{{< readfile file="data/test/test.json" highlight="yaml" >}}
-
-It converts the data to alphabetical order, there's no way to change this behavior.
-
-### Ordered list
-
-If adding file text to an ordered list, you have to format and indent it correctly or it won't display data correctly. Note the three spaces and Markdown shortcode style.
-
-```md
-1. A data file:
-
-   {{%/* readfile file="data/test/test.json" highlight="json" */%}}
-
-1. The same data file:
-
-   {{%/* readfile file="data/test/test.json" highlight="json" */%}}
-```
-
-Which produces the following:
-
-1. A data file:
-
-   {{% readfile file="data/test/test.json" highlight="json" %}}
-
-1. The same data file:
-
-   {{% readfile file="data/test/test.json" highlight="json" %}}
-
-### HTML
-
-You can use `html="true"` to add an HTML file:
-
-```md
-{{</* readfile file="path/to/html_file.html" html="true" */>}}
-```
-
 ## Lists
 
 Markdown doesn't have strict rules about how to process lists. These are things to keep in
@@ -474,110 +404,6 @@ Checklists are an unordered list with a checkbox.
 - [ ] This is a checklist item
 - [x] This is a selected checklist item
 
-### Tab panels
-
-<!-- markdownlint-disable MD031 -->
-
-{{< foundation_tabs tabs-id="ruby-python-go-panel" >}}
-  {{< foundation_tab active="true" panel-link="ruby-panel" tab-text="Ruby">}}
-  {{< foundation_tab panel-link="python-panel" tab-text="Python" >}}
-  {{< foundation_tab panel-link="golang-panel" tab-text="Go" >}}
-  {{< foundation_tab panel-link="note-panel" tab-text="Notes" >}}
-{{< /foundation_tabs >}}
-
-{{< foundation_tabs_panels tabs-id="ruby-python-go-panel" >}}
-  {{< foundation_tabs_panel active="true" panel-id="ruby-panel" >}}
-  ```ruby
-  puts 'Hello, world!'
-  ```
-  {{< /foundation_tabs_panel >}}
-
-  {{< foundation_tabs_panel panel-id="python-panel" >}}
-  ```python
-  print('Hello, world!')
-  ```
-  {{< /foundation_tabs_panel >}}
-  {{< foundation_tabs_panel panel-id="golang-panel" >}}
-  ```go
-  package main
-
-  import "fmt"
-
-  func main() {
-      fmt.Println("Hello, world!")
-  }
-  ```
-  {{< /foundation_tabs_panel >}}
-  {{< foundation_tabs_panel panel-id="note-panel" >}}
-  This tests how notes function in a panel.
-
-  {{< note >}}
-
-  Some words in a note.
-
-  ```ruby
-  puts 'Hello, world!'
-  ```
-
-  {{< /note >}}
-  {{< /foundation_tabs_panel >}}
-{{< /foundation_tabs_panels >}}
-
-<!-- markdownlint-enable MD031 -->
-
-### Accordions
-
-Basic two item accordion:
-
-{{< accordion-list data-multi-expand="true" data-allow-all-closed="true" >}}
-{{< accordion-item accordion-title="List item description" >}}
-Hello, world.
-{{< /accordion-item >}}
-{{< accordion-item accordion-title="Active item" is-active="true" >}}
-This is active by default
-{{< /accordion-item >}}
-{{< /accordion-list >}}
-
-Accordion in an ordered list:
-
-<!-- markdownlint-disable MD031 -->
-
-These are procedures:
-
-1. Do this.
-
-1. Do that:
-
-    {{< accordion-list data-multi-expand="true" data-allow-all-closed="true" >}}
-    {{< accordion-item accordion-title="Active item" is-active="true" >}}
-    This is active by default
-
-    ```json
-    {
-        "This": "is a sample json",
-        "for": "markdown and Hugo testing."
-    }
-    ```
-    {{< /accordion-item >}}
-    {{< /accordion-list >}}
-
-Accordion in an unordered list:
-
-This is a list:
-
-- Some text
-
-  {{< accordion-list data-multi-expand="true" data-allow-all-closed="true" >}}
-  {{< accordion-item accordion-title="List item description" >}}
-  Hello, world.
-  {{< /accordion-item >}}
-  {{< accordion-item accordion-title="Active item" is-active="true" >}}
-  This is active by default
-  {{< /accordion-item >}}
-  {{< /accordion-list >}}
-
-<!-- markdownlint-enable MD031 -->
-
 ## Code
 
 ### Code blocks
@@ -776,30 +602,107 @@ A blockquote offsets text visually, but without the visual prominence of
 > ```
 >
 
-### Admonitions
+## Buttons
 
-Admonitions (notes, warnings, etc) use Hugo shortcodes.
+To create a link that looks like a button, just add the `button` class to a link tag.
 
-{{< note >}}
-Notes catch the reader's attention without a sense of urgency.
+```html
+<a href="#buttons" class="button">Link To Button Heading</a>
+```
 
-You can have multiple paragraphs and block-level elements inside an admonition.
+<!-- markdownlint-disable MD033 -->
+<a href="#buttons" class="button">Link To Button Heading</a>
 
-| Or | a | table |
-|----|----|----|
-|Like| this | one |
+Disabled button:
 
-{{< /note >}}
+<a href="#buttons" class="button" disabled>Link To Button Heading</a>
+<!-- markdownlint-enable MD033 -->
 
-{{< warning >}}
-Warnings point out something that could cause harm if ignored.
-{{< /warning >}}
+## Shortcodes
 
-{{< danger >}}
-The reader should proceed with caution. Ignoring this could break their deployment.
-{{< /danger >}}
+### `readfile` shortcode
 
-## `icons` shortcode
+Use the `readfile` shortcode to add file text to a page. This could be Markdown text or a code sample.
+
+#### Markdown file
+
+It's default is to add a Markdown file to a page:
+
+```md
+{{</* readfile file="path/to/markdown.md" */>}}
+```
+
+#### Code highlighting
+
+It handles code highlighting. See the [Hugo documentation](https://gohugo.io/content-management/syntax-highlighting/#list-of-chroma-highlighting-languages) for a full list of syntaxes that it can highlight.
+
+You can add a JSON file like this:
+
+```md
+{{</* readfile file="data/test/test.json" highlight="json" */>}}
+```
+
+which produces this:
+
+{{< readfile file="data/test/test.json" highlight="json" >}}
+
+And adding it to a list:
+
+1. List item.
+
+   {{% readfile file="data/test/test.json" highlight="json" %}}
+
+1. Next item.
+
+It also converts data between XML, JSON, YAML, and TOML if the highlight value is different from the file type. For example:
+
+```md
+{{</* readfile file="data/test/test.json" remarshal="yaml" */>}}
+```
+
+Which produces this:
+
+{{< readfile file="data/test/test.json" remarshal="yaml" >}}
+
+It converts the data to alphabetical order, there's no way to change this behavior.
+
+#### Ordered list
+
+If adding file text to an ordered list, you have to format and indent it correctly or it won't display data correctly. Note the three spaces and Markdown shortcode style.
+
+```md
+1. A data file:
+
+   {{%/* readfile file="data/test/test.json" highlight="json" */%}}
+
+1. The same data file in YAML format:
+
+   {{%/* readfile file="data/test/test.json" remarshal="toml" */%}}
+```
+
+Which produces the following:
+
+1. A data file:
+
+   {{% readfile file="data/test/test.json" highlight="json" %}}
+
+1. The same data file in YAML format:
+
+   {{% readfile file="data/test/test.json" remarshal="toml" %}}
+
+#### HTML
+
+You can use `html="true"` to add an HTML file:
+
+```md
+{{</* readfile file="path/to/html_file.html" html="true" */>}}
+```
+
+### `fontawesome` shortcode
+
+{{< readfile file="content/style/reusable/md/fontawesome_shortcode.md" >}}
+
+### `icons` shortcode
 
 The icons shortcode adds a [Google Material Symbols icon](https://fonts.google.com/icons) to a page:
 
@@ -829,23 +732,204 @@ Icons in a list:
 1. This is an icon {{< icons class="material-symbols-outlined icon-filled" icon="description" >}} in a list item.
 1. Next list item.
 
-## Buttons
+### Foundation tabs and panels
 
-To create a link that looks like a button, just add the `button` class to a link tag.
+The following is based on [Foundation's tabs](https://get.foundation/sites/docs/tabs.html)
 
-```html
-<a href="#buttons" class="button">Link To Button Heading</a>
+<!-- markdownlint-disable MD046 MD032 -->
+
+{{< foundation_tabs tabs-id="other-ruby-python-go-panel" >}}
+  {{< foundation_tab active="true" panel-link="other-ruby-panel" tab-text="Ruby">}}
+  {{< foundation_tab panel-link="other-python-panel" tab-text="Python" >}}
+  {{< foundation_tab panel-link="other-golang-panel" tab-text="Go" >}}
+  {{< foundation_tab panel-link="other-lorem-panel" tab-text="Sit voluptate amet est fugiat cillum veniam qui quis non non veniam consequat." >}}
+  {{< foundation_tab panel-link="other-other-lorem-panel" tab-text="Cupidatat pariatur qui cillum cupidatat fugiat ad ipsum aliquip cupidatat." >}}
+  {{< foundation_tab panel-link="other-other-other-lorem-panel" tab-text="Do et sint duis reprehenderit qui dolore ut incididunt fugiat labore Lorem quis voluptate." >}}
+  {{< foundation_tab panel-link="other-more-panel" tab-text="More" >}}
+  {{< foundation_tab panel-link="other-other-more-panel" tab-text="Other More" >}}
+{{< /foundation_tabs >}}
+
+{{< foundation_tabs_panels tabs-id="other-ruby-python-go-panel" >}}
+
+{{< foundation_tabs_panel active="true" panel-id="other-ruby-panel" >}}
+
+```ruby
+puts 'Hello, world!'
 ```
 
-<!-- markdownlint-disable MD033 -->
-<a href="#buttons" class="button">Link To Button Heading</a>
+{{< /foundation_tabs_panel >}}
 
-Disabled button:
+{{< foundation_tabs_panel panel-id="other-python-panel" >}}
 
-<a href="#buttons" class="button" disabled>Link To Button Heading</a>
-<!-- markdownlint-enable MD033 -->
+```python
+print('Hello, world!')
+```
 
-## Recommend
+{{< /foundation_tabs_panel >}}
+
+{{< foundation_tabs_panel panel-id="other-golang-panel" >}}
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+   fmt.Println("Hello, world!")
+}
+```
+
+{{< /foundation_tabs_panel >}}
+
+{{< foundation_tabs_panel panel-id="other-lorem-panel" >}}
+
+Tempor minim cillum quis enim incididunt do exercitation sunt cupidatat exercitation esse elit eu.
+Elit exercitation sunt culpa anim laborum sunt elit aliqua consectetur. Officia commodo adipisicing occaecat excepteur exercitation amet exercitation officia eu qui non. Aute qui laboris aute amet minim elit magna tempor adipisicing ut eiusmod commodo occaecat sint. Exercitation occaecat pariatur elit ipsum proident incididunt reprehenderit.
+
+{{< /foundation_tabs_panel >}}
+{{< foundation_tabs_panel panel-id="other-other-lorem-panel" >}}
+
+Ea cupidatat quis fugiat minim irure esse incididunt cillum. Adipisicing qui laboris anim nostrud deserunt ad voluptate. Excepteur dolore duis commodo aute irure consequat. Aute ullamco consequat esse sit tempor aliquip pariatur exercitation. Laboris aliquip deserunt aliquip enim consequat anim veniam fugiat magna proident. Dolore minim do ea ex qui culpa et. Laborum nisi irure cupidatat quis adipisicing.
+
+{{< /foundation_tabs_panel >}}
+{{< foundation_tabs_panel panel-id="other-other-other-lorem-panel" >}}
+
+Magna ex mollit Lorem ea proident fugiat culpa qui ut eu id aliqua. Cupidatat culpa dolore in commodo officia fugiat reprehenderit et fugiat consequat nostrud culpa enim cupidatat. Dolor quis consectetur veniam dolore esse proident esse quis sint culpa anim aute.
+
+Irure est sunt cupidatat laboris. Proident irure ad Lorem enim laboris minim et exercitation commodo Lorem dolor officia. Et non consectetur occaecat labore nulla. Est ut voluptate nulla occaecat do esse magna ea.
+
+{{< /foundation_tabs_panel >}}
+{{< foundation_tabs_panel panel-id="other-more-panel" >}}
+
+Just testing to see what a lot of tabs would look like.
+
+{{< /foundation_tabs_panel >}}
+{{< foundation_tabs_panel panel-id="other-other-more-panel" >}}
+
+Looks alright.
+
+{{< /foundation_tabs_panel >}}
+{{< /foundation_tabs_panels >}}
+
+### Foundation accordion list
+
+The Accordion shortcodes create a [Foundation Framework Accordion](https://get.foundation/sites/docs/accordion.html).
+
+{{< accordion-list data-multi-expand="true" data-allow-all-closed="true" >}}
+{{< accordion-item accordion-title="List item description" >}}
+Hello, world.
+{{< /accordion-item >}}
+{{< accordion-item accordion-title="Active item" is-active="true" >}}
+This is active by default
+{{< /accordion-item >}}
+{{< /accordion-list >}}
+
+This tests [deep linking](https://get.foundation/sites/docs/accordion.html#accordion-and-urls) by setting an ID:
+
+{{< accordion-list data-multi-expand="true" data-allow-all-closed="true" id="test-deep-link" >}}
+{{< accordion-item accordion-title="List item description" accordion-title-link="test-deep-link-title-1" >}}
+This test deep linking.
+{{< /accordion-item >}}
+{{< accordion-item accordion-title="Active item" is-active="true" accordion-title-link="test-deep-link-title-2">}}
+This test deep linking and is active by default.
+{{< /accordion-item >}}
+{{< /accordion-list >}}
+
+Accordion in an ordered list:
+
+<!-- markdownlint-disable MD031 -->
+
+These are procedures:
+
+1. Do this.
+
+1. Do that:
+
+    {{< accordion-list data-multi-expand="true" data-allow-all-closed="true" >}}
+    {{< accordion-item accordion-title="Active item" is-active="true" >}}
+    This is active by default
+
+    ```json
+    {
+        "This": "is a sample json",
+        "for": "markdown and Hugo testing."
+    }
+    ```
+    {{< /accordion-item >}}
+    {{< /accordion-list >}}
+
+Accordion in an unordered list:
+
+This is a list:
+
+- Some text
+
+  {{< accordion-list data-multi-expand="true" data-allow-all-closed="true" >}}
+  {{< accordion-item accordion-title="List item description" >}}
+  Hello, world.
+  {{< /accordion-item >}}
+  {{< accordion-item accordion-title="Active item" is-active="true" >}}
+  This is active by default
+  {{< /accordion-item >}}
+  {{< /accordion-list >}}
+
+<!-- markdownlint-enable MD031 -->
+
+### highlight shortcode
+
+{{< highlight ruby >}}
+puts 'Hello, world!'
+{{< / highlight >}}
+
+### Notices
+
+#### Notes
+
+{{< note >}}
+
+This is the text of a note.
+
+{{< /note >}}
+
+#### Warnings
+
+{{< warning >}}
+
+This is text in a warning.
+
+{{< /warning >}}
+
+#### Danger
+
+{{< danger >}}
+
+This is text in a danger notice.
+
+{{< /danger >}}
+
+#### Beta
+
+{{< beta >}}
+
+This text tells the user that a feature or product is in beta.
+
+{{< /beta >}}
+
+{{< beta >}}
+
+This text tells the user that a feature or product is in beta. Ad excepteur incididunt laboris labore nisi nulla tempor nisi sunt. Do in officia deserunt magna proident minim nisi amet aute minim deserunt minim ut. Do exercitation excepteur deserunt magna elit ullamco labore eu dolore non consequat dolor. Sint reprehenderit labore veniam veniam commodo aute cupidatat nisi dolor tempor id.
+
+{{< /beta >}}
+
+{{< beta >}}
+
+The first line in multiple paragraphs gets bumped below the Beta div.
+
+Id minim deserunt et ullamco quis minim consectetur esse esse reprehenderit. Commodo exercitation consequat laboris laborum aliquip cillum veniam. Et ad dolor quis deserunt duis excepteur voluptate exercitation officia dolore minim consectetur elit.
+
+{{< /beta >}}
+
+#### Recommend
 
 Recommend shortcode blocks used in the style guide.
 
@@ -871,51 +955,3 @@ Recommend inside a list:
     {{< recommend >}}
     Back up the server.
     {{< /recommend >}}
-
-## Notices
-
-### Notes
-
-{{< note >}}
-
-This is the text of a note.
-
-{{< /note >}}
-
-### Warnings
-
-{{< warning >}}
-
-This is text in a warning.
-
-{{< /warning >}}
-
-### Danger
-
-{{< danger >}}
-
-This is text in a danger notice.
-
-{{< /danger >}}
-
-### Beta
-
-{{< beta >}}
-
-This text tells the user that a feature or product is in beta.
-
-{{< /beta >}}
-
-{{< beta >}}
-
-This text tells the user that a feature or product is in beta. Ad excepteur incididunt laboris labore nisi nulla tempor nisi sunt. Do in officia deserunt magna proident minim nisi amet aute minim deserunt minim ut. Do exercitation excepteur deserunt magna elit ullamco labore eu dolore non consequat dolor. Sint reprehenderit labore veniam veniam commodo aute cupidatat nisi dolor tempor id.
-
-{{< /beta >}}
-
-{{< beta >}}
-
-The first line in multiple paragraphs gets bumped below the Beta div.
-
-Id minim deserunt et ullamco quis minim consectetur esse esse reprehenderit. Commodo exercitation consequat laboris laborum aliquip cillum veniam. Et ad dolor quis deserunt duis excepteur voluptate exercitation officia dolore minim consectetur elit.
-
-{{< /beta >}}

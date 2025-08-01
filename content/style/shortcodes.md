@@ -16,48 +16,105 @@ This page describes shortcodes that we use in Chef documentation.
 [Shortcodes](https://gohugo.io/content-management/shortcodes/) add short snippets of Hugo code, Markdown, or HTML to a page.
 For example, the `readfile` shortcode can add a text file to a page, the `note` shortcode puts text inside an HTML div, and the [automate_cli_commands shortcode](https://github.com/chef/automate/blob/main/components/docs-chef-io/layouts/shortcodes/automate/automate_cli_commands.html) reads through YAML files and outputs formatted text from those files.
 
-## Notices
+## Accordion list
 
-Note, warning, and danger notice boxes have a different color than the surrounding text so they can be spotted within a document.
-If you must use a note or warning, bracket the text of the note or warning in a **note**, **warning**, or **danger** shortcode.
+The accordion shortcodes create a [Foundation Framework Accordion](https://get.foundation/sites/docs/accordion.html).
 
-See the [notices guidelines]({{< relref "notices" >}}) for usage recommendations.
+To add an accordion, wrap the `accordion-list` shortcode around as many `accordion-item` shortcodes as you want.
 
-### Notes
+The following example creates a basic accordion list with a single list item:
 
-Add a note using the note shortcode:
-
-```md
-{{</* note */>}}
-
-This is the text of a note.
-
-{{</* /note */>}}
+```markdown
+{{</* accordion-list */>}}
+{{</* accordion-item accordion-title="List item description" */>}}
+Hello, world.
+{{</* /accordion-item */>}}
+{{</* /accordion-list */>}}
 ```
 
-### Warnings
+### Parameters
 
-Add a warning using the warning shortcode.
+#### accordion-list parameters
 
-```md
-{{</* warning */>}}
+The `accordion-list` shortcode has the following parameters:
 
-This is text in a warning.
+`data-multi-expand`
+: Whether more than one list item can be displayed at the same time.
 
-{{</* /warning */>}}
+  Default value: `false`
+
+`data-allow-all-closed`
+: Whether all list items can be closed at the same time.
+
+  Default value: `false`
+
+`id`
+: A unique ID on the page. This adds [deep linking](https://get.foundation/sites/docs/accordion.html#deep-linking) to the list. Required if `accordion-title-link` is used in the `accordion-item`.
+
+#### accordion-item parameters
+
+The `accordion-item` shortcode has the following parameters:
+
+`accordion-title`
+: The accordion item title.
+
+`accordion-title-link`
+: A link to the accordion list item. This adds [deep linking](https://get.foundation/sites/docs/accordion.html#deep-linking) to the list item. Required if `id` is used in `accordion-list`.
+
+`is-active`
+: Whether the list item is active by default.
+
+  Default value: `false`
+
+### Examples
+
+The following example creates and accordion with two list items, the second is active by default, all items can be displayed at the same time, and both can be closed at the same time.
+
+```markdown
+{{</* accordion-list data-multi-expand="true" data-allow-all-closed="true" */>}}
+{{</* accordion-item accordion-title="List item description" */>}}
+Hello, world.
+{{</* /accordion-item */>}}
+{{</* accordion-item accordion-title="Active item" is-active="true" */>}}
+This is active by default
+{{</* /accordion-item */>}}
+{{</* /accordion-list */>}}
 ```
 
-### Danger
+Which looks like this:
 
-Add a danger notice using the danger shortcode.
+{{< accordion-list data-multi-expand="true" data-allow-all-closed="true" >}}
+{{< accordion-item accordion-title="List item description" >}}
+Hello, world.
+{{< /accordion-item >}}
+{{< accordion-item accordion-title="Active item" is-active="true" >}}
+This is active by default
+{{< /accordion-item >}}
+{{< /accordion-list >}}
 
-```md
-{{</* danger */>}}
+The following creates an accordion list with deep linking and the first item is active.
 
-This is text in a warning.
-
-{{</* /danger */>}}
+```markdown
+{{</* accordion-list id="my-accordion" data-multi-expand="true" data-allow-all-closed="true" */>}}
+  {{</* accordion-item accordion-title="Item 1" accordion-title-link="accordion-list-deep-linking-item1" is-active="true" */>}}
+    Content for item 1
+  {{</* /accordion-item */>}}
+  {{</* accordion-item accordion-title="Item 2" accordion-title-link="accordion-list-deep-linking-item2" */>}}
+    Content for item 2
+  {{</* /accordion-item */>}}
+{{</* /accordion-list */>}}
 ```
+
+Which produces this:
+
+{{< accordion-list id="my-accordion" data-multi-expand="true" data-allow-all-closed="true" >}}
+  {{< accordion-item accordion-title="Item 1" accordion-title-link="accordion-list-deep-linking-item1" is-active="true" >}}
+    Content for item 1
+  {{< /accordion-item >}}
+  {{< accordion-item accordion-title="Item 2" accordion-title-link="accordion-list-deep-linking-item2" >}}
+    Content for item 2
+  {{< /accordion-item >}}
+{{< /accordion-list >}}
 
 ## `figure` shortcode
 
@@ -284,72 +341,6 @@ and `panel-id`/`panel-link` values must be unique HTML IDs on the page.
 
 <!-- markdownlint-enable MD046 MD032 -->
 
-## Accordion list
-
-The Accordion shortcodes create a [Foundation Framework Accordion](https://get.foundation/sites/docs/accordion.html).
-
-To add an accordion, wrap the `accordion-list` shortcode around as many `accordion-item` shortcodes as you want.
-
-The following example creates an accordion list with a single list item:
-
-```markdown
-{{</* accordion-list */>}}
-{{</* accordion-item accordion-title="List item description" */>}}
-Hello, world.
-{{</* /accordion-item */>}}
-{{</* /accordion-list */>}}
-```
-
-### Parameters
-
-The `accordion-list` shortcode has the following parameters:
-
-`data-multi-expand`
-: Whether more than one list item can be displayed at the same time.
-
-  Default value: `false`
-
-`data-allow-all-closed`
-: Whether all list items can be closed at the same time.
-
-  Default value: `false`
-
-The `accordion-item` shortcode has the following parameters:
-
-`accordion-title`
-: The accordion item title.
-
-`is-active`
-: Whether the list item is active by default.
-
-  Default value: `false`
-
-### Examples
-
-The following example creates and accordion with two list items, the second is active by default, all items can be displayed at the same time, and both can be closed at the same time.
-
-```markdown
-{{</* accordion-list data-multi-expand="true" data-allow-all-closed="true" */>}}
-{{</* accordion-item accordion-title="List item description" */>}}
-Hello, world.
-{{</* /accordion-item */>}}
-{{</* accordion-item accordion-title="Active item" is-active="true" */>}}
-This is active by default
-{{</* /accordion-item */>}}
-{{</* /accordion-list */>}}
-```
-
-Which looks like this:
-
-{{< accordion-list data-multi-expand="true" data-allow-all-closed="true" >}}
-{{< accordion-item accordion-title="List item description" >}}
-Hello, world.
-{{< /accordion-item >}}
-{{< accordion-item accordion-title="Active item" is-active="true" >}}
-This is active by default
-{{< /accordion-item >}}
-{{< /accordion-list >}}
-
 ## `highlight` shortcode
 
 You can add code examples using the `highlight` shortcode.
@@ -369,59 +360,6 @@ produces:
 {{< highlight ruby >}}
 puts 'Hello, world!'
 {{< / highlight >}}
-
-## `readfile` shortcode
-
-The `readfile` shortcode adds text from a file to a page. You can add a Markdown file, HTML file, or code file by specifying the path to the file from the project root directory.
-
-By default, it accepts a Markdown file:
-
-```markdown
-{{</* readfile file="content/workstation/reusable/md/example.md" */>}}
-```
-
-You can also add an HTML file:
-
-```markdown
-{{</* readfile file="content/workstation/reusable/html/example.html" html="true" */>}}
-```
-
-You can pass in a sample code file:
-
-```markdown
-{{</* readfile file="content/workstation/reusable/rb/example.rb" highlight="ruby" */>}}
-```
-
-or:
-
-```markdown
-{{</* readfile file="content/workstation/reusable/json/example.json" highlight="json" */>}}
-```
-
-See the [full list of highlighting languages and aliases](https://gohugo.io/content-management/syntax-highlighting/#list-of-chroma-highlighting-languages) that Hugo accepts.
-
-## `relref` shortcode
-
-We recommend using Hugo's built-in [relref shortcode](https://gohugo.io/content-management/shortcodes/#ref-and-relref) for making relative links to other pages in Chef's documentation.
-If a link is made to a page that doesn't exist, the site build will fail when Hugo generates a preview of the site.
-This will help us prevent dead links in our own documentation if a page is moved or deleted.
-
-To format link to pages:
-
-- `[link text]({{</* relref "some_page" */>}})`
-- `[link text]({{</* relref "section/some_page" */>}})`
-
-To format links to headings:
-
-- `[link text]({{</* relref "#heading_on_this_page" */>}})`
-- `[link text]({{</* relref "some_page#heading_on_other_page" */>}})`
-- `[link text]({{</* relref "section/some_page#heading_on_other_page" */>}})`
-
-{{< note >}}
-
-`relref` doesn't validate links to headings, only page links. Double-check your headings when adding or updating heading links.
-
-{{< /note >}}
 
 ## `icons` shortcode
 
@@ -460,6 +398,108 @@ Download {{</* icons class="material-symbols-outlined icon-filled" icon="descrip
 Which looks like this:
 
 Download {{< icons class="material-symbols-outlined icon-filled" icon="description" >}} the file.
+
+## Notices
+
+Note, warning, and danger notice boxes have a different color than the surrounding text so they can be spotted within a document.
+If you must use a note or warning, bracket the text of the note or warning in a **note**, **warning**, or **danger** shortcode.
+
+See the [notices guidelines]({{< relref "notices" >}}) for usage recommendations.
+
+### Notes
+
+Add a note using the note shortcode:
+
+```md
+{{</* note */>}}
+
+This is the text of a note.
+
+{{</* /note */>}}
+```
+
+### Warnings
+
+Add a warning using the warning shortcode.
+
+```md
+{{</* warning */>}}
+
+This is text in a warning.
+
+{{</* /warning */>}}
+```
+
+### Danger
+
+Add a danger notice using the danger shortcode.
+
+```md
+{{</* danger */>}}
+
+This is text in a warning.
+
+{{</* /danger */>}}
+```
+
+## `readfile` shortcode
+
+The `readfile` shortcode adds text from a file to a page. You can add a Markdown file, HTML file, or code file by specifying the path to the file from the project root directory.
+
+By default, it accepts a Markdown file:
+
+```markdown
+{{</* readfile file="content/workstation/reusable/md/example.md" */>}}
+```
+
+You can also add an HTML file:
+
+```markdown
+{{</* readfile file="content/workstation/reusable/html/example.html" html="true" */>}}
+```
+
+You can pass in a sample code file:
+
+```markdown
+{{</* readfile file="content/workstation/reusable/rb/example.rb" highlight="ruby" */>}}
+```
+
+or:
+
+```markdown
+{{</* readfile file="content/workstation/reusable/json/example.json" highlight="json" */>}}
+```
+
+See the [full list of highlighting languages and aliases](https://gohugo.io/content-management/syntax-highlighting/#list-of-chroma-highlighting-languages) that Hugo accepts.
+
+It also converts between JSON, YAML, TOML, and XML data types using the `remarshal` option. For example:
+
+```md
+{{</* readfile file="data/test/test.json" remarshal="yaml" */>}}
+```
+
+## `relref` shortcode
+
+We recommend using Hugo's built-in [relref shortcode](https://gohugo.io/content-management/shortcodes/#ref-and-relref) for making relative links to other pages in Chef's documentation.
+If a link is made to a page that doesn't exist, the site build will fail when Hugo generates a preview of the site.
+This will help us prevent dead links in our own documentation if a page is moved or deleted.
+
+To format link to pages:
+
+- `[link text]({{</* relref "some_page" */>}})`
+- `[link text]({{</* relref "section/some_page" */>}})`
+
+To format links to headings:
+
+- `[link text]({{</* relref "#heading_on_this_page" */>}})`
+- `[link text]({{</* relref "some_page#heading_on_other_page" */>}})`
+- `[link text]({{</* relref "section/some_page#heading_on_other_page" */>}})`
+
+{{< note >}}
+
+`relref` doesn't validate links to headings, only page links. Double-check your headings when adding or updating heading links.
+
+{{< /note >}}
 
 ## Create a new shortcode
 

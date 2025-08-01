@@ -1,33 +1,102 @@
-// Styling for shortcode or layouts that use Foundation Framework elements.
+// Foundation Framework component overrides
+// Styles for Foundation tabs, accordions, and panels used in shortcodes
 
-// Foundation tabs and panels styling
-// foundation_tabs, foundation_tab, foundation_tabs_panels, foundation_tabs_panel
+#main-content {
 
-#main-content{
-  ul[role=tablist]{
+  // Reset list margins for Foundation components
+  ul.accordion,
+  ul[role="tablist"] {
     margin-left: 0;
+    margin-bottom: 0;
   }
 
-  ul.tabs{
-    border: 2px solid $border;
-    border-bottom: 1px solid $border;
+  // Tab navigation styling
+  ul.tabs {
     margin-bottom: 0;
-    li:before {
-      content: none;
+
+    li {
+      border: rem-calc(1) solid $border;
+      transition: border-color 0.2s ease-in-out;
+
+      &:hover,
+      &.is-active {
+        border-color: $border-dark;
+      }
+
+      // Improve accessibility with focus styles
+      &:focus-within {
+        outline: rem-calc(2) solid $primary-color;
+        outline-offset: rem-calc(2);
+      }
+
+      a {
+        padding: rem-calc(12 16);
+        text-decoration: none;
+        color: $body-font-color;
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
     }
   }
 
+  // Tab content panels
   .tabs-content {
-    padding: 1rem;
-    margin-bottom: 2rem;
-    border: 2px solid $border;
+    padding: rem-calc(16);
+    margin-bottom: rem-calc(32);
     border-top: 0;
-  }
-}
+    border: rem-calc(1) solid $border;
+    border-radius: 0 0 $border-radius-base $border-radius-base;
+    background-color: $white;
 
-// Foundation accordion
-#main-content-col {
+    .tabs-panel {
+      padding: 0;
+
+      // Ensure consistent spacing for content within panels
+      > *:first-child {
+        margin-top: 0;
+      }
+
+      > *:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // Accordion styling improvements
   ul.accordion {
-    margin-left: 0;
+    .accordion-item {
+      border-bottom: rem-calc(1) solid $border;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .accordion-title {
+        padding: rem-calc(16);
+        background-color: $ash;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+
+        &:hover {
+          background-color: darken($ash, 5%);
+        }
+
+        &:focus {
+          outline: rem-calc(2) solid $primary-color;
+          outline-offset: rem-calc(-2);
+        }
+
+        &::before {
+          margin-right: rem-calc(8);
+        }
+      }
+
+      .accordion-content {
+        padding: rem-calc(16);
+      }
+    }
   }
 }
