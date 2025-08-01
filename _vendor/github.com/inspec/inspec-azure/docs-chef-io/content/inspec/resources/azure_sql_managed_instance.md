@@ -77,7 +77,7 @@ The parameter set that should be provided for a valid query is `resource_group` 
 `sku.name`
 : The name of the SKU, typically a letter with a number code. For example, `P3`.
 
-For properties applicable to all resources, such as `type`, `name`, `id`, and `properties` refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}). Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/sql/2021-02-01-preview/managed-instances/get) for other properties available.
+For properties applicable to all resources, such as `type`, `name`, `id`, and `properties` refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}). Also, see the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/sql/2021-02-01-preview/managed-instances/get) for other available properties.
 
 ## Examples
 

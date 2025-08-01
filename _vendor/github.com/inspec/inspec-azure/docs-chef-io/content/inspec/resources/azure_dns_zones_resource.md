@@ -75,7 +75,7 @@ The `resource_group` and `name`, or the `resource_id` are required parameters.
 : The DNS zone resource location.
 
 Also, refer to the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/dns/zones/get)
-for other available properties. Any attribute in the response may be accessed with the key names separated by dots (`.`).
+for other available properties. You can access any attribute in the response with the key names separated by dots (`.`).
 
 ## Examples
 

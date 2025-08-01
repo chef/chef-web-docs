@@ -117,7 +117,7 @@ This property is deprecated; please use `ComplianceState` instead.
 `compliance_reason_code`
 : Populated with the failure error code sometimes.
 
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/policy/policystates/listqueryresultsforsubscription#policystate) for other properties available. Any attribute in the response may be accessed with the key names separated by dots (`.`). For example, `properties.<attribute>`.
+Also, see the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/policy/policystates/listqueryresultsforsubscription#policystate) for other available properties. You can access any attribute in the response with the key names separated by dots (`.`). For example, `properties.<attribute>`.
 
 ## Examples
 

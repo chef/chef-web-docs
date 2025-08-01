@@ -69,7 +69,7 @@ end
 
 {{< /note>}}
 
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/power-bi/dashboards/get-dashboards) for other properties available.
+Also, see the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/power-bi/dashboards/get-dashboards) for other available properties.
 
 ## Examples
 

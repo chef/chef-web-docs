@@ -95,13 +95,13 @@ Provide one of the following parameter sets for a valid query:
 
 <superscript>**</superscript> These properties do not compare criteria defined by explicit IP ranges with the security rules defined by [Azure service tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) and vice versa.
 
-For example, providing that a network security group has a single security rule allowing all traffic from the internet by using `Internet` service tag in the source will fail the `allow_in(ip_range: '64.233.160.0')` test due to incompatible source definitions. This is because the InSpec Azure resource pack has no control over which IP ranges are defined in Azure service tags. Therefore, tests using these methods should be written explicitly for service tags and IP ranges. For more information about network security groups and security rules, refer to [here](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview).
+For example, providing that a network security group has a single security rule allowing all traffic from the internet by using `Internet` service tag in the source will fail the `allow_in(ip_range: '64.233.160.0')` test due to incompatible source definitions. This is because the InSpec Azure resource pack has no control over which IP ranges are defined in Azure service tags. Therefore, tests using these methods should be written explicitly for service tags and IP ranges. For more information about network security groups and security rules, see the [Azure network security groups documentation](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview).
 
 `*ip_range` used in these methods supports IPv4 and IPv6. The IP range criteria should be written in CIDR notation.
 
 For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/virtualnetwork/networksecuritygroups/get#networksecuritygroup) for other properties available. Any property in the response may be accessed with the key names separated by dots (`.`).
+Also, see the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/virtualnetwork/networksecuritygroups/get#networksecuritygroup) for other available properties. Any property in the response may be accessed with the key names separated by dots (`.`).
 
 ## Examples
 

@@ -221,7 +221,7 @@ end
 
 {{< /note>}}
 
-For more examples, please see the [integration tests](/test/integration/verify/controls/azure_generic_resources.rb).
+For more examples, see the [integration tests](https://github.com/inspec/inspec-azure/blob/main/test/integration/verify/controls/azure_generic_resources.rb).
 
 ## Matchers
 

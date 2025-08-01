@@ -71,11 +71,11 @@ Either one of the parameter sets can be provided for a valid query:
 : Remaining retention days for soft deleted blob container.
 
 `properties.publicAccess`
-: Specifies whether data in the container may be accessed publicly and the level of access. See [here](https://docs.microsoft.com/en-us/rest/api/storagerp/blobcontainers/get#publicaccess) for valid values.
+: Specifies whether data in the container may be accessed publicly and the level of access. See the [Azure blob containers PublicAccess documentation](https://docs.microsoft.com/en-us/rest/api/storagerp/blobcontainers/get#publicaccess) for valid values.
 
 For properties applicable to all resources, such as `type`, `tags`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/storagerp/blobcontainers/get#blobcontainer) for other properties available. Any attribute in the response may be accessed with the key names separated by dots (`.`).
+Also, refer to the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/storagerp/blobcontainers/get#blobcontainer) for other available properties. You can access any attribute in the response with the key names separated by dots (`.`).
 
 ## Examples
 

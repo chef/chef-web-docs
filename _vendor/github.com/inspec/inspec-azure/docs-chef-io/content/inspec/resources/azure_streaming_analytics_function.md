@@ -46,7 +46,7 @@ All three parameters are required for a valid query.
 ## Properties
 
 `properties.binding`
-: The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
+: The physical binding of the function. For example, in the Azure Machine Learning web service's case, this describes the endpoint.
 
 `properties.inputs`
 : A list of inputs describing the parameters of the function.
@@ -59,8 +59,8 @@ All three parameters are required for a valid query.
 
 For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/streamanalytics/) for other properties available.
-Any attribute in the response may be accessed with the key names separated by dots (`.`). For example, `properties.<attribute>`.
+Also, see the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/streamanalytics/) for other available properties.
+You can access any attribute in the response with the key names separated by dots (`.`). For example, `properties.<attribute>`.
 
 ## Examples
 

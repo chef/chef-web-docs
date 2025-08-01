@@ -78,7 +78,7 @@ end
 
 {{< /note>}}
 
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/power-bi/datasets/get-datasets) for other properties available.
+Also, see the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/power-bi/datasets/get-datasets) for other available properties.
 
 ## Examples
 

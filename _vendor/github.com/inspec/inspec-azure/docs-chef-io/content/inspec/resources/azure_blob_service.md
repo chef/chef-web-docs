@@ -10,7 +10,7 @@ identifier = "inspec/resources/azure/azure_blob_service Resource"
 parent = "inspec/resources/azure"
 +++
 
-Use the `azure_blob_service` Chef InSpec audit resource to test the properties of an Azure Storage account’s Blob service.
+Use the `azure_blob_service` Chef InSpec audit resource to test the properties of an Azure Storage account's Blob service.
 
 ## Azure REST API Version, Endpoint, and HTTP Client Parameters
 
@@ -62,7 +62,7 @@ end
 : Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
 
 `properties.defaultServiceVersion`
-: DefaultServiceVersion indicates the default version to use for requests to the Blob service if an incoming request’s version is not specified. Possible values include version 2008-10-27 and all more recent versions.
+: DefaultServiceVersion indicates the default version to use for requests to the Blob service if an incoming request's version is not specified. Possible values include version 2008-10-27 and all more recent versions.
 
 `properties.deleteRetentionPolicy`
 : The blob service properties for blob soft delete.
@@ -82,7 +82,7 @@ end
 `type`
 : The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 
-See [Azure's documentation on Blob service](https://learn.microsoft.com/en-us/rest/api/storagerp/blob-services/get-service-properties?tabs=HTTP) for a full list of available properties. Any attribute in the response may be accessed with the key names separated by dots (`.`).
+See [Azure's documentation on Blob service](https://learn.microsoft.com/en-us/rest/api/storagerp/blob-services/get-service-properties?tabs=HTTP) for a full list of available properties. You can access any attribute in the response with the key names separated by dots (`.`).
 
 ## Examples
 

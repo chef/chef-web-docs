@@ -65,29 +65,27 @@ Pass one of the following parameter sets for a valid query:
 ## Properties
 
 `queues<superscript>*</superscript>`
-: Lists all of the queues in a given storage account. See [here](https://docs.microsoft.com/en-us/rest/api/storageservices/list-queues1) for more.
+: Lists all of the queues in a given storage account. For more information, see the [Azure Storage Services List Queues documentation](https://docs.microsoft.com/en-us/rest/api/storageservices/list-queues1).
 
 `queue_properties<superscript>*</superscript>`
-: Gets the properties of a storage account’s Queue service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules. See [here](https://docs.microsoft.com/en-us/rest/api/storageservices/get-queue-service-properties) for more.
+: Gets the properties of a storage account's Queue service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules. For more information, see the [Azure Queue Service Properties documentation](https://docs.microsoft.com/en-us/rest/api/storageservices/get-queue-service-properties).
 
 `blobs<superscript>*</superscript>`
-: Lists all of the blob containers in a given storage account. See [here](https://docs.microsoft.com/en-us/rest/api/storageservices/list-containers2) for more.
+: Lists all of the blob containers in a given storage account. For more information, see the [Azure Storage Services List Containers](https://docs.microsoft.com/en-us/rest/api/storageservices/list-containers2).
 
 `blob_properties<superscript>*</superscript>`
-: Gets the properties of a storage account’s Blob service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules. See [here](https://docs.microsoft.com/en-us/rest/api/storageservices/get-blob-service-properties) for more.
+: Gets the properties of a storage account's Blob service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules. For more information, see the [Azure Storage Services Blob Service Properties documentation](https://docs.microsoft.com/en-us/rest/api/storageservices/get-blob-service-properties).
 
 `table_properties<superscript>*</superscript>`
-: Gets the properties of a storage account’s Table service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules. See [here](https://docs.microsoft.com/en-us/rest/api/storageservices/get-table-service-properties) for more.
+: Gets the properties of a storage account's Table service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules. For more information, see the [Azure Storage Services Table Service Properties documentation](https://docs.microsoft.com/en-us/rest/api/storageservices/get-table-service-properties).
 
-<superscript>*</superscript>: Note that the Azure endpoints return data in XML format; however, they will be converted to Azure Resource Probe to make the properties accessible via dot notation.
+<superscript>*</superscript>: These Azure endpoints return data in XML format. However, they're converted to make the properties accessible with dot notation.
 
-The property names will be in snake case, `property_name`. Therefore, `<EnumerationResults ServiceEndpoint="https://myaccount.queue.core.windows.net/">` can be tested via `its('enumeration_results.service_endpoint)`.
-
-The property names will be in snake case, `property_name`. Therefore, `<EnumerationResults ServiceEndpoint="https://myaccount.blob.core.windows.net/">` can be tested via `its('enumeration_results.service_endpoint)`.
+The property names are in snake case, `property_name`. Therefore, you can test `<EnumerationResults ServiceEndpoint="https://myaccount.queue.core.windows.net/">` with `its('enumeration_results.service_endpoint)`.
 
 For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts/getproperties#storageaccount) for other properties available. Any attribute in the response may be accessed with the key names separated by dots (`.`).
+Also, see the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts/getproperties#storageaccount) for other available properties. You can access any attribute in the response with the key names separated by dots (`.`).
 
 ## Examples
 

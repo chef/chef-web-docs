@@ -136,7 +136,7 @@ end
 
 {{< /note>}}
 
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/expressroute/express-route-circuits/list?tabs=HTTP) for other properties available.
+Also, see the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/expressroute/express-route-circuits/list?tabs=HTTP) for other available properties.
 
 ## Examples
 

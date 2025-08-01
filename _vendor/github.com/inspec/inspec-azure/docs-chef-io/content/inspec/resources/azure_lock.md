@@ -40,7 +40,7 @@ end
 ## Properties
 
 `properties.level`
-: The level of the lock. Possible values are: `NotSpecified`, `CanNotDelete`, and `ReadOnly`. For more see [here](https://docs.microsoft.com/en-us/rest/api/resources/managementlocks/getatresourcelevel#locklevel).
+: The level of the lock. Possible values are: `NotSpecified`, `CanNotDelete`, and `ReadOnly`. For more information, see the [Microsoft lock level documentation](https://docs.microsoft.com/en-us/rest/api/resources/managementlocks/getatresourcelevel#locklevel).
 
 `properties.notes`
 : Notes about the lock. Maximum of 512 characters.
@@ -52,7 +52,7 @@ Please note that the properties can vary depending on the `api_version` used for
 
 For properties applicable to all resources, such as `type`, `name`, `id`, and `properties`, refer to [`azure_generic_resource`]({{< relref "azure_generic_resource.md#properties" >}}).
 
-Also, refer to [Azure documentation](https://docs.microsoft.com/en-us/rest/api/resources/managementlocks/getatresourcelevel#managementlockobject) for other properties available. Any attribute in the response may be accessed with the key names separated by dots (`.`). For example, `properties.<attribute>`.
+Also, see the [Azure documentation](https://docs.microsoft.com/en-us/rest/api/resources/managementlocks/getatresourcelevel#managementlockobject) for other available properties. You can access any attribute in the response with the key names separated by dots (`.`). For example, `properties.<attribute>`.
 
 ## Examples
 
