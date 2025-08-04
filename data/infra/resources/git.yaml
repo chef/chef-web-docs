@@ -62,15 +62,8 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: 'Do a one-time checkout from git **or** use when a branch in the
-
-      upstream repository is named `deploy`. To prevent the **git**
-
-      resource from attempting to check out master from master, set
-
-      `enable_checkout` to `false` when using the `checkout_branch`
-
-      property. See `revision`.'
+  - markdown: Set this to use a local branch to avoid checking SHAs or tags to a detached
+      head state.
 - property: depth
   ruby_type: Integer
   required: false
