@@ -68,6 +68,7 @@ syntax_properties_list:
   and `''ubuntu'', ''debian''` will install it using the `apache2` package'
 syntax_full_code_block: |-
   package 'name' do
+    environment       Hash
     options           String, Array
     package_name      String, Array
     source            String
@@ -80,7 +81,7 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`options`, `package_name`, `source`, `timeout`, and `version` are the properties
+- "`environment`, `options`, `package_name`, `source`, `timeout`, and `version` are the properties
   available to this resource."
 actions_list:
   :install:
@@ -104,7 +105,6 @@ properties_list:
   default_value: 'true'
   description_list:
   - markdown: '**yum_package** resource only. Downgrade a package to satisfy
-
       requested version requirements.'
 - property: arch
   ruby_type: String, Array
@@ -122,6 +122,14 @@ properties_list:
   - markdown: '**apt_package** resource only. The default release. For example:
 
       `stable`.'
+- property: environment
+  ruby_type: Hash
+  required: false
+  default_value: "{}"
+  new_in: '18.8'
+  description_list:
+  - markdown: A Hash of environment variables in the form of {'ENV_VARIABLE' => 'VALUE'}
+      to be set before running the command.
 - property: flush_cache
   ruby_type: Array
   required: false

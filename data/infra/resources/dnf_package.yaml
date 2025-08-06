@@ -27,6 +27,7 @@ syntax_full_code_block: |-
   dnf_package 'name' do
     allow_downgrade      true, false # default value: true
     arch                 String, Array
+    environment          Hash # default value: {}
     flush_cache          Hash # default value: {"before"=>false, "after"=>false}
     options              String, Array
     package_name         String, Array
@@ -41,7 +42,7 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`allow_downgrade`, `arch`, `flush_cache`, `options`, `package_name`, `source`,
+- "`allow_downgrade`, `arch`, `environment`, `flush_cache`, `options`, `package_name`, `source`,
   `timeout`, and `version` are the properties available to this resource."
 actions_list:
   :nothing:
@@ -75,6 +76,14 @@ properties_list:
   description_list:
   - markdown: The architecture of the package to be installed or upgraded. This value
       can also be passed as part of the package name.
+- property: environment
+  ruby_type: Hash
+  required: false
+  default_value: "{}"
+  new_in: '18.8'
+  description_list:
+  - markdown: A Hash of environment variables in the form of {'ENV_VARIABLE' => 'VALUE'}
+      to be set before running the command.
 - property: flush_cache
   ruby_type: Hash
   required: false

@@ -22,6 +22,7 @@ syntax_full_code_block: |-
   apt_package 'name' do
     anchor_package_regex       true, false # default value: false
     default_release            String
+    environment                Hash # default value: {}
     options                    String, Array
     overwrite_config_files     true, false # default value: false
     package_name               String, Array
@@ -32,13 +33,13 @@ syntax_full_code_block: |-
     version                    String, Array
     action                     Symbol # defaults to :install if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`apt_package` is the resource."
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`anchor_package_regex`, `default_release`, `options`, `overwrite_config_files`, `package_name`, `response_file`,
+- "`anchor_package_regex`, `environment`, `default_release`, `options`, `overwrite_config_files`, `package_name`, `response_file`,
   `response_file_variables`, `source`, `timeout`, and `version` are the properties
   available to this resource."
 actions_list:
@@ -75,6 +76,14 @@ properties_list:
   required: false
   description_list:
   - markdown: 'The default release. For example: `stable`.'
+- property: environment
+  ruby_type: Hash
+  required: false
+  default_value: "{}"
+  new_in: '18.8'
+  description_list:
+  - markdown: A Hash of environment variables in the form of {'ENV_VARIABLE' => 'VALUE'}
+      to be set before running the command.
 - property: options
   ruby_type: String, Array
   required: false

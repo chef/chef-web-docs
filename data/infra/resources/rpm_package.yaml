@@ -10,6 +10,7 @@ resource_description_list:
 syntax_full_code_block: |-
   rpm_package 'name' do
     allow_downgrade      true, false # default value: true
+    environment          Hash # default value: {}
     options              String, Array
     package_name         String
     source               String
@@ -23,7 +24,7 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`allow_downgrade`, `options`, `package_name`, `source`, `timeout`, and `version`
+- "`allow_downgrade`, `environment`, `options`, `package_name`, `source`, `timeout`, and `version`
   are the properties available to this resource."
 actions_list:
   :nothing:
@@ -42,6 +43,14 @@ properties_list:
   default_value: 'true'
   description_list:
   - markdown: Allow downgrading a package to satisfy requested version requirements.
+- property: environment
+  ruby_type: Hash
+  required: false
+  default_value: "{}"
+  new_in: '18.8'
+  description_list:
+  - markdown: A Hash of environment variables in the form of {'ENV_VARIABLE' => 'VALUE'}
+      to be set before running the command.
 - property: options
   ruby_type: String, Array
   required: false
