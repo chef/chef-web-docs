@@ -59,4 +59,4 @@ If your login failed because you forgot your password or you missed the five min
 
 ## Next step
 
-- [Install Chef 360 CLIs]({{< relref "install_cli" >}})
+- [Install Chef 360 CLIs](https://docs.chef.io/360/latest/get_started/install_cli)
