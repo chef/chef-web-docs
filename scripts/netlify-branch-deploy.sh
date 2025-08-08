@@ -11,6 +11,7 @@ DART_SASS_VERSION="1.72.0"
 
 echo Branch: $HEAD
 echo Branch deploy URL: $DEPLOY_PRIME_URL
+echo Hugo env: $HUGO_ENV
 
 # Hugo requires dart-sass
 # https://gohugo.io/functions/resources/tocss/#netlify

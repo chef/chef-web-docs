@@ -8,6 +8,8 @@ set -eou pipefail
 # Run 'netlify dev'
 ###
 
+echo Hugo env: $HUGO_ENV
+
 npm install
 npm ls
 
