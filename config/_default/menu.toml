@@ -112,12 +112,12 @@ weight = 20
 title = "Chef 360 Platform"
 identifier = "360"
 
-[[360]]
-title = "version 1.4"
-parent = "360"
-identifier = "360/1.4"
-url = "/360/1.4/"
-weight = 10
+  [[360]]
+  title = "version 1.4"
+  parent = "360"
+  identifier = "360/1.4"
+  url = "/360/1.4/"
+  weight = 10
 
   [[360]]
   title = "version 1.3"
@@ -819,6 +819,83 @@ identifier = "chef_cloud"
     title = "Get started"
     identifier = "chef_cloud/360/get_started"
     parent = "chef_cloud/360"
+    weight = 30
+
+      [[cloud]]
+      title = "Install CLIs"
+      identifier = "chef_cloud/360/get_started/cli"
+      parent = "chef_cloud/360/get_started"
+      url = "https://docs.chef.io/360/latest/get_started/install_cli"
+      weight = 40
+
+      [[cloud]]
+      title = "Node management settings"
+      identifier = "chef_cloud/360/get_started/node settings"
+      parent = "chef_cloud/360/get_started"
+      url = "https://docs.chef.io/360/latest/get_started/node_management_settings/"
+      weight = 50
+
+      [[cloud]]
+      title = "Enroll nodes"
+      identifier = "chef_cloud/360/get_started/enroll_nodes"
+      parent = "chef_cloud/360/get_started"
+      url = "https://docs.chef.io/360/latest/get_started/enroll_nodes/"
+      weight = 100
+
+      [[cloud]]
+      title = "Run Courier jobs"
+      identifier = "chef_cloud/360/get_started/jobs"
+      parent = "chef_cloud/360/get_started"
+      url = "https://docs.chef.io/360/latest/get_started/jobs/"
+      weight = 110
+
+    [[cloud]]
+    title = "User guides"
+    identifier = "chef_cloud/360/user_guides"
+    parent = "chef_cloud/360"
+    weight = 40
+
+      [[cloud]]
+      title = "Create and use tokens with the Chef 360 Platform APIs"
+      identifier = "chef_cloud/360/user_guides/apis"
+      parent = "chef_cloud/360/user_guides"
+      url = "https://docs.chef.io/360/latest/apis/"
+      weight = 10
+
+      [[cloud]]
+      title = "Chef 360 Platform system administration"
+      identifier = "chef_cloud/360/user_guides/system administration"
+      parent = "chef_cloud/360/user_guides"
+      url = "https://docs.chef.io/360/latest/administration/"
+      weight = 20
+
+      [[cloud]]
+      title = "Chef Courier"
+      identifier = "chef_cloud/360/user_guides/courier"
+      parent = "chef_cloud/360/user_guides"
+      url = "https://docs.chef.io/360/latest/courier/"
+      weight = 30
+
+      [[cloud]]
+      title = "Chef Node Management"
+      identifier = "chef_cloud/360/user_guides/node management"
+      parent = "chef_cloud/360/user_guides"
+      url = "https://docs.chef.io/360/latest/node_management/"
+      weight = 40
+
+      [[cloud]]
+      title = "Update skills"
+      identifier = "chef_cloud/360/user_guides/update skills"
+      parent = "chef_cloud/360/user_guides"
+      url = "https://docs.chef.io/360/latest/node_management/skills/skill_assembly/#update-a-skill-assembly"
+      weight = 50
+
+      [[cloud]]
+      title = "Chef Declarative State Management (DSM)"
+      identifier = "chef_cloud/360/user_guides/dsm"
+      parent = "chef_cloud/360/user_guides"
+      url = "https://docs.chef.io/360/latest/dsm/"
+      weight = 60
 
   [[cloud]]
   title = "Chef SaaS"
