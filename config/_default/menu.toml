@@ -890,13 +890,6 @@ identifier = "chef_cloud"
       url = "https://docs.chef.io/360/latest/node_management/skills/skill_assembly/#update-a-skill-assembly"
       weight = 50
 
-      [[cloud]]
-      title = "Chef Declarative State Management (DSM)"
-      identifier = "chef_cloud/360/user_guides/dsm"
-      parent = "chef_cloud/360/user_guides"
-      url = "https://docs.chef.io/360/latest/dsm/"
-      weight = 60
-
   [[cloud]]
   title = "Chef SaaS"
   identifier = "chef_cloud/saas"
