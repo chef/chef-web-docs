@@ -13,6 +13,8 @@
   command = "bash ./scripts/local-server.sh"
   targetPort = 1313
   port = 8000
+  [context.dev.environment]
+    HUGO_ENV = "development"
 
 [context.production]
   command = "bash ./scripts/netlify-deploy-production.sh"

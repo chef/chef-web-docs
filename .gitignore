@@ -4,41 +4,18 @@
 *.work
 *.work.sum
 
-# ignore doctree files in translation folders
-*.doctree
-*.pickle
-
-public/
+# Hugo generated files
+/public/
 /resources/
 
-**/.sass-cache
-**/.sass-cache/*
-*.css.map
-*.css_t.map
-
+# VS Code workspace settings
 /.vscode
 
-/.venv
-
-*.*~
-*~
-TAGS
-
-results/
-
-static/fonts/fontawesome
+# Node.js dependencies
 node_modules
-vendor
-
-# dart-sass files for local dev testing
-/dart-sass
 
 # temp file created by hugo
 .hugo_build.lock
-
-# cspell dictionary files
-docs_dictionary.txt
-chef_dictionary.txt
 
 # Local Netlify folder
 # https://docs.netlify.com/cli/get-started/#link-and-unlink-sites
