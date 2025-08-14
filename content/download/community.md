@@ -29,6 +29,7 @@ The Chef Community Download API has the following endpoints:
 - `/versions/latest`
 - `/metadata`
 - `/download`
+- `/fileName`
 
 See the [parameters section](#parameters) below to understand the query strings used in the following endpoint descriptions.
 
@@ -109,6 +110,14 @@ The `download` endpoint downloads a particular package of a Chef product.
 
 ```plain
 https://chefdownload-community.chef.io/stable/<PRODUCT>/download?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>
+```
+
+### fileName
+
+The `fileName` endpoint returns the file name.
+
+```plain
+https://chefdownload-community.chef.io/<CHANNEL>/<PRODUCT>/fileName?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>
 ```
 
 ## Parameters

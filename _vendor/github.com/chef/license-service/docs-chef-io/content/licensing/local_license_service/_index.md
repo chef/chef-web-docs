@@ -33,7 +33,7 @@ Local License Service can automatically synchronize commercial licenses from Che
 
 The Chef Local License Service can provide licenses to following Chef products:
 
-- Chef InSpec 6 and greater
+- Chef InSpec 6 
 
 ## Get Chef Local License Service
 
