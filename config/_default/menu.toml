@@ -825,28 +825,28 @@ identifier = "chef_cloud"
       title = "Install CLIs"
       identifier = "chef_cloud/360/get_started/cli"
       parent = "chef_cloud/360/get_started"
-      url = "https://docs.chef.io/360/latest/get_started/install_cli"
+      url = "/360/latest/get_started/install_cli"
       weight = 40
 
       [[cloud]]
       title = "Node management settings"
       identifier = "chef_cloud/360/get_started/node settings"
       parent = "chef_cloud/360/get_started"
-      url = "https://docs.chef.io/360/latest/get_started/node_management_settings/"
+      url = "/360/latest/get_started/node_management_settings/"
       weight = 50
 
       [[cloud]]
       title = "Enroll nodes"
       identifier = "chef_cloud/360/get_started/enroll_nodes"
       parent = "chef_cloud/360/get_started"
-      url = "https://docs.chef.io/360/latest/get_started/enroll_nodes/"
+      url = "/360/latest/get_started/enroll_nodes/"
       weight = 100
 
       [[cloud]]
       title = "Run Courier jobs"
       identifier = "chef_cloud/360/get_started/jobs"
       parent = "chef_cloud/360/get_started"
-      url = "https://docs.chef.io/360/latest/get_started/jobs/"
+      url = "/360/latest/get_started/jobs/"
       weight = 110
 
     [[cloud]]
@@ -859,35 +859,35 @@ identifier = "chef_cloud"
       title = "Create and use tokens with the Chef 360 Platform APIs"
       identifier = "chef_cloud/360/user_guides/apis"
       parent = "chef_cloud/360/user_guides"
-      url = "https://docs.chef.io/360/latest/apis/"
+      url = "/360/latest/apis/"
       weight = 10
 
       [[cloud]]
       title = "Chef 360 Platform system administration"
       identifier = "chef_cloud/360/user_guides/system administration"
       parent = "chef_cloud/360/user_guides"
-      url = "https://docs.chef.io/360/latest/administration/"
+      url = "/360/latest/administration/"
       weight = 20
 
       [[cloud]]
       title = "Chef Courier"
       identifier = "chef_cloud/360/user_guides/courier"
       parent = "chef_cloud/360/user_guides"
-      url = "https://docs.chef.io/360/latest/courier/"
+      url = "/360/latest/courier/"
       weight = 30
 
       [[cloud]]
       title = "Chef Node Management"
       identifier = "chef_cloud/360/user_guides/node management"
       parent = "chef_cloud/360/user_guides"
-      url = "https://docs.chef.io/360/latest/node_management/"
+      url = "/360/latest/node_management/"
       weight = 40
 
       [[cloud]]
       title = "Update skills"
       identifier = "chef_cloud/360/user_guides/update skills"
       parent = "chef_cloud/360/user_guides"
-      url = "https://docs.chef.io/360/latest/node_management/skills/skill_assembly/#update-a-skill-assembly"
+      url = "/360/latest/node_management/skills/skill_assembly/#update-a-skill-assembly"
       weight = 50
 
   [[cloud]]
