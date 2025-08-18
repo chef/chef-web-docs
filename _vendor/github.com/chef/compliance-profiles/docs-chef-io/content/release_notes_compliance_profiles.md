@@ -10,6 +10,19 @@ draft = false
     weight = 10
 +++
 
+## 20250815
+
+### New features
+
+- CIS Ubuntu 22.04 v2.0.0 (Audits)
+- CIS IBM AIX 7 v1.1.0 (Audits)
+
+### Improvements
+
+- CIS Postgresql 16 v1.0.0 (Audits). Changed control 7.2 `log_replication_commands` default from `off` to `on` as the benchmark says the remediation should be `on`.
+- CIS Postgresql 16 v1.0.0 (Audits). Updated control 3.1.8 to use the correct abbreviation for hours (`h`).
+- CIS RHEL 8 v3.0.0. Improved control 5.2.3.13 by removing unwanted code.
+
 ## 20250721
 
 ### New features
