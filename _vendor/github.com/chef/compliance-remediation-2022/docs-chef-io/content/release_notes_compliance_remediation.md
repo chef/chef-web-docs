@@ -10,6 +10,13 @@ draft = false
     weight = 20
 +++
 
+## 20250815
+
+### New Features
+
+- CIS Ubuntu 22.04 v2.0.0 (Remediation)
+- Stig RHEL 9 v1r1 (cookbook)
+
 ## 20250722
 
 ### New features
