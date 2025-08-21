@@ -5,3 +5,8 @@ level: warning
 scope: heading
 tokens:
   - '[A-Z]{2,4}'
+exceptions:
+  - API
+  - YAML
+  - TOML
+  - JSON

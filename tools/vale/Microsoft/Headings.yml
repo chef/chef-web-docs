@@ -14,15 +14,18 @@ exceptions:
   - Docker
   - Emmet
   - I
+  - JSON
   - Kubernetes
   - Linux
   - macOS
   - Marketplace
   - MongoDB
   - REPL
+  - Ruby
   - Studio
   - TypeScript
   - URLs
   - Visual
   - VS
   - Windows
+  - YAML
