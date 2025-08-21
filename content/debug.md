@@ -9,7 +9,7 @@ aliases = ["/debug.html"]
     title = "Debug Recipes, Client Runs"
     identifier = "chef_infra/cookbook_reference/recipes/debug.md Debug Recipes, Client Runs"
     parent = "chef_infra/cookbook_reference/recipes"
-    weight = 20
+    weight = 30
 +++
 
 Elements of good approaches to building cookbooks and recipes that are
