@@ -1,183 +1,98 @@
 +++
-title = "About YAML Recipes"
+title = "About YAML recipes"
 draft = false
 gh_repo = "chef-web-docs"
 
 [menu]
   [menu.infra]
-    title = " YAML Recipes"
-    identifier = "chef_infra/cookbook_reference/recipes/YAML Recipes"
+    title = "YAML recipes"
+    identifier = "chef_infra/cookbook_reference/recipes/YAML recipes"
     parent = "chef_infra/cookbook_reference/recipes"
     weight = 20
 +++
 
-YAML recipes provide an alternative way to define Chef Infra resources using YAML syntax instead of Ruby.
-This feature was introduced to make Chef Infra recipes more accessible to users who are more comfortable with declarative YAML syntax than Ruby code.
+YAML recipes let you define Chef Infra resources using YAML syntax instead of Ruby. This feature makes Chef Infra recipes more accessible to users who prefer declarative YAML syntax over Ruby code.
 
-YAML recipes provide a simplified way to define Chef resources for basic use cases. While they have significant limitations compared to Ruby recipes, they can be valuable for teams that prefer declarative YAML syntax and don't require advanced Chef DSL features. For complex scenarios involving dynamic logic, node attributes, or resource relationships, Ruby recipes remain the preferred approach.
+YAML recipes simplify defining Chef resources for basic use cases. While they have significant limitations compared to Ruby recipes, they're valuable for teams that prefer YAML syntax and don't need advanced Chef DSL features. For complex scenarios involving dynamic logic, node attributes, or resource relationships, use Ruby recipes.
 
-For most production environments, a hybrid approach using both YAML recipes for simple static configurations and Ruby recipes for complex logic provides the best balance of simplicity and functionality.
+For most production environments, use a hybrid approach: YAML recipes for simple static configurations and Ruby recipes for complex logic. This approach balances simplicity and functionality.
 
-## Basic Structure
+## Use cases
 
-YAML recipes must follow a specific structure:
+Use YAML recipes for:
 
-```yaml
----
-resources:
-  - type: "resource_type"
-    name: "resource_name"
-    property1: value1
-    property2: value2
-  - type: "another_resource_type"
-    name: "another_resource_name"
-    property1: value1
-    property2: value2
-```
+- Simple, static configurations
+- Declarative resource management
+- Teams preferring YAML over Ruby
+- Basic infrastructure as code
 
-## File Naming and Location
+Avoid YAML recipes when you need:
 
-YAML recipes can be placed in the same locations as Ruby recipes:
+- Dynamic node attribute access
+- Conditional logic
+- Resource notifications
+- Complex data transformations
+- Integration with Ruby libraries
+- Advanced Chef DSL features
 
-- **Standard recipe location**: `cookbooks/cookbook_name/recipes/default.yml` or `cookbooks/cookbook_name/recipes/default.yaml`
-- **Named recipes**: `cookbooks/cookbook_name/recipes/web.yml` or `cookbooks/cookbook_name/recipes/database.yaml`
-- **Root-level recipe alias**: `cookbooks/cookbook_name/recipe.yml` or `cookbooks/cookbook_name/recipe.yaml` (acts as default recipe)
+## Create a YAML recipe
 
-### File Extension Support
+To create a YAML recipe, follow these steps:
 
-Both `.yml` and `.yaml` extensions are supported. However, if both `default.yml` and `default.yaml` exist in the same cookbook, Chef will raise an `AmbiguousYAMLFile` error requiring you to remove one of them.
+1. Create a YAML file for your recipe in the same locations as Ruby recipes:
 
-## Required Structure and Restrictions
+    - Standard recipe location:
+      - `cookbooks/cookbook_name/recipes/default.yml`
+      - `cookbooks/cookbook_name/recipes/default.yaml`
+    - Named recipes:
+      - `cookbooks/cookbook_name/recipes/web.yml`
+      - `cookbooks/cookbook_name/recipes/database.yaml`
+    - Root-level recipe alias (acts as the default recipe):
+      - `cookbooks/cookbook_name/recipe.yml`
+      - `cookbooks/cookbook_name/recipe.yaml`
 
-### Top-Level Resources Hash
+    Chef Infra supports YAML recipes with both `.yml` and `.yaml` extensions.
 
-Every YAML recipe **must** contain a top-level `resources` key that contains an array of resource declarations:
+1. Define your recipe using the following structure.
+   It must have a top-level `resources` key containing an array of resource declarations. For example:
 
-```yaml
-# ✅ CORRECT
----
-resources:
-  - type: "file"
-    name: "/tmp/hello.txt"
-    content: "Hello World"
+    ```yaml
+    ---
+    resources:
+      - type: "resource_type"
+        name: "resource_name"
+        property1: value1
+        property2: value2
+      - type: "another_resource_type"
+        name: "another_resource_name"
+        property1: value1
+        property2: value2
+    ```
 
-# ❌ INCORRECT - Missing resources key
----
-- type: "file"
-  name: "/tmp/hello.txt"
-  content: "Hello World"
+1. Declare each resource as an array that defines the following:
 
-# ❌ INCORRECT - Wrong structure
----
-files:
-  - type: "file"
-    name: "/tmp/hello.txt"
-    content: "Hello World"
-```
+    - `type`: The Chef resource type (string)
+    - `name`: The resource name/identifier (string)
+    - resource-specific actions and properties as key-value pairs
 
-### Resource Declaration Format
+    For example:
 
-Each resource in the array must have:
+    ```yaml
+    resources:
+      - type: "package"
+        name: "nginx"
+        action: "install"
+        version: "1.18.0"
+      - type: "service"
+        name: "nginx"
+        action: ["enable", "start"]
+    ```
 
-- **`type`**: The Chef resource type (string)
-- **`name`**: The resource name/identifier (string)
-- **Additional properties**: Resource-specific properties as key-value pairs
-
-```yaml
-resources:
-  - type: "package"
-    name: "nginx"
-    action: "install"
-    version: "1.18.0"
-  - type: "service"
-    name: "nginx"
-    action: ["enable", "start"]
-```
-
-### Single Document Limitation
-
-YAML recipes support only **one YAML document** in each file. Multiple documents separated by `---` aren't allowed:
-
-```yaml
-# ❌ INCORRECT - Multiple documents not supported
----
-resources:
-  - type: "file"
-    name: "/tmp/file1.txt"
----
-resources:
-  - type: "file"
-    name: "/tmp/file2.txt"
-```
-
-## YAML recipe limitations
-
-### No Ruby Code Blocks
-
-YAML recipes can't contain Ruby code blocks, which significantly limits their functionality compared to Ruby recipes:
-
-```ruby
-# ❌ Cannot be expressed in YAML - Ruby blocks not supported
-template "/etc/nginx/nginx.conf" do
-  source "nginx.conf.erb"
-  variables({
-    worker_processes: node['cpu']['total']
-  })
-  notifies :restart, "service[nginx]", :delayed
-  only_if { node['platform'] == 'ubuntu' }
-end
-```
-
-### No Conditional Logic
-
-YAML recipes can't include conditional logic like `if`, `unless`, `only_if`, or `not_if` with Ruby expressions:
-
-```yaml
-# ❌ Cannot include complex conditionals
-resources:
-  - type: "package"
-    name: "nginx"
-    # Cannot do: only_if { node['platform'] == 'ubuntu' }
-```
-
-### No Node Attribute Access
-
-YAML recipes can't directly access node attributes or perform Ruby evaluations:
-
-```yaml
-# ❌ Cannot access node attributes dynamically
-resources:
-  - type: "user"
-    name: "webapp"
-    # Cannot do: home "/home/#{node['webapp']['user']}"
-    home: "/home/webapp"  # Must be static
-```
-
-### No Resource Notifications
-
-Complex resource relationships and notifications can't be expressed:
-
-```yaml
-# ❌ Cannot express notifications between resources
-resources:
-  - type: "template"
-    name: "/etc/nginx/nginx.conf"
-    source: "nginx.conf.erb"
-    # Cannot do: notifies :restart, "service[nginx]", :delayed
-```
-
-### No Include/Require Functionality
-
-YAML recipes can't include other recipes or libraries:
-
-```yaml
-# ❌ Cannot include other recipes
-# include_recipe "cookbook::other_recipe"
-```
+    In this example, the [`package` resource]({{< relref "/resources/package/" >}}) uses the `install` action to install Nginx version 1.18.0 and the [`service` resource]({{< relref "/resources/service/" >}}) uses the `enable` and `start` actions to start up Nginx.
 
 ## Examples
 
-### Basic File Management
+### Basic file management
 
 ```yaml
 ---
@@ -197,7 +112,7 @@ resources:
     mode: "0644"
 ```
 
-### Package and Service Management
+### Package and service management
 
 ```yaml
 ---
@@ -215,7 +130,7 @@ resources:
     action: ["enable", "start"]
 ```
 
-### User Management
+### User management
 
 ```yaml
 ---
@@ -233,7 +148,7 @@ resources:
     action: "create"
 ```
 
-### Template with Static Variables
+### Template with static variables
 
 ```yaml
 ---
@@ -247,75 +162,117 @@ resources:
     # Note: Variables must be static, can't use node attributes
 ```
 
-## Working with YAML Recipes
+## Convert a YAML recipe to Ruby
 
-### Converting Between Ruby and YAML
+Use the `knife yaml convert` command to convert YAML recipes to Ruby:
 
-Chef provides a `knife yaml convert` command to convert YAML recipes to Ruby:
-
-```powershell
+```shell
 knife yaml convert recipes/default.yml recipes/default.rb
 ```
 
-**Note**: Converting from Ruby to YAML isn't supported due to the limitations of YAML format.
+Converting from Ruby to YAML isn't supported due to YAML's limitations.
 
-### File Processing
+## YAML recipe limitations
 
-YAML recipes are processed by the `from_yaml_file` method in the `Chef::Recipe` class, which:
+Chef Infra YAML recipes have the following limitation.
 
-1. Validates the file exists and is readable
-2. Checks for single document requirement
-3. Parses YAML using safe loading
-4. Validates the required `resources` structure
-5. Converts to internal hash representation
-6. Creates Chef resources using `declare_resource`
+### No Ruby code blocks
 
-## Best Practices
+YAML recipes can't include Ruby code blocks, which limits their functionality compared to Ruby recipes:
 
-### When to Use YAML Recipes
+```ruby
+# ❌ Cannot be expressed in YAML - Ruby blocks not supported
+template "/etc/nginx/nginx.conf" do
+  source "nginx.conf.erb"
+  variables({
+    worker_processes: node['cpu']['total']
+  })
+  notifies :restart, "service[nginx]", :delayed
+  only_if { node['platform'] == 'ubuntu' }
+end
+```
 
-YAML recipes are best suited for:
+### No conditional logic
 
-- **Simple, static configurations**
-- **Declarative resource management**
-- **Teams preferring YAML over Ruby**
-- **Basic infrastructure as code**
+YAML recipes can't include conditional logic like `if`, `unless`, `only_if`, or `not_if` with Ruby expressions:
 
-### When NOT to Use YAML Recipes
+```yaml
+# ❌ Cannot include complex conditionals
+resources:
+  - type: "package"
+    name: "nginx"
+    # Cannot do: only_if { node['platform'] == 'ubuntu' }
+```
 
-Avoid YAML recipes when you need:
+### No node attribute access
 
-- **Dynamic node attribute access**
-- **Conditional logic**
-- **Resource notifications**
-- **Complex data transformations**
-- **Integration with Ruby libraries**
-- **Advanced Chef DSL features**
+YAML recipes can't directly access node attributes or perform Ruby evaluations:
 
-### Migration Strategy
+```yaml
+# ❌ Cannot access node attributes dynamically
+resources:
+  - type: "user"
+    name: "webapp"
+    # Cannot do: home "/home/#{node['webapp']['user']}"
+    home: "/home/webapp"  # Must be static
+```
 
-1. Start with simple, static resources in YAML
-2. Use Ruby recipes for complex logic
-3. Consider hybrid approach: YAML for simple resources, Ruby for complex ones
-4. Use `knife yaml convert` to understand Ruby equivalents
+### No resource notifications
+
+YAML recipes can't express complex resource relationships and notifications:
+
+```yaml
+# ❌ Cannot express notifications between resources
+resources:
+  - type: "template"
+    name: "/etc/nginx/nginx.conf"
+    source: "nginx.conf.erb"
+    # Cannot do: notifies :restart, "service[nginx]", :delayed
+```
+
+### No include/require functionality
+
+YAML recipes can't include other recipes or libraries:
+
+```yaml
+# ❌ Cannot include other recipes
+# include_recipe "cookbook::other_recipe"
+```
 
 ## Troubleshooting
 
-Common errors when working with YAML recipes:
+### Missing `resources` key
 
-### Missing Resources Key
+Chef Infra Client returns this error if a recipe is missing the top-level `resources` hash.
 
 ```text
 ArgumentError: YAML recipe 'recipes/default.yml' must contain a top-level 'resources' hash (YAML sequence), i.e. 'resources:'
 ```
 
-### Multiple Documents
+### Single document limitation
+
+YAML recipes support only one YAML document in each file. Multiple documents separated by `---` aren't allowed:
+
+```yaml
+---
+resources:
+  - type: "file"
+    name: "/tmp/file1.txt"
+---
+resources:
+  - type: "file"
+    name: "/tmp/file2.txt"
+```
+
+Chef Infra Client returns the following error with multiple documents:
 
 ```text
 ArgumentError: YAML recipe 'recipes/default.yml' contains multiple documents, only one is supported
 ```
 
-### Ambiguous File Extensions
+### Ambiguous file extensions
+
+Chef Infra Client returns this error if multiple recipes have the same filename but a different file extension. For example, `default.yaml` and `default.yml`.
 
 ```text
 Chef::Exceptions::AmbiguousYAMLFile: Found both default.yml and default.yaml in cookbook, update the cookbook to remove one
