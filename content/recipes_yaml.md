@@ -53,23 +53,7 @@ To create a YAML recipe, follow these steps:
 
     Chef Infra supports YAML recipes with both `.yml` and `.yaml` extensions.
 
-1. Define your recipe using the following structure.
-   It must have a top-level `resources` key containing an array of resource declarations. For example:
-
-    ```yaml
-    ---
-    resources:
-      - type: "resource_type"
-        name: "resource_name"
-        property1: value1
-        property2: value2
-      - type: "another_resource_type"
-        name: "another_resource_name"
-        property1: value1
-        property2: value2
-    ```
-
-1. Declare each resource as an array that defines the following:
+1. Define your recipe with a top-level `resources` key containing an array of resources where each item has the following:
 
     - `type`: The Chef resource type (string)
     - `name`: The resource name/identifier (string)
@@ -88,7 +72,10 @@ To create a YAML recipe, follow these steps:
         action: ["enable", "start"]
     ```
 
-    In this example, the [`package` resource]({{< relref "/resources/package/" >}}) uses the `install` action to install Nginx version 1.18.0 and the [`service` resource]({{< relref "/resources/service/" >}}) uses the `enable` and `start` actions to start up Nginx.
+    In this example:
+
+    - the [`package` resource]({{< relref "/resources/package/" >}}) uses the `install` action and the `version` property to install Nginx 1.18.0.
+    - the [`service` resource]({{< relref "/resources/service/" >}}) uses the `enable` and `start` actions to enable and start up Nginx.
 
 ## Examples
 
@@ -264,7 +251,7 @@ resources:
     name: "/tmp/file2.txt"
 ```
 
-Chef Infra Client returns the following error with multiple documents:
+Chef Infra Client returns the following error with multiple documents in one file:
 
 ```text
 ArgumentError: YAML recipe 'recipes/default.yml' contains multiple documents, only one is supported
