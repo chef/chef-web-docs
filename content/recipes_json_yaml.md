@@ -371,13 +371,14 @@ resources:
 Ruby blocks aren't supported:
 
 ```yaml
+# ❌ Cannot be expressed in YAML - Ruby blocks not supported
 resources:
 - type: "directory"
   name: "/var/www/html"
   only_if: "{ ::File.exist?('/usr/sbin/apache2') }"
 ```
 
-## Convert a JSON or YAML recipe to Ruby
+## Convert a YAML recipe to Ruby
 
 Use the `knife yaml convert` command to convert YAML recipes to Ruby:
 
