@@ -16,26 +16,26 @@ product = [""]
 
 Release date: August 20, 2025
 
-## Support
+### Support
 
 With this release, we're discontinuing support for Chef 360 Platform versions 1.4.0 and earlier.
 
-## New features
+### New features
 
 The Chef 360 Platform UI now includes screens to help you manage application keys and enable node self-enrollment.
 
-## Improvements
+### Improvements
 
 - We removed dependencies on Bitnami for specific images to comply with Bitnami's license changes.
 - You can now update a node's cohort through the Chef 360 Platform UI.
 - Login usernames are now case-insensitive.
 - Chef 360 Platform no longer rotates SSL certificates for deployments with system-generated certificates during redeployment or upgrade.
 
-## Bug fixes
+### Bug fixes
 
 - Node self-enrollment scripts no longer require a port number to be included with the FQDN.
 
-## Supported skill versions
+### Supported skill versions
 
 | Skill                    | Skill name              | Habitat package                       | Version |
 |--------------------------|-------------------------|---------------------------------------|---------|
