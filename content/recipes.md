@@ -14,6 +14,12 @@ aliases = ["/recipes.html", "essentials_cookbook_recipes.html"]
 
 {{< readfile file="content/reusable/md/cookbooks_recipe.md" >}}
 
+## YAML and JSON recipes
+
+{{< readfile file = "content/reusable/md/recipes_yaml_json_overview.md" >}}
+
+See the [YAML and JSON recipe documentation]({{< relref "recipes_json_yaml" >}}) for more information.
+
 ## Recipe Attributes
 
 {{< readfile file="content/reusable/md/cookbooks_attribute.md" >}}
