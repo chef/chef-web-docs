@@ -371,7 +371,7 @@ resources:
 Ruby blocks aren't supported:
 
 ```yaml
-# ❌ Cannot be expressed in YAML - Ruby blocks not supported
+# Can't be expressed in YAML - Ruby blocks not supported
 resources:
 - type: "directory"
   name: "/var/www/html"
@@ -390,14 +390,14 @@ Converting from Ruby to YAML or JSON isn't supported due to their limitations.
 
 ## YAML and JSON recipe limitations
 
-Chef Infra YAML and JSON recipes have the following limitation.
+Chef Infra YAML and JSON recipes have the following limitations.
 
 ### No Ruby code blocks
 
 YAML and JSON recipes can't include Ruby code blocks, which limits their functionality compared to Ruby recipes:
 
 ```ruby
-# ❌ Cannot be expressed in YAML - Ruby blocks not supported
+# Can't be expressed in YAML - Ruby blocks not supported
 template "/etc/nginx/nginx.conf" do
   source "nginx.conf.erb"
   variables({
@@ -413,11 +413,11 @@ end
 YAML and JSON recipes can't include conditional logic like `if`, `unless`, `only_if`, or `not_if` with Ruby expressions:
 
 ```yaml
-# ❌ Cannot include complex conditionals
+# Can't include complex conditionals
 resources:
   - type: "package"
     name: "nginx"
-    # Cannot do: only_if { node['platform'] == 'ubuntu' }
+    # Can't do: only_if { node['platform'] == 'ubuntu' }
 ```
 
 ### No node attribute access
@@ -425,11 +425,11 @@ resources:
 YAML and JSON recipes can't directly access node attributes or perform Ruby evaluations:
 
 ```yaml
-# ❌ Cannot access node attributes dynamically
+# Can't access node attributes dynamically
 resources:
   - type: "user"
     name: "webapp"
-    # Cannot do: home "/home/#{node['webapp']['user']}"
+    # Can't do: home "/home/#{node['webapp']['user']}"
     home: "/home/webapp"  # Must be static
 ```
 
@@ -438,12 +438,12 @@ resources:
 YAML and JSON recipes can't express complex resource relationships and notifications:
 
 ```yaml
-# ❌ Cannot express notifications between resources
+# Can't express notifications between resources
 resources:
   - type: "template"
     name: "/etc/nginx/nginx.conf"
     source: "nginx.conf.erb"
-    # Cannot do: notifies :restart, "service[nginx]", :delayed
+    # Can't do: notifies :restart, "service[nginx]", :delayed
 ```
 
 ### No include or require functionality
@@ -451,7 +451,7 @@ resources:
 YAML and JSON recipes can't include other recipes or libraries:
 
 ```yaml
-# ❌ Cannot include other recipes
+# Can't include other recipes
 # include_recipe "cookbook::other_recipe"
 ```
 
