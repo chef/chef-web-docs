@@ -15,6 +15,10 @@ gh_repo = "chef-web-docs"
 
 For information about Ruby recipes, see the [Ruby recipe documentation]({{< relref "recipes" >}}).
 
+## Support
+
+We introduced YAML recipes in Chef Infra Client 16.0. We added support for YAML recipes with the `.yml` file extension in Infra Client 17.2.29. We added support for JSON recipes in Chef Infra Client 18.8.
+
 ## Create a JSON or YAML recipe
 
 To create a JSON or YAML recipe, follow these steps:
