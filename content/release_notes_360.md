@@ -12,6 +12,42 @@ product = [""]
     weight = 10
 +++
 
+## Chef 360 Platform 1.4.1
+
+Release date: August 20, 2025
+
+## Support
+
+With this release, we're discontinuing support for Chef 360 Platform versions 1.4.0 and earlier.
+
+## New features
+
+The Chef 360 Platform UI now includes screens to help you manage application keys and enable node self-enrollment.
+
+## Improvements
+
+- We removed dependencies on Bitnami for specific images to comply with Bitnami's license changes.
+- You can now update a node's cohort through the Chef 360 Platform UI.
+- Login usernames are now case-insensitive.
+- Chef 360 Platform no longer rotates SSL certificates for deployments with system-generated certificates during redeployment or upgrade.
+
+## Bug fixes
+
+- Node self-enrollment scripts no longer require a port number to be included with the FQDN.
+
+## Supported skill versions
+
+| Skill                    | Skill name              | Habitat package                       | Version |
+|--------------------------|-------------------------|---------------------------------------|---------|
+| Courier Runner           | courier-runner          | chef-platform/courier-runner          | 1.5.1   |
+| Gohai                    | chef-gohai              | chef-platform/chef-gohai              | 1.2.11  |
+| Inspec Interpreter       | inspec-interpreter      | chef-platform/inspec-interpreter      | 1.0.8   |
+| Node Management Agent    | node-management-agent   | chef-platform/node-management-agent   | 1.1.0   |
+| Restart Interpreter      | restart-interpreter     | chef-platform/restart-interpreter     | 1.0.5   |
+| Shell Interpreter        | shell-interpreter       | chef-platform/shell-interpreter       | 1.0.6   |
+| Infra Client Interpreter | chef-client-interpreter | chef-platform/chef-client-interpreter | 1.0.8   |
+| Ansible Interpreter      | ansible-interpreter     | chef-platform/ansible-interpreter     | 0.1.3   |
+
 ## Chef 360 Platform 1.4.0
 
 Release date: July 17, 2025
