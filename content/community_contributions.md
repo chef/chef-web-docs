@@ -1,5 +1,5 @@
 +++
-title = "Community Contributions"
+title = "Community contributions"
 draft = false
 gh_repo = "chef-web-docs"
 aliases = ["/community_contributions.html"]
@@ -7,7 +7,7 @@ product = []
 
 [menu]
   [menu.overview]
-    title = "Community Contributions"
+    title = "Community contributions"
     identifier = "overview/community/contributing"
     parent = "overview/community"
     weight = 10
@@ -15,7 +15,7 @@ product = []
 <!-- markdownlint-disable-file MD033 -->
 We're glad you want to contribute to a Chef project! This guide will help answer common questions you may have during your first contribution.
 
-## Submitting Issues
+## Submitting issues
 
 Not every contribution comes in the form of code. Submitting, confirming, and triaging issues is an important task for any project. At Chef we use GitHub to track all project issues.
 
@@ -29,32 +29,24 @@ We ask you not to submit security concerns using GitHub. For details on submitti
 
 In addition to GitHub issues, we also use a feedback site that helps our product team track and rank feature requests. If you have a feature request, [this is an excellent place to start](https://chef-software.ideas.aha.io/).
 
-The following repositories are the preferred locations for the creation of issues and bug reports:
-
-{{< repos >}}
-
 For additional support about Chef products, including documentation, learning, and opening tickets with the support team, see [Chef Support](https://www.chef.io/support) .
-
-{{< warning >}}
-
-If you require a response from Chef for each the terms of a support level agreement (SLA), please contact [Chef Support](https://www.chef.io/support) directly.
-
-{{< /warning >}}
 
 {{< note >}}
 
-Questions on how to use Chef Infra should be sent as Support Tickets if you have an SLA, or asked on the [Chef Software Mailing List](https://discourse.chef.io/), or [Chef Community Slack](https://community-slack.chef.io/). Bug Trackers aren't appropriate for general purpose questions that aren't bugs.
+If you require a response from Chef for each the terms of a support level agreement (SLA), please contact [Chef Support](https://www.chef.io/support) directly.
+
+Questions on how to use Chef Infra should be sent as support tickets if you have an SLA, or asked on the [Chef Software Mailing List](https://discourse.chef.io/), or [Chef Community Slack](https://community-slack.chef.io/). Bug Trackers aren't appropriate for general purpose questions that aren't bugs.
 
 {{< /note >}}
 
-## Contribution Process
+## Contribution process
 
 Follow these steps to submit a contribution:
 
 1. Fork the project repository to your own GitHub account.
 2. Commit your changes to your fork, making sure to sign-off those changes for the Developer Certificate of Origin with `git commit -s`
-3. Create a GitHub Pull Request for your change, following the instructions in the pull request template.
-4. Perform a Code Review with the project maintainers on the pull
+3. Create a GitHub pull request for your change, following the instructions in the pull request template.
+4. Perform a code review with the project maintainers on the pull
     request.
 
 ## About the Apache License
@@ -124,7 +116,7 @@ Chef doesn't merge any pull requests made against a Chef-managed open source rep
 * Pull requests made against the docs.chef.io documentation repository (<https://github.com/chef/chef-web-docs>)
 * Pull requests that contain only documentation updates made against projects where the documentation is embedded in the project's repository (that's, the `docs` directory in the `chef/inspec` repository)
 
-## The "Obvious Fix" Rule
+## The Obvious Fix Rule
 
 Chef's contribution policy is aimed at encouraging broad participation from our community, and minimizing risks to Chef and our community due to inappropriate contributions of the intellectual property of others.
 
@@ -132,7 +124,7 @@ As a general standard, Chef requires every contribution to by signed for the Dev
 
 HOWEVER, small contributions such as fixing spelling errors, where the content is small enough to not be considered intellectual property, can be submitted by a contributor as a patch, without a DCO sign-off. If you submit an obvious fix without a DCO sign-off, then you are agreeing that your submission isn't independently copyrightable. The purpose of this exception is to lower the barrier for new contributors to make contributions while retaining the integrity of the project and our community.
 
-### How does the Obvious Fix Rule Work?
+### How does the Obvious Fix Rule work?
 
 Any committer may commit fixes without a DCO sign-off for obvious typos, grammar mistakes, and formatting problems wherever they may be * in the web pages, API documentation, source code, etc.
 
@@ -151,7 +143,7 @@ Date:   Wed Sep 18 11:44:40 2015 -0700
 ------------------------------------------------------------------------
 ```
 
-### What qualifies as an Obvious Fix?
+### What qualifies as an obvious fix?
 
 An obvious fix is a pull request that doesn't contain creative work. We rely on your judgment to determine what's "obvious"; if you're not sure, just ask by sending an email to: oss AT getchef DOT com.
 

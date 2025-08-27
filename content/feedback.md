@@ -1,5 +1,5 @@
 +++
-title = "Send Feedback"
+title = "Send feedback"
 draft = false
 gh_repo = "chef-web-docs"
 aliases = ["/feedback.html"]
@@ -7,7 +7,7 @@ product = []
 
 [menu]
   [menu.overview]
-    title = "Send Feedback"
+    title = "Send feedback"
     identifier = "overview/community/feedback.md Send Feedback"
     parent = "overview/community"
     weight = 50
@@ -15,11 +15,11 @@ product = []
 
 chef-docs hopes that the documentation is always just what you are
 looking for, but when that isn't the case we do appreciate
-feedback. There are several ways to get feedback to chef-docs. For
+feedback. There are several ways to get feedback to the Chef Documentation Team. For
 members of the Chef community, customers, or people who just want to
 send feedback, choose any of the following options:
 
-## Feedback Form
+## Feedback form
 
 Every page in [docs.chef.io](https://docs.chef.io) has a feedback form
 at the bottom of the page. Please feel free to include any thoughts or
@@ -38,13 +38,12 @@ ideas, thoughts, and suggestions. This email address is
 not a support email address, however. If you need support,
 contact [Chef support](https://supportlink.chef.io/).
 
-## GitHub Issues
+## GitHub issues
 
 Open an issue in <https://github.com/chef/chef-web-docs/issues>
-on GitHub. If you believe the issue may be a product bug within a Chef
-itself, consider opening an issue in the relevant [product repository]({{< relref "repositories" >}}).
+on GitHub.
 
-## GitHub Pull Request
+## GitHub pull request
 
 You can open a pull request on <https://github.com/chef/chef-web-docs>.
 Every page on <https://docs.chef.io> has a link to the Markdown page in the repository
