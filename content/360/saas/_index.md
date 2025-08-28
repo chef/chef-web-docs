@@ -31,8 +31,8 @@ Chef 360 SaaS has a workflow engine to execute varied jobs in compliance and inf
 
 ## Additional guides
 
-- [Chef 360 user interface](https://docs.chef.io/360/1.3/chef_360_ui/)
-- [Chef Courier](https://docs.chef.io/360/1.3/courier/)
-- [Chef Node Management](https://docs.chef.io/360/1.3/courier/jobs/)
-- [Organization and user management](https://docs.chef.io/360/1.3/administration/)
-- [API and CLI references](https://docs.chef.io/360/1.3/reference/)
+- [Chef 360 user interface](https://docs.chef.io/360/latest/chef_360_ui/)
+- [Chef Courier](https://docs.chef.io/360/latest/courier/)
+- [Chef Node Management](https://docs.chef.io/360/latest/courier/jobs/)
+- [Organization and user management](https://docs.chef.io/360/latest/administration/)
+- [API and CLI references](https://docs.chef.io/360/latest/reference/)

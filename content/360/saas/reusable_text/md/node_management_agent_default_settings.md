@@ -6,4 +6,4 @@ The Node Management agent has the following default settings:
 - It updates skill definition metadata every hour.
 - Its log level is warning.
 
-For more information, see the [Node Management agent documentation](https://docs.chef.io/360/1.3/node_management/skills/node_agent/)
+For more information, see the [Node Management agent documentation](https://docs.chef.io/360/latest/node_management/skills/node_agent/)
