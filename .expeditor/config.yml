@@ -32,6 +32,9 @@ subscriptions:
   - workload: chef/automate:main_completed:project_promoted:chef/automate:main:acceptance:*
     actions:
     - bash:.expeditor/update_hugo_modules_project_promoted.sh
+  - workload: chef/automate-private:main_completed:project_promoted:chef/automate-private:main:acceptance:*
+    actions:
+    - bash:.expeditor/update_hugo_modules_project_promoted.sh
   - workload: habitat-sh/habitat:main_completed:project_promoted:habitat-sh/habitat:main:current:*
     actions:
     - bash:.expeditor/update_hugo_modules_project_promoted.sh
