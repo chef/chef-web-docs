@@ -19,7 +19,7 @@ You can find your license key on the [customer support portal](https://community
 
 The following products require a Chef License key to run:
 
-- [Chef InSpec 6 or greater](/inspec/license/)
+- [Chef InSpec 6](/inspec/license/)
 
 ## Add license key
 
