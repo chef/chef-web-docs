@@ -1,5 +1,3 @@
-github.com/chef/automate/components/docs-chef-io v0.0.0-20250617123043-e9e3b2463824 h1:K1jZj4ISjLOgvpGm42YrpdRHwbZQX5juZOXbwj5N+78=
-github.com/chef/automate/components/docs-chef-io v0.0.0-20250617123043-e9e3b2463824/go.mod h1:juvLC7Rt33YOCgJ5nnfl4rWZRAbSwqjTbWmcAoA0LtU=
 github.com/chef/automate/components/docs-chef-io v0.0.0-20250902130712-4abbca2f9c80 h1:JQEuqGaOg0DgvwbMwbMSzEiqcxPa14flEo9TKmPDSnU=
 github.com/chef/automate/components/docs-chef-io v0.0.0-20250902130712-4abbca2f9c80/go.mod h1:juvLC7Rt33YOCgJ5nnfl4rWZRAbSwqjTbWmcAoA0LtU=
 github.com/chef/chef-docs-theme v0.0.0-20250808212116-563fde1a25bc h1:QwjE9YnoY01CkGNOjdZup9tudvM0iq19IA3VHzIGmZg=
@@ -24,8 +22,8 @@ github.com/chef/supermarket/docs-chef-io v0.0.0-20250602140848-cded623a3f5c h1:q
 github.com/chef/supermarket/docs-chef-io v0.0.0-20250602140848-cded623a3f5c/go.mod h1:D+9mmEZxCwpdhZ8LrEODBWMwMufmJUubSt5NlU/lLB4=
 github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90 h1:p/a5iSATj0OjrqJLX/YKxYdGXhZzW58yyyNIC4JY4S0=
 github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90/go.mod h1:N/6F0+wmdvL6k0AjqyKIncMRClKAN92atjZdTLtYMaw=
-github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20250703193412-93daafc684a8 h1:euxH1nuHIWgo6hr6Z/CkHOGik+JIghtkrFXUj01hB+4=
-github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20250703193412-93daafc684a8/go.mod h1:5GKz/BtTWeTr8vdVQPkvGDQkQ+xiGWLkDsPOXhu2Ps4=
+github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20250905124722-c1a4eb639cba h1:DCrplvFmHTVSFGMDo/2G3DQSounSgbAsJ1X0YhIAaR0=
+github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20250905124722-c1a4eb639cba/go.mod h1:5GKz/BtTWeTr8vdVQPkvGDQkQ+xiGWLkDsPOXhu2Ps4=
 github.com/habitat-sh/on-prem-builder/docs-chef-io v0.0.0-20250805192817-f8b1dae05d5e h1:qHs6EaygFn8iNJgqeGHI6Bd1jMSynG4TijKKWfqR8N8=
 github.com/habitat-sh/on-prem-builder/docs-chef-io v0.0.0-20250805192817-f8b1dae05d5e/go.mod h1:8gmm7JyOiJAbZHIpZNCP4XqgZ8RtUHaEwEi0X0AsJ4M=
 github.com/inspec/inspec-alicloud/docs-chef-io v0.0.0-20240122032124-a1d2a214e170 h1:Q9jEEyv8nZAN5NgJXwMoqjngSz6Bc5ruNc9V72Hk4b4=

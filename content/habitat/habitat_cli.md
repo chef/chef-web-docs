@@ -18,7 +18,7 @@ The commands for the Chef Habitat CLI (`hab`) are listed below.
 
 | Applies to Version | Last Updated |
 | ------- | ------------ |
-| hab 1.6.1243/20241227194506 (linux) | 27 Dec 2024 |
+| hab 1.6.1245/20250905140900 (linux) | 5 Sep 2025 |
 
 ## hab
 
@@ -184,7 +184,7 @@ hab bldr channel demote [OPTIONS] <SOURCE_CHANNEL> <TARGET_CHANNEL> --origin <OR
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>    Authentication token for Builder
+-z, --auth <AUTH_TOKEN>    Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL>       Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 -o, --origin <ORIGIN>      The origin for the channels. Default is from 'HAB_ORIGIN' or cli.toml
 ```
@@ -288,7 +288,7 @@ hab bldr channel promote [OPTIONS] <SOURCE_CHANNEL> <TARGET_CHANNEL> --origin <O
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>    Authentication token for Builder
+-z, --auth <AUTH_TOKEN>    Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL>       Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 -o, --origin <ORIGIN>      The origin for the channels. Default is from 'HAB_ORIGIN' or cli.toml
 ```
@@ -356,7 +356,7 @@ hab bldr job cancel [FLAGS] [OPTIONS] <GROUP_ID>
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>    Authentication token for Builder
+-z, --auth <AUTH_TOKEN>    Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL>       Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 ```
 
@@ -391,7 +391,7 @@ hab bldr job demote [FLAGS] [OPTIONS] <GROUP_ID> <CHANNEL>
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>    Authentication token for Builder
+-z, --auth <AUTH_TOKEN>    Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL>       Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 -o, --origin <ORIGIN>      Limit the demotable packages to the specified origin
 ```
@@ -428,7 +428,7 @@ hab bldr job promote [FLAGS] [OPTIONS] <GROUP_ID> <CHANNEL>
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>    Authentication token for Builder
+-z, --auth <AUTH_TOKEN>    Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL>       Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 -o, --origin <ORIGIN>      Limit the promotable packages to the specified origin
 ```
@@ -465,7 +465,7 @@ hab bldr job start [FLAGS] [OPTIONS] <PKG_IDENT> [PKG_TARGET]
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>    Authentication token for Builder
+-z, --auth <AUTH_TOKEN>    Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL>       Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 ```
 
@@ -867,7 +867,7 @@ hab origin create [OPTIONS] <ORIGIN>
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>    Authentication token for Builder
+-z, --auth <AUTH_TOKEN>    Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL>       Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 ```
 
@@ -901,7 +901,7 @@ hab origin delete [OPTIONS] <ORIGIN>
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>    Authentication token for Builder
+-z, --auth <AUTH_TOKEN>    Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL>       Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 ```
 
@@ -935,7 +935,7 @@ hab origin depart [OPTIONS] <ORIGIN>
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>    Authentication token for Builder
+-z, --auth <AUTH_TOKEN>    Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL>       Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 ```
 
@@ -970,7 +970,7 @@ hab origin info [FLAGS] [OPTIONS] <ORIGIN>
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>    Authentication token for Builder
+-z, --auth <AUTH_TOKEN>    Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL>       Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 ```
 
@@ -1036,7 +1036,7 @@ hab origin invitations accept [OPTIONS] <ORIGIN> <INVITATION_ID>
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>    Authentication token for Builder
+-z, --auth <AUTH_TOKEN>    Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL>       Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 ```
 
@@ -1071,7 +1071,7 @@ hab origin invitations ignore [OPTIONS] <ORIGIN> <INVITATION_ID>
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>    Authentication token for Builder
+-z, --auth <AUTH_TOKEN>    Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL>       Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 ```
 
@@ -1106,7 +1106,7 @@ hab origin invitations list [OPTIONS]
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>    Authentication token for Builder
+-z, --auth <AUTH_TOKEN>    Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL>       Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 ```
 
@@ -1135,7 +1135,7 @@ hab origin invitations pending [OPTIONS] <ORIGIN>
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>    Authentication token for Builder
+-z, --auth <AUTH_TOKEN>    Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL>       Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 ```
 
@@ -1169,7 +1169,7 @@ hab origin invitations rescind [OPTIONS] <ORIGIN> <INVITATION_ID>
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>    Authentication token for Builder
+-z, --auth <AUTH_TOKEN>    Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL>       Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 ```
 
@@ -1204,7 +1204,7 @@ hab origin invitations send [OPTIONS] <ORIGIN> <INVITEE_ACCOUNT>
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>    Authentication token for Builder
+-z, --auth <AUTH_TOKEN>    Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL>       Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 ```
 
@@ -1404,7 +1404,7 @@ hab origin key upload [FLAGS] [OPTIONS] <ORIGIN|--pubfile <PUBLIC_FILE>>
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>                  Authentication token for Builder
+-z, --auth <AUTH_TOKEN>                  Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL>                     Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
     --cache-key-path <CACHE_KEY_PATH>    Cache for creating and searching for encryption keys [env: HAB_CACHE_KEY_PATH=]  [default: /hab/cache/keys]
     --pubfile <PUBLIC_FILE>              Path to a local public origin key file on disk
@@ -1470,7 +1470,7 @@ hab origin rbac set [FLAGS] [OPTIONS] <MEMBER_ACCOUNT> <ROLE> --origin <ORIGIN>
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>    Authentication token for Builder
+-z, --auth <AUTH_TOKEN>    Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL>       Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 -o, --origin <ORIGIN>      The Builder origin name to target
 ```
@@ -1507,7 +1507,7 @@ hab origin rbac show [FLAGS] [OPTIONS] <MEMBER_ACCOUNT> --origin <ORIGIN>
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>    Authentication token for Builder
+-z, --auth <AUTH_TOKEN>    Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL>       Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 -o, --origin <ORIGIN>      The Builder origin name to target
 ```
@@ -1571,7 +1571,7 @@ hab origin secret delete [OPTIONS] <KEY_NAME>
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>    Authentication token for Builder
+-z, --auth <AUTH_TOKEN>    Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL>       Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 -o, --origin <ORIGIN>      The origin for which the secret will be deleted. Default is from 'HAB_ORIGIN' or cli.toml
 ```
@@ -1606,7 +1606,7 @@ hab origin secret list [OPTIONS]
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>    Authentication token for Builder
+-z, --auth <AUTH_TOKEN>    Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL>       Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 -o, --origin <ORIGIN>      The origin for which secrets will be listed. Default is from 'HAB_ORIGIN' or cli.toml
 ```
@@ -1636,7 +1636,7 @@ hab origin secret upload [OPTIONS] <KEY_NAME> <SECRET>
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>                  Authentication token for Builder
+-z, --auth <AUTH_TOKEN>                  Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL>                     Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
     --cache-key-path <CACHE_KEY_PATH>    Cache for creating and searching for encryption keys [env: HAB_CACHE_KEY_PATH=]  [default: /hab/cache/keys]
 -o, --origin <ORIGIN>                    The origin for which the secret will be uploaded. Default is from HAB_ORIGIN' or cli.toml
@@ -1673,7 +1673,7 @@ hab origin transfer [OPTIONS] <ORIGIN> <NEW_OWNER_ACCOUNT>
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>    Authentication token for Builder
+-z, --auth <AUTH_TOKEN>    Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL>       Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 ```
 
@@ -1828,7 +1828,7 @@ hab pkg build [FLAGS] [OPTIONS] <PLAN_CONTEXT>
 --cache-key-path <CACHE_KEY_PATH>      Cache for creating and searching for encryption keys [env: HAB_CACHE_KEY_PATH=]  [default: /hab/cache/keys]
 -k, --keys <HAB_ORIGIN_KEYS>               Installs secret origin keys (ex: "unicorn", "acme,other,acme-ops")
 -r, --root <HAB_STUDIO_ROOT>               Sets the Studio root (default: /hab/studios/<DIR_NAME>)
--f, --refresh-channel <REFRESH_CHANNEL>    Channel used to retrieve plan dependencies for Chef supported origins env: HAB_REFRESH_CHANNEL=]  [default: stable]
+-f, --refresh-channel <REFRESH_CHANNEL>    Channel used to retrieve plan dependencies for Chef supported origins env: HAB_REFRESH_CHANNEL=stable]  [default: stable]
 -s, --src <SRC_PATH>                       Sets the source path (default: $PWD)
 ```
 
@@ -1865,7 +1865,7 @@ hab pkg bulkupload [FLAGS] [OPTIONS] <UPLOAD_DIRECTORY>
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>    Authentication token for Builder
+-z, --auth <AUTH_TOKEN>    Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL>       Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 -c, --channel <CHANNEL>    Optional additional release channel to upload package to. Packages are always uploaded to unstable, regardless of the value of this option
 ```
@@ -1900,7 +1900,7 @@ hab pkg channels [OPTIONS] <PKG_IDENT> [PKG_TARGET]
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>    Authentication token for Builder
+-z, --auth <AUTH_TOKEN>    Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL>       Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 ```
 
@@ -1963,7 +1963,7 @@ hab pkg delete [OPTIONS] <PKG_IDENT> [PKG_TARGET]
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>    Authentication token for Builder
+-z, --auth <AUTH_TOKEN>    Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL>       Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 ```
 
@@ -1998,7 +1998,7 @@ hab pkg demote [OPTIONS] <PKG_IDENT> <CHANNEL> [PKG_TARGET]
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>    Authentication token for Builder
+-z, --auth <AUTH_TOKEN>    Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL>       Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 ```
 
@@ -2066,7 +2066,7 @@ hab pkg download [FLAGS] [OPTIONS] [--] [PKG_IDENT]...
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>                          Authentication token for Builder
+-z, --auth <AUTH_TOKEN>                          Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL> Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 -c, --channel <CHANNEL> Download from the specified release channel. Overridden if channel is specified in toml file [env: HAB_BLDR_CHANNEL=]  [default: stable]
     --download-directory <DOWNLOAD_DIRECTORY>    The path to store downloaded artifacts
@@ -2254,7 +2254,7 @@ hab pkg install [FLAGS] [OPTIONS] <PKG_IDENT_OR_ARTIFACT>...
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>            Authentication token for Builder
+-z, --auth <AUTH_TOKEN>            Authentication token for Builder [env: HAB_AUTH_TOKEN=]
     --binlink-dir <BINLINK_DIR>    Binlink all binaries from installed package(s) into BINLINK_DIR [env: HAB_BINLINK_DIR=]  [default: /bin]
 -u, --url <BLDR_URL>               Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 -c, --channel <CHANNEL>            Install from the specified release channel [env: HAB_BLDR_CHANNEL=]  [default: stable]
@@ -2352,7 +2352,7 @@ hab pkg promote [OPTIONS] <PKG_IDENT> <CHANNEL> [PKG_TARGET]
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>    Authentication token for Builder
+-z, --auth <AUTH_TOKEN>    Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL>       Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 ```
 
@@ -2418,7 +2418,7 @@ hab pkg search [OPTIONS] <SEARCH_TERM>
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>    Authentication token for Builder
+-z, --auth <AUTH_TOKEN>    Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL>       Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
 -l, --limit <LIMIT>        Limit how many packages to retrieve [default: 50]
 ```
@@ -2527,7 +2527,7 @@ hab pkg upload [FLAGS] [OPTIONS] <HART_FILE>...
 **OPTIONS**
 
 ```
--z, --auth <AUTH_TOKEN>                  Authentication token for Builder
+-z, --auth <AUTH_TOKEN>                  Authentication token for Builder [env: HAB_AUTH_TOKEN=]
 -u, --url <BLDR_URL>                     Specify an alternate Builder endpoint. If not specified, the value will be taken from the HAB_BLDR_URL environment variable if defined. (default: https://bldr.habitat.sh)
     --cache-key-path <CACHE_KEY_PATH>    Cache for creating and searching for encryption keys [env: HAB_CACHE_KEY_PATH=]  [default: /hab/cache/keys]
 -c, --channel <CHANNEL>                  Optional additional release channel to upload package to. Packages are always uploaded to unstable, regardless of the value of this option
