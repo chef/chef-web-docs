@@ -14,16 +14,15 @@ Commercial customers can use Chef's Commercial API to download Chef software pac
 
 ## Install script
 
-You can also use an install script from the API to download and install Chef packages. See the [Chef install script documentation](/chef_install_script/) for more information.
+You can use an install script from the API to download and install Chef packages. For more information, see the [Chef install script documentation](/chef_install_script/).
 
 ## License
 
-You must use a license ID to download packages and review metadata with this API.
+To download packages and review metadata with this API, you need a license ID.
 
-You can get your license ID from the [Chef Downloads portal](https://chef.io/downloads),
-or [contact Chef](https://www.chef.io/contact-us) if you don't already have one.
+You can get your license ID from the [Chef Downloads portal](https://chef.io/downloads), or [contact Chef](https://www.chef.io/contact-us) if you don't have one.
 
-See [Chef's licensing documentation]({{< relref "licensing" >}}) for more information on the Chef license.
+For more information, see [Chef's licensing documentation]({{< relref "licensing" >}}).
 
 ## Endpoints
 
@@ -38,12 +37,11 @@ The Chef Commercial Download API has the following endpoints:
 - `/metadata`
 - `/download`
 
-See the [parameters section](#parameters) below to understand the query strings used in the following endpoint descriptions.
+For details about query strings, see the [parameters section](#parameters).
 
 ### architectures
 
-The `architectures` endpoint returns a valid list of architecture that Chef products are built for.
-Any of these architectures can be used in the `m` [query string](#parameters) value in various endpoints below.
+The `architectures` endpoint returns a list of valid architectures for Chef products. You can use any of these architectures as the `m` [query string](#parameters) value in the endpoints below.
 
 ```plain
 https://chefdownload-commercial.chef.io/architectures
@@ -51,7 +49,7 @@ https://chefdownload-commercial.chef.io/architectures
 
 ### platforms
 
-The `platforms` endpoint returns a list of valid platform keys along with full friendly names. Any of these platform keys can be used in the `p` [query string](#parameters) value in various endpoints below.
+The `platforms` endpoint returns a list of valid platform keys and friendly names. You can use any of these platform keys as the `p` [query string](#parameters) value in the endpoints below.
 
 ```plain
 https://chefdownload-commercial.chef.io/platforms
@@ -59,13 +57,13 @@ https://chefdownload-commercial.chef.io/platforms
 
 ### products
 
-The `products` endpoint returns a list of valid product keys. In the following endpoints, you can replace the `<PRODUCT>` string with a product key in the response of this endpoint.
+The `products` endpoint returns a list of valid product keys. In the endpoints below, replace `<PRODUCT>` with a product key from this response.
 
 ```plain
 https://chefdownload-commercial.chef.io/products
 ```
 
-Use `eol=true` to return EOL products.
+To include EOL products, use `eol=true`:
 
 ```plain
 https://chefdownload-commercial.chef.io/products?eol=true
@@ -73,15 +71,15 @@ https://chefdownload-commercial.chef.io/products?eol=true
 
 ### packages
 
-Use `packages` to get a full list of all packages for a particular release channel and product.
+Use the `packages` endpoint to get a full list of packages for a particular release channel and product.
 
-By default, it returns packages for the latest version.
+By default, this endpoint returns packages for the latest version.
 
 ```plain
 https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/packages?license_id=<LICENSE_ID>
 ```
 
-You can specify a version number with the `v` query string to get packages for a particular product version.
+To get packages for a specific product version, use the `v` query string:
 
 ```plain
 https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/packages?v=<VERSION_NUMBER>&license_id=<LICENSE_ID>
