@@ -12,6 +12,27 @@ product = [""]
     weight = 10
 +++
 
+## Chef 360 Platform 1.4.2
+
+Release date: September 10, 2025
+
+### Bug fixes
+
+- This release fixes a race condition in Courier that caused some jobs to not track their completion or timeout status correctly. Jobs with timeouts close to the step-level timeout limits are now handled as expected.
+
+### Supported skill versions
+
+| Skill                    | Skill name              | Habitat package                       | Version |
+|--------------------------|-------------------------|---------------------------------------|---------|
+| Ansible Interpreter      | ansible-interpreter     | chef-platform/ansible-interpreter     | 0.1.3   |
+| Courier Runner           | courier-runner          | chef-platform/courier-runner          | 1.5.2   |
+| Gohai                    | chef-gohai              | chef-platform/chef-gohai              | 1.2.11  |
+| Infra Client Interpreter | chef-client-interpreter | chef-platform/chef-client-interpreter | 1.0.8   |
+| Inspec Interpreter       | inspec-interpreter      | chef-platform/inspec-interpreter      | 1.0.8   |
+| Node Management Agent    | node-management-agent   | chef-platform/node-management-agent   | 1.1.0   |
+| Restart Interpreter      | restart-interpreter     | chef-platform/restart-interpreter     | 1.0.5   |
+| Shell Interpreter        | shell-interpreter       | chef-platform/shell-interpreter       | 1.0.6   |
+
 ## Chef 360 Platform 1.4.1
 
 Release date: August 20, 2025
