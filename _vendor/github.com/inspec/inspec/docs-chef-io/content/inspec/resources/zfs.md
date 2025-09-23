@@ -15,7 +15,7 @@ Use the `zfs` Chef InSpec audit resource to test the named ZFS Pool file system 
 
 ## Availability
 
-### Install
+### Installation
 
 Chef Inspec distributes this resource.
 

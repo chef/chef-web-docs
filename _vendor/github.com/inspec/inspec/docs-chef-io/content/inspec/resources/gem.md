@@ -15,9 +15,9 @@ Use the `gem` Chef InSpec audit resource to test if a global Gem package is inst
 
 ## Availability
 
-### Install
+### Installation
 
-{{< readfile file="content/inspec/reusable/md/inspec_installation.md" >}}
+{{% inspec/inspec_installation %}}
 
 ### Version
 
@@ -110,9 +110,7 @@ The `versions` property returns an array of strings of all the versions of the g
 
 ## Matchers
 
-{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
-
-This resource has the following special matchers.
+For a full list of available matchers, please visit our [matchers page](/inspec/matchers/).
 
 ### be_installed
 

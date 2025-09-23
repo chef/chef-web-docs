@@ -15,9 +15,9 @@ Use the `docker_service` Chef InSpec audit resource to verify a docker swarm ser
 
 ## Availability
 
-### Install
+### Installation
 
-{{< readfile file="content/inspec/reusable/md/inspec_installation.md" >}}
+{{% inspec/inspec_installation %}}
 
 ### Version
 
@@ -111,9 +111,7 @@ The `tag` property tests the value of image tag:
 
 ## Matchers
 
-{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
-
-This resource has the following special matchers.
+For a full list of available matchers, please visit our [matchers page](/inspec/matchers/).
 
 ### exist
 

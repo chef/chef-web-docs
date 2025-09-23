@@ -15,9 +15,9 @@ Use the `filesystem` Chef InSpec resource to audit filesystem disk space usage.
 
 ## Availability
 
-### Install
+### Installation
 
-{{< readfile file="content/inspec/reusable/md/inspec_installation.md" >}}
+{{% inspec/inspec_installation %}}
 
 ### Version
 
@@ -103,4 +103,4 @@ Note that Windows filesystems (drives) are referred to without any slashes:
 
 ## Matchers
 
-{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+For a full list of available matchers, please visit our [matchers page](/inspec/matchers/).

@@ -15,9 +15,9 @@ Use the `etc_hosts_allow` Chef InSpec audit resource to test rules defined for a
 
 ## Availability
 
-### Install
+### Installation
 
-{{< readfile file="content/inspec/reusable/md/inspec_installation.md" >}}
+{{% inspec/inspec_installation %}}
 
 ### Version
 
@@ -74,4 +74,4 @@ The `options` property returns a 2d string array where each entry contains any o
 
 ## Matchers
 
-{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
+For a full list of available matchers, please visit our [matchers page](/inspec/matchers/).

@@ -1,19 +1,19 @@
 +++
-title = "Serverspec Migration Guide"
+title = "Chef InSpec Migration Guide"
 draft = false
 gh_repo = "inspec"
 
 [menu]
   [menu.inspec]
     title = "Migration from Serverspec"
-    identifier = "inspec/friends/migration.md Migration from Serverspec"
-    parent = "inspec/friends"
-    weight = 20
+    identifier = "inspec/reference/migration.md Migration from Serverspec"
+    parent = "inspec/reference"
+    weight = 130
 +++
 
 ## How is Chef InSpec different from Serverspec
 
-We've written a complete blog post about that topic: [The Road to InSpec](https://www.chef.io/blog/the-road-to-inspec)
+We've written a complete blog post about that topic: [The Road to InSpec](https://blog.chef.io/2015/11/04/the-road-to-inspec/)
 
 ## Is Chef InSpec suitable for infrastructure testing?
 
@@ -21,7 +21,7 @@ Chef InSpec is a framework that allows you to run infrastructure testing as well
 
 ## Which Serverspec resources are available in InSpec?
 
-The following resources are available in Chef InSpec:
+The following resources are available in InSpec:
 
 |                                         Serverspec                                         |                                        Chef InSpec                                        |
 |:------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------:|

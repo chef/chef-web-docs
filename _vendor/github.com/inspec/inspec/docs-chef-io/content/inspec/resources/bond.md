@@ -15,9 +15,9 @@ Use the `bond` Chef InSpec audit resource to test a logical, bonded network inte
 
 ## Availability
 
-### Install
+### Installation
 
-{{< readfile file="content/inspec/reusable/md/inspec_installation.md" >}}
+{{% inspec/inspec_installation %}}
 
 ### Version
 
@@ -83,9 +83,7 @@ The `params` property returns arbitrary parameters for the bonded network interf
 
 ## Matchers
 
-{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
-
-This resource has the following special matchers.
+For a full list of available matchers, please visit our [matchers page](/inspec/matchers/).
 
 ### exist
 

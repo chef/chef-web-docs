@@ -15,9 +15,9 @@ Use the `ipfilter` Chef InSpec audit resource to test rules defined for `ipfilte
 
 ## Availability
 
-### Install
+### Installation
 
-{{< readfile file="content/inspec/reusable/md/inspec_installation.md" >}}
+{{% inspec/inspec_installation %}}
 
 ## Syntax
 
@@ -65,9 +65,7 @@ Note that the rule specification must exactly match what is in the output of `'i
 
 ## Matchers
 
-{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
-
-This resource has the following special matchers.
+For a full list of available matchers, please visit our [matchers page](/inspec/matchers/).
 
 ### have_rule
 

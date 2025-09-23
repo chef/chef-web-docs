@@ -15,9 +15,9 @@ Use the `zfs_dataset` Chef InSpec audit resource to test the ZFS datasets on Fre
 
 ## Availability
 
-### Install
+### Installation
 
-{{< readfile file="content/inspec/reusable/md/inspec_installation.md" >}}
+{{% inspec/inspec_installation %}}
 
 ### Version
 
@@ -54,9 +54,7 @@ The following examples show how to use this Chef InSpec audit resource.
 
 ## Matchers
 
-This Chef InSpec audit resource has the matchers listed below, in addition to dynamically exposing all ZFS dataset properties available (see: `man zfs` for the list of supported properties). {{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
-
-This resource has the following special matchers.
+This Chef InSpec audit resource has the matchers listed below, in addition to dynamically exposing all ZFS dataset properties available (see: `man zfs` for the list of supported properties). For a full list of available matchers, please visit our [matchers page](/inspec/matchers/).
 
 ### be_mounted
 

@@ -15,7 +15,7 @@ Use the `podman_container` Chef InSpec audit resource to test the configuration 
 
 ## Availability
 
-### Install
+### Installation
 
 This resource is distributed with Chef InSpec and is automatically available for use.
 
@@ -106,8 +106,7 @@ its('command') { should eq 'nc -ll -p 1234 -e /bin/cat' }
 
 ## Matchers
 
-{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
- The specific matchers of this resource are: `exist` and `be_running`.
+For a full list of available matchers, please visit our [matchers page](/inspec/matchers/). The specific matchers of this resource are: `exist` and `be_running`.
 
 ### exist
 

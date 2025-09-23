@@ -15,7 +15,7 @@ Use the `podman_image` Chef InSpec audit resource to test the properties of a co
 
 ## Availability
 
-### Install
+### Installation
 
 This resource is distributed with Chef InSpec and is automatically available for use.
 
@@ -156,9 +156,7 @@ its("virtual_size") { should eq 1636053 }
 
 ## Matchers
 
-{{< readfile file="content/inspec/reusable/md/inspec_matchers_link.md" >}}
-
-This resource has the following special matchers.
+For a full list of available matchers, please visit our [matchers page](/inspec/matchers/).
 
 ### exist
 
