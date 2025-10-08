@@ -31,7 +31,8 @@ sitemaps = [
   "https://docs.chef.io/360/1.1/sitemap.xml",
   "https://docs.chef.io/360/1.2/sitemap.xml",
   "https://docs.chef.io/360/1.3/sitemap.xml",
-  "https://docs.chef.io/360/1.4/sitemap.xml"
+  "https://docs.chef.io/360/1.4/sitemap.xml",
+  "https://docs.chef.io/360/1.5/sitemap.xml"
 ]
 
 [chef-web-docs]
