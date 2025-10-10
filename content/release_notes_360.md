@@ -12,6 +12,37 @@ product = [""]
     weight = 10
 +++
 
+## Chef 360 Platform 1.5.0
+
+Release date: October 13, 2025
+
+### New features
+
+- We added an invite-based single sign-on (SSO) integration with SAML and OIDC identity providers (IDPs) to the Chef 360 Platform UI.
+- The Ansible Interpreter now includes a dedicated user workflow in the job wizard for low-code job creation.
+
+### Improvements
+
+- This release includes scalability enhancements across the platform.
+
+### Bug fixes
+
+- Fixed an issue where users were randomly logged out of the UI.
+- Fixed an issue in SaaS deployments where node self-enrollment showed incorrect node status messages.
+
+### Supported skill versions
+
+| Skill                    | Skill name              | Habitat package                       | Version |
+| ------------------------ | ----------------------- | ------------------------------------- | ------- |
+| Courier Runner           | courier-runner          | chef-platform/courier-runner          | 1.5.3   |
+| Gohai                    | chef-gohai              | chef-platform/chef-gohai              | 1.2.15  |
+| Inspec Interpreter       | inspec-interpreter      | chef-platform/inspec-interpreter      | 1.0.8   |
+| Node Management Agent    | node-management-agent   | chef-platform/node-management-agent   | 1.1.1   |
+| Restart Interpreter      | restart-interpreter     | chef-platform/restart-interpreter     | 1.0.5   |
+| Shell Interpreter        | shell-interpreter       | chef-platform/shell-interpreter       | 1.0.6   |
+| Infra Client Interpreter | chef-client-interpreter | chef-platform/chef-client-interpreter | 1.0.8   |
+| Ansible Interpreter      | ansible-interpreter     | chef-platform/ansible-interpreter     | 0.1.5   |
+
 ## Chef 360 Platform 1.4.2
 
 Release date: September 10, 2025
