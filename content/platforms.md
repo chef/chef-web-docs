@@ -97,7 +97,7 @@ The following table lists the commercially supported platforms and versions for 
 | CentOS | `x86_64`, `ppc64le`, `ppc64`, `aarch64` | `7.x` |
 | Debian | `x86_64` | `10`, `11` |
 | FreeBSD | `amd64` | `13.x` |
-| macOS | `aarch64` | `13.x`, `14.x` |
+| macOS | `x86_64` (12.x only), `aarch64` | `12.x`, `13.x`, `14.x` |
 | Oracle Enterprise Linux | `x86_64`, `aarch64` | `7.x`, `8.x` |
 | Red Hat Enterprise Linux | `x86_64`, `ppc64le` (7.x only), `ppc64` (7.x only), `aarch64`, `s390x` (7.x / 8.x only) | `7.x`, `8.x`, `9.x` |
 | Rocky Linux | `x86_64` | `8.x`, `9.x` |
@@ -223,7 +223,7 @@ that platform and version.
 | Amazon Linux 2 | Jun 30, 2025 | Jun 30, 2025 |
 | Amazon Linux 2023 | Mar 15, 2028 | Mar 15, 2028 |
 | Apple macOS 11 | Sep 26, 2023 | Sep 26, 2023 |
-| Apple macOS 12 | Sep 16, 2024 | Sep 16, 2025 |
+| Apple macOS 12 | Sep 16, 2024 | No current planned EOL date |
 | CentOS 6 | Nov 30, 2020 | Nov 30, 2020 |
 | CentOS 7 | Jun 30, 2024 | Jun 30, 2024 |
 | CentOS 8 | Dec 31, 2021 | Dec 31, 2021 |
