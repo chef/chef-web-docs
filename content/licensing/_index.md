@@ -21,11 +21,11 @@ Before you can use distributions of Chef products, you must [accept the Chef End
 
 ## Chef license key
 
-The following products require a [Chef license key](license_key):
+The following products require a [Chef license key](license_key) to run:
 
 - Chef InSpec 6
 
-The following products require a [Chef license key](license_key), depending on the distribution that you install:
+The following products require a [Chef license key](license_key) to run, depending on the distribution that you install:
 
 - Chef InSpec 7
 
