@@ -101,3 +101,14 @@
   from = "/client/rc2/*"
   to = "https://release-rc2--chef-infra-client.netlify.app/client/rc2/:splat"
   status = 200
+
+####
+# Chef InSpec redirects
+####
+
+[[redirects]]
+  from = "/inspec/resource_packs/*"
+  to = "https://inspec-resource-pack-docs.netlify.app/inspec/resource_packs/:splat"
+  status = 200
+
+
