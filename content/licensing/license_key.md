@@ -1,43 +1,52 @@
 +++
-title = "Add a Chef License Key"
+title = "Add a Chef license key"
 draft = false
 gh_repo = "chef-web-docs"
 
 [menu]
   [menu.overview]
-    title = "Add License Key"
+    title = "Add license key"
     identifier = "overview/licensing/Add License"
     parent = "overview/licensing"
     weight = 30
 +++
 
-This page describes how to add a license key to a Chef product.
+To use Chef products that require a license, you need to add your license key.
+You can find your license key in the [customer support portal](https://community.progress.com/s/products-list).
 
-You can find your license key on the [customer support portal](https://community.progress.com/s/products-list).
+## Products that require a Chef license key
 
-## Products
+You need a Chef license key to run the following products:
 
-The following products require a Chef License key to run:
+- Chef InSpec 6
 
-- [Chef InSpec 6 or greater](/inspec/license/)
+You might need a Chef license key to run the following products, depending on the distribution:
 
-## Add license key
+- Chef InSpec 7
 
-Chef products accept a license key with either an environment variable or as a command line argument.
+For these products, you need a license depending on how you install it:
 
-License data is stored locally in a configuration file at `$HOME/.chef/licenses.yaml`.
+- The Chef Habitat package for InSpec 7 doesn't require a license key to run.
+- The `inspec` gem requires a license key to run.
 
-### Command line option
+You can't manually enable or disable licensing. The licensing requirements are determined by the distribution.
 
-Use the `--chef-license-key` command line option to add a license key.
+## Add a license key
+
+Chef products accept a license key through an environment variable or a command line argument.
+Chef stores license data locally in a configuration file at `$HOME/.chef/licenses.yaml`.
+
+### Use a command line option
+
+To add a license key, use the `--chef-license-key` command line option:
 
 ```sh
 <CHEF_PRODUCT_COMMAND> --chef-license-key <LICENSE_KEY>
 ```
 
-### Environment variable
+### Use an environment variable
 
-Use the `CHEF_LICENSE_KEY` environment variable to add a license.
+To add a license key, set the `CHEF_LICENSE_KEY` environment variable:
 
 ```sh
 export CHEF_LICENSE_KEY=<LICENSE_KEY>
