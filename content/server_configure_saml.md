@@ -3,7 +3,7 @@ title = "Configuring for SAML Authentication"
 draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
-aliases = ["/server_configure_saml.html", "/release/automate/server_configure_saml.html"]
+
 product = []
 
 [menu]

@@ -2,7 +2,7 @@
 title = "About Policyfiles"
 draft = false
 gh_repo = "chef-web-docs"
-aliases = ["/policyfile.html"]
+
 product = ["client", "server"]
 
 [menu]

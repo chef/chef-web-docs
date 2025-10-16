@@ -4,7 +4,7 @@ draft = false
 
 gh_repo = "chef-web-docs"
 
-aliases = ["/ohai_custom.html"]
+
 
 [menu]
   [menu.infra]

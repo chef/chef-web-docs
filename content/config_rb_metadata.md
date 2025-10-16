@@ -4,7 +4,7 @@ draft = false
 
 gh_repo = "chef-web-docs"
 
-aliases = ["/config_rb_metadata.html"]
+
 
 [menu]
   [menu.infra]

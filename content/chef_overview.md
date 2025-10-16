@@ -2,7 +2,7 @@
 title = "Chef Infra Overview"
 draft = false
 gh_repo = "chef-web-docs"
-aliases = ["/chef_overview.html"]
+
 product = ["client", "server", "workstation"]
 
 [menu]

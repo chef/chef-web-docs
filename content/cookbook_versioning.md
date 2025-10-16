@@ -2,7 +2,7 @@
 title = "About Cookbook Versioning"
 draft = false
 gh_repo = "chef-web-docs"
-aliases = ["/cookbook_versioning.html", "/cookbook_versions.html"]
+
 product = ["client", "server", "workstation"]
 
 [menu]

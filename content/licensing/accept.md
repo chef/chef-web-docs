@@ -2,7 +2,7 @@
 title = "Accept the Chef License"
 draft = false
 gh_repo = "chef-web-docs"
-aliases = ["/chef_license_accept.html", "/chef_license_accept/"]
+aliases = ["/chef_license_accept/"]
 
 [menu]
   [menu.overview]

@@ -2,7 +2,7 @@
 title = "Chef Manage"
 draft = false
 gh_repo = "chef-web-docs"
-aliases = ["/manage.html"]
+
 product = []
 
 [menu]

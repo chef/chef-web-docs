@@ -3,7 +3,7 @@ title = "Manage Roles"
 draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
-aliases = ["/server_manage_roles.html"]
+
 product = []
 
 [menu]

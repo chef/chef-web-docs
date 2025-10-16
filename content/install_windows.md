@@ -4,7 +4,7 @@ draft = false
 
 gh_repo = "chef-web-docs"
 
-aliases = ["/install_windows.html"]
+
 
 [menu]
   [menu.infra]

@@ -2,7 +2,7 @@
 title = "Glossary"
 draft = false
 gh_repo = "chef-web-docs"
-aliases = ["/glossary.html"]
+
 product = ["automate", "client", "server", "habitat", "inspec", "workstation"]
 
 [menu]

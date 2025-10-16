@@ -3,7 +3,7 @@ title = "Manage Nodes"
 draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
-aliases = ["/server_manage_nodes.html"]
+
 product = []
 
 [menu]

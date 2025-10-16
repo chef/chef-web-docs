@@ -3,7 +3,7 @@ title = "Manage Environments"
 draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
-aliases = ["/server_manage_environments.html"]
+
 product = []
 
 [menu]

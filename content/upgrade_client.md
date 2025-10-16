@@ -4,7 +4,7 @@ draft = false
 
 gh_repo = "chef-web-docs"
 
-aliases = ["/upgrade_client.html"]
+
 
 [menu]
   [menu.infra]

@@ -2,7 +2,7 @@
 title = "Policyfile.rb"
 draft = false
 gh_repo = "chef-web-docs"
-aliases = ["/config_rb_policyfile.html"]
+
 product = ["client", "server"]
 
 [menu]

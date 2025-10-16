@@ -4,7 +4,7 @@ draft = false
 
 gh_repo = "chef-web-docs"
 
-aliases = ["/dsl_handler.html"]
+
 
 [menu]
   [menu.infra]
