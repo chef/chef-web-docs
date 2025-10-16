@@ -111,4 +111,17 @@
   to = "https://inspec-resource-pack-docs.netlify.app/inspec/resource_packs/:splat"
   status = 200
 
+[[redirects]]
+  from = "/inspec/7.0/*"
+  to = "https://release-7-0--chef-inspec-docs.netlify.app/inspec/7.0/:splat"
+  status = 200
 
+[[redirects]]
+  from = "/inspec/6.8/*"
+  to = "https://release-6-8--chef-inspec-docs.netlify.app/inspec/6.8/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/inspec/latest/*"
+  to = "/inspec/7.0/:splat"
+  status = 301
