@@ -1,4 +1,4 @@
 +++
 layout = "redirect"
-redirect_url = "/inspec/latest/inputs/"
+redirect_url = "/inspec/latest/profiles/inputs/"
 +++
