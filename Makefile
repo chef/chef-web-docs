@@ -20,6 +20,9 @@ clean_all: clean clean_hugo_mod
 serve: bundle
 	hugo server --buildDrafts --noHTTPCache --buildFuture
 
+serve_production: bundle
+	hugo server --noHTTPCache --environment production
+
 metrics: bundle
 	hugo --gc --minify --enableGitInfo --templateMetrics --templateMetricsHints
 
