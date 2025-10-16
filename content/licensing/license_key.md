@@ -26,8 +26,8 @@ You might need a Chef license key to run the following products, depending on th
 
 For these products, you need a license depending on how you install it:
 
-- The Chef Habitat package for InSpec 7, don't require a license key to run.
-- The `inspec` gem, require a license key to run.
+- The Chef Habitat package for InSpec 7 doesn't require a license key to run.
+- The `inspec` gem requires a license key to run.
 
 You can't manually enable or disable licensing. The licensing requirements are determined by the distribution.
 
