@@ -125,3 +125,18 @@
   from = "/inspec/latest/*"
   to = "/inspec/7.0/:splat"
   status = 301
+
+[[redirects]]
+  from = "/inspec/cloud/*"
+  to = "/inspec/resource_packs/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/inspec/profiles/*"
+  to = "/inspec/latest/profiles/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/inspec/resources/*"
+  to = "/inspec/latest/resources/"
+  status = 301
