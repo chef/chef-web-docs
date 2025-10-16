@@ -355,11 +355,11 @@ identifier = "desktop"
   parent = "desktop"
   weight = 30
 
- [[desktop]]
-  title = "Zero Touch Deployment"
-  identifier = "desktop/zero_touch"
-  parent = "desktop"
-  weight = 50
+  [[desktop]]
+    title = "Zero Touch Deployment"
+    identifier = "desktop/zero_touch"
+    parent = "desktop"
+    weight = 50
 
     [[desktop]]
     title = "macOS"
@@ -494,6 +494,39 @@ identifier = "habitat"
 
 ####
 # End Chef Habitat Menu
+####
+
+####
+# Chef InSpec Menu
+####
+
+[[inspec]]
+title = "Chef InSpec"
+identifier = "inspec"
+
+  [[inspec]]
+  title = "version 7.0"
+  identifier = "inspec/7.0/"
+  parent = "inspec"
+  url = "/inspec/7.0/"
+  weight = 10
+
+  [[inspec]]
+  title = "version 6.8"
+  identifier = "inspec/6.8/"
+  parent = "inspec"
+  url = "/inspec/6.8/"
+  weight = 20
+
+  [[inspec]]
+  title = "Resource packs"
+  identifier = "inspec/resource_packs"
+  parent = "inspec"
+  url = "/inspec/resource_packs/"
+  weight = 30
+
+####
+# End Chef InSpec Menu
 ####
 
 ####
@@ -760,7 +793,7 @@ identifier = "chef_infra"
     title = "Compliance DSL"
     identifier = "chef_infra/extension_apis/inspec/dsl_inspec/ Compliance DSL"
     parent = "chef_infra/extension_apis"
-    url = "/inspec/dsl_inspec/"
+    url = "/inspec/latest/profiles/controls/"
     weight = 20
 
     [[infra]]

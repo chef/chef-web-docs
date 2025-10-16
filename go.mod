@@ -17,12 +17,6 @@ require (
 	github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90 // indirect
 	github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20250905124722-c1a4eb639cba // indirect
 	github.com/habitat-sh/on-prem-builder/docs-chef-io v0.0.0-20250805192817-f8b1dae05d5e // indirect
-	github.com/inspec/inspec-alicloud/docs-chef-io v0.0.0-20240122032124-a1d2a214e170 // indirect
-	github.com/inspec/inspec-aws/docs-chef-io v0.0.0-20240122032232-049dcf822eef // indirect
-	github.com/inspec/inspec-azure/docs-chef-io v0.0.0-20250728075256-c374c23637d3 // indirect
-	github.com/inspec/inspec-habitat/docs-chef-io v0.0.0-20220218210405-bfd542da49fd // indirect
-	github.com/inspec/inspec-k8s/docs-chef-io v0.0.0-20240122032042-421355eaf502 // indirect
-	github.com/inspec/inspec/docs-chef-io v0.0.0-20250922064622-0dc91d4a484a // indirect
 	github.com/swiftype/swiftype-autocomplete-jquery v0.0.0-20190222215504-a90008d64b30 // indirect
 	github.com/swiftype/swiftype-search-jquery v1.1.0 // indirect
 	github.com/twitter/hogan.js v3.0.2+incompatible // indirect

@@ -3,12 +3,6 @@
 # github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20250905124722-c1a4eb639cba
 # github.com/habitat-sh/on-prem-builder/docs-chef-io v0.0.0-20250805192817-f8b1dae05d5e
 # github.com/chef/chef-server/docs-chef-io v0.0.0-20250912093648-70b79ec99736
-# github.com/inspec/inspec/docs-chef-io v0.0.0-20250922064622-0dc91d4a484a
-# github.com/inspec/inspec-alicloud/docs-chef-io v0.0.0-20240122032124-a1d2a214e170
-# github.com/inspec/inspec-aws/docs-chef-io v0.0.0-20240122032232-049dcf822eef
-# github.com/inspec/inspec-azure/docs-chef-io v0.0.0-20250728075256-c374c23637d3
-# github.com/inspec/inspec-habitat/docs-chef-io v0.0.0-20220218210405-bfd542da49fd
-# github.com/inspec/inspec-k8s/docs-chef-io v0.0.0-20240122032042-421355eaf502
 # github.com/chef/chef-workstation/docs-chef-io v0.0.0-20250930142111-8c07fe8a2202
 # github.com/chef/supermarket/docs-chef-io v0.0.0-20250602140848-cded623a3f5c
 # github.com/chef/effortless/docs-chef-io v0.0.0-20230711123605-c8beb79aba4f
