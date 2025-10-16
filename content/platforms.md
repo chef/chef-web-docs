@@ -200,7 +200,7 @@ Because different vendors use different terminology, the following table clarifi
 | Platform | Vendor End-of-Life |
 | --- | --- |
 | Amazon Linux | End of Life |
-| Apple macOS | Apple supports the last three macOS releases, for example: 10.15, 11.x, and 12.x. Apple doesn't officially publish EOL dates. |
+| Apple macOS | Apple supports the last three macOS releases. Apple doesn't officially publish EOL dates. |
 | Debian | End of maintenance updates |
 | Enterprise Linux (covers Red Hat Enterprise Linux, CentOS) | End of Production 3 |
 | FreeBSD | End of Life |
@@ -223,7 +223,7 @@ that platform and version.
 | Amazon Linux 2 | Jun 30, 2025 | Jun 30, 2025 |
 | Amazon Linux 2023 | Mar 15, 2028 | Mar 15, 2028 |
 | Apple macOS 11 | Sep 26, 2023 | Sep 26, 2023 |
-| Apple macOS 12 | No current planned EOL date | No current planned EOL date |
+| Apple macOS 12 | Sep 16, 2024 | No current planned EOL date |
 | CentOS 6 | Nov 30, 2020 | Nov 30, 2020 |
 | CentOS 7 | Jun 30, 2024 | Jun 30, 2024 |
 | CentOS 8 | Dec 31, 2021 | Dec 31, 2021 |
