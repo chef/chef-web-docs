@@ -150,19 +150,7 @@ The following platforms are supported only using the community.
 
 ### Chef InSpec
 
-#### Commercial support
-
-The following table lists the commercially supported platforms and versions for Chef InSpec.
-
-{{< readfile file="content/inspec/reusable/md/support_commercial_platforms.md" >}}
-
-#### Derived platforms
-
-The following table lists supported derived platforms and versions for Chef InSpec.
-
-See our policy on [support for derived platforms](#support-for-derived-platforms) for more information.
-
-{{< readfile file="content/inspec/reusable/md/support_derived_platforms.md" >}}
+See the [Chef InSpec documentation](/inspec/latest/).
 
 ### Chef Manage
 
