@@ -4,7 +4,7 @@ draft = false
 
 gh_repo = "chef-web-docs"
 
-aliases = ["/custom_resources_notes.html", "resources/custom_resources_notes"]
+aliases = ["resources/custom_resources_notes"]
 
 product = ["client", "workstation"]
 

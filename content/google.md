@@ -2,7 +2,7 @@
 title = "Chef and Google"
 draft = false
 gh_repo = "chef-web-docs"
-aliases = ["/google.html"]
+
 product = ["client", "server", "workstation"]
 
 [menu]

@@ -2,7 +2,7 @@
 title = "Bootstrap a node"
 draft = false
 gh_repo = "chef-web-docs"
-aliases = ["/install_bootstrap.html"]
+
 product = ["client", "workstation"]
 
 [menu]

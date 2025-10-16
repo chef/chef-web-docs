@@ -2,7 +2,7 @@
 title = "Chef Manage Release Notes"
 draft = false
 
-aliases = ["/release_notes_manage.html"]
+
 product = []
 release_notes = "manage"
 layout = "release_notes"

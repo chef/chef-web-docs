@@ -2,7 +2,7 @@
 title = "FIPS (Federal Information Processing Standards)"
 draft = false
 gh_repo = "chef-web-docs"
-aliases = ["/fips.html"]
+
 product = ["client", "server", "workstation"]
 
 [menu]

@@ -2,7 +2,7 @@
 title = "Debug Recipes, Chef Infra Client Runs"
 draft = false
 gh_repo = "chef-web-docs"
-aliases = ["/debug.html"]
+
 
 [menu]
   [menu.infra]

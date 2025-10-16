@@ -4,7 +4,7 @@ draft = false
 
 gh_repo = "chef-web-docs"
 
-aliases = ["/release_notes_chefdk.html"]
+
 product = []
 +++
 <!-- markdownlint-disable-file -->

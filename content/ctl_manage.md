@@ -3,7 +3,7 @@ title = "chef-manage-ctl (executable)"
 draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
-aliases = ["/ctl_manage.html"]
+
 product = []
 
 [menu]

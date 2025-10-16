@@ -3,7 +3,7 @@ title = "Manage Cookbooks"
 draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
-aliases = ["/server_manage_cookbooks.html"]
+
 product = []
 
 [menu]

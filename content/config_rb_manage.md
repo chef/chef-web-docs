@@ -3,7 +3,7 @@ title = "manage.rb"
 draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
-aliases = ["/config_rb_manage.html"]
+
 
 [menu]
   [menu.legacy]

@@ -4,7 +4,7 @@ draft = false
 
 gh_repo = "chef-web-docs"
 
-aliases = ["/aws_marketplace.html", "/aws_ami.html"]
+
 
 product = ["client", "workstation", "automate"]
 

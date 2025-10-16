@@ -2,7 +2,7 @@
 title = "Active Directory and LDAP"
 draft = false
 gh_repo = "chef-web-docs"
-aliases = ["/server_ldap.html", "/install_server_post.html"]
+
 product = ["server"]
 
 [menu]

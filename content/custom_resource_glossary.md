@@ -1,7 +1,7 @@
 +++
 title = "Custom resources glossary"
 gh_repo = "chef-web-docs"
-aliases = ["/custom_resource_glossary.html"]
+
 
 product = ["client", "workstation"]
 

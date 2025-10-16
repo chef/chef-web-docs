@@ -4,7 +4,7 @@ draft = false
 
 gh_repo = "chef-web-docs"
 
-aliases = ["/proxies.html"]
+
 
 [menu]
   [menu.infra]

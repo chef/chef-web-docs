@@ -4,7 +4,7 @@ draft = false
 
 gh_repo = "chef-web-docs"
 
-aliases = ["/uninstall.html"]
+
 product = ["workstation", "server"]
 
 [menu]

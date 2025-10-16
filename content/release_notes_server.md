@@ -1,7 +1,7 @@
 +++
 title = "Chef Infra Server Release Notes"
 draft = false
-aliases = ["/release_notes_server.html"]
+
 product = ["server"]
 release_notes = "chef-server"
 layout = "release_notes"

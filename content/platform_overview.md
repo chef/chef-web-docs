@@ -2,7 +2,7 @@
 title = "Platform Overview"
 draft = false
 gh_repo = "chef-web-docs"
-aliases = ["/platform_overview.html"]
+
 product = ["automate", "client", "server", "habitat", "inspec", "workstation"]
 
 [menu]

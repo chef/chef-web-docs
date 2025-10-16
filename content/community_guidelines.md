@@ -2,7 +2,7 @@
 title = "Chef Contributor Covenant Code of Conduct"
 draft = false
 gh_repo = "chef-web-docs"
-aliases = ["/community_guidelines.html"]
+
 product = []
 
 [menu]

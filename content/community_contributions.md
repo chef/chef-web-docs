@@ -2,7 +2,7 @@
 title = "Community contributions"
 draft = false
 gh_repo = "chef-web-docs"
-aliases = ["/community_contributions.html"]
+
 product = []
 
 [menu]

@@ -2,7 +2,6 @@
 title = "Chef Documentation Style Guide"
 draft = false
 gh_repo = "chef-web-docs"
-aliases = ["/style_guide.html", "/style_index/", "/style_guide/"]
 
 [cascade]
   product = []

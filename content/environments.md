@@ -2,7 +2,7 @@
 title = "About Environments"
 draft = false
 gh_repo = "chef-web-docs"
-aliases = ["/environments.html"]
+
 product = ["client", "server"]
 
 [menu]

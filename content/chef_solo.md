@@ -2,7 +2,7 @@
 title = "chef-solo"
 draft = false
 gh_repo = "chef-web-docs"
-aliases = ["/chef_solo.html"]
+
 
 [menu]
   [menu.infra]
