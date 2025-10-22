@@ -6,8 +6,8 @@
 # github.com/chef/chef-workstation/docs-chef-io v0.0.0-20250930142111-8c07fe8a2202
 # github.com/chef/supermarket/docs-chef-io v0.0.0-20250602140848-cded623a3f5c
 # github.com/chef/effortless/docs-chef-io v0.0.0-20230711123605-c8beb79aba4f
-# github.com/chef/compliance-profiles/docs-chef-io v0.0.0-20250818133051-ee9a3314396c
-# github.com/chef/compliance-remediation-2022/docs-chef-io v0.0.0-20250818073818-2c66a6fcd964
+# github.com/chef/compliance-profiles/docs-chef-io v0.0.0-20251021053718-4764bda44b15
+# github.com/chef/compliance-remediation-2022/docs-chef-io v0.0.0-20251017091630-15593323c2be
 # github.com/chef/license-service/docs-chef-io v0.0.0-20250120051510-ae1de80f4621
 # github.com/chef/samples v0.0.0-20250424163637-3393187e624c
 # github.com/chef/chef-docs-theme v0.0.0-20251013213507-f2f920c69eed

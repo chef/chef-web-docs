@@ -10,6 +10,14 @@ draft = false
     weight = 10
 +++
 
+## 20251015
+
+### New features
+
+- CIS Apache Tomcat 10.1 v1.1.0 (Audits)
+- CIS Windows Server 2022 v4.0.0 (Audits)
+- CIS SUSE Linux 15 v2.0.1 (Audits)
+
 ## 20250815
 
 ### New features
