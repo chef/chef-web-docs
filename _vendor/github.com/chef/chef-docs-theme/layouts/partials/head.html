@@ -8,7 +8,7 @@
   {{- with .Params.st_robots -}}
     <meta name="st:robots" content="{{ . }}">
   {{- end }}
-  {{ with .Params.product -}}
+  {{ with or .Params.product .Params.swiftype_search_product_key $.Site.Params.versions.this_version.swiftype_search_products -}}
     {{- range $tag := . -}}
       <meta class="swiftype" name="chef-product" data-type="string" content="{{ $tag }}" />
     {{- end -}}
@@ -22,5 +22,4 @@
   <title>{{ .Title }}</title>
   {{ partialCached "scss" . -}}
   {{ partialCached "google_tag_manager_head" . -}}
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>

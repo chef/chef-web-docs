@@ -19,4 +19,4 @@ function filterInspecResources() {
 
 // This works with inspec_resources_filter shortcode to filter out inspec resources by name
 // on https://docs.chef.io/inspec/resources/
-// The shortcode should be in inspec/inspec/docs-chef-io/layouts/shortcodes/inspec_resources_filter.html
+// The shortcode should be in /layouts/shortcodes/inspec_resources_filter.html

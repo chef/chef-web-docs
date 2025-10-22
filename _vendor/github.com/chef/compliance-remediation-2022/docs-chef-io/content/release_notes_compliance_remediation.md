@@ -10,12 +10,6 @@ draft = false
     weight = 20
 +++
 
-## 20251015
-
-### New Features
-
-- CIS Windows Server 2022 v4.0.0 (Remediation)
-
 ## 20250815
 
 ### New Features

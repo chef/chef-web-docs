@@ -1,49 +1,21 @@
 .prose {
 
-  h1, h2, h3, h4, h5, h6 {
-    svg.svg-link {
-      margin-left: .5rem;
-
-      &:hover{
-        filter: brightness(0) saturate(100%) invert(38%) sepia(99%) saturate(497%) hue-rotate(163deg) brightness(87%) contrast(79%);
-      }
-    }
-  }
-
   > p, .p {
     @include base-type();
-    margin-bottom: .5rem;
+    margin-bottom: 1.2rem;
     color: $charcoal;
-
-    &.intro {
-      font-size: 20px;
-      line-height: 1.6;
-
-      &-medium {
-        font-size: 22px;
-        line-height: 1.45;
-      }
-    }
-
-    &.desc {
-      font-size: 16px;
-      line-height: 1.5;
-    }
   }
-  p.release-notes-version {
-    font-size: 1.24rem;
-    line-height: 1.5;
-    font-weight: 700;
-  }
+
   .display-none {
     display: none;
   }
 }
 
 #main-content{
-  .material-symbols-outlined, .material-icons {
-    vertical-align: bottom;
-  }
+  .material-symbols-outlined,
+    .material-icons {
+      vertical-align: bottom;
+    }
   .index-prose {
     li {
       margin-bottom: 0;
@@ -52,7 +24,7 @@
       margin-top: .5rem;
     }
   }
-  .site-map{
+  .site-map {
     p.strong-child{
       margin-top: 1rem;
     }
@@ -64,13 +36,16 @@
 }
 
 .text-recommend{
-  background-color: $light-light-gray;
   border-radius: $border-radius-base;
+  border-color: $ash;
+  border-style: solid;
+  border-width: 5px;
   margin: 1rem 0;
-  padding: .5rem;
+
   >.recommend-text{
     font-weight: bold;
-    margin-bottom: 1rem;
+    background-color: $ash;
+    padding: .5rem;
     >.svg-inline--fa{
       font-size: 1.2rem;
       margin-right: .5rem;
@@ -85,8 +60,7 @@
     }
   }
   .recommended-text{
-    margin-left: 1rem;
-    margin-bottom: 1rem;
+    padding: 1rem;
   }
   code, pre {
     border-color: $code-border;

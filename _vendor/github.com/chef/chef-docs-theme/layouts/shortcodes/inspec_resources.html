@@ -1,0 +1,18 @@
+{{- /* Lists all resource pages by the specified platform. */ -}}
+{{- /* Platforms are defined in the page front matter of each InSpec resource page. */ -}}
+{{- /* See https://github.com/inspec/inspec/blob/main/docs-chef-io/content/inspec/resources/_index.md */ -}}
+
+{{- $section := (.Get "section") | lower -}}
+{{- $platform := (.Get "platform") | lower -}}
+
+<ul class="inspec-resources-list">
+  {{- with site.GetPage $section -}}
+    {{ range where .Pages "Params.platform" $platform }}
+    <li class="inspec-resource">
+      <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+    </li>
+    {{ end }}
+  {{ else }}
+    {{ errorf "Unable to find %s" $section }}
+  {{ end -}}
+</ul>

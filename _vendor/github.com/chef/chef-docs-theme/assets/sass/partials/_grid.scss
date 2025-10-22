@@ -27,11 +27,11 @@
     p img {
       display: block;
       margin: rem-calc(32) auto;
-      -webkit-box-shadow: $box-shadow;
       box-shadow: $box-shadow;
-      border: 1px solid transparent;
-      padding: 1rem;
+      border: 1px solid $border;
+      padding: rem-calc(16);
       cursor: pointer;
+      border-radius: $border-radius-base;
       @include breakpoint(large) {
         max-width: 100%;
       }
@@ -75,6 +75,51 @@
 
     .no-shadow {
       box-shadow: none;
+    }
+  }
+
+  .grid-container {
+    margin-top: 3rem;
+  }
+
+  // Grid cell styling
+  .grid-cell {
+    border: 1px solid $border;
+    border-radius: $border-radius-base;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+    &:hover {
+      border-color: $border-dark;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-top: 0;
+      text-decoration: none !important;
+      color: $blue-darker
+    }
+
+    // Clickable cells (when cell is an anchor tag)
+    &[href] {
+      text-decoration: none !important;
+      color: inherit;
+      display: block;
+
+      &:hover {
+        border-color: $blue-darker;
+        text-decoration: none;
+      }
+
+      &:focus {
+        outline: 3px solid $blue;
+        outline-offset: 2px;
+      }
     }
   }
 }
