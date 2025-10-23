@@ -60,6 +60,11 @@
 	position: relative;
 	left: 4px;
 	bottom: 1px;
-  margin-right: 4px;
-  filter: invert(51%) sepia(0%) saturate(13%) hue-rotate(142deg) brightness(89%) contrast(83%);
+	margin-right: 4px;
+	filter: invert(51%) sepia(0%) saturate(13%) hue-rotate(142deg) brightness(89%) contrast(83%);
+}
+
+a.broken {
+	color: $alert-color;
+	text-decoration: line-through !important;
 }

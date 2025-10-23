@@ -50,6 +50,8 @@ $offcanvas-background: $white;
 $tab-content-padding: 0;
 $box-shadow: 0 3px 7px 0 $border-dark,0 1px 2px 0 $border-dark;
 
+$header-font-weight: 600;
+
 $callout-font-color: $body-font-color;
 $callout-radius: $border-radius-base;
 $callout-padding: .5rem 1rem;
@@ -78,22 +80,3 @@ $breakpoints: (
   xxlarge: 1440px,
 );
 $print-breakpoint: small;
-
-$header-styles: (
-  'small': (
-    'h1': ('font-size': 24),
-    'h2': ('font-size': 20),
-    'h3': ('font-size': 18),
-    'h4': ('font-size': 16),
-    'h5': ('font-size': 14),
-    'h6': ('font-size': 14),
-  ),
-  'medium': (
-    'h1': ('font-size': 36),
-    'h2': ('font-size': 32),
-    'h3': ('font-size': 24),
-    'h4': ('font-size': 18),
-    'h5': ('font-size': 16),
-    'h6': ('font-size': 16),
-  )
-);

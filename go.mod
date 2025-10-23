@@ -4,11 +4,11 @@ go 1.23
 
 require (
 	github.com/chef/automate/components/docs-chef-io v0.0.0-20250902130712-4abbca2f9c80 // indirect
-	github.com/chef/chef-docs-theme v0.0.0-20250808212116-563fde1a25bc // indirect
+	github.com/chef/chef-docs-theme v0.0.0-20251013213507-f2f920c69eed // indirect
 	github.com/chef/chef-server/docs-chef-io v0.0.0-20250912093648-70b79ec99736 // indirect
 	github.com/chef/chef-workstation/docs-chef-io v0.0.0-20250930142111-8c07fe8a2202 // indirect
-	github.com/chef/compliance-profiles/docs-chef-io v0.0.0-20250818133051-ee9a3314396c // indirect
-	github.com/chef/compliance-remediation-2022/docs-chef-io v0.0.0-20250818073818-2c66a6fcd964 // indirect
+	github.com/chef/compliance-profiles/docs-chef-io v0.0.0-20251021053718-4764bda44b15 // indirect
+	github.com/chef/compliance-remediation-2022/docs-chef-io v0.0.0-20251017091630-15593323c2be // indirect
 	github.com/chef/desktop-config/docs-chef-io v0.0.0-20240814044820-5af667d41a43 // indirect
 	github.com/chef/effortless/docs-chef-io v0.0.0-20230711123605-c8beb79aba4f // indirect
 	github.com/chef/license-service/docs-chef-io v0.0.0-20250120051510-ae1de80f4621 // indirect
