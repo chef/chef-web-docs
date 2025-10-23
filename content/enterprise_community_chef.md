@@ -25,7 +25,6 @@ To understand the advantages of Enterprise Chef over Community Chef, see the fol
 | Supply Chain Integrity of Distribution & SLOs.  | &#x2714; | X |
 | Public Company Standards for Managing Customer Environment Security Risks and Incidents  | &#x2714; | X |
 | SLA-based Priority Incident Response and Security Fixes on CVEs | Available with different service tiers  | X |
-| Cyber Insurance & Indemnification Hand-holding | &#x2714; | X |
 | Progress Security Operation Centre (SOC) Support | &#x2714; | X |
 | Access to Chef Premium Content | &#x2714; | X |
 | 24/7 Support | &#x2714; | X |

@@ -25,10 +25,6 @@ Enterprise Chef adheres to multiple compliance standards, such as SOC, PCI, DSS,
 
 Enterprise Customers have SLAs tied to incident response and security fixes on CVEs, including identification, notification, mitigation and resolution. The Chef Professional Services team provides SLA-backed technical support for proactive monitoring and maintenance. Premium customers are provided with Customer Success Managers or Account Managers for regular sync-ups and issue resolutions.
 
-## Cyber insurance and indemnification
-
-Progress has a comprehensive indemnification policy under our agreed Progress Chef EULA, which offers maximum protection to our customers. To understand our indemnification obligation for intellectual property infringement claims against you for using the product, exceptions and other options, see [section 10.1 of the Progress Chef EULA](https://www.chef.io/online-master-agreement).
-
 ## Progress Security Operation Centre (SOC) support
 
 Progress SOC verifies and manages compliance with its products, which includes a zero-trust cybersecurity architecture approach, compliance audits and verifications, source-code scanning, external penetration tests, third-party deep-dive code assessments and ongoing coordination with many of the industry's top cybersecurity researchers who assess risk profiles and software exploits.
