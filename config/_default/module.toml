@@ -260,7 +260,7 @@ workspace = ''
 
 [[imports.mounts]]
   source = "static"
-  target = "assets"
+  target = "static"
 
 [[imports.mounts]]
   source = "layouts"
