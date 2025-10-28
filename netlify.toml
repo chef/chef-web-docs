@@ -89,6 +89,15 @@
   status = 301
 
 ####
+# Chef Habitat redirects
+####
+
+[[redirects]]
+  from = "/habitat/2.0-rc1/*"
+  to = "https://release-2-0-rc1--chef-habitat-docs.netlify.app/habitat/2.0-rc1/:splat"
+  status = 200
+
+####
 # Chef Infra Client redirects
 ####
 
