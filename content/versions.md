@@ -38,9 +38,7 @@ SLAs](https://www.chef.io/service-level-agreement/).
 
 ### End of Life (EOL)
 
-This stage indicates that Chef has set a date after which the
-application or version will no longer be supported or recommended for
-use by customers.
+This stage indicates that Chef has set a date after which the application or version will no longer be supported or recommended for use by customers.
 
 ### Versions and status
 
@@ -54,11 +52,8 @@ Unless otherwise stated, versions older than those listed below are EOL.
 
 ## Supported commercial distributions
 
-Use of these and later versions of these distributions must be in
-accordance with the [Chef End User License
-Agreement](https://www.chef.io/end-user-license-agreement) or a
-commercial agreement with Chef. Additional information is available in
-[this announcement](https://www.chef.io/blog/chef-software-announces-the-enterprise-automation-stack).
+Use of these and later versions of these distributions must be in accordance with the [Chef End User License Agreement](https://www.chef.io/end-user-license-agreement) or a commercial agreement with Chef.
+Additional information is available in [this announcement](https://www.chef.io/blog/chef-software-announces-the-enterprise-automation-stack).
 
 | Product           | Version                  | Lifecycle Status | EOL Date       |
 |-------------------|--------------------------|------------------|----------------|
@@ -67,14 +62,13 @@ commercial agreement with Chef. Additional information is available in
 | Chef Infra Client | 18.x                     | GA               | n/a            |
 | Chef Infra Server | 15.x                     | GA               | n/a            |
 | Chef Habitat      | 0.81+                    | GA               | n/a            |
-| Chef InSpec       | 6.x                      | GA               | n/a            |
+| Chef InSpec       | 5.x, 6.x, 7.x            | GA               | n/a            |
 | Chef Workstation  | 24.x (2024), 25.x (2025) | GA               | n/a            |
 
 {{< note >}}
 
-**Chef Backend** doesn't directly require acceptance of the Chef
-EULA, but it does have functionality that requires its acceptance in other
-products.
+**Chef Backend** doesn't directly require acceptance of the Chef EULA,
+but it does have functionality that requires its acceptance in other products.
 
 {{< /note >}}
 
@@ -97,7 +91,6 @@ newer versions or products.
 | Chef Backend      | 3.x     | Deprecated       | TBD            |
 | Chef Infra Client | 17.x    | Deprecated       | TBD            |
 | Chef Infra Server | 14.x    | Deprecated       | TBD            |
-| Chef InSpec       | 5.x     | Deprecated       | TBD            |
 | Chef Manage       | 2.5.x+  | Deprecated       | TBD            |
 
 ## End of Life (EOL) products
