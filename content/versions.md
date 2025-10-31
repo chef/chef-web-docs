@@ -62,7 +62,7 @@ Additional information is available in [this announcement](https://www.chef.io/b
 | Chef Infra Client | 18.x                     | GA               | n/a            |
 | Chef Infra Server | 15.x                     | GA               | n/a            |
 | Chef Habitat      | 0.81+                    | GA               | n/a            |
-| Chef InSpec       | 5.x, 6.x, 7.x            | GA               | n/a            |
+| Chef InSpec       | 5+                       | GA               | n/a            |
 | Chef Workstation  | 24.x (2024), 25.x (2025) | GA               | n/a            |
 
 {{< note >}}
@@ -91,6 +91,7 @@ newer versions or products.
 | Chef Backend      | 3.x     | Deprecated       | TBD            |
 | Chef Infra Client | 17.x    | Deprecated       | TBD            |
 | Chef Infra Server | 14.x    | Deprecated       | TBD            |
+| Chef InSpec       | 4.x     | Deprecated       | TBD            |
 | Chef Manage       | 2.5.x+  | Deprecated       | TBD            |
 
 ## End of Life (EOL) products
@@ -105,7 +106,6 @@ newer versions or products.
 | Chef Infra Server        | 13.x                 | EOL              | June 30, 2021     |
 | Chef InSpec              | 2 and under          | EOL              | December 31, 2019 |
 | Chef InSpec              | 3.x                  | EOL              | April 30, 2020    |
-| Chef InSpec              | 4.x                  | EOL              | November 14, 2023 |
 | Chef Provisioning        | All                  | EOL              | August 31, 2019   |
 | Chef Push Jobs           | All                  | EOL              | December 31, 2020 |
 | Chef Replication/Sync    | All                  | EOL              | August 31, 2019   |
