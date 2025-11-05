@@ -22,8 +22,6 @@ github.com/chef/supermarket/docs-chef-io v0.0.0-20250602140848-cded623a3f5c h1:q
 github.com/chef/supermarket/docs-chef-io v0.0.0-20250602140848-cded623a3f5c/go.mod h1:D+9mmEZxCwpdhZ8LrEODBWMwMufmJUubSt5NlU/lLB4=
 github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90 h1:p/a5iSATj0OjrqJLX/YKxYdGXhZzW58yyyNIC4JY4S0=
 github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90/go.mod h1:N/6F0+wmdvL6k0AjqyKIncMRClKAN92atjZdTLtYMaw=
-github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20250905124722-c1a4eb639cba h1:DCrplvFmHTVSFGMDo/2G3DQSounSgbAsJ1X0YhIAaR0=
-github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20250905124722-c1a4eb639cba/go.mod h1:5GKz/BtTWeTr8vdVQPkvGDQkQ+xiGWLkDsPOXhu2Ps4=
 github.com/habitat-sh/on-prem-builder/docs-chef-io v0.0.0-20250805192817-f8b1dae05d5e h1:qHs6EaygFn8iNJgqeGHI6Bd1jMSynG4TijKKWfqR8N8=
 github.com/habitat-sh/on-prem-builder/docs-chef-io v0.0.0-20250805192817-f8b1dae05d5e/go.mod h1:8gmm7JyOiJAbZHIpZNCP4XqgZ8RtUHaEwEi0X0AsJ4M=
 github.com/swiftype/swiftype-autocomplete-jquery v0.0.0-20190222215504-a90008d64b30 h1:dhqLFBINtD1rMwwd5s9INu4BkciCvQUd+r+CWUYWIB4=

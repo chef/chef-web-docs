@@ -59,27 +59,6 @@ workspace = ''
   target = "layouts"
 
 ###
-# Chef Habitat
-###
-
-[[imports]]
-  disable = false
-  ignoreConfig = false
-  path = "github.com/habitat-sh/habitat/components/docs-chef-io"
-
-[[imports.mounts]]
-  source = "content/habitat"
-  target = "content/habitat"
-
-[[imports.mounts]]
-  source = "static"
-  target = "static"
-
-[[imports.mounts]]
-  source = "layouts"
-  target = "layouts"
-
-###
 # Chef Habitat on-prem Builder
 ###
 
