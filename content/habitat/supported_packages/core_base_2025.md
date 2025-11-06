@@ -1,14 +1,15 @@
 +++
-title = "Habitat Core Packages (base-2025)"
+title = "Habitat core packages in the base-2025 channel"
 
 [menu.habitat]
-  title = "base-2025 packages"
-  identifier = "habitat/packages/base-2025"
-  parent = "habitat/packages"
+  title = "core base-2025 packages"
+  identifier = "habitat/supported_packages/base-2025"
+  parent = "habitat/supported_packages"
 +++
 
+<!-- cSpell:disable -->
 
-## Linux x86_64 Architecture
+## Linux x86-64 architecture
 
 | Sl No | Origin | Package Name          | Package Version      |
 | ----- | ------ | --------------------- | -------------------- |
@@ -307,7 +308,7 @@ title = "Habitat Core Packages (base-2025)"
 | 293   | core   | zlib-musl             | 1.3.1                |
 | 294   | core   | zstd                  | 1.5.7                |
 
-## Linux aarch64 Architecture
+## Linux AArch64 architecture
 
 | Sl No | Origin | Package Name          | Package Version      |
 | ----- | ------ | --------------------- | -------------------- |
@@ -533,7 +534,7 @@ title = "Habitat Core Packages (base-2025)"
 | 220   | core   | zlib                  | 1.3.1                |
 | 221   | core   | zstd                  | 1.5.7                |
 
-## Darwin aarch64 Architecture
+## Darwin AArch64 architecture
 
 | Sl No | Origin | Package Name | Package Version |
 | ----- | ------ | ------------ | --------------- |
@@ -621,7 +622,7 @@ title = "Habitat Core Packages (base-2025)"
 | 82    | core   | zlib         | 1.3.1           |
 | 83    | core   | zstd         | 1.5.7           |
 
-## Windows x86_64 Architecture
+## Windows x86-64 architecture
 
 | Sl No | Origin | Package Name             | Package Version |
 | ----- | ------ | ------------------------ | --------------- |

@@ -3,8 +3,8 @@ title = "Chef Habitat package refresh strategy"
 
 [menu.habitat]
   title = "Habitat package refresh strategy"
-  identifier = "habitat/packages/refresh strategy"
-  parent = "habitat/packages"
+  identifier = "habitat/supported_packages/refresh strategy"
+  parent = "habitat/supported_packages"
   weight = 10
 +++
 
@@ -87,11 +87,6 @@ The new multi-channel approach for Chef Habitat packages introduces base-YYYY ch
   - **Intermediate support channel named as LTS-2024** for supporting bug fixes/CVE fixes in existing releases of Chef products.
     This channel becomes EOL once existing releases of Chef products are EOL.
 
-Note:
-
-- *With Hab 2.0, hab binary packages are moved from core to chef origin to align with the practice of making all Chef product packages available in a single origin---that is, chef.*
-- *Subsequent major releases of Chef products like Infra Client 19 and InSpec 7 follow the new multi-channel approach---that is, releases are published in stable, base-YYYY, and point-in-time channels.*
-
 - **chef-platform**: Contains packages of Chef 360 skills
   - **stable** channel has all releases of Chef 360 skills.
     This becomes the default channel when building, downloading, or installing packages from chef origin.
@@ -99,12 +94,23 @@ Note:
     The base-YYYY channel in chef-platform origin is supported as long as Chef 360 skills in those channels are supported.
   - **Point-in-time** releases and versions of Chef 360 skills in **base-YYYY-timestamp**.
 
-Note: *The changes to chef-platform origin are rolled out in the next phase where Chef 360 skills also follow the multi-channel approach.*
-
 - **habitat**: Contains packages required for an on-prem Builder setup
   - **stable** channel has all releases of on-prem Builder related packages.
   - **base-YYYY** channel has the releases of on-prem Builder related packages that are built with the core origin dependencies from the corresponding base-YYYY channel.
   - **Point-in-time** releases and versions of on-prem Builder related packages in **base-YYYY-timestamp**.
+
+{{< note >}}
+
+- With Hab 2.0, hab binary packages are moved from core to chef origin to align with the practice of making all Chef product packages available in a single origin---that is, chef.
+- Subsequent major releases of Chef products like Infra Client 19 and InSpec 7 follow the new multi-channel approach---that is, releases are published in stable, base-YYYY, and point-in-time channels.
+
+{{< /note >}}
+
+{{< note >}}
+
+The changes to chef-platform origin are rolled out in the next phase where Chef 360 skills also follow the multi-channel approach.
+
+{{< /note >}}
 
 ## Intermediate support channel for supporting existing Chef product releases
 
@@ -150,10 +156,14 @@ To enable this, users can use the new flag `--refresh-channel`, which is now sup
 
 ## Change in workflow for accessing packages from Chef Habitat Builder
 
-- **Download packages from Chef Habitat Builder using a HAB_AUTH_TOKEN**: To download all new major releases of Chef products (Hab 2.0, Infra 19, and others) and latest core origin packages from base-YYYY channels, you need to pass a `HAB_AUTH_TOKEN` generated using your license key (Free, Trial, Commercial) either as a flag to the [command](https://docs.chef.io/habitat/habitat_cli/#hab-pkg-download) or as an [environment variable](https://docs.chef.io/habitat/environment_variables/).
+- **Download packages from Chef Habitat Builder using a HAB_AUTH_TOKEN**: To download all new major releases of Chef products (Hab 2.0, Infra 19, and others) and latest core origin packages from base-YYYY channels, you need to pass a `HAB_AUTH_TOKEN` generated using your license key (Free, Trial, Commercial) either as a flag to the [command](/habitat/habitat_cli/#hab-pkg-download) or as an [environment variable](/habitat/environment_variables/).
 - **Accessing Builder UI using license key (Free, Trial, Commercial)**
 
-**Note**: Find detailed instructions on how to generate `HAB_AUTH_TOKEN` using a license key from Chef Habitat Builder UI at <https://docs.chef.io/habitat/builder_profile/#add-a-progress-chef-license-key>.
+{{< note >}}
+
+For instructions on how to generate `HAB_AUTH_TOKEN` using a license key from Chef Habitat Builder UI, see the [Builder profile documentation](/habitat/builder_profile/#add-a-progress-chef-license-key)
+
+{{< /note >}}
 
 ### Syncing packages to on-prem Builder
 
@@ -195,19 +205,23 @@ When more than one major version of the package is supported, and the project us
 1. **If the project doesn't honor SemVer** (referred to as Romantic Versioning or RomVer)
    - The value of name should match the name of the project it represents, plus the **major** and **minor** version of the package being supported (as a suffix).
    - The plan file should be located within a directory of the same name (including the suffix) in this repository.
-   - Note: Romantic versions appear like a SemVer in format but may introduce breaking changes as part of a "minor" update, resulting in Version X.Y having a breaking change versus X.Z.
+   - Note: Romantic versions appear like SemVer in format but may introduce breaking changes as part of a "minor" update, resulting in version X.Y having a breaking change versus X.Z.
    - Example: `core/foo3_0`, `core/foo3_1`, `core/foo3_2`, and/or `core/foo3_3`
 
 1. **If the project doesn't use SemVer**
    - Example: builder-api, perl
    - The packages are reviewed package to package and refresh to refresh.
 
-*Note: Even though a package name may be altered to include a major (and
+{{< note >}}
+
+Even though a package name may be altered to include a major (and
 minor) version suffix, package versions will never be altered from their
-project’s source. For example, if the package uses a DateVer schema
-where it is YYYYMMDD, this won't be reformatted to YYYY.MM.DD. This
+project's source. For example, if the package uses a DateVer schema
+in the format of _YYYYMMDD_, this won't be reformatted to _YYYY.MM.DD_. This
 is to ensure CVE detection process and automated build and detection
 systems can refer to the exact publishers' versions.
+
+{{< /note >}}
 
 ## Support threshold
 
