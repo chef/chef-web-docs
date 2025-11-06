@@ -33,6 +33,8 @@ sitemaps = [
   "https://docs.chef.io/360/1.3/sitemap.xml",
   "https://docs.chef.io/360/1.4/sitemap.xml",
   "https://docs.chef.io/360/1.5/sitemap.xml",
+  "https://docs.chef.io/habitat/1.6/sitemap.xml",
+  "https://docs.chef.io/habitat/2.0/sitemap.xml",
   "https://docs.chef.io/inspec/6.8/sitemap.xml",
   "https://docs.chef.io/inspec/7.0/sitemap.xml",
   "https://docs.chef.io/inspec/resource_packs/sitemap.xml"
