@@ -13,7 +13,7 @@ require (
 	github.com/chef/effortless/docs-chef-io v0.0.0-20230711123605-c8beb79aba4f // indirect
 	github.com/chef/license-service/docs-chef-io v0.0.0-20250120051510-ae1de80f4621 // indirect
 	github.com/chef/samples v0.0.0-20250424163637-3393187e624c // indirect
-	github.com/chef/supermarket/docs-chef-io v0.0.0-20250602140848-cded623a3f5c // indirect
+	github.com/chef/supermarket/docs-chef-io v0.0.0-20251111140113-2790dadeef26 // indirect
 	github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90 // indirect
 	github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20250905124722-c1a4eb639cba // indirect
 	github.com/habitat-sh/on-prem-builder/docs-chef-io v0.0.0-20250805192817-f8b1dae05d5e // indirect
