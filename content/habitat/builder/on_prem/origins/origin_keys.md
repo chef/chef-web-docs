@@ -132,7 +132,7 @@ hab origin key download <ORIGIN>
 
 ### Upload origin keys with the CLI
 
-Creating an origin with the `hab origin create` command registers the origin on Chef Habitat On-prem Builder without creating an origin key pair. The `hab origin key generate` command creates the key pair and saves them in your local environment, but it does not upload either origin key to Chef Habitat On-prem Builder.
+Creating an origin with the `hab origin create` command registers the origin on Chef Habitat On-prem Builder without creating an origin key pair. The `hab origin key generate` command creates the key pair and saves them in your local environment, but it doesn't upload either origin key to Chef Habitat On-prem Builder.
 
 - Only origin members with the administrator and owner roles can upload new keys to an origin.
 - Habitat On-prem Builder requires the public origin key to upload artifacts for that origin, so you'll need to upload it.

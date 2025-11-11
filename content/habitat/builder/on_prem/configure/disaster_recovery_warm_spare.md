@@ -20,7 +20,7 @@ There's no fully on-premises solution for highly available Habitat Builder servi
 
 The following architecture diagram shows how data synchronization increases the availability of the Builder API and backend for disaster recovery and warm spare scenarios.
 
-![Habitat On-Prem Builderises architecture](/habitat/builder/on_prem/builder_architecture.png)
+![Habitat On-Prem Builder's architecture](/habitat/builder/on_prem/builder_architecture.png)
 
 ### Synchronize components
 

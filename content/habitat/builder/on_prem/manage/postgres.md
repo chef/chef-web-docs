@@ -9,6 +9,8 @@ title = "Manage Habitat Builder data stored by PostgreSQL"
     weight = 30
 +++
 
+<!--cspell:ignore createdb -->
+
 This page describes how to back up Habitat Builder user and package data that's managed by PostgreSQL.
 
 ## Habitat Builder data overview

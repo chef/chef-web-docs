@@ -90,7 +90,7 @@ If self-signed certificates are missing, verify the following:
 
 - If your self-signed certificates are missing, copy them into the `/hab/cache/ssl` directory. The latest version of Chef Habitat On-Prem Builder expects certificates in that directory.
 
-- Name your certificate files using the pattern `appname-cert.cert` or `appname-cert.pem`. For example, `automate-cert.cert` or `automate-cert.pem`.
+- Name your certificate files using the pattern `<APP_NAME>-cert.cert` or `<APP_NAME>-cert.pem`. For example, `automate-cert.cert` or `automate-cert.pem`.
 
 - Don't use `cert.pem`, which is reserved for the Chef Habitat system.
    If you overwrite this file, Chef Habitat On-Prem Builder will fail.
@@ -211,7 +211,7 @@ HAB_CLIENT_SOCKET_TIMEOUT=360 hab pkg upload -u <BLDR_URL> -z <AUTH_TOKEN> <HART
 
 ### Package shows up in the Builder UI and `hab pkg search`, but `hab pkg install` fails
 
-If you run into a situation where you have a package populated in the Chef Habitat On-Prem Builder, but it is failing to install with a `Not Found` status, it is possible that there was a prior problem with populating the MinIO backend with the package artifact.
+If you run into a situation where you have a package populated in the Chef Habitat On-Prem Builder, but it's failing to install with a `Not Found` status, it's possible that there was a prior problem with populating the MinIO backend with the package artifact.
 
 If you have the package artifact on-disk (for example, in the `hab/cache/artifacts` directory), you can try to upload the missing package again with the following command (update the parameters as appropriate):
 
