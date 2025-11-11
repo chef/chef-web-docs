@@ -6,7 +6,7 @@ summary = "Chef Habitat Builder is Chef's Application Delivery Enterprise hub"
 list_pages = true
 
 [menu.habitat]
-    title = "About Habitat SaaS Builder"
+    title = "About Habitat Builder"
     identifier = "habitat/builder/about"
     parent = "habitat/builder"
     weight = 10

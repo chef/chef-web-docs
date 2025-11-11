@@ -35,4 +35,4 @@ Head over to the Chef Habitat Builder sign-in page at [https://bldr.habitat.sh/#
 
 Signing in with your GitHub account and authorizing the Chef Habitat Builder application the first time you sign in grants you access to the Chef Habitat Builder platform. Once you've completed signing in and authorizing Chef Habitat Builder, you'll arrive at the **My Origins** view.
 
-![Authorize the Chef Habitat Application](/images/habitat/authorize.png)
+{{< figure src="/images/habitat/authorize.png" alt="Chef Habitat and GitHub authorization screen." width="500px" >}}

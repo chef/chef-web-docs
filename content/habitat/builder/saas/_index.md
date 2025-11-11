@@ -2,7 +2,7 @@
 title = "About Chef Habitat SaaS Builder"
 description = "Chef Habitat Builder is Chef's Application Delivery Enterprise hub"
 linkTitle = "Habitat SaaS Builder"
-summary = "The cloud-based host for Chef's core packages"
+summary = "Chef's cloud-based Habitat package host"
 list_pages = true
 
 [cascade]
