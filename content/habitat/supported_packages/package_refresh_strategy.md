@@ -8,6 +8,8 @@ title = "Chef Habitat package refresh strategy"
   weight = 10
 +++
 
+<!-- vale Microsoft.Quotes = NO -->
+
 A Habitat package is an artifact that has the built application artifacts, lifecycle configurations, and a manifest that includes a plan file that defines the build and runtime dependencies of the application.
 The package is bundled into a Habitat Artifact (`.HART`) file, which is a binary distribution of a given package built with Chef Habitat.
 The package is immutable and cryptographically signed with a key so you can verify that the artifact came from where you expected it to come from.
@@ -26,18 +28,18 @@ We didn't remove packages---we skipped any that we couldn't refresh due to incom
 
 This led to several issues:
 
-- Deprecation or relegation of packages and major version upgrades can cause potential disruption to existing applications or installations.
-- We could only include security fixes that had a minor impact.
+- Package deprecation, relegation, or major version upgrades could disrupt existing applications or installations.
+- We could only include minor security fixes.
   This model prevents the deprecation or removal of outdated packages and limits the inclusion of significant security fixes or major version updates.
   This could lead to risks when using pinned packages, as they may not upgrade to more secure versions.
 
-For example, we continued to release PostgreSQL 9.3 in the core channel despite being out of support, as removing it could disrupt existing applications.
+For example, we continued to release PostgreSQL 9.3 in the core channel despite it being out of support, as removing it could disrupt existing applications.
 
 ### Multi-channel package refresh approach
 
 The multi-channel package refresh approach manages Habitat package updates and lifecycles using year-based channels, for example "base-2025". These channels provide a reliable and consistent environment for users, ensuring long-term support and stability for their applications and deployments.
 
-- **Multiple channels**: The base-YYYY channels, where YYYY indicates the year of release, create a stable environment with the latest packages, are supported for three years, and are created every three years, for example base-2025, base-2028, and base-2031.
+- **Multiple channels**: The base-YYYY channels, where YYYY indicates the year of release, create a stable environment with the latest packages, are supported for three years, and are created every three years. For example, base-2025, base-2028, and base-2031.
 
   The initial base-YYYY release has breaking changes because it has major upgrades and removes end-of-life packages.
   Subsequent releases within the channel maintain stability and compatibility.
@@ -218,7 +220,7 @@ This ensures that our automated build and detection systems can refer to the pub
 For packages that aren't dependencies for Progress Chef tools:
 
 - There should be no published EOL date within the first two years of the base-YYYY support duration at the time of consideration.
-  If the OEM drops support or doesn't provide a fix to known vulnerabilities during the timeframe, no updates are made available.
+  If the OEM drops support or doesn't provide a fix to known vulnerabilities during the time frame, no updates are made available.
 - There should be no open High or Critical CVEs for that package at the time of consideration.
   If any released package has a Critical/High CVE post-release, it's fixed as part of the next minor/directed refresh.
 - It should have a valid licensing model that allows Progress Chef to distribute it as a Chef Habitat package.
