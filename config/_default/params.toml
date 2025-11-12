@@ -70,7 +70,7 @@ gh_path = "https://github.com/chef/license-service/tree/main/docs-chef-io/conten
 
 [search]
 
-default_search_product_keys = ["", "chef-360-saas", "chef-360-1.5", "automate", "desktop", "habitat", "client", "server", "inspec", "inspec-7.0", "saas", "supermarket", "workstation"]
+default_search_product_keys = ["", "chef-360-saas", "chef-360-1.5", "automate", "desktop", "habitat", "habitat-2.0", "client", "server", "inspec", "inspec-7.0", "saas", "supermarket", "workstation"]
 
 [search.products]
 
@@ -117,6 +117,14 @@ product_key = "desktop"
 [search.products.habitat]
 name = "Habitat"
 product_key = "habitat"
+
+[[search.products.habitat.versions]]
+name = "2.0"
+product_version_key = "habitat-2.0"
+
+[[search.products.habitat.versions]]
+name = "1.6"
+product_version_key = "habitat-1.6"
 
 [search.products.infra_client]
 name = "Infra Client"
