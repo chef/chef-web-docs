@@ -93,14 +93,19 @@
 ####
 
 [[redirects]]
-  from = "/habitat/2.0/*"
-  to = "https://release-2-0--chef-habitat-docs.netlify.app/habitat/2.0/:splat"
+  from = "/habitat/2.0-rc1/*"
+  to = "https://release-2-0-rc1--chef-habitat-docs.netlify.app/habitat/2.0-rc1/:splat"
   status = 200
 
-[[redirects]]
-  from = "/habitat/1.6/*"
-  to = "https://release-1-6--chef-habitat-docs.netlify.app/habitat/1.6/:splat"
-  status = 200
+# [[redirects]]
+#   from = "/habitat/2.0/*"
+#   to = "https://release-2-0--chef-habitat-docs.netlify.app/habitat/2.0/:splat"
+#   status = 200
+
+# [[redirects]]
+#   from = "/habitat/1.6/*"
+#   to = "https://release-1-6--chef-habitat-docs.netlify.app/habitat/1.6/:splat"
+#   status = 200
 
 ####
 # Chef Infra Client redirects
