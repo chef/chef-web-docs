@@ -133,7 +133,7 @@ name = "7.0"
 product_version_key = "inspec-7.0"
 
 [[search.products.inspec.versions]]
-name = "6.8"
+name = "5/6"
 product_version_key = "inspec-6.8"
 
 [search.products.saas]
