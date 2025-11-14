@@ -512,7 +512,7 @@ identifier = "inspec"
   weight = 10
 
   [[inspec]]
-  title = "version 6.8"
+  title = "version 5/6"
   identifier = "inspec/6.8/"
   parent = "inspec"
   url = "/inspec/6.8/"
