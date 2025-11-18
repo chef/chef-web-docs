@@ -10,6 +10,13 @@ draft = false
     weight = 20
 +++
 
+## 20251115
+
+### New Features
+
+- CIS Apache Tomcat 10.1 v1.1.0 (Remediation)
+- STIG Oracle Linux 8 remediation v1.8.0 (cookbook)
+
 ## 20251015
 
 ### New Features
