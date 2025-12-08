@@ -12,6 +12,40 @@ product = [""]
     weight = 10
 +++
 
+## Chef 360 Platform 1.5.1
+
+Release date: December 8th, 2025
+
+### New features
+
+- Tenant and Courier administrators can create Courier job global default settings in the Chef 360 Platform UI. This improves job configuration control.
+- You can use scripts to create your own cookbook for node self enrollment.
+- You can download Chef 360 Platform audit logs through the Chef 360 Platform user interface (UI).
+- Declarative State Management (DSM) logs are redirected to stdout, making them easier to collect and monitor using standard logging tools. This improves log accessibility, troubleshooting, and operational visibility.
+
+### Improvements
+
+- You can approve and track node self-enrollments in the Chef 360 Platform UI.
+- Enhancements were made to the job creation flow for a smoother experience.
+- Updated the DSM OpenSSL version to 3.2.4.
+
+### Bug fixes
+
+- Some bugs were fixed to improve the navigation experience.
+
+### Supported skill versions
+
+| Skill                    | Skill name              | Habitat package                       | Version |
+| ------------------------ | ----------------------- | ------------------------------------- | ------- |
+| Courier Runner           | courier-runner          | chef-platform/courier-runner          | 1.5.4   |
+| Gohai                    | chef-gohai              | chef-platform/chef-gohai              | 1.2.25  |
+| InSpec Interpreter       | inspec-interpreter      | chef-platform/inspec-interpreter      | 1.0.9   |
+| Node Management Agent    | node-management-agent   | chef-platform/node-management-agent   | 1.1.3   |
+| Restart Interpreter      | restart-interpreter     | chef-platform/restart-interpreter     | 1.0.6   |
+| Shell Interpreter        | shell-interpreter       | chef-platform/shell-interpreter       | 1.0.7   |
+| Infra Client Interpreter | chef-client-interpreter | chef-platform/chef-client-interpreter | 1.0.9   |
+| Ansible Interpreter      | ansible-interpreter     | chef-platform/ansible-interpreter     | 0.1.5   |
+
 ## Chef 360 Platform 1.5.0
 
 Release date: October 13, 2025
