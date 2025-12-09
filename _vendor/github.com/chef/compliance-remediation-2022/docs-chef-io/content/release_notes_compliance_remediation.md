@@ -10,6 +10,13 @@ draft = false
     weight = 20
 +++
 
+## 20251215
+
+### New Features
+
+- STIG Microsoft Windows 11 v2.2.0 (Remediation)
+
+
 ## 20251115
 
 ### New Features
