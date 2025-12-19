@@ -15,6 +15,8 @@ Chef community members can use Chef's Community API to download Chef software pa
 
 ## License
 
+To download packages and review metadata with this API, you need a license ID.  Only free licenses can be used for community downloads.
+
 See [Chef's licensing documentation]({{< relref "chef_license" >}}) for more information on the Chef license.
 
 ## Endpoints

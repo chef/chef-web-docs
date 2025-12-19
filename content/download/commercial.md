@@ -18,7 +18,7 @@ You can use an install script from the API to download and install Chef packages
 
 ## License
 
-To download packages and review metadata with this API, you need a license ID. Only commercial and free licenses can be used for commercial downloads.
+To download packages and review metadata with this API, you need a license ID.
 
 You can get your license ID from the [Chef Downloads portal](https://chef.io/downloads), or [contact Chef](https://www.chef.io/contact-us) if you don't have one.
 
@@ -132,7 +132,7 @@ The API accepts the following parameters in a query string.
 `license_id`
 : Your license ID.
 
-  A license is required to download packages and retrieve package metadata with this API. Only commercial and free licenses can be used for commercial downloads.
+  A license is required to download packages and retrieve package metadata with this API.
 
 `eol`
 : Whether to include EOL versions of a product or EOL products in the response.
