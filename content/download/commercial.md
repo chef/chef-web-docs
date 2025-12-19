@@ -132,7 +132,7 @@ The API accepts the following parameters in a query string.
 `license_id`
 : Your license ID.
 
-  A license is required to download packages and retrieve package metadata with this API.
+  A license is required to download packages and retrieve package metadata with this API. Only commercial and free licenses can be used for commercial downloads.
 
 `eol`
 : Whether to include EOL versions of a product or EOL products in the response.
