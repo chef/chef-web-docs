@@ -85,6 +85,10 @@ For additional script install options, see the [script options](#script-options)
 
 Community users can use the install script from the [Chef Community API](/download/community/) to install Chef software.
 
+### Prerequisites
+
+You must have a license ID to use the install script from the Chef Community API. Only free licenses can be used for community downloads.
+
 ### UNIX, Linux, and macOS
 
 Use the Chef install script to install packages on UNIX, Linux, and macOS systems.
