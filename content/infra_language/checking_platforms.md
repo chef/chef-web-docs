@@ -282,7 +282,7 @@ where:
 </tr>
 <tr>
 <td><code>suse</code></td>
-<td><code>opensuse_leap</code>, <code>suse</code>, and <code>sled</code> platforms</td>
+<td><code>opensuse_leap</code>, <code>suse</code>, and <code>sles</code> platforms</td>
 </tr>
 <tr>
 <td><code>windows</code></td>
