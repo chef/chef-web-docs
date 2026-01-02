@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_correctness_macosuserdefaultsinvalidtype
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,19 +19,15 @@ The macos_userdefaults resource prior to Chef Infra Client 16.3 would silently c
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 macos_userdefaults 'set a value' do
   global true
   key 'key'
   type 'boolean'
 end
-```
 
-### correct
-
-```ruby
+# good
 macos_userdefaults 'set a value' do
   global true
   key 'key'

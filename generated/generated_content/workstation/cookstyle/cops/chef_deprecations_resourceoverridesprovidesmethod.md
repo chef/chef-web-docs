@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_resourceoverridesprovidesme
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,17 +19,13 @@ Some providers in resources override the provides? method, used to check whether
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 def provides?
  true
 end
-```
 
-### correct
-
-```ruby
+# good
 provides :SOME_PROVIDER_NAME
 ```
 

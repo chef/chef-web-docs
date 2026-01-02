@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_usemultipackageinstalls/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,19 +19,15 @@ Pass an array of packages to package resources instead of iterating over an arra
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 %w(bmon htop vim curl).each do |pkg|
   package pkg do
     action :install
   end
 end
-```
 
-### correct
-
-```ruby
+# good
 package %w(bmon htop vim curl)
 ```
 

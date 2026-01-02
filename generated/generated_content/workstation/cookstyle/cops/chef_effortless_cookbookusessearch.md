@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_effortless_cookbookusessearch/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Search is not compatible with the Effortless Infra pattern
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 search(:node, 'run_list:recipe\[bacula\:\:server\]')
 ```
 

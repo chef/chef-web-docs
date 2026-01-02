@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_simplifyaptppasetup/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,20 +19,16 @@ The apt_repository resource allows setting up PPAs without using the full URL to
 
 ## Examples
 
-### incorrect
-
 ```ruby
+### incorrect
   apt_repository 'atom-ppa' do
     uri 'http://ppa.launchpad.net/webupd8team/atom/ubuntu'
     components ['main']
     keyserver 'keyserver.ubuntu.com'
     key 'C2518248EEA14886'
   end
-```
 
 ### correct
-
-```ruby
   apt_repository 'atom-ppa' do
     uri 'ppa:webupd8team/atom'
     components ['main']

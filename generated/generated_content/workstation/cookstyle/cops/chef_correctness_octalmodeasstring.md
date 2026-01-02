@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_correctness_octalmodeasstring/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,17 +19,13 @@ Don't represent file modes as Strings containing octal values.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 file '/etc/some_file' do
   mode '0o755'
 end
-```
 
-### correct
-
-```ruby
+# good
 file '/etc/some_file' do
   mode '0755'
 end

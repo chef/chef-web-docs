@@ -8,17 +8,11 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   require File.expand_path('../../libraries/helpers', __FILE__)
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   require_relative '../libraries/helpers'
-  ```
 version_added: 5.22.0
 enabled: true
 excluded_file_paths:

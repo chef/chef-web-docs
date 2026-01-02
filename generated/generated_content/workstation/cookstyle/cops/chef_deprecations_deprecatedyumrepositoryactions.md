@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_deprecatedyumrepositoryacti
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,20 +19,16 @@ With the release of Chef Infra Client 12.14 and the yum cookbook 3.0 the actions
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 yum_repository 'OurCo' do
   description 'OurCo yum repository'
   baseurl 'http://artifacts.ourco.org/foo/bar'
   gpgkey 'http://artifacts.ourco.org/pub/yum/RPM-GPG-KEY-OURCO-6'
   action :add
 end
-```
 
-### correct
-
-```ruby
+# good
 yum_repository 'OurCo' do
   description 'OurCo yum repository'
   baseurl 'http://artifacts.ourco.org/foo/bar'

@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_epicfail/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,17 +19,13 @@ Use `ignore_failure` in resources to continue when failures occur instead of the
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 package "foo" do
   epic_fail true
 end
-```
 
-### correct
-
-```ruby
+# good
 package "foo" do
   ignore_failure true
 end

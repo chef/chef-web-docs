@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_redundantcode_resourcewithnothingaction/
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Chef Infra Client provides the :nothing action by default for every resource. Th
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 action :nothing
   # let's do nothing
 end

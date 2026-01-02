@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_resourceinheritsfromcompatr
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,17 +19,13 @@ Resources written in the class based HWRP style should inherit from the 'Chef::R
 
 ## Examples
 
-### incorrect
-
 ```ruby
+### incorrect
 class AptUpdate < ChefCompat::Resource
   # some resource code
 end
-```
 
 ### correct
-
-```ruby
 class AptUpdate < Chef::Resource
   # some resource code
 end

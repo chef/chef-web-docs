@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_eolauditmodeusage/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ The beta Audit Mode for Chef Infra Client was removed in Chef Infra Client 15.0.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 control_group 'Baseline' do
   control 'SSH' do
     it 'should be listening on port 22' do

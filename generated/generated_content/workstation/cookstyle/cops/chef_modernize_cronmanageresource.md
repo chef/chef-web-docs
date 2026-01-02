@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_cronmanageresource/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,15 +19,11 @@ The cron_manage resource was renamed to cron_access in the 6.1 release of the cr
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 cron_manage 'mike'
-```
 
-### correct
-
-```ruby
+# good
 cron_access 'mike'
 ```
 

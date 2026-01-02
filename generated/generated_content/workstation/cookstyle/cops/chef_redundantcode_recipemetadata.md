@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_redundantcode_recipemetadata/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recip
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 recipe 'openldap::default', 'Install and configure OpenLDAP'
 ```
 

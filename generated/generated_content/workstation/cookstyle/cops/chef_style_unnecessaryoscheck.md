@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_style_unnecessaryoscheck/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,18 +19,14 @@ Use the platform_family?() helpers instead of node['os] == 'foo' for platform_fa
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 node['os'] == 'darwin'
 node['os'] == 'windows'
 node['os'].eql?('aix')
 %w(netbsd openbsd freebsd).include?(node['os'])
-```
 
-### correct
-
-```ruby
+# good
 platform_family?('mac_os_x')
 platform_family?('windows')
 platform_family?('aix')

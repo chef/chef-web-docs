@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_defaultactionfrominitialize/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -21,17 +22,14 @@ The default actions can now be specified using the `default_action` helper inste
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 def initialize(*args)
   super
   @action = :create
 end
 
-### incorrect
-
-```ruby
+# bad
 def initialize(*args)
   super
   @default_action = :create

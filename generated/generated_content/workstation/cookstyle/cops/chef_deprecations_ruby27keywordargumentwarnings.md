@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_ruby27keywordargumentwarnin
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,16 +19,12 @@ Pass options to shell_out helpers without the brackets to avoid Ruby 2.7 depreca
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 shell_out!('hostnamectl status', { returns: [0, 1] })
 shell_out('hostnamectl status', { returns: [0, 1] })
-```
 
-### correct
-
-```ruby
+# good
 shell_out!('hostnamectl status', returns: [0, 1])
 shell_out('hostnamectl status', returns: [0, 1])
 ```

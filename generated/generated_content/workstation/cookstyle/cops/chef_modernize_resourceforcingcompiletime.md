@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_resourceforcingcompiletime/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,17 +19,13 @@ The hostname, build_essential, chef_gem, and ohai_hint resources include 'compil
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 build_essential 'install build tools' do
  action :nothing
 end.run_action(:install)
-```
 
-### correct
-
-```ruby
+# good
 build_essential 'install build tools' do
  compile_time true
 end

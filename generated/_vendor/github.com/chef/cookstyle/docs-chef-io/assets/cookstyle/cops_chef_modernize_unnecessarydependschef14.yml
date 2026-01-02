@@ -9,9 +9,7 @@ autocorrection: true
 target_chef_version: 14.0+
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   depends 'build-essential'
   depends 'chef_handler'
   depends 'chef_hostname'
@@ -19,7 +17,6 @@ examples: |2-
   depends 'mac_os_x'
   depends 'swap'
   depends 'sysctl'
-  ```
 version_added: 5.1.0
 enabled: true
 included_file_paths:

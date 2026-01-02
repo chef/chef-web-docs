@@ -7,17 +7,11 @@ autocorrection: false
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   default_action 'create'
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   default_action :create
-  ```
 version_added: 6.13.0
 enabled: true
 included_file_paths:

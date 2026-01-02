@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_chefwindowsplatformhelper/"
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,15 +19,11 @@ Use `platform?('windows')` instead of the legacy `Chef::Platform.windows?` helpe
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 Chef::Platform.windows?
-```
 
-### correct
-
-```ruby
+# good
 platform?('windows')
 platform_family?('windows')
 ```

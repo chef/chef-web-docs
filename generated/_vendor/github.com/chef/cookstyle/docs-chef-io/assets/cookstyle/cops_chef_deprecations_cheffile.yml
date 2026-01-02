@@ -8,7 +8,7 @@ description: The Librarian-Chef depsolving project is no longer maintained and a
   offers a more similar, and still supported, experience to Librarian-Chef.
 autocorrection: false
 target_chef_version: All Versions
-examples:
+examples: 
 version_added: 5.12.0
 enabled: true
 included_file_paths:

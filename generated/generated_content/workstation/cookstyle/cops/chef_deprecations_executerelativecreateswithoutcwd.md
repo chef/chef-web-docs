@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_executerelativecreateswitho
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,17 +19,13 @@ In Chef Infra Client 13 and later you must either specific an absolute path when
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 execute 'some_cmd' do
   creates 'something'
 end
-```
 
-### correct
-
-```ruby
+# good
 execute 'some_cmd' do
   creates '/tmp/something'
 end

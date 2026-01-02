@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_librarianchefspec/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ The Librarian-Chef depsolving project is no longer maintained and a Cheffile sho
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 require 'chefspec/librarian'
 ```
 

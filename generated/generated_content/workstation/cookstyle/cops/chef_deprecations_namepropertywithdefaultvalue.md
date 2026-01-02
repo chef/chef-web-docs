@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_namepropertywithdefaultvalu
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,16 +19,12 @@ A resource property (or attribute) can't be marked as a name_property (or name_a
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 property :config_file, String, default: 'foo', name_property: true
 attribute :config_file, String, default: 'foo', name_attribute: true
-```
 
-### correct
-
-```ruby
+# good
 property :config_file, String, name_property: true
 attribute :config_file, String, name_attribute: true
 ```

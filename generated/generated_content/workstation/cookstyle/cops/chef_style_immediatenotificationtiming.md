@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_style_immediatenotificationtiming/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,18 +19,14 @@ Use :immediately instead of :immediate for resource notification timing.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 
 template '/etc/www/configures-apache.conf' do
   notifies :restart, 'service[apache]', :immediate
 end
-```
 
-### correct
-
-```ruby
+# good
 
 template '/etc/www/configures-apache.conf' do
   notifies :restart, 'service[apache]', :immediately

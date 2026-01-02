@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_respondtoprovides/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,17 +19,13 @@ In Chef Infra Client 12+ is is no longer necessary to gate the use of the provid
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 provides :foo if respond_to?(:provides)
 
 provides :foo if defined? provides
-```
 
-### correct
-
-```ruby
+# good
 provides :foo
 ```
 

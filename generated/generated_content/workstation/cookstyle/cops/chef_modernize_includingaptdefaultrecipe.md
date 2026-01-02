@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_includingaptdefaultrecipe/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,16 +19,12 @@ For many users the apt::default cookbook is used only to update apt's package ca
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 include_recipe 'apt::default'
 include_recipe 'apt'
-```
 
-### correct
-
-```ruby
+# good
 apt_update
 ```
 

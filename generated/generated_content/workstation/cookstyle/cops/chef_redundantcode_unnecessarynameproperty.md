@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_redundantcode_unnecessarynameproperty/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ There is no need to define a property or attribute named :name in a resource as 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 property :name, String
 property :name, String, name_property: true
 attribute :name, kind_of: String

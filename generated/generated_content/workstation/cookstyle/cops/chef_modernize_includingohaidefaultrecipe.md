@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_includingohaidefaultrecipe/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ The Ohai default recipe previously allowed a user to ship custom Ohai plugins to
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 include_recipe 'ohai::default'
 include_recipe 'ohai'
 ```

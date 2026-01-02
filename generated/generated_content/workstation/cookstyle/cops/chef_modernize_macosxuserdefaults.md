@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_macosxuserdefaults/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,19 +19,15 @@ The mac_os_x_userdefaults resource was renamed to macos_userdefaults when it was
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 mac_os_x_userdefaults 'full keyboard access to all controls' do
   domain 'AppleKeyboardUIMode'
   global true
   value '2'
 end
-```
 
-### correct
-
-```ruby
+# good
 macos_userdefaults 'full keyboard access to all controls' do
   domain 'AppleKeyboardUIMode'
   global true

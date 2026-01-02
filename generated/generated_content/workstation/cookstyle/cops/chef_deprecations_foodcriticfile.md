@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_foodcriticfile/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -17,7 +18,6 @@ The Cookstyle cops department: `Chef/Deprecations`
 The Foodcritic cookbook linter has been deprecated and should no longer be used for validating cookbooks. Do not include the `.foodcritic` config file used by Foodcritic in your cookbooks.
 
 ## Examples
-<nil>
 
 ## Configurable attributes
 

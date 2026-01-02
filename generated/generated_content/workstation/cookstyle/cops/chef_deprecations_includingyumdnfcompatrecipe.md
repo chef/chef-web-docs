@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_includingyumdnfcompatrecipe
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -19,9 +20,8 @@ as Chef Infra Client includes DNF package support
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 include_recipe 'yum::dnf_yum_compat'
 ```
 

@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_correctness_incorrectlibraryinjection/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,18 +19,14 @@ Libraries should be injected into the `Chef::DSL::Recipe` class and not `Chef::R
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 ::Chef::Recipe.send(:include, Filebeat::Helpers)
 ::Chef::Provider.send(:include, Filebeat::Helpers)
 ::Chef::Recipe.include Filebeat::Helpers
 ::Chef::Provider.include Filebeat::Helpers
-```
 
-### correct
-
-```ruby
+# good
 ::Chef::DSL::Recipe.send(:include, Filebeat::Helpers) # covers previous Recipe & Provider classes
 ```
 

@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_powershellscriptexpandarchive/
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Use the archive_file resource built into Chef Infra Client 15+ instead of using 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 powershell_script 'Expand website' do
   code 'Expand-Archive "C:\\file.zip" -DestinationPath "C:\\inetpub\\wwwroot\\" -Force'
 end

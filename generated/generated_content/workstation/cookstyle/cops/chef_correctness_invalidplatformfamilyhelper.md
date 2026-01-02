@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_correctness_invalidplatformfamilyhelper/
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,15 +19,12 @@ Pass valid platform families to the `platform_family?` helper. See [Infra Langua
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 platform_family?('redhat')
 platform_family?('sles')
 
-### incorrect
-
-```ruby
+# bad
 platform_family?('rhel')
 platform_family?('suse')
 ```

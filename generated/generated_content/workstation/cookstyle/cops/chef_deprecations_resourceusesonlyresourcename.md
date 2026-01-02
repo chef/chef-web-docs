@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_resourceusesonlyresourcenam
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Starting with Chef Infra Client 16, using `resource_name` without also using `pr
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 mycookbook/resources/myresource.rb:
 resource_name :mycookbook_myresource
 ```

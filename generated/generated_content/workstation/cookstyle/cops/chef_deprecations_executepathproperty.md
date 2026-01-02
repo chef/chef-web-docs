@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_executepathproperty/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,17 +19,13 @@ In Chef Infra Client 13 and later you must set path env vars in execute resource
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 execute 'some_cmd' do
   path '/foo/bar'
 end
-```
 
-### correct
-
-```ruby
+# good
 execute 'some_cmd' do
   environment {path: '/foo/bar'}
 end

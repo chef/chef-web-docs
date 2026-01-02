@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_resourceusesdslnamemetho/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,15 +19,11 @@ Don't use the dsl_name method in a resource to find the name of the resource. Us
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 my_resource = MyResource.dsl_name
-```
 
-### correct
-
-```ruby
+# good
 my_resource = MyResource.resource_name
 ```
 

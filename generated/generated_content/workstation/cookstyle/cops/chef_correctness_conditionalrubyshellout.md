@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_correctness_conditionalrubyshellout/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Don't use Ruby to shellout in a `only_if` / `not_if` conditional. Any string val
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 cookbook_file '/logs/foo/error.log' do
   source 'error.log'
   only_if { system('wget https://www.bar.com/foobar.txt -O /dev/null') }
@@ -30,11 +30,8 @@ cookbook_file '/logs/foo/error.log' do
   source 'error.log'
   only_if { shell_out('wget https://www.bar.com/foobar.txt -O /dev/null').exitstatus == 0 }
 end
-```
 
-### correct
-
-```ruby
+# good
 cookbook_file '/logs/foo/error.log' do
   source 'error.log'
   only_if 'wget https://www.bar.com/foobar.txt -O /dev/null'

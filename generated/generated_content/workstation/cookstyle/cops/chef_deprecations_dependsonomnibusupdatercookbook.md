@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_dependsonomnibusupdatercook
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,15 +19,11 @@ Don't depend on the EOL `omnibus_updater` cookbook. This cookbook no longer work
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'omnibus_updater'
-```
 
-### correct
-
-```ruby
+# good
 depends 'chef_client_updater'
 ```
 

@@ -11,14 +11,11 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   def initialize(*args)
     super
     @resource_name = :foo
   end
-  ```
 version_added: 5.10.0
 enabled: true
 included_file_paths:

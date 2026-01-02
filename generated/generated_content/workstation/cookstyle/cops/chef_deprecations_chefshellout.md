@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_chefshellout/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,17 +19,13 @@ Don't use the deprecated `Chef::ShellOut` class which was removed in Chef Infra 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 include Chef::ShellOut
 require 'chef/shellout'
 Chef::ShellOut.new('some_command')
-```
 
-### correct
-
-```ruby
+# good
 include Mixlib::ShellOut
 require 'mixlib/shellout'
 Mixlib::ShellOut.new('some_command')

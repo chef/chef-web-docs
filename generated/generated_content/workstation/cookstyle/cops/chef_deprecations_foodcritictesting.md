@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_foodcritictesting/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ The Foodcritic cookbook linter has been deprecated and should no longer be used 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 gem 'foodcritic'
 require 'foodcritic'
 ```

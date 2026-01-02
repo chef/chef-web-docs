@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_shellouthelper/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,15 +19,11 @@ Use the built-in `shell_out` helper available in Chef Infra Client 12.11+ instea
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 Mixlib::ShellOut.new('foo').run_command
-```
 
-### correct
-
-```ruby
+# good
 shell_out('foo')
 ```
 

@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_usesruncommandhelper/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,19 +19,15 @@ Use 'shell_out!' instead of the legacy 'run_command' or 'run_command_with_system
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 require 'chef/mixin/command'
 include Chef::Mixin::Command
 
 run_command('/bin/foo')
 run_command_with_systems_locale('/bin/foo')
-```
 
-### correct
-
-```ruby
+# good
 shell_out!('/bin/foo')
 ```
 

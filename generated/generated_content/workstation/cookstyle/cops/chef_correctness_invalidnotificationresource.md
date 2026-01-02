@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_correctness_invalidnotificationresource/
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ The resource to notify when calling `notifies` or `subscribes` must be a string.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 
 template '/etc/www/configures-apache.conf' do
   notifies :restart, service['apache'], :immediately
@@ -29,11 +29,8 @@ end
 template '/etc/www/configures-apache.conf' do
   notifies :restart, service[apache], :immediately
 end
-```
 
-### correct
-
-```ruby
+# good
 
 template '/etc/www/configures-apache.conf' do
   notifies :restart, 'service[apache]', :immediately

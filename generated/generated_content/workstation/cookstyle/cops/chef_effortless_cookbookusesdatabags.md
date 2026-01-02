@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_effortless_cookbookusesdatabags/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Data bags cannot be used with the Effortless Infra pattern
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 data_bag_item('admins', login)
 data_bag(data_bag_name)
 ```

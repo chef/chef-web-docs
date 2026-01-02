@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_delivery/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -20,7 +21,6 @@ Users of Delivery / Workflow would include a `.delivery` directory in their cook
 or Delivery cookbooks. The contents of this directory are now obsolete and should be removed.
 
 ## Examples
-<nil>
 
 ## Configurable attributes
 

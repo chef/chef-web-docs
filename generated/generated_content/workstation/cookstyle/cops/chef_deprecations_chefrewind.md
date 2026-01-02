@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_chefrewin/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,6 +19,7 @@ Use `delete_resource` or `edit_resource` helpers introduced in Chef Infra Client
 
 ## Examples
 
+```ruby
 chef_gem 'chef-rewind'
 
 require 'chef/rewind'

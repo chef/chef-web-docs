@@ -9,9 +9,7 @@ autocorrection: false
 target_chef_version: 15.8+
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   template '/etc/foo' do
     source 'bar.erb'
     notifies :write, 'log[Aggregate notifications using a single log resource]', :immediately
@@ -20,11 +18,8 @@ examples: |2-
   log 'Aggregate notifications using a single log resource' do
     notifies :restart, 'service[foo]', :delayed
   end
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   template '/etc/foo' do
     source 'bar.erb'
     notifies :run, 'notify_group[Aggregate notifications using a single notify_group resource]', :immediately
@@ -33,7 +28,6 @@ examples: |2-
   notify_group 'Aggregate notifications using a single notify_group resource' do
     notifies :restart, 'service[foo]', :delayed
   end
-  ```
 version_added: 6.0.0
 enabled: true
 excluded_file_paths:

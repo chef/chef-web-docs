@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_rubyblockcreateaction/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,20 +19,16 @@ Use the :run action in the ruby_block resource instead of the deprecated :create
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 ruby_block 'my special ruby block' do
   block do
     puts 'running'
   end
   action :create
 end
-```
 
-### correct
-
-```ruby
+# good
 ruby_block 'my special ruby block' do
   block do
     puts 'running'

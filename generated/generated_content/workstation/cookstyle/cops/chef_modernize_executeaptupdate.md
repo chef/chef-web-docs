@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_executeaptupdate/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Instead of using the execute resource to run the `apt-get update` use Chef Infra
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 execute 'apt-get update'
 
 execute 'Apt all the apt cache' do
@@ -30,11 +30,8 @@ end
 execute 'some execute resource' do
   notifies :run, 'execute[apt-get update]', :immediately
 end
-```
 
-### correct
-
-```ruby
+# good
 apt_update
 
 apt_update 'update apt cache'

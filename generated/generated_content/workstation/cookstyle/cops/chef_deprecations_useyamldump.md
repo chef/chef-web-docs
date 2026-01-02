@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_useyamldump/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,15 +19,11 @@ Chef Infra Client 16.5 introduced performance enhancements to Ruby library loadi
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 {"foo" => "bar"}.to_yaml
-```
 
-### correct
-
-```ruby
+# good
 YAML.dump({"foo" => "bar"})
 ```
 

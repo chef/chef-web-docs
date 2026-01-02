@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_propertywithnameattribute/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,15 +19,11 @@ When using properties in a custom resource you should use name_property not the 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 property :bob, String, name_attribute: true
-```
 
-### correct
-
-```ruby
+# good
 property :bob, String, name_property: true
 ```
 

@@ -9,9 +9,7 @@ autocorrection: true
 target_chef_version: 13.0+
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   powershell_script 'Create Directory' do
     code "New-Item -ItemType Directory -Force -Path C:\mydir"
     guard_interpreter :powershell_script
@@ -21,11 +19,8 @@ examples: |2-
     code "mkdir C:\mydir"
     guard_interpreter :powershell_script
   end
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   powershell_script 'Create Directory' do
     code "New-Item -ItemType Directory -Force -Path C:\mydir"
   end
@@ -33,7 +28,6 @@ examples: |2-
   batch 'Create Directory' do
     code "mkdir C:\mydir"
   end
-  ```
 version_added: 5.9.0
 enabled: true
 excluded_file_paths:

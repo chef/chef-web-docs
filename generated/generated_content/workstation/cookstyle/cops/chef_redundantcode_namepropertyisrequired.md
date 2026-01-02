@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_redundantcode_namepropertyisrequire/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -45,16 +46,12 @@ then it should just be made a required property and not a name_property.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 property :config_file, String, required: true, name_property: true
 attribute :config_file, String, required: true, name_attribute: true
-```
 
-### correct
-
-```ruby
+# good
 property :config_file, String, required: true
 ```
 

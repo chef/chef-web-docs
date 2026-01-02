@@ -8,23 +8,17 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   chef_gem 'deep_merge' do
     action :nothing
     compile_time true
   end.run_action(:install)
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   chef_gem 'deep_merge' do
     action :install
     compile_time true
   end
-  ```
 version_added: 6.13.0
 enabled: true
 excluded_file_paths:

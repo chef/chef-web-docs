@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_correctness_invalidversionmetadata/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,15 +19,11 @@ Cookbook metadata.rb version field should follow X.Y.Z version format.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 version '1.2.3.4'
-```
 
-### correct
-
-```ruby
+# good
 version '1.2.3'
 ```
 

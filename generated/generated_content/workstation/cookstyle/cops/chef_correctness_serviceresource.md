@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_correctness_serviceresource/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Use a service resource to start and stop services
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 command "/etc/init.d/mysql start"
 command "/sbin/service/memcached start"
 ```

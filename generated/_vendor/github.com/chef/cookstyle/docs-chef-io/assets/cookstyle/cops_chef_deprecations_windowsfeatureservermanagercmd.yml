@@ -9,17 +9,12 @@ autocorrection: false
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   windows_feature 'DHCP' do
     install_method :servermanagercmd
   end
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   windows_feature 'DHCP' do
     install_method :windows_feature_dism
   end
@@ -31,7 +26,6 @@ examples: |2-
   windows_feature_dism 'DHCP'
 
   windows_feature_powershell 'DHCP'
-  ```
 version_added: 5.22.0
 enabled: true
 excluded_file_paths:

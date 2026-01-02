@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_redundantcode_doublecompiletime/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,18 +19,14 @@ If a resource includes the `compile_time` property there's no need to also use `
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 chef_gem 'deep_merge' do
   action :nothing
   compile_time true
 end.run_action(:install)
-```
 
-### correct
-
-```ruby
+# good
 chef_gem 'deep_merge' do
   action :install
   compile_time true

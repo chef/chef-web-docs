@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_partialsearchhelperusage/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Legacy partial_search usage should be updated to use :filter_result in the searc
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 partial_search(:node, 'role:web',
   keys: { 'name' => [ 'name' ],
           'ip' => [ 'ipaddress' ],
@@ -31,11 +31,8 @@ partial_search(:node, 'role:web',
   puts result['ip']
   puts result['kernel_version']
 end
-```
 
-### correct
-
-```ruby
+# good
 search(:node, 'role:web',
   filter_result: { 'name' => [ 'name' ],
                    'ip' => [ 'ipaddress' ],

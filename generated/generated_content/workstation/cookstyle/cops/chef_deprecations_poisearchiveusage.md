@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_poisearchiveusage/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,17 +19,13 @@ The poise_archive resource in the deprecated poise-archive should be replaced wi
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 poise_archive 'https://example.com/myapp.tgz' do
   destination '/opt/my_app'
 end
-```
 
-### correct
-
-```ruby
+# good
 archive_file 'https://example.com/myapp.tgz' do
   destination '/opt/my_app'
 end

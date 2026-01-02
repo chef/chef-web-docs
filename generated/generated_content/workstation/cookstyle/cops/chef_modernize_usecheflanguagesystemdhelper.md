@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_usecheflanguagesystemdhelper/"
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,15 +19,11 @@ Chef Infra Client 15.5 and later include a `systemd?` helper for checking if a L
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 node['init_package'] == 'systemd'
-```
 
-### correct
-
-```ruby
+# good
 systemd?
 ```
 

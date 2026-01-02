@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_verifypropertyusesfileexpan
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,17 +19,13 @@ In Chef Infra Client 13 the "file" variable for use within the verify property w
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 file '/etc/nginx.conf' do
   verify 'nginx -t -c %{file}'
 end
-```
 
-### correct
-
-```ruby
+# good
 file '/etc/nginx.conf' do
   verify 'nginx -t -c %{path}'
 end

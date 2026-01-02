@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_chefgemnokogiri/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ The nokogiri gem ships in Chef Infra Client 12+ and does not need to be installe
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 chef_gem 'nokogiri'
 ```
 

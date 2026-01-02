@@ -9,9 +9,7 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   execute 'apt-get update'
 
   execute 'Apt all the apt cache' do
@@ -21,11 +19,8 @@ examples: |2-
   execute 'some execute resource' do
     notifies :run, 'execute[apt-get update]', :immediately
   end
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   apt_update
 
   apt_update 'update apt cache'
@@ -33,7 +28,6 @@ examples: |2-
   execute 'some execute resource' do
     notifies :update, 'apt_update[update apt cache]', :immediately
   end
-  ```
 version_added: 5.3.0
 enabled: true
 excluded_file_paths:

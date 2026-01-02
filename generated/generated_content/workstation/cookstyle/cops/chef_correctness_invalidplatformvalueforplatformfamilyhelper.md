@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_correctness_invalidplatformvalueforplatf
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,18 +19,14 @@ Pass valid platform families to the value_for_platform_family helper. See [Infra
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 value_for_platform_family(
   %w(rhel sles) => 'foo',
   %w(mac) => 'foo'
 )
-```
 
-### correct
-
-```ruby
+# good
 value_for_platform_family(
   %w(rhel suse) => 'foo',
   %w(mac_os_x) => 'foo'

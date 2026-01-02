@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_nodesetunless/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -20,15 +21,11 @@ This cop will autocorrect code to use node.normal_unless, which is functionally 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 node.set_unless['foo'] = true
-```
 
-### correct
-
-```ruby
+# good
 node.normal_unless['foo'] = true
 ```
 

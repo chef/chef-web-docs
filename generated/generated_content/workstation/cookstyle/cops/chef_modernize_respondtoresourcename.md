@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_respondtoresourcename/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,15 +19,11 @@ Chef Infra Client 12.5 introduced the resource_name method for resources. Many c
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 resource_name :foo if respond_to?(:resource_name)
-```
 
-### correct
-
-```ruby
+# good
 resource_name :foo
 ```
 

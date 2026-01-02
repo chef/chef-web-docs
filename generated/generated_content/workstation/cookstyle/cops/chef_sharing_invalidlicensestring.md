@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_sharing_invalidlicensestring/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -26,15 +27,11 @@ licenses = json_data['licenses'].map {|l| l['licenseId'] }.sort
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 license 'Apache 2.0'
-```
 
-### correct
-
-```ruby
+# good
 license 'Apache-2.0'
 license 'all rights reserved'
 ```

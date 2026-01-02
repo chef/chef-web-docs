@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_style_useplatformhelpers/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,20 +19,16 @@ Use the platform?() and platform_family?() helpers instead of node['platform] ==
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 node['platform'] == 'ubuntu'
 node['platform_family'] == 'debian'
 node['platform'] != 'ubuntu'
 node['platform_family'] != 'debian'
 %w(rhel suse).include?(node['platform_family'])
 node['platform'].eql?('ubuntu')
-```
 
-### correct
-
-```ruby
+# good
 platform?('ubuntu')
 !platform?('ubuntu')
 platform_family?('debian')

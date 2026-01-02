@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_emptyresourceinitializemetho/"
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ There is no need for an empty initialize method in a resource
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 def initialize(*args)
   super
 end

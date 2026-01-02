@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_opensslrsakeyresource/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,17 +19,13 @@ The openssl_rsa_key resource was renamed to openssl_rsa_private_key in Chef Infr
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 openssl_rsa_key '/etc/httpd/ssl/server.key' do
   key_length 2048
 end
-```
 
-### correct
-
-```ruby
+# good
 openssl_rsa_private_key '/etc/httpd/ssl/server.key' do
   key_length 2048
 end

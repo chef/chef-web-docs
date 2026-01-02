@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_correctness_invalidplatformhelper/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,17 +19,13 @@ Pass valid platforms to the `platform?` helper. See [Infra Language: Platform](h
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 platform?('darwin')
 platform?('rhel')
 platform?('sles')
-```
 
-### correct
-
-```ruby
+# good
 platform?('mac_os_x')
 platform?('redhat')
 platform?('suse')

@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_correctness_invalidplatformincase/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Use valid platform values in case statements. See [Infra Language: Platform](htt
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 case node['platform']
 when 'rhel'
   puts "I'm on a Red Hat system!"

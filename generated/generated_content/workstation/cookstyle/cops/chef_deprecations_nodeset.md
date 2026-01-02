@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_nodeset/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -20,15 +21,11 @@ This cop will autocorrect code to use node.normal, which is functionally identic
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 node.set['foo'] = true
-```
 
-### correct
-
-```ruby
+# good
 node.normal['foo'] = true
 ```
 

@@ -10,17 +10,11 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   node.set_unless['foo'] = true
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   node.normal_unless['foo'] = true
-  ```
 version_added: 5.1.0
 enabled: true
 excluded_file_paths:

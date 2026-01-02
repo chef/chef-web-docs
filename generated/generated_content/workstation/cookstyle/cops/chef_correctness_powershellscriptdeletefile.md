@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_correctness_powershellscriptdeletefile/"
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -23,9 +24,8 @@ Use the `file` or `directory` resources built into Chef Infra Client with the :d
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 powershell_script 'Cleanup old files' do
   code 'Remove-Item C:\Windows\foo\bar.txt'
   only_if { ::File.exist?('C:\\Windows\\foo\\bar.txt') }

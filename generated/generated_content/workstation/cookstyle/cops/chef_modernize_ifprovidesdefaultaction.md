@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_ifprovidesdefaultaction/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,15 +19,11 @@ if defined?(default_action) is no longer necessary in Chef Resources as default_
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 default_action :foo if defined?(default_action)
-```
 
-### correct
-
-```ruby
+# good
 default_action :foo
 ```
 

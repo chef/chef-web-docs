@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_chefhandlerusessupports/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,17 +19,13 @@ Use the type `property` instead of the deprecated `supports` property in the `ch
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 chef_handler 'whatever' do
   supports start: true, report: true, exception: true
 end0
-```
 
-### correct
-
-```ruby
+# good
 chef_handler 'whatever' do
   type start: true, report: true, exception: true
 end

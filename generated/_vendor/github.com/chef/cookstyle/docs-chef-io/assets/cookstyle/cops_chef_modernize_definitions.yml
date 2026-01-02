@@ -9,7 +9,7 @@ description: In 2016 with Chef Infra Client 12.5 Custom Resources were introduce
   resource reporting.
 autocorrection: false
 target_chef_version: All Versions
-examples:
+examples: 
 version_added: 5.11.0
 enabled: true
 included_file_paths:

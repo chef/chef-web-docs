@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_chefdkgenerators/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,19 +19,15 @@ Chef Workstation 0.8 and later renamed the `ChefDK` module used when writing cus
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 ChefDK::CLI
 ChefDK::Generator::TemplateHelper
 module ChefDK
   # some additional code
 end
-```
 
-### correct
-
-```ruby
+# good
 ChefCLI::CLI
 ChefCLI::Generator::TemplateHelper
 module ChefCLI

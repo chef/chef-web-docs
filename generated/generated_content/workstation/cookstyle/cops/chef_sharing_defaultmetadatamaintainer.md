@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_sharing_defaultmetadatamaintainer/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,17 +19,13 @@ Metadata contains default maintainer information from the `chef generate cookboo
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 maintainer 'YOUR_COMPANY_NAME'
 maintainer_email 'YOUR_EMAIL'
 maintainer 'The Authors'
-maintainer_email 'you@example.com'```
-
-### correct
-
-```ruby
+maintainer_email 'you@example.com'
+# good
 maintainer 'Bob Bobberson'
 maintainer_email 'bob@bobberson.com'
 ```

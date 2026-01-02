@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_searchusespositionalparamet
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -22,7 +23,6 @@ query(:node, '*:*')
  search(:node, '*:*', start: 0)
 
 ## Examples
-<nil>
 
 ## Configurable attributes
 

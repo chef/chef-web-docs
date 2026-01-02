@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_effortless_cookbookusespolicygroups/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Effortless Infra does not support Policyfile's Policygroup feature
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 node.policy_group == "foo"
 ```
 

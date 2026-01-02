@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_redundantcode_propertysplatregex/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,16 +19,12 @@ When a property has a type of String it can accept any string. There is no need 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 property :config_file, String, regex: /.*/
 attribute :config_file, String, regex: /.*/
-```
 
-### correct
-
-```ruby
+# good
 property :config_file, String
 attribute :config_file, String
 ```

@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_correctness_resourcesetsinternalproperti
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,18 +19,14 @@ Chef Infra Client uses properties in several resources to track state. These sho
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 service 'foo' do
   running true
   action [:start, :enable]
 end
-```
 
-### correct
-
-```ruby
+# good
 service 'foo' do
   action [:start, :enable]
 end

@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_crondfileortemplate/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Use the cron_d resource that ships with Chef Infra Client 14.4+ instead of manua
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 template '/etc/cron.d/backup' do
   source 'cron_backup_job.erb'
   owner 'root'
@@ -67,11 +67,8 @@ file 'delete old cron job' do
   path ::File.join('/etc/cron.d', job)
   action :delete
 end
-```
 
-### correct
-
-```ruby
+# good
 cron_d 'backup' do
   minute '1'
   hour '1'

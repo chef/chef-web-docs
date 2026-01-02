@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_powershellcookbookhelpers/"
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,15 +19,11 @@ Use `node['powershell']['version']` or the new `powershell_version` helper avail
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 Powershell::VersionHelper.powershell_version?('4.0')
-```
 
-### correct
-
-```ruby
+# good
 node['powershell']['version'].to_f == 4.0
 
 # better (Chef Infra Client 15.8+)

@@ -10,19 +10,13 @@ autocorrection: false
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   def provides?
    true
   end
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   provides :SOME_PROVIDER_NAME
-  ```
 version_added: 5.7.0
 enabled: true
 included_file_paths:

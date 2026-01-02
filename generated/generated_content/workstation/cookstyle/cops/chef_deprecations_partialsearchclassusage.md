@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_partialsearchclassusage/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Legacy Chef::PartialSearch class usage should be updated to use the `search` hel
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 ::Chef::PartialSearch.new.search((:node, 'role:web',
   keys: { 'name' => [ 'name' ],
           'ip' => [ 'ipaddress' ],
@@ -31,11 +31,8 @@ Legacy Chef::PartialSearch class usage should be updated to use the `search` hel
   puts result['ip']
   puts result['kernel_version']
 end
-```
 
-### correct
-
-```ruby
+# good
 search(:node, 'role:web',
   filter_result: { 'name' => [ 'name' ],
                    'ip' => [ 'ipaddress' ],

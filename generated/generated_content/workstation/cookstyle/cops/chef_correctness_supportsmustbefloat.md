@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_correctness_supportsmustbefloat/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,15 +19,11 @@ Versions used in metadata.rb supports calls should be floats not integers.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 supports 'redhat', '> 8'
-```
 
-### correct
-
-```ruby
+# good
 supports 'redhat', '> 8.0'
 ```
 

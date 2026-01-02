@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_nodedeepfetch/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,26 +19,17 @@ The node.deep_fetch method has been removed from Chef-Sugar, and must be replace
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 node.deep_fetch("foo")
-```
 
-### correct
-
-```ruby
+# good
 node.read("foo")
 
-### incorrect
-
-```ruby
+# bad
 node.deep_fetch!("foo")
-```
 
-### correct
-
-```ruby
+# good
 node.read!("foo")
 ```
 

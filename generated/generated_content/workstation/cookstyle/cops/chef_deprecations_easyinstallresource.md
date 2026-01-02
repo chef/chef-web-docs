@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_easyinstallresource/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Don't use the deprecated easy_install resource removed in Chef Infra Client 13.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 easy_install "my_thing" do
   bar
 end

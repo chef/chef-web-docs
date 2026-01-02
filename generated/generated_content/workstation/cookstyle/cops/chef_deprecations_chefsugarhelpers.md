@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_chefsugarhelpers/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Do not use legacy chef-sugar helper methods, which will not be moved into Chef I
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 vagrant_key?
 vagrant_domain?
 vagrant_user?

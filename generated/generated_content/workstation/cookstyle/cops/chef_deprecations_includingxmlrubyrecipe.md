@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_includingxmlrubyrecipe/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Do not include the deprecated xml::ruby recipe to install the nokogiri gem. Chef
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 include_recipe 'xml::ruby'
 ```
 

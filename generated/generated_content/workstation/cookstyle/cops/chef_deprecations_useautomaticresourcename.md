@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_useautomaticresourcename/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ The use_automatic_resource_name method was removed in Chef Infra Client 16. The 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 module MyCookbook
   class MyCookbookService < Chef::Resource
     use_automatic_resource_name

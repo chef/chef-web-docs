@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_effortless_dependschefvault/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Chef Vault is not supported in the Effortless pattern, so usage of Chef Vault mu
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'chef-vault'
 ```
 

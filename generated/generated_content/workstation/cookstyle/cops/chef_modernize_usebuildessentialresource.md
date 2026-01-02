@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_usebuildessentialresource/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,17 +19,13 @@ Use the build_essential resource from the build-essential cookbook 5.0+ or Chef 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'build-essential'
 include_recipe 'build-essential::default'
 include_recipe 'build-essential'
-```
 
-### correct
-
-```ruby
+# good
 build_essential 'install compilation tools'
 ```
 

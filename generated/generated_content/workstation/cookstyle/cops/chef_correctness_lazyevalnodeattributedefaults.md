@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_correctness_lazyevalnodeattributedefault
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,15 +19,11 @@ When setting a node attribute as the default value for a custom resource propert
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 property :Something, String, default: node['hostname']
-```
 
-### correct
-
-```ruby
+# good
 property :Something, String, default: lazy { node['hostname'] }
 ```
 

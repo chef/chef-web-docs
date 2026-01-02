@@ -9,9 +9,7 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   execute 'some command' do
     notifies 'restart', 'service[httpd]', 'delayed'
   end
@@ -19,11 +17,8 @@ examples: |2-
   execute 'some command' do
     subscribes 'restart', 'service[httpd]', 'delayed'
   end
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   execute 'some command' do
     notifies :restart, 'service[httpd]', 'delayed'
   end
@@ -31,7 +26,6 @@ examples: |2-
   execute 'some command' do
     subscribes :restart, 'service[httpd]', 'delayed'
   end
-  ```
 version_added: 5.10.0
 enabled: true
 excluded_file_paths:

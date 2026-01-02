@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_zipfileresource/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Use the archive_file resource built into Chef Infra Client 15+ instead of the zi
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 zipfile "C:\file.zip" do
   path 'C:\expand_here'
 end

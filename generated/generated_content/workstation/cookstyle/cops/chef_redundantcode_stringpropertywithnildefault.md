@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_redundantcode_stringpropertywithnildefau
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,16 +19,12 @@ Properties have a nil value by default so there is no need to set the default va
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 property :config_file, String, default: nil
 property :config_file, [String, NilClass], default: nil
-```
 
-### correct
-
-```ruby
+# good
 property :config_file, String
 property :config_file, [String, NilClass]
 ```

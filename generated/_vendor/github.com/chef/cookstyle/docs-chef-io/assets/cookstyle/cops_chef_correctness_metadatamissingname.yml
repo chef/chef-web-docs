@@ -6,14 +6,10 @@ description: metadata.rb needs to include the name method or it will fail on Che
   Infra Client 12 and later.
 autocorrection: true
 target_chef_version: All Versions
-examples: |-
-  ```
+examples: |2-
 
-  ### correct
-
-  ```ruby
+  # good
   name 'foo'
-  ```
 version_added: 5.2.0
 enabled: true
 included_file_paths:

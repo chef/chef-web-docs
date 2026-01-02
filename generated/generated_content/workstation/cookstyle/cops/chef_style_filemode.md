@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_style_filemode/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Use strings to represent file modes to avoid confusion between octal and base 10
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 remote_directory '/etc/my.conf' do
   content 'some content'
   mode 0600
@@ -33,11 +33,8 @@ remote_directory 'handler' do
   files_mode 644
   action :create
 end
-```
 
-### correct
-
-```ruby
+# good
 remote_directory '/etc/my.conf' do
   content 'some content'
   mode '600'

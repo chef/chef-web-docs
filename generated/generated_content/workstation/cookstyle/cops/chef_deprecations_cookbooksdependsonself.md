@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_cookbooksdependsonself/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,16 +19,12 @@ Make sure a cookbook doesn't depend on itself. This will fail on Chef Infra Clie
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 name 'foo'
 depends 'foo'
-```
 
-### correct
-
-```ruby
+# good
 name 'foo'
 ```
 

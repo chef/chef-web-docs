@@ -8,21 +8,15 @@ autocorrection: true
 target_chef_version: 12.5+
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   file '/etc/nginx.conf' do
     verify 'nginx -t -c %{file}'
   end
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   file '/etc/nginx.conf' do
     verify 'nginx -t -c %{path}'
   end
-  ```
 version_added: 5.10.0
 enabled: true
 excluded_file_paths:

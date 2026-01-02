@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_nodemethodsinsteadofattribu
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,19 +19,15 @@ Use node attributes to access data provided by Ohai instead of using node method
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 node.fqdn
 node.platform
 node.platform_family
 node.platform_version
 node.hostname
-```
 
-### correct
-
-```ruby
+# good
 node['fqdn']
 node['platform']
 node['platform_family']
