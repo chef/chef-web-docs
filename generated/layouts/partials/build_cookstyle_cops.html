@@ -10,7 +10,8 @@
     {{ $frontmatter := print "+++\ntitle = \"" $data.full_name "\"\naliases = [\"/" $alias_path "/\"]\n\n+++\n\n"}}
 
     {{/* Generate page content */}}
-    {{ $content := "<!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->\n\n" }}
+    {{ $content := "<!-- vale off -->\n" }}
+    {{ $content = print $content "<!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->\n\n" }}
 
     {{ $content = print $content "[Cookstyle cops page](/workstation/cookstyle/cops/)\n\n"}}
     {{ $content = print $content "The Cookstyle cops department: `" $data.department "`\n\n" }}

@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_nodeset/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)

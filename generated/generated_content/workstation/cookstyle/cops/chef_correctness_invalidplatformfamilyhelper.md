@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_correctness_invalidplatformfamilyhelper/
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
