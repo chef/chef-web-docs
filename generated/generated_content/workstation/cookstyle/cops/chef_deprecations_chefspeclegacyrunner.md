@@ -18,20 +18,16 @@ Use `ChefSpec::SoloRunner` or `ChefSpec::ServerRunner` instead of the deprecated
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 
 describe 'foo::default' do
   subject { ChefSpec::Runner.new.converge(described_recipe) }
 
   # some spec code
 end
-```
 
-### correct
-
-```ruby
+# good
 
 describe 'foo::default' do
   subject { ChefSpec::ServerRunner.new.converge(described_recipe) }

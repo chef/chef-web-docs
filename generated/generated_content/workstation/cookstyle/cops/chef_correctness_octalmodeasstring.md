@@ -18,17 +18,13 @@ Don't represent file modes as Strings containing octal values.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 file '/etc/some_file' do
   mode '0o755'
 end
-```
 
-### correct
-
-```ruby
+# good
 file '/etc/some_file' do
   mode '0755'
 end

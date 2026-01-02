@@ -18,16 +18,12 @@ metadata.rb `supports` methods should contain valid platforms. See [Infra Langua
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 supports 'darwin'
 supports 'mswin'
-```
 
-### correct
-
-```ruby
+# good
 supports 'mac_os_x'
 supports 'windows'
 ```

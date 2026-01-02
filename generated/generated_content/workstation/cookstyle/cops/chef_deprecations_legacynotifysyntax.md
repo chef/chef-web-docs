@@ -18,9 +18,8 @@ Use the new-style notification syntax which allows you to notify resources defin
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 template '/etc/www/configures-apache.conf' do
   notifies :restart, resources(service: 'apache')
 end
@@ -36,11 +35,8 @@ end
 template '/etc/www/configures-apache.conf' do
   subscribes :restart, resources(service: service_name_variable), :immediately
 end
-```
 
-### correct
-
-```ruby
+# good
 template '/etc/www/configures-apache.conf' do
   notifies :restart, 'service[apache]'
 end

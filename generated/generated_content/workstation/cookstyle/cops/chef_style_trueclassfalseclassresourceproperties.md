@@ -18,15 +18,11 @@ When setting the allowed types for a resource to accept either true or false val
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 property :foo, [TrueClass, FalseClass]
-```
 
-### correct
-
-```ruby
+# good
 property :foo, [true, false]
 ```
 

@@ -18,19 +18,15 @@ Pass an array of packages to package resources instead of iterating over an arra
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 %w(bmon htop vim curl).each do |pkg|
   package pkg do
     action :install
   end
 end
-```
 
-### correct
-
-```ruby
+# good
 package %w(bmon htop vim curl)
 ```
 

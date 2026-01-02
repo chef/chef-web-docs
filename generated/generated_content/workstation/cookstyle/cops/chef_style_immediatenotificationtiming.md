@@ -18,18 +18,14 @@ Use :immediately instead of :immediate for resource notification timing.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 
 template '/etc/www/configures-apache.conf' do
   notifies :restart, 'service[apache]', :immediate
 end
-```
 
-### correct
-
-```ruby
+# good
 
 template '/etc/www/configures-apache.conf' do
   notifies :restart, 'service[apache]', :immediately

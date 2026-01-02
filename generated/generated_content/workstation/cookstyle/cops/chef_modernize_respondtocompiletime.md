@@ -18,9 +18,8 @@ There is no need to check if the chef_gem resource supports compile_time as Chef
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 chef_gem 'ultradns-sdk' do
   compile_time true if Chef::Resource::ChefGem.method_defined?(:compile_time)
   action :nothing
@@ -35,11 +34,8 @@ chef_gem 'ultradns-sdk' do
   compile_time true if respond_to?(:compile_time)
   action :nothing
 end
-```
 
-### correct
-
-```ruby
+# good
 chef_gem 'ultradns-sdk' do
   compile_time true
   action :nothing

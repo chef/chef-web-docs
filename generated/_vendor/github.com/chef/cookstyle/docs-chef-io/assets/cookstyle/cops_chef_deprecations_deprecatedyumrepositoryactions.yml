@@ -10,27 +10,21 @@ autocorrection: true
 target_chef_version: 12.14+
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   yum_repository 'OurCo' do
     description 'OurCo yum repository'
     baseurl 'http://artifacts.ourco.org/foo/bar'
     gpgkey 'http://artifacts.ourco.org/pub/yum/RPM-GPG-KEY-OURCO-6'
     action :add
   end
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   yum_repository 'OurCo' do
     description 'OurCo yum repository'
     baseurl 'http://artifacts.ourco.org/foo/bar'
     gpgkey 'http://artifacts.ourco.org/pub/yum/RPM-GPG-KEY-OURCO-6'
     action :create
   end
-  ```
 version_added: 7.3.0
 enabled: true
 excluded_file_paths:

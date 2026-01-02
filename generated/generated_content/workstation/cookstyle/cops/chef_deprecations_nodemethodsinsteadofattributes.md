@@ -18,19 +18,15 @@ Use node attributes to access data provided by Ohai instead of using node method
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 node.fqdn
 node.platform
 node.platform_family
 node.platform_version
 node.hostname
-```
 
-### correct
-
-```ruby
+# good
 node['fqdn']
 node['platform']
 node['platform_family']

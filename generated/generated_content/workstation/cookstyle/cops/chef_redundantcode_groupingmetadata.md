@@ -18,9 +18,8 @@ The grouping metadata.rb method is not used and is unnecessary in cookbooks.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 grouping 'windows_log_rotate', title: 'Demonstration cookbook with code to switch loggers'
 ```
 

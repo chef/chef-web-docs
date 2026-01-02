@@ -21,17 +21,14 @@ The default actions can now be specified using the `default_action` helper inste
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 def initialize(*args)
   super
   @action = :create
 end
 
-### incorrect
-
-```ruby
+# bad
 def initialize(*args)
   super
   @default_action = :create

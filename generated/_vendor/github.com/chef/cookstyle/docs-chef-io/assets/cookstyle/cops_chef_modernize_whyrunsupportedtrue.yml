@@ -8,13 +8,10 @@ autocorrection: true
 target_chef_version: 13.0+
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   def whyrun_supported?
    true
   end
-  ```
 version_added: 5.1.0
 enabled: true
 included_file_paths:

@@ -18,16 +18,12 @@ There is no need to set a property/attribute to desired_state: true as all prope
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 property :foo, String, desired_state: true
 attribute :foo, String, desired_state: true
-```
 
-### correct
-
-```ruby
+# good
 property :foo, String
 attribute :foo, String
 ```

@@ -18,17 +18,13 @@ In Chef Infra Client 12.9 and later `action_class` can be used instead of `decla
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 declare_action_class do
   foo
 end
-```
 
-### correct
-
-```ruby
+# good
 action_class do
   foo
 end

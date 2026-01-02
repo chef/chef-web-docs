@@ -18,15 +18,11 @@ if defined?(default_action) is no longer necessary in Chef Resources as default_
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 default_action :foo if defined?(default_action)
-```
 
-### correct
-
-```ruby
+# good
 default_action :foo
 ```
 

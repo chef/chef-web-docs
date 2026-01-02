@@ -18,9 +18,8 @@ Don't depend on cookbooks made obsolete by Chef Infra Client 15.0+. These commun
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'libarchive'
 depends 'windows_dns'
 depends 'windows_uac'

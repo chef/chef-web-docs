@@ -18,15 +18,11 @@ Use `node.role?('foo')` to check if a node includes a role instead of `node['rol
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 node['roles'].include?('foo')
-```
 
-### correct
-
-```ruby
+# good
 node.role?('foo')
 ```
 

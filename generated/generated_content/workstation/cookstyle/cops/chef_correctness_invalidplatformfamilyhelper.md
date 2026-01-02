@@ -18,15 +18,12 @@ Pass valid platform families to the `platform_family?` helper. See [Infra Langua
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 platform_family?('redhat')
 platform_family?('sles')
 
-### incorrect
-
-```ruby
+# bad
 platform_family?('rhel')
 platform_family?('suse')
 ```

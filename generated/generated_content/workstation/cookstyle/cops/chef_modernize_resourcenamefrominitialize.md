@@ -21,9 +21,8 @@ The resource name can now be specified using the `resource_name` helper instead 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 def initialize(*args)
   super
   @resource_name = :foo

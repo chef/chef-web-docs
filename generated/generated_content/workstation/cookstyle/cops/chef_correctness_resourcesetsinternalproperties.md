@@ -18,18 +18,14 @@ Chef Infra Client uses properties in several resources to track state. These sho
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 service 'foo' do
   running true
   action [:start, :enable]
 end
-```
 
-### correct
-
-```ruby
+# good
 service 'foo' do
   action [:start, :enable]
 end

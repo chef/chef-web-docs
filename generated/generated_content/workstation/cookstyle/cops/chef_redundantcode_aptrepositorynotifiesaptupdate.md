@@ -18,20 +18,16 @@ There is no need to notify an apt-get update when an apt_repository is created a
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 apt_repository 'my repo' do
   uri 'http://packages.example.com/debian'
   components %w(stable main)
   deb_src false
   notifies :run, 'execute[apt-get update]', :immediately
 end
-```
 
-### correct
-
-```ruby
+# good
 apt_repository 'my repo' do
   uri 'http://packages.example.com/debian'
   components %w(stable main)

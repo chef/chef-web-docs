@@ -18,17 +18,13 @@ In Chef Infra Client 12+ is is no longer necessary to gate the use of the provid
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 provides :foo if respond_to?(:provides)
 
 provides :foo if defined? provides
-```
 
-### correct
-
-```ruby
+# good
 provides :foo
 ```
 

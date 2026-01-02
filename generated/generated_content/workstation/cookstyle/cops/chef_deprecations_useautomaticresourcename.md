@@ -18,9 +18,8 @@ The use_automatic_resource_name method was removed in Chef Infra Client 16. The 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 module MyCookbook
   class MyCookbookService < Chef::Resource
     use_automatic_resource_name

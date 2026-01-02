@@ -22,7 +22,6 @@ query(:node, '*:*')
  search(:node, '*:*', start: 0)
 
 ## Examples
-<nil>
 
 ## Configurable attributes
 

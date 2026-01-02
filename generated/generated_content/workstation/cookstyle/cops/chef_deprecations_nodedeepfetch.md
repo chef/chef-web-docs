@@ -18,26 +18,17 @@ The node.deep_fetch method has been removed from Chef-Sugar, and must be replace
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 node.deep_fetch("foo")
-```
 
-### correct
-
-```ruby
+# good
 node.read("foo")
 
-### incorrect
-
-```ruby
+# bad
 node.deep_fetch!("foo")
-```
 
-### correct
-
-```ruby
+# good
 node.read!("foo")
 ```
 

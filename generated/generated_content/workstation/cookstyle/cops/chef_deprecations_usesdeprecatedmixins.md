@@ -18,9 +18,8 @@ Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 include Chef::Mixin::LanguageIncludeAttribute
 include Chef::Mixin::RecipeDefinitionDSLCore
 include Chef::Mixin::LanguageIncludeRecipe

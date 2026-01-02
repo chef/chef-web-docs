@@ -18,7 +18,6 @@ Replaces double spaces between sentences with a single space.
 Note: This is DISABLED by default.
 
 ## Examples
-<nil>
 
 ## Configurable attributes
 

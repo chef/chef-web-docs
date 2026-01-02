@@ -18,9 +18,8 @@ Chef Infra Client 15.3 and later include a new Unified Mode that simplifies the 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+### incorrect
  class Chef
    class Resource
      class UlimitRule < Chef::Resource
@@ -33,11 +32,8 @@ Chef Infra Client 15.3 and later include a new Unified Mode that simplifies the 
      end
    end
  end
-```
 
 ### correct
-
-```ruby
  class Chef
    class Resource
      class UlimitRule < Chef::Resource

@@ -8,9 +8,7 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   user "betty" do
     supports({
       manage_home: true,
@@ -21,16 +19,12 @@ examples: |2-
   user 'betty' do
     supports :manage_home => true
   end
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   user "betty" do
     manage_home true
     non_unique true
   end
-  ```
 version_added: 5.5.0
 enabled: true
 excluded_file_paths:

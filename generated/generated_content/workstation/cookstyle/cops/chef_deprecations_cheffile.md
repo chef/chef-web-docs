@@ -17,7 +17,6 @@ The Cookstyle cops department: `Chef/Deprecations`
 The Librarian-Chef depsolving project is no longer maintained and a Cheffile should not be used for cookbook depsolving. Consider using Policyfiles instead. If the Policyfiles model is not compatible with your workflow you may find Berkshelf offers a more similar, and still supported, experience to Librarian-Chef.
 
 ## Examples
-<nil>
 
 ## Configurable attributes
 

@@ -18,9 +18,8 @@ Search is not compatible with the Effortless Infra pattern
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 search(:node, 'run_list:recipe\[bacula\:\:server\]')
 ```
 

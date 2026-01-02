@@ -18,18 +18,14 @@ Chef Infra Client 14.0 and later includes :create, :delete, and :configure actio
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 execute "Delete chef-client service" do
   command "sc.exe delete chef-client"
   action :run
 end
-```
 
-### correct
-
-```ruby
+# good
 windows_service 'chef-client' do
   action :delete
 end

@@ -18,9 +18,8 @@ Don't depend on the `partial_search` cookbook made obsolete by Chef Infra Client
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'partial_search'
 ```
 

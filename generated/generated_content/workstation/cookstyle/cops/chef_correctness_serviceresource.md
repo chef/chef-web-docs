@@ -18,9 +18,8 @@ Use a service resource to start and stop services
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 command "/etc/init.d/mysql start"
 command "/sbin/service/memcached start"
 ```

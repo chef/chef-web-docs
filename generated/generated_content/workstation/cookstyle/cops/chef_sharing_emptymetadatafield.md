@@ -18,15 +18,11 @@ metadata.rb should not include fields with an empty string. Either don't include
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 license ''
-```
 
-### correct
-
-```ruby
+# good
 license 'Apache-2.0'
 ```
 

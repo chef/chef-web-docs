@@ -18,9 +18,8 @@ Policyfiles (and Effortless) do not use environments or roles so searching for t
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 search(:node, 'chef_environment:foo')
 search(:node, 'role:bar')
 ```

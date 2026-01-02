@@ -18,16 +18,12 @@ metadata.rb cookbook dependencies and version constraints should be comma separa
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'some_awesome_cookbook' '= 4.5.5'
 depends 'some_other_cool_cookbook' '< 8.0'
-```
 
-### correct
-
-```ruby
+# good
 depends 'some_awesome_cookbook', '= 4.5.5'
 depends 'some_other_cool_cookbook', '< 8.0'
 ```

@@ -18,18 +18,14 @@ Libraries should be injected into the `Chef::DSL::Recipe` class and not `Chef::R
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 ::Chef::Recipe.send(:include, Filebeat::Helpers)
 ::Chef::Provider.send(:include, Filebeat::Helpers)
 ::Chef::Recipe.include Filebeat::Helpers
 ::Chef::Provider.include Filebeat::Helpers
-```
 
-### correct
-
-```ruby
+# good
 ::Chef::DSL::Recipe.send(:include, Filebeat::Helpers) # covers previous Recipe & Provider classes
 ```
 

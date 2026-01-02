@@ -23,9 +23,8 @@ Use the Chocolatey resources built into Chef Infra Client instead of shelling ou
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 execute 'install package foo' do
   command "choco install --source=artifactory \"foo\" -y --no-progress --ignore-package-exit-codes"
 end

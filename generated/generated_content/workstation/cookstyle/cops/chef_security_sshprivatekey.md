@@ -18,9 +18,8 @@ Do not include plain text SSH private keys in your cookbook code. This sensitive
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 file '/Users/bob_bobberson/.ssh/id_rsa' do
   content '-----BEGIN RSA PRIVATE KEY-----\n...\n-----END RSA PRIVATE KEY-----'
   mode '600'

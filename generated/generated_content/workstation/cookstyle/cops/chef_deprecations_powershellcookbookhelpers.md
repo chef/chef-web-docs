@@ -18,15 +18,11 @@ Use `node['powershell']['version']` or the new `powershell_version` helper avail
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 Powershell::VersionHelper.powershell_version?('4.0')
-```
 
-### correct
-
-```ruby
+# good
 node['powershell']['version'].to_f == 4.0
 
 # better (Chef Infra Client 15.8+)

@@ -18,9 +18,8 @@ Effortless Infra does not support Policyfile's Policygroup feature
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 node.policy_group == "foo"
 ```
 

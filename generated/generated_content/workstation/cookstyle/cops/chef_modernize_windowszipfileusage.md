@@ -18,9 +18,8 @@ Use the archive_file resource built into Chef Infra Client 15+ instead of the wi
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 windows_zipfile 'C:\\files\\' do
   source 'C:\\Temp\\file.zip'
 end

@@ -18,19 +18,15 @@ The `global` property in the macos_userdefaults resource was deprecated in Chef 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 macos_userdefaults 'set a value' do
   global true
   key 'key'
   value 'value'
 end
-```
 
-### correct
-
-```ruby
+# good
 macos_userdefaults 'set a value' do
   key 'key'
   value 'value'

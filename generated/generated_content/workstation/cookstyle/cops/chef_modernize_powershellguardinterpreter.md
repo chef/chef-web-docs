@@ -18,9 +18,8 @@ PowerShell is already set as the default guard interpreter for `powershell_scrip
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 powershell_script 'Create Directory' do
   code "New-Item -ItemType Directory -Force -Path C:\mydir"
   guard_interpreter :powershell_script
@@ -30,11 +29,8 @@ batch 'Create Directory' do
   code "mkdir C:\mydir"
   guard_interpreter :powershell_script
 end
-```
 
-### correct
-
-```ruby
+# good
 powershell_script 'Create Directory' do
   code "New-Item -ItemType Directory -Force -Path C:\mydir"
 end

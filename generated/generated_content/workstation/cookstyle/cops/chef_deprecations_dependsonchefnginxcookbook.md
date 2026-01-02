@@ -18,15 +18,11 @@ Don't depend on the deprecated `chef_nginx` cookbook that was replaced by the `n
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'chef_nginx'
-```
 
-### correct
-
-```ruby
+# good
 depends 'nginx'
 ```
 

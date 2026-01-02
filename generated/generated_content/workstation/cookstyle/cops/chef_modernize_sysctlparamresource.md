@@ -18,17 +18,13 @@ The sysctl_param resource was renamed to sysctl when it was added to Chef Infra 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 sysctl_param 'fs.aio-max-nr' do
   value '1048576'
 end
-```
 
-### correct
-
-```ruby
+# good
 sysctl 'fs.aio-max-nr' do
   value '1048576'
 end

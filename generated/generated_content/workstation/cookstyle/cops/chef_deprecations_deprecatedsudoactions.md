@@ -18,19 +18,15 @@ The `sudo` resource in the sudo cookbook 5.0 (2018) or Chef Infra Client 14 and 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 sudo 'admins' do
   users 'bob'
   groups 'sysadmins, superusers'
   action :remove
 end
-```
 
-### correct
-
-```ruby
+# good
 sudo 'admins' do
   users 'bob'
   groups 'sysadmins, superusers'

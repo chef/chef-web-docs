@@ -18,17 +18,13 @@ Use the `:remove` action in the `chocolatey_package` resource instead of `:unins
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 chocolatey_package 'nginx' do
   action :uninstall
 end
-```
 
-### correct
-
-```ruby
+# good
 chocolatey_package 'nginx' do
   action :remove
 end

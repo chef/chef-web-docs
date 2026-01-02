@@ -20,9 +20,8 @@ should be used instead as it doesn't require forking the ohai cookbook.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 include_recipe 'yum::elrepo'
 include_recipe 'yum::epel'
 include_recipe 'yum::ius'

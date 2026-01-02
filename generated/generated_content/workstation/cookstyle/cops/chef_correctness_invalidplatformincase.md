@@ -18,9 +18,8 @@ Use valid platform values in case statements. See [Infra Language: Platform](htt
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 case node['platform']
 when 'rhel'
   puts "I'm on a Red Hat system!"

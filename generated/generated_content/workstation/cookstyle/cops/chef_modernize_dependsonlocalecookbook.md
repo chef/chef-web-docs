@@ -18,9 +18,8 @@ Don't depend on the locale cookbook made obsolete by Chef Infra Client 14.5. The
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'locale'
 ```
 

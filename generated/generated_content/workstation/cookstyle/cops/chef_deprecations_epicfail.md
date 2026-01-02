@@ -18,17 +18,13 @@ Use `ignore_failure` in resources to continue when failures occur instead of the
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 package "foo" do
   epic_fail true
 end
-```
 
-### correct
-
-```ruby
+# good
 package "foo" do
   ignore_failure true
 end

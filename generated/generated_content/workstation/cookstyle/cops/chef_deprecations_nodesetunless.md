@@ -20,15 +20,11 @@ This cop will autocorrect code to use node.normal_unless, which is functionally 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 node.set_unless['foo'] = true
-```
 
-### correct
-
-```ruby
+# good
 node.normal_unless['foo'] = true
 ```
 

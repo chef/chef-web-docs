@@ -11,23 +11,17 @@ autocorrection: false
 target_chef_version: 14.0+
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   sc_windows 'chef-client' do
     path "C:\\opscode\\chef\\bin"
     action :create
   end
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   windows_service 'chef-client' do
     action :create
     binary_path_name "C:\\opscode\\chef\\bin"
   end
-  ```
 version_added: 5.16.0
 enabled: true
 excluded_file_paths:

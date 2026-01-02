@@ -18,17 +18,13 @@ In Chef Infra Client 12.9 and later it is no longer necessary to call the class_
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 action_class.class_eval do
   foo
 end
-```
 
-### correct
-
-```ruby
+# good
 action_class do
   foo
 end

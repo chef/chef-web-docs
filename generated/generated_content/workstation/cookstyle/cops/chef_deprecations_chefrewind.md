@@ -18,6 +18,7 @@ Use `delete_resource` or `edit_resource` helpers introduced in Chef Infra Client
 
 ## Examples
 
+```ruby
 chef_gem 'chef-rewind'
 
 require 'chef/rewind'

@@ -18,18 +18,14 @@ When setting a node attribute in Chef Infra Client 11 and later you must specify
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 node['foo']['bar'] = 1
 node['foo']['bar'] << 1
 node['foo']['bar'] += 1
 node['foo']['bar'] -= 1
-```
 
-### correct
-
-```ruby
+# good
 node.default['foo']['bar'] = 1
 node.default['foo']['bar'] << 1
 node.default['foo']['bar'] += 1

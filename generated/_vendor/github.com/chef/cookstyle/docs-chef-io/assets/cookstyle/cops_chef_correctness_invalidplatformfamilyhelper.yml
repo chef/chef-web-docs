@@ -9,18 +9,13 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   platform_family?('redhat')
   platform_family?('sles')
 
-  ### incorrect
-
-  ```ruby
+  # bad
   platform_family?('rhel')
   platform_family?('suse')
-  ```
 version_added: 5.15.0
 enabled: true
 excluded_file_paths:

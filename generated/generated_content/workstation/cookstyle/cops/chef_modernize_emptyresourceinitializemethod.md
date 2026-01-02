@@ -18,9 +18,8 @@ There is no need for an empty initialize method in a resource
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 def initialize(*args)
   super
 end

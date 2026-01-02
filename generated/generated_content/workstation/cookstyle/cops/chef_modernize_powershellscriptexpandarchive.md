@@ -18,9 +18,8 @@ Use the archive_file resource built into Chef Infra Client 15+ instead of using 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 powershell_script 'Expand website' do
   code 'Expand-Archive "C:\\file.zip" -DestinationPath "C:\\inetpub\\wwwroot\\" -Force'
 end

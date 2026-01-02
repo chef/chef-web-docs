@@ -9,25 +9,19 @@ autocorrection: true
 target_chef_version: 14.0+
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   sudo 'admins' do
     users 'bob'
     groups 'sysadmins, superusers'
     action :remove
   end
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   sudo 'admins' do
     users 'bob'
     groups 'sysadmins, superusers'
     action :delete
   end
-  ```
 version_added: 7.18.0
 enabled: true
 excluded_file_paths:

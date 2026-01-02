@@ -18,16 +18,12 @@ Checks for default copyright comments from the chef generator cookbook command
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 Copyright:: 2019 YOUR_NAME
 Copyright:: 2019 YOUR_COMPANY_NAME
-```
 
-### correct
-
-```ruby
+# good
 Copyright:: 2019 Tim Smith
 Copyright:: 2019 Chef Software, Inc.
 ```

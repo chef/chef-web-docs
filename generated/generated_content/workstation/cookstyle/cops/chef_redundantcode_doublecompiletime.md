@@ -18,18 +18,14 @@ If a resource includes the `compile_time` property there's no need to also use `
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 chef_gem 'deep_merge' do
   action :nothing
   compile_time true
 end.run_action(:install)
-```
 
-### correct
-
-```ruby
+# good
 chef_gem 'deep_merge' do
   action :install
   compile_time true

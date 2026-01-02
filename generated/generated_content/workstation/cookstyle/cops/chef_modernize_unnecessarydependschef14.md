@@ -18,9 +18,8 @@ Don't depend on cookbooks made obsolete by Chef Infra Client 14.0+ These communi
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'build-essential'
 depends 'chef_handler'
 depends 'chef_hostname'

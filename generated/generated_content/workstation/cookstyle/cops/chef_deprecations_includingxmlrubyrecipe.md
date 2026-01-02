@@ -18,9 +18,8 @@ Do not include the deprecated xml::ruby recipe to install the nokogiri gem. Chef
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 include_recipe 'xml::ruby'
 ```
 

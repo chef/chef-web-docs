@@ -18,15 +18,11 @@ The cron_manage resource was renamed to cron_access in the 6.1 release of the cr
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 cron_manage 'mike'
-```
 
-### correct
-
-```ruby
+# good
 cron_access 'mike'
 ```
 

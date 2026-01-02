@@ -18,9 +18,8 @@ Neither Policyfiles or Effortless Infra which is based on Policyfiles supports C
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 node.role?('web_server')
 node.roles.include?('web_server')
 ```

@@ -18,19 +18,15 @@ The macos_userdefaults resource prior to Chef Infra Client 16.3 would silently c
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 macos_userdefaults 'set a value' do
   global true
   key 'key'
   type 'boolean'
 end
-```
 
-### correct
-
-```ruby
+# good
 macos_userdefaults 'set a value' do
   global true
   key 'key'

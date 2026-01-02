@@ -18,19 +18,15 @@ In HWRPs and LWRPs you defined attributes, but custom resources changed the name
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 attribute :something, String
 
 action :create do
   # some action code because we're in a custom resource
 end
-```
 
-### correct
-
-```ruby
+# good
 property :something, String
 
 action :create do

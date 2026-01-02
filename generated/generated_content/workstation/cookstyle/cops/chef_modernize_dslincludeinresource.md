@@ -18,9 +18,8 @@ Chef Infra Client 12.4+ includes the Chef::DSL::Recipe in the resource and provi
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 include Chef::DSL::Recipe
 include Chef::DSL::IncludeRecipe
 ```

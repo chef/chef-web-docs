@@ -18,9 +18,8 @@ The Resource.provider_base allows the developer to specify within a resource a m
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 provider_base ::Chef::Provider::SomethingSomething
 ```
 

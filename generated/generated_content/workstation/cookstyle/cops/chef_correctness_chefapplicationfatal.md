@@ -18,15 +18,11 @@ Use `raise` to force Chef Infra Client to fail instead of using `Chef::Applicati
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 Chef::Application.fatal!('Something horrible happened!')
-```
 
-### correct
-
-```ruby
+# good
 raise "Something horrible happened!"
 ```
 

@@ -18,9 +18,8 @@ Don't depend on the chocolatey_source or chocolatey_config cookbooks made obsole
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'chocolatey_source'
 depends 'chocolatey_config'
 ```

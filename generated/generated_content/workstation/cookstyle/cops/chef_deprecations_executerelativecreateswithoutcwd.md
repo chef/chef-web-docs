@@ -18,17 +18,13 @@ In Chef Infra Client 13 and later you must either specific an absolute path when
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 execute 'some_cmd' do
   creates 'something'
 end
-```
 
-### correct
-
-```ruby
+# good
 execute 'some_cmd' do
   creates '/tmp/something'
 end

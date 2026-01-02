@@ -18,19 +18,15 @@ Chef Workstation 0.8 and later renamed the `ChefDK` module used when writing cus
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 ChefDK::CLI
 ChefDK::Generator::TemplateHelper
 module ChefDK
   # some additional code
 end
-```
 
-### correct
-
-```ruby
+# good
 ChefCLI::CLI
 ChefCLI::Generator::TemplateHelper
 module ChefCLI

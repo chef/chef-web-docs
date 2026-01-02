@@ -18,18 +18,14 @@ The sc_windows resource from the sc cookbook allowed for the creation of windows
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 sc_windows 'chef-client' do
   path "C:\\opscode\\chef\\bin"
   action :create
 end
-```
 
-### correct
-
-```ruby
+# good
 windows_service 'chef-client' do
   action :create
   binary_path_name "C:\\opscode\\chef\\bin"

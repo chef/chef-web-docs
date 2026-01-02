@@ -17,11 +17,9 @@ The Cookstyle cops department: `Chef/Sharing`
 Resources should include description fields to allow automated documentation. Requires Chef Infra Client 13.9 or later.
 
 ## Examples
-```
-
-### correct
 
 ```ruby
+# good
 resource_name :foo
 description "The foo resource is used to do..."
 ```

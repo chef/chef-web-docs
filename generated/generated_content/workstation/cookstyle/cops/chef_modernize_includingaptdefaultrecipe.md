@@ -18,16 +18,12 @@ For many users the apt::default cookbook is used only to update apt's package ca
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 include_recipe 'apt::default'
 include_recipe 'apt'
-```
 
-### correct
-
-```ruby
+# good
 apt_update
 ```
 

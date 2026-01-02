@@ -18,9 +18,8 @@ Chef Infra Client 15.5 and later include a chef_sleep resource that should be us
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 execute "sleep 60" do
   command "sleep 60"
   action :run
@@ -31,11 +30,8 @@ bash 'sleep' do
   cwd '/tmp'
   code 'sleep 60'
 end
-```
 
-### correct
-
-```ruby
+# good
 chef_sleep '60'
 ```
 

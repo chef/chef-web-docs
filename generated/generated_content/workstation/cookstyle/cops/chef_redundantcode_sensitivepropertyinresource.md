@@ -20,7 +20,6 @@ Every Chef Infra resource already includes a sensitive property with a default v
 property :sensitive, [true, false], default: false
 
 ## Examples
-<nil>
 
 ## Configurable attributes
 

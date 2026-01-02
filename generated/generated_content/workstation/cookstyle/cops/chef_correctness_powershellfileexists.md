@@ -18,15 +18,11 @@ Use Ruby's built-in `File.exist?('C:\somefile')` method instead of executing Pow
 
 ## Examples
 
-### incorrect
-
 ```ruby
+### incorrect
 powershell_out('Test-Path "C:\\Program Files\\LAPS\\CSE\\AdmPwd.dll"').stdout.strip == 'True'
-```
 
 ### correct
-
-```ruby
 ::File.exist?('C:\Program Files\LAPS\CSE\AdmPwd.dll')
 ```
 

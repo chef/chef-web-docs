@@ -18,9 +18,8 @@ The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recip
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 recipe 'openldap::default', 'Install and configure OpenLDAP'
 ```
 

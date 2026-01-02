@@ -18,9 +18,8 @@ Use `provider_for_action` or provides instead of the deprecated `Chef::Platform`
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
 provider = Chef::Platform.provider_for_resource(resource, :create)
 
@@ -31,11 +30,8 @@ resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
 provider = Chef::Platform.find_provider_for_node(node, resource)
 
 Chef::Platform.set :platform => :mac_os_x, :resource => :package, :provider => Chef::Provider::Package::Homebrew
-```
 
-### correct
-
-```ruby
+# good
 resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
 provider = resource.provider_for_action(:create)
 

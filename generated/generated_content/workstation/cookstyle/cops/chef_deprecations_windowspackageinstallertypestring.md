@@ -18,19 +18,15 @@ In Chef Infra Client 13 and later the `windows_package` resource's `installer_ty
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 windows_package 'AppveyorDeploymentAgent' do
   source 'https://www.example.com/appveyor.msi'
   installer_type 'msi'
   options "/quiet /qn /norestart /log install.log"
 end
-```
 
-### correct
-
-```ruby
+# good
 windows_package 'AppveyorDeploymentAgent' do
   source 'https://www.example.com/appveyor.msi'
   installer_type :msi

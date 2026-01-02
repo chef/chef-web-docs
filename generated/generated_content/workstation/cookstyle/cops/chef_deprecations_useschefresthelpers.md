@@ -18,9 +18,8 @@ The `Chef::REST` class was removed in Chef Infra Client 13.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 require 'chef/rest'
 Chef::REST::RESTRequest.new(:GET, FOO, nil).call
 ```

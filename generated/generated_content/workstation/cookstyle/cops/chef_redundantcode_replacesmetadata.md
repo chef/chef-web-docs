@@ -18,9 +18,8 @@ The replaces metadata.rb method is not used and is unnecessary in cookbooks. Rep
 
 ## Examples
 
-### incorrect
-
-```ruby in metadata.rb:
+```ruby
+# bad in metadata.rb:
 
 replaces "another_cookbook"
 ```

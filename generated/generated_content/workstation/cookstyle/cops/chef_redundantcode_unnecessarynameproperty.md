@@ -18,9 +18,8 @@ There is no need to define a property or attribute named :name in a resource as 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 property :name, String
 property :name, String, name_property: true
 attribute :name, kind_of: String

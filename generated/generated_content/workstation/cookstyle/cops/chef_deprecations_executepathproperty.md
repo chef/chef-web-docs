@@ -18,17 +18,13 @@ In Chef Infra Client 13 and later you must set path env vars in execute resource
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 execute 'some_cmd' do
   path '/foo/bar'
 end
-```
 
-### correct
-
-```ruby
+# good
 execute 'some_cmd' do
   environment {path: '/foo/bar'}
 end

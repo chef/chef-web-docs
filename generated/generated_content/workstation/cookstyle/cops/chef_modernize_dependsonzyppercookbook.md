@@ -18,9 +18,8 @@ Don't depend on the zypper cookbook as the zypper_repository resource is built i
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'zypper'
 ```
 

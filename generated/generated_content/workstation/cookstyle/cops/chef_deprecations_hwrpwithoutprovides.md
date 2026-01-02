@@ -50,9 +50,8 @@ Chef Infra Client 16 and later a legacy HWRP resource must use `provides` to def
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 class Chef
   class Resource
     class UlimitRule < Chef::Resource
@@ -64,9 +63,7 @@ class Chef
   end
 end
 
-### incorrect
-
-```ruby
+# bad
 class Chef
   class Resource
     class UlimitRule < Chef::Resource

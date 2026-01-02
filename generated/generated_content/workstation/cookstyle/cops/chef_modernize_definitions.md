@@ -17,7 +17,6 @@ The Cookstyle cops department: `Chef/Modernize`
 In 2016 with Chef Infra Client 12.5 Custom Resources were introduced as a way of writing reusable resource code that could be shipped in cookbooks. Custom Resources offer many advantages of legacy Definitions including unit testing with ChefSpec, input validation, actions, common properties like not_if/only_if, and resource reporting.
 
 ## Examples
-<nil>
 
 ## Configurable attributes
 

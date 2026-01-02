@@ -18,9 +18,8 @@ Don't depend on the chef-reporting cookbook made obsolete by Chef Infra Client 1
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'chef-reporting'
 ```
 

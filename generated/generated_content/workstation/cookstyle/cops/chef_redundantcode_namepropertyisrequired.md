@@ -45,16 +45,12 @@ then it should just be made a required property and not a name_property.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 property :config_file, String, required: true, name_property: true
 attribute :config_file, String, required: true, name_attribute: true
-```
 
-### correct
-
-```ruby
+# good
 property :config_file, String, required: true
 ```
 

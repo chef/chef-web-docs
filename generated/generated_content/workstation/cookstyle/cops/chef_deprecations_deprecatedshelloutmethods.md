@@ -18,9 +18,8 @@ The large number of `shell_out` helper methods in Chef Infra Client has been red
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 shell_out_compact('foo')
 shell_out_compact!('foo')
 shell_out_with_timeout('foo')
@@ -29,11 +28,8 @@ shell_out_with_systems_locale('foo')
 shell_out_with_systems_locale!('foo')
 shell_out_compact_timeout('foo')
 shell_out_compact_timeout!('foo')
-```
 
-### correct
-
-```ruby
+# good
 shell_out('foo')
 shell_out!('foo')
 shell_out!('foo', default_env: false) # replaces shell_out_with_systems_locale

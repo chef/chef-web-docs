@@ -18,15 +18,11 @@ Resource properties should include description fields to allow automated documen
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 property :foo, String
-```
 
-### correct
-
-```ruby
+# good
 property :foo, String, description: "Set the important thing to..."
 ```
 

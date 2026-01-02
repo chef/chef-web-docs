@@ -18,9 +18,8 @@ Don't loop over an array to set cookbook dependencies or supported platforms if 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 
 %w( debian ubuntu ).each do |os|
   supports os
@@ -29,11 +28,8 @@ end
 %w( apt yum ).each do |cb|
   depends cb
 end
-```
 
-### correct
-
-```ruby
+# good
 
 supports 'debian'
 supports 'ubuntu'

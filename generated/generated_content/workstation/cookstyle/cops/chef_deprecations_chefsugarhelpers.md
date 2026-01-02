@@ -18,9 +18,8 @@ Do not use legacy chef-sugar helper methods, which will not be moved into Chef I
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 vagrant_key?
 vagrant_domain?
 vagrant_user?

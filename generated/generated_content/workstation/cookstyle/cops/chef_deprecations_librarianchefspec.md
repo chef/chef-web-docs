@@ -18,9 +18,8 @@ The Librarian-Chef depsolving project is no longer maintained and a Cheffile sho
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 require 'chefspec/librarian'
 ```
 

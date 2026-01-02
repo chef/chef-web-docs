@@ -18,9 +18,8 @@ Use the platform?() and platform_family?() helpers instead of a case statement t
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 case node['platform']
 when 'ubuntu'
   log "We're on Ubuntu"
@@ -31,11 +30,8 @@ case node['platform_family']
 when 'rhel'
   include_recipe 'yum'
 end
-```
 
-### correct
-
-```ruby
+# good
 if platform?('ubuntu')
   log "We're on Ubuntu"
   apt_update

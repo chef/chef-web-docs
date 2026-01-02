@@ -18,9 +18,8 @@ Chef Vault is not supported in the Effortless pattern, so usage of Chef Vault mu
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'chef-vault'
 ```
 

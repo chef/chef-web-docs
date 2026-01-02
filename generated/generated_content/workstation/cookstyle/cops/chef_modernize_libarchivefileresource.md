@@ -18,19 +18,15 @@ Use the archive_file resource built into Chef Infra Client 15+ instead of the li
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'libarchive'
 
 libarchive_file "C:\file.zip" do
   path 'C:\expand_here'
 end
-```
 
-### correct
-
-```ruby
+# good
 archive_file "C:\file.zip" do
   path 'C:\expand_here'
 end

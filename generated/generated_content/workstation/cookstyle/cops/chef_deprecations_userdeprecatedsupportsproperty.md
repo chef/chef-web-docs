@@ -18,9 +18,8 @@ The supports property was removed in Chef Infra Client 13 in favor of individual
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 user "betty" do
   supports({
     manage_home: true,
@@ -31,11 +30,8 @@ end
 user 'betty' do
   supports :manage_home => true
 end
-```
 
-### correct
-
-```ruby
+# good
 user "betty" do
   manage_home true
   non_unique true

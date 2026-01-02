@@ -18,18 +18,14 @@ The `dnf_package` resource does not support the `allow_downgrades` property.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 dnf_package 'nginx' do
   version '1.2.3'
   allow_downgrades true
 end
-```
 
-### correct
-
-```ruby
+# good
 dnf_package 'nginx' do
   version '1.2.3'
 end

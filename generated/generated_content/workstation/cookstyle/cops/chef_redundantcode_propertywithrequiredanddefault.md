@@ -21,15 +21,11 @@ Infra Client 13+ this became an error.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 property :bob, String, required: true, default: 'foo'
-```
 
-### correct
-
-```ruby
+# good
 property :bob, String, required: true
 ```
 

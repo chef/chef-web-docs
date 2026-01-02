@@ -19,9 +19,8 @@ as Chef Infra Client includes DNF package support
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 include_recipe 'yum::dnf_yum_compat'
 ```
 

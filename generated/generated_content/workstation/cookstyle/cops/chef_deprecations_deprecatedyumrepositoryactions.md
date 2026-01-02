@@ -18,20 +18,16 @@ With the release of Chef Infra Client 12.14 and the yum cookbook 3.0 the actions
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 yum_repository 'OurCo' do
   description 'OurCo yum repository'
   baseurl 'http://artifacts.ourco.org/foo/bar'
   gpgkey 'http://artifacts.ourco.org/pub/yum/RPM-GPG-KEY-OURCO-6'
   action :add
 end
-```
 
-### correct
-
-```ruby
+# good
 yum_repository 'OurCo' do
   description 'OurCo yum repository'
   baseurl 'http://artifacts.ourco.org/foo/bar'

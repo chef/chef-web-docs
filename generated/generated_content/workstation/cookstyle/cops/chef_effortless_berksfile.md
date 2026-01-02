@@ -17,7 +17,6 @@ The Cookstyle cops department: `Chef/Effortless`
 Policyfiles should be used for cookbook dependency solving instead of a Berkshelf Berksfile.
 
 ## Examples
-<nil>
 
 ## Configurable attributes
 

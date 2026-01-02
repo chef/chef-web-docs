@@ -18,17 +18,13 @@ Use the build_essential resource from the build-essential cookbook 5.0+ or Chef 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'build-essential'
 include_recipe 'build-essential::default'
 include_recipe 'build-essential'
-```
 
-### correct
-
-```ruby
+# good
 build_essential 'install compilation tools'
 ```
 

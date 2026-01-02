@@ -20,15 +20,11 @@ This cop will autocorrect code to use node.normal, which is functionally identic
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 node.set['foo'] = true
-```
 
-### correct
-
-```ruby
+# good
 node.normal['foo'] = true
 ```
 

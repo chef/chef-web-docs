@@ -18,15 +18,11 @@ Default actions in resources should be symbols or an array of symbols.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 default_action 'create'
-```
 
-### correct
-
-```ruby
+# good
 default_action :create
 ```
 

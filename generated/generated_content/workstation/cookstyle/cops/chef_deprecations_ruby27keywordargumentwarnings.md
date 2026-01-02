@@ -18,16 +18,12 @@ Pass options to shell_out helpers without the brackets to avoid Ruby 2.7 depreca
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 shell_out!('hostnamectl status', { returns: [0, 1] })
 shell_out('hostnamectl status', { returns: [0, 1] })
-```
 
-### correct
-
-```ruby
+# good
 shell_out!('hostnamectl status', returns: [0, 1])
 shell_out('hostnamectl status', returns: [0, 1])
 ```

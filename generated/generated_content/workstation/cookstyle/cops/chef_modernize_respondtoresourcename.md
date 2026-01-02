@@ -18,15 +18,11 @@ Chef Infra Client 12.5 introduced the resource_name method for resources. Many c
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 resource_name :foo if respond_to?(:resource_name)
-```
 
-### correct
-
-```ruby
+# good
 resource_name :foo
 ```
 

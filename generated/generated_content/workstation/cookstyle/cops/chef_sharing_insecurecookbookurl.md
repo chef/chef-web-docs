@@ -18,18 +18,14 @@ Use secure Github and Gitlab URLs for source_url and issues_url
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 source_url 'http://github.com/something/something'
 source_url 'http://www.github.com/something/something'
 source_url 'http://www.gitlab.com/something/something'
 source_url 'http://gitlab.com/something/something'
-```
 
-### correct
-
-```ruby
+# good
 source_url 'http://github.com/something/something'
 source_url 'http://gitlab.com/something/something'
 ```

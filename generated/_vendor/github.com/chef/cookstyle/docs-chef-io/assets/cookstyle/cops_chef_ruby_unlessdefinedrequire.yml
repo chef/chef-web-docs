@@ -1,0 +1,12 @@
+---
+short_name: UnlessDefinedRequire
+full_name: Chef/Ruby/UnlessDefinedRequire
+department: Chef/Ruby
+description: |-
+  Rubygems is VERY slow to require gems even if they've already been loaded. To work around this
+  wrap your require statement with an `if defined?()` check.
+autocorrection: true
+target_chef_version: All Versions
+examples: 
+version_added: 
+enabled: false

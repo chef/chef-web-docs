@@ -18,9 +18,8 @@ Don't depend on the chef-vault cookbook made obsolete by Chef Infra Client 16.0.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'chef-vault'
 ```
 

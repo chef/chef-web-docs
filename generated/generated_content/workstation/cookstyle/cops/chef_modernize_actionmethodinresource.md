@@ -18,17 +18,13 @@ Use the custom resource language's `action :my_action` blocks instead of creatin
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 def action_create
  # :create action code here
 end
-```
 
-### correct
-
-```ruby
+# good
 action :create do
  # :create action code here
 end

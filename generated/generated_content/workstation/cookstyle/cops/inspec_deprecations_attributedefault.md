@@ -18,15 +18,11 @@ The Chef InSpec inputs `default` option has been replaced with the `value` optio
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 login_defs_umask = input('login_defs_umask', default: '077', description: 'Default umask to set in login.defs')
-```
 
-### correct
-
-```ruby
+# good
 login_defs_umask = input('login_defs_umask', value: '077', description: 'Default umask to set in login.defs')
 ```
 

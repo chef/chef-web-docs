@@ -17,11 +17,9 @@ The Cookstyle cops department: `Chef/Correctness`
 metadata.rb should define a version for the cookbook.
 
 ## Examples
-```
-
-### correct
 
 ```ruby
+# good
 name 'foo'
 version '1.0.0'
 ```

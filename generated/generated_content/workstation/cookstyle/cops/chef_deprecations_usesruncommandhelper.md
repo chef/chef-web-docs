@@ -18,19 +18,15 @@ Use 'shell_out!' instead of the legacy 'run_command' or 'run_command_with_system
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 require 'chef/mixin/command'
 include Chef::Mixin::Command
 
 run_command('/bin/foo')
 run_command_with_systems_locale('/bin/foo')
-```
 
-### correct
-
-```ruby
+# good
 shell_out!('/bin/foo')
 ```
 

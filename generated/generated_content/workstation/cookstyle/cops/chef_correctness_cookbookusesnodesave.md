@@ -18,9 +18,8 @@ Don't use node.save to save partial node data to the Chef Infra Server mid-run u
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 node.save
 ```
 

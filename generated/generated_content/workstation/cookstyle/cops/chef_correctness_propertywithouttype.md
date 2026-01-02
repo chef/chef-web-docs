@@ -18,16 +18,12 @@ Resource properties or attributes should always define a type to help users unde
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 property :size, regex: /^\d+[KMGTP]$/
 attribute :size, regex: /^\d+[KMGTP]$/
-```
 
-### correct
-
-```ruby
+# good
 property :size, String, regex: /^\d+[KMGTP]$/
 attribute :size, kind_of: String, regex: /^\d+[KMGTP]$/
 ```

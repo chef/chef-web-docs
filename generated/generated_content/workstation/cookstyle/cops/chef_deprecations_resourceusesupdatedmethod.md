@@ -18,17 +18,13 @@ Don't call the deprecated `updated=` method in a resource to set the resource to
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 action :foo do
   updated = true
 end
-```
 
-### correct
-
-```ruby
+# good
 action :foo do
   converge_by('resource did something') do
     # code that causes the resource to converge

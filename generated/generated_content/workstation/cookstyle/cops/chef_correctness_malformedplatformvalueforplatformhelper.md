@@ -18,17 +18,13 @@ When using the value_for_platform helper you must include a hash of possible pla
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 value_for_platform(
   %w(redhat oracle) => 'baz'
 )
-```
 
-### correct
-
-```ruby
+# good
 value_for_platform(
   %w(redhat oracle) => {
     '5' => 'foo',

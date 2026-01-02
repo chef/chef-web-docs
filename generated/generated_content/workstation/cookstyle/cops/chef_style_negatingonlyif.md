@@ -18,17 +18,13 @@ Instead of using only_if conditionals with ! to negate the returned value, use n
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 package 'legacy-sysv-deps' do
   only_if { !systemd }
 end
-```
 
-### correct
-
-```ruby
+# good
 package 'legacy-sysv-deps' do
   not_if { systemd }
 end

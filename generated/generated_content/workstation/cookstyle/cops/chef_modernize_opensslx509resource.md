@@ -18,20 +18,16 @@ The openssl_x509 resource was renamed to openssl_x509_certificate in Chef Infra 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 openssl_x509 '/etc/httpd/ssl/mycert.pem' do
   common_name 'www.f00bar.com'
   org 'Foo Bar'
   org_unit 'Lab'
   country 'US'
 end
-```
 
-### correct
-
-```ruby
+# good
 openssl_x509_certificate '/etc/httpd/ssl/mycert.pem' do
   common_name 'www.f00bar.com'
   org 'Foo Bar'

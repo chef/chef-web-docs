@@ -18,17 +18,13 @@ The openssl_rsa_key resource was renamed to openssl_rsa_private_key in Chef Infr
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 openssl_rsa_key '/etc/httpd/ssl/server.key' do
   key_length 2048
 end
-```
 
-### correct
-
-```ruby
+# good
 openssl_rsa_private_key '/etc/httpd/ssl/server.key' do
   key_length 2048
 end

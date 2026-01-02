@@ -18,17 +18,13 @@ Use name properties instead of setting the name property in a resource. Setting 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 service 'foo' do
  name 'bar'
 end
-```
 
-### correct
-
-```ruby
+# good
 service 'foo' do
  service_name 'bar'
 end

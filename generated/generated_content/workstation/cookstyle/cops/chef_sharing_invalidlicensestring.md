@@ -26,15 +26,11 @@ licenses = json_data['licenses'].map {|l| l['licenseId'] }.sort
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 license 'Apache 2.0'
-```
 
-### correct
-
-```ruby
+# good
 license 'Apache-2.0'
 license 'all rights reserved'
 ```

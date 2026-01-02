@@ -17,7 +17,6 @@ The Cookstyle cops department: `Chef/Deprecations`
 The Foodcritic cookbook linter has been deprecated and should no longer be used for validating cookbooks. Do not include the `.foodcritic` config file used by Foodcritic in your cookbooks.
 
 ## Examples
-<nil>
 
 ## Configurable attributes
 

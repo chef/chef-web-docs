@@ -18,16 +18,12 @@ You can pass multiple values to the platform? and platform_family? helpers inste
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 platform?('redhat') || platform?('ubuntu')
 platform_family?('debian') || platform_family?('rhel')
-```
 
-### correct
-
-```ruby
+# good
 platform?('redhat', 'ubuntu')
 platform_family?('debian', 'rhel')
 ```

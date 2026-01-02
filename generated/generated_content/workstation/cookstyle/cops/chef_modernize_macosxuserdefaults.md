@@ -18,19 +18,15 @@ The mac_os_x_userdefaults resource was renamed to macos_userdefaults when it was
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 mac_os_x_userdefaults 'full keyboard access to all controls' do
   domain 'AppleKeyboardUIMode'
   global true
   value '2'
 end
-```
 
-### correct
-
-```ruby
+# good
 macos_userdefaults 'full keyboard access to all controls' do
   domain 'AppleKeyboardUIMode'
   global true

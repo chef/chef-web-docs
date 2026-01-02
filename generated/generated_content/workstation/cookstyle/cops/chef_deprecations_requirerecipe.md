@@ -18,15 +18,11 @@ Make sure to use include_recipe instead of require_recipe
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 require_recipe 'foo'
-```
 
-### correct
-
-```ruby
+# good
 include_recipe 'foo'
 ```
 

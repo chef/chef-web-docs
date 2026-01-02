@@ -18,15 +18,11 @@ When setting a node attribute as the default value for a custom resource propert
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 property :Something, String, default: node['hostname']
-```
 
-### correct
-
-```ruby
+# good
 property :Something, String, default: lazy { node['hostname'] }
 ```
 

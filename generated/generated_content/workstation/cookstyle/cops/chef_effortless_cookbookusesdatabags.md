@@ -18,9 +18,8 @@ Data bags cannot be used with the Effortless Infra pattern
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 data_bag_item('admins', login)
 data_bag(data_bag_name)
 ```

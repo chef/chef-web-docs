@@ -18,15 +18,11 @@ Use ::File.exist?('/foo/bar') instead of the slower 'test -f /foo/bar' which req
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 only_if 'test -f /bin/foo'
-```
 
-### correct
-
-```ruby
+# good
 only_if { ::File.exist?('bin/foo') }
 ```
 

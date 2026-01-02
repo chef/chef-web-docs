@@ -18,9 +18,8 @@ The Ohai default recipe previously allowed a user to ship custom Ohai plugins to
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 include_recipe 'ohai::default'
 include_recipe 'ohai'
 ```

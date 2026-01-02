@@ -18,9 +18,8 @@ Starting with Chef Infra Client 16, using `resource_name` without also using `pr
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 mycookbook/resources/myresource.rb:
 resource_name :mycookbook_myresource
 ```

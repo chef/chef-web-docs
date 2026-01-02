@@ -18,9 +18,8 @@ Use valid platform family values in case statements. See [Infra Language: Platfo
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 case node['platform_family']
 when 'redhat'
   puts "I'm on a RHEL-like system"

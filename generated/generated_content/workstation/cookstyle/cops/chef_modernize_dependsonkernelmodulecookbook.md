@@ -18,9 +18,8 @@ Don't depend on the kernel_module cookbook made obsolete by Chef Infra Client 14
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'kernel_module'
 ```
 

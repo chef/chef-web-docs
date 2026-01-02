@@ -18,16 +18,12 @@ Use the `data_bag_item` helper instead of `Chef::DataBagItem.load` or `Chef::Enc
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 plain_text_data = Chef::DataBagItem.load('foo', 'bar')
 encrypted_data = Chef::EncryptedDataBagItem.load('foo2', 'bar2')
-```
 
-### correct
-
-```ruby
+# good
 plain_text_data = data_bag_item('foo', 'bar')
 encrypted_data = data_bag_item('foo2', 'bar2')
 ```

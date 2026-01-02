@@ -18,17 +18,13 @@ The poise_archive resource in the deprecated poise-archive should be replaced wi
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 poise_archive 'https://example.com/myapp.tgz' do
   destination '/opt/my_app'
 end
-```
 
-### correct
-
-```ruby
+# good
 archive_file 'https://example.com/myapp.tgz' do
   destination '/opt/my_app'
 end

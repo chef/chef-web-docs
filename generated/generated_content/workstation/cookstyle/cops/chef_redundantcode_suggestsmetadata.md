@@ -18,9 +18,8 @@ The suggests metadata.rb method is not used and is unnecessary in cookbooks.
 
 ## Examples
 
-### incorrect
-
-```ruby in metadata.rb:
+```ruby
+# bad in metadata.rb:
 
 suggests "another_cookbook"
 ```

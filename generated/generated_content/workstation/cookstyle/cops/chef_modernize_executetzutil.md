@@ -18,9 +18,8 @@ Instead of using the execute or powershell_script resources to run the `tzutil` 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 execute 'set tz' do
   command 'tzutil.exe /s UTC'
 end
@@ -31,11 +30,8 @@ powershell_script 'set windows timezone' do
   code "tzutil.exe /s UTC"
   not_if { shell_out('tzutil.exe /g').stdout.include?('UTC') }
 end
-```
 
-### correct
-
-```ruby
+# good
 timezone 'UTC'
 ```
 

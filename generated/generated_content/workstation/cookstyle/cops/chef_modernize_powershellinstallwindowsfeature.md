@@ -24,9 +24,8 @@ Use the windows_feature resource built into Chef Infra Client 14+ instead of the
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 powershell_script 'Install Feature' do
   code 'Install-WindowsFeature -Name "Net-framework-Core"'
 end

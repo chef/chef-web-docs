@@ -18,15 +18,11 @@ Use file_cache_path rather than hard-coding system temp paths
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 remote_file '/tmp/large-file.tar.gz' do
-```
 
-### correct
-
-```ruby
+# good
 remote_file "#{Chef::Config[:file_cache_path]}/large-file.tar.gz" do
 ```
 

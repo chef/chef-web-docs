@@ -18,15 +18,11 @@ Cookbook metadata.rb version field should follow X.Y.Z version format.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 version '1.2.3.4'
-```
 
-### correct
-
-```ruby
+# good
 version '1.2.3'
 ```
 

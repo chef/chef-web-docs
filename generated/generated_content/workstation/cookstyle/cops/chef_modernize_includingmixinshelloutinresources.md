@@ -18,9 +18,8 @@ There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 require 'chef/mixin/shell_out'
 include Chef::Mixin::ShellOut
 require 'chef/mixin/powershell_out'

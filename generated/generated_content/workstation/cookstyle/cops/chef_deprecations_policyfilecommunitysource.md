@@ -18,15 +18,11 @@ The Policyfile source of `:community` has been replaced with `:supermarket`
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 default_source :community
-```
 
-### correct
-
-```ruby
+# good
 default_source :supermarket
 ```
 

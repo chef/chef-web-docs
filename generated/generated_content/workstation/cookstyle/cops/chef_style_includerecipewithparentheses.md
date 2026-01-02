@@ -18,15 +18,11 @@ There is no need to wrap the recipe in parentheses when using the include_recipe
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 include_recipe('foo::bar')
-```
 
-### correct
-
-```ruby
+# good
 include_recipe 'foo::bar'
 ```
 

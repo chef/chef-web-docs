@@ -18,9 +18,8 @@ set_or_return within a method should not be used to define property in a resourc
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
  def severity(arg = nil)
    set_or_return(
      :severity, arg,
@@ -28,11 +27,8 @@ set_or_return within a method should not be used to define property in a resourc
      :default => nil
    )
  end
-```
 
-### correct
-
-```ruby
+# good
 property :severity, String
 ```
 

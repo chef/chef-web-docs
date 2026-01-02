@@ -18,9 +18,8 @@ Use the archive_file resource built into Chef Infra Client 15+ instead of the se
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 seven_zip_archive "C:\file.zip" do
   path 'C:\expand_here'
 end

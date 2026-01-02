@@ -18,17 +18,13 @@ The :nothing action is often typo'd as :none
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 service 'foo' do
  action :none
 end
-```
 
-### correct
-
-```ruby
+# good
 service 'foo' do
  action :nothing
 end

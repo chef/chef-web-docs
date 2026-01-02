@@ -20,7 +20,6 @@ Users of Delivery / Workflow would include a `.delivery` directory in their cook
 or Delivery cookbooks. The contents of this directory are now obsolete and should be removed.
 
 ## Examples
-<nil>
 
 ## Configurable attributes
 

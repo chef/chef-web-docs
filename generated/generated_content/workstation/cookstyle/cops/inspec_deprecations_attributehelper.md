@@ -18,15 +18,11 @@ Chef InSpec attributes have been renamed to inputs. Use the `input` method not t
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 login_defs_umask = attribute('login_defs_umask', value: '077', description: 'Default umask to set in login.defs')
-```
 
-### correct
-
-```ruby
+# good
 login_defs_umask = input('login_defs_umask', value: '077', description: 'Default umask to set in login.defs')
 ```
 

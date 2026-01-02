@@ -18,9 +18,8 @@ Don't depend on the windows_firewall cookbook made obsolete by Chef Infra Client
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'windows_firewall'
 ```
 

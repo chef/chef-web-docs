@@ -18,16 +18,12 @@ Make sure a cookbook doesn't depend on itself. This will fail on Chef Infra Clie
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 name 'foo'
 depends 'foo'
-```
 
-### correct
-
-```ruby
+# good
 name 'foo'
 ```
 

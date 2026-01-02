@@ -18,17 +18,13 @@ In Chef Infra Client 13 the "file" variable for use within the verify property w
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 file '/etc/nginx.conf' do
   verify 'nginx -t -c %{file}'
 end
-```
 
-### correct
-
-```ruby
+# good
 file '/etc/nginx.conf' do
   verify 'nginx -t -c %{path}'
 end

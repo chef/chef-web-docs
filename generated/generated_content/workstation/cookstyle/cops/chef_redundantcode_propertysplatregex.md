@@ -18,16 +18,12 @@ When a property has a type of String it can accept any string. There is no need 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 property :config_file, String, regex: /.*/
 attribute :config_file, String, regex: /.*/
-```
 
-### correct
-
-```ruby
+# good
 property :config_file, String
 attribute :config_file, String
 ```

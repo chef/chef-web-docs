@@ -18,20 +18,16 @@ It is not longer necessary respond_to?(:foo) or defined?(foo) in metadata. This 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 chef_version '>= 13' if respond_to?(:chef_version)
 chef_version '>= 13' if defined?(chef_version)
 chef_version '>= 13' unless defined?(Ridley::Chef::Cookbook::Metadata)
 if defined(chef_version)
   chef_version '>= 13'
 end
-```
 
-### correct
-
-```ruby
+# good
 chef_version '>= 13'
 ```
 

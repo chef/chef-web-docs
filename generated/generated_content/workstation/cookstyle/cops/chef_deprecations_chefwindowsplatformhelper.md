@@ -18,15 +18,11 @@ Use `platform?('windows')` instead of the legacy `Chef::Platform.windows?` helpe
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 Chef::Platform.windows?
-```
 
-### correct
-
-```ruby
+# good
 platform?('windows')
 platform_family?('windows')
 ```

@@ -18,18 +18,14 @@ Provides should be set using the `provides` resource DSL method instead of inste
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 def initialize(*args)
   super
   @provides = :foo
 end
-```
 
-### correct
-
-```ruby
+# good
 provides :foo
 ```
 

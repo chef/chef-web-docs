@@ -18,15 +18,11 @@ Versions used in metadata.rb supports calls should be floats not integers.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 supports 'redhat', '> 8'
-```
 
-### correct
-
-```ruby
+# good
 supports 'redhat', '> 8.0'
 ```
 

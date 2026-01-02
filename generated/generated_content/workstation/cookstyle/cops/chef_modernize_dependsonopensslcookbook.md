@@ -18,9 +18,8 @@ Don't depend on the `openssl` cookbook which was made obsolete by Chef Infra Cli
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'openssl'
 ```
 

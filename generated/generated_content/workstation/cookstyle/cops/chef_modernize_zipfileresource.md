@@ -18,9 +18,8 @@ Use the archive_file resource built into Chef Infra Client 15+ instead of the zi
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 zipfile "C:\file.zip" do
   path 'C:\expand_here'
 end

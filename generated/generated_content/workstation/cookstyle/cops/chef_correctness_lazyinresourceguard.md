@@ -18,19 +18,15 @@ Using `lazy {}` within a resource guard (not_if/only_if) will cause failures and
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 template '/etc/foo' do
   mode '0644'
   source 'foo.erb'
   only_if { lazy { ::File.exist?('/etc/foo')} }
 end
-```
 
-### correct
-
-```ruby
+# good
 template '/etc/foo' do
   mode '0644'
   source 'foo.erb'

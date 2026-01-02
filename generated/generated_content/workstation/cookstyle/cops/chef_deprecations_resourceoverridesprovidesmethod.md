@@ -18,17 +18,13 @@ Some providers in resources override the provides? method, used to check whether
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 def provides?
  true
 end
-```
 
-### correct
-
-```ruby
+# good
 provides :SOME_PROVIDER_NAME
 ```
 

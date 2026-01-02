@@ -18,15 +18,11 @@ Scope file exist to access the correct `File` class by using `::File.exist?` not
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 not_if { File.exist?('/etc/foo/bar') }
-```
 
-### correct
-
-```ruby
+# good
 not_if { ::File.exist?('/etc/foo/bar') }
 ```
 

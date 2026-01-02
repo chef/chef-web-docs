@@ -18,9 +18,8 @@ Use Chef InSpec for testing instead of the Minitest Handler cookbook pattern.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'minitest-handler'
 ```
 

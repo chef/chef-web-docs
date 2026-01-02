@@ -18,18 +18,14 @@ Use the platform_family?() helpers instead of node['os] == 'foo' for platform_fa
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 node['os'] == 'darwin'
 node['os'] == 'windows'
 node['os'].eql?('aix')
 %w(netbsd openbsd freebsd).include?(node['os'])
-```
 
-### correct
-
-```ruby
+# good
 platform_family?('mac_os_x')
 platform_family?('windows')
 platform_family?('aix')

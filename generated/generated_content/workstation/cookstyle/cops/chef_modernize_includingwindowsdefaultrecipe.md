@@ -18,9 +18,8 @@ Don't include the windows default recipe that is either full of gem install that
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 include_recipe 'windows::default'
 include_recipe 'windows'
 ```

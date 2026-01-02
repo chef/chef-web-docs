@@ -18,15 +18,11 @@ Don't depend on the EOL `omnibus_updater` cookbook. This cookbook no longer work
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'omnibus_updater'
-```
 
-### correct
-
-```ruby
+# good
 depends 'chef_client_updater'
 ```
 

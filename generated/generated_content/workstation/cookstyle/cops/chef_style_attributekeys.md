@@ -20,16 +20,12 @@ There are two supported styles: "symbols" and "strings".
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 node['foo']
 node["foo"]
-```
 
-### correct
-
-```ruby
+# good
 node[:foo]
 ```
 

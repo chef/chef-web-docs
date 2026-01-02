@@ -18,9 +18,8 @@ Don't depend on the timezone_lwrp cookbook made obsolete by Chef Infra Client 14
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'timezone_lwrp'
 ```
 

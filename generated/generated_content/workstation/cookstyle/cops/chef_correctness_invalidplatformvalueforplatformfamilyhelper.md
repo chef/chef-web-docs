@@ -18,18 +18,14 @@ Pass valid platform families to the value_for_platform_family helper. See [Infra
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 value_for_platform_family(
   %w(rhel sles) => 'foo',
   %w(mac) => 'foo'
 )
-```
 
-### correct
-
-```ruby
+# good
 value_for_platform_family(
   %w(rhel suse) => 'foo',
   %w(mac_os_x) => 'foo'

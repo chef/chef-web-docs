@@ -18,20 +18,16 @@ Use the :run action in the ruby_block resource instead of the deprecated :create
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 ruby_block 'my special ruby block' do
   block do
     puts 'running'
   end
   action :create
 end
-```
 
-### correct
-
-```ruby
+# good
 ruby_block 'my special ruby block' do
   block do
     puts 'running'

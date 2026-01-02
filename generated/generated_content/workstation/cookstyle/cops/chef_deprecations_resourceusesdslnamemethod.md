@@ -18,15 +18,11 @@ Don't use the dsl_name method in a resource to find the name of the resource. Us
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 my_resource = MyResource.dsl_name
-```
 
-### correct
-
-```ruby
+# good
 my_resource = MyResource.resource_name
 ```
 

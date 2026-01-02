@@ -18,9 +18,8 @@ Cookbooks should not depend on the deprecated Poise framework cookbooks. They sh
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'poise'
 depends 'poise-service'
 depends 'poise-hoist'

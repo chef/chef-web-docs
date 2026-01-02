@@ -18,9 +18,8 @@ Don't depend on the deprecated `compat_resource` cookbook made obsolete by Chef 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'compat_resource'
 ```
 

@@ -18,9 +18,8 @@ Chef Infra Client 12.4+ includes mixlib/shellout automatically in resources and 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 require 'mixlib/shellout'
 ```
 

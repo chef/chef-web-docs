@@ -18,18 +18,14 @@ There have been many different valid community site / Supermarket URLs to use in
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 source 'http://community.opscode.com/api/v3'
 source 'https://supermarket.getchef.com'
 source 'https://api.berkshelf.com'
 site :opscode
-```
 
-### correct
-
-```ruby
+# good
 source 'https://supermarket.chef.io'
 ```
 

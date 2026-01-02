@@ -18,17 +18,13 @@ The launchd resource's hash property was renamed to plist_hash in Chef Infra Cli
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 launchd 'foo' do
   hash foo: 'bar'
 end
-```
 
-### correct
-
-```ruby
+# good
 launchd 'foo' do
   plist_hash foo: 'bar'
 end

@@ -18,17 +18,13 @@ Don't use the deprecated `Chef::ShellOut` class which was removed in Chef Infra 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 include Chef::ShellOut
 require 'chef/shellout'
 Chef::ShellOut.new('some_command')
-```
 
-### correct
-
-```ruby
+# good
 include Mixlib::ShellOut
 require 'mixlib/shellout'
 Mixlib::ShellOut.new('some_command')

@@ -8,9 +8,7 @@ autocorrection: false
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
   provider = Chef::Platform.provider_for_resource(resource, :create)
 
@@ -21,16 +19,12 @@ examples: |2-
   provider = Chef::Platform.find_provider_for_node(node, resource)
 
   Chef::Platform.set :platform => :mac_os_x, :resource => :package, :provider => Chef::Provider::Package::Homebrew
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
   provider = resource.provider_for_action(:create)
 
   # provides :package, platform_family: 'mac_os_x'
-  ```
 version_added: 5.16.0
 enabled: true
 included_file_paths:

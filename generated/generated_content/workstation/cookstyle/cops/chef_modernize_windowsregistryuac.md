@@ -18,9 +18,8 @@ Chef Infra Client 15.0 and later includes a windows_uac resource that should be 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 registry_key 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System' do
   values [{ name: 'EnableLUA', type: :dword, data: 0 },
           { name: 'PromptOnSecureDesktop', type: :dword, data: 0 },
@@ -28,11 +27,8 @@ registry_key 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Polic
          ]
   action :create
 end
-```
 
-### correct
-
-```ruby
+# good
 windows_uac 'Set Windows UAC settings' do
   enable_uac false
   prompt_on_secure_desktop true

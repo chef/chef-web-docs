@@ -9,17 +9,11 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   depends 'chef_nginx'
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   depends 'nginx'
-  ```
 version_added: 7.20.0
 enabled: true
 included_file_paths:

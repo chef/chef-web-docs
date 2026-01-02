@@ -18,16 +18,12 @@ Properties have a nil value by default so there is no need to set the default va
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 property :config_file, String, default: nil
 property :config_file, [String, NilClass], default: nil
-```
 
-### correct
-
-```ruby
+# good
 property :config_file, String
 property :config_file, [String, NilClass]
 ```

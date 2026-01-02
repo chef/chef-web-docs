@@ -18,9 +18,8 @@ Remove legacy code comments that disable Foodcritic rules. These comments are no
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 # ~FC013
 ```
 

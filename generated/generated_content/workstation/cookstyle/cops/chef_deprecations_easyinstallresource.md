@@ -18,9 +18,8 @@ Don't use the deprecated easy_install resource removed in Chef Infra Client 13.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 easy_install "my_thing" do
   bar
 end

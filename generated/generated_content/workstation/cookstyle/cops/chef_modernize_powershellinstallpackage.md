@@ -21,9 +21,8 @@ Use the powershell_package resource built into Chef Infra Client instead of the 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 powershell_script 'Expand website' do
   code 'Install-Package -Name docker'
 end

@@ -7,23 +7,17 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
 
   template '/etc/www/configures-apache.conf' do
     notifies :restart, 'service[apache]', :immediate
   end
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
 
   template '/etc/www/configures-apache.conf' do
     notifies :restart, 'service[apache]', :immediately
   end
-  ```
 version_added: 5.16.0
 enabled: true
 excluded_file_paths:

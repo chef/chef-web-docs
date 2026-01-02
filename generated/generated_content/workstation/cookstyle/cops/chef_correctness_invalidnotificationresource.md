@@ -18,9 +18,8 @@ The resource to notify when calling `notifies` or `subscribes` must be a string.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 
 template '/etc/www/configures-apache.conf' do
   notifies :restart, service['apache'], :immediately
@@ -29,11 +28,8 @@ end
 template '/etc/www/configures-apache.conf' do
   notifies :restart, service[apache], :immediately
 end
-```
 
-### correct
-
-```ruby
+# good
 
 template '/etc/www/configures-apache.conf' do
   notifies :restart, 'service[apache]', :immediately

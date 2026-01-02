@@ -18,9 +18,8 @@ It is not necessary to set `actions` or `allowed_actions` in custom resources as
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 allowed_actions [:create, :remove]
 
 # also bad

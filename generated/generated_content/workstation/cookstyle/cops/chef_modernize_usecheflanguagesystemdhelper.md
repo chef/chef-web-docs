@@ -18,15 +18,11 @@ Chef Infra Client 15.5 and later include a `systemd?` helper for checking if a L
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 node['init_package'] == 'systemd'
-```
 
-### correct
-
-```ruby
+# good
 systemd?
 ```
 

@@ -18,15 +18,11 @@ Use the built-in `shell_out` helper available in Chef Infra Client 12.11+ instea
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 Mixlib::ShellOut.new('foo').run_command
-```
 
-### correct
-
-```ruby
+# good
 shell_out('foo')
 ```
 

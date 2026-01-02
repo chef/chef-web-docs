@@ -18,15 +18,11 @@ Instead of using require with a File.expand_path and __FILE__ use the simpler re
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 require File.expand_path('../../libraries/helpers', __FILE__)
-```
 
-### correct
-
-```ruby
+# good
 require_relative '../libraries/helpers'
 ```
 

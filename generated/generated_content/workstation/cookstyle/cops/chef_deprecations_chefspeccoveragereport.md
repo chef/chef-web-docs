@@ -18,9 +18,8 @@ Don't use the deprecated ChefSpec Coverage report functionality in your specs. T
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 
 at_exit { ChefSpec::Coverage.report! }
 ```

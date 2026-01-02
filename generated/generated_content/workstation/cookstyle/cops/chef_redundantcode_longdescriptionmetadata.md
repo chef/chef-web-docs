@@ -18,9 +18,8 @@ The long_description metadata.rb method is not used and is unnecessary in cookbo
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 long_description 'this is my cookbook and this description will never be seen'
 ```
 

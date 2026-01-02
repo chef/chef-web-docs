@@ -18,9 +18,8 @@ The Foodcritic cookbook linter has been deprecated and should no longer be used 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 gem 'foodcritic'
 require 'foodcritic'
 ```

@@ -17,11 +17,9 @@ The Cookstyle cops department: `Chef/Correctness`
 metadata.rb needs to include the name method or it will fail on Chef Infra Client 12 and later.
 
 ## Examples
-```
-
-### correct
 
 ```ruby
+# good
 name 'foo'
 ```
 

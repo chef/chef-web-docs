@@ -18,15 +18,11 @@ When using properties in a custom resource you should use name_property not the 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 property :bob, String, name_attribute: true
-```
 
-### correct
-
-```ruby
+# good
 property :bob, String, name_property: true
 ```
 

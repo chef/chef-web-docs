@@ -18,16 +18,12 @@ Checks for comments that mention "Chef" without context. Do you mean Chef Infra 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 Chef makes software
 Chef configures your systems
-```
 
-### correct
-
-```ruby
+# good
 Chef Software makes software
 Chef Infra configures your systems
 ```

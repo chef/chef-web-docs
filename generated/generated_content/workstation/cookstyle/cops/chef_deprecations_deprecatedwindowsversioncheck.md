@@ -18,9 +18,8 @@ Don't use the deprecated `older_than_win_2012_or_8?` helper. Windows versions be
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 if older_than_win_2012_or_8?
   # do some legacy things
 end

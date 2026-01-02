@@ -18,16 +18,12 @@ Chef Infra Client 15.5 and later include a large number of new helpers in the Ch
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 ENV['CI']
 ENV['TEST_KITCHEN']
-```
 
-### correct
-
-```ruby
+# good
 ci?
 kitchen?
 ```

@@ -18,17 +18,13 @@ Pass valid platforms to the `platform?` helper. See [Infra Language: Platform](h
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 platform?('darwin')
 platform?('rhel')
 platform?('sles')
-```
 
-### correct
-
-```ruby
+# good
 platform?('mac_os_x')
 platform?('redhat')
 platform?('suse')

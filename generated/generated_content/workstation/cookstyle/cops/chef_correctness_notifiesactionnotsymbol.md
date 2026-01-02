@@ -18,9 +18,8 @@ When notifying or subscribing actions within a resource the action should always
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 execute 'some command' do
   notifies 'restart', 'service[httpd]', 'delayed'
 end
@@ -28,11 +27,8 @@ end
 execute 'some command' do
   subscribes 'restart', 'service[httpd]', 'delayed'
 end
-```
 
-### correct
-
-```ruby
+# good
 execute 'some command' do
   notifies :restart, 'service[httpd]', 'delayed'
 end

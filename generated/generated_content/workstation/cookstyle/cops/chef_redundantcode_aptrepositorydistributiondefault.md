@@ -18,20 +18,16 @@ There is no need to pass `distribution node['lsb']['codename']` to an apt_reposi
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 apt_repository 'my repo' do
   uri 'http://packages.example.com/debian'
   components %w(stable main)
   deb_src false
   distribution node['lsb']['codename']
 end
-```
 
-### correct
-
-```ruby
+# good
 apt_repository 'my repo' do
   uri 'http://packages.example.com/debian'
   components %w(stable main)

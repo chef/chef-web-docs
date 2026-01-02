@@ -18,9 +18,8 @@ Many Ohai node attributes are already strings and don't need to be cast to strin
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 node['platform'].to_s
 node['platform_family'].to_s
 node['platform_version'].to_s
@@ -28,11 +27,8 @@ node['fqdn'].to_s
 node['hostname'].to_s
 node['os'].to_s
 node['name'].to_s
-```
 
-### correct
-
-```ruby
+# good
 node['platform']
 node['platform_family']
 node['platform_version']

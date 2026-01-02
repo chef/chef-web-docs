@@ -17,11 +17,9 @@ The Cookstyle cops department: `Chef/Sharing`
 Resources should include examples field to allow automated documentation. Requires Chef Infra Client 13.9 or later.
 
 ## Examples
-```
-
-### correct
 
 ```ruby
+# good
 examples <<~DOC
   **Specify a global domain value**
 

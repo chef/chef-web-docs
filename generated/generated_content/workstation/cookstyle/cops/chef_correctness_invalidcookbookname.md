@@ -18,15 +18,11 @@ Cookbook names should not contain invalid characters such as periods.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 name 'foo.bar'
-```
 
-### correct
-
-```ruby
+# good
 name 'foo_bar'
 ```
 

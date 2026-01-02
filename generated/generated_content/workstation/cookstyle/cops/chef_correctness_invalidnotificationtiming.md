@@ -18,18 +18,14 @@ Valid notification timings are `:immediately`, `:immediate` (alias for :immediat
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 
 template '/etc/www/configures-apache.conf' do
   notifies :restart, 'service[apache]', :nope
 end
-```
 
-### correct
-
-```ruby
+# good
 
 template '/etc/www/configures-apache.conf' do
   notifies :restart, 'service[apache]', :immediately

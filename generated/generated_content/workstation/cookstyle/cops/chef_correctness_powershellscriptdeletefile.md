@@ -23,9 +23,8 @@ Use the `file` or `directory` resources built into Chef Infra Client with the :d
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 powershell_script 'Cleanup old files' do
   code 'Remove-Item C:\Windows\foo\bar.txt'
   only_if { ::File.exist?('C:\\Windows\\foo\\bar.txt') }

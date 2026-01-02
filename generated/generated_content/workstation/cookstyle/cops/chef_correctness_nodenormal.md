@@ -20,15 +20,11 @@ Code should be updated to use default or override levels, but this will change a
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 node.normal['foo'] = true
-```
 
-### correct
-
-```ruby
+# good
 node.default['foo'] = true
 node.override['foo'] = true
 node.force_default['foo'] = true
