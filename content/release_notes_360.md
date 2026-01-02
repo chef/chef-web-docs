@@ -12,6 +12,39 @@ product = [""]
     weight = 10
 +++
 
+## Chef 360 Platform 1.5.2
+
+Release date: January 5, 2025
+
+### New features
+
+- Added support for the Shell Interpreter in the Job Creation Wizard.
+- Added a code editor when creating InSpec Interpreter jobs in the Job Creation Wizard so users can paste commands instead of formatting jobs in JSON.
+
+### Improvements
+
+- Added new job creation templates.
+- Improved the job creation experience in the Chef 360 Platform UI.
+- Improved the Chef 360 Platform efficiency and performance.
+- In Chef Declarative State Management (DSM), we replaced the existing single-node OpenSearch chart with a new multi-node chart.
+
+### Bug fixes
+
+- We fixed a bug in the Chef 360 Platform UI that gave the incorrect Courier job status in the **All Jobs** table.
+
+### Supported skill versions
+
+| Skill                    | Skill name              | Habitat package                       | Version |
+| ------------------------ | ----------------------- | ------------------------------------- | ------- |
+| Courier Runner           | courier-runner          | chef-platform/courier-runner          | 1.5.4   |
+| Gohai                    | chef-gohai              | chef-platform/chef-gohai              | 1.2.26  |
+| InSpec Interpreter       | inspec-interpreter      | chef-platform/inspec-interpreter      | 1.0.9   |
+| Node Management Agent    | node-management-agent   | chef-platform/node-management-agent   | 1.1.3   |
+| Restart Interpreter      | restart-interpreter     | chef-platform/restart-interpreter     | 1.0.6   |
+| Shell Interpreter        | shell-interpreter       | chef-platform/shell-interpreter       | 1.0.7   |
+| Infra Client Interpreter | chef-client-interpreter | chef-platform/chef-client-interpreter | 1.0.9   |
+| Ansible Interpreter      | ansible-interpreter     | chef-platform/ansible-interpreter     | 0.1.5   |
+
 ## Chef 360 Platform 1.5.1
 
 Release date: December 8th, 2025
