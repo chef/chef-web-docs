@@ -34,16 +34,16 @@ Release date: January 5, 2025
 
 ### Supported skill versions
 
-| Skill                    | Skill name              | Habitat package                       | Version |
-| ------------------------ | ----------------------- | ------------------------------------- | ------- |
-| Courier Runner           | courier-runner          | chef-platform/courier-runner          | 1.5.4   |
-| Gohai                    | chef-gohai              | chef-platform/chef-gohai              | 1.2.26  |
-| InSpec Interpreter       | inspec-interpreter      | chef-platform/inspec-interpreter      | 1.0.9   |
-| Node Management Agent    | node-management-agent   | chef-platform/node-management-agent   | 1.1.3   |
-| Restart Interpreter      | restart-interpreter     | chef-platform/restart-interpreter     | 1.0.6   |
-| Shell Interpreter        | shell-interpreter       | chef-platform/shell-interpreter       | 1.0.7   |
-| Infra Client Interpreter | chef-client-interpreter | chef-platform/chef-client-interpreter | 1.0.9   |
-| Ansible Interpreter      | ansible-interpreter     | chef-platform/ansible-interpreter     | 0.1.5   |
+| Skill                    | Skill name              | Habitat package                       | Version | Change summary |
+| ------------------------ | ----------------------- | ------------------------------------- | ------- | -------------- |
+| Courier Runner           | courier-runner          | chef-platform/courier-runner          | 1.5.4   | Courier runner handles Interpreter exit codes gracefully |
+| Gohai                    | chef-gohai              | chef-platform/chef-gohai              | 1.2.26  | Improvements in skill configuration validation |
+| InSpec Interpreter       | inspec-interpreter      | chef-platform/inspec-interpreter      | 1.0.9   | System environment variables are inherited by InSpec at execution |
+| Node Management Agent    | node-management-agent   | chef-platform/node-management-agent   | 1.1.3   | Improvement in subnet mask detection for node attributes |
+| Restart Interpreter      | restart-interpreter     | chef-platform/restart-interpreter     | 1.0.6   |  |
+| Shell Interpreter        | shell-interpreter       | chef-platform/shell-interpreter       | 1.0.7   |  |
+| Infra Client Interpreter | chef-client-interpreter | chef-platform/chef-client-interpreter | 1.0.9   |  |
+| Ansible Interpreter      | ansible-interpreter     | chef-platform/ansible-interpreter     | 0.1.5   |  |
 
 ## Chef 360 Platform 1.5.1
 
