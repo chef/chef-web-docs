@@ -15,6 +15,8 @@ Chef community members can use Chef's Community API to download Chef software pa
 
 ## License
 
+To download packages and review metadata with this API, you need a license ID.  Only free licenses can be used for community downloads.
+
 See [Chef's licensing documentation]({{< relref "chef_license" >}}) for more information on the Chef license.
 
 ## Endpoints
@@ -70,13 +72,13 @@ Use `packages` to get a list of all packages for a particular product.
 By default, it returns packages for the latest version.
 
 ```plain
-https://chefdownload-community.chef.io/stable/<PRODUCT>/packages
+https://chefdownload-community.chef.io/stable/<PRODUCT>/packages?license_id=<LICENSE_ID>
 ```
 
 You can specify a version number with the `v` query string to get packages for a particular product version.
 
 ```plain
-https://chefdownload-community.chef.io/stable/<PRODUCT>/packages?v=<VERSION_NUMBER>
+https://chefdownload-community.chef.io/stable/<PRODUCT>/packages?v=<VERSION_NUMBER>&license_id=<LICENSE_ID>
 ```
 
 ### versions/all
@@ -84,7 +86,7 @@ https://chefdownload-community.chef.io/stable/<PRODUCT>/packages?v=<VERSION_NUMB
 Use `versions/all` to return a list of versions of a product.
 
 ```plain
-https://chefdownload-community.chef.io/stable/<PRODUCT>/versions/all
+https://chefdownload-community.chef.io/stable/<PRODUCT>/versions/all?license_id=<LICENSE_ID>
 ```
 
 ### versions/latest
@@ -92,7 +94,7 @@ https://chefdownload-community.chef.io/stable/<PRODUCT>/versions/all
 Use `versions/latest` to return the latest version of a product.
 
 ```plain
-https://chefdownload-community.chef.io/stable/<PRODUCT>/versions/latest
+https://chefdownload-community.chef.io/stable/<PRODUCT>/versions/latest?license_id=<LICENSE_ID>
 ```
 
 ### metadata
@@ -100,7 +102,7 @@ https://chefdownload-community.chef.io/stable/<PRODUCT>/versions/latest
 The `metadata` endpoint returns data about a particular package of a Chef product.
 
 ```plain
-https://chefdownload-community.chef.io/stable/<PRODUCT>/metadata?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>
+https://chefdownload-community.chef.io/stable/<PRODUCT>/metadata?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
 ```
 
 ### download
@@ -108,7 +110,7 @@ https://chefdownload-community.chef.io/stable/<PRODUCT>/metadata?p=<PLATFORM>&pv
 The `download` endpoint downloads a particular package of a Chef product.
 
 ```plain
-https://chefdownload-community.chef.io/stable/<PRODUCT>/download?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>
+https://chefdownload-community.chef.io/stable/<PRODUCT>/download?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
 ```
 
 ## Parameters
@@ -119,6 +121,11 @@ The API accepts the following parameters in a query string.
 : The Chef Software product to install.
 
   A list of valid product keys can be found in the [Chef product matrix](https://github.com/chef/mixlib-install/blob/main/PRODUCT_MATRIX.md) or by using the [`products`](#products) endpoint.
+
+`license_id`
+: Your license ID.
+
+  A license is required to download packages and retrieve package metadata with this API. Only free licenses can be used for community downloads.
 
 `eol`
 : Whether to include EOL versions of a product or EOL products in the response.
@@ -174,7 +181,7 @@ This is a list of currently supported products that you can install with this AP
 To get the latest supported build of Chef Infra Client for Ubuntu 20.04, enter the following:
 
 ```plain
-https://chefdownload-community.chef.io/stable/chef/metadata?p=ubuntu&pv=20.04&m=x86_64
+https://chefdownload-community.chef.io/stable/chef/metadata?p=ubuntu&pv=20.04&m=x86_64&license_id=<LICENSE_ID>
 ```
 
 which will return something like:
@@ -191,11 +198,11 @@ version	"14.15.6"
 To use cURL to download a package directly, enter the following:
 
 ```bash
-curl -LOJ 'https://chefdownload-community.chef.io/stable/<PRODUCT>/download?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>'
+curl -LOJ 'https://chefdownload-community.chef.io/stable/<PRODUCT>/download?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&license_id=<LICENSE_ID>'
 ```
 
 To use GNU Wget to download a package directly, enter the following:
 
 ```bash
-wget --content-disposition https://chefdownload-community.chef.io/stable/<PRODUCT>/download?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>
+wget --content-disposition https://chefdownload-community.chef.io/stable/<PRODUCT>/download?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&license_id=<LICENSE_ID>
 ```
