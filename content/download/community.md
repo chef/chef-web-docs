@@ -15,7 +15,8 @@ Chef community members can use Chef's Community API to download Chef software pa
 
 ## License
 
-To download packages and review metadata with this API, you need a license ID.  Only free licenses can be used for community downloads.
+You must have a Free Tier License ID to download packages from the Chef Community API.
+To generate a new license ID or retrieve an existing license ID, [submit a request](https://www.chef.io/license-generation-free-trial).
 
 See [Chef's licensing documentation]({{< relref "chef_license" >}}) for more information on the Chef license.
 
@@ -153,7 +154,7 @@ The API accepts the following parameters in a query string.
 `v`
 : The version of the product to be installed.
 
-  Versions typically take the form of `x.y.z` where x, y, and z are decimal numbers that are used to represent major (x), minor (y), and patch (z) versions.
+  Versions typically take the form of `x.y.z` where x, y, and z are decimal numbers that represent major (x), minor (y), and patch (z) versions.
   One-part (`x`) and two-part (`x.y`) versions are allowed.
 
   Default value: `latest`.
@@ -164,15 +165,15 @@ See the [Supported Versions documentation]({{< relref "versions" >}}) for inform
 
 This is a list of currently supported products that you can install with this API.
 
-| Product | Product Key  |
-| ------- | ------------ |
-| Chef Automate | automate |
-| Chef Infra Client | chef |
-| Chef Infra Server | chef-server |
-| Chef Workstation | chef-workstation |
-| Chef Habitat | habitat |
-| Chef InSpec | inspec |
-| Supermarket | supermarket |
+| Product           | Product Key      |
+|-------------------|------------------|
+| Chef Automate     | automate         |
+| Chef Infra Client | chef             |
+| Chef Infra Server | chef-server      |
+| Chef Workstation  | chef-workstation |
+| Chef Habitat      | habitat          |
+| Chef InSpec       | inspec           |
+| Supermarket       | supermarket      |
 
 ## Examples
 
@@ -184,7 +185,7 @@ To get the latest supported build of Chef Infra Client for Ubuntu 20.04, enter t
 https://chefdownload-community.chef.io/stable/chef/metadata?p=ubuntu&pv=20.04&m=x86_64&license_id=<LICENSE_ID>
 ```
 
-which will return something like:
+which returns something like:
 
 ```json
 sha1	"3c8a265a36c2ce7e5594ae894fafb248789464a2"

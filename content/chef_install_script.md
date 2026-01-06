@@ -87,7 +87,8 @@ Community users can use the install script from the [Chef Community API](/downlo
 
 ### Prerequisites
 
-You must have a license ID to use the install script from the Chef Community API. Only free licenses can be used for community downloads.
+You must have a Free Tier License ID to use the install script from the Chef Community API.
+To generate a new license ID or retrieve an existing license ID, [submit a request](https://www.chef.io/license-generation-free-trial).
 
 ### UNIX, Linux, and macOS
 

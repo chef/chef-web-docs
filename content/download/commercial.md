@@ -161,7 +161,7 @@ The API accepts the following parameters in a query string.
 `v`
 : The version of the product to be installed.
 
-  Versions typically take the form of `x.y.z` where x, y, and z are decimal numbers that are used to represent major (x), minor (y), and patch (z) versions.
+  Versions typically take the form of `x.y.z` where x, y, and z are decimal numbers that represent major (x), minor (y), and patch (z) versions.
   One-part (`x`) and two-part (`x.y`) versions are allowed.
 
   Default value: `latest`.
@@ -171,17 +171,17 @@ The API accepts the following parameters in a query string.
 Use the following product keys to download packages or retrieve data for different Chef products.
 You can also use the [products endpoint](#products)
 
-| Product | Product key  |
-| ------- | ------------ |
-| Chef Automate | automate |
-| Chef Infra Client | chef |
-| Chef Backend | chef-backend |
-| Chef Infra Server | chef-server |
-| Chef Workstation | chef-workstation |
-| Chef Habitat | habitat |
-| Chef InSpec | inspec |
-| Management Console | manage |
-| Supermarket | supermarket |
+| Product            | Product key      |
+|--------------------|------------------|
+| Chef Automate      | automate         |
+| Chef Infra Client  | chef             |
+| Chef Backend       | chef-backend     |
+| Chef Infra Server  | chef-server      |
+| Chef Workstation   | chef-workstation |
+| Chef Habitat       | habitat          |
+| Chef InSpec        | inspec           |
+| Management Console | manage           |
+| Supermarket        | supermarket      |
 
 See the [supported versions]({{< relref "versions" >}}) documentation for information about the support status of individual products.
 
