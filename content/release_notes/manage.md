@@ -1,11 +1,7 @@
 +++
 title = "Chef Manage Release Notes"
 draft = false
-
-
 product = []
-
-
 
 [menu]
   [menu.release_notes]
@@ -40,16 +36,11 @@ chef-manage-ctl reconfigure
 chef-server-ctl reconfigure
 ```
 
-
 ## Chef Manage 3.3.97
-
 
 ### Updates
 
 - Removed the 'My Account' menu item in the top-right user menu. This change applies only to Hosted Chef.
-
-
-
 
 ## Chef Manage 3.3.96
 
@@ -60,7 +51,6 @@ We fixed an issue introduced in Chef Manage 3.3.93 where changes made to attribu
 To fix this issue, we've removed the `redis-namespace` Gem since it is no longer supported by Sidekiq.
 
 **Note**: If you use the Redis instance shipped with Chef Manage, please review your use case to ensure this change doesn't affect you.
-
 
 ## Chef Manage 3.3.95
 
@@ -77,13 +67,16 @@ To fix this issue, we've removed the `redis-namespace` Gem since it is no longer
 ## Chef Manage 3.3.93
 
 ### Improvements
+
 - Added support for Google Tag Manager. Google Tag Manager ID can be set to manage Google Tags. ([#1714](https://github.com/chef/chef-manage/pull/1714) , [#1718](https://github.com/chef/chef-manage/pull/1718))
 - Added support for OneTrust cookie consent which can be set to display a cookie consent banner. ([#1714](https://github.com/chef/chef-manage/pull/1714))
 - Updated footer to include links to Privacy Policy & Cookie Policy. ([#1705](https://github.com/chef/chef-manage/pull/1705))
 - Updated logo to reflect current Progress Chef brand. ([#1705](https://github.com/chef/chef-manage/pull/1705))
 
 ### Security
+
 #### Security Improvements
+
 - The user sign-up form now includes improved input validation. ([#1690](https://github.com/chef/chef-manage/pull/1690))
 - Updated password reset message ([#1645](https://github.com/chef/chef-manage/pull/1645))
 - Upgrade : globalid,rack,actionpack,rails ([#1624](https://github.com/chef/chef-manage/pull/1624))
@@ -101,6 +94,7 @@ To fix this issue, we've removed the `redis-namespace` Gem since it is no longer
 - Removed all the debugging code and updated the project name ([#1425](https://github.com/chef/chef-manage/pull/1425))
 
 ### Bug Fixes
+
 - Updated dependency 'mime-types-data' to address a logging related issue. ([#1717](https://github.com/chef/chef-manage/pull/1717))
 
 ## Chef Manage 3.3.66
@@ -192,7 +186,6 @@ The following version upgrades are now live with this release of Chef Manage:
 - Fix variable names in expeditor scripts [#1295](https://github.com/chef/chef-manage/pull/1295) ([IanMadd](https://github.com/IanMadd)) <!-- 3.2.48 -->
 - Add expeditor config for release notes [#1283](https://github.com/chef/chef-manage/pull/1283) ([IanMadd](https://github.com/IanMadd)) <!-- 3.2.44 -->
 
-
 ## Chef Manage 3.2.43
 
 ### Bug Fixes
@@ -215,9 +208,7 @@ Added stricter HTTP headers for improved security.
 
 Updated Rails to 6.1.4.3 to resolve CVE-2021-44528.
 
-
 ## Chef Manage 3.2.20
-
 
 ### Security
 
@@ -229,10 +220,7 @@ Updated Ruby from 2.7.4 to 2.7.5 to resolve the following CVEs:
 - CVE-2021-41816
 - CVE-2021-41819
 
-
-
 ## Chef Manage 3.2.13
-
 
 ### Bug Fixes and Improvements
 
@@ -249,19 +237,13 @@ Upgraded the Sidekiq job queuing engine used in Chef Manage from 5.2.9 to 6.3.1 
 
 Chef Manage now includes `Referrer-Policy` and `Permissions-Policy` HTTP headers for improved security.
 
-
-
 ## Chef Manage 3.1.83
-
 
 ### Bug fixes
 
 - Fixed 500 error while loading change log url introduced in 3.1.80
 
-
-
 ## Chef Manage 3.1.80
-
 
 ### Updates
 
@@ -344,10 +326,7 @@ Update the nokogiri gem to 1.12.5 to resolve CVE-2021-41098.
 
 Update the libarchive library from 3.4.3 to 3.5.2 to resolve security vulnerabilities in libarchive's handling of symbolic links.
 
-
-
 ## Chef Manage 3.0.16
-
 
 ### Bug Fixes
 
@@ -392,10 +371,7 @@ We updated the Rack gem used in Chef Manage from 2.0.9 to 2.2.3 to resolve [CVE-
 
 We updated the  Rails engine used in Chef Manage from 5.2.4.2 to 5.2.4.4 to resolve [CVE-2020-15169](https://nvd.nist.gov/vuln/detail/CVE-2020-15169).
 
-
-
 ## Chef Manage 3.0.11
-
 
 This release includes important dependency updates and support for SSL connections to the Chef Infra Server.
 
@@ -446,19 +422,13 @@ Chef Manage 3.0 is compatible with Chef Infra Server 12 and later. Users are alw
 - Ubuntu 12.04
 - Ubuntu 14.04
 
-
-
 ## Chef Manage 2.5.16
-
 
 ### Dependency Updates
 
 - Embedded Chef Infra Client upgraded from 12.19.36 to 12.22.5
 
-
-
 ## Chef Manage 2.5.15
-
 
 ### Bug Fixes
 
@@ -470,4 +440,3 @@ Chef Manage 3.0 is compatible with Chef Infra Server 12 and later. Users are alw
 
 - Added Strict-Transport-Security headers to all pages.
 - Sanitized HTML errors in JSON error output to prevent possible reflected XSS in the case of script tags being passed in as part of the URL of a JSON request.
-

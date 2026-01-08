@@ -1,10 +1,7 @@
 +++
 title = "AWS Cloud Resource Release Notes"
 draft = false
-
-
 product = ["inspec"]
-
 
 [menu]
   [menu.release_notes]
@@ -12,8 +9,6 @@ product = ["inspec"]
     identifier = "release_notes/inspec/InSpec AWS"
     parent = "release_notes/inspec"
 +++
-
-
 
 ## AWS Cloud Resource 2022-01-07
 
@@ -43,10 +38,10 @@ product = ["inspec"]
 - [Resolved issue with activesupport when running Ruby versions earlier than 2.7.0](https://github.com/inspec/inspec-aws/pull/816).
 - [Added the ability to verify the template body of a CloudFormation template in the `aws_cloudformation_template` resource](https://github.com/inspec/inspec-aws/pull/770). Thanks [@jb897](https://github.com/jb897)!
 
-
 ## AWS Cloud Resource 2021-11-30
 
 ### New AWS Cloud Resources
+
 - [IAM SSH Public Key](https://github.com/inspec/inspec-aws/pull/695)
 - [Cloudwatch Logs Streams](https://github.com/inspec/inspec-aws/pull/684)
 - [EC2 Carrier Gateway](https://github.com/inspec/inspec-aws/pull/686)
@@ -95,6 +90,7 @@ product = ["inspec"]
 ## AWS Cloud Resource 2021-11-08
 
 ### New AWS Cloud Resources
+
 - [MQ Broker](https://github.com/inspec/inspec-aws/pull/635)
 - [Simple Notification Service (SNS) Subscription](https://github.com/inspec/inspec-aws/pull/698)
 - [RDS DB Cluster Snapshot](https://github.com/inspec/inspec-aws/pull/696)
@@ -110,13 +106,15 @@ product = ["inspec"]
 - [Client VPN Endpoint](https://github.com/inspec/inspec-aws/pull/715)
 - [Cloudwatch Anomaly Detector](https://github.com/inspec/inspec-aws/pull/675)
 - [Signer Signing Profile](https://github.com/inspec/inspec-aws/pull/670)
-### Improvements
-- [Removed duplicate resource](https://github.com/inspec/inspec-aws/pull/697)
 
+### Improvements
+
+- [Removed duplicate resource](https://github.com/inspec/inspec-aws/pull/697)
 
 ## AWS Cloud Resource 2021-10-13
 
 ### New AWS Cloud Resources
+
 - [EC2 Prefix List](https://github.com/inspec/inspec-aws/pull/538)
 - [Network Manager Global Network](https://github.com/inspec/inspec-aws/pull/539)
 - [CloudFormation Stack Set](https://github.com/inspec/inspec-aws/pull/655)
@@ -126,19 +124,23 @@ product = ["inspec"]
 - [API Gateway Account](https://github.com/inspec/inspec-aws/pull/639)
 - [API Gateway API Key](https://github.com/inspec/inspec-aws/pull/640)
 - [CloudFront Origin Access Identities](https://github.com/inspec/inspec-aws/pull/645)
+
 ### Improvements
+
 - [Added inline policy names in IAM resource pack](https://github.com/inspec/inspec-aws/pull/621)
 - [ELB new attributes added to existing resource ELB pack](https://github.com/inspec/inspec-aws/pull/623)
 - [Added tag attribute in KMS key resource pack](https://github.com/inspec/inspec-aws/pull/522)
 - [Changed an attribute in cloudfront resource pack](https://github.com/inspec/inspec-aws/pull/648)
-### Bug Fixes
-- [Fixed a typo in aws_ec2_instances resource pack](https://github.com/inspec/inspec-aws/pull/649)
 
+### Bug Fixes
+
+- [Fixed a typo in aws_ec2_instances resource pack](https://github.com/inspec/inspec-aws/pull/649)
 
 ## AWS Cloud Resource 2021-10-01
 
 ### New AWS Cloud Resources
-- RDS Snapshot 
+
+- RDS Snapshot
 - Transit Gateway Multicast Domain Association
 - Transit Gateway Multicast Domain
 - Transit Gateway Group Member
@@ -160,9 +162,11 @@ product = ["inspec"]
 - EC2 Network Insights Path
 - EC2 Network Interface
 - EC2 Network Interface Attachment
+
 ### Improvements
+
 - Added the origin path attribute in Cloud front distribution resource
+
 ### Bug Fixes
+
 - Dynamodb tables fails when we have large number of dynamodb tables that requires pagination.
-
-

@@ -1,10 +1,7 @@
 +++
 title = "Release Notes: ChefDK 0.19 - 4.13"
 draft = false
-
 gh_repo = "chef-web-docs"
-
-
 product = []
 +++
 <!-- markdownlint-disable-file -->
@@ -18,7 +15,6 @@ longer under active development.
 This document is no longer maintained.
 
 {{< /note >}}
-
 
 This page documents the ChefDK major changes for each release. For
 a detailed list of changes, see the [ChefDK Changelog on

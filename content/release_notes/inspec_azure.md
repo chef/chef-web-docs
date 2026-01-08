@@ -1,10 +1,7 @@
 +++
 title = "Azure Cloud Resource Release Notes"
 draft = false
-
-
 product = ["inspec"]
-
 
 [menu]
   [menu.release_notes]
@@ -12,7 +9,6 @@ product = ["inspec"]
     identifier = "release_notes/inspec/InSpec Azure"
     parent = "release_notes/inspec"
 +++
-
 
 ## Azure Cloud Resource 2022-01-07
 
@@ -31,13 +27,14 @@ product = ["inspec"]
 
 - [Resolved an error in the `azure_network_security_group` resource when verifying a destination port or range of destination ports](https://github.com/inspec/inspec-azure/pull/564).
 
-
 ## Azure Cloud Resource 2021-10-08
 
 ### New Azure Cloud Resources
+
 - Migrate Project Machines
 - Migrate Assessment
 - Migrate Project Events
 
 ### Bug Fixes
-- Minumum Service principal role required
+
+- Minimum Service principal role required

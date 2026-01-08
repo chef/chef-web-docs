@@ -1,10 +1,7 @@
 +++
 title = "Chef InSpec Release Notes"
 draft = false
-
-
 product = ["inspec"]
-
 
 [menu]
   [menu.release_notes]
@@ -13,8 +10,6 @@ product = ["inspec"]
     parent = "release_notes"
     weight = 80
 +++
-
-
 
 ## Chef InSpec 7.0.95
 
@@ -71,11 +66,11 @@ depends:
 
 At the time of this release, the following resource packs _are_ available:
 
--  Elasticsearch 
--  Docker 
--  MongoDB
--  Podman
--  RabbitMQ
+- Elasticsearch
+- Docker
+- MongoDB
+- Podman
+- RabbitMQ
 
 At the time of this release, the following resource packs _aren't_ available:
 
@@ -90,13 +85,13 @@ If you need to use resources from these resource packs, wait until they've been 
 
 Modularizing these resources into separate resource packs streamlines InSpec core, maintains full profile compatibility, and enables independent development and delivery of future resource packs.
 
-We've added these features to help manage these gem-based resource packs: 
+We've added these features to help manage these gem-based resource packs:
 
 - Automatic fallback to install missing resource pack gems, ensuring backward compatibility ([#7097](https://github.com/inspec/inspec/pull/7097))
 - Automatic resolution of gem conflicts ([#7258](https://github.com/inspec/inspec/pull/7258))
 - Improved dependency and source management for gem-based resources ([#7244](https://github.com/inspec/inspec/pull/7244))
 - Version support for gem-based resources ([#7239](https://github.com/inspec/inspec/pull/7239))
-- Support for vendoring gem-based resources ([#7355](https://github.com/inspec/inspec/pull/7355)) 
+- Support for vendoring gem-based resources ([#7355](https://github.com/inspec/inspec/pull/7355))
 
 #### Licensing changes
 
@@ -134,12 +129,13 @@ Licensing is automatically managed based on the distribution and can't be manual
 Release Date: 29 January, 2025.
 
 ### New Features
+
 - Deprecation notice about moving core resource packs to their individual gems after the next major release ([#7219](https://github.com/inspec/inspec/pull/7219))
 
-- Added the `--legacy` flag to the inspec automate upload command. ([#7200](https://github.com/inspec/inspec/pull/7200)) 
+- Added the `--legacy` flag to the inspec automate upload command. ([#7200](https://github.com/inspec/inspec/pull/7200))
 
   The `inspec automate upload` command runs `inspec check` and `inspec export`, which were updated in Chef InSpec 5.22.36. This update led to a bug with InSpec profiles with `=begin =end`.
- 
+
   Use the `--legacy` flag with profiles where the newer export and check methods may fail to parse older profiles correctly, particularly due to limitations in AST parsing.
 
 ### CVEs
@@ -149,10 +145,10 @@ Release Date: 29 January, 2025.
 - Fixes the REXML ReDoS vulnerability [CVE-2024-49761](https://nvd.nist.gov/vuln/detail/CVE-2024-49761). ([#7199](https://github.com/inspec/inspec/pull/7199))
 
 ### Improvements
+
 - Use of a better cryptographic hashing algorithm on sensitive data. ([#7261](https://github.com/inspec/inspec/pull/7261))
 - Improvements in the error handling of the plugin installation error. ([#7161](https://github.com/inspec/inspec/pull/7161))
 - Fixed the encoding issues with special characters in passwords for Postgres Session resource ([#7277](https://github.com/inspec/inspec/pull/7277))
-
 
 ## Chef InSpec 6.8.11
 
@@ -169,11 +165,10 @@ Release Date: 29 January, 2025.
 
 - The oracledb_session resource has the following bug fixes:
 
-   - The oracledb_session resource now correctly executes profiles against Oracle Database 12 on Solaris.
-   - The oracledb_session resource now correctly passes queries with certain special characters and escape backslashes to Oracle SQL. Previously, queries with special characters like `,` or `$` that were escaped using a double backslash (for example, `\\,`) were converted by oracledb_session to have four backslashes (for example `\\\\,`). ([#7136](https://github.com/inspec/inspec/pull/7136))
+  - The oracledb_session resource now correctly executes profiles against Oracle Database 12 on Solaris.
+  - The oracledb_session resource now correctly passes queries with certain special characters and escape backslashes to Oracle SQL. Previously, queries with special characters like `,` or `$` that were escaped using a double backslash (for example, `\\,`) were converted by oracledb_session to have four backslashes (for example `\\\\,`). ([#7136](https://github.com/inspec/inspec/pull/7136))
 
 - The postgres_session resource now correctly returns an error when password authentication fails. ([#7154](https://github.com/inspec/inspec/pull/7154))
-
 
 ## Chef InSpec 6.8.1
 
@@ -193,20 +188,20 @@ Release Date: 29 January, 2025.
 - Updated the output of the `cmp` matcher when a control fails while using a negation such as 'should_not'. ([#6862](https://github.com/inspec/inspec/pull/6862))
 
   For example, if the value of `key` is `3`, then this fails:
-  
+
   ```ruby
   its(key) { should_not cmp "3" }
   ```
-  
+
   and returns this output:
-  
+
   ```plain
   expected: 3
        got: 3
   ```
-  
+
   The updated output returns:
-  
+
   ```plain
   expected it not to be == "3"
        got: 3
@@ -298,7 +293,6 @@ We overhauled the `inspec check` and `inspec export` commands to use the parser 
 
 - We no longer support Ruby 2.7 since it became end-of-life (EOL) in March 2023.
 
-
 ## Chef InSpec 5.23.6
 
 Release date: September 23, 2025
@@ -320,11 +314,10 @@ Release date: September 23, 2025
 - Updated the `mongo` gem to version 2.21.3. ([#7504](https://github.com/inspec/inspec/pull/7504/))
 - Updated train dependencies. ([#7508](https://github.com/inspec/inspec/pull/7508/))
 
-   - `train/train-core` to >= 3.13.4 
-   - `train-winrm` to >= 0.4.0
+  - `train/train-core` to >= 3.13.4
+  - `train-winrm` to >= 0.4.0
 
 - Updated `signet` to < 0.22.0. ([#7511](https://github.com/inspec/inspec/pull/7511/))
-
 
 ## Chef InSpec 5.22.95
 
@@ -349,7 +342,6 @@ Release Date: August 5, 2025
 - Upgraded `rspec-its` from `~> 1.2` to `>= 1.2, < 3.0`. ([#7436](https://github.com/inspec/inspec/pull/7436))
 - Upgraded `rspec` from `>= 3.9, <= 3.12` to `>= 3.9, <= 3.14`. ([#7432](https://github.com/inspec/inspec/pull/7432))
 - Upgraded `rubyzip` from `>= 1.2.2, < 3.0` to `>= 1.2.2, < 4.0`. ([#7469](https://github.com/inspec/inspec/pull/7469))
-
 
 ## Chef InSpec 5.22.80
 
@@ -378,7 +370,6 @@ Release Date: May 7, 2025
 
 - We added an error notification when running a waiver with a waiver file that's missing required parameters. ([#6644](https://github.com/inspec/inspec/pull/6644))
 
-
 ## Chef InSpec 5.22.72
 
 Release Date: 5 March, 2025.
@@ -397,9 +388,8 @@ Release Date: 5 March, 2025.
 ### Bug Fixes
 
 - Fixed an issue in the `postgres_session` resource for special characters in passwords ([#7276](https://github.com/inspec/inspec/pull/7276)).
-  
-  Formatted and encoded the password variable for `postgres_session` to avoid breaking the connection string.
 
+  Formatted and encoded the password variable for `postgres_session` to avoid breaking the connection string.
 
 ## Chef InSpec 5.22.65
 
@@ -409,7 +399,7 @@ Release Date: 13 December,2024
 
 - Added the `--legacy` flag to the `inspec automate upload` command. ([#7200](https://github.com/inspec/inspec/pull/7200))
 
-  The `inspec automate upload` command runs `inspec check` and `inspec export`, which were overhauled in Chef InSpec 5.22.36. This overhaul led to a bug with InSpec profiles with `=begin =end`. 
+  The `inspec automate upload` command runs `inspec check` and `inspec export`, which were overhauled in Chef InSpec 5.22.36. This overhaul led to a bug with InSpec profiles with `=begin =end`.
 
   Use the `--legacy` flag with profiles where the newer export and check methods may fail to parse older profiles correctly, particularly due to limitations in AST parsing.
 
@@ -425,9 +415,6 @@ Release Date: 13 December,2024
 
 - Upgraded Ruby and Ruby Devkit to 3.1.6 due to outdated embedded Perl version in Ruby 3.1.2. ([#7174](https://github.com/inspec/inspec/pull/7174))
 
-
-
-
 ## Chef InSpec 5.22.58
 
 ### Improvements
@@ -439,7 +426,7 @@ Release Date: 13 December,2024
 - The oracledb_session resource has the following bug fixes:
 
   - oracledb_session resource now correctly executes profiles against Oracle Database 12 on Solaris
-  - The oracledb_session resource now correctly passes queries 
+  - The oracledb_session resource now correctly passes queries
     with certain special characters and escape backslashes to Oracle SQL.
     Previously queries with special characters like `,` or `$` that were escaped using a double backslash (for example, `\\,`)
     were converted by oracledb_session to have four backslashes (for example `\\\\,`).
@@ -447,8 +434,6 @@ Release Date: 13 December,2024
   ([#7136](https://github.com/inspec/inspec/pull/7136))
 
 - The postgres_session resource now correctly returns an error when the password authentication fails. ([#7154](https://github.com/inspec/inspec/pull/7154))
-
-
 
 ## Chef InSpec 5.22.55
 
@@ -476,27 +461,26 @@ Release Date: 13 December,2024
 - Updated the output of the `cmp` matcher when a control fails while using a negation such as 'should_not'. ([#6986](https://github.com/inspec/inspec/pull/6986))
 
   For example, if the value of `key` is `3`, then this fails:
-  
+
   ```ruby
   its(key) { should_not cmp "3" }
   ```
-  
+
   and returns this output:
-  
+
   ```plain
   expected: 3
        got: 3
   ```
-  
+
   The updated output returns:
-  
+
   ```plain
   expected it not to be == "3"
        got: 3
   ```
 
   Thanks [@Taknok](https://github.com/Taknok)!
-
 
 ## Chef InSpec 5.22.40
 
@@ -505,7 +489,6 @@ Release Date: 13 December,2024
 - Fixed the progress-bar reporter so the progress of an InSpec execution that includes an `its` block is displayed correctly. ([#6936](https://github.com/inspec/inspec/pull/6936))
 - Fixed an issue where waivers were ignored when they were sent by Chef Infra Client in Compliance Phase using InSpec inputs. ([#6920](https://github.com/inspec/inspec/pull/6920))
 - Removed dependency on the activesupport Gem by removing the `blank?` method. ([#6916](https://github.com/inspec/inspec/pull/6916))
-
 
 ## Chef InSpec 5.22.36
 
@@ -517,13 +500,12 @@ Release Date: 13 December,2024
 - Fixed the `inspec json` command, which failed to read CLI options properly. ([#6814](https://github.com/inspec/inspec/pull/6814))
 - Fixed an issue with Chef Infra Client Compliance Phase in which the reporter integration was broken. ([6860](https://github.com/inspec/inspec/pull/6860))
 
-
 ## Chef InSpec 5.22.29
 
-### End User License Agreement 
+### End User License Agreement
 
 We've updated the Chef End User License Agreement (EULA).
-The terms of the EULA are the same as they were before, but we've created three licensing tiers: Free, Trial, and Commercial. 
+The terms of the EULA are the same as they were before, but we've created three licensing tiers: Free, Trial, and Commercial.
 
 The Free tier allows personal/non-commercial users to scan 10 targets for an unlimited period of time.
 The Trial tier allows trial users to scan unlimited targets for 30 days.
@@ -531,9 +513,9 @@ The Commercial tier gives users the features and benefits that come with the sub
 
 Contact [Chef Support](https://community.progress.com/s/products/chef) for more information.
 
-### Security Updates 
+### Security Updates
 
-Updates in this release provide fixes for the following CVE(s): 
+Updates in this release provide fixes for the following CVE(s):
 
 - CVE-2023-42658 InSpec archive command vulnerable to maliciously crafted profile (#[6721](https://github.com/inspec/inspec/pull/6721))
 
@@ -548,7 +530,6 @@ Updates in this release provide fixes for the following CVE(s):
 - Fixed controls in waiver files that were not getting waived if the control failed. ([#6588](https://github.com/inspec/inspec/pull/6588))
 - Fixed `inspec exec` so that it can correctly fetch a profile from a repository that isn't managed with Git and doesn't have a `.git` directory. ([#6640](https://github.com/inspec/inspec/pull/6640))
 - Fix for missing nil check for control variable in formatter's base. ([#6629](https://github.com/inspec/inspec/pull/6629))
-
 
 ## Chef InSpec 5.22.3
 
@@ -582,9 +563,6 @@ Added support for installing Chef InSpec on RHEL 9. Scanning support already exi
 - Fix for configuring headers in the http resource on Windows using remote transport. ([#6484](https://github.com/inspec/inspec/pull/6484))
 - Fix for host resource to resolve multiple IP addresses on Windows. ([#6481](https://github.com/inspec/inspec/pull/6481))
 
-
-
-
 ## Chef InSpec 5.21.29
 
 ### New Features
@@ -608,7 +586,6 @@ Added support for installing Chef InSpec on RHEL 9. Scanning support already exi
 - Update Ruby from 2.7.4 to 3.1.2 for omnibus builds. This fixes two CVEs (CVE-2021-41819 and CVE-2021-41816). ([#6341](https://github.com/inspec/inspec/pull/6341))
 - Fixed a bug in profiles that have a dependency that includes a dash followed by a release version (e.g. 2.2.0-13). ([#6377](https://github.com/inspec/inspec/pull/6377))
 
-
 ## Chef InSpec 5.18.14
 
 ### New Features
@@ -630,8 +607,11 @@ Added support for installing Chef InSpec on RHEL 9. Scanning support already exi
 ## Chef InSpec 5.17.4
 
 ### New Features
+
 - Added `zfs` resource ([#6004](https://github.com/inspec/inspec/pull/6004))
+
 ### Bug Fixes
+
 - Fixed `service` resource on `amazonlinux2022` ([#5998](https://github.com/inspec/inspec/pull/5998))
 - Fixed `inspec json` command failing to populate the `inputs` field for the profile ([#6056](https://github.com/inspec/inspec/pull/6056))
 - Fixed profile gem dependency installation failure when gem version is not specified ([#6057](https://github.com/inspec/inspec/pull/6057))
@@ -639,43 +619,57 @@ Added support for installing Chef InSpec on RHEL 9. Scanning support already exi
 ## Chef InSpec 5.14.0
 
 ### New Features
+
 - Added `default_gateway` resource ([#5979](https://github.com/inspec/inspec/pull/5979)).
 - Added `linux_audit_system` resource ([#5988](https://github.com/inspec/inspec/pull/5988)).
+
 ### Improvements
+
 - Enhanced `file` resource, adding `be_immutable` matcher, `content_as_yaml` and `content_as_json` properties ([#5986](https://github.com/inspec/inspec/pull/5986)).
 - Enhanced `service` resource with `be_monitored_by` and `have_start_mode` matchers ([#5981](https://github.com/inspec/inspec/pull/5981)).
 - Enhanced `group` resource with `have_gid` matcher ([#5987](https://github.com/inspec/inspec/pull/5987)).
+
 ### Bug Fixes
+
 - By default, make cookstyle checks for `inspec check` optional  ([#5989](https://github.com/inspec/inspec/pull/5989)).
 
 ## Chef InSpec 5.12.2
 
 ### New Features
+
 - Added `mail_alias` resource ([#5961](https://github.com/inspec/inspec/pull/5961))
 - Added `routing_table` resource ([#5972](https://github.com/inspec/inspec/pull/5972))
+
 ### Improvements
+
 - Enhancements to output of progress-bar reporter ([#5966](https://github.com/inspec/inspec/pull/5956))
 - Enhanced `docker_container` resource with `have_volume` matcher ([#5944](https://github.com/inspec/inspec/pull/5944))
 - Enhanced `docker_image` resource with low-level "inspection" properties. ([#5945](https://github.com/inspec/inspec/pull/5945))
 - Enhanced `user` resource with new matchers and properties ([#5959](https://github.com/inspec/inspec/pull/5959))
+
 ### Bug Fixes
+
 - Fixed the `service` resource on BSD to ensure installed: true isn't always returned. ([#5948](https://github.com/inspec/inspec/pull/5948))
 - Updated Cisco XE device detection (train [#728](https://github.com/inspec/train/pull/728))
 
 ## Chef InSpec 5.10.5
 
 ### New Features
+
 - Added linux container resource `lxc`. ([#5921](https://github.com/inspec/inspec/pull/5921))
 - Re-added `ppa` resource. ([#5931](https://github.com/inspec/inspec/pull/5931))
 - Added `cgroup` resource. ([#5935](https://github.com/inspec/inspec/pull/5935))
+
 ### Improvements
+
 - Added the ability to detect Kubernetes and Podman containers to the `virtualization` resource. ([#5796](https://github.com/inspec/inspec/pull/5796))
 - Description added to `inspec plugin list` and `search` commands. ([#5936](https://github.com/inspec/inspec/pull/5936))
+
 ### Bug Fixes
+
 - Fixed `postgres_session` resource to allow query errors to be tested rather than treated as control failures. ([#5937](https://github.com/inspec/inspec/pull/5937))
 - Fixed `oracledb_session` resource when query has empty result. ([#5938](https://github.com/inspec/inspec/pull/5938))
 - Fixed command timeout ignored when used with sudo on ssh transport. (train [#727](https://github.com/inspec/train/pull/727))
-
 
 ## Chef InSpec 5.7.9
 
@@ -692,7 +686,7 @@ Added support for installing Chef InSpec on RHEL 9. Scanning support already exi
 
 ### Improvements
 
-- Added `target_id` sourced from `train` to the reporter interface. ([#5895](https://github.com/inspec/inspec/pull/5895))  
+- Added `target_id` sourced from `train` to the reporter interface. ([#5895](https://github.com/inspec/inspec/pull/5895))
 - Added new properties and matchers to the `firewalld` resources. ([#5597](https://github.com/inspec/inspec/pull/5597))
 - Added `lazy_instance` option to `FilterTable`, allowing plural resource definitions to conveniently access the resource instance with the lazy-loading columns. (#[5916](https://github.com/inspec/inspec/pull/5916))
 
@@ -704,15 +698,15 @@ Added support for installing Chef InSpec on RHEL 9. Scanning support already exi
 ### Breaking Changes
 
 - InSpec is now based on Ruby 3. You may need to reinstall plugins and `gem` dependencies of plugins.
-- Removed legacy AWS and Azure resources from InSpec core. Since 2018, active development on these resources was part of the resource packs, and these old versions are not maintained. ([#5915](https://github.com/inspec/inspec/pull/5915)) 
-- Deprecated the `--target-id` CLI option. ([#5918](https://github.com/inspec/inspec/pull/5918)) 
+- Removed legacy AWS and Azure resources from InSpec core. Since 2018, active development on these resources was part of the resource packs, and these old versions are not maintained. ([#5915](https://github.com/inspec/inspec/pull/5915))
+- Deprecated the `--target-id` CLI option. ([#5918](https://github.com/inspec/inspec/pull/5918))
 
 ## Chef InSpec 4.56.58
 
-### End User License Agreement 
+### End User License Agreement
 
 We've updated the Chef End User License Agreement (EULA).
-The terms of the EULA are the same as they were before, but we've created three licensing tiers: Free, Trial, and Commercial. 
+The terms of the EULA are the same as they were before, but we've created three licensing tiers: Free, Trial, and Commercial.
 
 The Free tier allows personal/non-commercial users to scan 10 targets for an unlimited period of time.
 The Trial tier allows trial users to scan unlimited targets for 30 days.
@@ -720,9 +714,9 @@ The Commercial tier gives users the features and benefits that come with the sub
 
 Contact [Chef Support](https://community.progress.com/s/products/chef) for more information.
 
-### Security Updates 
+### Security Updates
 
-Updates in this release provide fixes for the following CVE(s): 
+Updates in this release provide fixes for the following CVE(s):
 
 - CVE-2023-42658 InSpec archive command vulnerable to maliciously crafted profile (#[6720](https://github.com/inspec/inspec/pull/6720))
 
@@ -744,22 +738,20 @@ Updates in this release provide fixes for the following CVE(s):
 
 - Upgraded to Ruby 3.1 and removed Ruby 2.7, which is EOL. ([#6713](https://github.com/inspec/inspec/pull/6713))
 
-
 ## Chef InSpec 4.56.20
 
 ### Bug Fixes
+
 - Updated Cisco XE device detection (train [#728](https://github.com/inspec/train/pull/728))
 - Make cookstyle checks for `inspec check` optional by default ([#5992](https://github.com/inspec/inspec/pull/5992))
-
 
 ## Chef InSpec 4.56.19
 
 ### Bug Fixes
+
 - Fixed `postgres_session` resource to allow query errors to be tested rather than treated as control failures. ([#5942](https://github.com/inspec/inspec/pull/5942))
 - Fixed `oracledb_session` resource when query has empty result. ([#5943](https://github.com/inspec/inspec/pull/5943))
 - Fixed command timeout ignored when used with sudo on ssh transport. (train [#727](https://github.com/inspec/train/pull/727))
-
-
 
 ## Chef InSpec 4.56.17
 
@@ -778,7 +770,7 @@ Updates in this release provide fixes for the following CVE(s):
 - Added ability to check whether a package is latest in the `package` resource. ([#5771](https://github.com/inspec/inspec/pull/5771))
 - Added option to ignore rule comments in the `ip_table` resource. ([#5777](https://github.com/inspec/inspec/pull/5777))
 - Simplify inheritance of core resources into custom resources. ([#5816](https://github.com/inspec/inspec/pull/5816))
-- Added `target_id` sourced from `train` back to the reporter interface. ([#5917](https://github.com/inspec/inspec/pull/5917))  
+- Added `target_id` sourced from `train` back to the reporter interface. ([#5917](https://github.com/inspec/inspec/pull/5917))
 - Added new properties and matchers to the `firewalld` resources. ([#5919](https://github.com/inspec/inspec/pull/5919))
 - Added `lazy_instance` option to `FilterTable`, allowing plural resource definitions to conveniently access the resource instances with the lazy-loading columns. (#[5922](https://github.com/inspec/inspec/pull/5922))
 
@@ -788,14 +780,13 @@ Updates in this release provide fixes for the following CVE(s):
 - Fixed an issue with the `package` resource when matching certain version numbers. ([#5797](https://github.com/inspec/inspec/pull/5797))
 - Ensure that the CLI option, `--insecure` works with dependent profiles loaded with self-signed SSL certificates. ([#5799](https://github.com/inspec/inspec/pull/5799))
 - Fixed `grub_conf` resource to capture non-indented grub conf values. ([#5810](https://github.com/inspec/inspec/pull/5810))
-- Fixed `sestatus: command not found `error on Amazon Linux 2. ([#5828](https://github.com/inspec/inspec/pull/5828))
+- Fixed `sestatus: command not found`error on Amazon Linux 2. ([#5828](https://github.com/inspec/inspec/pull/5828))
 - Fixed `--no-diff` option when the message contains only one newline. ([#5884](https://github.com/inspec/inspec/pull/5884))
 - Fixed the `inspec automate version` command to work properly. ([#5893](https://github.com/inspec/inspec/pull/5893))
 
 ### Breaking Changes
 
 - Drop testing support for EOL Ruby 2.5. ([#5783](https://github.com/inspec/inspec/pull/5783))
-
 
 ## Chef InSpec 4.52.9
 
@@ -813,7 +804,6 @@ Updates in this release provide fixes for the following CVE(s):
 - Fixed the `ibmdb2_session` resource so that it now correctly accepts queries with clauses. ([#5742](https://github.com/inspec/inspec/pull/5742))
 - Fixed the `oracledb_session` resource to properly handle nil in the query output. ([#5717](https://github.com/inspec/inspec/pull/5717))
 - Fixed the `packages` resource to correctly list only installed packages on Alpine Linux. ([#5765](https://github.com/inspec/inspec/pull/5765))
-
 
 ## Chef InSpec 4.50.3
 
@@ -845,7 +835,7 @@ Updates in this release provide fixes for the following CVE(s):
 
 - Resolved case-sensitivity issue for Windows `users` and `group` resources. ([#5667](https://github.com/inspec/inspec/pull/5667))
 - Fixed the **oracledb_session** resource when invoking a query using OS user and DB role.([#5702](https://github.com/inspec/inspec/pull/5702))
-- Additional **oracledb_session** resource fixes. ([#5706](https://github.com/inspec/inspec/pull/5706)) 
+- Additional **oracledb_session** resource fixes. ([#5706](https://github.com/inspec/inspec/pull/5706))
 
 ## Chef InSpec 4.46.13
 
@@ -891,6 +881,7 @@ Updates in this release provide fixes for the following CVE(s):
 - Added support for Open Policy Agent: added resources `opa_cli` and `opa_api`. ([#5592](https://github.com/inspec/inspec/pull/5592))
 
 ### Improvements
+
 - Added `mongodb_session` resource and docs. ([#5572](https://github.com/inspec/inspec/pull/5572))
 - Added `--tags` option to CLI exec command to filter controls by tag. ([#5596](https://github.com/inspec/inspec/pull/5596))
 
@@ -916,42 +907,41 @@ Updates in this release provide fixes for the following CVE(s):
 ## Chef InSpec 4.38.3
 
 ### New Features
+
 - Added a new mongodb_conf resource. ([#5562](https://github.com/inspec/inspec/pull/5562))
 
 ### Bug Fixes
+
 - Corrected the `AWS_SECRET_ACCESS_KEY` environment variable name in the documentation. ([#5566](https://github.com/inspec/inspec/pull/5566))
 - Changed the Windows local pipe server connection to retry once on EPIPE. ([train #694](https://github.com/inspec/train/pull/694))
 - Exceptions are now handled correctly in the `oracledb_session` resource. ([#5567](https://github.com/inspec/inspec/pull/5567))
 
-
-
 ## Chef InSpec 4.37.30
 
 ### Improvements
+
 - Added support for Ed25519-based SSH key exchange algorithms. ([#5563](https://github.com/inspec/inspec/pull/5563))
 
 ### Bug Fixes
+
 - Fixed the mysql_session resource to raise an exception if there is an error in a connection or query. ([#5551](https://github.com/inspec/inspec/pull/5551))
 - Fixed the postgres_session resource to raise an exception if there is an error in a connection or query. ([#5553](https://github.com/inspec/inspec/pull/5553))
 
-
 ## Chef InSpec 4.37.25
 
-
 ### Bug Fixes
+
 - Fixed the `inspec shell` to allow loading profiles that have their own dependent profiles. ([#5547](https://github.com/inspec/inspec/pull/5547))
 - Docs correction: `sshd_config` is for daemon, not client. Thanks for this fix, [@jblaine](https://github.com/jblaine)! ([#5549](https://github.com/inspec/inspec/pull/5549))
-
-
 
 ## Chef InSpec 4.37.23
 
 ### Improvements
 
-- Updated the `inspec init plugin` command ([#5536](https://github.com/inspec/inspec/pull/5536)) with the following changes: 
-    - The values of flags passed to the `inspec init plugin` command are now wrapped in double quotes instead of single quotes.
-    - Template files are now ERB files.
-    - The `activator` flag replaces the `hook` flag, which is now an alias. 
+- Updated the `inspec init plugin` command ([#5536](https://github.com/inspec/inspec/pull/5536)) with the following changes:
+  - The values of flags passed to the `inspec init plugin` command are now wrapped in double quotes instead of single quotes.
+  - Template files are now ERB files.
+  - The `activator` flag replaces the `hook` flag, which is now an alias.
 
 - Added Ubuntu to the list of FIPS-enabled platforms. ([#5533](https://github.com/inspec/inspec/pull/5533))
 
@@ -972,27 +962,27 @@ CLI command fixes:
 
 - This release ends support for EOL Ubuntu 16.04 and builds on 18.04 ([#5532](https://github.com/inspec/inspec/pull/5532))
 
-
 ## Chef InSpec 4.37.17
 
 ### Improvements
+
 - Added support for `zfs_pool` and `zfs_dataset` resources on Linux ([#5523](https://github.com/inspec/inspec/pull/5523))
 - Add docs for `toml` resource ([#5514](https://github.com/inspec/inspec/pull/5514))
 - Add CI-CD docs ([#5489](https://github.com/inspec/inspec/pull/5489))
 - Add explicit RHEL8 builders to omnibus build ([#5527](https://github.com/inspec/inspec/pull/5527))
 - Improved `port` resource performance: adding more specific search while using `ss` command ([#5522](https://github.com/inspec/inspec/pull/5522))
+
 ### Bug Fixes
+
 - `file` resource `more_permissive_than` matcher returns nil instead of throwing exception when file does not exist ([#5519](https://github.com/inspec/inspec/pull/5519))
-
-
 
 ## Chef InSpec 4.37.8
 
 ### Bug Fixes
+
 - The HTTP resource response body is now coerced into UTF-8. ([#5510](https://github.com/inspec/inspec/pull/5510))
 - The `automate login` command now will verify credentials before storing them. ([#5509](https://github.com/inspec/inspec/pull/5509))
 - Modified the windows_feature resource to indicate if a feature is enabled rather than just available. ([#5506](https://github.com/inspec/inspec/pull/5506))
-
 
 ## Chef InSpec 4.37.0
 
@@ -1009,7 +999,6 @@ CLI command fixes:
 - Fixed an error when using profile dependencies and require_controls. ([#5487](https://github.com/inspec/inspec/pull/5487))
 - Fixed the `windows_firewall_rule` resource when it failed to validate more than one rule. ([#5502](https://github.com/inspec/inspec/pull/5502))
 
-
 ## Chef InSpec 4.36.4
 
 ### New Features
@@ -1024,7 +1013,6 @@ CLI command fixes:
 - Switch to GNU timeout-based implementation of SSH timeouts. (train [#679](https://github.com/inspec/train/pull/679))
 - Fixed the group resource when a member does not exist. ([#5470](https://github.com/inspec/inspec/pull/5470))
 
-
 ## Chef InSpec 4.33.1
 
 ### New Features
@@ -1035,23 +1023,23 @@ CLI command fixes:
 
 - Removed the default of 3600 seconds for `--command-timeout` CLI option. ([#5472](https://github.com/inspec/inspec/pull/5472))
 
-
 ## Chef InSpec 4.32.0
 
 ### New Features
+
 - Added ability to pass inputs to InSpec shell using input file and cli ([#5452](https://github.com/inspec/inspec/pull/5452)) For more information, see [How can I set Inputs?](https://docs.chef.io/inspec/inputs/#how-can-i-set-inputs) in the InSpec documentation.
 
 ### Bug Fixes
+
 - **Fix SSH Timeout PTY allocation ([train #676](https://github.com/inspec/train/pull/676)).** We fixed a bug that caused occasional failures in some command resources that use SSH transport and were mistakenly allocated a pseudoterminal (PTY) when setting a timeout. In some cases, the PTY changed how the resource was interpreted. This fix only uses PTY when explicitly requested.
-
-
 
 ## Chef InSpec 4.31.1
 
 This release is a hotfix to address a regression in 4.31.0.
-### Bug Fixes
-- Fix for error "timed out after 0 seconds" on all command resources under kitchen-inspec ([#5455](https://github.com/inspec/inspec/pull/5455))
 
+### Bug Fixes
+
+- Fix for error "timed out after 0 seconds" on all command resources under kitchen-inspec ([#5455](https://github.com/inspec/inspec/pull/5455))
 
 ## Chef InSpec 4.31.0
 
@@ -1061,12 +1049,9 @@ This release is a hotfix to address a regression in 4.31.0.
 - Added the [`--docker-url`](https://docs.chef.io/inspec/cli/) CLI option, which can be used to specify the URI to connect to the Docker Engine. ([#5445](https://github.com/inspec/inspec/pull/5445))
 - Added support for targeting Linux and Windows containers running on Docker for Windows. ([train #674](https://github.com/inspec/train/pull/674))
 
-
 ### Bug Fixes
 
 - Hash inputs will now be loaded consistently and accessed as strings or symbols. ([#5446](https://github.com/inspec/inspec/pull/5446))
-
-
 
 ## Chef InSpec 4.29.3
 
@@ -1085,28 +1070,27 @@ This release is a hotfix to address a regression in 4.31.0.
 
 - `inspec exec` will now fetch profiles via Git regardless of the name of default branch. ([#5438](https://github.com/inspec/inspec/pull/5438))
 
-
 ## Chef InSpec 4.28.0
 
 ### New Features
+
 - Added the option to filter out empty profiles from reports. ([#5425](https://github.com/inspec/inspec/pull/5425))
 - Exposed the `conf_path`, `content`, and `params` properties to the `auditd_conf` resource. ([#5422](https://github.com/inspec/inspec/pull/5422))
-- Added the ability to specify `--user` when connecting to docker containers. ([train #669](https://github.com/inspec/train/pull/669)) 
+- Added the ability to specify `--user` when connecting to docker containers. ([train #669](https://github.com/inspec/train/pull/669))
 - Added a `clear_cache` option to the InSpec CLI. ([#5266](http://github.com/inspec/inspec/pull/5266))
 
 ### Bug Fixes
+
 - Fixed the `crontab` resource when passing a username to AIX. ([#5418](https://github.com/inspec/inspec/pull/5418))
 - Added Git to the Docker build. ([#5420](https://github.com/inspec/inspec/pull/5420))
 - Stopped a backtrace from occurring when using `cmp` to compare `nil` with a non-existing file. ([#5427](https://github.com/inspec/inspec/pull/5427))
 
-
 ## Chef InSpec 4.26.13
 
 ### Bug Fixes
+
 - Fixed `skip_control` to work on deeply nested profiles. ([#5411](https://github.com/inspec/inspec/pull/5411))
 - The `ssh_config` and `sshd_config` resources now correctly use the first value when a setting is repeated. ([#5414](http://github.com/inspec/inspec/pull/5414))
-
-
 
 ## Chef InSpec 4.26.4
 
@@ -1116,7 +1100,6 @@ This release is a hotfix to address a regression in 4.31.0.
 - You can now specify the shell type for WinRM connections using the `--winrm-shell-type` option. Thanks [@catriona1](https://github.com/catriona1)! ([#5263](https://github.com/inspec/inspec/pull/5263))
 - Plugin settings can now be set programmatically. Thanks [@tecracer-theinen](https:/github.com/tecracer-theinen)! ([#5393](https://github.com/inspec/inspec/pull/5393))
 
-
 ### Bug Fixes
 
 - Updated the `oracledb_session` to use more general invocation options. Thanks [@pacopal](https://github.com/pacopal)! ([#5193](https://github.com/inspec/inspec/pull/5193))
@@ -1124,36 +1107,38 @@ This release is a hotfix to address a regression in 4.31.0.
 - Fixed an incompatibility between `parslet` and `toml` when used with Chef Infra. ([#5394](https://github.com/inspec/inspec/pull/5394))
 - Improved programmatic plugin configuration. ([#5395](https://github.com/inspec/inspec/pull/5395))
 
-
-
 ## Chef InSpec 4.25.1
 
 ### New Features
+
 - Chef InSpec is now released natively on `aarch64` packages for the ARM architecture on Debian, SLES, and Ubuntu. ([#5386](https://github.com/inspec/inspec/pull/5386))
+
 ### Improvements
+
 - OpenSSH Client on Windows can now be tested with the ssh_config and sshd_config resources. Thanks [@rgeissert](https://github.com/rgeissert)! ([#5288](https://github.com/inspec/inspec/pull/5288))
+
 ### Bug Fixes
+
 - Thor is now unconditionally required. ([#5388](https://github.com/inspec/inspec/pull/5388))
-
-
 
 ## Chef InSpec 4.24.32
 
-
 ### Improvements
+
 - The local working directory is now ignored when a Docker image of InSpec is built. ([#5360](https://github.com/inspec/inspec/pull/5360))
 
 ### Bug Fixes
+
 - Docker images of InSpec are now built using Omnibus. ([#5362](https://github.com/inspec/inspec/pull/5362))
-
- 
-
 
 ## Chef InSpec 4.24.28
 
 ### Improvements
+
 - The `--reporter-message-truncation` option now also truncates the `code_desc` field. ([#5372](https://github.com/inspec/inspec/pull/5372))
+
 ### Bug Fixes
+
 - The documentation incorrectly stated that waivered controls will default to `run:false` when in fact they default to running. The documentation has been corrected and a test has been added.  Thanks [@dwmarshall](https://github.com/dwmarshall)! ([#5370](https://github.com/inspec/inspec/pull/5370))
 - Chef InSpec 4.24.26 was released with a defect that caused every invocation to exit with an error mentioning the `supermarket` plugin and the `ffi` gem. This has been fixed by avoiding the 1.14.2 version of the `ffi` gem. ([#5375](https://github.com/inspec/inspec/pull/5375))
 
@@ -1169,7 +1154,6 @@ This release is a hotfix to address a regression in 4.31.0.
 ### Backward Incompatibilities
 
 - macOS 10.13 is no longer a supported platform for Chef InSpec. ([#5311](https://github.com/inspec/inspec/pull/5311))
-
 
 ## Chef InSpec 4.24.8
 
@@ -1195,7 +1179,6 @@ This release is a hotfix to address a regression in 4.31.0.
 
 - Ruby 2.4 is no longer supported. ([#5321](https://github.com/inspec/inspec/pull/5321))
 
-
 ## Chef InSpec 4.23.15
 
 ### Improvements
@@ -1206,20 +1189,17 @@ This release is a hotfix to address a regression in 4.31.0.
 
 - Waivers return a consistent message for expiration dates rather a message dependent on the waiver's `run` value. ([#5278](https://github.com/inspec/inspec/pull/5278))
 
-
 ## Chef InSpec 4.23.11
 
 ### Improvements
 
 - `inspec --help` now links to information about Chef's patents. ([#5255](https://github.com/inspec/inspec/pull/5255))
 
-
 ## Chef InSpec 4.23.10
 
 ### Bug Fixes
 
 - The Latest: The `junit2` reporter now works as expected. ([#5244](https://github.com/inspec/inspec/pull/5244))
-
 
 ## Chef InSpec 4.23.4
 
@@ -1237,7 +1217,6 @@ This release is a hotfix to address a regression in 4.31.0.
 ### Bug Fixes
 
 - Unabridged: Addressed a `ps` output truncation edge case related to undefined output widths for some Linux systems. ([#5232](https://github.com/inspec/inspec/pull/5232))
-
 
 ## Chef InSpec 4.22.22
 
@@ -1262,7 +1241,6 @@ This release is a hotfix to address a regression in 4.31.0.
 
 - Reminder: We no longer build packages for Debian 8 as it is considered end-of-life. ([5197](https://github.com/inspec/inspec/pull/5197))
 
-
 ## Chef InSpec 4.22.8
 
 ### New Features
@@ -1278,13 +1256,11 @@ This release is a hotfix to address a regression in 4.31.0.
 
 - We fixed a bug where failure messages would always end with `[TRUNCATED]` if truncation was enabled. This meant that you would even get the truncation text even if your message was short enough to begin with. ([#5165](https://github.com/inspec/inspec/pull/5165))
 
-
 ## Chef InSpec 4.22.1
 
 ### Bug Fixes
 
 - Chef InSpec's Chef Habitat builds for Linux no longer executes with a `PATH` that includes build dependency directories. ([#5148](https://github.com/inspec/inspec/pull/5148))
-
 
 ## Chef InSpec 4.22.0
 
@@ -1302,7 +1278,6 @@ This release is a hotfix to address a regression in 4.31.0.
 - The `=` character's presence in a CLI input no longer truncates the value passed to Chef InSpec. ([#5135](https://github.com/inspec/inspec/pull/5135))
 - The `apt` resource skips unsupported `apt-cdrom` repositories when parsing lists. ([#5138](https://github.com/inspec/inspec/pull/5138))
 
-
 ## Chef InSpec 4.21.3
 
 ### Bug Fixes
@@ -1314,12 +1289,13 @@ This release is a hotfix to address a regression in 4.31.0.
 ### New Features
 
 - Clark Kent: New `html2` reporter now available! The `html2` reporter shows all the data from your Chef InSpec run and even allows you to customize your report formatting with custom JavaScript and CSS options. At a later date, the `html2` reporter will replace the current rspec-based `html` reporter.
+
 ### Improvements
 
 - Check It Out!: The `interface` resource features several improvements:
-    - The resource supports macOS and FreeBSD
-    - The resource includes a pluralized `interfaces` to query multiple interfaces
-    - New `ipv4_address` and `ipv6_address` properties return the primary IP address for an interface
+  - The resource supports macOS and FreeBSD
+  - The resource includes a pluralized `interfaces` to query multiple interfaces
+  - New `ipv4_address` and `ipv6_address` properties return the primary IP address for an interface
 
 ### Bug Fixes
 
@@ -1331,34 +1307,34 @@ This release is a hotfix to address a regression in 4.31.0.
 
 - Chef InSpec works again with tools that depend on the `inspec` Ruby gem, which fixes a bug in the 4.20.6 release.
 
-
 ## Chef InSpec 4.20.6
 
 ### Bug Fixes
 
 - Certain substrings within a `.toml` file no longer cause unexpected crashes.
 
-
 ## Chef InSpec 4.20.2
 
 ### Improvements
+
 - Accurate InSpec CLI input parsing for numeric values and structured data, which were previously treated as strings. Numeric values are cast to an integer or float; YAML or JSON structures are converted to a hash or an array.
-- Suppress deprecation warnings on `inspec exec` with the `--silence-deprecations` option. 
+- Suppress deprecation warnings on `inspec exec` with the `--silence-deprecations` option.
 - Expanded `only_if`[documentation](https://www.inspec.io/docs/reference/dsl_inspec/).
+
 ### Bug Fixes
+
 - Fixed an issue in testing for file existence on Solaris 10.
-
-
 
 ## Chef InSpec 4.19.2
 
 ### New Features
-- Check out our new `x86_64 `and `aarch64` packages for Amazon Linux.
+
+- Check out our new `x86_64`and `aarch64` packages for Amazon Linux.
 - We added `aarch64` packages for RedHat.
 
 ### Bug Fixes
-- We restored Chef InSpec to work on Microsoft Windows after a build issue.
 
+- We restored Chef InSpec to work on Microsoft Windows after a build issue.
 
 ## Chef InSpec 4.19.0
 
@@ -1371,15 +1347,13 @@ This release is a hotfix to address a regression in 4.31.0.
 
 - More Dates: Chef InSpec accepts a variety of date formats in the `waivers.yaml` configuration file, rather than only the `YYYY-MM-DD` format.
 
-
 ## Chef InSpec 4.18.114
 
 ### New Features
 
 - Use the new `inspec` command options to control the size of reports:
-    - `--reporter-message-truncation` sets a length limit for the `message` field in test failure report data.
-    - `--reporter-backtrace-inclusion` determines if Ruby backtraces should be included in test failure report data.
-
+  - `--reporter-message-truncation` sets a length limit for the `message` field in test failure report data.
+  - `--reporter-backtrace-inclusion` determines if Ruby backtraces should be included in test failure report data.
 
 ## Chef InSpec 4.18.111
 
@@ -1388,13 +1362,11 @@ This release is a hotfix to address a regression in 4.31.0.
 - Not a Blocker: Chef InSpec allows an input and a control to have the same name.
 - Clarity: Inputs with a value passed by the user and no default value no longer cause incorrect "Input does not have a value" warnings.
 
-
 ## Chef InSpec 4.18.108
 
 ### Improvements
 
 - Troubleshooting Help: `inspec compliance` logs if an error occurs when connecting to a Chef Automate instance.
-
 
 ## Chef InSpec 4.18.104
 
@@ -1410,7 +1382,6 @@ This release is a hotfix to address a regression in 4.31.0.
 
 - Tell It Like It Is: The `service` resource correctly detects Windows hosts.
 
-
 ## Chef InSpec 4.18.100
 
 ### Bug Fixes
@@ -1419,12 +1390,11 @@ This release is a hotfix to address a regression in 4.31.0.
 - We resolved an issue in which profiles could not be fetched from an Automate server.
 - The `release` property of the `platform` resource no longer breaks for Chef Habitat with Linux.
 
-
 ## Chef InSpec 4.18.97
 
 ### Bug Fixes
-- Fixed an issue in which custom resources in resource packs could not be created.
 
+- Fixed an issue in which custom resources in resource packs could not be created.
 
 ## Chef InSpec 4.18.85
 
@@ -1452,7 +1422,6 @@ This release is a hotfix to address a regression in 4.31.0.
 - The JSON reporter's attributes array will not remain empty. Thanks [@nazliBeit](https://github.com/nazliBeit) for your contribution!
 - Changed the `postfix_conf` resource's supported platform to the broader `unix`. Thank you to [@fzipi](https://github.com/fzipi) for this fix!
 
-
 ## Chef InSpec 4.18.51
 
 ### Improvements
@@ -1470,7 +1439,6 @@ This release is a hotfix to address a regression in 4.31.0.
 ### Backward Incompatibilities
 
 - Technical Adjustment: Moved `lib/fetchers` to `lib/inspec/fetcher` and re-namespaced accordingly.
-
 
 ## Chef InSpec 4.18.39
 
@@ -1500,37 +1468,39 @@ This release is a hotfix to address a regression in 4.31.0.
 - Understandable: The `apt` resources now correctly parse quoted repository addresses.
 - Back In Action: `inspec env` works again, instead of erroneously stacktracing.
 
-
 ## Chef InSpec 4.17.17
 
 ### Bug Fixes
+
 - Dynamically loaded resources work again in `describe.one` blocks.
 - You can use `only_if` blocks on non-OS platforms, such as cloud providers.
-
 
 ## Chef InSpec 4.17.15
 
 ### Bug Fixes
+
 Fixed two bugs introduced in yesterday's release:
+
 - Vision Quest: The new resource loader sees all the resources.
 - Test Prep: RSpec test DSL uses InSpec lazy resource loading correctly.
-
 
 ## Chef InSpec 4.17.14
 
 ### Bug Fixes
+
 Fixed two bugs introduced in yesterday's release:
+
 - Vision Quest: The new resource loader sees all the resources.
 - Test Prep: RSpec test DSL uses InSpec lazy resource loading correctly.
-
 
 ## Chef InSpec 4.17.11
 
 ### Bug Fixes
+
 Fixed two bugs introduced in yesterday's release:
+
 - Vision Quest: The new resource loader sees all the resources.
 - Test Prep: RSpec test DSL uses InSpec lazy resource loading correctly.
-
 
 ## Chef InSpec 4.17.7
 
@@ -1556,7 +1526,6 @@ Fixed two bugs introduced in yesterday's release:
 - Excerpt: Resolved quoting issues with the `mssql_session` resource.
 - Loaded: Fixed Plugin loader to check for the `inspec-core` gem if the `inspec` gem is not found, and to fail gracefully otherwise.
 
-
 ## Chef InSpec 4.16.0
 
 ### New Features
@@ -1564,15 +1533,15 @@ Fixed two bugs introduced in yesterday's release:
 - One's Option: `inspec exec` now supports a new CLI option, `--input name=value`, which allows you to set an Input directly on the command line. While YAML files are still more practical and recommended for large numbers of inputs, use the `--input` option to set just one or two.
 - Mail Me Maybe: Manage your Postfix mail transfer agent configurations with its new available resource. Thank you to [@dmgasper](https://github.com/dmgasper) for this!
 - Slowly but Surely: InSpec now is ready to accept the `input` option from the audit cookbook and the kitchen-inspec plugin. This is another step on the journey of renaming 'attributes' to 'inputs'! You can use this immediately with kitchen-inspec, and stay tuned for the audit cookbook update!
-- All in One Place: InSpec and Train plugins may now store configuration data in the user configuration file at `~/.inspec/config.json`. This change allows plugins to store things like authentication tokens, service discovery addresses, or other information in one place. Plugins are not *required* to use the configuration file, but it is one option.
+- All in One Place: InSpec and Train plugins may now store configuration data in the user configuration file at `~/.inspec/config.json`. This change allows plugins to store things like authentication tokens, service discovery addresses, or other information in one place. Plugins are not _required_ to use the configuration file, but it is one option.
 
 ### Improvements
 
-- Check It Out!: We improved the output of inspec plugin list: 
-    - The output is now in a table format and includes built-in plugins
-    - Installed plugins now display their versions
-    - Filter which plugins to list via new CLI options
-    - See `inspec plugin list -h` for more information
+- Check It Out!: We improved the output of inspec plugin list:
+  - The output is now in a table format and includes built-in plugins
+  - Installed plugins now display their versions
+  - Filter which plugins to list via new CLI options
+  - See `inspec plugin list -h` for more information
 - Heads Up: The `inspec` check command will now issue a warning if the `inspec_version` constraint in a profile cannot be satisfied by the current version of InSpec running it.
 
 ### Bug Fixes
@@ -1600,18 +1569,17 @@ Fixed two bugs introduced in yesterday's release:
 
 ### New Features
 
-* Structure Enhancement: The Habitat plugin now uses *scaffolding*, which allows users to follow current best practices.
+- Structure Enhancement: The Habitat plugin now uses _scaffolding_, which allows users to follow current best practices.
 When you run `inspec habitat profile create` now, the templates will be sourced from the Habitat scaffolding for InSpec rather than the older unmaintained templates in Chef InSpec itself.
 
 ### Improvements
 
-* Finally!: Relative path support added for specifying a path to a profile in a Git repo. This means that you can organize multiple profiles into one git repo, and select an individual profile from any subdirectory in the git repo.
-* Simmer Down: `inspec version` no longer checks and reports against rubygems.org versions. The version check no longer talks on the network. This makes the version check much faster, less likely to cause a failure under CI, and also less surprising behavior.
+- Finally!: Relative path support added for specifying a path to a profile in a Git repo. This means that you can organize multiple profiles into one git repo, and select an individual profile from any subdirectory in the git repo.
+- Simmer Down: `inspec version` no longer checks and reports against rubygems.org versions. The version check no longer talks on the network. This makes the version check much faster, less likely to cause a failure under CI, and also less surprising behavior.
 
 ### Bug Fixes
 
-* More than One: The `windows_task` resource now handles multiple triggers.
-
+- More than One: The `windows_task` resource now handles multiple triggers.
 
 ## Chef InSpec 4.7.24
 
@@ -1619,11 +1587,9 @@ When you run `inspec habitat profile create` now, the templates will be sourced 
 
 - Sweet: The `sys_info` resource features two new properties - `manufacturer` and `model` - which let you determine information about the hardware being inspected.
 
-
 ### Improvements
 
 - Lights Out: The `service` resource no longer issues a deprecation warning when the `should be_running` matcher is used. There are no plans to remove this matcher in the foreseeable future. Thank you to users for their feedback on this!
-
 
 ### Bug Fixes
 

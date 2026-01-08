@@ -1,10 +1,7 @@
 +++
 title = "Chef Infra Server Release Notes"
 draft = false
-
 product = ["server"]
-
-
 
 [menu]
   [menu.release_notes]
@@ -18,54 +15,58 @@ product = ["server"]
 ## Chef Infra Server 15.10.83
 
 ### Improvements
-- Chef Server supports running in FIPS mode on the Amazon Linux 2 platform.   
+
+- Chef Server supports running in FIPS mode on the Amazon Linux 2 platform.
 
 ### Updated Components
+
 - Chef gem to 18.8.46
 
 ### Security
+
 - Updated OpenSearch to Tuxcare OpenSearch 1.3.20.tuxcare.1.0.2 to address the following CVEs:
-   - CVE-2025-25193  
-   - CVE-2024-47554  
-   - CVE-2021-28170  
-   - CVE-2025-48924  
-   - CVE-2024-38820  
-   - CVE-2025-48913  
-   - CVE-2024-38819  
-   - CVE-2024-38828  
-   - CVE-2024-38820  
-   - CVE-2025-22233  
+  - CVE-2025-25193
+  - CVE-2024-47554
+  - CVE-2021-28170
+  - CVE-2025-48924
+  - CVE-2024-38820
+  - CVE-2025-48913
+  - CVE-2024-38819
+  - CVE-2024-38828
+  - CVE-2024-38820
+  - CVE-2025-22233
 
 - Updated Postgres 13.22.tuxcare.1.0.1 to resolve the following CVEs:
-   - CVE-2025-8714  
-   - CVE-2025-8715  
-   - CVE-2025-8713  
+  - CVE-2025-8714
+  - CVE-2025-8715
+  - CVE-2025-8713
 
 - Updated OpenJDK to 17.0.16+8 to address the following CVEs:
-   - CVE-2025-30749  
-   - CVE-2025-30754  
-   - CVE-2025-50059  
-   - CVE-2025-50106  
+  - CVE-2025-30749
+  - CVE-2025-30754
+  - CVE-2025-50059
+  - CVE-2025-50106
 
 - Updated rack to 3.2.3 to resolve the following CVEs:
-   - CVE-2025-61919  
-   - CVE-2025-61780  
-   - CVE-2025-61772  
-   - CVE-2025-61771  
-   - CVE-2025-61770  
+  - CVE-2025-61919
+  - CVE-2025-61780
+  - CVE-2025-61772
+  - CVE-2025-61771
+  - CVE-2025-61770
 
 - Updated OpenResty to 1.27.1.2 to resolve the following CVEs:
-   - CVE-2024-39702  
-   - CVE-2025-23419
+  - CVE-2024-39702
+  - CVE-2025-23419
 
 ### Service versions
+
 This release uses:
 
-* OpenResty 1.27.1.2
-* OpenJRE 17.0.9+9
-* PostgreSQL 13.22.tuxcare.1.0.1
-* OpenSearch 1.3.20-tuxcare-1.0.2
-* Rack 3.2.3
+- OpenResty 1.27.1.2
+- OpenJRE 17.0.9+9
+- PostgreSQL 13.22.tuxcare.1.0.1
+- OpenSearch 1.3.20-tuxcare-1.0.2
+- Rack 3.2.3
 
 ## Chef Infra Server 15.10.66
 
@@ -74,41 +75,41 @@ This release uses:
 - Chef Infra Server now allows and properly validates extended validation certificates when it connects to external databases.
 - Fixed data collector failures in Chef Infra Server 15.10.63 with SSL by properly merging SSL configuration options in ibrowse.
 
-
 ### Service versions
 
-This release uses:  
+This release uses:
 
-- PostgreSQL 13.21  
-- OpenSearch 1.3.20-tuxcare  
-- OpenJRE 11.0.28+6  
-- OpenResty 1.25.3.1  
-
-## Chef Infra Server 15.10.63
-
-### Improvements
-Updated the following packages to ensure they are as up-to-date as possible:
-
-* OpenSearch
-* OpenJDK
-* Erlang
-* Ruby
-* Ruby gems
-     > Chef  
-     > Knife  
-     > knife tidy  
-* OpenSSL
-* PostgreSQL and libraries to support the same
-* HAProxy
-
-### Service versions
-This release uses:  
 - PostgreSQL 13.21
 - OpenSearch 1.3.20-tuxcare
 - OpenJRE 11.0.28+6
 - OpenResty 1.25.3.1
 
+## Chef Infra Server 15.10.63
 
+### Improvements
+
+Updated the following packages to ensure they are as up-to-date as possible:
+
+- OpenSearch
+- OpenJDK
+- Erlang
+- Ruby
+- Ruby gems
+     > Chef
+     > Knife
+     > knife tidy
+- OpenSSL
+- PostgreSQL and libraries to support the same
+- HAProxy
+
+### Service versions
+
+This release uses:
+
+- PostgreSQL 13.21
+- OpenSearch 1.3.20-tuxcare
+- OpenJRE 11.0.28+6
+- OpenResty 1.25.3.1
 
 ## Chef Infra Server 15.10.33
 
@@ -119,6 +120,7 @@ This release uses:
   - CVE-2024-49761
 
 ### Service versions
+
 This release uses:
 
 - PostgreSQL 13.18
@@ -131,7 +133,7 @@ This release uses:
 ### Improvements
 
 - Added the `track_total_hits` configuration option, which allows you to fetch more than 10,000 items when using `knife search`.
-  Previously, you could only fetch 10,000 nodes. 
+  Previously, you could only fetch 10,000 nodes.
 
   This also supports the `knife tidy server report` command, which can return more than 10,000 items.
 
@@ -143,22 +145,21 @@ This release uses:
 
 Updated Ruby to 3.1.6 to resolve the following CVEs:
 
-* CVE-2024-27280
+- CVE-2024-27280
 
 #### PostgreSQL
 
 Updated PostgreSQL to 13.18 resolve the following CVEs:
 
-* CVE-2024-7348
+- CVE-2024-7348
 
 #### OpenSearch
 
 Updated OpenSearch to 1.3.20 to resolve the following CVEs:
 
-* CVE-2024-22243
-* CVE-2024-38808
-* CVE-2024-38809
-
+- CVE-2024-22243
+- CVE-2024-38808
+- CVE-2024-38809
 
 ## Chef Infra Server 15.10.21
 
@@ -167,17 +168,18 @@ Updated OpenSearch to 1.3.20 to resolve the following CVEs:
 #### Opensearch
 
 Updated opensearch to 1.3.19 to resolve following CVEs.
-> * CVE-2024-29736
-> * CVE-2024-32007
+>
+> - CVE-2024-29736
+> - CVE-2024-32007
 
 ### Service versions
+
 This release uses:
 
-* PostgreSQL 13.14
-* OpenSearch 1.3.19
-* OpenJRE 11.0.21+9
-* OpenResty 1.25.3.1
-
+- PostgreSQL 13.14
+- OpenSearch 1.3.19
+- OpenJRE 11.0.21+9
+- OpenResty 1.25.3.1
 
 ## Chef Infra Server 15.10.12
 
@@ -204,8 +206,8 @@ We replaced Redis with KeyDB to resolve the following CVEs:
 - CVE-2023-45145
 - CVE-2023-41053
 - CVE-2022-24834
-- CVE-2023-36824  
-  
+- CVE-2023-36824
+
 This change doesn't require any configuration change and the service name has been kept unchanged too.
 For more information about KeyDB, see the [KeyDB documentation](https://docs.keydb.dev/).
 
@@ -218,7 +220,7 @@ Updated OpenJRE to 11.0.22+7 to resolve the following CVEs:
 - CVE-2024-20919
 - CVE-2024-20926
 - CVE-2024-20945
-- CVE-2024-20952 
+- CVE-2024-20952
 
 #### OpenSSL
 
@@ -270,7 +272,6 @@ Updated Nokogiri to 1.15.6 to resolve the following CVEs:
 
 - CVE-2024-25062
 
-
 ## Chef Infra Server 15.9.38
 
 ### Security Improvements
@@ -279,30 +280,31 @@ Updated Nokogiri to 1.15.6 to resolve the following CVEs:
 
 Upgraded PostgreSQL to 13.14 to resolve the following CVEs:
 
-*  CVE-2023-2454
-*  CVE-2023-39417
-*  CVE-2023-5868
-*  CVE-2023-5869
+- CVE-2023-2454
+- CVE-2023-39417
+- CVE-2023-5868
+- CVE-2023-5869
 
 #### OpenJRE
 
 Upgraded OpenJRE to 11.0.21+9 to resolve the following CVEs:
 
-*  CVE-2023-22081
+- CVE-2023-22081
 
 #### OpenResty
 
 Upgrade OpenResty to 1.25.3.1 to resolve the following CVEs:
 
-* CVE-2022-41741
-* CVE-2022-41742
+- CVE-2022-41741
+- CVE-2022-41742
 
 ### Service versions
-This release uses:
-* PostgreSQL 13.14
-* OpenJRE 11.0.21+9
-* OpenResty 1.25.3.1
 
+This release uses:
+
+- PostgreSQL 13.14
+- OpenJRE 11.0.21+9
+- OpenResty 1.25.3.1
 
 ## Chef Infra Server 15.9.27
 
@@ -317,6 +319,7 @@ We now produce packages for Rocky Linux 9 and Amazon Linux 2023.
 ### Security Improvements
 
 Updated OpenSearch to 1.3.14 to fix the following CVEs:
+
 - CVE-2023-45807
 - CVE-2023-31141
 - CVE-2023-25806
@@ -327,8 +330,6 @@ Updated OpenSearch to 1.3.14 to fix the following CVEs:
 - CVE-2023-20860
 - CVE-2023-20861
 
-
-
 ## Chef Infra Server 15.9.20
 
 ### Updated Components
@@ -338,7 +339,6 @@ Updated OpenSearch to 1.3.14 to fix the following CVEs:
 - Updated footer to include links to Privacy Policy & Cookie Policy. ([#3737](https://github.com/chef/chef-server/pull/3737))
 
 See the [Chef Infra Server optional settings documentation](https://docs.chef.io/server/config_rb_server_optional_settings/) to configure OneTrust cookie consent.
-
 
 ## Chef Infra Server 15.9.12
 
@@ -352,7 +352,6 @@ Updated Rack to 2.2.6.4 to fix the following CVE's:
 
 - CVE-2023-27539
 - CVE-2023-27530
-
 
 ## Chef Infra Server 15.8.0
 
@@ -392,7 +391,7 @@ Updated loofah to 2.19.1 to resolve the following CVEs:
 - CVE-2022-23514
 - CVE-2022-23516
 
-#### Rack  
+#### Rack
 
 Update Rack to 2.2.6.4 to resolve the following CVEs:
 
@@ -403,8 +402,6 @@ Update Rack to 2.2.6.4 to resolve the following CVEs:
 Update ActiveStorage to 6.1.4.7 to resolve the following CVEs:
 
 - CVE-2022-21831
-
-
 
 ## Chef Infra Server 15.7.0
 
@@ -442,7 +439,6 @@ Updated OpenJRE to 11.0.18+10 to resolve the following CVEs:
 - CVE-2023-21835
 - CVE-2023-21843
 
-
 ## Chef Infra Server 15.6.1
 
 ### Improvements
@@ -459,12 +455,11 @@ Updated OpenJRE to 11.0.18+10 to resolve the following CVEs:
 
 - Added `Cache-Control: no-store` and `Pragma: no-cache` headers to certain SSL pages.
 
-
 ## Chef Infra Server 15.5.1
 
 ### Bug Fixes
 
-- Fixed an issue with tiered setup where front-end nodes were also bootstrapping OpenSearch. We updated the cookbooks so that the front-end nodes no longer bootstrap OpenSearch. Migration steps added in upgrade document - https://docs.chef.io/server/upgrades/#release-specific-steps
+- Fixed an issue with tiered setup where front-end nodes were also bootstrapping OpenSearch. We updated the cookbooks so that the front-end nodes no longer bootstrap OpenSearch. Migration steps added in upgrade document - <https://docs.chef.io/server/upgrades/#release-specific-steps>
 
 ### Updated Components
 
@@ -474,7 +469,7 @@ Updated OpenJRE to 11.0.18+10 to resolve the following CVEs:
 
 ### Packaging
 
-#### Habitat Package Updates 
+#### Habitat Package Updates
 
 - Chef Infra Server Habitat packages are now built against Erlang 24.
 
@@ -533,7 +528,6 @@ Updated OpenJRE to 11.0.18+10 to resolve the following CVEs:
 - CVE-2022-39399: Missing SNI caching in HTTP/2.
 - CVE-2022-21618: Improper MultiByte conversion can lead to buffer overflow.
 
-
 ## Chef Infra Server 15.1.7
 
 ### New Features
@@ -547,7 +541,7 @@ Updated OpenJRE to 11.0.18+10 to resolve the following CVEs:
 
 ### Security
 
-#### Erlang 
+#### Erlang
 
 - CVE-2020-35733
 - CVE-2020-25623
@@ -569,7 +563,6 @@ Updated OpenJRE to 11.0.18+10 to resolve the following CVEs:
 
 ### New Features
 
-
 - We switched the search engine used by Chef Infra Server from Elasticsearch to OpenSearch. We switched to OpenSearch because it includes the Open Distro security plug-in, which provides authentication and is missing from Elasticsearch, and because Elasticsearch changed its license from the Apache License to the Elastic License v2.
 
 ### Security
@@ -577,7 +570,6 @@ Updated OpenJRE to 11.0.18+10 to resolve the following CVEs:
 #### Python 3.10.5
 
 - Upgraded Python from 3.10.4 to 3.10.5.
-
 
 ## Chef Infra Server 14.16.19
 
@@ -604,20 +596,18 @@ Upgraded Redis to 6.2.7 from 5.0.14 to resolve the following CVEs:
 
 - CVE-2021-32761
 - CVE-2021-32625
-- CVE-2021-29478 
+- CVE-2021-29478
 - CVE-2021-29477
 - CVE-2021-21309
 - CVE-2021-3470
 - CVE-2020-21468
 - CVE-2020-14147
 
-
 ## Chef Infra Server 14.15.10
 
-
 ### Bug Fixes
-- Fixed chef-server-ctl password update issue.
 
+- Fixed chef-server-ctl password update issue.
 
 ## Chef Infra Server 14.15.9
 
@@ -629,8 +619,6 @@ Upgraded Redis to 6.2.7 from 5.0.14 to resolve the following CVEs:
 ### Bug Fixes
 
 - Fixed an external OpenSearch indexing issue. The `elasticsearch['enable'] = false` configuration setting was failing to create an index in OpenSearch.
-
-
 
 ## Chef Infra Server 14.14.1
 
@@ -658,7 +646,7 @@ Updated PostgreSQL from 13.5 to 13.6.
 
 Added additional cleanup steps to remove Log4j vulnerable libraries that may be present on some setups.
 
-#### Updated libxml2 to 2.9.13 to resolve the following CVEs:
+#### Updated libxml2 to 2.9.13 to resolve the following CVEs
 
 - CVE-2022-23308
 - CVE-2021-3541
@@ -670,7 +658,7 @@ Added additional cleanup steps to remove Log4j vulnerable libraries that may be 
 - CVE-2019-20388
 - CVE-2019-19956
 
-#### Updated Go to 1.18 to resolve the following CVEs:
+#### Updated Go to 1.18 to resolve the following CVEs
 
 - CVE-2022-27191
 - CVE-2022-24921
@@ -683,7 +671,7 @@ Added additional cleanup steps to remove Log4j vulnerable libraries that may be 
 - CVE-2021-39293
 - CVE-2021-38297
 
-#### Updated Expat to 2.4.7 to resolve the following CVEs:
+#### Updated Expat to 2.4.7 to resolve the following CVEs
 
 - CVE-2022-25315
 - CVE-2022-25314
@@ -700,7 +688,6 @@ Added additional cleanup steps to remove Log4j vulnerable libraries that may be 
 - CVE-2022-22822
 - CVE-2021-46143
 - CVE-2021-45960
-
 
 ## Chef Infra Server 14.13.42
 
@@ -749,7 +736,6 @@ OpenJDK has been updated from 11.0.13 to 11.0.14 to resolve the following CVEs:
 
 Updated the Ruby on Rails framework used by oc-id to 6.1.4.6 to resolve CVE-2021-22904.
 
-
 ## Chef Infra Server 14.12.21
 
 ### Bug Fixes
@@ -797,10 +783,9 @@ Updated Elasticsearch from 6.8.22 to 6.8.23 to resolve CVE-2021-44832 in the emb
 
 ### Security
 
-#### HTTP headers 
+#### HTTP headers
 
 - Updated HTTP security headers for improved security and to reduce false positives when using security scanners.
-
 
 ## Chef Infra Server 14.11.31
 
@@ -822,38 +807,37 @@ Updated Elasticsearch from 6.8.18 to 6.8.21 to resolve concerns regarding CVE-20
 
 Updated Redis from 5.0.7 to 5.0.14 to resolve the following CVEs:
 
-* CVE-2021-41099
-* CVE-2021-32762
-* CVE-2021-32687
-* CVE-2021-32675
-* CVE-2021-32672
-* CVE-2021-32628
-* CVE-2021-32627
-* CVE-2021-32626
-* CVE-2021-32761
-* CVE-2021-21309
+- CVE-2021-41099
+- CVE-2021-32762
+- CVE-2021-32687
+- CVE-2021-32675
+- CVE-2021-32672
+- CVE-2021-32628
+- CVE-2021-32627
+- CVE-2021-32626
+- CVE-2021-32761
+- CVE-2021-21309
 
 #### OpenJDK 11.0.13+8
 
 Updated OpenJDK from 11.0.11+7 to 11.0.13+8 to resolve the following CVEs:
 
-* CVE-2021-35550
-* CVE-2021-35565
-* CVE-2021-35556
-* CVE-2021-35559
-* CVE-2021-35561
-* CVE-2021-35564
-* CVE-2021-35567
-* CVE-2021-35578
-* CVE-2021-35586
-* CVE-2021-35603
+- CVE-2021-35550
+- CVE-2021-35565
+- CVE-2021-35556
+- CVE-2021-35559
+- CVE-2021-35561
+- CVE-2021-35564
+- CVE-2021-35567
+- CVE-2021-35578
+- CVE-2021-35586
+- CVE-2021-35603
 
 ### Packaging
 
 #### RHEL 8 Build ID
 
 Chef Infra Server packages no longer install a build ID file that would prevent installing other Chef packages such as Infra Client.
-
 
 ## Chef Infra Server 14.11.15
 
@@ -865,7 +849,7 @@ Chef Infra Server packages no longer install a build ID file that would prevent 
 
 #### chef-server-ctl MTLS Support
 
-We improved the `chef-server-ctl` command to support communication with the underlying Chef Infra Server API when MTLS is enabled. 
+We improved the `chef-server-ctl` command to support communication with the underlying Chef Infra Server API when MTLS is enabled.
 
 #### Limiting Maximum Requests to the opscode-authz Service
 
@@ -897,7 +881,6 @@ Ruby has been updated from 2.7.4 to 2.7.5 to resolve the following CVEs:
 - CVE-2021-41816
 - CVE-2021-41819
 
-
 ## Chef Infra Server 14.10.23
 
 ### New Features
@@ -910,7 +893,7 @@ For example:
 
 `GET organizations/4thcafe/policies/some_policy_name/revisions/909c26701e291510eacdc6c06d626b9fa5350d25`
 
-returns: 
+returns:
 
 ```json
 {
@@ -970,7 +953,7 @@ Nokogiri has been updated from 1.11.7 to 1.12.5 in order to resolve CVE-2021-410
 
 #### OpenSSL 1.0.2zb
 
-OpenSSL has been updated from 1.0.2za to 1.0.2zb to resolve issues with Let's Encrypt certificates. 
+OpenSSL has been updated from 1.0.2za to 1.0.2zb to resolve issues with Let's Encrypt certificates.
 
 #### cacerts
 
@@ -983,7 +966,6 @@ The cacerts bundle has been updated to the 2021-07-25 release. This update remov
 - ANF Secure Server Root CA
 - Certum EC-384 CA
 - Certum Trusted Root CA
-
 
 ## Chef Infra Server 14.9.23
 
@@ -1010,7 +992,6 @@ Updated OpenJDK JRE used to run Elasticsearch from 11.0.11+9 to 11.0.12+7 to res
 
 Updated the libarchive library from 3.5.1 to 3.5.2 to improve archive handling and resolve security vulnerabilities in libarchive's handling of symbolic links.
 
-
 ## Chef Infra Server 14.8.7
 
 ### Enhancements
@@ -1021,14 +1002,13 @@ The embedded PostgreSQL server used to store Chef Infra object data has been upd
 
 ##### How to Upgrade
 
-As part of the upgrade to PostgreSQL 13.3, a database upgrade needs to be performed. This upgrade will be performed automatically when running `chef-server-ctl upgrade`, but we do suggest backing up the server first and performing a vacuum to reduce the data size. See our [Chef Infra Server 14.8 Upgrade Documentation ](https://docs.chef.io/server/upgrades/#upgrading-to-14x) for details on the process and estimated timing.
+As part of the upgrade to PostgreSQL 13.3, a database upgrade needs to be performed. This upgrade will be performed automatically when running `chef-server-ctl upgrade`, but we do suggest backing up the server first and performing a vacuum to reduce the data size. See our [Chef Infra Server 14.8 Upgrade Documentation](https://docs.chef.io/server/upgrades/#upgrading-to-14x) for details on the process and estimated timing.
 
 #### Other Minor Updates
 
 - Improved help documentation and output for `chef-server-ctl` commands.
 - Fixed dead `docs.chef.io` links in several error messages.
 - Expanded data collected with the `chef-server-ctl gather-logs` command to provide Chef Support with better troubleshooting information.
-
 
 ## Chef Infra Server 14.7.13
 
@@ -1058,7 +1038,6 @@ The `omniauth` gem used in Chef Identify (oc-id) has been updated to 2.0.4 to re
 
 The file digest in Chef Infra Server RPM packages has been updated from MD5 to SHA256 to prevent failures installing on some FIPS-enabled systems.
 
-
 ## Chef Infra Server 14.6.32
 
 ### Enhancements
@@ -1067,11 +1046,11 @@ The file digest in Chef Infra Server RPM packages has been updated from MD5 to S
 
 You can now place your Chef Infra Server into maintenance mode to block requests from Chef Infra Clients or tools like `knife`. Maintenance mode also allows you to specify allowed IP addresses for testing your Infra Server without allowing access to all clients.
 
-* Turn on maintenance mode: `chef-server-ctl maintenance on`
-* Turn off maintenance mode: `chef-server-ctl maintenance off`
-* Add an allowed IP address: `chef-server-ctl maintenance -a IP_ADDRESS`
-* Remove an allowed IP address: `chef-server-ctl maintenance -r IP_ADDRESS`
-* List all allowed IP address: `chef-server-ctl maintenance -l`
+- Turn on maintenance mode: `chef-server-ctl maintenance on`
+- Turn off maintenance mode: `chef-server-ctl maintenance off`
+- Add an allowed IP address: `chef-server-ctl maintenance -a IP_ADDRESS`
+- Remove an allowed IP address: `chef-server-ctl maintenance -r IP_ADDRESS`
+- List all allowed IP address: `chef-server-ctl maintenance -l`
 
 ### Security Improvements
 
@@ -1168,8 +1147,6 @@ Updated the Adopt OpenJDK runtime used by Elasticsearch to 11.0.11. This update 
 - JDK-8253799: Make lists of normal filenames
 - JDK-8257001: Improve Http Client Support
 
-
-
 ## Chef Infra Server 14.4.4
 
 ### Improvements
@@ -1187,8 +1164,6 @@ PostgreSQL was upgraded from 9.6.21 to 9.6.22 to resolve [CVE-2021-22137](https:
 #### Elasticsearch
 
 Elasticsearch was upgraded from 6.8.14 to 6.8.15 to resolve [CVE-2021-22137](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-22137).
-
-
 
 ## Chef Infra Server 14.3.14
 
@@ -1260,7 +1235,7 @@ New installations of Chef Infra Server can now use external Elasticsearch 7 inst
 
 ### Bug Fixes and Improvements
 
-- The server status endpoint can now be confused to include the version of the Chef Infra Server in status requests with a new `include_version_in_status` configuration in the `chef-server.rb` file. 
+- The server status endpoint can now be confused to include the version of the Chef Infra Server in status requests with a new `include_version_in_status` configuration in the `chef-server.rb` file.
 - The `supports` field in cookbook metadata now allows version numbers that only reference a major version, such as ```supports 'debian', '>= 7'```. Thanks for reporting this issue [@acondrat](https://github.com/acondrat)!
 - A new `nginx['time_format']` configuration in the `chef-server.rb` file allows changing the timestamp format in NGINX logs from `time_iso8601` to `time_local`.
 
@@ -1278,23 +1253,23 @@ Nokogiri has been updated from 1.10.10 to 1.11.1 to resolve [CVE-2020-26247](htt
 
 The AdoptOpenJDK package has been updated from 11.0.7+10 to 11.0.10+9 to resolve the following CVEs:
 
-  - [CVE-2020-14779](https://nvd.nist.gov/vuln/detail/CVE-2020-14779)
-  - [CVE-2020-14781](https://nvd.nist.gov/vuln/detail/CVE-2020-14781)
-  - [CVE-2020-14782](https://nvd.nist.gov/vuln/detail/CVE-2020-14782)
-  - [CVE-2020-14792](https://nvd.nist.gov/vuln/detail/CVE-2020-14792)
-  - [CVE-2020-14796](https://nvd.nist.gov/vuln/detail/CVE-2020-14796)
-  - [CVE-2020-14797](https://nvd.nist.gov/vuln/detail/CVE-2020-14797)
-  - [CVE-2020-14798](https://nvd.nist.gov/vuln/detail/CVE-2020-14798)
-  - [CVE-2020-14803](https://nvd.nist.gov/vuln/detail/CVE-2020-14803)
+- [CVE-2020-14779](https://nvd.nist.gov/vuln/detail/CVE-2020-14779)
+- [CVE-2020-14781](https://nvd.nist.gov/vuln/detail/CVE-2020-14781)
+- [CVE-2020-14782](https://nvd.nist.gov/vuln/detail/CVE-2020-14782)
+- [CVE-2020-14792](https://nvd.nist.gov/vuln/detail/CVE-2020-14792)
+- [CVE-2020-14796](https://nvd.nist.gov/vuln/detail/CVE-2020-14796)
+- [CVE-2020-14797](https://nvd.nist.gov/vuln/detail/CVE-2020-14797)
+- [CVE-2020-14798](https://nvd.nist.gov/vuln/detail/CVE-2020-14798)
+- [CVE-2020-14803](https://nvd.nist.gov/vuln/detail/CVE-2020-14803)
 
 #### OpenSSL
 
 The OpenSSL library has been updated to 1.0.2y to resolve the following CVEs:
 
-* [CVE-2021-23841](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23841)
-* [CVE-2021-23839](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23839)
-* [CVE-2021-23840](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23840)
-* [CVE-2020-1971](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1971)
+- [CVE-2021-23841](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23841)
+- [CVE-2021-23839](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23839)
+- [CVE-2021-23840](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23840)
+- [CVE-2020-1971](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1971)
 
 ### Platform Support
 
@@ -1303,7 +1278,6 @@ We will no longer be producing Chef Infra Server packages for RHEL 6.x as this p
 ### Upgrading From Earlier Releases
 
 Please keep in mind that upgrading from releases before 14.0 will run an automatic Elasticsearch reindexing operation for existing Solr users. We estimate the reindexing operation will take 2 minutes for each 1000 nodes, but it could take more time depending on your server hardware and the complexity of your Chef data.
-
 
 ## Chef Infra Server 14.0.65
 
@@ -1320,19 +1294,17 @@ Please keep in mind that upgrading from releases before 14.0 will run an automat
 - We now retry in more cases when attempting to create the Elasticsearch index which should prevent upgrade failures for some users.
 
 ### Components
+
 Updated Components
-* elasticsearch (6.8.1 -> 6.8.12)
+
+- elasticsearch (6.8.1 -> 6.8.12)
 
 #### Contributors
 
-* Antima Gupta
-* Bryan McLellan
-* Prajakta Purohit
-* Steven Danna
-
-
-
-
+- Antima Gupta
+- Bryan McLellan
+- Prajakta Purohit
+- Steven Danna
 
 ## Chef Infra Server 14.0.58
 
@@ -1408,9 +1380,7 @@ Upgrading to Chef Infra Server 14 will require a reindexing operation for most u
 - Ian Maddaus
 - Jay Mundrawala
 
-
 ## Chef Infra Server 13.2.0
-
 
 ### Improvements
 
@@ -1510,10 +1480,7 @@ Ruby has been updated from 2.6.3 to 2.6.5 to resolve the following CVEs:
 
 The release of rubyzip in the `oc-id` Chef Infra Server component has been updated from 1.2.3 to 1.3.0 to resolve [CVE-2019-16892](https://nvd.nist.gov/vuln/detail/CVE-2019-16892)
 
-
-
 ## Chef Infra Server 13.1.13
-
 
 ### Improvements/Bug Fixes
 
@@ -1573,17 +1540,11 @@ RabbitMQ has been updated from 3.6.6 to 3.6.15 to resolve the following CVEs:
 - [CVE-2017-4966](https://nvd.nist.gov/vuln/detail/CVE-2017-4966)
 - [CVE-2017-4965](https://nvd.nist.gov/vuln/detail/CVE-2017-4965)
 
-
-
 ## Chef Infra Server 13.0.17
-
 
 This is an identical release to 13.0.16 that was performed for product packaging reasons.
 
-
-
 ## Chef Infra Server 13.0.16
-
 
 ### Chef Server is now Chef Infra Server
 
@@ -1635,10 +1596,7 @@ OpenResty was updated from 1.11.2.1 to 1.13.6.2 to resolve the following CVEs:
 - [CVE-2018-9230](https://nvd.nist.gov/vuln/detail/CVE-2018-9230)
 - [CVE-2017-7529](https://nvd.nist.gov/vuln/detail/CVE-2017-7529)
 
-
-
 ## Chef Infra Server 12.19.31
-
 
 ### Security
 
@@ -1654,20 +1612,17 @@ libxml2 has been updated from 2.9.8 to 2.9.9 to resolve the following CVEs:
 - [CVE-2018-14567](https://nvd.nist.gov/vuln/detail/CVE-2018-14567)
 - [CVE-2018-14404](https://nvd.nist.gov/vuln/detail/CVE-2018-14404)
 
-
-
 ## Chef Infra Server 12.19.26
-
 
 This release contains some minor improvements and updates to include software:
 
 - Added request id to nginx log to easily track the Chef request through the logs.
 - Erchef and Bookshelf can optionally use mTLS protocol for their internal communications.
 - Habitat package improvements:
-    - Increased `authn:keygen_timeout` amount for `oc_erchef` hab pkg.
-    - Removed `do_end` function from `chef-server-ctl` hab plan.
-    - Enhanced `chef-server-ctl` to function in more habitat environments.
-    - `chef-server-ctl` commands pass relevant TLS options during bifrost API calls.
+  - Increased `authn:keygen_timeout` amount for `oc_erchef` hab pkg.
+  - Removed `do_end` function from `chef-server-ctl` hab plan.
+  - Enhanced `chef-server-ctl` to function in more habitat environments.
+  - `chef-server-ctl` commands pass relevant TLS options during bifrost API calls.
 - Used standard ruby-cleanup definition, which shrinks install size by \~5% on disk.
 - Removed unused couchdb configurables.
 
@@ -1694,10 +1649,7 @@ Ruby has been updated from 2.5.1 to 2.5.3 to resolve the following CVEs:
 - [CVE-2018-16396](https://nvd.nist.gov/vuln/detail/CVE-2018-16396)
 - [CVE-2018-16395](https://nvd.nist.gov/vuln/detail/CVE-2018-16395)
 
-
-
 ## Chef Infra Server 12.18.14
-
 
 This release:
 
@@ -1726,8 +1678,6 @@ incompatibility manifests with a Berkshelf upload to Chef Server failure
 of `Net::HTTPServerException: 400 "Bad Request"` and opscode-erchef logs
 containing `status=400` and `req_api_version=1` in the log line for the
 corresponding cookbook upload API request.
-
-
 
 ### Security
 
@@ -1768,10 +1718,7 @@ Ruby has been updated from 2.4.3 to 2.5.1 to resolve the following CVEs:
 - [CVE-2018-8780](https://nvd.nist.gov/vuln/detail/CVE-2018-8780)
 - Multiple vulnerabilities in RubyGems
 
-
-
 ## Chef Infra Server 12.17.33
-
 
 This release:
 
@@ -1779,10 +1726,7 @@ This release:
 - Adds FIPS support for PPC64 (big-endian)
 - Fixes an Elasticsearch invalid search query issue caused by forward slashes that were not escaped properly
 
-
-
 ## Chef Infra Server 12.17.15
-
 
 This release:
 
@@ -1791,9 +1735,9 @@ This release:
 - Allows you to disable request logging via the following optional
     settings:
 
-    - `opscode-erchef['enable_request_logging']`
-    - `oc_bifrost['enable_request_logging']`
-    - `bookshelf['enable_request_logging']`
+  - `opscode-erchef['enable_request_logging']`
+  - `oc_bifrost['enable_request_logging']`
+  - `bookshelf['enable_request_logging']`
 
     See the [Chef server optional
     settings](/server/config_rb_server_optional_settings/) guide for
@@ -1820,10 +1764,7 @@ See the detailed [change
 log](https://github.com/chef/chef-server/blob/master/CHANGELOG.md#121715-2017-12-21)
 for a complete list of changes.
 
-
-
 ## Chef Infra Server 12.17.5
-
 
 This release fixes a regression that occurs when deploying to
 DigitalOcean and potentially other non-AWS cloud platforms, where the
@@ -1834,10 +1775,7 @@ See the [change
 log](https://github.com/chef/chef-server/blob/master/CHANGELOG.md#12175-2017-10-25)
 for a full list of changes.
 
-
-
 ## Chef Infra Server 12.17.3
-
 
 The following items are new for Chef server 12.17.3:
 
@@ -1856,19 +1794,13 @@ The following items are new for Chef server 12.17.3:
 
 See the [change log](https://github.com/chef/chef-server/blob/master/CHANGELOG.md#12173-2017-10-19) for a full list of changes.
 
-
-
 ## Chef Infra Server 12.16.14
-
 
 This release updates Ruby to version 2.2.8 to take advantage of multiple [security
 fixes](https://www.ruby-lang.org/en/news/2017/09/14/ruby-2-2-8-released/). See the full [change
 log](https://github.com/chef/chef-server/blob/master/CHANGELOG.md#121614-2017-09-21) for details on minor changes.
 
-
-
 ## Chef Infra Server 12.16.9
-
 
 The following items are new for Chef server 12.16.9:
 
@@ -1897,10 +1829,7 @@ primarily intended for use by Chef support.
 See the [cleanup-bifrost](/ctl_chef_server/#cleanup-bifrost)
 subcommand documentation for syntax examples and additional options.
 
-
-
 ## Chef Infra Server 12.16.2
-
 
 The following items are new for Chef server 12.16.2:
 
@@ -1982,10 +1911,7 @@ depend on the secret that is being changed. When used with the optional
 `--with-restart` flag, `chef-server-ctl set-secret` will attempt to
 automatically restart the dependent services.
 
-
-
 ## Chef Infra Server 12.15.0
-
 
 The following items are new for Chef server 12.15:
 
@@ -2062,10 +1988,7 @@ LDAP by default.
 PUT to `/users/USERNAME/_acl/PERM` will no longer return a 400 when the
 request is valid.
 
-
-
 ## Chef Infra Server 12.14.0
-
 
 The following items are new for Chef server 12.14:
 
@@ -2102,18 +2025,13 @@ Management](/ctl_chef_server/#secrets-management).
 Users of the DRBD-based HA configuration may still see passwords related
 to keepalived and DRBD in `/var/opt/opscode`.
 
-
-
 For further information see:
 
 See [Chef Server Credentials
 Management](/server_security/#chef-infra-server-credentials-management)
 for more details.
 
-
-
 ## Chef Infra Server 12.13.0
-
 
 The following items are new for Chef server 12.13:
 
@@ -2152,10 +2070,7 @@ The only supported systems at this time for FIPS mode are RHEL. Packages
 for other systems will be missing the required OpenSSL FIPS module and
 will fail to start if reconfigured with `fips true`.
 
-
-
 ## Chef Infra Server 12.12.0
-
 
 The following items are new for Chef server 12.12:
 
@@ -2210,10 +2125,7 @@ oc_id['email_from_address'] = 'oc_id@example.com'
 oc_id['origin'] = 'mail.yourco.io'
 ```
 
-
-
 ## Chef Infra Server 12.11.0
-
 
 The following items are new for Chef server 12.11:
 
@@ -2254,10 +2166,7 @@ The following items are new for Chef server 12.11:
 - **chef-server-ctl psql** previously revealed the postgresql password
     via <span class="title-ref">ps</span>.
 
-
-
 ## Chef Infra Server 12.10.0
-
 
 The following items are new for Chef server 12.10:
 
@@ -2300,10 +2209,7 @@ The following items are new for Chef server 12.10:
     /etc/opscode-reporting/pedant_config.rb and adding the following
     line: ssl_version :TLSv1_2
 
-
-
 ## Chef Infra Server 12.9.1
-
 
 The following items are new for Chef server 12.9.1:
 
@@ -2321,10 +2227,7 @@ The update of OpenSSL 1.0.1u addresses the following CVEs:
 - CVE-2016-2181
 - CVE-2016-6306
 
-
-
 ## Chef Infra Server 12.9.0
-
 
 The following items are new for Chef server 12.9:
 
@@ -2348,20 +2251,14 @@ The following items are new for Chef server 12.9:
     Additional changes can be found
     [here](https://github.com/chef/chef-server/blob/master/RELEASE_NOTES.md#api-changes).
 
-
-
 ## Chef Infra Server 12.8.0
-
 
 The following items are new for Chef server 12.8:
 
 - **Initial support for sending updates to a data collector service**
 - **Minor bug fixes in postgresql setup**
 
-
-
 ## Chef Infra Server 12.7.0
-
 
 The following items are new for Chef server 12.7:
 
@@ -2407,10 +2304,7 @@ server API. For example, to retrieve users where the
 GET /users?external_authentication_uid=jane%40doe.com
 ```
 
-
-
 ## Chef Infra Server 12.6.0
-
 
 The following items are new for Chef server 12.6:
 
@@ -2432,18 +2326,13 @@ The `chef-server-ctl install` command no longer works in the 12.5 (and
 earlier) versions of the Chef server due to a change in how packages are
 downloaded from Chef.
 
-
-
 ### Apache 2.0
 
 All open source Chef products---such as the Chef client, the Chef
 server, or InSpec---are governed by the [Apache 2.0
 license](https://www.apache.org/licenses/LICENSE-2.0).
 
-
-
 ## Chef Infra Server 12.5.0
-
 
 The following items are new for Chef server 12.5:
 
@@ -2511,10 +2400,7 @@ By default, the `public_key_read_access` assigns all members of the
 </tbody>
 </table>
 
-
-
 ## Chef Infra Server 12.4.0
-
 
 The following items are new for Chef server 12.4:
 
@@ -2810,10 +2696,7 @@ carol
 dan
 ```
 
-
-
 ## Chef Infra Server 12.3.0
-
 
 The following items are new for Chef server 12.3:
 
@@ -3059,8 +2942,6 @@ The following `chef-server-ctl` subcommands for managing services are
 disabled when an external PostgreSQL database is configured for the Chef
 server: `hup`, `int`, `kill`, `once`, `restart`, `start`, `stop`,
 `tail`, and `term`.
-
-
 
 ### Settings
 
@@ -3732,10 +3613,7 @@ The response returns the policy details and is similar to:
 </tbody>
 </table>
 
-
-
 ## Chef Infra Server 12.1.0
-
 
 The following items are new for Chef server 12.1:
 
@@ -5070,10 +4948,7 @@ The following configuration settings are new for the Chef server:
 </tbody>
 </table>
 
-
-
 ## Chef Infra Server 12.0.0
-
 
 The following items are new for Chef server 12:
 
@@ -5151,7 +5026,7 @@ The following items are new for Chef server 12:
     `delete-user-key`, `list-client-keys`, and `list-user-keys`. (These
     are preview commands, new as-of the Chef server 12.0.3 release.)
 
-### Upgrade to Chef server 12!
+### Upgrade to Chef server 12
 
 Upgrades to Chef server 12 are supported for both Enterprise Chef and
 Open Source Chef users. See /server/upgrade_server.html for more
@@ -5583,8 +5458,6 @@ Early RC candidates for the Chef server 12 release named this command
 `--admin` flag, which is added to the command (along with the rename)
 for the upcoming final release of Chef server 12.
 
-
-
 The `org-user-add` subcommand is used to add a user to an organization.
 
 **Syntax**
@@ -5624,8 +5497,6 @@ chef-server-ctl org-user-add dev grantmc --admin
 Early RC candidates for the Chef server 12 release named this command
 `org-disociate`. This is the same command, but renamed for the upcoming
 final release of Chef server 12.
-
-
 
 The `org-user-remove` subcommand is used to remove a user from an
 organization.
@@ -5826,8 +5697,6 @@ Previous versions of the Chef server used the `ldap['ssl_enabled']`
 setting to first enable SSL, and then the `ldap['encryption']` setting
 to specify the encryption type. These settings are deprecated.
 
-
-
 ### Key Rotation
 
 Use the following commands to manage public and private key rotation for
@@ -5848,8 +5717,6 @@ chef-server-ctl add-client-key ORG_NAME CLIENT_NAME [--public-key-path PATH] [--
 **Warning:**
 
 All options for this subcommand must follow all arguments.
-
-
 
 **Options**
 
@@ -5895,8 +5762,6 @@ chef-server-ctl add-user-key USER_NAME [--public-key-path PATH] [--expiration-da
 **Warning:**
 
 All options for this subcommand must follow all arguments.
-
-
 
 **Options**
 
@@ -5967,8 +5832,6 @@ chef-server-ctl delete-user-key USER_NAME KEY_NAME
 
 The parameters for this subcommand must be in the order specified above.
 
-
-
 **Options**
 
 This subcommand has the following arguments:
@@ -5996,8 +5859,6 @@ chef-server-ctl list-client-keys ORG_NAME CLIENT_NAME [--verbose]
 **Warning:**
 
 All options for this subcommand must follow all arguments.
-
-
 
 **Options**
 
@@ -6030,8 +5891,6 @@ chef-server-ctl list-user-keys USER_NAME [--verbose]
 **Warning:**
 
 All options for this subcommand must follow all arguments.
-
-
 
 **Options**
 
@@ -6088,5 +5947,3 @@ EvBQGdNG39XYSEeF4LneYQKPHEZDdqe7TZdVE8ooU/syxlZgADtvkqEoc4zp1Im3
 For the list of issues that were addressed for this release, please see
 the changelog on GitHub:
 <https://github.com/chef/chef-server/blob/master/CHANGELOG.md>
-
-

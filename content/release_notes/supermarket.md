@@ -3,8 +3,6 @@ title = "Chef Supermarket Release Notes"
 draft = false
 product = ["supermarket"]
 
-
-
 [menu]
   [menu.release_notes]
     title = "Chef Supermarket"
@@ -62,7 +60,6 @@ Release date: November 11, 2025
 
 - Upgraded OpenResty from 1.21 to 1.27.1.2. Includes Nginx upgrade from 1.21.4 to 1.27.1.
 
-
 ## Chef Supermarket 5.2.0
 
 ### Security
@@ -70,14 +67,11 @@ Release date: November 11, 2025
 - Upgraded PostgreSQL from 13.4 to 13.18.
 - Multiple CVEs fixed.
 
-
 ## Chef Supermarket 5.1.80
-
 
 ### Security
 
 Upgraded OpenSSL to 1.0.2zi. ([#3248](https://github.com/chef/supermarket/pull/3248))
-
 
 ## Chef Supermarket 5.1.79
 
@@ -85,14 +79,11 @@ Upgraded OpenSSL to 1.0.2zi. ([#3248](https://github.com/chef/supermarket/pull/3
 
 We now produce packages for Red Hat Enterprise Linux 9. [(#3112)](https://github.com/chef/supermarket/pull/3212)
 
-
 ## Chef Supermarket 5.1.77
-
 
 ### Enhancements
 
 - Added support for setting a OneTrust ID in Supermarket. ([#3210](https://github.com/chef/supermarket/pull/3210))
-
 
 ## Chef Supermarket 5.1.76
 
@@ -102,44 +93,48 @@ We now produce packages for Red Hat Enterprise Linux 9. [(#3112)](https://github
 - Updated logo and favicon to use Progress Chef branding. ([#3186](https://github.com/chef/supermarket/pull/3186))
 - Updated footer to include links to the Privacy Policy and Cookie Policy. ([#3186](https://github.com/chef/supermarket/pull/3186))
 
-
 ## Chef Supermarket 5.1.63
 
-
 ### Enhancements
-Add almalinux and rocky Linux logos https://github.com/chef/supermarket/pull/3071
+
+Add almalinux and rocky Linux logos <https://github.com/chef/supermarket/pull/3071>
+
 ### Security
-Removed insecure links https://github.com/chef/supermarket/pull/3078
+
+Removed insecure links <https://github.com/chef/supermarket/pull/3078>
 
 ### Enhancements
-Package Upgrades https://github.com/chef/supermarket/pull/3057
 
-Package Upgrades https://github.com/chef/supermarket/pull/3050
+Package Upgrades <https://github.com/chef/supermarket/pull/3057>
 
+Package Upgrades <https://github.com/chef/supermarket/pull/3050>
 
 ## Chef Supermarket 5.1.62
 
-
 ### Enhancements
-Add almalinux and rocky Linux logos https://github.com/chef/supermarket/pull/3071
+
+Add almalinux and rocky Linux logos <https://github.com/chef/supermarket/pull/3071>
+
 ### Security
-Removed insecure links https://github.com/chef/supermarket/pull/3078
+
+Removed insecure links <https://github.com/chef/supermarket/pull/3078>
 
 ### Enhancements
-Package Upgrades https://github.com/chef/supermarket/pull/3057
 
-Package Upgrades https://github.com/chef/supermarket/pull/3050
+Package Upgrades <https://github.com/chef/supermarket/pull/3057>
 
+Package Upgrades <https://github.com/chef/supermarket/pull/3050>
 
 ## Chef Supermarket 5.1.58
 
-
 ### Bug Fixes
+
 - Replaced insecure http url with correct https url in dashboard as well as welcome page [#2897](https://github.com/chef/supermarket/pull/2897)
 
 ### Security
+
 - Upgrade : omnibus-software,nokogiri,faker,omnibus,ua-parser-js,rack,test-kitchen,tzinfo-data [#3032](https://github.com/chef/supermarket/pull/3032)
-- Upgraded dependencies: globalid,rails-html-sanitizer,kitchen-vagrant,engine.io & socket.io [#3028](https://github.com/chef/supermarket/pull/3028) 
+- Upgraded dependencies: globalid,rails-html-sanitizer,kitchen-vagrant,engine.io & socket.io [#3028](https://github.com/chef/supermarket/pull/3028)
 - Update ruby with nokogiri [#3009](https://github.com/chef/supermarket/pull/3009)
 - Upgraded dependency: lodash [#2905](https://github.com/chef/supermarket/pull/2905)
 - Upgraded dependencies: omnibus-software, tzinfo-data, sqlite3, rspec-rails, net-smtp, shoulda-matchers, rails, lodash, omnibus, sidekiq, webmock [#2915](https://github.com/chef/supermarket/pull/2915)
@@ -154,7 +149,6 @@ Package Upgrades https://github.com/chef/supermarket/pull/3050
 
 ## Chef Supermarket 5.1.53
 
-
 ### Bug Fixes
 
 ### Enhancements
@@ -162,8 +156,6 @@ Package Upgrades https://github.com/chef/supermarket/pull/3050
 ### Packaging
 
 ### Security
-
-
 
 ## Chef Supermarket 5.1.44
 
@@ -184,9 +176,7 @@ The following version upgrades are now live with this release of Supermarket:
 - `omnibus-software` from 9b0e605 to ccc7269, `sidekiq-cron` from 1.4.0 to 1.5.0, `sidekiq` from 6.4.2 to 6.5.0, `octokit` from 4.23.0 to 4.23.0 and `ddtrace` from 1.0.0 to 1.1.0 [#2782](https://github.com/chef/supermarket/pull/2782) ([RajeshPaul38](https://github.com/RajeshPaul38))
 - `yard` from 0.9.27 to 0.9.28, `honeycomb-beeline` from 2.10.0 to 2.11.0 and `berkshelf` from 8.0.1 to 8.0.2 [#2772](https://github.com/chef/supermarket/pull/2772) ([RajeshPaul38](https://github.com/RajeshPaul38))
 - `rack` from 2.2.3 to 2.2.3.1, `yajl-ruby` from 1.4.2 to 1.4.3  [#2767](https://github.com/chef/supermarket/pull/2767) ([dheerajd-msys](https://github.com/dheerajd-msys))
--  Fixed security vulnerabilities reported in https://snyk.io/vuln/npm:sprockets-chain@0.0.16 [#2691](https://github.com/chef/supermarket/pull/2691) ([pratixha](https://github.com/pratixha))
-
-
+- Fixed security vulnerabilities reported in <https://snyk.io/vuln/npm:sprockets-chain@0.0.16> [#2691](https://github.com/chef/supermarket/pull/2691) ([pratixha](https://github.com/pratixha))
 
 ## Chef Supermarket 5.1.32
 
@@ -201,9 +191,6 @@ The following version upgrades are now live with this release of Supermarket:
 - `validate_url` from 1.0.13 to 1.0.15. [#2734](https://github.com/chef/supermarket/pull/2734)
 - `omnibus-software` from a079a77 to fe68016 [#2741](https://github.com/chef/supermarket/pull/2741)
 - `faker` from 2.20.0 to 2.21.0 [#2738](https://github.com/chef/supermarket/pull/2738)
-
-
-
 
 ## Chef Supermarket 5.1.30
 
@@ -224,37 +211,35 @@ The following version upgrades are now live with this release of Supermarket:
 - `omniauth` from 2.0.4 to 2.1.0. [#2693](https://github.com/chef/supermarket/pull/2693)
 - `rspec-rails` from 5.1.1 to 5.1.2 [#2702](https://github.com/chef/supermarket/pull/2702)
 
-
-
-
 ## Chef Supermarket 5.1.18
 
-
 ### Bug Fixes
+
 - Updated content security policy to allow script and style from google analytics [#2649](https://github.com/chef/supermarket/pull/2649) ([RajeshPaul38](https://github.com/RajeshPaul38))
 
 ### Enhancements
+
 - Supermarket now ships with a toggle for enabling/disabling protection from host header attacks [#2684](https://github.com/chef/supermarket/pull/2684) ([RajeshPaul38](https://github.com/RajeshPaul38)).
-- Cookstyle settings now have Chef/Security and InSpec/Deprecation cops enabled for checks [#2575](https://github.com/chef/supermarket/pull/2575) ([tas50](https://github.com/tas50)) 
+- Cookstyle settings now have Chef/Security and InSpec/Deprecation cops enabled for checks [#2575](https://github.com/chef/supermarket/pull/2575) ([tas50](https://github.com/tas50))
 
 ### Packaging
-- We now have a habitat package for the rails supermarket app, the sidekiq worker as well as wrapped versions of (core/) nginx, redis and postgresql with templating/defaults for supermarket [#2453](https://github.com/chef/supermarket/pull/2453) ([saghoshprogress](https://github.com/saghoshprogress)) 
-- Docs update for upgrading to version 5.0 [#2626](https://github.com/chef/supermarket/pull/2626) ([RajeshPaul38](https://github.com/RajeshPaul38)) 
-- Remove unused git dependency [#2429](https://github.com/chef/supermarket/pull/2429) ([dheerajd-msys](https://github.com/dheerajd-msys)) 
-- Removed unused supported platforms metric [#2576](https://github.com/chef/supermarket/pull/2576) ([pratixha](https://github.com/pratixha)) 
+
+- We now have a habitat package for the rails supermarket app, the sidekiq worker as well as wrapped versions of (core/) nginx, redis and postgresql with templating/defaults for supermarket [#2453](https://github.com/chef/supermarket/pull/2453) ([saghoshprogress](https://github.com/saghoshprogress))
+- Docs update for upgrading to version 5.0 [#2626](https://github.com/chef/supermarket/pull/2626) ([RajeshPaul38](https://github.com/RajeshPaul38))
+- Remove unused git dependency [#2429](https://github.com/chef/supermarket/pull/2429) ([dheerajd-msys](https://github.com/dheerajd-msys))
+- Removed unused supported platforms metric [#2576](https://github.com/chef/supermarket/pull/2576) ([pratixha](https://github.com/pratixha))
 
 ### Security
+
 - The following version upgrades are now live with this release of Supermarket
-    - honeycomb-beeline from 2.8.2 to 2.10.0 in /src/supermarket [#2685](https://github.com/chef/supermarket/pull/2685)
-    - karma devDependencies updated [#2663](https://github.com/chef/supermarket/pull/2663) ([pratixha](https://github.com/pratixha)) 
-    - puma from 5.6.2 to 5.6.4 in /src/supermarket [#2665](https://github.com/chef/supermarket/pull/2665)
-    - mixlib-shellout from 3.2.5 to 3.2.6 in /src/supermarket/engines/fieri [#2666](https://github.com/chef/supermarket/pull/2666) 
-    - pg from 1.3.4 to 1.3.5 in /src/supermarket [#2667](https://github.com/chef/supermarket/pull/2667) ([dependabot[bot]]
-    - rails from 6.1.4.6 to 6.1.5 in /src/supermarket/engines/fieri [#2641](https://github.com/chef/supermarket/pull/2641) 
-    - honeycomb-beeline from 2.8.2 to 2.9.0 in /src/supermarket [#2661](https://github.com/chef/supermarket/pull/2661) 
-    - aws-sdk-s3 from 1.112.0 to 1.113.0 in /src/supermarket [#2624](https://github.com/chef/supermarket/pull/2624)
-
-
+  - honeycomb-beeline from 2.8.2 to 2.10.0 in /src/supermarket [#2685](https://github.com/chef/supermarket/pull/2685)
+  - karma devDependencies updated [#2663](https://github.com/chef/supermarket/pull/2663) ([pratixha](https://github.com/pratixha))
+  - puma from 5.6.2 to 5.6.4 in /src/supermarket [#2665](https://github.com/chef/supermarket/pull/2665)
+  - mixlib-shellout from 3.2.5 to 3.2.6 in /src/supermarket/engines/fieri [#2666](https://github.com/chef/supermarket/pull/2666)
+  - pg from 1.3.4 to 1.3.5 in /src/supermarket [#2667](https://github.com/chef/supermarket/pull/2667) ([dependabot[bot]]
+  - rails from 6.1.4.6 to 6.1.5 in /src/supermarket/engines/fieri [#2641](https://github.com/chef/supermarket/pull/2641)
+  - honeycomb-beeline from 2.8.2 to 2.9.0 in /src/supermarket [#2661](https://github.com/chef/supermarket/pull/2661)
+  - aws-sdk-s3 from 1.112.0 to 1.113.0 in /src/supermarket [#2624](https://github.com/chef/supermarket/pull/2624)
 
 ## Chef Supermarket 5.0.41
 
@@ -262,7 +247,7 @@ The following version upgrades are now live with this release of Supermarket:
 
 #### Database Upgrade
 
-Supermarket 5 includes a large upgrade of the underlying PostgreSQL database. An automated upgrade will need to be run post package install. See https://docs.chef.io/supermarket/supermarket_upgrade/ for details.
+Supermarket 5 includes a large upgrade of the underlying PostgreSQL database. An automated upgrade will need to be run post package install. See <https://docs.chef.io/supermarket/supermarket_upgrade/> for details.
 
 #### Allowed Host Attribute
 
@@ -278,7 +263,7 @@ In order to prevent potential host header attacks, users will need to specify th
 
 #### PostgreSQL 13.4
 
-The embedded PostgreSQL 9.3 installation used by Supermarket to store cookbook information has been upgraded to 13.4. This new release of PostgreSQL improves performance, includes new functionality that will be utilized in future Supermarket releases, and resolves multiple security vulnerabilities. See https://docs.chef.io/supermarket/supermarket_upgrade/ for more information on completing this upgrade.
+The embedded PostgreSQL 9.3 installation used by Supermarket to store cookbook information has been upgraded to 13.4. This new release of PostgreSQL improves performance, includes new functionality that will be utilized in future Supermarket releases, and resolves multiple security vulnerabilities. See <https://docs.chef.io/supermarket/supermarket_upgrade/> for more information on completing this upgrade.
 
 #### Cookstyle Cookbook Quality Metrics
 
@@ -312,7 +297,6 @@ The Ruby on Rails framework used by Supermarket has been updated from 6.1.4.4 to
 
 ## Chef Supermarket 4.2.89
 
-
 ### Bug Fixes
 
 Fixed icons in the UI not displaying correctly.
@@ -321,10 +305,9 @@ Fixed icons in the UI not displaying correctly.
 
 #### Improved Search Results
 
-Deprecated cookbooks are now filtered from search results by default. To include deprecated cookbooks in search you can enable deprecated cookbooks in the advanced search options. 
+Deprecated cookbooks are now filtered from search results by default. To include deprecated cookbooks in search you can enable deprecated cookbooks in the advanced search options.
 
 ## Chef Supermarket 4.2.82
-
 
 ### Bug Fixes
 
@@ -432,13 +415,13 @@ cacerts
 
 The cacerts bundle has been updated to the 2021-09-30 release which removes older expired root certificates and adds the following new root certificates:
 
-* AC RAIZ FNMT-RCM SERVIDORES SEGUROS
-* GlobalSign Root R46
-* GlobalSign Root E46
-* GLOBALTRUST 2020
-* ANF Secure Server Root CA
-* Certum EC-384 CA
-* Certum Trusted Root CA
+- AC RAIZ FNMT-RCM SERVIDORES SEGUROS
+- GlobalSign Root R46
+- GlobalSign Root E46
+- GLOBALTRUST 2020
+- ANF Secure Server Root CA
+- Certum EC-384 CA
+- Certum Trusted Root CA
 
 #### nokogiri
 
@@ -722,7 +705,6 @@ These updates resolve CVE scanner audits. No vulnerabilities were found in Super
 - No more Ubuntu 14 builds. Canonical ended support for trusty in April 2019. [#1818](https://github.com/chef/supermarket/pull/1818) ([christopher-snapp](https://github.com/christopher-snapp))
 - omnibus build fixes [#1821](https://github.com/chef/supermarket/pull/1821) ([robbkidd](https://github.com/robbkidd))
 
-
 ## Chef Supermarket 3.3.3
 
 ### Security Fixes
@@ -811,4 +793,3 @@ A big thanks goes out to [Pavel Kazhavets](https://github.com/pavel-kazhavets) f
 ### Merged Pull Requests
 
 - update nokogiri to quiet gem audit finding [#1745](https://github.com/chef/supermarket/pull/1745) ([robbkidd](https://github.com/robbkidd))
-

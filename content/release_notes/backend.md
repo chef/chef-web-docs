@@ -1,10 +1,7 @@
 +++
 title = "Chef Backend Release Notes"
 draft = false
-
 product = []
-
-
 
 [menu]
   [menu.release_notes]
@@ -19,7 +16,6 @@ product = []
 Chef Backend is [deprecated](/versions/#deprecated-products-and-versions) and no longer under active development. Contact your Chef account representative for information about migrating to Chef Automate HA.
 
 {{< /warning >}}
-
 
 ## Chef Backend 3.1.1
 
@@ -48,8 +44,6 @@ Updated OpenJDK from 11.0.13 to 11.0.14 to resolve the following CVEs:
 - CVE-2022-21360: Enhance BMP image support
 - CVE-2022-21365: Enhanced BMP processing
 
-
-
 ## Chef Backend 3.0.0
 
 ### Enhancements
@@ -64,13 +58,12 @@ Elasticsearch 6.8.23 resolves multiple CVEs and updates Log4j to 2.17.1, which r
 
 You can upgrade to Chef Backend 3.0.0 directly from version 2.1.0 or later using a rolling upgrade where one Chef Backend node is upgraded at a time. It does not require a complete cluster shutdown to perform the upgrade. See the upgrade matrix below and our [Chef Backend upgrade documentation](https://docs.chef.io/server/upgrade_server_ha_v2/) for additional information.
 
-| Upgrade Workflow | Method |
-| --- | --- |
-| 1.x -> 2.x | [Major version upgrade](https://docs.chef.io/server/upgrade_server_ha_v2/#chef-backend-1x-to-2x-upgrade) |
-| 2.0.x -> 2.x | [Rolling upgrade](https://docs.chef.io/server/upgrade_server_ha_v2/#update-chef-backend) |
-| 2.1 and later -> 3.0 | [Rolling upgrade](https://docs.chef.io/server/upgrade_server_ha_v2/#update-chef-backend) |
-| 2.0 -> 3.0 | Direct upgrades are not supported at this time. You can upgrade to an intermediate version and then to 3.0.0. For example, 2.0.1 -> 2.3.16 -> 3.0.0. Both of these steps would be rolling upgrades that do not require downtime. |
-
+| Upgrade Workflow     | Method                                                                                                                                                                                                                           |
+|----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1.x -> 2.x           | [Major version upgrade](https://docs.chef.io/server/upgrade_server_ha_v2/#chef-backend-1x-to-2x-upgrade)                                                                                                                         |
+| 2.0.x -> 2.x         | [Rolling upgrade](https://docs.chef.io/server/upgrade_server_ha_v2/#update-chef-backend)                                                                                                                                         |
+| 2.1 and later -> 3.0 | [Rolling upgrade](https://docs.chef.io/server/upgrade_server_ha_v2/#update-chef-backend)                                                                                                                                         |
+| 2.0 -> 3.0           | Direct upgrades are not supported at this time. You can upgrade to an intermediate version and then to 3.0.0. For example, 2.0.1 -> 2.3.16 -> 3.0.0. Both of these steps would be rolling upgrades that do not require downtime. |
 
 ## Chef Backend 2.3.16
 
@@ -283,7 +276,6 @@ PostgreSQL has been updated from 9.5.6 to 9.5.19 to resolve a large number of bu
 - Removed support for Ubuntu 14.04.
 - Removed support for SLES 11.
 
-
 ## Chef Backend 2.0.30
 
 ### Enhancements
@@ -326,9 +318,7 @@ Ruby has been updated from 2.3.5 to 2.4.4 to improve performance and to resolve 
 - CVE-2018-8779
 - CVE-2018-8780
 
-
 ## Chef Backend 2.0.1
-
 
 We've bumped the major version because of a breaking change in the upgrade procedure. Upgrading to this version will require full cluster downtime. Before upgrading, please see our guide to [upgrading to Chef Backend 2](https://docs.chef.io/server/upgrade_server_ha_v2/).
 
@@ -409,7 +399,6 @@ Bump zlib to 1.2.11.
 
 ## Chef Backend 1.3.2
 
-
 The release is a bug-fix release.
 
 ### Bug Fixes
@@ -425,7 +414,6 @@ recovery.done to appear. Previously it would only wait 5 seconds.
 
 - Reduced flicker on slower terminals when rendering progress indicators.
 
-
 ## Chef Backend 1.2.5
 
 This release fixes a number of stability issues with 1.1.2. We recommend that all users
@@ -440,10 +428,9 @@ behind leader. This is configurable with the
 - The following etcd configuration options are now
 available for customization in `/etc/chef-backend/chef-backend.rb`:
 
-    - `etcd.election_timeout`
-    - `etcd.heartbeat_interval`
-    - `etcd.snapshot_count`
-
+  - `etcd.election_timeout`
+  - `etcd.heartbeat_interval`
+  - `etcd.snapshot_count`
 
 - Bump etcd to 2.3.7
 
@@ -454,9 +441,9 @@ available for customization in `/etc/chef-backend/chef-backend.rb`:
   maximum failures for each service via the following configuration
   settings:
 
-    - `leaderl.health_check.max_elasticsearch_failures`
-    - `leaderl.health_check.max_etcd_failures`
-    - `leaderl.health_check.max_pgsql_failures`
+  - `leaderl.health_check.max_elasticsearch_failures`
+  - `leaderl.health_check.max_etcd_failures`
+  - `leaderl.health_check.max_pgsql_failures`
 
   If you have manually set these flags in chef-backend.rb, your
   overrides will still be respected. Please remove these options if
@@ -517,7 +504,6 @@ status` in cases where etcd is up but there is no leaderl leader.
 
 ## Chef Backend 1.1.2
 
-
 ### Enhancements
 
 - `cluster-status` now shows which node a follower is following
@@ -533,4 +519,3 @@ status` in cases where etcd is up but there is no leaderl leader.
 - in multi-IP hosts, only test the specified IP and not all.
 - Do not overwrite existing configuration
 - Other: Misc code cleanups
-
