@@ -11,13 +11,9 @@ product = ["automate"]
     weight = 10
 +++
 
-## Chef Automate 4.13.361
+## Chef Automate upgrade journey
 
-Released on November 6, 2025
-
-### Upgrade Journey
-
-Chef lets you choose your **upgrade journey** based on your current version of Chef Automate. You can do all the version upgrades manually.
+Upgrade Chef Automate based on your current version of Chef Automate.
 
 | Your Current Version              | Upgrade To     |
 |-----------------------------------|----------------|
@@ -26,6 +22,10 @@ Chef lets you choose your **upgrade journey** based on your current version of C
 | 3.0.49                            | 4.x            |
 
 See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/major_upgrade_4.x/) for more information.
+
+## Chef Automate 4.13.361
+
+Released on November 6, 2025
 
 ### Improvements
 
@@ -49,19 +49,28 @@ The issue where the Projects selection drop-down would disappear in specific sce
 #### Security Updates
 
 - Updated go-viper to fix the following CVEs:
+
   - CWE-117
+
 - Updated nginx to 1.28.0 to resolve the following CVEs:
+
   - CVE-2024-24989
   - CVE-2024-24990
   - CVE-2024-7347
   - CVE-2024-32760
   - CVE-2024-35161
   - CVE-2025-23419
+
 - Updated tar-fs from version to 3.1.1 to address the following CVE:
+
   - CVE-2025-59343
+
 - Updated from cross-spawn 7.0.3 to 7.0.6, which fixes:
+
   - CVE-2024-21538
+
 - Updated OpenSearch to the Tuxcare OpenSearch 1.3.20.tuxcare.1.0.2 to address the following CVEs:
+
   - CVE-2025-25193
   - CVE-2024-47554
   - CVE-2021-28170
@@ -72,16 +81,22 @@ The issue where the Projects selection drop-down would disappear in specific sce
   - CVE-2024-38828
   - CVE-2024-38820
   - CVE-2025-22233
+
 - Updated Postgres 13.22 to resolve the following CVEs:
+
   - CVE-2025-8714
   - CVE-2025-8715
   - CVE-2025-8713
+
 - Updated OpenJDK to 17.0.16+8 to address the following CVEs:
+
   - CVE-2025-30749
   - CVE-2025-30754
   - CVE-2025-50059
   - CVE-2025-50106
+
 - Updated Angular 19.2.15 to address the following CVE:
+
   - CVE-2025-59052
 
 ### Chef Packaged Product Versions
@@ -125,18 +140,6 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on September 15, 2025
 
-### Upgrade Journey
-
-Chef lets you choose your **upgrade journey** based on your current version of Chef Automate. You can do all the version upgrades manually.
-
-| Your Current Version              | Upgrade To     |
-|-----------------------------------|----------------|
-| Any version before 20220329091442 | 20220329091442 |
-| 20220329091442                    | 3.0.x          |
-| 3.0.49                            | 4.x            |
-
-See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/major_upgrade_4.x/) for more information.
-
 ### Bug Fixes
 
 - Chef Automate now properly allows and validates extended validation certificates when Chef Infra Server services connect to external databases.
@@ -170,7 +173,7 @@ This release uses:
 
 ### Supported External Chef Products
 
-This release supports the following external chef products:
+This release supports the following external Chef products:
 
 - Chef Infra Server version: 14.0.58+
 - Chef Inspec version: 4.3.2+
@@ -217,12 +220,14 @@ Updated the self-signed certificate for the Postgres and Open search packages fo
 ### Maintenance
 
 - Updated the following packages to ensure they are as up-to-date as possible:
+
   - OpenSearch (version specific to Chef commercially licensed from Tuxcare)
   - OpenJDK
   - Golang
   - NodeJS
   - Angular
   - Chef components:
+
     - knife-ec-backup
     - InSpec
     - Habitat
@@ -273,18 +278,6 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on May 15, 2025
 
-### Upgrade Journey
-
-Chef lets you choose your **upgrade journey** based on your current version of Chef Automate. You can do all the version upgrades manually.
-
-| Your Current Version              | Upgrade To     |
-|-----------------------------------|----------------|
-| Any version before 20220329091442 | 20220329091442 |
-| 20220329091442                    | 3.0.x          |
-| 3.0.49                            | 4.x            |
-
-See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/major_upgrade_4.x/) for more information.
-
 ### New features
 
 - Added ServiceNow version Xanadu. ([#8857](https://github.com/chef/automate/pull/8857))
@@ -318,7 +311,7 @@ See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/
 
 - Updated action mailer to 7.0.8.5, which fixes
 
-> CVE-2024-47889
+  - CVE-2024-47889
 
 ### Chef Packaged Product Versions
 
@@ -361,18 +354,6 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 ## Chef Automate 4.13.118
 
 Released on March 3, 2025
-
-### Upgrade Journey
-
-Chef lets you choose your **upgrade journey** based on your current version of Chef Automate. You can do all the version upgrades manually.
-
-| Your Current Version              | Upgrade To     |
-|-----------------------------------|----------------|
-| Any version before 20220329091442 | 20220329091442 |
-| 20220329091442                    | 3.0.x          |
-| 3.0.49                            | 4.x            |
-
-See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/major_upgrade_4.x/) for more information.
 
 ### Improvements
 
@@ -422,7 +403,7 @@ This release uses:
 
 ### Supported External Chef Products
 
-This release supports the following external chef products:
+This release supports the following external Chef products:
 
 - Chef Infra Server version: 14.0.58+
 - Chef Inspec version: 4.3.2+
@@ -442,18 +423,6 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 ## Chef Automate 4.13.76
 
 Released on January 9, 2025
-
-### Upgrade Journey
-
-Chef lets you choose your **upgrade journey** based on your current version of Chef Automate. You can do all the version upgrades manually.
-
-| Your Current Version              | Upgrade To     |
-|-----------------------------------|----------------|
-| Any version before 20220329091442 | 20220329091442 |
-| 20220329091442                    | 3.0.x          |
-| 3.0.49                            | 4.x            |
-
-See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/major_upgrade_4.x/) for more information.
 
 ### Bug Fixes
 
@@ -508,7 +477,7 @@ This release uses:
 
 - Chef Automate Incident Creation App and Chef Automate Integration App are now supported on the Washington ServiceNow platform
 
-This release supports the following external chef products:
+This release supports the following external Chef products:
 
 - Chef Infra Server version: 14.0.58+
 - Chef Inspec version: 4.3.2+
@@ -529,29 +498,17 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on December 4, 2024
 
-### Upgrade Journey
-
-Chef lets you choose your **upgrade journey** based on your current version of Chef Automate. You can do all the version upgrades manually.
-
-| Your Current Version              | Upgrade To     |
-|-----------------------------------|----------------|
-| Any version before 20220329091442 | 20220329091442 |
-| 20220329091442                    | 3.0.x          |
-| 3.0.49                            | 4.x            |
-
-See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/major_upgrade_4.x/) for more information.
-
 ### Compliance Profile Updates
 
 - Compliance profiles are updated to version 1.0.0/20241128081652, which includes the new and improved profiles for:
->
-> - CIS Oracle Linux 9 v2.0.0(Audits)
-> - CIS Debian Linux 12 v1.0.1(Audits)
-> - CIS Debian Linux 11 v2.0.0(Audits)
-> - CIS Windows Server 2022 v3.0.0(Audits)
-> - CIS MSSQL Server 2022 v1.1.0(Audits)
-> - CIS RHEL 9 v2.0.0 (Audits)
-> - CIS Ubuntu 24.04 v1.0.0 (Audits)
+
+  - CIS Oracle Linux 9 v2.0.0(Audits)
+  - CIS Debian Linux 12 v1.0.1(Audits)
+  - CIS Debian Linux 11 v2.0.0(Audits)
+  - CIS Windows Server 2022 v3.0.0(Audits)
+  - CIS MSSQL Server 2022 v1.1.0(Audits)
+  - CIS RHEL 9 v2.0.0 (Audits)
+  - CIS Ubuntu 24.04 v1.0.0 (Audits)
 
 ### Bug Fixes
 
@@ -572,17 +529,17 @@ See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/
 (examples: dependency updates, CVE fixes)
 
 - Updated Golang version to 1.22.5, which fixes CVE issues. There are a few things to note:
->
-> - CVE-2024-38513
-> - CVE-2024-25124
-> - CVE-2023-45128
-> - CVE-2023-45141
-> - CVE-2023-41338
+
+  - CVE-2024-38513
+  - CVE-2024-25124
+  - CVE-2023-45128
+  - CVE-2023-45141
+  - CVE-2023-41338
 
 - Updated OpenSearch to 1.3.19, which fixes the following CVEs:
->
-> - CVE-2024-29736
-> - CVE-2024-32007
+
+  - CVE-2024-29736
+  - CVE-2024-32007
 
 ### Chef Packaged Product Versions
 
@@ -605,7 +562,7 @@ This release uses:
 
 ### Supported External Chef Products
 
-This release supports the following external chef products:
+This release supports the following external Chef products:
 
 - Chef Infra Server version: 14.0.58+
 - Chef Inspec version: 4.3.2+
@@ -625,18 +582,6 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 ## Chef Automate 4.13.5
 
 Released on September 27, 2024
-
-### Upgrade Journey
-
-Chef lets you choose your **upgrade journey** based on your current version of Chef Automate. You can do all the version upgrades manually.
-
-| Your Current Version              | Upgrade To     |
-|-----------------------------------|----------------|
-| Any version before 20220329091442 | 20220329091442 |
-| 20220329091442                    | 3.0.x          |
-| 3.0.49                            | 4.x            |
-
-See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/major_upgrade_4.x/) for more information.
 
 ### Bug Fixes
 
@@ -664,7 +609,7 @@ This release uses:
 
 ### Supported External Chef Products
 
-This release supports the following external chef products:
+This release supports the following external Chef products:
 
 - Chef Infra Server version: 14.0.58+
 - Chef Inspec version: 4.3.2+
@@ -832,7 +777,7 @@ This release uses:
 
 ### Supported external Chef products
 
-This release supports the following external chef products:
+This release supports the following external Chef products:
 
 - Chef Infra Server version: 14.0.58+
 - Chef Inspec version: 4.3.2+
@@ -853,18 +798,6 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on July 29, 2024
 
-### Upgrade Journey
-
-Chef lets you choose your **upgrade journey** based on your current version of Chef Automate. You can do all the version upgrades manually.
-
-| Your Current Version              | Upgrade To     |
-|-----------------------------------|----------------|
-| Any version before 20220329091442 | 20220329091442 |
-| 20220329091442                    | 3.0.x          |
-| 3.0.49                            | 4.x            |
-
-See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/major_upgrade_4.x/) for more information.
-
 ### Automate licensing
 
 The Chef Automate UI now notifies you if your Chef License is about to expire or has already expired. Enter a new license by selecting the link in the license notification at the top of the Automate UI and then paste your license in the **Apply new Chef Automate license** dialog.
@@ -883,24 +816,24 @@ For more information, see the [Automate licensing documentation](https://docs.ch
 ### Compliance Profile Updates
 
 - Compliance profiles are updated to version 1.0.0/20240704055643, which includes the new and improved profiles for:
->
-> - CIS AIX 7.2 v1.1.0
-> - CIS Microsoft Windows Server 2012 R2 v3.0.0
-> - CIS MariaDB 10.6 v1.0.0
-> - CIS MacOS 13 Ventura v2.0.0
-> - CIS Microsoft Windows 11 Enterprise v3.0.0
-> - STIG Oracle Linux 8 v1.8.0
-> - CIS RHEL 8 v3.0.0
-> - CIS RHEL 7 v4.0.0
+
+  - CIS AIX 7.2 v1.1.0
+  - CIS Microsoft Windows Server 2012 R2 v3.0.0
+  - CIS MariaDB 10.6 v1.0.0
+  - CIS MacOS 13 Ventura v2.0.0
+  - CIS Microsoft Windows 11 Enterprise v3.0.0
+  - STIG Oracle Linux 8 v1.8.0
+  - CIS RHEL 8 v3.0.0
+  - CIS RHEL 7 v4.0.0
 
 - This version improves the following profiles:
->
-> - CIS RHEL 7 v3.1.1 - code optimisation
-> - CIS CentOS Linux 7 v3.1.2 Benchmark Level 1 - Server controls were incorrect improved the password regex check
+
+  - CIS RHEL 7 v3.1.1 - code optimisation
+  - CIS CentOS Linux 7 v3.1.2 Benchmark Level 1 - Server controls were incorrect improved the password regex check
 
 - This version also fixes the following issues:
->
-> - CIS PostgresSQL v1.0.0 - removed default values from configuration.
+
+  - CIS PostgresSQL v1.0.0 - removed default values from configuration.
 
 ### Bug Fixes
 
@@ -946,7 +879,7 @@ This release uses:
 
 ### Supported External Chef Products
 
-This release supports the following external chef products:
+This release supports the following external Chef products:
 
 - Chef Infra Server version: 14.0.58+
 - Chef Inspec version: 4.3.2+
@@ -1061,18 +994,6 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on December 13, 2023
 
-### Upgrade Journey
-
-Chef lets you choose your **upgrade journey** based on your current version of Chef Automate. You can do all the version upgrades manually.
-
-| Your Current Version              | Upgrade To     |
-|-----------------------------------|----------------|
-| Any version before 20220329091442 | 20220329091442 |
-| 20220329091442                    | 3.0.x          |
-| 3.0.49                            | 4.x            |
-
-See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/major_upgrade_4.x/) for more information.
-
 ### New Features
 
 - You now can rotate the passwords on OpenSearch in Automate ([#8300](https://github.com/chef/automate/pull/8300)).
@@ -1106,36 +1027,36 @@ See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/
 
 - Updated DoorKeeper in ocid to resolve:
 
-> CVE-2020-10187
+  - CVE-2020-10187
 
 **Private Chef Supermarket users using this version of Automate must refresh their logins and re-authenticate Supermarket with Chef Identity**
 
 - Updated Dex library to v2.35 to resolve:
 
-> CVE-2022-39222
+  - CVE-2022-39222
 
 - Updated Minio to fix:
 
-> CVE-2023-28433
-> CVE-2023-28432
-> CVE-2023-28434
+  - CVE-2023-28433
+  - CVE-2023-28432
+  - CVE-2023-28434
 
 - Updated `moment.js` to v2.29.4 to resolve:
 
-> CVE-2022-31129
-> CVE-2022-24785
+  - CVE-2022-31129
+  - CVE-2022-24785
 
 - Updated `prismjs` to v1.29.0 to resolve:
 
-> CVE-2022-23647
+  - CVE-2022-23647
 
 - Updated `rule` to v2.7.2 to resolve:
 
-> CVE-2023-22467
+  - CVE-2023-22467
 
 - Updated `d3` to v7.8.5 to resolve:
 
-> CWE-400
+  - CWE-400
 
 ### Chef Packaged Product Versions
 
@@ -1158,7 +1079,7 @@ This release uses:
 
 ### Supported External Chef Products
 
-This release supports the following external chef products:
+This release supports the following external Chef products:
 
 - Chef Infra Server version: 14.0.58+
 - Chef Inspec version: 4.3.2+
@@ -1252,18 +1173,6 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on September 25, 2023
 
-### Upgrade Journey
-
-Chef lets you choose your **upgrade journey** based on your current version of Chef Automate. You can do all the version upgrades manually.
-
-| Your Current Version              | Upgrade To     |
-|-----------------------------------|----------------|
-| Any version before 20220329091442 | 20220329091442 |
-| 20220329091442                    | 3.0.x          |
-| 3.0.49                            | 4.x            |
-
-See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/major_upgrade_4.x/) for more information.
-
 ### New Features
 
 - On-premise deployment of Automate HA with Chef Managed database can be done on infrastructure provisioned on the Google Cloud Platform.
@@ -1273,8 +1182,8 @@ See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/
 
 - Compliance profiles are updated to version 1.0.0/20230905035531, which includes the new and improved profiles for:
 
-> CIS Oracle Solaris 11.4 v1.0.0
-> CIS Windows Server 2019 Audits v2.0.0
+  - CIS Oracle Solaris 11.4 v1.0.0
+  - CIS Windows Server 2019 Audits v2.0.0
 
 ### Chef Packaged Product Versions
 
@@ -1297,7 +1206,7 @@ This release uses:
 
 ### Supported External Chef Products
 
-This release supports the following external chef products:
+This release supports the following external Chef products:
 
 - Chef Infra Server version: 14.0.58+
 - Chef Inspec version: 4.3.2+
@@ -1326,18 +1235,6 @@ We are delighted to announce that our continuous effort to improve the installat
 - Perform verification checks before deployment
 - Control Automate HA cluster from a single central bastion system
 
-### Upgrade Journey
-
-Chef lets you choose your **upgrade journey** based on your current version of Chef Automate. You can do all the version upgrades manually.
-
-| Your Current Version              | Upgrade To     |
-|-----------------------------------|----------------|
-| Any version before 20220329091442 | 20220329091442 |
-| 20220329091442                    | 3.0.x          |
-| 3.0.49                            | 4.x            |
-
-See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/major_upgrade_4.x/) for more information.
-
 ### Improvements
 
 - The ability to patch Chef Server FQDN and Root-CA in Automate HA from Bastion. ([#8099](https://github.com/chef/automate/pull/8099))
@@ -1354,7 +1251,7 @@ See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/
 
 - Compliance profiles are updated to version 1.0.0/20230831114438, which includes the new and improved profiles for:
 
-> CIS Oracle Solaris 11.4 v1.0.0
+  - CIS Oracle Solaris 11.4 v1.0.0
 
 ### Bug Fixes
 
@@ -1410,7 +1307,7 @@ This release uses:
 
 ### Supported External Chef Products
 
-This release supports the following external chef products:
+This release supports the following external Chef products:
 
 - Chef Infra Server version: 14.0.58+
 - Chef Inspec version: 4.3.2+
@@ -1430,18 +1327,6 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 ## Chef Automate 4.9.9
 
 Released on August 3, 2023
-
-### Upgrade Journey
-
-Chef lets you choose your **upgrade journey** based on your current version of Chef Automate. You can do all the version upgrades manually.
-
-| Your Current Version              | Upgrade To     |
-|-----------------------------------|----------------|
-| Any version before 20220329091442 | 20220329091442 |
-| 20220329091442                    | 3.0.x          |
-| 3.0.49                            | 4.x            |
-
-See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/major_upgrade_4.x/) for more information.
 
 ### New Features
 
@@ -1470,21 +1355,21 @@ See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/
 
 - Compliance profiles are updated to version 1.0.0/20230414090134, which includes the new and improved profiles for:
 
-> CIS Oracle MySQL Community Server 5.7 v2.0.0 (Audit)
-> CIS IBM AIX 7.1 v2.1.0 (Audits)
-> CIS RHEL 8 v2.0.0 (Audits)
-> CIS Ubuntu 22.04 v1.0.0
-> CIS Suse Linux Enterprise 12v3.1.0
-> STIG Windows 11 v1r2
+  - CIS Oracle MySQL Community Server 5.7 v2.0.0 (Audit)
+  - CIS IBM AIX 7.1 v2.1.0 (Audits)
+  - CIS RHEL 8 v2.0.0 (Audits)
+  - CIS Ubuntu 22.04 v1.0.0
+  - CIS Suse Linux Enterprise 12v3.1.0
+  - STIG Windows 11 v1r2
 
 - This version also fixes bugs for the following profiles:
 
-> CIS CentOS Linux 7 Benchmark v3.1.2 : UMASK wrong check issue(Control 5.5.5)
-> CIS CentOS Linux 8 Benchmark v2.0.0 : handled false positive for sudo access controls
-> CIS RHEL 8 Benchmark v2.0.0 : handled false positive for sudo access controls
-> CIS RHEL 7 Benchmark v3.1.1 : handled false positive for sudo access controls
-> CIS Windows 2019 v1.3.0 Bug fix for controls in 19 series
-> CIS CentOS Linux 7 Benchmark v3.1.2 control 5.1.4
+  - CIS CentOS Linux 7 Benchmark v3.1.2 : UMASK wrong check issue(Control 5.5.5)
+  - CIS CentOS Linux 8 Benchmark v2.0.0 : handled false positive for sudo access controls
+  - CIS RHEL 8 Benchmark v2.0.0 : handled false positive for sudo access controls
+  - CIS RHEL 7 Benchmark v3.1.1 : handled false positive for sudo access controls
+  - CIS Windows 2019 v1.3.0 Bug fix for controls in 19 series
+  - CIS CentOS Linux 7 Benchmark v3.1.2 control 5.1.4
 
 ### Bug Fixes
 
@@ -1516,7 +1401,7 @@ This release uses:
 
 ### Supported External Chef Products
 
-This release supports the following external chef products:
+This release supports the following external Chef products:
 
 - Chef Infra Server version: 14.0.58+
 - Chef Inspec version: 4.3.2+
@@ -1536,18 +1421,6 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 ## Chef Automate 4.7.52
 
 Released on June 8, 2023
-
-### Upgrade Journey
-
-Chef lets you choose your **upgrade journey** based on your current version of Chef Automate. You can do all the version upgrades manually.
-
-| Your Current Version              | Upgrade To     |
-|-----------------------------------|----------------|
-| Any version before 20220329091442 | 20220329091442 |
-| 20220329091442                    | 3.0.x          |
-| 3.0.49                            | 4.x            |
-
-See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/major_upgrade_4.x/) for more information.
 
 ### Announcement
 
@@ -1581,30 +1454,31 @@ Please refer the [Golang 1.19 Release Notes](https://go.dev/doc/go1.19)
 (examples: dependency updates, CVE fixes)
 
 The update of Golang framework to 1.19.3 resolves the following CVE issues:
-> CVE-2021-41772
-> CVE-2021-41771
-> CVE-2021-38297
-> CVE-2021-36221
-> CVE-2021-34558
-> CVE-2021-33198
-> CVE-2021-33197
-> CVE-2021-33196
-> CVE-2021-33195
-> CVE-2021-31525
-> CVE-2021-29923
-> CVE-2021-27919
-> CVE-2021-27918
-> CVE-2021-3114
-> CVE-2020-28851
-> CVE-2012-2666
-> CVE-2022-23806
-> CVE-2022-23772
-> CVE-2022-23773
-> CVE-2020-28367
-> CVE-2020-28366
-> CVE-2020-28362
-> CVE-2017-15041
-> CVE-2016-5386
+
+- CVE-2021-41772
+- CVE-2021-41771
+- CVE-2021-38297
+- CVE-2021-36221
+- CVE-2021-34558
+- CVE-2021-33198
+- CVE-2021-33197
+- CVE-2021-33196
+- CVE-2021-33195
+- CVE-2021-31525
+- CVE-2021-29923
+- CVE-2021-27919
+- CVE-2021-27918
+- CVE-2021-3114
+- CVE-2020-28851
+- CVE-2012-2666
+- CVE-2022-23806
+- CVE-2022-23772
+- CVE-2022-23773
+- CVE-2020-28367
+- CVE-2020-28366
+- CVE-2020-28362
+- CVE-2017-15041
+- CVE-2016-5386
 
 ### Chef Packaged Product Versions
 
@@ -1627,7 +1501,7 @@ This release uses:
 
 ### Supported External Chef Products
 
-This release supports the following external chef products:
+This release supports the following external Chef products:
 
 - Chef Infra Server version: 14.0.58+
 - Chef Inspec version: 4.3.2+
@@ -1647,18 +1521,6 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 ## Chef Automate 4.5.177
 
 Released on May 8, 2023
-
-### Upgrade Journey
-
-Chef lets you choose your **upgrade journey** based on your current version of Chef Automate. You can do all the version upgrades manually.
-
-| Your Current Version              | Upgrade To     |
-|-----------------------------------|----------------|
-| Any version before 20220329091442 | 20220329091442 |
-| 20220329091442                    | 3.0.x          |
-| 3.0.49                            | 4.x            |
-
-See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/major_upgrade_4.x/) for more information.
 
 ### New Features
 
@@ -1690,7 +1552,7 @@ See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/
 - Fixed the bug to apply the `fqdn` passed from the Automate HA Bastion host to the Automate HA frontend nodes during deployment and upgrade. ([#7729](https://github.com/chef/automate/pull/7729))
 - Fixed the bug which abruptly stops `gather-logs` when invoked from Automate HA Bastion host. ([#7732](https://github.com/chef/automate/pull/7732))
 - Fixed the bug to show proper error messages while testing data feed integration using S3. ([#7736](https://github.com/chef/automate/pull/7736))
-- Fixed the bug to show the chef infra server name in the breadcrumb navigation bar of Infra Server nodes. ([#7737](https://github.com/chef/automate/pull/7737))
+- Fixed the bug to show the Chef Infra Server name in the breadcrumb navigation bar of Infra Server nodes. ([#7737](https://github.com/chef/automate/pull/7737))
 - Fixed the bug to list the correct nodes when searched using error suggestions through Client Run reports. ([#7745](https://github.com/chef/automate/pull/7745))
 - Fixed the bug to display the trend graph of Compliance ingestions for ten days. ([#7748](https://github.com/chef/automate/pull/7748))
 - Fixed the bug to allow multiple edits of notification service settings. ([#7752](https://github.com/chef/automate/pull/7752))
@@ -1745,7 +1607,7 @@ This release uses:
 
 ### Supported External Chef Products
 
-This release supports the following external chef products:
+This release supports the following external Chef products:
 
 - Chef Infra Server version: 14.0.58+
 - Chef Inspec version: 4.3.2+
@@ -1765,18 +1627,6 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 ## Chef Automate 4.5.37
 
 Released on February 13, 2023
-
-### Upgrade Journey
-
-Chef lets you choose your **upgrade journey** based on your current version of Chef Automate. You can do all the version upgrades manually.
-
-| Your Current Version              | Upgrade To     |
-|-----------------------------------|----------------|
-| Any version before 20220329091442 | 20220329091442 |
-| 20220329091442                    | 3.0.x          |
-| 3.0.49                            | 4.x            |
-
-See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/major_upgrade_4.x/) for more information.
 
 ### New Features
 
@@ -1854,18 +1704,6 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on January 12, 2023
 
-### Upgrade Journey
-
-Chef lets you choose your **upgrade journey** based on your current version of Chef Automate. You can do all the version upgrades manually.
-
-| Your Current Version              | Upgrade To     |
-|-----------------------------------|----------------|
-| Any version before 20220329091442 | 20220329091442 |
-| 20220329091442                    | 3.0.x          |
-| 3.0.49                            | 4.x            |
-
-See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/major_upgrade_4.x/) for more information.
-
 ### New Features
 
 - Ability to add new frontend and backend nodes for AWS deployment of Automate HA. ([#7616](https://github.com/chef/automate/pull/7616))
@@ -1905,7 +1743,7 @@ This release uses:
 
 ### Supported External Chef Products
 
-This release supports the following external chef products:
+This release supports the following external Chef products:
 
 - Chef Infra Server version: 14.0.58+
 - Chef Inspec version: 4.3.2+
@@ -2025,7 +1863,7 @@ This release uses:
 
 ### Supported External Chef Products
 
-This release supports the following external chef products:
+This release supports the following external Chef products:
 
 - Chef Infra Server version: 14.0.58+
 - Chef Inspec version: 4.3.2+
@@ -2130,7 +1968,7 @@ This release uses:
 
 ### Supported External Chef Products
 
-This release supports the following external chef products:
+This release supports the following external Chef products:
 
 - Chef Infra Server version: 14.0.58+
 - Chef Inspec version: 4.3.2+
@@ -2262,7 +2100,7 @@ This release uses:
 
 ### Supported External Chef Products
 
-This release supports the following external chef products:
+This release supports the following external Chef products:
 
 - Chef Infra Server version: 14.0.58+
 - Chef Inspec version: 4.3.2+
@@ -2353,6 +2191,7 @@ See the [Chef Automate Major Upgrade documentation](/automate/major_upgrade/) to
 ### Compliance Profile Updates
 
 - Compliance profiles are updated to version 1.0.0/20220609120848, which includes the fixes for:
+
   - CIS RHEL 8 v2.0.0
 
 ### Bug Fixes
@@ -2407,16 +2246,17 @@ Click [here](https://docs.chef.io/automate/major_upgrade_4.x/) to know more.
 
 - Compliance profiles are updated to version 1.0.0/20220609120848, which includes the following profile changes:
 
-> RHEL 8 v 2.0.0
-> Mongo DB 3.6 v1.1.0
+  - RHEL 8 v 2.0.0
+  - Mongo DB 3.6 v1.1.0
 
-and Fixes for:
-> Windows 2016 Server 1607 v 1.3.0
-> Windows 10 Enterprise 1909 v1.8.1
-> Stig Windows 10
-> Stig Windows 12 r2 v3
-> Windows 2012 r2 v2.5.0
-> Windows 2019 v1.2.1
+and fixes for:
+
+- Windows 2016 Server 1607 v 1.3.0
+- Windows 10 Enterprise 1909 v1.8.1
+- Stig Windows 10
+- Stig Windows 12 r2 v3
+- Windows 2012 r2 v2.5.0
+- Windows 2019 v1.2.1
 
 ### Chef Packaged Product Versions
 
@@ -2462,16 +2302,17 @@ Click [here](https://docs.chef.io/automate/major_upgrade_4.x/) to know more.
 
 - Compliance profiles are updated to version 1.0.0/20220603123504, which includes the following profile changes:
 
-> RHEL 8 v 2.0.0
-> Mongo DB 3.6 v1.1.0
+  - RHEL 8 v 2.0.0
+  - Mongo DB 3.6 v1.1.0
 
 and Fixes for:
-> Windows 2016 Server 1607 v 1.3.0
-> Window 10 Enterprise 1909 v1.8.1
-> Stig Windows 10 Server
-> Stig Windows 12 Server r2 v3
-> Windows 2012 Server r2 v 2.5.0
-> Windows 2019 Server v1.2.1
+
+- Windows 2016 Server 1607 v 1.3.0
+- Window 10 Enterprise 1909 v1.8.1
+- Stig Windows 10 Server
+- Stig Windows 12 Server r2 v3
+- Windows 2012 Server r2 v 2.5.0
+- Windows 2019 Server v1.2.1
 
 ### Security
 
@@ -2513,7 +2354,7 @@ This release uses:
 
 ### Supported External Chef Products
 
-This release supports the following external chef products:
+This release supports the following external Chef products:
 
 - Chef Infra Server version: 14.0.58+
 - Chef Inspec version: 4.3.2+
@@ -2551,7 +2392,7 @@ Click [here](https://docs.chef.io/automate/major_upgrade_4.x) to know more.
 
 - Compliance profiles are updated to version 1.0.0/20220518045206, which includes the following profile changes:
 
-> Postgres 11 v1.0.0
+  - Postgres 11 v1.0.0
 
 ### Security
 
@@ -2589,7 +2430,7 @@ This release uses:
 
 ### Supported External Chef Products
 
-This release supports the following external chef products:
+This release supports the following external Chef products:
 
 - Chef Infra Server version: 14.0.58+
 - Chef Inspec version: 4.3.2+
@@ -2646,7 +2487,7 @@ This release uses:
 
 ### Supported External Chef Products
 
-This release supports the following external chef products:
+This release supports the following external Chef products:
 
 - Chef Infra Server version: 14.0.58+
 - Chef Inspec version: 4.3.2+
@@ -2683,32 +2524,32 @@ Click [here](https://docs.chef.io/automate/major_upgrade/) to know more.
 
 - Compliance profiles are updated to version 1.0.0/20220422141333, which includes the following profile changes:
 
-> STIG Windows 2012R2 v3 release 1
-> STIG Windows 2016 2.1.0
-> CIS Windows 2012R2 2.5.0
-> CIS Windows 2012 2.3.0
-> Mac OS 11 1.2.0
-> Microsoft IIS
-> Windows 2016 1.3.0
-> CIS Windows 2019 1.2.1
-> Ubuntu 20.04 1.1.0
-> CIS Oracle Database 19c (Linux) 1.0.0
-> CIS AWS Linux 2 2.0.0
-> CIS Oracle Database 12c 3.0.0
-> RHEL 7 3.1.1
-> RHEL 8 1.0.1
-> Centos 8 1.0.1
-> Centos 7 3.1.2
-> RHEL 6 3.0.0
-> Ubuntu 18.04 2.1.0
-> Debian Linux 9 1.0.1
-> Windows 10 H2 1.10.0
-> Centos 6 3.0.0
-> Oracle Linux 7 3.1.1
-> Oracle 18c 1.0.0
-> STIG RHEL8 1.2.0
-> CIS MSSQL Server 2016 v1.3.0
-> IS MSSQL Server 2019 v1.2.0
+  - STIG Windows 2012R2 v3 release 1
+  - STIG Windows 2016 2.1.0
+  - CIS Windows 2012R2 2.5.0
+  - CIS Windows 2012 2.3.0
+  - Mac OS 11 1.2.0
+  - Microsoft IIS
+  - Windows 2016 1.3.0
+  - CIS Windows 2019 1.2.1
+  - Ubuntu 20.04 1.1.0
+  - CIS Oracle Database 19c (Linux) 1.0.0
+  - CIS AWS Linux 2 2.0.0
+  - CIS Oracle Database 12c 3.0.0
+  - RHEL 7 3.1.1
+  - RHEL 8 1.0.1
+  - Centos 8 1.0.1
+  - Centos 7 3.1.2
+  - RHEL 6 3.0.0
+  - Ubuntu 18.04 2.1.0
+  - Debian Linux 9 1.0.1
+  - Windows 10 H2 1.10.0
+  - Centos 6 3.0.0
+  - Oracle Linux 7 3.1.1
+  - Oracle 18c 1.0.0
+  - STIG RHEL8 1.2.0
+  - CIS MSSQL Server 2016 v1.3.0
+  - IS MSSQL Server 2019 v1.2.0
 
 ### Bug Fixes
 
@@ -2748,7 +2589,7 @@ This release uses:
 
 ### Supported External Chef Products
 
-This release supports the following external chef products:
+This release supports the following external Chef products:
 
 - Chef Infra Server version: 14.0.58+
 - Chef Inspec version: 4.3.2+
@@ -2798,7 +2639,7 @@ This release uses:
 
 ### Supported External Chef Products
 
-This release supports the following external chef products:
+This release supports the following external Chef products:
 
 - Chef Infra Server version: 14.0.58+
 - Chef Inspec version: 4.3.2+
@@ -3029,6 +2870,7 @@ Released on January 17, 2022
 ### Improvements
 
 - Added two new CLI options:
+
   - `complianceResourceRunCount` will return a **CSV** file with the number of unique compliance resources reporting to Chef Automate within a range of dates. ([#6448](https://github.com/chef/automate/pull/6448))
   - `complianceResourceRunReport` will return a **CSV** file that contains data about compliance resources reported to Chef Automate within a range of dates. ([#6448](https://github.com/chef/automate/pull/6448))
 
@@ -3188,7 +3030,7 @@ Released on November 29, 2021
 
 - Compliance profiles are updated to version 1.0.0/20211110062104, which includes the following profile changes:
 
-> Window 2016 v1.2.0
+  - Window 2016 v1.2.0
 
 ### Bug Fixes
 
@@ -3287,6 +3129,7 @@ Released on October 26, 2021
 ### New Features
 
 - Data Feed is now made GA. Data Feed supports 2 types of Integrations:
+
   - Webhook Integration - Supports 4 kinds of RESTful API based webhook integrations.
     - ServiceNow
     - Splunk
@@ -3338,8 +3181,9 @@ Released on October 12, 2021
 ### Compliance Profile Updates
 
 Compliance profiles are updated to version 1.0.0/20211007053103, which includes the following profile changes:
-> RHEL 8 V1.0.0 fixed for removing extra escape characters
-> Apple Mac OS 11 Profile V1.2.0
+
+- RHEL 8 V1.0.0 fixed for removing extra escape characters
+- Apple Mac OS 11 Profile V1.2.0
 
 ### Bug Fixes
 
@@ -3428,18 +3272,19 @@ Released on September 13, 2021
 ### Compliance Profile Updates
 
 Compliance profiles are updated to version 1.0.0/20210902061132, which includes the following profile changes:
-> CentOS 6 IPV6 fixes
-> Centos 6 control 6.2.6 Ensure root path fix
-> CentOS 7 IPV6 fixes
-> Centos 7 control 6.2.6 Ensure root path fix
-> Centos 8 Boot loader EFI fix
-> CentOS 8 - test to ensure base chains exist updated
-> RHEL 7 v2.2.0 IPV6 fixes
-> RHEL 6 IPV6 fixes
-> RHEL 7 v2.1.1 IPV6 fixes
-> Ubuntu 16.04 IPV6 fixes
-> CIS Ubuntu 20.04 v1.0.0
-> Stig windows server 2019 v1.1.0 few controls with incorrect logic updated
+
+- CentOS 6 IPV6 fixes
+- Centos 6 control 6.2.6 Ensure root path fix
+- CentOS 7 IPV6 fixes
+- Centos 7 control 6.2.6 Ensure root path fix
+- Centos 8 Boot loader EFI fix
+- CentOS 8 - test to ensure base chains exist updated
+- RHEL 7 v2.2.0 IPV6 fixes
+- RHEL 6 IPV6 fixes
+- RHEL 7 v2.1.1 IPV6 fixes
+- Ubuntu 16.04 IPV6 fixes
+- CIS Ubuntu 20.04 v1.0.0
+- Stig windows server 2019 v1.1.0 few controls with incorrect logic updated
 
 ### Bug Fixes
 
@@ -3491,13 +3336,13 @@ Released on August 27, 2021
 
 - Compliance profiles are updated to version 1.0.0/20210823105624, which includes the following profile changes:
 
-> Ubuntu 18.04 fix for SSHD Configuration MACs
-> Centos 7 fix for SSHD Configuration MACs
-> Rhel-7 v2.2.0 fix for SSHD Configuration MACs
-> Centos 6 fix for SSHD Configuration MACs
-> Rhel 6 fix for SSHD Configuration MACs
-> Rhel-7 v2.1.1 fix for SSHD Configuration MACs
-> Ubuntu 16.04 fix for SSHD Configuration MACs
+  - Ubuntu 18.04 fix for SSHD Configuration MACs
+  - Centos 7 fix for SSHD Configuration MACs
+  - Rhel-7 v2.2.0 fix for SSHD Configuration MACs
+  - Centos 6 fix for SSHD Configuration MACs
+  - Rhel 6 fix for SSHD Configuration MACs
+  - Rhel-7 v2.1.1 fix for SSHD Configuration MACs
+  - Ubuntu 16.04 fix for SSHD Configuration MACs
 
 ### Bug Fixes
 
@@ -3557,10 +3402,10 @@ Released on August 18, 2021
 
 - Compliance profiles are updated to version 1.0.0/20210806131012, which includes the following profile changes: ([#5406](https://github.com/chef/automate/pull/5406))
 
-> Bootloader permission check for CIS CentOS Linux 8 ver-1.0.0
-> CIS windows 10 enterprise 1909 v1.8.1
-> Update azure-inspec version for azure foundation profile
-> Ensure no unconfined services exist fails to check for unconfined_service_t
+  - Bootloader permission check for CIS CentOS Linux 8 ver-1.0.0
+  - CIS windows 10 enterprise 1909 v1.8.1
+  - Update azure-inspec version for azure foundation profile
+  - Ensure no unconfined services exist fails to check for unconfined_service_t
 
 ### Bug Fixes
 
@@ -3615,8 +3460,8 @@ Released on August 2, 2021
 
 - Compliance profiles are updated to version 1.0.0/20210720091254, which includes the following profile changes: ([#5367](https://github.com/chef/automate/pull/5367)):
 
-> STIG Windows 10 v2.1.0
-> Fix for - ASLR check in CIS
+  - STIG Windows 10 v2.1.0
+  - Fix for - ASLR check in CIS
 
 ### Bug Fixes
 
@@ -3628,7 +3473,7 @@ Released on August 2, 2021
 
 - We have made the following security improvements (Examples: New Security Configurations): ([#5363](https://github.com/chef/automate/pull/5363))
 
-> Added SameSite=Lax to the Session Cookie
+- Added SameSite=Lax to the Session Cookie
 
 #### Security Updates
 
@@ -3664,8 +3509,8 @@ Released on July 20, 2021
 
 - Compliance profiles are updated to version 1.0.0/20210714100005, which includes the following profile ([#5356](https://github.com/chef/automate/pull/5356)):
 
-> STIG Windows 10 v2.1.0
-> Fix for - ASLR check in CIS CentOS 8
+  - STIG Windows 10 v2.1.0
+  - Fix for - ASLR check in CIS CentOS 8
 
 ### Bug Fixes
 
@@ -3703,12 +3548,12 @@ Released on July 19, 2021
 
 - Compliance profiles are updated to version 1.0.0/20210707133250, which includes the following profile ([#5297](https://github.com/chef/automate/pull/5297)):
 
-> Server motd regular expression bug fix - centOS 8.
-> Fix for - RHEL 7 v 2.2.0 - 5.3.1 control.
-> Fix for - Tomcat 8 V 1.1.0 - Bug Fix (Fixed Nokogiri dependency ).
-> Fix for - Server does not find files in /etc/sudoers.d - CentOS 8.
-> Fix for - Expand user shell timeout check to scan files in /etc/profiles.d - CentOS 8.
-> STIG Windows 2012/2012 R2 Domain Controller v3.1.0.
+  - Server motd regular expression bug fix - centOS 8.
+  - Fix for - RHEL 7 v 2.2.0 - 5.3.1 control.
+  - Fix for - Tomcat 8 V 1.1.0 - Bug Fix (Fixed Nokogiri dependency ).
+  - Fix for - Server does not find files in /etc/sudoers.d - CentOS 8.
+  - Fix for - Expand user shell timeout check to scan files in /etc/profiles.d - CentOS 8.
+  - STIG Windows 2012/2012 R2 Domain Controller v3.1.0.
 
 #### Bug Fixes
 
@@ -3716,13 +3561,14 @@ Released on July 19, 2021
 
 #### Security Improvements
 
-We have made the following security improvements (Examples: New Security Configurations): ([#5286](https://github.com/chef/automate/pull/5286))
-> Enabled Strict-Transport-Security header in API
-> Enabled Cross-site scripting (XSS) filters in browsers
-> Disabled Content Sniffing
-> Enabled X-Content-Type-Options header
-> Enabled X-XSS-Protection header
-> Enabled HTTP Strict-Transport-Security header
+We made the following security improvements (Examples: New Security Configurations): ([#5286](https://github.com/chef/automate/pull/5286))
+
+- Enabled Strict-Transport-Security header in API
+- Enabled Cross-site scripting (XSS) filters in browsers
+- Disabled Content Sniffing
+- Enabled X-Content-Type-Options header
+- Enabled X-XSS-Protection header
+- Enabled HTTP Strict-Transport-Security header
 
 ### Chef Product Versions
 
@@ -3764,7 +3610,7 @@ Released on July 5, 2021
 
 - Compliance profiles are updated to version 1.0.0/20210625122945, which includes the following profile ([#5292](https://github.com/chef/automate/pull/5292))
 
-> Bug Fix - CentOS 8 v1.0.0
+  - Bug Fix - CentOS 8 v1.0.0
 
 ### Bug Fixes
 
@@ -3817,9 +3663,8 @@ Released on June 21, 2021
 
 - Compliance profiles are updated to version 1.0.0/20210605110738, which includes the following profiles ([#5195](https://github.com/chef/automate/pull/5195)):
 
-> CIS sles15 v1.0.0 - Optimisation and code clean
->
-> CIS Mssql server 2017 V1.2.0
+  - CIS sles15 v1.0.0 - Optimisation and code clean
+  - CIS Mssql server 2017 V1.2.0
 
 ### Bug Fixes
 
@@ -3829,6 +3674,7 @@ Released on June 21, 2021
 ### Maintenance
 
 - Chef Infra Server is updated from 14.1.0 to 14.4.4 which has the following changes ([#5213](https://github.com/chef/automate/pull/5213)):
+
   - Error pages no longer display the running version of OpenResty.
   - The opscode user which runs Chef Infra Server is no longer configured with an interactive shell.
   - Reindexing will now gracefully fail if there is not 2.2x the current ElasticSearch data available on disk before attempting the reindex
@@ -3870,9 +3716,8 @@ Released on June 7, 2021
 
 - Compliance profiles are updated to version 1.0.0/20210527104155, which includes the following profiles:
 
-> CIS Windows 10 2004 v1.9.1
->
-> CIS MSSQL Server 2019 V1.1.0
+  - CIS Windows 10 2004 v1.9.1
+  - CIS MSSQL Server 2019 V1.1.0
 
 ### Bug Fixes
 
@@ -3909,11 +3754,11 @@ Released on May 31, 2021
 ### Compliance Profile Updates
 
 - Compliance profiles are updated to version 1.0.0/20210519101158 which includes the following profiles:
->
-> - Stig Windows 2016 v2.1.0
-> - Stig windows Server 2019 v2.1.0
-> - CIS SLES 15 V1.0.0
-> - CIS MongoDB 3.6 v1.0.0
+
+  - Stig Windows 2016 v2.1.0
+  - Stig windows Server 2019 v2.1.0
+  - CIS SLES 15 V1.0.0
+  - CIS MongoDB 3.6 v1.0.0
 
 ### Chef Product Versions
 
@@ -4101,9 +3946,9 @@ Released on March 30, 2021
 ### New Features
 
 - This release lets you manage more of your Chef Infra Server directly from Chef Automate. You can:
->
-> - Create and update environments and data bags (along with data bag items).([4801](https://github.com/chef/automate/pull/4801), [4803](https://github.com/chef/automate/pull/4803))
-> - Create clients and reset client keys.([4813](https://github.com/chef/automate/pull/4813))
+
+  - Create and update environments and data bags (along with data bag items).([4801](https://github.com/chef/automate/pull/4801), [4803](https://github.com/chef/automate/pull/4803))
+  - Create clients and reset client keys.([4813](https://github.com/chef/automate/pull/4813))
 
 ### Chef Product Versions
 
@@ -4133,9 +3978,8 @@ Released on March 15, 2021
 
 - Chef Infra Servers comes with following new abilities ([#4786](https://github.com/chef/automate/pull/4786), [#4787](https://github.com/chef/automate/pull/4787), [#4788](https://github.com/chef/automate/pull/4788), [#4790](https://github.com/chef/automate/pull/4790), [#4791](https://github.com/chef/automate/pull/4791), [#4792](https://github.com/chef/automate/pull/4792), [#4793](https://github.com/chef/automate/pull/4793)):
 
-> Chef Infra Servers can now be deleted from Automate User Interface. The Infra Server gets deleted along with it's associated Organisations and Cookbooks, Roles, Environments, Data-Bags and clients.
->
-> Ability to create Clients.
+  - Chef Infra Servers can now be deleted from Automate User Interface. The Infra Server gets deleted along with it's associated Organisations and Cookbooks, Roles, Environments, Data-Bags and clients.
+  - Ability to create Clients.
 
 ### Improvements
 
@@ -4183,10 +4027,9 @@ Released on March 1, 2021
 ### New Features
 
 - The updated *Infrastructure* tab lets you add Chef Infra Servers, giving you a comprehensive view of your Chef-managed systems.
->
-> - Add organizations to each server.
-> - View cookbooks, roles, environments, data bags, and clients for each organization.
-> - Search and find roles, environments, data bag items, and clients from Chef Automate.
+  - Add organizations to each server.
+  - View cookbooks, roles, environments, data bags, and clients for each organization.
+  - Search and find roles, environments, data bag items, and clients from Chef Automate.
 
 ### Improvements
 
@@ -4232,6 +4075,7 @@ Released on January 25, 2021
 ### Improvements
 
 - We made Chef Automate more secure by moving the credentials from your user configuration into a secrets store (#4571):
+
   - Supports LDAP and MSAD bind passwords in the secrets field
   - You can pass secrets as environment variables
   - The `config show` terminal output is secrets-free
@@ -4786,6 +4630,7 @@ Released on April 13, 2020
 ### New Features
 
 - Write This Down: In this release, users of Identity and Access Management v1 (IAM v1) **automatically upgrade** to Identity and Access Management v2 (IAM v2). All IAM v1 users, teams, tokens, and policies will migrate to IAM v2. Some details to keep in mind:
+
   - [API Tokens](https://automate.chef.io/docs/api-tokens/) created in the browser work differently in IAM v2. After [creation](https://automate.chef.io/docs/api-tokens/#creating-api-tokens), an API token will have zero permissions. Add the new API token to a policy to grant permissions.
   - Creating admin API Tokens from the CLI in IAM v2 uses a [new command](https://automate.chef.io/docs/api-tokens/#admin-tokens). The old CLI command will not work.
   - If your IAM v1 local team names contain non-alphanumeric characters other than hyphens and underscores, recreate these local teams and add them to policies for correct function in IAM v2.
@@ -4909,6 +4754,7 @@ Released on February 10, 2020
 ### New Features
 
 - Fresh: Use the now available compliance profiles for STIG updates:
+
   - RHEL 7 V2R6
   - RHEL 6 V1R26
   - Windows 2012 and 2012R2 Member Server V2R18
@@ -5059,6 +4905,7 @@ Released on December 9, 2019
 - Knowledge is Power: [API docs](https://automate.chef.io/docs/api) are live! Expect to see more documentation being added over the next few months.
 - New API endpoint: Export all historical reports for a node!
 - The Latest: Chef InSpec profiles for new Security Technical Implementation Guides (STIGs) are now available:
+
   - RHEL 6 V1R25
   - RHEL 7 V2R5
   - Windows 2012 and 2012 R2 (member server) V2R17
@@ -5194,6 +5041,7 @@ Released on October 7, 2019
 - Sorted: You can now filter by control tag in the Compliance Reports UI! We appreciate your patience with this new functionality as we continue to squash some small bugs.
 - New Entry: A new API endpoint is available for listing controls in compliance reporting with `a2-url/compliance/reporting/controls`
 - More!: Check out our new compliance profiles:
+
   - CIS Apple MacOS 10.13 v1.0.0
   - STIG Windows Server 2019 V1R1
 
@@ -5233,6 +5081,7 @@ Released on September 9, 2019
 - Sorted: Within the compliance reports' *Nodes* tab, the Platform column now correctly sorts by both platform name and platform version.
 - Out of Order: For the CIS Windows 2016 v1.1.0 compliance profile, we fixed a bug where the security policy controls depended on a specific ordering of results when the ordering is not significant.
 - In Line: We matched CIS's recommendations by fixing the following compliance profiles:
+
   - CIS RHEL 7 v2.2.0 compliance profile now has the expected result of control 4.1.12 and does not expect the option `-S all`
   - CIS Ubuntu 18.04 compliance profile features fixed logic in control 4.1.7
 - Render: We corrected the metadata for STIG compliance profiles, so that they use valid SemVer version strings.
@@ -5241,6 +5090,7 @@ Released on September 9, 2019
 
 - The `data-lifecycle-service` component has been removed. Data retention is now configured on a per-service and per-policy basis though remote procedure calls to individual services. During the upgrade to this version, any configured service retention settings will be migrated as is. After the upgrade has completed, configuration of data retention with `chef-automate config` will no longer be supported. See the [data retention documentation for more information](https://automate.chef.io/docs/configuration/#data-retention) on configuring retention policies.
 - After the upgrade to this version, the following configuration keys will not be accepted:
+
   - compliance.v1.sys.retention.compliance_report_days
   - event_feed_service.v1.sys.service.purge_event_feed_after_days
   - ingest.v1.sys.service.purge_converge_history_after_days
@@ -5312,6 +5162,7 @@ Released on August 5, 2019
 
 - Login with SAML: You can now configure the `name ID policy format` to use. When left untouched, `name ID policy format` still defaults to `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`. Please consult the documentation for the [list of accepted values](https://automate.chef.io/docs/configuration/#saml).
 - Check It Out: The following compliance profiles are now available:
+
   - CIS Apple OSX 10.12, v1.0.0
   - CIS Apple OSX 10.11, v1.1.0
   - CIS Apple OSX 10.10, v1.2.0
@@ -5327,6 +5178,7 @@ Released on August 5, 2019
 - New Version: Chef InSpec has been upgraded to version 4.7.18.
 - Even More Suggestions: We increased the maximum number of suggestions on the *Compliance* page’s search bar to 100.
 - Better Sorting: We made improvements on how local users are filtered in the following Windows profiles:
+
   - CIS Microsoft Windows Server 2016, v1.1.0
   - CIS Microsoft Windows Server 2016, v1.0.0
   - CIS Microsoft Windows Server 2012, v2.0.1
@@ -5392,6 +5244,7 @@ ICYMI: If you are upgrading from a version prior to 20190410001346, please read 
 ### New Features
 
 - You Get a Compliance Update!: Compliance profiles are now available for the following platforms and versions:
+
   - STIG Red Hat Enterprise Linux 7, v2.2 (Cat 1, 2, and 3)
   - STIG Red Hat Enterprise Linux 7, v002.003 (Cat 1, 2, and 3)
   - STIG Red Hat Enterprise Linux 6, v001.023 (Cat 1, 2, and 3)
@@ -5481,11 +5334,13 @@ ICYMI: If you are upgrading from a version prior to 20190410001346, please read 
 
 - The Feature Formerly Known As: The *Asset Store* page is now known as the *Profiles* page in Automate and its documentation.
 - Change of Address: The following pages and their paths now appear under the expanded **Compliance** tab in the top navigation bar:
+
   - Reports - compliance/reports
   - Scan Jobs - compliance/scan-jobs
   - Profiles - compliance/compliance-profiles
 - Bam!: New nodes can now be added directly from *Node Integration* page under the **Settings** tab.
 - Search Expansion: New fields were added to the Compliance Report search:
+
   - Chef-server
   - Organization
   - Chef tags
@@ -5655,6 +5510,7 @@ We recommend taking the following steps to ensure a painless experience:
 ### Bug Fixes
 
 - Once, Mice, Three Times an Exterminator: Fixed a number of controls in the CIS CentOS 7 v2.2.0 compliance profile:
+
   - Controls that check home directories now correctly exclude system accounts
   - Controls are now correctly marked as passed when previously marked as skipped in 6.2.10 and 6.2.13
   - Control in 6.2.10 now accounts for symlinks and directories starting with a `.` character
@@ -5673,6 +5529,7 @@ Released on April 1, 2019
 
 - Check It!: Rewrote controls in the CIS Windows Server 2012R2 V2.2.1 and STIG Windows 2016 compliance profiles, so they execute faster and with loads on the target system. Domain Controller instances with large numbers of users and groups should see improvement and particular benefits with these changes.
 - Find It!: Find more with less using the improved matching options for designating credentials for nodes from cloud integrations.  When specifying tag key/value matches for your node integration nodes, we now support wildcard matching for:
+
   - suffix - `*foo`
   - prefix - `foo*`
   - contains - `*foo*`
@@ -5746,6 +5603,7 @@ Released on February 4, 2019
 - Where's Waldo?: Notifications, Node Credentials, and Node Integrations can all now be found in the newly named Settings page.
 - Moved Around: General Settings is now called Node Lifecycle, and located under the newly named Settings page.
 - Improved Compliance: The STIG RedHat 7 preview compliance profile includes:
+
   - SV-86555r2_rule (Existing passwords are restricted to a 60-day maximum lifetime.)
   - SV-86619r2_rule (Default permissions for authenticated users ensure the user can only read and modify their own files.)
   - SV-86627r2_rule (Group Identifiers (GIDs) referenced in /etc/passwd are defined in the /etc/group.)
@@ -5764,6 +5622,7 @@ Released on February 4, 2019
 - Not the Silent Deep: `chef-automate backup delete` command no longer silently fails to delete backups.
 - Clear-cutting: Internal request logs were being written to disk without log rotation. No more! Our fix cleans up any instances of these logs that have been left around.
 - The Client-run Export now has:
+
   - Corrected behavior of Total Resource Count to provide correct values.
   - Removed fields that should not be associated with a node.
 - Clear Away: Node credential validation used to wrongly display an error, but we worked it out.
@@ -5785,11 +5644,13 @@ Released on January 28, 2019
 - That's So Metadata: See the Chef Client version for each node in the nodes-list view by clicking the gear icon at top right of table and checking that checkbox.
 - That's So Metadata: Navigate to the Chef Client run summary view and you'll find that we now display the chef-client version on the node as well as deprecations count.
 - Improved Compliance: The STIG Windows Server 2016 preview compliance profile includes:
+
   - SV-87923r1_rule (Software certificate installation files must be removed from Windows Server 2016.)
   - SV-88287r1_rule (The built-in administrator account must be renamed.)
   - SV-88289r1_rule (The built-in guest account must be renamed.)
   - SV-88475r1_rule (The built-in guest account must be disabled.)
 - Improved Compliance: The STIG RedHat 7 preview compliance profile includes:
+
   - SV-86551r2_rule (operating system must be configured so that passwords are restricted to a 24 hours/1 day minimum lifetime.)
 
 ### Bug Fixes
@@ -5815,6 +5676,7 @@ Released on January 22, 2019
 - Scanner Nodes: Added bulk creation and bulk deletion docs for the scanner nodes.
 - Gather Logs: Now there's a snapshot of service metrics in the bundle created with `chef-automate gather-logs` to help the support team work even more effectively.
 - Improved Compliance: The STIG Windows Server 2016 preview compliance profile includes:
+
   - SV-86487r3_rule (Standard Mandatory DoD Notice and Consent Banner)
   - SV-88287r1_rule (The built-in administrator account must be renamed.)
   - SV-88289r1_rule (The built-in guest account must be renamed.)
@@ -5829,6 +5691,7 @@ Released on January 22, 2019
 - Oops: Fixed the `Chef Automate <build version>` link to lead to the right release notes.
 - Red Alert Repair: Fixed the preview compliance profiles for Windows 2016 STIG so that it stops yammering warnings about "constant already initialized".
 - The compliance profile for CIS AWS Foundations v1.1.0 has:
+
   - a fix to control 1.24 - Now it only checks the 'AdministratorAccess' AWS-managed policy.
   - a fix to control 2.1 - Removed "name" for AWS Config config and delivery channel.
 - Aristotle This!: Corrected the test logic on a number of Windows 2016 and RHEL 7 STIGs preview compliance profiles.
@@ -5980,6 +5843,7 @@ level = "debug"
 - Automate Migration Fix: Now updates the Node State from the last chef-client run on disk.
 - CIS RHEL 7 server compliance profiles fixes: Controls 6.2.7 through 6.2.14 will now exclude system users (root, sync, halt, shutdown) from tests, as per CIS procedure.
 - CIS RHEL5 server compliance profiles fixes:
+
   - Controls, which test service state, now correctly use the `be_enabled` matcher instead of the non-existent `be_disabled` matcher.
   - Controls, which CIS does not specify automated tests for, will now result in a skipped result instead of having no code.
 
@@ -6048,6 +5912,7 @@ Released on October 8, 2018
 - Local Teams in the Browser: Admins can create and remove teams, edit team descriptions, and add or delete team members from the Automate UI.
 - Upgrade with Users: Keep your users when upgrading to the new Automate!  Administrators stay admins, too. Automate automatically adds all local users with the administrator role to the admins team, so they'll have admin-level access after the upgrade.
 - Lost an Admin Password? No Problem! We've added a reset admin command to the CLI.   See the changes before you make them with `chef-automate iam admin-access restore <pass> --dry-run` to see what changes need to be made - then run again without the `--dry-run` argument to actually make the changes to your Chef Automate installation. This command lets you:
+
   - recreate the `admin` user with the new password
   - recreate the `admins` team
   - add the `admin` user to the `admins` team
@@ -6539,6 +6404,7 @@ Released on June 4, 2018
 
 - We sped up the `chef-automate status` command so you don't have to wait as long to determine the status of the system.
 - We improved the error handling within the `chef-automate` CLI so that we can return unique exit codes based on the type of error. We're working on some automation to allow us to document these. For now, here's a list of exit code and error:
+
   - 113 `UnknownErrorExitCode`
   - 99  `DeploymentServiceUnreachableErrorExitCode`
   - 98  `DeploymentServiceCallErrorExitCode`
@@ -6556,6 +6422,7 @@ Released on June 4, 2018
   - 86  `BackupErrorExitCode`
 - `chef-automate` commands have a new flag `--result-json FILE`. When specified, you'll get a file summarizing the command execution in JSON format. This is intended to be used for automation. Please note that the output structures are subject to change -- but if this sounds useful to you, we'd love you to try it and provide some feedback.
 - License expiry:
+
   - Display is now locale-aware
   - Checks now happen periodically in the background
 
@@ -6610,7 +6477,7 @@ Released on May 20, 2018
 - When proxy config was present for the notifications service, but no_proxy unset, we used strJoin on a nil value. This caused the templating engine to break and stop rendering the rest of the files. We fixed that.
 - Instead of creating a segmentation violation, we now deploy Chef Automate respecting your proxy settings when invoking deploy as `http_proxy=$PROXY chef-automate deploy ...`.
 - Fixed a templating error in automate-elasticsearch's `health_check`
-- You can now request a trial license even if you do not check the 'allow chef to send me information` box.
+- You can now request a trial license even if you do not check the 'allow Chef to send me information` box.
 - Fixed a bunch of issues with the Node Detail Page. Icons on the resources list on the match the color of their corresponding rollup tab above, the Action type shows up in the column now, and everything is aligned correctly
 
 ## Chef Automate 20180514204156
@@ -6649,7 +6516,7 @@ With AWS EC2 scanning, you can associate groups of nodes with credentials by the
 
 - If a user doesn't have permission to access notifications, the error displayed to the user will state there was an error loading notifications instead of properly stating the user does not have permissions.
 - On the Event Feed, Profiles and Scan Job events will show in the list, but will not be visualized as icons in the graph or be included in the counts.
-- Requesting a trial license will only succeeded if the user has checked the 'allow chef to send me information` box. This is not intended, and will be fixed in the next release.
+- Requesting a trial license will only succeeded if the user has checked the 'allow Chef to send me information` box. This is not intended, and will be fixed in the next release.
 - When deploying behind a proxy with the `https_proxy` or `http_proxy` environment variables set, but nothing set for `no_proxy`, the `notifications-service` fails to start. To workaround this, please set `no_proxy=""` when running `chef-automate init-config` or `chef-automate deploy`.
 
 ## Chef Automate 20180504185246
@@ -6780,6 +6647,7 @@ Released on April 16, 2018
 ### Backward Incompatibilities
 
 - Changed backend storage of the API Keys to use Postgres. The upgraded experience without the token migration is that all of the existing API Keys disappear. Migrate the existing API Keys with the following steps :
+
   - create an admin token, using `chef-automate admin-token` (or use an existing admin token, if you already created one)
   - run `hab pkg exec chef/authn-service migrate-tokens -auth-token <admin token>`
 
@@ -7000,7 +6868,7 @@ Released on March 19, 2018
 
 - Made the signout button clickable
 - Selecting a chef-server or organization no longer deletes it on the backend
-- Ingest a chef run from year one and view the nodes on the nodes details page
+- Ingest a Chef run from year one and view the nodes on the nodes details page
 
 ### Backward Incompatibilities
 
@@ -7019,7 +6887,7 @@ chef-automate init-config
 2. Apply the new configuration
 
 ```bash
-systemctl stop chef-automate            # stop the chef automate service
+systemctl stop chef-automate            # stop the Chef automate service
 rm -rf /hab/sup/default/specs/*         # remove habitat service state
 rm -rf /hab/svc/deployment-service/data # remove persisted configuration data
 chef-automate deploy config.toml        # re-deploy with the config file from your initial deployment
