@@ -29,24 +29,24 @@ Released on November 6, 2025
 
 ### Improvements
 
-- Support for deprecated ciphers on configuration. Refer to the following page for further details [Configuration Overview](https://docs.chef.io/automate/configuration/).
-- Updated the wal_sender_timeout and wal_receiver_timeout in HA postgres from 60 to 60000 seconds.
+- Support for deprecated ciphers in configuration. For more information, see the [Configuration Overview](https://docs.chef.io/automate/configuration/).
+- Updated the wal_sender_timeout and wal_receiver_timeout in HA Postgres from 60 to 60000 seconds.
 
-### Compliance Profile Updates
+### Compliance profile updates
 
-We updated the Chef compliance profiles to version 1.0.0/20251027061057. This includes the new and improved profiles for:
+We updated the Chef compliance profiles to version 1.0.0/20251027061057, which includes the new and improved profiles for:
 
 - CIS SUSE Linux 15 v2.0.0 Audits
 - CIS Red Hat Enterprise Linux 10 v1.0.0
 - CIS Windows Server 2022 v4.0.0
 
-### Bug Fixes
+### Bug fixes
 
 The issue where the Projects selection drop-down would disappear in specific scenarios has been resolved.
 
 ### Security
 
-#### Security Updates
+#### Security updates
 
 - Updated go-viper to fix the following CVEs:
 
@@ -99,7 +99,7 @@ The issue where the Projects selection drop-down would disappear in specific sce
 
   - CVE-2025-59052
 
-### Chef Packaged Product Versions
+### Chef packaged product versions
 
 This release uses:
 
@@ -108,7 +108,7 @@ This release uses:
 - Chef Infra Server version: 15.10.83
 - Chef InSpec version: 5.22.95/20250805133317
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -117,7 +117,7 @@ This release uses:
 - Nginx: 1.28.0
 - Haproxy: 2.8.15
 
-### Supported External Chef Products
+### Supported external Chef products
 
 This release supports the following external Chef products:
 
@@ -140,20 +140,20 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on September 15, 2025
 
-### Bug Fixes
+### Bug fixes
 
 - Chef Automate now properly allows and validates extended validation certificates when Chef Infra Server services connect to external databases.
-- We've improved upgrade handling for Habitat in Chef Automate HA clusters with shared backends.
+- We improved upgrade handling for Habitat in Chef Automate HA clusters with shared backends.
   Automate now performs Habitat upgrades with minimal disruption and reduced impact on cluster health, addressing previous issues during upgrade processes.
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 - We updated the Chef compliance profiles to version 1.0.0/20250901083043. This includes the new and improved profiles for:
 
   - CIS Apache Tomcat 10.1 v1.1.0 (Audits)
   - CIS IBM AIX 7 v1.1.0 (Audits)
 
-### Chef Packaged Product Versions
+### Chef packaged product versions
 
 This release uses:
 
@@ -162,7 +162,7 @@ This release uses:
 - Chef Infra Server version: 15.10.66
 - Chef InSpec version: 5.22.95/20250805133317
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -171,7 +171,7 @@ This release uses:
 - Nginx: 1.25.4
 - HAProxy: 2.8.15
 
-### Supported External Chef Products
+### Supported external Chef products
 
 This release supports the following external Chef products:
 
@@ -186,23 +186,11 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on September 2, 2025
 
-### Upgrade Journey
+### New features
 
-Chef lets you choose your upgrade journey based on your current version of Chef Automate. You can do all the version upgrades manually.
+Added the `--verify-restore-config` flag to the Automate Command Line Interface (CLI) High Availability (HA) Restore command for snapshot and base-path verification.
 
-| Your Current Version              | Upgrade To     |
-|-----------------------------------|----------------|
-| Any version before 20220329091442 | 20220329091442 |
-| 20220329091442                    | 3.0.x          |
-| 3.0.49                            | 4.x            |
-
-See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/major_upgrade_4.x/) for more information.
-
-### New Features
-
-Added the `--verify-restore-config` flag to the Automate Command Line Interface (CLI) High Availability (HA) Restore command for snapshot/base-path verification.
-
-### Compliance Profile Updates
+### Compliance profile updates
 
 The compliance profiles were updated to version 1.0.0/20250813155029, which includes the new and improved profiles for:
 
@@ -213,13 +201,13 @@ The compliance profiles were updated to version 1.0.0/20250813155029, which incl
 - CIS PostgreSQL 16 v1.0.0 (Audits) control 3.1.8 (used correct anecdote for hours)
 - CIS IBM AIX 7 v1.1.0 (audits profile)
 
-### Bug Fixes
+### Bug fixes
 
 Updated the self-signed certificate for the Postgres and Open search packages for the Automate HA packages.
 
 ### Maintenance
 
-- Updated the following packages to ensure they are as up-to-date as possible:
+- Updated the following packages to ensure they're as up-to-date as possible:
 
   - OpenSearch (version specific to Chef commercially licensed from Tuxcare)
   - OpenJDK
@@ -241,11 +229,11 @@ Updated the self-signed certificate for the Postgres and Open search packages fo
 - HAProxy
 - Curl
 
-### Security Updates
+### Security updates
 
 Many of the underlying packages were upgraded to improve security posture. Refer to the list of packages upgraded in the **Maintenance** section.
 
-### Chef Packaged Product Versions
+### Chef packaged product versions
 
 This release uses:
 
@@ -254,7 +242,7 @@ This release uses:
 - Chef Infra Server version: 15.10.63
 - Chef InSpec version: 5.22.95/20250805133317
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -263,7 +251,7 @@ This release uses:
 - Nginx: 1.25.4
 - HAProxy: 2.8.15
 
-### Supported External Chef Products
+### Supported external Chef products
 
 This release supports the following external Chef products:
 
@@ -282,22 +270,22 @@ Released on May 15, 2025
 
 - Added ServiceNow version Xanadu. ([#8857](https://github.com/chef/automate/pull/8857))
 
-### Bug Fixes
+### Bug fixes
 
 - Resolved an issue where Automate would not exit maintenance mode after being turned off. ([#8849](https://github.com/chef/automate/pull/8849))
 
-#### Enhancements/Bug Fixes made to High Availability
+#### Enhancements and bug fixes for Chef Automate High Availability
 
-- Fixed a bug where backend node IPs were not properly registered on frontend nodes. ([#8868](https://github.com/chef/automate/pull/8868))
+- Fixed a bug where backend node IPs weren't properly registered on frontend nodes. ([#8868](https://github.com/chef/automate/pull/8868))
 - Resolved an issue where configuration values were reset to defaults following an upgrade. ([#8875](https://github.com/chef/automate/pull/8875))
 - Updated documentation to include `max_connection` configuration for HA setups. ([#8852](https://github.com/chef/automate/pull/8852))
 - Corrected handling of the `skip_migration` file that previously blocked restore command execution. ([#8823](https://github.com/chef/automate/pull/8823))
-- Updated documentation to reflect use of $HOME for config verification services. ([#8874](https://github.com/chef/automate/pull/8874))
+- Updated documentation to reflect the use of $HOME for config verification services. ([#8874](https://github.com/chef/automate/pull/8874))
 - Automated verification services now correctly reference the home directory using the $HOME environment variable. ([#8864](https://github.com/chef/automate/pull/8864))
 - Addressed a bug where outdated node DNs persisted after certificate rotation. ([#8871](https://github.com/chef/automate/pull/8871))
-- Support was added for the new replication configuration in PostgreSQL. ([#8878](https://github.com/chef/automate/pull/8878))
-- Improved certificate handling to support commas in subject names.  ([#8864](https://github.com/chef/automate/pull/8864))
-- Removed deprecated certificate rotation command to prevent confusion. ([#8871](https://github.com/chef/automate/pull/8871))
+- Added support for the new replication configuration in PostgreSQL. ([#8878](https://github.com/chef/automate/pull/8878))
+- Improved certificate handling to support commas in subject names. ([#8864](https://github.com/chef/automate/pull/8864))
+- Removed the deprecated certificate rotation command to prevent confusion. ([#8871](https://github.com/chef/automate/pull/8871))
 - Fixed a connection leak in the automate-backend-sidecar service. ([#8859](https://github.com/chef/automate/pull/8859))
 - Maintenance mode status is now accurately reflected in the system status summary. ([#8864](https://github.com/chef/automate/pull/8864))
 - The chef-automate version command now includes the airgap bundle version. ([#8864](https://github.com/chef/automate/pull/8864))
@@ -305,7 +293,7 @@ Released on May 15, 2025
 
 ### Security
 
-#### Security Updates
+#### Security updates
 
 (examples: dependency updates, CVE fixes)
 
@@ -313,7 +301,7 @@ Released on May 15, 2025
 
   - CVE-2024-47889
 
-### Chef Packaged Product Versions
+### Chef packaged product versions
 
 This release uses:
 
@@ -322,7 +310,7 @@ This release uses:
 - Chef Infra Server version: 15.10.33/20250220084434
 - Chef InSpec version: 4.56.61/20240809111842
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -332,7 +320,7 @@ This release uses:
 - HAProxy: 2.2.29
 - Dex: 2.35.0
 
-### Supported External Chef Products
+### Supported external Chef products
 
 This release supports the following external Chef products:
 
@@ -357,32 +345,28 @@ Released on March 3, 2025
 
 ### Improvements
 
-- The Infra Server in Automate now allows organisations to be accessed by having dex or assets as a substring. ([#8744](https://github.com/chef/automate/pull/8744))
+- The Infra Server in Automate now allows organizations to be accessed by having "dex" or "assets" as a substring. ([#8744](https://github.com/chef/automate/pull/8744))
 
-### Bug Fixes
+### Bug fixes
 
-- Fixes the issue of stopping Automate from loading more than 100 controls in the compliance reports page for a node. ([#8673](https://github.com/chef/automate/pull/8673))
-- Fixes the issue that stopped Automate from expanding the control test results for a node in case the number of tests exceeds 50. ([#8673](https://github.com/chef/automate/pull/8673))
-- Added Preflight check for Port 6432,5432 in Automate HA Verification
+- Fixes the issue of Automate stopping from loading more than 100 controls in the compliance reports page for a node. ([#8673](https://github.com/chef/automate/pull/8673))
+- Fixes the issue that stopped Automate from expanding the control test results for a node when the number of tests exceeds 50. ([#8673](https://github.com/chef/automate/pull/8673))
+- Added preflight check for ports 6432 and 5432 in Automate HA verification.
 
 ### Security
 
-#### Security Improvements
+#### Security improvements
 
-(examples: new security configurations)
+- The X-XSS-Protection and CSP header values are now configurable. ([#8767](https://github.com/chef/automate/pull/8767))
+- Remove the plain text password and encrypt it while storing it for Automate and Automate HA in the configs.
 
-- The X-XSS-Protection and CSP-header values are now configurable. ([#8767](https://github.com/chef/automate/pull/8767))
-- Remove the plain text password and encrypt it while storing it for Automate / Automate HA from the configs.
-
-#### Security Updates
-
-(examples: dependency updates, CVE fixes)
+#### Security updates
 
 - Updated `open-policy-agent/opa` to v0.42.0
 - Updated `lodash` to v4.17.19
-- Update `crypto` to v0.31.0
+- Updated `crypto` to v0.31.0
 
-### Chef Packaged Product Versions
+### Chef packaged product versions
 
 This release uses:
 
@@ -391,7 +375,7 @@ This release uses:
 - Chef Infra Server version: 15.10.33/20250220084434
 - Chef InSpec version: 4.56.61/20240809111842
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -401,7 +385,7 @@ This release uses:
 - HAProxy: 2.2.29
 - Dex: 2.35.0
 
-### Supported External Chef Products
+### Supported external Chef products
 
 This release supports the following external Chef products:
 
@@ -424,15 +408,15 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on January 9, 2025
 
-### Bug Fixes
+### Bug fixes
 
-- The Chef Automate Compliance page now shows more results when you click on the "+" symbol. ([#8673](https://github.com/chef/automate/pull/8673))
+- The Chef Automate Compliance page now shows more results when you select the "+" symbol. ([#8673](https://github.com/chef/automate/pull/8673))
 - The `knife search` and `knife tidy` commands can now return more than 10,000 records. See the [knife search documentation](https://docs.chef.io/automate/troubleshooting/#issue-knife-search-limits-at-10000-records) for configuration changes. ([#8699](https://github.com/chef/automate/pull/8699))
 - Fixed an issue where all OpenSearch node server names were set to an empty string. ([#8711](https://github.com/chef/automate/pull/8711))
 
 ### Security
 
-#### Security Updates
+#### Security updates
 
 - Updated Dex to v2.27.0, which fixes following issues:
 
@@ -454,7 +438,7 @@ Released on January 9, 2025
   - CVE-2024-38808
   - CVE-2024-38809
 
-### Chef Packaged Product Versions
+### Chef packaged product versions
 
 This release uses:
 
@@ -463,7 +447,7 @@ This release uses:
 - Chef Infra Server version: 15.10.27/20250102025130
 - Chef InSpec version: 4.56.61/20240809111842
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -473,7 +457,7 @@ This release uses:
 - HAProxy: 2.2.29
 - Dex: 2.35.0
 
-### Supported External Chef Products
+### Supported external Chef products
 
 - Chef Automate Incident Creation App and Chef Automate Integration App are now supported on the Washington ServiceNow platform
 
@@ -498,7 +482,7 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on December 4, 2024
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 - Compliance profiles are updated to version 1.0.0/20241128081652, which includes the new and improved profiles for:
 
@@ -510,21 +494,21 @@ Released on December 4, 2024
   - CIS RHEL 9 v2.0.0 (Audits)
   - CIS Ubuntu 24.04 v1.0.0 (Audits)
 
-### Bug Fixes
+### Bug fixes
 
-- Fix a typo in the certificate template script for Automate HA. ([#8616](https://github.com/chef/automate/pull/8616))
-- Fix to reflect node name in URL while filtering by node name in the Compliance page ([#8621](https://github.com/chef/automate/pull/8621))
-- Fix to prevent Opensearch restart by preventing config changes during the upgrade add/remove the node. ([#8632](https://github.com/chef/automate/pull/8632))
-- Fix to avoid log line misses in case of centralized logging. You can refer to <https://docs.chef.io/automate/centralize_logs> for more configurations. ([#8635](https://github.com/chef/automate/pull/8635))
-- Fix to apply Postgres root-ca certificate in the PostgreSQL backend node through the certificate rotate template. ([#8637](https://github.com/chef/automate/pull/8637))
+- Fixed a typo in the certificate template script for Automate HA. ([#8616](https://github.com/chef/automate/pull/8616))
+- Fixed to reflect node name in URL while filtering by node name in the Compliance page. ([#8621](https://github.com/chef/automate/pull/8621))
+- Fixed to prevent OpenSearch restart by preventing config changes during the upgrade when adding or removing nodes. ([#8632](https://github.com/chef/automate/pull/8632))
+- Fixed to avoid log line misses in case of centralized logging. You can refer to <https://docs.chef.io/automate/centralize_logs> for more configurations. ([#8635](https://github.com/chef/automate/pull/8635))
+- Fixed to apply Postgres root-ca certificate in the PostgreSQL backend node through the certificate rotate template. ([#8637](https://github.com/chef/automate/pull/8637))
 
 ### Maintenance
 
-- We have updated the embedded Chef Infra Server to 15.10.21. This Infra Server installed from this version of Automate would require the application of an Automate License before use. Please refer to <https://docs.chef.io/automate/chef_automate_license/#chef-server-under-automate-license>.
+- We updated the embedded Chef Infra Server to 15.10.21. This Infra Server installed from this version of Automate would require the application of an Automate License before use. For more information, see <https://docs.chef.io/automate/chef_automate_license/#chef-server-under-automate-license>.
 
 ### Security
 
-#### Security Updates
+#### Security updates
 
 (examples: dependency updates, CVE fixes)
 
@@ -541,7 +525,7 @@ Released on December 4, 2024
   - CVE-2024-29736
   - CVE-2024-32007
 
-### Chef Packaged Product Versions
+### Chef packaged product versions
 
 This release uses:
 
@@ -550,7 +534,7 @@ This release uses:
 - Chef Infra Server version: 15.10.21/20241126093701
 - Chef InSpec version: 4.56.61/20240809111842
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -560,7 +544,7 @@ This release uses:
 - Haproxy: 2.2.29
 - Dex: 2.27.0
 
-### Supported External Chef Products
+### Supported external Chef products
 
 This release supports the following external Chef products:
 
@@ -583,12 +567,12 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on September 27, 2024
 
-### Bug Fixes
+### Bug fixes
 
 - We've fixed a bug to ensure all controls are listed in JSON and CSV format when downloading compliance reports. This fix enhances the reliability of the download process ([#8601](https://github.com/chef/automate/pull/8601)).
 - We've fixed a bug to ensure that Automate and Automate HA deployments with external database work properly ([#8613](https://github.com/chef/automate/pull/8613)).
 
-### Chef Packaged Product Versions
+### Chef packaged product versions
 
 This release uses:
 
@@ -597,7 +581,7 @@ This release uses:
 - Chef Infra Server version: 15.10.12/20240910074923
 - Chef InSpec version: 4.56.61/20240809111842
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -607,7 +591,7 @@ This release uses:
 - Haproxy: 2.2.29
 - Dex: 2.27.0
 
-### Supported External Chef Products
+### Supported external Chef products
 
 This release supports the following external Chef products:
 
@@ -630,18 +614,6 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on September 24, 2024
 
-### Upgrade journey
-
-Chef lets you choose your upgrade journey based on your current version of Chef Automate. You can do all the version upgrades manually.
-
-| Your Current Version              | Upgrade To     |
-|-----------------------------------|----------------|
-| Any version before 20220329091442 | 20220329091442 |
-| 20220329091442                    | 3.0.x          |
-| 3.0.49                            | 4.x            |
-
-See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/major_upgrade_4.x/) for more information.
-
 ### New features
 
 - Deploy Chef Automate HA on Azure provisioned infrastructure ([#8592](https://github.com/chef/automate/pull/8592)).
@@ -649,7 +621,7 @@ See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/
 ### Improvements
 
 - Improved welcome UI screen for Automate ([#8539](https://github.com/chef/automate/pull/8539)).
-- Improved Automate HA solution ensures services do not flap when re-booted nodes - ability to modify `fail_timeout`, `health_check_interval` parameters ([#8548](https://github.com/chef/automate/pull/8548))
+- Improved Automate HA solution ensures services don't flap when re-booted nodes - ability to modify `fail_timeout`, `health_check_interval` parameters ([#8548](https://github.com/chef/automate/pull/8548))
 
 ### Compliance profile updates
 
@@ -813,7 +785,7 @@ For more information, see the [Automate licensing documentation](https://docs.ch
 - Use an external /hab volume instead of /tmp to solve cross device linking issues ([#8435](https://github.com/chef/automate/pull/8435), [#8436](https://github.com/chef/automate/pull/8436), [#8416](https://github.com/chef/automate/pull/8416)).
 - Updated Chef Automate Incident Creation app and Chef Automate Integration App to support ServiceNow Utah and Vancouver versions.
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 - Compliance profiles are updated to version 1.0.0/20240704055643, which includes the new and improved profiles for:
 
@@ -835,7 +807,7 @@ For more information, see the [Automate licensing documentation](https://docs.ch
 
   - CIS PostgresSQL v1.0.0 - removed default values from configuration.
 
-### Bug Fixes
+### Bug fixes
 
 - Fixed a bug to solve the scrolling issue in compliance reports ([#8392](https://github.com/chef/automate/pull/8392))
 - Searching in Infrastructure report UI is now case insensitive ([#8395](https://github.com/chef/automate/pull/8395))
@@ -845,7 +817,7 @@ For more information, see the [Automate licensing documentation](https://docs.ch
 
 ### Security
 
-#### Security Updates
+#### Security updates
 
 - Prototype pollution vulnerability has been solved to prevent exploitation during Javascript runtime: CVE-2022-46175, CVE-2022-24999 ([#8365](https://github.com/chef/automate/pull/8365), [#8337](https://github.com/chef/automate/pull/8337))
 - Updated ansi-regex package version to fix CVE-2021-3807 ([#8365](https://github.com/chef/automate/pull/8365), [#8336](https://github.com/chef/automate/pull/8336))
@@ -858,7 +830,7 @@ For more information, see the [Automate licensing documentation](https://docs.ch
 - Updated Postgres database to solve CVE-2023-2454 and CVE-2023-39417 ([#8434](https://github.com/chef/automate/pull/8434), [#8412](https://github.com/chef/automate/pull/8412))
 - Removed dependency from [polyfill.io](http://polyfill.io/) JS package to solve CVE-2024-38526 ([#8470](https://github.com/chef/automate/pull/8470))
 
-### Chef Packaged Product Versions
+### Chef packaged product versions
 
 This release uses:
 
@@ -867,7 +839,7 @@ This release uses:
 - Chef Infra Server version: 15.4.0/20230105061154
 - Chef InSpec version: 4.56.22/20220517052126
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -877,7 +849,7 @@ This release uses:
 - Haproxy: 2.2.29
 - Dex: 2.27.0
 
-### Supported External Chef Products
+### Supported external Chef products
 
 This release supports the following external Chef products:
 
@@ -994,7 +966,7 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on December 13, 2023
 
-### New Features
+### New features
 
 - You now can rotate the passwords on OpenSearch in Automate ([#8300](https://github.com/chef/automate/pull/8300)).
 - Automate HA is supported on Red Hat Enterprise Linux 9 and Oracle Linux 9 operating systems ([#8310](https://github.com/chef/automate/pull/8310)).
@@ -1002,12 +974,12 @@ Released on December 13, 2023
 ### Improvements
 
 - Certificate rotation can now be done in all the Automate HA nodes using a single command ([#8261](https://github.com/chef/automate/pull/8261)).
-- Automate HA with this release will not need downtime to add a new node to the cluster ([#8275](https://github.com/chef/automate/pull/8275)).
+- Automate HA with this release won't need downtime to add a new node to the cluster ([#8275](https://github.com/chef/automate/pull/8275)).
 - Automate HA pre-deployment verification check now has the check to verify if all the nodes have the same hab uid ([#8290](https://github.com/chef/automate/pull/8290)).
 - Automate can show the Node Attributes in correct precedence in the Infra Server View tab ([#8319](https://github.com/chef/automate/pull/8319)).
 - To better understand product usage integrated with Pendo using a wrapper library ([#8299](https://github.com/chef/automate/pull/8299)).
 
-### Bug Fixes
+### Bug fixes
 
 - Fixed bug that was causing pre-deployment verification checks to fail in Automate HA for Kernel version 3.10 ([#8288](https://github.com/chef/automate/pull/8288)).
 - Fixed bug that was causing pre-deployment verification checks to fail in Automate HA for SSH access ([#8296](https://github.com/chef/automate/pull/8296)).
@@ -1017,11 +989,9 @@ Released on December 13, 2023
 
 #### Security Improvements
 
-(examples: new security configurations)
-
 - Added Angular built-in sanitization. ([#8289](https://github.com/chef/automate/pull/8289))
 
-#### Security Updates
+#### Security updates
 
 (examples: dependency updates, CVE fixes)
 
@@ -1058,7 +1028,7 @@ Released on December 13, 2023
 
   - CWE-400
 
-### Chef Packaged Product Versions
+### Chef packaged product versions
 
 This release uses:
 
@@ -1067,7 +1037,7 @@ This release uses:
 - Chef Infra Server version: 15.4.0/20230105061154
 - Chef InSpec version: 4.56.22/20220517052126
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -1077,7 +1047,7 @@ This release uses:
 - Haproxy: 2.2.29
 - Dex: 2.27.0
 
-### Supported External Chef Products
+### Supported external Chef products
 
 This release supports the following external Chef products:
 
@@ -1086,7 +1056,7 @@ This release supports the following external Chef products:
 - Chef Infra Client: 17.0.242+
 - Chef Habitat: 0.81+
 
-### Supported Framework Versions
+### Supported framework versions
 
 This release is built on the following framework versions:
 
@@ -1106,7 +1076,7 @@ Released on October 31, 2023
 - The `chef-automate version` command now returns the CLI version installed on the bastion host. ([#8242](https://github.com/chef/automate/pull/8242))
 - The `chef-automate status` and `chef-automate service-version` commands now have `--accept-hab-license` flag to accept Chef Habitat license. ([#8267](https://github.com/chef/automate/pull/8267))
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 - Compliance profiles are updated to version 1.0.0/20231018131051, which includes the new and improved profiles for:
 
@@ -1114,14 +1084,14 @@ Released on October 31, 2023
   - CIS Windows Server 2022 v2.0.0(Audits)
   - CIS Windows Server 2016 v2.0.0(Audits)
 
-### Bug Fixes
+### Bug fixes
 
 - Fixed `chef-automate verify` to run on a five-node Automate HA cluster. ([#8251](https://github.com/chef/automate/pull/8251))
 - Fixed `chef-automate config patch` command, which was returning an error when patching the Automate config file to centralize the log file. ([#8259](https://github.com/chef/automate/pull/8259))
 
 ### Security
 
-#### Security Updates
+#### Security updates
 
 - The Inspec commands like archive, json, check and exec are run in sandboxed and secured environment which will fix:
 
@@ -1131,7 +1101,7 @@ Released on October 31, 2023
 
 - Updated Terraform to version 1.5.7 which fixes [CVE-2023-4782](https://nvd.nist.gov/vuln/detail/CVE-2023-4782)
 
-### Chef Packaged Product Versions
+### Chef packaged product versions
 
 This release uses:
 
@@ -1140,7 +1110,7 @@ This release uses:
 - Chef Infra Server version: 15.4.0/20230105061154
 - Chef InSpec version: 4.56.22/20220517052126
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -1150,7 +1120,7 @@ This release uses:
 - Haproxy: 2.2.29
 - Dex: 2.27.0
 
-### Supported External Chef Products
+### Supported external Chef products
 
 This release supports the following Chef products:
 
@@ -1159,7 +1129,7 @@ This release supports the following Chef products:
 - Chef Infra Client: 17.0.242+
 - Chef Habitat: 0.81+
 
-### Supported Framework Versions
+### Supported framework versions
 
 This release is built on the following framework versions:
 
@@ -1173,19 +1143,19 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on September 25, 2023
 
-### New Features
+### New features
 
-- On-premise deployment of Automate HA with Chef Managed database can be done on infrastructure provisioned on the Google Cloud Platform.
+- On-premises deployments of Automate HA with Chef Managed database can be done on infrastructure provisioned on the Google Cloud Platform.
 - You can configure GCS backup and configuration support from the bastion host in Automate HA. We extend the capability to verification and config generator workflow during pre and post deployment of Automate HA. Please refer the documentation for [HA backup storage for GCS](https://docs.chef.io/automate/ha_backup_restore_object_storage/#for-_gcs_) ([#8133](https://github.com/chef/automate/pull/8133), [#8211](https://github.com/chef/automate/pull/8211), [#8215](https://github.com/chef/automate/pull/8215))
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 - Compliance profiles are updated to version 1.0.0/20230905035531, which includes the new and improved profiles for:
 
   - CIS Oracle Solaris 11.4 v1.0.0
   - CIS Windows Server 2019 Audits v2.0.0
 
-### Chef Packaged Product Versions
+### Chef packaged product versions
 
 This release uses:
 
@@ -1194,7 +1164,7 @@ This release uses:
 - Chef Infra Server version: 15.4.0/20230105061154
 - Chef InSpec version: 4.56.22/20220517052126
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -1204,7 +1174,7 @@ This release uses:
 - Haproxy: 2.2.29
 - Dex: 2.27.0
 
-### Supported External Chef Products
+### Supported external Chef products
 
 This release supports the following external Chef products:
 
@@ -1213,7 +1183,7 @@ This release supports the following external Chef products:
 - Chef Infra Client: 17.0.242+
 - Chef Habitat: 0.81+
 
-### Supported Framework Versions
+### Supported framework versions
 
 This release is built on the following framework versions:
 
@@ -1229,7 +1199,7 @@ Released on September 6, 2023
 
 ### Announcement
 
-We are delighted to announce that our continuous effort to improve the installation and deployment experience of Automate HA has enabled the following features:
+We're delighted to announce that our continuous effort to improve the installation and deployment experience of Automate HA has enabled the following features:
 
 - Ability to generate deployment config in an interactive way
 - Perform verification checks before deployment
@@ -1247,13 +1217,13 @@ We are delighted to announce that our continuous effort to improve the installat
 - The config `verify` command is now improved to enhance the checks. ([#8138](https://github.com/chef/automate/pull/8138), [#8139](https://github.com/chef/automate/pull/8139), [#8140](https://github.com/chef/automate/pull/8140), [#8144](https://github.com/chef/automate/pull/8144), [#8149](https://github.com/chef/automate/pull/8149))
 - More configurations available in the standalone Chef Server are also available to be patched from the Bastion host in Automate HA. Please refer to the [Chef Infra Configuration In Chef Automate](https://docs.chef.io/automate/chef_infra_in_chef_automate/) document. ([#8152](https://github.com/chef/automate/pull/8152), [#8160](https://github.com/chef/automate/pull/8160))
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 - Compliance profiles are updated to version 1.0.0/20230831114438, which includes the new and improved profiles for:
 
   - CIS Oracle Solaris 11.4 v1.0.0
 
-### Bug Fixes
+### Bug fixes
 
 - Fixing issue to show Compliance Trend graph for more than 24 hours. ([#8106](https://github.com/chef/automate/pull/8106))
 - The patched token will now be used instead of regenerating a new token during update/add/delete nodes from the Automate HA cluster. ([#8118](https://github.com/chef/automate/pull/8118))
@@ -1263,11 +1233,9 @@ We are delighted to announce that our continuous effort to improve the installat
 
 #### Security Improvements
 
-(examples: new security configurations)
-
 - Improve Automate API responses to be more actionable and more restrictive to safeguard against Server Side Security Request Forgery.
 
-#### Security Updates
+#### Security updates
 
 (examples: dependency updates, CVE fixes)
 Updated OpenJDK version to v11.0.20+8 which fixes the following CVEs:
@@ -1286,7 +1254,7 @@ Updated OpenJDK version to v11.0.20+8 which fixes the following CVEs:
 - CVE-2023-21930
 - CVE-2023-25193
 
-### Chef Packaged Product Versions
+### Chef packaged product versions
 
 This release uses:
 
@@ -1295,7 +1263,7 @@ This release uses:
 - Chef Infra Server version: 15.4.0/20230105061154
 - Chef InSpec version: 4.56.22/20220517052126
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -1305,7 +1273,7 @@ This release uses:
 - Haproxy: 2.2.29
 - Dex: 2.27.0
 
-### Supported External Chef Products
+### Supported external Chef products
 
 This release supports the following external Chef products:
 
@@ -1314,7 +1282,7 @@ This release supports the following external Chef products:
 - Chef Infra Client: 17.0.242+
 - Chef Habitat: 0.81+
 
-### Supported Framework Versions
+### Supported framework versions
 
 This release is built on the following framework versions:
 
@@ -1328,7 +1296,7 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on August 3, 2023
 
-### New Features
+### New features
 
 - Automate HA eases setting up the cluster by introducing the `chef-automate verify` command, which checks the configurations across the nodes in the cluster before deployment. The same command can be used and verify the cluster configurations after deployment for easy troubleshooting. This will make the deployment and maintenance of Automate HA cluster much easy and transparent. Refer to the detailed documentation here: <https://docs.chef.io/automate/ha_verification_check/>
 - The users in the Chef Server running in Automate can be authorized to log in to Private Supermarket. Refer
@@ -1351,7 +1319,7 @@ Released on August 3, 2023
 - Improved documentation for all the configuration for frontend and backend nodes of Automate HA. Refer this section: <https://docs.chef.io/automate/ha_config/> ([#8048](https://github.com/chef/automate/pull/8048))
 - The benchmark performance numbers are available for reference in Automate document. Refer <https://docs.chef.io/automate/ha_performance_benchmarks/> ([#8051](https://github.com/chef/automate/pull/8051))
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 - Compliance profiles are updated to version 1.0.0/20230414090134, which includes the new and improved profiles for:
 
@@ -1371,16 +1339,16 @@ Released on August 3, 2023
   - CIS Windows 2019 v1.3.0 Bug fix for controls in 19 series
   - CIS CentOS Linux 7 Benchmark v3.1.2 control 5.1.4
 
-### Bug Fixes
+### Bug fixes
 
 - Fix the issue that stops syncing the configuration from bootstrap nodes when a new node is added to an Automate HA cluster. ([#7949](https://github.com/chef/automate/pull/7949))
 - Fix to display the correct status on running `chef-automate status summary` from Bastion host when Automate services are stopped in frontend nodes. ([#7968](https://github.com/chef/automate/pull/7968))
 - Chef Automate can now be provisioned using AMI images that use IMDSv2. ([#7982](https://github.com/chef/automate/pull/7982))
 - Update the dex bundle to fix frequent disconnection with the Postgres database. ([#8007](https://github.com/chef/automate/pull/8007))
-- Automate HA Bastion host honors the IAM role attached and should not ask for AWS credentials from users. ([#8057](https://github.com/chef/automate/pull/8057))
+- Automate HA Bastion host honors the IAM role attached and shouldn't ask for AWS credentials from users. ([#8057](https://github.com/chef/automate/pull/8057))
 - Fix to remove nodes without impacting the other nodes in the AWS environment deployed Automate HA cluster. ([#8070](https://github.com/chef/automate/pull/8070))
 
-### Chef Packaged Product Versions
+### Chef packaged product versions
 
 This release uses:
 
@@ -1389,7 +1357,7 @@ This release uses:
 - Chef Infra Server version: 15.4.0/20230105061154
 - Chef InSpec version: 4.56.22/20220517052126
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -1399,7 +1367,7 @@ This release uses:
 - Haproxy: 2.2.29
 - Dex: 2.27.0
 
-### Supported External Chef Products
+### Supported external Chef products
 
 This release supports the following external Chef products:
 
@@ -1408,7 +1376,7 @@ This release supports the following external Chef products:
 - Chef Infra Client: 17.0.242+
 - Chef Habitat: 0.81+
 
-### Supported Framework Versions
+### Supported framework versions
 
 This release is built on the following framework versions:
 
@@ -1434,7 +1402,7 @@ Please refer to the [Update Non-SAN certificates for 4.7.x update documentation]
 - Updated Automate HA documentation to setup AWS OpenSearch and RDS clusters. ([#7898](https://github.com/chef/automate/pull/7898))
 - Added documentation to benchmark the impact of DataLifeCycle Settings on OpenSearch `max_shards_per_node` value. ([#7906](https://github.com/chef/automate/pull/7906))
 
-### Bug Fixes
+### Bug fixes
 
 - Fix the issue to allow upgrade of only frontend or backend nodes using `chef-automate upgrade` command in Automate HA. ([#7896](https://github.com/chef/automate/pull/7896), [#7926](https://github.com/chef/automate/pull/7926))
 - The run-list tab for a node with policy files is now loading without any error in Infra Server view. ([#7900](https://github.com/chef/automate/pull/7900))
@@ -1449,7 +1417,7 @@ Please refer the [Golang 1.19 Release Notes](https://go.dev/doc/go1.19)
 
 ### Security
 
-#### Security Updates
+#### Security updates
 
 (examples: dependency updates, CVE fixes)
 
@@ -1480,7 +1448,7 @@ The update of Golang framework to 1.19.3 resolves the following CVE issues:
 - CVE-2017-15041
 - CVE-2016-5386
 
-### Chef Packaged Product Versions
+### Chef packaged product versions
 
 This release uses:
 
@@ -1489,7 +1457,7 @@ This release uses:
 - Chef Infra Server version: 15.4.0/20230105061154
 - Chef InSpec version: 4.56.22/20220517052126
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -1499,7 +1467,7 @@ This release uses:
 - Haproxy: 2.2.18
 - Dex: 2.27.0
 
-### Supported External Chef Products
+### Supported external Chef products
 
 This release supports the following external Chef products:
 
@@ -1508,7 +1476,7 @@ This release supports the following external Chef products:
 - Chef Infra Client: 17.0.242+
 - Chef Habitat: 0.81+
 
-### Supported Framework Versions
+### Supported framework versions
 
 This release is built on the following framework versions:
 
@@ -1522,7 +1490,7 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on May 8, 2023
 
-### New Features
+### New features
 
 - You can now get the status of all the nodes in Automate HA cluster using the `chef-automate status summary` command from Automate HA Bastion host. ([#7776](https://github.com/chef/automate/pull/7776))
 - You can now run `chef-automate start` from the Bastion host of Automate HA. ([#7808](https://github.com/chef/automate/pull/7808))
@@ -1543,7 +1511,7 @@ Released on May 8, 2023
 - Modified the `default_max_size` config for maximum request size to 4MB for Automate shipped Chef Server. ([#7783](https://github.com/chef/automate/pull/7783))
 - Added `ssh_group_name` in the Automate HA deployment configuration to pass the customized ssh user group. ([#7819](https://github.com/chef/automate/pull/7819))
 
-### Bug Fixes
+### Bug fixes
 
 - Fixed the bug to display Node Error log data for failed nodes in the client runs the report. ([#7705](https://github.com/chef/automate/pull/7705))
 - Fixed the bug causing Automate to download zero-byte reports on the export of compliance and client-run reports for many nodes. ([#7707](https://github.com/chef/automate/pull/7707), [#7710](https://github.com/chef/automate/pull/7710))
@@ -1563,7 +1531,7 @@ Released on May 8, 2023
 - Fixed the bug causing errors while adding nodes in the Automate HA cluster deployed in AWS. ([#7838](https://github.com/chef/automate/pull/7838))
 - Fixed the bug to stop updating the admin password on an update of frontend nodes of Automate HA cluster ([#7851](https://github.com/chef/automate/pull/7851))
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 Compliance profiles are updated to version 1.0.0/20230414090134, which includes the new and improved profiles for:
 
@@ -1579,14 +1547,14 @@ Compliance profiles are updated to version 1.0.0/20230414090134, which includes 
 
 ### Security
 
-#### Security Updates
+#### Security updates
 
 - Updated node package minimist to version 1.2.7 which fixes [CWE-1321](https://cwe.mitre.org/data/definitions/1321.html)
 - Updated node package karma to version 1.2.7 which fixes [CVE-2022-2421](https://nvd.nist.gov/vuln/detail/CVE-2022-2421)
 - Updated node package jsprim to version 2.0.2 which fixes [CVE-2021-3918](https://nvd.nist.gov/vuln/detail/CVE-2021-3918)
 - Updated node packages to fix [CVE-2022-37601](https://nvd.nist.gov/vuln/detail/CVE-2022-37601)
 
-### Chef Packaged Product Versions
+### Chef packaged product versions
 
 This release uses:
 
@@ -1595,7 +1563,7 @@ This release uses:
 - Chef Infra Server version: 15.4.0/20230105061154
 - Chef InSpec version: 4.56.22/20220517052126
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -1605,7 +1573,7 @@ This release uses:
 - Haproxy: 2.2.18
 - Dex: 2.27.0
 
-### Supported External Chef Products
+### Supported external Chef products
 
 This release supports the following external Chef products:
 
@@ -1614,7 +1582,7 @@ This release supports the following external Chef products:
 - Chef Infra Client: 17.0.242+
 - Chef Habitat: 0.81+
 
-### Supported Framework Versions
+### Supported framework versions
 
 This release is built on the following framework versions:
 
@@ -1628,7 +1596,7 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on February 13, 2023
 
-### New Features
+### New features
 
 - You can now set the configuration for a deployment from Automate HA bastion node using the `chef-automate config set` command. ([#7670](https://github.com/chef/automate/pull/7670))
 - You can now add nodes in an AWS-deployed Automate HA cluster using `chef-automate node add` command. ([#7683](https://github.com/chef/automate/pull/7683))
@@ -1638,15 +1606,15 @@ Released on February 13, 2023
 - You can now fetch and apply certificates from a root or local location with read-only access. ([#7678](https://github.com/chef/automate/pull/7678))
 - You can now use an existing AWS S3 bucket when configuring AWS deployment of Chef Automate. ([#7681](https://github.com/chef/automate/pull/7681))
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 Compliance profiles are updated to version 1.0.0/20230209124416, which includes the new and improved profiles for:
 
 - CIS RHEL 9 v1.0.0
 
-### Bug Fixes
+### Bug fixes
 
-- The `chef-automate cleanup` command now removes the content of the directory `/hab` even if it is a symbolic link in Automate HA. ([#7679](https://github.com/chef/automate/pull/7679))
+- The `chef-automate cleanup` command now removes the content of the directory `/hab` even if it's a symbolic link in Automate HA. ([#7679](https://github.com/chef/automate/pull/7679))
 - Fixed the `chef-automate backup restore` command so it will restore a Chef Automate backup even when a front-end node is unhealthy. ([#7688](https://github.com/chef/automate/pull/7688))
 - Fixed a bug where OpenSearch was consuming a lot of memory when ingesting compliance report data. ([#7704](https://github.com/chef/automate/pull/7704))
 
@@ -1656,13 +1624,13 @@ Compliance profiles are updated to version 1.0.0/20230209124416, which includes 
 
 - Changes are made to fix CWE-409 vulnerability ([#7676](https://github.com/chef/automate/pull/7676))
 
-#### Security Updates
+#### Security updates
 
 Updated OpenSearch to version 1.3.7, which fixes the following vulnerabilities:
 
 - CVE-2022-42889
 
-### Chef Packaged Product Versions
+### Chef packaged product versions
 
 This release uses:
 
@@ -1671,7 +1639,7 @@ This release uses:
 - Chef Infra Server version: 15.4.0/20230105061154
 - Chef InSpec version: 4.56.22/20220517052126
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -1681,7 +1649,7 @@ This release uses:
 - Haproxy: 2.2.18
 - Dex: 2.27.0
 
-### Supported External Chef Products
+### Supported external Chef products
 
 This release supports the following external Chef products:
 
@@ -1690,7 +1658,7 @@ This release supports the following external Chef products:
 - Chef Infra Client: 17.0.242+
 - Chef Habitat: 0.81+
 
-### Supported Framework Versions
+### Supported framework versions
 
 This release is built on the following framework versions:
 
@@ -1704,7 +1672,7 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on January 12, 2023
 
-### New Features
+### New features
 
 - Ability to add new frontend and backend nodes for AWS deployment of Automate HA. ([#7616](https://github.com/chef/automate/pull/7616))
 
@@ -1717,12 +1685,12 @@ Released on January 12, 2023
 - Chef Server updated to version 15.4.0. This version of Infra Server supports Infra Client 15.x and later versions. ([#7645](https://github.com/chef/automate/pull/7645))
 - Root CA is now optional in config during deployment of Automate HA ([#7654](https://github.com/chef/automate/pull/7654))
 
-### Bug Fixes
+### Bug fixes
 
 - Fix for error encountered while fetching cookbooks for Chef Infra Server configured with policy files. ([#7624](https://github.com/chef/automate/pull/7624))
 - Fix to avoid population of junk data in `managed_rds_certificate` during AWS deployment of Automate HA. ([#7647](https://github.com/chef/automate/pull/7647))
 
-### Chef Packaged Product Versions
+### Chef packaged product versions
 
 This release uses:
 
@@ -1731,7 +1699,7 @@ This release uses:
 - Chef Infra Server version: 15.4.0/20230105061154
 - Chef InSpec version: 4.56.22/20220517052126
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -1741,7 +1709,7 @@ This release uses:
 - Haproxy: 2.2.18
 - Dex: 2.27.0
 
-### Supported External Chef Products
+### Supported external Chef products
 
 This release supports the following external Chef products:
 
@@ -1750,7 +1718,7 @@ This release supports the following external Chef products:
 - Chef Infra Client: 17.0.242+
 - Chef Habitat: 0.81+
 
-### Supported Framework Versions
+### Supported framework versions
 
 This release is built on the following framework versions:
 
@@ -1764,19 +1732,7 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on January 4, 2023
 
-### Upgrade Journey
-
-Chef lets you choose your **upgrade journey** based on your current version of Chef Automate. You can do all the version upgrades manually.
-
-| Your Current Version              | Upgrade To     |
-|-----------------------------------|----------------|
-| Any version before 20220329091442 | 20220329091442 |
-| 20220329091442                    | 3.0.x          |
-| 3.0.49                            | 4.x            |
-
-Click [here](https://docs.chef.io/automate/major_upgrade_4.x/) to know more.
-
-### New Features
+### New features
 
 - Ability to patch configurations from Bastion host of Automate HA ([#7470](https://github.com/chef/automate/pull/7470))
 - Enhance Compliance Reporting APIs based on date range instead of a single date. Refer to the enhanced compliance report documentation. ([#7498](https://github.com/chef/automate/pull/7498))
@@ -1799,7 +1755,7 @@ Click [here](https://docs.chef.io/automate/major_upgrade_4.x/) to know more.
 - Increased the default value of max shards to 2500([#7564](https://github.com/chef/automate/pull/7564))
 - More configurations for Chef Server are now patchable when deployed with Automate and Automate HA. Refer the document for the complete list <https://docs.chef.io/automate/chef_infra_in_chef_automate/> ([#7572](https://github.com/chef/automate/pull/7572))
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 Compliance profiles are updated to version 1.11.1/20221202074320, which includes the new and improved profiles for:
 
@@ -1815,7 +1771,7 @@ Compliance profiles are updated to version 1.11.1/20221202074320, which includes
 - CIS Windows 2016 v1.4.0
 - CIS Azure Fundamental v1.0.0
 
-### Bug Fixes
+### Bug fixes
 
 - Fix for Automate HA (v4.3.0) Backend node upgrade failure ([#7566](https://github.com/chef/automate/pull/7566))
 - Fix for errors while fetching *gather-logs* data from faulty/inactive node ([#7525](https://github.com/chef/automate/pull/7525))
@@ -1824,7 +1780,7 @@ Compliance profiles are updated to version 1.11.1/20221202074320, which includes
 
 ### Security
 
-#### Security Updates
+#### Security updates
 
 Updated OpenSearch version to 1.3.6 which fixes the following vulnerabilities:
 
@@ -1842,7 +1798,7 @@ Updated OpenJDK version to 11.0.17+8 which fixes the following vulnerabilities:
 - CVE-2022-34169
 - CVE-2022-21541
 
-### Chef Packaged Product Versions
+### Chef packaged product versions
 
 This release uses:
 
@@ -1851,7 +1807,7 @@ This release uses:
 - Chef Infra Server version: 14.15.10/20220510065931
 - Chef InSpec version: 4.56.22/20220517052126
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -1861,7 +1817,7 @@ This release uses:
 - Haproxy: 2.2.18
 - Dex: 2.27.0
 
-### Supported External Chef Products
+### Supported external Chef products
 
 This release supports the following external Chef products:
 
@@ -1870,7 +1826,7 @@ This release supports the following external Chef products:
 - Chef Infra Client: 17.0.242+
 - Chef Habitat: 0.81+
 
-### Supported Framework Versions
+### Supported framework versions
 
 This release is built on the following framework versions:
 
@@ -1884,19 +1840,7 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on October 6, 2022
 
-### Upgrade Journey
-
-Chef lets you choose your **upgrade journey** based on your current version of Chef Automate. You can do all the version upgrades manually.
-
-| Your Current Version              | Upgrade To     |
-|-----------------------------------|----------------|
-| Any version before 20220329091442 | 20220329091442 |
-| 20220329091442                    | 3.0.x          |
-| 3.0.49                            | 4.x            |
-
-Click [here](/automate/major_upgrade/) to know more.
-
-### New Features
+### New features
 
 - Disaster Recovery setup documentation for On-Prem deployment of Automate HA. ([#7425](https://github.com/chef/automate/pull/7425))
 - Documented steps to add/remove/replace nodes in the existing Automate HA cluster. ([#7406](https://github.com/chef/automate/pull/7406))
@@ -1906,12 +1850,12 @@ Click [here](/automate/major_upgrade/) to know more.
 - Updated contextual CLI messages for a seamless upgrade journey. ([#7377](https://github.com/chef/automate/pull/7377))
 - Copying ElasticSearch configuration to equivalent OpenSearch configuration. ([#7377](https://github.com/chef/automate/pull/7377))
 - Better disk space detection and improved shard allocation. ([#7377](https://github.com/chef/automate/pull/7377))
-- Auto-deletion of old indexes which are no longer required. ([#7377](https://github.com/chef/automate/pull/7377))
-- Auto-correction of old AWS S3 URL pattern for S3 backup. ([#7377](https://github.com/chef/automate/pull/7377))
+- Auto deletion of old indexes which are no longer required. ([#7377](https://github.com/chef/automate/pull/7377))
+- Auto correction of old AWS S3 URL pattern for S3 backup. ([#7377](https://github.com/chef/automate/pull/7377))
 - Added habitat package to ensure that **knife-ec-backup** can be performed on an air-gapped bundle and is available in the manifest file. ([#7424](https://github.com/chef/automate/pull/7424))
 - Automation of backup configuration during On-Prem Deployment. ([#7410](https://github.com/chef/automate/pull/7410))
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 Compliance profiles are updated to version 1.11.1/20220809102847, which includes the new and improved profiles for:
 
@@ -1928,7 +1872,7 @@ Compliance profiles are updated to version 1.11.1/20220809102847, which includes
 - CIS Windows Server 2012 v2.5.0 few controls title correction.
 - CIS SQL Server 2019 v1.2.0 removes non ASCII characters from the title.
 
-### Bug Fixes
+### Bug fixes
 
 - Better handle mismatch of controls and empty keys in the compliance report. ([#7379](https://github.com/chef/automate/pull/7379))
 - Reduced failure possibility of data-collector API by ensuring that token is added to member policy.
@@ -1940,15 +1884,13 @@ Compliance profiles are updated to version 1.11.1/20220809102847, which includes
 
 #### Security Improvements
 
-(examples: new security configurations)
-
 - Content security policy headers (CSP headers) are added to Automate APIs ([#7458](https://github.com/chef/automate/pull/7458))
 
-#### Security Updates
+#### Security updates
 
 (examples: dependency updates, CVE fixes)
 
-### Chef Packaged Product Versions
+### Chef packaged product versions
 
 This release uses:
 
@@ -1957,7 +1899,7 @@ This release uses:
 - Chef Infra Server version: 14.15.10/20220510065931
 - Chef InSpec version: 4.56.22/20220517052126
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -1966,7 +1908,7 @@ This release uses:
 - Nginx: 1.21.3
 - Haproxy: 2.2.18
 
-### Supported External Chef Products
+### Supported external Chef products
 
 This release supports the following external Chef products:
 
@@ -1981,19 +1923,7 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on August 12, 2022
 
-### Upgrade Journey
-
-Chef lets you choose your **upgrade journey** based on your current version of Chef Automate. You can do all the version upgrades manually.
-
-| Your Current Version              | Upgrade To     |
-|-----------------------------------|----------------|
-| Any version before 20220329091442 | 20220329091442 |
-| 20220329091442                    | 3.0.x          |
-| 3.0.49                            | 4.x            |
-
-See the [Chef Automate major upgrade](/automate/major_upgrade/) documentation for more information.
-
-### Compliance Profile Updates
+### Compliance profile updates
 
 Compliance profiles are updated to version 1.0.0/20220722105137, which includes the new and improved profiles for:
 
@@ -2010,7 +1940,7 @@ This update also includes fixes for:
 
 - CIS RHEL 8 v2.0.0 fix for control 6.2.7
 
-### Bug Fixes
+### Bug fixes
 
 - The compliance reports node name search is now case insensitive. ([#7310](https://github.com/chef/automate/pull/7310))
 
@@ -2019,7 +1949,7 @@ This update also includes fixes for:
 - Updated the Habitat version to 1.6.521 ([#4517](https://github.com/chef/automate/pull/4517))
 - Added support for SUSE Linux Enterprise Server 12 SP5 to Chef Automate HA.
 
-### Chef Packaged Product Versions
+### Chef packaged product versions
 
 This release uses:
 
@@ -2028,7 +1958,7 @@ This release uses:
 - Chef Infra Server version: 14.15.10/20220510065931
 - Chef InSpec version: 4.56.22/20220517052126
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -2037,7 +1967,7 @@ This release uses:
 - Nginx: 1.21.3
 - Haproxy: 2.2.18
 
-### Supported External Chef Products
+### Supported external Chef products
 
 This release supports the following external Chef products:
 
@@ -2052,24 +1982,12 @@ See the [package manifest](https://packages.chef.io/manifests/current/automate/l
 
 Released on August 1, 2022
 
-### Upgrade Journey
-
-Chef lets you choose your **upgrade journey** based on your current version of Chef Automate. You can do all the version upgrades manually.
-
-| Your Current Version              | Upgrade To     |
-|-----------------------------------|----------------|
-| Any version before 20220329091442 | 20220329091442 |
-| 20220329091442                    | 3.0.x          |
-| 3.0.49                            | 4.x            |
-
-Click [here](/automate/major_upgrade/) to know more.
-
 ### Improvements
 
 - Ability to install Automate HA on instances configured to use a different SSH port other than the default one ([#7261](https://github.com/chef/automate/pull/7261))
 - The upgrade process of Chef Automate HA has been improved ([#7270](https://github.com/chef/automate/pull/7270)).
 
-### Bug Fixes
+### Bug fixes
 
 - To display the organization name in the breadcrumbs in Infra Server View ([#7213](https://github.com/chef/automate/pull/7213))
 - To display the disclosure banner in the Automate UI ([#7243](https://github.com/chef/automate/pull/7243))
@@ -2080,7 +1998,7 @@ Click [here](/automate/major_upgrade/) to know more.
 
 - The downloadable Automate Airgapped Bundles will be retained for 60 days instead of 30 days.
 
-### Chef Packaged Product Versions
+### Chef packaged product versions
 
 This release uses:
 
@@ -2089,7 +2007,7 @@ This release uses:
 - Chef Infra Server version: 14.15.10/20220510065931
 - Chef InSpec version: 4.51.1/20211201163039
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -2098,7 +2016,7 @@ This release uses:
 - Nginx: 1.21.3
 - Haproxy: 2.2.18
 
-### Supported External Chef Products
+### Supported external Chef products
 
 This release supports the following external Chef products:
 
@@ -2113,24 +2031,12 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on July 5, 2022
 
-### Upgrade Journey
-
-Chef lets you choose your **upgrade journey** based on your current version of Chef Automate. You can do all the version upgrades manually.
-
-| Your Current Version              | Upgrade To     |
-|-----------------------------------|----------------|
-| Any version before 20220329091442 | 20220329091442 |
-| 20220329091442                    | 3.0.x          |
-| 3.0.49                            | 4.x            |
-
-Click [here](/automate/major_upgrade/) to know more.
-
 ### Improvements
 
 - Chef Automate can now check the proxy environment setting when you download the latest manifest ([#7170](https://github.com/chef/automate/pull/7170)).
 - Support for OpenSearch connectivity over HTTP ([#7209](https://github.com/chef/automate/pull/7209)).
 
-### Bug Fixes
+### Bug fixes
 
 - The listing of requested reports for Project Editor and Viewer roles when Large Compliance Report ingestion is enabled is now fixed. ([#7206](https://github.com/chef/automate/pull/7206))
 - The listing of profiles is fixed when the Passed, Failed or Skipped nodes tab is selected. ([#7215](https://github.com/chef/automate/pull/7215))
@@ -2139,11 +2045,9 @@ Click [here](/automate/major_upgrade/) to know more.
 
 #### Security Improvements
 
-(examples: new security configurations)
-
 - The Login id_token flow is modified not to use cookie but from the HTTP response ([#7145](https://github.com/chef/automate/pull/7145)).
 
-### Chef Packaged Product Versions
+### Chef packaged product versions
 
 This release uses:
 
@@ -2152,7 +2056,7 @@ This release uses:
 - Chef Infra Server version: 14.15.10/20220510065931
 - Chef InSpec version: 4.56.22/20220517052126
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -2167,19 +2071,7 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on June 23, 2022
 
-### Upgrade Journey
-
-Chef lets you choose your **upgrade journey** based on your current version of Chef Automate. You can do all the version upgrades manually.
-
-| Your Current Version              | Upgrade To     |
-|-----------------------------------|----------------|
-| Any version before 20220329091442 | 20220329091442 |
-| 20220329091442                    | 3.0.49         |
-| 3.0.49                            | 4.x            |
-
-See the [Chef Automate Major Upgrade documentation](/automate/major_upgrade/) to learn more.
-
-### New Features
+### New features
 
 - Chef Automate can now ingest and process Inspec Scan reports of size larger than 4MB ([#7074](https://github.com/chef/automate/pull/7074)).
   See the [Large Compliance Report Ingestion documentation](https://docs.chef.io/automate/large_compliance_report/) for more information.
@@ -2188,17 +2080,17 @@ See the [Chef Automate Major Upgrade documentation](/automate/major_upgrade/) to
 
 - Automate HA documentation improvements
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 - Compliance profiles are updated to version 1.0.0/20220609120848, which includes the fixes for:
 
   - CIS RHEL 8 v2.0.0
 
-### Bug Fixes
+### Bug fixes
 
 - Restricted SSH access to bastion nodes in Automate HA to the bastion server ([#7186](https://github.com/chef/automate/pull/7188)).
 
-### Chef Packaged Product Versions
+### Chef packaged product versions
 
 This release uses:
 
@@ -2207,7 +2099,7 @@ This release uses:
 - Chef Infra Server version: 14.15.10/20220510065931
 - Chef InSpec version: 4.56.22/20220517052126
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -2222,27 +2114,15 @@ See the [package manifest](https://packages.chef.io/manifests/current/automate/l
 
 Released on June 17, 2022
 
-### Announcement
+### Chef Automate High Availability
 
-**Chef Automate High Availability** is now available with supported [Public Documentation](https://docs.chef.io/automate/ha/).
+Chef Automate High Availability is now available with supported [Public Documentation](https://docs.chef.io/automate/ha/).
 
-### Upgrade Journey
-
-Chef lets you choose your **upgrade journey** based on your current version of Chef Automate. You can do all the version upgrades manually.
-
-| Your Current Version              | Upgrade To     |
-|-----------------------------------|----------------|
-| Any version before 20220329091442 | 20220329091442 |
-| 20220329091442                    | 3.0.49         |
-| 3.0.49                            | 4.x            |
-
-Click [here](https://docs.chef.io/automate/major_upgrade_4.x/) to know more.
-
-### New Features
+### New features
 
 - Chef Automate now supports the [Managed Services](https://docs.chef.io/automate/managed_services/) of **AWS RDS** and **AWS OpenSearch**.
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 - Compliance profiles are updated to version 1.0.0/20220609120848, which includes the following profile changes:
 
@@ -2258,7 +2138,7 @@ and fixes for:
 - Windows 2012 r2 v2.5.0
 - Windows 2019 v1.2.1
 
-### Chef Packaged Product Versions
+### Chef packaged product versions
 
 This release uses:
 
@@ -2267,7 +2147,7 @@ This release uses:
 - Chef Infra Server version: 14.15.10/20220510065931
 - Chef InSpec version: 4.56.22/20220517052126
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -2282,23 +2162,11 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on June 9, 2022
 
-### Upgrade Journey
-
-Chef lets you choose your **upgrade journey** based on your current version of Chef Automate. You can do all the version upgrades manually.
-
-| Your Current Version              | Upgrade To     |
-|-----------------------------------|----------------|
-| Any version before 20220329091442 | 20220329091442 |
-| 20220329091442                    | 3.0.49         |
-| 3.0.49                            | 4.x            |
-
-Click [here](https://docs.chef.io/automate/major_upgrade_4.x/) to know more.
-
 ### Improvements
 
 - Automate supports substring search consistently in Compliance and Infra tabs ([#7076](https://github.com/chef/automate/pull/7076)).
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 - Compliance profiles are updated to version 1.0.0/20220603123504, which includes the following profile changes:
 
@@ -2318,11 +2186,9 @@ and Fixes for:
 
 #### Security Improvements
 
-(examples: new security configurations)
-
 - Stop showing external OpenSearch credentials in plain text ([#7024](https://github.com/chef/automate/pull/7024)).
 
-#### Security Updates
+#### Security updates
 
 (examples: dependency updates, CVE fixes)
 OpenJDK is updated to 11.0.15_10 which fixes the following vulnerabilities:
@@ -2334,7 +2200,7 @@ OpenJDK is updated to 11.0.15_10 which fixes the following vulnerabilities:
 - CVE-2022-21476
 - CVE-2022-21496
 
-### Chef Packaged Product Versions
+### Chef packaged product versions
 
 This release uses:
 
@@ -2343,7 +2209,7 @@ This release uses:
 - Chef Infra Server version: 14.15.10/20220510065931
 - Chef InSpec version: 4.56.22/20220517052126
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -2352,7 +2218,7 @@ This release uses:
 - Nginx: 1.21.3
 - Haproxy: 2.2.2
 
-### Supported External Chef Products
+### Supported external Chef products
 
 This release supports the following external Chef products:
 
@@ -2367,19 +2233,7 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on May 25, 2022
 
-### Upgrade Journey
-
-Chef lets you choose your **upgrade journey** based on your current version of Chef Automate. You can do all the version upgrades manually.
-
-| Your Current Version              | Upgrade To     |
-|-----------------------------------|----------------|
-| Any version before 20220329091442 | 20220329091442 |
-| 20220329091442                    | 3.0.49         |
-| 3.0.49                            | 4.0.x          |
-
-Click [here](https://docs.chef.io/automate/major_upgrade_4.x) to know more.
-
-### New Features
+### New features
 
 - In Chef Automate a new security feature has been implemented to lock users on multiple failed attempts while logging in ([#6923](https://github.com/chef/automate/pull/6923)).
 - The Chef Automate bundle for airgapped customers is now available. Click [here](https://packages.chef.io/airgap_bundle/current/automate/latest.aib) to download the bundle ([#6973](https://github.com/chef/automate/pull/6973)).
@@ -2388,7 +2242,7 @@ Click [here](https://docs.chef.io/automate/major_upgrade_4.x) to know more.
 
 - Pagination has been implemented to show all the controls of the `ListControl` API ([#6910](https://github.com/chef/automate/pull/6910)).
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 - Compliance profiles are updated to version 1.0.0/20220518045206, which includes the following profile changes:
 
@@ -2396,7 +2250,7 @@ Click [here](https://docs.chef.io/automate/major_upgrade_4.x) to know more.
 
 ### Security
 
-#### Security Updates
+#### Security updates
 
 Updated url-parse to v1.5.10:
 
@@ -2410,7 +2264,7 @@ Updated minimize to 1.2.6
 
 - CVE-2021-44906
 
-### Chef Packaged Product Versions
+### Chef packaged product versions
 
 This release uses:
 
@@ -2419,7 +2273,7 @@ This release uses:
 - Chef Infra Server version: 14.15.10/20220510065931
 - Chef InSpec version: 4.51.1/20211201163039
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -2428,7 +2282,7 @@ This release uses:
 - Nginx: 1.21.3
 - Haproxy: 2.2.2
 
-### Supported External Chef Products
+### Supported external Chef products
 
 This release supports the following external Chef products:
 
@@ -2443,23 +2297,11 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on May 13, 2022
 
-### Announcement
+### Elasticsearch support
 
 Elasticsearch support has been removed from this version (4.0.27) of Chef Automate.
 
-### Upgrade Journey
-
-Chef lets you choose your **upgrade journey** based on your current version of Chef Automate. You can do all the version upgrades manually.
-
-| Your Current Version              | Upgrade To     |
-|-----------------------------------|----------------|
-| Any version before 20220329091442 | 20220329091442 |
-| 20220329091442                    | 3.0.49         |
-| 3.0.49                            | 4.0.x          |
-
-Click [here](https://docs.chef.io/automate/major_upgrade_4.x/) to know more.
-
-### Bug Fixes
+### Bug fixes
 
 - Bug fix related to migration of PostgreSQL data after major upgrade #[7013](https://github.com/chef/automate/pull/7013)
 
@@ -2467,7 +2309,7 @@ Click [here](https://docs.chef.io/automate/major_upgrade_4.x/) to know more.
 
 - Support for Embedded OpenSearch and External OpenSearch Version 1.2.4 added.
 
-### Chef Packaged Product Versions
+### Chef packaged product versions
 
 This release uses:
 
@@ -2476,7 +2318,7 @@ This release uses:
 - Chef Infra Server version: 14.15.10/20220510065931
 - Chef InSpec version: 4.51.1/20211201163039
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -2485,7 +2327,7 @@ This release uses:
 - Nginx: 1.21.3
 - Haproxy: 2.2.2
 
-### Supported External Chef Products
+### Supported external Chef products
 
 This release supports the following external Chef products:
 
@@ -2500,27 +2342,16 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on April 25, 2022
 
-### Announcement
+### OpenSearch support
 
-The upcoming release will be a **Major Version Upgrade** with support for Open Search. Chef Automate will not automatically upgrade to the major upgrade. Click [here](https://www.chef.io/blog/chef-automate-is-moving-to-opensearch) to know more.
-
-### Upgrade Journey
-
-Chef lets you choose your **Upgrade Journey** based on your current version of Chef Automate. You have to manually upgrade to the major versions.
-
-| Your Current Version              | Upgrade To     |
-|-----------------------------------|----------------|
-| Any version before 20220329091442 | 20220329091442 |
-| 20220329091442                    | 3.0.x          |
-
-Click [here](https://docs.chef.io/automate/major_upgrade/) to know more.
+The upcoming release will be a major version upgrade with support for OpenSearch. Chef Automate won't automatically upgrade to the major upgrade. Click [here](https://www.chef.io/blog/chef-automate-is-moving-to-opensearch) to know more.
 
 ### Improvements
 
 - The Check-In history in node details will have an improved look and feel on desktop dashboard ([#6702](https://github.com/chef/automate/pull/6702)).
 - Included opt-in telemetry for Profiles search, Data Feed, Data Lifecycle, Identity Management, Access Management, and Node Management ([#6840](https://github.com/chef/automate/pull/6840), [#6863](https://github.com/chef/automate/pull/6863), [#6864](https://github.com/chef/automate/pull/6864), [#6903](https://github.com/chef/automate/pull/6903), [#6913](https://github.com/chef/automate/pull/6913), [#6917](https://github.com/chef/automate/pull/6917)).
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 - Compliance profiles are updated to version 1.0.0/20220422141333, which includes the following profile changes:
 
@@ -2551,7 +2382,7 @@ Click [here](https://docs.chef.io/automate/major_upgrade/) to know more.
   - CIS MSSQL Server 2016 v1.3.0
   - IS MSSQL Server 2019 v1.2.0
 
-### Bug Fixes
+### Bug fixes
 
 - The Infinite render loop in check-in history on the desktop dashboard has been fixed ([#6756](https://github.com/chef/automate/pull/6756)).
 - The 0-byte file download of Compliance Reports in Chrome/Edge has been fixed ([#6824](https://github.com/chef/automate/pull/6824)).
@@ -2565,11 +2396,9 @@ Click [here](https://docs.chef.io/automate/major_upgrade/) to know more.
 
 #### Security Improvements
 
-(examples: new security configurations)
-
 - Enable Strict Transport Security header for Automate services ([#6846](https://github.com/chef/automate/pull/6846))
 
-### Chef Packaged Product Versions
+### Chef packaged product versions
 
 This release uses:
 
@@ -2578,7 +2407,7 @@ This release uses:
 - Chef Infra Server version: 14.13.42/20220228221324
 - Chef InSpec version: 4.56.22/20220423215911
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -2587,7 +2416,7 @@ This release uses:
 - Nginx: 1.21.3
 - Haproxy: 2.2.2
 
-### Supported External Chef Products
+### Supported external Chef products
 
 This release supports the following external Chef products:
 
@@ -2602,24 +2431,11 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on April 19, 2022
 
-We are delighted to announce the availability of version 3.0.23 of Chef Automate.
-
-### Upgrade Journey
-
-Chef lets you choose your **upgrade journey** based on your current version of Chef Automate. You can do all the version upgrades manually.
-
-| Your Current Version              | Upgrade To     |
-|-----------------------------------|----------------|
-| Any version before 20220329091442 | 20220329091442 |
-| 20220329091442                    | 3.0.x          |
-
-Click [here](https://docs.chef.io/automate/major_upgrade/) to know more.
-
 ### Maintenance
 
 - Support for **Embedded PostgreSQL Version 13.5** added.
 
-### Chef Packaged Product Versions
+### Chef packaged product versions
 
 This release uses:
 
@@ -2628,7 +2444,7 @@ This release uses:
 - Chef Infra Server version: 14.13.42/20220228221324
 - Chef InSpec version: 4.51.1/20211201163039
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -2637,7 +2453,7 @@ This release uses:
 - Nginx: 1.21.3
 - Haproxy: 2.2.2
 
-### Supported External Chef Products
+### Supported external Chef products
 
 This release supports the following external Chef products:
 
@@ -2654,9 +2470,9 @@ Released on March 29, 2022
 
 ### Announcement
 
-_This is the last release of the current series of releases. The upcoming release will be a **Major Version Upgrade**. Chef Automate will not upgrade automatically to the major upgrade. Click [here](https://www.chef.io/blog/change-to-chef-automate-version-and-release-numbering) to know more.*
+_This is the last release of the current series of releases. The upcoming release will be a **Major Version Upgrade**. Chef Automate won't upgrade automatically to the major upgrade. Click [here](https://www.chef.io/blog/change-to-chef-automate-version-and-release-numbering) to know more.*
 
-### Bug Fixes
+### Bug fixes
 
 - The License expiration issue of the banner being shown at the incorrect time has now been fixed ([#6830](https://github.com/chef/automate/pull/6830)).
 - Fixed `chef-server-ctl test` command for Chef Server running embedded with Chef Automate ([#6726](https://github.com/chef/automate/pull/6726)).
@@ -2674,7 +2490,7 @@ This release uses:
 - Chef Infra Server version: 14.13.42/20220228221324
 - Chef InSpec version: 4.51.1/20211201163039
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -2691,7 +2507,7 @@ Released on March 23, 2022
 
 ### Improvements
 
-- The **Internal Database Services** can be skipped when it is externally configured to optimize host resources ([#6606](https://github.com/chef/automate/pull/6606)).
+- The **Internal Database Services** can be skipped when it's externally configured to optimize host resources ([#6606](https://github.com/chef/automate/pull/6606)).
 - Improved telemetry coverage for **Chef Infra Server** Policy Files and Policy Groups under Infrastructure ([#6797](https://github.com/chef/automate/pull/6797), [#6805](https://github.com/chef/automate/pull/6805)).
 
 ### Chef Product Versions
@@ -2703,7 +2519,7 @@ This release uses:
 - Chef Infra Server version: 14.11.36/20211227114241
 - Chef InSpec version: 4.24.32/20210112215549
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -2722,7 +2538,7 @@ Released on March 14, 2022
 
 - Improved telemetry coverage for **Chef Infra Server Environments**, **Clients**, **Nodes** and **Data Bags** under **Infrastructure** ([#6740](https://github.com/chef/automate/pull/6740), [#6749](https://github.com/chef/automate/pull/6749), [#6760](https://github.com/chef/automate/pull/6760), [#6775](https://github.com/chef/automate/pull/6775)).
 
-### Bug Fixes
+### Bug fixes
 
 - The backup timeout issue for the large data backups has been fixed ([#6733](https://github.com/chef/automate/pull/6733)).
 
@@ -2732,7 +2548,7 @@ Released on March 14, 2022
 
 ### Security
 
-#### Security Updates
+#### Security updates
 
 Upgraded PostgreSQL to 9.6.24:
 
@@ -2748,7 +2564,7 @@ This release uses:
 - Chef Infra Server version: 14.11.36/20211227114241
 - Chef InSpec version: 4.24.32/20210112215549
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -2782,7 +2598,7 @@ This release uses:
 - Chef Infra Server version: 14.11.36/20211227114241
 - Chef InSpec version: 4.24.32/20210112215549
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -2797,7 +2613,7 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on February 9, 2022
 
-### Bug Fixes
+### Bug fixes
 
 - Chef Automate can now run compliance cloud scans on any AWS API resource outside of a private cloud using proxy settings. ([#6641](https://github.com/chef/automate/pull/6641))
 - `chef-server-ctl` commands like `cleanup-bifrost`, `grant-server-admin-permissions`, etc., will work with external Postgres as well. ([#6643](https://github.com/chef/automate/pull/6643))
@@ -2807,7 +2623,7 @@ Released on February 9, 2022
 
 #### Security Improvements
 
-#### Security Updates
+#### Security updates
 
 - [CVE-2021-23017](https://nvd.nist.gov/vuln/detail/CVE-2021-23017) - Upgraded Nginx to 1.21.3 for Chef Habitat builder-api-proxy.
 
@@ -2820,7 +2636,7 @@ This release uses:
 - Chef Infra Server version: 14.4.4/20210520120637
 - Chef InSpec version: 4.24.32/20210112215549
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -2837,7 +2653,7 @@ Released on January 27, 2022
 
 ### Security
 
-#### Security Updates
+#### Security updates
 
 Upgraded Elasticsearch to 6.8.23:
 
@@ -2852,7 +2668,7 @@ This release uses:
 - Chef Infra Server version: 14.4.4/20210520120637
 - Chef InSpec version: 4.24.32/20210112215549
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -2883,7 +2699,7 @@ This release uses:
 - Chef Infra Server version: 14.11.36/20211227114241
 - Chef InSpec version: 4.24.32/20210112215549
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -2917,7 +2733,7 @@ This release uses:
 - Chef Infra Server version: 14.11.36/20211227114241
 - Chef InSpec version: 4.24.32/20210112215549
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -2939,13 +2755,13 @@ Added two new CLI options:
 - **uniqNodeRunReport** returns the number of unique nodes reporting to Chef Automate within a range of dates. ([#6355](https://github.com/chef/automate/pull/6335))
 - **nodeRunReport** returns a CSV file that contains data about nodes that have reported to Chef Automate within a range of dates. ([#6355](https://github.com/chef/automate/pull/6335))
 
-### Bug Fixes
+### Bug fixes
 
 - Fixed an issue where compliance profiles would not upload in ZIP format. ([#6146](https://github.com/chef/automate/pull/6146))
 
 ### Security
 
-#### Security Updates
+#### Security updates
 
 Upgraded Elasticsearch to 6.8.22:
 
@@ -2976,7 +2792,7 @@ This release uses:
 - Chef Infra Server version: 14.4.4/20210520120637
 - Chef InSpec version: 4.24.32/20210112215549
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -2991,7 +2807,7 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on December 1, 2021
 
-### Bug Fixes
+### Bug fixes
 
 - The last release caused high CPU usage and ingestion failures, described in ([#6295](https://github.com/chef/automate/pull/6295)). This release reverts the code changes made in `compliance` and `ingest-service`.
 
@@ -3004,7 +2820,7 @@ This release uses:
 - Chef Infra Server version: 14.4.4/20210520120637
 - Chef InSpec version: 4.24.32/20210112215549
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -3026,13 +2842,13 @@ Released on November 29, 2021
 - You can search **Node Managers** by name and filter Node Managers by Cloud Provider in `Settings -> Node-Integration` ([#6039](https://github.com/chef/automate/pull/6039)).
 - You can now modify the number of items in a page for `Infrastructure -> Infra-Server` page ([#6074](https://github.com/chef/automate/pull/6074), [#6196](https://github.com/chef/automate/pull/6196)).
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 - Compliance profiles are updated to version 1.0.0/20211110062104, which includes the following profile changes:
 
   - Window 2016 v1.2.0
 
-### Bug Fixes
+### Bug fixes
 
 - Blank page while adding new credentials has been fixes. Navigate to the page by: `Compliance -> scan job -> Nodes Added` ([#6073](https://github.com/chef/automate/pull/6073)).
 - Improper display of Webhook Type has been fixed. Navigate to the page by: `Settings -> Notifications` ([#6104](https://github.com/chef/automate/issues/6104)).
@@ -3047,11 +2863,9 @@ Released on November 29, 2021
 
 #### Security Improvements
 
-(examples: new security configurations)
-
 - Added more request id validation in the authentication module ([#6085](https://github.com/chef/automate/pull/6085))
 
-#### Security Updates
+#### Security updates
 
 (examples: dependency updates, CVE fixes)
 
@@ -3069,7 +2883,7 @@ This release uses:
 - Chef Infra Server version: 14.4.4/20210520120637
 - Chef InSpec version: 4.24.32/20210112215549
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -3089,13 +2903,13 @@ Released on November 10, 2021
 - You can now easily use **accordion** to select credentials and add nodes under `Compliance -> Scan Jobs` ([#5788](https://github.com/chef/automate/pull/5788))
 - **Azure Compliance Scan** now allows you to filter subscriptions based on tags ([#5870](https://github.com/chef/automate/pull/5870))
 
-### Bug Fixes
+### Bug fixes
 
 - Automate allows you to add organisations of same name but in different Chef Server under `Infrastructure->Infra Server` ([#6017](https://github.com/chef/automate/pull/6017))
 
 ### Security
 
-#### Security Updates
+#### Security updates
 
 (examples: dependency updates, CVE fixes)
 
@@ -3111,7 +2925,7 @@ This release uses:
 - Chef Infra Server version: 14.4.4/20210520120637
 - Chef InSpec version: 4.24.32/20210112215549
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -3126,7 +2940,7 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on October 26, 2021
 
-### New Features
+### New features
 
 - Data Feed is now made GA. Data Feed supports 2 types of Integrations:
 
@@ -3145,8 +2959,6 @@ Released on October 26, 2021
 
 #### Security Improvements
 
-(examples: new security configurations)
-
 - Automate stops displaying the hidden directories and contents ([https://github.com/chef/automate/pull/5872](#5872))
 
 ### Chef Product Versions
@@ -3158,7 +2970,7 @@ This release uses:
 - Chef Infra Server version: 14.4.4/20210520120637
 - Chef InSpec version: 4.24.32/20210112215549
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -3178,22 +2990,20 @@ Released on October 12, 2021
 - We've made UI Improvements for **Chef Infra Server** ([#5819](https://github.com/chef/automate/pull/5819), [#5837](https://github.com/chef/automate/pull/5837))
 - **Azure API scan** can now run on multiple subscription ids. ([#5792](https://github.com/chef/automate/pull/5792))
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 Compliance profiles are updated to version 1.0.0/20211007053103, which includes the following profile changes:
 
 - RHEL 8 V1.0.0 fixed for removing extra escape characters
 - Apple Mac OS 11 Profile V1.2.0
 
-### Bug Fixes
+### Bug fixes
 
 - Chef Automate can now accommodate more than 100 nodes for Compliance Scan. ([#5761](https://github.com/chef/automate/pull/5761))
 
 ### Security
 
 #### Security Improvements
-
-(examples: new security configurations)
 
 - Changes are made to mask user credentials in **Data Feed Debug Logs**. ([#5845](https://github.com/chef/automate/pull/5845))
 
@@ -3206,7 +3016,7 @@ This release uses:
 - Chef Infra Server version: 14.4.4/20210520120637
 - Chef InSpec version: 4.24.32/20210112215549
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -3227,7 +3037,7 @@ Released on September 27, 2021
 - Add a Chef Infra Server using either a FQDN or an IP address ([#5724](https://github.com/chef/automate/pull/5724))
 - Encrypted data bags cannot be edited in Automate.([#5754](https://github.com/chef/automate/pull/5754))
 
-### Bug Fixes
+### Bug fixes
 
 - The **Edit Attributes** form for **Chef Infra Servers > Organizations > Your Org** closes correctly. ([#5255](https://github.com/chef/automate/issues/5255))
 
@@ -3244,7 +3054,7 @@ This release uses:
 - Chef Infra Server version: 14.4.4/20210520120637
 - Chef InSpec version: 4.24.32/20210112215549
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -3259,7 +3069,7 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on September 13, 2021
 
-### New Features
+### New features
 
 - You can now check the details of **Runlist Dependencies** in the Policyfiles details page. Navigate to the Policyfile tab: **Infrastructure > Chef Infra Server > Server Name > Organization > Policyfiles > PolicyFile > Runlist** ([#5619](https://github.com/chef/automate/pull/5619))
 - You can now view the **Details of the Nodes** a Policy Group is associated with. Navigate to the Policy Group: **Infrastructure > Chef Infra Server > Server Name > Organization > policygroups > PolicyGroup > Node** ([#5630](https://github.com/chef/automate/pull/5630))
@@ -3269,7 +3079,7 @@ Released on September 13, 2021
 - Chef Automate will now validate the availability of Chef Infra Server while adding. ([#5643](https://github.com/chef/automate/pull/5643))
 - We've made the navigation to the ServiceNow integration docs more intuitive. Find them on [docs.chef.io](https://docs.chef.io/) by navigating to **Chef Automate > Integrations > ServiceNow**
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 Compliance profiles are updated to version 1.0.0/20210902061132, which includes the following profile changes:
 
@@ -3286,13 +3096,13 @@ Compliance profiles are updated to version 1.0.0/20210902061132, which includes 
 - CIS Ubuntu 20.04 v1.0.0
 - Stig windows server 2019 v1.1.0 few controls with incorrect logic updated
 
-### Bug Fixes
+### Bug fixes
 
 - Chef Automate now gets updated in Roles without description getting validated in Chef Infra Server. ([#5648](https://github.com/chef/automate/pull/5648))
 
 ### Security
 
-#### Security Updates
+#### Security updates
 
 (examples: dependency updates, CVE fixes)
 
@@ -3307,7 +3117,7 @@ This release uses:
 - Chef Infra Server version: 14.4.4/20210520120637
 - Chef InSpec version: 4.24.32/20210112215549
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -3322,7 +3132,7 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on August 27, 2021
 
-### New Features
+### New features
 
 - LDAP and SAML Chef Automate users can now set **Time Format** across the Chef Automate. Navigate to the **TIme Format**: **Profile > Time Format**. ([#5432](https://github.com/chef/automate/pull/5432))
 - You can now check the details of **Cookbook Dependencies** in the Policyfiles details page. Navigate to the Policyfile tab: **Infrastructure > Chef Infra Server > Server Name > Organization > Policyfiles > PolicyFile > Cookbook Dependencies** ([#5484](https://github.com/chef/automate/pull/5484))
@@ -3332,7 +3142,7 @@ Released on August 27, 2021
 
 - You can now set the **Log out time** duration if your system is idle upto a specific time. ([#5362](https://github.com/chef/automate/pull/5362))
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 - Compliance profiles are updated to version 1.0.0/20210823105624, which includes the following profile changes:
 
@@ -3344,7 +3154,7 @@ Released on August 27, 2021
   - Rhel-7 v2.1.1 fix for SSHD Configuration MACs
   - Ubuntu 16.04 fix for SSHD Configuration MACs
 
-### Bug Fixes
+### Bug fixes
 
 - Automate Report Details API now returns the available Profile tags. ([#5483](https://github.com/chef/automate/pull/5483))
 - Changes the default **Time Format** for Chef Automate to include the **Timestamp**. ([#5574](https://github.com/chef/automate/pull/5574))
@@ -3353,11 +3163,9 @@ Released on August 27, 2021
 
 #### Security Improvements
 
-(examples: new security configurations)
-
 - Logout from Automate UI disables the session token usage ([#5433](https://github.com/chef/automate/pull/5433))
 
-#### Security Updates
+#### Security updates
 
 (examples: dependency updates, CVE fixes)
 
@@ -3373,7 +3181,7 @@ This release uses:
 - Chef Infra Server version: 14.4.4/20210520120637
 - Chef InSpec version: 4.24.32/20210112215549
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -3388,7 +3196,7 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on August 18, 2021
 
-### New Features
+### New features
 
 - You can now check the `Included Policies`, `Cookbook Dependencies` and `Revisions` in the Policyfiles details page. Navigate to the Policyfile tab: **Infrastructure > Chef Infra Server > Server Name > Organization > Policyfiles > PolicyFile** ([#5398](https://github.com/chef/automate/pull/5398))
 - You can view and search the list of `Policy Group` on the Policy Groups page. Navigate to the Policy Groups tab: **Infrastructure > Chef Infra Server > Server Name > Organization > Policy Groups** ([#5409](https://github.com/chef/automate/pull/5409))
@@ -3398,7 +3206,7 @@ Released on August 18, 2021
 
 - Data feed service can now process 50k+ nodes in a given feed.
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 - Compliance profiles are updated to version 1.0.0/20210806131012, which includes the following profile changes: ([#5406](https://github.com/chef/automate/pull/5406))
 
@@ -3407,7 +3215,7 @@ Released on August 18, 2021
   - Update azure-inspec version for azure foundation profile
   - Ensure no unconfined services exist fails to check for unconfined_service_t
 
-### Bug Fixes
+### Bug fixes
 
 - The filtering out nodes using tags for Azure VMs in scan `Job -> Create Job` page is fixed. ([#5355](https://github.com/chef/automate/pull/5355))
 - The frequent logouts for `/refresh` api failures has been fixed. ([#5395](https://github.com/chef/automate/pull/5395))
@@ -3416,8 +3224,6 @@ Released on August 18, 2021
 ### Security
 
 #### Security Improvements
-
-(examples: new security configurations)
 
 - [CVE-2021-23362](https://github.com/advisories/GHSA-43f8-2h32-f4cj) - updated **hosted-git-info** to 2.8.9
 - Upgrade **prismjs** to version 1.24.0
@@ -3433,7 +3239,7 @@ This release uses:
 - Chef Infra Server version: 14.4.4/20210520120637
 - Chef InSpec version: 4.24.32/20210112215549
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -3448,7 +3254,7 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on August 2, 2021
 
-### New Features
+### New features
 
 - You can now check the `Policyfiles` from Chef Infra Server. Navigate to the Policyfiles tab: **Infrastructure > Chef Infra Server > Server Name > Organization > Policyfiles > PolicyFile**. ([#5327](https://github.com/chef/automate/pull/5327), [#5374](https://github.com/chef/automate/pull/5374), [#5377](https://github.com/chef/automate/pull/5377))
 
@@ -3456,14 +3262,14 @@ Released on August 2, 2021
 
 - **Login Landing Page** will now be displayed for all types of login. ([#5375](https://github.com/chef/automate/pull/5375))
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 - Compliance profiles are updated to version 1.0.0/20210720091254, which includes the following profile changes: ([#5367](https://github.com/chef/automate/pull/5367)):
 
   - STIG Windows 10 v2.1.0
   - Fix for - ASLR check in CIS
 
-### Bug Fixes
+### Bug fixes
 
 - Fixed the pagination in **Compliance Report**. ([#5360](https://github.com/chef/automate/pull/5360))
 
@@ -3475,7 +3281,7 @@ Released on August 2, 2021
 
 - Added SameSite=Lax to the Session Cookie
 
-#### Security Updates
+#### Security updates
 
 The node modules are updated to fix the following CVE issues:
 
@@ -3490,7 +3296,7 @@ This release uses:
 - Chef Infra Server version: 14.4.4/20210520120637
 - Chef InSpec version: 4.24.32/20210112215549
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -3505,14 +3311,14 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on July 20, 2021
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 - Compliance profiles are updated to version 1.0.0/20210714100005, which includes the following profile ([#5356](https://github.com/chef/automate/pull/5356)):
 
   - STIG Windows 10 v2.1.0
   - Fix for - ASLR check in CIS CentOS 8
 
-### Bug Fixes
+### Bug fixes
 
 - The black screen when logging in using SAML has been removed. ([#5368](https://github.com/chef/automate/pull/5368))
 
@@ -3525,7 +3331,7 @@ This release uses:
 - Chef Infra Server version: 14.4.4/20210520120637
 - Chef InSpec version: 4.24.32/20210112215549
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -3540,22 +3346,22 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on July 19, 2021
 
-### New Features
+### New features
 
 - You can now search and delete the **Policyfiles** from Chef Infra Server. Navigate to the Policyfiles tab: **Infrastructure > Chef Infra Server > Server Name > Organization > Policyfiles**. ([#5321](https://github.com/chef/automate/pull/5321), [#5307](https://github.com/chef/automate/pull/5307))
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 - Compliance profiles are updated to version 1.0.0/20210707133250, which includes the following profile ([#5297](https://github.com/chef/automate/pull/5297)):
 
   - Server motd regular expression bug fix - centOS 8.
   - Fix for - RHEL 7 v 2.2.0 - 5.3.1 control.
   - Fix for - Tomcat 8 V 1.1.0 - Bug Fix (Fixed Nokogiri dependency ).
-  - Fix for - Server does not find files in /etc/sudoers.d - CentOS 8.
+  - Fix for - Server doesn't find files in /etc/sudoers.d - CentOS 8.
   - Fix for - Expand user shell timeout check to scan files in /etc/profiles.d - CentOS 8.
   - STIG Windows 2012/2012 R2 Domain Controller v3.1.0.
 
-#### Bug Fixes
+#### Bug fixes
 
 - Fixed the User Preference Settings in Chef Automate ([#5284](https://github.com/chef/automate/pull/5284))
 
@@ -3579,7 +3385,7 @@ This release uses:
 - Chef Infra Server version: 14.4.4/20210520120637
 - Chef InSpec version: 4.24.32/20210112215549
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -3594,7 +3400,7 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on July 5, 2021
 
-### New Features
+### New features
 
 - The Chef Automate allows you to add **Disclosure Text** to the login page. ([#5106](https://github.com/chef/automate/pull/5106))
 - You can add a **Banner** or a warning message across the Chef Automate Interface. ([#5106](https://github.com/chef/automate/pull/5106))
@@ -3606,20 +3412,20 @@ Released on July 5, 2021
 - A `subscription id` is added in **Node Integration** for Azure API in **Settings > Node Integration > Azure > API** ([#5291](https://github.com/chef/automate/pull/5291))
 - We have made various changes like button alignment and unnecessary spaces to improve your user experience while working on Chef Automate Interface.
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 - Compliance profiles are updated to version 1.0.0/20210625122945, which includes the following profile ([#5292](https://github.com/chef/automate/pull/5292))
 
   - Bug Fix - CentOS 8 v1.0.0
 
-### Bug Fixes
+### Bug fixes
 
 - Removed the ability to change the data bag `id` on the **Edit Data Bag** model. ([#5249](https://github.com/chef/automate/pull/5249))
 - Fixed extra node creation in Chef Automate Interface while running `Node Scans`. ([#5290](https://github.com/chef/automate/pull/5290))
 
 ### Security
 
-#### Security Updates
+#### Security updates
 
 The node modules are updated to fix the following CVE issues:
 
@@ -3635,7 +3441,7 @@ This release uses:
 - Chef Infra Server version: 14.4.4/20210520120637
 - Chef InSpec version: 4.24.32/20210112215549
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -3650,7 +3456,7 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on June 21, 2021
 
-### New Features
+### New features
 
 - You can now check and update the node **attributes** from Chef Infra Server. Navigate to the Attributes tab: **Infrastructure > Chef Infra Server > Server Name > Organization > Nodes**. ([#5194](https://github.com/chef/automate/pull/5194))
 
@@ -3659,14 +3465,14 @@ Released on June 21, 2021
 - The **Edit** functionality of Roles in **Environment** has been disabled. ([#5201](https://github.com/chef/automate/pull/5201))
 - A spinner has been added to every delete operation performed in Chef Infra Server. ([#5234](https://github.com/chef/automate/pull/5234))
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 - Compliance profiles are updated to version 1.0.0/20210605110738, which includes the following profiles ([#5195](https://github.com/chef/automate/pull/5195)):
 
   - CIS sles15 v1.0.0 - Optimisation and code clean
   - CIS Mssql server 2017 V1.2.0
 
-### Bug Fixes
+### Bug fixes
 
 - The page redirection has been fixed while adding node credentials from the **Scan Job** tab on the Compliance page. ([#5009](https://github.com/chef/automate/pull/5009))
 - The Chef Environment Attributes capitalization has been fixed. ([#5205](https://github.com/chef/automate/pull/5205))
@@ -3677,10 +3483,10 @@ Released on June 21, 2021
 
   - Error pages no longer display the running version of OpenResty.
   - The opscode user which runs Chef Infra Server is no longer configured with an interactive shell.
-  - Reindexing will now gracefully fail if there is not 2.2x the current ElasticSearch data available on disk before attempting the reindex
+  - Reindexing will now gracefully fail if there isn't 2.2x the current ElasticSearch data available on disk before attempting the reindex
   - The HTTP Strict-Transport-Security (HSTS) max-age value for the default Chef Infra Server website can now be configured. Set the new node['private_chef']['nginx']['hsts_max_age'] to define the time in seconds the browser should remember that a site is only to be accessed using HTTPS. This configuration defaults to 31536000 (1 year) and accepts a maximum value of 63072000 (2 years).
   - The Bifrost service was previously exposed externally on port 9683. This service is no longer required externally and is now only exposed to the local system to improve security.
-  - Chef Infra Server now defaults to supporting only TLS 1.2 for API communication. This new default may require upgrading older releases of Chef Infra Client, which do not support TLS 1.2. On Linux/Unix/macOS systems TLS 1.2 is supported in Chef Infra Client 10.16.4 and later. On Windows systems, TLS 1.2 is supported on Chef Infra Client 12.8 or later.
+  - Chef Infra Server now defaults to supporting only TLS 1.2 for API communication. This new default may require upgrading older releases of Chef Infra Client, which don't support TLS 1.2. On Linux/Unix/macOS systems TLS 1.2 is supported in Chef Infra Client 10.16.4 and later. On Windows systems, TLS 1.2 is supported on Chef Infra Client 12.8 or later.
 
 ### Chef Product Versions
 
@@ -3691,7 +3497,7 @@ This release uses:
 - Chef Infra Server version: 14.4.4/20210520120637
 - Chef InSpec version: 4.24.32/20210112215549
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -3706,20 +3512,20 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on June 7, 2021
 
-### New Features
+### New features
 
 - You can check and update the run list of the nodes from Chef Infra Server. Navigate to the run list tab: **Infrastructure > Chef Infra Server > Server Name > Organization > Nodes**. ([#5086](https://github.com/chef/automate/pull/5086))
 - Reset the client key for a node from the Chef Infra Server page. ([#5088](https://github.com/chef/automate/pull/5088))
 - Add tags to specific nodes by selecting **Manage Tags** from the node list options (Find it in the "more information" ellipses `...`). ([#5108](https://github.com/chef/automate/pull/5108))
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 - Compliance profiles are updated to version 1.0.0/20210527104155, which includes the following profiles:
 
   - CIS Windows 10 2004 v1.9.1
   - CIS MSSQL Server 2019 V1.1.0
 
-### Bug Fixes
+### Bug fixes
 
 - The Chef Environment Cookbooks constraints capitalization has been fixed. ([#5089](https://github.com/chef/automate/pull/5089))
 
@@ -3732,7 +3538,7 @@ This release uses:
 - Chef Infra Server version: 14.1.0/20210225010013
 - Chef InSpec version: 4.24.32/20210112215549
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -3751,7 +3557,7 @@ Released on May 31, 2021
 
 - You can now search data Bags by specifying the name under the **Data Bags** tab in Chef Infra Server. You can search it at: **Infrastructure >> Chef Infra Server >> Server Name >> Organization >> Data Bags**.
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 - Compliance profiles are updated to version 1.0.0/20210519101158 which includes the following profiles:
 
@@ -3769,7 +3575,7 @@ This release uses:
 - Chef Infra Server version: 14.1.0/20210225010013
 - Chef InSpec version: 4.24.32/20210112215549
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -3784,7 +3590,7 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on May 24, 2021
 
-### New Features
+### New features
 
 - A new tab **Nodes** has been included in the Chef Infra Server, which allows you to search for a specific node, view the list of nodes, and delete a node. You can access it at: **Infrastructure** >> **Chef Infra Server** >> `Server Name` >> **Organization**. ([#5018](https://github.com/chef/automate/pull/5018)) ([#5042](https://github.com/chef/automate/pull/5042))
 
@@ -3794,7 +3600,7 @@ Released on May 24, 2021
 
 - An improved text validation has been included in the text fields of the roles, data bags, clients, and environment in Chef infra Server. ([#5026](https://github.com/chef/automate/pull/5026))
 
-### Bug Fixes
+### Bug fixes
 
 - The empty event feed in Chef Automate with an embedded Chef Server enabled has been fixed. ([#5052](https://github.com/chef/automate/pull/5052))
 
@@ -3807,7 +3613,7 @@ This release uses:
 - Chef Infra Server version: 14.1.0/20210225010013
 - Chef InSpec version: 4.24.32/20210112215549
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -3822,16 +3628,16 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on May 10, 2021
 
-### New Features
+### New features
 
 - You can manage, create and modify *roles* directly in Chef Automate using Infra Server tab. [#4948](https://github.com/chef/automate/pull/4948), [#4991](https://github.com/chef/automate/pull/4991)
 
-### Bug Fixes
+### Bug fixes
 
 - We fixed the button for creating Chef Infra Servers so it stays the same size when you use it. [#4987](https://github.com/chef/automate/pull/4987).
 - We increased the time limit for downloading large Client Run reports to five minutes, giving you more time to export your reports from Chef Automate. [#5002](https://github.com/chef/automate/pull/5002).
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 - 1.0.0/20210428072809
 
@@ -3844,7 +3650,7 @@ This release uses:
 - Chef Infra Server version: 14.1.0/20210225010013
 - Chef InSpec: 4.24.32/20210112215549
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -3865,13 +3671,13 @@ Released on April 26, 2021
 - The UX of the Data Bags and Environments has been improved in Chef Infra Server ([#4954](https://github.com/chef/automate/pull/4954))
 .
 
-### Bug Fixes
+### Bug fixes
 
 - The content tab data can now be loaded on the Cookbook details page ([#4927](https://github.com/chef/automate/pull/4927)).
 - The message will now be shown if the admin key is invalid and the loading is active ([#4946](https://github.com/chef/automate/pull/4946))
 .
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 - 1.0.0/20210415075651
 
@@ -3888,7 +3694,7 @@ This release uses:
 - Chef Infra Server version: 14.1.0/20210225010013
 - Chef InSpec version: 4.24.32/20210112215549
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -3907,11 +3713,11 @@ Released on April 12, 2021
 
 - UI Improvements have been made around Chef Server management ([#4888](https://github.com/chef/automate/pull/4888))
 
-### Bug Fixes
+### Bug fixes
 
 - Removed the 5 character restriction on **TLD** in **FQDN** while adding Chef Infra Servers ([#4890](https://github.com/chef/automate/pull/4890))
 
-### Compliance Profile Updates
+### Compliance profile updates
 
 - 1.0.0/20210324103413
 
@@ -3928,7 +3734,7 @@ This release uses:
 - Chef Infra Server version: 14.1.0/20210225010013
 - Chef InSpec version: 4.24.32/20210112215549
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -3943,7 +3749,7 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on March 30, 2021
 
-### New Features
+### New features
 
 - This release lets you manage more of your Chef Infra Server directly from Chef Automate. You can:
 
@@ -3959,7 +3765,7 @@ This release uses:
 - Chef Infra Server version: 14.1.0/20210225010013
 - Chef InSpec version: 4.24.32/20210112215549
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -3974,7 +3780,7 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on March 15, 2021
 
-### New Features
+### New features
 
 - Chef Infra Servers comes with following new abilities ([#4786](https://github.com/chef/automate/pull/4786), [#4787](https://github.com/chef/automate/pull/4787), [#4788](https://github.com/chef/automate/pull/4788), [#4790](https://github.com/chef/automate/pull/4790), [#4791](https://github.com/chef/automate/pull/4791), [#4792](https://github.com/chef/automate/pull/4792), [#4793](https://github.com/chef/automate/pull/4793)):
 
@@ -3988,7 +3794,7 @@ Released on March 15, 2021
 - OpenJDK 11.0.2 is moved to AdoptOpenJDK version 11.0.10+9 ([#4761](https://github.com/chef/automate/pull/4761)).
 - Chef Server updated to version 14.1 ([#4780](https://github.com/chef/automate/pull/4780)).
 
-### Bug Fixes
+### Bug fixes
 
 - The connectivity of the Elasticsearch Service cluster nodes has been fixed ([#4769](https://github.com/chef/automate/pull/4769)).
 
@@ -4009,7 +3815,7 @@ This release uses:
 - Chef Infra Server version 14.1.0/20210225010013
 - Chef InSpec version 4.24.32/20210112215549
 
-### Service Versions
+### Service versions
 
 This release uses:
 
@@ -4024,7 +3830,7 @@ View the [package manifest](https://packages.chef.io/manifests/current/automate/
 
 Released on March 1, 2021
 
-### New Features
+### New features
 
 - The updated *Infrastructure* tab lets you add Chef Infra Servers, giving you a comprehensive view of your Chef-managed systems.
   - Add organizations to each server.
@@ -4037,7 +3843,7 @@ Released on March 1, 2021
 - Added IDs on the **Project** and **Role** pages in the *Settings* tab ([4393](https://github.com/chef/automate/pull/4393)).
 - Added capability to create a backup from AWS ES service to AWS S3 ([4664](https://github.com/chef/automate/pull/4664))
 
-### Bug Fixes
+### Bug fixes
 
 - Chef Infra Server will proxy data-collector requests to Chef Automate (internal or external) instead of localhost. ([4711](https://github.com/chef/automate/pull/4711)).
 - Chef Infra Server will startup even if the local Chef Automate instance is stopped or if the external Chef Automate fails to resolve. ([4684](https://github.com/chef/automate/pull/4684))
@@ -4080,7 +3886,7 @@ Released on January 25, 2021
   - You can pass secrets as environment variables
   - The `config show` terminal output is secrets-free
 
-### Bug Fixes
+### Bug fixes
 
 - Fixed a bug in the `20210116175706` release that caused the `deployment-service` to crash with the migration of LDAP and MSAD passwords to an encrypted format.
 
@@ -4110,7 +3916,7 @@ We added:
 - The community Google Cloud Platform CIS Profile 1.1.0 ([inspec-gcp-cis-benchmark](https://github.com/GoogleCloudPlatform/inspec-gcp-cis-benchmark))
 - CIS Profiles for Windows 2019
 
-### Bug Fixes
+### Bug fixes
 
 - Selecting a specific date from the trend graph on the Compliance Tab loads the compliance data for that day. ([#4536](https://github.com/chef/automate/pull/4536))
 - Selecting the pie chart on the Compliance Tab opens the corresponding report. ([#4536](https://github.com/chef/automate/pull/4536))
@@ -4140,7 +3946,7 @@ Released on January 11, 2021
 - The *Event Feed* displays the Policyfile cookbook names in updates. ([#4469](https://github.com/chef/automate/pull/4469))
 - Dynamically resolve externally deployed ElasticSearch and PostgreSQL hostnames using resolvers/Dynamic Name Servers. ([#4454](https://github.com/chef/automate/pull/4454), [#4486](https://github.com/chef/automate/pull/4486), and [#4502](https://github.com/chef/automate/pull/4502))
 
-### Bug Fixes
+### Bug fixes
 
 - The log message displays an error instead of a warning when all Elasticsearch publishers are full. ([#4443](https://github.com/chef/automate/pull/4443))
 
@@ -4162,7 +3968,7 @@ Released on December 7, 2020
 - The Chef Automate Compliance APIs show data for the last 24 hours by default unless an `end_time` is specified. ([#4310](https://github.com/chef/automate/pull/4310))
 - Select the *Last 24 hours* option in the *Reports* search bar to view scan results for the last 24 hours. Select *Choose Date (UTC)* to see scan results from a selected day based on UTC timestamps. ([#4358](https://github.com/chef/automate/pull/4358), [#4437](https://github.com/chef/automate/pull/4437), and [#4448](https://github.com/chef/automate/pull/4448))
 
-### Bug Fixes
+### Bug fixes
 
 - Resolved pagination issues in the *Client Runs* Run History means that pagination should now appear as expected. ([#4441](https://github.com/chef/automate/pull/4441))
 
@@ -4183,7 +3989,7 @@ Released on November 23, 2020
 
 - Customize whether your SAML sign-in session expires after the default 24 hours or a duration of your choice. ([#4400](https://github.com/chef/automate/pull/4400))
 
-### Bug Fixes
+### Bug fixes
 
 - Select different node status filters in *Client Runs* and experience smooth navigation without jarring page jumps. ([#4392](https://github.com/chef/automate/pull/4392))
 - The search bar calendar appears over the *Reports* results tabs, no matter your browser's zoom level. ([#4412](https://github.com/chef/automate/pull/4412))
@@ -4235,7 +4041,7 @@ Released on October 12, 2020
 - A confirmation screen appears when deleting a Node Integration. ([#4348](https://github.com/chef/automate/pull/4348))
 - Delete a Node Integration and their associated nodes are also deleted. ([#4348](https://github.com/chef/automate/pull/4348))
 
-### Bug Fixes
+### Bug fixes
 
 - The rule name, not the rule ID, appears in the notification banner after creating an ingest rule for a project. ([#4331](https://github.com/chef/automate/pull/4331))
 - The *Report Metadata* display in *Reports* no longer needs a horizontal scrollbar. ([#4356](https://github.com/chef/automate/pull/4356))
@@ -4260,7 +4066,7 @@ Released on September 28, 2020
 - Filter for all connected Applications services when querying the Chef Automate API. ([#4339](https://github.com/chef/automate/pull/4339))
 - Filter secrets by name when querying the Chef Automate API. ([#4341](https://github.com/chef/automate/pull/4341))
 
-### Bug Fixes
+### Bug fixes
 
 - Fixed a bug where a harmless browser console error appeared if you had any pending project edits and viewed *Project Details* for any project. ([#4362](https://github.com/chef/automate/pull/4362))
 - *Add User* and *Cancel* correctly appear separate from a full list of users when adding users to a local team in the browser. ([#4361](https://github.com/chef/automate/pull/4361))
@@ -4280,10 +4086,10 @@ Released on September 9, 2020
 
 ### Improvements
 
-- Presto Chango: `Create Rule`, `Save Rule`, and `Add Condition` in Settings > Projects > Project Details do not appear for users without the `iam:projects:update` permission. ([#4316](https://github.com/chef/automate/pull/4316), [#4317](https://github.com/chef/automate/pull/4317), and [#4300](https://github.com/chef/automate/issues/4300))
+- Presto Chango: `Create Rule`, `Save Rule`, and `Add Condition` in Settings > Projects > Project Details don't appear for users without the `iam:projects:update` permission. ([#4316](https://github.com/chef/automate/pull/4316), [#4317](https://github.com/chef/automate/pull/4317), and [#4300](https://github.com/chef/automate/issues/4300))
 - Did You Know?: The user menu in the top navigation bar includes a link for Chef Patents. ([#4283](https://github.com/chef/automate/pull/4283))
 
-### Bug Fixes
+### Bug fixes
 
 - Focused: Only users with the relevant `iam:projects:update` permission may edit a project. ([#4304](https://github.com/chef/automate/pull/4304) and [#4301](https://github.com/chef/automate/issues/4301))
 - Softcoded: `fakechefserver.eastus.cloudapp.azure.com` no longer appears in the *Desktop Dashboard*'s *Node Details* display. ([#4299](https://github.com/chef/automate/pull/4299))
@@ -4301,7 +4107,7 @@ This release uses:
 
 Released on September 1, 2020
 
-### New Features
+### New features
 
 - Moving Day: The Chef Automate documentation has a new URL -- [docs.chef.io/automate](https://docs.chef.io/automate) -- and the same design as the rest of our Chef documentation. You can still make pull requests for documentation changes in the Chef Automate repository, but the documentation directory has changed to `github.com/chef/automate/components/docs-chef-io`.
 - FYI: Lightweight Role-Based Access Control (RBAC) for Chef Habitat Builder is now here! Learn more about [RBAC implementation](https://forums.habitat.sh/t/rbac-in-builder-saas/1343). ([#4269](https://github.com/chef/automate/pull/4269))
@@ -4311,7 +4117,7 @@ Released on September 1, 2020
 - Sunshine: See public packages under a public origin for Chef Habitat Builder with no browser-based authentication required. ([#4269](https://github.com/chef/automate/pull/4269))
 - Expanded Horizons: Chef Infra Server included with Chef Automate now supports a wider range of TLS certificates when configured to send data collector data to an external Chef Automate server. ([#4279](https://github.com/chef/automate/pull/4279))
 
-### Bug Fixes
+### Bug fixes
 
 - New Location: `data-feed-service` moved from port 14001 to 10501 to be within our recommended ephemeral port range. ([#4171](https://github.com/chef/automate/pull/4271))
 
@@ -4349,11 +4155,11 @@ This release uses:
 
 Released on August 17, 2020
 
-### New Features
+### New features
 
 - Documented Google Cloud Storage (GCS) Backups. Thanks to [@mskdenigma](https://github.com/mskdenigma) and [@kavanista](https://github.com/kavanista) for their contributions in [#3609](https://github.com/chef/automate/pull/3609) and [#4106](https://github.com/chef/automate/pull/4106)!
 
-### Bug Fixes
+### Bug fixes
 
 - Entering "beta," "lega," or "feat" into a box no longer opens the feature flags window. ([#4204](https://github.com/chef/automate/pull/4202))
 
@@ -4370,7 +4176,7 @@ This release uses:
 
 Released on August 11, 2020
 
-### New Features
+### New features
 
 - Knowledge is Power: Learn more about [Azure AD as a SAML Identity Provider](https://automate.chef.io/docs/saml/#azure-ad). [#4136](https://github.com/chef/automate/pull/4136)
 - Weeding: Delete individual services from the *Applications* dashboard's *Service Groups* display. [#4079](https://github.com/chef/automate/pull/4079)
@@ -4380,7 +4186,7 @@ Released on August 11, 2020
 - No Matter How Far: Number inputs in *Data Lifecycle* adjust to show the entire value rather than limiting the display to two digits. [#4121](https://github.com/chef/automate/pull/4121)
 - Data Not Found: *Desktop* dashboard displays an empty state view when no data is available. [#4156](https://github.com/chef/automate/pull/4156)
 
-### Bug Fixes
+### Bug fixes
 
 - Better Option: Creating a project no longer automatically creates local teams. [#4149](https://github.com/chef/automate/pull/4149)
 - High Availability: Adds and populates the bookshelf key pair, ensuring communication with the Chef Infra Server sandbox APIs. This is particularly important for bootstrapping HA deploys. [#4161](https://github.com/chef/automate/pull/4161)
@@ -4405,7 +4211,7 @@ Released on July 30, 2020
 - Beta Boom: Learn more about our Data Feed beta feature with our [Data Feed documentation](https://automate.chef.io/docs/datafeed/). ([#3590](https://github.com/chef/automate/pull/3590))
 - More Context: Chef Automate now ingests reports generated from Chef InSpec runtime exceptions with the addition of status and root level status messages. ([#4131](https://github.com/chef/automate/pull/4131))
 
-### Bug Fixes
+### Bug fixes
 
 - Across the World: The date picker in *Compliance Reports* no longer switches to the day before the selected date for users in Australia and parts of Asia. ([#4030](https://github.com/chef/automate/pull/4030))
 - Unlocked: Fixes to Chef Habitat Builder and `backup-gateway` address issues caused by an MinIO upgrade, where configuration became encrypted with an ephemeral key. ([#4061](https://github.com/chef/automate/pull/4061))([#4077](https://github.com/chef/automate/pull/4077))
@@ -4430,7 +4236,7 @@ Released on July 13, 2020
 
 - The Chef Automate Desktop dashboard list view features functional filters. ([#3981](https://github.com/chef/automate/pull/3981))
 
-### Bug Fixes
+### Bug fixes
 
 - Receive notifications for failed Chef Infra Client runs with no failed resources. ([#4043](https://github.com/chef/automate/pull/4043))
 
@@ -4451,7 +4257,7 @@ Released on July 6, 2020
 - Total Package: Chef Infra Server configuration now migrates with Chef Infra Server data as a part of the Chef Automate 1 migration process.
 - Beyond API: We expanded Applications *Service Groups* management to the browser! Look under the *Data Lifecycle* settings.
 
-### Bug Fixes
+### Bug fixes
 
 - No Misdirection: Users no longer redirect to the Event Feed when trying to view the Scans list on a scheduled Scan Job with [PR #3950](https://github.com/chef/automate/pull/3950).
 - Less Clicks: Chef Automate closes the "no license" pop-up window automatically within a few minutes for all users once a new license is applied, rather than requiring a manual browser refresh with [PR #3949](https://github.com/chef/automate/pull/3949).
@@ -4467,7 +4273,7 @@ Released on June 23, 2020
 
 - Additional `inspec runner` logging means easier troubleshooting for "operation not permitted" errors with compliance profile installations.
 
-### Bug Fixes
+### Bug fixes
 
 - A "could not get logged in user" error no longer displays for non-local users upon sign in.
 - Compliance Report nodes correctly filter by status when using Deep Filtering.
@@ -4481,7 +4287,7 @@ Released on June 15, 2020
 - The short of it: Truncated reports show the correct number of test results.
 - Closed and out: Optional configuration to sign-out users when they close the browser.
 
-### Bug Fixes
+### Bug fixes
 
 - A11y: Accessibility fixes across Chef Automate.
 - Already there: GCP account scans won't fail with "project_id must be included".
@@ -4493,7 +4299,7 @@ Released on June 15, 2020
 
 Released on June 8, 2020
 
-### New Features
+### New features
 
 - Automatically create `admins`, `editors`, and `viewers` teams during Project creation.
 
@@ -4504,7 +4310,7 @@ Released on June 8, 2020
 - Control results in the *Node Detail* display waived controls' execution results if applicable.
 - *Compliance Reports* CSV exports include `waived status`, `waiver justification`, and `waiver expiration date` fields.
 
-### Bug Fixes
+### Bug fixes
 
 - We fixed a number of accessibility bugs: all inputs now have labels, all headings are in sequence, and all small text increased to a minimum 11px font size.
 - We updated the Chef Habitat supervisor version to fix a memory leak issue.
@@ -4518,7 +4324,7 @@ Released on June 2, 2020
 - No Mouse: Navigate on-page filter controls by keyboard, such as the Health Status buttons in the *Applications* dashboard.
 - Keeping Tally: Compliance Report API includes a "removed_control_results" field, which shows how many failed/passed/skipped results are truncated when the report is too large. Learn more about these truncation settings in our [Compliance Configuration documentation](https://automate.chef.io/docs/configuration/#compliance-configuration).
 
-### Bug Fixes
+### Bug fixes
 
 - As Expected: Labels in the *Applications* Service Group Details sidebar wrap correctly in [PR #3767](https://github.com/chef/automate/pull/3767). Fixes [Issue #2150](https://github.com/chef/automate/issues/2150).
 - Abracadabra: *Client Runs* includes restored checkboxes and **Delete Nodes** in [PR #3804](https://github.com/chef/automate/pull/3804). Fixes [Issue #3802](https://github.com/chef/automate/issues/3802).
@@ -4531,7 +4337,7 @@ Released on May 26, 2020
 
 - Now Available: Filter your [SAML groups](https://automate.chef.io/docs/saml/#saml-configuration-settings) as a part of your configuration settings.
 
-### Bug Fixes
+### Bug fixes
 
 - Within Reach: Delete the last token on the *API Tokens* list with greater ease in [PR #3591](https://github.com/chef/automate/pull/3591). Fixes [Issue #2798](https://github.com/chef/automate/issues/2798).
 - On Auto: Window automatically closes after deleting a Notification in [PR #3694](https://github.com/chef/automate/pull/3694). Fixes [Issue #3659](https://github.com/chef/automate/issues/3659).
@@ -4551,7 +4357,7 @@ Released on May 14, 2020
 - Try It: Chef Automate works on smaller browser screens with responsive navigational displays.
 - Adjustable: Prevent system overload by specifying the maximum number of inflight data collector requests, which has a default value of sixty times the number of the machine's available CPUs.
 
-### Bug Fixes
+### Bug fixes
 
 - Expansion: `Viewer` Policy members export compliance reports by default in [PR #3623](https://github.com/chef/automate/pull/3623).
 - Cartography: The values of when to label nodes as missing and to remove node data in *Client Runs* correctly map as of [PR #3665](https://github.com/chef/automate/pull/3665). Fixes part of [Issue #3651](https://github.com/chef/automate/issues/3651).
@@ -4566,7 +4372,7 @@ Released on May 11, 2020
 - Quick Change: Adding a legacy data collector token automatically adds the created API token to the IAM `Ingest` Policy.
 - In Sight: Experience always visible user notifications, even if you scroll down the page!
 
-### Bug Fixes
+### Bug fixes
 
 - Restoration: The `/status` API endpoint works as expected.
 - Limitless: We increased the maximum number of service IDs in the Applications dashboard, which provides one less reason for service-related outages.
@@ -4575,10 +4381,10 @@ Released on May 11, 2020
 
 Released on May 4, 2020
 
-### New Features
+### New features
 
-- Pick and Choose: Add policies when you make an API token with the new policy dropdown menu.
-- The Whole Nine Yards: Use the new `chef-automate backup integrity` command to validate your Chef Habitat Builder snapshots. This command includes subcommands to run validation checks and show snapshots' validation status.
+- Add policies when you make an API token with the new policy dropdown menu.
+- Use the new `chef-automate backup integrity` command to validate your Chef Habitat Builder snapshots. This command includes subcommands to run validation checks and show snapshots' validation status.
 
 ### Improvements
 
@@ -4587,11 +4393,11 @@ Released on May 4, 2020
 - Heads Up: New Scan Jobs require a defined version for Chef Automate Profiles and validates this requirement at creation, which ensures the profile's searchability and prevents profile malformation.
 - Make a Bee-Line: We added a "created_at" field for the Nodes API endpoint, so you can see when the node first reported into Chef Automate.
 
-### Bug Fixes
+### Bug fixes
 
-- Easy as Pie: We fixed the breadcrumb navigation, so now you can navigate easily through pages in Compliance Reports with filters intact.
+- We fixed the breadcrumb navigation, so now you can navigate easily through pages in Compliance Reports with filters intact.
 - Know Your Onions: We fixed our API versioning, making the [API Docs](https://automate.chef.io/docs/api/) even more useful.
-- Rise and Shine: We restored SSM node scanning functionality for AWS EC2 and Azure VM Scan Jobs.
+- We restored SSM node scanning functionality for AWS EC2 and Azure VM Scan Jobs.
 - Bee's Knees: Chef Automate allows buffer size configuration and rejects reports when too many messages exist in the buffer during ingestion.
 
 ## Chef Automate 20200420162758
@@ -4606,7 +4412,7 @@ Released on April 27, 2020
 
 Released on April 20, 2020
 
-### New Features
+### New features
 
 - Template for Awesome: Chef Automate includes 2 custom IAM roles and 2 custom IAM policies for compliance-only access with its standard Chef-managed policies and roles.
 
@@ -4614,7 +4420,7 @@ Released on April 20, 2020
 
 - Stand and Deliver: The *Clear Selection* button in the Project filter clears only the selections made instead of clearing and applying the lack of Project selection.
 
-### Bug Fixes
+### Bug fixes
 
 - Roster: The accurate list of remaining users on a team displays after removing a user.
 - As It Should: The loading screen disappears as expected if you navigate away from *Compliance Profiles* before the page finishes loading.
@@ -4627,18 +4433,18 @@ Released on April 20, 2020
 
 Released on April 13, 2020
 
-### New Features
+### New features
 
 - Write This Down: In this release, users of Identity and Access Management v1 (IAM v1) **automatically upgrade** to Identity and Access Management v2 (IAM v2). All IAM v1 users, teams, tokens, and policies will migrate to IAM v2. Some details to keep in mind:
 
   - [API Tokens](https://automate.chef.io/docs/api-tokens/) created in the browser work differently in IAM v2. After [creation](https://automate.chef.io/docs/api-tokens/#creating-api-tokens), an API token will have zero permissions. Add the new API token to a policy to grant permissions.
-  - Creating admin API Tokens from the CLI in IAM v2 uses a [new command](https://automate.chef.io/docs/api-tokens/#admin-tokens). The old CLI command will not work.
+  - Creating admin API Tokens from the CLI in IAM v2 uses a [new command](https://automate.chef.io/docs/api-tokens/#admin-tokens). The old CLI command won't work.
   - If your IAM v1 local team names contain non-alphanumeric characters other than hyphens and underscores, recreate these local teams and add them to policies for correct function in IAM v2.
   - Editor and Viewer roles change in IAM v2 from using the broad `infra:*` authorization action to more specific authorization actions, such as `infra:nodeManagers:*` and `infra:nodes:*`. We recommend updating the authorization actions for your custom roles accordingly.
 - Amazed: Set [Data Lifecycle settings](https://automate.chef.io/docs/data-lifecycle/) directly in the browser!
 - Every Morning: All appropriate views in Compliance Reports include Waiver information for nodes, profiles, and individual controls.
 
-### Bug Fixes
+### Bug fixes
 
 - Believe: Compliance Reports appear and correctly filter by Job ID after you click on **Report** for a listed Scan Job on the *Scan Jobs* page.
 - Lately: Projects filter as expected when a page refreshes.
@@ -4646,7 +4452,7 @@ Released on April 13, 2020
 - Someday: The previously scheduled time appears correctly when editing a Scan Job schedule.
 - No Scrubs: Status counts in Compliance Reports display accurate numbers regardless of status filters.
 
-### Backward Incompatibilities
+### Backward incompatibilities
 
 - From This Moment On: All API calls for removing or adding users to a team now expect `membership_ids` rather than `user_ids`.
 
@@ -4671,7 +4477,7 @@ In the next Chef Automate release available on April 13th, 2020, users of Identi
 - Stayin' Alive: The "Your System is Compliant" banner appears when the scanned infrastructure's status is `waived` on the Compliance *Reports* page.
 - Turn the Beat Around: Failed Compliance Scan Jobs return a more verbose error message.
 
-### Bug Fixes
+### Bug fixes
 
 - Got to Be Real: The Project Update banner shows on all pages consistently.
 - Jump to It: The *Project Details* page updates correctly.
@@ -4689,7 +4495,7 @@ Released on March 23, 2020
 - Time Will Reveal: Search for a Compliance report with time ranges and experience faster results!
 - Hello: Check out our expanded [backup and restore documentation](https://automate.chef.io/docs/backup/) based on user feedback.
 
-### Bug Fixes
+### Bug fixes
 
 - There's No Stopping Us: Users may delete Applications services in batch without size limits using Chef Automate CLI.
 
@@ -4704,7 +4510,7 @@ Released on March 16, 2020
 - You Got It: Show Chef InSpec waiver information on Compliance report downloads, where applicable.
 - Little Things: See the estimated completion time sooner when you run a project update.
 
-### Bug Fixes
+### Bug fixes
 
 - Never Gone: Editor and Viewer roles can view the *Scan Jobs* page and create a new scan job.
 - Roll With It: Fixed a bug where Elasticsearch backup deletions failed because Elasticsearch only allows one backup deleted at a time.
@@ -4719,12 +4525,12 @@ Released on March 9, 2020
 - Reference Section: Explore lots of new [API Docs](https://automate.chef.io/docs/api/), which include API Tokens, IAM Policies, Scan Jobs, and Node Managers.
 - Ripple Effect: Mark nodes as *Missing* on the *Chef Client Runs* page, and their state will update to *Missing* with the Node Manager and for nodes found at the `api/v0/nodes` endpoint.
 
-### Bug Fixes
+### Bug fixes
 
 - New Fix: IAM v2 users can now add a new data collector token when patching their existing configuration.
 - Clear: We resolved an issue where a large Chef Client Runs export would result in invalid JSON.
 
-### Backward Incompatibilities
+### Backward incompatibilities
 
 - Permanent Change: We removed all instances of `/iam/v2beta/` in paths. We now exclusively use `/iam/v2/`.
 
@@ -4735,11 +4541,11 @@ Released on February 24, 2020
 ### Improvements
 
 - Update your projects in Access Management by selecting the `Update Projects` button that appears at the bottom of the page. A progress banner displays whenever an update is in progress.
-- Backups for Chef Habitat artifacts are now incremental. Only Chef Habitat artifacts that do not exist previously in the backup repository will be copied in full.
+- Backups for Chef Habitat artifacts are now incremental. Only Chef Habitat artifacts that don't exist previously in the backup repository will be copied in full.
 - Chef Automate data backup includes Applications data.
 - Chef Automate Compliance backend supports Chef InSpec waivers.
 
-### Bug Fixes
+### Bug fixes
 
 - We resolved bugs related to Chrome 80.0.3987.87 and modal windows in Chef Automate and in the Chef Automate API documentation.
 - We fixed a goroutine memory leak, which affected all services using the `cereal-service` library.
@@ -4751,7 +4557,7 @@ Released on February 24, 2020
 
 Released on February 10, 2020
 
-### New Features
+### New features
 
 - Fresh: Use the now available compliance profiles for STIG updates:
 
@@ -4765,7 +4571,7 @@ Released on February 10, 2020
 - Enhanced: The compliance profiles for CIS RHEL 8 include a number of improvements for logical correctness and readability.
 - Elective: Chef Habitat Builder may be deployed with only Chef Automate Authorization services rather than all of Chef Automate.
 
-### Bug Fixes
+### Bug fixes
 
 - Better: Elasticsearch clusters managed externally to Chef Automate can now use Amazon S3 snapshots to successfully run back-ups.
 - Consistency: When users modify their display names, the display name updates in the User Menu.
@@ -4779,7 +4585,7 @@ Released on February 10, 2020
 
 Released on February 3, 2020
 
-### New Features
+### New features
 
 - Released: [Identity and Access Management v2](https://automate.chef.io/docs/iam-v2-overview/) is now generally available! Upgrade with the Chef Automate CLI command: `chef-automate iam upgrade-to-v2`.
 
@@ -4792,7 +4598,7 @@ Released on February 3, 2020
 
 Released on January 27, 2020
 
-### New Features
+### New features
 
 - Look, Everyone: Applications Dashboard is now generally available! Learn more in our [Applications docs](https://automate.chef.io/docs/applications-setup/).
 - Brand New: Check out our new [Chef Automate-deployed on-prem Builder](https://automate.chef.io/docs/on-prem-builder/), featuring both Chef Automate and Chef Habitat Builder on-prem together!
@@ -4804,7 +4610,7 @@ Released on January 27, 2020
 - The More, The Better: We added more information to the output of the `chef-automate backup show <backup_id>` command to support debugging.
 - On The Same Page: The modified profiles search endpoint uses one (1) for the first page now, instead of zero, for consistency with other APIs.
 
-### Bug Fixes
+### Bug fixes
 
 - Mended: We repaired a broken `--patch-config` flag for backup restores. Under most cases, this flag was being ignored and would result in a restore having the exact configuration as the backup.
 
@@ -4821,7 +4627,7 @@ Released on January 27, 2020
 
 Released on January 21, 2020
 
-### New Features
+### New features
 
 - Point of Reference: Check out our InSpec profiles for the CIS RHEL 8 v1.0.0 benchmark.
 
@@ -4829,7 +4635,7 @@ Released on January 21, 2020
 
 - Specific: Filtering by one or more control filters returns Compliance Reports with only the specified controls.
 
-### Bug Fixes
+### Bug fixes
 
 - Less is More: Selecting the last day of the year on the *Compliance Reports* date filter no longer shows all data for the entire year.
 - How Stimulating: You may notice fixes for various minor display issues, which previously required refreshing the web browser to display properly.
@@ -4858,7 +4664,7 @@ Released on January 21, 2020
 
 Released on December 16, 2019
 
-### New Features
+### New features
 
 - Groundwork: We added some initial back-end and API support for Chef InSpec Waivers with more work to continue in the new year.
 
@@ -4866,12 +4672,12 @@ Released on December 16, 2019
 
 - Level Up: Chef Automate now uses Habitat 0.90.6, ElasticSearch 6.8.3, and OpenJDK 11.
 - Whack-a-mole: We resolved a few vulnerabilities that popped up from our periodic `npm audit`. (No actual moles were harmed.)
-- No Dawdling: Purges will now fail if each step of the purge does not happen within 10 minutes of scheduled execution.
+- No Dawdling: Purges will now fail if each step of the purge doesn't happen within 10 minutes of scheduled execution.
 - Bite-sized: Compliance profiles now have server-side filtering and pagination! To maintain backward compatibility, only requests with the `per_page` parameter set to a non-default value, other than zero, will be paginated.
 - All the Metadata!: Client Run and Compliance Node detail views now display more metadata.
 - What's Up, Doc?: The [API docs](https://automate.chef.io/docs/api/) feature a new section on our authentication header format, which follows the OpenAPI specifications for security definition objects.
 
-### Bug Fixes
+### Bug fixes
 
 - Desensitized: The system now tolerates the final virgule in file paths, such as `/path/to/backupid/`. Previously, when passing a file path for backup purposes, only file paths with the last `/` removed would work, such as `/path/to/backupid`.
 - Rock On: We changed our configuration to avoid a low `DefaultMaxTasks` constraint for users on SUSE Linux Enterprise Server (SLES). Chef Automate failures with the error message "fork rejected by pids controller" should no longer appear.
@@ -4884,23 +4690,23 @@ Released on December 16, 2019
 
 #### Applications
 
-- API It Up: The output of Habitat health checks is now exposed via the Applications APIs.
+- API It Up: The output of Habitat health checks is now exposed with the Applications APIs.
 - Expected Behavior: Selecting a health status filter with zero services in the *Service Group* Details sidebar no longer causes a new service group to be selected.
-- Steady: Selecting a new health status filter on the *Service Group* table will only change the *Service Group* Details sidebar if the new health status filter results do not include the currently selected Service Group.
+- Steady: Selecting a new health status filter on the *Service Group* table will only change the *Service Group* Details sidebar if the new health status filter results don't include the currently selected Service Group.
 - Reversed: The *Service Groups* display used to switch current and previous health statuses when generating messages about health status changes, but we fixed this.
 - Keep It Simple: Note a small performance improvement by avoiding a double fetch of data.
 
 #### Identity and Access Management v2
 
-- Speedy: Experience a substantially faster loading of the *Projects List* page, since we removed a network call per project.
+- Speedy: Experience a substantially faster loading of the *Projects List* page, since we removed a network call for each project.
 - Re-ordered: The percentage done display now progresses correctly after selecting the *Update Projects* button. Previously, the percentage done display would sometimes start at 100% and then quickly reset due to a minor race condition.
-- Stand Still: The *Global Project Filter* no longer auto-refreshes its project list while you select your project(s). Previously, users lost their selection due to the periodic auto-refresh of the displayed project list.
+- Stand Still: The *Global Project Filter* no longer auto refreshes its project list while you select your projects. Previously, users lost their selection due to the periodic auto refresh of the displayed project list.
 
 ## Chef Automate 20191129172405
 
 Released on December 9, 2019
 
-### New Features
+### New features
 
 - Knowledge is Power: [API docs](https://automate.chef.io/docs/api) are live! Expect to see more documentation being added over the next few months.
 - New API endpoint: Export all historical reports for a node!
@@ -4920,10 +4726,10 @@ Released on December 9, 2019
 - Compact: Compliance-related page displays now use the 3-dot control menu to improve the experience on smaller screens.
 - Synced: Event Feed now displays all dates and times in UTC.
 - Exit: Users now have the ability to sign out if their license has expired.
-- Nothing Here: Filter by a control tag that does not have any value in the Compliance Reports display.
+- Nothing Here: Filter by a control tag that doesn't have any value in the Compliance Reports display.
 - Geography: Allow users to specify a default region to use when accessing the AWS API with an AWS Node Integration.
 
-### Bug Fixes
+### Bug fixes
 
 - Corrected: Fixed an issue with control 4.1.6 in the CIS Ubuntu 18.04 compliance profile.
 - Fitting: Control 1.4.3 in the CIS CentOS 7 compliance profile will match either `/usr/sbin/sulogin` or `/sbin/sulogin` now.
@@ -4947,7 +4753,7 @@ Released on December 9, 2019
 #### Identity and Access Management v2
 
 - In An Instant: When creating a new project, owner, editor, and viewer policies are now automatically created.
-- Divine Design: It is now possible to [configure the project limit](https://automate.chef.io/docs/iam-v2-guide/#configuring-project-limit).
+- Divine Design: it's now possible to [configure the project limit](https://automate.chef.io/docs/iam-v2-guide/#configuring-project-limit).
 - At Once: Custom roles may now be deleted directly from the UI.
 - Squashed: Fixed bug that prevented email addresses from being used when adding member expressions in the UI.
 
@@ -4963,13 +4769,13 @@ Released on November 12, 2019
 
 #### Applications
 
-- Squashed: Resolved bug where disconnected services were not reconnecting despite sending a new health check message.
+- Squashed: Resolved bug where disconnected services weren't reconnecting despite sending a new health check message.
 
 ## Chef Automate 20191030224959
 
 Released on November 4, 2019
 
-### New Features
+### New features
 
 - Resourceful: IAM v2 Beta now includes resource-scoped access! We added resource-scoped access to the role-based access already present in Beta. Resource-scoped access allows you to create projects. When combined with policies, these projects refine your permissions around API Tokens, Teams, Roles, Policies, and ingested client run nodes and compliance nodes. Users with access to multiple projects can filter their view directly in the top navigation. Check out the updated [IAM v2 user guide](https://automate.chef.io/docs/iam-v2-guide/) to learn more about our new features.
 
@@ -4977,7 +4783,7 @@ Released on November 4, 2019
 
 - Not Nothing: Within the API, you can now filter for an empty control tag value by requesting values with an empty string. This improvement will be expanded to the user interface (UI) in the near future.
 
-### Bug Fixes
+### Bug fixes
 
 - Cited Sources: References on controls are now being read in correctly in Elasticsearch and are included on the full compliance report. References should be objects with a "ref" key/value, and a "uri" or "url" key/value. Anything not adhering to these standards will be ignored.
 - Time Travel: We resolved an issue on the Client Runs node history where all runs were listed as "a few seconds ago". This field represents the duration of the run, which now has been updated for clarity.
@@ -4986,7 +4792,7 @@ Released on November 4, 2019
 
 Released on October 28, 2019
 
-### New Features
+### New features
 
 - Historical Record: A new API endpoint exists to download historical reports for a Client Runs node, and respects time filters.
 
@@ -4995,7 +4801,7 @@ Released on October 28, 2019
 - Capital: Filter suggestions on the *Client Runs* page now display names with accurate casing.
 - All Summed Up: The Controls tab on *Compliance Reports* page now shows the total amount of controls in the tab header.
 
-### Bug Fixes
+### Bug fixes
 
 - Making Reality Happen: A bug caused some displays of local time to be labeled as UTC, but now the time correctly displays in UTC time.
 - Camouflage: We resolved a bug that caused nodes in the *Client Runs* page to not display their attributes.
@@ -5004,13 +4810,13 @@ Released on October 28, 2019
 
 Released on October 21, 2019
 
-### New Features
+### New features
 
 - Know More: Check out the newly added Controls List tab in the *Compliance Reports* page! Currently, you can view up to 100 controls at a time. Use the search bar filters, including control tag filters, to narrow down the list. We plan to expand the number of viewable controls to the total controls count in the near future.
 
-### Bug Fixes
+### Bug fixes
 
-- Lens Fix: Resolved a bug where viewing Scan Results from the *Profile Details* view did not correctly apply the control filter and distorted the status results.
+- Lens Fix: Resolved a bug where viewing Scan Results from the *Profile Details* view didn't correctly apply the control filter and distorted the status results.
 
 ## Chef Automate 20191007115919
 
@@ -5020,11 +4826,11 @@ Released on October 14, 2019
 
 - Reset the Clock: The *API Tokens*, *Node Credentials*, and *Node Integrations* pages have been updated to follow our new standard for date/time values, such as `Wed, 03 Jul 2019 17:08:53 UTC`.
 - Enhanced: Wildcard search on the *Compliance Reports* page now supports full platform and full profile searches, so now you can search with the version number included.
-- Specific: Compliance Reports, whether viewed via download, scan results, or node details, will now only include controls matching the specified control tag filters when a control tag filter is applied.
+- Specific: Compliance Reports, whether viewed with download, scan results, or node details, will now only include controls matching the specified control tag filters when a control tag filter is applied.
 - Quality: The compliance profiles for STIG RHEL 7 now feature Code Compliance Inspector (CCI) reference tags.
 - More Control: The compliance profiles for STIG Windows Server 2019 now include control SV-103097r1 implemented.
 
-### Bug Fixes
+### Bug fixes
 
 - Logical: Compliance profiles for STIG Windows 2016 incorporates a fix for the test logic in control SV-88161r1.
 - Rational: Compliance profiles for STIG RHEL7 V2R2 contains a fix for the test logic in control SV-86609r2.
@@ -5033,7 +4839,7 @@ Released on October 14, 2019
 
 Released on October 7, 2019
 
-### New Features
+### New features
 
 - Copy & Paste: Compliance Reports now saves the selected filters in the URL, which means a copied URL from Compliance Reports will reflect your applied filters!
 - Time Scale: You can now use the trend graph in Compliance Reports to select a date for the calendar filter. Simply find the preferred date on the trend graph, click, and watch the page update with the new date filter!
@@ -5052,11 +4858,11 @@ Released on October 7, 2019
 - Are You Sure?: When deleting a node credential, a confirmation dialog box will appear before executing the delete query.
 - We're sure: Release manifest signatures are verified during installation and upgrade.
 
-### Bug Fixes
+### Bug fixes
 
 - Export Options: Chef tags are now exported in the Client Runs JSON export!
 - Ancient History: The Client Runs Run History panel no longer closes when filtering by date.
-- Improvement: Fixed several controls in the CIS Windows Server 2016 v1.1.0 compliance profile where REG_MULTI_SZ registry keys were not being correctly tested.
+- Improvement: Fixed several controls in the CIS Windows Server 2016 v1.1.0 compliance profile where REG_MULTI_SZ registry keys weren't being correctly tested.
 - Squashed: Resolved a bug where stale user membership data would load briefly on the *Team Details* page.
 - Uncovered: Long profile titles and descriptions are no longer partially covered by action buttons.
 - Time Travel: Fixed an issue in Compliance Reports where clicking on a day in the previous or next month on the calendar widget incorrectly selected that day in the currently selected month.
@@ -5067,7 +4873,7 @@ Released on October 7, 2019
 
 Released on September 9, 2019
 
-### New Features
+### New features
 
 - New!: Check out the now available compliance profiles for CIS MacOS 10.13 v1.0.0.
 - Level Up: Compliance profiles for CIS AWS v1.0.0 now provide both a Level 1 and Level 2 profile, and supersedes the previously released "Foundations" profile, which is no longer available in the *Profiles* page.
@@ -5076,20 +4882,20 @@ Released on September 9, 2019
 
 - Solid: Dex, part of Chef Automate's authentication system, now uses a more secure set of TLS ciphers.
 
-### Bug Fixes
+### Bug fixes
 
 - Sorted: Within the compliance reports' *Nodes* tab, the Platform column now correctly sorts by both platform name and platform version.
-- Out of Order: For the CIS Windows 2016 v1.1.0 compliance profile, we fixed a bug where the security policy controls depended on a specific ordering of results when the ordering is not significant.
+- Out of Order: For the CIS Windows 2016 v1.1.0 compliance profile, we fixed a bug where the security policy controls depended on a specific ordering of results when the ordering isn't significant.
 - In Line: We matched CIS's recommendations by fixing the following compliance profiles:
 
-  - CIS RHEL 7 v2.2.0 compliance profile now has the expected result of control 4.1.12 and does not expect the option `-S all`
+  - CIS RHEL 7 v2.2.0 compliance profile now has the expected result of control 4.1.12 and doesn't expect the option `-S all`
   - CIS Ubuntu 18.04 compliance profile features fixed logic in control 4.1.7
 - Render: We corrected the metadata for STIG compliance profiles, so that they use valid SemVer version strings.
 
-### Backward Incompatibilities
+### Backward incompatibilities
 
 - The `data-lifecycle-service` component has been removed. Data retention is now configured on a per-service and per-policy basis though remote procedure calls to individual services. During the upgrade to this version, any configured service retention settings will be migrated as is. After the upgrade has completed, configuration of data retention with `chef-automate config` will no longer be supported. See the [data retention documentation for more information](https://automate.chef.io/docs/configuration/#data-retention) on configuring retention policies.
-- After the upgrade to this version, the following configuration keys will not be accepted:
+- After the upgrade to this version, the following configuration keys won't be accepted:
 
   - compliance.v1.sys.retention.compliance_report_days
   - event_feed_service.v1.sys.service.purge_event_feed_after_days
@@ -5101,7 +4907,7 @@ Released on September 9, 2019
 
 Released on September 3, 2019
 
-### Bug Fixes
+### Bug fixes
 
 - Unblocked: Fixed results that were incorrectly reported as zero when filtering by scan job or profile event type in the Event Feed.
 - All Clear: Solved a bug where long certificate chains for external PostgreSQL might be erroneously rejected.
@@ -5115,7 +4921,7 @@ Released on August 26, 2019
 
 - Bumped: We updated the InSpec version included with Automate to version 4.12.0.
 
-### Bug Fixes
+### Bug fixes
 
 - Searching for Something: We now prevent empty string suggestions from being returned for the 'Error Message' filter type in the Client Runs search.
 - No Detours: Clicking on a past Chef Infra run from Run History would incorrectly navigate the user back to the Client Runs nodes list rather than the Node Details page, but no longer!
@@ -5124,7 +4930,7 @@ Released on August 26, 2019
 
 Released on August 19, 2019
 
-### New Features
+### New features
 
 - Why Not Both?: You can now configure Automate to use both LDAP and SAML, rather than choosing between the two. You're now able to choose up to one provider each for both LDAP and SAML.
 
@@ -5136,7 +4942,7 @@ Released on August 19, 2019
 - Status Check: The Nodes display under the Compliance tab now features filter buttons for *Failed*, *Passed*, and *Skipped* states.
 - Key Point: We improved keyboard accessibility on the Chef Automate Sign In page.
 
-### Bug Fixes
+### Bug fixes
 
 - Resolved: We fixed an UI failure for older browsers without native `customElements` support.
 - Corrected: The "Mark Nodes Missing" data lifecycle job no longer runs with the wrong threshold.
@@ -5149,7 +4955,7 @@ Released on August 12, 2019
 
 - Teamwork: Look for an improved experience when managing local teams and their users.
 
-### Bug Fixes
+### Bug fixes
 
 - Bugs Done-y: Periodic "Apply Rules" backend calls would return 403 errors for most users on IAM v1, but this no longer happens.
 - Don't Be Buggin': When migrating compliance data in ElasticSearch, incomplete reports are now skipped, which prevents service failures.
@@ -5158,7 +4964,7 @@ Released on August 12, 2019
 
 Released on August 5, 2019
 
-### New Features
+### New features
 
 - Login with SAML: You can now configure the `name ID policy format` to use. When left untouched, `name ID policy format` still defaults to `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`. Please consult the documentation for the [list of accepted values](https://automate.chef.io/docs/configuration/#saml).
 - Check It Out: The following compliance profiles are now available:
@@ -5187,10 +4993,10 @@ Released on August 5, 2019
   - STIG Microsoft Windows Server 2016, v001.009
   - STIG Microsoft Windows Server 2016, v001.006
 
-### Bug Fixes
+### Bug fixes
 
 - Found: Our recent fix addresses some suggested values missing from the *Compliance* page’s search bar.
-- Getting Through: We squashed a bug where notifications were not being sent for some custom InSpec profiles.
+- Getting Through: We squashed a bug where notifications weren't being sent for some custom InSpec profiles.
 - No More Annoying Boxes: We turned off browser form autocompletion for both the *Client Runs* and *Compliance* pages’ search bars to save some sanity when entering a search filter.
 
 ## Chef Automate 20190722200451
@@ -5207,7 +5013,7 @@ ICYMI: If you are upgrading from a version prior to 20190410001346, please read 
 - Parallelize This!: Experience performance improvements for multi-ElasticSearch node setups when ingesting a high load of Chef Infra reports.
 - Profile Updates: The CIS RHEL 7 v2.2.0 and CIS Ubuntu 18.04 v1.0.0 compliance profiles feature numerous improvements. Changes include code readability improvements, and updates to the control logic that ensures controls pass and fail correctly for certain edge cases.
 
-### Bug Fixes
+### Bug fixes
 
 - May I Suggest?: The Clients Runs search bar now will list all suggested cookbooks rather than limiting results when the suggested values exceeded 100 items.
 
@@ -5227,7 +5033,7 @@ ICYMI: If you are upgrading from a version prior to 20190410001346, please read 
 - Security Detail: Our default cipher suite configuration no longer includes CBC-mode ciphers.
 - Default Try: `chef-automate backup restore` will attempt to restore the latest backup if no backup ID is given.
 
-### Bug Fixes
+### Bug fixes
 
 - That's Not My Name: Fixed an incorrect variable name in control SV-86877r3 of the STIG RHEL7 v002.003 compliance profile.
 - No More Mr. Mice Guy: `chef-automate stop` no longer hangs due to a bug.
@@ -5241,7 +5047,7 @@ Released on July 15, 2019
 
 ICYMI: If you are upgrading from a version prior to 20190410001346, please read our [Important Compliance Outage Announcement](https://discourse.chef.io/t/important-compliance-outage-information-on-automate-2-april-15th-upgrade/14909).
 
-### New Features
+### New features
 
 - You Get a Compliance Update!: Compliance profiles are now available for the following platforms and versions:
 
@@ -5253,10 +5059,10 @@ ICYMI: If you are upgrading from a version prior to 20190410001346, please read 
 
 ### Improvements
 
-- Filled In: An array of each profile's basic metadata - name, version, sha, status - will now be included as part of each node entry, and available to retrieve via API.
+- Filled In: An array of each profile's basic metadata - name, version, sha, status - will now be included as part of each node entry, and available to retrieve with API.
 - Adjust as Needed: Each maximum number of bundled Chef Client Runs (CCR) and Chef server action messages during ingestion now can be configured in Automate.
 
-### Bug Fixes
+### Bug fixes
 
 - Character Trouble: Duplicate node names with uppercase characters no longer cause the Client Runs export functionality to go into an infinite loop.
 
@@ -5276,13 +5082,13 @@ ICYMI: If you are upgrading from a version prior to 20190410001346, please read 
 - Easy on The Eye: JSON export for Compliance features properly formatted JSON.
 - Beautify: Appending `?pretty` to most API endpoints now returns a pretty-printed JSON response.
 - From the Top: The Compliance export endpoint now respects start time.
-- New Endpoint: `/compliance/reporting/report-ids` returns a list of report IDs, and is not limited by the Elasticsearch 10,000 pagination issue.
+- New Endpoint: `/compliance/reporting/report-ids` returns a list of report IDs, and isn't limited by the Elasticsearch 10,000 pagination issue.
 
-### Bug Fixes
+### Bug fixes
 
 - Which One?: Notifications for client run failures no longer [incorrectly identifies the failing cookbook when using the `ignore_failure` property](https://github.com/chef/automate/issues/529).
-- Stay Awhile: Users logging in via SAML will not be kicked out after 1 minute.
-- No Mass Effect: Editing tags on one node added via bulk add resulted in [other nodes' tags being modified](https://github.com/chef/automate/issues/600), but we worked it out.
+- Stay Awhile: Users logging in with SAML won't be kicked out after 1 minute.
+- No Mass Effect: Editing tags on one node added with bulk add resulted in [other nodes' tags being modified](https://github.com/chef/automate/issues/600), but we worked it out.
 
 ## Chef Automate 20190617144820
 
@@ -5292,11 +5098,11 @@ Released on June 24, 2019
 
 ICYMI: If you are upgrading from a version prior to 20190410001346, please read our [Important Compliance Outage Announcement](https://discourse.chef.io/t/important-compliance-outage-information-on-automate-2-april-15th-upgrade/14909).
 
-### New Features
+### New features
 
 - Not a Random Search: Compliance Reports search now features wildcard searching, which is currently case-sensitive.
 
-### Bug Fixes
+### Bug fixes
 
 - Multiply: Chef Automate no longer chronically logs out when multiple tabs are open.
 
@@ -5308,7 +5114,7 @@ Released on June 17, 2019
 
 ICYMI: If you are upgrading from a version prior to 20190410001346, please read our [Important Compliance Outage Announcement](https://discourse.chef.io/t/important-compliance-outage-information-on-automate-2-april-15th-upgrade/14909).
 
-### New Features
+### New features
 
 - Detect Easier: Search by common error message on the *Client Runs* page to find which nodes are failing in the same way.
 - Compliance Updates, Part One: Compliance profiles for STIG Red Hat Enterprise Linux 6 v1.22 (Cat 1, 2, and 3) are now available.
@@ -5326,7 +5132,7 @@ Released on June 10, 2019
 
 ICYMI: If you are upgrading from a version prior to 20190410001346, please read our [Important Compliance Outage Announcement](https://discourse.chef.io/t/important-compliance-outage-information-on-automate-2-april-15th-upgrade/14909).
 
-### New Features
+### New features
 
 - New API support: Upon ingestion of a report from Chef Infra or Chef InSpec, metadata information about the node and status of the report will be sent to the `nodes` API. Make API calls to the `api/v0/nodes/search` endpoint to find out which of your nodes passed their penultimate scan and failed the most recent one. The same can be done for the ccr status, and filters can be combined. See the [Nodes API documentation](https://automate.chef.io/docs/nodes/) for more information and examples.
 
@@ -5351,9 +5157,9 @@ ICYMI: If you are upgrading from a version prior to 20190410001346, please read 
 - Search Multiplier: Filter nodes for a scan job using multiple tag key/value selections.
 - Error Feedback: If a report is too large to be ingested, the scan job will now fail and send an error message.
 - Narrow Down: Suggestions that appear in the Client Runs search bar are filtered to only show values from the nodes currently visible on the page.
-- Name Tags Not Required: Nodes added without a name via cloud integrations will now use their ids instead.
+- Name Tags Not Required: Nodes added without a name with cloud integrations will now use their ids instead.
 
-### Bug Fixes
+### Bug fixes
 
 - Replaced Filter: Wildcard filters of the same type in the Client Runs search bar are now treated as 'OR' filters.
 - Keep It Simple: Compliance will now use one ElasticSearch connection per compliance-service instance. By reducing the number of sockets being managed, this solves a problem of receiving `could not get elastic connection` errors in Compliance.
@@ -5367,7 +5173,7 @@ Released on May 28, 2019
 
 ICYMI: If you are upgrading from a version prior to 20190410001346, please read our [Important Compliance Outage Announcement](https://discourse.chef.io/t/important-compliance-outage-information-on-automate-2-april-15th-upgrade/14909).
 
-### New Features
+### New features
 
 - Expanded Forecast: Test your Azure configuration with API scanning, and scan the nodes in your Azure cloud account with Azure VM scanning. You can also test your Google Cloud Platform nodes with API scanning.
 - Improved Inspection: The *Node Details* page in Compliance includes the ability to show InSpec version.
@@ -5376,7 +5182,7 @@ ICYMI: If you are upgrading from a version prior to 20190410001346, please read 
 
 - Please Excuse Our Dust: The user menu in the top navigation bar features design consistency and accessibility improvements.
 
-### Bug Fixes
+### Bug fixes
 
 - Refreshing: A node rerun no longer results in a `No ssm plugin found for train` error.
 - Analyze This!: Better error handling exists for remote (ssm) scan jobs.
@@ -5389,9 +5195,9 @@ Released on May 13, 2019
 
 ICYMI: If you are upgrading from a version prior to 20190410001346, please read our [Important Compliance Outage Announcement](https://discourse.chef.io/t/important-compliance-outage-information-on-automate-2-april-15th-upgrade/14909).
 
-### Bug Fixes
+### Bug fixes
 
-- Token of Our Appreciation: You will not see the error message, `The security token included in the request is invalid`, when running the CIS AWS profile as a scan job in Automate and using only an AWS access key id and secret.
+- Token of Our Appreciation: You won't see the error message, `The security token included in the request is invalid`, when running the CIS AWS profile as a scan job in Automate and using only an AWS access key id and secret.
 - Won't Leave You Hanging: Quickly running sequential backups no longer results in the backup process freezing.
 
 ## Chef Automate 20190501153509
@@ -5410,11 +5216,11 @@ ICYMI: If you are upgrading from a version prior to 20190410001346, please read 
 - Customize This!: Any default configuration value for the Microsoft Active Directory (MSAD) integration now can be overridden without using the generic LDAP adapter as a workaround.
 - Improved Control and Handling: The compliance profiles for STIG RHEL 7 V2R1 have two additional controls (SV-86587r4 and SV-95719r1) implemented. These controls previously resulted in a "skipped" result.
 
-### Bug Fixes
+### Bug fixes
 
 - Cleared Up: Sorting by control failures in the Compliance Reporting Nodes list view previously would cause a 400 issue.
 - Set Right: The overview page for skipped nodes in Compliance Reporting has more consistent statuses.
-- No Red Flags: The applications-service will now start when a feature flag is not enabled on the upstream events-service.
+- No Red Flags: The applications-service will now start when a feature flag isn't enabled on the upstream events-service.
 
 ## Chef Automate 20190422213145
 
@@ -5436,20 +5242,20 @@ Released on April 22, 2019
 
 If you are upgrading from a version prior to 20190410001346, please read our [important announcement](https://discourse.chef.io/t/important-compliance-outage-information-on-automate-2-april-15th-upgrade/14909).
 
-### New Features
+### New features
 
-- Deep Filtering: View the state of your infrastructure via the Compliance tab from the perspective of a single profile, or a single profile and one of its child controls.
+- Deep Filtering: View the state of your infrastructure with the Compliance tab from the perspective of a single profile, or a single profile and one of its child controls.
 - Compliance Improvements: Compliance profiles for CIS Windows Server 2016 v1.1.0 (Domain Controller and Member Server) are now available in the Asset Store. In addition to the standard Level 1 and Level 2 profiles, we also include CIS's newly defined Next Generation Windows Security profiles, an optional compliance standard to be used in addition to Level 1 or Level 2.
 
 ### Improvements
 
-- So Fresh: Skipped Profiles under Compliance Reporting node details got a refresh! You will now see the bolded name of the profile first, followed by the skip message from InSpec if one exists.
+- Skipped Profiles under Compliance Reporting node details got a refresh! You will now see the bolded name of the profile first, followed by the skip message from InSpec if one exists.
 
-### Bug Fixes
+### Bug fixes
 
 - Many Happy Returns: Previously, a scan job node read would fail with a 500 error if the credential was deleted. We now return the node object, regardless of the state of its associated credentials.
 - On the Button: The report button will only appear on the actual scans list for a recurring job, rather than erroneously for a completed recurring job.
-- Compliance Fix: Control 2.2.1.3 of the CIS CentOS 7 v2.2.0 compliance profile no longer depends on a `/etc/sysconfig/ntpd` file that does not exist on all systems and is not required by CIS's specification.
+- Compliance Fix: Control 2.2.1.3 of the CIS CentOS 7 v2.2.0 compliance profile no longer depends on a `/etc/sysconfig/ntpd` file that doesn't exist on all systems and isn't required by CIS's specification.
 
 ## Chef Automate 20190410001346
 
@@ -5468,22 +5274,22 @@ We’re making some systems unresponsive during the current day data migration, 
 
 During the current day’s data migration:
 
-- Compliance APIs and UI (Compliance page, Scan Jobs, Asset Store) will not be responsive
-- Scan jobs and incoming scan reports (from audit cookbook or inspec exec) will not be processed
+- Compliance APIs and UI (Compliance page, Scan Jobs, Asset Store) won't be responsive
+- Scan jobs and incoming scan reports (from audit cookbook or inspec exec) won't be processed
 
 We’re promoting this release to Automate’s “current” channel—which means this upgrade goes live—at 00:01am UTC (5:01 PM PDT).
 For customers who have automatic upgrades enabled, this should reduce the amount of time needed for the data migration, because you should have very little data in the current day’s results.
-We recommend that customers without auto-upgrades configured run their manual upgrades upgrade at 00:01 UTC, or shortly thereafter, in order to minimize their downtime.
+We recommend that customers without auto upgrades configured run their manual upgrades upgrade at 00:01 UTC, or shortly thereafter, in order to minimize their downtime.
 
 #### Upgrading manually
 
-If your Chef Automate installation isn’t configured for auto-upgrades, you will need to upgrade manually.
+If your Chef Automate installation isn’t configured for auto upgrades, you will need to upgrade manually.
 We recommend that you run your manual upgrade at 00:01 UTC or shortly after to minimize downtime.
 
 During the current day’s data migration:
 
-- Compliance APIs and UI (Compliance page, Scan Jobs, Asset Store) will not be responsive
-- Scan jobs and incoming scan reports (from audit cookbook or inspec exec) will not be processed
+- Compliance APIs and UI (Compliance page, Scan Jobs, Asset Store) won't be responsive
+- Scan jobs and incoming scan reports (from audit cookbook or inspec exec) won't be processed
 
 Your chef-client runs will be unaffected by the data migration and you will have access to the Event Feed, Client Runs and Settings UI.
 
@@ -5497,7 +5303,7 @@ We recommend taking the following steps to ensure a painless experience:
 4. Disable other resource intensive processes (such as backups, re-indexing, etc.) during the upgrade, or schedule them run at different time before or after the upgrade
 5. If you have problems with this upgrade, contact support for help: <https://www.chef.io/support/get-started/>
 
-### New Features
+### New features
 
 - Zoom and Enhance: New Detail View for Node Manager is now available. Navigating to a node manager's detail view will display its status and a list of the nodes that belong to that node manager.
 
@@ -5507,7 +5313,7 @@ We recommend taking the following steps to ensure a painless experience:
 - R-E-S-P-E-C-T: Compliance suggestions now show results that match with your selected filter.
 - Make it Better, Do it Faster: We changed the controls in the CIS Windows Server 2012R2 V2.2.1 compliance profiles to be faster and have less load on domain controller instances.
 
-### Bug Fixes
+### Bug fixes
 
 - Once, Mice, Three Times an Exterminator: Fixed a number of controls in the CIS CentOS 7 v2.2.0 compliance profile:
 
@@ -5520,7 +5326,7 @@ We recommend taking the following steps to ensure a painless experience:
 
 Released on April 1, 2019
 
-### New Features
+### New features
 
 - Work It!: Existing Workflow users have access to the Workflow dashboard and tools in Chef Automate.
 - Switch It!: Toggle `chef-automate maintenance [on|off]` to use the new load balancer maintenance configuration option. When in maintenance mode, the load balancer serves an HTTP 503 error page, which is helpful to some users (Lookin' at you, OWCA friends) keep their data safe during a maintenance window.
@@ -5528,7 +5334,7 @@ Released on April 1, 2019
 ### Improvements
 
 - Check It!: Rewrote controls in the CIS Windows Server 2012R2 V2.2.1 and STIG Windows 2016 compliance profiles, so they execute faster and with loads on the target system. Domain Controller instances with large numbers of users and groups should see improvement and particular benefits with these changes.
-- Find It!: Find more with less using the improved matching options for designating credentials for nodes from cloud integrations.  When specifying tag key/value matches for your node integration nodes, we now support wildcard matching for:
+- Find It!: Find more with less using the improved matching options for designating credentials for nodes from cloud integrations. When specifying tag key/value matches for your node integration nodes, we now support wildcard matching for:
 
   - suffix - `*foo`
   - prefix - `foo*`
@@ -5537,7 +5343,7 @@ Released on April 1, 2019
 - Tag It!: We have removed the restriction that prevented users from adding node tags with `:`, `*`, etc.
 - Filter It!: We've added a prefix wildcard search  (`foo*`) for scan jobs for the Automate manager node names and AWS-EC2 integration tag value searches.
 
-### Bug Fixes
+### Bug fixes
 
 - Clean It!: We were a little too conservative in our package cleanup mode---cleaning up only the first in the list of candidate packages---now we will clean up the entire set of obsolete Automate-installed packages.
 - Use It!: Node Integrations update fixed! You'll now use your most recent credentials after updating a node integration, rather than re-using the older credentials.
@@ -5559,7 +5365,7 @@ Released on March 11, 2019
 
 Released on March 4, 2019
 
-### New Features
+### New features
 
 - Now in Stock: The Compliance Store has InSpec profiles for DISA STIGs (RHEL 7 V2R1 and Windows Server 2016 V1R6), which replace the earlier "preview" profiles. Each STIG profile (Cat I Only, Cat II, etc.,) has its own InSpec profile.
 
@@ -5568,7 +5374,7 @@ Released on March 4, 2019
 - Same Throughout: The *Asset Store* page in the Automate UI has an especially consistent design. Shout out to UX for keeping things awesome!
 - Vroom, Vroom: The Chef Client run ingestion pipeline performs even better than before.
 
-### Bug Fixes
+### Bug fixes
 
 - Written in Stone: Automate changes permissions on files correctly, ending this source of exec errors.
 - Restoration Work: Made the certificate permissions restore correctly, so Automate restore succeeds.
@@ -5579,7 +5385,7 @@ Released on March 4, 2019
 
 Released on February 11, 2019
 
-### New Features
+### New features
 
 - Compliance Update: You'll find a new profile for CIS Amazon Linux 2 v1.0.0 in the Compliance Store.
 
@@ -5617,14 +5423,14 @@ Released on February 4, 2019
   - SV-86877r3_rule (SSH daemon must only use MACs employing FIPS 140-2 approved cryptographic hash algorithms.)
   - SV-86943r2_rule (System must not forward IPv6 source-routed packets.)
 
-### Bug Fixes
+### Bug fixes
 
 - Not the Silent Deep: `chef-automate backup delete` command no longer silently fails to delete backups.
 - Clear-cutting: Internal request logs were being written to disk without log rotation. No more! Our fix cleans up any instances of these logs that have been left around.
 - The Client-run Export now has:
 
   - Corrected behavior of Total Resource Count to provide correct values.
-  - Removed fields that should not be associated with a node.
+  - Removed fields that shouldn't be associated with a node.
 - Clear Away: Node credential validation used to wrongly display an error, but we worked it out.
 - Resolved: A Compliance report export error when exporting larger reports is now fixed.
 - Can't Click That: Disabled buttons no longer act as clickable on mouse-over.
@@ -5633,7 +5439,7 @@ Released on February 4, 2019
 
 Released on January 28, 2019
 
-### New Features
+### New features
 
 - Client Runs: Search and filter by Chef tags! You'll see filter in the client runs search-bar.
 
@@ -5653,7 +5459,7 @@ Released on January 28, 2019
 
   - SV-86551r2_rule (operating system must be configured so that passwords are restricted to a 24 hours/1 day minimum lifetime.)
 
-### Bug Fixes
+### Bug fixes
 
 - Inspec 1 Reports: Automate accepts reports generated with InSpec 1 as well as InSpec 2. Not to nag, but we'd still like you to update to the new InSpec, ASAP.
 - There Can Only Be One: Prevent users from creating credentials with both a password and ssh key. Only one or the other should be included in a credential.
@@ -5662,7 +5468,7 @@ Released on January 28, 2019
 
 Released on January 22, 2019
 
-### New Features
+### New features
 
 - IAM v2 Beta: Open beta for Chef Automate's new identity and access management system! We've improved policies, with policy statements that allow fine-grained control and basic policy management from Chef Automate's user interface. We've also introduced roles, so you now have role-based access control (RBAC). Check out the [new IAM v2 beta guide](https://automate.chef.io/docs/iam-v2-guide/) to get started with our new features.
 - Why not Both?: Download the Chef client nodes report in CSV and JSON formats from the Client Runs page. Try the search and filter tools to narrow down the list before downloading.
@@ -5682,7 +5488,7 @@ Released on January 22, 2019
   - SV-88289r1_rule (The built-in guest account must be renamed.)
 - Bam!: The compliance profile for CIS AWS Foundations v1.1.0 has control 2.4 'Ensure CloudTrail trails are integrated with CloudWatch Logs'.
 
-### Bug Fixes
+### Bug fixes
 
 - Deleted and Visible: Deleted scan job names and username appear on the Event Feed.
 - Copy That: You may now copy a token from Automate UI on Firefox.
@@ -5697,7 +5503,7 @@ Released on January 22, 2019
 - Aristotle This!: Corrected the test logic on a number of Windows 2016 and RHEL 7 STIGs preview compliance profiles.
 - Can I Quote That?: Added quote marks around supported RHEL releases in CIS RHEL compliance profiles, so the release value won't be interpreted as a number. This fixes profiles not running on, for example, RHEL 7.10.
 
-### Backward Incompatibilities
+### Backward incompatibilities
 
 - Can I See Your ID, InSpec?: Report ingestion enforces InSpec 2.0.0 as the minimum supported version and rejects reports from anything underage. This circumvents a bug that could crash the service when processing reports with required, but missing, fields.
 
@@ -5705,7 +5511,7 @@ Released on January 22, 2019
 
 Released on December 17, 2018
 
-### New Features
+### New features
 
 - Terminated node cleanup: Terminating AWS nodes managed through the node manager integration also deletes the corresponding nodes on the client-runs page.
 - Named Tokens: Create tokens with unique alphanumeric IDs, aka letters and numbers, from the API tokens page in the **Admin** tab. You don't have to do this, and if you don't name your token, we'll still generate a token automatically for you.
@@ -5716,12 +5522,12 @@ Released on December 17, 2018
 - Better Compliance Reporting: Chef Automate checks incoming compliance reports for valid node `uuid`s attached. Reports without valid node `uuid`s get rejected.
 - Faster Compliance Reporting: We increased the number of threads so the service ingests more reports.
 
-### Bug Fixes
+### Bug fixes
 
 - Deleted and stopped: Deleted scan jobs won't run in the background. Marking nodes for deletion stops the inspec-agent from running them.
 - Unmarshal error: Stopped including the invalid character `-` after array elements in uploaded inherited profiles.
 
-### Backward Incompatibilities
+### Backward incompatibilities
 
 - Telemetry opt-out: We removed opting-out of telemetry with the API. We also fixed opting-out of telemetry with the Chef Automate config, and you can still opt out from the browser.
 
@@ -5734,7 +5540,7 @@ Released on December 10, 2018
 - Back It Up: Keep your filtering and sorting selections when you move back and forth from the Client Runs page. This also makes sharing your view of the Client Runs page better.
 - Compliance Improvements: New controls in preview releases for STIGs on RHEL7 and Windows 2016.
 
-### Bug Fixes
+### Bug fixes
 
 - Wrap-Around Names: Now you can see the whole long control name.
 - Click the Button: Set your telemetry options, use the the profile button in the top nav and then select `About Chef Automate`.
@@ -5750,7 +5556,7 @@ Released on December 3, 2018
 - Persist Filters: The Client Runs filters stay applied even when you look at the node details and then use the browser back button to see the entire node list.
 - Compliance Improvements: The STIG RHEL 7 V2R1 preview compliance profiles includes controls for auditd implementations.
 
-### Bug Fixes
+### Bug fixes
 
 - Fat Finger Fix: Added validation at 'submit' to the Node Status configuration in the Admin settings.
 - Compliance Updates: CIS AWS v.1.1, control 2.1 (Ensure CloudTrail is enabled in all regions) correctly fails if no CloudTrail trails are configured.
@@ -5775,12 +5581,12 @@ Released on November 19, 2018
 - Satisfying Security Needs: Automate can't fit into an `<iframe>` is now restricted by the returned header `X-Frame-Options=samesite` on all UI-related parts.
 - Compliance Updates: The CIS Azure v1.0.0 profile includes manual test instructions for some controls without automated tests. Added more preview compliance controls controls and improved the test logic for the STIG RHEL 7 and Windows 2016 (Cat I) profiles.
 
-### Bug Fixes
+### Bug fixes
 
 - Reasonable terms: Elasticsearch failing with an "immense term" error message when ingesting reports with very large fields.
 - InSpec Control Code Improvements: Fixed the metadata on the CIS AWS Foundations v1.0.0 compliance profile so that it runs correctly with Inspec 3. Fixed controls in the CIS RHEL 7 v2.2.0 compliance profile that could potentially give a false positive result.
 
-### Backward Incompatibilities
+### Backward incompatibilities
 
 - The CIS RHEL 7 v2.2.0 compliance profile controls for the `shadow` resource that aren't compatible with InSpec 1. From now on, they'll give a skipped result with an explanation message.
 
@@ -5788,7 +5594,7 @@ Released on November 19, 2018
 
 Released on November 5, 2018
 
-### New Features
+### New features
 
 - Gone, Node: Delete missing nodes directly from the Client Runs page. Admin users will see a new set of controls for deleting missing nodes.
 
@@ -5796,7 +5602,7 @@ Released on November 5, 2018
 
 - Outta Here: Remove scan jobs through the Automate user interface.
 
-### Bug Fixes
+### Bug fixes
 
 - Same-Same: The configuration style for setting the log level matches the configuration style of other services. You can also set the log level to `debug` or `warning`.
 
@@ -5804,10 +5610,10 @@ Released on November 5, 2018
 
 Released on October 29, 2018
 
-### New Features
+### New features
 
-- Easier nested page navigation: All "Go back" bars on nested pages have been changed to Breadcrumbs components, which allow the user to see where they are in the application page tree.
-- New BETA feature: Google Cloud API scan support via the integrations and scan jobs screens.
+- Easier nested page navigation: All "Go back" bars on nested pages have been changed to Breadcrumbs components, which allow the user to see where they're in the application page tree.
+- New BETA feature: Google Cloud API scan support with the integrations and scan jobs screens.
 
 ### Improvements
 
@@ -5815,7 +5621,7 @@ Released on October 29, 2018
 - Migration Guard: Automate migration is protected from starting if the data is considered possibly corrupted or malformed.
 - Updated Reporting: Compliance reporting is now rejecting reports with no node_uuid defined.
 
-### Bug Fixes
+### Bug fixes
 
 - Daylight Savings Adjustment: Fixes excess/deficient number of buckets in the Event Feed Guitar Strings control for the weeks that include the beginning or end of daylight saving.
 - Precision Reporting: Scan jobs with more than 100 nodes now accurately report their job status.
@@ -5845,7 +5651,7 @@ level = "debug"
 - CIS RHEL5 server compliance profiles fixes:
 
   - Controls, which test service state, now correctly use the `be_enabled` matcher instead of the non-existent `be_disabled` matcher.
-  - Controls, which CIS does not specify automated tests for, will now result in a skipped result instead of having no code.
+  - Controls, which CIS doesn't specify automated tests for, will now result in a skipped result instead of having no code.
 
 ## Chef Automate 20181015112149
 
@@ -5857,7 +5663,7 @@ Released on October 22, 2018
 - InSpec Control Code Improvements: CIS Azure Foundations v1.0.0 implements controls 3.3 and 3.7.
 - Compliance Update: The STIG RHEL7 Cat I preview compliance profile includes SV-86557r3 and SV-86863r4 and gives more meaningful skip messages on a number of controls.
 
-### Bug Fixes
+### Bug fixes
 
 - Secrets Logging: The `secrets-service` listens to log level configuration. Use either of the below config settings to set the `secrets-service` log level to `debug`.
 
@@ -5885,7 +5691,7 @@ level = "debug"
 
 Released on October 15, 2018
 
-### New Features
+### New features
 
 - Compliance Update: Compliance now includes CIS certified InSpec profiles for CIS Google Cloud Platform Foundation Benchmark v1.0.0.
 - New General Settings Page: When logged in as an admin, the general settings page will let you customize when an infrastructure node is considered missing, and when nodes that are considered missing are deleted.
@@ -5896,9 +5702,9 @@ Released on October 15, 2018
 - InSpec Control Code Improvements: InSpec control code has been improved in the preview profiles for RHEL7 and Windows 2016 STIGs.
 - Expanded Wildcard Search Support: Wildcard search is now supported for aws-api filtering during scan job creation.
 
-### Bug Fixes
+### Bug fixes
 
-- Locking It Down: The job scheduler endpoints, which can be modified by applying settings using curl, were previously open to all users, but should have only allowed admins to modify them. This has been fixed. (These same job scheduler endpoints are now able to be set via the UI on the new general settings page as an admin.)
+- Locking It Down: The job scheduler endpoints, which can be modified by applying settings using curl, were previously open to all users, but should have only allowed admins to modify them. This has been fixed. (These same job scheduler endpoints are now able to be set with the UI on the new general settings page as an admin.)
 - Made It Right: The automate-gateway version endpoint was fixed, so it will return the correct version when queried (`/api/v0/gateway/version`).
 - No Node, No Scan Job: Resolved issue where users where able to create a scan job with no node(s) attached.
 - Abandoned jobs no more: Service restarts won't leave a scan job in an eternal 'scheduled' or 'running' state. Now, the service checks for abandoned jobs at startup and handles them as needed.
@@ -5907,7 +5713,7 @@ Released on October 15, 2018
 
 Released on October 8, 2018
 
-### New Features
+### New features
 
 - Local Teams in the Browser: Admins can create and remove teams, edit team descriptions, and add or delete team members from the Automate UI.
 - Upgrade with Users: Keep your users when upgrading to the new Automate!  Administrators stay admins, too. Automate automatically adds all local users with the administrator role to the admins team, so they'll have admin-level access after the upgrade.
@@ -5929,10 +5735,10 @@ Released on October 8, 2018
 - Minor Semver: We updated CIS Azure Foundations v1.0.0 resource pack to 1.2.0
 - Delete Nodes from the Command Line: There's a new CLI command for deleting infrastructure nodes. For more information, see the docs on the Client Runs page under [Deleting Nodes](https://automate.chef.io/docs/client-runs/#deleting-nodes) and the [CLI Command Reference Page](https://automate.chef.io/docs/cli-chef-automate/).
 - No Haunting Nodes: Deleted nodes won't show up in the Client Runs search bar as suggestions.
-- Login via LDAP/SAML/MSAD: `ca_contents` settings in configs for SAML/LDAP/MSAD are now validated before applying them to the system, and related errors will be easier to spot.
+- Login with LDAP/SAML/MSAD: `ca_contents` settings in configs for SAML/LDAP/MSAD are now validated before applying them to the system, and related errors will be easier to spot.
 - Does Anybody Really Know What Time It Is: Select the date/time with the inputs on job scheduling.
 
-### Bug Fixes
+### Bug fixes
 
 - Right Log: The ingest service uses log level that's set in the config.
 - Recent Events: The event feed guitar strings graph displays very recent events.
@@ -5940,11 +5746,11 @@ Released on October 8, 2018
 - Major Metadata: Added major release metadata to CIS RHEL Compliance Profiles, so you can run profiles with older versions of Inspec.
 - Get the Story Straight: The CIS RHEL 7 v2.2.0 Compliance Profile aligns with the CIS benchmark and skip message for 5.4.1.5
 - Made it Right: Fixed control 17.3.1 for CIS Windows 2016 DC & MS.
-- Login via MSAD: `ca_contents` can now be used for the MSAD connector.
-- Login via SAML: `ca_contents` for the SAML connector have always been required, but hadn't been validated in that way--they now are.
+- Login with MSAD: `ca_contents` can now be used for the MSAD connector.
+- Login with SAML: `ca_contents` for the SAML connector have always been required, but hadn't been validated in that way--they now are.
 - Better handling of missing nodes, deleting missing nodes, and data cleanup. See below for full details.
 
-### Backward Incompatibilities
+### Backward incompatibilities
 
 In all prior versions, custom settings for managing node data--setting nodes missing, deleting missing nodes, and configuring data cleanup--were incorrectly applied. When you used the curl command against the api to set the settings, the command responded successfully, but resulted in the configuration being set to off. Thus, no nodes were marked missing, no data deleted, and no configuration data cleaned up. This was the result regardless of the value used for the setting.
 
@@ -5958,7 +5764,7 @@ We fixed the problems in using custom settings for managing node data in this re
 
 Released on September 24, 2018
 
-### New Features
+### New features
 
 - Now With Wildcards: Use wildcards on Client Run filters. `?` stands in for a single character and `*` stands in for more than one. Think `Che?` vs. `Ch*`. Hit enter to see the results of your wildcard foo.
 
@@ -5967,7 +5773,7 @@ Released on September 24, 2018
 - Matching Checkboxes in the data collection box for a smoother experience.
 - Let's Get Cookin': We're keeping your cookbook role information in Elasticsearch...and we're working on showing it in the user interface.
 
-### Bug Fixes
+### Bug fixes
 
 - Improved Automate Migration, Part One: We added better protection from potential panics in the event Elasticsearch crashes while migrating to the new Automate.
 - Improved Automate Migration, Part Deux: We added better protection from potential panics in the event unexpected data is found while migrating to the new Automate.
@@ -5980,9 +5786,9 @@ Released on September 24, 2018
 
 Released on September 17, 2018
 
-### New Features
+### New features
 
-- "Missing" nodes now get deleted automatically after 30 days. This time period is configurable via the API. You can also configure when a node is marked missing (default is 1 day). See the docs on [Managing Node Data](https://automate.chef.io/docs/client-runs/#managing-node-data) for more information.
+- "Missing" nodes now get deleted automatically after 30 days. This time period is configurable with the API. You can also configure when a node is marked missing (default is 1 day). See the docs on [Managing Node Data](https://automate.chef.io/docs/client-runs/#managing-node-data) for more information.
 - Automatically Delete Missing Nodes: Automate marks any node that fails to check in within 24-hours as "missing" and then deletes missing nodes after 30 days. You can configure both check-in window and the delete-window, see the documentation on [Managing Node Data](https://automate.chef.io/docs/client-runs/#managing-node-data) for more information.
 
 ### Improvements
@@ -5993,7 +5799,7 @@ Released on September 17, 2018
 - More Azure Compliance: Implemented additional controls for CIS Azure Foundations v1.1.0.
 - Preview Compliance Profiles: You can use more STIG controls for DISA STIGs (RHEL7 and Windows 2016). These aren't the full STIG--yet--and we're putting them through more QA testing.
 
-### Bug Fixes
+### Bug fixes
 
 - Render Profiles: We added title strings to the CIS AWS Foundations v1.1.0 compliance profile to make it right.
 - Keeping Secrets: You cant create an unused secret on the notifications page.
@@ -6005,7 +5811,7 @@ Released on September 17, 2018
 
 Released on September 10, 2018
 
-### New Features
+### New features
 
 - Preview Compliance Profiles: You can use many of the Category I STIG controls for Windows 2016 and RHEL 7. These aren't the full STIG--yet--we show you "skip" results for not-yet-implemented controls.
 
@@ -6014,12 +5820,12 @@ Released on September 10, 2018
 - What's in a name: Now you'll see `node id` on the  node detail page.
 - **Go Back** but keep the important stuff: The back button on the node detail page lets you keep your applied server or org filters.
 
-### Bug Fixes
+### Bug fixes
 
 - Control 2.2.2 in the CIS Windows 2016 DomainController profile won't query all the users and groups on the system.
 - Stopped the Client Run page search bar from hanging while filling the autocomplete list.
 
-### Backward Incompatibilities
+### Backward incompatibilities
 
 - So far, our improvements to the Client Runs search bar applies only to Chrome. We're working on improving it for Firefox, Safari, and Edge.
 
@@ -6027,20 +5833,20 @@ Released on September 10, 2018
 
 Released on August 28, 2018
 
-### Bug Fixes
+### Bug fixes
 
 - We updated the InSpec version included with Automate, so your scan jobs will pass. You won’t see this error:
 
 ```
 exit status 1,
-/hab/pkgs/chef/inspec/2.2.55/20180803140814/lib/gems/inspec-2.2.55/lib/inspec/base_cli.rb:179:in `block in validate_reporters': 'json-automate' is not a valid reporter type. (NotImplementedError)
+/hab/pkgs/chef/inspec/2.2.55/20180803140814/lib/gems/inspec-2.2.55/lib/inspec/base_cli.rb:179:in `block in validate_reporters': 'json-automate' isn't a valid reporter type. (NotImplementedError)
 ```
 
 ## Chef Automate 20180817182829
 
 Released on August 20, 2018
 
-### New Features
+### New features
 
 - New Compliance Profiles: You can use the CIS Azure Foundations benchmark v1.1.0 profile and the CIS CentOS 6 benchmark v2.0.2 profiles through the Compliance dashboard.
 - DIY Password Administration: Asking your admin to change your password can be a drag...so we fixed it! You can change your own password by selecting your name or avatar in the upper right corner of any Chef Automate page and selecting "Your Profile" from the dropdown menu. Woohoo! Your admin can still reset your password for you in case you forget it.
@@ -6053,7 +5859,7 @@ Released on August 20, 2018
 - We touched up the Chef Runs node list paginator--it's at the bottom of the page--for better usability/accessibility.
 - We tweaked the user interface updates.
 
-### Bug Fixes
+### Bug fixes
 
 - Corrected the `release` metadata on some Compliance profiles so the profiles are considered compatible with a target host.
 - Fixed a number of controls in the CIS Centos 7 v2.2.0 compliance profile to be more accurate to the CIS benchmark.
@@ -6067,7 +5873,7 @@ Released on August 20, 2018
 
 Released on August 10, 2018
 
-### New Features
+### New features
 
 - View node resource change diffs using the new node run detail view.
 
@@ -6077,20 +5883,20 @@ Released on August 10, 2018
 - Error messages provide the Command ID of failed AWS SSM remote scans, so you can find and fix problems faster.
 - Create scan jobs quicker--find manually managed node names with an asterisk (*) wildcard.
 
-### Bug Fixes
+### Bug fixes
 
-- We fixed some of the CIS RHEL 6 controls.  They no longer include the non-existent `be_disabled` matcher when testing a service.
+- We fixed some of the CIS RHEL 6 controls. They no longer include the non-existent `be_disabled` matcher when testing a service.
 - "Copy URL" on the Client Runs filter works how you think it would.
 
 ## Chef Automate 20180807052402
 
 Released on August 7, 2018
 
-### New Features
+### New features
 
 - Send notifications to ServiceNow with username and password authentication
 
-### Bug Fixes
+### Bug fixes
 
 - Unblocks Compliance ingestion by directing errors to the proper channels.
 
@@ -6098,11 +5904,11 @@ Released on August 7, 2018
 
 Released on August 6, 2018
 
-### New Features
+### New features
 
 - Use the new Date Zoom 'slider' on the Event Feed to look at a range of dates instead looking at a whole week.
 
-### Bug Fixes
+### Bug fixes
 
 - You can once again send InSpec scan failure notifications.
 
@@ -6110,7 +5916,7 @@ Released on August 6, 2018
 
 Released on August 6, 2018
 
-### New Features
+### New features
 
 - We added Compliance profiles for CIS CentOS 7 v2.2.0 and CIS Windows 2012R2 v2.3.0
 
@@ -6119,7 +5925,7 @@ Released on August 6, 2018
 - Zoom in to specific days on the Event Feed with zoom sliders at the top of the graph.
 - Improved Automate's authorization service performance, letting you get about your actual work just a wee bit faster.
 
-### Bug Fixes
+### Bug fixes
 
 - Automate calmly and rationally lets you know that your license is close to expiriation, without the peculiar-looking screen glitch.
 
@@ -6133,7 +5939,7 @@ Released on August 2, 2018
 - Made a minor improvement to data-collector endpoint performance by avoiding a json translation.
 - Moved the compliance service's secrets service into its own service.
 
-### Bug Fixes
+### Bug fixes
 
 - Reduced gRPC-related logging noise when everything is alright. (You can enable debug logging to see alarming--but harmless--messages about `loopyWriter.run returning` in regular intervals.)
 - AWS credential-less jobs only report success if InSpec exit code was 1 (previously ignored exit code)
@@ -6143,7 +5949,7 @@ Released on August 2, 2018
 
 Released on July 30, 2018
 
-### New Features
+### New features
 
 - Compliance now includes Inspec profiles for CIS's Cisco IOS 12 and 15 benchmarks
 - You can use Chef Automate as an OAuth provider for Habitat Builder! Just follow [these directions](https://github.com/habitat-sh/on-prem-builder#oauth-application) to set it up. This is the ideal OAuth solution for using Builder and Automate in an air-gapped environment.
@@ -6153,7 +5959,7 @@ Released on July 30, 2018
 - Faster A1 to A2 migration.
 - You'll see an new `Logout` button, as well as the `Retry` button, for help fixing the occasional connectivity issues that all networked systems sometimes have. If the `Retry` button isn't enough to fix your connection, you try the `Logout` button to log out and back in. If that still doesn't work, contact your sysadmin to take a look at your system.
 
-### Bug Fixes
+### Bug fixes
 
 - You can upload profiles in the compliance-service with non-string default options.
 - Improved to the test logic for Inspec profiles for CIS Red Hat and Windows.
@@ -6165,7 +5971,7 @@ Released on July 30, 2018
 
 Released on July 23, 2018
 
-### New Features
+### New features
 
 - Use usernames in authorization policies with `${a2:username}` in resources.
 For example, *local users* can **read**, **update**, and **delete** their own Chef Automate user records using the API. The policy allowing this is (abbreviated):
@@ -6187,7 +5993,7 @@ For example, *local users* can **read**, **update**, and **delete** their own Ch
 
 Released on July 17, 2018
 
-### Bug Fixes
+### Bug fixes
 
 - Fixes an issue where installations that were previously upgraded from Automate 1.8.x would not see the `secrets-service` running after the latest upgrades.
 
@@ -6203,7 +6009,7 @@ Released on July 16, 2018
 - Reduced the bandwidth used in A2 back-end interactions by no longer sending on user/group information from automate-gateway.
 - Improved error handling in the ingest service to avoid a rare possibility of segfault.
 
-### Bug Fixes
+### Bug fixes
 
 - LDAP identity management integration configs no longer insist that you define the optional attribute `base_group_search_dn`.
 - MSAD identity management integration configs no longer insist that you define the optional attributes `bind_dn` and `bind_password`.
@@ -6218,10 +6024,10 @@ Released on July 9, 2018
 
 - Introduced speed improvements for loading the node details page, especially when a large number of nodes are present in the system.
 
-### Bug Fixes
+### Bug fixes
 
-- Fixed a UI bug to make the tooltips easier to read by ensuring the background is not transparent.
-- When sending a too big request to Automate's API, the response's HTTP status code will not be 403, but 429.
+- Fixed a UI bug to make the tooltips easier to read by ensuring the background isn't transparent.
+- When sending a too big request to Automate's API, the response's HTTP status code won't be 403, but 429.
 - Deleting an installed profile only deletes the profile for that user (not all users).
 
 ### Known Issues
@@ -6232,7 +6038,7 @@ Released on July 9, 2018
 
 Upgrades to future versions of Chef Automate from this version can potentially fail, leaving the `deployment-service` in a loop with the following error:
 
-```
+```plain
 hab[17347]: deployment-service.default(O): time="2018-07-11T11:56:37-05:00" level=error msg="Phase failed" error="hab-sup upgrade pending" phase="supervisor upgrade"
 hab[17347]: deployment-service.default(O): time="2018-07-11T11:56:37-05:00" level=error msg="Converge failed" error="hab-sup upgrade pending"
 hab[17347]: deployment-service.default(O): time="2018-07-11T11:56:37-05:00" level=error msg="Failed to converge" error="<nil>"
@@ -6241,7 +6047,7 @@ hab[17347]: deployment-service.default(O): time="2018-07-11T11:56:37-05:00" leve
 
 Calling `chef-automate upgrade status` will also return an error indicating that an upgrade is in progress:
 
-```
+```plain
 Automate is upgrading to 20180706210448
 
 Services requiring changes:
@@ -6266,7 +6072,7 @@ Services requiring changes:
 
 Running the following command will result in the `deployment-service` resuming the upgrade the next time it attempts to converge service state, within 5 minutes:
 
-```
+```sh
 touch /usr/lib/systemd/system/chef-automate.service
 ```
 
@@ -6282,7 +6088,7 @@ Released on July 2, 2018
 - We made a few performance improvements for ingesting Chef Client runs and chef-server actions through the legacy endpoint.
 - We upgraded to Habitat 0.57.0, which we use to build and deploy Chef Automate. The upgrade will restart the entire Chef Automate process tree during the move to the updated Habitat supervisor. We've added logic for shutting down services in a controlled order during the upgrade. We're exploring approaches for minimizing disruptions in future upgrades. As always, if you encounter issues, we're here to help!
 
-### Bug Fixes
+### Bug fixes
 
 - Fixed the LDAP configuration on the migration from a Chef Automate 1.x installation to Chef Automate 2. Now the `user_id_attr` gets set.
 - Fixed a UI bug to make the tooltips easier to read.
@@ -6304,7 +6110,7 @@ hab[17347]: deployment-service.default(O): time="2018-07-11T11:56:37-05:00" leve
 
 Calling `chef-automate upgrade status` will also return an error indicating that an upgrade is in progress:
 
-```
+```plain
 Automate is upgrading to 20180706210448
 
 Services requiring changes:
@@ -6339,12 +6145,12 @@ Released on June 21, 2018
 
 ### Improvements
 
-- Common case-related inconsistencies in LDAP attribute settings are now auto-corrected -- so if you configure `samAccountName`, `samaccountname`, or (the correct) `sAMAccountName`, Chef Automate will auto-correct that behind the scenes.
+- Common case-related inconsistencies in LDAP attribute settings are now auto corrected, so if you configure `samAccountName`, `samaccountname`, or (the correct) `sAMAccountName`, Chef Automate will auto correct that behind the scenes.
 - Performance--always at the forefront of Chef Automate development--got just a bit of a boost. We added a bit of pep to the checks that determine what your users have permission to see. The net effect is less lag time from start to finish when rendering a page in the browser.
-- We've improved the accessibility behavior of our modals! Now tab navigation is a breeze and screen readers will be able to read the content starting with the auto-detected title!
+- We've improved the accessibility behavior of our modals! Now tab navigation is a breeze and screen readers will be able to read the content starting with the auto detected title!
 - Improved search bar on the client-runs page to narrow down options when an exact match is found and better sort by best matches.
 
-### Bug Fixes
+### Bug fixes
 
 - Too much of a good thing! Each time within a session when you visited the "Client Runs" tab, there was more backend traffic being generated (redundantly) to fetch the necessary data (observable on the Network tab in developer tools). Now it will content itself with just single calls to each needed service.
 - LDAP `bind_password` now can include any special characters you want! To put it the configuration file, use the TOML syntax for quoted strings, for example:
@@ -6357,7 +6163,7 @@ Released on June 21, 2018
 
 Released on June 18, 2018
 
-### New Features
+### New features
 
 -
 
@@ -6365,16 +6171,16 @@ Released on June 18, 2018
 
 - The Event Feed is getting even better. Clicking on a date at the top will zoom into events for that day. To zoom out to the weekly view, click again on the date. Also, the number of items shown will adjust to the size of the browser window.
 - Filtering by multiple fields (regions and tags) now supported for Azure-based scan jobs
-- The auto-complete suggestions from the Client Runs search bar have been refined to only supply suggestions the user is likely to be searching for, instead of many possible permutations of the search string.
+- The auto complete suggestions from the Client Runs search bar have been refined to only supply suggestions the user is likely to be searching for, instead of many possible permutations of the search string.
 - automate-gateway now lets you turn up its log level for debugging insights
 
-### Bug Fixes
+### Bug fixes
 
 - When you select the filter for node name in the Client Runs search bar, typing "node" to autocomplete now works.
 - LDAP config bug fixes: It now works for `bindPW` settings containing dollar signs; and configurations that include `filter_groups_by_user_attr` now work, too.
-- On your first-time launch of Automate, when you sign up for a trial license, you won't be presented with the second "welcome" pop-up that tediously said "hello" again, and asked you whether we could collect data again. The "welcome" pop-up will only appear on launch now when the license pop-up does not.
+- On your first-time launch of Automate, when you sign up for a trial license, you won't be presented with the second "welcome" pop-up that tediously said "hello" again, and asked you whether we could collect data again. The "welcome" pop-up will only appear on launch now when the license pop-up doesn't.
 
-### Backward Incompatibilities
+### Backward incompatibilities
 
 -
 
@@ -6385,9 +6191,9 @@ Released on June 11, 2018
 ### Improvements
 
 - The `chef-automate` command line tool now knows how to upgrade itself. With this change, the CLI will download updates from the running A2 service. These executables are cached in `~/.chef-automate`. You can disable this feature by setting `CHEF_AUTOMATE_NO_UPDATE_CLI=1` in the environment. Note that you will need to manually upgrade the CLI to this release before you can take advantage of the automatic upgrading functionality.
-- We improved some error messages when working with backups via `chef-automate backup` so that it is easier to understand what went wrong.
+- We improved some error messages when working with backups with `chef-automate backup` so that it's easier to understand what went wrong.
 
-### Bug Fixes
+### Bug fixes
 
 - Resolved bugs on scan job creation page: AM/PM time selection respected and page no longer freezing on extra integration data
 - Positioning for the tooltips on the navigation bar are improved.
@@ -6396,7 +6202,7 @@ Released on June 11, 2018
 
 Released on June 4, 2018
 
-### New Features
+### New features
 
 - The minimum version required for upgrading from Chef Automate 1.x to 2 is now 1.8.31.
 
@@ -6426,7 +6232,7 @@ Released on June 4, 2018
   - Display is now locale-aware
   - Checks now happen periodically in the background
 
-### Bug Fixes
+### Bug fixes
 
 - Positioning for the tooltip on the 'notifications' link in the nav bar is fixed.
 - Accessibility improvements around modals for licenses and local user creation
@@ -6437,19 +6243,19 @@ Released on June 4, 2018
 
 Released on May 20, 2018
 
-### New Features
+### New features
 
 - This release doesn't contain any new major features, but we've got a great list of improvements and six bug fixes.
 
 ### Improvements
 
 - When your license is getting close to expiration (within 90 days) -- whether a full license or a trial license--a banner appears reminding you that you need to take action to get that puppy renewed! It provides quick links to contact us as well as to a spot where you can apply a license in the UI.
-- Compliance reports sent via scan jobs now trigger notifications.
+- Compliance reports sent with scan jobs now trigger notifications.
 - Scan jobs can be filtered by status.
 - Improved experience when installing an already installed profile.
 - Applying config to a running system is now more reliable (thanks, scheduled HUP).
 - Upon requesting or applying a license, instead of a quick "License successful" notification you get the full whiz-bang experience confirming your license is approved and applied, along with details such as your expiration date.
-- When applying or requesting a license, you now get positive visual feedback showing that the system is energetically working on your behalf, by disabling the button you just pressed during processing as well as showing a busy-spinner that is sure to keep you entertained. (Apologies but sometimes Chef Automate just responds too rapidly to even have time to show that it was off doing something, so you might not see our nitfy spinner at all--sad but true!)
+- When applying or requesting a license, you now get positive visual feedback showing that the system is energetically working on your behalf, by disabling the button you just pressed during processing as well as showing a busy-spinner that's sure to keep you entertained. (Apologies but sometimes Chef Automate just responds too rapidly to even have time to show that it was off doing something, so you might not see our nitfy spinner at all.)
 - On the Event Feed, updates to cookbooks now give you the name and version of the cookbook, instead of just the version (which wasn't all that helpful).
 - Manual node creation now includes the option to add (any number of) tag key/value pairs, and those tags can be used as a search query when creating a scan job. This allows users to group manually added nodes to their preference, and easily run scan jobs on those groups.
 - Profile events now show user in event feed if available.
@@ -6465,35 +6271,35 @@ Released on May 20, 2018
 - We love our legal team and they love it when you accept our terms of service and master license and service agreement before installing and using our commercial software. When you run `chef-automate deploy` you'll now be asked to accept TOS and MLSA. You can accept at the prompt by typing "y", "Y" and decline with "n". Since we know you may want to automate your installation, you can also accept in a non-interactive fashion by providing a new flag `--accept-terms-and-mlsa`.
 - The `chef-automate status` command now includes service uptime and process ID. For those of you not yet familiar with Habitat, this enhancement lets you obtain more detailed status information without having to drop out of the `chef-automate` CLI experience.
 - Our preflight check now verifies internet connectivity to the key services that are needed for a successful deploy.
-- Speaking of our preflight check, we now also check the version of the `chef-automate` CLI. We'll let you know if you need to update. We also increased the minimum free disk space required to 5GB. Presently, a fresh install of Chef Automate installs 2.6GB into `/hab` and we now require 250MB of free space in order to enable writes for ElasticSearch. So we increased the minimum free disk space to make sure you have enough room to add some data to the system.
+- Speaking of our preflight check, we now also check the version of the `chef-automate` CLI. We'll let you know if you need to update. We also increased the minimum free disk space required to 5GB. Presently, a fresh install of Chef Automate installs 2.6GB into `/hab` and we now require 250MB of free space in order to enable writes for ElasticSearch. So, we increased the minimum free disk space to make sure you have enough room to add some data to the system.
 - Improve UI handling of 403 unauthorized errors in Admin/API Token view.
 - We no longer print credentials on the console during initial deployment. When you deploy, we'll generate a secure random password that you can use to bootstrap access to Chef Automate's web UI and we'll record this for you in `automate-credentials.toml` which is written in the directory from which you invoked `chef-automate deploy`.
-- We realized the `--admin-password` flag for the `deploy` and `upgrade-from-v1` subcommands wasn't quite safe for general consumption so we've taken the measure of hiding it for now (shhh). The issue is that the local-user-service validates passwords for complexity and this can cause deploys set off into the world with weak passwords to fail at the very end in a way that is a bit of a bummer to recover from. If you need to set a custom password at deploy-time, you still can, but please be sure to use a strong one.
+- We realized the `--admin-password` flag for the `deploy` and `upgrade-from-v1` subcommands wasn't quite safe for general consumption so we've taken the measure of hiding it for now (shhh). The issue is that the local-user-service validates passwords for complexity and this can cause deploys set off into the world with weak passwords to fail at the end in a way that's a bit of a bummer to recover from. If you need to set a custom password at deploy-time, you still can, but please be sure to use a strong one.
 - Prevent a communication breakdown between `chef-automate` client and server that we observed in some cases due to a disagreement about certificates. We now reset properly when retrying a failed connection and expect this to improve the reliability of deploy.
 
-### Bug Fixes
+### Bug fixes
 
 - We fixed a bug that surfaced when spaces made their way into your `no_proxy` environment variable.
 - When proxy config was present for the notifications service, but no_proxy unset, we used strJoin on a nil value. This caused the templating engine to break and stop rendering the rest of the files. We fixed that.
 - Instead of creating a segmentation violation, we now deploy Chef Automate respecting your proxy settings when invoking deploy as `http_proxy=$PROXY chef-automate deploy ...`.
 - Fixed a templating error in automate-elasticsearch's `health_check`
-- You can now request a trial license even if you do not check the 'allow Chef to send me information` box.
+- You can now request a trial license even if you don't check the 'allow Chef to send me information` box.
 - Fixed a bunch of issues with the Node Detail Page. Icons on the resources list on the match the color of their corresponding rollup tab above, the Action type shows up in the column now, and everything is aligned correctly
 
 ## Chef Automate 20180514204156
 
 Released on May 14, 2018
 
-### New Features
+### New features
 
 - Scan jobs with AWS. Add an AWS to A2 automate-URL/integrations. You can add a management service for AWS account scanning and a manager for EC2 scanning, which skips credential information for nodes running in EC2. Your credentials for AWS account scanning need to access: `ec2:DescribeRegions`, `sts:GetCallerIdentity`, `IAM-ListAccountAliases` and global read permissions. For EC2 scanning, youaccess to: `sts:GetCallerIdentity`, `ec2:DescribeInstances`, `ec2:DescribeInstanceStatus`, `ec2:DescribeRegions`.
 With AWS EC2 scanning, you can associate groups of nodes with credentials by the key/value tag associated with the node. In EC2, you can choose to read credential information from your environment and use the AWS SSM functionality to perform "credential-less" infrastructure scanning. For "credential-less" EC2 scanning, you need access to `sts:GetCallerIdentity`, `ec2:DescribeInstances, ec2:DescribeInstanceStatus`, `ec2:DescribeRegions, ssm:*`
 
-- Get notified in Slack or via webhook when client run failures or compliance scan failures happen. Click the bell icon in the top right corner, to configure your notifications. Currently, only compliance scans using the Audit Cookbook trigger notifications. Scan Jobs configured from Automate do not trigger notifications.
+- Get notified in Slack or with webhook when client run failures or compliance scan failures happen. Click the bell icon in the top right corner, to configure your notifications. Currently, only compliance scans using the Audit Cookbook trigger notifications. Scan Jobs configured from Automate don't trigger notifications.
 
 - Get a list of active nodes from the CLI by using the command `chef-automate node-inventory`. This outputs the list of nodes in JSON to the terminal. Output JSON to a file by adding a file path.
 
-- Liveness agent messages are now accepted and ingested. Nodes with liveness agent cookbooks on them will checkin with automate and prevent nodes from being labelled missing even if they are not converging on a regular basis.
+- Liveness agent messages are now accepted and ingested. Nodes with liveness agent cookbooks on them will checkin with automate and prevent nodes from being labelled missing even if they're not converging on a regular basis.
 
 - When running without a license, user will now be invited to enter their contact information to get a trial license, after which A2 will download and apply the license (but please see the Known Issue below).
 
@@ -6505,7 +6311,7 @@ With AWS EC2 scanning, you can associate groups of nodes with credentials by the
 - `chef-automate config` commands now return errors if you've tried to set keys that don't exist
 - `/nodes` page has moved to `/client-runs` to disambiguate chef-client nodes from node manager nodes.
 
-### Bug Fixes
+### Bug fixes
 
 - User id hash for the compliance profile identifier has been replaced with username
 - Resolved "unclickable" buttons on credentials add screen
@@ -6514,30 +6320,30 @@ With AWS EC2 scanning, you can associate groups of nodes with credentials by the
 
 ### Known Issues
 
-- If a user doesn't have permission to access notifications, the error displayed to the user will state there was an error loading notifications instead of properly stating the user does not have permissions.
-- On the Event Feed, Profiles and Scan Job events will show in the list, but will not be visualized as icons in the graph or be included in the counts.
-- Requesting a trial license will only succeeded if the user has checked the 'allow Chef to send me information` box. This is not intended, and will be fixed in the next release.
+- If a user doesn't have permission to access notifications, the error displayed to the user will state there was an error loading notifications instead of properly stating the user doesn't have permissions.
+- On the Event Feed, Profiles and Scan Job events will show in the list, but won't be visualized as icons in the graph or be included in the counts.
+- Requesting a trial license will only succeeded if the user has checked the 'allow Chef to send me information` box. This isn't intended, and will be fixed in the next release.
 - When deploying behind a proxy with the `https_proxy` or `http_proxy` environment variables set, but nothing set for `no_proxy`, the `notifications-service` fails to start. To workaround this, please set `no_proxy=""` when running `chef-automate init-config` or `chef-automate deploy`.
 
 ## Chef Automate 20180504185246
 
 Released on May 7, 2018
 
-### New Features
+### New features
 
-- License Checking: You'll know your license is up-to-date. When you log in, we'll check to see if you have a current license, and if you don't, we'll show you new helper tool to enter your valid license and get access to Automate.  You can also still apply your license using the command line or in your config file.
+- License Checking: You'll know your license is up-to-date. When you log in, we'll check to see if you have a current license, and if you don't, we'll show you new helper tool to enter your valid license and get access to Automate. You can also still apply your license using the command line or in your config file.
 
-- New Scan Jobs Creation Page:  Create scan jobs with a query-based model. First, select a manager base, such as manually managed or aws-ec2, and then build a query using tags, regions, names, or whatever is applicable.  In the end, you'll get a regularly scheduled job that applies to both your current nodes and the nodes you add in the future.
+- New Scan Jobs Creation Page:  Create scan jobs with a query-based model. First, select a manager base, such as manually managed or aws-ec2, and then build a query using tags, regions, names, or whatever is applicable. In the end, you'll get a regularly scheduled job that applies to both your current nodes and the nodes you add in the future.
 
 ### Improvements
 
 - A wider "Check In" column on the Client Runs page prevents the "no data" boxes from breaking into two lines
 
-### Bug Fixes
+### Bug fixes
 
 - Users without permission to see the event feed see an alert, instead of seeing 'no data' with a 403 error in the console.
 
-### Backward Incompatibilities
+### Backward incompatibilities
 
 - Updated the Client Runs page route from `/nodes` to `/client-runs` to prevent confusion with the node manager. You'll want to check if you've bookmarked or saved searches with `/nodes` in the path.
 
@@ -6549,29 +6355,29 @@ Released on May 1, 2018
 
 - We added some new event types to the Event Feed, which means you'll see fewer question mark icons.
 
-### Bug Fixes
+### Bug fixes
 
 - Changed the header to reveal the top section of all pages in the app.
 
 ### Known Issues
 
-- In Firefox, the link to display groupings of individual events on the Event Feed does not work.
+- In Firefox, the link to display groupings of individual events on the Event Feed doesn't work.
 - In Firefox, incorrect styling on a button for showing more details about successful runs causes it to exceed the page margin.
 
 ## Chef Automate 20180430173459
 
 Released on April 30, 2018
 
-### New Features
+### New features
 
-- We now support Compliance Elasticsearch Migrations, both from Automate 1-to-Automate 2 and Automate 2-to-Automate 2. Our Beta customers can keep their data when upgrading to the latest Automate 2.  Remember, a migration begins with the current day--today--and then works backward in time to the very first record. While the current day--today--migrates, it blocks both ingestion and the UI, which makes the app look like it is taking a long time to start. A migration usually takes only a few minutes, but on larger systems--such as those with 150k nodes--a migration may take as long as 10 minutes. Migrations take place quietly and in the background.  During the historical compliance data migration, the compliance service remains available for viewing and ingests new reports as usual. Migrations happen automatically at the compliance service start-up.
+- We now support Compliance Elasticsearch Migrations, both from Automate 1-to-Automate 2 and Automate 2-to-Automate 2. Our Beta customers can keep their data when upgrading to the latest Automate 2. Remember, a migration begins with the current day--today--and then works backward in time to the first record. While the current day--today--migrates, it blocks both ingestion and the UI, which makes the app look like it's taking a long time to start. A migration usually takes only a few minutes, but on larger systems--such as those with 150k nodes--a migration may take as long as 10 minutes. Migrations take place quietly and in the background. During the historical compliance data migration, the compliance service remains available for viewing and ingests new reports as usual. Migrations happen automatically at the compliance service start-up.
 
 ### Improvements
 
 - Improved Compliance Profile Store: Install market profiles to your namespace faster. All market profiles included in Automate 2 are Inspec 2 compatible.
 - Improved Compliance Reporting UI: Use a simpler single-date-picker in the search bar and adjust the trend graph to show the last ten days, month, three months, or year.
 
-### Bug Fixes
+### Bug fixes
 
 - Delete user session on logout.
 - Fix Node Run Summary view shows run ID instead of the node ID.
@@ -6583,31 +6389,31 @@ Released on April 30, 2018
 
 Released on April 30, 2018
 
-### Bug Fixes
+### Bug fixes
 
 - Fixed the `chef-automate admin-token` command. This command was non-functional in the previous release and would return an error like:
 
-```
-Failure: could not generate admin API token: rpc error: code = Unknown desc = permission API token: rpc error: code = InvalidArgument desc = invalid CreatePolicyReq.Subjects[0]: value does not match regex pattern "^(?:team|user):(?:local|ldap|saml):(?:[^:*]+|[*])$|^(?:(?:team|user):)?[*]$|^token:(?:[^:*]+|[*])$"
+```plain
+Failure: could not generate admin API token: rpc error: code = Unknown desc = permission API token: rpc error: code = InvalidArgument desc = invalid CreatePolicyReq.Subjects[0]: value doesn't match regex pattern "^(?:team|user):(?:local|ldap|saml):(?:[^:*]+|[*])$|^(?:(?:team|user):)?[*]$|^token:(?:[^:*]+|[*])$"
 ```
 
 ## Chef Automate 20180424150704
 
 Released on April 24, 2018
 
-### Bug Fixes
+### Bug fixes
 
 - Fixed the `chef-automate admin-token` command. This command was non-functional in the previous release and would return an error like:
 
 ```
-Failure: could not generate admin API token: rpc error: code = Unknown desc = permission API token: rpc error: code = InvalidArgument desc = invalid CreatePolicyReq.Subjects[0]: value does not match regex pattern "^(?:team|user):(?:local|ldap|saml):(?:[^:*]+|[*])$|^(?:(?:team|user):)?[*]$|^token:(?:[^:*]+|[*])$"
+Failure: could not generate admin API token: rpc error: code = Unknown desc = permission API token: rpc error: code = InvalidArgument desc = invalid CreatePolicyReq.Subjects[0]: value doesn't match regex pattern "^(?:team|user):(?:local|ldap|saml):(?:[^:*]+|[*])$|^(?:(?:team|user):)?[*]$|^token:(?:[^:*]+|[*])$"
 ```
 
 ## Chef Automate 20180420141712
 
 Released on April 24, 2018
 
-### New Features
+### New features
 
 - We've added the ability to collect anonymized usage and diagnostic data to help us improve your experience. On your first login, you'll see a checkbox to opt out. If you're upgrading to this version, you'll be automatically opted-in. If you'd like to opt out, click on your profile in the top right corner and select "About Chef Automate." But we'd like you to opt-in so that we can make the product better.
 
@@ -6615,20 +6421,20 @@ Released on April 24, 2018
 
 - Added the automatic node attributes to the Node Details page
 
-### Bug Fixes
+### Bug fixes
 
 - Fixed where the Event Feed guitar duplicated events across strings.
 - Fixed an issue in the node detail view where the Run ID was displayed instead of the node name.
 
-### Backward Incompatibilities
+### Backward incompatibilities
 
-- Removed all ``google.protobuf.Empty`` GRPC messages from ``config-mgmt-service`` and ``ingest-service endpoints``. This is a breaking change for service to service communication, but will not be a problem if you update all the Automate services at the same time. This change will be a problem for mixing old services with this version.
+- Removed all ``google.protobuf.Empty`` GRPC messages from ``config-mgmt-service`` and ``ingest-service endpoints``. This is a breaking change for service to service communication, but won't be a problem if you update all the Automate services at the same time. This change will be a problem for mixing old services with this version.
 
 ## Chef Automate 20180416135645
 
 Released on April 16, 2018
 
-### New Features
+### New features
 
 - Added support for the new front-end telemetry endpoint. Users can control their telemetry settings in the welcome modal, which is accessible from the user dropdown in the nav by clicking 'About Chef Automate'.
 - Added the command `admin-token` to the `chef-automate` CLI. It allows admins to generate an API token that also has admin level access. In particular, this is useful for changing the default permissions within Automate, as well as granting other API tokens access to the API. See `chef-automate admin-token --help` for more information.
@@ -6640,11 +6446,11 @@ Released on April 16, 2018
 - Improved Compliance performance for all APIs using the ES backend datastore.
 - Increased granularity in the Compliance UI, down to one day on the Compliance UI trend graphs.
 
-### Bug Fixes
+### Bug fixes
 
 - Client Runs/Node List UI icon sits in a column next to the text
 
-### Backward Incompatibilities
+### Backward incompatibilities
 
 - Changed backend storage of the API Keys to use Postgres. The upgraded experience without the token migration is that all of the existing API Keys disappear. Migrate the existing API Keys with the following steps :
 
@@ -6668,7 +6474,7 @@ chef-automate restart-services
 
 Released on April 9, 2018
 
-### New Features
+### New features
 
 - Hover over events on the guitar strings graph to see tooltip information.
 
@@ -6678,16 +6484,16 @@ Released on April 9, 2018
 - Updated design on the node details page to better show our Chef-ness.
 - Added a summary panel to the event feed features a summary panel showing the total number of events for the last 7 days as well as a breakdown of create, delete, and update actions.
 
-### Bug Fixes
+### Bug fixes
 
 - See 'no data' when no data is available on the Client Runs page. Removed old and broken tooltips.
 - Data ingestion with Chef Client 12 failed on runs sending resources with before and/or after attributes different from what Automate expected. Automate was adjusted for these cases and now successfully ingests the data.
 
-### Upgrade Notes and Instructions
+### Upgrade notes and instructions
 
 Automate 2 upgrades should occur automatically and are generally a hands-off process, but we may ask you to perform some manual tasks from time-to-time as we work to improve.
 
-### Backward Incompatibilities
+### Backward incompatibilities
 
 -
 
@@ -6695,11 +6501,11 @@ Automate 2 upgrades should occur automatically and are generally a hands-off pro
 
 Released on April 3, 2018
 
-### New Features
+### New features
 
 #### Introspection API
 
-Use the introspection API endpoint to check current user permissions on HTTP endpoints exposed by the Automate 2 gateway via the `/admin/introspect` endpoint.
+Use the introspection API endpoint to check current user permissions on HTTP endpoints exposed by the Automate 2 gateway with the `/admin/introspect` endpoint.
 
 ##### Request
 
@@ -6711,22 +6517,22 @@ Check individual endpoints, parameterized or not, with the HTTP POST method, pas
 
 ### Improvements
 
-#### Icons on the Event Feed
+#### Icons on the event feed
 
 The Event Feed visualization has icons for each event type. See *what* events happened over the last week.
 
-#### Configuration Management Authorization
+#### Configuration management authorization
 
 All configuration management endpoints now undergo an authorization check. Users have default access to these endpoints by curl and the UI.
 
-### Bug Fixes
+### Bug fixes
 
 - see the latest compliance scan history result first instead of last
 - filter by multiple profiles and multiple nodes
 - multiple API methods of the same name but from different services are individually resolved (notably affected the GetVersion method, which exists on most services)
 - nav icon tooltips now display in the UI
 
-### Upgrade Notes and Instructions
+### Upgrade notes and instructions
 
 Automate 2 upgrades should occur automatically and are generally a hands-off process, but we may ask you to perform some manual tasks from time-to-time as we work to improve this process.
 
@@ -6736,7 +6542,7 @@ This week, restart the Habitat supervisor process to clean up some stale state t
 sudo pkill hab-sup
 ```
 
-### Backward Incompatibilities
+### Backward incompatibilities
 
 As new UI elements are being introduced, there are currently some caching issues. Clearing the browser cache is necessary if you've run Autoamte 2 previously to ensure the latest UI elements load properly.
 
@@ -6744,17 +6550,17 @@ As new UI elements are being introduced, there are currently some caching issues
 
 Released on March 26, 2018
 
-### New Features
+### New features
 
 #### Event Feed visualization filtering
 
-Select an event type from the Event Feed drop-down menu to display only that event-type on the "guitar string".
+Select an event type from the Event Feed drop-down menu to display only that event-type on the guitar string.
 
 #### New `chef-automate config` commands
 
 The new commands allow a user to `show`, `set`, and `patch` Automate's config.
 
-- `chef-automate config show` returns the TOML representation of the current override config that is persisted and applied by the `deployment-service`. Write the TOML to a file instead of `STDOUT` by giving a file path as the first position argument. e.g.:
+- `chef-automate config show` returns the TOML representation of the current override config that's persisted and applied by the `deployment-service`. Write the TOML to a file instead of `STDOUT` by giving a file path as the first position argument. e.g.:
 
   `chef-automate config show /etc/chef-automate/config.toml`
 
@@ -6762,13 +6568,13 @@ The new commands allow a user to `show`, `set`, and `patch` Automate's config.
 
   `chef-automate config set /etc/chef-automate/config.toml`
 
-- `chef-automate config patch` updates parts of the configuration without needing to first save and then modify the entire existing configuration. `patch` differs from `set` in the method that configuration is applied.  `patch` accepts a configuration subset, which is merged with the existing Automate config before it is applied, where `set` requires a full and validated configuration. `chef-automate config patch` accepts a positional argument to determine the configuration location. e.g.:
+- `chef-automate config patch` updates parts of the configuration without needing to first save and then modify the entire existing configuration. `patch` differs from `set` in the method that configuration is applied.  `patch` accepts a configuration subset, which is merged with the existing Automate config before it's applied, where `set` requires a full and validated configuration. `chef-automate config patch` accepts a positional argument to determine the configuration location. e.g.:
 
   `chef-automate config patch /etc/chef-automate/enable-debug.toml`
 
 ### Improvements
 
-#### authz-service: persistance of stored policies
+#### authz-service: Persistance of stored policies
 
 Before, the policies stored in A2 were only kept in memory, and reset on every server restart.
 Now, stored policies are persisted to A2's PostgreSQL instance, and thus survive restarts.
@@ -6781,11 +6587,9 @@ Before, the only wildcard option for "subjects" in policies was `"*"`.
 Now, in addition to that, partial wildcards are possible, like `"user:local:*"` for any local user, or `"client:*" for any API client.
 This enables authorizing API clients to *only post data to the corresponding endpoint*, and not access any other API.
 
-### Bug Fixes
+### Bug fixes
 
--
-
-### Backward Incompatibilities
+### Backward incompatibilities
 
 - `chef-automate configure-service` no longer exists.
 - `chef-automate config fetch` no longer exists.
@@ -6795,48 +6599,48 @@ This enables authorizing API clients to *only post data to the corresponding end
 
 Released on March 22, 2018
 
-### New Features
+### New features
 
-##### Event feed visualization filters by type
+#### Event feed visualization filters by type
 
 If you select an event type, you'll notice that the 'guitar strings' visualization will show only events of that type.
 
-##### No data experience for Client Runs
+#### No data experience for Client Runs
 
 If a node has no client run data associated with it, you'll see it in the list but you won't be be able to click into the details (because there are none). Instead it will be marked with 'no data.'
 
 ### Improvements
 
-### Bug Fixes
+### Bug fixes
 
-##### Don't prefix external teams twice
+#### Don't prefix external teams twice
 
 In the previous release, an externally provided team would have been prefixed twice: for example, `admins` (LDAP) would be recognized and processed as `team:ldap:team:ldap:admins`.
 As a consequence, policies written for `team:ldap:admins` would fail to match.
 
-##### Unable to Install with `umask 0027`
+#### Unable to Install with `umask 0027`
 
 Prior to this release, Chef Automate failed to install on systems with a restrictive `umask` of `0027`. Automate is now able to install on systems with this `umask` without needing to change system settings.
 
-##### Elasticsearch not Starting Because of `noexec` Mounts
+#### Elasticsearch not Starting Because of `noexec` Mounts
 
 This release fixes an issue that prevented Elasticsearch from starting when there were no mounts available that the `hab` user could write to and exec from. Elasticsearch now creates and uses its own temp directory for loading the required executable code.
 
-##### Sign out in Firefox
+#### Sign out in Firefox
 
 Fixed a bug that prevented you from signing out in Firefox. We don't want you to leave, but you should be able to have the choice.
 
-##### Chef Server and Server Org filters on the left sidebar
+#### Chef Server and Server Org filters on the left sidebar
 
 Fixed some corner cases with the filter selection logic.
 
-### Backward Incompatibilities
+### Backward incompatibilities
 
-##### Changed Subjects of local users for Policies
+#### Changed Subjects of local users for Policies
 
 Changed the format of local user subjects in authorization policies. Before, this was `user:local:a980dc21-1d54-4614-86a8-a144fc91c282`, now, it's `user:local:admin@example.com`.
 
-##### Policies are versioned in our public API
+#### Policies are versioned in our public API
 
 All policy creation requests now need to include a version key, e.g.
 
@@ -6864,15 +6668,15 @@ Released on March 19, 2018
 - Added loading state to the event feed
 - Enabled configuring all settings in a new deployment with the `config.toml`
 
-### Bug Fixes
+### Bug fixes
 
 - Made the signout button clickable
 - Selecting a chef-server or organization no longer deletes it on the backend
 - Ingest a Chef run from year one and view the nodes on the nodes details page
 
-### Backward Incompatibilities
+### Backward incompatibilities
 
-#### Default Configuration Changes
+#### Default configuration changes
 
 Changes to Chef Automate's internal data and file format configurations requires resetting configurations** manually on installations pre-dating 2018/03/09 (Y/M/D).
 
@@ -6893,7 +6697,7 @@ rm -rf /hab/svc/deployment-service/data # remove persisted configuration data
 chef-automate deploy config.toml        # re-deploy with the config file from your initial deployment
 ```
 
-##### Compliance Elasticsearch doc_type change
+#### Compliance Elasticsearch doc_type change
 
 Changed the ElasticSearch document type for indices from `_doc` to `doc` to ensure backward compatibility with ElasticSearch 5. Users need to first reset compliance data and then re-ingest all of their compliance data by re-sending the reports through to Automate. Use the following commands *while logged onto* their Automate instance:
 
@@ -6908,7 +6712,7 @@ curl -X DELETE http://localhost:10141/_template/comp*
 chef-automate restart-services
 ```
 
-##### Changed Subjects for Policies
+#### Changed Subjects for Policies
 
 Changed the format of user subjects in authorization policies. User subjects now contain a `local`, `SAML`, or `LDAP` namespace, depending on the login process, and an id. For example:
 
