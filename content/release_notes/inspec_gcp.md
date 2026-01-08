@@ -2,7 +2,7 @@
 title = "GCP Cloud Resource Release Notes"
 draft = true
 
-release_notes = "inspec-gcp"
+
 product = ["inspec"]
 
 [menu]

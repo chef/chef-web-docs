@@ -2,7 +2,7 @@
 title = "Ali Cloud Resource Release Notes"
 draft = true
 
-release_notes = "inspec-alicloud"
+
 product = ["inspec"]
 
 [menu]

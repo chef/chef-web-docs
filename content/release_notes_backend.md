@@ -1,18 +1,6 @@
 +++
 title = "Chef Backend Release Notes"
 draft = false
-
-product = []
-release_notes = "chef-backend"
-layout = "release_notes"
-toc_layout = "release_notes_toc"
-
-[menu]
-  [menu.release_notes]
-    title = "Chef Backend"
-    identifier = "release_notes/Chef Backend"
-    parent = "release_notes"
-    weight = 20
 +++
 
 {{< warning >}}
