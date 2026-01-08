@@ -3035,7 +3035,7 @@ Released on September 27, 2021
 
 - Manage **Telemetry** options from your **Profile** ([#5729](https://github.com/chef/automate/pull/5629))
 - Add a Chef Infra Server using either a FQDN or an IP address ([#5724](https://github.com/chef/automate/pull/5724))
-- Encrypted data bags cannot be edited in Automate.([#5754](https://github.com/chef/automate/pull/5754))
+- Encrypted data bags can't be edited in Automate.([#5754](https://github.com/chef/automate/pull/5754))
 
 ### Bug fixes
 
@@ -3277,7 +3277,7 @@ Released on August 2, 2021
 
 #### Security Improvements
 
-- We have made the following security improvements (Examples: New Security Configurations): ([#5363](https://github.com/chef/automate/pull/5363))
+- We've made the following security improvements (Examples: New Security Configurations): ([#5363](https://github.com/chef/automate/pull/5363))
 
 - Added SameSite=Lax to the Session Cookie
 
@@ -3410,7 +3410,7 @@ Released on July 5, 2021
 
 - In the Chef Infra Server, the **Create** and **Save** buttons get enabled only when you are done and ready to save. ([#5276](https://github.com/chef/automate/pull/5276))
 - A `subscription id` is added in **Node Integration** for Azure API in **Settings > Node Integration > Azure > API** ([#5291](https://github.com/chef/automate/pull/5291))
-- We have made various changes like button alignment and unnecessary spaces to improve your user experience while working on Chef Automate Interface.
+- We've made various changes like button alignment and unnecessary spaces to improve your user experience while working on Chef Automate Interface.
 
 ### Compliance profile updates
 
@@ -4275,7 +4275,7 @@ Released on June 23, 2020
 
 ### Bug fixes
 
-- A "could not get logged in user" error no longer displays for non-local users upon sign in.
+- A "couldn't get logged in user" error no longer displays for non-local users upon sign in.
 - Compliance Report nodes correctly filter by status when using Deep Filtering.
 
 ## Chef Automate 20200610173731
@@ -4982,7 +4982,7 @@ Released on August 5, 2019
 
 - Clear Your Mind: We removed the shadows from the top and left navigation menus to make Chef Automate easier on your eyes.
 - New Version: Chef InSpec has been upgraded to version 4.7.18.
-- Even More Suggestions: We increased the maximum number of suggestions on the *Compliance* page’s search bar to 100.
+- Even More Suggestions: We increased the maximum number of suggestions on the *Compliance* page's search bar to 100.
 - Better Sorting: We made improvements on how local users are filtered in the following Windows profiles:
 
   - CIS Microsoft Windows Server 2016, v1.1.0
@@ -4995,9 +4995,9 @@ Released on August 5, 2019
 
 ### Bug fixes
 
-- Found: Our recent fix addresses some suggested values missing from the *Compliance* page’s search bar.
+- Found: Our recent fix addresses some suggested values missing from the *Compliance* page's search bar.
 - Getting Through: We squashed a bug where notifications weren't being sent for some custom InSpec profiles.
-- No More Annoying Boxes: We turned off browser form autocompletion for both the *Client Runs* and *Compliance* pages’ search bars to save some sanity when entering a search filter.
+- No More Annoying Boxes: We turned off browser form autocompletion for both the *Client Runs* and *Compliance* pages' search bars to save some sanity when entering a search filter.
 
 ## Chef Automate 20190722200451
 
@@ -5027,7 +5027,7 @@ ICYMI: If you are upgrading from a version prior to 20190410001346, please read 
 
 ### Improvements
 
-- Easily Read: We have improved the readability of the CIS RHEL and Ubuntu compliance profiles.
+- Easily Read: We've improved the readability of the CIS RHEL and Ubuntu compliance profiles.
 - Check It Out: CIS Ubuntu 16.04 v1.0.0 compliance profile features a number of fixes and improvements.
 - Keeps Going: `chef-automate airgap bundle create` now retries failed downloads of Habitat artifacts.
 - Security Detail: Our default cipher suite configuration no longer includes CBC-mode ciphers.
@@ -5162,7 +5162,7 @@ ICYMI: If you are upgrading from a version prior to 20190410001346, please read 
 ### Bug fixes
 
 - Replaced Filter: Wildcard filters of the same type in the Client Runs search bar are now treated as 'OR' filters.
-- Keep It Simple: Compliance will now use one ElasticSearch connection per compliance-service instance. By reducing the number of sockets being managed, this solves a problem of receiving `could not get elastic connection` errors in Compliance.
+- Keep It Simple: Compliance will now use one ElasticSearch connection per compliance-service instance. By reducing the number of sockets being managed, this solves a problem of receiving `couldn't get elastic connection` errors in Compliance.
 - In Order: Search bar types under the *Client Runs* page are now sorted alphabetically.
 
 ## Chef Automate 20190513175357
@@ -5263,30 +5263,30 @@ Released on April 16, 2019
 
 ### Upgrade Impact
 
-We’re preparing the way for two great new features in Chef Automate—deep filtering in Compliance reporting and IAM v2 Beta. We’re making changes to the format for compliance results, which means that we’re migrating your compliance results to the new format.
+We're preparing the way for two great new features in Chef Automate—deep filtering in Compliance reporting and IAM v2 Beta. We're making changes to the format for compliance results, which means that we're migrating your compliance results to the new format.
 For most users, this migration will happen quickly and in the background. However, if your system has tens of gigabytes of compliance results for the current day, the migration may take hours.
 
 #### Migration Process
 
-We’ll migrate your current day’s compliance data first, and then migrate your earlier compliance data.
+We'll migrate your current day's compliance data first, and then migrate your earlier compliance data.
 
-We’re making some systems unresponsive during the current day data migration, in order to protect your data’s integrity. Once the migration for the current day’s data finishes, these systems will operate normally. You’ll  be able to use all of Chef Automate while we migrate your earlier compliance data.
+We're making some systems unresponsive during the current day data migration, in order to protect your data's integrity. Once the migration for the current day's data finishes, these systems will operate normally. You'll  be able to use all of Chef Automate while we migrate your earlier compliance data.
 
-During the current day’s data migration:
+During the current day's data migration:
 
 - Compliance APIs and UI (Compliance page, Scan Jobs, Asset Store) won't be responsive
 - Scan jobs and incoming scan reports (from audit cookbook or inspec exec) won't be processed
 
-We’re promoting this release to Automate’s “current” channel—which means this upgrade goes live—at 00:01am UTC (5:01 PM PDT).
-For customers who have automatic upgrades enabled, this should reduce the amount of time needed for the data migration, because you should have very little data in the current day’s results.
+We're promoting this release to Automate's “current” channel—which means this upgrade goes live—at 00:01am UTC (5:01 PM PDT).
+For customers who have automatic upgrades enabled, this should reduce the amount of time needed for the data migration, because you should have very little data in the current day's results.
 We recommend that customers without auto upgrades configured run their manual upgrades upgrade at 00:01 UTC, or shortly thereafter, in order to minimize their downtime.
 
 #### Upgrading manually
 
-If your Chef Automate installation isn’t configured for auto upgrades, you will need to upgrade manually.
+If your Chef Automate installation isn't configured for auto upgrades, you will need to upgrade manually.
 We recommend that you run your manual upgrade at 00:01 UTC or shortly after to minimize downtime.
 
-During the current day’s data migration:
+During the current day's data migration:
 
 - Compliance APIs and UI (Compliance page, Scan Jobs, Asset Store) won't be responsive
 - Scan jobs and incoming scan reports (from audit cookbook or inspec exec) won't be processed
@@ -5340,7 +5340,7 @@ Released on April 1, 2019
   - prefix - `foo*`
   - contains - `*foo*`
   - exact - `foo`
-- Tag It!: We have removed the restriction that prevented users from adding node tags with `:`, `*`, etc.
+- Tag It!: We've removed the restriction that prevented users from adding node tags with `:`, `*`, etc.
 - Filter It!: We've added a prefix wildcard search  (`foo*`) for scan jobs for the Automate manager node names and AWS-EC2 integration tag value searches.
 
 ### Bug fixes
@@ -5758,7 +5758,7 @@ To correct your settings, reapply the values you originally intended for your cu
 
 If you never tried to set any of these values, the defaults continue to apply and the operations that the settings applied to continue to work as expected. No action is needed.
 
-We fixed the problems in using custom settings for managing node data in this release of Automate and we have increased the testing around managing node data to prevent this problem from recurring in the future.
+We fixed the problems in using custom settings for managing node data in this release of Automate and we've increased the testing around managing node data to prevent this problem from recurring in the future.
 
 ## Chef Automate 20180920223835
 
@@ -5835,7 +5835,7 @@ Released on August 28, 2018
 
 ### Bug fixes
 
-- We updated the InSpec version included with Automate, so your scan jobs will pass. You won’t see this error:
+- We updated the InSpec version included with Automate, so your scan jobs will pass. You won't see this error:
 
 ```
 exit status 1,
@@ -6394,7 +6394,7 @@ Released on April 30, 2018
 - Fixed the `chef-automate admin-token` command. This command was non-functional in the previous release and would return an error like:
 
 ```plain
-Failure: could not generate admin API token: rpc error: code = Unknown desc = permission API token: rpc error: code = InvalidArgument desc = invalid CreatePolicyReq.Subjects[0]: value doesn't match regex pattern "^(?:team|user):(?:local|ldap|saml):(?:[^:*]+|[*])$|^(?:(?:team|user):)?[*]$|^token:(?:[^:*]+|[*])$"
+Failure: couldn't generate admin API token: rpc error: code = Unknown desc = permission API token: rpc error: code = InvalidArgument desc = invalid CreatePolicyReq.Subjects[0]: value doesn't match regex pattern "^(?:team|user):(?:local|ldap|saml):(?:[^:*]+|[*])$|^(?:(?:team|user):)?[*]$|^token:(?:[^:*]+|[*])$"
 ```
 
 ## Chef Automate 20180424150704
@@ -6406,7 +6406,7 @@ Released on April 24, 2018
 - Fixed the `chef-automate admin-token` command. This command was non-functional in the previous release and would return an error like:
 
 ```
-Failure: could not generate admin API token: rpc error: code = Unknown desc = permission API token: rpc error: code = InvalidArgument desc = invalid CreatePolicyReq.Subjects[0]: value doesn't match regex pattern "^(?:team|user):(?:local|ldap|saml):(?:[^:*]+|[*])$|^(?:(?:team|user):)?[*]$|^token:(?:[^:*]+|[*])$"
+Failure: couldn't generate admin API token: rpc error: code = Unknown desc = permission API token: rpc error: code = InvalidArgument desc = invalid CreatePolicyReq.Subjects[0]: value doesn't match regex pattern "^(?:team|user):(?:local|ldap|saml):(?:[^:*]+|[*])$|^(?:(?:team|user):)?[*]$|^token:(?:[^:*]+|[*])$"
 ```
 
 ## Chef Automate 20180420141712

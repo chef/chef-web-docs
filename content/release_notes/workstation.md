@@ -344,7 +344,7 @@ See the Chef [licensing documentation](https://docs.chef.io/licensing/) and [dow
 
 ### Bug Fixes
 
-- Fixed an error where the Chef Workstation App remains open in the tray icon after it is uninstalled on macOS.
+- Fixed an error where the Chef Workstation App remains open in the tray icon after it's uninstalled on macOS.
 
 ### Components
 
@@ -408,7 +408,7 @@ Updated knife-ec2 to v2.1.6, which adds support for the gp3 and io2 volume types
 
 We now produce Amazon Linux 2023 packages for Chef Workstation for x86_64 and AArch64 architectures.
 
-**Note**: Chef Habitat is not bundled with Chef Workstation for Amazon Linux 2023 AArch64 architectures.
+**Note**: Chef Habitat isn't bundled with Chef Workstation for Amazon Linux 2023 AArch64 architectures.
 
 ### Components
 
@@ -632,11 +632,11 @@ Updated Chef InSpec from 4.56.20 to 5.18.14. See the [Chef InSpec release notes]
 
 ### Bug Fixes & Updates
 
-- We fixed an error when opening the Chef Workstation App on macOS Ventura that states that "Chef Workstation App.app is damaged and can’t be opened".
+- We fixed an error when opening the Chef Workstation App on macOS Ventura that states that "Chef Workstation App.app is damaged and can't be opened".
 
 ### Platform Packages
 
-- We are no longer producing Debian 9 packages as Debian 9 is now end-of-life.
+- We're no longer producing Debian 9 packages as Debian 9 is now end-of-life.
 
 #### Test-Kitchen
 
@@ -720,7 +720,7 @@ The `chef report nodes` and `chef report cookbooks` subcommands now work with a 
 
 - Fixed an [issue](https://github.com/berkshelf/berkshelf/issues/1857) in Berkshelf where the `berks package` command returns incorrect file paths. Thanks [inopinatus](https://github.com/inopinatus)!
 - Fixed an [issue](https://github.com/chef/cookbook-omnifetch/issues/35) in `cookbook-omnifetch` so that cached cookbooks can be used for ChefSpec testing. Thanks [karmix](https://github.com/karmix)!
-- Fixed an issue in the `kitchen-vra` plugin which restores the ability to specify vRA users that are not part of the default domain.
+- Fixed an issue in the `kitchen-vra` plugin which restores the ability to specify vRA users that aren't part of the default domain.
 - Fixed an issue in the `kitchen-vra` plugin which will allow non-administrator vRA users to execute kitchen tests. Thanks [oshvarts](https://github.com/oshvarts)!
 
 ## Chef Workstation 22.5.923
@@ -739,7 +739,7 @@ The `chef report nodes` and `chef report cookbooks` subcommands now work with a 
 
 ### Improvements
 
-- `train-winrm` added the option to allow SSL connection with certificates. In this case, the password is not required.
+- `train-winrm` added the option to allow SSL connection with certificates. In this case, the password isn't required.
 - `chef env` now runs faster on all OSes, especially on Windows.
 - `knife supermarket` commands are now additionally available to execute as `chef supermarket`. This is a preview feature.
 
@@ -760,7 +760,7 @@ Updated Chef InSpec 4.52.9 to 4.56.19. See the [Chef InSpec release notes](https
 ### Bug Fixes
 
 - The parameter `default_chef_server_http_client` is now set when used with CookbookOmnifetch. Thanks [@karmix](https://github.com/karmix)!
-- `kitchen-azurerm` has temporarily disabled support for specifying a VM availability zone. This allows `kitchen create` to run successfully when the availability zone is not configured.
+- `kitchen-azurerm` has temporarily disabled support for specifying a VM availability zone. This allows `kitchen create` to run successfully when the availability zone isn't configured.
 
 ## Chef Workstation 22.2.807
 
@@ -874,7 +874,7 @@ We removed the Delivery CLI tool from Chef Workstation as part of the December 3
 
 #### Native Apple M1 Packages
 
-We now produce macOS packages for Chef Workstation macOS for Intel and M1 (ARM) architectures. The new M1 packages eliminate the need for Apple's Rosetta framework when using Chef Workstation. We have also seen significant performance improvements with 28% faster knife command runtime on MacBook Air systems.
+We now produce macOS packages for Chef Workstation macOS for Intel and M1 (ARM) architectures. The new M1 packages eliminate the need for Apple's Rosetta framework when using Chef Workstation. We've also seen significant performance improvements with 28% faster knife command runtime on MacBook Air systems.
 
 ## Chef Workstation 22.1.745
 
@@ -1047,7 +1047,7 @@ Chef InSpec has been updated from 4.41.20 to 4.46.13 with the following enhancem
 - Added the option to establish a connection using a UNIX socket in the `postgres_session` resource.
 - Fixed the --tags filter for dependent profiles.
 - Fixed the --controls filter for dependent profiles.
-- Fixed the `opa_cli` and `opa_api` resources so they are able to verify an empty result.
+- Fixed the `opa_cli` and `opa_api` resources so they're able to verify an empty result.
 
 #### Cookstyle 7.25.6
 
@@ -1111,20 +1111,20 @@ Chef Infra Client has been updated from 17.3.48 to 17.4.38. This new release inc
 
 Chef InSpec has been updated from 4.38.9 to 4.41.20 with the following enhancements:
 
-- Updated the git fetcher to handle profiles that have a default git branch that is not `master`.
+- Updated the git fetcher to handle profiles that have a default git branch that isn't `master`.
 - Added support for Alibaba Cloud Linux 3 to the Chef InSpec service resource.
 - Replaced the WMI command-line (WMIC) utility in the Chef InSpec security_identifier resource with Common Information Model (CIM) cmdlets as the WMIC utility will be deprecated soon.
-- Adjusted the exit code to Normal when attempting to install a plugin that is already installed.
+- Adjusted the exit code to Normal when attempting to install a plugin that's already installed.
 - Added new Open Policy Agent resources opa_cli and opa_api.
 - Added new mongodb_session resource.
 - The mssql_session resource now allows named connections by no longer forcing a port.
 - The PostgreSQL resources (postgres_session, postgres_conf, postgres_hba_conf, and postgres_ident_conf) now work with Windows.
 - Fixed a bug where the year in an expiration date was misinterpreted in waiver files.
 - Fixed range-based filtering in filter tables.
-- Fixed an issue in the Chef InSpec apache_conf resource when the ServerRoot is not specified in the Apache configuration file.
+- Fixed an issue in the Chef InSpec apache_conf resource when the ServerRoot isn't specified in the Apache configuration file.
 - Fixed an issue when testing files with `chef exec` where the `--insecure` flag doesn't bypass SSL verification when downloading profiles over HTTPS.
 - Fixed the `inspec --chef-license=accept` invocation to only show the license acceptance message and not show the InSpec CLI help command output.
-- Fixed an error in the Chef InSpec postgres_session resource where the resource could not connect to a database.
+- Fixed an error in the Chef InSpec postgres_session resource where the resource couldn't connect to a database.
 - Fixed an error in the Chef InSpec apache_conf resource where it would overwrite any Apache configurations from the main Apache configuration file with configurations from any included configuration files.
 - Fixed an error where the Chef InSpec `security_policy` resource returned a comma-separated string of local groups (rather than SIDs) instead of an array.
 - Fixed a regression related to processing tags in certain formats using the `--tags` CLI option.
@@ -1166,7 +1166,7 @@ Several Test Kitchen drivers received important updates to improve their reliabi
 
 ##### VMware vCenter
 
-The Test Kitchen driver for VMware VCenter has been updated to avoid targeting ESXi systems in maintenance mode and to provide better errors when resources are not found or the client lacks permissions on the cluster. Thanks for these improvements [@tecracer-theinen](https://github.com/tecracer-theinen)!
+The Test Kitchen driver for VMware VCenter has been updated to avoid targeting ESXi systems in maintenance mode and to provide better errors when resources aren't found or the client lacks permissions on the cluster. Thanks for these improvements [@tecracer-theinen](https://github.com/tecracer-theinen)!
 
 ##### Microsoft Hyper-V
 
@@ -1209,20 +1209,20 @@ Chef Infra Client has been updated from 17.3.48 to 17.4.38. This new release inc
 
 Chef InSpec has been updated from 4.38.9 to 4.41.20 with the following enhancements:
 
-- Updated the git fetcher to handle profiles that have a default git branch that is not `master`.
+- Updated the git fetcher to handle profiles that have a default git branch that isn't `master`.
 - Added support for Alibaba Cloud Linux 3 to the Chef InSpec service resource.
 - Replaced the WMI command-line (WMIC) utility in the Chef InSpec security_identifier resource with Common Information Model (CIM) cmdlets as the WMIC utility will be deprecated soon.
-- Adjusted the exit code to Normal when attempting to install a plugin that is already installed.
+- Adjusted the exit code to Normal when attempting to install a plugin that's already installed.
 - Added new Open Policy Agent resources opa_cli and opa_api.
 - Added new mongodb_session resource.
 - The mssql_session resource now allows named connections by no longer forcing a port.
 - The PostgreSQL resources (postgres_session, postgres_conf, postgres_hba_conf, and postgres_ident_conf) now work with Windows.
 - Fixed a bug where the year in an expiration date was misinterpreted in waiver files.
 - Fixed range-based filtering in filter tables.
-- Fixed an issue in the Chef InSpec apache_conf resource when the ServerRoot is not specified in the Apache configuration file.
+- Fixed an issue in the Chef InSpec apache_conf resource when the ServerRoot isn't specified in the Apache configuration file.
 - Fixed an issue when testing files with `chef exec` where the `--insecure` flag doesn't bypass SSL verification when downloading profiles over HTTPS.
 - Fixed the `inspec --chef-license=accept` invocation to only show the license acceptance message and not show the InSpec CLI help command output.
-- Fixed an error in the Chef InSpec postgres_session resource where the resource could not connect to a database.
+- Fixed an error in the Chef InSpec postgres_session resource where the resource couldn't connect to a database.
 - Fixed an error in the Chef InSpec apache_conf resource where it would overwrite any Apache configurations from the main Apache configuration file with configurations from any included configuration files.
 - Fixed an error where the Chef InSpec `security_policy` resource returned a comma-separated string of local groups (rather than SIDs) instead of an array.
 - Fixed a regression related to processing tags in certain formats using the `--tags` CLI option.
@@ -1264,7 +1264,7 @@ Several Test Kitchen drivers received important updates to improve their reliabi
 
 ##### VMware vCenter
 
-The Test Kitchen driver for VMware VCenter has been updated to avoid targeting ESXi systems in maintenance mode and to provide better errors when resources are not found or the client lacks permissions on the cluster. Thanks for these improvements [@tecracer-theinen](https://github.com/tecracer-theinen)!
+The Test Kitchen driver for VMware VCenter has been updated to avoid targeting ESXi systems in maintenance mode and to provide better errors when resources aren't found or the client lacks permissions on the cluster. Thanks for these improvements [@tecracer-theinen](https://github.com/tecracer-theinen)!
 
 ##### Microsoft Hyper-V
 
@@ -1445,7 +1445,7 @@ The `Chef/Deprecations/PolicyfileCommunitySource` cop detects Policyfile.rb file
 
 ##### New default chef_infra Provisioner
 
-We renamed the `chef_zero` Test Kitchen provisioner to `chef_infra`, making it clear that it is the preferred provisioner for testing Chef Infra cookbooks. This change is backward-compatible, so your existing `kitchen.yml` configurations will still work. We also changed Test Kitchen's default provisioned from `chef_solo` to `chef_infra`. Even if you leave the provisioner configuration unassigned, you will still get Chef Infra cookbook testing. To test with Chef Solo, you need to set the provisioner to `chef_solo` explicitly.
+We renamed the `chef_zero` Test Kitchen provisioner to `chef_infra`, making it clear that it's the preferred provisioner for testing Chef Infra cookbooks. This change is backward-compatible, so your existing `kitchen.yml` configurations will still work. We also changed Test Kitchen's default provisioned from `chef_solo` to `chef_infra`. Even if you leave the provisioner configuration unassigned, you will still get Chef Infra cookbook testing. To test with Chef Solo, you need to set the provisioner to `chef_solo` explicitly.
 
 ##### Berkshelf / Policyfiles Update Automatically
 
@@ -1573,7 +1573,7 @@ Chef InSpec has been updated from 4.37.20 to 4.37.23:
 
 #### Knife Azure
 
-The knife-azure plugin has been updated from 3.0.6 to 4.0.0. This major release removes the legacy `knife azure` commands that were based on the Azure ASM API deprecated in 2018. `knife azurerm` commands will continue to function as they are based on the modern Azure ARM API.
+The knife-azure plugin has been updated from 3.0.6 to 4.0.0. This major release removes the legacy `knife azure` commands that were based on the Azure ASM API deprecated in 2018. `knife azurerm` commands will continue to function as they're based on the modern Azure ARM API.
 
 #### Kitchen InSpec
 
@@ -1612,7 +1612,7 @@ Chef InSpec has been updated from 4.36.4 to 4.37.20 with the following bug fixes
 
 ##### Bug Fixes
 
-- The `file` resource `more_permissive_than` matcher returns nil instead of throwing an exception when the file does not exist.
+- The `file` resource `more_permissive_than` matcher returns nil instead of throwing an exception when the file doesn't exist.
 - The `http` resource response body is now coerced into UTF-8.
 - Fixed an error when using profile dependencies and require_controls.
 - Fixed the windows_firewall_rule resource when it failed to validate more than one rule.
@@ -1636,7 +1636,7 @@ The Knife CLI has been updated from 17.0 to 17.2, which includes several fixes f
 Cookstyle has been updated from 7.10 to 7.13 with the following improvements:
 
 - Cookstyle now targets Ruby 2.5 or later allowing Cookstyle to simplify some complex codebases to use new Ruby functionality.
-- A new `Chef/Deprecations/HWRPWithoutUnifiedTrue` cop detects custom resources that do not set `unified_mode true`. These resources will produce deprecation warnings in Chef Infra Client 17.0 or later as the Unified Mode will become the default in Chef Infra Client 18 (April 2022). Setting `unified_mode true` in custom resources today allows you to ensure they will continue to function as expected in future Chef Infra Client releases.
+- A new `Chef/Deprecations/HWRPWithoutUnifiedTrue` cop detects custom resources that don't set `unified_mode true`. These resources will produce deprecation warnings in Chef Infra Client 17.0 or later as the Unified Mode will become the default in Chef Infra Client 18 (April 2022). Setting `unified_mode true` in custom resources today allows you to ensure they will continue to function as expected in future Chef Infra Client releases.
 - Fixed false positives in the `Chef/Modernize/WindowsRegistryUAC` resource.
 - Improved how we exclude `vendor` and `files` directories so that Cookstyle can run in cookbooks contained in directories named `vendor` or `files`.
 - Updated the RuboCop engine used by Cookstyle to 1.15 with a significant number of detection and autocorrection improvements.
@@ -1649,7 +1649,7 @@ macOS builds of Chef Workstation now ship with OpenSSL 1.1.1, which enables TLS 
 
 ### Known Issues
 
-Chef Workstation 21.5.420 introduced a regression causing failures when running some knife commands. We are currently working towards a fix for this issue which we hope to ship in the next release of Chef Workstation. If you encounter failures running knife commands, please install [Chef Workstation 21.4.365](https://downloads.chef.io/tools/workstation/stable?v=21.4.365)
+Chef Workstation 21.5.420 introduced a regression causing failures when running some knife commands. We're currently working towards a fix for this issue which we hope to ship in the next release of Chef Workstation. If you encounter failures running knife commands, please install [Chef Workstation 21.4.365](https://downloads.chef.io/tools/workstation/stable?v=21.4.365)
 
 ## Chef Workstation 21.5.420
 
@@ -1769,7 +1769,7 @@ Chef InSpec has been updated from 4.29.3 to 4.36.4 with the following improvemen
 #### Bug Fixes
 
 - Fix SSH Timeout PTY allocation. We fixed a bug that caused occasional failures in some command resources that use SSH transport and were mistakenly allocated a pseudoterminal (PTY) when setting a timeout. In some cases, the PTY changed how the resource was interpreted. This fix only uses PTY when explicitly requested.
-- Fixed the group resource when a member does not exist.
+- Fixed the group resource when a member doesn't exist.
 - Hash inputs will now be loaded consistently and accessed as strings or symbols.
 
 ### Test Kitchen
@@ -1807,7 +1807,7 @@ This update to the embedded git client in Chef Workstation resolves [CVE-2021-21
 
 ### macOS Support in chef-run
 
-We have updated the `chef-run` command to allow resources to be executed against macOS nodes in addition to Linux and Windows nodes.
+We've updated the `chef-run` command to allow resources to be executed against macOS nodes in addition to Linux and Windows nodes.
 
 ### Opt-In ChefSpec Specs
 
@@ -1919,7 +1919,7 @@ driver:
   docker_registry: docker.sample.com
 ```
 
-Note: The Docker Registry must container the `dokken` images for the platforms you want to test, the `chef` image, as well as the `centos` image that is used as part of the driver setup.
+Note: The Docker Registry must container the `dokken` images for the platforms you want to test, the `chef` image, as well as the `centos` image that's used as part of the driver setup.
 
 ### Smaller Package Size
 
@@ -2041,7 +2041,7 @@ Chef Workstation now ships with Chef Infra Client 16.10. This new release includ
 
 #### Policyfiles Improvements
 
-We've improved how Policyfiles are handled in the `chef` command. Now running `chef install` when a `Policyfile.lock` is not present will generate the lock file and install the cookbooks instead of producing an error. This mirrors the behavior of `bundle install` and other dependency management tools. We think this will make it easier to manage Chef Infra cookbooks in CI pipelines where a lock may or may not be generated yet. Thanks for reporting this issue [@coderanger](https://github.com/coderanger)!
+We've improved how Policyfiles are handled in the `chef` command. Now running `chef install` when a `Policyfile.lock` isn't present will generate the lock file and install the cookbooks instead of producing an error. This mirrors the behavior of `bundle install` and other dependency management tools. We think this will make it easier to manage Chef Infra cookbooks in CI pipelines where a lock may or may not be generated yet. Thanks for reporting this issue [@coderanger](https://github.com/coderanger)!
 
 We've also resolved a failure that would occur when testing cookbooks that use Policyfiles in ChefSpec. Thanks for reporting this issue [@ElfoLiNk](https://github.com/ElfoLiNk)!
 
@@ -2090,7 +2090,7 @@ Chef Infra Client has been updated from 16.9.20 to 16.9.32.
 
 - Resolved orphaned PowerShell processes when using Compliance Remediation content.
 - Resolved failures from running `chef-client` on some Windows systems.
-- Compliance Phase: Improved detection of the `audit` cookbook when it is used for compliance reporting.
+- Compliance Phase: Improved detection of the `audit` cookbook when it's used for compliance reporting.
 - chef-shell: Added support for loading configs in `client.d` directories - Thanks [@jaymzh](https://github.com/jaymzh)!
 
 ### Chef InSpec
@@ -2252,7 +2252,7 @@ Chef Infra Client has been updated to 16.8.14 with many improvements to built-in
 
 Chef InSpec has been updated to 4.24.8 including the following improvements:
 
-- An unset `HOME` environment variable will not cause execution failures
+- An unset `HOME` environment variable won't cause execution failures
 - You can use wildcards in `platform-name` and `release` in InSpec profiles. Thanks for this improvement [@yarick](https://github.com/yarick)!
 - The `WMI` resource now returns an array to support returning multiple WMI objects
 - The `package` resource on Windows properly escapes package names. Thanks for this improvement [@ramereth](https://github.com/ramereth)!
@@ -2283,7 +2283,7 @@ We've improved the Chef Workstation menu bar app to make getting started with Ch
 
 #### Foodcritic Removal
 
-Foodcritic was deprecated in September 2019 and we are removing it in this release. In its place, Chef Workstation comes with Cookstyle, which has over 200 Chef Infra-specific rules. Foodcritic commands now result in an error message directing users to Cookstyle.
+Foodcritic was deprecated in September 2019 and we're removing it in this release. In its place, Chef Workstation comes with Cookstyle, which has over 200 Chef Infra-specific rules. Foodcritic commands now result in an error message directing users to Cookstyle.
 
 See our [Goodbye, Foodcritic](https://blog.chef.io/goodbye-foodcritic/) blog post for more details.
 
@@ -2293,7 +2293,7 @@ We've removed the Stove binary, which was included in Chef Workstation, but not 
 
 #### Red Hat 6 EOL
 
-Red Hat 6 / CentOS 6 entered end-of-life on November 30th, 2020. We have removed platform support for RHEL 6 from our build matrix and will no longer publish packages. If you require Chef Workstation on a RHEL platform you'll need to upgrade to Red Hat or CentOS 7/8.
+Red Hat 6 / CentOS 6 entered end-of-life on November 30th, 2020. We've removed platform support for RHEL 6 from our build matrix and will no longer publish packages. If you require Chef Workstation on a RHEL platform you'll need to upgrade to Red Hat or CentOS 7/8.
 
 See Red Hat's [6.0 End of Maintenance Phase FAQ page](https://access.redhat.com/articles/4665701) for more information.
 
@@ -2432,7 +2432,7 @@ Cookstyle has been updated from 6.19.5 to 6.21.1. This release includes an updat
 
 ##### Lint/RedundantSafeNavigation
 
-The `Lint/RedundantSafeNavigation` cop detects redundant save navigation operators in order to simplify code. For example `attrs&.respond_to?(:[])` can be simplified to just `attrs.respond_to?(:[])` because `respond_to?` will not error even if `attrs` is not defined.
+The `Lint/RedundantSafeNavigation` cop detects redundant save navigation operators in order to simplify code. For example `attrs&.respond_to?(:[])` can be simplified to just `attrs.respond_to?(:[])` because `respond_to?` won't error even if `attrs` isn't defined.
 
 ##### ChefCorrectness/OctalModeAsString
 
@@ -2440,7 +2440,7 @@ The `ChefCorrectness/OctalModeAsString` cop detects mode properties that incorre
 
 ##### ChefDeprecations/UseYamlDump
 
-The `ChefDeprecations/UseYamlDump` cop detects cookbooks that use the .to_yaml method. Chef Infra Client 16.5 introduced performance enhancements to Ruby library loading and due to the underlying implementation of Ruby's `.to_yaml` method, it does not automatically load the YAML library. We recommend using `YAML.dump()` instead, which is functionally equivalent, and also properly loads the YAML library.
+The `ChefDeprecations/UseYamlDump` cop detects cookbooks that use the .to_yaml method. Chef Infra Client 16.5 introduced performance enhancements to Ruby library loading and due to the underlying implementation of Ruby's `.to_yaml` method, it doesn't automatically load the YAML library. We recommend using `YAML.dump()` instead, which is functionally equivalent, and also properly loads the YAML library.
 
 #### Kitchen EC2
 
@@ -2464,7 +2464,7 @@ OpenSSL has been updated to 1.0.2w, which includes a fix for [CVE-2020-1968](htt
 
 #### False Positive `chef.exe` Malware Detection
 
-Recently we received reports that `chef.exe` was triggering users' anti-virus software. We confirmed that we are shipping the latest security patches that we can and are not shipping malware to users. This is a false positive and we submitted a report as such to Microsoft. They corrected their security definitions and are no longer marking `chef.exe` as malware. If you get errors trying to run the `chef` command in PowerShell or have issues starting the Chef Workstation shell shortcut, most likely Windows Defender already quarantined your `chef.exe` executable. You can either un-quarantine that file or reinstall Chef Workstation to fix this issue.
+Recently we received reports that `chef.exe` was triggering users' anti-virus software. We confirmed that we're shipping the latest security patches that we can and aren't shipping malware to users. This is a false positive and we submitted a report as such to Microsoft. They corrected their security definitions and are no longer marking `chef.exe` as malware. If you get errors trying to run the `chef` command in PowerShell or have issues starting the Chef Workstation shell shortcut, most likely Windows Defender already quarantined your `chef.exe` executable. You can either un-quarantine that file or reinstall Chef Workstation to fix this issue.
 
 We also submitted a false positive report to McAfee, but have yet to hear back from them.
 
@@ -2541,7 +2541,7 @@ The `chef install` command will no longer fail if a `Policyfile.lock.json` file 
 
 #### Test Kitchen
 
-Test Kitchen has been updated from 2.6.0 to 2.7.2. This release fixes a bug when trying to use concurrency. Some plugins did not support concurrency and would raise an exception when run concurrently. Plugins now run concurrently by default, and known non-concurrent ones are being marked as such. In this case that plugin will run serially. For example, the InSpec verifier is not concurrent. If used with the AWS driver (for example) the machines would be created in parallel but verified serially.
+Test Kitchen has been updated from 2.6.0 to 2.7.2. This release fixes a bug when trying to use concurrency. Some plugins didn't support concurrency and would raise an exception when run concurrently. Plugins now run concurrently by default, and known non-concurrent ones are being marked as such. In this case that plugin will run serially. For example, the InSpec verifier isn't concurrent. If used with the AWS driver (for example) the machines would be created in parallel but verified serially.
 
 ## Chef Workstation 20.9.136
 
@@ -2549,7 +2549,7 @@ Test Kitchen has been updated from 2.6.0 to 2.7.2. This release fixes a bug when
 
 #### FIPS support
 
-Starting with this release, we added FIPS support for Chef Workstation. This includes support for all the Ruby-based tools, such as `knife`, `chef-client`, and `kitchen`, but does not include support for some of our newer tools, such as the Chef Workstation App and the Upgrade Lab flow.
+Starting with this release, we added FIPS support for Chef Workstation. This includes support for all the Ruby-based tools, such as `knife`, `chef-client`, and `kitchen`, but doesn't include support for some of our newer tools, such as the Chef Workstation App and the Upgrade Lab flow.
 
 #### Chef Infra Client
 
@@ -2563,7 +2563,7 @@ Chef Infra Client has been updated from 16.4.38 to 16.4.41. This release:
 
 `chef-run` has been updated to add support for YAML-based recipes introduced in Chef Infra Client 16. Users can specify a YAML recipe in the same way that they would normally specify a Ruby recipe, such as `chef run target chef_repo/recipes/my_recipe.yml`.
 
-NOTE: We incorrectly said we released this feature in Chef Workstation 20.6.62, but the updated dependency was not pulled for that release. 😢
+NOTE: We incorrectly said we released this feature in Chef Workstation 20.6.62, but the updated dependency wasn't pulled for that release. 😢
 
 #### Chef Vault
 
@@ -2571,7 +2571,7 @@ Chef Vault has been updated from 4.0.6 to 4.0.11. This release raises a warning 
 
 #### Cookstyle
 
-Cookstyle has been updated from 6.15.5 to 6.16.10. This release makes Cookstyle 16% faster, while also improving detection in many existing Chef cops. The RuboCop engine that powers Cookstyle has been updated to 0.90 with improvements to greatly speed up autocorrection while consuming less memory. This release also fixes an issue where Cookstyle was not detecting invalid Ruby syntax.
+Cookstyle has been updated from 6.15.5 to 6.16.10. This release makes Cookstyle 16% faster, while also improving detection in many existing Chef cops. The RuboCop engine that powers Cookstyle has been updated to 0.90 with improvements to greatly speed up autocorrection while consuming less memory. This release also fixes an issue where Cookstyle wasn't detecting invalid Ruby syntax.
 
 #### Chef InSpec
 
@@ -2647,7 +2647,7 @@ Chef Workstation App has been updated to fix a bug where dialog boxes would inco
 
 #### .chef Home Directory
 
-The first time you execute the `chef` command, it checks for the presence of the `~/.chef` directory. If it does not exist, `chef` creates it. Some tools included in Chef Workstation raise an error if that directory does not exist, so we are attempting to add more safeguards to ensure that it does.
+The first time you execute the `chef` command, it checks for the presence of the `~/.chef` directory. If it doesn't exist, `chef` creates it. Some tools included in Chef Workstation raise an error if that directory doesn't exist, so we're attempting to add more safeguards to ensure that it does.
 
 #### Habitat Version Reporting
 
@@ -2704,7 +2704,7 @@ InSpec has been updated from 4.21.3 to 4.22.1. This release includes the followi
 
 #### Test Kitchen
 
-Test Kitchen has been updated from 2.5.3 to 2.5.4. This update rolls back a change we introduced around fixing `root_path` usage. We are going to take another stab at fixing this and will include that in the next version of Chef Workstation.
+Test Kitchen has been updated from 2.5.3 to 2.5.4. This update rolls back a change we introduced around fixing `root_path` usage. We're going to take another stab at fixing this and will include that in the next version of Chef Workstation.
 
 ##### kitchen-vcenter
 
@@ -2766,7 +2766,7 @@ InSpec was updated from 4.19 to 4.21. This new release includes the following im
 
 The `knife bootstrap` command has been updated with several fixes and improvements
 
-- knife bootstrap will now warn when bootstrapping a system using a validation key. Users should instead use validatorless bootstrapping with `knife bootstrap` which generates node and client keys using the client key of the user bootstrapping the node. This method is far more secure as an organization-wide validation key does not need to be distributed or rotated. Users can switch to validatorless bootstrapping by removing any `validation_key` entries in their config.rb (knife.rb) file.
+- knife bootstrap will now warn when bootstrapping a system using a validation key. Users should instead use validatorless bootstrapping with `knife bootstrap` which generates node and client keys using the client key of the user bootstrapping the node. This method is far more secure as an organization-wide validation key doesn't need to be distributed or rotated. Users can switch to validatorless bootstrapping by removing any `validation_key` entries in their config.rb (knife.rb) file.
 - Resolved an error bootstrapping Linux nodes from Windows hosts
 - Improved information messages during the bootstrap process
 - Bootstrapping will now be done using a single SSH connection improving bootstrap times on high latency network connection.
@@ -2806,7 +2806,7 @@ We decided to switch to a date-based version because Chef Workstation is a colle
 
 The Chef Workstation team introduced feature flags as a way of introducing new functionality or breaking changes alongside bundled tool updates. The Chef Workstation team will document feature flags in the release notes and Chef Workstation App tool.
 
-This change gives us the ability to change human-centric tools more rapidly than strict adherence to SemVer allowed us to. We will not break major tool flows (except in the scope of a feature flag), but rather we want users to always stay up-to-date on the latest release and consume iterative updates to their tooling.
+This change gives us the ability to change human-centric tools more rapidly than strict adherence to SemVer allowed us to. We won't break major tool flows (except in the scope of a feature flag), but rather we want users to always stay up-to-date on the latest release and consume iterative updates to their tooling.
 
 ### Breaking Changes
 
@@ -2826,7 +2826,7 @@ potentially, bug attacks. A group of security researchers and
 cryptographers from academia and industry, listed below, reported a
 successful cache timing attack in OpenSSL 1.0.2u against specific prime and
 binary curves whose order or field length is close to a word boundary. They
-also provided the fix. This attack does not fit the OpenSSL threat model
+also provided the fix. This attack doesn't fit the OpenSSL threat model
 and so no CVE is assigned, but a fix is implemented nonetheless.
 [Diego F. Aranha, Akira Takahashi, Mehdi Tibouchi, Yuval Yarom]
 
@@ -3008,7 +3008,7 @@ The Kitchen vCenter driver has been updated from 2.6.4 to 2.7.0 which adds the a
 
 ##### Kitchen Dokken
 
-The Kitchen Dokken driver has been updated from 2.8.1 to 2.9.0. This release adds a new provisioning configuration, `clean_dokken_sandbox`, that does not require cleaning the Chef Infra and Test Kitchen files between converges. This configuration will speed up repeatedly converging systems. This defaults to `true` which maintains the existing behavior. Thanks [@chrisUsick](https://github.com/chrisUsick)
+The Kitchen Dokken driver has been updated from 2.8.1 to 2.9.0. This release adds a new provisioning configuration, `clean_dokken_sandbox`, that doesn't require cleaning the Chef Infra and Test Kitchen files between converges. This configuration will speed up repeatedly converging systems. This defaults to `true` which maintains the existing behavior. Thanks [@chrisUsick](https://github.com/chrisUsick)
 
 #### Knife Plugins
 
@@ -3056,12 +3056,12 @@ Ruby was updated from 2.6.5 to 2.6.6 to resolve the following CVEs:
 Chef InSpec has been updated to 4.18.100 to fix the following bugs:
 
 - We fixed a problem in which the sudo password would appear to be ignored even if provided.
-- We resolved an issue in which profiles could not be fetched from an Automate server.
+- We resolved an issue in which profiles couldn't be fetched from an Automate server.
 - The `release` property of the `platform` resource no longer breaks for Chef Habitat with Linux.
 
 #### Test Kitchen 2.4.0
 
-Test Kitchen has been updated to 2.4.0. This update will now pass the `CHEF_LICENSE` environmental variable, if it is set, from the host workstation to any created machines. The `CHEF_LICENSE` environmental variable is
+Test Kitchen has been updated to 2.4.0. This update will now pass the `CHEF_LICENSE` environmental variable, if it's set, from the host workstation to any created machines. The `CHEF_LICENSE` environmental variable is
 used to accept the required EULA. Any environmental variables on the host machine that start with `TKENV_` will also be passed to created machines with that prefix removed.
 
 The base verifier was updated to support a downloads configuration. This configuration will download files from the created machines to the host machine after running verification. It expects a hash from locations on the created machine to locations on the host machine:
@@ -3087,7 +3087,7 @@ Markdown Lint has been updated to 0.9.0. This release adds support for nested co
 
 #### Chef InSpec
 
-Chef InSpec has been reverted to 4.18.51 to fix some escaped defects. We are currently working on a fix and will update to the latest version of Chef InSpec as soon as the fixes are released.
+Chef InSpec has been reverted to 4.18.51 to fix some escaped defects. We're currently working on a fix and will update to the latest version of Chef InSpec as soon as the fixes are released.
 
 ## Chef Workstation 0.16.32
 
@@ -3105,7 +3105,7 @@ Markdown Lint has been updated to 0.9.0. This release adds support for nested co
 
 #### Chef InSpec
 
-Chef InSpec has been reverted to 4.18.51 to fix some escaped defects. We are currently working on a fix and will update to the latest version of Chef InSpec as soon as the fixes are released.
+Chef InSpec has been reverted to 4.18.51 to fix some escaped defects. We're currently working on a fix and will update to the latest version of Chef InSpec as soon as the fixes are released.
 
 ## Chef Workstation 0.16.31
 
@@ -3127,7 +3127,7 @@ Chef Infra Client has been updated to 15.8.23 with updated resources, a new noti
 
 Chef InSpec has been updated from 4.18.51 to 4.18.85. This release includes a large number of bug fixes in addition to some great resource enhancements:
 
-- The service resource features new support for yocto-based linux distributions. Thank you to [@michaellihs](https://github.com/michaellihs) for this addition!
+- The service resource features new support for yocto-based Linux distributions. Thank you to [@michaellihs](https://github.com/michaellihs) for this addition!
 - The package resource now includes support for FreeBSD. Thank you to [@fzipi](https://github.com/fzipi) for this work!
 - We standardized the platform for the etc_hosts, virtualization, ini, and xml resources.
 - The oracledb_session resource works again due to a missing quote fix.
@@ -3149,17 +3149,17 @@ The `ChefModernize/SimplifyAptPpaSetup` cop detects `apt_repository` resources t
 
 ##### ChefRedundantCode/StringPropertyWithNilDefault
 
-The `ChefRedundantCode/StringPropertyWithNilDefault` cop detects String type resource properties that set their default value to `nil`. All String type properties default to `nil`, so this does not need to be set.
+The `ChefRedundantCode/StringPropertyWithNilDefault` cop detects String type resource properties that set their default value to `nil`. All String type properties default to `nil`, so this doesn't need to be set.
 
 ##### ChefRedundantCode/PropertySplatRegex
 
-The `ChefRedundantCode/PropertySplatRegex` cop detects String type resource properties that validate their input with a regex of `/.*/`. This regex will match on any String value and is not necessary.
+The `ChefRedundantCode/PropertySplatRegex` cop detects String type resource properties that validate their input with a regex of `/.*/`. This regex will match on any String value and isn't necessary.
 
 ##### Other Cookstyle fixes and changes
 
-- `ChefDeprecations/IncludingYumDNFCompatRecipe` will now remove any inline conditionals around the `include_recipe` statement during autocorrection so that it does not leave behind invalid Ruby.
-- `ChefDeprecations/WindowsTaskChangeAction` will no longer fail when the action value is not a String type value.
-- `ChefSharing/InvalidLicenseString` will not autocorrect `apache v2` to `Apache-2.0`.
+- `ChefDeprecations/IncludingYumDNFCompatRecipe` will now remove any inline conditionals around the `include_recipe` statement during autocorrection so that it doesn't leave behind invalid Ruby.
+- `ChefDeprecations/WindowsTaskChangeAction` will no longer fail when the action value isn't a String type value.
+- `ChefSharing/InvalidLicenseString` won't autocorrect `apache v2` to `Apache-2.0`.
 - `Layout/EndAlignment` and `Layout/DefEndAlignment` now have autocorrection enabled to eliminate the need for manually fixing indentation in cookbooks.
 - `ChefStyle/UsePlatformHelpers` now detects and autocorrects `node['platform'].eql?()` usage.
 - `Style/ModuleFunction` cop has been disabled because this caused library helpers to fail to load.
@@ -3264,7 +3264,7 @@ Cookstyle has been updated from 5.16 to 5.19. This new release contains 7 new Ch
 
 ##### ChefRedundantCode/GroupingMetadata
 
-The `ChefRedundantCode/GroupingMetadata` cop removes the legacy `grouping` metadata from the metadata.rb file. This metadata was never consumed by any Chef Infra services and does not need to be defined.
+The `ChefRedundantCode/GroupingMetadata` cop removes the legacy `grouping` metadata from the metadata.rb file. This metadata was never consumed by any Chef Infra services and doesn't need to be defined.
 
 ##### ChefStyle/OverlyComplexSupportsDependsMetadata
 
@@ -3303,7 +3303,7 @@ The ChefRedundantCode/AptRepositoryNotifiesAptUpdate cop detects apt_repository 
 
 ##### ChefRedundantCode/AptRepositoryDistributionDefault
 
-The ChefRedundantCode/AptRepositoryDistributionDefault cop detects apt_repository resources that set the distribution property to node['lsb']['codename'] which is the default and does not need to be set in cookbook code.
+The ChefRedundantCode/AptRepositoryDistributionDefault cop detects apt_repository resources that set the distribution property to node['lsb']['codename'] which is the default and doesn't need to be set in cookbook code.
 
 ### Security Updates
 
@@ -3401,22 +3401,22 @@ The Chef Infra Client has been updated from 15.4.45 to 15.5.16 with updated help
 
 ##### New Cookbook Helpers
 
-Chef Infra Client now includes a new `chef-utils` gem which ships with a large number of helpers to make writing cookbooks easier. Many of these helpers existed previously in the `chef-sugar` gem. We have renamed many of the named helpers for consistency while providing backwards compatibility with existing `chef-sugar` names. Existing cookbooks written with `chef-sugar` should work unmodified with any of these new helpers. Expect a Cookstyle rule in the near future to help you update existing `chef-sugar` code to use the newer built-in helpers.
+Chef Infra Client now includes a new `chef-utils` gem which ships with a large number of helpers to make writing cookbooks easier. Many of these helpers existed previously in the `chef-sugar` gem. We've renamed many of the named helpers for consistency while providing backwards compatibility with existing `chef-sugar` names. Existing cookbooks written with `chef-sugar` should work unmodified with any of these new helpers. Expect a Cookstyle rule in the near future to help you update existing `chef-sugar` code to use the newer built-in helpers.
 
 For more information on all of the new helpers available, see the [chef-utils readme](https://github.com/chef/chef/blob/master/chef-utils/README.md)
 
 ##### Chefignore Improvements
 
-We've reworked how chefignore files are handled in `knife` which has allowed us to close out a large number of long outstanding bugs. `knife` will now traverse all the way up the directory structure looking for a chefignore file. This means you can place a chefignore file in each cookbook or any parent directory in your repository structure. Additionally, we have made fixes that ensure that commands like `knife diff` and `knife cookbook upload` always honor your chefignore files.
+We've reworked how chefignore files are handled in `knife` which has allowed us to close out a large number of long outstanding bugs. `knife` will now traverse all the way up the directory structure looking for a chefignore file. This means you can place a chefignore file in each cookbook or any parent directory in your repository structure. Additionally, we've made fixes that ensure that commands like `knife diff` and `knife cookbook upload` always honor your chefignore files.
 
 ##### chef_sleep Resource
 
-The new `chef_sleep` resource can be used to sleep for a specified number of seconds during a Chef Infra Client run. This may be helpful to use with other commands that return a completed status before they are actually ready. In general, do not use this resource unless you truly need it.
+The new `chef_sleep` resource can be used to sleep for a specified number of seconds during a Chef Infra Client run. This may be helpful to use with other commands that return a completed status before they're actually ready. In general, don't use this resource unless you truly need it.
 
-Using with a Windows service that starts, but is not immediately ready:
+Using with a Windows service that starts, but isn't immediately ready:
 
 ```ruby
-service 'Service that is slow to start and reports as started' do
+service 'Service that's slow to start and reports as started' do
   service_name 'my_database'
   action :start
   notifies :sleep, chef_sleep['wait for service start']
@@ -3535,7 +3535,7 @@ Chef InSpec has been updated from 4.16 to 4.18 with the following changes:
 
 ##### New Features
 
-- We have released our beta Chef InSpec plug-in for HashiCorp Vault. Check it out in our [inspec-vault GitHub repo](https://github.com/inspec/inspec-vault) and let us know what you think -- or better yet, start jumping in and contributing with us on it.
+- We've released our beta Chef InSpec plug-in for HashiCorp Vault. Check it out in our [inspec-vault GitHub repo](https://github.com/inspec/inspec-vault) and let us know what you think -- or better yet, start jumping in and contributing with us on it.
 - Waivers, our new beta feature, was added to Chef InSpec! Waivers allows you to better manage compliance failures. We would love to hear your feedback on this! See the [InSpec Waivers documentation](https://www.inspec.io/docs/reference/waivers/) for more details.
 
 ##### Improvements
@@ -3576,7 +3576,7 @@ Ruby has been updated from 2.6.4 to 2.6.5 in order to resolve the following CVEs
 - [CVE-2019-16255](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16255): A code injection vulnerability of Shell#[] and Shell#test
 - [CVE-2019-16254](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16254): HTTP response splitting in WEBrick (Additional fix)
 - [CVE-2019-15845](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-15845): A NUL injection vulnerability of File.fnmatch and File.fnmatch?
-- [CVE-2019-16201](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16201): Regular Expression Denial of Service vulnerability of WEBrick’s Digest access authentication
+- [CVE-2019-16201](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16201): Regular Expression Denial of Service vulnerability of WEBrick's Digest access authentication
 
 ## Chef Workstation 0.9.42
 
@@ -3655,7 +3655,7 @@ ChefStyle:
 
 See the [Cookstyle cops documentation](https://github.com/chef/cookstyle/blob/master/docs/cops.md) for a complete list of cops included in Cookstyle 5.6.
 
-Going forward, Cookstyle will be our sole Ruby and Chef Infra cookbook linting tool. With the release of Cookstyle 5.6, we're officially deprecating Foodcritic and will not be shipping Foodcritic in the next major release of Chef Workstation (April 2020). See our [Goodbye, Foodcritic blog post](https://blog.chef.io/goodbye-foodcritic/) for more information on why Cookstyle is replacing Foodcritic.
+Going forward, Cookstyle will be our sole Ruby and Chef Infra cookbook linting tool. With the release of Cookstyle 5.6, we're officially deprecating Foodcritic and won't be shipping Foodcritic in the next major release of Chef Workstation (April 2020). See our [Goodbye, Foodcritic blog post](https://blog.chef.io/goodbye-foodcritic/) for more information on why Cookstyle is replacing Foodcritic.
 
 #### `kitchen-ec2`
 
@@ -3703,7 +3703,7 @@ For example `knife google image list --gce_project "chef-msys"`:
 
 #### Git
 
-Git has been updated from 2.20.0 to 2.23.0 on Windows and from 2.14.1 to 2.23.0 on non-Windows systems. This brings the latest git workflows to our users who do not have it installed another way and fixes two CVEs:
+Git has been updated from 2.20.0 to 2.23.0 on Windows and from 2.14.1 to 2.23.0 on non-Windows systems. This brings the latest git workflows to our users who don't have it installed another way and fixes two CVEs:
 
 - non-Windows systems: [CVE-2017-14867](https://www.cvedetails.com/cve/CVE-2017-14867/)
 - Windows systems: [CVE-2019-1211](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1211)
@@ -3724,7 +3724,7 @@ Ruby has been updated from 2.6.3 to 2.6.4 in order to resolve [CVE-2012-6708](ht
 
 #### `chef verify`
 
-Removed the `chef verify` subcommand. This command has been deprecated with a warning for a long time and should not have been used by users. It is an internal command used to test the components included in Chef Workstation. Instead, we extracted it to scripts run by our CI system, which is where it should have been the whole time.
+Removed the `chef verify` subcommand. This command has been deprecated with a warning for a long time and shouldn't have been used by users. It's an internal command used to test the components included in Chef Workstation. Instead, we extracted it to scripts run by our CI system, which is where it should have been the whole time.
 
 ### Platform Support Updates
 
@@ -3750,7 +3750,7 @@ Chef InSpec has been updated from 4.7.3 to 4.10.4 with the following changes:
 
 #### Cookstyle
 
-Cookstyle has been updated from 5.0 to 5.1.19 with twenty-four new Chef specific cops to detect, and in many cases, to auto-correct errors in your cookbook code. With the release of Cookstyle 5.1, we have started the process of replacing Foodcritic with Cookstyle. Cookstyle offers a modern configuration system, auto-correction, and a faster and more reliable engine thanks to RuboCop. We will continue to port useful rules from Foodcritic to Cookstyle, as well as add rules that were not possible in the legacy Foodcritic engine. See the [Cookstyle 5.1 Release Notes](https://github.com/chef/cookstyle/blob/master/RELEASE_NOTES.md#cookstyle-51) for a complete list of new rules.
+Cookstyle has been updated from 5.0 to 5.1.19 with twenty-four new Chef specific cops to detect, and in many cases, to auto-correct errors in your cookbook code. With the release of Cookstyle 5.1, we've started the process of replacing Foodcritic with Cookstyle. Cookstyle offers a modern configuration system, auto-correction, and a faster and more reliable engine thanks to RuboCop. We will continue to port useful rules from Foodcritic to Cookstyle, as well as add rules that were not possible in the legacy Foodcritic engine. See the [Cookstyle 5.1 Release Notes](https://github.com/chef/cookstyle/blob/master/RELEASE_NOTES.md#cookstyle-51) for a complete list of new rules.
 
 #### kitchen-azurerm
 
@@ -3916,7 +3916,7 @@ subnet-ba1135c9  available  172.31.16.0/20  us-west-2a  4091           Yes      
 
 ### End of Ubuntu 14.04 support
 
-Ubuntu 14.04 entered the end-of-life phase April 30, 2019. Since this version of Ubuntu is now end-of-life, we have stopped building packages for Ubuntu 14.04. If you rely on Ubuntu 14.04 in your environment, we highly recommend upgrading your host to Ubuntu 16.04 or 18.04.
+Ubuntu 14.04 entered the end-of-life phase April 30, 2019. Since this version of Ubuntu is now end-of-life, we've stopped building packages for Ubuntu 14.04. If you rely on Ubuntu 14.04 in your environment, we highly recommend upgrading your host to Ubuntu 16.04 or 18.04.
 
 ### Security Updates
 
@@ -3949,7 +3949,7 @@ Usage of Chef Workstation 0.4, Chef Infra Client 15, and InSpec 4 requires accep
 
 #### Chef Provisioning
 
-Chef Provisioning is no longer included with Chef Workstation, and will be officially end of life on August 31, 2019. The source code of Chef Provisioning and the drivers have been moved into the chef-boneyard GitHub organization and will not be further maintained. Current users of Chef Provisioning should contact your Chef Customer Success Manager or Account Representative to review your options.
+Chef Provisioning is no longer included with Chef Workstation, and will be officially end of life on August 31, 2019. The source code of Chef Provisioning and the drivers have been moved into the chef-boneyard GitHub organization and won't be further maintained. Current users of Chef Provisioning should contact your Chef Customer Success Manager or Account Representative to review your options.
 
 #### `knife bootstrap` against cloud providers
 
@@ -4027,7 +4027,7 @@ driver:
 
 ### Support for managing Chef EULA required products
 
-We have updated the included products to be able to manage remote installations of Chef EULA required products:
+We've updated the included products to be able to manage remote installations of Chef EULA required products:
 
 - Test Kitchen
 - `chef-run`
@@ -4194,7 +4194,7 @@ Support Azure Managed Identities and apply vm_tags to all resources in resource 
 
 ### Deprecations
 
-- `chef provision` - Chef Provisioning has been in maintenance mode since 2015 and due to the age of it's dependencies it cannot be included in ChefDK 4 which is scheduled for an April release. Additional information on the future of Chef Provisioning will be announced in the coming weeks
+- `chef provision` - Chef Provisioning has been in maintenance mode since 2015 and due to the age of it's dependencies it can't be included in ChefDK 4 which is scheduled for an April release. Additional information on the future of Chef Provisioning will be announced in the coming weeks
 
 ## Chef Workstation 0.2.43
 
@@ -4263,7 +4263,7 @@ ChefDK now ships with Chef 14.6.47. See [https://docs.chef.io/release_notes.html
 
 ### Smaller package size
 
-ChefDK RPM and Debian packages are now compressed. Additionally many gems were updated to remove extraneous files that do not need to be included. The download size of packages has decreased accordingly (all measurements in megabytes):
+ChefDK RPM and Debian packages are now compressed. Additionally many gems were updated to remove extraneous files that don't need to be included. The download size of packages has decreased accordingly (all measurements in megabytes):
 
 - .deb: 108 -> 84 (22%)
 - .rpm: 112 -> 86 (24%)
@@ -4310,5 +4310,5 @@ Knife Windows has improved Windows detection support to identify Windows 2012r2,
 
 Ruby has been updated to 2.5.3 to resolve the following vulnerabilities:
 
-- `CVE-2018-16396`: Tainted flags are not propagated in Array#pack and String#unpack with some directives
-- `CVE-2018-16395`: OpenSSL::X509::Name equality check does not work correctly
+- `CVE-2018-16396`: Tainted flags aren't propagated in Array#pack and String#unpack with some directives
+- `CVE-2018-16395`: OpenSSL::X509::Name equality check doesn't work correctly

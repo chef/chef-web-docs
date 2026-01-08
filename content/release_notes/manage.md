@@ -48,7 +48,7 @@ chef-server-ctl reconfigure
 
 We fixed an issue introduced in Chef Manage 3.3.93 where changes made to attributes using the web UI would not persist.
 
-To fix this issue, we've removed the `redis-namespace` Gem since it is no longer supported by Sidekiq.
+To fix this issue, we've removed the `redis-namespace` Gem since it's no longer supported by Sidekiq.
 
 **Note**: If you use the Redis instance shipped with Chef Manage, please review your use case to ensure this change doesn't affect you.
 
@@ -434,7 +434,7 @@ Chef Manage 3.0 is compatible with Chef Infra Server 12 and later. Users are alw
 
 - Replaced links to the legacy IRC channel with links to Chef Community Slack.
 - Allow uppercase letters to be used in data bag names.
-- Hide the reporting tab when Chef Reporting is not installed on the system.
+- Hide the reporting tab when Chef Reporting isn't installed on the system.
 
 ### Security Updates
 

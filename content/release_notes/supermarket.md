@@ -435,7 +435,7 @@ The puma gem has been updated from 5.5.0 to 5.5.2 to resolve CVE-2021-41136.
 
 ### Breaking Changes
 
-- Removed links to EOL Chef Provisioning drivers from the Tools tab. If you have existing Chef Provisioning Tools uploaded to Supermarket, they are no longer visible.
+- Removed links to EOL Chef Provisioning drivers from the Tools tab. If you have existing Chef Provisioning Tools uploaded to Supermarket, they're no longer visible.
 - Removed CCLA and ICLA management through Supermarket. The `supermarket-ctl upgrade` command will drop any existing CLA-related PostgreSQL tables.
 - Removed `Publish Metric` from the Cookbook quality metric. Cookbooks no longer get a baseline quality score just for being published.
 
@@ -713,7 +713,7 @@ These updates resolve CVE scanner audits. No vulnerabilities were found in Super
 
 ### Bug Fixes
 
-- fix `'tarball' is corrupt: "\x80\x00\x00\x00\x0E:\xBFD" is not an octal string` upload error when cookbook tarball uid/gid is very large [#1810](https://github.com/chef/supermarket/pull/1810) ([robbkidd](https://github.com/robbkidd))
+- fix `'tarball' is corrupt: "\x80\x00\x00\x00\x0E:\xBFD" isn't an octal string` upload error when cookbook tarball uid/gid is very large [#1810](https://github.com/chef/supermarket/pull/1810) ([robbkidd](https://github.com/robbkidd))
 
 ## Chef Supermarket 3.3.1
 
@@ -776,13 +776,13 @@ A big thanks goes out to [Pavel Kazhavets](https://github.com/pavel-kazhavets) f
 
 ### Bug Fixes
 
-- replace periodic job scheduler with one that is maintained [#1756](https://github.com/chef/supermarket/pull/1756) ([robbkidd](https://github.com/robbkidd))
+- replace periodic job scheduler with one that's maintained [#1756](https://github.com/chef/supermarket/pull/1756) ([robbkidd](https://github.com/robbkidd))
 
 ### Merged Pull Requests
 
 - reorganize the fieri subcomponent to make supermarket more container friendly [#1704](https://github.com/chef/supermarket/pull/1704) ([robbkidd](https://github.com/robbkidd))
 - habitat skeleton to get started [#1761](https://github.com/chef/supermarket/pull/1761) ([jtimberman](https://github.com/jtimberman))
-- change &quot;knife cookbook site&quot; references to &quot;knife supermarket&quot; [#1762](https://github.com/chef/supermarket/pull/1762) ([tas50](https://github.com/tas50))
+- change "knife cookbook site" references to "knife supermarket" [#1762](https://github.com/chef/supermarket/pull/1762) ([tas50](https://github.com/tas50))
 
 ## Chef Supermarket 3.1.72
 

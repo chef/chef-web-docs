@@ -169,4 +169,4 @@ product = ["inspec"]
 
 ### Bug Fixes
 
-- Dynamodb tables fails when we have large number of dynamodb tables that requires pagination.
+- Dynamodb tables fails when we've large number of dynamodb tables that requires pagination.

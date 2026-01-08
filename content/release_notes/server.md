@@ -88,7 +88,7 @@ This release uses:
 
 ### Improvements
 
-Updated the following packages to ensure they are as up-to-date as possible:
+Updated the following packages to ensure they're as up-to-date as possible:
 
 - OpenSearch
 - OpenJDK
@@ -193,7 +193,7 @@ Chef Infra Server is no longer supported on the following platforms:
 ### License usage
 
 We now collect aggregated and anonymized usage data to understand the Chef Infra Server adoption curve, operating systems that Infra Server runs on, deployed versions of Infra Server, and deployment patterns.
-We have ensured that the collected data protects the end user while providing meaningful usage insights.
+We've ensured that the collected data protects the end user while providing meaningful usage insights.
 For more information, see the [Chef Infra Server License Usage documentation](https://docs.chef.io/server/license_usage/).
 
 ### Dependency updates
@@ -476,7 +476,7 @@ Updated OpenJRE to 11.0.18+10 to resolve the following CVEs:
 ### Bug Fixes
 
 - Fixed an issue with Automate by setting `s3_url_type` configuration to `path`. Customers should now be able to upload cookbooks that were broken in Chef Infra Server 15.3.2.
-- Fixed an issue with `chef-server-ctl reindex` by reading `nginx[ssl_port]` from the configuration.  This resolves an issue when the `nginx[ssl_port]` is not set to the default port(443).
+- Fixed an issue with `chef-server-ctl reindex` by reading `nginx[ssl_port]` from the configuration.  This resolves an issue when the `nginx[ssl_port]` isn't set to the default port(443).
 
 ### Updated Components
 
@@ -575,7 +575,7 @@ Updated OpenJRE to 11.0.18+10 to resolve the following CVEs:
 
 ### Bug Fixes
 
-- Fixed an [issue](https://github.com/chef/chef-server/pull/3275) where `chef-server-ctl cleanup-bifrost` was not cleaning up some unused data in the bifrost database, which could lead bifrost to grow excessively large. `chef-server-ctl cleanup-bifrost` now correctly cleans up this unused data. For more information, please refer to the [documentation](https://docs.chef.io/server/ctl_chef_server/#cleanup-bifrost).
+- Fixed an [issue](https://github.com/chef/chef-server/pull/3275) where `chef-server-ctl cleanup-bifrost` wasn't cleaning up some unused data in the bifrost database, which could lead bifrost to grow excessively large. `chef-server-ctl cleanup-bifrost` now correctly cleans up this unused data. For more information, please refer to the [documentation](https://docs.chef.io/server/ctl_chef_server/#cleanup-bifrost).
 
 ### Security
 
@@ -793,7 +793,7 @@ Updated Elasticsearch from 6.8.22 to 6.8.23 to resolve CVE-2021-44832 in the emb
 
 #### Elasticsearch 6.8.22
 
-We have updated Elasticsearch 6.8.21 to 6.8.22. This new release updates Log4j from 2.15 to 2.17, which entirely removed JNDI support and resolves CVE-2021-45105.
+We've updated Elasticsearch 6.8.21 to 6.8.22. This new release updates Log4j from 2.15 to 2.17, which entirely removed JNDI support and resolves CVE-2021-45105.
 
 ## Chef Infra Server 14.11.21
 
@@ -863,7 +863,7 @@ You can now enable ibrowse logging in the `opscode_erchef` service with the with
 
 #### cookbook_versions API caching
 
-You can now enable optional caching in the `cookbook_versions` API endpoint used during each non-Policyfile Chef Infra Client check-in to assemble the cookbooks to be run by the node. Enabling this new caching can greatly improve the performance of Chef Infra Servers with a large number of nodes performing frequent check-ins. In artificial benchmarking we have observed up to a 10x reduction in system load when enabling this caching. As always, we highly recommend Policyfiles for users running a large number of Chef Infra Client nodes on their server, as this entirely removes the need to depsolve on the Chef Infra Server.
+You can now enable optional caching in the `cookbook_versions` API endpoint used during each non-Policyfile Chef Infra Client check-in to assemble the cookbooks to be run by the node. Enabling this new caching can greatly improve the performance of Chef Infra Servers with a large number of nodes performing frequent check-ins. In artificial benchmarking we've observed up to a 10x reduction in system load when enabling this caching. As always, we highly recommend Policyfiles for users running a large number of Chef Infra Client nodes on their server, as this entirely removes the need to depsolve on the Chef Infra Server.
 
 To enable this new caching layer, set `opscode_erchef['cbv_cache_enabled'] = true` in your `chef-server.rb` config file and run `chef-server-ctl reconfigure`.
 
@@ -924,7 +924,7 @@ returns:
 
 #### Ubuntu 16.04
 
-Ubuntu 16.04 was only mostly EOL. Now that Ubunto 16.04 is no longer EOL, we are once again producing Chef Infra Server packages for it.
+Ubuntu 16.04 was only mostly EOL. Now that Ubunto 16.04 is no longer EOL, we're once again producing Chef Infra Server packages for it.
 
 ### Security
 
@@ -949,7 +949,7 @@ The embedded PostgreSQL install has been updated from 13.3 to 13.4. This new rel
 
 #### Nokogiri 1.12.5
 
-Nokogiri has been updated from 1.11.7 to 1.12.5 in order to resolve CVE-2021-41098. This CVE only impacted users of JRuby, which Chef Infra Server does not use, but the older release would show up on vulnerability scanners as an issue to resolve.
+Nokogiri has been updated from 1.11.7 to 1.12.5 in order to resolve CVE-2021-41098. This CVE only impacted users of JRuby, which Chef Infra Server doesn't use, but the older release would show up on vulnerability scanners as an issue to resolve.
 
 #### OpenSSL 1.0.2zb
 
@@ -1116,7 +1116,7 @@ Updated the HAProxy used by Chef Infra Server for HA configurations with Chef Ba
 
 ##### Locking E-mail Updates
 
-The new Chef Infra Server configuration option `allow_email_update_only_from_manage` lets you define that users can update their email addresses through Chef Manage and not with the knife command. Chef Manage provides validation for email addresses that is not available through knife.
+The new Chef Infra Server configuration option `allow_email_update_only_from_manage` lets you define that users can update their email addresses through Chef Manage and not with the knife command. Chef Manage provides validation for email addresses that isn't available through knife.
 
 ##### Updated Error Messages
 
@@ -1171,7 +1171,7 @@ Elasticsearch was upgraded from 6.8.14 to 6.8.15 to resolve [CVE-2021-22137](htt
 
 #### TLS 1.2 Communication By Default
 
-Chef Infra Server now defaults to supporting only TLS 1.2 for API communication. This new default may require upgrading older releases of Chef Infra Client, which do not support TLS 1.2. On Linux/Unix/macOS systems TLS is supported in Chef Infra Client 10.16.4 and later. On Windows systems, TLS 1.2 is supported on Chef Infra Client 12.8 or later.
+Chef Infra Server now defaults to supporting only TLS 1.2 for API communication. This new default may require upgrading older releases of Chef Infra Client, which don't support TLS 1.2. On Linux/Unix/macOS systems TLS is supported in Chef Infra Client 10.16.4 and later. On Windows systems, TLS 1.2 is supported on Chef Infra Client 12.8 or later.
 
 #### Bifrost No Longer Externally Exposed
 
@@ -1213,7 +1213,7 @@ We updated Postgresql from 9.6.15 to 9.6.21 to resolve a large number of bugs as
 
 #### Improved Reindexing
 
-Reindexing will now gracefully fail if there is not 2.2x the current ElasticSearch data available on disk before attempting the reindex. This will prevent reindexing from resulting in non-functional server installs when disk space is low.
+Reindexing will now gracefully fail if there isn't 2.2x the current ElasticSearch data available on disk before attempting the reindex. This will prevent reindexing from resulting in non-functional server installs when disk space is low.
 
 #### Improved Performance
 
@@ -1223,12 +1223,12 @@ The OpenResty engine that powers the Chef Infra Server API has been updated to t
 
 ### Support for external Elasticsearch 7 installs
 
-New installations of Chef Infra Server can now use external Elasticsearch 7 installations. Chef Infra Server will automatically detect the version of Elastisearch, so no additional configuration is necessary. We do not currently support upgrading the embedded Elasticsearch or existing external Elasticsearch installations to 7. This functionality is currently under development and will ship in a future release.
+New installations of Chef Infra Server can now use external Elasticsearch 7 installations. Chef Infra Server will automatically detect the version of Elastisearch, so no additional configuration is necessary. We don't currently support upgrading the embedded Elasticsearch or existing external Elasticsearch installations to 7. This functionality is currently under development and will ship in a future release.
 
 ### Security
 
 - The `opscode` user which runs Chef Infra Server is no longer configured with an interactive shell.
-- Disabled the ability to update a user e-mail address in `oc-id` as e-mail verification was not being performed in this update process.
+- Disabled the ability to update a user e-mail address in `oc-id` as e-mail verification wasn't being performed in this update process.
 - Updated the embedded Elasticsearch server from 6.8.12 to 6.8.14 to resolve [CVE-2020-7021](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-7021)
 
 ## Chef Infra Server 14.1.0
@@ -1333,7 +1333,7 @@ Upgrading to Chef Infra Server 14 will require a reindexing operation for most u
 
 - The `/controls` API endpoint now always returns `HTTP 410 Gone`. This endpoint was disabled as it requires RabbitMQ to work. The `/controls` API endpoint was used by Chef Infra Client's audit mode. In Chef Infra Client 14, this change will produce a non-fatal error that results in the audit log being written to disk. This feature was removed in Chef Infra Client 15. The main consumer of this endpoint was Chef Analytics, which has been end-of-life since December 31, 2018.
 - Chef Infra Server no longer sends data to Chef Analytics. Chef Analytics was declared end-of-life on December 31, 2018.
-- Chef Reporting is not supported. Chef Reporting was declared end-of-life on December 31, 2018.
+- Chef Reporting isn't supported. Chef Reporting was declared end-of-life on December 31, 2018.
 - Chef Infra Server will no longer send data to Chef Automate 1.x via the Actions queue. Chef Infra Server still sends data to Chef Automate 2 and Chef Automate 1.x via the `data-collector` endpoint. Chef Automate 1.x was declared end-of-life on December 31, 2019.
 
 ### Component Version Changes
@@ -1392,7 +1392,7 @@ Upgrading to Chef Infra Server 14 will require a reindexing operation for most u
 
 - Update HAProxy configuration:
 
-  We have updated the configuration for HAProxy to make it more responsive. The changes include:
+  We've updated the configuration for HAProxy to make it more responsive. The changes include:
   - Set the connect, client, server, and tunnel timeouts to reasonable defaults.
   - Set client-fin and server-fin to try to mitigate connection pile-ups in the case of failing frontend services.
   - Set on-marked-down shutdown-session to avoid stale sessions to previous leaders living longer than they need to.
@@ -1409,7 +1409,7 @@ Upgrading to Chef Infra Server 14 will require a reindexing operation for most u
 
 - Fix a regression that broke FIPS 140-2 support in Chef Infra Server 13.1.13.
 - Fix Habitat db config for external database.
-- Elasticsearch recipes should not create indexes at compile time.
+- Elasticsearch recipes shouldn't create indexes at compile time.
 
 ### Updates
 
@@ -1487,7 +1487,7 @@ The release of rubyzip in the `oc-id` Chef Infra Server component has been updat
 - The `_status` endpoint now reports healthy even if the `data_collector` is down which will no longer cause unnecessary failovers.
 - Data collector proxy-header X-Forwarded is set as expected.
 -`chef-server-ctl` is no longer installed in the user path. Now only the appbundled version is installed in the user path.
-- Fixed an issue with Chef Support Zendesk sign-ins when a first name is not set in Hosted Chef.
+- Fixed an issue with Chef Support Zendesk sign-ins when a first name isn't set in Hosted Chef.
 - `chef-server-ctl gather-logs` has been updated to provide better troubleshooting data and prevent failures gathering data.
 
 ### Packing Updates
@@ -1573,8 +1573,8 @@ See our [Frequently Asked Questions document](https://www.chef.io/subscription-m
 
 - Added some Habitat packaging improvements with parameterized search_server.
 - Erchef request size increased from 1,000,000 to 2,000,000 bytes to better support InSpec scanning via the audit cookbook.
-- Nginx error logs no longer log 404s. In the Chef API, 404s are typically not errors as they are often the expected response about an object that doesn't exist. The logs will continue to show 404s in the request logs.
-- Profiles and data-collector upstreams now render correctly if their root_url is configured. If the data_collector token secret is not set, a 401 response code and an error message will be seen instead of 404.
+- Nginx error logs no longer log 404s. In the Chef API, 404s are typically not errors as they're often the expected response about an object that doesn't exist. The logs will continue to show 404s in the request logs.
+- Profiles and data-collector upstreams now render correctly if their root_url is configured. If the data_collector token secret isn't set, a 401 response code and an error message will be seen instead of 404.
 
 ### Security
 
@@ -1868,7 +1868,7 @@ more information on tuning this option. The default setting for
 `max_wal_size` is `1G`. The PostgreSQL release notes mention a
 conversion rule: `max_wal_size = (3 * checkpoint_segments) * 16MB`. They
 also state that the default value for `max_wal_size` (1GB) should be
-sufficient in most settings, so this conversion is not performed
+sufficient in most settings, so this conversion isn't performed
 automatically.
 
 The `shmmax` and `shmall` configuration settings are no longer used, as
@@ -1899,15 +1899,15 @@ listening addresses, which caused trouble for systems without `::1`.
 
 Chef server's `_status` endpoint now checks the health of the analytics
 and internal RabbitMQ vhosts. For these checks to work, the RabbitMQ
-management plugin must be installed. If it is not, the checks are not
+management plugin must be installed. If it's not, the checks aren't
 performed. If Chef server is configured not to use Actions, a check will
-not be performed against the Actions vhost. If an indexing queue is not
-used, the `chef_index` RabbitMQ vhost will not be checked.
+not be performed against the Actions vhost. If an indexing queue isn't
+used, the `chef_index` RabbitMQ vhost won't be checked.
 
 ### Notification of affected services when updating secrets with set-secret
 
 `chef-server-ctl set-secret` will notify the user of services that
-depend on the secret that is being changed. When used with the optional
+depend on the secret that's being changed. When used with the optional
 `--with-restart` flag, `chef-server-ctl set-secret` will attempt to
 automatically restart the dependent services.
 
@@ -1936,7 +1936,7 @@ The setting `required_recipe["path"]` in chef-server.rb specifies the
 recipe file to serve.
 
 The `/organizations/<orgname>/required_recipe` endpoint returns 404 for
-all organizations by default. It returns 401 when the request is not
+all organizations by default. It returns 401 when the request isn't
 made by a client from the requested org and the feature is enabled.
 
 The `/organizations/<orgname>/required_recipe` endpoint returns the
@@ -1962,9 +1962,9 @@ server-admins appears in an organizations ACL, you will see the name
 ### User customization of field mapping
 
 Attributes from a user's LDAP record are used during account-linking to
-populate the erchef user record when it is created. Previously, the
+populate the erchef user record when it's created. Previously, the
 mapping between LDAP attributes and chef user attributes were fixed.
-Now, they are configurable. For example, if the user's LDAP record
+Now, they're configurable. For example, if the user's LDAP record
 stores their email address in a field named 'address' instead of 'mail',
 then you could set the following in `private-chef.rb`:
 
@@ -2002,7 +2002,7 @@ rendered outside of `/etc/opscode/` in Chef server's default
 configuration.
 
 To ensure backwards compatibility, Chef server still renders passwords
-and keys to multiple files in `/etc/opscode`. However, if you are not
+and keys to multiple files in `/etc/opscode`. However, if you aren't
 using any Chef Server add-ons, or if you have updated to the latest
 releases of all add-ons, you can set the following:
 
@@ -2039,7 +2039,7 @@ The following items are new for Chef server 12.13:
 - **Disables the Solr4 Admin API/UI by default**
 - **FIPS runtime flag exposed on RHEL systems** Setting `fips true`
     and reconfiguring will start the server in FIPS mode. Packages for
-    other systems will not have the required OpenSSL FIPS module and
+    other systems won't have the required OpenSSL FIPS module and
     will fail to start if reconfigured with `fips true`.
 
 ### New platform: RHEL6/s390x
@@ -2076,7 +2076,7 @@ The following items are new for Chef server 12.12:
 
 - **chef-server-ctl backup correctly backs up configuration data**
     Starting in version 12.10.0, a bug in the `backup` command produced
-    backups that did not include the configuration data in the resulting
+    backups that didn't include the configuration data in the resulting
     tarball. This bug is now resolved. We recommend taking a new backup
     after upgrading to 12.12.0.
 - **Correct number of rows are returned when searching with
@@ -2134,7 +2134,7 @@ The following items are new for Chef server 12.11:
 - **/organizations/ORGNAME/validate/PATH** accepts a signed request
     and validates it as if it had been sent to <span
     class="title-ref">PATH</span>. It returns 200 if the request is
-    authentic and 401 if it is not.
+    authentic and 401 if it's not.
 
 - **/organizations/ORGNAME/data-collector** forwards requests for a
     data-collector service after authenticating the request using Chef
@@ -2204,7 +2204,7 @@ The following items are new for Chef server 12.10:
 - With this TLS cipher suite change, the Reporting add-on will report
     errors when opscode-reporting-ctl test is run. A fix for this is
     available in the current channel for reporting, and will be released
-    to stable in November. This issue does not otherwise affect the
+    to stable in November. This issue doesn't otherwise affect the
     Reporting add-on, but you can resolve this locally by modifying
     /etc/opscode-reporting/pedant_config.rb and adding the following
     line: ssl_version :TLSv1_2
@@ -2238,7 +2238,7 @@ The following items are new for Chef server 12.9:
     information when the `user-delete` subcommand fails for this reason,
     the error message contains a list of organizations the user is an
     administrator of. Using the new flag `--remove-from-admin-groups`,
-    you can now remove that user provided they are not the only user in
+    you can now remove that user provided they're not the only user in
     the `admin` group.
 - **LDAP bind passwords now support special characters**
 - **Updated to OpenSSL 1.0.1u** Updated version of OpenSSL to address
@@ -2264,7 +2264,7 @@ The following items are new for Chef server 12.7:
 
 - **Support for service credential rotation through Veil** Veil is a
     library for securely creating, storing, and rotating Chef server
-    secrets. It is also required when using the new
+    secrets. It's also required when using the new
     `chef-server-ctl require-credential-rotation` command.
 - **Filtering by external authentication ID in Chef server API** Users
     can now be filtered by `external_authentication_uid`, which is
@@ -2534,11 +2534,11 @@ and it returns the following error:
 
 ```bash
 ERROR: You authenticated successfully to <chef_server_url> as alice
-       but you are not authorized for this action
+       but you aren't authorized for this action
 Response: Missing read permission
 ```
 
-Alice is not a superuser and does not have permissions on other users
+Alice isn't a superuser and doesn't have permissions on other users
 because user accounts are global to organizations in the Chef server.
 Let's add Alice to the `server-admins` group:
 
@@ -2553,7 +2553,7 @@ User alice was added to server-admins.
 ```
 
 Alice can now create, read, update, and delete user accounts on the Chef
-server, even for organizations to which Alice is not a member. From a
+server, even for organizations to which Alice isn't a member. From a
 workstation, Alice re-runs the following command:
 
 ```bash
@@ -2602,7 +2602,7 @@ and the following error is returned:
 
 ```bash
 ERROR: You authenticated successfully to <chef_server_url> as user1
-       but you are not authorized for this action
+       but you aren't authorized for this action
 Response: Missing read permission
 ```
 
@@ -2642,7 +2642,7 @@ returns:
 
 ```bash
 User bob was added to server-admins. This user can now list,
-read, and create users (even for orgs they are not members of)
+read, and create users (even for orgs they're not members of)
 for this Chef Server.
 ```
 
@@ -2745,7 +2745,7 @@ The following configuration settings are new and enable the Nginx
 
 ### RabbitMQ Queues
 
-If the RabbitMQ queue that is used by Chef Analytics stops consuming
+If the RabbitMQ queue that's used by Chef Analytics stops consuming
 messages, the Chef server data partition will fill up and may affect the
 overall performance of the Chef server application itself. The settings
 for the RabbitMQ queue are tunable, including for queue length
@@ -2765,7 +2765,7 @@ Chef Analytics and the Chef server:
 `rabbitmq['drop_on_full_capacity']`
 
 :   Specify if messages will stop being sent to the RabbitMQ queue when
-    it is at capacity. Default value: `true`.
+    it's at capacity. Default value: `true`.
 
 `rabbitmq['management_enabled']`
 
@@ -2813,50 +2813,50 @@ Chef Analytics and the Chef server:
 
 `rabbitmq['queue_length_monitor_queue']`
 
-:   The RabbitMQ queue that is observed by queue length monitor. Default
+:   The RabbitMQ queue that's observed by queue length monitor. Default
     value: `'alaska'`.
 
 `rabbitmq['queue_length_monitor_vhost']`
 
-:   The virtual host for the RabbitMQ queue that is observed by queue
+:   The virtual host for the RabbitMQ queue that's observed by queue
     length monitor. Default value: `'/analytics'`.
 
 `rabbitmq['rabbit_mgmt_http_cull_interval']`
 
 :   The maximum cull interval (in seconds) for the HTTP connection pool
-    that is used by the rabbitmq-management plugin. Default value: `60`.
+    that's used by the rabbitmq-management plugin. Default value: `60`.
 
 `rabbitmq['rabbit_mgmt_http_init_count']`
 
-:   The initial worker count for the HTTP connection pool that is used
+:   The initial worker count for the HTTP connection pool that's used
     by the rabbitmq-management plugin. Default value: `25`.
 
 `rabbitmq['rabbit_mgmt_http_max_age']`
 
 :   The maximum connection worker age (in seconds) for the HTTP
-    connection pool that is used by the rabbitmq-management plugin.
+    connection pool that's used by the rabbitmq-management plugin.
     Default value: `70`.
 
 `rabbitmq['rabbit_mgmt_http_max_connection_duration']`
 
 :   The maximum connection duration (in seconds) for the HTTP connection
-    pool that is used by the rabbitmq-management plugin. Default value:
+    pool that's used by the rabbitmq-management plugin. Default value:
     `70`.
 
 `rabbitmq['rabbit_mgmt_http_max_count']`
 
-:   The maximum worker count for the HTTP connection pool that is used
+:   The maximum worker count for the HTTP connection pool that's used
     by the rabbitmq-management plugin. Default value: `100`.
 
 `rabbitmq['rabbit_mgmt_ibrowse_options']`
 
 :   An array of comma-separated key-value pairs of ibrowse options for
-    the HTTP connection pool that is used by the rabbitmq-management
+    the HTTP connection pool that's used by the rabbitmq-management
     plugin. Default value: `'{connect_timeout, 10000}'`.
 
 `rabbitmq['rabbit_mgmt_timeout']`
 
-:   The timeout for the HTTP connection pool that is used by the
+:   The timeout for the HTTP connection pool that's used by the
     rabbitmq-management plugin. Default value: `30000`.
 
 `rabbitmq['ssl_versions']`
@@ -2878,7 +2878,7 @@ The following items are new for Chef server 12.2:
     to the Chef server API: `DELETE /policy_groups`.
 - **New subcommmands for chef-server-ctl** Use the `backup` and
     `restore` subcommmands to back up and restore Chef server data. Use
-    the `psql` subcommmand to log into a PostgreSQL database that is
+    the `psql` subcommmand to log into a PostgreSQL database that's
     associated with a service running in the Chef server configuration.
 - **New options for chef-server-ctl reindex** The `reindex` subcommand
     has new options: `--all-orgs` (reindex all organizations),
@@ -3099,7 +3099,7 @@ This subcommand has the following options:
 
 :   Use to reindex all organizations on the Chef server. This option
     will override any organization specified as part of the command,
-    i.e. `chef-server-ctl reindex ORG_NAME -a` will reindex all
+    that is `chef-server-ctl reindex ORG_NAME -a` will reindex all
     organizations and not just the specified organization.
 
 `-d`, `--disable-api`
@@ -3116,7 +3116,7 @@ This subcommand has the following options:
 :   Use to wait for the reindexing queue to clear before exiting. This
     option only works when run on a standalone Chef server, or on a
     primary backend Chef server within a legacy tier or DRBD HA system.
-    This option should not be used on a HA frontend.
+    This option shouldn't be used on a HA frontend.
 
 ### Chef server API Endpoints
 
@@ -3128,7 +3128,7 @@ The `/policy_groups` endpoint has the following methods: `GET`.
 
 #### DELETE
 
-The `DELETE` method is used to delete a policy group that is stored on
+The `DELETE` method is used to delete a policy group that's stored on
 the Chef server.
 
 This method has no parameters.
@@ -3177,15 +3177,15 @@ The response returns the policy details and is similar to:
 </tr>
 <tr>
 <td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
 <tr>
 <td><code>403</code></td>
-<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
 </tr>
 <tr>
 <td><code>404</code></td>
-<td>Not found. The requested object does not exist.</td>
+<td>Not found. The requested object doesn't exist.</td>
 </tr>
 </tbody>
 </table>
@@ -3236,15 +3236,15 @@ xxxxx
 </tr>
 <tr>
 <td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
 <tr>
 <td><code>403</code></td>
-<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
 </tr>
 <tr>
 <td><code>404</code></td>
-<td>Not found. The requested object does not exist.</td>
+<td>Not found. The requested object doesn't exist.</td>
 </tr>
 </tbody>
 </table>
@@ -3296,15 +3296,15 @@ The response returns the policy details and is similar to:
 </tr>
 <tr>
 <td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
 <tr>
 <td><code>403</code></td>
-<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
 </tr>
 <tr>
 <td><code>404</code></td>
-<td>Not found. The requested object does not exist.</td>
+<td>Not found. The requested object doesn't exist.</td>
 </tr>
 </tbody>
 </table>
@@ -3359,15 +3359,15 @@ xxxxx
 </tr>
 <tr>
 <td><code>400</code></td>
-<td>Bad request. The contents of the request are not formatted correctly.</td>
+<td>Bad request. The contents of the request aren't formatted correctly.</td>
 </tr>
 <tr>
 <td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
 <tr>
 <td><code>403</code></td>
-<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
 </tr>
 <tr>
 <td><code>409</code></td>
@@ -3486,15 +3486,15 @@ The response is similar to:
 </tr>
 <tr>
 <td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
 <tr>
 <td><code>403</code></td>
-<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
 </tr>
 <tr>
 <td><code>404</code></td>
-<td>Not found. The requested object does not exist.</td>
+<td>Not found. The requested object doesn't exist.</td>
 </tr>
 </tbody>
 </table>
@@ -3600,15 +3600,15 @@ The response returns the policy details and is similar to:
 </tr>
 <tr>
 <td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
 <tr>
 <td><code>403</code></td>
-<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
 </tr>
 <tr>
 <td><code>404</code></td>
-<td>Not found. The requested object does not exist.</td>
+<td>Not found. The requested object doesn't exist.</td>
 </tr>
 </tbody>
 </table>
@@ -3624,7 +3624,7 @@ The following items are new for Chef server 12.1:
     are now fully integrated.
 - **New version headers for Chef Server API** The Chef server API uses
     the `X-Ops-Server-API-Version` header to specify the version of the
-    API that is used as part of a request to the Chef server API.
+    API that's used as part of a request to the Chef server API.
 - **New endpoints for policy and policy files** The Chef server API
     adds the following endpoints: `/policies`, `/policy_groups`, and
     `/POLICY_GROUP/policies/POLICY_NAME`.
@@ -3706,15 +3706,15 @@ The response is similar to:
 </tr>
 <tr>
 <td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
 <tr>
 <td><code>403</code></td>
-<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
 </tr>
 <tr>
 <td><code>404</code></td>
-<td>Not found. The requested object does not exist.</td>
+<td>Not found. The requested object doesn't exist.</td>
 </tr>
 </tbody>
 </table>
@@ -3771,15 +3771,15 @@ The response is similar to:
 </tr>
 <tr>
 <td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
 <tr>
 <td><code>403</code></td>
-<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
 </tr>
 <tr>
 <td><code>404</code></td>
-<td>Not found. The requested object does not exist.</td>
+<td>Not found. The requested object doesn't exist.</td>
 </tr>
 </tbody>
 </table>
@@ -3835,15 +3835,15 @@ similar to:
 </tr>
 <tr>
 <td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
 <tr>
 <td><code>403</code></td>
-<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
 </tr>
 <tr>
 <td><code>404</code></td>
-<td>Not found. The requested object does not exist.</td>
+<td>Not found. The requested object doesn't exist.</td>
 </tr>
 </tbody>
 </table>
@@ -3893,15 +3893,15 @@ The response is similar to:
 </tr>
 <tr>
 <td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
 <tr>
 <td><code>403</code></td>
-<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
 </tr>
 <tr>
 <td><code>404</code></td>
-<td>Not found. The requested object does not exist.</td>
+<td>Not found. The requested object doesn't exist.</td>
 </tr>
 </tbody>
 </table>
@@ -3966,15 +3966,15 @@ similar to:
 </tr>
 <tr>
 <td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
 <tr>
 <td><code>403</code></td>
-<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
 </tr>
 <tr>
 <td><code>404</code></td>
-<td>Not found. The requested object does not exist.</td>
+<td>Not found. The requested object doesn't exist.</td>
 </tr>
 </tbody>
 </table>
@@ -4032,15 +4032,15 @@ The response is similar to:
 </tr>
 <tr>
 <td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
 <tr>
 <td><code>403</code></td>
-<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
 </tr>
 <tr>
 <td><code>404</code></td>
-<td>Not found. The requested object does not exist.</td>
+<td>Not found. The requested object doesn't exist.</td>
 </tr>
 </tbody>
 </table>
@@ -4097,15 +4097,15 @@ The response is similar to:
 </tr>
 <tr>
 <td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
 <tr>
 <td><code>403</code></td>
-<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
 </tr>
 <tr>
 <td><code>404</code></td>
-<td>Not found. The requested object does not exist.</td>
+<td>Not found. The requested object doesn't exist.</td>
 </tr>
 </tbody>
 </table>
@@ -4161,15 +4161,15 @@ similar to:
 </tr>
 <tr>
 <td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
 <tr>
 <td><code>403</code></td>
-<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
 </tr>
 <tr>
 <td><code>404</code></td>
-<td>Not found. The requested object does not exist.</td>
+<td>Not found. The requested object doesn't exist.</td>
 </tr>
 </tbody>
 </table>
@@ -4219,15 +4219,15 @@ The response is similar to:
 </tr>
 <tr>
 <td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
 <tr>
 <td><code>403</code></td>
-<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
 </tr>
 <tr>
 <td><code>404</code></td>
-<td>Not found. The requested object does not exist.</td>
+<td>Not found. The requested object doesn't exist.</td>
 </tr>
 </tbody>
 </table>
@@ -4292,15 +4292,15 @@ similar to:
 </tr>
 <tr>
 <td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
 <tr>
 <td><code>403</code></td>
-<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
 </tr>
 <tr>
 <td><code>404</code></td>
-<td>Not found. The requested object does not exist.</td>
+<td>Not found. The requested object doesn't exist.</td>
 </tr>
 </tbody>
 </table>
@@ -4373,7 +4373,7 @@ The response groups policies by name and revision and is similar to:
 </tr>
 <tr>
 <td><code>403</code></td>
-<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
 </tr>
 </tbody>
 </table>
@@ -4455,15 +4455,15 @@ The response is similar to:
 </tr>
 <tr>
 <td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
 <tr>
 <td><code>403</code></td>
-<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
 </tr>
 <tr>
 <td><code>404</code></td>
-<td>Not found. The requested object does not exist.</td>
+<td>Not found. The requested object doesn't exist.</td>
 </tr>
 </tbody>
 </table>
@@ -4499,7 +4499,7 @@ in order for any action to be authorized.
 
 The `DELETE` method is used to delete the association between a specific
 policy document, specific policy group, and specific policy revision.
-This method does not delete anything from the Chef server.
+This method doesn't delete anything from the Chef server.
 
 This method has no parameters.
 
@@ -4601,15 +4601,15 @@ The response returns the policy details and is similar to:
 </tr>
 <tr>
 <td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
 <tr>
 <td><code>403</code></td>
-<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
 </tr>
 <tr>
 <td><code>404</code></td>
-<td>Not found. The requested object does not exist.</td>
+<td>Not found. The requested object doesn't exist.</td>
 </tr>
 </tbody>
 </table>
@@ -4719,15 +4719,15 @@ The response is similar to:
 </tr>
 <tr>
 <td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
 <tr>
 <td><code>403</code></td>
-<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
 </tr>
 <tr>
 <td><code>404</code></td>
-<td>Not found. The requested object does not exist.</td>
+<td>Not found. The requested object doesn't exist.</td>
 </tr>
 </tbody>
 </table>
@@ -4912,15 +4912,15 @@ The response returns the policy details and is similar to:
 </tr>
 <tr>
 <td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
 </tr>
 <tr>
 <td><code>403</code></td>
-<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
 </tr>
 <tr>
 <td><code>404</code></td>
-<td>Not found. The requested object does not exist.</td>
+<td>Not found. The requested object doesn't exist.</td>
 </tr>
 </tbody>
 </table>
@@ -4959,7 +4959,7 @@ The following items are new for Chef server 12:
     Chef Server 12](/upgrade_server/) for more information about
     these processes.
 - **chef-server.rb configuration file is created by default** Previous
-    versions of the Chef server did not create the chef-server.rb file
+    versions of the Chef server didn't create the chef-server.rb file
     and users had to create the file first, before updates to tuneable
     settings could be made.
 - **Pluggable high availability architecture** Support for high
@@ -5011,12 +5011,12 @@ The following items are new for Chef server 12:
     handles authorization requests to the Chef server.
 - **Organization policy changes** Users must be removed from the
     `admins` security group before they can be removed from an
-    organization. The chef-client is not granted **Create**, **Delete**,
+    organization. The chef-client isn't granted **Create**, **Delete**,
     or **Update** permissions to data bags when organizations are
     created.
-- **Administrators cannot be removed from organizations** The Chef
+- **Administrators can't be removed from organizations** The Chef
     server requires that a member of an organization's `admins` group
-    cannot be removed from the organization without first being removed
+    can't be removed from the organization without first being removed
     from the `admins` group.
 - **New settings for managing LDAP encryption** New settings that
     manage LDAP encryption have been added, existing settings have been
@@ -5071,10 +5071,10 @@ and for example, a single primary Chef server and multiple replicas:
 
 ![image](/images/chef_server_replication_many.png)
 
-Chef replication should not be used for:
+Chef replication shouldn't be used for:
 
 - Disaster recovery or backup/restore processes. The replication
-    process is read-only and cannot be changed to read-write
+    process is read-only and can't be changed to read-write
 - Synchronizing a replica instance with another replica instance
 - Node re-registration. A node may be associated only with a single
     Chef server
@@ -5134,14 +5134,14 @@ This subcommand has the following options:
 
 `--path PATH`
 
-:   Use to specify the location of a package. This option is not
+:   Use to specify the location of a package. This option isn't
     required when packages are downloaded from
     <https://packages.chef.io/>.
 
 **Use Downloads**
 
 The `install` subcommand downloads packages from
-<https://packages.chef.io/> by default. For systems that are not behind
+<https://packages.chef.io/> by default. For systems that aren't behind
 a firewall (and have connectivity to <https://packages.chef.io/>), these
 packages can be installed as described below.
 
@@ -5180,7 +5180,7 @@ The `install` subcommand downloads packages from
 firewall (and may not have connectivity to packages.chef.io), these
 packages can be downloaded from
 Chef Downloads, and then installed manually.
-First download the package that is appropriate for the platform, save it
+First download the package that's appropriate for the platform, save it
 to a local path, and then run the `install` command using the `--path`
 option to specify the directory in which the package is located:
 
@@ -5539,11 +5539,11 @@ The following configuration settings are new for Chef server version 12:
 <tbody>
 <tr>
 <td><code>default_orgname</code></td>
-<td>The Chef server API used by the Open Source Chef server does not have an <code>/organizations/ORG_NAME</code> endpoint. Use this setting to ensure that migrated Open Source Chef servers are able to connect to the Chef server API. This value should be the same as the name of the organization that was created during the upgrade from Open Source Chef version 11 to Chef server version 12, which means it will be identical to the <code>ORG_NAME</code> part of the <code>/organizations</code> endpoint in Chef server version 12. Default value: the name of the organization specified during the upgrade process from Open Source Chef 11 to Chef server 12.</td>
+<td>The Chef server API used by the Open Source Chef server doesn't have an <code>/organizations/ORG_NAME</code> endpoint. Use this setting to ensure that migrated Open Source Chef servers are able to connect to the Chef server API. This value should be the same as the name of the organization that was created during the upgrade from Open Source Chef version 11 to Chef server version 12, which means it will be identical to the <code>ORG_NAME</code> part of the <code>/organizations</code> endpoint in Chef server version 12. Default value: the name of the organization specified during the upgrade process from Open Source Chef 11 to Chef server 12.</td>
 </tr>
 <tr>
 <td><code>postgresql['log_min_duration_statement']</code></td>
-<td>When to log a slow PostgreSQL query statement. Possible values: <code>-1</code> (disabled, do not log any statements), <code>0</code> (log every statement), or an integer greater than zero. When the integer is greater than zero, this value is the amount of time (in milliseconds) that a query statement must have run before it is logged. Default value: <code>-1</code>.</td>
+<td>When to log a slow PostgreSQL query statement. Possible values: <code>-1</code> (disabled, don't log any statements), <code>0</code> (log every statement), or an integer greater than zero. When the integer is greater than zero, this value is the amount of time (in milliseconds) that a query statement must have run before it's logged. Default value: <code>-1</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -5591,7 +5591,7 @@ The following configuration settings are new in Chef server version
 </tr>
 <tr>
 <td><code>opscode_erchef['s3_url_expiry_window_size']</code></td>
-<td>The frequency at which unique URLs are generated. This value may be a specific amount of time, i.e. <code>15m</code> (fifteen minutes) or a percentage of the value of <code>s3_url_ttl</code>, i.e. <code>10%</code>. Default value: <code>:off</code>.</td>
+<td>The frequency at which unique URLs are generated. This value may be a specific amount of time, that is <code>15m</code> (fifteen minutes) or a percentage of the value of <code>s3_url_ttl</code>, that is <code>10%</code>. Default value: <code>:off</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -5632,7 +5632,7 @@ This configuration file has the following settings for `oc_chef_authz`:
 
 In previous versions of the Chef server, the default permissions allowed
 data bags to be updated by the chef-client during a chef-client run.
-Starting with Chef server version 12, the chef-client is not granted
+Starting with Chef server version 12, the chef-client isn't granted
 **Create**, **Delete**, or **Update** permissions to data bags when
 organizations are created. Use the Chef management console or the
 `knife-acl` plugin (<https://github.com/chef/knife-acl>) to manage
