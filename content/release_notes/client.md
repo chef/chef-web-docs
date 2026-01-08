@@ -318,7 +318,7 @@ Release date: March 31, 2025
 
 ## Chef Infra Client 18.6.2
 
-Release Date: 13 December, 2024.
+Release Date: December 13, 2024.
 
 ### Security
 
@@ -372,6 +372,8 @@ See the Chef [licensing documentation](https://docs.chef.io/licensing/) and [dow
 - We no longer build packages for Windows Server 2012. ([#14683](https://github.com/chef/chef/pull/14683))
 
 ## Chef Infra Client 18.5.0
+
+Release date: July 9, 2024
 
 ### Security
 
@@ -443,6 +445,8 @@ Reverted an earlier change to the `description` property in the windows_service 
 
 ## Chef Infra Client 18.4.12
 
+Release date: March 14, 2024
+
 ### Compliance Phase improvements
 
 - Updated Chef InSpec to 5.22.40. ([#14200](https://github.com/chef/chef/pull/14200))
@@ -460,6 +464,8 @@ Reverted an earlier change to the `description` property in the windows_service 
 - We are now building packages for Amazon Linux 2023 on `aarch64` and `x86_64` platforms. [#14228](https://github.com/chef/chef/pull/14228)
 
 ## Chef Infra Client 18.4.2
+
+Release date: January 30, 2024
 
 ### Improvements
 
@@ -537,6 +543,8 @@ Reverted an earlier change to the `description` property in the windows_service 
 
 ## Chef Infra Client 18.3.0
 
+Release on: September 18, 2023
+
 ### Improvements
 
 - Reformatted the output of the `knife cookbook list -a -F json` command so it returns a hierarchical JSON object of cookbook versions instead of a flat array. ([#13654](https://github.com/chef/chef/pull/13654)) Thanks [aknarts](https://github.com/aknarts)!
@@ -575,6 +583,8 @@ Reverted an earlier change to the `description` property in the windows_service 
 
 ## Chef Infra Client 18.2.7
 
+Release date: April 4, 2023
+
 **NOTE**: This release does not include Infra Client packages for AIX systems.
 
 ### New Resources
@@ -593,7 +603,7 @@ Thanks [wheatevo](https://github.com/wheatevo)!
 
 #### macos_userdefaults resource
 
-We fixed an issue in the [macos_userdefaults resource](https://docs.chef.io/resources/macos_userdefaults/) where the `user` property was not being used when `host` property wasn't passed. This update sets default values for `user` and `host` as the current user and any host. ([#12791](https://github.com/chef/chef/pull/12791))
+We fixed an issue in the [macos_userdefaults resource](https://docs.chef.io/resources/macos_userdefaults/) where the `user` property wasn't being used when `host` property wasn't passed. This update sets default values for `user` and `host` as the current user and any host. ([#12791](https://github.com/chef/chef/pull/12791))
 
 #### launchd resource
 
@@ -654,6 +664,8 @@ This allows multiple users to decrypt a private key. ([#13552](https://github.co
 
 ## Chef Infra Client 18.1.0
 
+Release date: January 5, 2023
+
 ### Resource Updates
 
 - Resource validation should be aware of action property requirements ([#13069](https://github.com/chef/chef/pull/13069)) - Thanks [@sabat](https://github.com/sabat)!
@@ -672,6 +684,8 @@ This allows multiple users to decrypt a private key. ([#13552](https://github.co
 - Fixed an error in the **yum_package** resource where the `options` property would ignore `disable` options if more than one option is specified and the `disable` option isn't last. ([#13327](https://github.com/chef/chef/pull/13327)) - Thanks [@darnaut](https://github.com/darnaut)!
 
 ## Chef Infra Client 18.0.185
+
+Release date: November 17, 2022
 
 ### REST Operations Resource Support
 
@@ -851,6 +865,8 @@ Certificates have a 90-day lifespan. If a certificate is expiring, Infra Client 
 - Fixes missing require and small error in REST implementation([13066](https://github.com/chef/chef/pull/13066)) - Shoutout to [tecracer-theinen](https://github.com/tecracer-theinen) from the community!
 
 ## Chef Infra Client 18.0.155
+
+Release date: September 29, 2022
 
 ### Chef Infra Client Release Candidate
 
