@@ -1665,7 +1665,7 @@ The `chef shell-init` CLI command checks for the Chef Workstation PATH variable 
 
 We removed two legacy Chef Workflow (Delivery) commands in the chef-cli (Chef Workflow reached end-of-life status in December 2020):
 
-- `chef generate cookbook --workflow` now warns that the `--workflow` flag is no longer supported and generates a Chef cookbook—without the Chef Workflow build-cookbook.
+- `chef generate cookbook --workflow` now warns that the `--workflow` flag is no longer supported and generates a Chef cookbook---without the Chef Workflow build-cookbook.
 - `chef generate build-cookbook` now alerts that build-cookbook generation is no longer supported and exits with an error.
 
 #### Knife Changes
@@ -1699,7 +1699,7 @@ The `knife user create` command previously required passing the user's display n
 
 #### Fauxhai updated to 9.0
 
-The Fauxhai engine mocks Ohai data in ChefSpec tests. The 9.0 release removes all the deprecated Fauxhai definitions—the ones that warned you of their impending deprecation every time you used them this past year.
+The Fauxhai engine mocks Ohai data in ChefSpec tests. The 9.0 release removes all the deprecated Fauxhai definitions---the ones that warned you of their impending deprecation every time you used them this past year.
 
 The Fauxhai community team removed platforms that:
 
@@ -2567,7 +2567,7 @@ Chef Infra Client has been updated from 16.4.38 to 16.4.41. This release:
 
 `chef-run` has been updated to add support for YAML-based recipes introduced in Chef Infra Client 16. Users can specify a YAML recipe in the same way that they would normally specify a Ruby recipe, such as `chef run target chef_repo/recipes/my_recipe.yml`.
 
-NOTE: We incorrectly said we released this feature in Chef Workstation 20.6.62, but the updated dependency wasn't pulled for that release. 😢
+NOTE: We incorrectly said we released this feature in Chef Workstation 20.6.62, but the updated dependency wasn't pulled for that release. 
 
 #### Chef Vault
 

@@ -5267,7 +5267,7 @@ Released on April 16, 2019
 
 ### Upgrade Impact
 
-We're preparing the way for two great new features in Chef Automate—deep filtering in Compliance reporting and IAM v2 Beta. We're making changes to the format for compliance results, which means that we're migrating your compliance results to the new format.
+We're preparing the way for two great new features in Chef Automate---deep filtering in Compliance reporting and IAM v2 Beta. We're making changes to the format for compliance results, which means that we're migrating your compliance results to the new format.
 For most users, this migration will happen quickly and in the background. However, if your system has tens of gigabytes of compliance results for the current day, the migration may take hours.
 
 #### Migration Process
@@ -5281,7 +5281,7 @@ During the current day's data migration:
 - Compliance APIs and UI (Compliance page, Scan Jobs, Asset Store) won't be responsive
 - Scan jobs and incoming scan reports (from audit cookbook or inspec exec) won't be processed
 
-We're promoting this release to Automate's “current” channel—which means this upgrade goes live—at 00:01am UTC (5:01 PM PDT).
+We're promoting this release to Automate's "current" channel---which means this upgrade goes live---at 00:01am UTC (5:01 PM PDT).
 For customers who have automatic upgrades enabled, this should reduce the amount of time needed for the data migration, because you should have very little data in the current day's results.
 We recommend that customers without auto upgrades configured run their manual upgrades upgrade at 00:01 UTC, or shortly thereafter, in order to minimize their downtime.
 
@@ -5301,11 +5301,11 @@ The length of time that your system is impacted by the data migration is determi
 
 We recommend taking the following steps to ensure a painless experience:
 
-1. Ensure that your system has an appropriate amount of heap memory assigned to Elasticsearch: <https://automate.chef.io/docs/configuration/#setting-elasticsearch-heap>
+1. Ensure that your system has an appropriate amount of heap memory assigned to Elasticsearch: <https://automate.chef.io/docs/configuration/#setting-elasticsearch-heap>
 2. Schedule the upgrade as close to 00:01 UTC as possible to reduce the amount of data in the current day.
 3. Test the upgrade in a non-production environment prior to upgrading if you have more than a few GBs of data. Monitor your resource consumption to ensure you have enough throughput and, if necessary, allocate more resources to minimize the impact to your system.
 4. Disable other resource intensive processes (such as backups, re-indexing, etc.) during the upgrade, or schedule them run at different time before or after the upgrade
-5. If you have problems with this upgrade, contact support for help: <https://www.chef.io/support/get-started/>
+5. If you have problems with this upgrade, contact support for help: <https://www.chef.io/support/get-started/>
 
 ### New features
 
@@ -6484,7 +6484,7 @@ Released on April 9, 2018
 
 ### Improvements
 
-- Added authorization coverage to all public API endpoints! 🎉
+- Added authorization coverage to all public API endpoints! 
 - Updated design on the node details page to better show our Chef-ness.
 - Added a summary panel to the event feed features a summary panel showing the total number of events for the last 7 days as well as a breakdown of create, delete, and update actions.
 

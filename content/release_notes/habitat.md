@@ -873,7 +873,7 @@ Thanks for using Habitat!
 - Monday module update [#7945](https://github.com/habitat-sh/habitat/pull/7945) ([kagarmoe](https://github.com/kagarmoe)) <!-- 1.6.171 -->
 - adds docs component &amp; team as codeowners [#7946](https://github.com/habitat-sh/habitat/pull/7946) ([kagarmoe](https://github.com/kagarmoe)) <!-- 1.6.170 -->
 - updating codeowners due to team departures [#7944](https://github.com/habitat-sh/habitat/pull/7944) ([jeremymv2](https://github.com/jeremymv2)) <!-- 1.6.169 -->
-- Revert "Merge pull request #7923 from habitat-sh/dmcneil/ctl-gateway-… [#7943](https://github.com/habitat-sh/habitat/pull/7943) ([christophermaier](https://github.com/christophermaier)) <!-- 1.6.168 -->
+- Revert "Merge pull request #7923 from habitat-sh/dmcneil/ctl-gateway-... [#7943](https://github.com/habitat-sh/habitat/pull/7943) ([christophermaier](https://github.com/christophermaier)) <!-- 1.6.168 -->
 - Make shorter Builder pages [#7939](https://github.com/habitat-sh/habitat/pull/7939) ([kagarmoe](https://github.com/kagarmoe)) <!-- 1.6.167 -->
 - Add TLS support to the ctl gateway [#7923](https://github.com/habitat-sh/habitat/pull/7923) ([davidMcneil](https://github.com/davidMcneil)) <!-- 1.6.166 -->
 - Updates Hugo, Node modules [#7941](https://github.com/habitat-sh/habitat/pull/7941) ([kagarmoe](https://github.com/kagarmoe)) <!-- 1.6.165 -->
@@ -1257,7 +1257,7 @@ Release date: August 25, 2020
 - Add structopt implmentation of CLI [#7453](https://github.com/habitat-sh/habitat/pull/7453) ([davidMcneil](https://github.com/davidMcneil)) <!-- 1.5.33 -->
 - [Docs] Fix up missing / erroneous hook documentation [#7466](https://github.com/habitat-sh/habitat/pull/7466) ([christophermaier](https://github.com/christophermaier)) <!-- 1.5.33 -->
 - [Docs] Add basic `hab pkg download` file docs [#7457](https://github.com/habitat-sh/habitat/pull/7457) ([christophermaier](https://github.com/christophermaier)) <!-- 1.5.33 -->
-- Add in a check for a "latest" version specification to not set an ide… [#7460](https://github.com/habitat-sh/habitat/pull/7460) ([jschripsema](https://github.com/jschripsema)) <!-- 1.5.33 -->
+- Add in a check for a "latest" version specification to not set an ide... [#7460](https://github.com/habitat-sh/habitat/pull/7460) ([jschripsema](https://github.com/jschripsema)) <!-- 1.5.33 -->
 - Update to Rust 1.41.0 [#7458](https://github.com/habitat-sh/habitat/pull/7458) ([davidMcneil](https://github.com/davidMcneil)) <!-- 1.5.33 -->
 - [CI, Docs] Update release instructions [#7465](https://github.com/habitat-sh/habitat/pull/7465) ([christophermaier](https://github.com/christophermaier)) <!-- 1.5.33 -->
 - [CI] Allow CI pipeline to create Github PRs, releases [#7479](https://github.com/habitat-sh/habitat/pull/7479) ([christophermaier](https://github.com/christophermaier)) <!-- 1.5.33 -->
@@ -1773,7 +1773,7 @@ Release date: August 25, 2020
 ### Merged pull requests
 
 - Update docs and Makefile for 0.81.0 [#6529](https://github.com/habitat-sh/habitat/pull/6529) ([raskchanky](https://github.com/raskchanky))
-- adds working code and test for altering a package name to make it val… [#6524](https://github.com/habitat-sh/habitat/pull/6524) ([nellshamrell](https://github.com/nellshamrell))
+- adds working code and test for altering a package name to make it val... [#6524](https://github.com/habitat-sh/habitat/pull/6524) ([nellshamrell](https://github.com/nellshamrell))
 - Update the docker exporter docs to include HAB_LICENSE instructions [#6525](https://github.com/habitat-sh/habitat/pull/6525) ([raskchanky](https://github.com/raskchanky))
 - Propagate host license acceptance into docker containers [#6522](https://github.com/habitat-sh/habitat/pull/6522) ([raskchanky](https://github.com/raskchanky))
 - Sets project status and SLA [#6473](https://github.com/habitat-sh/habitat/pull/6473) ([dmccown](https://github.com/dmccown))

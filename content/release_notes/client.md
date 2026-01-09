@@ -81,7 +81,7 @@ Release date: August 14, 2025
 
 ### Updates
 
-This is a re-release of Chef Infra Client 18.8.9 to update the metadata in the chef gem, ensuring compatibility with the latest version of Chef InSpec (5.22.95).
+This is a re-release of Chef Infra Client 18.8.9 to update the metadata in the chef gem, ensuring compatibility with the latest version of Chef InSpec (5.22.95).
 
 Please note: We're not producing an AIX package for this release. AIX users can continue using Infra Client 18.8.9 to access the same functionality.
 
@@ -125,7 +125,7 @@ Release date: August 13, 2025
 
 ### Resource updates
 
-- We added the `environment` property to the `apt_package`, `dnf_package`, `dpkg_package`, `package`, `rpm_package`, and `yum_package` resources. This allows you to customize package installation using environment variables for packages that donâ€™t use preseed files.
+- We added the `environment` property to the `apt_package`, `dnf_package`, `dpkg_package`, `package`, `rpm_package`, and `yum_package` resources. This allows you to customize package installation using environment variables for packages that don't use preseed files.
 
   For example:
 
