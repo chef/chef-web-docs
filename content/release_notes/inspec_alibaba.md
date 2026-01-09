@@ -1,5 +1,5 @@
 +++
-title = "Ali Cloud Resource Release Notes"
+title = "Ali Cloud Resource release notes"
 draft = true
 
 

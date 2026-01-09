@@ -1,5 +1,5 @@
 +++
-title = "Chef Download APIs Release Notes"
+title = "Chef Download APIs release notes"
 draft = false
 
 [menu]

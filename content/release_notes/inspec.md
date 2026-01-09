@@ -1,5 +1,5 @@
 +++
-title = "Chef InSpec Release Notes"
+title = "Chef InSpec release notes"
 draft = false
 product = ["inspec"]
 
@@ -10,6 +10,10 @@ product = ["inspec"]
     parent = "release_notes"
     weight = 80
 +++
+
+<!-- markdownlint-disable-file -->
+<!-- cSpell:disable  -->
+<!-- vale off -->
 
 ## Chef InSpec 7.0.95
 

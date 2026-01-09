@@ -1,5 +1,5 @@
 +++
-title = "Chef Infra Client Release Notes"
+title = "Chef Infra Client release notes"
 draft = false
 product = ["client"]
 
@@ -10,6 +10,10 @@ product = ["client"]
     parent = "release_notes"
     weight = 60
 +++
+
+<!-- markdownlint-disable-file -->
+<!-- cSpell:disable  -->
+<!-- vale off -->
 
 ## Chef Infra Client 18.8.54
 

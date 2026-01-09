@@ -1,5 +1,5 @@
 +++
-title = "AWS Cloud Resource Release Notes"
+title = "AWS Cloud Resource release notes"
 draft = false
 product = ["inspec"]
 
@@ -9,6 +9,10 @@ product = ["inspec"]
     identifier = "release_notes/inspec/InSpec AWS"
     parent = "release_notes/inspec"
 +++
+
+<!-- markdownlint-disable-file -->
+<!-- cSpell:disable  -->
+<!-- vale off -->
 
 ## AWS Cloud Resource 2022-01-07
 

@@ -1,5 +1,5 @@
 +++
-title = "Chef Manage Release Notes"
+title = "Chef Manage release notes"
 draft = false
 product = []
 
@@ -10,6 +10,10 @@ product = []
     parent = "release_notes"
     weight = 95
 +++
+
+<!-- markdownlint-disable-file -->
+<!-- cSpell:disable  -->
+<!-- vale off -->
 
 Chef Manage provides a web-based user interface that manages Chef Infra nodes and other policy objects, such as data bags and roles, on the instance of Chef Infra Server that it's installed on.
 

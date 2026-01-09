@@ -1,5 +1,5 @@
 +++
-title = "Chef Supermarket Release Notes"
+title = "Chef Supermarket release notes"
 draft = false
 product = ["supermarket"]
 
@@ -11,7 +11,9 @@ product = ["supermarket"]
     weight = 100
 +++
 
-
+<!-- markdownlint-disable-file -->
+<!-- cSpell:disable  -->
+<!-- vale off -->
 
 ## Chef Supermarket 5.3.0
 

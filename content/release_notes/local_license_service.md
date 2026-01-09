@@ -1,5 +1,5 @@
 +++
-title = "Chef Local License Service Release Notes"
+title = "Chef Local License Service release notes"
 draft = false
 product = []
 

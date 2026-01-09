@@ -1,5 +1,5 @@
 +++
-title = "GCP Cloud Resource Release Notes"
+title = "GCP Cloud Resource release notes"
 draft = true
 
 

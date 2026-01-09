@@ -1,16 +1,17 @@
 +++
-title = "Release Notes: ChefDK 0.19 - 4.13"
+title = "ChefDK release notes"
 draft = false
 gh_repo = "chef-web-docs"
 product = []
 +++
+
 <!-- markdownlint-disable-file -->
 <!-- cSpell:disable  -->
+<!-- vale off -->
 
 {{< note >}}
 
-ChefDK is [deprecated](/versions/#deprecated-products-and-versions) and no
-longer under active development.
+ChefDK is [EOL](/versions/#end-of-life-eol-products) and no longer under active development.
 
 This document is no longer maintained.
 
@@ -20,7 +21,7 @@ This page documents the ChefDK major changes for each release. For
 a detailed list of changes, see the [ChefDK Changelog on
 GitHub](https://github.com/chef/chef-dk/blob/master/CHANGELOG.md)
 
-## What's New In ChefDK 4.13
+## What's new in ChefDK 4.13
 
 Note: ChefDK will enter the end-of-life product phase on Dec 31st 2020. The 4.13 release of ChefDK is the last planned release and all users should upgrade to Chef Workstation, which offers significant improvements to all included tools.
 
@@ -72,7 +73,7 @@ The knife-ec2 plugin has been updated to 2.1.0, which allows for the creation of
 
 The openSSL library has been updated to 1.0.2x to resolve [CVE-2020-1971](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1971).
 
-## What's New In ChefDK 4.12
+## What's new in ChefDK 4.12
 
 ### Updates Components
 
@@ -125,7 +126,7 @@ The `knife-ec2` plugin has been updated from 2.0.4 to 2.0.6. This release fixes 
 
 The `chef-vault` gem has been updated from 4.0.11 to 4.0.12. This release fixes `vault show -F json` and `knife vault list -F json` displaying invalid JSON.
 
-## What's New In ChefDK 4.11
+## What's new in ChefDK 4.11
 
 ### Knife Improvements
 
@@ -178,7 +179,7 @@ OpenSSL has been updated to 1.0.2w, which includes a fix for [CVE-2020-1968](htt
 
 The included `cacerts` bundle in Chef Infra Client has been updated to the 7-22-2020 release. This new release removes 4 legacy root certificates and adds 4 additional root certificates.
 
-## What's New In 4.10
+## What's new in ChefDK 4.10
 
 ### Updates Components
 
@@ -223,7 +224,7 @@ kitchen-ec2 has been updated from 3.7.0 to 3.7.1. This release fixes the default
 
 - Support for legacy DSA host keys has been restored in `knife ssh` and `knife bootstrap` commands.
 
-## What's New In 4.9
+## What's new in ChefDK 4.9
 
 ### Updated Components
 
@@ -276,7 +277,7 @@ Sample kitchen.yml config:
       load_plugins: true
 ```
 
-## What's New In 4.8
+## What's new in ChefDK 4.8
 
 ### New Platforms
 
@@ -409,7 +410,7 @@ openSSL has updated from 1.0.2u to 1.0.2v, which doesn't address any particular 
 
 Rake has updated to 13.0.1 to resolve [CVE-2020-8130](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-8130).
 
-## What's New In 4.7
+## What's new in ChefDK 4.7
 
 ### Updated Components
 
@@ -521,7 +522,7 @@ The embedded git client has been updated to 2.24.1 to resolve the following CVEs
 - [CVE-2019-1387](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1387)
 - [CVE-2019-19604](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-19604)
 
-## What's New in 4.7
+## What's new in ChefDK 4.7
 
 ### Updated Components
 
@@ -633,7 +634,7 @@ The embedded git client has been updated to 2.24.1 to resolve the following CVEs
 * [CVE-2019-1387](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1387)
 * [CVE-2019-19604](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-19604)
 
-## What's New in 4.6
+## What's new in ChefDK 4.6
 
 ### Updated Components
 
@@ -797,7 +798,7 @@ vulnerabilities:
 > - [CVE-2019-13117](https://www.cvedetails.com/cve/CVE-2019-13117/)
 > - [CVE-2019-13118](https://www.cvedetails.com/cve/CVE-2019-13118/)
 
-## What's New in 4.5
+## What's new in ChefDK 4.5
 
 ### Habitat Packages
 
@@ -883,7 +884,7 @@ following CVEs:
     Regular Expression Denial of Service vulnerability of WEBrick's
     Digest access authentication
 
-## What's New in 4.4
+## What's new in ChefDK 4.4
 
 ### Updated Components
 
@@ -1061,7 +1062,7 @@ and
 ChefDK is now validated against macOS 10.15 (Catalina). Additionally,
 ChefDK will no longer be validated against macOS 10.12.
 
-## What's New in 4.3
+## What's new in ChefDK 4.3
 
 ### Updated Components
 
@@ -1151,7 +1152,7 @@ Packages will no longer be built for SUSE Linux Enterprise Server (SLES)
 Policy](/platforms/#platform-end-of-life-policy)
 for more information on when Chef ends support for an OS release.
 
-## What's New in 4.2
+## What's new in ChefDK 4.2
 
 ### Bug Fixes
 
@@ -1192,7 +1193,7 @@ Chef InSpec has been updated to 4.7.3, which adds a new `ip6tables`
 resource and includes new `aws-sdk` gems that are necessary for the Chef
 InSpec AWS Resource Pack.
 
-## What's New in 4.1
+## What's new in ChefDK 4.1
 
 ### Updated Components
 
@@ -1382,7 +1383,7 @@ highly recommend upgrading your host to Ubuntu 16.04 or 18.04.
 Our <span class="title-ref">cacert</span> bundle has been updated to the
 5-11-2019 bundle, which adds four additional CAs.
 
-## What's New in 4.0
+## What's new in ChefDK 4.0
 
 ### Breaking Changes
 
@@ -1528,7 +1529,7 @@ driver:
   pull_platform_image: false
 ```
 
-## What's New in 3.13
+## What's new in ChefDK 3.13
 
 ### Updated Components
 
@@ -1611,7 +1612,7 @@ following CVEs:
 - [CVE-2019-1387](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1387)
 - [CVE-2019-19604](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-19604)
 
-## What's New in 3.12.10
+## What's new in ChefDK 3.12.10
 
 ### Updated Components
 
@@ -1660,7 +1661,7 @@ following CVEs:
     Regular Expression Denial of Service vulnerability of WEBrick's
     Digest access authentication
 
-## What's New in 3.12
+## What's new in ChefDK 3.12
 
 ### Chef Generate Updates
 
@@ -1810,7 +1811,7 @@ CVEs:
 Nokogiri has been updated from 1.10.3 to 1.10.4 to resolve
 [CVE-2019-5477](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5477).
 
-## What's New in 3.11
+## What's new in ChefDK 3.11
 
 ### Updated Components
 
@@ -1866,7 +1867,7 @@ non-breaking Test Kitchen 2.0 features:
 - CVE-2019-3822: NTLMv2 type-3 header stack buffer overflow
 - CVE-2019-3823: SMTP end-of-response out-of-bounds read
 
-## What's New in 3.10
+## What's new in ChefDK 3.10
 
 ### New Policy File Functionality
 
@@ -1882,7 +1883,7 @@ if the included Policyfile includes cookbooks with paths. Thanks
 - `mixlib-install`: 3.11.12 -\> 3.11.18
 - `ohai`: 14.8.11 -\> 14.8.12
 
-## What's New in 3.9
+## What's new in ChefDK 3.9
 
 ### Updated Components
 
@@ -1937,7 +1938,7 @@ CVEs:
     execution
 - CVE-2019-8325: Escape sequence injection vulnerability in errors
 
-## What's New in 3.8
+## What's new in ChefDK 3.8
 
 ### Updated Components
 
@@ -1963,7 +1964,7 @@ information on what's new.
 - \`kitchen-digitalocean\`: 0.10.1 -\> 0.10.2
 - \`mixlib-install\`: 3.11.5 -\> 3.11.11
 
-## What's New in 3.7
+## What's new in ChefDK 3.7
 
 ### Updated Components
 
@@ -2003,7 +2004,7 @@ Chef Provisioning has been in maintenance mode since 2015 and due to the
 age of its dependencies it can't be included in ChefDK 4 which is
 scheduled for an April 2019 release.
 
-## What's New in 3.6
+## What's new in ChefDK 3.6
 
 ### Chef CLI Improvements
 
@@ -2103,7 +2104,7 @@ what's new.
     [CVE-2018-0734](https://nvd.nist.gov/vuln/detail/CVE-2018-0734)
 - **New Chef Command Functionality**
 
-## What's New in 3.5
+## What's new in ChefDK 3.5
 
 ### Docker Image Updates
 
@@ -2120,7 +2121,7 @@ ChefDK now ships with Chef 14.7.17. See [Chef 14.7 release
 notes](/release_notes/#whats-new-in-14-7) for more information on
 what's new.
 
-## What's New in 3.4
+## What's new in ChefDK 3.4
 
 ### Updated Components
 
@@ -2211,7 +2212,7 @@ Ruby has been updated to 2.5.3 to resolve the following vulnerabilities:
 - \`CVE-2018-16395\`: OpenSSL::X509::Name equality check doesn't work
     correctly
 
-## What's New in 3.3
+## What's new in ChefDK 3.3
 
 ### Updated Components
 
@@ -2254,7 +2255,7 @@ cookbooks given on the command line.
     resources. Custom resources are awesome. No one should be writing
     new LWRPs any more. LWRPS aren't awesome.
 
-## What's New in 3.2
+## What's new in ChefDK 3.2
 
 - **Chef 14.4.56**
 
@@ -2307,7 +2308,7 @@ cookbooks given on the command line.
     - Cache timing vulnerability in RSA Key Generation
         [CVE-2018-0737](https://nvd.nist.gov/vuln/detail/CVE-2018-0737)
 
-## What's New in 3.1
+## What's new in ChefDK 3.1
 
 - **Chef 14.2.0**
 
@@ -2374,7 +2375,7 @@ cookbooks given on the command line.
         CVE-2018-1000201: DLL loading issue which can be hijacked on
         Windows OS
 
-## What's New in 3.0
+## What's new in ChefDK 3.0
 
 - **Chef 14.1.1**
 
@@ -2503,7 +2504,7 @@ cookbooks given on the command line.
 
         OpenSSL has been updated to 1.0.2o to resolve CVE-2018-0739.
 
-## What's New in 2.5.3
+## What's new in ChefDK 2.5.3
 
 - **Rename smoke tests to integration tests**
 
@@ -2557,7 +2558,7 @@ cookbooks given on the command line.
     - chef-provisioning-azure has been removed as it used deprecated
         Azure APIs
 
-## What's New in 2.4.17
+## What's new in ChefDK 2.4.17
 
 - **Improved performance downloading cookbooks from a Chef server**
 
@@ -2672,20 +2673,20 @@ See the detailed [change
 log](https://github.com/chef/chef-dk/blob/main/CHANGELOG.md#v2417-2017-11-29)
 for additional information.
 
-## What's New in 2.3.4
+## What's new in ChefDK 2.3.4
 
 ChefDK 2.3.4 pins the net-ssh gem to version 4.1 to prevent errors in
 test-kitchen and kitchen-inspec that would prevent systems from properly
 converging or verifying. This release is recommended for all users of
 ChefDK 2.3.
 
-## What's New in 2.3.3
+## What's new in ChefDK 2.3.3
 
 This release restores macOS support in ChefDK 2.3. See the [change
 log](https://github.com/chef/chef-dk/blob/main/CHANGELOG.md#v233-2017-09-21)
 for more information.
 
-## What's New in 2.3.1
+## What's new in ChefDK 2.3.1
 
 This release includes Ruby 2.4.2 to fix the following CVEs:
 
@@ -2719,7 +2720,7 @@ soon as possible.
 
 {{< /note >}}
 
-## What's New in 2.2.1
+## What's new in ChefDK 2.2.1
 
 This release includes RubyGems 2.6.13 to address the following CVEs:
 
@@ -2737,7 +2738,7 @@ ChefDK 2.2.1 includes:
 - Foodcritic 11.3.1
 - Test Kitchen 1.17.0
 
-## What's New in 2.1.11
+## What's new in ChefDK 2.1.11
 
 This release updates the version of git shipped in ChefDK to 2.14.1 to
 address
@@ -2762,13 +2763,13 @@ See the detailed [change
 log](https://github.com/chef/chef-dk/blob/main/CHANGELOG.md#v2111-2017-08-11)
 for a full list of changes.
 
-## What's New in 2.0.28
+## What's new in ChefDK 2.0.28
 
 Chef 2.0.28 fixes an
 [issue](https://github.com/chef/chef-dk/issues/1322) in ChefDK 2.0 where
 `chef push` would upload incomplete cookbooks.
 
-## What's New in 2.0
+## What's new in ChefDK 2.0
 
 ### Chef Infra Client 13.2
 
@@ -2851,7 +2852,7 @@ test.
 Cookstyle 2.0 is based on Rubocop 0.49.1, which changed a large number
 of rule names.
 
-## What's New in 1.6.11
+## What's new in ChefDK 1.6.11
 
 This release contains only dependency updates, including several
 security fixes:
@@ -2864,7 +2865,7 @@ security fixes:
 - Chef Infra Client has been upgraded to 12.21.26
 - Push Jobs Client has been upgraded to 2.4.5
 
-## What's New in 1.5
+## What's new in ChefDK 1.5
 
 ### Chef Infra Client 12.21
 
@@ -2890,7 +2891,7 @@ Chef Infra Client 12.21 also contains a new version of zlib, fixing 4 CVEs:
 
 - cookstyle 1.3.1 -\> 1.4.0
 
-## What's New in 1.4
+## What's new in ChefDK 1.4
 
 ### InSpec 1.25.1
 
@@ -2906,7 +2907,7 @@ Chef Infra Client 12.21 also contains a new version of zlib, fixing 4 CVEs:
 - Disabled Style/DoubleNegation rule, which can be necessary in
     not_if / only_if blocks
 
-## What's New in 1.3
+## What's new in ChefDK 1.3
 
 ### Chef Infra Client 12.19
 
@@ -3017,7 +3018,7 @@ standard license strings.
 - test-kitchen 1.15.0 -\> 1.16.0
 - train 0.22.1 -\> 0.23.0
 
-## What's New in 1.2
+## What's new in ChefDK 1.2
 
 ### Delivery CLI
 
@@ -3074,7 +3075,7 @@ Docs](/runners/)
 - train 0.22.0 -\> 0.22.1
 - winrm 2.1.0 -\> 2.1.2
 
-## What's New in 1.1
+## What's new in ChefDK 1.1
 
 ### New InSpec Test Location
 
@@ -3157,7 +3158,7 @@ a branch. See <https://github.com/coderanger/dco> for details.
 - winrm-fs `1.0.0` -\> `1.0.1`
 - cookstyle `0.0.1` -\> `1.1.0`
 
-## What's New in 1.0
+## What's new in ChefDK 1.0
 
 ### Version 1.0!
 
@@ -3193,7 +3194,7 @@ ChefDK adding chef server organization and user commands to knife
 - fauxhai `3.9.0` -\> `3.10.0`
 - foodcritic `7.1.0` -\> `8.1.0`
 
-## What's New in 0.19
+## What's new in ChefDK 0.19
 
 ### InSpec 1.2.0
 

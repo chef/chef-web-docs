@@ -1,5 +1,5 @@
 +++
-title = "Chef Workstation Release Notes"
+title = "Chef Workstation release notes"
 draft = false
 
 product = ["workstation"]
@@ -12,6 +12,10 @@ product = ["workstation"]
     parent = "release_notes"
     weight = 110
 +++
+
+<!-- markdownlint-disable-file -->
+<!-- cSpell:disable  -->
+<!-- vale off -->
 
 ## Chef Workstation 25.12.1102
 

@@ -1,5 +1,5 @@
 +++
-title = "Chef Automate Release Notes"
+title = "Chef Automate release notes"
 draft = false
 product = ["automate"]
 
@@ -10,6 +10,10 @@ product = ["automate"]
     parent = "release_notes"
     weight = 10
 +++
+
+<!-- markdownlint-disable-file -->
+<!-- cSpell:disable  -->
+<!-- vale off -->
 
 ## Chef Automate upgrade journey
 
@@ -69,7 +73,7 @@ The issue where the Projects selection drop-down would disappear in specific sce
 
   - CVE-2024-21538
 
-- Updated OpenSearch to the Tuxcare OpenSearch 1.3.20.tuxcare.1.0.2 to address the following CVEs:
+- Updated OpenSearch to the TuxCare OpenSearch 1.3.20.tuxcare.1.0.2 to address the following CVEs:
 
   - CVE-2025-25193
   - CVE-2024-47554
@@ -209,7 +213,7 @@ Updated the self-signed certificate for the Postgres and Open search packages fo
 
 - Updated the following packages to ensure they're as up-to-date as possible:
 
-  - OpenSearch (version specific to Chef commercially licensed from Tuxcare)
+  - OpenSearch (version specific to Chef commercially licensed from TuxCare)
   - OpenJDK
   - Golang
   - NodeJS

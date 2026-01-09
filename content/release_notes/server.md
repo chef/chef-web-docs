@@ -1,5 +1,5 @@
 +++
-title = "Chef Infra Server Release Notes"
+title = "Chef Infra Server release notes"
 draft = false
 product = ["server"]
 
@@ -11,6 +11,9 @@ product = ["server"]
     weight = 70
 +++
 
+<!-- markdownlint-disable-file -->
+<!-- cSpell:disable  -->
+<!-- vale off -->
 
 ## Chef Infra Server 15.10.83
 

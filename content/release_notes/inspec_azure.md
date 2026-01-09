@@ -1,5 +1,5 @@
 +++
-title = "Azure Cloud Resource Release Notes"
+title = "Azure Cloud Resource release notes"
 draft = false
 product = ["inspec"]
 
@@ -9,6 +9,10 @@ product = ["inspec"]
     identifier = "release_notes/inspec/InSpec Azure"
     parent = "release_notes/inspec"
 +++
+
+<!-- markdownlint-disable-file -->
+<!-- cSpell:disable  -->
+<!-- vale off -->
 
 ## Azure Cloud Resource 2022-01-07
 
