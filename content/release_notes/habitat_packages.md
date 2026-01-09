@@ -1,7 +1,8 @@
 +++
 title = "Chef Habitat package release notes"
 draft = true
-
+linkTitle = "Chef Habitat packages"
+summary = "Chef Habitat package release notes"
 product = ["habitat"]
 
 [menu]

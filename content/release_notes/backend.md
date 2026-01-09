@@ -2,6 +2,9 @@
 title = "Chef Backend release notes"
 draft = false
 product = []
+linkTitle = "Chef Backend"
+summary = "Chef Backend release notes"
+
 
 [menu]
   [menu.release_notes]

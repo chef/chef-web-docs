@@ -2,6 +2,8 @@
 title = "Chef Supermarket release notes"
 draft = false
 product = ["supermarket"]
+linkTitle = "Chef Supermarket"
+summary = "Chef Supermarket release notes"
 
 [menu]
   [menu.release_notes]

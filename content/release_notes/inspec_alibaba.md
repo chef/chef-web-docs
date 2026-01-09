@@ -1,7 +1,8 @@
 +++
-title = "Ali Cloud Resource release notes"
+title = "Chef InSpec Alibaba Cloud Resource release notes"
 draft = true
-
+linkTitle = "Chef InSpec Alibaba Cloud Resources"
+summary = "Chef InSpec Alibaba Cloud Resource release notes"
 
 product = ["inspec"]
 

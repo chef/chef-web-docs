@@ -2,6 +2,8 @@
 title = "Chef Manage release notes"
 draft = false
 product = []
+linkTitle = "Chef Manage"
+summary = "Chef Manage release notes"
 
 [menu]
   [menu.release_notes]
@@ -17,7 +19,11 @@ product = []
 
 Chef Manage provides a web-based user interface that manages Chef Infra nodes and other policy objects, such as data bags and roles, on the instance of Chef Infra Server that it's installed on.
 
+{{< note >}}
+
 Chef Manage is [deprecated](/versions/#deprecated) and users should plan to migrate to [Chef Automate](/automate/) as the replacement.
+
+{{< /note >}}
 
 ## Upgrading
 

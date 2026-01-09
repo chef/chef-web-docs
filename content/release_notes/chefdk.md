@@ -3,6 +3,8 @@ title = "ChefDK release notes"
 draft = false
 gh_repo = "chef-web-docs"
 product = []
+linkTitle = "ChefDK"
+summary = "ChefDK release notes"
 +++
 
 <!-- markdownlint-disable-file -->

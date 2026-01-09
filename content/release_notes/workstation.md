@@ -1,9 +1,9 @@
 +++
 title = "Chef Workstation release notes"
 draft = false
-
 product = ["workstation"]
-
+linkTitle = "Chef Workstation"
+summary = "Chef Workstation release notes"
 
 [menu]
   [menu.release_notes]

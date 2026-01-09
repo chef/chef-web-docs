@@ -2,6 +2,8 @@
 title = "Chef Automate release notes"
 draft = false
 product = ["automate"]
+linkTitle = "Chef Automate"
+summary = "Chef Automate release notes"
 
 [menu]
   [menu.release_notes]

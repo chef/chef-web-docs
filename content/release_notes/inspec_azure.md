@@ -1,7 +1,9 @@
 +++
-title = "Azure Cloud Resource release notes"
+title = "Chef InSpec Azure Cloud Resource release notes"
 draft = false
 product = ["inspec"]
+linkTitle = "Chef InSpec Azure Cloud Resource"
+summary = "Chef InSpec Azure Cloud Resource release notes"
 
 [menu]
   [menu.release_notes]
