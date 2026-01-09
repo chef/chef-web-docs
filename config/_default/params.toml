@@ -19,6 +19,7 @@ menuOrder = [
 ]
 
 robots = ''
+breadcrumbs = true
 
 # sitemaps lists sitemaps that are indexed by the main sitemap layout.
 # see:

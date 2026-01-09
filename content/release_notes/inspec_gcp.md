@@ -1,8 +1,9 @@
 +++
-title = "GCP Cloud Resource Release Notes"
+title = "Chef InSpec GCP Cloud Resource release notes"
 draft = true
+linkTitle = "Chef InSpec GCP Cloud Resources"
+summary = "Chef InSpec GCP Cloud Resource release notes"
 
-release_notes = "inspec-gcp"
 product = ["inspec"]
 
 [menu]

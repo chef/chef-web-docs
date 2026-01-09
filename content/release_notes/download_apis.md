@@ -1,6 +1,8 @@
 +++
-title = "Chef Download APIs Release Notes"
+title = "Chef Download APIs release notes"
 draft = false
+linkTitle = "Chef Download APIs"
+summary = "Chef Download APIs release notes"
 
 [menu]
   [menu.release_notes]

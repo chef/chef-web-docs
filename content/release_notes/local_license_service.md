@@ -1,7 +1,9 @@
 +++
-title = "Chef Local License Service Release Notes"
+title = "Chef Local License Service release notes"
 draft = false
 product = []
+linkTitle = "Chef Local License Service"
+summary = "Chef Local License Service release notes"
 
 [menu]
   [menu.release_notes]
