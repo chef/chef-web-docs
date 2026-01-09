@@ -531,6 +531,10 @@ Thanks for using Habitat!
 - Rustfmt and Nightly Rust Bump to nightly-2021-10-12 [#8327](https://github.com/habitat-sh/habitat/pull/8327) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot])) <!-- 1.6.402 -->
 - update changelog for 1.6.400 [#8328](https://github.com/habitat-sh/habitat/pull/8328) ([mwrock](https://github.com/mwrock)) <!-- 1.6.401 -->
 
+## Chef Habitat 1.6.415
+
+This release doesn't have any release notes.
+
 ## Chef Habitat 1.6.400
 
 ### Merged pull requests

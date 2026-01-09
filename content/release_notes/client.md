@@ -19020,3 +19020,203 @@ be enabled in environments running Chef Infra Client 12.0 by setting
 ### Changelog
 
 <https://github.com/chef/chef/blob/master/CHANGELOG.md>
+
+## Chef Infra Client 11.18.12
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 11.18.10
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 11.18.6
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 11.18.0
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 11.16.4
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 11.16.2
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 11.16.0
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 11.14.6
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 11.14.2
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 11.12.8
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 11.12.4
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 11.12.2
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 11.12.0
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 11.10.4
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 11.10.2
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 11.10.0
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 11.8.2
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 11.8.0
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 11.6.2
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 11.6.0
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 11.4.4
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 11.4.2
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 11.4.0
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 11.2.0
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 11.0.0
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 10.34.6
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 10.34.4
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 10.34.2
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 10.34.0
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 10.32.2
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 10.30.4
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 10.30.2
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 10.28.2
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 10.28.0
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 10.26.0
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 10.24.4
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 10.24.2
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 10.24.0
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 10.22.0
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 10.20.0
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 10.18.2
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 10.18.0
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 10.16.6
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 10.16.4
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 10.16.2
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 10.16.0
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 10.14.4
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 10.14.2
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 10.14.0
+
+This release doesn't have any release notes.
+
+## Chef Infra Client 10.12.0
+
+This release doesn't have any release notes.

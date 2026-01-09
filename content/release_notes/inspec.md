@@ -1491,6 +1491,14 @@ This release is a hotfix to address a regression in 4.31.0.
 - Yay!: The `gem` resource works again.
 - Decoder Ring: The `apt` resource now properly parses config files with an architecture specifier.
 
+## Chef InSpec 4.18.38
+
+This release doesn't have any release notes.
+
+## Chef InSpec 4.18.24
+
+This release doesn't have any release notes.
+
 ## Chef InSpec 4.18.0
 
 ### New features
@@ -1566,6 +1574,10 @@ Fixed two bugs introduced in yesterday's release:
 - Excerpt: Resolved quoting issues with the `mssql_session` resource.
 - Loaded: Fixed Plugin loader to check for the `inspec-core` gem if the `inspec` gem isn't found, and to fail gracefully otherwise.
 
+## Chef InSpec 4.17.6
+
+This release doesn't have any release notes.
+
 ## Chef InSpec 4.16.0
 
 ### New features
@@ -1604,6 +1616,10 @@ Fixed two bugs introduced in yesterday's release:
 
 - No Longer Available: We've dropped support for SUSE Linux Enterprise Server (SLES) 11, which was EOL'd as of March 31, 2019.
 - Tidying Up: The `inspec-core` gem, a distribution with fewer dependencies and no need for compilers, will no longer include WinRM functionality. This change doesn't impact most users of Chef InSpec, only those who use the specialized `inspec-core` version. If you need WinRM functionality, install the `train-winrm` gem, but please note that winrm support requires a compiler to install.
+
+## Chef InSpec 4.11.3
+
+This release doesn't have any release notes.
 
 ## Chef InSpec 4.10.4
 
@@ -1645,3 +1661,503 @@ When you run `inspec habitat profile create` now, the templates will be sourced 
 > This release begins the full naming convention of the `inspec-aws` project at 1.0.1. No breaking changes are present. To date, the project has been unversioned with many releases labeled as version 0.1.0 in the inspec.yml, so we're starting fresh at 1.0.0.
 >
 > Because `inspec-aws` has critical gem dependencies on Chef InSpec, it's important to use a version of `inspec-aws` that's compatible with a minimum version of Chef InSpec. This release requires Chef InSpec 4.7.x, and is likely to work with Chef InSpec 4.x.
+
+## Chef InSpec 4.7.3
+
+This release doesn't have any release notes.
+
+## Chef InSpec 4.6.9
+
+This release doesn't have any release notes.
+
+## Chef InSpec 4.6.4
+
+This release doesn't have any release notes.
+
+## Chef InSpec 4.6.3
+
+This release doesn't have any release notes.
+
+## Chef InSpec 4.3.2
+
+This release doesn't have any release notes.
+
+## Chef InSpec 3.9.3
+
+This release doesn't have any release notes.
+
+## Chef InSpec 3.9.0
+
+This release doesn't have any release notes.
+
+## Chef InSpec 3.7.11
+
+This release doesn't have any release notes.
+
+## Chef InSpec 3.7.1
+
+This release doesn't have any release notes.
+
+## Chef InSpec 3.6.6
+
+This release doesn't have any release notes.
+
+## Chef InSpec 3.6.4
+
+This release doesn't have any release notes.
+
+## Chef InSpec 3.6.2
+
+This release doesn't have any release notes.
+
+## Chef InSpec 3.5.0
+
+This release doesn't have any release notes.
+
+## Chef InSpec 3.4.1
+
+This release doesn't have any release notes.
+
+## Chef InSpec 3.3.14
+
+This release doesn't have any release notes.
+
+## Chef InSpec 3.2.6
+
+This release doesn't have any release notes.
+
+## Chef InSpec 3.1.3
+
+This release doesn't have any release notes.
+
+## Chef InSpec 3.0.64
+
+This release doesn't have any release notes.
+
+## Chef InSpec 3.0.61
+
+This release doesn't have any release notes.
+
+## Chef InSpec 3.0.52
+
+This release doesn't have any release notes.
+
+## Chef InSpec 3.0.46
+
+This release doesn't have any release notes.
+
+## Chef InSpec 3.0.25
+
+This release doesn't have any release notes.
+
+## Chef InSpec 3.0.12
+
+This release doesn't have any release notes.
+
+## Chef InSpec 3.0.9
+
+This release doesn't have any release notes.
+
+## Chef InSpec 3.0.0
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.3.28
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.3.24
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.3.23
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.3.10
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.3.5
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.3.4
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.2.112
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.2.102
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.2.101
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.2.78
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.2.70
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.2.64
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.2.61
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.2.55
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.2.54
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.2.50
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.2.41
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.2.35
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.2.34
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.2.27
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.2.20
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.2.16
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.2.10
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.1.84
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.1.83
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.1.81
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.1.80
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.1.78
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.1.72
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.1.68
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.1.67
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.1.59
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.1.54
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.1.43
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.1.30
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.1.21
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.1.10
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.1.0
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.0.45
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.0.32
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.0.17
+
+This release doesn't have any release notes.
+
+## Chef InSpec 2.0.16
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.51.31
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.51.25
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.51.21
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.51.18
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.51.15
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.51.6
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.51.0
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.50.1
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.49.2
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.48.0
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.47.0
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.46.2
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.45.13
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.45.9
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.44.8
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.43.8
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.43.5
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.42.3
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.41.0
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.40.0
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.39.1
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.38.8
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.37.6
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.36.1
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.35.1
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.34.1
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.33.12
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.33.1
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.32.1
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.31.1
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.31.0
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.30.0
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.29.0
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.28.1
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.28.0
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.27.0
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.26.0
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.25.1
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.25.0
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.24.0
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.23.0
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.22.0
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.21.0
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.20.0
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.19.2
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.19.1
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.19.0
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.18.0
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.17.0
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.16.1
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.15.0
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.14.1
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.7.1
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.6.0
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.5.0
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.4.1
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.3.0
+
+This release doesn't have any release notes.
+
+## Chef InSpec 1.0.0
+
+This release doesn't have any release notes.

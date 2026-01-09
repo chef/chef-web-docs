@@ -1916,6 +1916,26 @@ depend on the secret that's being changed. When used with the optional
 `--with-restart` flag, `chef-server-ctl set-secret` will attempt to
 automatically restart the dependent services.
 
+## Chef Infra Server 12.15.8
+
+This release doesn't have any release notes.
+
+## Chef Infra Server 12.15.7
+
+This release doesn't have any release notes.
+
+## Chef Infra Server 12.15.6
+
+This release doesn't have any release notes.
+
+## Chef Infra Server 12.15.5
+
+This release doesn't have any release notes.
+
+## Chef Infra Server 12.15.3
+
+This release doesn't have any release notes.
+
 ## Chef Infra Server 12.15.0
 
 The following items are new for Chef server 12.15:
@@ -2129,6 +2149,10 @@ oc_id['email_from_address'] = 'oc_id@example.com'
  defaults to the api_fqdn
 oc_id['origin'] = 'mail.yourco.io'
 ```
+
+## Chef Infra Server 12.11.1
+
+This release doesn't have any release notes.
 
 ## Chef Infra Server 12.11.0
 
@@ -2404,6 +2428,10 @@ By default, the `public_key_read_access` assigns all members of the
 </tr>
 </tbody>
 </table>
+
+## Chef Infra Server 12.4.1
+
+This release doesn't have any release notes.
 
 ## Chef Infra Server 12.4.0
 
@@ -2700,6 +2728,10 @@ bob
 carol
 dan
 ```
+
+## Chef Infra Server 12.3.1
+
+This release doesn't have any release notes.
 
 ## Chef Infra Server 12.3.0
 
@@ -3617,6 +3649,18 @@ The response returns the policy details and is similar to:
 </tr>
 </tbody>
 </table>
+
+## Chef Infra Server 12.2.0
+
+This release doesn't have any release notes.
+
+## Chef Infra Server 12.1.2
+
+This release doesn't have any release notes.
+
+## Chef Infra Server 12.1.1
+
+This release doesn't have any release notes.
 
 ## Chef Infra Server 12.1.0
 
@@ -4953,6 +4997,38 @@ The following configuration settings are new for the Chef server:
 </tbody>
 </table>
 
+## Chef Infra Server 12.0.8
+
+This release doesn't have any release notes.
+
+## Chef Infra Server 12.0.7
+
+This release doesn't have any release notes.
+
+## Chef Infra Server 12.0.6
+
+This release doesn't have any release notes.
+
+## Chef Infra Server 12.0.5
+
+This release doesn't have any release notes.
+
+## Chef Infra Server 12.0.4
+
+This release doesn't have any release notes.
+
+## Chef Infra Server 12.0.3
+
+This release doesn't have any release notes.
+
+## Chef Infra Server 12.0.2
+
+This release doesn't have any release notes.
+
+## Chef Infra Server 12.0.1
+
+This release doesn't have any release notes.
+
 ## Chef Infra Server 12.0.0
 
 The following items are new for Chef server 12:
@@ -5952,3 +6028,55 @@ EvBQGdNG39XYSEeF4LneYQKPHEZDdqe7TZdVE8ooU/syxlZgADtvkqEoc4zp1Im3
 For the list of issues that were addressed for this release, please see
 the changelog on GitHub:
 <https://github.com/chef/chef-server/blob/master/CHANGELOG.md>
+
+## Chef Infra Server 11.1.7
+
+This release doesn't have any release notes.
+
+## Chef Infra Server 11.1.6
+
+This release doesn't have any release notes.
+
+## Chef Infra Server 11.1.5
+
+This release doesn't have any release notes.
+
+## Chef Infra Server 11.1.4
+
+This release doesn't have any release notes.
+
+## Chef Infra Server 11.1.3
+
+This release doesn't have any release notes.
+
+## Chef Infra Server 11.1.1
+
+This release doesn't have any release notes.
+
+## Chef Infra Server 11.1.0
+
+This release doesn't have any release notes.
+
+## Chef Infra Server 11.0.12
+
+This release doesn't have any release notes.
+
+## Chef Infra Server 11.0.11
+
+This release doesn't have any release notes.
+
+## Chef Infra Server 11.0.10
+
+This release doesn't have any release notes.
+
+## Chef Infra Server 11.0.8
+
+This release doesn't have any release notes.
+
+## Chef Infra Server 11.0.6
+
+This release doesn't have any release notes.
+
+## Chef Infra Server 11.0.4
+
+This release doesn't have any release notes.

@@ -587,6 +587,10 @@ Updated Chef InSpec from 5.21.29 to 5.22.3. See the [Chef InSpec release notes](
 
 - Updated the kitchen-azurerm gem from 1.10.5 to 1.12 to fix an issue when running `kitchen create` after using Azure CLI to log in using the Kitchen AzureRM Driver. ([#3100](https://github.com/chef/chef-workstation/pull/3100/))
 
+## Chef Workstation 23.5.1039
+
+This release doesn't have any release notes.
+
 ## Chef Workstation 23.4.1032
 
 ### Updated Components
@@ -2716,21 +2720,7 @@ kitchen-vcenter has been updated from 2.7.0 to 2.7.8. This release adds the abil
 
 ## Chef Workstation 20.7.96
 
-### New Features
-
--
-
-### Improvements
-
--
-
-### Bug Fixes
-
--
-
-### Backward Incompatibilities
-
--
+This release doesn't have any release notes.
 
 ## Chef Workstation 20.7.81
 
@@ -4243,21 +4233,11 @@ OpenSSL updated to 1.0.2q to resolve:
 
 ## Chef Workstation 0.2.39
 
-### New Features
+This release doesn't have any release notes.
 
--
+## Chef Workstation 0.2.35
 
-### Improvements
-
--
-
-### Bug Fixes
-
--
-
-### Backward Incompatibilities
-
--
+This release doesn't have any release notes.
 
 ## Chef Workstation 0.2.29
 
@@ -4316,3 +4296,51 @@ Ruby has been updated to 2.5.3 to resolve the following vulnerabilities:
 
 - `CVE-2018-16396`: Tainted flags aren't propagated in Array#pack and String#unpack with some directives
 - `CVE-2018-16395`: OpenSSL::X509::Name equality check doesn't work correctly
+
+## Chef Workstation 0.2.27
+
+This release doesn't have any release notes.
+
+## Chef Workstation 0.2.21
+
+This release doesn't have any release notes.
+
+## Chef Workstation 0.1.162
+
+This release doesn't have any release notes.
+
+## Chef Workstation 0.1.155
+
+This release doesn't have any release notes.
+
+## Chef Workstation 0.1.150
+
+This release doesn't have any release notes.
+
+## Chef Workstation 0.1.148
+
+This release doesn't have any release notes.
+
+## Chef Workstation 0.1.142
+
+This release doesn't have any release notes.
+
+## Chef Workstation 0.1.139
+
+This release doesn't have any release notes.
+
+## Chef Workstation 0.1.137
+
+This release doesn't have any release notes.
+
+## Chef Workstation 0.1.133
+
+This release doesn't have any release notes.
+
+## Chef Workstation 0.1.120
+
+This release doesn't have any release notes.
+
+## Chef Workstation 0.1.119
+
+This release doesn't have any release notes.
