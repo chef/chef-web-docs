@@ -157,6 +157,8 @@ https://chefdownload-commercial.chef.io/package-managers
 
 ## Parameters
 
+<!-- markdownlint-disable MD006 MD007 -->
+
 The API accepts the following parameters in a query string.
 
 `<CHANNEL>`
