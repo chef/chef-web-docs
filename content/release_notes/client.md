@@ -31,6 +31,7 @@ Release date: January 14, 2025
 
 ### Packaging
 
+- We now build packages for RHEL 10. ([#15515](https://github.com/chef/chef/pull/15515/))
 - We've dropped support for building packages on macOS 12 and added support for macOS 13. ([#15415](https://github.com/chef/chef/pull/15415))
 
 ### Security
