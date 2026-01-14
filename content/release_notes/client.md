@@ -17,6 +17,38 @@ summary = "Chef Infra Client release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
+## Chef Infra Client 18.9.4
+
+Release date: January 14, 2025
+
+### New features
+
+- Added the `-a`/`--all-users` flag to the `knife user list` command to display detailed user information, including email, display name, first name, and last name. ([#15494](https://github.com/chef/chef/pull/15494))
+
+### Improvements
+
+- The path property in resources is now read once and reused, avoiding repeated property-handling overhead. This reduces unnecessary computation and speeds up resource processing. Thanks [@dafyddcrosby](https://github.com/dafyddcrosby)! ([#15485](https://github.com/chef/chef/pull/15485))
+
+### Packaging
+
+- We've dropped support for building packages on macOS 12 and added support for macOS 13. ([#15415](https://github.com/chef/chef/pull/15415))
+
+### Security
+
+- Updated the rack gem to 3.2.4. ([#15439](https://github.com/chef/chef/pull/15439))
+- Updated the resolv gem to 0.2.1. ([#15459](https://github.com/chef/chef/pull/15459))
+- Removed vulnerable bundled versions of the rexml gem. ([#15462](https://github.com/chef/chef/pull/15462))
+- Removed vulnerable bundled versions of the uri gem to address CVE-2025-27221. ([#15475](https://github.com/chef/chef/pull/15475))
+- Improved how Chef Infra Client and Knife extract YAML documents. The new method is no longer vulnerable to malicious YAML files. ([#15466](https://github.com/chef/chef/pull/15466))
+- Improved software bill of materials (SBOM) generation and security scanning in the CI pipeline to improve traceability, auditability, and transparency in dependency management. ([#15502](https://github.com/chef/chef/pull/15502))
+
+### Dependency updates
+
+- Updated Ohai to 18.2.13 ([#15520](https://github.com/chef/chef/pull/15520))
+- Removed direct dependency on activesupport ([#15472](https://github.com/chef/chef/pull/15472))
+- Updated the multi_json gem to 1.17.0. ([#15421](https://github.com/chef/chef/pull/15421))
+- Updated the chef gem to 18.8.54 in the knife lockfile. ([#15490](https://github.com/chef/chef/pull/15490))
+
 ## Chef Infra Client 18.8.54
 
 Release date: November 4, 2025
