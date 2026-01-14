@@ -125,7 +125,8 @@ The `download` endpoint downloads a particular package of a Chef product.
 https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
 ```
 
-For products such as Chef Infra Client Enterprise or Chef Infra Client Legacy Migration, the pm (package manager) query parameter must be explicitly provided in the request. This value determines the type of package to retrieve (for example: deb, rpm, msi, or tar) and is required because these products support multiple packaging formats.
+For Chef Infra Client Enterprise or Chef Infra Client Legacy Migration, you must include the `pm` (package manager) query parameter in your request.
+This parameter specifies the package format to download---for example, `deb`, `rpm`, `msi`, or `tar`.
 
 ```plain
 https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM>&pm=<PACKAGE_MANAGER>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
@@ -139,7 +140,8 @@ The `fileName` endpoint returns the file name.
 https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/fileName?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
 ```
 
-For products such as Chef Infra Client Enterprise or Chef Infra Client Legacy Migration, the pm (package manager) query parameter must be explicitly provided in the request. This value determines the type of package to retrieve (for example: deb, rpm, msi, or tar) and is required because these products support multiple packaging formats.
+For Chef Infra Client Enterprise or Chef Infra Client Legacy Migration, you must include the `pm` (package manager) query parameter in your request.
+This parameter specifies the package format---for example, `deb`, `rpm`, `msi`, or `tar`.
 
 ```plain
 https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/fileName?p=<PLATFORM>&pm=<PACKAGE_MANAGER>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
@@ -205,12 +207,14 @@ The API accepts the following parameters in a query string.
 `pm`
 : The package manager.
 
-This parameter is only used for the Chef Infra Client Enterprise and Chef Infra Client Legacy Migration products. For example:
+  Use this parameter only for Chef Infra Client Enterprise and Chef Infra Client Legacy Migration products.
 
-- `deb` for Debian-based systems (for example: Ubuntu)
-- `rpm` for Red Hat-based systems (for example: CentOS, Fedora)
-- `tar` for generic Unix-like systems
-- `msi` for Windows systems
+  Possible values:
+
+  - `deb` for Debian-based systems, for example, Ubuntu
+  - `rpm` for Red Hat-based systems, for example, CentOS or Fedora
+  - `tar` for generic Unix-like systems
+  - `msi` for Windows systems
 
 ## Chef product names
 
@@ -268,7 +272,7 @@ which returns something like:
 sha1	"dcf75b37bb80128af4657501bfd41eac52820191"
 sha256	"2c501d02b16d67e9d5a28578b95f8d3155bed940ee4946229213f41a2e8b798e"
 url	"https://chefdownload-commercial.chef.io/stable/chef-ice/download?license_id=<LICENSE_ID>&eol=false&m=x86_64&p=linux&pm=deb&v=19.1.8"
-version	"19.1.8"   
+version	"19.1.8"
 ```
 
 ### Download directly
