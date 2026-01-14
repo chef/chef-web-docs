@@ -137,6 +137,8 @@ For additional script install options, see the [script options](#script-options)
 
 ## Script options
 
+<!-- markdownlint-disable MD006 MD007 -->
+
 In addition to the default install behavior, the Chef Software install script supports the following options:
 
 `-c` (`-channel` on Windows)
