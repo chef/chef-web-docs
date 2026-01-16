@@ -357,6 +357,7 @@ Release date: January 15, 2026
 ### Bug fixes
 
 - Fixed the `uninitialized constant Gem::Package::TarWriter` error by adding the required dependency. ([#7651](https://github.com/inspec/inspec/pull/7651))
+- Fixed Windows platform detection when `wmic` is deprecated or unavailable on Windows 10 version 2004+ and Windows 11. Train now falls back to cmd-only commands (`systeminfo` and environment variables) when `wmic` is not available. (train [#813](https://github.com/inspec/train/pull/813))
 
 ### Packaging
 
