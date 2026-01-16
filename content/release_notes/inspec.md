@@ -339,19 +339,19 @@ Release date: January 15, 2026
 
 ### Dependency updates
 
-- Upgraded `ffi` from `~> 1.16.0` to `>= 1.16.0`, `< 1.18`. (train [#814](https://github.com/inspec/train/pull/814))
-- Upgraded `multi_json` in Omnibus to `1.18.0`. ([#7647](https://github.com/inspec/inspec/pull/7647))
+- Updated `ffi` from `~> 1.16.0` to `>= 1.16.0`, `< 1.18`. (train [#814](https://github.com/inspec/train/pull/814))
+- Updated `multi_json` in Omnibus to `1.18.0`. ([#7647](https://github.com/inspec/inspec/pull/7647))
 
 ### Security fixes
 
-- Upgraded the `rack` gem to 3.2.4. ([#7652](https://github.com/inspec/inspec/pull/7652))
+- Updated the `rack` gem to 3.2.4. ([#7652](https://github.com/inspec/inspec/pull/7652))
 - Removed vulnerable bundled versions of the `rexml` gem. ([#7653](https://github.com/inspec/inspec/pull/7653))
 - Removed vulnerable bundled versions of the `net-imap` gem. ([#7654](https://github.com/inspec/inspec/pull/7654), [#7687](https://github.com/inspec/inspec/pull/7687))
-- Upgraded `resolv` gem to 0.2.1. ([#7656](https://github.com/inspec/inspec/pull/7656))
-- Upgraded `openssl` to 3.2.6. ([#7719](https://github.com/inspec/inspec/pull/7719))
-- Upgraded `aws-sdk-s3` to `~> 1.208.0`. (train-aws [#588](https://github.com/inspec/train-aws/pull/588))
-- Upgraded `aws-partitions` to `~> 1.992.0`. (train-aws [#588](https://github.com/inspec/train-aws/pull/588))
-- Upgraded `aws-sdk-core` to `~> 3.234.0`. (train-aws [#588](https://github.com/inspec/train-aws/pull/588))
+- Updated `resolv` gem to 0.2.1. ([#7656](https://github.com/inspec/inspec/pull/7656))
+- Updated `openssl` to 3.2.6. ([#7719](https://github.com/inspec/inspec/pull/7719))
+- Updated `aws-sdk-s3` to `~> 1.208.0`. (train-aws [#588](https://github.com/inspec/train-aws/pull/588))
+- Updated `aws-partitions` to `~> 1.992.0`. (train-aws [#588](https://github.com/inspec/train-aws/pull/588))
+- Updated `aws-sdk-core` to `~> 3.234.0`. (train-aws [#588](https://github.com/inspec/train-aws/pull/588))
 - Pinned `connection_pool` to `>= 2.5`, `< 3.0`. ([#7703](https://github.com/inspec/inspec/pull/7703))
 
 ### Bug fixes
