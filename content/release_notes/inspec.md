@@ -341,6 +341,7 @@ Release date: January 15, 2026
 
 - Updated `ffi` from `~> 1.16.0` to `>= 1.16.0`, `< 1.18`. (train [#814](https://github.com/inspec/train/pull/814))
 - Updated `multi_json` in Omnibus to `1.18.0`. ([#7647](https://github.com/inspec/inspec/pull/7647))
+- Updated `ostruct` from `~> 0.1.0` to `~> 0.6.0`. (train [#819](https://github.com/inspec/train/pull/819))
 
 ### Security fixes
 
@@ -353,6 +354,7 @@ Release date: January 15, 2026
 - Updated `aws-partitions` to `~> 1.992.0`. (train-aws [#588](https://github.com/inspec/train-aws/pull/588))
 - Updated `aws-sdk-core` to `~> 3.234.0`. (train-aws [#588](https://github.com/inspec/train-aws/pull/588))
 - Pinned `connection_pool` to `>= 2.5`, `< 3.0`. ([#7703](https://github.com/inspec/inspec/pull/7703))
+- We improved InSpec security on Windows by preventing someone from escalating privileges with an insecure named pipe by enforcing strict ownership validation with Train before connection. (train [#818](https://github.com/inspec/train/pull/818))
 
 ### Bug fixes
 
