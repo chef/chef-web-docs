@@ -354,7 +354,7 @@ Release date: January 15, 2026
 - Updated `aws-partitions` to `~> 1.992.0`. (train-aws [#588](https://github.com/inspec/train-aws/pull/588))
 - Updated `aws-sdk-core` to `~> 3.234.0`. (train-aws [#588](https://github.com/inspec/train-aws/pull/588))
 - Pinned `connection_pool` to `>= 2.5`, `< 3.0`. ([#7703](https://github.com/inspec/inspec/pull/7703))
-- Enhanced Windows named pipe security by enforcing strict ownership validation before connection. (train [#818](https://github.com/inspec/train/pull/818))
+- We improved InSpec security on Windows by preventing someone from escalating privileges with an insecure named pipe by enforcing strict ownership validation with Train before connection. (train [#818](https://github.com/inspec/train/pull/818))
 
 ### Bug fixes
 
