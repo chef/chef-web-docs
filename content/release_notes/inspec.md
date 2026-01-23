@@ -361,6 +361,7 @@ Release date: January 15, 2026
 - Fixed the `uninitialized constant Gem::Package::TarWriter` error by adding the required dependency. ([#7651](https://github.com/inspec/inspec/pull/7651))
 - Fixed an issue affecting Windows versions where the WMIC utility is deprecated or removed (Windows 10 version 2004+ and Windows 11), which prevented InSpec from detecting the system architecture.
   Train now falls back to CMD commands (`systeminfo` and environment variables) when WMIC isn't available. (train [#813](https://github.com/inspec/train/pull/813))
+- Resolved `can't alloc thread (ThreadError)` warnings occurring during InSpec execution when using the Train transport. ([#7753](https://github.com/inspec/inspec/pull/7753))
 
 ### Packaging
 
