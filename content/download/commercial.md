@@ -36,6 +36,8 @@ The Chef Commercial Download API has the following endpoints:
 - `/versions/latest`
 - `/metadata`
 - `/download`
+- `/fileName`
+- `/package-managers`
 
 For details about query strings, see the [parameters section](#parameters).
 
@@ -109,6 +111,12 @@ The `metadata` endpoint returns data about a particular package of a Chef produc
 https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/metadata?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
 ```
 
+For Chef Infra Client Enterprise and the Chef Infra Client migration tool, include the `pm` (package manager) query parameter. This value determines the type of package to retrieve (for example: `deb`, `rpm`, `msi`, or `tar`) and is required because these products support multiple packaging formats.
+
+```plain
+https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/metadata?p=<PLATFORM>&pm=<PACKAGE_MANAGER>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
+```
+
 ### download
 
 The `download` endpoint downloads a particular package of a Chef product.
@@ -117,7 +125,39 @@ The `download` endpoint downloads a particular package of a Chef product.
 https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
 ```
 
+For Chef Infra Client Enterprise or the Chef Infra Client migration tool, include the `pm` (package manager) query parameter in your request.
+This parameter specifies the package format to download---for example, `deb`, `rpm`, `msi`, or `tar`.
+
+```plain
+https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM>&pm=<PACKAGE_MANAGER>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
+```
+
+### fileName
+
+The `fileName` endpoint returns the file name.
+
+```plain
+https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/fileName?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
+```
+
+For Chef Infra Client Enterprise or the Chef Infra Client migration tool, include the `pm` (package manager) query parameter in your request.
+This parameter specifies the package format---for example, `deb`, `rpm`, `msi`, or `tar`.
+
+```plain
+https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/fileName?p=<PLATFORM>&pm=<PACKAGE_MANAGER>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
+```
+
+### package-managers
+
+The `package-managers` endpoint lists the available package managers.
+
+```plain
+https://chefdownload-commercial.chef.io/package-managers
+```
+
 ## Parameters
+
+<!-- markdownlint-disable MD006 MD007 -->
 
 The API accepts the following parameters in a query string.
 
@@ -166,22 +206,36 @@ The API accepts the following parameters in a query string.
 
   Default value: `latest`.
 
+`pm`
+: The package manager.
+
+  Use this parameter only for Chef Infra Client Enterprise and the Chef Infra Client migration tool.
+
+  Possible values:
+
+  - `deb` for Debian-based systems, for example, Ubuntu
+  - `rpm` for Red Hat-based systems, for example, CentOS or Fedora
+  - `tar` for generic Unix-like systems
+  - `msi` for Windows systems
+
 ## Chef product names
 
 Use the following product keys to download packages or retrieve data for different Chef products.
 You can also use the [products endpoint](#products)
 
-| Product            | Product key      |
-|--------------------|------------------|
-| Chef Automate      | automate         |
-| Chef Infra Client  | chef             |
-| Chef Backend       | chef-backend     |
-| Chef Infra Server  | chef-server      |
-| Chef Workstation   | chef-workstation |
-| Chef Habitat       | habitat          |
-| Chef InSpec        | inspec           |
-| Management Console | manage           |
-| Supermarket        | supermarket      |
+| Product                            | Product key        |
+| ---------------------------------- | ------------------ |
+| Chef Automate                      | `automate`         |
+| Chef Backend                       | `chef-backend`     |
+| Chef Habitat                       | `habitat`          |
+| Chef Infra Client                  | `chef`             |
+| Chef Infra Client Enterprise       | `chef-ice`         |
+| Chef Infra Client migration tool   | `migrate-ice`      |
+| Chef Infra Server                  | `chef-server`      |
+| Chef InSpec                        | `inspec`           |
+| Chef Management Console            | `manage`           |
+| Chef Supermarket                   | `supermarket`      |
+| Chef Workstation                   | `chef-workstation` |
 
 See the [supported versions]({{< relref "versions" >}}) documentation for information about the support status of individual products.
 
@@ -208,16 +262,43 @@ url	"https://chefdownload-commercial.chef.io/stable/chef/download?license_id=<LI
 version	"18.2.7"
 ```
 
+To get the latest supported build of Chef Infra Client Enterprise for Linux 18.04, enter the following:
+
+```sh
+https://chefdownload-commercial.chef.io/stable/chef-ice/metadata?pv=18.04&m=x86_64&p=linux&pm=deb&license_id=<LICENSE_ID>
+```
+
+which returns something like:
+
+```json
+sha1	"dcf75b37bb80128af4657501bfd41eac52820191"
+sha256	"2c501d02b16d67e9d5a28578b95f8d3155bed940ee4946229213f41a2e8b798e"
+url	"https://chefdownload-commercial.chef.io/stable/chef-ice/download?license_id=<LICENSE_ID>&eol=false&m=x86_64&p=linux&pm=deb&v=19.1.8"
+version	"19.1.8"
+```
+
 ### Download directly
 
-To use cURL to download a package directly, enter the following:
+To use curl to download a package, enter the following:
 
 ```bash
 curl -LOJ 'https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&license_id=<LICENSE_ID>'
 ```
 
-To use GNU Wget to download a package directly, enter the following:
+To use curl to download a Chef Infra Client Enterprise or Chef Infra Client migration tool package, include the `pm` (package manager) parameter as shown:
+
+```bash
+curl -LOJ 'https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM>&pm=<PACKAGE_MANAGER>&m=<ARCHITECTURE>&license_id=<LICENSE_ID>'
+```
+
+To use GNU Wget to download a package, enter the following:
 
 ```bash
 wget --content-disposition https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&license_id=<LICENSE_ID>
+```
+
+To use GNU Wget to download a Chef Infra Client Enterprise or Chef Infra Client migration tool package, enter the following:
+
+```bash
+wget --content-disposition https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM>&pm=<PACKAGE_MANAGER>&m=<ARCHITECTURE>&license_id=<LICENSE_ID>
 ```

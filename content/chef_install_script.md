@@ -137,6 +137,8 @@ For additional script install options, see the [script options](#script-options)
 
 ## Script options
 
+<!-- markdownlint-disable MD006 MD007 -->
+
 In addition to the default install behavior, the Chef Software install script supports the following options:
 
 `-c` (`-channel` on Windows)
@@ -165,8 +167,7 @@ In addition to the default install behavior, the Chef Software install script su
 `-P` (`-project` on Windows)
 
 : The product name to install. Supported versions of Chef products are
-  `chef`,`chef-backend`,`chef-server`,`inspec`,`chef-workstation`,`manage` and
-  `supermarket`. Default value: `chef`.
+  `chef`, `chef-backend`, `chef-server`, `inspec`, `chef-workstation`, `manage`, `supermarket`, and `chef-ice` . Default value: `chef`.
 
 `-s` (`-install_strategy` on Windows)
 
@@ -189,6 +190,16 @@ In addition to the default install behavior, the Chef Software install script su
     to represent major (x), minor (y), and patch (z) versions. A
     two-part version (x.y) is also allowed. For more information about
     application versioning, see [semver.org](https://semver.org/).
+
+`-i` (`-package_manager` on Windows)
+
+: Specifies the package manager to use for downloading and installing the Chef Infra Client Enterprise. If not provided, the script auto detects the package manager based on the platform.
+
+  Supported values include:
+
+  - `deb` for Debian-based systems, for example, Ubuntu
+  - `rpm` for Red Hat-based systems, for example, CentOS or Fedora
+  - `msi` for Windows systems
 
 ## Release channels
 
