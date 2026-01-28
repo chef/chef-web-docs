@@ -519,18 +519,25 @@ identifier = "inspec"
   weight = 20
 
   [[inspec]]
+  title = "version 5.24"
+  identifier = "inspec/5.24/"
+  parent = "inspec"
+  url = "/inspec/5.24/"
+  weight = 30
+
+  [[inspec]]
   title = "version 5.23"
   identifier = "inspec/5.23/"
   parent = "inspec"
   url = "/inspec/5.23/"
-  weight = 30
+  weight = 40
 
   [[inspec]]
   title = "Resource packs"
   identifier = "inspec/resource_packs"
   parent = "inspec"
   url = "/inspec/resource_packs/"
-  weight = 40
+  weight = 50
 
 ####
 # End Chef InSpec Menu
