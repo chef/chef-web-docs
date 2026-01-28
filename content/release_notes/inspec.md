@@ -305,6 +305,77 @@ We overhauled the `inspec check` and `inspec export` commands to use the parser 
 
 - We no longer support Ruby 2.7 since it became end-of-life (EOL) in March 2023.
 
+## Chef InSpec 5.24.5
+
+Release date: January 28, 2026
+
+### Improvements
+
+- Added OS detection support for Chainguard Linux distributions (Wolfi and Chainguard OS). (train [#812](https://github.com/inspec/train/pull/812))
+- Added support for TCPS connections to Oracle Database when using the `oracledb_session` resource. ([#7684](https://github.com/inspec/inspec/pull/7684))
+
+  You can use the following additional parameters for TCPS connections:
+
+  - `tns_alias`: TNS alias from tnsnames.ora (recommended for TCPS/SSL connections)
+  - `env`: Hash of environment variables (for example, `TNS_ADMIN`, `LD_LIBRARY_PATH`, `ORACLE_HOME`)
+
+  For example:
+
+  ```ruby
+  sql = oracledb_session(
+    user: 'username',
+    password: 'password',
+    tns_alias: 'MYDB_TCPS',
+    env: {
+      'TNS_ADMIN' => '/path/to/tnsnames',
+      'LD_LIBRARY_PATH' => '/opt/oracle/instantclient'
+    }
+  )
+
+  describe sql.query('SELECT * FROM dual').row(0).column('dummy') do
+    its('value') { should eq 'expected_value' }
+  end
+  ```
+
+### Dependency updates
+
+- Updated `ffi` from `~> 1.16.0` to `>= 1.16.0`, `< 1.18`. (train [#814](https://github.com/inspec/train/pull/814))
+- Updated `multi_json` in Omnibus to `1.18.0`. ([#7647](https://github.com/inspec/inspec/pull/7647))
+- Updated `ostruct` from `~> 0.1.0` to `~> 0.6.0`. (train [#819](https://github.com/inspec/train/pull/819))
+
+### Security fixes
+
+- Updated the `rack` gem to 3.2.4. ([#7652](https://github.com/inspec/inspec/pull/7652))
+- Removed vulnerable bundled versions of the `rexml` gem. ([#7653](https://github.com/inspec/inspec/pull/7653))
+- Removed vulnerable bundled versions of the `net-imap` gem. ([#7654](https://github.com/inspec/inspec/pull/7654), [#7687](https://github.com/inspec/inspec/pull/7687))
+- Updated `resolv` gem to 0.2.1. ([#7656](https://github.com/inspec/inspec/pull/7656))
+- Updated `openssl` to 3.2.6. ([#7719](https://github.com/inspec/inspec/pull/7719))
+- Updated `aws-sdk-s3` to `~> 1.208.0`. (train-aws [#588](https://github.com/inspec/train-aws/pull/588))
+- Updated `aws-partitions` to `~> 1.992.0`. (train-aws [#588](https://github.com/inspec/train-aws/pull/588))
+- Updated `aws-sdk-core` to `~> 3.234.0`. (train-aws [#588](https://github.com/inspec/train-aws/pull/588))
+- Pinned `connection_pool` to `>= 2.5`, `< 3.0`. ([#7703](https://github.com/inspec/inspec/pull/7703))
+- We improved InSpec security on Windows by preventing someone from escalating privileges with an insecure named pipe by enforcing strict ownership validation with Train before connection. (train [#818](https://github.com/inspec/train/pull/818))
+
+### Bug fixes
+
+- Fixed the `uninitialized constant Gem::Package::TarWriter` error by adding the required dependency. ([#7651](https://github.com/inspec/inspec/pull/7651))
+- Fixed an issue affecting Windows versions where the WMIC utility is deprecated or removed (Windows 10 version 2004 and later, and Windows 11), which prevented InSpec from detecting the system architecture.
+  Train now falls back to CMD commands (`systeminfo` and environment variables) when WMIC isn't available. (train [#813](https://github.com/inspec/train/pull/813))
+- Resolved the `can't alloc thread (ThreadError)` warnings occurring when using Train transport with WinRM and executing `inspec exec` or `inspec shell`. ([#7753](https://github.com/inspec/inspec/pull/7753))
+
+### Packaging
+
+We now build Chef InSpec packages for:
+
+- Amazon Linux 2023 ([#7636](https://github.com/inspec/inspec/pull/7636))
+- RHEL 10 ([#7649](https://github.com/inspec/inspec/pull/7649))
+- Windows 2025 ([#7659](https://github.com/inspec/inspec/pull/7659))
+
+We no longer build Chef InSpec packages for:
+
+- macOS 12 x86-64
+- macOS 12 ARM64
+
 ## Chef InSpec 5.23.6
 
 Release date: September 23, 2025
