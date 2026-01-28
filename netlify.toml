@@ -146,6 +146,11 @@
   status = 200
 
 [[redirects]]
+  from = "/inspec/5.24/*"
+  to = "https://release-5-24--chef-inspec-docs.netlify.app/inspec/5.24/:splat"
+  status = 200
+
+[[redirects]]
   from = "/inspec/5.23/*"
   to = "https://release-5-23--chef-inspec-docs.netlify.app/inspec/5.23/:splat"
   status = 200

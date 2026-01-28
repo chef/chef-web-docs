@@ -35,6 +35,7 @@ sitemaps = [
   "https://docs.chef.io/360/1.4/sitemap.xml",
   "https://docs.chef.io/360/1.5/sitemap.xml",
   "https://docs.chef.io/inspec/5.23/sitemap.xml",
+  "https://docs.chef.io/inspec/5.24/sitemap.xml",
   "https://docs.chef.io/inspec/6.8/sitemap.xml",
   "https://docs.chef.io/inspec/7.0/sitemap.xml",
   "https://docs.chef.io/inspec/resource_packs/sitemap.xml"
@@ -137,6 +138,10 @@ product_version_key = "inspec-7.0"
 [[search.products.inspec.versions]]
 name = "6.8"
 product_version_key = "inspec-6.8"
+
+[[search.products.inspec.versions]]
+name = "5.24"
+product_version_key = "inspec-5.24"
 
 [[search.products.inspec.versions]]
 name = "5.23"
