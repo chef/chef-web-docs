@@ -305,9 +305,9 @@ We overhauled the `inspec check` and `inspec export` commands to use the parser 
 
 - We no longer support Ruby 2.7 since it became end-of-life (EOL) in March 2023.
 
-## Chef InSpec 5.24.x
+## Chef InSpec 5.24.5
 
-Release date: January 15, 2026
+Release date: January 28, 2026
 
 ### Improvements
 
