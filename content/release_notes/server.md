@@ -19,6 +19,8 @@ summary = "Chef Infra Server release notes"
 
 ## Chef Infra Server x.x.x
 
+Released on February 2nd, 2026
+
 ## Security improvements
 
 ### KeyDB to Valkey migration
