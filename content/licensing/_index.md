@@ -33,7 +33,7 @@ The following products require a [Chef license key](license_key) to run, dependi
 For these products, you need a license depending on how you install it:
 
 - The Chef Habitat package for these products doesn't require a license key to run.
-- The Ruby gem requires a license key to run.
+- The Ruby gem downloaded from [RubyGems.org](https://rubygems.org/) requires a license key to run.
 
 You can't manually enable or disable licensing. The licensing requirements are determined by the distribution.
 
