@@ -124,6 +124,11 @@ Release date: January XX, 2026
 - Ported the rdoc vulnerability update from Chef Infra Client 18. [#14648](https://github.com/chef/chef/pull/14648)
 - Updated Rake. [#14596](https://github.com/chef/chef/pull/14596)
 
+### Known issues
+
+- FIPS Mode isn't supported in this release.
+- The chef_client_systemd_timer resource doesn't work with SELinux.
+
 ## Chef Infra Client 18.9.4
 
 Release date: January 14, 2025
