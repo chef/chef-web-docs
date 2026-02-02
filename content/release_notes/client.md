@@ -19,19 +19,15 @@ summary = "Chef Infra Client release notes"
 
 ## Chef Infra Client 19.x.x
 
-Release date: January XX, 2026
+Release date: February 2, 2026
 
 ### Key Features
 
 - Chef Infra Client 19 supports Ruby 3.4.8.
-- Updated OpenSSL support to version 3.3.2.
 - Target Mode lets you run Chef Infra Client on nodes that don't have the client installed and can work against nodes that only have SSH access.
 - Chef Infra Client 19 is built entirely on Habitat. Traditional omnibus builds aren't provided.
-- Chef Infra Client 19 supports x86_64 builds for Linux and Windows only. Other OS and processor support is coming soon.
 - Chef Infra Client 19 is the long-term support (LTS) version.
-- Test Kitchen Enterprise will be a foundational development tool for testing cookbooks and profiles across versions of Chef Infra Client. Chef InSpec will be fully supported by Chef in a modularized Chef Workstation toolkit.
-- Chef Infra Client 19 and Test Kitchen Enterprise use standard licensing for commercial, community, and trial customers.
-- Chef InSpec resource packs are modularized to yield enhanced performance.
+- Chef Infra Client 19 uses standard licensing for commercial, community, and trial customers.
 - The Chef Infra Client migration tool installs and upgrades from previous versions to Chef Infra Client 19, supporting side-by-side installations.
 - Omnibus builds aren't provided for Chef Infra Client and associated tools.
 - OS-native and Habitat-based packaging are provided.
@@ -55,8 +51,6 @@ Release date: January XX, 2026
 - Added support for JSON recipes. [#15094](https://github.com/chef/chef/pull/15094)
 - Added support for multiple target nodes in Target Mode. [#15467](https://github.com/chef/chef/pull/15467)
 - Added Vault support for Target Mode. [#15064](https://github.com/chef/chef/pull/15064)
-- Updated Ruby support to Ruby 3.4.2. [#15379](https://github.com/chef/chef/pull/15379)
-- Updated the OpenSSL gem to 3.3.2. [#15448](https://github.com/chef/chef/pull/15448)
 
 ### Bug fixes
 
@@ -72,41 +66,42 @@ Release date: January XX, 2026
 - Fixed dearmoring idempotency. [#15044](https://github.com/chef/chef/pull/15044)
 - Fixed a bug where the apt_repository resource falsely returned true when creating a new keyring. [#15008](https://github.com/chef/chef/pull/15008)
 - The apt_repository resource now ensures that keys are always dearmored. [#14944](https://github.com/chef/chef/pull/14944)
-- Fixed a knife supermarket share error that occurred when a cookbook already exists. [#14876](https://github.com/chef/chef/pull/14876)
 - Prevented reporting of enormous registry key values and allowed the suppression of other values in a key for the "before" report. [#14767](https://github.com/chef/chef/pull/14767)
 - Fixed an issue where Whatsinstalled returned erroneous package names. [#14821](https://github.com/chef/chef/pull/14821)
 - The ohai resource now ensures that fix_automatic_attributes is called. [#14761](https://github.com/chef/chef/pull/14761)
 - Fixed a file lock issue in the archive_file resource and ensured file handles are released after extraction. [#14770](https://github.com/chef/chef/pull/14770)
 - Fixed an error when the 'chef-vault' attribute is undefined. [#14811](https://github.com/chef/chef/pull/14811)
-- Fixed `knife user create` with the provided `--user-key` option. [#14682](https://github.com/chef/chef/pull/14682)
 - User privileges are now cleared before deleting a user in Windows. [#14581](https://github.com/chef/chef/pull/14581)
 - Fixed issues with multiple Homebrew binaries on ARM. [#14544](https://github.com/chef/chef/pull/14544)
 
 ### Compliance Phase
 
-- Updated support for OpenSSL and used Test-Kitchen locally for testing until Test Kitchen Enterprise is ready. [#15571](https://github.com/chef/chef/pull/15571) [#15468](https://github.com/chef/chef/pull/15468)
+- Updated InSpec to version 7.0.
 - Fixed handling of frozen_string_literals. [#15363](https://github.com/chef/chef/pull/15363) [#15580](https://github.com/chef/chef/pull/15580)
 - Fixed compliance phase reporting when quiet mode is set to true. [#14779](https://github.com/chef/chef/pull/14779)
 
 ### Resource updates
 
+- Removed the the osx_profile resource. [#15184](https://github.com/chef/chef/pull/15184)
 - Removed the uuidtools dependency. [#15351](https://github.com/chef/chef/pull/15351)
-- Deleted the osx_profile resource. [#15184](https://github.com/chef/chef/pull/15184)
 - Added the include_recipes key for JSON/YAML recipes in recipe#from_hash. [#15299](https://github.com/chef/chef/pull/15299)
 - Membership is now deduplicated when modifying a group. [#14987](https://github.com/chef/chef/pull/14987)
 - Improved performance by adding the `any_children?` method when looking up cookbook dependencies. [#15244](https://github.com/chef/chef/pull/15244)
-- Updated knife ec backup to preserve the frozen cookbook status. [#15204](https://github.com/chef/chef/pull/15204)
 - Added environment properties to the apt_package, dnf_package, and yum_package resources. [#14868](https://github.com/chef/chef/pull/14868)
 - Improved performance when searching for manifest records. [#14829](https://github.com/chef/chef/pull/14829)
 
 ### Packages
 
-- Added checks to catch accidental changes to the chef gems in Gemfile.lock. Occasionally, chef gem specs in the Gemfile.lock get modified to be out of sync with the current version. This flags pull requests that have that problem. You can bypass this check by adding "manual-update" in the pull request description. [#15446](https://github.com/chef/chef/pull/15446)
-- Test recipes now use Test Kitchen Enterprise on Docker containers. [#15401](https://github.com/chef/chef/pull/15401)
-- Removed support for Intel-based Macs and removed macos-15-intel due to a corefoundation gem issue. [#15352](https://github.com/chef/chef/pull/15352)
-- Moved build_query outside of the with_helper block. [#15059](https://github.com/chef/chef/pull/15059)
-- Removed kernel 2 support. [#14595](https://github.com/chef/chef/pull/14595)
-- Reduced the list of supported esoteric platforms. [#14586](https://github.com/chef/chef/pull/14586)
+- We now support Chef Infra Client on the following platforms:
+
+  - Currently supported Linux distributions and versions running Linux kernel 2.6.32 and later
+  - Currently supported Windows versions greater than or equal to Windows 10.
+
+  [#14586](https://github.com/chef/chef/pull/14586)
+
+- We no longer build packages for Intel-based Macs. [#15352](https://github.com/chef/chef/pull/15352)
+- We no longer build Linux kernel 2 packages. [#14595](https://github.com/chef/chef/pull/14595)
+- In the DNF package provider, we moved build_query outside of the with_helper block. [#15059](https://github.com/chef/chef/pull/15059)
 
 ### Dependency updates
 
@@ -115,18 +110,11 @@ Release date: January XX, 2026
 
 ### Security
 
-- This initial release of Chef Infra Client 19 doesn't include FIPS support
-- Replaced YAML.load_stream with regex for security. [#15477](https://github.com/chef/chef/pull/15477)
-- Updated the rack gem to 3.2.4 using bundle update --conservative. [#15441](https://github.com/chef/chef/pull/15441)
-- Updated the uri gem to address a CVE. [#15138](https://github.com/chef/chef/pull/15138)
-- Fixed an issue where Chef::Util::Powershell::PSCredential leaks plaintext on .inspect. [#14887](https://github.com/chef/chef/pull/14887)
-- Updated webrick to address a CVE. [#14698](https://github.com/chef/chef/pull/14698)
-- Ported the rdoc vulnerability update from Chef Infra Client 18. [#14648](https://github.com/chef/chef/pull/14648)
-- Updated Rake. [#14596](https://github.com/chef/chef/pull/14596)
+- This release doesn't support FIPS Mode.
 
 ### Known issues
 
-- FIPS Mode isn't supported in this release.
+- This release doesn't support FIPS Mode.
 - The chef_client_systemd_timer resource doesn't work with SELinux.
 
 ## Chef Infra Client 18.9.4
