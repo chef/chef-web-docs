@@ -27,7 +27,7 @@ Released on February 2nd, 2026
 Replaced KeyDB with Valkey to resolve the following CVEs:
 - CVE-2025-49844
 
-This change doesn’t require any configuration changes and the service name has not changed. For more information about Valkey, see the [Valkey documentation](https://valkey.io/topics/).
+This change doesn't require any configuration changes and the service name has not changed. For more information about Valkey, see the [Valkey documentation](https://valkey.io/topics/).
 
 ### Ruby Rack
 Updated Ruby rack to v3.2.4 which resolves:
