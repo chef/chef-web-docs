@@ -88,10 +88,10 @@ newer versions or products.
 | Product           | Version | Lifecycle Status | EOL Date       |
 |-------------------|---------|------------------|----------------|
 | Chef Backend      | 3.x     | Deprecated       | TBD            |
-| Chef Infra Client | 17.x    | Deprecated       | TBD            |
-| Chef Infra Server | 15.x    | Deprecated       | TBD            |
+| Chef Infra Client | 17.x    | Deprecated       | February 2026  |
+| Chef Infra Server | 15.x    | Deprecated       | November 2026  |
 | Chef InSpec       | 4.x     | Deprecated       | TBD            |
-| Chef Manage       | 2.5.x+  | Deprecated       | TBD            |
+| Chef Manage       | 2.5.x+  | Deprecated       | February 2026  |
 
 ## End of Life (EOL) products
 
