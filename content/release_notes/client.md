@@ -19,7 +19,7 @@ summary = "Chef Infra Client release notes"
 
 ## Chef Infra Client 19.1.162
 
-Release date: February 3, 2026
+Release date: February 4, 2026
 
 ### Key features
 
@@ -36,21 +36,22 @@ Release date: February 3, 2026
 - Improved the resource inspector so it now correctly reports more than one custom resource in a single cookbook `resources/*.rb` file, fixing cases where only one resource (or an incomplete set) was previously reported. [#14546](https://github.com/chef/chef/pull/14546)
 - Improved performance by adding the `any_children?` method when looking up cookbook dependencies instead of enumerating and filtering the entire directory tree. This reduces filesystem traversal and speeds up uploads for large cookbooks. [#15244](https://github.com/chef/chef/pull/15244)
 - Improved performance when looking up cookbook files, especially for large cookbooks. This makes cookbook file resolution more reliable and faster. [#14829](https://github.com/chef/chef/pull/14829)
+- Improved performance when running recipes by reducing internal overhead in how resource properties are read and written. [#15328](https://github.com/chef/chef/pull/15328)
 
 ### Agentless Mode
 
-- This release improves Agentless Mode (previously called Target Mode). Agentless Mode lets you run Chef Infra Client on nodes that don't have the Infra Client installed on them and can work against nodes that only have SSH access.
+- This release improves Agentless Mode (previously called Target Mode). Agentless Mode lets you execute Chef Infra Client runs on nodes that don't have the Infra Client installed on them and can work against nodes that only have SSH access.
 - Added sudo capabilities to Agentless Mode. [#15015](https://github.com/chef/chef/pull/15015)
 - Added support for retrieving HashiCorp Vault secrets in Agentless Mode. [#15064](https://github.com/chef/chef/pull/15064)
 - Fixed an issue in Agentless Mode where required GUIDs were missing, which could cause errors or inconsistent behavior when running Infra Client against targets. This update ensures resources and targets are identified correctly during execution. [#15467](https://github.com/chef/chef/pull/15467)
-- Improved Target Mode reliability: yum_package now works correctly on Fedora/RHEL systems, and Chef handles file permission checks and temporary directory creation more robustly on remote targets. [#14786](https://github.com/chef/chef/pull/14786)
+- The yum_package resource now works correctly in Agentless Mode on Fedora and RHEL systems, and Chef handles file permission checks and temporary directory creation more robustly on remote targets. [#14786](https://github.com/chef/chef/pull/14786)
 - Updated mixlib-shellout to fully support Agentless Mode. [#14807](https://github.com/chef/chef/pull/14807)
 
 ### Compliance Phase
 
 - Updated InSpec to version 7.0.
 - Fixed handling of frozen_string_literals. [#15363](https://github.com/chef/chef/pull/15363) [#15580](https://github.com/chef/chef/pull/15580)
-- Fixed Compliance Phase reporting when quiet mode is set to `true`. [#14779](https://github.com/chef/chef/pull/14779)
+- Fixed Compliance Phase reporting when quiet mode is set to `true`. This fixes an issue where the compliance report was being reported to standard output. [#14779](https://github.com/chef/chef/pull/14779)
 
 ### Resource updates
 
@@ -62,28 +63,28 @@ Release date: February 3, 2026
 - Added the `environment` property to the apt_package, dnf_package, and yum_package resources.
   This allows you to pass a Hash of environment variables (for example, `{"DEBIAN_FRONTEND" => "noninteractive"}`) that will be set when Chef runs the underlying package manager commands. [#14868](https://github.com/chef/chef/pull/14868)
 - The execute resource now has the `cgroup` property. This allows you to run commands within a specified cgroup on Linux. [#14848](https://github.com/chef/chef/pull/14848)
+- Improved reliability when installing, upgrading, or querying packages with the `dnf_package` resource. [#15059](https://github.com/chef/chef/pull/15059)
 
 #### Resource bug fixes
 
-- The apt_repository resource now uses import instead of dearmor to import keys from URLs. [#15209](https://github.com/chef/chef/pull/15209)
-- The apt_repository resource doesn't set signed-by if there's no key to use. [#15207](https://github.com/chef/chef/pull/15207)
+- In the apt_repository resource, we fixed an issue where the resource would overwrite the previous key in a keyring with an array of URLs. The resource now uses `import` instead of `dearmor` to import keys from URLs. This  [#15209](https://github.com/chef/chef/pull/15209)
+- In the apt_repository resource, we fixed an issue where the resource would generate an incorrect value of `signed_by` if you don't set a value for either `key` or `signed_by`. [#15207](https://github.com/chef/chef/pull/15207)
 - Fixed a bug where the apt_repository resource falsely returned true when creating a new keyring. [#15008](https://github.com/chef/chef/pull/15008)
 - The apt_repository resource now ensures that keys are always dearmored. [#14944](https://github.com/chef/chef/pull/14944)
-- The ohai resource now ensures that fix_automatic_attributes is called. [#14761](https://github.com/chef/chef/pull/14761)
-- Fixed an issue where multiple instances of the apt_repository resource with the same key URL should be signed-by. [#15218](https://github.com/chef/chef/pull/15218)
+- You can now use multiple instances of the apt_repository resource with the same key URL. Previously, the key URL of the first instance that was executed would be imported, and subsequent key rings were not imported. [#15218](https://github.com/chef/chef/pull/15218)
+- The apt_repository resource now supports newer APT versions when importing repository signing keys. [#15220](https://github.com/chef/chef/pull/15220)
+- Fixed a file lock issue in the archive_file resource and ensured file handles are released after extraction. [#14770](https://github.com/chef/chef/pull/14770)
+- The ohai resource now preserves the correct node attribute type for automatic attributes when Ohai reloads. [#14761](https://github.com/chef/chef/pull/14761)
+- The ohai resource now correctly reloads custom Ohai plugins with the `:reload` action. Previously, it returned `Ohai::Exceptions::AttributeNotFound: No such attribute` [#15090](https://github.com/chef/chef/pull/15090)
+- Chef no longer fails during the first converge when an ohai resource reloads and a cookbook provides custom Ohai plugins. [#15295](https://github.com/chef/chef/pull/15295)
 
 ### Bug fixes
 
-- Fixed a JSON::GeneratorError when a large binary file is fed to ResourceReporter. [#15332](https://github.com/chef/chef/pull/15332)
-- The instance_variable_name method is now called only once. [#15328](https://github.com/chef/chef/pull/15328)
-- Fixed an issue where Ohai.config is an empty hash the first time a reload is called. [#15295](https://github.com/chef/chef/pull/15295)
-- Fixed custom Ohai plug-in handling. [#15090](https://github.com/chef/chef/pull/15090)
-- Fixed GPG key import for newer APT versions in the apt_repository resource. [#15220](https://github.com/chef/chef/pull/15220)
+- Fixed a regression where Infra Client runs could fail with `JSON::GeneratorError: "\xEA" from ASCII-8BIT to UTF-8` when handling non‑UTF‑8 data returned from external APIs [#15332](https://github.com/chef/chef/pull/15332)
 - Fixed an ffi-libarchive load error from the Habitat package on Windows. [#15149](https://github.com/chef/chef/pull/15149)
 - Fixed dearmoring idempotency. [#15044](https://github.com/chef/chef/pull/15044)
 - Prevented reporting of enormous registry key values and allowed the suppression of other values in a key for the "before" report. [#14767](https://github.com/chef/chef/pull/14767)
 - Fixed an issue where Whatsinstalled returned erroneous package names. [#14821](https://github.com/chef/chef/pull/14821)
-- Fixed a file lock issue in the archive_file resource and ensured file handles are released after extraction. [#14770](https://github.com/chef/chef/pull/14770)
 - Fixed an error when the 'chef-vault' attribute is undefined. [#14811](https://github.com/chef/chef/pull/14811)
 - User privileges are now cleared before deleting a user in Windows. [#14581](https://github.com/chef/chef/pull/14581)
 - Fixed issues with multiple Homebrew binaries on ARM. [#14544](https://github.com/chef/chef/pull/14544)
@@ -103,8 +104,7 @@ Release date: February 3, 2026
 - We no longer build packages for Intel-based Macs. [#15352](https://github.com/chef/chef/pull/15352)
 - We no longer build Linux kernel 2 packages. [#14595](https://github.com/chef/chef/pull/14595)
 - We no longer produce Omnibus builds for Chef Infra Client and associated tools.
-- Added a Debian installer for Chef Infra Client. [#14775](https://github.com/chef/chef/pull/14775)
-- In the DNF package provider, we moved build_query outside of the with_helper block. [#15059](https://github.com/chef/chef/pull/15059)
+- Added a Chef Infra Client Debian installer. [#14775](https://github.com/chef/chef/pull/14775)
 
 ### Dependency updates
 
