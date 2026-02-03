@@ -19,38 +19,58 @@ summary = "Chef Infra Client release notes"
 
 ## Chef Infra Client 19.x.x
 
-Release date: February 2, 2026
+Release date: February 3, 2026
 
-### Key Features
+### Key features
 
-- Chef Infra Client 19 supports Ruby 3.4.8.
-- Target Mode lets you run Chef Infra Client on nodes that don't have the client installed and can work against nodes that only have SSH access.
-- Chef Infra Client 19 is built entirely on Habitat. Traditional omnibus builds aren't provided.
 - Chef Infra Client 19 is the long-term support (LTS) version.
+- Chef Infra Client 19 is built entirely on Chef Habitat. We aren't providing traditional Omnibus builds.
 - Chef Infra Client 19 uses standard licensing for commercial, community, and trial customers.
-- The Chef Infra Client migration tool installs and upgrades from previous versions to Chef Infra Client 19, supporting side-by-side installations.
-- Omnibus builds aren't provided for Chef Infra Client and associated tools.
-- OS-native and Habitat-based packaging are provided.
+- You can use Chef Infra Client Legacy Migration to upgrade nodes running Chef Infra Client 17 or 18 to Infra Client 19. This supports side-by-side installations of Chef Infra Client.
 
 ### Improvements
 
 - Added support for Ruby 3.4.8. [#15542](https://github.com/chef/chef/pull/15542)
-- Added sudo capabilities to Target Mode. [#15015](https://github.com/chef/chef/pull/15015)
-- Added support for arbitrary channel names in the snap_package resource. [#14950](https://github.com/chef/chef/pull/14950)
-- Added the `oci?` (Oracle Cloud) helper. [#14902](https://github.com/chef/chef/pull/14902)
-- Added a nil check for current_record in resource skipped. [#14582](https://github.com/chef/chef/pull/14582)
-- Added the cgroup attribute to the execute module. [#14848](https://github.com/chef/chef/pull/14848)
-- Added support for the Signed-By option in the apt_repository resource. [#14131](https://github.com/chef/chef/pull/14131)
-- Added a deb installer for Chef Infra Client. [#14775](https://github.com/chef/chef/pull/14775)
-- Updated mixlib-shellout to fully support Target Mode. [#14807](https://github.com/chef/chef/pull/14807)
-- Fixed yum packages and various other failing resources for Target Mode. [#14786](https://github.com/chef/chef/pull/14786)
-- Improved performance in RemoteFileVendor#get_filename by reducing the number of files_for calls. [#14705](https://github.com/chef/chef/pull/14705)
-- Added generic Target Mode. [#14397](https://github.com/chef/chef/pull/14397)
-- Enhanced the resource inspector to understand LWRP files containing multiple resources. [#14546](https://github.com/chef/chef/pull/14546)
-- The apt_repository resource now strips spaces from the repo_name. [#14470](https://github.com/chef/chef/pull/14470)
-- Added support for JSON recipes. [#15094](https://github.com/chef/chef/pull/15094)
-- Added support for multiple target nodes in Target Mode. [#15467](https://github.com/chef/chef/pull/15467)
-- Added Vault support for Target Mode. [#15064](https://github.com/chef/chef/pull/15064)
+- Added the `oci?` cloud helper so recipes and libraries can reliably determine whether a node is running on Oracle Cloud Infrastructure. [#14902](https://github.com/chef/chef/pull/14902)
+- Improved remote cookbook file resolution by caching manifest segment lookups and providing clearer errors when a referenced segment is missing, reducing redundant manifest queries. [#14705](https://github.com/chef/chef/pull/14705)
+- Improved the resource inspector so it now correctly reports more than one custom resource in a single cookbook `resources/*.rb` file, fixing cases where only one resource (or an incomplete set) was previously reported. [#14546](https://github.com/chef/chef/pull/14546)
+- Improved performance by adding the `any_children?` method when looking up cookbook dependencies instead of enumerating and filtering the entire directory tree. This reduces filesystem traversal and speeds up uploads for large cookbooks. [#15244](https://github.com/chef/chef/pull/15244)
+- Improved performance when looking up cookbook files, especially for large cookbooks. This makes cookbook file resolution more reliable and faster. [#14829](https://github.com/chef/chef/pull/14829)
+
+### Agentless Mode
+
+- This release improves Agentless Mode (previously called Target Mode). Agentless Mode lets you run Chef Infra Client on nodes that don't have the Infra Client installed on them and can work against nodes that only have SSH access.
+- Added sudo capabilities to Agentless Mode. [#15015](https://github.com/chef/chef/pull/15015)
+- Added support for retrieving HashiCorp Vault secrets in Agentless Mode. [#15064](https://github.com/chef/chef/pull/15064)
+- Fixed an issue in Agentless Mode where required GUIDs were missing, which could cause errors or inconsistent behavior when running Infra Client against targets. This update ensures resources and targets are identified correctly during execution. [#15467](https://github.com/chef/chef/pull/15467)
+- Improved Target Mode reliability: yum_package now works correctly on Fedora/RHEL systems, and Chef handles file permission checks and temporary directory creation more robustly on remote targets. [#14786](https://github.com/chef/chef/pull/14786)
+- Updated mixlib-shellout to fully support Agentless Mode. [#14807](https://github.com/chef/chef/pull/14807)
+
+### Compliance Phase
+
+- Updated InSpec to version 7.0.
+- Fixed handling of frozen_string_literals. [#15363](https://github.com/chef/chef/pull/15363) [#15580](https://github.com/chef/chef/pull/15580)
+- Fixed Compliance Phase reporting when quiet mode is set to `true`. [#14779](https://github.com/chef/chef/pull/14779)
+
+### Resource updates
+
+- Removed the osx_profile resource. [#15184](https://github.com/chef/chef/pull/15184) [#15351](https://github.com/chef/chef/pull/15351)
+- The snap_package resource now supports full Snap channel identifiers (tracks/risk/branches), improving accuracy and flexibility when selecting versions to install or upgrade. [#14950](https://github.com/chef/chef/pull/14950)
+- The apt_repository resource now has the `signed_by` property that manages repository keys and automatically adds `signed-by=` to the APT source entry, avoiding use of the deprecated `apt-key` global keyring. [#14131](https://github.com/chef/chef/pull/14131)
+- The apt_repository resource now strips spaces from the `repo_name` property. [#14470](https://github.com/chef/chef/pull/14470)
+- In the group resource, membership is now deduplicated when modifying a group. [#14987](https://github.com/chef/chef/pull/14987)
+- Added the `environment` property to the apt_package, dnf_package, and yum_package resources.
+  This allows you to pass a Hash of environment variables (for example, `{"DEBIAN_FRONTEND" => "noninteractive"}`) that will be set when Chef runs the underlying package manager commands. [#14868](https://github.com/chef/chef/pull/14868)
+- The execute resource now has the `cgroup` property. This allows you to run commands within a specified cgroup on Linux. [#14848](https://github.com/chef/chef/pull/14848)
+
+#### Resource bug fixes
+
+- The apt_repository resource now uses import instead of dearmor to import keys from URLs. [#15209](https://github.com/chef/chef/pull/15209)
+- The apt_repository resource doesn't set signed-by if there's no key to use. [#15207](https://github.com/chef/chef/pull/15207)
+- Fixed a bug where the apt_repository resource falsely returned true when creating a new keyring. [#15008](https://github.com/chef/chef/pull/15008)
+- The apt_repository resource now ensures that keys are always dearmored. [#14944](https://github.com/chef/chef/pull/14944)
+- The ohai resource now ensures that fix_automatic_attributes is called. [#14761](https://github.com/chef/chef/pull/14761)
+- Fixed an issue where multiple instances of the apt_repository resource with the same key URL should be signed-by. [#15218](https://github.com/chef/chef/pull/15218)
 
 ### Bug fixes
 
@@ -59,40 +79,21 @@ Release date: February 2, 2026
 - Fixed an issue where Ohai.config is an empty hash the first time a reload is called. [#15295](https://github.com/chef/chef/pull/15295)
 - Fixed custom Ohai plug-in handling. [#15090](https://github.com/chef/chef/pull/15090)
 - Fixed GPG key import for newer APT versions in the apt_repository resource. [#15220](https://github.com/chef/chef/pull/15220)
-- Fixed an issue where multiple apt repositories with the same key URL should be signed-by. [#15218](https://github.com/chef/chef/pull/15218)
-- The apt_repository resource now uses import instead of dearmor to import keys from URLs. [#15209](https://github.com/chef/chef/pull/15209)
-- The apt_repository resource doesn't set signed-by if there's no key to use. [#15207](https://github.com/chef/chef/pull/15207)
 - Fixed an ffi-libarchive load error from the Habitat package on Windows. [#15149](https://github.com/chef/chef/pull/15149)
 - Fixed dearmoring idempotency. [#15044](https://github.com/chef/chef/pull/15044)
-- Fixed a bug where the apt_repository resource falsely returned true when creating a new keyring. [#15008](https://github.com/chef/chef/pull/15008)
-- The apt_repository resource now ensures that keys are always dearmored. [#14944](https://github.com/chef/chef/pull/14944)
 - Prevented reporting of enormous registry key values and allowed the suppression of other values in a key for the "before" report. [#14767](https://github.com/chef/chef/pull/14767)
 - Fixed an issue where Whatsinstalled returned erroneous package names. [#14821](https://github.com/chef/chef/pull/14821)
-- The ohai resource now ensures that fix_automatic_attributes is called. [#14761](https://github.com/chef/chef/pull/14761)
 - Fixed a file lock issue in the archive_file resource and ensured file handles are released after extraction. [#14770](https://github.com/chef/chef/pull/14770)
 - Fixed an error when the 'chef-vault' attribute is undefined. [#14811](https://github.com/chef/chef/pull/14811)
 - User privileges are now cleared before deleting a user in Windows. [#14581](https://github.com/chef/chef/pull/14581)
 - Fixed issues with multiple Homebrew binaries on ARM. [#14544](https://github.com/chef/chef/pull/14544)
-
-### Compliance Phase
-
-- Updated InSpec to version 7.0.
-- Fixed handling of frozen_string_literals. [#15363](https://github.com/chef/chef/pull/15363) [#15580](https://github.com/chef/chef/pull/15580)
-- Fixed compliance phase reporting when quiet mode is set to true. [#14779](https://github.com/chef/chef/pull/14779)
-
-### Resource updates
-
-- Removed the the osx_profile resource. [#15184](https://github.com/chef/chef/pull/15184)
-- Removed the uuidtools dependency. [#15351](https://github.com/chef/chef/pull/15351)
-- Added the include_recipes key for JSON/YAML recipes in recipe#from_hash. [#15299](https://github.com/chef/chef/pull/15299)
-- Membership is now deduplicated when modifying a group. [#14987](https://github.com/chef/chef/pull/14987)
-- Improved performance by adding the `any_children?` method when looking up cookbook dependencies. [#15244](https://github.com/chef/chef/pull/15244)
-- Added environment properties to the apt_package, dnf_package, and yum_package resources. [#14868](https://github.com/chef/chef/pull/14868)
-- Improved performance when searching for manifest records. [#14829](https://github.com/chef/chef/pull/14829)
+- Fixed an edge-case crash when reporting skipped resources: Chef now safely ignores resource_skipped events when no current action record exists, preventing NoMethodError and improving run stability. [#14582](https://github.com/chef/chef/pull/14582)
 
 ### Packages
 
-- We now support Chef Infra Client on the following platforms:
+- We now provide OS-native and Habitat-based Chef Infra Client packages.
+
+  This provides support for Chef Infra Client on the following platforms:
 
   - Currently supported Linux distributions and versions running Linux kernel 2.6.32 and later
   - Currently supported Windows versions greater than or equal to Windows 10.
@@ -101,6 +102,8 @@ Release date: February 2, 2026
 
 - We no longer build packages for Intel-based Macs. [#15352](https://github.com/chef/chef/pull/15352)
 - We no longer build Linux kernel 2 packages. [#14595](https://github.com/chef/chef/pull/14595)
+- We no longer produce Omnibus builds for Chef Infra Client and associated tools.
+- Added a Debian installer for Chef Infra Client. [#14775](https://github.com/chef/chef/pull/14775)
 - In the DNF package provider, we moved build_query outside of the with_helper block. [#15059](https://github.com/chef/chef/pull/15059)
 
 ### Dependency updates
