@@ -47,14 +47,14 @@ Release date: February 13th, 2026
         end`
 
 ### Bug fixes
-- Fallback logic to read OS info using cmd-only commands (train [#813](https://github.com/inspec/train/pull/813))
+- Fixed an issue affecting Windows versions where the WMIC utility is deprecated or removed (Windows 10 version 2004 and later, and Windows 11), which prevented InSpec from detecting the system architecture. Train now falls back to CMD commands (`systeminfo` and environment variables) when WMIC isn’t available. (train [#813](https://github.com/inspec/train/pull/813))
 
 ### Security fixes
 
 - Updated `aws-sdk-s3` to `~> 1.208.0` (train-aws [#588](https://github.com/inspec/train-aws/pull/588))
 - Updated `aws-partitions` to `~> 1.992.0` (train-aws [#588](https://github.com/inspec/train-aws/pull/588))
 - Updated `aws-sdk-core` to `~> 3.234.0` (train-aws [#588](https://github.com/inspec/train-aws/pull/588))
-- Enhanced Windows named pipe security by enforcing strict ownership validation before connection. (train [#818](https://github.com/inspec/train/pull/818))
+- We improved InSpec security on Windows by preventing someone from escalating privileges with an insecure named pipe by enforcing strict ownership validation with Train before connection. (train [#818](https://github.com/inspec/train/pull/818))
 
 ### Dependency updates
 
