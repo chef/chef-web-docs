@@ -4,6 +4,8 @@ draft = false
 
 gh_repo = "chef-server"
 
+aliases = ["/server_backup_restore.html", "/runbook/server_backup_restore/"]
+
 [menu]
   [menu.server]
     title = "Backup and Restore"

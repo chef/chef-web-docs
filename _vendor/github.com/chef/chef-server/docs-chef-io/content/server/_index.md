@@ -2,6 +2,7 @@
 title = "Chef Infra Server Overview"
 draft = false
 gh_repo = "chef-server"
+aliases = ["/server_overview.html", "/server_components.html", "/server_overview/", "/server/runbook/", "/runbook/"]
 
 [cascade]
   product = ["server"]
@@ -13,12 +14,6 @@ gh_repo = "chef-server"
     parent = "server/overview"
     weight = 10
 +++
-
-{{< warning >}}
-
-{{< readfile file="content/server/reusable/md/deprecate_server.md" >}}
-
-{{< /warning >}}
 
 {{< readfile file="content/server/reusable/md/chef_server.md" >}}
 

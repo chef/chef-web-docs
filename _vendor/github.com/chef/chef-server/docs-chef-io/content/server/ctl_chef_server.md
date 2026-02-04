@@ -1,7 +1,10 @@
 +++
 title = "chef-server-ctl (executable)"
 draft = false
+
 gh_repo = "chef-server"
+
+aliases = ["/ctl_chef_server.html", "/ctl_chef_server/"]
 
 [menu]
   [menu.server]

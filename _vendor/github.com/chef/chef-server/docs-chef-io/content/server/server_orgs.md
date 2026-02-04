@@ -2,6 +2,8 @@
 title = "RBAC: Organizations and Groups"
 draft = false
 gh_repo = "chef-server"
+aliases = ["/server_orgs.html", "/auth_authorization.html"]
+product = ["client", "server"]
 
 [menu]
   [menu.server]
