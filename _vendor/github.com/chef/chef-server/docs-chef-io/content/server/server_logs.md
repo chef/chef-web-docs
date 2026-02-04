@@ -4,6 +4,8 @@ draft = false
 
 gh_repo = "chef-server"
 
+aliases = ["/server_logs.html", "/runbook/server_logs/"]
+
 [menu]
   [menu.server]
     title = "Log Files"

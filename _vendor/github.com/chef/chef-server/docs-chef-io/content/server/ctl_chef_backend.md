@@ -4,6 +4,8 @@ draft = false
 
 gh_repo = "chef-server"
 
+aliases = ["/ctl_chef_backend.html"]
+
 [menu]
   [menu.server]
     title = "chef-backend-ctl"

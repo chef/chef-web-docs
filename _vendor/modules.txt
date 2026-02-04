@@ -2,7 +2,7 @@
 # github.com/chef/desktop-config/docs-chef-io v0.0.0-20240814044820-5af667d41a43
 # github.com/habitat-sh/habitat/components/docs-chef-io v0.0.0-20250905124722-c1a4eb639cba
 # github.com/habitat-sh/on-prem-builder/docs-chef-io v0.0.0-20250805192817-f8b1dae05d5e
-# github.com/chef/chef-server/docs-chef-io v0.0.0-20260204150924-87bc76fcab7a
+# github.com/chef/chef-server/docs-chef-io v0.0.0-20251103154204-52161ef2177d
 # github.com/chef/chef-workstation/docs-chef-io v0.0.0-20251212082047-ffd77c6770ad
 # github.com/chef/supermarket/docs-chef-io v0.0.0-20251111140113-2790dadeef26
 # github.com/chef/effortless/docs-chef-io v0.0.0-20230711123605-c8beb79aba4f

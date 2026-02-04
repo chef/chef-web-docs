@@ -4,6 +4,8 @@ draft = false
 
 gh_repo = "chef-server"
 
+aliases = ["/install_server_tiered.html", "/install_server_tiered/"]
+
 [menu]
   [menu.server]
     title = "Tiered Installation"

@@ -4,6 +4,8 @@ draft = false
 
 gh_repo = "chef-server"
 
+aliases = ["/server_services.html", "/runbook/server_services/"]
+
 [menu]
   [menu.server]
     title = "Services"

@@ -4,6 +4,8 @@ draft = false
 
 gh_repo = "chef-server"
 
+aliases = ["/upgrade_server_ha_v2.html", "/upgrade_server_ha_v2/"]
+
 [menu]
   [menu.server]
     title = "Upgrade HA Cluster"

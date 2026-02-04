@@ -4,6 +4,8 @@ draft = false
 
 gh_repo = "chef-server"
 
+aliases = ["/api_chef_server.html", "/api_chef_server/"]
+
 [menu]
   [menu.server]
     title = "Chef Infra Server API"

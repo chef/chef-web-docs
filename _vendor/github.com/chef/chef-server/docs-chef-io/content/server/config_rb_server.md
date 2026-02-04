@@ -3,6 +3,8 @@ title = "chef-server.rb Settings"
 draft = false
 gh_repo = "chef-server"
 
+aliases = ["/config_rb_server.html", "/config_rb_server_14/", "/config_rb_server/"]
+
 [menu]
   [menu.server]
     title = "chef-server.rb Settings"

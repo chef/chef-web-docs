@@ -4,6 +4,8 @@ draft = false
 
 gh_repo = "chef-server"
 
+aliases = ["/server_security.html", "/server_security/"]
+
 [menu]
   [menu.server]
     title = "Security"
