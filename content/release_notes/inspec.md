@@ -17,6 +17,50 @@ summary = "Chef InSpec release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
+## Chef InSpec 7.0.x
+
+Release date: February 13th, 2026
+
+### Improvements
+
+- Added os detection support for Chainguard Linux distros (Wolfi and Chainguard OS) (train [#812](https://github.com/inspec/train/pull/812))
+- Added support to allow TCPS connection to Oracle DB while using oracledb_session resource (([#7684](https://github.com/inspec/inspec/pull/7684))
+
+        The user can use the following additional parameters for TCPS connection
+
+       `tns_alias`: TNS alias from tnsnames.ora (recommended for TCPS/SSL connections)
+       `env`: ash of environment variables (e.g., TNS_ADMIN, LD_LIBRARY_PATH, ORACLE_HOME)
+
+        Example:
+        `sql = oracledb_session(
+        user: 'my_user',
+        password: 'password',
+        tns_alias: 'MYDB_TCPS',
+        env: {
+          'TNS_ADMIN' => '/path/to/tnsnames',
+          'LD_LIBRARY_PATH' => '/opt/oracle/instantclient'
+         }
+        )
+
+        describe sql.query('SELECT * FROM dual').row(0).column('dummy') do
+          its('value') { should eq 'X' }
+        end`
+
+### Bug fixes
+- Fallback logic to read OS info using cmd-only commands (train [#813](https://github.com/inspec/train/pull/813))
+
+### Security fixes
+
+- Updated `aws-sdk-s3` to `~> 1.208.0` (train-aws [#588](https://github.com/inspec/train-aws/pull/588))
+- Updated `aws-partitions` to `~> 1.992.0` (train-aws [#588](https://github.com/inspec/train-aws/pull/588))
+- Updated `aws-sdk-core` to `~> 3.234.0` (train-aws [#588](https://github.com/inspec/train-aws/pull/588))
+- Enhanced Windows named pipe security by enforcing strict ownership validation before connection. (train [#818](https://github.com/inspec/train/pull/818))
+
+### Dependency updates
+
+- Updated `ffi` from `~> 1.16.0` to `>= 1.16.0`, `< 1.18` (train [#814](https://github.com/inspec/train/pull/814))
+- Updated `ostruct` from `~> 0.1.0` to `~> 0.6.0` (train [#819](https://github.com/inspec/train/pull/819))
+
 ## Chef InSpec 7.0.95
 
 Release date: October 16th, 2025
