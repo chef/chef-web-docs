@@ -80,7 +80,7 @@ Release date: February 4, 2026
 
 ### Bug fixes
 
-- Fixed a regression where Infra Client runs could fail with `JSON::GeneratorError: "\xEA" from ASCII-8BIT to UTF-8` when handling non‑UTF‑8 data returned from external APIs [#15332](https://github.com/chef/chef/pull/15332)
+- Fixed a regression where Infra Client runs could fail with `JSON::GeneratorError: "\xEA" from ASCII-8BIT to UTF-8` when handling non-UTF-8 data returned from external APIs [#15332](https://github.com/chef/chef/pull/15332)
 - Fixed an ffi-libarchive load error from the Habitat package on Windows. [#15149](https://github.com/chef/chef/pull/15149)
 - Fixed dearmoring idempotency. [#15044](https://github.com/chef/chef/pull/15044)
 - Prevented reporting of enormous registry key values and allowed the suppression of other values in a key for the "before" report. [#14767](https://github.com/chef/chef/pull/14767)
