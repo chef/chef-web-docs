@@ -19,7 +19,7 @@ summary = "Chef Infra Client release notes"
 
 ## Chef Infra Client 19.1.162
 
-Release date: February 4, 2026
+Release date: February 5, 2026
 
 ### Key features
 
@@ -41,6 +41,7 @@ Release date: February 4, 2026
 ### Agentless Mode
 
 - This release improves Agentless Mode (previously called Target Mode). Agentless Mode lets you execute Chef Infra Client runs on nodes that don't have the Infra Client installed on them and can work against nodes that only have SSH access.
+- There are now 90+ built-in Infra Client resources that run in Agentless Mode.
 - Added sudo capabilities to Agentless Mode. [#15015](https://github.com/chef/chef/pull/15015)
 - Added support for retrieving HashiCorp Vault secrets in Agentless Mode. [#15064](https://github.com/chef/chef/pull/15064)
 - Fixed an issue in Agentless Mode where required GUIDs were missing, which could cause errors or inconsistent behavior when running Infra Client against targets. This update ensures resources and targets are identified correctly during execution. [#15467](https://github.com/chef/chef/pull/15467)
