@@ -59,7 +59,7 @@ Additional information is available in [this announcement](https://www.chef.io/b
 |-------------------|--------------------------|------------------|----------------|
 | Chef 360 Platform | Latest                   | GA               | n/a            |
 | Chef Automate     | Latest                   | GA               | n/a            |
-| Chef Infra Client | 18.x                     | GA               | n/a            |
+| Chef Infra Client | 19.x                     | GA               | n/a            |
 | Chef Habitat      | 0.81+                    | GA               | n/a            |
 | Chef InSpec       | 5+                       | GA               | n/a            |
 | Chef Workstation  | 24.x (2024), 25.x (2025) | GA               | n/a            |
@@ -88,7 +88,7 @@ newer versions or products.
 | Product           | Version | Lifecycle Status | EOL Date       |
 |-------------------|---------|------------------|----------------|
 | Chef Backend      | 3.x     | Deprecated       | TBD            |
-| Chef Infra Client | 17.x    | Deprecated       | February 2026  |
+| Chef Infra Client | 18.x    | Deprecated       | TBD            |
 | Chef Infra Server | 15.x    | Deprecated       | November 2026  |
 | Chef InSpec       | 4.x     | Deprecated       | TBD            |
 | Chef Manage       | 2.5.x+  | Deprecated       | February 2026  |
@@ -99,7 +99,7 @@ newer versions or products.
 |--------------------------|----------------------|------------------|-------------------|
 | Analytics                | All                  | EOL              | December 31, 2018 |
 | Chef Automate            | 2.x and under        | EOL              | May 13, 2022      |
-| Chef Infra Client        | 16 and under         | EOL              | November 30, 2022 |
+| Chef Infra Client        | 17 and under         | EOL              | February 5, 2026  |
 | Chef Compliance Server   | All                  | EOL              | December 31, 2018 |
 | ChefDK                   | All                  | EOL              | December 31, 2020 |
 | Chef Infra Server        | 14.x                 | EOL              | December 31, 2025 |
