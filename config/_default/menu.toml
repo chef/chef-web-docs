@@ -631,226 +631,253 @@ identifier = "server"
 
 [[infra]]
 title = "Chef Infra"
-identifier = "chef_infra"
+identifier = "client"
 
   [[infra]]
-  title = "Overview"
-  identifier = "chef_infra/overview"
-  parent = "chef_infra"
-  weight = 10
+  title = "Chef Infra Client 19"
+  identifier = "chef_infra/19"
+  parent = "client"
+  url = "https://docs.chef.io/client/19.1"
+  weight = 5
 
   [[infra]]
-  title = "Install"
-  identifier = "chef_infra/install"
-  parent = "chef_infra"
-  weight = 50
-
-  [[infra]]
-  title = "Features"
-  identifier = "chef_infra/features"
-  parent = "chef_infra"
-  weight = 70
+  title = "Chef Infra Client 18"
+  identifier = "chef_infra"
+  parent = "client"
+  weight = 8
 
     [[infra]]
-    title = "Chef Solo"
-    identifier = "chef_infra/features/chef_solo"
-    parent = "chef_infra/features"
+    title = "Overview"
+    identifier = "chef_infra/overview"
+    parent = "chef_infra"
     weight = 10
 
     [[infra]]
-    title = "Ohai"
-    identifier = "chef_infra/features/ohai"
-    parent = "chef_infra/features"
-    weight = 20
-
-    [[infra]]
-    title = "Target Mode"
-    identifier = "chef_infra/features/Target Mode"
-    parent = "chef_infra/features"
-    url = "/target_mode/"
-    weight = 80
-
-
-  [[infra]]
-  title = "Integrations"
-  identifier = "chef_infra/integrations"
-  parent = "chef_infra"
-  weight = 80
-
-    [[infra]]
-    title = "Microsoft Azure"
-    identifier = "chef_infra/integrations/azure"
-    parent = "chef_infra/integrations"
-
-    [[infra]]
-    title = "Windows"
-    identifier = "chef_infra/integrations/windows"
-    parent = "chef_infra/integrations"
-
-  [[infra]]
-  title = "Policy"
-  identifier = "chef_infra/policyfiles"
-  parent = "chef_infra"
-  weight = 90
-
-  [[infra]]
-  title = "Security"
-  identifier = "chef_infra/security"
-  parent = "chef_infra"
-  weight = 100
-
-  [[infra]]
-  title = "Reference"
-  identifier = "chef_infra/reference"
-  parent = "chef_infra"
-  weight = 110
-
-    [[infra]]
-    title = "chef-solo (executable)"
-    identifier = "chef_infra/reference/ctl_chef_solo.md chef-solo (executable)"
-    parent = "chef_infra/reference"
-    url = "/ctl_chef_solo/"
-    weight = 20
-
-    [[infra]]
-    title = "Handler DSL"
-    identifier = "chef_infra/reference/dsl_handler.md Handler Commands"
-    parent = "chef_infra/reference"
-    url = "/dsl_handler/"
-    weight = 40
-
-    [[infra]]
-    title = "ohai (executable)"
-    identifier = "chef_infra/reference/ctl_ohai.md ohai (executable)"
-    parent = "chef_infra/reference"
-    url = "/ctl_ohai/"
+    title = "Install"
+    identifier = "chef_infra/install"
+    parent = "chef_infra"
     weight = 50
 
     [[infra]]
-    title = "supermarket-ctl"
-    identifier = "supermarket/reference/ctl_supermarket.md supermarket-ctl"
-    parent = "chef_infra/reference"
-    url = "/ctl_supermarket/"
-    weight = 60
-
-    [[infra]]
-    title = "client.rb"
-    identifier = "chef_infra/reference/config_rb_client.md client.rb"
-    parent = "chef_infra/reference"
-    url = "/config_rb_client/"
+    title = "Features"
+    identifier = "chef_infra/features"
+    parent = "chef_infra"
     weight = 70
-
-    [[infra]]
-    title = "metadata.rb"
-    identifier = "chef_infra/reference/config_rb_metadata.md metadata.rb"
-    parent = "chef_infra/reference"
-    url = "/config_rb_metadata/"
-    weight = 80
-
-    [[infra]]
-    title = "Policyfile.rb"
-    identifier = "chef_infra/reference/config_rb_policyfile.md Policyfile.rb"
-    parent = "chef_infra/reference"
-    url = "/config_rb_policyfile/"
-    weight = 90
-
-    [[infra]]
-    title = "solo.rb"
-    identifier = "chef_infra/reference/config_rb_solo.md solo.rb"
-    parent = "chef_infra/reference"
-    url = "/config_rb_solo/"
-    weight = 100
-
-  [[infra]]
-  title = "Cookbook Reference"
-  identifier = "chef_infra/cookbook_reference"
-  parent = "chef_infra"
-  weight = 120
-
-    [[infra]]
-    title = "Attributes"
-    identifier = "chef_infra/cookbook_reference/attributes"
-    parent = "chef_infra/cookbook_reference"
-    weight = 30
-
-    [[infra]]
-    title = "Recipes"
-    identifier = "chef_infra/cookbook_reference/recipes"
-    parent = "chef_infra/cookbook_reference"
-    weight = 70
-
-  [[infra]]
-  title = "Chef Infra Language"
-  identifier = "chef_infra/infra_language"
-  parent = "chef_infra"
-  weight = 130
-
-  [[infra]]
-  title = "Chef Infra Resources"
-  identifier = "chef_infra/resources"
-  parent = "chef_infra"
-  weight = 140
-
-  [[infra]]
-  title = "Custom Resources"
-  identifier = "chef_infra/resources/custom_resources"
-  parent = "chef_infra/resources"
-  weight = 145
-
-  [[infra]]
-  title = "Extension APIs"
-  identifier = "chef_infra/extension_apis"
-  parent = "chef_infra"
-  weight = 150
-
-    [[infra]]
-    title = "Compliance DSL"
-    identifier = "chef_infra/extension_apis/inspec/dsl_inspec/ Compliance DSL"
-    parent = "chef_infra/extension_apis"
-    url = "/inspec/latest/profiles/controls/"
-    weight = 20
-
-    [[infra]]
-    title = "Handlers"
-    identifier = "chef_infra/extension_apis/handlers"
-    parent = "chef_infra/extension_apis"
-    weight = 20
 
       [[infra]]
-      title = "Custom Handlers"
-      identifier = "chef_infra/extension_apis/handlers/handlers.md#custom-handlers Custom Handlers"
-      parent = "chef_infra/extension_apis/handlers"
-      url = "/handlers/#custom-handlers"
+      title = "Chef Solo"
+      identifier = "chef_infra/features/chef_solo"
+      parent = "chef_infra/features"
       weight = 10
 
       [[infra]]
-      title = "Community Handlers"
-      identifier = "chef_infra/extension_apis/handlers/plugin_community.md#handlers Community Handlers"
-      parent = "chef_infra/extension_apis/handlers"
-      url = "/plugin_community/#handlers"
+      title = "Ohai"
+      identifier = "chef_infra/features/ohai"
+      parent = "chef_infra/features"
+      weight = 20
+
+      [[infra]]
+      title = "Target Mode"
+      identifier = "chef_infra/features/Target Mode"
+      parent = "chef_infra/features"
+      url = "/target_mode/"
+      weight = 80
+
+
+    [[infra]]
+    title = "Integrations"
+    identifier = "chef_infra/integrations"
+    parent = "chef_infra"
+    weight = 80
+
+      [[infra]]
+      title = "Microsoft Azure"
+      identifier = "chef_infra/integrations/azure"
+      parent = "chef_infra/integrations"
+
+      [[infra]]
+      title = "Windows"
+      identifier = "chef_infra/integrations/windows"
+      parent = "chef_infra/integrations"
+
+    [[infra]]
+    title = "Policy"
+    identifier = "chef_infra/policyfiles"
+    parent = "chef_infra"
+    weight = 90
+
+    [[infra]]
+    title = "Security"
+    identifier = "chef_infra/security"
+    parent = "chef_infra"
+    weight = 100
+
+    [[infra]]
+    title = "Reference"
+    identifier = "chef_infra/reference"
+    parent = "chef_infra"
+    weight = 110
+
+      [[infra]]
+      title = "chef-solo (executable)"
+      identifier = "chef_infra/reference/ctl_chef_solo.md chef-solo (executable)"
+      parent = "chef_infra/reference"
+      url = "/ctl_chef_solo/"
+      weight = 20
+
+      [[infra]]
+      title = "Handler DSL"
+      identifier = "chef_infra/reference/dsl_handler.md Handler Commands"
+      parent = "chef_infra/reference"
+      url = "/dsl_handler/"
+      weight = 40
+
+      [[infra]]
+      title = "ohai (executable)"
+      identifier = "chef_infra/reference/ctl_ohai.md ohai (executable)"
+      parent = "chef_infra/reference"
+      url = "/ctl_ohai/"
+      weight = 50
+
+      [[infra]]
+      title = "supermarket-ctl"
+      identifier = "supermarket/reference/ctl_supermarket.md supermarket-ctl"
+      parent = "chef_infra/reference"
+      url = "/ctl_supermarket/"
+      weight = 60
+
+      [[infra]]
+      title = "client.rb"
+      identifier = "chef_infra/reference/config_rb_client.md client.rb"
+      parent = "chef_infra/reference"
+      url = "/config_rb_client/"
+      weight = 70
+
+      [[infra]]
+      title = "metadata.rb"
+      identifier = "chef_infra/reference/config_rb_metadata.md metadata.rb"
+      parent = "chef_infra/reference"
+      url = "/config_rb_metadata/"
+      weight = 80
+
+      [[infra]]
+      title = "Policyfile.rb"
+      identifier = "chef_infra/reference/config_rb_policyfile.md Policyfile.rb"
+      parent = "chef_infra/reference"
+      url = "/config_rb_policyfile/"
+      weight = 90
+
+      [[infra]]
+      title = "solo.rb"
+      identifier = "chef_infra/reference/config_rb_solo.md solo.rb"
+      parent = "chef_infra/reference"
+      url = "/config_rb_solo/"
+      weight = 100
+
+    [[infra]]
+    title = "Cookbook Reference"
+    identifier = "chef_infra/cookbook_reference"
+    parent = "chef_infra"
+    weight = 120
+
+      [[infra]]
+      title = "Attributes"
+      identifier = "chef_infra/cookbook_reference/attributes"
+      parent = "chef_infra/cookbook_reference"
       weight = 30
 
-    [[infra]]
-    title = "Ohai Plugins"
-    identifier = "chef_infra/extension_apis/ohai_plugins"
-    parent = "chef_infra/extension_apis"
-    weight = 40
-
-  [[infra]]
-  title = "Integrations"
-  identifier = "chef_infra/integrations"
-  parent = "chef_infra"
-  weight = 100
+      [[infra]]
+      title = "Recipes"
+      identifier = "chef_infra/cookbook_reference/recipes"
+      parent = "chef_infra/cookbook_reference"
+      weight = 70
 
     [[infra]]
-    title = "Microsoft Azure"
-    identifier = "chef_infra/integrations/azure"
-    parent = "chef_infra/integrations"
+    title = "Chef Infra Language"
+    identifier = "chef_infra/infra_language"
+    parent = "chef_infra"
+    weight = 130
 
     [[infra]]
-    title = "Windows"
-    identifier = "chef_infra/integrations/windows"
-    parent = "chef_infra/integrations"
+    title = "Chef Infra Resources"
+    identifier = "chef_infra/resources"
+    parent = "chef_infra"
+    weight = 140
+
+    [[infra]]
+    title = "Custom Resources"
+    identifier = "chef_infra/resources/custom_resources"
+    parent = "chef_infra/resources"
+    weight = 145
+
+    [[infra]]
+    title = "Extension APIs"
+    identifier = "chef_infra/extension_apis"
+    parent = "chef_infra"
+    weight = 150
+
+      [[infra]]
+      title = "Compliance DSL"
+      identifier = "chef_infra/extension_apis/inspec/dsl_inspec/ Compliance DSL"
+      parent = "chef_infra/extension_apis"
+      url = "/inspec/latest/profiles/controls/"
+      weight = 20
+
+      [[infra]]
+      title = "Handlers"
+      identifier = "chef_infra/extension_apis/handlers"
+      parent = "chef_infra/extension_apis"
+      weight = 20
+
+        [[infra]]
+        title = "Custom Handlers"
+        identifier = "chef_infra/extension_apis/handlers/handlers.md#custom-handlers Custom Handlers"
+        parent = "chef_infra/extension_apis/handlers"
+        url = "/handlers/#custom-handlers"
+        weight = 10
+
+        [[infra]]
+        title = "Community Handlers"
+        identifier = "chef_infra/extension_apis/handlers/plugin_community.md#handlers Community Handlers"
+        parent = "chef_infra/extension_apis/handlers"
+        url = "/plugin_community/#handlers"
+        weight = 30
+
+        [[infra]]
+        title = "Some link"
+        identifier = "chef_infra/extension_apis/handlers/plugin_community.md#handlers Community Handlers/blah"
+        parent = "chef_infra/extension_apis/handlers"
+        url = "https://docs.chef.io/plugin_community/#handlers"
+        weight = 30
+
+        [[infra]]
+        title = "Some external link"
+        identifier = "chef_infra/extension_apis/handlers/plugin_community.md#handlers Community Handlers/blahblah"
+        parent = "chef_infra/extension_apis/handlers"
+        url = "https://www.chef.io/plugin_community/#handlers"
+        weight = 30
+
+      [[infra]]
+      title = "Ohai Plugins"
+      identifier = "chef_infra/extension_apis/ohai_plugins"
+      parent = "chef_infra/extension_apis"
+      weight = 40
+
+    [[infra]]
+    title = "Integrations"
+    identifier = "chef_infra/integrations"
+    parent = "chef_infra"
+    weight = 100
+
+      [[infra]]
+      title = "Microsoft Azure"
+      identifier = "chef_infra/integrations/azure"
+      parent = "chef_infra/integrations"
+
+      [[infra]]
+      title = "Windows"
+      identifier = "chef_infra/integrations/windows"
+      parent = "chef_infra/integrations"
 
 ####
 # End Chef Infra Menu
