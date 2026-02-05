@@ -25,14 +25,14 @@
                                 <ul class="menu vertical nested{{ if $currentPage.HasMenuCurrent $menu_name . }} is-active{{ end }}">
                                 {{ range .Children }}
                                   <li{{ if $currentPage.IsMenuCurrent $menu_name . }} class="active" {{ end }}>
-                                    <a href="{{ .URL }}" {{ if hasPrefix .URL "http" }} class="external" target="_blank"{{ end }}>{{ or .Title .Name }}</a>
+                                    <a href="{{ .URL }}" {{ if and (hasPrefix .URL "http") (not (hasPrefix .URL "https://docs.chef.io")) }} class="external" target="_blank"{{ end }}>{{ or .Title .Name }}</a>
                                   </li>
                                 {{ end }}
                                 </ul>
                               </li>
                             {{ else }}
                               <li{{ if $currentPage.IsMenuCurrent $menu_name . }} class="active" {{ end }}>
-                                <a href="{{ .URL }}" {{ if hasPrefix .URL "http" }} class="external" target="_blank"{{ end }}>{{ or .Title .Name }}</a>
+                                <a href="{{ .URL }}" {{ if and (hasPrefix .URL "http") (not (hasPrefix .URL "https://docs.chef.io")) }} class="external" target="_blank"{{ end }}>{{ or .Title .Name }}</a>
                               </li>
                             {{ end }}
                           {{ end }}
@@ -40,7 +40,7 @@
                       </li>
                     {{ else }}
                       <li{{ if $currentPage.IsMenuCurrent $menu_name . }} class="active" {{ end }}>
-                        <a href="{{ .URL }}" {{ if hasPrefix .URL "http" }} class="external" target="_blank"{{ end }}>{{ or .Title .Name }}</a>
+                        <a href="{{ .URL }}" {{ if and (hasPrefix .URL "http") (not (hasPrefix .URL "https://docs.chef.io")) }} class="external" target="_blank"{{ end }}>{{ or .Title .Name }}</a>
                       </li>
                     {{ end }}
                   {{ end }}
@@ -48,7 +48,7 @@
               </li>
             {{ else }}
               <li{{ if $currentPage.IsMenuCurrent $menu_name . }} class="active" {{ end }}>
-                <a href="{{ .URL }}" {{ if hasPrefix .URL "http" }} class="external" target="_blank"{{ end }}>
+                <a href="{{ .URL }}" {{ if and (hasPrefix .URL "http") (not (hasPrefix .URL "https://docs.chef.io")) }} class="external" target="_blank"{{ end }}>
                   {{ or .Title .Name }}
                 </a>
               </li>
@@ -58,7 +58,7 @@
       </li>
     {{ else }}
       <li {{ if $currentPage.IsMenuCurrent $menu_name . }} class="active" {{ end }} >
-        <a href="{{ .URL }}" {{ if hasPrefix .URL "http" }} class="external" target="_blank"{{ end }}>
+        <a href="{{ .URL }}" {{ if and (hasPrefix .URL "http") (not (hasPrefix .URL "https://docs.chef.io")) }} class="external" target="_blank"{{ end }}>
           {{ or .Title .Name }}
         </a>
       </li>
