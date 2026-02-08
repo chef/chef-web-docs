@@ -1,2 +1,3 @@
-<!-- markdownlint-disable-file -->
-Please refer to the Chef [Community Code of Conduct](https://www.chef.io/code-of-conduct/)
+# Chef Code of Conduct
+
+Participants in this project must adhere to the [Chef Code of Conduct](https://chef.github.io/chef-oss-practices/policies/code-of-conduct/).
