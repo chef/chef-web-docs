@@ -81,9 +81,9 @@ This release supports the following external Chef products:
 ## Supported framework versions
 This release is built on the following framework versions:
 
-GoLang: 1.24.4
-OpenJDK: 17.0.16+8
-Angular: 19.2.15
+- GoLang: 1.24.4
+- OpenJDK: 17.0.16+8
+- Angular: 19.2.15
 
 View the [package manifest](https://packages.chef.io/manifests/current/automate/latest_semver.json) for the latest release.
 
