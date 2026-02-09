@@ -17,9 +17,9 @@ summary = "Chef Infra Server release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
-## Chef Infra Server x.x.x
+## Chef Infra Server 15.10.91
 
-Released on February 2nd, 2026
+Released on February 10th, 2026
 
 ## Security improvements
 

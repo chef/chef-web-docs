@@ -19,73 +19,15 @@ summary = "Chef Automate release notes"
 
 ## Chef Automate upgrade journey
 
-Chef lets you choose your upgrade journey based on your current version of Chef Automate. You can do all the version upgrades manually.
+Upgrade Chef Automate based on your current version of Chef Automate.
 
-| Your current version | Upgrade to |
-| -------------------- | ---------- |
-| Any version before 20220329091442| 20220329091442|
-| 20220329091442| 3.0.x|
-| 3.0.49| 4.x|
+| Your Current Version              | Upgrade To     |
+|-----------------------------------|----------------|
+| Any version before 20220329091442 | 20220329091442 |
+| 20220329091442                    | 3.0.x          |
+| 3.0.49                            | 4.x            |
 
 See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/major_upgrade_4.x/) for more information.
-
-## Chef Automate x.x.x
-
-Released on February 2nd, 2026
-
-## New features
-Added a new Command Line Interface (CLI) command `chef-automate package-cleanup` to remove obsolete Chef Automate packages that are no longer needed after upgrading to a newer version.
-
-## Improvements
-- Automate now supports TLSv1.3.
-- Modified Automate InSpec CLI parameters to reduce the time to check the InSpec profile during upload.
-
-## Bug Fixes
-- Fixed the issue that was clearing the project list on selecting an Unassigned Project.
-- Addressed a false config verify failure with external Postgres and OpenSearch in Automate HA.
-
-## Security
-
-### Security updates
-
-- Update Node.js to v22.17.1 to fix the following CVEs:
-  - CVE-2025-27209
-  - CVE-2025-27210
-- Update Golang to v1.25.4 to fix the following CVE:
-  - CVE-2025-47907
-
-## Chef packaged product versions
-
-This release uses:
-- Chef Habitat version: 1.6.1243/20241227194506
-- Chef Habitat Builder version: 10717/20250805204117
-- Chef Infra Server version: 15.10.89
-- Chef InSpec version: 5.22.95/20250805133317
-
-## Service versions
-
-This release uses:
-- Postgres: 13.22.tuxcare.1.0.1
-- OpenSearch: 1.3.20.tuxcare.1.0.2
-- Nginx: 1.28.0
-- HAProxy: 2.8.15
-
-## Supported external Chef products
-
-This release supports the following external Chef products:
-- Chef Infra Server version: 14.0.58+
-- Chef InSpec version: 4.3.2+
-- Chef Infra Client: 17.0.242+
-- Chef Habitat: 0.81+
-
-## Supported framework versions
-This release is built on the following framework versions:
-
-GoLang: 1.24.4
-OpenJDK: 17.0.16+8
-Angular: 19.2.15
-
-View the [package manifest](https://packages.chef.io/manifests/current/automate/latest_semver.json) for the latest release.
 
 ## Chef Automate 4.13.361
 
