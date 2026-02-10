@@ -47,6 +47,7 @@ This release uses:
 - PostgreSQL 13.22.tuxcare.1.0.1
 - OpenSearch 1.3.20-tuxcare-1.0.2
 - Rack 3.2.4
+- Valkey 7.2.11
 
 ## Chef Infra Server 15.10.83
 
