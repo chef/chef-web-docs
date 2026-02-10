@@ -90,6 +90,25 @@ See our policy on [support for derived platforms](#support-for-derived-platforms
 
 The following table lists the commercially supported platforms and versions for Chef Infra Client.
 
+
+{{< foundation_tabs tabs-id="client-supported-platforms" >}}
+  {{< foundation_tab active="true" panel-link="client-19-supported-platforms" tab-text="Chef Infra Client 19">}}
+  {{< foundation_tab panel-link="client-18-supported-platforms" tab-text="Chef Infra Client 18" >}}
+{{< /foundation_tabs >}}
+
+{{< foundation_tabs_panels tabs-id="client-supported-platforms" >}}
+
+{{< foundation_tabs_panel active="true" panel-id="client-19-supported-platforms" >}}
+
+Chef Infra Client is supported on:
+
+- Currently supported Linux distributions and versions running Linux kernel 2.6.32 and later
+- Currently supported Windows versions greater than or equal to Windows 10
+
+{{< /foundation_tabs_panel >}}
+
+{{< foundation_tabs_panel panel-id="client-18-supported-platforms" >}}
+
 | Platform | Architecture | Version |
 | --- | --- | --- |
 | AIX | `powerpc` | `7.1` (TL5 SP2 or higher, recommended), `7.2`, `7.3` |
@@ -105,6 +124,10 @@ The following table lists the commercially supported platforms and versions for 
 | SUSE Linux Enterprise Server | `x86_64`, `aarch64` (15.x only), `s390x` | `12`, `15` |
 | Ubuntu (LTS releases) | `x86_64`,`aarch64` (18.x and above) | `18.04`, `20.04`, `22.04`, `24.04` |
 | Windows | `x86_64` | `2016`, `10` (all channels except "insider" builds), `2019` (Long-term servicing channel (LTSC), both Desktop Experience and Server Core), `11`, `2022`, `2025` |
+
+{{< /foundation_tabs_panel >}}
+
+{{< /foundation_tabs_panels >}}
 
 #### Derived platforms
 
