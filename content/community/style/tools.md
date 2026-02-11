@@ -2,13 +2,13 @@
 title = "Developing Documentation"
 draft = false
 gh_repo = "chef-web-docs"
-aliases = ["/style_tools/"]
+
 
 [menu]
   [menu.overview]
     title = "Tools"
-    identifier = "overview/style/tools"
-    parent = "overview/style"
+    identifier = "overview/community/style/tools"
+    parent = "overview/community/style"
     weight = 40
 +++
 <!-- markdownlint-disable-file MD013 -->

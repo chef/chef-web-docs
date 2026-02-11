@@ -1,5 +1,5 @@
 +++
-title = "Chef Documentation Style Guide"
+title = "Chef Documentation style guide"
 draft = false
 gh_repo = "chef-web-docs"
 
@@ -8,9 +8,9 @@ gh_repo = "chef-web-docs"
 
 [menu]
   [menu.overview]
-    title = "Docs Style"
-    identifier = "overview/style/Docs Style"
-    parent = "overview/style"
+    title = "Overview"
+    identifier = "overview/community/style/Docs Style"
+    parent = "overview/community/style"
     weight = 10
 +++
 
@@ -25,7 +25,7 @@ For additional guidance not covered in this style guide, refer to [Google's styl
 
 ## Documentation repositories
 
-Our main repository for [docs.chef.io](https://docs.chef.io) is called [chef-web-docs](https://github.com/chef/chef-web-docs). This repo contains the files for Chef Infra Client and the Hugo files for our front-end theme, templates, and shortcodes. The Chef documentation is located in: `https://github.com/chef/chef-web-docs`
+Our main repository for [docs.chef.io](https://docs.chef.io) is [chef-web-docs](https://github.com/chef/chef-web-docs). This repo contains the files for Chef Infra Client and the Hugo files for our front-end theme, templates, and shortcodes. The Chef documentation is located in: `https://github.com/chef/chef-web-docs`
 
 - The `chef-web-docs` repo contains a `content` directory which holds most the Markdown files in the doc set.
 - The `static/images` directory stores the image files used in the docs.

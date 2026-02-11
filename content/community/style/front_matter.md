@@ -1,14 +1,14 @@
 +++
-title = "Page Front Matter"
+title = "Page front matter"
 draft = false
 
 gh_repo = "chef-web-docs"
 
 [menu]
   [menu.overview]
-    title = "Page Front Matter"
-    identifier = "overview/style/hugo/Page Front Matter"
-    parent = "overview/style/hugo"
+    title = "Page front matter"
+    identifier = "overview/community/style/hugo/Page Front Matter"
+    parent = "overview/community/style/hugo"
     weight = 20
 +++
 

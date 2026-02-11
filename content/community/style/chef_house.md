@@ -1,14 +1,13 @@
 +++
-title = "Chef House Style"
+title = "Chef house style"
 draft = false
-aliases = ["/style_house"]
 gh_repo = "chef-web-docs"
 
 [menu]
   [menu.overview]
-    title = "Chef House Style"
-    identifier = "overview/style/style_house"
-    parent = "overview/style"
+    title = "Chef house style"
+    identifier = "overview/community/style/style_house"
+    parent = "overview/community/style"
     weight = 30
 +++
 <!-- markdownlint-disable-file MD013 -->
@@ -42,7 +41,7 @@ See [this post on FAQs from I'd Rather Be Writing](https://idratherbewriting.com
 
 ## Examples
 
-### Example Company
+### Example company
 
 We use the fictional company "Fourth Cafe, Inc." as an example throughout the docs.
 
@@ -54,11 +53,11 @@ Examples in code:
 `admin@4thcafe.com`
 `4thcafe.pem`
 
-### Example Domains
+### Example domains
 
 Use the `4thcafe.com` domain for generic domains and email addresses in the documentation. Use the `chef.io` or `progress.com` for examples that should refer directly back to the company.
 
-### Example Names
+### Example names
 
 don't reveal personal information in examples, such as the names of real people, real email addresses, or phone numbers.
 
@@ -81,7 +80,7 @@ Here is a list of some example names for you to use (the last names are translat
 
 <!-- cSpell:enable -->
 
-### Example Email Addresses
+### Example email addresses
 
 - akoch@4thcafe.com
 - tbucatar@4thcafe.com
@@ -94,11 +93,11 @@ Here is a list of some example names for you to use (the last names are translat
 
 Use `chef-docs@progress.com` for the Chef Technical Documentation team.
 
-#### Example Phone Numbers
+#### Example phone numbers
 
 Never use a real phone number in an example. For a US phone number, use one from the range reserved for examples in fiction, which is (800) 555--0100 through (800) 555--0199.
 
-### Example Addresses
+### Example addresses
 
 Use fictional street addresses in examples.
 
@@ -110,7 +109,7 @@ Seattle, WA 98122
 1214 Hollow Road
 Boston, MA 02110
 
-### Example IP Addresses
+### Example IP addresses
 
 For IPv4 addresses, use one of the addresses provided in [RFC 5735](https://tools.ietf.org/html/rfc5737) for documentation.
 
@@ -132,7 +131,7 @@ IPv6 address range:
 
 - `2001:DB8::/32`
 
-### Some Existing Example Patterns
+### Some existing example patterns
 
 The Chef docs have some useful example patterns of unknown origin.
 

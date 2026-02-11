@@ -7,8 +7,8 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.overview]
     title = "Tables"
-    identifier = "overview/style/formatting/tables"
-    parent = "overview/style/formatting"
+    identifier = "overview/community/style/formatting/tables"
+    parent = "overview/community/style/formatting"
 +++
 
 Create tables in Markdown like this:

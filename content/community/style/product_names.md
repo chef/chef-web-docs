@@ -7,8 +7,8 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.overview]
     title = "Product names"
-    identifier = "overview/style/Product names"
-    parent = "overview/style"
+    identifier = "overview/community/style/Product names"
+    parent = "overview/community/style"
     weight = 30
 +++
 

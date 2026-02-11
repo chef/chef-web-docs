@@ -6,8 +6,8 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.overview]
     title = "Contribute"
-    identifier = "overview/style/contribute"
-    parent = "overview/style"
+    identifier = "overview/community/style/contribute"
+    parent = "overview/community/style"
     weight = 20
 +++
 
