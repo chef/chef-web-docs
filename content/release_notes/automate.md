@@ -85,7 +85,6 @@ This release is built on the following framework versions:
 - OpenJDK: 17.0.16+8
 - Angular: 19.2.15
 
-View the [package manifest](https://packages.chef.io/manifests/current/automate/latest_semver.json) for the latest release.
 
 ## Chef Automate 4.13.361
 
