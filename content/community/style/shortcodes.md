@@ -6,8 +6,8 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.overview]
     title = "Shortcodes"
-    identifier = "overview/style/hugo/shortcodes"
-    parent = "overview/style/hugo"
+    identifier = "overview/community/style/hugo/shortcodes"
+    parent = "overview/community/style/hugo"
     weight = 30
 +++
 
@@ -157,7 +157,7 @@ Basic example:
 
 ## `fontawesome` shortcode
 
-{{< readfile file="content/style/reusable/md/fontawesome_shortcode.md" >}}
+{{< readfile file="content/community/style/reusable/md/fontawesome_shortcode.md" >}}
 
 ## Foundation tabs container
 

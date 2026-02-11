@@ -7,8 +7,8 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.overview]
     title = "Procedures"
-    identifier = "overview/style/formatting/procedures"
-    parent = "overview/style/formatting"
+    identifier = "overview/community/style/formatting/procedures"
+    parent = "overview/community/style/formatting"
 +++
 
 This page provides guidance for writing procedures.

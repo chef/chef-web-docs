@@ -700,7 +700,7 @@ You can use `html="true"` to add an HTML file:
 
 ### `fontawesome` shortcode
 
-{{< readfile file="content/style/reusable/md/fontawesome_shortcode.md" >}}
+{{< readfile file="content/community/style/reusable/md/fontawesome_shortcode.md" >}}
 
 ### `icons` shortcode
 

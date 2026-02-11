@@ -65,16 +65,10 @@ weight = 20
     weight = 30
 
   [[overview]]
-  title = "Community"
-  identifier = "overview/community"
-  parent = "overview"
-  weight = 40
-
-  [[overview]]
   title = "Packages & Platforms"
   identifier = "overview/packages_&_platforms"
   parent = "overview"
-  weight = 50
+  weight = 40
 
     [[overview]]
     title = "Download"
@@ -83,22 +77,28 @@ weight = 20
     weight = 50
 
   [[overview]]
-  title = "Style Guide"
-  identifier = "overview/style"
+  title = "Community"
+  identifier = "overview/community"
   parent = "overview"
-  weight = 100
+  weight = 50
 
     [[overview]]
-    title = "Formatting"
-    identifier = "overview/style/formatting"
-    parent = "overview/style"
-    weight = 980
+    title = "Docs style guide"
+    identifier = "overview/community/style"
+    parent = "overview/community"
+    weight = 100
 
-    [[overview]]
-    title = "Hugo"
-    identifier = "overview/style/hugo"
-    parent = "overview/style"
-    weight = 999
+      [[overview]]
+      title = "Formatting"
+      identifier = "overview/community/style/formatting"
+      parent = "overview/community/style"
+      weight = 980
+
+      [[overview]]
+      title = "Hugo"
+      identifier = "overview/community/style/hugo"
+      parent = "overview/community/style"
+      weight = 999
 
 ####
 # End Overview Menu
@@ -1293,7 +1293,7 @@ weight = 100
 [[extra]]
 title = "Send Feedback"
 identifier = "send feedback"
-url = "/feedback/"
+url = "/community/feedback/"
 weight = 110
 
 [[extra]]

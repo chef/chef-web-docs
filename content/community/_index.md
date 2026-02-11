@@ -30,10 +30,11 @@ community.
 - [Chef training](https://www.chef.io/training)
 - [Chef tutorials](https://www.chef.io/training/tutorials)
 - [Chef webinars](https://www.chef.io/webinars?page=1)
+- [Chef Support and Learning Hub](https://community.progress.com/s/products/chef)
 
 ## Interact
 
-- [Community Guidelines](/community_guidelines/)
+- [Community Guidelines](guidelines)
 - [@chef](https://twitter.com/chef)
 - [Chef Community Slack](https://community-slack.chef.io/)
 - [Chef Software Mailing List](https://discourse.chef.io/) (for discussion among users, developers, and other interested parties)

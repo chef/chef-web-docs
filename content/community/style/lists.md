@@ -6,8 +6,8 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.overview]
     title = "Lists"
-    identifier = "overview/style/formatting/lists"
-    parent = "overview/style/formatting"
+    identifier = "overview/community/style/formatting/lists"
+    parent = "overview/community/style/formatting"
 +++
 
 
