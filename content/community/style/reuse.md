@@ -1,14 +1,14 @@
 +++
 title = "Content Reuse"
 draft = false
-aliases = ["/style_reuse"]
+
 gh_repo = "chef-web-docs"
 
 [menu]
   [menu.overview]
     title = "Content Reuse"
-    identifier = "overview/style/hugo/style_reuse"
-    parent = "overview/style/hugo"
+    identifier = "overview/community/style/hugo/style_reuse"
+    parent = "overview/community/style/hugo"
     weight = 10
 +++
 <!-- markdownlint-disable-file MD013 MD031 -->

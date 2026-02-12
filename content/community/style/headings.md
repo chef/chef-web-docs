@@ -6,8 +6,8 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.overview]
     title = "Headings"
-    identifier = "overview/style/formatting/headings"
-    parent = "overview/style/formatting"
+    identifier = "overview/community/style/formatting/headings"
+    parent = "overview/community/style/formatting"
 +++
 
 The following sections describe the section heading pattern that Chef is using for topic titles, H1s, H2s, H3s and H4s.

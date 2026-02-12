@@ -6,8 +6,8 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.overview]
     title = "Linking"
-    identifier = "overview/style/formatting/linking"
-    parent = "overview/style/formatting"
+    identifier = "overview/community/style/formatting/linking"
+    parent = "overview/community/style/formatting"
 +++
 
 Use descriptive link text that tell the user where a link will take them without needing to read the surrounding text.

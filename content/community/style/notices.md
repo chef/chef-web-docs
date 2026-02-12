@@ -6,8 +6,8 @@ gh_repo = "chef-web-docs"
 [menu]
   [menu.overview]
     title = "Notices"
-    identifier = "overview/style/formatting/notices"
-    parent = "overview/style/formatting"
+    identifier = "overview/community/style/formatting/notices"
+    parent = "overview/community/style/formatting"
 +++
 
 This document provides guidance on when and how to create note, warning, and danger notices in documentation.
