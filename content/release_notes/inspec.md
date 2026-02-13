@@ -19,35 +19,39 @@ summary = "Chef InSpec release notes"
 
 ## Chef InSpec 7.0.x
 
-Release date: February 13th, 2026
+Release date: February 17th, 2026
 
 ### Improvements
 
-- Added os detection support for Chainguard Linux distros (Wolfi and Chainguard OS) (train [#812](https://github.com/inspec/train/pull/812))
-- Added support to allow TCPS connection to Oracle DB while using oracledb_session resource (([#7684](https://github.com/inspec/inspec/pull/7684))
+- Added support for detecting Chainguard Linux distros (Wolfi and Chainguard OS). (train [#812](https://github.com/inspec/train/pull/812))
+- Added support for TCPS connections to an Oracle database while using oracledb_session resource (([#7684](https://github.com/inspec/inspec/pull/7684))
 
-        The user can use the following additional parameters for TCPS connection
+  This adds the following additional parameters for TCPS connection
 
-       `tns_alias`: TNS alias from tnsnames.ora (recommended for TCPS/SSL connections)
-       `env`: ash of environment variables (e.g., TNS_ADMIN, LD_LIBRARY_PATH, ORACLE_HOME)
+  - `tns_alias`: TNS alias from Oracle's `tnsnames.ora` configuration file (recommended for TCPS and SSL connections)
+  - `env`: A hash of environment variables (for example, `TNS_ADMIN`, `LD_LIBRARY_PATH`, `ORACLE_HOME`)
 
-        Example:
-        `sql = oracledb_session(
-        user: 'my_user',
-        password: 'password',
-        tns_alias: 'MYDB_TCPS',
-        env: {
-          'TNS_ADMIN' => '/path/to/tnsnames',
-          'LD_LIBRARY_PATH' => '/opt/oracle/instantclient'
-         }
-        )
+  For example:
 
-        describe sql.query('SELECT * FROM dual').row(0).column('dummy') do
-          its('value') { should eq 'X' }
-        end`
+  ```ruby
+  sql = oracledb_session(
+  user: 'my_user',
+  password: 'password',
+  tns_alias: 'MYDB_TCPS',
+  env: {
+    'TNS_ADMIN' => '/path/to/tnsnames',
+    'LD_LIBRARY_PATH' => '/opt/oracle/instantclient'
+   }
+  )
+
+  describe sql.query('SELECT * FROM dual').row(0).column('dummy') do
+    its('value') { should eq 'X' }
+  end
+  ```
 
 ### Bug fixes
-- Fixed an issue affecting Windows versions where the WMIC utility is deprecated or removed (Windows 10 version 2004 and later, and Windows 11), which prevented InSpec from detecting the system architecture. Train now falls back to CMD commands (`systeminfo` and environment variables) when WMIC isn’t available. (train [#813](https://github.com/inspec/train/pull/813))
+
+- Fixed an issue affecting Windows versions where the WMIC utility is deprecated or removed (Windows 10 version 2004 and later, and Windows 11), which prevented InSpec from detecting the system architecture. Train now falls back to CMD commands (`systeminfo` and environment variables) when WMIC isn't available. (train [#813](https://github.com/inspec/train/pull/813))
 
 ### Security fixes
 
