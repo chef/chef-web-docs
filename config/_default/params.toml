@@ -34,6 +34,7 @@ sitemaps = [
   "https://docs.chef.io/360/1.3/sitemap.xml",
   "https://docs.chef.io/360/1.4/sitemap.xml",
   "https://docs.chef.io/360/1.5/sitemap.xml",
+  "https://docs.chef.io/360/1.6/sitemap.xml",
   "https://docs.chef.io/client/19.1/sitemap.xml",
   "https://docs.chef.io/inspec/5.23/sitemap.xml",
   "https://docs.chef.io/inspec/5.24/sitemap.xml",
@@ -72,13 +73,17 @@ gh_path = "https://github.com/chef/license-service/tree/main/docs-chef-io/conten
 
 [search]
 
-default_search_product_keys = ["", "chef-360-saas", "chef-360-1.5", "automate", "desktop", "habitat", "client", "server", "inspec", "inspec-7.0", "saas", "supermarket", "workstation"]
+default_search_product_keys = ["", "chef-360-saas", "chef-360-1.6", "automate", "desktop", "habitat", "client", "server", "inspec", "inspec-7.0", "saas", "supermarket", "workstation"]
 
 [search.products]
 
 [search.products.360]
 name = "360 Platform"
 product_key = "chef-360"
+
+[[search.products.360.versions]]
+name = "1.6"
+product_version_key = "chef-360-1.6"
 
 [[search.products.360.versions]]
 name = "1.5"
