@@ -1,0 +1,11 @@
+## Markdownlint-cli2 config file
+## See also:
+##   .markdownlintignore.yaml
+##   .markdownlint.yaml
+##   https://github.com/DavidAnson/markdownlint-cli2
+
+ignores:
+  - CODE_OF_CONDUCT.md
+  - CONTRIBUTING.md
+  - COPYRIGHT.md
+  - SECURITY.MD
