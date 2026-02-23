@@ -31,7 +31,7 @@ See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/
 
 ## Chef Automate 4.13.xx
 
-Released on February 25th, 2026
+Released on February 26th, 2026
 
 ## New features
 Added a new Command Line Interface (CLI) command `chef-automate package-cleanup` to remove obsolete Chef Automate packages that are no longer needed after upgrading to a newer version.
