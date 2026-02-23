@@ -17,7 +17,7 @@ summary = "Chef InSpec release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
-## Chef InSpec 7.0.x
+## Chef InSpec 7.0.107
 
 Release date: February 23rd, 2026
 
