@@ -19,7 +19,7 @@ summary = "Chef InSpec release notes"
 
 ## Chef InSpec 7.0.x
 
-Release date: February 17th, 2026
+Release date: February 23rd, 2026
 
 ### Improvements
 
