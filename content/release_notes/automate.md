@@ -51,8 +51,31 @@ Added a new Command Line Interface (CLI) command `chef-automate package-cleanup`
 - Update Node.js to v22.17.1 to fix the following CVEs:
   - CVE-2025-27209
   - CVE-2025-27210
-- Update Golang to v1.25.4 to fix the following CVE:
+- Update Golang to v1.25.7 to fix the following CVE:
   - CVE-2025-47907
+  - CVE-2025-22871
+  - CVE-2025-4674
+  - CVE-2025-47907
+  - CVE-2025-58187
+  - CVE-2025-58188
+  - CVE-2025-61723
+  - CVE-2025-61725
+  - CVE-2025-61726
+  - CVE-2025-61729
+  - CVE-2025-61731
+  - CVE-2025-68119
+  - CVE-2025-0913
+  - CVE-2025-4673
+  - CVE-2025-47906
+  - CVE-2025-47912
+  - CVE-2025-58183
+  - CVE-2025-58185
+  - CVE-2025-58186
+  - CVE-2025-58189
+  - CVE-2025-61724
+  - CVE-2025-61727
+  - CVE-2025-61728
+  - CVE-2025-61730
 
 ## Chef packaged product versions
 
@@ -60,7 +83,7 @@ This release uses:
 - Chef Habitat version: 1.6.1243/20241227194506
 - Chef Habitat Builder version: 10717/20250805204117
 - Chef Infra Server version: 15.10.91
-- Chef InSpec version: 5.22.95/20250805133317
+- Chef InSpec version: 5.22.95/20250930075641
 
 ## Service versions
 
