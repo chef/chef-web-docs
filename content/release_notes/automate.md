@@ -59,7 +59,7 @@ Added a new Command Line Interface (CLI) command `chef-automate package-cleanup`
 This release uses:
 - Chef Habitat version: 1.6.1243/20241227194506
 - Chef Habitat Builder version: 10717/20250805204117
-- Chef Infra Server version: 15.10.89
+- Chef Infra Server version: 15.10.91
 - Chef InSpec version: 5.22.95/20250805133317
 
 ## Service versions
@@ -73,15 +73,15 @@ This release uses:
 ## Supported external Chef products
 
 This release supports the following external Chef products:
-- Chef Infra Server version: 14.0.58+
+- Chef Infra Server version: 15.0.9+
 - Chef InSpec version: 4.3.2+
-- Chef Infra Client: 17.0.242+
+- Chef Infra Client: 18.0.155+
 - Chef Habitat: 0.81+
 
 ## Supported framework versions
 This release is built on the following framework versions:
 
-- GoLang: 1.24.4
+- GoLang: 1.25.7
 - OpenJDK: 17.0.16+8
 - Angular: 19.2.15
 
