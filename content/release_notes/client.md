@@ -30,7 +30,7 @@ Release date: February 25, 2026
 ### Packaging
 - Updated Kitchen.yml for a consistent build experience [#15654](https://github.com/chef/chef/pull/15654)
 - Updated linting to cookstyle and corrected a large number of files [#15644](https://github.com/chef/chef/pull/15644)
-- Ensure we remove vulnerable net-imap and rexml versions [#15633](https://github.com/chef/chef/pull/15633)
+- Removed vulnerable versions of net-imap and rexml to address CVEs [#15633](https://github.com/chef/chef/pull/15633)
 - Updated InSpec-core and InSpec-core-bin to 5.24.5 [#15636](https://github.com/chef/chef/pull/15636)
 - Updated Omnibus to get the latest license_scout [#15641](https://github.com/chef/chef/pull/15641)
 - Downgraded Docker to overcome build failures with the newer version [#15639](https://github.com/chef/chef/pull/15639)
