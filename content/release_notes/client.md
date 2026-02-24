@@ -21,23 +21,23 @@ summary = "Chef Infra Client release notes"
 
 Release date: February 25, 2026
 
-## Resource updates
+### Resource updates
 - Corrected a race condition when installing Chocolatey packages [#15640](https://github.com/chef/chef/pull/15640)
 - Updated the platforms for platform-specific gems [#15650](https://github.com/chef/chef/pull/15650)
 - Fixed the kitchen test homebrew_package failure [#15558](https://github.com/chef/chef/pull/15558)
 - A 'FileTypeMismatch' is raised when directory the `:create` directory encounters a file [#15557](https://github.com/chef/chef/pull/15557)
 
-## Packaging
+### Packaging
 - Updated Kitchen.yml for a consistent build experience [#15654](https://github.com/chef/chef/pull/15654)
 - Updated linting to cookstyle and corrected a large number of files [#15644](https://github.com/chef/chef/pull/15644)
 - Ensure we remove vulnerable net-imap and rexml versions [#15633](https://github.com/chef/chef/pull/15633)
-- Updated inspec-core and inspec-core-bin to 5.24.5 [#15636](https://github.com/chef/chef/pull/15636)
+- Updated InSpec-core and InSpec-core-bin to 5.24.5 [#15636](https://github.com/chef/chef/pull/15636)
 - Updated Omnibus to get the latest license_scout [#15641](https://github.com/chef/chef/pull/15641)
 - Downgraded Docker to overcome build failures with the newer version [#15639](https://github.com/chef/chef/pull/15639)
 - Updated train-core to 3.16.0 [#15572](https://github.com/chef/chef/pull/15572)
 - Fixed rubygem version parsing [#15662](https://github.com/chef/chef/pull/15662)
 
-## Security
+### Security
 - Updated uri to 1.0.4 [#15645](https://github.com/chef/chef/pull/15645)
 
 ## Chef Infra Client 19.1.164
