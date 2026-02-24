@@ -43,6 +43,7 @@ Added a new Command Line Interface (CLI) command `chef-automate package-cleanup`
 ## Bug Fixes
 - Fixed the issue that was clearing the project list on selecting an Unassigned Project.
 - Addressed a false config verify failure with external Postgres and OpenSearch in Automate HA.
+- Fixed an issue where Chef Automate upgrade would fail when it included a Habitat core package version upgrade.
 
 ## Security
 
