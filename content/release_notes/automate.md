@@ -51,7 +51,7 @@ Added a new Command Line Interface (CLI) command `chef-automate package-cleanup`
 - Updated Node.js to v22.17.1 to fix the following CVEs:
   - CVE-2025-27209
   - CVE-2025-27210
-- Updated Golang to v1.25.7 to fix the following CVE:
+- Updated Golang to v1.25.7 to fix the following CVEs:
   - CVE-2025-47907
   - CVE-2025-22871
   - CVE-2025-4674
