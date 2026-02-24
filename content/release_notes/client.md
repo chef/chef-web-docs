@@ -25,7 +25,7 @@ Release date: February 25, 2026
 - Corrected a race condition when installing Chocolatey packages [#15640](https://github.com/chef/chef/pull/15640)
 - Updated the platforms for platform-specific gems [#15650](https://github.com/chef/chef/pull/15650)
 - Fixed the kitchen test homebrew_package failure [#15558](https://github.com/chef/chef/pull/15558)
-- A 'FileTypeMismatch' error occurs if you call `:create` to create a directory but a directory with the same name already exists [#15557](https://github.com/chef/chef/pull/15557)
+- A 'FileTypeMismatch' error occurs if you call `:create` to create a directory but a file with the same name already exists [#15557](https://github.com/chef/chef/pull/15557)
 
 ### Packaging
 - Updated Kitchen.yml for a consistent build experience [#15654](https://github.com/chef/chef/pull/15654)
