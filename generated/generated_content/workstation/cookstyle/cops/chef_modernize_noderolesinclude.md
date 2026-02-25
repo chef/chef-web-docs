@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_noderolesinclude/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,15 +19,11 @@ Use `node.role?('foo')` to check if a node includes a role instead of `node['rol
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 node['roles'].include?('foo')
-```
 
-### correct
-
-```ruby
+# good
 node.role?('foo')
 ```
 

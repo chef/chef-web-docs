@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_usesdeprecatedmixins/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 include Chef::Mixin::LanguageIncludeAttribute
 include Chef::Mixin::RecipeDefinitionDSLCore
 include Chef::Mixin::LanguageIncludeRecipe

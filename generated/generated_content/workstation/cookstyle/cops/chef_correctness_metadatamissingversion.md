@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_correctness_metadatamissingversion/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -17,11 +18,9 @@ The Cookstyle cops department: `Chef/Correctness`
 metadata.rb should define a version for the cookbook.
 
 ## Examples
-```
-
-### correct
 
 ```ruby
+# good
 name 'foo'
 version '1.0.0'
 ```

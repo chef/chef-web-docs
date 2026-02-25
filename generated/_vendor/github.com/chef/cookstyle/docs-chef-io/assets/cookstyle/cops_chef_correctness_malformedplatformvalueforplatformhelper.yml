@@ -9,17 +9,12 @@ autocorrection: false
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   value_for_platform(
     %w(redhat oracle) => 'baz'
   )
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   value_for_platform(
     %w(redhat oracle) => {
       '5' => 'foo',
@@ -34,7 +29,6 @@ examples: |2-
     },
     'default' => 'bar'
   )
-  ```
 version_added: 5.16.0
 enabled: true
 excluded_file_paths:

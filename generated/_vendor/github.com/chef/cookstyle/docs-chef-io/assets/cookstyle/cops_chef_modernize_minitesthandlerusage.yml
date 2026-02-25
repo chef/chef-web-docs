@@ -8,11 +8,8 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   depends 'minitest-handler'
-  ```
 version_added: 5.4.0
 enabled: true
 included_file_paths:

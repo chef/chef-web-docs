@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_localedeprecatedlcallproper
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ The local resource's lc_all property has been deprecated and will be removed in 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 locale 'set locale' do
   lang 'en_gb.utf-8'
   lc_all 'en_gb.utf-8'

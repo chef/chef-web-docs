@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_resourcewithoutunifiedtrue/
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,20 +19,16 @@ Chef Infra Client 15.3 and later include a new Unified Mode that simplifies the 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+### incorrect
  resource_name :foo
  provides :foo
 
  action :create do
    # some action code
  end
-```
 
 ### correct
-
-```ruby
  resource_name :foo
  provides :foo
  unified_mode true

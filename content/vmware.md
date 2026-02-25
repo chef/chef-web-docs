@@ -519,20 +519,3 @@ control 'vmware-1' do
   end
 end
 ```
-
-## Chef integrations inside of the VMware Suite
-
-### vRealize Automation Example Blueprints
-
-- [Linux](https://code.vmware.com/samples?id=1371)
-- [Windows](https://code.vmware.com/samples?id=1390)
-
-### vRealize Orchestrator plugin
-
-- The [Chef plugin for vRealize
-    Orchestrator](https://solutionexchange.vmware.com/store/products/chef-plugin-for-vrealize-orchestrator)
-    (vRO) is a VMware-supplied plugin
-- If you use vRealize Orchestrator, this provides the majority of the necessary features
-
-For more information, see the plugin demo on
-[YouTube](https://www.youtube.com/watch?v=HlvoZ4Zdwc4).

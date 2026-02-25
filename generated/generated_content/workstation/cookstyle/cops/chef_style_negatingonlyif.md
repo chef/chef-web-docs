@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_style_negatingonlyif/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,17 +19,13 @@ Instead of using only_if conditionals with ! to negate the returned value, use n
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 package 'legacy-sysv-deps' do
   only_if { !systemd }
 end
-```
 
-### correct
-
-```ruby
+# good
 package 'legacy-sysv-deps' do
   not_if { systemd }
 end

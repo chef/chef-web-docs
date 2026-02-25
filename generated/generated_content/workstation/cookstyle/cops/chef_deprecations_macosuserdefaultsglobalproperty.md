@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_macosuserdefaultsglobalprop
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,19 +19,15 @@ The `global` property in the macos_userdefaults resource was deprecated in Chef 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 macos_userdefaults 'set a value' do
   global true
   key 'key'
   value 'value'
 end
-```
 
-### correct
-
-```ruby
+# good
 macos_userdefaults 'set a value' do
   key 'key'
   value 'value'

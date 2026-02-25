@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_style_overlycomplexsupportsdependsmetada
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Don't loop over an array to set cookbook dependencies or supported platforms if 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 
 %w( debian ubuntu ).each do |os|
   supports os
@@ -29,11 +29,8 @@ end
 %w( apt yum ).each do |cb|
   depends cb
 end
-```
 
-### correct
-
-```ruby
+# good
 
 supports 'debian'
 supports 'ubuntu'

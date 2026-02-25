@@ -8,9 +8,7 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   node['platform'].to_s
   node['platform_family'].to_s
   node['platform_version'].to_s
@@ -18,11 +16,8 @@ examples: |2-
   node['hostname'].to_s
   node['os'].to_s
   node['name'].to_s
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   node['platform']
   node['platform_family']
   node['platform_version']
@@ -30,7 +25,6 @@ examples: |2-
   node['hostname']
   node['os']
   node['name']
-  ```
 version_added: 6.10.0
 enabled: true
 excluded_file_paths:

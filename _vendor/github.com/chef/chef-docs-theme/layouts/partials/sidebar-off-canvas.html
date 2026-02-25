@@ -22,7 +22,7 @@
             <a href="">Main Menu</a>
             <ul class="menu vertical nested">
               {{ range .Site.Menus.main }}
-                <li><a href="{{ .URL }}" {{ if hasPrefix .URL "http" }} class="external" target="_blank"{{ end }}>{{ .Title }}</a></li>
+                <li><a href="{{ .URL }}" {{ if and (hasPrefix .URL "http") (not (hasPrefix .URL "https://docs.chef.io")) }} class="external" target="_blank"{{ end }}>{{ .Title }}</a></li>
               {{ end }}
             </ul>
           </li>
@@ -31,7 +31,7 @@
         {{ else }}
           <ul class="vertical menu">
             {{ range .Site.Menus.main }}
-              <li><a href="{{ .URL }}" {{ if hasPrefix .URL "http" }} class="external" target="_blank"{{ end }}>{{ .Title }}</a></li>
+              <li><a href="{{ .URL }}" {{ if and (hasPrefix .URL "http") (not (hasPrefix .URL "https://docs.chef.io")) }} class="external" target="_blank"{{ end }}>{{ .Title }}</a></li>
             {{ end }}
           </ul>
         {{ end }}

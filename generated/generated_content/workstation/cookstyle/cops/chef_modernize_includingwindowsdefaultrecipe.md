@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_includingwindowsdefaultrecipe/
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Don't include the windows default recipe that is either full of gem install that
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 include_recipe 'windows::default'
 include_recipe 'windows'
 ```

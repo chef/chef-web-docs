@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_style_unnecessaryplatformcasestatement/"
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Use the platform?() and platform_family?() helpers instead of a case statement t
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 case node['platform']
 when 'ubuntu'
   log "We're on Ubuntu"
@@ -31,11 +31,8 @@ case node['platform_family']
 when 'rhel'
   include_recipe 'yum'
 end
-```
 
-### correct
-
-```ruby
+# good
 if platform?('ubuntu')
   log "We're on Ubuntu"
   apt_update

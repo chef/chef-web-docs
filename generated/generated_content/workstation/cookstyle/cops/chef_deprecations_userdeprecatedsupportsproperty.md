@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_userdeprecatedsupportsprope
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ The supports property was removed in Chef Infra Client 13 in favor of individual
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 user "betty" do
   supports({
     manage_home: true,
@@ -31,11 +31,8 @@ end
 user 'betty' do
   supports :manage_home => true
 end
-```
 
-### correct
-
-```ruby
+# good
 user "betty" do
   manage_home true
   non_unique true

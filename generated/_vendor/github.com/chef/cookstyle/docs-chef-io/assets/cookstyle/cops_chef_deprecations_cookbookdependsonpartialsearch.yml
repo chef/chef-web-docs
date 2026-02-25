@@ -8,11 +8,8 @@ autocorrection: false
 target_chef_version: 13.0+
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   depends 'partial_search'
-  ```
 version_added: 5.1.0
 enabled: true
 included_file_paths:

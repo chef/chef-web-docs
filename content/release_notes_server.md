@@ -1,16 +1,5 @@
 +++
-title = "Chef Infra Server Release Notes"
 draft = false
-
-product = ["server"]
-release_notes = "chef-server"
-layout = "release_notes"
-toc_layout = "release_notes_toc"
-
-[menu]
-  [menu.release_notes]
-    title = "Chef Infra Server"
-    identifier = "release_notes/release_notes_server.md Chef Infra Server"
-    parent = "release_notes"
-    weight = 70
+layout = "redirect"
+redirect_url = "/release_notes/server/"
 +++

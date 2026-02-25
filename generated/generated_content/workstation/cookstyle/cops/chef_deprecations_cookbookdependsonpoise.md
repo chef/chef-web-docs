@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_cookbookdependsonpoise/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Cookbooks should not depend on the deprecated Poise framework cookbooks. They sh
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'poise'
 depends 'poise-service'
 depends 'poise-hoist'

@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_cookbookdependsoncompatreso
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Don't depend on the deprecated `compat_resource` cookbook made obsolete by Chef 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'compat_resource'
 ```
 

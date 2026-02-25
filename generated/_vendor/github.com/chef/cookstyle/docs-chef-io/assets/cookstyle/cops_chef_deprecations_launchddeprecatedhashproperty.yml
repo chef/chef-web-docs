@@ -8,21 +8,15 @@ autocorrection: true
 target_chef_version: 12.19+
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   launchd 'foo' do
     hash foo: 'bar'
   end
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   launchd 'foo' do
     plist_hash foo: 'bar'
   end
-  ```
 version_added: 5.5.0
 enabled: true
 excluded_file_paths:

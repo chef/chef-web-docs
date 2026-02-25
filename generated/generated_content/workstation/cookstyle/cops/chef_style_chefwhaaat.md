@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_style_chefwhaaat/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,16 +19,12 @@ Checks for comments that mention "Chef" without context. Do you mean Chef Infra 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 Chef makes software
 Chef configures your systems
-```
 
-### correct
-
-```ruby
+# good
 Chef Software makes software
 Chef Infra configures your systems
 ```

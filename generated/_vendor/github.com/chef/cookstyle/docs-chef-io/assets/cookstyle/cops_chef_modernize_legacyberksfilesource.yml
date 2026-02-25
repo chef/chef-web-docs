@@ -9,20 +9,14 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   source 'http://community.opscode.com/api/v3'
   source 'https://supermarket.getchef.com'
   source 'https://api.berkshelf.com'
   site :opscode
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   source 'https://supermarket.chef.io'
-  ```
 version_added: 5.1.0
 enabled: true
 included_file_paths:

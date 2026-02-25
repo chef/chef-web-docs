@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_providesfrominitialize/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,18 +19,14 @@ Provides should be set using the `provides` resource DSL method instead of inste
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 def initialize(*args)
   super
   @provides = :foo
 end
-```
 
-### correct
-
-```ruby
+# good
 provides :foo
 ```
 

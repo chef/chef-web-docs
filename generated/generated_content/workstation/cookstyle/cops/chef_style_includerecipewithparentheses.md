@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_style_includerecipewithparentheses/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,15 +19,11 @@ There is no need to wrap the recipe in parentheses when using the include_recipe
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 include_recipe('foo::bar')
-```
 
-### correct
-
-```ruby
+# good
 include_recipe 'foo::bar'
 ```
 

@@ -8,11 +8,8 @@ autocorrection: true
 target_chef_version: 14.6+
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   depends 'timezone_lwrp'
-  ```
 version_added: 7.19.0
 enabled: true
 included_file_paths:

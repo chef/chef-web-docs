@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_style_commentsentencespacing/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,7 +19,6 @@ Replaces double spaces between sentences with a single space.
 Note: This is DISABLED by default.
 
 ## Examples
-<nil>
 
 ## Configurable attributes
 

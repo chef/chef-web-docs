@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_redundantcode_unnecessarydesiredstate/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,16 +19,12 @@ There is no need to set a property/attribute to desired_state: true as all prope
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 property :foo, String, desired_state: true
 attribute :foo, String, desired_state: true
-```
 
-### correct
-
-```ruby
+# good
 property :foo, String
 attribute :foo, String
 ```

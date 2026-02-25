@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_windowstaskchangeaction/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -19,20 +20,16 @@ The default action of :create should can now be used to create an update tasks.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 windows_task 'chef ad-join leave start time' do
   task_name 'chef ad-join leave'
   start_day '06/09/2016'
   start_time '01:00'
   action [:change, :create]
 end
-```
 
-### correct
-
-```ruby
+# good
 windows_task 'chef ad-join leave start time' do
   task_name 'chef ad-join leave'
   start_day '06/09/2016'

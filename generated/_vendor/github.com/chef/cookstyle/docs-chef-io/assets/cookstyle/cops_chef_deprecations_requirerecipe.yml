@@ -7,17 +7,11 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   require_recipe 'foo'
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   include_recipe 'foo'
-  ```
 version_added: 5.2.0
 enabled: true
 excluded_file_paths:

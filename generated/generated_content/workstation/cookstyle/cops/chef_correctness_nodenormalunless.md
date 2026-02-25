@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_correctness_nodenormalunless/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -20,15 +21,11 @@ Code should be updated to use default or override levels, but this will change a
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 node.normal_unless['foo'] = true
-```
 
-### correct
-
-```ruby
+# good
 node.default_unless['foo'] = true
 node.override_unless['foo'] = true
 node.force_default_unless['foo'] = true

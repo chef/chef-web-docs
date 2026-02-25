@@ -8,12 +8,9 @@ autocorrection: false
 target_chef_version: 15.0+
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   zipfile "C:\file.zip" do
     path 'C:\expand_here'
   end
-  ```
 version_added: 5.12.0
 enabled: true

@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_style_commentformat/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Checks for incorrectly formatted headers
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 Copyright 2013-2016 Chef Software, Inc.
 Recipe default.rb
 Attributes default.rb
@@ -28,11 +28,8 @@ License Apache2
 Cookbook tomcat
 Cookbook Name:: Tomcat
 Attributes File:: default
-```
 
-### correct
-
-```ruby
+# good
 Copyright:: 2013-2016 Chef Software, Inc.
 Recipe:: default.rb
 Attributes:: default.rb

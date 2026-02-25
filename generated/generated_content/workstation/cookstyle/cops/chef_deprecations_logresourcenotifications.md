@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_logresourcenotifications/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ In Chef Infra Client 16 the log resource no longer notifies when logging so noti
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 template '/etc/foo' do
   source 'bar.erb'
   notifies :write, 'log[Aggregate notifications using a single log resource]', :immediately
@@ -29,11 +29,8 @@ end
 log 'Aggregate notifications using a single log resource' do
   notifies :restart, 'service[foo]', :delayed
 end
-```
 
-### correct
-
-```ruby
+# good
 template '/etc/foo' do
   source 'bar.erb'
   notifies :run, 'notify_group[Aggregate notifications using a single notify_group resource]', :immediately

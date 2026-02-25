@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_redundantcode_usecreateifmissing/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Use the `:create_if_missing` action instead of `not_if` with a `::File.exist(FOO
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 cookbook_file '/logs/foo/error.log' do
   source 'error.log'
   owner 'root'
@@ -37,11 +37,8 @@ remote_file 'Download file' do
   mode '0644'
   not_if { ::File.exist?('/foo/bar') }
 end
-```
 
-### correct
-
-```ruby
+# good
 cookbook_file '/logs/foo/error.log' do
   source 'error.log'
   owner 'root'

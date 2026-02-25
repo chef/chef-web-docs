@@ -10,22 +10,16 @@ autocorrection: false
 target_chef_version: 14.0+
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   execute "Delete chef-client service" do
     command "sc.exe delete chef-client"
     action :run
   end
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   windows_service 'chef-client' do
     action :delete
   end
-  ```
 version_added: 5.16.0
 enabled: true
 excluded_file_paths:

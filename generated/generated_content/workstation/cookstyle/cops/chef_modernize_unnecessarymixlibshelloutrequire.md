@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_unnecessarymixlibshelloutrequi
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Chef Infra Client 12.4+ includes mixlib/shellout automatically in resources and 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 require 'mixlib/shellout'
 ```
 

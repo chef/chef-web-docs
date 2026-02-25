@@ -10,6 +10,20 @@ draft = false
     weight = 20
 +++
 
+## 20251215
+
+### New Features
+
+- STIG Microsoft Windows 11 v2.2.0 (Remediation)
+
+
+## 20251115
+
+### New Features
+
+- CIS Apache Tomcat 10.1 v1.1.0 (Remediation)
+- STIG Oracle Linux 8 remediation v1.8.0 (cookbook)
+
 ## 20251015
 
 ### New Features

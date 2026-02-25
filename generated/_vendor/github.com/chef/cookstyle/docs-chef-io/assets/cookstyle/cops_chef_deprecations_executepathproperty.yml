@@ -8,21 +8,15 @@ autocorrection: false
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   execute 'some_cmd' do
     path '/foo/bar'
   end
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   execute 'some_cmd' do
     environment {path: '/foo/bar'}
   end
-  ```
 version_added: 6.17.0
 enabled: true
 excluded_file_paths:

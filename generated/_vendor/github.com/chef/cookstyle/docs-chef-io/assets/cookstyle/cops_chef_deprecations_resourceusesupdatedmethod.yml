@@ -11,22 +11,16 @@ autocorrection: false
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   action :foo do
     updated = true
   end
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   action :foo do
     converge_by('resource did something') do
       # code that causes the resource to converge
     end
-  ```
 version_added: 5.7.0
 enabled: false
 included_file_paths:

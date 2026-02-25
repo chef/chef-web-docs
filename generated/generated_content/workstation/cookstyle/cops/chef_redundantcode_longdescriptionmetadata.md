@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_redundantcode_longdescriptionmetadata/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ The long_description metadata.rb method is not used and is unnecessary in cookbo
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 long_description 'this is my cookbook and this description will never be seen'
 ```
 

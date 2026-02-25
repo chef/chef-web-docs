@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_deprecatedwindowsversionche
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Don't use the deprecated `older_than_win_2012_or_8?` helper. Windows versions be
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 if older_than_win_2012_or_8?
   # do some legacy things
 end

@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_effortless_chefvaultuse/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,34 +19,23 @@ Chef Vault is not supported in the Effortless pattern, so usage of Chef Vault mu
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 require 'chef-vault'
 
-### incorrect
-
-```ruby
+# bad
 ChefVault::Item
 
-### incorrect
-
-```ruby
+# bad
 include_recipe 'chef-vault'
 
-### incorrect
-
-```ruby
+# bad
 chef_gem 'chef-vault'
 
-### incorrect
-
-```ruby
+# bad
 chef_vault_item_for_environment(arg, arg1)
 
-### incorrect
-
-```ruby
+# bad
 chef_vault_item(arg, arg1)
 ```
 

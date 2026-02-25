@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_correctness_invalidcookbookname/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,15 +19,11 @@ Cookbook names should not contain invalid characters such as periods.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 name 'foo.bar'
-```
 
-### correct
-
-```ruby
+# good
 name 'foo_bar'
 ```
 

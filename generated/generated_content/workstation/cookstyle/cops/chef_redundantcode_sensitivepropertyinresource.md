@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_redundantcode_sensitivepropertyinresourc
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -20,7 +21,6 @@ Every Chef Infra resource already includes a sensitive property with a default v
 property :sensitive, [true, false], default: false
 
 ## Examples
-<nil>
 
 ## Configurable attributes
 

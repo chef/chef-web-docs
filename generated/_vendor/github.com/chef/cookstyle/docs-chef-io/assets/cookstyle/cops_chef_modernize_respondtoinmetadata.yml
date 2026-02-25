@@ -9,22 +9,16 @@ autocorrection: true
 target_chef_version: 12.15+
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   chef_version '>= 13' if respond_to?(:chef_version)
   chef_version '>= 13' if defined?(chef_version)
   chef_version '>= 13' unless defined?(Ridley::Chef::Cookbook::Metadata)
   if defined(chef_version)
     chef_version '>= 13'
   end
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   chef_version '>= 13'
-  ```
 version_added: 5.2.0
 enabled: true
 included_file_paths:

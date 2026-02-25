@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_redundantcode_multipleplatformchecks/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,16 +19,12 @@ You can pass multiple values to the platform? and platform_family? helpers inste
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 platform?('redhat') || platform?('ubuntu')
 platform_family?('debian') || platform_family?('rhel')
-```
 
-### correct
-
-```ruby
+# good
 platform?('redhat', 'ubuntu')
 platform_family?('debian', 'rhel')
 ```

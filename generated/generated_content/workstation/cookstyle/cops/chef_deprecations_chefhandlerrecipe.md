@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_chefhandlerrecipe/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ There is no need to include the empty and deprecated chef_handler::default recip
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 include_recipe 'chef_handler'
 include_recipe 'chef_handler::default'
 ```

@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_correctness_metadatamissingname/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -17,11 +18,9 @@ The Cookstyle cops department: `Chef/Correctness`
 metadata.rb needs to include the name method or it will fail on Chef Infra Client 12 and later.
 
 ## Examples
-```
-
-### correct
 
 ```ruby
+# good
 name 'foo'
 ```
 

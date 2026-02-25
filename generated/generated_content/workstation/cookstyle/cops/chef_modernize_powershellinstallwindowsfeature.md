@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_powershellinstallwindowsfeatur
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -24,9 +25,8 @@ Use the windows_feature resource built into Chef Infra Client 14+ instead of the
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 powershell_script 'Install Feature' do
   code 'Install-WindowsFeature -Name "Net-framework-Core"'
 end

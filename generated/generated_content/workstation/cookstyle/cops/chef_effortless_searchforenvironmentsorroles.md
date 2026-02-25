@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_effortless_searchforenvironmentsorroles/
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Policyfiles (and Effortless) do not use environments or roles so searching for t
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 search(:node, 'chef_environment:foo')
 search(:node, 'role:bar')
 ```

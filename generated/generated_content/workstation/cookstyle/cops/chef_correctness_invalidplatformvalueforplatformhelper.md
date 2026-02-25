@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_correctness_invalidplatformvalueforplatf
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,17 +19,13 @@ Pass valid platforms to the value_for_platform helper. See [Infra Language: Plat
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 value_for_platform(
   %w(rhel mac_os_x_server) => { 'default' => 'foo' },
   %w(sles) => { 'default' => 'bar' }
-)```
-
-### correct
-
-```ruby
+)
+# good
 value_for_platform(
   %w(redhat mac_os_x) => { 'default' => 'foo' },
   %w(opensuseleap) => { 'default' => 'bar' }

@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_foodcriticcomments/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Remove legacy code comments that disable Foodcritic rules. These comments are no
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 # ~FC013
 ```
 

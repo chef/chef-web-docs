@@ -23,17 +23,17 @@ summaryLength = 20
 
 [outputFormats]
   [outputFormats.REDIR]
-    mediatype = "text/netlify"
+    mediaType = "text/netlify"
     baseName = "_redirects"
     isPlainText = true
     notAlternative = true
 
   [outputFormats.SITEMAP-MAIN]
-    MediaType = "application/xml"
-    BaseName = "sitemap-main"
-    IsHTML = false
-    IsPlainText = true
-    Rel = "sitemap"
+    mediaType = "application/xml"
+    baseName = "sitemap-main"
+    isHTML = false
+    isPlainText = true
+    rel = "sitemap"
     protocol = "xml://"
 
 [markup]
@@ -67,7 +67,7 @@ summaryLength = 20
         title = true
     [markup.goldmark.renderHooks]
       [markup.goldmark.renderHooks.image]
-        enableDefault = true
+        useEmbedded = 'fallback'
       [markup.goldmark.renderHooks.link]
         useEmbedded = 'auto'
     [markup.goldmark.renderer]
@@ -75,15 +75,19 @@ summaryLength = 20
       unsafe = true
       xhtml = false
   [markup.highlight]
+    anchorLineNos = false
     codeFences = true
     guessSyntax = false
     hl_Lines = ''
+    hl_inline = false
+    lineAnchors = ''
     lineNoStart = 1
     lineNos = false
     lineNumbersInTable = true
     noClasses = true
     style = "friendly"
     tabWidth = 4
+    wrapperClass = 'highlight'
   [markup.tableOfContents]
     endLevel = 4
     ordered = false

@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_redundantcode_groupingmetadata/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ The grouping metadata.rb method is not used and is unnecessary in cookbooks.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 grouping 'windows_log_rotate', title: 'Demonstration cookbook with code to switch loggers'
 ```
 

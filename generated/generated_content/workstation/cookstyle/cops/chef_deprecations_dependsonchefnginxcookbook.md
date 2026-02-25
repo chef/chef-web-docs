@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_dependsonchefnginxcookbook/
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,15 +19,11 @@ Don't depend on the deprecated `chef_nginx` cookbook that was replaced by the `n
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'chef_nginx'
-```
 
-### correct
-
-```ruby
+# good
 depends 'nginx'
 ```
 

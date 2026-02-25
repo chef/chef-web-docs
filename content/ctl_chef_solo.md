@@ -40,7 +40,7 @@ This command has the following options:
 
 `-f`, `--[no-]fork`
 
-: Contains Chef Infra Client runs in a secondary process with dedicated RAM. When a Chef Infra Client run is complete, the RAM is returned to the master process. This option helps ensure that a Chef Infra Client uses a steady amount of RAM over time because the master process doesn't run recipes. This option also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Use `--no-fork` to disable running Chef Infra Client in fork node. Default value: `--fork`. This option may not be used in the same command with the `--daemonize` and `--interval` options.
+: Contains Chef Infra Client runs in a secondary process with dedicated RAM. When a Chef Infra Client run is complete, the RAM is returned to the primary process. This option helps ensure that a Chef Infra Client uses a steady amount of RAM over time because the primary process doesn't run recipes. This option also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Use `--no-fork` to disable running Chef Infra Client in fork node. Default value: `--fork`. This option may not be used in the same command with the `--daemonize` and `--interval` options.
 
 `-F FORMAT`, `--format FORMAT`
 

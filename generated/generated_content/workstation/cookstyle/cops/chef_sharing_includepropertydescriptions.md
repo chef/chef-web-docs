@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_sharing_includepropertydescriptions/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,15 +19,11 @@ Resource properties should include description fields to allow automated documen
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 property :foo, String
-```
 
-### correct
-
-```ruby
+# good
 property :foo, String, description: "Set the important thing to..."
 ```
 

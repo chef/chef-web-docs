@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_redundantcode_replacesmetadata/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ The replaces metadata.rb method is not used and is unnecessary in cookbooks. Rep
 
 ## Examples
 
-### incorrect
-
-```ruby in metadata.rb:
+```ruby
+# bad in metadata.rb:
 
 replaces "another_cookbook"
 ```

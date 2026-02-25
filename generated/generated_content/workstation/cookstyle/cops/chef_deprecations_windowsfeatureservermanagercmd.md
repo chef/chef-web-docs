@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_windowsfeatureservermanager
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,17 +19,13 @@ The `windows_feature` resource no longer supports setting the `install_method` t
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 windows_feature 'DHCP' do
   install_method :servermanagercmd
 end
-```
 
-### correct
-
-```ruby
+# good
 windows_feature 'DHCP' do
   install_method :windows_feature_dism
 end

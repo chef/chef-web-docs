@@ -20,14 +20,15 @@ You need a Chef license key to run the following products:
 
 - Chef InSpec 6
 
-You might need a Chef license key to run the following products, depending on the distribution:
+The following products require a [Chef license key](license_key) to run, depending on the distribution that you install:
 
-- Chef InSpec 7
+- Chef InSpec 7 and later
+- Chef Infra Client 19 and later
 
 For these products, you need a license depending on how you install it:
 
-- The Chef Habitat package for InSpec 7 doesn't require a license key to run.
-- The `inspec` gem requires a license key to run.
+- The Chef Habitat package for these products doesn't require a license key to run.
+- The Ruby gem downloaded from [RubyGems.org](https://rubygems.org/) requires a license key to run.
 
 You can't manually enable or disable licensing. The licensing requirements are determined by the distribution.
 

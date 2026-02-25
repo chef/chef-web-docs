@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_security_sshprivatekey/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Do not include plain text SSH private keys in your cookbook code. This sensitive
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 file '/Users/bob_bobberson/.ssh/id_rsa' do
   content '-----BEGIN RSA PRIVATE KEY-----\n...\n-----END RSA PRIVATE KEY-----'
   mode '600'

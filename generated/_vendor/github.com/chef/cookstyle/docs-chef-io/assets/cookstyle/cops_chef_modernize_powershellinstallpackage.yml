@@ -11,13 +11,10 @@ autocorrection: false
 target_chef_version: 12.16+
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   powershell_script 'Expand website' do
     code 'Install-Package -Name docker'
   end
-  ```
 version_added: 5.5.0
 enabled: true
 excluded_file_paths:

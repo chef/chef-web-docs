@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_correctness_cookbookusesnodesave/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Don't use node.save to save partial node data to the Chef Infra Server mid-run u
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 node.save
 ```
 

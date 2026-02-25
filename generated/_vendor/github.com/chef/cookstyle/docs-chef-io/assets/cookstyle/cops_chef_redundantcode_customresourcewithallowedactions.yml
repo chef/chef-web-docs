@@ -9,14 +9,11 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   allowed_actions [:create, :remove]
 
   # also bad
   actions [:create, :remove]
-  ```
 version_added: 5.2.0
 enabled: true
 included_file_paths:

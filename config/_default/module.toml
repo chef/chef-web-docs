@@ -162,7 +162,7 @@ workspace = ''
 
 [[imports.mounts]]
   source = "content"
-  target = "content"
+  target = "content/release_notes/"
 
 ###
 ## Compliance Remediation
@@ -175,7 +175,7 @@ workspace = ''
 
 [[imports.mounts]]
   source = "content"
-  target = "content"
+  target = "content/release_notes/"
 
 ###
 # Local License Service

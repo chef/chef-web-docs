@@ -8,9 +8,7 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   case node['platform']
   when 'ubuntu'
     log "We're on Ubuntu"
@@ -21,18 +19,14 @@ examples: |2-
   when 'rhel'
     include_recipe 'yum'
   end
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   if platform?('ubuntu')
     log "We're on Ubuntu"
     apt_update
   end
 
   include_recipe 'yum' if platform_family?('rhel')
-  ```
 version_added: 5.16.0
 enabled: true
 excluded_file_paths:

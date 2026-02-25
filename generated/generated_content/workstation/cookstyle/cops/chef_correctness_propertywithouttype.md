@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_correctness_propertywithouttype/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,16 +19,12 @@ Resource properties or attributes should always define a type to help users unde
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 property :size, regex: /^\d+[KMGTP]$/
 attribute :size, regex: /^\d+[KMGTP]$/
-```
 
-### correct
-
-```ruby
+# good
 property :size, String, regex: /^\d+[KMGTP]$/
 attribute :size, kind_of: String, regex: /^\d+[KMGTP]$/
 ```

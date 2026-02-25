@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_effortless_cookbookusesenvironments/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Neither Policyfiles or Effortless Infra which is based on Policyfiles supports C
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 node.environment == "production"
 node.chef_environment == "production"
 ```

@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_correctness_invaliddefaultaction/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,15 +19,11 @@ Default actions in resources should be symbols or an array of symbols.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 default_action 'create'
-```
 
-### correct
-
-```ruby
+# good
 default_action :create
 ```
 

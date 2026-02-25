@@ -22,33 +22,28 @@ community.
 
 ## Meet
 
-- [Chef events](https://www.chef.io/events)
-- [Chef meetups](https://www.meetup.com/topics/opscode/)
-- [Continuous delivery meetups](https://www.meetup.com/topics/continuous-delivery/)
-- [DevOps meetups](https://www.meetup.com/topics/devops/)
+- [Chef events](https://www.progress.com/events?filter=language%5eenglish%7cproduct%5echef)
 
 ## Learn
 
+- [Chef resources](https://www.chef.io/resources?page=1)
 - [Chef training](https://www.chef.io/training)
-- [Self-guided learning](https://learn.chef.io/)
+- [Chef tutorials](https://www.chef.io/training/tutorials)
+- [Chef webinars](https://www.chef.io/webinars?page=1)
 
 ## Interact
 
 - [Community Guidelines](/community_guidelines/)
 - [@chef](https://twitter.com/chef)
-- [@opscode_status](https://twitter.com/opscode_status)
-- [Facebook](https://www.facebook.com/getchefdotcom)
 - [Chef Community Slack](https://community-slack.chef.io/)
-- Join the "Chef Software Users Group" on LinkedIn
 - [Chef Software Mailing List](https://discourse.chef.io/) (for discussion among users, developers, and other interested parties)
 - [Chef Software on Twitch](https://www.twitch.tv/chefsoftware)
 
 ## Subscribe
 
-- [Blog](https://blog.chef.io/)
+- [Blog](https://www.chef.io/blog)
 - [Videos](https://www.youtube.com/user/getchef)
-- [Mailing List](https://discourse.chef.io/)
-- [Medium](https://medium.com/@progresschef)
+- [Chef Discourse](https://discourse.chef.io/)
 
 ## Contribute
 

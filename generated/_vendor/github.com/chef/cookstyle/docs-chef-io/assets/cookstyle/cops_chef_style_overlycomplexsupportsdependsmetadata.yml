@@ -9,9 +9,7 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
 
   %w( debian ubuntu ).each do |os|
     supports os
@@ -20,18 +18,14 @@ examples: |2-
   %w( apt yum ).each do |cb|
     depends cb
   end
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
 
   supports 'debian'
   supports 'ubuntu'
 
   depends 'apt'
   depends 'yum'
-  ```
 version_added: 5.19.0
 enabled: true
 included_file_paths:

@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_deprecatedchefspecplatfor/"
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -14,10 +15,11 @@ The Cookstyle cops department: `Chef/Deprecations`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
-Use currently supported platforms in ChefSpec listed at https://github.com/chefspec/fauxhai/blob/main/PLATFORMS.md. Fauxhai / ChefSpec will perform fuzzy matching on platform version values so it's always best to be less specific ie. 10 instead of 10.3
+Use currently supported platforms in ChefSpec listed at https://github.com/chef/fauxhai/blob/main/PLATFORMS.md. Fauxhai / ChefSpec will perform fuzzy matching on platform version values so it's always best to be less specific ie. 10 instead of 10.3
 
 ## Examples
 
+```ruby
 let(:chef_run) { ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '14.04') }
 ```
 

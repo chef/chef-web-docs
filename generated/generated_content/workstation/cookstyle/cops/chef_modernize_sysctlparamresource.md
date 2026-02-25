@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_sysctlparamresource/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,17 +19,13 @@ The sysctl_param resource was renamed to sysctl when it was added to Chef Infra 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 sysctl_param 'fs.aio-max-nr' do
   value '1048576'
 end
-```
 
-### correct
-
-```ruby
+# good
 sysctl 'fs.aio-max-nr' do
   value '1048576'
 end

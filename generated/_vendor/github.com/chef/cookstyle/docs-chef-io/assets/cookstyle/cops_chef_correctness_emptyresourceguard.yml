@@ -1,0 +1,62 @@
+---
+short_name: EmptyResourceGuard
+full_name: Chef/Correctness/EmptyResourceGuard
+department: Chef/Correctness
+description: |-
+  Resource guards (not_if/only_if) should not be empty strings as empty strings will always evaluate to true.
+  This will cause confusion in your cookbooks as the guard will always pass.
+
+  Empty strings in Ruby are "truthy", which means:
+  - `only_if ''` will ALWAYS execute the resource (guard always passes)
+  - `not_if ''` will NEVER execute the resource (guard always blocks)
+
+  This behavior is usually unintended and can lead to resources running when they shouldn't
+  or never running when they should.
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  # bad
+  template '/etc/foo' do
+    mode '0644'
+    source 'foo.erb'
+    only_if ''  # This will always be true - resource always executes
+  end
+
+  cookbook_file '/logs/foo/error.log' do
+    source 'error.log'
+    not_if { '' }  # This will always be true - resource never executes
+  end
+
+  service 'apache2' do
+    action :restart
+    only_if { '' }  # Block form also problematic
+  end
+
+  # good
+  template '/etc/foo' do
+    mode '0644'
+    source 'foo.erb'
+    only_if 'test -f /etc/foo'  # Actual shell command
+  end
+
+  cookbook_file '/logs/foo/error.log' do
+    source 'error.log'
+    not_if { ::File.exist?('/logs/foo/error.log') }  # Proper Ruby expression
+  end
+
+  service 'apache2' do
+    action :restart
+    only_if { node['platform'] == 'ubuntu' }  # Meaningful condition
+  end
+
+  # Or simply remove the guard if no condition is needed
+  package 'curl' do
+    action :install
+  end
+version_added: 8.4.0
+enabled: true
+excluded_file_paths:
+- "**/attributes/*.rb"
+- "**/metadata.rb"
+- "**/Berksfile"

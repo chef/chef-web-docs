@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_declareactionclass/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,17 +19,13 @@ In Chef Infra Client 12.9 and later `action_class` can be used instead of `decla
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 declare_action_class do
   foo
 end
-```
 
-### correct
-
-```ruby
+# good
 action_class do
   foo
 end

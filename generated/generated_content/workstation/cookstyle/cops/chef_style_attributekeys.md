@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_style_attributekeys/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -20,16 +21,12 @@ There are two supported styles: "symbols" and "strings".
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 node['foo']
 node["foo"]
-```
 
-### correct
-
-```ruby
+# good
 node[:foo]
 ```
 

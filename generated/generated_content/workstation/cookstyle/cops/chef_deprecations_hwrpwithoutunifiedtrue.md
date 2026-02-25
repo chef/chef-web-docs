@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_hwrpwithoutunifiedtrue/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Chef Infra Client 15.3 and later include a new Unified Mode that simplifies the 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+### incorrect
  class Chef
    class Resource
      class UlimitRule < Chef::Resource
@@ -33,11 +33,8 @@ Chef Infra Client 15.3 and later include a new Unified Mode that simplifies the 
      end
    end
  end
-```
 
 ### correct
-
-```ruby
  class Chef
    class Resource
      class UlimitRule < Chef::Resource

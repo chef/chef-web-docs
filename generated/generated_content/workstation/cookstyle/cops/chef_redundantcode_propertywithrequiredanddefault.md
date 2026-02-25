@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_redundantcode_propertywithrequiredanddef
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -21,15 +22,11 @@ Infra Client 13+ this became an error.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 property :bob, String, required: true, default: 'foo'
-```
 
-### correct
-
-```ruby
+# good
 property :bob, String, required: true
 ```
 

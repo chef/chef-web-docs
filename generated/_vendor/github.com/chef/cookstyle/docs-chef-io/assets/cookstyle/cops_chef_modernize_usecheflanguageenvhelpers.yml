@@ -10,19 +10,13 @@ autocorrection: true
 target_chef_version: 15.5+
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   ENV['CI']
   ENV['TEST_KITCHEN']
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   ci?
   kitchen?
-  ```
 version_added: 7.21.0
 enabled: true
 included_file_paths:

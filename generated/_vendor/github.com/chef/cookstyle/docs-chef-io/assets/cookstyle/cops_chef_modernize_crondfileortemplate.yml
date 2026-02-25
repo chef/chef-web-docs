@@ -8,9 +8,7 @@ autocorrection: false
 target_chef_version: 14.4+
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   template '/etc/cron.d/backup' do
     source 'cron_backup_job.erb'
     owner 'root'
@@ -57,11 +55,8 @@ examples: |2-
     path ::File.join('/etc/cron.d', job)
     action :delete
   end
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   cron_d 'backup' do
     minute '1'
     hour '1'
@@ -72,7 +67,6 @@ examples: |2-
   cron_d 'blogs' do
     action :delete
   end
-  ```
 version_added: 6.13.0
 enabled: true
 excluded_file_paths:

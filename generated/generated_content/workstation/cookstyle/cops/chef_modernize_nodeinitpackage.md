@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_nodeinitpackage/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Use node['init_package'] to check for systemd instead of reading the contents of
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 ::File.open('/proc/1/comm').gets.chomp == 'systemd'
 ::File.open('/proc/1/comm').chomp == 'systemd'
 File.open('/proc/1/comm').gets.chomp == 'systemd'
@@ -31,11 +31,8 @@ IO.read('/proc/1/comm').gets.chomp == 'systemd'
 ::IO.read('/proc/1/comm').gets.chomp == 'systemd'
 File.exist?('/proc/1/comm') && File.open('/proc/1/comm').chomp == 'systemd'
 only_if 'test -f /bin/systemctl && /bin/systemctl'
-```
 
-### correct
-
-```ruby
+# good
 node['init_package'] == 'systemd'
 only_if { node['init_package'] == 'systemd' }
 ```

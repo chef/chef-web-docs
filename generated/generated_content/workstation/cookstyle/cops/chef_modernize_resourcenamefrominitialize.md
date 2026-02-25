@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_resourcenamefrominitialize/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -21,9 +22,8 @@ The resource name can now be specified using the `resource_name` helper instead 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 def initialize(*args)
   super
   @resource_name = :foo

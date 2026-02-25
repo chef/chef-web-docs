@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_osxconfigprofileresource/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,17 +19,13 @@ The osx_config_profile resource was renamed to osx_profile. The new resource nam
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 osx_config_profile 'Install screensaver profile' do
   profile 'screensaver/com.company.screensaver.mobileconfig'
 end
-```
 
-### correct
-
-```ruby
+# good
 osx_profile 'Install screensaver profile' do
   profile 'screensaver/com.company.screensaver.mobileconfig'
 end

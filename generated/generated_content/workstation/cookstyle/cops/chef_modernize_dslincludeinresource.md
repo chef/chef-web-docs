@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_dslincludeinresource/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Chef Infra Client 12.4+ includes the Chef::DSL::Recipe in the resource and provi
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 include Chef::DSL::Recipe
 include Chef::DSL::IncludeRecipe
 ```

@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_chocolateypackageuninstalla
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,17 +19,13 @@ Use the `:remove` action in the `chocolatey_package` resource instead of `:unins
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 chocolatey_package 'nginx' do
   action :uninstall
 end
-```
 
-### correct
-
-```ruby
+# good
 chocolatey_package 'nginx' do
   action :remove
 end

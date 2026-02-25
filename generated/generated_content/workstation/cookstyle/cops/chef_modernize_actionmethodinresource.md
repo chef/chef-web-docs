@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_actionmethodinresource/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,17 +19,13 @@ Use the custom resource language's `action :my_action` blocks instead of creatin
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 def action_create
  # :create action code here
 end
-```
 
-### correct
-
-```ruby
+# good
 action :create do
  # :create action code here
 end

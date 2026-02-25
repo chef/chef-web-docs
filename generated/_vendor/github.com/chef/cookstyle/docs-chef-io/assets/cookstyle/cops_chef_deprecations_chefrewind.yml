@@ -18,7 +18,6 @@ examples: |2-
   end
 
   unwind "user[postgres]"
-  ```
 version_added: 5.14.0
 enabled: true
 excluded_file_paths:

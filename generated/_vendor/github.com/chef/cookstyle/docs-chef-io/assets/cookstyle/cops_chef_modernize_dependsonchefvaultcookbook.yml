@@ -8,11 +8,8 @@ autocorrection: true
 target_chef_version: 16.0+
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   depends 'chef-vault'
-  ```
 version_added: 7.20.0
 enabled: true
 included_file_paths:

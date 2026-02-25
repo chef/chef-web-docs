@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_conditionalusingtest/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,15 +19,11 @@ Use ::File.exist?('/foo/bar') instead of the slower 'test -f /foo/bar' which req
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 only_if 'test -f /bin/foo'
-```
 
-### correct
-
-```ruby
+# good
 only_if { ::File.exist?('bin/foo') }
 ```
 

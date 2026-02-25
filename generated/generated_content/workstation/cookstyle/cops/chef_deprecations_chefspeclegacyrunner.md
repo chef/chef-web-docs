@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_chefspeclegacyrunner/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,20 +19,16 @@ Use `ChefSpec::SoloRunner` or `ChefSpec::ServerRunner` instead of the deprecated
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 
 describe 'foo::default' do
   subject { ChefSpec::Runner.new.converge(described_recipe) }
 
   # some spec code
 end
-```
 
-### correct
-
-```ruby
+# good
 
 describe 'foo::default' do
   subject { ChefSpec::ServerRunner.new.converge(described_recipe) }

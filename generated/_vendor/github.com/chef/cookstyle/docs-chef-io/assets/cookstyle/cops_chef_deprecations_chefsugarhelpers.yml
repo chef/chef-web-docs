@@ -9,9 +9,7 @@ autocorrection: false
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   vagrant_key?
   vagrant_domain?
   vagrant_user?
@@ -28,7 +26,6 @@ examples: |2-
   opensolaris_platform?
   nexentacore?
   opensolaris?
-  ```
 version_added: 7.3.0
 enabled: true
 excluded_file_paths:

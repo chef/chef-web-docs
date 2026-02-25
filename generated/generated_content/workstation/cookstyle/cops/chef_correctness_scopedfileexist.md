@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_correctness_scopedfileexist/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,15 +19,11 @@ Scope file exist to access the correct `File` class by using `::File.exist?` not
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 not_if { File.exist?('/etc/foo/bar') }
-```
 
-### correct
-
-```ruby
+# good
 not_if { ::File.exist?('/etc/foo/bar') }
 ```
 

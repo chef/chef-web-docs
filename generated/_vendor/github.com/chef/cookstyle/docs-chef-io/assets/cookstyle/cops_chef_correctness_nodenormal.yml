@@ -10,20 +10,14 @@ autocorrection: false
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   node.normal['foo'] = true
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   node.default['foo'] = true
   node.override['foo'] = true
   node.force_default['foo'] = true
   node.force_override['foo'] = true
-  ```
 version_added: 5.1.0
 enabled: true
 excluded_file_paths:

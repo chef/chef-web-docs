@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_useinlineresourcesdefine/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -19,9 +20,8 @@ to be called in resources
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 use_inline_resources
 use_inline_resources if defined?(use_inline_resources)
 use_inline_resources if respond_to?(:use_inline_resources)

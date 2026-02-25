@@ -9,17 +9,11 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   resource_name :foo if respond_to?(:resource_name)
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   resource_name :foo
-  ```
 version_added: 5.2.0
 enabled: true
 included_file_paths:

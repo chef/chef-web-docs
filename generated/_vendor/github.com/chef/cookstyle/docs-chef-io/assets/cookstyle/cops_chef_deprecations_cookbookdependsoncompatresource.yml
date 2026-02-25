@@ -8,11 +8,8 @@ autocorrection: true
 target_chef_version: 12.19+
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   depends 'compat_resource'
-  ```
 version_added: 5.1.0
 enabled: true
 included_file_paths:

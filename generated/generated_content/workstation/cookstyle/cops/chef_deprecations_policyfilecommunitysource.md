@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_policyfilecommunitysource/"
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,15 +19,11 @@ The Policyfile source of `:community` has been replaced with `:supermarket`
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 default_source :community
-```
 
-### correct
-
-```ruby
+# good
 default_source :supermarket
 ```
 

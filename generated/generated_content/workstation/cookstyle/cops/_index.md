@@ -21,6 +21,7 @@ These cops detect incorrect cookbook code.
 - [ConditionalRubyShellout](/workstation/cookstyle/cops/chef_correctness_conditionalrubyshellout)
 - [CookbookUsesNodeSave](/workstation/cookstyle/cops/chef_correctness_cookbookusesnodesave)
 - [DnfPackageAllowDowngrades](/workstation/cookstyle/cops/chef_correctness_dnfpackageallowdowngrades)
+- [EmptyResourceGuard](/workstation/cookstyle/cops/chef_correctness_emptyresourceguard)
 - [IncorrectLibraryInjection](/workstation/cookstyle/cops/chef_correctness_incorrectlibraryinjection)
 - [InvalidCookbookName](/workstation/cookstyle/cops/chef_correctness_invalidcookbookname)
 - [InvalidDefaultAction](/workstation/cookstyle/cops/chef_correctness_invaliddefaultaction)
@@ -263,6 +264,16 @@ These cops detect redundant cookbook code.
 - [UnnecessaryDesiredState](/workstation/cookstyle/cops/chef_redundantcode_unnecessarydesiredstate)
 - [UnnecessaryNameProperty](/workstation/cookstyle/cops/chef_redundantcode_unnecessarynameproperty)
 - [UseCreateIfMissing](/workstation/cookstyle/cops/chef_redundantcode_usecreateifmissing)
+
+## Chef/Ruby
+
+<nil>
+
+- [GemspecLicense](/workstation/cookstyle/cops/chef_ruby_gemspeclicense)
+- [GemspecRequireRubygems](/workstation/cookstyle/cops/chef_ruby_gemspecrequirerubygems)
+- [LegacyPowershellOutMethods](/workstation/cookstyle/cops/chef_ruby_legacypowershelloutmethods)
+- [RequireNetHttps](/workstation/cookstyle/cops/chef_ruby_requirenethttps)
+- [UnlessDefinedRequire](/workstation/cookstyle/cops/chef_ruby_unlessdefinedrequire)
 
 ## Chef/Security
 

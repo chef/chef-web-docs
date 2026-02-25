@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_useschefresthelpers/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ The `Chef::REST` class was removed in Chef Infra Client 13.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 require 'chef/rest'
 Chef::REST::RESTRequest.new(:GET, FOO, nil).call
 ```

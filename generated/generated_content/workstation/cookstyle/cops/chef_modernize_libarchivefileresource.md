@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_libarchivefileresource/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,19 +19,15 @@ Use the archive_file resource built into Chef Infra Client 15+ instead of the li
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'libarchive'
 
 libarchive_file "C:\file.zip" do
   path 'C:\expand_here'
 end
-```
 
-### correct
-
-```ruby
+# good
 archive_file "C:\file.zip" do
   path 'C:\expand_here'
 end

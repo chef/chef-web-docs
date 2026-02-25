@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_correctness_metadatamalformeddepends/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,16 +19,12 @@ metadata.rb cookbook dependencies and version constraints should be comma separa
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'some_awesome_cookbook' '= 4.5.5'
 depends 'some_other_cool_cookbook' '< 8.0'
-```
 
-### correct
-
-```ruby
+# good
 depends 'some_awesome_cookbook', '= 4.5.5'
 depends 'some_other_cool_cookbook', '< 8.0'
 ```

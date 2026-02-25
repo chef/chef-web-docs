@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_usecheflanguagecloudhelpers/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Chef Infra Client 15.5 and later include cloud helpers to make detecting instanc
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 node['cloud']['provider'] == 'alibaba'
 node['cloud']['provider'] == 'ec2'
 node['cloud']['provider'] == 'gce'
@@ -31,11 +31,8 @@ node['cloud']['provider'] == 'openstack'
 node['cloud']['provider'] == 'azure'
 node['cloud']['provider'] == 'digital_ocean'
 node['cloud']['provider'] == 'softlayer'
-```
 
-### correct
-
-```ruby
+# good
 alibaba?
 ec2?
 gce?

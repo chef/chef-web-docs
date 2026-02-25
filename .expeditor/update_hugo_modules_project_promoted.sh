@@ -42,28 +42,8 @@ rm go.sum
 hugo mod clean
 
 ###
-# Manage Habitat generated pages
+# Manage Habitat version numbers for release notes
 ###
-
-# Habitat has two generated files (habitat_cli.md and service_templates.md) that
-# are made during the release pipeline.
-# Those two pages are generated and then pushed up to
-# https://packages.chef.io/files/stable/habitat/latest/generated-documentation.tar.gz
-
-# To add these files to chef-web-docs and doc.chef.io, this script uses curl to pull down the
-# generated-documentation.tar.gz file, and then overwrite the blank pages pulled
-# in by Hugo from github.com/habitat-sh/habitat
-
-# See:
-# - https://github.com/habitat-sh/habitat/pull/7993
-# - https://github.com/chef/chef-web-docs/blob/main/content/habitat/habitat_cli.md
-# - https://github.com/chef/chef-web-docs/blob/main/content/habitat/service_templates.md
-
-if [[ "${EXPEDITOR_PROJECT}" == *"habitat"* ]]; then
-  curl --silent --output generated-documentation.tar.gz https://packages.chef.io/files/${EXPEDITOR_TARGET_CHANNEL}/habitat/latest/generated-documentation.tar.gz
-  tar xvzf generated-documentation.tar.gz --strip-components 1 -C content/habitat
-  rm generated-documentation.tar.gz
-fi
 
 # We use product version numbers for release notes.
 # There's no list of Habitat versions on packages.chef.io, so we store one in assets/release-notes/habitat/release-versions.json
@@ -73,9 +53,6 @@ if [[ "${EXPEDITOR_PROJECT}" == *"habitat"* ]]; then
   version_data="$(jq --arg version "$version" '. += [$version]' assets/release-notes/habitat/release-versions.json)" && \
   echo -E "${version_data}" > assets/release-notes/habitat/release-versions.json
 fi
-
-version="1.7.0" && \
-
 
 # submit pull request to chef/chef-web-docs
 

@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_effortless_berksfile/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -17,7 +18,6 @@ The Cookstyle cops department: `Chef/Effortless`
 Policyfiles should be used for cookbook dependency solving instead of a Berkshelf Berksfile.
 
 ## Examples
-<nil>
 
 ## Configurable attributes
 

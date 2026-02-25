@@ -8,9 +8,7 @@ autocorrection: true
 target_chef_version: 15.5+
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   node['cloud']['provider'] == 'alibaba'
   node['cloud']['provider'] == 'ec2'
   node['cloud']['provider'] == 'gce'
@@ -21,11 +19,8 @@ examples: |2-
   node['cloud']['provider'] == 'azure'
   node['cloud']['provider'] == 'digital_ocean'
   node['cloud']['provider'] == 'softlayer'
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   alibaba?
   ec2?
   gce?
@@ -36,7 +31,6 @@ examples: |2-
   azure?
   digital_ocean?
   softlayer?
-  ```
 version_added: 7.22.0
 enabled: true
 included_file_paths:

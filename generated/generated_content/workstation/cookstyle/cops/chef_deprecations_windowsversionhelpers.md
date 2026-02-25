@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_windowsversionhelpers/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,18 +19,14 @@ Use node['platform_version'] and node['kernel'] data instead of the deprecated W
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 Windows::VersionHelper.nt_version
 Windows::VersionHelper.server_version?
 Windows::VersionHelper.core_version?
 Windows::VersionHelper.workstation_version?
-```
 
-### correct
-
-```ruby
+# good
 node['platform_version'].to_f
 node['kernel']['product_type'] == 'Server'
 node['kernel']['server_core']

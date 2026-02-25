@@ -7,6 +7,7 @@ gh_repo = "chef-web-docs"
 
 Chef 360 Platform versions:
 
+- [Chef 360 Platform 1.6](/360/1.6/)
 - [Chef 360 Platform 1.5](/360/1.5/)
 - [Chef 360 Platform 1.4](/360/1.4/)
 - [Chef 360 Platform 1.3](/360/1.3/)

@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_resourceusesproviderbasemet
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ The Resource.provider_base allows the developer to specify within a resource a m
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 provider_base ::Chef::Provider::SomethingSomething
 ```
 

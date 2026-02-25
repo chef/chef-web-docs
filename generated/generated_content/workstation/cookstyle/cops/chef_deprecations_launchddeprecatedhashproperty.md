@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_launchddeprecatedhashproper
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,17 +19,13 @@ The launchd resource's hash property was renamed to plist_hash in Chef Infra Cli
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 launchd 'foo' do
   hash foo: 'bar'
 end
-```
 
-### correct
-
-```ruby
+# good
 launchd 'foo' do
   plist_hash foo: 'bar'
 end

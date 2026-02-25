@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_correctness_resourcewithnoneaction/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,17 +19,13 @@ The :nothing action is often typo'd as :none
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 service 'foo' do
  action :none
 end
-```
 
-### correct
-
-```ruby
+# good
 service 'foo' do
  action :nothing
 end

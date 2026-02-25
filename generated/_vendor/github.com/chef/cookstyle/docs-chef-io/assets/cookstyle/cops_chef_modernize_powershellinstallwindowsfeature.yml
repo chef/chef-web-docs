@@ -14,13 +14,10 @@ autocorrection: false
 target_chef_version: 14.0+
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   powershell_script 'Install Feature' do
     code 'Install-WindowsFeature -Name "Net-framework-Core"'
   end
-  ```
 version_added: 5.5.0
 enabled: true
 excluded_file_paths:

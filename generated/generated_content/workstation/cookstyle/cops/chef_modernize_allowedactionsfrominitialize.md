@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_allowedactionsfrominitialize/"
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ The allowed actions can now be specified using the `allowed_actions` helper inst
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 def initialize(*args)
   super
   @actions = [ :create, :add ]
@@ -31,11 +31,8 @@ def initialize(*args)
   super
   @allowed_actions = [ :create, :add ]
 end
-```
 
-### correct
-
-```ruby
+# good
 allowed_actions [ :create, :add ]
 ```
 

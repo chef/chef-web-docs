@@ -8,21 +8,15 @@ autocorrection: true
 target_chef_version: 12.9+
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   declare_action_class do
     foo
   end
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   action_class do
     foo
   end
-  ```
 version_added: 7.26.0
 enabled: true
 included_file_paths:

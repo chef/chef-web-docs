@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_redundantcode_customresourcewithalloweda
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ It is not necessary to set `actions` or `allowed_actions` in custom resources as
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 allowed_actions [:create, :remove]
 
 # also bad

@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_legacyyumcookbookrecipes/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -20,9 +21,8 @@ should be used instead as it doesn't require forking the ohai cookbook.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 include_recipe 'yum::elrepo'
 include_recipe 'yum::epel'
 include_recipe 'yum::ius'

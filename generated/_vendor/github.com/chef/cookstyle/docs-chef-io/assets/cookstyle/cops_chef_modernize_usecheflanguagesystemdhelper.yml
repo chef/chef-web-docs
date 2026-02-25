@@ -8,17 +8,11 @@ autocorrection: true
 target_chef_version: 15.5+
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   node['init_package'] == 'systemd'
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   systemd?
-  ```
 version_added: 7.24.0
 enabled: true
 excluded_file_paths:

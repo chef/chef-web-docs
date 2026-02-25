@@ -8,21 +8,15 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   osx_config_profile 'Install screensaver profile' do
     profile 'screensaver/com.company.screensaver.mobileconfig'
   end
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   osx_profile 'Install screensaver profile' do
     profile 'screensaver/com.company.screensaver.mobileconfig'
   end
-  ```
 version_added: 5.6.0
 enabled: true
 excluded_file_paths:

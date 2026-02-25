@@ -10,24 +10,18 @@ autocorrection: true
 target_chef_version: 16.3+
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   macos_userdefaults 'set a value' do
     global true
     key 'key'
     value 'value'
   end
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   macos_userdefaults 'set a value' do
     key 'key'
     value 'value'
   end
-  ```
 version_added: 6.14.0
 enabled: true
 excluded_file_paths:

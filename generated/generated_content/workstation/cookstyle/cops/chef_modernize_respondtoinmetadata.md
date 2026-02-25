@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_respondtoinmetadata/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,20 +19,16 @@ It is not longer necessary respond_to?(:foo) or defined?(foo) in metadata. This 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 chef_version '>= 13' if respond_to?(:chef_version)
 chef_version '>= 13' if defined?(chef_version)
 chef_version '>= 13' unless defined?(Ridley::Chef::Cookbook::Metadata)
 if defined(chef_version)
   chef_version '>= 13'
 end
-```
 
-### correct
-
-```ruby
+# good
 chef_version '>= 13'
 ```
 

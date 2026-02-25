@@ -10,16 +10,13 @@ autocorrection: false
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   include_recipe 'yum::elrepo'
   include_recipe 'yum::epel'
   include_recipe 'yum::ius'
   include_recipe 'yum::remi'
   include_recipe 'yum::repoforge'
   include_recipe 'yum::yum'
-  ```
 version_added: 5.4.0
 enabled: true
 excluded_file_paths:

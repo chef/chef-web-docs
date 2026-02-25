@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_dependsonchefreportingcookb
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Don't depend on the chef-reporting cookbook made obsolete by Chef Infra Client 1
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'chef-reporting'
 ```
 

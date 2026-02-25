@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_unnecessarydependschef15/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Don't depend on cookbooks made obsolete by Chef Infra Client 15.0+. These commun
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'libarchive'
 depends 'windows_dns'
 depends 'windows_uac'

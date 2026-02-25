@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_whyrunsupportedtrue/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ whyrun_supported? no longer needs to be set to true as that is the default in Ch
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 def whyrun_supported?
  true
 end

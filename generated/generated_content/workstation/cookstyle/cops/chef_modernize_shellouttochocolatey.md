@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_shellouttochocolatey/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -23,9 +24,8 @@ Use the Chocolatey resources built into Chef Infra Client instead of shelling ou
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 execute 'install package foo' do
   command "choco install --source=artifactory \"foo\" -y --no-progress --ignore-package-exit-codes"
 end

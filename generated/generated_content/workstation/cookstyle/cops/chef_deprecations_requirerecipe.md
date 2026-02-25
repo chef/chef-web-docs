@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_deprecations_requirerecipe/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,15 +19,11 @@ Make sure to use include_recipe instead of require_recipe
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 require_recipe 'foo'
-```
 
-### correct
-
-```ruby
+# good
 include_recipe 'foo'
 ```
 

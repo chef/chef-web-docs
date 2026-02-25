@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_defineschefspecmatchers/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ ChefSpec 7.1 and later auto generate ChefSpec matchers. Matchers in cookbooks ca
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 if defined?(ChefSpec)
   def create_yum_repository(resource_name)
     ChefSpec::Matchers::ResourceMatcher.new(:yum_repository, :create, resource_name)

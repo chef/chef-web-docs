@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_correctness_resourcesetsnameproperty/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,17 +19,13 @@ Use name properties instead of setting the name property in a resource. Setting 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 service 'foo' do
  name 'bar'
 end
-```
 
-### correct
-
-```ruby
+# good
 service 'foo' do
  service_name 'bar'
 end

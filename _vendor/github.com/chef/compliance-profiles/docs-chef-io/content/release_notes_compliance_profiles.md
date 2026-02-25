@@ -9,6 +9,12 @@ draft = false
     parent = "release_notes/compliance"
     weight = 10
 +++
+## 20251115
+
+### New features
+- CIS Red Hat Enterprise Linux 10 v1.0.0 (Audits)
+- CIS Alma Linux 9 v2.0.0 (Audits)
+- CIS Postgres 17 v1.0.0 (Audits)
 
 ## 20251015
 

@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_correctness_invalidplatformmetadata/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,16 +19,12 @@ metadata.rb `supports` methods should contain valid platforms. See [Infra Langua
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 supports 'darwin'
 supports 'mswin'
-```
 
-### correct
-
-```ruby
+# good
 supports 'mac_os_x'
 supports 'windows'
 ```

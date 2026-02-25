@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_style_defaultcopyrightcomments/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,16 +19,12 @@ Checks for default copyright comments from the chef generator cookbook command
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 Copyright:: 2019 YOUR_NAME
 Copyright:: 2019 YOUR_COMPANY_NAME
-```
 
-### correct
-
-```ruby
+# good
 Copyright:: 2019 Tim Smith
 Copyright:: 2019 Chef Software, Inc.
 ```

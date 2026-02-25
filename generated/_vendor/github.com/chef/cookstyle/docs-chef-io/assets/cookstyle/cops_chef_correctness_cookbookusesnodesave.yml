@@ -10,11 +10,8 @@ autocorrection: false
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   node.save
-  ```
 version_added: 5.5.0
 enabled: true
 excluded_file_paths:

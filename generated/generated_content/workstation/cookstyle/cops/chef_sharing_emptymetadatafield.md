@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_sharing_emptymetadatafiel/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,15 +19,11 @@ metadata.rb should not include fields with an empty string. Either don't include
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 license ''
-```
 
-### correct
-
-```ruby
+# good
 license 'Apache-2.0'
 ```
 

@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_correctness_malformedplatformvalueforpla
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,17 +19,13 @@ When using the value_for_platform helper you must include a hash of possible pla
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 value_for_platform(
   %w(redhat oracle) => 'baz'
 )
-```
 
-### correct
-
-```ruby
+# good
 value_for_platform(
   %w(redhat oracle) => {
     '5' => 'foo',

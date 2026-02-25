@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_sharing_includeresourceexamples/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -17,11 +18,9 @@ The Cookstyle cops department: `Chef/Sharing`
 Resources should include examples field to allow automated documentation. Requires Chef Infra Client 13.9 or later.
 
 ## Examples
-```
-
-### correct
 
 ```ruby
+# good
 examples <<~DOC
   **Specify a global domain value**
 

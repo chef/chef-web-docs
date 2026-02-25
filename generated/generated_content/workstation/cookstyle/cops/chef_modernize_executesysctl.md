@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_executesysctl/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Chef Infra Client 14.0 and later includes a sysctl resource that should be used 
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 file '/etc/sysctl.d/ipv4.conf' do
   notifies :run, 'execute[sysctl -p /etc/sysctl.d/ipv4.conf]', :immediately
   content '9000 65500'
@@ -29,11 +29,8 @@ end
 execute 'sysctl -p /etc/sysctl.d/ipv4.conf' do
   action :nothing
 end
-```
 
-### correct
-
-```ruby
+# good
 sysctl 'net.ipv4.ip_local_port_range' do
   value '9000 65500'
 end

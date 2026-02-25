@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_minitesthandlerusage/"]
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Use Chef InSpec for testing instead of the Minitest Handler cookbook pattern.
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'minitest-handler'
 ```
 

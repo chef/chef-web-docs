@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_modernize_dependsontimezonelwrpcookbook/
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,9 +19,8 @@ Don't depend on the timezone_lwrp cookbook made obsolete by Chef Infra Client 14
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 depends 'timezone_lwrp'
 ```
 

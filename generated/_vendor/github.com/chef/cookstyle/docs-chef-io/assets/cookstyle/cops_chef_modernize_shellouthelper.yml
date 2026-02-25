@@ -8,17 +8,11 @@ autocorrection: true
 target_chef_version: 12.11+
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   Mixlib::ShellOut.new('foo').run_command
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   shell_out('foo')
-  ```
 version_added: 6.5.0
 enabled: true
 excluded_file_paths:

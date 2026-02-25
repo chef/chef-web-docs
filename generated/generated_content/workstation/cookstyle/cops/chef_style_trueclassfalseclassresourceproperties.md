@@ -4,6 +4,7 @@ aliases = ["/workstation/cookstyle/chef_style_trueclassfalseclassresourcepropert
 
 +++
 
+<!-- vale off -->
 <!-- This content is automatically generated. See https://github.com/chef/chef-web-docs/blob/main/generated/README.md -->
 
 [Cookstyle cops page](/workstation/cookstyle/cops/)
@@ -18,15 +19,11 @@ When setting the allowed types for a resource to accept either true or false val
 
 ## Examples
 
-### incorrect
-
 ```ruby
+# bad
 property :foo, [TrueClass, FalseClass]
-```
 
-### correct
-
-```ruby
+# good
 property :foo, [true, false]
 ```
 

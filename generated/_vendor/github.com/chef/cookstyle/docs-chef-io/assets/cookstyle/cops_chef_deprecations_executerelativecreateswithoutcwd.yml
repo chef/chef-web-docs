@@ -9,17 +9,12 @@ autocorrection: false
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   execute 'some_cmd' do
     creates 'something'
   end
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   execute 'some_cmd' do
     creates '/tmp/something'
   end
@@ -28,7 +23,6 @@ examples: |2-
     creates 'something'
     cwd '/tmp/'
   end
-  ```
 version_added: 6.17.0
 enabled: true
 excluded_file_paths:
