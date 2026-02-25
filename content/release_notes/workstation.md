@@ -19,11 +19,11 @@ summary = "Chef Workstation release notes"
 
 ## Chef Workstation 25.13.1
 
-Release Date: February 25, 2026.
+Release Date: March 2, 2026.
 
 ### Dependencies
 
-- Updated kitchen-dokken from v2.20.8 to v2.22.2 to address CI pipeline failures resulting from Docker 29.x incompatibility with the previously bundled plugin version.
+Updated kitchen-dokken from v2.20.8 to v2.22.2 to address CI pipeline failures resulting from Docker 29.x incompatibility with the previously bundled plugin version.
 
 ### Security
 
