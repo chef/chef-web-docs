@@ -17,7 +17,7 @@ summary = "Chef Infra Client release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
-## Chef Infra Client 18.10.13
+## Chef Infra Client 18.10.17
 
 Release date: February 25, 2026
 
@@ -29,6 +29,7 @@ Release date: February 25, 2026
 
 ### Packaging
 - Updated Kitchen.yml for a consistent build experience [#15654](https://github.com/chef/chef/pull/15654)
+<<<<<<< HEAD
 - Updated linting to cookstyle and corrected a large number of files [#15644](https://github.com/chef/chef/pull/15644)
 - Removed vulnerable versions of net-imap and rexml to address CVEs [#15633](https://github.com/chef/chef/pull/15633)
 - Updated InSpec-core and InSpec-core-bin to 5.24.5 [#15636](https://github.com/chef/chef/pull/15636)
@@ -36,6 +37,16 @@ Release date: February 25, 2026
 - Downgraded Docker to overcome build failures with the newer version [#15639](https://github.com/chef/chef/pull/15639)
 - Updated train-core to 3.16.0 [#15572](https://github.com/chef/chef/pull/15572)
 - Fixed rubygem version parsing [#15662](https://github.com/chef/chef/pull/15662)
+=======
+- Updating linting to cookstyle, corrected a large number of files [#15644](https://github.com/chef/chef/pull/15644)
+- Ensure we remove vulnerable net-imap and rexml versions [#15633](https://github.com/chef/chef/pull/15633)
+- Updating Inspec-core and Inspec-core-bin to 5.24.5 [#15636](https://github.com/chef/chef/pull/15636)
+- Update Omnibus to get latest license_scout [#15641](https://github.com/chef/chef/pull/15641)
+- Downgrade Docker to overcome build failures with newer version [#15639](https://github.com/chef/chef/pull/15639)
+- Bump train-core to 3.16.0 [#15572](https://github.com/chef/chef/pull/15572)
+- Fix rubygem version parsing [#15662](https://github.com/chef/chef/pull/15662)
+- Update Train-Winrm for downstream dependency and chef-workstation [#15667](https://github.com/chef/chef/pull/15667)
+>>>>>>> 5633fa645 (Doc updates for 18.10.17)
 
 ### Security
 - Updated uri to 1.0.4 [#15645](https://github.com/chef/chef/pull/15645)
