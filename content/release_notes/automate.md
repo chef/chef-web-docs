@@ -33,26 +33,32 @@ See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/
 
 Released on February 26th, 2026
 
-## New features
+### New features
+
 Added a new Command Line Interface (CLI) command `chef-automate package-cleanup` to remove obsolete Chef Automate packages that are no longer needed after upgrading to a newer version.
 
-## Improvements
+### Improvements
+
 - Automate now supports TLSv1.3.
 - Modified Automate InSpec CLI parameters to reduce the time to check the InSpec profile during upload.
 
-## Bug Fixes
+### Bug fixes
+
 - Fixed the issue that was clearing the project list on selecting an Unassigned Project.
 - Addressed a false config verify failure with external Postgres and OpenSearch in Automate HA.
 - Fixed an issue where the Chef Automate upgrade would fail when it included a Habitat core package version upgrade.
 
-## Security
+### Security
 
-### Security updates
+#### Security updates
 
 - Updated Node.js to v22.17.1 to fix the following CVEs:
+
   - CVE-2025-27209
   - CVE-2025-27210
+
 - Updated Golang to v1.25.7 to fix the following CVEs:
+
   - CVE-2025-47907
   - CVE-2025-22871
   - CVE-2025-4674
@@ -78,37 +84,40 @@ Added a new Command Line Interface (CLI) command `chef-automate package-cleanup`
   - CVE-2025-61728
   - CVE-2025-61730
 
-## Chef packaged product versions
+### Chef packaged product versions
 
 This release uses:
+
 - Chef Habitat version: 1.6.1243/20241227194506
 - Chef Habitat Builder version: 10717/20250805204117
 - Chef Infra Server version: 15.10.91
 - Chef InSpec version: 5.22.95/20250930075641
 
-## Service versions
+### Service versions
 
 This release uses:
+
 - Postgres: 13.22.tuxcare.1.0.1
 - OpenSearch: 1.3.20.tuxcare.1.0.2
 - Nginx: 1.28.0
 - HAProxy: 2.8.15
 
-## Supported external Chef products
+### Supported external Chef products
 
 This release supports the following external Chef products:
+
 - Chef Infra Server version: 15.0.9+
 - Chef InSpec version: 4.3.2+
 - Chef Infra Client: 18.0.155+
 - Chef Habitat: 0.81+
 
-## Supported framework versions
+### Supported framework versions
+
 This release is built on the following framework versions:
 
 - GoLang: 1.25.7
 - OpenJDK: 17.0.16+8
 - Angular: 19.2.15
-
 
 ## Chef Automate 4.13.361
 
