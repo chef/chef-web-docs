@@ -15,7 +15,7 @@ require (
 	github.com/chef/samples v0.0.0-20250424163637-3393187e624c // indirect
 	github.com/chef/supermarket/docs-chef-io v0.0.0-20251111140113-2790dadeef26 // indirect
 	github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90 // indirect
-	github.com/habitat-sh/on-prem-builder/docs-chef-io v0.0.0-20260226203253-5dd7354f0a4e // indirect
+	github.com/habitat-sh/on-prem-builder/docs-chef-io v0.0.0-20260226205032-3c55e89d5039 // indirect
 	github.com/swiftype/swiftype-autocomplete-jquery v0.0.0-20190222215504-a90008d64b30 // indirect
 	github.com/swiftype/swiftype-search-jquery v1.1.0 // indirect
 	github.com/twitter/hogan.js v3.0.2+incompatible // indirect

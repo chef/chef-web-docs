@@ -33,7 +33,6 @@ See the following user guides for managing Chef Habitat origins:
 
 - [Create an origin](create_an_origin)
 - [Origin keys](origin_keys)
-- [Origin settings](origin_settings)
 - [Origin role-based access control](rbac)
 
 ## More information
