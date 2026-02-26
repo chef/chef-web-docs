@@ -21,18 +21,18 @@ Before you can use distributions of Chef products, you must [accept the Chef End
 
 ## Chef license key
 
-For agent or client software downloaded directly from our Download Portal or via Hab distribution, licence is only enforced at the point of downloading software and not during runtime of the agent or client software. For software that downloads packages at runtime, license requirements depend on the source.
+For agent or client software downloaded directly from the Chef Download Portal or through a Habitat distribution, the licence is only enforced at the point of downloading software and not during runtime of the agent or client software. For software that downloads packages at runtime, license requirements depend on the source.
 
-[Chef license key](license_key) is required to run:
+A [Chef license key](license_key) is required to for:
 
--	To download the binaries from Progress Chef Download Portal or via Hab distribution: license key will be required.
--	Workflows which download packages at runtime (for example, knife bootstrap or kitchen converge): licence key will be required to proceed if you are downloading the binaries from Chef APIs.
--	Software obtained from any other sources not mentioned above, such as public Ruby gems or channels outside of our official Hab distribution and Download Portal: a valid licence will now be required to ensure accurate functioning.
+-	**Downloading the binaries from the Progress Chef Download Portal or through Habitat distribution:** A license key is required.
+-	**Workflows that download packages at runtime (for example, knife bootstrap or kitchen converge):** A licence key is required to proceed if you are downloading the binaries from Chef APIs.
+-	**Software obtained from any other sources not mentioned above, such as public Ruby gems or channels outside of our official Habitat distribution and Download Portal:** A valid licence is required to ensure accurate functioning.
 
-Chef license key is not required to run:
+A Chef license key is not required to:
 
-- Knife bootstrap or kitchen converge workflows when using your own source to download binaries.
-- License key is not required to execute any non-download commands using software obtained from an official source.
+- Run Knife bootstrap or kitchen converge workflows when using your own source to download binaries.
+- Execute any non-download commands using software obtained from an official source.
 
 You can't manually enable or disable licensing. The licensing requirements are determined by the distribution.
 
