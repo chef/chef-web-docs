@@ -10,5 +10,5 @@ title = "Chef Habitat"
 
 ## Chef Habitat Builder
 
-- [Chef Habitat On-Prem Builder](/builder/on_prem/)
-- [Chef Habitat SaaS Builder](/builder/saas/)
+- [Chef Habitat On-Prem Builder](/habitat/builder/on_prem/)
+- [Chef Habitat SaaS Builder](/habitat/builder/saas/)
