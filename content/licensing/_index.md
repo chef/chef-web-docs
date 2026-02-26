@@ -25,9 +25,9 @@ For agent or client software downloaded directly from the Chef Download Portal o
 
 A [Chef license key](license_key) is required to:
 
--	Download binaries from the Progress Chef Download Portal or through Chef Habitat distribution channels.
--	Run workflows that download packages from Chef APIs at runtime (for example, `knife bootstrap` or `kitchen converge`).
--	Download Chef software from any other sources not mentioned above, such as public Ruby gems or channels outside of our official Habitat distribution and download portal.
+- Download binaries from the Progress Chef Download Portal or through Chef Habitat distribution channels.
+- Run workflows that download packages from Chef APIs at runtime (for example, `knife bootstrap` or `kitchen converge`).
+- Download Chef software from any other sources not mentioned above, such as public Ruby gems or channels outside of our official Habitat distribution and download portal.
 
 A Chef license key isn't required to:
 
