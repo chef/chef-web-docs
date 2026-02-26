@@ -23,15 +23,15 @@ Before you can use distributions of Chef products, you must [accept the Chef End
 
 For agent or client software downloaded directly from the Chef Download Portal or through a Habitat distribution, the license is only enforced at the point of downloading software and not during runtime of the agent or client software. For software that downloads packages at runtime, license requirements depend on the source.
 
-A [Chef license key](license_key) is required for:
+A [Chef license key](license_key) is required to:
 
--	**Downloading the binaries from the Progress Chef Download Portal or through Habitat distribution:** A license key is required.
--	**Workflows that download packages at runtime (for example, knife bootstrap or kitchen converge):** A license key is required to proceed if you are downloading the binaries from Chef APIs.
--	**Software obtained from any other sources not mentioned above, such as public Ruby gems or channels outside of our official Habitat distribution and Download Portal:** A valid license is required.
+-	Download binaries from the Progress Chef Download Portal or through Chef Habitat distribution channels.
+-	Run workflows that download packages from Chef APIs at runtime (for example, `knife bootstrap` or `kitchen converge`).
+-	Download Chef software from any other sources not mentioned above, such as public Ruby gems or channels outside of our official Habitat distribution and download portal.
 
-A Chef license key is not required to:
+A Chef license key isn't required to:
 
-- Run Knife bootstrap or kitchen converge workflows when using your own source to download binaries.
+- Run `knife bootstrap` or `kitchen converge` workflows when using your own source to download binaries.
 - Execute any non-download commands using software obtained from an official source.
 
 You can't manually enable or disable licensing. The licensing requirements are determined by the distribution.
@@ -50,14 +50,14 @@ Licensing is available for non-profit, research, and academic organizations thro
 
 ## Chef license agreements
 
-All Chef products are governed by the [Chef End User License Agreement (Chef EULA)](#chef-eula) or the [Chef Master license and Services Agreement (Chef MLSA)](#chef-mlsa). The source code of open-source Chef projects is governed by the [Apache 2.0 license](#apache-20).
+All Chef products are governed by the [Chef End User License Agreement (Chef EULA)](#chef-eula) or the [Chef Master License and Services Agreement (Chef MLSA)](#chef-mlsa). The source code of open-source Chef projects is governed by the [Apache 2.0 license](#apache-20).
 
 Third-party software included in our distributions may have individual licenses which are listed in the `/opt/<PRODUCT-NAME>/LICENSE` file. You can find individual copies of all referenced licenses in the `/opt/<PRODUCT-NAME>/LICENSES` directory.
 
 ### Chef EULA
 
 The [Chef End User License Agreement (Chef EULA)](https://www.chef.io/end-user-license-agreement) or your commercial agreement with Progress Software Corporation
-governs the commercial distributions of Progress Chef products---such as Chef Infra Client, Chef Habitat, or Chef InSpec. You must accept these terms when using the distributions for the first time. For additional information on how to accept the license, see [Accepting the Chef license](accept) documentation.
+governs the commercial distributions of Progress Chef products---such as Chef Infra Client, Chef Habitat, or Chef InSpec. You must accept these terms when using the distributions for the first time. For additional information on how to accept the license, see [Accepting the Chef License](accept).
 
 ### Chef MLSA
 
