@@ -4,10 +4,16 @@ description = "Chef Habitat Builder is Chef's Application Delivery Enterprise hu
 linkTitle = "Habitat On-Prem Builder"
 summary = "Host and manage packages within your organization's infrastructure"
 
+
+[cascade]
+  [cascade.params]
+    gh_repo = "on-prem-builder"
+    product = ["habitat"]
+
 [menu]
   [menu.habitat]
     title = "About On-Prem Builder"
-    identifier = "habitat/builder/on-prem/about"
+    identifier = "habitat/builder/on-prem/overview"
     parent = "habitat/builder/on-prem"
     weight = 10
 +++
@@ -20,7 +26,7 @@ You can direct Chef Habitat clients (such as the `hab` cli, Supervisors, and Stu
 
 ## Audience
 
-This documentation is for anyone who wants to host Chef Habitat packages in their own infrastructure.
+This documentation is for anyone who wishes to host Chef Habitat packages in their own infrastructure.
 
 ## Features
 
@@ -50,5 +56,5 @@ The following Chef Habitat SaaS Builder features aren't available with On-Prem B
 
 ## More information
 
-- [Chef Habitat CLI](/habitat/latest/reference/habitat_cli/)
+- [Chef Habitat CLI](/habitat/habitat_cli/)
 - [Chef Automate and Chef Habitat Builder](/automate/on_prem_builder/)

@@ -27,34 +27,36 @@ In [Chef Habitat SaaS Builder](https://bldr.habitat.sh), you must have a Progres
 
 ## Enable native package support
 
-Some new LTS-supported packages include `native` packages.
-To host LTS packages, you must configure your Habitat Builder deployment to allow native package support.
+Some new low level `core` origin packages include `native` packages.
+To host these packages, you must configure your Habitat Builder deployment to allow native package support.
 Enable the `nativepackages` feature and specify `core` as an allowed native package origin.
 Edit your On-Prem Builder's `/hab/user/builder-api/config/user.toml` file so the `[api]` section looks like this:
 
 ```toml
 [api]
 features_enabled = "nativepackages"
-targets = ["x86_64-linux", "x86_64-linux-kernel2", "x86_64-windows"]
+targets = ["x86_64-linux", "aarch64-linux", "x86_64-windows"]
 allowed_native_package_origins = ["core"]
 ```
 
 ## Bootstrap Builder in an online environment
+
+Bootstrapping is the initial process of populating your empty On-Prem Builder with essential packages from the public Habitat Builder. This is typically done once when you first set up your Builder instance.
 
 Chef Habitat On-Prem Builder doesn't include any pre-installed package sets.
 You need to upload packages to populate Habitat Builder deployment.
 To help bootstrap your On-Prem Builder with core packages, you can install the `habitat/pkg-sync` package.
 This package downloads packages from the public [SaaS Builder](https://bldr.habitat.sh) and then uploads them in bulk to your Habitat Builder deployment.
 
-To bootstrap Habitat On-Prem Builder with a full set of stable core packages, run:
+To bootstrap Habitat On-Prem Builder with a full set of base core packages, run:
 
 ```bash
-sudo hab pkg install habitat/pkg-sync --channel LTS-2024
+sudo hab pkg install habitat/pkg-sync
 
 hab pkg exec habitat/pkg-sync pkg-sync \
   --bldr-url <PRIVATE_BUILDER_URL> \
   --origin core \
-  --channel stable \
+  --channel base \
   --private-builder-token <PRIVATE_BUILDER_TOKEN> \
   --public-builder-token <PUBLIC_BUILDER_TOKEN>
 ```
@@ -71,20 +73,20 @@ To bootstrap an airgapped On-Prem Builder with stable core packages, follow thes
 1. Download the `habitat/pkg-sync` package on a machine with internet access:
 
    ```bash
-   sudo hab pkg install habitat/pkg-sync --channel LTS-2024
+   sudo hab pkg install habitat/pkg-sync
    ```
 
 1. Generate a list of packages to download:
 
    ```shell
-   hab pkg exec habitat/pkg-sync pkg-sync --generate-airgap-list --origin core --channel stable
+   hab pkg exec habitat/pkg-sync pkg-sync --generate-airgap-list --origin core --channel base
    ```
 
 1. Download packages into the `builder_bootstrap` directory on your computer:
 
    ```shell
-   hab pkg download --target x86_64-linux --channel stable --file package_list_x86_64-linux.txt --download-directory builder_bootstrap
-   hab pkg download --target x86_64-windows --channel stable --file package_list_x86_64-windows.txt --download-directory builder_bootstrap
+   hab pkg download --target x86_64-linux --channel base --file package_list_x86_64-linux.txt --download-directory builder_bootstrap
+   hab pkg download --target x86_64-windows --channel base --file package_list_x86_64-windows.txt --download-directory builder_bootstrap
    ```
 
 1. Archive the `builder_bootstrap` directory, then copy and extract the archive on a computer running in the airgapped environment.
@@ -93,5 +95,5 @@ To bootstrap an airgapped On-Prem Builder with stable core packages, follow thes
 
    ```bash
    export HAB_AUTH_TOKEN=<ON_PREM_BUILDER_INSTANCE_TOKEN>
-   hab pkg bulkupload --url https://<ON_PREM_BUILDER_DOMAIN> --channel stable --auto-create-origins builder_bootstrap/
+   hab pkg bulkupload --url https://<ON_PREM_BUILDER_DOMAIN> --channel base --auto-create-origins builder_bootstrap/
    ```

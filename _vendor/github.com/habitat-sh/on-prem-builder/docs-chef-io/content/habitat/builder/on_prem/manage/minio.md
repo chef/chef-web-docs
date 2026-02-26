@@ -17,7 +17,7 @@ Chef Habitat On-Prem Builder uses MinIO to store Habitat artifact (`.hart`) file
 Habitat Builder's data is lightweight, so backup and disaster recovery strategies are straightforward.
 Builder has two types of data you should back up in case of a disaster:
 
-- [Habitat package and user metadata stored with PostgreSQL](../postgres#postgresql-data-backups).
+- [Habitat package and user metadata stored with PostgreSQL](./postgres#back-up-the-postgresql-database).
 - Habitat artifacts (`.hart`) files stored by MinIO.
 
 Chef Habitat On-Prem Builder supports only MinIO artifact repositories.

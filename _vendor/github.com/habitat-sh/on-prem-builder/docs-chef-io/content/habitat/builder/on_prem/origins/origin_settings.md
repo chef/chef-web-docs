@@ -13,14 +13,14 @@ The **Settings** tab for an origin lets you view and manage default package sett
 
 Every origin member can view the origin's settings, but only origin administrators and owners can add, update, or delete settings.
 
-| Settings actions | Read-only | Member | Maintainer | Administrator | Owner |
-|------------------|-----------|--------|------------|---------------|-------|
-| View settings    | Y         | Y      | Y          | Y             | Y     |
-| Add/update/delete settings | N | N | N | Y | Y |
-| View secrets     | N         | N      | Y          | Y             | Y     |
-| Add/update/delete secrets | N | N | N | Y | Y |
+| Settings actions           | Read-only | Member | Maintainer | Administrator | Owner |
+| -------------------------- | --------- | ------ | ---------- | ------------- | ----- |
+| View settings              | Y         | Y      | Y          | Y             | Y     |
+| Add/update/delete settings | N         | N      | N          | Y             | Y     |
+| View secrets               | N         | N      | Y          | Y             | Y     |
+| Add/update/delete secrets  | N         | N      | N          | Y             | Y     |
 
-![The administrator or owner's view of the origin settings tab with a public default package setting and a saved origin secret](/habitat/builder/on_prem/origin-secrets.png)
+![The administrator or owner's view of the origin settings tab with a public default package setting and a saved origin secret](/images/habitat/on_prem_builder/origin-secrets.png)
 
 ## Default package settings
 

@@ -1,0 +1,2 @@
+[params.on-prem-builder]
+gh_path = "https://github.com/habitat-sh/on-prem-builder/tree/main/docs-chef-io/content/"

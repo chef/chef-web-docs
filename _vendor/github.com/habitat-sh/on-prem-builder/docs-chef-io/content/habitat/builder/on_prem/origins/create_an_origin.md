@@ -37,7 +37,7 @@ To create an origin in your Chef Habitat Builder deployment, follow these steps:
    - Creates an [origin key pair](../origin_keys).
    - Redirects you to the origin page.
 
-   ![Origin successfully created](/habitat/builder/on_prem/create-origin-done.png)
+   ![Origin successfully created](/images/habitat/on_prem_builder/create-origin-done.png)
 
 ## Create an origin with the Chef Habitat CLI
 
