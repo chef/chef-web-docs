@@ -1,5 +1,5 @@
 +++
-title = "About Chef Licenses"
+title = "About Chef licenses"
 draft = false
 gh_repo = "chef-web-docs"
 aliases = ["/chef_license/", "/license/"]
@@ -17,17 +17,17 @@ aliases = ["/chef_license/", "/license/"]
 
 This document gives an overview of Chef product licenses and license tiers.
 
-Before you can use distributions of Chef products, you must [accept the Chef End User License Agreement (Chef EULA)](accept) and you may be required to add a [Chef license key](#chef-license-key).
+Before you can use distributions of Chef products, you must [accept the Chef End User license Agreement (Chef EULA)](accept) and you may be required to add a [Chef license key](#chef-license-key).
 
 ## Chef license key
 
-For agent or client software downloaded directly from the Chef Download Portal or through a Habitat distribution, the licence is only enforced at the point of downloading software and not during runtime of the agent or client software. For software that downloads packages at runtime, license requirements depend on the source.
+For agent or client software downloaded directly from the Chef Download Portal or through a Habitat distribution, the license is only enforced at the point of downloading software and not during runtime of the agent or client software. For software that downloads packages at runtime, license requirements depend on the source.
 
-A [Chef license key](license_key) is required to for:
+A [Chef license key](license_key) is required for:
 
 -	**Downloading the binaries from the Progress Chef Download Portal or through Habitat distribution:** A license key is required.
--	**Workflows that download packages at runtime (for example, knife bootstrap or kitchen converge):** A licence key is required to proceed if you are downloading the binaries from Chef APIs.
--	**Software obtained from any other sources not mentioned above, such as public Ruby gems or channels outside of our official Habitat distribution and Download Portal:** A valid licence is required to ensure accurate functioning.
+-	**Workflows that download packages at runtime (for example, knife bootstrap or kitchen converge):** A license key is required to proceed if you are downloading the binaries from Chef APIs.
+-	**Software obtained from any other sources not mentioned above, such as public Ruby gems or channels outside of our official Habitat distribution and Download Portal:** A valid license is required.
 
 A Chef license key is not required to:
 
@@ -40,7 +40,7 @@ You can't manually enable or disable licensing. The licensing requirements are d
 
 Progress Chef offers three license tiers that have different entitlements: Free, Trial, and Commercial.
 
-| License | Duration | Environment | Support | Uses |
+| license | Duration | Environment | Support | Uses |
 |---|---|---|---|---|
 | Free | Unlimited | Non-production workloads | Community support in Slack | Personal and non-commercial use |
 | Trial | 30 days | Non-production workloads | Community support in Slack and solution architect support | Product evaluation in a non-production environment |
@@ -50,29 +50,29 @@ Licensing is available for non-profit, research, and academic organizations thro
 
 ## Chef license agreements
 
-All Chef products are governed by the [Chef End User License Agreement (Chef EULA)](#chef-eula) or the [Chef Master License and Services Agreement (Chef MLSA)](#chef-mlsa). The source code of open-source Chef projects is governed by the [Apache 2.0 license](#apache-20).
+All Chef products are governed by the [Chef End User license Agreement (Chef EULA)](#chef-eula) or the [Chef Master license and Services Agreement (Chef MLSA)](#chef-mlsa). The source code of open-source Chef projects is governed by the [Apache 2.0 license](#apache-20).
 
-Third-party software included in our distributions may have individual licenses which are listed in the `/opt/<PRODUCT-NAME>/LICENSE` file. You can find individual copies of all referenced licenses in the `/opt/<PRODUCT-NAME>/LICENSES` directory.
+Third-party software included in our distributions may have individual licenses which are listed in the `/opt/<PRODUCT-NAME>/license` file. You can find individual copies of all referenced licenses in the `/opt/<PRODUCT-NAME>/licenseS` directory.
 
 ### Chef EULA
 
-The [Chef End User License Agreement (Chef EULA)](https://www.chef.io/end-user-license-agreement) or your commercial agreement with Progress Software Corporation
-governs the commercial distributions of Progress Chef products---such as Chef Infra Client, Chef Habitat, or Chef InSpec. You must accept these terms when using the distributions for the first time. For additional information on how to accept the license, see [Accepting the Chef License](accept) documentation.
+The [Chef End User license Agreement (Chef EULA)](https://www.chef.io/end-user-license-agreement) or your commercial agreement with Progress Software Corporation
+governs the commercial distributions of Progress Chef products---such as Chef Infra Client, Chef Habitat, or Chef InSpec. You must accept these terms when using the distributions for the first time. For additional information on how to accept the license, see [Accepting the Chef license](accept) documentation.
 
 ### Chef MLSA
 
-The [Chef Master License and Services Agreement (Chef MLSA)](https://www.chef.io/online-master-agreement) governs distributions of older proprietary Chef products--such as Chef Automate 1.x and the Chef Management Console. You must accept this license as part of any install or upgrade process.
+The [Chef Master license and Services Agreement (Chef MLSA)](https://www.chef.io/online-master-agreement) governs distributions of older proprietary Chef products--such as Chef Automate 1.x and the Chef Management Console. You must accept this license as part of any install or upgrade process.
 
 ### Apache 2.0
 
-The [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt) governs the reuse of source code of open-source Progress Chef projects---including Chef Infra Client ("chef"), Chef InSpec, and Chef Habitat---unless specified otherwise in the project's repository.
+The [Apache license, Version 2.0](https://www.apache.org/licenses/license-2.0.txt) governs the reuse of source code of open-source Progress Chef projects---including Chef Infra Client ("chef"), Chef InSpec, and Chef Habitat---unless specified otherwise in the project's repository.
 Source code is released publicly through repositories in these organizations:
 
 - [Progress Chef](https://github.com/chef)
 - [Progress Chef InSpec](https://github.com/inspec)
 - [Progress Chef Habitat](https://github.com/habitat-sh)
 
-Progress Chef identifies third-party software included in our distributions in the `/opt/<PRODUCT-NAME>/LICENSE` file of our distribution. Full copies of all third-party referenced licenses are in the `/opt/<PRODUCT-NAME>/LICENSES` directory.
+Progress Chef identifies third-party software included in our distributions in the `/opt/<PRODUCT-NAME>/license` file of our distribution. Full copies of all third-party referenced licenses are in the `/opt/<PRODUCT-NAME>/licenseS` directory.
 
 Intermediate products---such as binaries, modules, containers, and executables (including scripts or interpreted language files such as Ruby)---that Progress Chef releases on sites other than GitHub are governed by the [Chef EULA](#chef-eula). These products require a license and aren't considered open source.
 
