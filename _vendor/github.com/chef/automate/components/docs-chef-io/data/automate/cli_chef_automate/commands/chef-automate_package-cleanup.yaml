@@ -1,0 +1,183 @@
+name: chef-automate package-cleanup
+synopsis: Cleanup unused Habitat packages from Chef Automate installation 
+description: |-
+  Remove unused Habitat packages from the system to free up disk space. This command identifies and
+  deletes packages that are not actively running or required as dependencies. It protects essential
+  packages and the currently running services by maintaining a whitelist of critical packages.
+
+  The package cleanup process:
+  1. Identifies all currently running Habitat services using 'hab svc status'
+  2. Builds a comprehensive whitelist including:
+     - Currently running service packages
+     - All transitive dependencies of running services
+     - Essential Habitat core packages (hab, hab-launcher, hab-sup, etc.)
+  3. Lists all installed packages using 'hab pkg list --all'
+  4. Identifies packages not in the whitelist that can be safely removed
+  5. Performs cleanup in multiple passes to handle dependency chains
+  6. Reports deletion statistics and estimates space reclaimed
+
+  The cleanup runs in an iterative multi-pass approach, rebuilding the whitelist after each pass
+  to ensure newly freed packages with dependencies are properly identified and cleaned up.
+
+  **Dry-Run Mode**: Use --dry-run flag to preview what would be deleted and estimate space savings
+  without making any changes. This is recommended before running actual cleanup.
+
+  **Warning**: Always review the dry-run output before performing actual deletion.
+usage: chef-automate package-cleanup [flags]
+options:
+    - name: dry-run
+      default_value: "false"
+      usage: |
+        Show which packages would be deleted without actually deleting them.
+        Performs analysis and displays:
+        - Number of packages that would be deleted
+        - Estimated disk space that would be reclaimed (~50 MB per package)
+        - Detailed breakdown with --verbose flag (total installed, running services, whitelist size)
+        Use this flag to preview the cleanup operation before making any changes.
+    - name: verbose
+      shorthand: v
+      default_value: "false"
+      usage: |
+        Enable verbose output showing detailed progress information including:
+        - Step-by-step execution (fetching services, building whitelist, scanning packages)
+        - List of running services and their package identifiers
+        - All whitelisted/protected packages
+        - Per-package deletion progress during cleanup
+        - Pass-by-pass statistics in multi-pass cleanup mode
+    - name: help
+      shorthand: h
+      default_value: "false"
+      usage: help for package-cleanup
+inherited_options:
+    - name: debug
+      shorthand: d
+      default_value: "false"
+      usage: Enable debug output
+    - name: no-check-version
+      default_value: "false"
+      usage: Disable version check
+    - name: result-json
+      usage: Write command result as JSON to PATH
+examples: |-
+  # Preview packages that would be deleted (recommended first step)
+  chef-automate package-cleanup --dry-run
+
+  # Perform actual cleanup to delete unused packages
+  chef-automate package-cleanup
+
+  # Run with verbose output for detailed progress
+  chef-automate package-cleanup --verbose
+
+  ## CASE 1: Dry-Run (when system has unused packages)
+  $ chef-automate package-cleanup --dry-run
+  
+  🔍 Chef Automate Package Cleanup
+    Analyzing installed Habitat packages...
+
+
+    ✓ Found 45 running service(s)
+
+    ✓ Total installed packages: 2847
+
+
+    ✓ Whitelist contains 1247 protected package(s)
+
+    ✓ Found 1600 unused package(s) to delete
+
+  DRY-RUN MODE
+
+    Would delete 1600 package(s)
+    Estimated space to be saved: ~80000 MB
+
+  
+  ✓ Dry-run completed - run without --dry-run to delete packages
+  
+
+  ## CASE 2: Actual Cleanup (successfully deleted packages)
+  $ chef-automate package-cleanup
+  
+  🔍 Chef Automate Package Cleanup
+    Analyzing installed Habitat packages...
+
+
+    ✓ Found 45 running service(s)
+
+    ✓ Total installed packages: 2847
+
+
+    ✓ Whitelist contains 1247 protected package(s)
+
+    ✓ Found 1600 unused package(s) to delete
+
+
+  📦 Starting cleanup...
+
+
+
+  
+  ✓ Cleanup completed successfully!
+    Removed 1600 package(s)
+    Estimated space saved: ~80000 MB
+
+  
+
+  ## CASE 3: Running cleanup when system is already clean
+  $ chef-automate package-cleanup
+  
+  🔍 Chef Automate Package Cleanup
+    Analyzing installed Habitat packages...
+
+
+    ✓ Found 33 running service(s)
+
+    ✓ Total installed packages: 148
+
+
+    ✓ Whitelist contains 148 protected package(s)
+
+    ✓ Found 0 unused package(s) to delete
+
+
+  📦 Starting cleanup...
+
+
+
+  
+  ✓ Cleanup completed successfully!
+    Removed 0 package(s)
+
+  
+see_also:
+    - chef-automate - Chef Automate CLI
+    - service-versions - Retrieve the versions of the individual Chef Automate services
+    - status - Retrieve Chef Automate status
+supported_on: Bastion
+notes: |-
+
+  **Important Considerations:**
+
+  - This command requires root privileges to execute
+  - Always run with `--dry-run` first to review what will be deleted
+  - The command automatically protects:
+    - All currently running Habitat services
+    - Dependencies of running services  
+    - Essential Habitat packages (hab, hab-sup, hab-launcher, etc.)
+    - The chef-automate CLI itself
+  - Packages are removed using `hab pkg uninstall` which respects dependency relationships
+  - The operation may take several minutes depending on the number of packages
+  - Disk space is freed immediately after package deletion
+
+  **Best Practices:**
+  
+  1. Regularly run package-cleanup to manage disk space
+  2. Always review dry-run output carefully before actual cleanup
+  3. Use `--verbose` flag to see detailed progress during cleanup
+  4. Run cleanup during maintenance windows when possible
+  5. Monitor disk space before and after cleanup
+
+  **Troubleshooting:**
+
+  - If cleanup fails for specific packages, they may be in use by other services
+  - Check `hab svc status` to verify running services
+  - Use `--verbose` flag to see detailed execution information
+  - Some packages may fail to delete if they have active file locks
