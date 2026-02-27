@@ -353,6 +353,18 @@ We overhauled the `inspec check` and `inspec export` commands to use the parser 
 
 - We no longer support Ruby 2.7 since it became end-of-life (EOL) in March 2023.
 
+## Chef InSpec 5.24.7
+
+Release date: March 2, 2026
+
+### Improvements
+
+- Add trust_server_certificate option to mssql_session. ([#7791](https://github.com/inspec/inspec/pull/7791))
+
+### Bug fixes
+
+- Fixed the AST parser for inspec check ([#7641](https://github.com/inspec/inspec/pull/7641))
+
 ## Chef InSpec 5.24.5
 
 Release date: January 28, 2026
