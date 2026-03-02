@@ -357,11 +357,11 @@ We overhauled the `inspec check` and `inspec export` commands to use the parser 
 
 Release date: March 2, 2026
 
-### Improvement
+### Improvements
 
 Added a `trust_server_certificate` option to `mssql_session`. ([#7791](https://github.com/inspec/inspec/pull/7791))
 
-### Bug fix
+### Bug fixes
 
 Fixed the AST parser for InSpec check. ([#7641](https://github.com/inspec/inspec/pull/7641))
 
