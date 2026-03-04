@@ -19,6 +19,8 @@ summary = "Chef Habitat release notes"
 
 ## Chef Habitat 2.0.450
 
+Release date: March 4, 2026
+
 ### New features
 
 - We added support for Linux ARM architecture (aarch64).
