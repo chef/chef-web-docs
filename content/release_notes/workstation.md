@@ -21,7 +21,7 @@ summary = "Chef Workstation release notes"
 
 Release Date: March 5, 2026.
 
-### Component Updates
+### Component updates
 
 - Updated Chef Infra Client to v18.10.17.
 - Updated InSpec to v5.24.7
@@ -62,7 +62,7 @@ Updated kitchen-dokken from v2.20.8 to v2.22.2 to address CI pipeline failures r
 
 Release Date: December 15, 2025.
 
-### Component Updates
+### Component updates
 
 #### Test Kitchen
 
