@@ -17,6 +17,54 @@ summary = "Chef InSpec release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
+## Chef InSpec 7.0.107
+
+Release date: February 23rd, 2026
+
+### Improvements
+
+- Added support for detecting Chainguard Linux distros (Wolfi and Chainguard OS). (train [#812](https://github.com/inspec/train/pull/812))
+- Added support for TCPS connections to an Oracle database while using oracledb_session resource (([#7684](https://github.com/inspec/inspec/pull/7684))
+
+  This adds the following additional parameters for TCPS connection
+
+  - `tns_alias`: TNS alias from Oracle's `tnsnames.ora` configuration file (recommended for TCPS and SSL connections)
+  - `env`: A hash of environment variables (for example, `TNS_ADMIN`, `LD_LIBRARY_PATH`, `ORACLE_HOME`)
+
+  For example:
+
+  ```ruby
+  sql = oracledb_session(
+  user: 'my_user',
+  password: 'password',
+  tns_alias: 'MYDB_TCPS',
+  env: {
+    'TNS_ADMIN' => '/path/to/tnsnames',
+    'LD_LIBRARY_PATH' => '/opt/oracle/instantclient'
+   }
+  )
+
+  describe sql.query('SELECT * FROM dual').row(0).column('dummy') do
+    its('value') { should eq 'X' }
+  end
+  ```
+
+### Bug fixes
+
+- Fixed an issue affecting Windows versions where the WMIC utility is deprecated or removed (Windows 10 version 2004 and later, and Windows 11), which prevented InSpec from detecting the system architecture. Train now falls back to CMD commands (`systeminfo` and environment variables) when WMIC isn't available. (train [#813](https://github.com/inspec/train/pull/813))
+
+### Security fixes
+
+- Updated `aws-sdk-s3` to `~> 1.208.0` (train-aws [#588](https://github.com/inspec/train-aws/pull/588))
+- Updated `aws-partitions` to `~> 1.992.0` (train-aws [#588](https://github.com/inspec/train-aws/pull/588))
+- Updated `aws-sdk-core` to `~> 3.234.0` (train-aws [#588](https://github.com/inspec/train-aws/pull/588))
+- We improved InSpec security on Windows by preventing someone from escalating privileges with an insecure named pipe by enforcing strict ownership validation with Train before connection. (train [#818](https://github.com/inspec/train/pull/818))
+
+### Dependency updates
+
+- Updated `ffi` from `~> 1.16.0` to `>= 1.16.0`, `< 1.18` (train [#814](https://github.com/inspec/train/pull/814))
+- Updated `ostruct` from `~> 0.1.0` to `~> 0.6.0` (train [#819](https://github.com/inspec/train/pull/819))
+
 ## Chef InSpec 7.0.95
 
 Release date: October 16th, 2025
@@ -304,6 +352,18 @@ We overhauled the `inspec check` and `inspec export` commands to use the parser 
 ### Breaking changes
 
 - We no longer support Ruby 2.7 since it became end-of-life (EOL) in March 2023.
+
+## Chef InSpec 5.24.7
+
+Release date: March 2, 2026
+
+### Improvements
+
+Added a `trust_server_certificate` option to `mssql_session`. ([#7791](https://github.com/inspec/inspec/pull/7791))
+
+### Bug fixes
+
+Fixed the AST parser for InSpec check. ([#7641](https://github.com/inspec/inspec/pull/7641))
 
 ## Chef InSpec 5.24.5
 

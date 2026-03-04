@@ -21,19 +21,18 @@ Before you can use distributions of Chef products, you must [accept the Chef End
 
 ## Chef license key
 
-The following products require a [Chef license key](license_key) to run:
+For agent or client software downloaded directly from the Chef Download Portal or through a Habitat distribution, the license is only enforced at the point of downloading software and not during runtime of the agent or client software. For software that downloads packages at runtime, license requirements depend on the source.
 
-- Chef InSpec 6
+A [Chef license key](license_key) is required to:
 
-The following products require a [Chef license key](license_key) to run, depending on the distribution that you install:
+- Download binaries from the Progress Chef Download Portal or through Chef Habitat distribution channels.
+- Run workflows that download packages from Chef APIs at runtime (for example, `knife bootstrap` or `kitchen converge`).
+- Download Chef software from any other sources not mentioned above, such as public Ruby gems or channels outside of our official Habitat distribution and download portal.
 
-- Chef InSpec 7 and later
-- Chef Infra Client 19 and later
+A Chef license key isn't required to:
 
-For these products, you need a license depending on how you install it:
-
-- The Chef Habitat package for these products doesn't require a license key to run.
-- The Ruby gem downloaded from [RubyGems.org](https://rubygems.org/) requires a license key to run.
+- Run `knife bootstrap` or `kitchen converge` workflows when using your own source to download binaries.
+- Execute any non-download commands using software obtained from an official source.
 
 You can't manually enable or disable licensing. The licensing requirements are determined by the distribution.
 
@@ -58,7 +57,7 @@ Third-party software included in our distributions may have individual licenses 
 ### Chef EULA
 
 The [Chef End User License Agreement (Chef EULA)](https://www.chef.io/end-user-license-agreement) or your commercial agreement with Progress Software Corporation
-governs the commercial distributions of Progress Chef products---such as Chef Infra Client, Chef Habitat, or Chef InSpec. You must accept these terms when using the distributions for the first time. For additional information on how to accept the license, see [Accepting the Chef License](accept) documentation.
+governs the commercial distributions of Progress Chef products---such as Chef Infra Client, Chef Habitat, or Chef InSpec. You must accept these terms when using the distributions for the first time. For additional information on how to accept the license, see [Accepting the Chef License](accept).
 
 ### Chef MLSA
 
