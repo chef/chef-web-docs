@@ -20,7 +20,7 @@ A: While we do cut releases in GitHub as part of our release process those archi
 
 **Q: Compile for my platform? Does that mean there aren't any OS native packages of `hab`?**
 
-A: We publish compiled packages for OSX, Linux, and Windows. `hab` has a requirement of either a Linux kernel >= 2.6.32, OSX >= 10.9, or 64-bit Windows 10 Pro, Enterprise, or Education editions (1511 November update, build 10586 or later) with Hyper-V enabled.
+A: We publish compiled packages for OSX, Linux, and Windows. `hab` has a requirement of either a Linux kernel >= 2.6.32, OSX >= 10.9, or 64-bit Windows 8.
 
 **Q: What if I need an old version of `hab`?**
 
@@ -39,4 +39,4 @@ If you're staunchly in the anti-curl-bash camp, you can get the latest packages 
 
 **Q: How do I install `hab` across my server fleet?**
 
-A: For the most part, we leave that up to you. You could just use the aforementioned curl-bash with your provisioner of choice. If your app was dockerized with Chef Habitat then you won't even need to ask this question, because you'll have everything you need inside your container. We are working on first class Mesosphere DC/OS, and Cloud Foundry integrations - which you can keep up to date on in our [Apache Mesos and DC/OS documentation]({{< relref "mesos_dcos" >}}) and [blog](https://www.chef.io/blog).
+A: For the most part, we leave that up to you. You could use the aforementioned curl-bash with your provisioner of choice. If your app was dockerized with Chef Habitat, then you won't even need to ask this question because you'll have everything you need inside your container. 
