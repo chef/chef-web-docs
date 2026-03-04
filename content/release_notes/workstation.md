@@ -17,9 +17,24 @@ summary = "Chef Workstation release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
-## Chef Workstation 25.13.1
+## Chef Workstation 25.13.7
 
-Release Date: March 2, 2026.
+Release Date: March 5, 2026.
+
+### Component Updates
+
+- Updated Chef Infra Client to v18.10.17.
+- Updated InSpec to v5.24.7
+- Updated Knife to v18.10.18
+- Updated ohai to v18.2.8
+- Updated knife-google to v5.0.15
+- Updated knife-windows to v5.0.7
+
+Updated the following Test Kitchen drivers:
+ - Updated kitchen-azurerm to v1.13.6.
+ - Updated kitchen-ec2 to v3.22.1.
+ - Updated kitchen-hyperv to v0.10.3.
+ - Updated kitchen-inspec to v3.1.0.
 
 ### Dependencies
 
@@ -27,19 +42,19 @@ Updated kitchen-dokken from v2.20.8 to v2.22.2 to address CI pipeline failures r
 
 ### Security
 
-- Updated aws-partitions from v1.1161.0 to v1.1196.0
+- Updated aws-partitions from v1.1161.0 to v1.1220.0
 
-- Updated aws-sdk-core from v3.232.0 to v3.240.0
+- Updated aws-sdk-core from v3.232.0 to v3.242.0
 
-- Updated aws-sdk-kms from v1.112.0 to v1.118.0
+- Updated aws-sdk-kms from v1.112.0 to v1.122.0
 
-- Updated aws-sdk-s3 from v1.199.0 to v1.208.0
+- Updated aws-sdk-s3 from v1.199.0 to v1.213.0
 
 - Updated faraday from v1.10.4 to v1.10.5
 
 - Updated rack from v3.2.4 to v3.2.5
 
-- Updated chef-analyze from v0.1.187 to v0.1.191
+- Updated chef-analyze from v0.1.187 to v0.1.192
 
 - Updated golang.org/x/sys from v0.38.0 to v0.41.0
 
