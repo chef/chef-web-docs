@@ -19,15 +19,105 @@ summary = "Chef Automate release notes"
 
 ## Chef Automate upgrade journey
 
-Upgrade Chef Automate based on your current version of Chef Automate.
+Chef lets you choose your upgrade journey based on your current version of Chef Automate. You can do all the version upgrades manually.
 
-| Your Current Version              | Upgrade To     |
-|-----------------------------------|----------------|
-| Any version before 20220329091442 | 20220329091442 |
-| 20220329091442                    | 3.0.x          |
-| 3.0.49                            | 4.x            |
+| Your current version | Upgrade to |
+| -------------------- | ---------- |
+| Any version before 20220329091442| 20220329091442|
+| 20220329091442| 3.0.x|
+| 3.0.49| 4.x|
 
 See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/major_upgrade_4.x/) for more information.
+
+## Chef Automate 4.13.434
+
+Released on February 26th, 2026
+
+### New features
+
+Added a new Command Line Interface (CLI) command `chef-automate package-cleanup` to remove obsolete Chef Automate packages that are no longer needed after upgrading to a newer version.
+
+### Improvements
+
+- Automate now supports TLSv1.3.
+- Modified Automate InSpec CLI parameters to reduce the time to check the InSpec profile during upload.
+
+### Bug fixes
+
+- Fixed the issue that was clearing the project list on selecting an Unassigned Project.
+- Addressed a false config verify failure with external Postgres and OpenSearch in Automate HA.
+- Fixed an issue where the Chef Automate upgrade would fail when it included a Habitat core package version upgrade.
+
+### Security
+
+#### Security updates
+
+- Updated Node.js to v22.17.1 to fix the following CVEs:
+
+  - CVE-2025-27209
+  - CVE-2025-27210
+
+- Updated Golang to v1.25.7 to fix the following CVEs:
+
+  - CVE-2025-47907
+  - CVE-2025-22871
+  - CVE-2025-4674
+  - CVE-2025-47907
+  - CVE-2025-58187
+  - CVE-2025-58188
+  - CVE-2025-61723
+  - CVE-2025-61725
+  - CVE-2025-61726
+  - CVE-2025-61729
+  - CVE-2025-61731
+  - CVE-2025-68119
+  - CVE-2025-0913
+  - CVE-2025-4673
+  - CVE-2025-47906
+  - CVE-2025-47912
+  - CVE-2025-58183
+  - CVE-2025-58185
+  - CVE-2025-58186
+  - CVE-2025-58189
+  - CVE-2025-61724
+  - CVE-2025-61727
+  - CVE-2025-61728
+  - CVE-2025-61730
+
+### Chef packaged product versions
+
+This release uses:
+
+- Chef Habitat version: 1.6.1243/20241227194506
+- Chef Habitat Builder version: 10717/20250805204117
+- Chef Infra Server version: 15.10.91
+- Chef InSpec version: 5.22.95/20250930075641
+
+### Service versions
+
+This release uses:
+
+- Postgres: 13.22.tuxcare.1.0.1
+- OpenSearch: 1.3.20.tuxcare.1.0.2
+- Nginx: 1.28.0
+- HAProxy: 2.8.15
+
+### Supported external Chef products
+
+This release supports the following external Chef products:
+
+- Chef Infra Server version: 15.0.9+
+- Chef InSpec version: 4.3.2+
+- Chef Infra Client: 18.0.155+
+- Chef Habitat: 0.81+
+
+### Supported framework versions
+
+This release is built on the following framework versions:
+
+- GoLang: 1.25.7
+- OpenJDK: 17.0.16+8
+- Angular: 19.2.15
 
 ## Chef Automate 4.13.361
 
