@@ -17,6 +17,47 @@ summary = "Chef Habitat release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
+## Chef Habitat 2.0.450
+
+Release date: March 4, 2026
+
+### New features
+
+- We added support for Linux ARM architecture (aarch64).
+
+### Improvements
+
+- We upgraded the PowerShell version to 7.5.4.
+- We updated several downstream dependencies that addressed various security vulnerabilities and code that was no longer actively maintained.
+- You can configure the refresh channel in `cli.toml` or using `hab cli setup`.
+
+### Bug fixes
+
+- We fixed `hab pkg uninstall` to uninstall dependencies even if they have reverse dependencies, as long as those reverse dependencies are included in the deletion tree.
+
+### Backward incompatibilities
+
+- We updated the Handlebars implementation. See the [Upgrade Guide](https://docs.chef.io/habitat/2.0/upgrade/#update-handlebars-in-habitat-templates) for potential breaking changes to Chef Habitat template files.
+- We removed support for the Linux 2 kernel.
+- We removed the Mesos and Cloud Foundry exporters.
+- We moved the Chef Habitat CLI, Supervisor, and other component packages from the `core` origin to the `chef` origin.
+- The default channel for `core` packages is no longer `stable` but `base`. See the [package refresh strategy documentation](https://docs.chef.io/habitat/supported_packages/package_refresh_strategy/) for more information.
+- We removed deprecated support for hook file names that include underscores (for example, `post_run`). Use dashes (for example, `post-run`) instead.
+- We removed the deprecated `user.toml` path at `/hab/svc/<service_name>/user.toml`. Use `/hab/user/<service_name>/config/user.toml` instead.
+- We removed the deprecated `--environment` and `--application` arguments from `hab svc load`. These arguments had been ignored for some time, but using them in Chef Habitat 2.0 and greater results in an error.
+- We removed support for the deprecated `reload` hook. Use the `reconfigure` hook instead.
+- We removed the deprecated `hab sup status` alias for `hab svc status`.
+- We removed the deprecated `hab apply` alias for `hab config apply`.
+- We removed the deprecated `hab install` alias for `hab pkg install`.
+- We removed the deprecated `hab run` alias for `hab sup run`.
+- We removed the deprecated `hab setup` alias for `hab cli setup`.
+- We removed the deprecated `hab start` alias for `hab svc start`.
+- We removed the deprecated `hab stop` alias for `hab svc stop`.
+- We removed the deprecated `hab term` alias for `hab sup term`.
+- We removed deprecated support for the `hab pkg export docker` command. Use `hab pkg export container` instead.
+- `hab pkg export container` uses an updated Docker CLI that defaults to an API version that may not be compatible with some Docker engines. If you receive an error stating that the API version is too high when exporting a package to a Docker image, set the `DOCKER_API_VERSION` environment variable to an acceptable version (for example, `1.41`).
+- Entering an interactive Windows Docker Studio using `hab studio enter -D` is only supported on a host that can run a Windows Server 2025 image. This includes Windows 11, Windows Server 2025, and Windows Server 2022 running in Hyper-V mode.
+
 ## Chef Habitat 1.6.1245
 
 Release date: September 9, 2025
