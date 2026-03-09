@@ -143,6 +143,10 @@ Release date: February 25, 2026
 - Updated train-core to 3.16.0 [#15572](https://github.com/chef/chef/pull/15572)
 - Fixed rubygem version parsing [#15662](https://github.com/chef/chef/pull/15662)
 - Updated Train-Winrm for downstream dependency and chef-workstation [#15667](https://github.com/chef/chef/pull/15667)
+- We switched from Chefstyle to Cookstyle for linting and updated Rubocop as a result. [#15644](https://github.com/chef/chef/pull/15644)
+- Updated the Rack gem to 3.2.5 [#15644](https://github.com/chef/chef/pull/15644)
+- Updated aws-partitons to 1.1215.0 [#15644](https://github.com/chef/chef/pull/15644)
+- Updated aws-sdk-kms to 1.122.0 [#15644](https://github.com/chef/chef/pull/15644)
 
 ### Security
 
