@@ -1,0 +1,18 @@
+{{ if and .Site.Params.breadcrumbs .Page.Params.breadcrumbs }}
+<nav aria-label="breadcrumb" id="breadcrumb" class="hide-for-print">
+  <ol>
+    {{ with .Site.Params.breadcrumb_base }}
+      {{ range . }}
+        <li>
+          <a href="{{ .url }}">{{ .breadcrumb }}</a>
+        </li>
+      {{ end }}
+    {{ end }}
+    {{ range .Ancestors.Reverse }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+      </li>
+    {{ end }}
+  </ol>
+</nav>
+{{ end }}

@@ -1,0 +1,24 @@
+{{- /* This shortcode accepts three parameters:
+  file: the path to a file. This is an absolute path from the project root. This is required.
+  html: whether this is HTML or not. This is optional. Allowed values are "true" or "false". Default is false.
+  highlight: the Chroma highlight language. This is optional. See https://gohugo.io/content-management/syntax-highlighting/
+  remarshal: convert the file text to a different file type.
+            This only works when converting between the following types: YAML, JSON, TOML, and XML. See https://gohugo.io/functions/transform/remarshal/
+  If html, highlight, or remarshal aren't set, it adds a Markdown file to a page and converts it to HTML. */ -}}
+
+{{- $file := .Get "file" -}}
+{{- if fileExists $file -}}
+  {{- $fileText := readFile $file -}}
+  {{- if eq (.Get "html") "true" -}}
+    {{- $fileText | safeHTML -}}
+  {{- else if (.Get "highlight") -}}
+    {{- highlight $fileText (.Get "highlight") "" -}}
+  {{- else if (.Get "remarshal") -}}
+    {{- $highlight := .Get "remarshal" -}}
+    {{- highlight (transform.Remarshal $highlight $fileText) $highlight "" -}}
+  {{- else -}}
+    {{ $fileText | markdownify }}
+  {{- end -}}
+{{- else -}}
+  {{ errorf "readfile did not find %q in %s" $file .Position }}
+{{- end -}}

@@ -1,0 +1,20 @@
+#breadcrumb {
+
+  font-size: .8rem;
+  margin: 1rem 0;
+
+  ol {
+    padding-left: 0;
+    margin: 0;
+  }
+  li {
+    display: inline;
+    a {
+      padding: 5px;
+    }
+
+    &:not(:last-child)::after {
+      content: " / ";
+    }
+  }
+}

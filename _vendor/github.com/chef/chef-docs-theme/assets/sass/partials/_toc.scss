@@ -1,0 +1,17 @@
+#table-of-contents {
+  padding-left: 10px;
+  overflow-y: scroll;
+  overflow-wrap: break-word;
+  height: 100%;
+  z-index: 30;
+
+  span.mini-toc-nav{
+    font-weight: 800;
+    margin-top: 1rem;
+    display: block;
+  }
+}
+
+.position-right.is-transition-push {
+  box-shadow: none;
+}

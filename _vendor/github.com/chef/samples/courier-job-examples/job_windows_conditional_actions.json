@@ -1,0 +1,186 @@
+{
+  "name": "Windows conditional actions",
+  "description": "A job to simulate how courier can execute steps conditionally based on a response",
+  "scheduleRule": "immediate",
+  "exceptionRules": [],
+  "target": {
+    "executionType": "sequential",
+    "groups": [
+      {
+        "timeoutSeconds": 160,
+        "batchSize": {
+          "type": "number",
+          "value": 1
+        },
+        "distributionMethod": "rolling",
+        "successCriteria": [
+          {
+            "numRuns": { "type": "percent", "value": 100 },
+            "status": "success"
+          }
+        ],
+        "nodeListType": "nodes",
+        "nodeIdentifiers": ["--NODE1--"]
+      }
+    ]
+  },
+  "actions": {
+    "accessMode": "agent",
+    "steps": [
+      {
+        "interpreter": {
+          "skill": {
+            "minVersion": "1.0.0",
+            "maxVersion": "1.9.99"
+          },
+          "name": "chef-platform/shell-interpreter"
+        },
+        "command": {
+          "windows": ["echo 'Adding value2 sample'"]
+        },
+        "inputs": {},
+        "expectedInputs": {},
+        "outputFieldRules": {
+          "CAN_PERFORM_TASK": {
+            "source": "stdout",
+            "sourceType": "output",
+            "extractMethod": "regEx",
+            "expression": "value2",
+            "required": true,
+            "sensitive": false
+          }
+        },
+        "retryCount": 2,
+        "failureBehavior": {
+          "action": "retryThenFail",
+          "retryBackoffStrategy": {
+            "type": "linear",
+            "delaySeconds": 1,
+            "arguments": []
+          }
+        },
+        "limits": {},
+        "conditions": [],
+        "name": "step to simulate a value being received"
+      },
+      {
+        "interpreter": {
+          "skill": {
+            "minVersion": "1.0.0",
+            "maxVersion": "1.9.99"
+          },
+          "name": "chef-platform/shell-interpreter"
+        },
+        "inputs": {},
+        "outputFieldRules": {},
+        "expectedInputs": {
+          "CAN_PERFORM_TASK": {
+            "type": "string",
+            "sensitive": false,
+            "required": true,
+            "default": "true"
+          }
+        },
+        "conditions": [
+          {
+            "inputName": "CAN_PERFORM_TASK",
+            "operator": "eq",
+            "value": "value2"
+          }
+        ],
+        "command": {
+          "windows": [
+            "echo {{.CAN_PERFORM_TASK}} > C:\\Users\\Administrator\\task.txt"
+          ]
+        },
+        "retryCount": 2,
+        "failureBehavior": {
+          "action": "retryThenFail",
+          "retryBackoffStrategy": {
+            "type": "linear",
+            "delaySeconds": 1,
+            "arguments": []
+          }
+        },
+        "limits": {},
+        "name": "step to simulate conditionally performing a command based on previous step"
+      },
+      {
+        "interpreter": {
+          "skill": {
+            "minVersion": "1.0.0",
+            "maxVersion": "1.9.99"
+          },
+          "name": "chef-platform/shell-interpreter"
+        },
+        "command": {
+          "windows": ["cat C:\\Users\\Administrator\\task.txt"]
+        },
+        "inputs": {},
+        "expectedInputs": {},
+        "outputFieldRules": {
+          "TASK_COMPLETED": {
+            "source": "stdout",
+            "sourceType": "output",
+            "extractMethod": "content",
+            "expression": "",
+            "required": true,
+            "sensitive": false
+          }
+        },
+        "retryCount": 2,
+        "failureBehavior": {
+          "action": "retryThenFail",
+          "retryBackoffStrategy": {
+            "type": "linear",
+            "delaySeconds": 1,
+            "arguments": []
+          }
+        },
+        "conditions": [],
+        "limits": {},
+        "name": "step to check if the previous command ran conditionally"
+      },
+      {
+        "interpreter": {
+          "skill": {
+            "minVersion": "1.0.0",
+            "maxVersion": "1.9.99"
+          },
+          "name": "chef-platform/shell-interpreter"
+        },
+        "inputs": {},
+        "expectedInputs": {
+          "TASK_COMPLETED": {
+            "type": "string",
+            "sensitive": false,
+            "required": true,
+            "default": "true"
+          }
+        },
+        "outputFieldRules": {},
+        "conditions": [
+          {
+            "inputName": "TASK_COMPLETED",
+            "operator": "eq",
+            "value": "value2\r\n"
+          }
+        ],
+        "command": {
+          "windows": ["timeout 1"]
+        },
+        "retryCount": 2,
+        "failureBehavior": {
+          "action": "retryThenFail",
+          "retryBackoffStrategy": {
+            "type": "linear",
+            "delaySeconds": 1,
+            "arguments": []
+          }
+        },
+        "limits": {},
+        "name": "step to output if a task was completed"
+      }
+    ]
+  }
+}

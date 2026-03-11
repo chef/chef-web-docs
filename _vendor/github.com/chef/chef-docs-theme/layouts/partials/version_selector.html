@@ -1,0 +1,20 @@
+{{- if .Site.Params.versions.version_selector.enabled -}}
+{{- $page_path := .Page.Path -}}
+{{- $this_version_text := .Site.Params.versions.version_selector.this_version_text -}}
+{{- if not $this_version_text -}}
+  {{- errorf "The params.toml file requires a version in release_data.version." -}}
+{{- end -}}
+<div class="version-select">
+  <span class="version-select-label">Version</span>
+  <ul class="dropdown menu version-select-menu" data-dropdown-menu>
+    <li class="version-select-menu-parent">
+      <a href="#">{{ $this_version_text }}</a>
+      <ul class="menu version-selector-submenu">
+        {{ range .Site.Params.versions.version_selector.versions -}}
+          <li><a href="{{.base_url}}{{ $page_path }}">{{ .link_text }}</a></li>
+        {{- end }}
+      </ul>
+    </li>
+  </ul>
+</div>
+{{- end -}}

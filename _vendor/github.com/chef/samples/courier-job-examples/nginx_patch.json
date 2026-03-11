@@ -1,0 +1,154 @@
+{
+  "name": "nginx-patch",
+  "description": "A simple demonstration to showcase patching an installed application",
+  "scheduleRule": "immediate",
+  "exceptionRules": [],
+  "target": {
+    "executionType": "sequential",
+    "groups": [
+      {
+        "timeoutSeconds": 300,
+        "batchSize": {
+          "type": "number",
+          "value": 2
+        },
+        "distributionMethod": "batching",
+        "successCriteria": [
+          {
+            "numRuns": { "type": "percent", "value": 100 },
+            "status": "success"
+          }
+        ],
+        "nodeListType": "nodes",
+        "nodeIdentifiers": ["--NODE1--"]
+      }
+    ]
+  },
+  "actions": {
+    "accessMode": "agent",
+    "steps": [
+      {
+        "interpreter": {
+          "skill": {
+            "minVersion": "1.0.0",
+            "maxVersion": "1.9.99"
+          },
+          "name": "chef-platform/shell-interpreter"
+        },
+        "command": { "linux": ["nginx -v 2>&1 >/dev/null"] },
+        "inputs": {},
+        "expectedInputs": {},
+        "outputFieldRules": {
+          "NGINX_FOUND": {
+            "source": "stdout",
+            "sourceType": "output",
+            "extractMethod": "content",
+            "expression": "",
+            "required": true,
+            "sensitive": false
+          }
+        },
+        "retryCount": 2,
+        "failureBehavior": {
+          "action": "retryThenFail",
+          "retryBackoffStrategy": {
+            "type": "linear",
+            "delaySeconds": 1,
+            "arguments": []
+          }
+        },
+        "limits": {},
+        "conditions": [],
+        "name": "a step to check nginx presence"
+      },
+      {
+        "interpreter": {
+          "skill": {
+            "minVersion": "1.0.0",
+            "maxVersion": "1.9.99"
+          },
+          "name": "chef-platform/shell-interpreter"
+        },
+        "inputs": {},
+        "expectedInputs": {
+          "NGINX_FOUND": {
+            "type": "string",
+            "sensitive": false,
+            "required": true,
+            "default": ""
+          }
+        },
+        "outputFieldRules": {},
+        "conditions": [
+          {
+            "inputName": "NGINX_FOUND",
+            "operator": "eq",
+            "value": "nginx version: nginx/1.25.0\n"
+          }
+        ],
+        "command": { "linux": ["sleep 5"] },
+        "retryCount": 2,
+        "failureBehavior": {
+          "action": "retryThenFail",
+          "retryBackoffStrategy": {
+            "type": "linear",
+            "delaySeconds": 1,
+            "arguments": []
+          }
+        },
+        "limits": {},
+        "name": "Sleep if nginx version is 1.25.0"
+      },
+      {
+        "interpreter": {
+          "skill": {
+            "minVersion": "1.0.0",
+            "maxVersion": "1.9.99"
+          },
+          "name": "chef-platform/shell-interpreter"
+        },
+        "inputs": {},
+        "expectedInputs": {
+          "NGINX_FOUND": {
+            "type": "string",
+            "sensitive": false,
+            "required": true,
+            "default": ""
+          }
+        },
+        "outputFieldRules": {},
+        "conditions": [
+          {
+            "inputName": "NGINX_FOUND",
+            "operator": "eq",
+            "value": "nginx version: nginx/1.23.4\n"
+          }
+        ],
+        "command": {
+          "linux": [
+            "sudo apt-get remove nginx nginx-common -y",
+            "sudo apt-get purge nginx nginx-common -y",
+            "wget http://nginx.org/keys/nginx_signing.key 2>&1 >/dev/null",
+            "sudo apt-key add nginx_signing.key",
+            "sudo add-apt-repository \"deb http://nginx.org/packages/mainline/ubuntu/ $(lsb_release -sc) nginx\" 2>&1 >/dev/null",
+            "sudo apt-get update",
+            "sudo apt-get install nginx=1.25.0-1~$(lsb_release -sc) 2>&1 >/dev/null",
+            "sudo systemctl enable nginx",
+            "sudo systemctl start nginx"
+          ]
+        },
+        "retryCount": 2,
+        "failureBehavior": {
+          "action": "retryThenFail",
+          "retryBackoffStrategy": {
+            "type": "linear",
+            "delaySeconds": 1,
+            "arguments": []
+          }
+        },
+        "limits": {},
+        "name": "Install nginx 1.25.0, if the version is 1.23.4"
+      }
+    ]
+  }
+}

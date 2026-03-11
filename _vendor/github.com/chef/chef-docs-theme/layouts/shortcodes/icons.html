@@ -1,0 +1,14 @@
+{{- /* Renders the specified icon with the Material Icons from https://fonts.google.com/icons */ -}}
+<span class="{{- .Get "class" -}}" aria-hidden="true" translate="no">
+  {{- .Get "icon" -}}
+</span>
+
+{{- /* Default Usage: /*}}
+{{- /* {{< icons class="material-symbols-outlined" icon="description" >}} */ -}}
+{{- /* Generates: <span class="material-symbols-outlined">description</span> */ -}}
+{{- /* This renders this icon: https://fonts.google.com/icons?selected=Material+Symbols+Outlined:description:FILL@0;wght@400;GRAD@0;opsz@24&icon.size=24&icon.color=%231f1f1f&icon.set=Material+Symbols */ -}}
+
+{{- /* You can rendered filled icons by adding the icon-filled class: */ -}}
+{{- /* For example: {{< icons class="material-symbols-outlined icon-filled" icon="home">}} */ -}}
+{{- /* Generates: <span class="material-symbols-outlined icon-filled">description</span> */ -}}
+{{- /* This renders this icon: https://fonts.google.com/icons?selected=Material+Symbols+Outlined:description:FILL@1;wght@400;GRAD@0;opsz@24&icon.size=24&icon.color=%231f1f1f&icon.set=Material+Symbols */ -}}

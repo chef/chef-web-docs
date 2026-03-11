@@ -1,0 +1,86 @@
+// Font weight variables
+$regular: 400;
+$semibold: 600;
+$bold: 700;
+$extrabold: 800;
+
+// Font family variables
+$font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$font-family-code: 'Source Code Pro', Consolas, 'Monaco', 'Courier New', monospace;
+
+// Enhanced font loading with performance optimizations
+@font-face {
+  font-family: 'Inter';
+  font-weight: $regular;
+  font-display: swap;
+  src: url('../fonts/Inter-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: $semibold;
+  font-display: swap;
+  src: url('../fonts/Inter-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: $bold;
+  font-display: swap;
+  src: url('../fonts/Inter-Bold.ttf') format('truetype');
+}
+
+// Base body typography
+body {
+  font-family: $font-family-base;
+  font-weight: $regular;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+// Enhanced print styles
+@media print {
+  * {
+    color: #000 !important;
+    background: transparent !important;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+  
+  p, li {
+    page-break-inside: avoid;
+    orphans: 3;
+    widows: 3;
+  }
+  
+  img {
+    page-break-inside: avoid;
+    max-width: 100% !important;
+  }
+
+  @page {
+    margin: 1in;
+    size: letter;
+  }
+  
+  .hide-for-print {
+    display: none !important;
+  }
+}
+
+@import "vendor/fontawesome/fontawesome.scss";
+@import "vendor/fontawesome/solid.scss";
+@import "vendor/fontawesome/brands.scss";
+
+@import "typography/code";
+@import "typography/headings";
+@import "typography/links";
+@import "typography/lists";
+@import "typography/prose";
+@import "typography/text";
+
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');

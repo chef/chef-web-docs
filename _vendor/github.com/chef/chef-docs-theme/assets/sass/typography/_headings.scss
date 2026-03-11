@@ -1,0 +1,70 @@
+// Foundation-based heading styles
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: $header-font-family;
+  font-weight: $header-font-weight;
+  font-style: $header-font-style;
+  color: $header-color;
+  line-height: $header-lineheight;
+
+  svg.svg-link {
+    margin-left: rem-calc(8);
+    opacity: 0.7;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+      filter: brightness(0) saturate(100%) invert(38%) sepia(99%) saturate(497%) hue-rotate(163deg) brightness(87%) contrast(79%);
+    }
+  }
+}
+
+h1 {
+  font-size: rem-calc(32);
+  margin-bottom: rem-calc(24);
+  font-weight: $bold;
+}
+
+h2 {
+  font-size: rem-calc(26);
+  margin-top: rem-calc(48);
+  margin-bottom: rem-calc(24);
+  font-weight: $semibold;
+}
+
+h3 {
+  font-size: rem-calc(21);
+  margin-top: rem-calc(32);
+  margin-bottom: rem-calc(16);
+  font-weight: $semibold;
+}
+
+h4 {
+  font-size: rem-calc(18);
+  margin-top: rem-calc(24);
+  margin-bottom: rem-calc(14);
+  font-weight: $semibold;
+}
+
+h5 {
+  font-size: rem-calc(16);
+  margin-top: rem-calc(20);
+  margin-bottom: rem-calc(12);
+  font-weight: $semibold;
+}
+
+h6 {
+  font-size: rem-calc(14);
+  margin-top: rem-calc(18);
+  margin-bottom: rem-calc(10);
+  font-weight: $bold;
+}
+
+// Small header segments
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+  font-size: $small-font-size;
+  color: $header-small-font-color;
+  font-weight: $regular;
+  text-transform: none;
+  letter-spacing: normal;
+}

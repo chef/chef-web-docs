@@ -1,0 +1,22 @@
+{{- /* Partial to load SCSS/CSS assets */ -}}
+{{- /* See https://gohugo.io/functions/css/sass/ */ -}}
+
+<link rel="shortcut icon" type="image/png" href="{{ "images/progress-emoticon.ico" | relURL }}" />
+{{ $silenceSassDeprecations := slice "mixed-decls" "color-functions" "global-builtin" "import"}}
+{{ $options := dict
+  "transpiler" "dartsass"
+  "vars" site.Params.styles
+  "enableSourceMap" (not hugo.IsProduction)
+  "includePaths" (slice "node_modules")
+  "silenceDeprecations" (cond hugo.IsDevelopment $silenceSassDeprecations "")
+  "outputStyle" (cond hugo.IsDevelopment "expanded" "compressed")
+}}
+{{ if hugo.Environment | eq "development" }}
+  {{- $style := resources.Get "sass/main.scss" | toCSS $options }}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@0..1" rel="stylesheet" />
+{{ else }}
+  {{- $style := resources.Get "sass/main.scss" | toCSS $options | minify }}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@0..1" rel="stylesheet" />
+{{ end }}

@@ -1,0 +1,29 @@
+{{- /*
+Accordion List Shortcode
+
+https://get.foundation/sites/docs/accordion.html
+
+Usage:
+{{< accordion-list id="my-accordion" data-multi-expand="true" data-allow-all-closed="true" >}}
+  {{< accordion-item accordion-title="Item 1" accordion-title-link="item1" is-active="true" >}}
+    Content for item 1
+  {{< /accordion-item >}}
+  {{< accordion-item accordion-title="Item 2" accordion-title-link="item2" >}}
+    Content for item 2
+  {{< /accordion-item >}}
+{{< /accordion-list >}}
+
+Options:
+  - id: Optional: Unique identifier for the accordion. This allows deep linking and history updates. https://get.foundation/sites/docs/accordion.html#accordion-and-urls
+  - data-multi-expand: Allow multiple items to be expanded (default: false)
+  - data-allow-all-closed: Allow all items to be closed (default: false)
+
+*/ -}}
+
+<ul class="accordion" data-accordion
+  {{- if (.Get "id") }} id="{{ .Get "id" }}" data-deep-link="true" data-update-history="true" data-deep-link-smudge="true" data-deep-link-smudge-delay="500"{{ end -}}
+  {{- if eq (.Get "data-multi-expand") "true" }} data-multi-expand="true" {{ end -}}
+  {{- if eq (.Get "data-allow-all-closed") "true" }} data-allow-all-closed="true" {{ end -}}
+  >
+{{ .Inner }}
+</ul>

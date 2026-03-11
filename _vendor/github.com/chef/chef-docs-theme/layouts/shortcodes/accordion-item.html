@@ -1,0 +1,27 @@
+{{- /*
+
+See accordion-list.html for usage and options
+
+Usage:
+
+{{< accordion-item accordion-title="Title" accordion-title-link="panel-id" is-active="true" >}}
+content for the accordion item
+{{< /accordion-item >}}
+
+Options:
+
+- accordion-title: The title of the accordion item
+- accordion-title-link: Optional link for the accordion title. Required if accordion-list has data-deep-link enabled.
+- is-active: Set to "true" to make this accordion item active by default
+
+*/ -}}
+
+{{- $accordionTitleLink := .Get "accordion-title-link" | default "" -}}
+
+<li class="accordion-item{{ if eq (.Get "is-active") "true" }} is-active {{ end }}" data-accordion-item>
+    <a href="#{{ $accordionTitleLink }}" class="accordion-title">{{ .Get "accordion-title" }}</a>
+
+    <div class="accordion-content" data-tab-content id="{{ $accordionTitleLink }}">
+        {{ .InnerDeindent | strings.TrimSpace | .Page.RenderString }}
+    </div>
+</li>

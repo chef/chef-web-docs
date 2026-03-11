@@ -1,0 +1,134 @@
+#utility-bar, #menu, #footer {
+  flex-shrink: 0;
+}
+
+#main-content {
+  // Make sure the header offset does not layer above the nav
+  z-index: 0;
+
+  > .grid-container {
+    height: 100%;
+
+    > .grid-x {
+      height: 100%;
+
+      .position-left{
+        width: 260px;
+      }
+    }
+  }
+
+  #col-content {
+    background-color: $white;
+    height: 100%;
+    word-wrap: break-word;
+    min-height: 100vh;
+
+    p img {
+      display: block;
+      margin: rem-calc(32) auto;
+      box-shadow: $box-shadow;
+      border: 1px solid $border;
+      padding: rem-calc(16);
+      cursor: pointer;
+      border-radius: $border-radius-base;
+      @include breakpoint(large) {
+        max-width: 100%;
+      }
+      @include breakpoint(xlarge) {
+        max-width: 75%;
+      }
+    }
+
+    figure {
+      display: inline-block;
+      text-align: center;
+      font-style: italic;
+      font-size: smaller;
+      text-indent: 0;
+      border: 1px solid transparent;
+      -webkit-box-shadow: $box-shadow;
+      box-shadow: $box-shadow;
+      padding: 0.5rem;
+      margin: rem-calc(32) auto;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      @include breakpoint(large) {
+        max-width: 100%;
+      }
+      @include breakpoint(xlarge) {
+        max-width: 75%;
+      }
+
+      img {
+        padding: 1rem;
+        cursor: pointer;
+      }
+      &.figure-no-shadow {
+        padding: 0;
+        border: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+    }
+
+    .no-shadow {
+      box-shadow: none;
+    }
+  }
+
+  .grid-container {
+    margin-top: 3rem;
+  }
+
+  // Grid cell styling
+  .grid-cell {
+    border: 1px solid $border;
+    border-radius: $border-radius-base;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+    &:hover {
+      border-color: $border-dark;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-top: 0;
+      text-decoration: none !important;
+      color: $blue-darker
+    }
+
+    // Clickable cells (when cell is an anchor tag)
+    &[href] {
+      text-decoration: none !important;
+      color: inherit;
+      display: block;
+
+      &:hover {
+        border-color: $blue-darker;
+        text-decoration: none;
+      }
+
+      &:focus {
+        outline: 3px solid $blue;
+        outline-offset: 2px;
+      }
+    }
+  }
+}
+
+.has-sidebar {
+  @include breakpoint(medium) {
+    #main-content {
+      position: relative;
+      background: linear-gradient(90deg, $sidebar-gray 50%, $white 50%);
+    }
+  }
+}

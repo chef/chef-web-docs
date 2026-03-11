@@ -1,0 +1,17 @@
+{
+    "name": "courier-runner",
+    "canister": {
+        "name": "courier-runner",
+        "origin": "chef-platform",
+        "service": true
+    },
+    "configurationTemplates": [
+        {
+            "content": "W2xvZ10KZGlyID0gInt7LnNldHRpbmdzLmxvZ19kaXJ9fSIKZm9ybWF0ID0gInt7LnNldHRpbmdzLmxvZ19mb3JtYXR9fSIKbGV2ZWwgPSAie3suc2V0dGluZ3MubG9nX2xldmVsfX0iCm91dHB1dCA9ICJ7ey5zZXR0aW5ncy5sb2dfb3V0cHV0fX0iCgpbbm9kZV0Kbm9kZV9pZCA9ICJ7ey5hZ2VudC5ub2RlSWR9fSIKCnt7aWYgaW5kZXggLnNldHRpbmdzICJzaGVsbF9pbnRlcnByZXRlciJ9fQpbW2ludGVycHJldGVyc11dCm5hbWUgPSAie3suc2V0dGluZ3Muc2hlbGxfaW50ZXJwcmV0ZXJ9fSIKe3tlbmR9fQp7e2lmIGluZGV4IC5zZXR0aW5ncyAicmVzdGFydF9pbnRlcnByZXRlciJ9fQpbW2ludGVycHJldGVyc11dCm5hbWUgPSAie3suc2V0dGluZ3MucmVzdGFydF9pbnRlcnByZXRlcn19Igp7e2VuZH19Cnt7aWYgaW5kZXggLnNldHRpbmdzICJpbnNwZWNfaW50ZXJwcmV0ZXIifX0KW1tpbnRlcnByZXRlcnNdXQpuYW1lID0gInt7LnNldHRpbmdzLmluc3BlY19pbnRlcnByZXRlcn19Igp7e2VuZH19Cnt7aWYgaW5kZXggLnNldHRpbmdzICJjaGVmX2NsaWVudF9pbnRlcnByZXRlciJ9fQpbW2ludGVycHJldGVyc11dCm5hbWUgPSAie3suc2V0dGluZ3MuY2hlZl9jbGllbnRfaW50ZXJwcmV0ZXJ9fSIKe3tlbmR9fQoKW3JlcG9ydGVyXQpuYW1lID0gInt7LnNldHRpbmdzLnJlcG9ydGVyX25hbWV9fSIKYXV0aGVudGljYXRpb25UeXBlID0gICJ7ey5zZXR0aW5ncy5yZXBvcnRlcl9hdXRoZW50aWNhdGlvbl90eXBlfX0iCmRpciA9ICJ7ey5zZXR0aW5ncy5yZXBvcnRlcl9kaXJ9fSIKaW50ZXJuYWxJblNlYyA9IHt7LnNldHRpbmdzLnJlcG9ydGVyX2ludGVydmFsX2luX3NlY319CnJldHJ5SW50ZXJ2YWxJblNlYyA9IHt7LnNldHRpbmdzLnJlcG9ydGVyX3JldHJ5X2ludGVydmFsX2luX3NlY319CnRvdGFsUmV0cnlEdXJhdGlvbkluTWluID0ge3suc2V0dGluZ3MucmVwb3J0ZXJfdG90YWxfcmV0cnlfZHVyYXRpb25faW5fbWlufX0KCltnYXRld2F5X2NvbmZpZ10KdGVuYW50ZnFkbnMgPSAie3suYWdlbnQudGVuYW50RnFkbnN9fSIKbm9kZV9yb2xlX2xpbmtfaWQgPSAie3suc2tpbGwubm9kZVJvbGVMaW5rSWR9fSIKcGxhdGZvcm1fY3JlZGVudGlhbF9wYXRoID0gInt7LnNraWxsLnBsYXRmb3JtQ3JlZGVudGlhbHNQYXRofX0iCnJvb3RfY2FfcGF0aCA9ICJ7ey5hZ2VudC5yb290Q2FQYXRofX0iCmluc2VjdXJlID0gInt7LmFnZW50Lmluc2VjdXJlfX0iCgpbcXVldWVdCnByb3ZpZGVyID0gMA==",
+            "fileName": "user.toml",
+            "filePath": "/hab/user/courier-runner/config",
+            "name": "courier-runner-template",
+            "windowsFilePath": "c:\\hab\\user\\courier-runner\\config"
+        }
+    ]
+}

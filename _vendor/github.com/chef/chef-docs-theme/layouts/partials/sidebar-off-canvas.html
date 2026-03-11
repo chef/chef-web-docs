@@ -1,0 +1,42 @@
+<div id="left-nav-off-canvas" class="hide-for-mediumlarge hide-for-print" data-toggler=".reveal">
+
+  <aside class="sticky hide-for-print" data-sticky data-top-anchor="utility-bar:bottom" data-btm-anchor="main-content:top" data-margin-top="0" data-margin-bottom="2">
+    <div id="left-nav-off-canvas-top-bar" class="top-bar">
+
+      <div class="top-bar-left">
+        {{ partial "version_selector" . }}
+      </div>
+      <div id="top-bar-close" class="top-bar-right">
+        <button class="close-button " data-toggle="left-nav-off-canvas">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+    </div>
+
+    <nav id="sidebar-nav" class="offCanvas">
+      <div class="nav">
+        {{ if ne (.Param "left_nav") false }}
+          <ul class="vertical menu accordion-menu" data-accordion-menu>
+          <li>
+            <a href="">Main Menu</a>
+            <ul class="menu vertical nested">
+              {{ range .Site.Menus.main }}
+                <li><a href="{{ .URL }}" {{ if and (hasPrefix .URL "http") (not (hasPrefix .URL "https://docs.chef.io")) }} class="external" target="_blank"{{ end }}>{{ .Title }}</a></li>
+              {{ end }}
+            </ul>
+          </li>
+          {{ partial "range_menu" . }}
+        </ul>
+        {{ else }}
+          <ul class="vertical menu">
+            {{ range .Site.Menus.main }}
+              <li><a href="{{ .URL }}" {{ if and (hasPrefix .URL "http") (not (hasPrefix .URL "https://docs.chef.io")) }} class="external" target="_blank"{{ end }}>{{ .Title }}</a></li>
+            {{ end }}
+          </ul>
+        {{ end }}
+      </div>
+    </nav>
+
+  </aside>
+</div>
