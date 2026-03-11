@@ -3,7 +3,6 @@ title = "Disclosure Panel and Banner"
 
 draft = false
 
-gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Disclosure Panel and Banner"

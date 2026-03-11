@@ -3,7 +3,6 @@ title = "Store Audit Logs in S3 or MinIO"
 
 draft = false
 
-gh_repo = "automate"
 
 [menu]
   [menu.automate]

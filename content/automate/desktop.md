@@ -4,7 +4,6 @@ title = "Desktop Dashboard"
 date = 2018-03-26T16:01:47-07:00
 draft = false
 
-gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Desktop Dashboard"

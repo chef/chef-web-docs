@@ -3,7 +3,6 @@ title = "Data Lifecycle"
 description = "Chef Automate Data Lifecycle: Data Management and Data Retention"
 draft = false
 
-gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Data Lifecycle"

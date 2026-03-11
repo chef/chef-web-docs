@@ -1,7 +1,6 @@
 +++
 title = "Chef Infra External Cookbooks In Chef Automate"
 draft = false
-gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Chef Infra External Cookbooks In Chef Automate"

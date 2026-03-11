@@ -3,7 +3,6 @@ title = "Airgapped Installation"
 
 draft = false
 
-gh_repo = "automate"
 
 [menu]
   [menu.automate]

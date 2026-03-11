@@ -3,7 +3,6 @@ title = "Chef Infra Configuration In Chef Automate"
 
 draft = false
 
-gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Chef Infra Configuration In Chef Automate"

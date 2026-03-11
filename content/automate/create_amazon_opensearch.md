@@ -2,7 +2,6 @@
 title = "Create an Amazon OpenSearch Cluster and Obtain Connection Details"
 
 draft = false
-gh_repo = "automate"
 
 [menu]
   [menu.automate]

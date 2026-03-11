@@ -2,7 +2,6 @@
 title = "Create an Amazon RDS PostgreSQL Instance and Obtain Connection Details"
 
 draft = false
-gh_repo = "automate"
 
 [menu]
   [menu.automate]

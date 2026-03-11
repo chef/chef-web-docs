@@ -1,9 +1,0 @@
-{
-  "name": "inspec-interpreter",
-  "canister": {
-    "origin": "chef-platform",
-    "name": "inspec-interpreter",
-    "service": false
-  },
-  "configurationTemplates": []
-}

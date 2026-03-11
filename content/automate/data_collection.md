@@ -3,7 +3,6 @@ title = "Data Collection"
 
 draft = false
 
-gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Data Collection"

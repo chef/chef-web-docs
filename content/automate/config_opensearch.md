@@ -1,7 +1,6 @@
 +++
 title = "High Availability OpenSearch Node Configuration"
 draft = false
-gh_repo = "automate"
 
 [menu]
   [menu.automate]

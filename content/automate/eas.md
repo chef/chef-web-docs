@@ -4,7 +4,6 @@ title = "Chef EAS"
 date = 2019-10-18T18:54:09+00:00
 draft = false
 
-gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Chef EAS"

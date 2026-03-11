@@ -1,7 +1,6 @@
 +++
 title = "License Chef Automate"
 draft = false
-gh_repo = "automate"
 
 [menu]
   [menu.automate]

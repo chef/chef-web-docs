@@ -3,7 +3,6 @@ title = "User Profile"
 
 draft = false
 
-gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "User Profile"

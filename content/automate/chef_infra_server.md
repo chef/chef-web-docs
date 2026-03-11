@@ -4,7 +4,6 @@ title = "Chef Infra Server"
 weight = 20
 draft = false
 
-gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Chef Infra Server"

@@ -3,7 +3,6 @@ title = "Enhanced Compliance Report Ingestion"
 
 draft = true
 
-gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Enhanced Compliance Report Ingestion"

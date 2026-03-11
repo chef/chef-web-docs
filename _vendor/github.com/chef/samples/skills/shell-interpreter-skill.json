@@ -1,9 +1,0 @@
-{
-    "name": "shell-interpreter",
-    "canister": {
-        "origin": "chef-platform",
-        "name": "shell-interpreter",
-        "service": false
-    },
-    "configurationTemplates": []
-}

@@ -4,7 +4,6 @@ title = "Centralize Chef Automate Logs"
 draft = false
 aliases = ['/automate/centralizing_log/']
 
-gh_repo = "automate"
 
 [menu]
   [menu.automate]

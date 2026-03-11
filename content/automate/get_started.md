@@ -2,7 +2,6 @@
 title = "Get Started with Chef Automate"
 weight = 10
 draft = false
-gh_repo = "automate"
 
 [cascade]
   product = ["automate"]
