@@ -3,7 +3,6 @@ title = "Projects"
 
 draft = false
 
-gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Projects"

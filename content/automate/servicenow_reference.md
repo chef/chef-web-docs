@@ -3,7 +3,6 @@ title = "ServiceNow Administrator Reference"
 
 draft = false
 
-gh_repo = "automate"
 aliases = "servicenow_integration_reference"
 [menu]
   [menu.automate]

@@ -3,7 +3,6 @@ title = "Chef Automate HA integrations"
 
 draft = false
 
-gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Integrations"

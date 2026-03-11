@@ -1,7 +1,6 @@
 +++
 title = "Supermarket with Automate HA"
 draft = false
-gh_repo = "automate"
 [menu]
 
   [menu.automate]

@@ -3,7 +3,6 @@ title = "ServiceNow Incident App"
 
 draft = false
 
-gh_repo = "automate"
 
 [menu]
   [menu.automate]

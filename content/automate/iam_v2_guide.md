@@ -3,7 +3,6 @@ title = "IAM Users Guide"
 
 draft = false
 
-gh_repo = "automate"
 
 [menu]
   [menu.automate]

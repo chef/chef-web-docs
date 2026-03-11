@@ -4,7 +4,6 @@ title = "Teams"
 date = 2018-05-16T16:03:13-07:00
 draft = false
 
-gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Teams"

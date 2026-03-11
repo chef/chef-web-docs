@@ -4,7 +4,6 @@ title = "Troubleshooting"
 date = 2018-05-15T17:27:57-07:00
 draft = false
 
-gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Troubleshooting"

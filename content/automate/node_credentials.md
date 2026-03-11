@@ -5,7 +5,6 @@ date = 2018-05-22T17:23:24-07:00
 weight = 20
 draft = false
 
-gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Node Credentials"

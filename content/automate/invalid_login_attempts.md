@@ -3,7 +3,6 @@ title = "Invalid Login Attempts"
 
 draft = false
 
-gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Invalid Login Attempts"

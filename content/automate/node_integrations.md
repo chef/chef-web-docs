@@ -4,7 +4,6 @@ title = "Node Integrations"
 date = 2018-05-22T18:01:36-07:00
 draft = false
 
-gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Node Integrations"

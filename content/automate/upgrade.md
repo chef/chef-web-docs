@@ -2,7 +2,6 @@
 title = "Upgrade Chef Automate"
 date = 2022-01-04T12:02:46-08:00
 draft = false
-gh_repo = "automate"
 
 [menu]
   [menu.automate]

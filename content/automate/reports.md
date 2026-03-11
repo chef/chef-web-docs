@@ -4,7 +4,6 @@ title = "Reports"
 date = 2018-03-26T16:02:09-07:00
 draft = false
 
-gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Reports"

@@ -3,7 +3,6 @@ title = "ServiceNow Event Creation App"
 
 draft = true
 
-gh_repo = "automate"
 
 [menu]
   [menu.automate]

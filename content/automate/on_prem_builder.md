@@ -5,7 +5,6 @@ date = 2019-11-19T14:10:15-08:00
 
 draft = false
 
-gh_repo = "automate"
 
 [menu]
   [menu.automate]

@@ -2,7 +2,6 @@
 title = "Update Non-SAN Certificates for 4.7.52 Version"
 date = 2023-05-29T12:02:46-08:00
 draft = false
-gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Update Non-SAN Certificates for 4.7.52 Version"

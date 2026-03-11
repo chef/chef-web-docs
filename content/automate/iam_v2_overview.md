@@ -3,7 +3,6 @@ title = "IAM Overview"
 
 draft = false
 
-gh_repo = "automate"
 [menu]
   [menu.automate]
     parent = "automate/users/authorization"

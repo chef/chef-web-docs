@@ -4,7 +4,6 @@ title = "Package Cleanup"
 date = 2025-12-09T12:00:00-00:00
 draft = false
 
-gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Package Cleanup"

@@ -3,7 +3,6 @@ title = "Log Management"
 
 draft = false
 
-gh_repo = "automate"
 
 [menu]
   [menu.automate]

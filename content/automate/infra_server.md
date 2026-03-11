@@ -5,7 +5,6 @@ date = 2020-02-11T14:24:00-08:00
 weight = 20
 draft = false
 
-gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Install Chef Infra Server"

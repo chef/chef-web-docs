@@ -4,7 +4,6 @@ title = "Monitoring Chef Automate"
 date = 2019-10-28T14:44:28-07:00
 draft = false
 
-gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Monitoring"

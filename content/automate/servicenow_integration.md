@@ -2,7 +2,6 @@
 title = "ServiceNow Integration App"
 draft = false
 
-gh_repo = "automate"
 
 [menu]
   [menu.automate]

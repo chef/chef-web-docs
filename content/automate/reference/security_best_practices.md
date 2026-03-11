@@ -3,7 +3,6 @@ title = "Security Best Practices"
 
 draft = false
 
-gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Security Best Practices"

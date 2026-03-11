@@ -4,7 +4,6 @@ title = "Notifications"
 date = 2018-05-18T13:19:02-07:00
 draft = false
 
-gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Notifications"

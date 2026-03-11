@@ -3,7 +3,6 @@ title = "Managed Services"
 
 draft = false
 
-gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Managed Services"

@@ -3,7 +3,6 @@ title = "IAM Actions"
 
 draft = false
 
-gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "IAM Actions"

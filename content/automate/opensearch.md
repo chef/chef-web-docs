@@ -4,7 +4,6 @@ title = "OpenSearch"
 date = 2022-01-04T12:09:09-08:00
 draft = false
 
-gh_repo = "automate"
 [menu]
   [menu.automate]
     title = "Configure OpenSearch"
