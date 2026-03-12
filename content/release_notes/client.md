@@ -44,29 +44,25 @@ Release date: March 12, 2026
 ### Packages
 
 - Remove quotes from YML files which were breaking Habitat builds. [#15684](https://github.com/chef/chef/pull/15684)
-- Add accept-no-persist for HAB_LICENSE to bypass dialog boxes asking for yes/no answers. [#15683](https://github.com/chef/chef/pull/15683)
 - Updated the Habitat plan file to remove github workflow files in some gems. [#15679](https://github.com/chef/chef/pull/15679)
 - Update aws-sdk-s3 to 1.213.0. [#15678](https://github.com/chef/chef/pull/15678)
-- Update aws-sdk-s3 to 1.213.0 [#15678](https://github.com/chef/chef/pull/15678)
 - Reduce the size of Chef Infra Client on disk - The Ruby Devkit consumed a lot of space. [#235](https://github.com/habitat-sh/enterprise-packages/pull/235)
 - Change the way we create a concurrency group in Github Actions. [#15680](https://github.com/chef/chef/pull/15680)
 - Preserve environment secrets which are being reset due to sudo on linux fips pipeline. [#15676](https://github.com/chef/chef/pull/15676)
-- FIPS mode testing using habitat package of openssl and infra client. [#15402](https://github.com/chef/chef/pull/15402)
 - Bump rack to 3.2.5. [#15670](https://github.com/chef/chef/pull/15670)
 - Temporarily change dokken test-kitchen workflows. [#15637](https://github.com/chef/chef/pull/15637)
-- Bump ctke to pick up latest kitchen-dokken. [#15635](https://github.com/chef/chef/pull/15635)
 - Removing the PowerShell package. [#15611](https://github.com/chef/chef/pull/15611)
 - Remove fauxhai from tests that don&#39;t need it. [#15624](https://github.com/chef/chef/pull/15624)
 - Allow for the hab binary path for all chef prefixed gems (chef-client, chef-zero, etc) to be found [#15625](https://github.com/chef/chef/pull/15625)
 - Some CI fixups. [#15621](https://github.com/chef/chef/pull/15621)
-- Workflow security hardening for kitchen [#15602](https://github.com/chef/chef/pull/15602)
 
 ### Dependency updates
 
 ### Security
+- FIPS Mode support is restored with this release.
 
 ### Known issues
-
+- SELinux is not supported in this release.
 
 
 ## Chef Infra Client 19.1.164
