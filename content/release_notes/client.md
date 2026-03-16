@@ -17,9 +17,9 @@ summary = "Chef Infra Client release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
-## Chef Infra Client 19.2.15
+## Chef Infra Client 19.2.12
 
-Release date: March 16, 2026
+Release date: March 17, 2026
 
 ### Compliance Phase
 
@@ -54,6 +54,7 @@ Release date: March 16, 2026
 ### Known issues
 
 - This release doesn't support SELinux.
+- Do Not install this version of Chef Infra Client on Chef Automate or Chef Server.
 
 ## Chef Infra Client 19.1.164
 
