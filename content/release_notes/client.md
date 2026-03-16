@@ -20,6 +20,7 @@ summary = "Chef Infra Client release notes"
 ## Chef Infra Client 19.1.164
 
 Release date: February 5, 2026
+{{< warning >}} Do not install this version of Chef Infra Client 19 on a server that already has Chef Automate installed. {{< /warning >}}
 
 ### Key features
 
