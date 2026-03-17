@@ -8524,21 +8524,29 @@ It's now possible to set `ETHTOOL_OPTS`, `BONDING_OPTS`, `MASTER` and `SLAVE` pr
 
 #### Properties
 
-- `ethtool_opts`<br>
-  **Ruby types:** String<br>
-  **Platforms:*- Fedora, RHEL, Amazon Linux A string containing arguments to ethtool. The string will be wrapped in double quotes, so ensure that any needed quotes in the property are surrounded by single quotes
+- `ethtool_opts`
 
-- `bonding_opts`<br>
-  **Ruby types:** String<br>
-  **Platforms:*- Fedora, RHEL, Amazon Linux A string containing configuration parameters for the bonding device.
+  **Ruby types:** String
 
-- `master`<br>
-  **Ruby types:** String<br>
-  **Platforms:*- Fedora, RHEL, Amazon Linux The channel bonding interface that this interface is linked to.
+  **Platforms:** Fedora, RHEL, Amazon Linux A string containing arguments to ethtool. The string will be wrapped in double quotes, so ensure that any needed quotes in the property are surrounded by single quotes
 
-- `slave`<br>
-  **Ruby types:** String<br>
-  **Platforms:*- Fedora, RHEL, Amazon Linux Whether the interface is controlled by the channel bonding interface defined by `master`, above.
+- `bonding_opts`
+
+  **Ruby types:** String
+
+  **Platforms:** Fedora, RHEL, Amazon Linux A string containing configuration parameters for the bonding device.
+
+- `master`
+
+  **Ruby types:** String
+
+  **Platforms:** Fedora, RHEL, Amazon Linux The channel bonding interface that this interface is linked to.
+
+- `slave`
+
+  **Ruby types:** String
+
+  **Platforms:** Fedora, RHEL, Amazon Linux Whether the interface is controlled by the channel bonding interface defined by `master`, above.
 
 ### Chef Vault is now included
 
@@ -8554,17 +8562,23 @@ The `remote_file` resource now supports the use of credentials on Windows when a
 
 The following properties are new for the `remote_file` resource:
 
-- `remote_user`<br>
-  **Ruby types:** String<br>
-  _Windows only:_ The user name of a user with access to the remote file specified by the `source` property. Default value: `nil`. The user name may optionally be specified with a domain, that is `domain\user` or `user@my.dns.domain.com` via Universal Principal Name (UPN) format. It can also be specified without a domain simply as `user` if the domain is instead specified using the `remote_domain` attribute. Note that this property is ignored if `source` isn't a UNC path. If this property is specified, the `remote_password` property *_must_- be specified.
+- `remote_user`
 
-- `remote_password`<br>
-  *_Ruby types_- String<br>
-  _Windows only:_ The password of the user specified by the `remote_user` property. Default value: `nil`. This property is mandatory if `remote_user` is specified and may only be specified if `remote_user` is specified. The `sensitive` property for this resource will automatically be set to `true` if `remote_password` is specified.
+  **Ruby types:** String
 
-- `remote_domain`<br>
-  *_Ruby types_- String<br>
-  _Windows only:_ The domain of the user user specified by the `remote_user` property. Default value: `nil`. If not specified, the user and password properties specified by the `remote_user` and `remote_password` properties will be used to authenticate that user against the domain in which the system hosting the UNC path specified via `source` is joined, or if that system isn't joined to a domain it will authenticate the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `remote_user` property.
+  Windows only: The user name of a user with access to the remote file specified by the `source` property. Default value: `nil`. The user name may optionally be specified with a domain, that is `domain\user` or `user@my.dns.domain.com` via Universal Principal Name (UPN) format. It can also be specified without a domain simply as `user` if the domain is instead specified using the `remote_domain` attribute. Note that this property is ignored if `source` isn't a UNC path. If this property is specified, the `remote_password` property must be specified.
+
+- `remote_password`
+
+  **Ruby types** String
+
+  Windows only: The password of the user specified by the `remote_user` property. Default value: `nil`. This property is mandatory if `remote_user` is specified and may only be specified if `remote_user` is specified. The `sensitive` property for this resource will automatically be set to `true` if `remote_password` is specified.
+
+- `remote_domain`
+
+  **Ruby types** String
+
+  Windows only: The domain of the user user specified by the `remote_user` property. Default value: `nil`. If not specified, the user and password properties specified by the `remote_user` and `remote_password` properties will be used to authenticate that user against the domain in which the system hosting the UNC path specified via `source` is joined, or if that system isn't joined to a domain it will authenticate the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `remote_user` property.
 
 #### Examples
 
@@ -8932,11 +8946,7 @@ In Chef/Ohai 14 (April 2018) we will remove support for loading Ohai v6 plugins,
 
 #### Blacklist Attributes
 
-<div class="admonition-warning">
-<p class="admonition-warning-title">Warning</p>
-<div class="admonition-warning-text">
-
-When attribute blacklist settings are used, any attribute defined in a
+**Warning**: When attribute blacklist settings are used, any attribute defined in a
 blacklist won't be saved and any attribute that isn't defined in a
 blacklist will be saved. Each attribute type is blacklisted
 independently of the other attribute types. For example, if
@@ -8947,9 +8957,6 @@ attributes, default attributes, and override attributes will be saved,
 as well as the automatic attributes that were not specifically excluded
 through blacklisting.
 
-</div>
-</div>
-
 Attributes that shouldn't be saved by a node may be blacklisted in the
 client.rb file. The blacklist is a Hash of keys that specify each
 attribute to be filtered out.
@@ -8959,49 +8966,23 @@ being blacklisted independently. Each attribute type---`automatic`,
 `default`, `normal`, and `override`---may define blacklists by using the
 following settings in the client.rb file:
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Setting</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>automatic_attribute_blacklist</code></td>
-<td>A hash that blacklists <code>automatic</code> attributes, preventing blacklisted attributes from being saved. For example: <code>['network/interfaces/eth0']</code>. Default value: <code>nil</code>, all attributes are saved. If the array is empty, all attributes are saved.</td>
-</tr>
-<tr>
-<td><code>default_attribute_blacklist</code></td>
-<td>A hash that blacklists <code>default</code> attributes, preventing blacklisted attributes from being saved. For example: <code>['filesystem/dev/disk0s2/size']</code>. Default value: <code>nil</code>, all attributes are saved. If the array is empty, all attributes are saved.</td>
-</tr>
-<tr>
-<td><code>normal_attribute_blacklist</code></td>
-<td>A hash that blacklists <code>normal</code> attributes, preventing blacklisted attributes from being saved. For example: <code>['filesystem/dev/disk0s2/size']</code>. Default value: <code>nil</code>, all attributes are saved. If the array is empty, all attributes are saved.</td>
-</tr>
-<tr>
-<td><code>override_attribute_blacklist</code></td>
-<td>A hash that blacklists <code>override</code> attributes, preventing blacklisted attributes from being saved. For example: <code>['map - autohome/size']</code>. Default value: <code>nil</code>, all attributes are saved. If the array is empty, all attributes are saved.</td>
-</tr>
-</tbody>
-</table>
+`automatic_attribute_blacklist`
+: A hash that blacklists `automatic` attributes, preventing blacklisted attributes from being saved. For example: `['network/interfaces/eth0']`. Default value: `nil`, all attributes are saved. If the array is empty, all attributes are saved.
 
-<div class="admonition-warning">
-<p class="admonition-warning-title">Warning</p>
-<div class="admonition-warning-text">
+`default_attribute_blacklist`
+: A hash that blacklists `default` attributes, preventing blacklisted attributes from being saved. For example: `['filesystem/dev/disk0s2/size']`. Default value: `nil`, all attributes are saved. If the array is empty, all attributes are saved.
 
-The recommended practice is to use only `automatic_attribute_blacklist`
+`normal_attribute_blacklist`
+: A hash that blacklists `normal` attributes, preventing blacklisted attributes from being saved. For example: `['filesystem/dev/disk0s2/size']`. Default value: `nil`, all attributes are saved. If the array is empty, all attributes are saved.
+
+`override_attribute_blacklist`
+: A hash that blacklists `override` attributes, preventing blacklisted attributes from being saved. For example: `['map - autohome/size']`. Default value: `nil`, all attributes are saved. If the array is empty, all attributes are saved.
+
+**Warning**: The recommended practice is to use only `automatic_attribute_blacklist`
 for blacklisting attributes. This is primarily because automatic
 attributes generate the most data, but also that normal, default, and
 override attributes are typically much more important attributes and are
 more likely to cause issues if they're blacklisted incorrectly.
-
-</div>
-</div>
 
 For example, automatic attribute data similar to:
 
@@ -9615,7 +9596,9 @@ The following properties are new or updated for the `execute`, `script`, `batch`
 
 `password`
 
-:   **Ruby types** String _Windows only:_ The password of the user
+:   **Ruby types** String
+
+    Windows only: The password of the user
     specified by the `user` property. This property is mandatory if
     `user` is specified on Windows and may only be specified if `user`
     is specified. The `sensitive` property for this resource will
@@ -9623,7 +9606,9 @@ The following properties are new or updated for the `execute`, `script`, `batch`
 
 `domain`
 
-:   **Ruby types** String _Windows only:_ The domain of the user
+:   **Ruby types** String
+
+    Windows only: The domain of the user
     specified by the `user` property. If not specified, the user name
     and password specified by the `user` and `password` properties will
     be used to resolve that user against the domain in which the system
@@ -9890,14 +9875,7 @@ client configuration. If you don't have Chef Automate, or the feature
 is disabled on the Chef server, Chef client will detect this and disable
 data collection.
 
-<div class="admonition-note">
-<p class="admonition-note-title">Note</p>
-<div class="admonition-note-text">
-
-Chef Infra Server 12.11.0 or newer is required for this feature.
-
-</div>
-</div>
+**Note**: Chef Infra Server 12.11.0 or newer is required for this feature.
 
 ### RFC018 Partially Implemented: Specify `--field-separator` for attribute filtering
 
@@ -9983,14 +9961,7 @@ cab_package 'Remove .NET 3.5 sp1 via KB958488' do
 end
 ```
 
-<div class="admonition-note">
-<p class="admonition-note-title">Note</p>
-<div class="admonition-note-text">
-
-The `cab_package` resource doesn't support URL strings in the source property.
-
-</div>
-</div>
+**Note**: The `cab_package` resource doesn't support URL strings in the source property.
 
 ### exit code 213
 
@@ -10143,14 +10114,7 @@ The `write!` method is also an autovivifying method to set an attribute
 value on a node object; however, it will throw an NoSuchAttribute
 exception if there is a non-hash on an intermediate key.
 
-<div class="admonition-note">
-<p class="admonition-note-title">Note</p>
-<div class="admonition-note-text">
-
-There is currently no non-autovivifying writer method for attributes.
-
-</div>
-</div>
+**Note**: There is currently no non-autovivifying writer method for attributes.
 
 On the node level, `node.default.write/write!("foo", "bar")` is
 equivalent to `node.write/write!(:default, "foo", "bar")`.
@@ -10215,16 +10179,9 @@ converted to `1` or `GENERIC_FAILURE`. This setting can also be set to
 `:disabled` which preserves the old behavior of using non-standardized
 exit codes and skips the deprecation warnings. Default value: `nil`.
 
-<div class="admonition-note">
-<p class="admonition-note-title">Note</p>
-<div class="admonition-note-text">
-
-The behavior with the default value consists of a warning on the use of
+**Note**: The behavior with the default value consists of a warning on the use of
 deprecated and non-standard exit codes. In a future release of Chef
 client, using standardized exit codes will be the default behavior.
-
-</div>
-</div>
 
 ### Data collector
 
@@ -10865,16 +10822,9 @@ including certain ciphers and hashing algorithms. Any attempt to use any
 disallowed cryptography will cause Chef Infra Client to throw an exception
 during a chef-client run.
 
-<div class="admonition-note">
-<p class="admonition-note-title">Note</p>
-<div class="admonition-note-text">
-
-Chef uses MD5 hashes to uniquely identify files that are stored on the
+**Note**: Chef uses MD5 hashes to uniquely identify files that are stored on the
 Chef server. MD5 is used only to generate a unique hash identifier and
 isn't used for any cryptographic purpose.
-
-</div>
-</div>
 
 Notes about FIPS:
 
@@ -10959,15 +10909,8 @@ configuration file. The `config.rb`, `company_settings.rb`, and
 `ec2_configuration` files are merged together as if they're a single
 configuration file.
 
-<div class="admonition-note">
-<p class="admonition-note-title">Note</p>
-<div class="admonition-note-text">
-
-If multiple configuration files exists in a `.d` directory, ensure that
+**Note**: If multiple configuration files exists in a `.d` directory, ensure that
 the same setting has the same value in all files.
-
-</div>
-</div>
 
 ### launchd
 
@@ -12282,17 +12225,10 @@ are executed with this resource are (by their nature) not idempotent, as
 they're typically unique to the environment in which they're run. Use
 `not_if` and `only_if` to guard this resource for idempotence.
 
-<div class="admonition-note">
-<p class="admonition-note-title">Note</p>
-<div class="admonition-note-text">
-
-The **ksh** script resource (which is based on the **script** resource)
+**Note**: The **ksh** script resource (which is based on the **script** resource)
 is different from the **ruby_block** resource because Ruby code that's
 run with this resource is created as a temporary file and executed like
 other script resources, rather than run inline.
-
-</div>
-</div>
 
 #### Syntax
 
@@ -12405,16 +12341,9 @@ The ksh resource has the following properties:
 
 `path`
 
-:   <div class="admonition-warning">
-    <p class="admonition-warning-title">Warning</p>
-    <div class="admonition-warning-text">
-
-    The `path` property has been deprecated and will throw an exception
+:   **Warning**: The `path` property has been deprecated and will throw an exception
     in Chef Infra Client 12 or later. We recommend you use the `environment`
     property instead.
-
-    </div>
-    </div>
 
     **Ruby Type:** Array
 
@@ -12466,98 +12395,72 @@ Using the **dsc_resource** has the following requirements:
     which includes Windows PowerShell 5.0.10018.0 (or higher).
 
 - The `RefreshMode` configuration setting in the Local Configuration
-    Manager must be set to `Disabled`.
+  Manager must be set to `Disabled`.
 
-    <div class="admonition-note">
-    <p class="admonition-note-title">Note</p>
-    <div class="admonition-note-text">
-
-    Starting with Chef Infra Client 12.6 release, this requirement applies
-    only for versions of Windows PowerShell earlier than 5.0.10586.0.
-    The latest version of Windows Management Framework (WMF) 5 has
-    relaxed the limitation that prevented Chef Infra Client from running in
-    non-disabled refresh mode.
-
-    </div>
-    </div>
+  **Note**: Starting with Chef Infra Client 12.6 release, this requirement applies
+  only for versions of Windows PowerShell earlier than 5.0.10586.0.
+  The latest version of Windows Management Framework (WMF) 5 has
+  relaxed the limitation that prevented Chef Infra Client from running in
+  non-disabled refresh mode.
 
 - The **dsc_script** resource may not be used in the same run-list
-    with the **dsc_resource**. This is because the **dsc_script**
-    resource requires that `RefreshMode` in the Local Configuration
-    Manager be set to `Push`, whereas the **dsc_resource** resource
-    requires it to be set to `Disabled`.
+  with the **dsc_resource**. This is because the **dsc_script**
+  resource requires that `RefreshMode` in the Local Configuration
+  Manager be set to `Push`, whereas the **dsc_resource** resource
+  requires it to be set to `Disabled`.
 
-    <div class="admonition-note">
-    <p class="admonition-note-title">Note</p>
-    <div class="admonition-note-text">
-
-    Starting with Chef Infra Client 12.6 release, this requirement applies
-    only for versions of Windows PowerShell earlier than 5.0.10586.0.
-    The latest version of Windows Management Framework (WMF) 5 has
-    relaxed the limitation that prevented Chef Infra Client from running in
-    non-disabled refresh mode, which allows the Local Configuration
-    Manager to be set to `Push`.
-
-    </div>
-    </div>
+  **Note**: Starting with Chef Infra Client 12.6 release, this requirement applies
+  only for versions of Windows PowerShell earlier than 5.0.10586.0.
+  The latest version of Windows Management Framework (WMF) 5 has
+  relaxed the limitation that prevented Chef Infra Client from running in
+  non-disabled refresh mode, which allows the Local Configuration
+  Manager to be set to `Push`.
 
 - The **dsc_resource** resource can only use binary- or script-based
-    resources. Composite DSC resources may not be used.
+  resources. Composite DSC resources may not be used.
 
-    This is because composite resources aren't "real" resources from the
-    perspective of the Local Configuration Manager (LCM). Composite
-    resources are used by the "configuration" keyword from the
-    `PSDesiredStateConfiguration` module, and then evaluated in that
-    context. When using DSC to create the configuration document (the
-    Managed Object Framework (MOF) file) from the configuration command,
-    the composite resource is evaluated. Any individual resources from
-    that composite resource are written into the Managed Object
-    Framework (MOF) document. As far as the Local Configuration Manager
-    (LCM) is concerned, there is no such thing as a composite resource.
-    Unless that changes, the **dsc_resource** resource and/or
-    `Invoke-DscResource` command can't directly use them.
+  This is because composite resources aren't "real" resources from the
+  perspective of the Local Configuration Manager (LCM). Composite
+  resources are used by the "configuration" keyword from the
+  `PSDesiredStateConfiguration` module, and then evaluated in that
+  context. When using DSC to create the configuration document (the
+  Managed Object Framework (MOF) file) from the configuration command,
+  the composite resource is evaluated. Any individual resources from
+  that composite resource are written into the Managed Object
+  Framework (MOF) document. As far as the Local Configuration Manager
+  (LCM) is concerned, there is no such thing as a composite resource.
+  Unless that changes, the **dsc_resource** resource and/or
+  `Invoke-DscResource` command can't directly use them.
 
 ### New metadata.rb Settings
 
 The following settings are new for metadata.rb:
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Setting</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><p><code>chef_version</code></p></td>
-<td><p>A range of chef-client versions that are supported by this cookbook.</p>
-<p>For example, to match any 12.x version of the chef-client, but not 11.x or 13.x:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>chef_version <span class="st">&#39;~&gt; 12&#39;</span></span></code></pre></div>
-<p>A more complex example where you set both a lower and upper bound of Chef Infra Client version:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>chef_version <span class="st">&quot;&gt;= 14.2.1&quot;</span>, <span class="st">&quot;&lt; 14.5.1&quot;</span></span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>ohai_version</code></p></td>
-<td><p>A range of chef-client versions that are supported by this cookbook.</p>
-<p>For example, to match any 8.x version of Ohai, but not 7.x or 9.x:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>ohai_version <span class="st">&quot;~&gt; 8&quot;</span></span></code></pre></div></td>
-</tr>
-</tbody>
-</table>
+`chef_version`
+: A range of chef-client versions that are supported by this cookbook.
 
-<div class="admonition-note">
-<p class="admonition-note-title">Note</p>
-<div class="admonition-note-text">
+  For example, to match any 12.x version of the chef-client, but not 11.x or 13.x:
 
-These settings aren't visible in Chef Supermarket.
+  ```ruby
+  chef_version '~> 12'
+  ```
 
-</div>
-</div>
+  A more complex example where you set both a lower and upper bound of Chef Infra Client version:
+
+  ```ruby
+  chef_version ">= 14.2.1", "< 14.5.1"
+  ```
+
+`ohai_version`
+: A range of chef-client versions that are supported by this cookbook.
+
+  For example, to match any 8.x version of Ohai, but not 7.x or 9.x:
+
+  ```ruby
+  ohai_version "~> 8"
+  ```
+
+**Note**: These settings aren't visible in Chef Supermarket.
 
 ### knife bootstrap Options
 
@@ -12650,15 +12553,8 @@ For example, Chef includes built-in resources to manage files, packages,
 templates, and services, but it doesn't include a resource that manages
 websites.
 
-<div class="admonition-note">
-<p class="admonition-note-title">Note</p>
-<div class="admonition-note-text">
-
-See our documentation on [custom resources](https://docs.chef.io/custom_resources/) for more information about custom resources,
+**Note**: See our documentation on [custom resources](https://docs.chef.io/custom_resources/) for more information about custom resources,
 including a scenario that shows how to build a `website` resource.
-
-</div>
-</div>
 
 #### Syntax
 
@@ -12689,17 +12585,10 @@ end
 
 where the first action listed is the default action.
 
-<div class="admonition-warning">
-<p class="admonition-warning-title">Warning</p>
-<div class="admonition-warning-text">
-
-Don't use existing keywords from Chef Infra Client resource system in a
+**Warning**: Don't use existing keywords from Chef Infra Client resource system in a
 custom resource, like "name". For example, `property :property_name` in
 the following invalid syntax:
 `property :name, String, default: 'thename'`.
-
-</div>
-</div>
 
 This example `site` utilizes Chef's built in `file`, `service` and
 `package` resources, and includes `:create` and `:delete` actions. Since
@@ -13143,59 +13032,71 @@ property :gggg, [Array, Hash]
 A validation parameter is used to add zero (or more) validation
 parameters to a property.
 
-<table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 75%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><p><code>:callbacks</code></p></td>
-<td><p>Use to define a collection of unique keys and values (a ruby hash) for which the key is the error message and the value is a lambda to validate the parameter. For example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a><span class="st">callbacks: </span>{</span>
-<span id="cb1-2"><a href="#cb1-2"></a>             <span class="st">&#39;should be a valid non-system port&#39;</span> =&gt; lambda {</span>
-<span id="cb1-3"><a href="#cb1-3"></a>               |p| p &gt; <span class="dv">1024</span> &amp;&amp; p &lt; <span class="dv">65535</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a>             }</span>
-<span id="cb1-5"><a href="#cb1-5"></a>           }</span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>:default</code></p></td>
-<td><p>Use to specify the default value for a property. For example:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a><span class="st">default: &#39;a_string_value&#39;</span></span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a><span class="st">default: </span><span class="dv">123456789</span></span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a href="#cb4-1"></a><span class="st">default: </span>[]</span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb5-1"><a href="#cb5-1"></a><span class="st">default: </span>()</span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb6-1"><a href="#cb6-1"></a><span class="st">default: </span>{}</span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>:equal_to</code></p></td>
-<td><p>Use to match a value with <code>==</code>. Use an array of values to match any of those values with <code>==</code>. For example:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb7-1"><a href="#cb7-1"></a><span class="st">equal_to: </span>[<span class="dv">true</span>, <span class="dv">false</span>]</span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb8-1"><a href="#cb8-1"></a><span class="st">equal_to: </span>[<span class="st">&#39;php&#39;</span>, <span class="st">&#39;perl&#39;</span>]</span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>:regex</code></p></td>
-<td><p>Use to match a value to a regular expression. For example:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb9-1"><a href="#cb9-1"></a><span class="st">regex: </span>[ <span class="ot">/^([a-z]|[A-Z]|[0-9]|_|-)+$/</span>, <span class="ot">/^\d+$/</span> ]</span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>:required</code></p></td>
-<td><p>Indicates that a property is required. For example:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb10-1"><a href="#cb10-1"></a><span class="st">required: </span><span class="dv">true</span></span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>:respond_to</code></p></td>
-<td><p>Use to ensure that a value has a given method. This can be a single method name or an array of method names. For example:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb11-1"><a href="#cb11-1"></a><span class="st">respond_to: </span>valid_encoding?</span></code></pre></div></td>
-</tr>
-</tbody>
-</table>
+`:callbacks`
+: Use to define a collection of unique keys and values (a ruby hash) for which the key is the error message and the value is a lambda to validate the parameter. For example:
+
+  ```ruby
+  callbacks: {
+               'should be a valid non-system port' => lambda {
+                 |p| p > 1024 && p < 65535
+               }
+             }
+  ```
+
+`:default`
+: Use to specify the default value for a property. For example:
+
+  ```ruby
+  default: 'a_string_value'
+  ```
+
+  ```ruby
+  default: 123456789
+  ```
+
+  ```ruby
+  default: []
+  ```
+
+  ```ruby
+  default: ()
+  ```
+
+  ```ruby
+  default: {}
+  ```
+
+`:equal_to`
+: Use to match a value with `==`. Use an array of values to match any of those values with `==`. For example:
+
+  ```ruby
+  equal_to: [true, false]
+  ```
+
+  ```ruby
+  equal_to: ['php', 'perl']
+  ```
+
+`:regex`
+: Use to match a value to a regular expression. For example:
+
+  ```ruby
+  regex: [ /^([a-z]|[A-Z]|[0-9]|_|-)+$/, /^\d+$/ ]
+  ```
+
+`:required`
+: Indicates that a property is required. For example:
+
+  ```ruby
+  required: true
+  ```
+
+`:respond_to`
+: Use to ensure that a value has a given method. This can be a single method name or an array of method names. For example:
+
+  ```ruby
+  respond_to: valid_encoding?
+  ```
 
 Some examples of combining validation parameters:
 
@@ -13550,15 +13451,8 @@ Chef Infra Client run fails. This will require:
 - A way to trigger the exception and test the behavior of the event
     handler
 
-<div class="admonition-note">
-<p class="admonition-note-title">Note</p>
-<div class="admonition-note-text">
-
-See our documentation on the <a href="https://docs.chef.io/dsl_handler/">Handler DSL</a> for more information about using event handlers
+**Note**: See our documentation on the [Handler DSL](https://docs.chef.io/dsl_handler/) for more information about using event handlers
 in recipes.
-
-</div>
-</div>
 
 **Define How Email is Sent**
 
@@ -13624,25 +13518,10 @@ end
 
 The following property is new for the **deploy** resource:
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Property</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><p><code>depth</code></p></td>
-<td><p><strong>Ruby Type:</strong> Integer</p>
-<p>The depth of a git repository, truncated to the specified number of revisions.</p></td>
-</tr>
-</tbody>
-</table>
+`depth`
+: **Ruby Type:** Integer
+
+  The depth of a git repository, truncated to the specified number of revisions.
 
 ### Specify Policy Revision
 
@@ -13664,60 +13543,25 @@ where the JSON file is similar to:
 Or use the following settings to specify a policy revision in the
 client.rb file:
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Setting</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>policy_group</code></td>
-<td>The name of a policy group that exists on the Chef server.</td>
-</tr>
-<tr>
-<td><code>policy_name</code></td>
-<td>The name of a policy, as identified by the <code>name</code> setting in a Policyfile.rb file.</td>
-</tr>
-</tbody>
-</table>
+`policy_group`
+: The name of a policy group that exists on the Chef server.
+
+`policy_name`
+: The name of a policy, as identified by the `name` setting in a Policyfile.rb file.
 
 ### New Configuration Settings
 
 The following settings are new for the client.rb file and enable the use
 of policy files:
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Setting</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>named_run_list</code></td>
-<td>The run-list associated with a policy file.</td>
-</tr>
-<tr>
-<td><code>policy_group</code></td>
-<td>The name of a policy group that exists on the Chef server. (See "Specify Policy Revision" in this readme for more information.)</td>
-</tr>
-<tr>
-<td><code>policy_name</code></td>
-<td>The name of a policy, as identified by the <code>name</code> setting in a Policyfile.rb file. (See "Specify Policy Revision" in this readme for more information.)</td>
-</tr>
-</tbody>
-</table>
+`named_run_list`
+: The run-list associated with a policy file.
+
+`policy_group`
+: The name of a policy group that exists on the Chef server. (See "Specify Policy Revision" in this readme for more information.)
+
+`policy_name`
+: The name of a policy, as identified by the `name` setting in a Policyfile.rb file. (See "Specify Policy Revision" in this readme for more information.)
 
 ### chef-client Options
 
@@ -13736,28 +13580,11 @@ enable the use of policy files:
     Use this option to use policy files by specifying a JSON file that
     contains the following settings:
 
-    <table>
-    <colgroup>
-    <col style="width: 40%" />
-    <col style="width: 60%" />
-    </colgroup>
-    <thead>
-    <tr class="header">
-    <th>Setting</th>
-    <th>Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-    <td><code>policy_group</code></td>
-    <td>The name of a policy group that exists on the Chef server.</td>
-    </tr>
-    <tr>
-    <td><code>policy_name</code></td>
-    <td>The name of a policy, as identified by the <code>name</code> setting in a Policyfile.rb file.</td>
-    </tr>
-    </tbody>
-    </table>
+    `policy_group`
+    : The name of a policy group that exists on the Chef server.
+
+    `policy_name`
+    : The name of a policy, as identified by the `name` setting in a Policyfile.rb file.
 
     For example:
 
@@ -13773,16 +13600,9 @@ enable the use of policy files:
 
     Use this option to set the `chef_environment` value for a node.
 
-    <div class="admonition-note">
-    <p class="admonition-note-title">Note</p>
-    <div class="admonition-note-text">
-
-    Any environment specified for `chef_environment` by a JSON file will
+    **Note**: Any environment specified for `chef_environment` by a JSON file will
     take precedence over an environment specified by the `--environment`
     option when both options are part of the same command.
-
-    </div>
-    </div>
 
     For example, run the following:
 
@@ -13937,24 +13757,8 @@ Remove-Module chef
 
 The following settings have changed:
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Setting</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>log_location</code></td>
-<td>The location of the log file. Possible values: <code>/path/to/log_location</code>, <code>STDOUT</code>, <code>STDERR</code>, <code>Chef::Log::WinEvt.new</code> (Windows Event Logger), or <code>Chef::Log::Syslog.new("chef-client", ::Syslog::LOG_DAEMON)</code> (writes to the syslog daemon facility with the originator set as <code>chef-client</code>). The application log will specify the source as <code>Chef</code>. Default value: <code>STDOUT</code>.</td>
-</tr>
-</tbody>
-</table>
+`log_location`
+: The location of the log file. Possible values: `/path/to/log_location`, `STDOUT`, `STDERR`, `Chef::Log::WinEvt.new` (Windows Event Logger), or `Chef::Log::Syslog.new("chef-client", ::Syslog::LOG_DAEMON)` (writes to the syslog daemon facility with the originator set as `chef-client`). The application log will specify the source as `Chef`. Default value: `STDOUT`.
 
 ### **windows_package** Updates
 
@@ -13962,32 +13766,14 @@ The **windows_package** resource has two new attributes (`checksum` and
 `remote_file_attributes`) and the `source` attribute now supports using
 a URL:
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>checksum</code></td>
-<td>The SHA-256 checksum of the file. Use to prevent a file from being re-downloaded. When the local file matches the checksum, Chef Infra Client doesn't download it. Use when a URL is specified by the <code>source</code> attribute.</td>
-</tr>
-<tr>
-<td><code>remote_file_attributes</code></td>
-<td>A package at a remote location define as a Hash of properties that modifies the properties of the <strong>remote_file</strong> resource.</td>
-</tr>
-<tr>
-<td><code>source</code></td>
-<td>Optional. The path to a package in the local file system. The location of the package may be at a URL. Default value: the <code>name</code> of the resource block. See "Syntax" section above for more information.</td>
-</tr>
-</tbody>
-</table>
+`checksum`
+: The SHA-256 checksum of the file. Use to prevent a file from being re-downloaded. When the local file matches the checksum, Chef Infra Client doesn't download it. Use when a URL is specified by the `source` attribute.
+
+`remote_file_attributes`
+: A package at a remote location define as a Hash of properties that modifies the properties of the **remote_file** resource.
+
+`source`
+: Optional. The path to a package in the local file system. The location of the package may be at a URL. Default value: the `name` of the resource block. See "Syntax" section above for more information.
 
 Examples:
 
@@ -14331,20 +14117,13 @@ This argument has the following options:
 :   Create a user without a public key. This key may be managed later by
     using the `knife user key` subcommands.
 
-    <div class="admonition-warning">
-    <p class="admonition-warning-title">Warning</p>
-    <div class="admonition-warning-text">
-
-    This option is valid only with Chef server API, version 1.0, which
+    **Warning**: This option is valid only with Chef server API, version 1.0, which
     was released with Chef server 12.1. If this option or the
     `--user-key` option aren't passed in the command, the Chef server
     will create a user with a public key named `default` and will return
     the private key. For the Chef server versions earlier than 12.1,
     this option won't work; a public key is always generated unless
     `--user-key` is passed in the command.
-
-    </div>
-    </div>
 
 `-p FILE`, `--public-key FILE`
 
@@ -14378,20 +14157,13 @@ This argument has the following options:
 :   Create a user without a public key. This key may be managed later by
     using the `knife user key` subcommands.
 
-    <div class="admonition-note">
-    <p class="admonition-note-title">Note</p>
-    <div class="admonition-note-text">
-
-    This option is valid only with Chef server API, version 1.0, which
+    **Note**: This option is valid only with Chef server API, version 1.0, which
     was released with Chef server 12.1. If this option or the
     `--user-key` option aren't passed in the command, the Chef server
     will create a user with a public key named `default` and will return
     the private key. For the Chef server versions earlier than 12.1,
     this option won't work; a public key is always generated unless
     `--user-key` is passed in the command.
-
-    </div>
-    </div>
 
 `-p PASSWORD`, `--password PASSWORD`
 
@@ -14428,24 +14200,8 @@ Use the following command-line option:
 
 Or add the following setting to the client.rb file:
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Setting</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>listen</code></td>
-<td>Run chef-zero in socketless mode. Set to <code>false</code> to disable port binding and HTTP requests on localhost.</td>
-</tr>
-</tbody>
-</table>
+`listen`
+: Run chef-zero in socketless mode. Set to `false` to disable port binding and HTTP requests on localhost.
 
 ### Minimal Ohai
 
@@ -14531,20 +14287,13 @@ Using the **dsc_resource** has the following requirements:
     which includes Windows PowerShell 5.0.10018.0 (or higher).
 
 - The `RefreshMode` configuration setting in the Local Configuration
-    Manager must be set to `Disabled`.
+  Manager must be set to `Disabled`.
 
-    <div class="admonition-note">
-    <p class="admonition-note-title">Note</p>
-    <div class="admonition-note-text">
-
-    Starting with Chef Infra Client 12.6 release, the `RefreshMode: Disabled`
-    requirement applies only for versions of Windows PowerShell earlier
-    than 5.0.10586.0. The latest version of Windows Management Framework
-    (WMF) 5 has relaxed the limitation that prevented Chef Infra Client from
-    running in non-disabled refresh mode.
-
-    </div>
-    </div>
+  **Note**: Starting with Chef Infra Client 12.6 release, the `RefreshMode: Disabled`
+  requirement applies only for versions of Windows PowerShell earlier
+  than 5.0.10586.0. The latest version of Windows Management Framework
+  (WMF) 5 has relaxed the limitation that prevented Chef Infra Client from
+  running in non-disabled refresh mode.
 
 - The **dsc_script** resource may not be used in the same run-list
     with the **dsc_resource**. This is because the **dsc_script**
@@ -14677,48 +14426,26 @@ This resource has the following properties:
 
     Use the following Ruby types to define `property_value`:
 
-    <table>
-    <colgroup>
-    <col style="width: 50%" />
-    <col style="width: 50%" />
-    </colgroup>
-    <thead>
-    <tr class="header">
-    <th>Ruby</th>
-    <th>Windows PowerShell</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-    <td><code>Array</code></td>
-    <td><code>Object[]</code></td>
-    </tr>
-    <tr>
-    <td><code>Chef::Util::Powershell:PSCredential</code></td>
-    <td><code>PSCredential</code></td>
-    </tr>
-    <tr>
-    <td><code>False</code></td>
-    <td><code>bool($false)</code></td>
-    </tr>
-    <tr>
-    <td><code>Fixnum</code></td>
-    <td><code>Integer</code></td>
-    </tr>
-    <tr>
-    <td><code>Float</code></td>
-    <td><code>Double</code></td>
-    </tr>
-    <tr>
-    <td><code>Hash</code></td>
-    <td><code>Hashtable</code></td>
-    </tr>
-    <tr>
-    <td><code>True</code></td>
-    <td><code>bool($true)</code></td>
-    </tr>
-    </tbody>
-    </table>
+    `Array`
+    : `Object[]`
+
+    `Chef::Util::Powershell:PSCredential`
+    : `PSCredential`
+
+    `False`
+    : `bool($false)`
+
+    `Fixnum`
+    : `Integer`
+
+    `Float`
+    : `Double`
+
+    `Hash`
+    : `Hashtable`
+
+    `True`
+    : `bool($true)`
 
     These are converted into the corresponding Windows PowerShell type
     during Chef Infra Client run.
@@ -14732,72 +14459,44 @@ This resource has the following properties:
 
     For built-in DSC resources, use the following values:
 
-    <table>
-    <colgroup>
-    <col style="width: 50%" />
-    <col style="width: 50%" />
-    </colgroup>
-    <thead>
-    <tr class="header">
-    <th>Value</th>
-    <th>Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-    <td><code>:archive</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/archiveresource">unpack archive (.zip) files</a>.</td>
-    </tr>
-    <tr>
-    <td><code>:environment</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/environmentresource">manage system environment variables</a>.</td>
-    </tr>
-    <tr>
-    <td><code>:file</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/fileresource">manage files and directories</a>.</td>
-    </tr>
-    <tr>
-    <td><code>:group</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/groupresource">manage local groups</a>.</td>
-    </tr>
-    <tr>
-    <td><code>:log</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/logresource">log configuration messages</a>.</td>
-    </tr>
-    <tr>
-    <td><code>:package</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/packageresource">install and manage packages</a>.</td>
-    </tr>
-    <tr>
-    <td><code>:registry</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/registryresource">manage registry keys and registry key values</a>.</td>
-    </tr>
-    <tr>
-    <td><code>:script</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/scriptresource">run PowerShell script blocks</a>.</td>
-    </tr>
-    <tr>
-    <td><code>:service</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/serviceresource">manage services</a>.</td>
-    </tr>
-    <tr>
-    <td><code>:user</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/userresource">manage local user accounts</a>.</td>
-    </tr>
-    <tr>
-    <td><code>:windowsfeature</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/windowsfeatureresource">add or remove Windows features and roles</a>.</td>
-    </tr>
-    <tr>
-    <td><code>:windowsoptionalfeature</code></td>
-    <td>Use to configure Microsoft Windows optional features.</td>
-    </tr>
-    <tr>
-    <td><code>:windowsprocess</code></td>
-    <td>Use to <a href="https://msdn.microsoft.com/en-us/powershell/dsc/windowsprocessresource">configure Windows processes</a>.</td>
-    </tr>
-    </tbody>
-    </table>
+    `:archive`
+    : Use to [unpack archive (.zip) files](https://msdn.microsoft.com/en-us/powershell/dsc/archiveresource).
+
+    `:environment`
+    : Use to [manage system environment variables](https://msdn.microsoft.com/en-us/powershell/dsc/environmentresource).
+
+    `:file`
+    : Use to [manage files and directories](https://msdn.microsoft.com/en-us/powershell/dsc/fileresource).
+
+    `:group`
+    : Use to [manage local groups](https://msdn.microsoft.com/en-us/powershell/dsc/groupresource).
+
+    `:log`
+    : Use to [log configuration messages](https://msdn.microsoft.com/en-us/powershell/dsc/logresource).
+
+    `:package`
+    : Use to [install and manage packages](https://msdn.microsoft.com/en-us/powershell/dsc/packageresource).
+
+    `:registry`
+    : Use to [manage registry keys and registry key values](https://msdn.microsoft.com/en-us/powershell/dsc/registryresource).
+
+    `:script`
+    : Use to [run PowerShell script blocks](https://msdn.microsoft.com/en-us/powershell/dsc/scriptresource).
+
+    `:service`
+    : Use to [manage services](https://msdn.microsoft.com/en-us/powershell/dsc/serviceresource).
+
+    `:user`
+    : Use to [manage local user accounts](https://msdn.microsoft.com/en-us/powershell/dsc/userresource).
+
+    `:windowsfeature`
+    : Use to [add or remove Windows features and roles](https://msdn.microsoft.com/en-us/powershell/dsc/windowsfeatureresource).
+
+    `:windowsoptionalfeature`
+    : Use to configure Microsoft Windows optional features.
+
+    `:windowsprocess`
+    : Use to [configure Windows processes](https://msdn.microsoft.com/en-us/powershell/dsc/windowsprocessresource).
 
     Any DSC resource may be used in a Chef recipe. For example, the DSC
     Resource Kit contains resources for [configuring Active Directory
@@ -15014,40 +14713,20 @@ detail each of those stages.
 
 When Chef Infra Client is run in audit-mode, the following happens:
 
-<table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 75%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Stages</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>chef-client Run ID</strong></td>
-<td>Chef Infra Client run identifier is associated with each audit.</td>
-</tr>
-<tr>
-<td><strong>Configure the Node</strong></td>
-<td>If audit-mode is run as part of the full chef-client run, audit-mode occurs after Chef Infra Client has finished converging all resources in the resource collection.</td>
-</tr>
-<tr>
-<td><strong>Audit node based on controls in cookbooks</strong></td>
-<td>Each <code>control_group</code> and <code>control</code> block found in any recipe that was part of the run-list of for the node is evaluated, with each expression in each <code>control</code> block verified against the state of the node.</td>
-</tr>
-<tr>
-<td><strong>Upload audit data to the Chef server</strong></td>
-<td>When audit-mode mode is complete, the data is uploaded to the Chef server.</td>
-</tr>
-<tr>
-<td><strong>Send to Chef Analytics</strong></td>
-<td>Most of this data is passed to the Chef Analytics platform for further analysis, such as rules processing (for notification events triggered by expected or unexpected audit outcomes) and visibility from the actions web user interface.</td>
-</tr>
-</tbody>
-</table>
+**chef-client Run ID**
+: Chef Infra Client run identifier is associated with each audit.
+
+**Configure the Node**
+: If audit-mode is run as part of the full chef-client run, audit-mode occurs after Chef Infra Client has finished converging all resources in the resource collection.
+
+**Audit node based on controls in cookbooks**
+: Each `control_group` and `control` block found in any recipe that was part of the run-list of for the node is evaluated, with each expression in each `control` block verified against the state of the node.
+
+**Upload audit data to the Chef server**
+: When audit-mode mode is complete, the data is uploaded to the Chef server.
+
+**Send to Chef Analytics**
+: Most of this data is passed to the Chef Analytics platform for further analysis, such as rules processing (for notification events triggered by expected or unexpected audit outcomes) and visibility from the actions web user interface.
 
 ### control
 
@@ -15100,52 +14779,51 @@ and if it's linked to. This matcher uses the same matching
 syntax---`expect(file('foo'))`---as the files. The following matchers
 are available for directories:
 
-<table>
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 87%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Matcher</th>
-<th>Description, Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><p><code>be_directory</code></p></td>
-<td><p>Use to test if directory exists. For example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>it <span class="st">&#39;should be a directory&#39;</span> <span class="kw">do</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>  expect(file(<span class="st">&#39;/var/directory&#39;</span>)).to be_directory</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">end</span></span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>be_linked_to</code></p></td>
-<td><p>Use to test if a subject is linked to the named directory. For example:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>it <span class="st">&#39;should be linked to the named directory&#39;</span> <span class="kw">do</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>  expect(file(<span class="st">&#39;/etc/directory&#39;</span>)).to be_linked_to(<span class="st">&#39;/etc/some/other/directory&#39;</span>)</span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">end</span></span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>be_mounted</code></p></td>
-<td><p>Use to test if a directory is mounted. For example:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>it <span class="st">&#39;should be mounted&#39;</span> <span class="kw">do</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a>  expect(file(<span class="ch">&#39;/&#39;</span>)).to be_mounted</span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">end</span></span></code></pre></div>
-<p>For directories with a single attribute that requires testing:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a href="#cb4-1"></a>it <span class="st">&#39;should be mounted with an ext4 partition&#39;</span> <span class="kw">do</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a>  expect(file(<span class="ch">&#39;/&#39;</span>)).to be_mounted.with( <span class="st">:type</span> =&gt; <span class="st">&#39;ext4&#39;</span> )</span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="kw">end</span></span></code></pre></div>
-<p>For directories with multiple attributes that require testing:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb5-1"><a href="#cb5-1"></a>it <span class="st">&#39;should be mounted only with certain attributes&#39;</span> <span class="kw">do</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>  expect(file(<span class="ch">&#39;/&#39;</span>)).to be_mounted.only_with(</span>
-<span id="cb5-3"><a href="#cb5-3"></a>    <span class="st">:attribute</span> =&gt; <span class="st">&#39;value&#39;</span>,</span>
-<span id="cb5-4"><a href="#cb5-4"></a>    <span class="st">:attribute</span> =&gt; <span class="st">&#39;value&#39;</span>,</span>
-<span id="cb5-5"><a href="#cb5-5"></a>)</span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="kw">end</span></span></code></pre></div></td>
-</tr>
-</tbody>
-</table>
+`be_directory`
+: Use to test if directory exists. For example:
+
+  ```ruby
+  it 'should be a directory' do
+    expect(file('/var/directory')).to be_directory
+  end
+  ```
+
+`be_linked_to`
+: Use to test if a subject is linked to the named directory. For example:
+
+  ```ruby
+  it 'should be linked to the named directory' do
+    expect(file('/etc/directory')).to be_linked_to('/etc/some/other/directory')
+  end
+  ```
+
+`be_mounted`
+: Use to test if a directory is mounted. For example:
+
+  ```ruby
+  it 'should be mounted' do
+    expect(file('/')).to be_mounted
+  end
+  ```
+
+  For directories with a single attribute that requires testing:
+
+  ```ruby
+  it 'should be mounted with an ext4 partition' do
+    expect(file('/')).to be_mounted.with( :type => 'ext4' )
+  end
+  ```
+
+  For directories with multiple attributes that require testing:
+
+  ```ruby
+  it 'should be mounted only with certain attributes' do
+    expect(file('/')).to be_mounted.only_with(
+      :attribute => 'value',
+      :attribute => 'value',
+  )
+  end
+  ```
 
 #### file Matcher
 
@@ -15155,140 +14833,185 @@ is executable, writable, or readable, who owns it, verify checksums
 (both MD5 and SHA-256) and so on. The following matchers are available
 for files:
 
-<table>
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 87%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Matcher</th>
-<th>Description, Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><p><code>be_executable</code></p></td>
-<td><p>Use to test if a file is executable. For example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>it <span class="st">&#39;should be executable&#39;</span> <span class="kw">do</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_executable</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">end</span></span></code></pre></div>
-<p>For a file that's executable by its owner:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>it <span class="st">&#39;should be executable by owner&#39;</span> <span class="kw">do</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_executable.by(<span class="st">&#39;owner&#39;</span>)</span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">end</span></span></code></pre></div>
-<p>For a file that's executable by a group:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>it <span class="st">&#39;should be executable by group members&#39;</span> <span class="kw">do</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_executable.by(<span class="st">&#39;group&#39;</span>)</span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">end</span></span></code></pre></div>
-<p>For a file that's executable by a specific user:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a href="#cb4-1"></a>it <span class="st">&#39;should be executable by user foo&#39;</span> <span class="kw">do</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_executable.by_user(<span class="st">&#39;foo&#39;</span>)</span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="kw">end</span></span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>be_file</code></p></td>
-<td><p>Use to test if a file exists. For example:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb5-1"><a href="#cb5-1"></a>it <span class="st">&#39;should be a file&#39;</span> <span class="kw">do</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_file</span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="kw">end</span></span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>be_grouped_into</code></p></td>
-<td><p>Use to test if a file is grouped into the named group. For example:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb6-1"><a href="#cb6-1"></a>it <span class="st">&#39;should be grouped into foo&#39;</span> <span class="kw">do</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_grouped_into(<span class="st">&#39;foo&#39;</span>)</span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="kw">end</span></span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>be_linked_to</code></p></td>
-<td><p>Use to test if a subject is linked to the named file. For example:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb7-1"><a href="#cb7-1"></a>it <span class="st">&#39;should be linked to the named file&#39;</span> <span class="kw">do</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_linked_to(<span class="st">&#39;/etc/some/other/file&#39;</span>)</span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="kw">end</span></span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>be_mode</code></p></td>
-<td><p>Use to test if a file is set to the specified mode. For example:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb8-1"><a href="#cb8-1"></a>it <span class="st">&#39;should be mode 440&#39;</span> <span class="kw">do</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_mode(<span class="dv">440</span>)</span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="kw">end</span></span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>be_owned_by</code></p></td>
-<td><p>Use to test if a file is owned by the named owner. For example:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb9-1"><a href="#cb9-1"></a>it <span class="st">&#39;should be owned by the root user&#39;</span> <span class="kw">do</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a>  expect(file(<span class="st">&#39;/etc/sudoers&#39;</span>)).to be_owned_by(<span class="st">&#39;root&#39;</span>)</span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="kw">end</span></span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>be_readable</code></p></td>
-<td><p>Use to test if a file is readable. For example:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb10-1"><a href="#cb10-1"></a>it <span class="st">&#39;should be readable&#39;</span> <span class="kw">do</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_readable</span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="kw">end</span></span></code></pre></div>
-<p>For a file that's readable by its owner:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb11-1"><a href="#cb11-1"></a>it <span class="st">&#39;should be readable by owner&#39;</span> <span class="kw">do</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_readable.by(<span class="st">&#39;owner&#39;</span>)</span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="kw">end</span></span></code></pre></div>
-<p>For a file that's readable by a group:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb12-1"><a href="#cb12-1"></a>it <span class="st">&#39;should be readable by group members&#39;</span> <span class="kw">do</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_readable.by(<span class="st">&#39;group&#39;</span>)</span>
-<span id="cb12-3"><a href="#cb12-3"></a><span class="kw">end</span></span></code></pre></div>
-<p>For a file that's readable by a specific user:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb13-1"><a href="#cb13-1"></a>it <span class="st">&#39;should be readable by user foo&#39;</span> <span class="kw">do</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_readable.by_user(<span class="st">&#39;foo&#39;</span>)</span>
-<span id="cb13-3"><a href="#cb13-3"></a><span class="kw">end</span></span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>be_socket</code></p></td>
-<td><p>Use to test if a file exists as a socket. For example:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb14-1"><a href="#cb14-1"></a>it <span class="st">&#39;should be a socket&#39;</span> <span class="kw">do</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a>  expect(file(<span class="st">&#39;/var/file.sock&#39;</span>)).to be_socket</span>
-<span id="cb14-3"><a href="#cb14-3"></a><span class="kw">end</span></span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>be_symlink</code></p></td>
-<td><p>Use to test if a file exists as a symbolic link. For example:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb15-1"><a href="#cb15-1"></a>it <span class="st">&#39;should be a symlink&#39;</span> <span class="kw">do</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_symlink</span>
-<span id="cb15-3"><a href="#cb15-3"></a><span class="kw">end</span></span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>be_version</code></p></td>
-<td><p>Microsoft Windows only. Use to test if a file is the specified version. For example:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb16-1"><a href="#cb16-1"></a>it <span class="st">&#39;should be version 1.2&#39;</span> <span class="kw">do</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a>  expect(file(<span class="st">&#39;C:\\Windows\\path\\to\\file&#39;</span>)).to be_version(<span class="st">&#39;1.2&#39;</span>)</span>
-<span id="cb16-3"><a href="#cb16-3"></a><span class="kw">end</span></span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>be_writable</code></p></td>
-<td><p>Use to test if a file is writable. For example:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb17-1"><a href="#cb17-1"></a>it <span class="st">&#39;should be writable&#39;</span> <span class="kw">do</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_writable</span>
-<span id="cb17-3"><a href="#cb17-3"></a><span class="kw">end</span></span></code></pre></div>
-<p>For a file that's writable by its owner:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb18-1"><a href="#cb18-1"></a>it <span class="st">&#39;should be writable by owner&#39;</span> <span class="kw">do</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_writable.by(<span class="st">&#39;owner&#39;</span>)</span>
-<span id="cb18-3"><a href="#cb18-3"></a><span class="kw">end</span></span></code></pre></div>
-<p>For a file that's writable by a group:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb19-1"><a href="#cb19-1"></a>it <span class="st">&#39;should be writable by group members&#39;</span> <span class="kw">do</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_writable.by(<span class="st">&#39;group&#39;</span>)</span>
-<span id="cb19-3"><a href="#cb19-3"></a><span class="kw">end</span></span></code></pre></div>
-<p>For a file that's writable by a specific user:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb20-1"><a href="#cb20-1"></a>it <span class="st">&#39;should be writable by user foo&#39;</span> <span class="kw">do</span></span>
-<span id="cb20-2"><a href="#cb20-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to be_writable.by_user(<span class="st">&#39;foo&#39;</span>)</span>
-<span id="cb20-3"><a href="#cb20-3"></a><span class="kw">end</span></span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>contain</code></p></td>
-<td><p>Use to test if a file contains specific contents. For example:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb21-1"><a href="#cb21-1"></a>it <span class="st">&#39;should contain docs.chef.io&#39;</span> <span class="kw">do</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a>  expect(file(<span class="st">&#39;/etc/file&#39;</span>)).to contain(<span class="st">&#39;docs.chef.io&#39;</span>)</span>
-<span id="cb21-3"><a href="#cb21-3"></a><span class="kw">end</span></span></code></pre></div></td>
-</tr>
-</tbody>
-</table>
+`be_executable`
+: Use to test if a file is executable. For example:
+
+  ```ruby
+  it 'should be executable' do
+    expect(file('/etc/file')).to be_executable
+  end
+  ```
+
+  For a file that's executable by its owner:
+
+  ```ruby
+  it 'should be executable by owner' do
+    expect(file('/etc/file')).to be_executable.by('owner')
+  end
+  ```
+
+  For a file that's executable by a group:
+
+  ```ruby
+  it 'should be executable by group members' do
+    expect(file('/etc/file')).to be_executable.by('group')
+  end
+  ```
+
+  For a file that's executable by a specific user:
+
+  ```ruby
+  it 'should be executable by user foo' do
+    expect(file('/etc/file')).to be_executable.by_user('foo')
+  end
+  ```
+
+`be_file`
+: Use to test if a file exists. For example:
+
+  ```ruby
+  it 'should be a file' do
+    expect(file('/etc/file')).to be_file
+  end
+  ```
+
+`be_grouped_into`
+: Use to test if a file is grouped into the named group. For example:
+
+  ```ruby
+  it 'should be grouped into foo' do
+    expect(file('/etc/file')).to be_grouped_into('foo')
+  end
+  ```
+
+`be_linked_to`
+: Use to test if a subject is linked to the named file. For example:
+
+  ```ruby
+  it 'should be linked to the named file' do
+    expect(file('/etc/file')).to be_linked_to('/etc/some/other/file')
+  end
+  ```
+
+`be_mode`
+: Use to test if a file is set to the specified mode. For example:
+
+  ```ruby
+  it 'should be mode 440' do
+    expect(file('/etc/file')).to be_mode(440)
+  end
+  ```
+
+`be_owned_by`
+: Use to test if a file is owned by the named owner. For example:
+
+  ```ruby
+  it 'should be owned by the root user' do
+    expect(file('/etc/sudoers')).to be_owned_by('root')
+  end
+  ```
+
+`be_readable`
+: Use to test if a file is readable. For example:
+
+  ```ruby
+  it 'should be readable' do
+    expect(file('/etc/file')).to be_readable
+  end
+  ```
+
+  For a file that's readable by its owner:
+
+  ```ruby
+  it 'should be readable by owner' do
+    expect(file('/etc/file')).to be_readable.by('owner')
+  end
+  ```
+
+  For a file that's readable by a group:
+
+  ```ruby
+  it 'should be readable by group members' do
+    expect(file('/etc/file')).to be_readable.by('group')
+  end
+  ```
+
+  For a file that's readable by a specific user:
+
+  ```ruby
+  it 'should be readable by user foo' do
+    expect(file('/etc/file')).to be_readable.by_user('foo')
+  end
+  ```
+
+`be_socket`
+: Use to test if a file exists as a socket. For example:
+
+  ```ruby
+  it 'should be a socket' do
+    expect(file('/var/file.sock')).to be_socket
+  end
+  ```
+
+`be_symlink`
+: Use to test if a file exists as a symbolic link. For example:
+
+  ```ruby
+  it 'should be a symlink' do
+    expect(file('/etc/file')).to be_symlink
+  end
+  ```
+
+`be_version`
+: Microsoft Windows only. Use to test if a file is the specified version. For example:
+
+  ```ruby
+  it 'should be version 1.2' do
+    expect(file('C:\\Windows\\path\\to\\file')).to be_version('1.2')
+  end
+  ```
+
+`be_writable`
+: Use to test if a file is writable. For example:
+
+  ```ruby
+  it 'should be writable' do
+    expect(file('/etc/file')).to be_writable
+  end
+  ```
+
+  For a file that's writable by its owner:
+
+  ```ruby
+  it 'should be writable by owner' do
+    expect(file('/etc/file')).to be_writable.by('owner')
+  end
+  ```
+
+  For a file that's writable by a group:
+
+  ```ruby
+  it 'should be writable by group members' do
+    expect(file('/etc/file')).to be_writable.by('group')
+  end
+  ```
+
+  For a file that's writable by a specific user:
+
+  ```ruby
+  it 'should be writable by user foo' do
+    expect(file('/etc/file')).to be_writable.by_user('foo')
+  end
+  ```
+
+`contain`
+: Use to test if a file contains specific contents. For example:
+
+  ```ruby
+  it 'should contain docs.chef.io' do
+    expect(file('/etc/file')).to contain('docs.chef.io')
+  end
+  ```
 
 #### package Matcher
 
@@ -15296,78 +15019,76 @@ Matchers are available for packages and may be used to define audits
 that test if a package or a package version is installed. The following
 matchers are available:
 
-<table>
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 87%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Matcher</th>
-<th>Description, Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><p><code>be_installed</code></p></td>
-<td><p>Use to test if the named package is installed. For example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>it <span class="st">&#39;should be installed&#39;</span> <span class="kw">do</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>  expect(package(<span class="st">&#39;httpd&#39;</span>)).to be_installed</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">end</span></span></code></pre></div>
-<p>For a specific package version:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>it <span class="st">&#39;should be installed&#39;</span> <span class="kw">do</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>  expect(package(<span class="st">&#39;httpd&#39;</span>)).to be_installed.with_version(<span class="st">&#39;0.1.2&#39;</span>)</span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">end</span></span></code></pre></div></td>
-</tr>
-</tbody>
-</table>
+`be_installed`
+: Use to test if the named package is installed. For example:
+
+  ```ruby
+  it 'should be installed' do
+    expect(package('httpd')).to be_installed
+  end
+  ```
+
+  For a specific package version:
+
+  ```ruby
+  it 'should be installed' do
+    expect(package('httpd')).to be_installed.with_version('0.1.2')
+  end
+  ```
 
 #### port Matcher
 
 Matchers are available for ports and may be used to define audits that
 test if a port is listening. The following matchers are available:
 
-<table>
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 87%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Matcher</th>
-<th>Description, Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><p><code>be_listening</code></p></td>
-<td><p>Use to test if the named port is listening. For example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>it <span class="st">&#39;should be listening&#39;</span> <span class="kw">do</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>  expect(port(<span class="dv">23</span>)).to be_listening</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">end</span></span></code></pre></div>
-<p>For a named port that isn't listening:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>it <span class="st">&#39;shouldn't be listening&#39;</span> <span class="kw">do</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>  expect(port(<span class="dv">23</span>)).to_not be_listening</span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">end</span></span></code></pre></div>
-<p>For a specific port type use <code>.with('port_type')</code>. For example, UDP:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>it <span class="st">&#39;should be listening with UDP&#39;</span> <span class="kw">do</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a>  expect(port(<span class="dv">23</span>)).to_not be_listening.with(<span class="st">&#39;udp&#39;</span>)</span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">end</span></span></code></pre></div>
-<p>For UDP, version 6:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a href="#cb4-1"></a>it <span class="st">&#39;should be listening with UDP6&#39;</span> <span class="kw">do</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a>  expect(port(<span class="dv">23</span>)).to_not be_listening.with(<span class="st">&#39;udp6&#39;</span>)</span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="kw">end</span></span></code></pre></div>
-<p>For TCP/IP:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb5-1"><a href="#cb5-1"></a>it <span class="st">&#39;should be listening with TCP&#39;</span> <span class="kw">do</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>  expect(port(<span class="dv">23</span>)).to_not be_listening.with(<span class="st">&#39;tcp&#39;</span>)</span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="kw">end</span></span></code></pre></div>
-<p>For TCP/IP, version 6:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb6-1"><a href="#cb6-1"></a>it <span class="st">&#39;should be listening with TCP6&#39;</span> <span class="kw">do</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a>  expect(port(<span class="dv">23</span>)).to_not be_listening.with(<span class="st">&#39;tcp6&#39;</span>)</span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="kw">end</span></span></code></pre></div></td>
-</tr>
-</tbody>
-</table>
+`be_listening`
+: Use to test if the named port is listening. For example:
+
+  ```ruby
+  it 'should be listening' do
+    expect(port(23)).to be_listening
+  end
+  ```
+
+  For a named port that isn't listening:
+
+  ```ruby
+  it 'shouldn't be listening' do
+    expect(port(23)).to_not be_listening
+  end
+  ```
+
+  For a specific port type use `.with('port_type')`. For example, UDP:
+
+  ```ruby
+  it 'should be listening with UDP' do
+    expect(port(23)).to_not be_listening.with('udp')
+  end
+  ```
+
+  For UDP, version 6:
+
+  ```ruby
+  it 'should be listening with UDP6' do
+    expect(port(23)).to_not be_listening.with('udp6')
+  end
+  ```
+
+  For TCP/IP:
+
+  ```ruby
+  it 'should be listening with TCP' do
+    expect(port(23)).to_not be_listening.with('tcp')
+  end
+  ```
+
+  For TCP/IP, version 6:
+
+  ```ruby
+  it 'should be listening with TCP6' do
+    expect(port(23)).to_not be_listening.with('tcp6')
+  end
+  ```
 
 #### service Matcher
 
@@ -15376,71 +15097,82 @@ that test for conditions related to services, such as if they're
 enabled, running, have the correct startup mode, and so on. The
 following matchers are available:
 
-<table>
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 87%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Matcher</th>
-<th>Description, Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><p><code>be_enabled</code></p></td>
-<td><p>Use to test if the named service is enabled (that is will start up automatically). For example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>it <span class="st">&#39;should be enabled&#39;</span> <span class="kw">do</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>  expect(service(<span class="st">&#39;ntpd&#39;</span>)).to be_enabled</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">end</span></span></code></pre></div>
-<p>For a service that's enabled at a given run level:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>it <span class="st">&#39;should be enabled at the specified run level&#39;</span> <span class="kw">do</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>  expect(service(<span class="st">&#39;ntpd&#39;</span>)).to be_enabled.with_level(<span class="dv">3</span>)</span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">end</span></span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>be_installed</code></p></td>
-<td><p>Microsoft Windows only. Use to test if the named service is installed on the Microsoft Windows platform. For example:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>it <span class="st">&#39;should be installed&#39;</span> <span class="kw">do</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a>  expect(service(<span class="st">&#39;DNS Client&#39;</span>)).to be_installed</span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">end</span></span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>be_running</code></p></td>
-<td><p>Use to test if the named service is running. For example:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a href="#cb4-1"></a>it <span class="st">&#39;should be running&#39;</span> <span class="kw">do</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a>  expect(service(<span class="st">&#39;ntpd&#39;</span>)).to be_running</span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="kw">end</span></span></code></pre></div>
-<p>For a service that's running under supervisor:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb5-1"><a href="#cb5-1"></a>it <span class="st">&#39;should be running under supervisor&#39;</span> <span class="kw">do</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>  expect(service(<span class="st">&#39;ntpd&#39;</span>)).to be_running.under(<span class="st">&#39;supervisor&#39;</span>)</span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="kw">end</span></span></code></pre></div>
-<p>or daemontools:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb6-1"><a href="#cb6-1"></a>it <span class="st">&#39;should be running under daemontools&#39;</span> <span class="kw">do</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a>  expect(service(<span class="st">&#39;ntpd&#39;</span>)).to be_running.under(<span class="st">&#39;daemontools&#39;</span>)</span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="kw">end</span></span></code></pre></div>
-<p>or Upstart:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb7-1"><a href="#cb7-1"></a>it <span class="st">&#39;should be running under upstart&#39;</span> <span class="kw">do</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a>  expect(service(<span class="st">&#39;ntpd&#39;</span>)).to be_running.under(<span class="st">&#39;upstart&#39;</span>)</span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="kw">end</span></span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>be_monitored_by</code></p></td>
-<td><p>Use to test if the named service is being monitored by the named monitoring application. For example:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb8-1"><a href="#cb8-1"></a>it <span class="st">&#39;should be monitored by&#39;</span> <span class="kw">do</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a>  expect(service(<span class="st">&#39;ntpd&#39;</span>)).to be_monitored_by(<span class="st">&#39;monit&#39;</span>)</span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="kw">end</span></span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>have_start_mode</code></p></td>
-<td><p>Microsoft Windows only. Use to test if the named service's startup mode is correct on the Microsoft Windows platform. For example:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb9-1"><a href="#cb9-1"></a>it <span class="st">&#39;should start manually&#39;</span> <span class="kw">do</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a>  expect(service(<span class="st">&#39;DNS Client&#39;</span>)).to have_start_mode.<span class="dt">Manual</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="kw">end</span></span></code></pre></div></td>
-</tr>
-</tbody>
-</table>
+`be_enabled`
+: Use to test if the named service is enabled (that is will start up automatically). For example:
+
+  ```ruby
+  it 'should be enabled' do
+    expect(service('ntpd')).to be_enabled
+  end
+  ```
+
+  For a service that's enabled at a given run level:
+
+  ```ruby
+  it 'should be enabled at the specified run level' do
+    expect(service('ntpd')).to be_enabled.with_level(3)
+  end
+  ```
+
+`be_installed`
+: Microsoft Windows only. Use to test if the named service is installed on the Microsoft Windows platform. For example:
+
+  ```ruby
+  it 'should be installed' do
+    expect(service('DNS Client')).to be_installed
+  end
+  ```
+
+`be_running`
+: Use to test if the named service is running. For example:
+
+  ```ruby
+  it 'should be running' do
+    expect(service('ntpd')).to be_running
+  end
+  ```
+
+  For a service that's running under supervisor:
+
+  ```ruby
+  it 'should be running under supervisor' do
+    expect(service('ntpd')).to be_running.under('supervisor')
+  end
+  ```
+
+  or daemontools:
+
+  ```ruby
+  it 'should be running under daemontools' do
+    expect(service('ntpd')).to be_running.under('daemontools')
+  end
+  ```
+
+  or Upstart:
+
+  ```ruby
+  it 'should be running under upstart' do
+    expect(service('ntpd')).to be_running.under('upstart')
+  end
+  ```
+
+`be_monitored_by`
+: Use to test if the named service is being monitored by the named monitoring application. For example:
+
+  ```ruby
+  it 'should be monitored by' do
+    expect(service('ntpd')).to be_monitored_by('monit')
+  end
+  ```
+
+`have_start_mode`
+: Microsoft Windows only. Use to test if the named service's startup mode is correct on the Microsoft Windows platform. For example:
+
+  ```ruby
+  it 'should start manually' do
+    expect(service('DNS Client')).to have_start_mode.Manual
+  end
+  ```
 
 #### Examples
 
@@ -16017,25 +15749,18 @@ The `verify` attribute may be used with the **cookbook_file**,
     end
     ```
 
-    <div class="admonition-warning">
-    <p class="admonition-warning-title">Warning</p>
-    <div class="admonition-warning-text">
-
-    For releases of Chef Infra Client prior to 12.5 (chef-client 12.4 and
+    **Warning**: For releases of Chef Infra Client prior to 12.5 (chef-client 12.4 and
     earlier) the correct syntax is:
 
-    ```ruby
-    template '/etc/nginx.conf' do
-      verify 'nginx -t -c %{file}'
-    end
-    ```
+```ruby
+template '/etc/nginx.conf' do
+  verify 'nginx -t -c %{file}'
+end
+```
 
-    See GitHub issues <https://github.com/chef/chef/issues/3232> and
-    <https://github.com/chef/chef/pull/3693> for more information about
-    these differences.
-
-    </div>
-    </div>
+    See GitHub issues  and
+ for more information about
+these differences.
 
     This should return `true`:
 
@@ -16113,15 +15838,8 @@ The following attribute is new for the **chef_gem** resource:
     chef-client run), or `false` (to remove all warnings). Recommended
     value: `false`.
 
-    <div class="admonition-note">
-    <p class="admonition-note-title">Note</p>
-    <div class="admonition-note-text">
-
-    This topic is hooked into client.rb topics, starting with 12.1, in
+    **Note**: This topic is hooked into client.rb topics, starting with 12.1, in
     addition to the resource reference pages.
-
-    </div>
-    </div>
 
     To suppress warnings for cookbooks authored prior to chef-client
     12.1, use a `respond_to?` check to ensure backward compatibility.
@@ -16150,19 +15868,12 @@ The following attributes are new for the **windows_service** resource:
 Use the **paludis_package** resource to manage packages for the Paludis
 platform.
 
-<div class="admonition-note">
-<p class="admonition-note-title">Note</p>
-<div class="admonition-note-text">
-
-In many cases, it's better to use the package resource instead of this
+**Note**: In many cases, it's better to use the package resource instead of this
 one. This is because when the package resource is used in a recipe, Chef
 Client will use details that are collected by Ohai at the start of Chef
 Client run to determine the correct package application. Using the
 package resource allows a recipe to be authored in a way that allows it
 to be used across many platforms.
-
-</div>
-</div>
 
 #### Syntax
 
@@ -16375,19 +16086,12 @@ end
 Use the **openbsd_package** resource to manage packages for the OpenBSD
 platform.
 
-<div class="admonition-note">
-<p class="admonition-note-title">Note</p>
-<div class="admonition-note-text">
-
-In many cases, it's better to use the package resource instead of this
+**Note**: In many cases, it's better to use the package resource instead of this
 one. This is because when the package resource is used in a recipe, Chef
 Client will use details that are collected by Ohai at the start of Chef
 Client run to determine the correct package application. Using the
 package resource allows a recipe to be authored in a way that allows it
 to be used across many platforms.
-
-</div>
-</div>
 
 #### Syntax
 
@@ -16600,15 +16304,8 @@ The following client.rb settings are new:
     Client is configuring the node (the "converge phase"). Recommended
     value: `false`.
 
-    <div class="admonition-note">
-    <p class="admonition-note-title">Note</p>
-    <div class="admonition-note-text">
-
-    This topic is hooked into client.rb topics, starting with 12.1, in
+    **Note**: This topic is hooked into client.rb topics, starting with 12.1, in
     addition to the resource reference pages.
-
-    </div>
-    </div>
 
     To suppress warnings for cookbooks authored prior to chef-client
     12.1, use a `respond_to?` check to ensure backward compatibility.
@@ -16690,16 +16387,9 @@ log 'call a notification' do
 end
 ```
 
-<div class="admonition-note">
-<p class="admonition-note-title">Note</p>
-<div class="admonition-note-text">
-
-Notifications and subscriptions don't need to be updated when packages
+**Note**: Notifications and subscriptions don't need to be updated when packages
 and versions are added or removed from the `package_name` or `version`
 properties.
-
-</div>
-</div>
 
 ## Chef Infra Client 12.0.3
 
@@ -17047,15 +16737,8 @@ syntax pattern:
 
 - `node.rm('foo', 'bar')`
 
-<div class="admonition-note">
-<p class="admonition-note-title">Note</p>
-<div class="admonition-note-text">
-
-Using `node['foo'].delete('bar')` will throw an exception that points to
+**Note**: Using `node['foo'].delete('bar')` will throw an exception that points to
 the new API.
-
-</div>
-</div>
 
 **Examples**
 
@@ -17249,16 +16932,9 @@ method enables scenarios like:
 - Not using the previous naming
     convention---`#{cookbook_name}_#{provider_filename}`
 
-<div class="admonition-warning">
-<p class="admonition-warning-title">Warning</p>
-<div class="admonition-warning-text">
-
-The `provides` method must be defined in both the custom resource and
+**Warning**: The `provides` method must be defined in both the custom resource and
 custom provider files and both files must have identical `provides`
 statement(s).
-
-</div>
-</div>
 
 The syntax for the `provides` method is as follows:
 
@@ -17377,19 +17053,12 @@ system process limits:
     chsec -f /etc/security/limits -s default -a "nofiles=50000"
     ```
 
-    <div class="admonition-note">
-    <p class="admonition-note-title">Note</p>
-    <div class="admonition-note-text">
-
-    The previous commands may be run against the root user, instead of
+    **Note**: The previous commands may be run against the root user, instead of
     default. For example:
 
-    ```bash
-    chsec -f /etc/security/limits -s root_user -a "rss=-1"
-    ```
-
-    </div>
-    </div>
+```bash
+chsec -f /etc/security/limits -s root_user -a "rss=-1"
+```
 
 3. Reboot the logical partition (LPAR) to apply the updated system
     process limits.
@@ -17486,32 +17155,11 @@ installing from CD.
 The **service** resource has the following providers to support the AIX
 platform:
 
-<table>
-<colgroup>
-<col style="width: 27%" />
-<col style="width: 14%" />
-<col style="width: 58%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Long name</th>
-<th>Short name</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Chef::Provider::Service::Aix</code></td>
-<td><code>service</code></td>
-<td>The provider that's used with the AIX platforms. Use the <code>service</code> short name to start, stop, and restart services with System Resource Controller (SRC).</td>
-</tr>
-<tr>
-<td><code>Chef::Provider::Service::AixInit</code></td>
-<td><code>service</code></td>
-<td>The provider that's used to manage BSD-based init services on AIX.</td>
-</tr>
-</tbody>
-</table>
+`Chef::Provider::Service::Aix`, `service`
+: The provider that's used with the AIX platforms. Use the `service` short name to start, stop, and restart services with System Resource Controller (SRC).
+
+`Chef::Provider::Service::AixInit`, `service`
+: The provider that's used to manage BSD-based init services on AIX.
 
 **Enable a service on AIX using the mkitab command**
 
@@ -17608,16 +17256,9 @@ platform using the installp utility. When a package is installed from a
 local file, it must be added to the node using the **remote_file** or
 **cookbook_file** resources.
 
-<div class="admonition-note">
-<p class="admonition-note-title">Note</p>
-<div class="admonition-note-text">
-
-A Backup File Format (BFF) package may not have a `.bff` file extension.
+**Note**: A Backup File Format (BFF) package may not have a `.bff` file extension.
 Chef Infra Client will still identify the correct provider to use based on the
 platform, regardless of the file extension.
-
-</div>
-</div>
 
 #### Syntax
 
@@ -18645,14 +18286,7 @@ The following options are new:
     Default value: `chef-full`, which installs Chef Infra Client using the
     omnibus installer on all supported platforms.
 
-    <div class="admonition-note">
-    <p class="admonition-note-title">Note</p>
-    <div class="admonition-note-text">
-
-    The `--distro` and `--template-file` options are deprecated.
-
-    </div>
-    </div>
+    **Note**: The `--distro` and `--template-file` options are deprecated.
 
 ### knife status Settings
 
@@ -18671,62 +18305,28 @@ The following options are new:
 
 The following property is new for the **mount** resource:
 
-<table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 75%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Property</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>fsck_device</code></td>
-<td>The fsck device on the Solaris platform. Default value: <code>-</code>.</td>
-</tr>
-</tbody>
-</table>
+`fsck_device`
+: The fsck device on the Solaris platform. Default value: `-`.
 
 ### metadata.rb Settings
 
 The following settings are new:
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Setting</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><p><code>issues_url</code></p></td>
-<td><p>The URL for the location in which a cookbook's issue tracking is maintained. This setting is also used by Chef Supermarket. For example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>source_url <span class="st">&quot;https://github.com/chef-cookbooks/chef-client/issues&quot;</span></span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>source_url</code></p></td>
-<td><p>The URL for the location in which a cookbook's source code is maintained. This setting is also used by Chef Supermarket. For example:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>source_url <span class="st">&quot;https://github.com/chef-cookbooks/chef-client&quot;</span></span></code></pre></div></td>
-</tr>
-</tbody>
-</table>
+`issues_url`
+: The URL for the location in which a cookbook's issue tracking is maintained. This setting is also used by Chef Supermarket. For example:
 
-<div class="admonition-warning">
-<p class="admonition-warning-title">Warning</p>
-<div class="admonition-warning-text">
+  ```ruby
+  source_url "https://github.com/chef-cookbooks/chef-client/issues"
+  ```
 
-The `name` attribute is now a required setting in the metadata.rb file.
+`source_url`
+: The URL for the location in which a cookbook's source code is maintained. This setting is also used by Chef Supermarket. For example:
 
-</div>
-</div>
+  ```ruby
+  source_url "https://github.com/chef-cookbooks/chef-client"
+  ```
+
+**Warning**: The `name` attribute is now a required setting in the metadata.rb file.
 
 ### http_request Actions
 
@@ -18799,16 +18399,9 @@ value_for_platform(
 }
 ```
 
-<div class="admonition-note">
-<p class="admonition-note-title">Note</p>
-<div class="admonition-note-text">
-
-When two version constraints match it's considered ambiguous and will
+**Note**: When two version constraints match it's considered ambiguous and will
 raise an exception. An exact match, however, will always take precedence
 over a version constraint.
-
-</div>
-</div>
 
 ### File Specificity
 
@@ -18842,28 +18435,11 @@ end
 
 The following properties are new for the **user** resource:
 
-<table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 75%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Property</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>iterations</code></td>
-<td>The number of iterations for a password with a SALTED-SHA512-PBKDF2 shadow hash.</td>
-</tr>
-<tr>
-<td><code>salt</code></td>
-<td>The salt value for a password shadow hash. macOS version 10.7 uses SALTED-SHA512 and version 10.8 (and higher) uses SALTED-SHA512-PBKDF2 to calculate password shadow hashes.</td>
-</tr>
-</tbody>
-</table>
+`iterations`
+: The number of iterations for a password with a SALTED-SHA512-PBKDF2 shadow hash.
+
+`salt`
+: The salt value for a password shadow hash. macOS version 10.7 uses SALTED-SHA512 and version 10.8 (and higher) uses SALTED-SHA512-PBKDF2 to calculate password shadow hashes.
 
 **Use SALTED-SHA512 passwords**
 
@@ -18942,36 +18518,17 @@ The following options are updated for Chef Infra Client executable:
 The following configuration settings are updated for the client.rb file
 and now default to `true`:
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Setting</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>disable_event_logger</code></td>
-<td>Enable or disable sending events to the Microsoft Windows "Application" event log. When <code>false</code>, events are sent to the Microsoft Windows "Application" event log at the start and end of a chef-client run, and also if a chef-client run fails. Set to <code>true</code> to disable event logging. Default value: <code>true</code>.</td>
-</tr>
-<tr>
-<td><code>no_lazy_load</code></td>
-<td>Download all cookbook files and templates at the beginning of Chef Infra Client run. Default value: <code>true</code>.</td>
-</tr>
-<tr>
-<td><code>file_staging_uses_destdir</code></td>
-<td>How file staging (via temporary files) is done. When <code>true</code>, temporary files are created in the directory in which files will reside. When <code>false</code>, temporary files are created under <code>ENV['TMP']</code>. Default value: <code>true</code>.</td>
-</tr>
-<tr>
-<td><code>local_key_generation</code></td>
-<td>Use to specify whether the Chef server or chef-client will generate the private/public key pair. When <code>true</code>, Chef Infra Client will generate the key pair, and then send the public key to the Chef server. Default value: <code>true</code>.</td>
-</tr>
-</tbody>
-</table>
+`disable_event_logger`
+: Enable or disable sending events to the Microsoft Windows "Application" event log. When `false`, events are sent to the Microsoft Windows "Application" event log at the start and end of a chef-client run, and also if a chef-client run fails. Set to `true` to disable event logging. Default value: `true`.
+
+`no_lazy_load`
+: Download all cookbook files and templates at the beginning of Chef Infra Client run. Default value: `true`.
+
+`file_staging_uses_destdir`
+: How file staging (via temporary files) is done. When `true`, temporary files are created in the directory in which files will reside. When `false`, temporary files are created under `ENV['TMP']`. Default value: `true`.
+
+`local_key_generation`
+: Use to specify whether the Chef server or chef-client will generate the private/public key pair. When `true`, Chef Infra Client will generate the key pair, and then send the public key to the Chef server. Default value: `true`.
 
 ### Filter Search Results
 
@@ -18979,15 +18536,8 @@ Use `:filter_result` as part of a search query to filter the search
 output based on the pattern specified by a Hash. Only attributes in the
 Hash will be returned.
 
-<div class="admonition-note">
-<p class="admonition-note-title">Note</p>
-<div class="admonition-note-text">
-
-Prior to chef-client 12.0, this functionality was available from the
+**Note**: Prior to chef-client 12.0, this functionality was available from the
 `partial_search` cookbook and was referred to as "partial search".
-
-</div>
-</div>
 
 The syntax for the `search` method that uses `:filter_result` is as
 follows:
@@ -19049,30 +18599,10 @@ instead.
 
 The following property is new for the **git** resource:
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Property</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><p><code>environment</code></p></td>
-<td><p>A Hash of environment variables in the form of <code>({"ENV_VARIABLE" =&gt; "VALUE"})</code>. (These variables must exist for a command to be run successfully.)</p>
-<div class="admonition-note">
-<p class="admonition-note-title">Note</p>
-<div class="admonition-note-text">
-<p>The <strong>git</strong> provider automatically sets the <code>ENV['HOME']</code> and <code>ENV['GIT_SSH']</code> environment variables. To override this behavior and provide different values, add <code>ENV['HOME']</code> and/or <code>ENV['GIT_SSH']</code> to the <code>environment</code> Hash.</p>
-</div>
-</div></td>
-</tr>
-</tbody>
-</table>
+`environment`
+: A Hash of environment variables in the form of `({"ENV_VARIABLE" => "VALUE"})`. (These variables must exist for a command to be run successfully.)
+
+  **Note:** The **git** provider automatically sets the `ENV['HOME']` and `ENV['GIT_SSH']` environment variables. To override this behavior and provide different values, add `ENV['HOME']` and/or `ENV['GIT_SSH']` to the `environment` Hash.
 
 ### Chef::Provider, Custom Resources
 
