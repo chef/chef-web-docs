@@ -17,6 +17,45 @@ summary = "Chef Infra Client release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
+## Chef Infra Client 19.2.12
+
+Release date: March 17, 2026
+
+### Compliance Phase
+
+- Updated `inspec` and `inspec-core-bin` to address CVEs. [#15672](https://github.com/chef/chef/pull/15672)
+
+### Bug fixes
+
+- Fixed an issue where Chef Infra Client could crash during proxy evaluation when connecting to servers using IPv6 addresses, ensuring runs proceed normally in IPv6-enabled environments. [#15655](https://github.com/chef/chef/pull/15655)
+- Fixed an issue where platforms weren't enumerated before parsing remote output for the candidate version. [#15661](https://github.com/chef/chef/pull/15661)
+- Matched platforms for gem versions in the rubygems provider. [#15649](https://github.com/chef/chef/pull/15649)
+
+#### Resource bug fixes
+
+- Fixed intermittent failures when installing MSI packages with the `chocolatey_package` resource on Windows, where Chocolatey's pending/locked state caused `file in use by another process` errors and required manual cleanup. [#15646](https://github.com/chef/chef/pull/15646)
+
+### Improvements
+
+- Updated the Habitat plan file to remove GitHub workflow files in some gems. [#15679](https://github.com/chef/chef/pull/15679)
+- Reduced the size of Chef Infra Client on disk by removing the Ruby DevKit.
+- Removed the `chef/chef-powershell-shim` Habitat package dependency and added pre-flight DLL checks (`vcruntime140.dll`, `msvcp140.dll`) to the Windows test suite to surface missing PowerShell runtime dependencies with actionable errors. [#15611](https://github.com/chef/chef/pull/15611)
+- Added support for finding the `hab` binary path for all Chef-prefixed gems (`chef-client`, `chef-zero`). [#15625](https://github.com/chef/chef/pull/15625)
+
+### Dependency updates
+
+- Updated aws-sdk-s3 to 1.213.0. [#15678](https://github.com/chef/chef/pull/15678)
+- Updated rack to 3.2.5. [#15670](https://github.com/chef/chef/pull/15670)
+
+### Security
+
+- This release restores FIPS Mode support.
+
+### Known issues
+
+- This release doesn't support SELinux.
+- Don't install this version of Chef Infra Client on a machine running Chef Automate or Chef Infra Server.
+
 ## Chef Infra Client 19.1.164
 
 Release date: February 5, 2026
@@ -1270,7 +1309,7 @@ Removed support for the following platforms:
 
 ### knife
 
-- Updating Train support to allow for more connection types: `winrm` and `ssh` plus certain `train` plugins not in the deny list. [#14208](https://github.com/chef/chef/pull/14208)
+- Updated Train support to allow for more connection types: `winrm` and `ssh` plus certain `train` plugins not in the deny list. [#14208](https://github.com/chef/chef/pull/14208)
 
 ### Packaging
 
@@ -8081,7 +8120,7 @@ Chef Infra Client is now tested against macOS Mojave and packages are now availa
 
 ### Updated Chef-Vault
 
-Updating chef-vault to 3.4.2 resolved multiple bugs.
+Updated chef-vault to 3.4.2 resolved multiple bugs.
 
 ### Faster Windows Installations
 
