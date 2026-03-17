@@ -2414,52 +2414,11 @@ The `public_key_read_access` group controls which users and clients have
 By default, the `public_key_read_access` assigns all members of the
 `users` and `clients` group permission to these endpoints:
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 24%" />
-<col style="width: 15%" />
-<col style="width: 15%" />
-<col style="width: 15%" />
-<col style="width: 15%" />
-<col style="width: 15%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Group</th>
-<th>Create</th>
-<th>Delete</th>
-<th>Grant</th>
-<th>Read</th>
-<th>Update</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>admins</td>
-<td>no</td>
-<td>no</td>
-<td>no</td>
-<td>no</td>
-<td>no</td>
-</tr>
-<tr>
-<td>clients</td>
-<td>yes</td>
-<td>yes</td>
-<td>yes</td>
-<td>yes</td>
-<td>yes</td>
-</tr>
-<tr>
-<td>users</td>
-<td>yes</td>
-<td>yes</td>
-<td>yes</td>
-<td>yes</td>
-<td>yes</td>
-</tr>
-</tbody>
-</table>
+| Group   | Create | Delete | Grant | Read | Update |
+| ------- | ------ | ------ | ----- | ---- | ------ |
+| admins  | no     | no     | no    | no   | no     |
+| clients | yes    | yes    | yes   | yes  | yes    |
+| users   | yes    | yes    | yes   | yes  | yes    |
 
 ## Chef Infra Server 12.4.1
 
@@ -2537,24 +2496,8 @@ with its location information and dependencies:
 }
 ```
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200</code></td>
-<td>OK. The request was successful. One (or more) cookbooks and associated cookbook version information was returned.</td>
-</tr>
-</tbody>
-</table>
+`200`
+: OK. The request was successful. One (or more) cookbooks and associated cookbook version information was returned.
 
 ### Server Admins
 
@@ -2975,35 +2918,16 @@ The following diagram highlights the specific changes that occur when
 PostgreSQL is configured and managed independently of the Chef server
 configuration.
 
-<img src="/images/server_components_postgresql.svg" width="500" alt="image" />
-
 The following table describes the components in an external PostgreSQL
 configuration that are different from the default configuration of the
 Chef server:
 
-<table>
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 87%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Component</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Chef Server</td>
-<td>The Chef server configuration file is updated to point to an independently configured set of servers for PostgreSQL.</td>
-</tr>
-<tr>
-<td><p>PostgreSQL</p></td>
-<td><p>PostgreSQL is the data storage repository for the Chef server.</p>
-<p>This represents the independently configured set of servers that are running PostgreSQL and are configured to act as the data store for the Chef server.</p></td>
-</tr>
-</tbody>
-</table>
+Chef Server
+: The Chef server configuration file is updated to point to an independently configured set of servers for PostgreSQL.
+
+PostgreSQL
+: PostgreSQL is the data storage repository for the Chef server.
+This represents the independently configured set of servers that are running PostgreSQL and are configured to act as the data store for the Chef server.
 
 **Note:**
 
@@ -3017,40 +2941,20 @@ server: `hup`, `int`, `kill`, `once`, `restart`, `start`, `stop`,
 Use the following configuration settings in the chef-server.rb file to
 configure PostgreSQL for use with the Chef server:
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Setting</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>postgresql['db_superuser']</code></td>
-<td>Required when <code>postgresql['external']</code> is set to <code>true</code>. The PostgreSQL user name. This user must be granted either the <code>CREATE ROLE</code> and <code>CREATE DATABASE</code> permissions in PostgreSQL or be granted <code>SUPERUSER</code> permission. This user must also have an entry in the host-based authentication configuration file used by PostgreSQL (traditionally named <code>pg_hba.conf</code>). Default value: <code>'superuser_userid'</code>.</td>
-</tr>
-<tr>
-<td><code>postgresql['db_superuser_password']</code></td>
-<td>Required when <code>postgresql['external']</code> is set to <code>true</code>. The password for the user specified by <code>postgresql['db_superuser']</code>. Default value: <code>'the password'</code>.</td>
-</tr>
-<tr>
-<td><code>postgresql['external']</code></td>
-<td>Required. Set to <code>true</code> to run PostgreSQL external to the Chef server. Must be set once only on a new installation of the Chef server before the first <code>chef-server-ctl reconfigure</code> command is run. If this is set after a reconfigure or set to <code>false</code>, any reconfigure of the Chef server will return an error. Default value: <code>false</code>.</td>
-</tr>
-<tr>
-<td><code>postgresql['port']</code></td>
-<td>Optional when <code>postgresql['external']</code> is set to <code>true</code>. The port on which the service is to listen. The port used by PostgreSQL if that port is <strong>not</strong> 5432. Default value: <code>5432</code>.</td>
-</tr>
-<tr>
-<td><code>postgresql['vip']</code></td>
-<td>Required when <code>postgresql['external']</code> is set to <code>true</code>. The virtual IP address. The host for this IP address must be online and reachable from the Chef server via the port specified by <code>postgresql['port']</code>. Set this value to the IP address or hostname for the machine on which external PostgreSQL is located when <code>postgresql['external']</code> is set to <code>true</code>.</td>
-</tr>
-</tbody>
-</table>
+`postgresql['db_superuser']`
+: Required when `postgresql['external']` is set to `true`. The PostgreSQL user name. This user must be granted either the `CREATE ROLE` and `CREATE DATABASE` permissions in PostgreSQL or be granted `SUPERUSER` permission. This user must also have an entry in the host-based authentication configuration file used by PostgreSQL (traditionally named `pg_hba.conf`). Default value: `'superuser_userid'`.
+
+`postgresql['db_superuser_password']`
+: Required when `postgresql['external']` is set to `true`. The password for the user specified by `postgresql['db_superuser']`. Default value: `'the password'`.
+
+`postgresql['external']`
+: Required. Set to `true` to run PostgreSQL external to the Chef server. Must be set once only on a new installation of the Chef server before the first `chef-server-ctl reconfigure` command is run. If this is set after a reconfigure or set to `false`, any reconfigure of the Chef server will return an error. Default value: `false`.
+
+`postgresql['port']`
+: Optional when `postgresql['external']` is set to `true`. The port on which the service is to listen. The port used by PostgreSQL if that port is **not** 5432. Default value: `5432`.
+
+`postgresql['vip']`
+: Required when `postgresql['external']` is set to `true`. The virtual IP address. The host for this IP address must be online and reachable from the Chef server via the port specified by `postgresql['port']`. Set this value to the IP address or hostname for the machine on which external PostgreSQL is located when `postgresql['external']` is set to `true`.
 
 ### Backup / Restore
 
@@ -3228,36 +3132,17 @@ The response returns the policy details and is similar to:
 
 **Response Codes**
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200</code></td>
-<td>OK. The request was successful.</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
-</tr>
-<tr>
-<td><code>403</code></td>
-<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
-</tr>
-<tr>
-<td><code>404</code></td>
-<td>Not found. The requested object doesn't exist.</td>
-</tr>
-</tbody>
-</table>
+`200`
+: OK. The request was successful.
+
+`401`
+: Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
+
+`403`
+: Forbidden. The user who made the request isn't authorized to perform the action.
+
+`404`
+: Not found. The requested object doesn't exist.
 
 ### /policies/NAME
 
@@ -3287,36 +3172,17 @@ xxxxx
 
 **Response Codes**
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200</code></td>
-<td>OK. The request was successful.</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
-</tr>
-<tr>
-<td><code>403</code></td>
-<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
-</tr>
-<tr>
-<td><code>404</code></td>
-<td>Not found. The requested object doesn't exist.</td>
-</tr>
-</tbody>
-</table>
+`200`
+: OK. The request was successful.
+
+`401`
+: Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
+
+`403`
+: Forbidden. The user who made the request isn't authorized to perform the action.
+
+`404`
+: Not found. The requested object doesn't exist.
 
 #### DELETE
 
@@ -3347,36 +3213,17 @@ The response returns the policy details and is similar to:
 
 **Response Codes**
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200</code></td>
-<td>OK. The request was successful.</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
-</tr>
-<tr>
-<td><code>403</code></td>
-<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
-</tr>
-<tr>
-<td><code>404</code></td>
-<td>Not found. The requested object doesn't exist.</td>
-</tr>
-</tbody>
-</table>
+`200`
+: OK. The request was successful.
+
+`401`
+: Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
+
+`403`
+: Forbidden. The user who made the request isn't authorized to perform the action.
+
+`404`
+: Not found. The requested object doesn't exist.
 
 ### /policies/NAME/revisions
 
@@ -3410,44 +3257,23 @@ xxxxx
 
 **Response Codes**
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>201</code></td>
-<td>OK. The request was successful.</td>
-</tr>
-<tr>
-<td><code>400</code></td>
-<td>Bad request. The contents of the request aren't formatted correctly.</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
-</tr>
-<tr>
-<td><code>403</code></td>
-<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
-</tr>
-<tr>
-<td><code>409</code></td>
-<td>Conflict. The object already exists.</td>
-</tr>
-<tr>
-<td><code>413</code></td>
-<td>Request entity too large. A request may not be larger than 1000000 bytes.</td>
-</tr>
-</tbody>
-</table>
+`201`
+: OK. The request was successful.
+
+`400`
+: Bad request. The contents of the request aren't formatted correctly.
+
+`401`
+: Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
+
+`403`
+: Forbidden. The user who made the request isn't authorized to perform the action.
+
+`409`
+: Conflict. The object already exists.
+
+`413`
+: Request entity too large. A request may not be larger than 1000000 bytes.
 
 ### /policies/NAME/revisions/ID
 
@@ -3537,36 +3363,17 @@ The response is similar to:
 
 **Response Codes**
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200</code></td>
-<td>OK. The request was successful.</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
-</tr>
-<tr>
-<td><code>403</code></td>
-<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
-</tr>
-<tr>
-<td><code>404</code></td>
-<td>Not found. The requested object doesn't exist.</td>
-</tr>
-</tbody>
-</table>
+`200`
+: OK. The request was successful.
+
+`401`
+: Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
+
+`403`
+: Forbidden. The user who made the request isn't authorized to perform the action.
+
+`404`
+: Not found. The requested object doesn't exist.
 
 #### DELETE
 
@@ -3651,36 +3458,17 @@ The response returns the policy details and is similar to:
 
 **Response Codes**
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200</code></td>
-<td>OK. The request was successful.</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
-</tr>
-<tr>
-<td><code>403</code></td>
-<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
-</tr>
-<tr>
-<td><code>404</code></td>
-<td>Not found. The requested object doesn't exist.</td>
-</tr>
-</tbody>
-</table>
+`200`
+: OK. The request was successful.
+
+`401`
+: Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
+
+`403`
+: Forbidden. The user who made the request isn't authorized to perform the action.
+
+`404`
+: Not found. The requested object doesn't exist.
 
 ## Chef Infra Server 12.2.0
 
@@ -3769,36 +3557,17 @@ The response is similar to:
 
 **Response Codes**
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200</code></td>
-<td>OK. The request was successful.</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
-</tr>
-<tr>
-<td><code>403</code></td>
-<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
-</tr>
-<tr>
-<td><code>404</code></td>
-<td>Not found. The requested object doesn't exist.</td>
-</tr>
-</tbody>
-</table>
+`200`
+: OK. The request was successful.
+
+`401`
+: Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
+
+`403`
+: Forbidden. The user who made the request isn't authorized to perform the action.
+
+`404`
+: Not found. The requested object doesn't exist.
 
 #### POST
 
@@ -3834,36 +3603,17 @@ The response is similar to:
 
 **Response Codes**
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>201</code></td>
-<td>Created. The object was created.</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
-</tr>
-<tr>
-<td><code>403</code></td>
-<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
-</tr>
-<tr>
-<td><code>404</code></td>
-<td>Not found. The requested object doesn't exist.</td>
-</tr>
-</tbody>
-</table>
+`201`
+: Created. The object was created.
+
+`401`
+: Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
+
+`403`
+: Forbidden. The user who made the request isn't authorized to perform the action.
+
+`404`
+: Not found. The requested object doesn't exist.
 
 ### /clients/CLIENT/keys/KEY
 
@@ -3898,36 +3648,17 @@ similar to:
 
 **Response Codes**
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200</code></td>
-<td>OK. The request was successful.</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
-</tr>
-<tr>
-<td><code>403</code></td>
-<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
-</tr>
-<tr>
-<td><code>404</code></td>
-<td>Not found. The requested object doesn't exist.</td>
-</tr>
-</tbody>
-</table>
+`200`
+: OK. The request was successful.
+
+`401`
+: Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
+
+`403`
+: Forbidden. The user who made the request isn't authorized to perform the action.
+
+`404`
+: Not found. The requested object doesn't exist.
 
 #### GET
 
@@ -3956,36 +3687,17 @@ The response is similar to:
 
 **Response Codes**
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200</code></td>
-<td>OK. The request was successful.</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
-</tr>
-<tr>
-<td><code>403</code></td>
-<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
-</tr>
-<tr>
-<td><code>404</code></td>
-<td>Not found. The requested object doesn't exist.</td>
-</tr>
-</tbody>
-</table>
+`200`
+: OK. The request was successful.
+
+`401`
+: Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
+
+`403`
+: Forbidden. The user who made the request isn't authorized to perform the action.
+
+`404`
+: Not found. The requested object doesn't exist.
 
 #### PUT
 
@@ -4025,40 +3737,20 @@ similar to:
 
 **Response Codes**
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200</code></td>
-<td>OK. The request was successful.</td>
-</tr>
-<tr>
-<td><code>201</code></td>
-<td>Created. The object was created.</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
-</tr>
-<tr>
-<td><code>403</code></td>
-<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
-</tr>
-<tr>
-<td><code>404</code></td>
-<td>Not found. The requested object doesn't exist.</td>
-</tr>
-</tbody>
-</table>
+`200`
+: OK. The request was successful.
+
+`201`
+: Created. The object was created.
+
+`401`
+: Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
+
+`403`
+: Forbidden. The user who made the request isn't authorized to perform the action.
+
+`404`
+: Not found. The requested object doesn't exist.
 
 ### /user/USER/keys/
 
@@ -4095,36 +3787,17 @@ The response is similar to:
 
 **Response Codes**
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200</code></td>
-<td>OK. The request was successful.</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
-</tr>
-<tr>
-<td><code>403</code></td>
-<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
-</tr>
-<tr>
-<td><code>404</code></td>
-<td>Not found. The requested object doesn't exist.</td>
-</tr>
-</tbody>
-</table>
+`200`
+: OK. The request was successful.
+
+`401`
+: Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
+
+`403`
+: Forbidden. The user who made the request isn't authorized to perform the action.
+
+`404`
+: Not found. The requested object doesn't exist.
 
 #### POST
 
@@ -4160,36 +3833,17 @@ The response is similar to:
 
 **Response Codes**
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>201</code></td>
-<td>Created. The object was created.</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
-</tr>
-<tr>
-<td><code>403</code></td>
-<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
-</tr>
-<tr>
-<td><code>404</code></td>
-<td>Not found. The requested object doesn't exist.</td>
-</tr>
-</tbody>
-</table>
+`201`
+: Created. The object was created.
+
+`401`
+: Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
+
+`403`
+: Forbidden. The user who made the request isn't authorized to perform the action.
+
+`404`
+: Not found. The requested object doesn't exist.
 
 ### /user/USER/keys/KEY
 
@@ -4224,36 +3878,17 @@ similar to:
 
 **Response Codes**
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200</code></td>
-<td>OK. The request was successful.</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
-</tr>
-<tr>
-<td><code>403</code></td>
-<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
-</tr>
-<tr>
-<td><code>404</code></td>
-<td>Not found. The requested object doesn't exist.</td>
-</tr>
-</tbody>
-</table>
+`200`
+: OK. The request was successful.
+
+`401`
+: Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
+
+`403`
+: Forbidden. The user who made the request isn't authorized to perform the action.
+
+`404`
+: Not found. The requested object doesn't exist.
 
 #### GET
 
@@ -4282,36 +3917,17 @@ The response is similar to:
 
 **Response Codes**
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200</code></td>
-<td>OK. The request was successful.</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
-</tr>
-<tr>
-<td><code>403</code></td>
-<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
-</tr>
-<tr>
-<td><code>404</code></td>
-<td>Not found. The requested object doesn't exist.</td>
-</tr>
-</tbody>
-</table>
+`200`
+: OK. The request was successful.
+
+`401`
+: Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
+
+`403`
+: Forbidden. The user who made the request isn't authorized to perform the action.
+
+`404`
+: Not found. The requested object doesn't exist.
 
 #### PUT
 
@@ -4351,40 +3967,20 @@ similar to:
 
 **Response Codes**
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200</code></td>
-<td>OK. The request was successful.</td>
-</tr>
-<tr>
-<td><code>201</code></td>
-<td>Created. The object was created.</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
-</tr>
-<tr>
-<td><code>403</code></td>
-<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
-</tr>
-<tr>
-<td><code>404</code></td>
-<td>Not found. The requested object doesn't exist.</td>
-</tr>
-</tbody>
-</table>
+`200`
+: OK. The request was successful.
+
+`201`
+: Created. The object was created.
+
+`401`
+: Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
+
+`403`
+: Forbidden. The user who made the request isn't authorized to perform the action.
+
+`404`
+: Not found. The requested object doesn't exist.
 
 ### /policies
 
@@ -4436,28 +4032,11 @@ The response groups policies by name and revision and is similar to:
 
 **Response Codes**
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200</code></td>
-<td>OK. The request was successful.</td>
-</tr>
-<tr>
-<td><code>403</code></td>
-<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
-</tr>
-</tbody>
-</table>
+`200`
+: OK. The request was successful.
+
+`403`
+: Forbidden. The user who made the request isn't authorized to perform the action.
 
 ### /policy_groups
 
@@ -4518,36 +4097,17 @@ The response is similar to:
 
 **Response Codes**
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200</code></td>
-<td>OK. The request was successful.</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
-</tr>
-<tr>
-<td><code>403</code></td>
-<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
-</tr>
-<tr>
-<td><code>404</code></td>
-<td>Not found. The requested object doesn't exist.</td>
-</tr>
-</tbody>
-</table>
+`200`
+: OK. The request was successful.
+
+`401`
+: Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
+
+`403`
+: Forbidden. The user who made the request isn't authorized to perform the action.
+
+`404`
+: Not found. The requested object doesn't exist.
 
 ### /policies/NAME
 
@@ -4664,36 +4224,17 @@ The response returns the policy details and is similar to:
 
 **Response Codes**
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200</code></td>
-<td>OK. The request was successful.</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
-</tr>
-<tr>
-<td><code>403</code></td>
-<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
-</tr>
-<tr>
-<td><code>404</code></td>
-<td>Not found. The requested object doesn't exist.</td>
-</tr>
-</tbody>
-</table>
+`200`
+: OK. The request was successful.
+
+`401`
+: Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
+
+`403`
+: Forbidden. The user who made the request isn't authorized to perform the action.
+
+`404`
+: Not found. The requested object doesn't exist.
 
 #### GET
 
@@ -4782,36 +4323,17 @@ The response is similar to:
 
 **Response Codes**
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200</code></td>
-<td>OK. The request was successful.</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
-</tr>
-<tr>
-<td><code>403</code></td>
-<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
-</tr>
-<tr>
-<td><code>404</code></td>
-<td>Not found. The requested object doesn't exist.</td>
-</tr>
-</tbody>
-</table>
+`200`
+: OK. The request was successful.
+
+`401`
+: Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
+
+`403`
+: Forbidden. The user who made the request isn't authorized to perform the action.
+
+`404`
+: Not found. The requested object doesn't exist.
 
 #### PUT
 
@@ -4971,63 +4493,27 @@ The response returns the policy details and is similar to:
 
 **Response Codes**
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200</code></td>
-<td>OK. The request was successful.</td>
-</tr>
-<tr>
-<td><code>201</code></td>
-<td>Created. The object was created.</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
-</tr>
-<tr>
-<td><code>403</code></td>
-<td>Forbidden. The user who made the request isn't authorized to perform the action.</td>
-</tr>
-<tr>
-<td><code>404</code></td>
-<td>Not found. The requested object doesn't exist.</td>
-</tr>
-</tbody>
-</table>
+`200`
+: OK. The request was successful.
+
+`201`
+: Created. The object was created.
+
+`401`
+: Unauthorized. The user or client who made the request couldn't be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
+
+`403`
+: Forbidden. The user who made the request isn't authorized to perform the action.
+
+`404`
+: Not found. The requested object doesn't exist.
 
 ### New Config Settings
 
 The following configuration settings are new for the Chef server:
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Setting</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>estatsd['protocol']</code></td>
-<td>Use to send application statistics with StatsD protocol formatting. Set this value to <code>statsd</code> to apply StatsD protocol formatting.</td>
-</tr>
-</tbody>
-</table>
+`estatsd['protocol']`
+: Use to send application statistics with StatsD protocol formatting. Set this value to `statsd` to apply StatsD protocol formatting.
 
 ## Chef Infra Server 12.0.8
 
@@ -5151,8 +4637,6 @@ please see /server/upgrade_server_open_source_notes.html as well.
 Amazon Web Services (AWS) is a supported high availability configuration
 option for the Chef server.
 
-<img src="/images/chef_server_ha_aws.svg" class="align-center" width="600" alt="image" />
-
 Backend servers make use of a single Amazon Elastic Block Store (EBS)
 volume.
 
@@ -5258,33 +4742,16 @@ The `install` subcommand downloads packages from
 a firewall (and have connectivity to <https://packages.chef.io/>), these
 packages can be installed as described below.
 
-<table>
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Feature</th>
-<th>Command</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><p>Chef Manage</p></td>
-<td><p>Use Chef management console to manage data bags, attributes, run-lists, roles, environments, and cookbooks from a web user interface.</p>
-<p>On the Chef server, run:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">sudo</span> chef-server-ctl install chef-manage</span></code></pre></div>
-<p>then:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">sudo</span> chef-server-ctl reconfigure</span></code></pre></div>
-<p>and then:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">sudo</span> chef-manage-ctl reconfigure</span></code></pre></div>
+Chef Manage
+: Use Chef management console to manage data bags, attributes, run-lists, roles, environments, and cookbooks from a web user interface.
+On the Chef server, run:
+[](#cb1-1)sudo chef-server-ctl install chef-manage
+then:
+[](#cb2-1)sudo chef-server-ctl reconfigure
+and then:
+[](#cb3-1)sudo chef-manage-ctl reconfigure
 **Note:**
-<p>Starting with the Chef management console 2.3.0, the <a href="/chef_license/">Chef MLSA</a> must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a <code>yes</code> to accept it. Or run <code>chef-manage-ctl reconfigure --accept-license</code> to automatically accept the license.</p>
-</td>
-</tr>
-</tbody>
-</table>
+Starting with the Chef management console 2.3.0, the [Chef MLSA](/chef_license/) must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a `yes` to accept it. Or run `chef-manage-ctl reconfigure --accept-license` to automatically accept the license.
 
 **Use Local Packages**
 
@@ -5638,76 +5105,26 @@ The name of the Chef server configuration file is now chef-server.rb.
 
 The following configuration settings are new for Chef server version 12:
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Setting</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>default_orgname</code></td>
-<td>The Chef server API used by the Open Source Chef server doesn't have an <code>/organizations/ORG_NAME</code> endpoint. Use this setting to ensure that migrated Open Source Chef servers are able to connect to the Chef server API. This value should be the same as the name of the organization that was created during the upgrade from Open Source Chef version 11 to Chef server version 12, which means it will be identical to the <code>ORG_NAME</code> part of the <code>/organizations</code> endpoint in Chef server version 12. Default value: the name of the organization specified during the upgrade process from Open Source Chef 11 to Chef server 12.</td>
-</tr>
-<tr>
-<td><code>postgresql['log_min_duration_statement']</code></td>
-<td>When to log a slow PostgreSQL query statement. Possible values: <code>-1</code> (disabled, don't log any statements), <code>0</code> (log every statement), or an integer greater than zero. When the integer is greater than zero, this value is the amount of time (in milliseconds) that a query statement must have run before it's logged. Default value: <code>-1</code>.</td>
-</tr>
-</tbody>
-</table>
+`default_orgname`
+: The Chef server API used by the Open Source Chef server doesn't have an `/organizations/ORG_NAME` endpoint. Use this setting to ensure that migrated Open Source Chef servers are able to connect to the Chef server API. This value should be the same as the name of the organization that was created during the upgrade from Open Source Chef version 11 to Chef server version 12, which means it will be identical to the `ORG_NAME` part of the `/organizations` endpoint in Chef server version 12. Default value: the name of the organization specified during the upgrade process from Open Source Chef 11 to Chef server 12.
+
+`postgresql['log_min_duration_statement']`
+: When to log a slow PostgreSQL query statement. Possible values: `-1` (disabled, don't log any statements), `0` (log every statement), or an integer greater than zero. When the integer is greater than zero, this value is the amount of time (in milliseconds) that a query statement must have run before it's logged. Default value: `-1`.
 
 The following configuration settings have updated default values
 starting with Chef server version 12:
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Setting</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>api_version</code></td>
-<td>The version of the Chef server. Default value: <code>"12.0.0"</code>.</td>
-</tr>
-</tbody>
-</table>
+`api_version`
+: The version of the Chef server. Default value: `"12.0.0"`.
 
 The following configuration settings are new in Chef server version
 12.0.5:
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Setting</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>opscode_erchef['nginx_bookshelf_caching']</code></td>
-<td>Whether Nginx is used to cache cookbooks. When <code>:on</code>, Nginx serves up the cached content instead of forwarding the request. Default value: <code>:off</code>.</td>
-</tr>
-<tr>
-<td><code>opscode_erchef['s3_url_expiry_window_size']</code></td>
-<td>The frequency at which unique URLs are generated. This value may be a specific amount of time, that is <code>15m</code> (fifteen minutes) or a percentage of the value of <code>s3_url_ttl</code>, that is <code>10%</code>. Default value: <code>:off</code>.</td>
-</tr>
-</tbody>
-</table>
+`opscode_erchef['nginx_bookshelf_caching']`
+: Whether Nginx is used to cache cookbooks. When `:on`, Nginx serves up the cached content instead of forwarding the request. Default value: `:off`.
+
+`opscode_erchef['s3_url_expiry_window_size']`
+: The frequency at which unique URLs are generated. This value may be a specific amount of time, that is `15m` (fifteen minutes) or a percentage of the value of `s3_url_ttl`, that is `10%`. Default value: `:off`.
 
 #### oc_chef_authz
 
@@ -5781,28 +5198,11 @@ See this blog post for more information about the `knife-acl` plugin:
 
 The following settings are new:
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Setting</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>ldap['ssl_enabled']</code></td>
-<td>Use to enable SSL. Default value: <code>false</code>. Must be <code>false</code> when <code>ldap['tls_enabled']</code> is <code>true</code>.</td>
-</tr>
-<tr>
-<td><code>ldap['tls_enabled']</code></td>
-<td>Use to enable TLS. When enabled, communication with the LDAP server is done via a secure SSL connection on a dedicated port. When <code>true</code>, <code>ldap['port']</code> is also set to <code>636</code>. Default value: <code>false</code>. Must be <code>false</code> when <code>ldap['ssl_enabled']</code> is <code>true</code>.</td>
-</tr>
-</tbody>
-</table>
+`ldap['ssl_enabled']`
+: Use to enable SSL. Default value: `false`. Must be `false` when `ldap['tls_enabled']` is `true`.
+
+`ldap['tls_enabled']`
+: Use to enable TLS. When enabled, communication with the LDAP server is done via a secure SSL connection on a dedicated port. When `true`, `ldap['port']` is also set to `636`. Default value: `false`. Must be `false` when `ldap['ssl_enabled']` is `true`.
 
 **Note:**
 
