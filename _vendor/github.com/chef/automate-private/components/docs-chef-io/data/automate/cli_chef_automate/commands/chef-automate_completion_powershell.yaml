@@ -1,0 +1,33 @@
+name: chef-automate completion powershell
+synopsis: Generate the autocompletion script for powershell
+usage: chef-automate completion powershell [flags]
+description: |
+    Generate the autocompletion script for powershell.
+
+    To load completions in your current shell session:
+
+    	chef-automate completion powershell | Out-String | Invoke-Expression
+
+    To load completions for every new session, add the output of the above command
+    to your powershell profile.
+options:
+    - name: help
+      shorthand: h
+      default_value: "false"
+      usage: help for powershell
+    - name: no-descriptions
+      default_value: "false"
+      usage: disable completion descriptions
+inherited_options:
+    - name: debug
+      shorthand: d
+      default_value: "false"
+      usage: Enable debug output
+    - name: no-check-version
+      default_value: "false"
+      usage: Disable version check
+    - name: result-json
+      usage: Write command result as JSON to PATH
+see_also:
+    - chef-automate completion - Generate the autocompletion script for the specified shell
+supported_on: Bastion

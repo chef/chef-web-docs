@@ -12,26 +12,19 @@ workspace = ''
 # Chef Automate
 ###
 
-# [[imports]]
-#   disable = false
-#   ignoreConfig = false
-#   path = "github.com/chef/automate/components/docs-chef-io"
+[[imports]]
+  disable = false
+  ignoreConfig = false
+  path = "github.com/chef/automate-private/components/docs-chef-io"
 
-# [[imports.mounts]]
-#   source = "content/automate"
-#   target = "content/automate"
+[[imports.mounts]]
+  source = "data"
+  target = "data"
 
-# [[imports.mounts]]
-#   source = "data"
-#   target = "data"
+[[imports.mounts]]
+  source = "static/automate-api-docs"
+  target = "static/automate-api-docs"
 
-# [[imports.mounts]]
-#   source = "static"
-#   target = "static"
-
-# [[imports.mounts]]
-#   source = "layouts"
-#   target = "layouts"
 
 ###
 # Chef Desktop

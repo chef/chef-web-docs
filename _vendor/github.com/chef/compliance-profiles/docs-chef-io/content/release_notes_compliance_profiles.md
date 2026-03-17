@@ -9,9 +9,26 @@ draft = false
     parent = "release_notes/compliance"
     weight = 10
 +++
+
+## 20260316
+
+### New features
+
+- CIS Apache Tomcat 11 v1.0.0
+- CIS Oracle Linux 10 v1.0.0
+- CIS Rocky Linux 10 v1.0.0
+
+### Improvements
+
+- STIG Windows 11 v2r2: optimized the profile's controls
+- CIS RHEL 8 v3.0.0: optimized the profile's execution time
+- CIS RHEL 9 v2.0.0: optimized the profile's execution time
+- CIS RHEL 10 v1.0.0: optimized the profile's execution time
+
 ## 20251115
 
 ### New features
+
 - CIS Red Hat Enterprise Linux 10 v1.0.0 (Audits)
 - CIS Alma Linux 9 v2.0.0 (Audits)
 - CIS Postgres 17 v1.0.0 (Audits)
