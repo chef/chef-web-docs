@@ -1,34 +1,38 @@
 #!/bin/bash
 
-set -eoux pipefail
+set -euo pipefail
+set -x
 
 # different chef product repos have their documentation in different subdirectories
 # this variable has to be defined so we can copy content from the proper subdirectory
 # that contains the docs content and properly execute the `hugo mod get` command.
 
-if [[ "${EXPEDITOR_PROJECT}" == *"automate"* ]]; then
-  org="chef"
-  product_key="automate"
-  subdirectory="components/docs-chef-io"
-  manifest="https://packages.chef.io/files/${EXPEDITOR_TARGET_CHANNEL}/automate/latest/manifest_semver.json"
-  git_sha="$(curl -s $manifest | jq -r -c ".git_sha")"
-elif [[ "${EXPEDITOR_PROJECT}" == *"habitat"* ]]; then
-  org="habitat-sh"
-  product_key="habitat"
-  subdirectory="components/docs-chef-io"
-  manifest="https://packages.chef.io/files/${EXPEDITOR_TARGET_CHANNEL}/habitat/latest/manifest.json"
-  git_sha="$(curl -s $manifest | jq -r -c ".sha")"
-  version="$(curl -s $manifest | jq -r -c ".version")"
-fi
+case "${EXPEDITOR_PROJECT}" in
+  *"automate-private"*)
+    org="chef"
+    product_key="automate-private"
+    subdirectory="components/docs-chef-io"
+    ;;
+  *"habitat"*)
+    org="habitat-sh"
+    product_key="habitat"
+    subdirectory="components/docs-chef-io"
+    ;;
+  *)
+    echo "Unsupported EXPEDITOR_PROJECT: ${EXPEDITOR_PROJECT}" >&2
+    exit 1
+    ;;
+esac
 
-branch="expeditor/update_docs_${product_key}_${git_sha}"
-git checkout -b "$branch"
+timestamp="$(date '+%Y%m%d%H%M%S')"
+branch="expeditor/update_docs_${product_key}_${timestamp}"
+git checkout -B "$branch"
 
 # Update the semver version of the documentation module that chef-web-docs will
 # use to build the docs from.
 # See https://gohugo.io/hugo-modules/use-modules/#update-one-module
 
-hugo mod get "github.com/${org}/${product_key}/${subdirectory}@${git_sha}"
+hugo mod get "github.com/${org}/${product_key}/${subdirectory}"
 hugo mod tidy
 
 # Update the vendored files in chef-web-docs
@@ -38,31 +42,25 @@ hugo mod vendor
 
 # Clean the go.sum file
 
-rm go.sum
+rm -f go.sum
 hugo mod clean
-
-###
-# Manage Habitat version numbers for release notes
-###
-
-# We use product version numbers for release notes.
-# There's no list of Habitat versions on packages.chef.io, so we store one in assets/release-notes/habitat/release-versions.json
-# This file is updated every time there's a new release of Hab
-
-if [[ "${EXPEDITOR_PROJECT}" == *"habitat"* ]]; then
-  version_data="$(jq --arg version "$version" '. += [$version]' assets/release-notes/habitat/release-versions.json)" && \
-  echo -E "${version_data}" > assets/release-notes/habitat/release-versions.json
-fi
 
 # submit pull request to chef/chef-web-docs
 
 git add .
 
+if git diff --cached --quiet; then
+  echo "No documentation module updates found for ${product_key}."
+  git checkout -
+  git branch -D "$branch"
+  exit 0
+fi
+
 # give a friendly message for the commit and make sure it's noted for any future
 # audit of our codebase that no DCO sign-off is needed for this sort of PR since
 #it contains no intellectual property
 
-dco_safe_git_commit "Bump Hugo module $product_key to latest $EXPEDITOR_TARGET_CHANNEL release ($git_sha)."
+dco_safe_git_commit "Bump Hugo module ${product_key} to latest ${EXPEDITOR_TARGET_CHANNEL} release."
 
 open_pull_request
 
