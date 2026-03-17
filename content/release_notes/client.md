@@ -54,7 +54,7 @@ Release date: March 17, 2026
 ### Known issues
 
 - This release doesn't support SELinux.
-- Don't install this version of Chef Infra Client on a machine running Chef Automate or Chef Infra Server.
+- Don't install this version of Chef Infra Client on a machine running Chef Automate.
 
 ## Chef Infra Client 19.1.164
 
@@ -157,6 +157,7 @@ Release date: February 5, 2026
 
 ### Known issues
 
+- Don't install this version of Chef Infra Client on a machine that already has Chef Automate installed.
 - This release doesn't support FIPS Mode.
 - The chef_client_systemd_timer resource doesn't work with SELinux.
 
