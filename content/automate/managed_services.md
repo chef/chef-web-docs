@@ -15,17 +15,17 @@ draft = false
 
 ### PostgreSQL Setup
 
-- Setup [PostgreSQL RDS DB instance]](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html) in AWS.
+- Setup [PostgreSQL RDS DB instance]](<https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html>) in AWS.
 
 - To connect to the DB instance, the DB instance should be associated with a security group that provides access to it. Ensure External RDS is accessible from Automate instances.
 
 ### Adding Resolvers for PostgreSQL Database
 
-In case you want to resolve the PostgreSQL cluster node IPs dynamically using DNS servers, you can add resolvers/nameservers to the configuration.
+In case you want to resolve the PostgreSQL cluster node IPs dynamically using DNS servers, you can add resolvers/name servers to the configuration.
 
 The two ways to add the name servers are:
 
-1. **Add nameserver IPs:** If you are aware of the nameservers which should resolve the PostgreSQL nodes, the nameservers can be added to your `config.toml` file.
+1. **Add name server IPs:** If you are aware of the name servers which should resolve the PostgreSQL nodes, the name servers can be added to your `config.toml` file.
 
     ```toml
     [pg_gateway.v1.sys.resolvers]
@@ -33,14 +33,14 @@ The two ways to add the name servers are:
       nameservers = ["127.0.0.53:53"]
     ```
 
-1. **Set system DNS entries:** To use existing system nameserver entries from `/etc/resolv.conf`, add the following setting to `config.toml`:
+1. **Set system DNS entries:** To use existing system name server entries from `/etc/resolv.conf`, add the following setting to `config.toml`:
 
     ```toml
     [pg_gateway.v1.sys.resolvers]
       enable_system_nameservers = true
     ```
 
-If both options are set, nameserver IPs take precedence over the system nameserver entries.
+If both options are set, name server IPs take precedence over the system name server entries.
 
 Apply the changes:
 
@@ -66,7 +66,7 @@ To create the domain, follow the steps given below:
 
 - Select **Enable Fine-grained Access Control** and choose **Create Master User**, under **Fine-grained Access Control Section**. Add `master username` and `master password` for the master user.
 
-- Select **Configure Domain Level Access Policy** under the `Access policy` section and modify the `Effect` from *Deny* to *Allow*.
+- Select **Configure Domain Level Access Policy** under the `Access policy` section and modify the `Effect` from _Deny_ to _Allow_.
 
 - Copy the `domain arn` of the newly created OpenSearch, example: `arn:aws:es:region:123456789012:domain/domain-name`
 
@@ -120,7 +120,7 @@ The steps to enable backup and restore in OpenSearch S3 is:
 - Map the snapshot role in OpenSearch Dashboards.
 
   1. Navigate to the OpenSearch Dashboards url from the OpenSearch Service console.
-  1. From the OpenSearch Dashboards, navigate to *Security* in the main menu and choose *Roles*, and then select the `manage_snapshots` role.
+  1. From the OpenSearch Dashboards, navigate to _Security_ in the main menu and choose _Roles_, and then select the `manage_snapshots` role.
   1. Choose Mapped users, and select Manage mapping.
   1. Add the domain ARN of the user and role that has permission to pass the newly created `TheSnapshotRole`. Put user ARNs under Users and role ARNs under Backend roles.
 
@@ -139,7 +139,7 @@ The steps to enable backup and restore in OpenSearch S3 is:
 - In case of Automate HA, add the following permission in OpenSearch Dashboard.
 
   1. Navigate to the OpenSearch Dashboards URL from the OpenSearch Service console.
-  1. From the OpenSearch Dashboards, navigate to *Security* in the main menu and choose *Roles*, and then select the `manage_snapshots` role.
+  1. From the OpenSearch Dashboards, navigate to _Security_ in the main menu and choose _Roles_, and then select the `manage_snapshots` role.
   1. Select `Edit role`.
   1. Under the Index permissions, Add the `indices:admin/delete` and then select Update to save the changes.
 
@@ -155,7 +155,7 @@ ssh -i ~/.ssh/your-key.pem ec2-user@your-ec2-instance-public-ip -N -L 9200:vpc-d
 
 The above command creates an SSH tunnel that forwards requests to `https://localhost:9200` to your OpenSearch Service domain through the EC2 instance. Specifying port `9200` in the command simulates a local OpenSearch install, but you can any port. OpenSearch Service only accepts connections over port `80 (HTTP)` or `443 (HTTPS)`.
 
-The command provides no feedback and runs indefinitely. Select *Ctrl + C* to stop the command.
+The command provides no feedback and runs indefinitely. Select _Ctrl + C_ to stop the command.
 
 Navigate to `https://localhost:9200/\_dashboards/` in your web browser. To navigate, acknowledge a security exception.
 
@@ -163,11 +163,11 @@ Alternately, you can send requests to `https://localhost:9200` using curl, Postm
 
 ### Add Resolvers for OpenSearch
 
-If you want to dynamically resolve the OpenSearch node IPs using DNS servers, you can add resolvers/nameservers to the configuration.
+If you want to dynamically resolve the OpenSearch node IPs using DNS servers, you can add resolvers/name servers to the configuration.
 
 The two ways to add the name servers are:
 
-1. **Add nameserver IPs:** Add the nameservers to your `config.toml` file to resolve the OpenSearch nodes.
+1. **Add name server IPs:** Add the name servers to your `config.toml` file to resolve the OpenSearch nodes.
 
     ```toml
     [esgateway.v1.sys.ngx.main.resolvers]
@@ -175,14 +175,14 @@ The two ways to add the name servers are:
       nameservers = ["192.0.2.0:24", "198.51.100.0:24"]
     ```
 
-1. **Set system DNS entries:** To use existing system nameserver entries from `/etc/resolv.conf`, add the following setting to `config.toml`:
+1. **Set system DNS entries:** To use existing system name server entries from `/etc/resolv.conf`, add the following setting to `config.toml`:
 
     ```toml
     [esgateway.v1.sys.ngx.main.resolvers]
       enable_system_nameservers = true
     ```
 
-If both options are set, nameserver IPs precede the system nameserver entries.
+If both options are set, name server IPs precede the system name server entries.
 
 Apply the changes:
 
@@ -335,7 +335,7 @@ location = "s3"
 ## bucket (required): The name of the bucket
 bucket = "<bucket name>"
 ## base_path (optional):  The path within the bucket where backups should be stored
-## If base_path is not set, backups will be stored at the root of the bucket.
+## If base_path isn't set, backups will be stored at the root of the bucket.
 base_path = "<base path>"
 client = "default"
 [global.v1.external.opensearch.backup.s3.settings]
@@ -370,7 +370,7 @@ To register a snapshot repository, send a PUT request to the OpenSearch Service 
 
 Make sure to follow the steps mentioned in the prerequisite while setting up the Amazon OpenSearch Domain. Use the same `role_arn` and `IAM user` credentials mapped to the `manage_snapshots` role on OpenSearch dashboards.
 
-If using Postman to send the API request below, select `AWS Signature` under the **Authorization** Tab and fill *AccessKey*, *SecretKey*, *AWS Region*, and *Service Name* as `es`.
+If using Postman to send the API request below, select `AWS Signature` under the **Authorization** Tab and fill _AccessKey_, _SecretKey_, _AWS Region_, and _Service Name_ as `es`.
 
 The request takes the following format:
 
@@ -400,7 +400,7 @@ chef-automate-es6-event-feed-service
 chef-automate-es6-ingest-service
 ```
 
-If your domain resides within a virtual private cloud (VPC), your computer must be connected to the VPC for the request to register the snapshot repository successfully. Accessing a VPC varies by network configuration but likely involves connecting to a VPN or corporate network. Reach the OpenSearch Service domain, navigate to https://your-vpc-domain.region.es.amazonaws.com in a web browser and verify that you receive the default JSON response.
+If your domain resides within a virtual private cloud (VPC), your computer must be connected to the VPC for the request to register the snapshot repository successfully. Accessing a VPC varies by network configuration but likely involves connecting to a VPN or corporate network. Reach the OpenSearch Service domain, navigate to <https://your-vpc-domain.region.es.amazonaws.com> in a web browser and verify that you receive the default JSON response.
 
 You can get the information about all snapshot repositories registered in the cluster by using the following API:
 
@@ -464,7 +464,7 @@ Create a `config.toml` file with default values for your Chef Automate installat
 chef-automate init-config
 ```
 
-You can customize your *FQDN*, *login name*, and other values, by changing the values in the `config.toml` in your editor.
+You can customize your _FQDN_, _login name_, and other values, by changing the values in the `config.toml` in your editor.
 
 ### Configuring External AWS PostgreSQL RDS
 
@@ -540,7 +540,7 @@ location = "s3"
 ## bucket (required): The name of the bucket
 bucket = "<bucket name>"
 ## base_path (optional):  The path within the bucket where backups should be stored
-## If base_path is not set, backups will be stored at the root of the bucket.
+## If base_path isn't set, backups will be stored at the root of the bucket.
 base_path = "<base path>"
 client = "default"
 [global.v1.external.opensearch.backup.s3.settings]
@@ -564,11 +564,11 @@ To store backups in an existing AWS S3 bucket, add the following to your `config
   endpoint = "https://s3.amazonaws.com"
 
   # base_path (optional):  The path within the bucket where backups should be stored
-  # If base_path is not set, backups will be stored at the root of the bucket.
+  # If base_path isn't set, backups will be stored at the root of the bucket.
   base_path = "<base path>"
 
 [global.v1.backups.s3.credentials]
-  # Optionally, AWS credentials may be provided. If these are not provided, IAM instance
+  # Optionally, AWS credentials may be provided. If these aren't provided, IAM instance
   # credentials will be used. It's also possible for these to be read through the standard
   # AWS environment variables or through the shared AWS config files.
   access_key = "<access_key>"

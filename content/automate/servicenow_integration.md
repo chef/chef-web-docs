@@ -11,7 +11,7 @@ draft = false
     weight = 10
 +++
 
-[ServiceNow](https://www.servicenow.com/) provides cloud-based services that automate enterprise IT operations. ServiceNow specializes in IT service management (ITSM) applications and provides forms-based workflow application development. It supports third-party application and data integrations. The most common integrations are for configuration management, incident management, problem management, change management, user administration, and single sign-on authentication.
+[ServiceNow](https://www.servicenow.com/) provides cloud-based services that automate enterprise IT operations. ServiceNow specializes in IT service management applications and provides forms-based workflow application development. It supports third-party application and data integrations. The most common integrations are for configuration management, incident management, problem management, change management, user administration, and single sign-on authentication.
 
 The Chef Automate Integration App for ServiceNow, also called the Integration App, integrates Chef Automate with ServiceNow. This app is a ServiceNow-certified scoped application available from the ServiceNow store. It integrates existing Chef Automate infrastructure and compliance functionality with ServiceNow enterprise services. Once installed and configured, this integration enables Chef Automate to create and update a ServiceNow Configuration Management Database (CMDB) with data from nodes managed by Chef Automate. Chef Automate aggregates information about infrastructure nodes, the Chef Infra Client runs, and Chef Compliance scans, helping you monitor your infrastructure in real time.
 
@@ -19,7 +19,7 @@ The Integration App works by exposing the REST API endpoints for communication b
 
 {{< figure src="/images/automate/snow_integration_dataflow_diagram.png" alt="Data Flow Diagram" >}}
 
-## Prequisites
+## Prerequisites
 
 ### User Requirements
 
@@ -63,7 +63,7 @@ Set up a data feed to send data from Chef Automate:
    - **Data Feed URL**:The API address that the notification uses. It has the format: `https://ven12345.service-now.com/api/x_chef_automate/asset`.
    - **Username**: The name you use to sign in to ServiceNow.
    - **Password**: The password you use to sign in to ServiceNow.
-1. Select **Test Data Feed**. A successful test displays **service-now automate connectivity passed**. An unsuccessful test returns a message with infomation for the connectivity or credentials issues to helps resolve the error.
+1. Select **Test Data Feed**. A successful test displays **service-now automate connectivity passed**. An unsuccessful test returns a message with information about connectivity or credential issues to help resolve the error.
 
 1. Select **Create Data Feed** to save the setup.
 
@@ -179,10 +179,10 @@ The Integration App has nine configurable **Application Properties**. Changing t
 : Used to set a highest number of compliance reports for a node. Default: `5`.
 
 `x_chef_automate.insert_manufacturer`
-: Inserts the new record during the import if a model is not found in the _core\_company_ table by settingthe property to **Yes**. Default: `Yes`.
+: Inserts the new record during the import if a model isn't found in the _core\_company_ table by setting the property to **Yes**. Default: `Yes`.
 
 `x_chef_automate.insert_model`
-: Inserts the new record during the import if a model is not found in the _cmdb\_model_ table by setting the property to **Yes**. Default: `Yes`
+: Inserts the new record during the import if a model isn't found in the _cmdb\_model_ table by setting the property to **Yes**. Default: `Yes`
 
 `x_chef_automate. logging.enabled`
 : Used to flag the logging with **enable** or **disable** values. Default: `No`.

@@ -50,7 +50,7 @@ Deploy the packages with the following command:
 sudo chef-automate deploy --product automate --product infra-server --product desktop --accept-terms-and-mlsa
 ```
 
-*You will need the host names and user information later in this guide. They are located them in the `automate-credentials.toml`.*
+*You will need the host names and user information later in this guide. They're located them in the `automate-credentials.toml`.*
 
 ## Configure the Infra server
 

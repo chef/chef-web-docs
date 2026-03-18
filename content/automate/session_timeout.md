@@ -15,7 +15,7 @@ Chef Automate has an optional session timeout configuration for signing out idle
 
 To enable session_timeout in Chef Automate:
 
-- Set the value of `enable_idle_timeout` property to **true** in *config.toml* file.
+- Set the value of `enable_idle_timeout` property to **true** in _config.toml_ file.
 - Set the value of `idle_timeout_minutes` property to your desired time in minutes(for example **30**). (Setting the value of this property to **30** will set the session timeout time to 30 minutes).
 
 {{< note >}}

@@ -25,13 +25,13 @@ This page explains the frequently encountered issues in Chef Automate High Avail
 
 - First we can check if Automate UI is opening via browser if it open's then we can try to hit the curl request to the Automate FQDN from the Chef Infra Server node.
 `curl --cacert /path/to/fqdn-rootca-pem-file https://<AUTOMATE_FQDN>`
-  -  The above request will verify the authenticity of the server's SSL certificate (FQDN RootCA) against Automate FQDN.
-  -  In case if it gives any error, then we have make sure that the `RootCA` is valid or not.
--  The above curl request will work in case if ssl is terminating at load balancer.
--  In case of ssl is not terminating at the Load Balancer, we need to patch the certificate to the Automate via [cert-rotate command](/automate/ha_cert_rotation/#rotate-using-cert-rotate-command).
--  The above steps required the `private-key`, `public-key` and `root-ca`.
+  - The above request will verify the authenticity of the server's SSL certificate (FQDN RootCA) against Automate FQDN.
+  - In case if it gives any error, then we have make sure that the `RootCA` is valid or not.
+- The above curl request will work in case if ssl is terminating at load balancer.
+- In case of ssl isn't terminating at the Load Balancer, we need to patch the certificate to the Automate via [cert-rotate command](/automate/ha_cert_rotation/#rotate-using-cert-rotate-command).
+- The above steps required the `private-key`, `public-key` and `root-ca`.
 - If the above steps did not work, Run the command on Automate HA chef-server node `journalctl --follow --unit chef-automate`
-- If getting a 500 internal server error with the data-collector endpoint, it means that Chef Infra Server is not able to communicate to the Chef Automate data-collector endpoint.
+- If getting a 500 internal server error with the data-collector endpoint, it means that Chef Infra Server isn't able to communicate to the Chef Automate data-collector endpoint.
 
 To make the service healthy, ensure the chef server can curl the data collector endpoint from the chef server node.
 
@@ -66,7 +66,7 @@ Guidance:
 - If you encounter `Resource limit exceeded` errors, increase this value gradually by 10% to 30% based on performance improvements.
 - Monitor CPU and memory usage after each adjustment.
 
-Reference: [Chef Automate Configuration](https://docs.chef.io/automate/configuration/)
+Reference: [Chef Automate Configuration](/automate/configuration/)
 
 ### Queue is full errors on data collector endpoint
 
@@ -97,15 +97,16 @@ Guidance:
 - If you see queue overflow errors, increase the value to 300.
 - If the issue persists, increase it gradually by 100 until the problem is resolved.
 
-Avoid setting this value too high, as it may cause backpressure and increase latency if downstream processing slows down or fails.
+Avoid setting this value too high, as it may cause queue buildup and increase latency if downstream processing slows down or fails.
 
-Reference: [Chef Automate Configuration](https://docs.chef.io/automate/configuration/)
+Reference: [Chef Automate Configuration](/automate/configuration/)
 
 ### Still getting 5XX on data collector endpoint
 
-Along with the above configuration changes related to rate-limiter and queue configuration, it is crucial to implement proper splay on the client nodes sending data to Automate. Configuration changes can help mitigate the issue to a certain extent, but sudden bursts of traffic from multiple clients can still overwhelm the system and cause request rejections.
+Along with the above configuration changes related to rate-limiter and queue configuration, it's crucial to implement proper splay on the client nodes sending data to Automate. Configuration changes can help mitigate the issue to a certain extent, but sudden bursts of traffic from multiple clients can still overwhelm the system and cause request rejections.
 
 Splay introduces a random delay between client runs, which helps:
+
 - Prevent traffic spikes.
 - Distribute load more evenly across the system.
 - Reduce the chances of exceeding rate limits or overloading the queue.
@@ -115,6 +116,7 @@ Splay introduces a random delay between client runs, which helps:
 ```bash
 Level=error msg="Failed to restore services" backup_id=20210914082922 error="failed to import database dump from automate-cs-oc-erchef/pg_data/automate-cs-oc-erchef.fc: error dropping database \"automate-cs-oc-erchef\": pg: database \"automate-cs-oc-erchef\" is being accessed by other users" restore_id=20210914130646
 ```
+
 The restore command fails when other users or services access the nodes' databases. This happens when the restore service tries to drop the database when some services are still running and are referring to the database.
 
 #### Solution
@@ -125,7 +127,7 @@ Stopping the service on all frontend node will able to drop the database while r
 
 ### Issue: Cached Artifact not found in Offline Mode
 
-The cached artifact does not exist in offline mode. This issue occurs in an air gap environment when a package tries to pull any dependency components or details from the internet.
+The cached artifact doesn't exist in offline mode. This issue occurs in an air gap environment when a package tries to pull any dependency components or details from the internet.
 
 ```bash
 "level=error msg=""Failed to restore services"" backup_id=20210913105135 error=""msg=\""failed to install\""
@@ -144,9 +146,9 @@ Use the `--airgap-bundle` option and the `restore` command. Locate the name of t
 chef-automate backup restore s3://bucket\_name/path/to/backups/BACKUP\_ID --patch-config </path/to/patch.toml> --skip-preflight --s3-access-key "Access\_Key" --s3-secret-key "Secret\_Key" --airgap-bundle /var/tmp/<airgap-bundle>
 ```
 
-### Issue: Existing Architecture does not Match the Requested
+### Issue: Existing Architecture doesn't Match the Requested
 
-The existing architecture does not match the requested issue when you have made AWS provisioning. Again, you are trying to run the `chef-automate provision config.toml --airgap-bundle automate.aib` command.
+The existing architecture doesn't match the requested issue when you have made AWS provisioning. Again, you are trying to run the `chef-automate provision config.toml --airgap-bundle automate.aib` command.
 
 #### Solution
 
@@ -157,7 +159,7 @@ Execute the following command from the bastion host from any location:
 
 ### Issue: Unable to Determine the Bucket Region
 
-When Chef Automate instances cannot locate the S3 bucket, the following error is displayed:
+When Chef Automate instances can't locate the S3 bucket, the following error is displayed:
 
 ```bash
 BackupRestoreError: Unable to restore backup: Listing backups failed: RequestError: send request failed caused by: Get "https://s3.amazonaws.com/a2backup?delimiter=%2F&list-type=2&prefix=elasticsearch%2F"
@@ -170,11 +172,12 @@ Ensure that the access key, secret key, and endpoints are correct. If you are us
 ```bash
 chef-automate backup restore s3://bucket_name/path/to/backups/BACKUP_ID --skip-preflight --s3-access-key "Access_Key" --s3-secret-key "Secret_Key" --s3-endpoint "https://s3.amazonaws.com"
 ```
+
 In the above command we need to update `--s3-access-key`, `--s3-secret-key` and `--s3-endpoint`
 
 ### Issue: HAB Access Error
 
-The *hab* user does not have read, write, or executive privileges on the backup repository.
+The _hab_ user doesn't have read, write, or executive privileges on the backup repository.
 
 #### Solution
 
@@ -186,7 +189,7 @@ sudo chef-automate backup fix-repo-permissions <path>
 
 ### Issue: bootstrap.abb scp Error
 
-While trying to deploy Chef Automate HA multiple times on the same infrastructure, the *bootstrap.abb* file is not created again as a state entry from past deployment blocks the creation.
+While trying to deploy Chef Automate HA multiple times on the same infrastructure, the _bootstrap.abb_ file isn't created again as a state entry from past deployment blocks the creation.
 The possible error looks like as shown below:
 
 ```bash
@@ -289,19 +292,19 @@ done
 
 ### Issue: knife SSL cert while setting up workstation during migration
 
-In the case of HA setup, while doing `knife ssl fetch`, if the certificate fetched is for the domain `\*.chefdemo.net`, follow the below steps when you run `knife ssl check`.
+In the case of HA setup, while doing `knife ssl fetch`, if the certificate fetched is for the domain `\*.example.net`, follow the below steps when you run `knife ssl check`.
 
 #### Solution
 
-- Go to route 53 chefdemo.net
-- Create record as recordname.eng.chefdemo.net
+- Go to route 53 example.net
+- Create record as record-name.eng.example.net
 - CNAME with value HA URL: ec2-url.region.compute.amazonaws.com
-- Provide `https://<record-name>` while running knife ssl check. E.g., `knife ssl check https://<record-name>`.
+- Provide `https://<RECORD_NAME>` while running knife ssl check. For example, `knife ssl check https://<RECORD_NAME>`.
 
 - Log in to the OpenSearch dashboard
 - Run this query: GET _snapshot/_all to get all the snapshots.
 - Delete all the snapshots using this query: DELETE _snapshot/<snapshot name>
-  For example: DELETE _snapshot/ chef-automate-es6-event-feed-service
+  For example: DELETE_snapshot/ chef-automate-es6-event-feed-service
 
 ### Issue: rename /tmp/temp2137181075 automate.config.toml: invalid cross-device link
 
@@ -309,7 +312,7 @@ This issue arises because the `mv` operation attempts to move a file between dis
 
 #### Solution
 
-We have noticed that resolving commands that lead to such errors is straightforward. Change the directory from which they are executed. Before reapplying the command, switch the directory to `/hab`:
+We have noticed that resolving commands that lead to such errors is straightforward. Change the directory from which they're executed. Before reapplying the command, switch the directory to `/hab`:
 
 ```sh
 cd /hab

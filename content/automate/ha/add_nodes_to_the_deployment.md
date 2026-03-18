@@ -50,8 +50,6 @@ For example,
     chef-automate node add --chef-server-ips 10.1.2.23,10.0.1.42
     ```
 
-
-
 - To add nodes with IP 10.1.2.23 and 10.0.1.42 to OpenSearch, run the following command:
 
     ```sh
@@ -77,6 +75,7 @@ You can mix and match different services to add nodes across various services.
     ```sh
     chef-automate node add --automate-ips 10.1.2.23 --chef-server-ips 10.1.0.36,10.0.1.233  --postgresql-ips 10.0.1.42,10.0.1.54
     ```
+
 You can remove unreachable nodes while adding nodes.
 
 - To remove unreachable nodes while adding new nodes, pass the flag --remove-unreachable-node or -r like the example below:
@@ -85,7 +84,7 @@ You can remove unreachable nodes while adding nodes.
      chef-automate node add --automate-ips 10.1.2.23 --remove-unreachable-node
     ```
 
-    or 
+    or
 
      ```sh
      chef-automate node add --automate-ips 10.1.2.23 -r
@@ -96,14 +95,14 @@ You can remove unreachable nodes while adding nodes.
 - For the **Minimum node cluster**, as the backend services (OpenSearch and PostgreSQL) are running in the same machine, to add a node make sure to add both services in the same command
 Eg: `chef-automate node add --postgresql-ips 10.0.1.42 --opensearch-ips 10.0.1.42`
 Notice, both OpenSearch and PostgreSQL IPs are same
-- Similarly for frontend services (Automate and Chef Server), add both services in the same command with the same IPs
+- Similarly for frontend services (Automate and Chef Infra Server), add both services in the same command with the same IPs
 Eg: `chef-automate node add --automate-ips 10.0.1.52 --chef-server-ips 10.0.1.52`
 - Adding a new PostgreSQL node to the cluster may lead to increased replication lag on follower nodes because multiple nodes will concurrently attempt to sync data from the leader.
 {{< /note >}}
 
 Once the command executes, it will add the supplied nodes to your automate setup. The changes might take a while.
 
-- Make sure to update your load-balancer configuration with the IP address of the new node. For reference, check the [Load Balancer Configuration page](/automate/loadbalancer_configuration/)
+- Make sure to update your load-balancer configuration with the IP address of the new node. For reference, check the [Load Balancer Configuration page](/automate/load_balancer_configuration/)
 
 {{< note >}}
 
@@ -164,20 +163,19 @@ You can mix and match different services to add nodes across various services.
 
 Once the command executes, it will add the supplied nodes to your automated setup. The changes might take a while.
 
-
 {{< note >}}
 
 - The new node will be configured with the certificates that are already configured in your HA setup.
 - If you had applied unique certificates per node, then the certificates of one of the nodes have been applied by default on the new nodes.
 - If you want to change the certificates for the new nodes, you can manually run the chef-automate cert-rotate [options] command.
-- Removing unreachable nodes while adding nodes is not supported in AWS mode of deployment; you have to use [remove node commands page](/automate/ha_remove_single_node_from_cluster/)
+- Removing unreachable nodes while adding nodes isn't supported in AWS mode of deployment; you have to use [remove node commands page](/automate/ha_remove_single_node_from_cluster/)
  to remove unreachable nodes first before adding new nodes
 - Certificate rotation should be done in maintenance window as service will restart.
 {{< /note >}}
 
 {{< warning >}}
 
-Downgrading the number of instance_count for the backend nodes will result in data loss. We do not recommend downgrading the backend nodes.
+Downgrading the number of instance_count for the backend nodes will result in data loss. We don't recommend downgrading the backend nodes.
 
 {{< /warning >}}
 

@@ -54,9 +54,9 @@ or
 chef-automate config show --a2
 ```
 
-### Show Configuration for Chef Server cluster
+### Show Configuration for Chef Infra Server cluster
 
-To show the configuration for the Chef Server cluster, run the following command:
+To show the configuration for the Chef Infra Server cluster, run the following command:
 
 ```bash
 chef-automate config show --chef_server
@@ -120,7 +120,7 @@ The bastion server can patch new configurations in all nodes using the commands 
 
 ### Patch Configuration for Frontend cluster
 
-To patch configuration for the Frontend cluster (includes Automate and Chef Server), run the following command:
+To patch configuration for the Frontend cluster (includes Automate and Chef Infra Server), run the following command:
 
 ```bash
 chef-automate config patch path/to/automate-config.toml --frontend
@@ -158,9 +158,9 @@ or
 chef-automate config patch path/to/automate-config.toml --a2
 ```
 
-### Patch Configuration for Chef Server cluster
+### Patch Configuration for Chef Infra Server cluster
 
-To patch the configuration for the Chef Server cluster, run the following command:
+To patch the configuration for the Chef Infra Server cluster, run the following command:
 
 ```bash
 chef-automate config patch path/to/chef_server-config.toml --chef_server
@@ -250,9 +250,9 @@ or
 chef-automate config set path/to/automate-config.toml --a2
 ```
 
-### Set Configuration for Chef Server cluster
+### Set Configuration for Chef Infra Server cluster
 
-To set the configuration for the Chef Server cluster, run the following command:
+To set the configuration for the Chef Infra Server cluster, run the following command:
 
 ```bash
 chef-automate config set path/to/chef_server-config.toml --chef_server

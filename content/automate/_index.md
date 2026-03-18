@@ -32,7 +32,7 @@ Chef Automate comes with comprehensive 24x7 support services for the entire plat
 Chef Automate is built around a web user interface that provides visibility into all aspects of your infrastructure.
 This includes Chef Infra Client nodes, Infra Client runs, Chef Infra Servers, policy groups, profiles, and Cookbooks.
 
-Filterable dashboards collect configuration and compliance details for every datacenter, cloud provider, and environment under management.
+Filterable dashboards collect configuration and compliance details for every data center, cloud provider, and environment under management.
 
 You can dig into the causes of compliance failures or configuration errors across your entire fleet, or filter reports by the systems that matter most.
 Use Chef Automate's trend graphs, rich query language and other sophisticated interfaces to quickly sift through the noise and prioritize solutions.

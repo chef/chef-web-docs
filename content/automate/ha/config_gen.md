@@ -69,13 +69,13 @@ You need to have `Chef Automate HA` as a topology for HA deployments.
 
 ## Chef Infra Server Load Balancer FQDN
 
-`Chef Server FQDN`
-: Chef Automate FQDN. For example, `chefserver.example.com`.
+`Chef Infra Server FQDN`
+: Chef Automate FQDN. For example, `chef-server.example.com`.
 
-`Chef Server FQDN ARN`
+`Chef Infra Server FQDN ARN`
 : For AWS deployment ARN name is required for Chef Servers FQDN domain.
 
-`Chef Server FQDN Root Certificate`
+`Chef Infra Server FQDN Root Certificate`
 : SSL root certificate for Chef Infra Server FQDN domain.
 
 ## Number of Nodes in Automate HA Cluster
@@ -83,8 +83,8 @@ You need to have `Chef Automate HA` as a topology for HA deployments.
 `Automate node count`
 : Number of nodes we want to keep for automate, in case of On-Premise deployment need to provide IP Address for all nodes.
 
-`Chef Server node count`
-: Number of nodes we want to keep for Chef Server, in case of On-Premise deployment need to provide IP Address for all nodes.
+`Chef Infra Server node count`
+: Number of nodes we want to keep for Chef Infra Server, in case of On-Premise deployment need to provide IP Address for all nodes.
 
 `OpenSearch node count`
 : Number of nodes we want to keep for OpenSearch, in case of On-Premise deployment need to provide IP Address for all nodes.
@@ -100,12 +100,12 @@ You need to have `Chef Automate HA` as a topology for HA deployments.
 `Public key for Automate`
 : If you have a custom certificate for Automate node provide your public for Automate, If you have a custom certificates for each Automate node then provide different public key for each of Automate node.
 
-## Private/Public Key For Chef Server
+## Private/Public Key For Chef Infra Server
 
-`Private key for Chef Server`
+`Private key for Chef Infra Server`
 : If you have a custom certificate for Chef Infra Server node provide your private for Chef Infra Server. If you have a custom certificates for each Chef Infra Server node then provide different private key for each of Chef Infra Server node.
 
-`Public key for Chef Server`
+`Public key for Chef Infra Server`
 : If you have a custom certificate for Chef Infra Server node provide your public for Chef Infra Server. If you have a custom certificates for each Chef Infra Server node then provide different public key for each of Chef Infra Server node.
 
 ## OpenSearch Certificate and Private/Public Key

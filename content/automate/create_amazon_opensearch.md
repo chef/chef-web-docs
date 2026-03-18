@@ -55,7 +55,7 @@ Before proceeding, make sure you have the following prerequisites in place:
    - Select **Configure domain level access policy**.
    - Select **Allow**.
 9. Configure the remaining settings per your requirements, such as the number of nodes and storage options.
-10. Review all the settings and ensure they are accurate.
+10. Review all the settings and ensure they're accurate.
 11. Select **Confirm** to start the cluster creation process.
 
 ## Step 4: Wait for the Amazon OpenSearch Cluster to be Created

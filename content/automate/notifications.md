@@ -14,12 +14,12 @@ draft = false
 
 ## Notifications
 
-Chef Automate notifications uses webhooks to send alerts for failures of Chef Infra Client runs and InSpec compliance scans. You can send notifications to Slack channels, Slack users, or any other service that supports webhook integrations. Notifications are sent for all failures. To ignore a failure, set the `ignore_failure` attribute to `true` on the resource. 
+Chef Automate notifications uses webhooks to send alerts for failures of Chef Infra Client runs and InSpec compliance scans. You can send notifications to Slack channels, Slack users, or any other service that supports webhook integrations. Notifications are sent for all failures. To ignore a failure, set the `ignore_failure` attribute to `true` on the resource.
 
 By default only Admins of Chef Automate may create and manage notifications.
 
 {{< warning >}}
-Notifications sent by Chef Automate do not support retries; therefore, notifications sent while Slack or the external service receiving the notification is experiencing API issues, outages, or some other unplanned downtime may never be received. Undelivered notifications are not re-sent. Attempts to send notifications do generate log messages in your Chef Automate server.
+Notifications sent by Chef Automate don't support retries; therefore, notifications sent while Slack or the external service receiving the notification is experiencing API issues, outages, or some other unplanned downtime may never be received. Undelivered notifications aren't re-sent. Attempts to send notifications do generate log messages in your Chef Automate server.
 {{< /warning >}}
 
 Chef Automate supports three types of notifications:
@@ -44,12 +44,12 @@ To add a servicenow notification for Chef Automate, follow the steps given below
 1. Enter a unique notification **name**.
 1. Select the **failure type** to be notified on from the drop-down menu. Current options are Chef Infra Client run or InSpec scan. According to the failure type selected, enter the **Webhook URL** as shown below:
 
-    - For Chef Infra Client Run: https://devxxxxx.service-now.com/api/x_chef_incident/client_run
-    - For Inspec Scan: https://devxxxxx.service-now.com/api/x_chef_incident/inspec_scan
+    - For Chef Infra Client Run: <https://devxxxxx.service-now.com/api/x_chef_incident/client_run>
+    - For Inspec Scan: <https://devxxxxx.service-now.com/api/x_chef_incident/inspec_scan>
 
 1. Enter the **ServiceNow Username**.
 1. Enter the **ServiceNow Password**.
-1. Select the **Test Notification** button to try out your ServiceNow notification. If your servicenow notification does not appear, return to the ServiceNow Webhooks Integration page to re-check the recipient and URL.
+1. Select the **Test Notification** button to try out your ServiceNow notification. If your servicenow notification doesn't appear, return to the ServiceNow Webhooks Integration page to re-check the recipient and URL.
 1. Select the **Create Notification** button to create the ServiceNow Notification.
 
 ### Edit ServiceNow Notifications
@@ -83,7 +83,7 @@ To add a Slack notification for Chef Automate:
 1. Create a slack webhook address. For help refer [this](https://api.slack.com/messaging/webhooks).
 1. On the Slack page, select a channel or user for the notification. Slack will create the new webhook and then provide a webhook URL for you to copy. After entering a recipient, use the **Add Incoming WebHooks Integration** button.
 1. Copy the URL, return to the Chef Automate page, paste the URL into the _Notifications_ form.
-1. Use the **Test Notification** button to try out your Slack notification. If your Slack notification does not appear, return to the Slack Webhooks Integration page to re-check the recipient and URL.
+1. Use the **Test Notification** button to try out your Slack notification. If your Slack notification doesn't appear, return to the Slack Webhooks Integration page to re-check the recipient and URL.
 1. Use the **Create Notification** button to create the Slack notification.
 
 ### Edit Slack Notifications
@@ -148,9 +148,9 @@ The `controls` section of the Chef InSpec scan failures notification payload con
   "type": "converge_failure",
   "start_time_utc": "2020-05-28T18:43:33.000000Z",
   "node_name": "winnode1",
-  "failure_snippet": "Chef client run failure on [localhost] winnode1 : https://automate.example.com/infrastructure/client-runs/e9c01d6d46543c19fba3b7bfc17a22d/runs/advff4a3-7890-4b74-98c1-fb00ae6dd251\nError executing action `run` on resource 'execute[name]'\nexecute[name] (cookbook::default line 10) had an error: Mixlib::ShellOut::ShellCommandFailed: Expected process to exit with [0], but received '1'\n---- Begin output of command ----\nSTDOUT: \nSTDERR: 'command' is not recognized as an internal or external command,\r\noperable program or batch file.\n---- End output of command ----\nRan command returned 1 \n",
+  "failure_snippet": "Chef client run failure on [localhost] winnode1 : https://automate.example.com/infrastructure/client-runs/e9c01d6d46543c19fba3b7bfc17a22d/runs/advff4a3-7890-4b74-98c1-fb00ae6dd251\nError executing action `run` on resource 'execute[name]'\nexecute[name] (cookbook::default line 10) had an error: Mixlib::ShellOut::ShellCommandFailed: Expected process to exit with [0], but received '1'\n---- Begin output of command ----\nSTDOUT: \nSTDERR: 'command' isn't recognized as an internal or external command,\r\noperable program or batch file.\n---- End output of command ----\nRan command returned 1 \n",
   "exception_title": "Error executing action `run` on resource 'execute[name]'",
-  "exception_message": "execute[name] (cookbook::default line 10) had an error: Mixlib::ShellOut::ShellCommandFailed: Expected process to exit with [0], but received '1'\n---- Begin output of command ----\nSTDOUT: \nSTDERR: 'command' is not recognized as an internal or external command,\r\noperable program or batch file.\n---- End output of command ----\nRan command returned 1",
+  "exception_message": "execute[name] (cookbook::default line 10) had an error: Mixlib::ShellOut::ShellCommandFailed: Expected process to exit with [0], but received '1'\n---- Begin output of command ----\nSTDOUT: \nSTDERR: 'command' isn't recognized as an internal or external command,\r\noperable program or batch file.\n---- End output of command ----\nRan command returned 1",
   "exception_backtrace": [
     "C:/hab/pkgs/chef/chef-infra-client/15.6.10/20191210013214/vendor/gems/mixlib-shellout-3.0.7-universal-mingw32/lib/mixlib/shellout.rb:300:in `invalid!'",
     "C:/hab/pkgs/chef/chef-infra-client/15.6.10/20191210013214/vendor/gems/mixlib-shellout-3.0.7-universal-mingw32/lib/mixlib/shellout.rb:287:in `error!'",

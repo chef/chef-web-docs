@@ -15,7 +15,7 @@ draft = false
 
 {{< warning >}}
 
-- Standalone Chef Automate or Chef Automate with embedded Chef Infra Server can migrate to Automate HA, with the minimum version of Chef Automate: [20201230192246](https://docs.chef.io/release_notes_automate/#20201230192246)
+- Standalone Chef Automate or Chef Automate with embedded Chef Infra Server can migrate to Automate HA, with the minimum version of Chef Automate: [20201230192246](/release_notes_automate/#20201230192246)
 
 {{< /warning >}}
 
@@ -39,7 +39,6 @@ Follow the steps below when migrating to On-Premises or AWS HA deployment **(but
         chef-automate bootstrap bundle create bootstrap.abb
         ```
 
-
 1. Copy the backup folder to first Automate node of Automate HA using the following command:
 
     ```bash
@@ -52,7 +51,7 @@ Follow the steps below when migrating to On-Premises or AWS HA deployment **(but
     scp -i </path/to/key> </path/to/bootstrap.abb> <user>@<host>:/home/<user>
     ```
 
-1. If your Chef Automate HA does not have file system backup configured already then try this step:
+1. If your Chef Automate HA doesn't have file system backup configured already then try this step:
 
     Go to Bastion and:
 
@@ -93,7 +92,7 @@ Follow the steps below when migrating to On-Premises or AWS HA deployment **(but
     sudo chef-automate config show > current_config.toml
     ```
 
-    From Automate **4.x.y** version onwards, OpenSearch credentials are not stored in the `config`. Add the OpenSearch password to the generated config above. For example:
+    From Automate **4.x.y** version onwards, OpenSearch credentials aren't stored in the `config`. Add the OpenSearch password to the generated config above. For example:
 
     ```bash
     [global.v1.external.opensearch.auth.basic_auth]
@@ -101,7 +100,7 @@ Follow the steps below when migrating to On-Premises or AWS HA deployment **(but
     password = "admin"
     ```
 
-    From Automate **4.x.y** version onwards, Postgresql credentials are not stored in the `config`. Add the Postgresql password to the generated config above. For example:
+    From Automate **4.x.y** version onwards, PostgreSQL credentials aren't stored in the `config`. Add the PostgreSQL password to the generated config above. For example:
 
     ```bash
     [global.v1.external.postgresql.auth.password.superuser]
@@ -151,7 +150,7 @@ Follow the steps below when migrating to On-Premises or Cloud HA deployment **(b
 
     Make sure that the location has permission for the hab user.
 
-1. If your Chef Automate HA does not have file system backup configured already then try this step:
+1. If your Chef Automate HA doesn't have file system backup configured already then try this step:
 
     Go to Bastion and:
     - Create a `.toml` (say os_config.toml) file in the Bastion host. Once done, copy the following contents to the `.toml` file and patch the file in all the OpenSearch nodes.
@@ -207,7 +206,7 @@ Follow the steps below when migrating to On-Premises or Cloud HA deployment **(b
     sudo chef-automate config show > current_config.toml
     ```
 
-    From Automate **4.x.y** version onwards, OpenSearch credentials are not stored in the config. Add the OpenSearch password to the generated config above. For example:
+    From Automate **4.x.y** version onwards, OpenSearch credentials aren't stored in the config. Add the OpenSearch password to the generated config above. For example:
 
     ```bash
     [global.v1.external.opensearch.auth.basic_auth]
@@ -215,7 +214,7 @@ Follow the steps below when migrating to On-Premises or Cloud HA deployment **(b
     password = "admin"
     ```
 
-    From Automate **4.x.y** version onwards, Postgresql credentials are not stored in the `config`. Add the Postgresql password to the generated config above. For example:
+    From Automate **4.x.y** version onwards, PostgreSQL credentials aren't stored in the `config`. Add the PostgreSQL password to the generated config above. For example:
 
     ```bash
     [global.v1.external.postgresql.auth.password.superuser]
@@ -265,9 +264,9 @@ Follow the steps below when migrating to On-Premises or Cloud HA deployment **(b
 
 ## Migration with S3
 
-For AWS managed services, map the snapshot role to the OpenSearch dashboard. It is necessary to [enable backup and restore in OpenSearch](/automate/managed_services/#enabling-opensearch-backup-restore).
+For AWS managed services, map the snapshot role to the OpenSearch dashboard. It's necessary to [enable backup and restore in OpenSearch](/automate/managed_services/#enabling-opensearch-backup-restore).
 
-1. If the standalone Automate is not configured with S3 backup configurations then patch the following configuration in Standalone Chef Automate for creating the backup in the S3.
+1. If the standalone Automate isn't configured with S3 backup configurations then patch the following configuration in Standalone Chef Automate for creating the backup in the S3.
 
     ```bash
     [global.v1.backups]
@@ -279,10 +278,10 @@ For AWS managed services, map the snapshot role to the OpenSearch dashboard. It 
     # endpoint (required): For Automate Version 4.x.y, use this https://s3.amazonaws.com
     endpoint = "https://s3.amazonaws.com"
     # base_path (optional):  The path within the bucket where backups should be stored
-    # If base_path is not set, backups will be stored at the root of the bucket.
+    # If base_path isn't set, backups will be stored at the root of the bucket.
     base_path = ""
     [global.v1.backups.s3.credentials]
-    # Optionally, AWS credentials may be provided. If these are not provided, the IAM instance
+    # Optionally, AWS credentials may be provided. If these aren't provided, the IAM instance
     # credentials will be used. It's also possible for these to be read through the standard
     # AWS environment variables or through the shared AWS config files.
     access_key = "<access_key>"
@@ -335,7 +334,7 @@ For AWS managed services, map the snapshot role to the OpenSearch dashboard. It 
             # bucket (required): The name of the bucket
             bucket = "bucket-name"
             # base_path (optional):  The path within the bucket where backups should be stored
-            # If base_path is not set, backups will be stored at the root of the bucket.
+            # If base_path isn't set, backups will be stored at the root of the bucket.
             base_path = ""
             # name of an s3 client configuration you create in your opensearch.yml
             # see https://www.open.co/guide/en/opensearch/plugins/current/repository-s3-client.html
@@ -370,7 +369,7 @@ For AWS managed services, map the snapshot role to the OpenSearch dashboard. It 
             # endpoint (required): For Automate Version 4.x.y, use this https://s3.amazonaws.com
             endpoint = "https://s3.amazonaws.com"
             # base_path (optional):  The path within the bucket where backups should be stored
-            # If base_path is not set, backups will be stored at the root of the bucket.
+            # If base_path isn't set, backups will be stored at the root of the bucket.
             base_path = ""
         [global.v1.backups.s3.credentials]
             access_key = "<Your Access Key>"
@@ -389,7 +388,7 @@ For AWS managed services, map the snapshot role to the OpenSearch dashboard. It 
     sudo chef-automate config show > current_config.toml
     ```
 
-    From Automate **4.x.y** version onwards, OpenSearch credentials are not stored in the `config`. Add the OpenSearch password to the generated config above. For example:
+    From Automate **4.x.y** version onwards, OpenSearch credentials aren't stored in the `config`. Add the OpenSearch password to the generated config above. For example:
 
     ```bash
     [global.v1.external.opensearch.auth.basic_auth]
@@ -397,7 +396,7 @@ For AWS managed services, map the snapshot role to the OpenSearch dashboard. It 
     password = "admin"
     ```
 
-    From Automate **4.x.y** version onwards, Postgresql credentials are not stored in the `config`. Add the Postgresql password to the generated config above. For example:
+    From Automate **4.x.y** version onwards, PostgreSQL credentials aren't stored in the `config`. Add the PostgreSQL password to the generated config above. For example:
 
     ```bash
     [global.v1.external.postgresql.auth.password.superuser]
@@ -440,7 +439,7 @@ For AWS managed services, map the snapshot role to the OpenSearch dashboard. It 
 ## Steps to Validate migration is successful
 
 1. Check the Automate UI of Automate HA. Check whether the data is present in Automate UI for HA.
-1. If you are using the embedded chef server, log in to the Chef Server HA node, and run the following commands:
+1. If you are using the embedded chef server, log in to the Chef Infra Server HA node, and run the following commands:
     - `knife user list`: will give the user list you created in standalone automate.
     - `knife opc org list`: It will give the organization list you created in standalone automate.
 
@@ -469,7 +468,7 @@ You can also [validate the migration](/automate/ha_chef_backend_to_automate_ha/#
         curl -k -X DELETE -s http://localhost:10144/_snapshot/chef-automate-es6-event-feed-service
         ```
 
-1. While running the restore command, If you are getting this error: `Path is not accessible on master node`, follow the steps given below:
+1. While running the restore command, If you are getting this error: `Path isn't accessible on master node`, follow the steps given below:
     1. Log in to any Automate HA OpenSearch Node, and run the below command:
 
         ```bash

@@ -80,7 +80,7 @@ By default, Chef Automate will automatically upgrade to the latest version avail
 
 The Chef Automate upgrade process makes use of **release channels** to allow greater control over the automatic upgrades applied to your system. Chef Automate will always pull from the latest release within its specified release channel. We're initially shipping with the default `current` channel, but additional channels will be introduced in the future.
 
-To change the release channel that is used for upgrades, modify the `channel` setting in your `config.toml` file:
+To change the release channel that's used for upgrades, modify the `channel` setting in your `config.toml` file:
 
 ```toml
 channel = "current"
@@ -104,7 +104,7 @@ This command upgrades Chef Automate to the latest version available from your re
 
 ### Common Problems
 
-If you cannot open Chef Automate, check that the `config.toml` contains the public DNS as the FQDN.
+If you can't open Chef Automate, check that the `config.toml` contains the public DNS as the FQDN.
 
 ```shell
 # This is a default Chef Automate configuration file. You can run
@@ -126,12 +126,12 @@ sudo chef-automate config patch config.toml
 
 ### Configuring External Data Stores
 
-You can configure Chef Automate to use PostgreSQL and OpenSearch clusters that are not deployed via Chef Automate. The directions below are intended for use only during the initial deployment of Chef Automate.
+You can configure Chef Automate to use PostgreSQL and OpenSearch clusters that aren't deployed via Chef Automate. The directions below are intended for use only during the initial deployment of Chef Automate.
 
 #### Configuring External OpenSearch
 
 {{< note >}}
-Chef Automate supports the official OpenSearch Service by Amazon Web Services. Chef Automate does not test or support alternative services, such as Amazon OpenSearch Service (Amazon OS).
+Chef Automate supports the official OpenSearch Service by Amazon Web Services. Chef Automate doesn't test or support alternative services, such as Amazon OpenSearch Service (Amazon OS).
 {{< /note >}}
 
 **Automate supports OpenSearch connection over HTTPS or HTTP**
@@ -141,7 +141,6 @@ Add the following to your `config.toml` for HTTPS connection:
 {{< warning >}}
 {{% automate/char-warn %}}
 {{< /warning >}}
-
 
 ```toml
 [global.v1.external.opensearch]
@@ -175,7 +174,6 @@ Add the following to your `config.toml` for HTTP connection:
 {{% automate/char-warn %}}
 {{< /warning >}}
 
-
 ```toml
 [global.v1.external.opensearch]
   enable = true
@@ -191,15 +189,15 @@ Add the following to your `config.toml` for HTTP connection:
   password = "<admin password>"
 ```
 
-Because externally-deployed OpenSearch nodes will not have access to Chef Automate's built-in backup storage services, you must configure OpenSearch backup settings separately from Chef Automate's primary backup settings. You can configure backups to use either the local filesystem or S3.
+Because externally-deployed OpenSearch nodes won't have access to Chef Automate's built-in backup storage services, you must configure OpenSearch backup settings separately from Chef Automate's primary backup settings. You can configure backups to use either the local filesystem or S3.
 
 ##### Adding Resolvers for OpenSearch
 
-In case you want to resolve the OpenSearch node IPs dynamically using DNS servers, you can add resolvers/nameservers to the configuration.
+In case you want to resolve the OpenSearch node IPs dynamically using DNS servers, you can add resolvers/name servers to the configuration.
 
-Name Servers can be added in two ways:
+Name servers can be added in two ways:
 
-1. **Add nameserver IPs:** Add the nameservers to your `config.toml` file to resolve the OpenSearch nodes.
+1. **Add name server IPs:** Add the name servers to your `config.toml` file to resolve the OpenSearch nodes.
 
     ```toml
     [esgateway.v1.sys.ngx.main.resolvers]
@@ -207,14 +205,14 @@ Name Servers can be added in two ways:
       nameservers = ["192.0.2.0:24", "198.51.100.0:24"]
     ```
 
-1. **Set system DNS entries:** To use existing system nameserver entries from `/etc/resolv.conf`, add the following setting to `config.toml`:
+1. **Set system DNS entries:** To use existing system name server entries from `/etc/resolv.conf`, add the following setting to `config.toml`:
 
     ```toml
     [esgateway.v1.sys.ngx.main.resolvers]
       enable_system_nameservers = true
     ```
 
-If both options are set, nameserver IPs takes precedence over the system nameserver entries.
+If both options are set, name server IPs takes precedence over the system name server entries.
 
 Apply the changes:
 
@@ -267,7 +265,7 @@ To configure AWS S3 backups of Chef Automate data stored in an externally-deploy
       bucket = "<bucket name>"
 
       # base_path (optional):  The path within the bucket where backups should be stored
-      # If base_path is not set, backups will be stored at the root of the bucket.
+      # If base_path isn't set, backups will be stored at the root of the bucket.
       base_path = "<base path>"
 
       # name of an s3 client configuration you create in your opensearch.yml
@@ -375,11 +373,11 @@ enable = true
 
 ##### Adding Resolvers for PostgreSQL Database
 
-In case you want to resolve the PostgreSQL cluster node IPs dynamically using DNS servers, you can add resolvers/nameservers to the configuration.
+In case you want to resolve the PostgreSQL cluster node IPs dynamically using DNS servers, you can add resolvers/name servers to the configuration.
 
-Name Servers can be added in two ways:
+Name servers can be added in two ways:
 
-1. **Add nameserver IPs:** If you are aware of the nameservers which should resolve the PostgreSQL nodes, the nameservers can be added to your `config.toml` file.
+1. **Add name server IPs:** If you are aware of the name servers which should resolve the PostgreSQL nodes, the name servers can be added to your `config.toml` file.
 
     ```toml
     [pg_gateway.v1.sys.resolvers]
@@ -387,14 +385,14 @@ Name Servers can be added in two ways:
       nameservers = ["127.0.0.53:53"]
     ```
 
-1. **Set system DNS entries:** To use existing system nameserver entries from `/etc/resolv.conf`, add the following setting to `config.toml`:
+1. **Set system DNS entries:** To use existing system name server entries from `/etc/resolv.conf`, add the following setting to `config.toml`:
 
     ```toml
     [pg_gateway.v1.sys.resolvers]
       enable_system_nameservers = true
     ```
 
-If both options are set, nameserver IPs takes precedence over the system nameserver entries.
+If both options are set, name server IPs takes precedence over the system name server entries.
 
 Apply the changes:
 

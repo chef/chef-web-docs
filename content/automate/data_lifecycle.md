@@ -95,12 +95,12 @@ These examples use the Unix/Linux [`curl` command](https://man7.org/linux/man-pa
 
 | Short Option | Long Option  | Definition                                                                                         |
 |--------------|--------------|---------------------------------------------------------------------------------------------------|
-| -s           | --silent     | Silent or quiet mode, does not show progress meter or error messages.                             |
+| -s           | --silent     | Silent or quiet mode, doesn't show progress meter or error messages.                             |
 | -S           | --show-error | When used with -s, --silent, it makes curl show an error message if it fails.                     |
 | -k           | --insecure   | Instructs curl to proceed and operate even for server connections otherwise considered insecure.  |
 | -H           | --header     | Sends a header with the request. In this case, the header is your API token.                      |
 
-`curl -s -S` shows errors but does not show the progress meter:
+`curl -s -S` shows errors but doesn't show the progress meter:
 
 ```bash
 curl -s -S -k -H "api-token: $TOKEN" https://{{< example_fqdn "automate" >}}/api/v0/data-lifecycle/status
@@ -222,7 +222,7 @@ Configure the jobs by sending the JSON payload to the `config` endpoint.
 
 {{< note >}}
 The data sent to the `config` endpoint intentionally follows a different format than the data returned from the `status` endpoint.
-You cannot read the data on the `status` endpoint, change some values, and feed the modified data back on the `config` endpoint.
+You can't read the data on the `status` endpoint, change some values, and feed the modified data back on the `config` endpoint.
 {{< /note >}}
 
 Save the JSON file as `config.json` in the current working directory:

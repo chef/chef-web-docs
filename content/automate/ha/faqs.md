@@ -22,11 +22,11 @@ This page explains the frequently encountered issues in Chef Automate High Avail
 ### What are different ways to provision an on-premises deployment?
 
 - There are two types of infrastructure to provision on-premises deployment as follows:
-    -  Existing Infrastructure
-    -  Existing Cloud Infrastructure
-        -  AWS
-        -  Azure
-        -  Google Cloud Platform
+  - Existing Infrastructure
+  - Existing Cloud Infrastructure
+    - AWS
+    - Azure
+    - Google Cloud Platform
 
 ### What are different types of backup available for deployment on GCP platform?
 
@@ -66,7 +66,7 @@ This page explains the frequently encountered issues in Chef Automate High Avail
 
 ### How to Pass the custom config for the Frontend node (Automate / ChefInfraServer)?
 
-- Create a file with say `customconfig.toml`, pass the absolute path `config_file=/ABSOLUTE_PATH/customconfig.toml`
+- Create a file with say `custom-config.toml`, pass the absolute path `config_file=/ABSOLUTE_PATH/custom-config.toml`
 
 ### How to Add more nodes in AWS Deployment, post deployment
 
@@ -123,7 +123,7 @@ For example, if you have patched any external configurations like SAML or LDAP, 
 {{< /note >}}
 
 {{< warning >}}
-  Downgrading the number of instance_count for the backend nodes will result in data loss. We do not recommend downgrading the backend nodes.
+  Downgrading the number of instance_count for the backend nodes will result in data loss. We don't recommend downgrading the backend nodes.
 {{< /warning >}}
 
 ### Is Automate HA supports unencrypted traffic with managed service like AWS-OpenSearch / RDS?
@@ -132,7 +132,7 @@ For example, if you have patched any external configurations like SAML or LDAP, 
 
 ### How to check logs while doing backup or restore?
 
-Set *log-level* debug using the command `chef-automate debug set-log-level deployment-service debug` and execute *journalctl* command, `journalctl --follow --unit chef-automate`.
+Set _log-level_ debug using the command `chef-automate debug set-log-level deployment-service debug` and execute _journalctl_ command, `journalctl --follow --unit chef-automate`.
 
 ### How to perform infrastructure cleanup for AutomateHA nodes
 
@@ -152,7 +152,7 @@ chef-automate cleanup --onprem-deployment
 
 ## HA Health Check Commands
 
-This section includes commands that you can execute for the Chef Automate cluster part of the Chef Automate High Availability (HA) system. These commands aid you in assessing the health and status of the components part of the HA cluster. It is highly recommended to run these commands on a test cluster before using them in a production environment.
+This section includes commands that you can execute for the Chef Automate cluster part of the Chef Automate High Availability (HA) system. These commands aid you in assessing the health and status of the components part of the HA cluster. It's highly recommended to run these commands on a test cluster before using them in a production environment.
 
 ### Log Check Commands
 
@@ -160,13 +160,13 @@ The Chef Automate frontend and backend nodes service logs are available via `jou
 
 - Execute the following command, `journalctl --follow --unit hab-sup`, to view the backend logs related to all hab services.
 
-Where the *--unit* displays the logs from the specified unit, and *--follow* means to follow the journal.
+Where the _--unit_ displays the logs from the specified unit, and _--follow_ means to follow the journal.
 
-- Use the *grep* command to filter the logs related to a specific service. For example, run this command `journalctl --follow --unit hab-sup | grep 'automate-ha-opensearch'` to view the log of the habitat component in the Chef Automate frontend node.
+- Use the _grep_ command to filter the logs related to a specific service. For example, run this command `journalctl --follow --unit hab-sup | grep 'automate-ha-opensearch'` to view the log of the habitat component in the Chef Automate frontend node.
 
 - Execute the following command, `journalctl --follow --unit chef-automate`, to view the log of the frontend (chef-automate and chef-server instances) nodes.
 
-- Use the *grep* command to filter the logs for a single service. For example, run this command, `journactl --follow --unit chef-automate | grep ingest.service` to view the ingest logs of the Chef Automate frontend node.
+- Use the _grep_ command to filter the logs for a single service. For example, run this command, `journalctl --follow --unit chef-automate | grep ingest.service` to view the ingest logs of the Chef Automate frontend node.
 
 ### Health Check Service Commands
 

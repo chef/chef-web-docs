@@ -12,7 +12,7 @@ Follow the steps below if Chef Automate encounters an error during data restorat
    hab svc status
    ```
 
-3. If the deployment services are not healthy, reload them.
+3. If the deployment services aren't healthy, reload them.
 
     ```sh
     hab svc load chef/deployment-service
@@ -26,23 +26,23 @@ Follow the steps below if Chef Automate encounters an error during data restorat
 
       * During deployment, the `backup_mount` is default set to `/mnt/automate_backups`.
       * The deployment process will automatically apply the updated path if you update the `backup_mount` value in the `config.toml` file before deployment.
-      * If the `backup_mount` value is changed after deployment (e.g., to /bkp/backps), you must manually patch the configuration on all frontend and backend nodes.
+      * If the `backup_mount` value is changed after deployment (for example, to /bkp/backups), you must manually patch the configuration on all frontend and backend nodes.
       * Update the FE nodes using the template below. To update the configuration, use the command  `chef-automate config patch fe.toml --fe`.
 
       ```sh
          [global.v1.backups]
             [global.v1.backups.filesystem]
-               path = "/bkp/backps"
+               path = "/bkp/backups"
          [global.v1.external.opensearch.backup]
             [global.v1.external.opensearch.backup.fs]
-               path = "/bkp/backps"
+               path = "/bkp/backups"
       ```
 
-      * Update the OpenSearch nodes using the template provided below. Use the `chef-automate config patch os.toml --os` command to update the Opensearch node configs.
+      * Update the OpenSearch nodes using the template provided below. Use the `chef-automate config patch os.toml --os` command to update the OpenSearch node configs.
 
       ```sh
       [path]
-         repo = "/bkp/backps"
+         repo = "/bkp/backups"
       ```
 
       * Run the curl request against one of the Automate frontend nodes.
@@ -53,7 +53,7 @@ Follow the steps below if Chef Automate encounters an error during data restorat
 
          * If the response is an empty JSON object `{}`, no changes are required to the snapshot settings in the OpenSearch cluster.
 
-         * If you see a JSON response similar to the example below, check that the `backup_mount` setting is correctly configured. Use the `location` value in the response to verify. It should start with `/bkp/backps`.
+         * If you see a JSON response similar to the example below, check that the `backup_mount` setting is correctly configured. Use the `location` value in the response to verify. It should start with `/bkp/backups`.
 
         ```sh
         {
@@ -84,7 +84,7 @@ Follow the steps below if Chef Automate encounters an error during data restorat
          }
         ```
 
-         * If the prefix in the `location` value does not match the `backup_mount`, the existing snapshots must be deleted. Use the script below to delete the snapshots from the one of the Automate frontend nodes.
+         * If the prefix in the `location` value doesn't match the `backup_mount`, the existing snapshots must be deleted. Use the script below to delete the snapshots from the one of the Automate frontend nodes.
 
          ```sh
             snapshot=$(curl -XGET http://localhost:10144/_snapshot?pretty | jq 'keys[]')
@@ -191,4 +191,4 @@ Follow the steps below if Chef Automate encounters an error during data restorat
          }
          ```
 
-         * If the `base_path` value does not match, you must delete the existing snapshots. Please take a look at the File System troubleshooting steps for guidance.
+         * If the `base_path` value doesn't match, you must delete the existing snapshots. Please take a look at the File System troubleshooting steps for guidance.

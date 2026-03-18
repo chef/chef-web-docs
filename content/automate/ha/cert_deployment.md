@@ -38,9 +38,9 @@ private_key = """ADD_YOUR_PRIVATE_KEY_HERE"""
 public_key = """ADD_YOUR_PUBLIC_KEY_HERE"""
 ```
 
-### Common custom certificate for Chef Server
+### Common custom certificate for Chef Infra Server
 
-To add a common custom certificate for all the nodes of the Chef Server service, add the configurations given below in the `config.toml` file before running the `chef-automate deploy` command:
+To add a common custom certificate for all the nodes of the Chef Infra Server service, add the configurations given below in the `config.toml` file before running the `chef-automate deploy` command:
 
 ```toml
 [chef_server.config]
@@ -109,9 +109,9 @@ private_key = """ADD_YOUR_PRIVATE_KEY_OF_SECOND_IP_ADDRESS_HERE"""
 public_key = """ADD_YOUR_PUBLIC_KEY_OF_SECOND_IP_ADDRESS_HERE"""
 ```
 
-### Unique custom certificates for Chef Server
+### Unique custom certificates for Chef Infra Server
 
-To add unique custom certificates for 2 the nodes of the Chef Server service, add the configurations given below in the `config.toml` file before running the `chef-automate deploy` command:
+To add unique custom certificates for 2 the nodes of the Chef Infra Server service, add the configurations given below in the `config.toml` file before running the `chef-automate deploy` command:
 
 ```toml
 [chef_server.config]

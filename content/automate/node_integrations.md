@@ -12,7 +12,7 @@ draft = false
     weight = 40
 +++
 
-Set up Chef Automate to detect and monitor the nodes in your AWS EC2 and Azure accounts by providing your credentials and creating a node manager. Chef Automate creates a node reference for each instance in your account. Associate your EC2 and Azure instances with ssh and WinRM credentials using tags--the values support wildcard matching--in your node manager. Run scan jobs with your node manager reference and you're suddenly running an `inspec exec` across your instances. Every two hours Chef Automate queries your AWS or Azure account to see the current state of all your nodes to determine if they are running, stopped, or terminated, and then updates Chef Automate accordingly. If the node manager finds an instance that used to be running and reachable but which no longer is (the node stopped, terminated, or is in a transition state), the node manager updates the status of that node in Chef Automate accordingly.
+Set up Chef Automate to detect and monitor the nodes in your AWS EC2 and Azure accounts by providing your credentials and creating a node manager. Chef Automate creates a node reference for each instance in your account. Associate your EC2 and Azure instances with ssh and WinRM credentials using tags--the values support wildcard matching--in your node manager. Run scan jobs with your node manager reference and you're suddenly running an `inspec exec` across your instances. Every two hours Chef Automate queries your AWS or Azure account to see the current state of all your nodes to determine if they're running, stopped, or terminated, and then updates Chef Automate accordingly. If the node manager finds an instance that used to be running and reachable but which no longer is (the node stopped, terminated, or is in a transition state), the node manager updates the status of that node in Chef Automate accordingly.
 
 Access the _Node Integrations_ page from the **Settings** tab.
 
@@ -22,13 +22,13 @@ Access the _Node Integrations_ page from the **Settings** tab.
 
 Set up Chef Automate to detect and scan the nodes in your AWS EC2 account by providing your AWS Credentials and creating an _AWS EC2 Node Manager_ from the **Node Credentials** page in the **Settings** tab. Chef Automate requires your information to detect the nodes in your AWS EC2 account. Chef Automate creates a node reference for each EC2 instance in your account and collects all of the tags associated with each instance.
 
-Chef InSpec has [resources](https://docs.chef.io/inspec/resources/#aws) you can use to run scan jobs against AWS services in your account, such as CloudWatch or IAM. Set up Chef Automate to run these scan jobs by providing your AWS Credentials and creating an _AWS API Node Manager_ in the **Node Integrations** page in the **Settings** tab.
+Chef InSpec has [resources](/inspec/resources/#aws) you can use to run scan jobs against AWS services in your account, such as CloudWatch or IAM. Set up Chef Automate to run these scan jobs by providing your AWS Credentials and creating an _AWS API Node Manager_ in the **Node Integrations** page in the **Settings** tab.
 
 To create an AWS EC2 Node Manager, you need the following information:
 
 1. A name for your manager
 1. Your AWS credentials (access key ID and secret access key)
-1. The default region to target (if `us-east-1` is not desired)
+1. The default region to target (if `us-east-1` isn't desired)
 
 ![Chef Automate Create AWS-EC2 Manager](/images/automate/node-integrations-full.png)
 
@@ -54,7 +54,7 @@ Polling
 : Chef Automate's Node Manager calls out to the AWS `DescribeInstanceStatus` API every two hours and discovers the state of all the instances in the account. If the node manager finds any instances that aren't in its database, it adds them. This sometimes results in "bare bones info" and stopped instances in the database. The node manager updates node information in the database after an instance returns to a running state and a scan job has run on the node.
 
 Scan Jobs
-: Whenever a scan job is triggered, the node manager queries the AWS API for all nodes. Any scan reports created for nodes that are not already in the database results in creating a new node in the database.
+: Whenever a scan job is triggered, the node manager queries the AWS API for all nodes. Any scan reports created for nodes that aren't already in the database results in creating a new node in the database.
 
 ### Create a Scan Job Targeting Your AWS Account Configuration
 
@@ -75,7 +75,7 @@ Permissions: You'll need at least a global read permission; `arn:aws:iam::aws:po
 ## AWS Credential-less Scanning with Chef Automate
 
 For users running Chef Automate 2 in EC2, we invite you to try out our "AWS-EC2 Credential-less Scanning"!
-Please note that credential-less scanning is not supported for AWS GovCloud.
+Please note that credential-less scanning isn't supported for AWS GovCloud.
 
 ### Ensure Minimum Permissions
 
@@ -117,7 +117,7 @@ In order to use the SSM scan job functionality, your instances must have access 
 
 ### Adding an AWS EC2 Node Manager Using IAM Credentials
 
-When running in EC2, AWS has the ability to use the IAM role associated with your instance to create and use temporary credentials for accessing the AWS API. If you enable this feature, then you won't need to provide credentials for your AWS account. You will only be required to provide a name for your node manager. Chef Automate creates a node reference for each EC2 instance in your account, collecting all tags associated with each instance. Chef Automate calls the Amazon System Manager (SSM) to describe instance information and to get ping status for the SSM agent on all instances. A detect job is *not* run on the instances; all instances with an SSM ping status of "Online" will be marked as reachable.
+When running in EC2, AWS has the ability to use the IAM role associated with your instance to create and use temporary credentials for accessing the AWS API. If you enable this feature, then you won't need to provide credentials for your AWS account. You will only be required to provide a name for your node manager. Chef Automate creates a node reference for each EC2 instance in your account, collecting all tags associated with each instance. Chef Automate calls the Amazon System Manager (SSM) to describe instance information and to get ping status for the SSM agent on all instances. A detect job is _not_ run on the instances; all instances with an SSM ping status of "Online" will be marked as reachable.
 
 ### Create a Scan Job Targeting Your AWS EC2 Instances using AWS SSM
 
@@ -147,7 +147,7 @@ The service makes these API calls:
 Set up Chef Automate to detect and scan the nodes in your Azure account by providing your Azure Credentials and creating an _Azure VM Node Manager_. To add an Azure VM Node Manager, navigate to the [_Node Integrations_]({{< relref "node_integrations.md" >}}) page in the Settings tab, select `Create Integration`, and you should see _Azure_ as one of your node management service options.
 
 {{< note >}}
-We do not support Azure Government Cloud.
+We don't support Azure Government Cloud.
 {{< /note >}}
 
 ### Adding an Azure VM Node Manager
@@ -186,7 +186,7 @@ Filter instances for scanning by specifying either regions or tags by their keys
 
 ## Use Case: Azure Account Scanning with Chef Automate
 
-InSpec 2+ supports running scan jobs against your Azure account configuration, such as network security groups and ad users. See [Azure resources](https://docs.chef.io/inspec/resources/#azure) for more information.
+InSpec 2+ supports running scan jobs against your Azure account configuration, such as network security groups and ad users. See [Azure resources](/inspec/resources/#azure) for more information.
 Set up Chef Automate to run these scan jobs by providing your Azure credentials and creating an _Azure API Node Manager_.
 
 ### Adding an Azure API Node Manager
@@ -211,7 +211,7 @@ Filter the regions for the scan job by specifying regions to include or exclude.
 
 ## Google Cloud Platform Account Scanning with Chef Automate
 
-Run scans against your GCP account infrastructure using Chef Automate. Set up Chef Automate to detect and scan the nodes in your Google Cloud Platform (GCP) account by providing your GCP Credentials and creating a _GCP Node Manager_. To create a GCP Node Manager, navigate to _Node Integrations_, select `Create Integration`, and you should see _Google Cloud_ as one of your node management service options. See the Chef InSpec documentation for more infomation about [GCP resources](https://docs.chef.io/inspec/resources/#gcp).
+Run scans against your GCP account infrastructure using Chef Automate. Set up Chef Automate to detect and scan the nodes in your Google Cloud Platform (GCP) account by providing your GCP Credentials and creating a _GCP Node Manager_. To create a GCP Node Manager, navigate to _Node Integrations_, select `Create Integration`, and you should see _Google Cloud_ as one of your node management service options. See the Chef InSpec documentation for more information about [GCP resources](/inspec/resources/#gcp).
 
 To run a GCP scan in Chef Automate:
 
@@ -224,7 +224,7 @@ Note: The service account json credential requires the following fields:
 
 ![Chef Automate Create GCP-API Integration](/images/automate/add-gcp-api-integration.png)
 
-Set up Chef Automate to detect and monitor the nodes in your AWS EC2 and Azure accounts by providing your credentials in the [Node Credentials]({{< relref "node_credentials.md" >}}) page in the Settings tab and creating a node manager. Chef Automate creates a node reference for each instance in your account. Associate your EC2 and Azure instances with ssh and WinRM credentials using tags--the values support wildcard match--in your node manager. Run scan jobs with your node manager reference and you're suddenly running an `inspec exec` across your instances. Every two hours Chef Automate queries your AWS or Azure account to see the current state of all your nodes, if they are running, stopped, or terminated, and then updates Chef Automate accordingly. If the node manager finds an instance that used to be running and reachable, but which no is--if the node is stopped, terminated, or a transition state--it updates the status of that node in Chef Automate accordingly.
+Set up Chef Automate to detect and monitor the nodes in your AWS EC2 and Azure accounts by providing your credentials in the [Node Credentials]({{< relref "node_credentials.md" >}}) page in the Settings tab and creating a node manager. Chef Automate creates a node reference for each instance in your account. Associate your EC2 and Azure instances with ssh and WinRM credentials using tags--the values support wildcard match--in your node manager. Run scan jobs with your node manager reference and you're suddenly running an `inspec exec` across your instances. Every two hours Chef Automate queries your AWS or Azure account to see the current state of all your nodes, if they're running, stopped, or terminated, and then updates Chef Automate accordingly. If the node manager finds an instance that used to be running and reachable, but which no is--if the node is stopped, terminated, or a transition state--it updates the status of that node in Chef Automate accordingly.
 
 ### Create a Scan Job Targeting Your GCP Account Configuration
 

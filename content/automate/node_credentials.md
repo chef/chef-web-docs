@@ -47,6 +47,7 @@ Windows machines **must have** the following configurations:
 
 * Ports 3389(RDP), 80(HTTP), 443(HTTPS), 5985(WinRM) and 5986(WinRM) must be open and reachable from Chef Automate.
 * Use the below script to configure WinRM:
+
   ```powershell
   winrm quickconfig -q
   winrm create winrm/config/Listener?Address=*+Transport=HTTP
@@ -70,7 +71,7 @@ Windows machines **must have** the following configurations:
 
 **Sudo** requires a credential name, a user name, and a password **or** sudo options, but not both.
 
-Credentials will be visible in the _Node Credentials_ view after using the **Save Credential** button. If you are not redirected to the credentials list, then review the credential you are attempting to add.
+Credentials will be visible in the _Node Credentials_ view after using the **Save Credential** button. If you aren't redirected to the credentials list, then review the credential you are attempting to add.
 
 ## Manage Credentials
 

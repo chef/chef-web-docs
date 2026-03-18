@@ -16,13 +16,13 @@ The Data Feed service sends node data to a 3rd party service. This can be useful
 The following types of information are sent:
 
 * Ohai data gathered from each managed node - This data includes hardware, operating system, and installed program information. Some variation depends on the managed operating system.
-* Configuration information about each managed node - This information includes Chef Client Run status, Runlists, Cookbooks, and Recipes running against each node.
+* Configuration information about each managed node - This information includes Chef Client run status, run lists, cookbooks, and recipes running against each node.
 * Compliance information about each node that shows the compliance state - This information includes passed and failed controls for each profile executed against that node.
 
 A Data Feed operates by doing the following:
 
 * Every 4 hours, the data-feed-service will aggregate the client runs and compliance reports from the previous 4 hours and send this information to the registered destinations. This time interval is 4 hours by default but is configurable.
-* If there are no destinations, the aggregation will not occur.
+* If there are no destinations, the aggregation won't occur.
 * The data aggregates and sends in batches of 50 nodes at a time. The batch amount is 50 by default but is configurable.
 
 By default, only Admin users of Chef Automate may create and manage Data Feeds.
@@ -280,31 +280,31 @@ The Data Feed configuration settings apply across all configured Data Feed insta
 To modify Data Feed behavior with the available configuration settings:
 
 * Create a configuration patch file to update the configuration settings. Save this file in the `.toml` file format and name your file as desired. For example, `data-feed-patch.toml`
-* Include one or more configuration settings and their updated value(s) in your configuration patch `.toml` file to reflect the desired global Data Feed behavior:
+* Include one or more configuration settings and their updated values in your configuration patch `.toml` file to reflect the desired global Data Feed behavior:
   * Use the `feed_interval` setting to change the interval for the Data Feed collection. The default value is four hours
   * Use the `node_batch_size` setting to change the number of sets of node data sent in each batch to your endpoint. The default value is 50 nodes
-  * If automate receives only one kind of data (either client run **or** inspec scan) in a given period of time then we use the `updated_nodes_only` setting to determine what data to include in each export. The default setting for this is `true`. 
+  * If automate receives only one kind of data (either client run **or** inspec scan) in a given period of time then we use the `updated_nodes_only` setting to determine what data to include in each export. The default setting for this is `true`.
   To determine if the client run and scan report that was received in automate belongs to the same node or not, we use the `ipaddress` field in the reports. If the client run and scan report both contain same `ipaddress` field then we consider them belonging to same node. The explanation for the two possible scenarios where this setting is useful has been described below:
     * When in a given period of time for a particular node, only **client run was received** but **compliance scan not received**:
       * If `updated_nodes_only` is set to true:
         * Only the client run for that node will be sent to external integrations
       * If `updated_nodes_only` is set to false:
         * The client run for that node + the most recent compliance report for this node(queried by ipaddress) if there is any, will be sent to external integrations
-    * When in a given period of time for a particular node, **client run was not received** but only **compliance scan was received**:
+    * When in a given period of time for a particular node, **client run wasn't received** but only **compliance scan was received**:
       * If `updated_nodes_only` is set to true:
-        * The compliance scan report for that node + basic node details like *macaddress, hostname, ipaddress, fqdn* (queried by ipaddress) will be sent to external integrations
+        * The compliance scan report for that node + basic node details like _macaddress, hostname, ipaddress, fqdn_ (queried by ipaddress) will be sent to external integrations
       * If `updated_nodes_only` is set to false:
-        * The compliance scan report for that node + all node data like *attributes, last_run, macaddress, hostname, ipaddress, fqdn* (queried by ipaddress) will be sent to external integrations
+        * The compliance scan report for that node + all node data like _attributes, last_run, macaddress, hostname, ipaddress, fqdn_ (queried by ipaddress) will be sent to external integrations
   * To reduce the IP address range for the collected and processed node data, update the `disable_cidr_filter` setting to `false` **and** update the `cidr_filter` setting to cover the required IP address range. For example, you may wish to send only production or test node traffic
-  * Use the `accepted_status_codes` setting to define an array of HTTP status codes that the Data Feed Service will treat as `success` if returned by the 3rd party endpoint. If the status code is not in the `accepted_status_codes` list, then an error will be logged
+  * Use the `accepted_status_codes` setting to define an array of HTTP status codes that the Data Feed Service will treat as `success` if returned by the 3rd party endpoint. If the status code isn't in the `accepted_status_codes` list, then an error will be logged
 * Save your configuration patch file changes before continuing to the next step.
 * Apply your configuration changes with the Chef Automate command-line tool:
 
 ```bash
-    chef-automate config patch data-feed-patch.toml
+chef-automate config patch data-feed-patch.toml
 ```
 
-    where `data-feed-patch.toml` is this example's configuration patch file.
+where `data-feed-patch.toml` is this example's configuration patch file.
 
 ### Configuration Patch File Example
 

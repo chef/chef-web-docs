@@ -15,8 +15,8 @@ draft = false
 
 <!-- ## Health Checks
 
-To maximize the utility of the Chef Automate EAS Applications feature, it is recommended to implement meaningful health check hooks for your services.
-When a health check hook returns a status other than "OK", Chef Automate will display the output of the hook along with the status, so it is recommended to include useful debugging information in the output of the health checks when returning a "critical", "warning", or "unknown" status result.
+To maximize the utility of the Chef Automate EAS Applications feature, it's recommended to implement meaningful health check hooks for your services.
+When a health check hook returns a status other than "OK", Chef Automate will display the output of the hook along with the status, so it's recommended to include useful debugging information in the output of the health checks when returning a "critical", "warning", or "unknown" status result.
 Further information about writing Chef Habitat health check hooks can be found in the https://docs.chef.io/habitat/application_lifecycle_hooks#health-check "Chef Habitat documentation". -->
 
 This Enterprise Application Stack (EAS) integration gives you immediate insight into the status of your Chef Habitat services, even when scaling out to large numbers of services.
@@ -46,7 +46,7 @@ For best results:
 * Use a separate Chef Habitat network for each application deployment environment ("Development", "Test", "Acceptance", "Production")
 * Use the default Chef Habitat service group names
 
-For services that do not follow this layout, you should select environment and application names that help you find and filter the application data and are relevant to your typical job tasks.
+For services that don't follow this layout, you should select environment and application names that help you find and filter the application data and are relevant to your typical job tasks.
 
 For more information on setting up Chef Habitat, see the Chef Habitat [Service Groups]({{< relref "/habitat/about_services#service-group" >}}) documentation.
 
@@ -74,10 +74,10 @@ hab sup run \
   --event-stream-token="API_TOKEN" \
 ```
 
-* [hab sup run]({{< relref "/habitat/habitat_cli#hab-sup-run" >}}) is the hab CLI commant to start the Habitat supervisor.
+* [hab sup run]({{< relref "/habitat/habitat_cli#hab-sup-run" >}}) is the hab CLI command to start the Habitat supervisor.
 * `MY_APP` is the name of your application. Chef Automate groups services by application name in the Applications Dashboard
 * `MY_ENV` is the application environment for this supervisor. Chef Automate groups services by environment in the Applications Dashboard
-* `MY_SITE` describes the physical (for example, datacenter) or cloud-specific (for example, the AWS region) location where your services are deployed. The site field is a value filtering for services in the Applications Dashboard.
+* `MY_SITE` describes the physical (for example, data center) or cloud-specific (for example, the AWS region) location where your services are deployed. The site field is a value filtering for services in the Applications Dashboard.
 * `AUTOMATE_HOSTNAME:4222` is the Chef Automate URL with port 4222 specified.
 * `API_TOKEN` is the token you created in Chef Automate.
 
@@ -102,7 +102,7 @@ The Transport Layer Security (TLS) protocol provides privacy and data integrity 
 
 ### Retrieve Chef Automate's TLS Certificate
 
-Chef Automate's TLS certificate file is located at `/hab/svc/automate-load-balancer/data/<servername>.cert`.
+Chef Automate's TLS certificate file is located at `/hab/svc/automate-load-balancer/data/<SERVER_NAME>.cert`.
 
 For example, if your FQDN is `automate`, then the file location is: `/hab/svc/automate-load-balancer/data/automate.cert`.
 

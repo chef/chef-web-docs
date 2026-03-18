@@ -11,9 +11,9 @@ draft = false
     weight = 30
 +++
 
-{{< warning >}} *Elasticsearch support has been removed from this version (4.0.27) of Chef Automate.* {{< /warning >}}
+{{< warning >}} _Elasticsearch support has been removed from this version (4.0.27) of Chef Automate._ {{< /warning >}}
 
-Chef Automate provides an entire suite of enterprise capabilities for node visibility and compliance. Chef Automate upgrades from one minor version to another automatically. However, Chef Automate will not automatically upgrade to a major version. See the instructions below for manually upgrading Chef Automate from date-based versions to Chef Automate *4.x*.
+Chef Automate provides an entire suite of enterprise capabilities for node visibility and compliance. Chef Automate upgrades from one minor version to another automatically. However, Chef Automate won't automatically upgrade to a major version. See the instructions below for manually upgrading Chef Automate from date-based versions to Chef Automate _4.x_.
 
 ## Upgrade Journey
 
@@ -25,12 +25,12 @@ Please choose the following upgrade journey based on your current version of Che
 | 20220329091442| 3.0.49|
 | 3.0.49| 4.x
 
-For example, if today you are on version *2021201164433*, your upgrade journey should be:
+For example, if today you are on version _2021201164433_, your upgrade journey should be:
 
-1. Manual upgrade to *20220329091442*
-1. Manual upgrade to *3.0.49*
-1. Manual upgrade to *4.x*
- 
+1. Manual upgrade to _20220329091442_
+1. Manual upgrade to _3.0.49_
+1. Manual upgrade to _4.x_
+
 ## Upgrade and migration flow
 
 ![Upgrade flow](/images/automate/migration-and-upgrade-v4-flow.png)
@@ -39,12 +39,13 @@ For example, if today you are on version *2021201164433*, your upgrade journey s
 
 {{< note >}} If your Elasticsearch contains older indexes of version 5, please [re-index](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/docs-reindex.html) them to version 6 with the same name, before proceeding with the upgrade. {{< /note >}}
 
-{{< warning >}} If you are planning to move 4.7.52 or above, [verify and update](/automate/upgrade_san_certificates) non-SAN based public certificates with SAN certificates. This step is not applicable if you are planning to upgrade to a version 4.5.177 or below. {{< /warning >}}
+{{< warning >}} If you are planning to move 4.7.52 or above, [verify and update](/automate/upgrade_san_certificates) non-SAN based public certificates with SAN certificates. This step isn't applicable if you are planning to upgrade to a version 4.5.177 or below. {{< /warning >}}
 
-- **Plan your downtime:** This upgrade requires downtime. Before upgrading, set the environment to handle the downtime. 
+- **Plan your downtime:** This upgrade requires downtime. Before upgrading, set the environment to handle the downtime.
 - **Backup Chef Automate database:** This Chef Automate version upgrades Elasticsearch. [Backup](/automate/backup/) your data before upgrading.
-- **Current version should be 3.0.49:** If you are not on *3.0.49* version, do regular upgrades according to your topology.
+- **Current version should be 3.0.49:** If you aren't on _3.0.49_ version, do regular upgrades according to your topology.
 - **Download latest chef-automate cli:**
+
     ```sh
     curl https://packages.chef.io/files/current/latest/chef-automate-cli/chef-automate_linux_amd64.zip | gunzip - > chef-automate && chmod +x chef-automate
     ```
@@ -57,9 +58,9 @@ Check your current version:
 sudo chef-automate version
 ```
 
-{{< note >}} If your server version is less than *20220329091442*, refer to [Upgrade to 3.0.49]({{< relref "major_upgrade.md" >}}) page. {{< /note >}}
+{{< note >}} If your server version is less than _20220329091442_, refer to [Upgrade to 3.0.49]({{< relref "major_upgrade.md" >}}) page. {{< /note >}}
 
-{{< note >}} If your server version is less than *3.0.49*, upgrade to latest minor version in 3 series. {{< /note >}}
+{{< note >}} If your server version is less than _3.0.49_, upgrade to latest minor version in 3 series. {{< /note >}}
 
 ### Normal and airgapped upgrade to 3.0.49
 
@@ -185,7 +186,7 @@ To upgrade Chef Automate with embedded Elasticsearch, follow the steps given bel
     
     ```
 
-4. **[If not done in previous steps]** Migrate your data from *Elasticsearch 6.8* to *OpenSearch 1.2.4*:
+4. **[If not done in previous steps]** Migrate your data from _Elasticsearch 6.8_ to _OpenSearch 1.2.4_:
 
     ```sh
     sudo chef-automate post-major-upgrade migrate --data=es
@@ -287,7 +288,7 @@ To upgrade Chef Automate with external Elasticsearch, follow the steps given bel
     IMPORTANT 
     
     To establish connection between automate and OpenSearch database, 
-    it is required to patch the configuration file with correct values.
+    it's required to patch the configuration file with correct values.
     
     We have created a sample config file for configuring external OpenSearch:
     opensearch_config.toml
@@ -328,9 +329,9 @@ To upgrade Chef Automate with external Elasticsearch, follow the steps given bel
       Maintenance mode turned ON successfully
     ```
 
-4. Upgrade your external *Elasticsearch 6.8* to *OpenSearch 1.2.4* manually. If you have configured *Host*, *Port*, *Username* or *Password* of Elasticsearch, patch the new configuration to use Chef Automate.
+4. Upgrade your external _Elasticsearch 6.8_ to _OpenSearch 1.2.4_ manually. If you have configured _Host_, _Port_, _Username_ or _Password_ of Elasticsearch, patch the new configuration to use Chef Automate.
 
-5. All [relevant configuration fields](https://docs.chef.io/automate/opensearch/) of the Elasticsearch should be copied into the OpenSearch configuration.
+5. All [relevant configuration fields](/automate/opensearch/) of the Elasticsearch should be copied into the OpenSearch configuration.
 
     Please refer to the `elasticsearch.yml` file to get the applied configuration on your external Elasticsearch.
     Add the relevant configuration from external Elasticsearch (`elasticsearch.yml`) to the `opensearch.yml` on your external OpenSearch.
@@ -460,7 +461,7 @@ To upgrade to 4.x, follow the steps below:
     
     ```
 
-4. **[If not done in previous steps]** Migrate your data from *Elasticsearch 6.8* to *OpenSearch 1.2.4*:
+4. **[If not done in previous steps]** Migrate your data from _Elasticsearch 6.8_ to _OpenSearch 1.2.4_:
 
     ```sh
     sudo chef-automate post-major-upgrade migrate --data=es
@@ -590,7 +591,7 @@ To upgrade to 4.x, follow the steps below:
     IMPORTANT 
     
     To establish connection between automate and OpenSearch database, 
-    it is required to patch the configuration file with correct values.
+    it's required to patch the configuration file with correct values.
     
     We have created a sample config file for configuring external OpenSearch:
     opensearch_config.toml
@@ -631,15 +632,15 @@ To upgrade to 4.x, follow the steps below:
       Maintenance mode turned ON successfully
     ```
 
-4. Upgrade your external *Elasticsearch 6.8* to *OpenSearch 1.2.4* manually. If you have configured *Host*, *Port*, *Username* or *Password* of Elasticsearch, patch the new configuration to use Chef Automate.
+4. Upgrade your external _Elasticsearch 6.8_ to _OpenSearch 1.2.4_ manually. If you have configured _Host_, _Port_, _Username_ or _Password_ of Elasticsearch, patch the new configuration to use Chef Automate.
 
-5. All [relevant configuration fields](https://docs.chef.io/automate/opensearch/) of the Elasticsearch should be copied into the OpenSearch configuration.
+5. All [relevant configuration fields](/automate/opensearch/) of the Elasticsearch should be copied into the OpenSearch configuration.
 
     Please refer to the `elasticsearch.yml` file to get the applied configuration on your external Elasticsearch.
     Add the relevant configuration from external Elasticsearch (`elasticsearch.yml`) to the `opensearch.yml` on your external OpenSearch.
 
 {{< note >}}
-After upgrading to version 4.x, Automate will have the configurations both for OpenSearch and Elasticsearch. It is recommended to remove the Elasticsearch configuration after upgrading to External OpenSearch.
+After upgrading to version 4.x, Automate will have the configurations both for OpenSearch and Elasticsearch. It's recommended to remove the Elasticsearch configuration after upgrading to External OpenSearch.
 {{< /note >}}
 
 ## Troubleshooting
@@ -749,7 +750,7 @@ sudo chef-automate status
 
 ### Migration Fails
 
- If Chef Automate fails to migrate your data to *OpenSearch 1.2.4* while running `chef-automate post-major-upgrade migrate --data=es`, restore the data using:
+ If Chef Automate fails to migrate your data to _OpenSearch 1.2.4_ while running `chef-automate post-major-upgrade migrate --data=es`, restore the data using:
 
 ```sh
 sudo chef-automate backup restore </path/to/backups/>BACKUP_ID

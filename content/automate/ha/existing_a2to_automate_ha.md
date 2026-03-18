@@ -17,7 +17,7 @@ draft = false
 
 {{< warning >}}
 
-- A2HA user can be migrated to Automate HA with a minimum Chef Automate version [20201230192246](https://docs.chef.io/release_notes_automate/#20201230192246).
+- A2HA user can be migrated to Automate HA with a minimum Chef Automate version [20201230192246](/release_notes_automate/#20201230192246).
 
 {{< /warning >}}
 
@@ -81,7 +81,7 @@ done
 1. From the above Step, you will get the backup mount path.
 
 1. To run the restore command, we need the airgap bundle. Get the Automate HA airgap bundle from the location `/var/tmp/` in Automate instance. Example: `frontend-4.x.y.aib`.
-    - In case of airgap bundle is not present at `/var/tmp`, in that case, we can copy the bundle from the bastion node to the Automate node.
+    - In case of airgap bundle isn't present at `/var/tmp`, in that case, we can copy the bundle from the bastion node to the Automate node.
 
 1. Run the command at the Chef-Automate node of Automate HA cluster to get the applied config:
 
@@ -95,7 +95,7 @@ done
     sudo chef-automate stop
     ```
 
-1. Add the OpenSearch/Postgresql credentials to the applied config.
+1. Add the OpenSearch/PostgreSQL credentials to the applied config.
 
     - If using Chef Managed OpenSearch, add the config below into `current_config.toml` (unless you have changed the credentials).
 
@@ -105,7 +105,7 @@ done
             password = "admin"
         ```
 
-    - If using Chef Managed Postgresql, add the config below into `current_config.toml` (unless you have changed the credentials).
+    - If using Chef Managed PostgreSQL, add the config below into `current_config.toml` (unless you have changed the credentials).
 
         ```bash
         [global.v1.external.postgresql.auth.password.superuser]
@@ -219,19 +219,19 @@ In Automate HA there are equivalent command which had been used in A2HA:
 
 | Commands                   | A2HA                                                      | Automate HA                                                   |
 |----------------------------|-----------------------------------------------------------|---------------------------------------------------------------|
-| init config existing infra | `bash automate-cluster-ctl config init -a existing_nodes` | `bash chef-automate init-config-ha existing_infra `           |
-| deploy                     | `bash automate-cluster-ctl deploy `                       | `bash chef-automate deploy config.toml`                       |
-| info                       | `bash automate-cluster-ctl info `                         | `bash chef-automate info`                                     |
-| status                     | `bash chef-automate status `                              | `bash chef-automate status`                                   |
-| ssh                        | `bash automate-cluster-ctl ssh <name> `                   | `bash chef-automate ssh --hostname <name>`                    |
-| test                       | `bash automate-cluster-ctl test `                         | `bash chef-automate test`                                     |
-| gather logs                | `bash automate-cluster-clt gather-logs `                  | `bash chef-automate gather-logs`                              |
-| workspace                  | `bash automate-cluster-clt workspace `                    | `bash chef-automate workspace [OPTIONS] SUBCOMMAND [ARG] ...` |
+| init config existing infra | `bash automate-cluster-ctl config init -a existing_nodes` | `bash chef-automate init-config-ha existing_infra`           |
+| deploy                     | `bash automate-cluster-ctl deploy`                       | `bash chef-automate deploy config.toml`                       |
+| info                       | `bash automate-cluster-ctl info`                         | `bash chef-automate info`                                     |
+| status                     | `bash chef-automate status`                              | `bash chef-automate status`                                   |
+| ssh                        | `bash automate-cluster-ctl ssh <name>`                   | `bash chef-automate ssh --hostname <name>`                    |
+| test                       | `bash automate-cluster-ctl test`                         | `bash chef-automate test`                                     |
+| gather logs                | `bash automate-cluster-clt gather-logs`                  | `bash chef-automate gather-logs`                              |
+| workspace                  | `bash automate-cluster-clt workspace`                    | `bash chef-automate workspace [OPTIONS] SUBCOMMAND [ARG] ...` |
 
 ## Validate successful migration
 
 1. Check the Automate UI of Automate HA. Check whether the data is present in Automate UI for HA.
-1. If you are using the embedded chef server, log in to the Chef Server HA node, and run the following script to get a count of objects from the Chef Infra Server, this should match the counts captured at the start of the migration
+1. If you are using the embedded chef server, log in to the Chef Infra Server HA node, and run the following script to get a count of objects from the Chef Infra Server, this should match the counts captured at the start of the migration
 
     Create `capture_infra_counts.sh` and run it using `./capture_infra_counts.sh > post_migration_infra_counts.log`
 
@@ -269,7 +269,7 @@ In Automate HA there are equivalent command which had been used in A2HA:
 
 > **Error: Failed to restore a snapshot**
 
-Get the basepath location from the A2HA Cluster using the curl request below.
+Get the base path location from the A2HA cluster using the curl request below.
 
 > **REQUEST**
 
@@ -326,7 +326,7 @@ OR
 chef-automate config show > applied_config.toml
 ```
 
-Modify `applied_config.toml`, remove elastic search config, and set the config. Set `applied_config.toml` on all the frontend nodes manually. As the removal of config is not supported from the bastion. Use the below command to set the config manually.
+Modify `applied_config.toml`, remove elastic search config, and set the config. Set `applied_config.toml` on all the frontend nodes manually. As the removal of config isn't supported from the bastion. Use the below command to set the config manually.
 
 ```bash
 chef-automate config set applied_config.toml

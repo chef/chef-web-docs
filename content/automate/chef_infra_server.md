@@ -41,15 +41,15 @@ The objects that you can manage from the Chef Infra Server are:
 
 The _Chef Infra Server_ panel starts with an empty list of servers.
 
-To add existing Chef Infra Servers to the Chef Automate infrastructure, select **Add Chef Server**, which will request the name, FQDN, and IP address of your Chef Infra Server:
+To add existing Chef Infra Servers to the Chef Automate infrastructure, select **Add Chef Infra Server**, which will request the name, FQDN, and IP address of your Chef Infra Server:
 
-{{< figure src="/images/automate/add-chef-server-popup-menu.png" width="500" alt="Add Chef Server Form">}}
+{{< figure src="/images/automate/add-chef-server-popup-menu.png" width="500" alt="Add Chef Infra Server Form">}}
 
 Chef Automate warns you if you enter an invalid FQDN or IP address:
 
-{{< figure src="/images/automate/add-chef-server-popup-menu-with-error.png" width="500" alt="Add Chef Server Form">}}
+{{< figure src="/images/automate/add-chef-server-popup-menu-with-error.png" width="500" alt="Add Chef Infra Server Form">}}
 
-Once done, select **Add Chef Server** and see the server in the list of Chef Infra Servers.
+Once done, select **Add Chef Infra Server** and see the server in the list of Chef Infra Servers.
 
 ## Connect a Chef Organization to a Chef Infra Server
 
@@ -268,7 +268,7 @@ Use the **Search data bag items** bar to find an item from the list of data bag 
 
 #### Edit a Data Bag Item
 
-Select a specific data bag item to view the details. The details contain an *id*, and a couple of _key values_. Chef Infra Server lets you **edit** a data bag item.
+Select a specific data bag item to view the details. The details contain an _id_, and a couple of _key values_. Chef Infra Server lets you **edit** a data bag item.
 
 {{< figure src="/images/automate/edit-and-delete-data-bag-item.png" alt="Edit and Delete a Data Bag Item">}}
 
@@ -345,7 +345,7 @@ Chef Infra Server lets you delete the existing clients one at a time. To delete 
 
 ### Nodes
 
-A [node]({{< relref "/nodes" >}}) is a device that is managed by Chef Infra. During the Chef Infra Client run, the Infra Client retrieves [attributes](/nodes#attributes) that defines the expected state of the node and a [run-list](/nodes#run-lists) that defines how a node can be configured to that state from the Infra Server. The Infra Client then uses that information to update the node to its expected state.
+A [node]({{< relref "/nodes" >}}) is a device that's managed by Chef Infra. During the Chef Infra Client run, the Infra Client retrieves [attributes](/nodes#attributes) that defines the expected state of the node and a [run-list](/nodes#run-lists) that defines how a node can be configured to that state from the Infra Server. The Infra Client then uses that information to update the node to its expected state.
 
 The Chef Infra Server integration lets you:
 
@@ -366,7 +366,7 @@ Use the search bar on the Nodes tab (**Chef Infra Servers > Nodes**)  to find a 
 
 #### Details of a Node
 
-Select a specific node to view the node information, metadata, and details of the node's environment. The first section of the page has the **Node Information** like `Environment`, `Policy Group`, and `Policy Name`. You can also view the **Metadata** for the node that contains the name of the `Chef Server`, and the name of the `Chef Organization`.
+Select a specific node to view the node information, metadata, and details of the node's environment. The first section of the page has the **Node Information** like `Environment`, `Policy Group`, and `Policy Name`. You can also view the **Metadata** for the node that contains the name of the `Chef Infra Server`, and the name of the `Chef Organization`.
 
 The above information looks like as shown below:
 
@@ -449,7 +449,7 @@ Delete individual existing nodes by selecting the ellipses icon {{< fontawesome 
 
 ### Policyfiles
 
-[Policyfiles]({{< relref "/policyfile" >}}) are preferred way of managing roles, environments, and community cookbooks data with a single document that is uploaded to the Chef Infra Server. Policyfiles lets you test and promote codes with a simpler interface.
+[Policyfiles]({{< relref "/policyfile" >}}) are preferred way of managing roles, environments, and community cookbooks data with a single document that's uploaded to the Chef Infra Server. Policyfiles lets you test and promote codes with a simpler interface.
 
 The Chef Infra Server integration lets you:
 
@@ -486,7 +486,7 @@ Select a specific Policyfile from the _Included Policies_ to view the details.
 
 {{< figure src="/images/automate/content-scroller-tab-for-policyfiles.png" alt="Content Scroller in Policyfiles Details">}}
 
-In the above image, the slider tab shows the _Details_ of the selected policyfile. To view the _Revision ID_ select the **Revisions** option in the tab.
+In the above image, the slider tab shows the _Details_ of the selected Policyfile. To view the _Revision ID_ select the **Revisions** option in the tab.
 
 ###### Run List
 
@@ -502,11 +502,11 @@ The **Attributes** tab displays the _default_ and the _override_ attributes of a
 
 {{< figure src="/images/automate/attributes-tab-of-policyfiles.png" alt="Attributes tab of Policyfiles">}}
 
-You can **Expand** and **Collapse** the *default* and *override* attributes by selecting the option.
+You can **Expand** and **Collapse** the _default_ and _override_ attributes by selecting the option.
 
 ##### Cookbook Dependencies
 
-Select the **Cookbook Dependencies** button to view all the _Dependencies Rules_ and _Cookbook_ of the policyfile in table format. Select a specific cookbook from the list to view the details of the cookbook.
+Select the **Cookbook Dependencies** button to view all the _Dependencies Rules_ and _Cookbook_ of the Policyfile in table format. Select a specific cookbook from the list to view the details of the cookbook.
 
 {{< note >}} Selecting a specific cookbook redirects you to the audit section of the **Cookbook** main tab.
 {{< /note >}}
@@ -557,7 +557,7 @@ The details page of the policy group view the list of **Policyfiles**.
 
 Select a Policyfile from the list to view its details.
 
-{{< note >}} Selecting a specific policyfile redirects you to the details section of the **Policyfiles** main tab.
+{{< note >}} Selecting a specific Policyfile redirects you to the details section of the **Policyfiles** main tab.
 {{< /note >}}
 
 ##### Nodes Tab
@@ -573,7 +573,7 @@ Select a node from the list to view its details
 
 ## Troubleshoot
 
-While fetching any objects like cookbooks, you might face an error `Could not get cookbooks: organization 'no-org' does not exist`, which means the provided organization does not exist on Chef Infra Server.
+While fetching any objects like cookbooks, you might face an error `Could not get cookbooks: organization 'no-org' doesn't exist`, which means the provided organization doesn't exist on Chef Infra Server.
 
 {{< figure src="/images/automate/could-not-get-cookbooks-organization.png" alt="Could not get cookbooks: Organization">}}
 

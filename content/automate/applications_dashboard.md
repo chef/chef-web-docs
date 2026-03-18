@@ -12,9 +12,9 @@ draft = false
     weight = 30
 +++
 
-The Chef Automate *Applications* dashboard allows you to organize and display your applications data from Chef Habitat in an intuitive way.
+The Chef Automate _Applications_ dashboard allows you to organize and display your applications data from Chef Habitat in an intuitive way.
 Chef Automate organizes data from the application and environment tags provided by the Chef Habitat supervisor.
-Under the Chef Automate *Applications* dashboard, the _Service Groups_ display lets you understand the status of your Chef Habitat services, even when scaling out to large numbers of services.
+Under the Chef Automate _Applications_ dashboard, the _Service Groups_ display lets you understand the status of your Chef Habitat services, even when scaling out to large numbers of services.
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ See [Setting up the Applications Dashboard]({{< relref "applications_setup.md" >
 ## Service Groups
 
 Service groups are Chef Habitat services, which Chef Automate orders by package identifiers and configurations.
-The *Applications* dashboard _Service Groups_ display gives you a top-level view of your Chef Habitat services groups and lets you drill down into the status of individual instances to understand the health and contentents of any individual instance of a service.
+The _Applications_ dashboard _Service Groups_ display gives you a top-level view of your Chef Habitat services groups and lets you drill down into the status of individual instances to understand the health and contents of any individual instance of a service.
 The default _Service Groups_ view shows only the services that are available.
 The right sidebar provides detailed reporting for each individual service.
 
@@ -101,9 +101,9 @@ Use the [Service Group Data Lifecycle settings](/automate/data_lifecycle/#servic
 ### Periodic Disconnection Checks
 
 Chef Automate assesses the status of Chef Habitat services based on the receipt of a health check message.
-Chef Automate marks a node as disconnected when it does not receive a health check message in a set amount of time.
+Chef Automate marks a node as disconnected when it doesn't receive a health check message in a set amount of time.
 Use the `threshold` configuration to set the amount of time between the last node health check message and when Chef Automate marks it as disconnected.
-Health checks are mandatory and you cannot disable health checks.
+Health checks are mandatory and you can't disable health checks.
 The default time for a node to report to Chef Automate is 5 minutes.
 
 Chef Habitat sends the health check messages every 30 seconds by default.

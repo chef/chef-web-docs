@@ -25,7 +25,7 @@ When a Chef InSpec report or a Chef Infra Client run is ingested, a node is adde
 
 All nodes have one of three possible statuses: 'unknown', 'reachable', and 'unreachable'. The default status is 'unknown'.
 
-Each time a user adds one or more nodes manually or with a node integration (AWS, Azure, or GCP), Chef Automate runs an`inspec detect` job on the newly added node(s).
+Each time a user adds one or more nodes manually or with a node integration (AWS, Azure, or GCP), Chef Automate runs an`inspec detect` job on the newly added nodes.
 If the detect job is successful, the node status updates from 'unknown' to 'reachable', and the platform information is updated from the `inspec detect` results.
 If the detect job is unsuccessful, meaning the node could not be reached, the node's status updates to 'unreachable'.
 The status updates every time a scan job runs on the node.
@@ -61,20 +61,21 @@ The `/nodes` endpoint supports filtering by:
 - statechange_timerange (supports two timestamps of type "2019-03-05T00:00:00Z")
 - status
 - tags
-- last_run_timerange (last time reported on ingested ccr: supports two timestamps of type "2019-03-05T00:00:00Z" (RFC3339))
+- last_run_timerange (last time reported on ingested Chef Infra Client run: supports two timestamps of type "2019-03-05T00:00:00Z" (RFC3339))
 - last_scan_timerange (last time reported on ingested scan: supports two timestamps of type "2019-03-05T00:00:00Z" (RFC3339))
-- last_run_status (status on last ingested ccr)
+- last_run_status (status on last ingested Chef Infra Client run)
 - last_scan_status (status on last ingested scan)
-- last_run_penultimate_status (status on second to last ingested ccr)
+- last_run_penultimate_status (status on second to last ingested Chef Infra Client run)
 - last_scan_penultimate_status (status on second to last ingested scan)
 
 ## Examples
 
-* Show me all nodes whose last scan had a status of failed and a penultimate status of passed
+- Show me all nodes whose last scan had a status of failed and a penultimate status of passed
 
 _or in other words, which nodes were previously passing their scans and just started failing?_
 
 sample request:
+
 ```bash
 curl -s --insecure -H "api-token: $token_val"
 https://a2-dev.test/api/v0/nodes/search -d '{
@@ -85,18 +86,18 @@ https://a2-dev.test/api/v0/nodes/search -d '{
 }'
 ```
 
-
 sample truncated response:
-```
+
+```json
 {"nodes":[{"id":"0e05fcf2-2fab-36ee-bb84-5b7d5888c33a","name":"chef-load-blue-delladonna-indigo","platform":"debian","platform_version":"8.11","last_contact":"2019-05-14T18:08:43Z","run_data":{"id":"","status":"UNKNOWN","penultimate_status":"UNKNOWN","end_time":null},"scan_data":{"id":"5640fbb7-d1ba-4c67-b0cd-9db4fcfc2598","status":"FAILED","penultimate_status":"PASSED","end_time":"2019-05-14T18:08:43Z"}}]}
 ```
 
+- Show me all nodes whose last Chef Infra Client run passed and last scan failed, that had a penultimate Chef Infra Client run status of failed
 
-* Show me all nodes whose last ccr passed and last scan failed, that had a penultimate ccr status of failed
-
-_or in other words, which nodes just started passing their ccrs but are failing their scans?_
+_or in other words, which nodes just started passing their Chef Infra Client runs but are failing their scans?_
 
 sample request:
+
 ```bash
 curl -s --insecure -H "api-token: $token_val"
 https://a2-dev.test/api/v0/nodes/search -d '{
@@ -108,12 +109,12 @@ https://a2-dev.test/api/v0/nodes/search -d '{
 }'
 ```
 
-
-* Show me all nodes that had a last scan ingested sometime in the last 48 hours with a status of failed
+- Show me all nodes that had a last scan ingested sometime in the last 48 hours with a status of failed
 
 _or in other words, which nodes that were ingested in the last 48 hours failed their scans?_
 
 sample request:
+
 ```bash
 curl -s --insecure -H "api-token: $token_val"
 https://a2-dev.test/api/v0/nodes/search -d '{
@@ -124,10 +125,10 @@ https://a2-dev.test/api/v0/nodes/search -d '{
 }'
 ```
 
-
-* Show me all nodes tagged with `deployment:staging` OR `deployment:test`. We OR between multiple values of the same key
+- Show me all nodes tagged with `deployment:staging` OR `deployment:test`. We OR between multiple values of the same key
 
 sample request:
+
 ```bash
 curl -s --insecure -H "api-token: $token_val"
 https://a2-dev.test/api/v0/nodes/search -d '{
@@ -137,10 +138,10 @@ https://a2-dev.test/api/v0/nodes/search -d '{
 }'
 ```
 
-
-* Show me all nodes tagged with `deployment:prod` AND `org:marketing`. We AND between different tag key filters
+- Show me all nodes tagged with `deployment:prod` AND `org:marketing`. We AND between different tag key filters
 
 sample request:
+
 ```bash
 curl -s --insecure -H "api-token: $token_val"
 https://a2-dev.test/api/v0/nodes/search -d '{
@@ -150,7 +151,6 @@ https://a2-dev.test/api/v0/nodes/search -d '{
  ]
 }'
 ```
-
 
 ### Bulk Node Add
 

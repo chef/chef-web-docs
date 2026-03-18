@@ -18,7 +18,7 @@ Chef Automate HA comes with five different types of deployment flows. This page 
 
 {{< warning >}}
 
-- We do not recommend removing any node from the backend cluster, but replacing it is recommended. To replace a backend node, first [add a node to the cluster](/automate/ha_add_nodes_to_the_deployment/) and then [remove the relevant node from the cluster](/automate/ha_remove_single_node_from_cluster/).
+- We don't recommend removing any node from the backend cluster, but replacing it's recommended. To replace a backend node, first [add a node to the cluster](/automate/ha_add_nodes_to_the_deployment/) and then [remove the relevant node from the cluster](/automate/ha_remove_single_node_from_cluster/).
 
 - Removal of nodes for PostgreSQL or OpenSearch is at your own risk and may result in data loss. Consult your database administrator before trying to delete PostgreSQL or OpenSearch nodes.
 - Below process can be done for `chef-server` and `automate`.
@@ -44,7 +44,7 @@ The command requires some arguments to determine which types of nodes you want t
     chef-automate node remove --automate-ip "<automate-ip-address>"
     ```
 
-- To remove the Chef Server node, run the following command:
+- To remove the Chef Infra Server node, run the following command:
 
     ```sh
     chef-automate node remove --chef-server-ip "<chef-server-ip-address>"
@@ -70,7 +70,7 @@ You can remove other unreachable nodes while removing a node.
      chef-automate node remove --automate-ip 10.1.2.23 --remove-unreachable-node
     ```
 
-    or 
+    or
 
      ```sh
      chef-automate node remove --automate-ip 10.1.2.23 -r
@@ -78,15 +78,15 @@ You can remove other unreachable nodes while removing a node.
 
 Once the command executes, it will remove the particular node from your HA setup. The command might take a while to complete.
 
-- Make sure to remove the IP address of the deleted node from your load balancer configuration. For reference, check [Load Balancer Configuration page](/automate/loadbalancer_configuration/)
+- Make sure to remove the IP address of the deleted node from your load balancer configuration. For reference, check [Load Balancer Configuration page](/automate/load_balancer_configuration/)
 
 {{< note >}}
 
 - The IPs provided must be associated with a node in your HA setup.
-- Automate instance count cannot be less than 1.
-- Chef Server instance count cannot be less than 1.
-- OpenSearch instance count cannot be less than 3.
-- PostgreSQL instance count cannot be less than 3.
+- Automate instance count can't be less than 1.
+- Chef Infra Server instance count can't be less than 1.
+- OpenSearch instance count can't be less than 3.
+- PostgreSQL instance count can't be less than 3.
 
 {{< /note >}}
 
@@ -128,7 +128,7 @@ You can remove other unreachable nodes while removing a node.
      chef-automate node remove --automate-ip 10.1.2.23 --remove-unreachable-node
     ```
 
-    or 
+    or
 
      ```sh
      chef-automate node remove --automate-ip 10.1.2.23 -r

@@ -23,8 +23,8 @@ An example disclosure panel:
 
 To add a disclosure panel to the sign-in page:
 
-1. Create a file with the message in `.html` or `.txt` format and save to a location that is available to Chef Automate.
-1. Create a `patch.toml` if one does not already exist for your Chef Automate installation.
+1. Create a file with the message in `.html` or `.txt` format and save to a location that's available to Chef Automate.
+1. Create a `patch.toml` if one doesn't already exist for your Chef Automate installation.
 1. Add the disclosure panel configuration to the `patch.toml` file. Your configuration should look like:
 
 ```toml
@@ -47,7 +47,7 @@ An example banner:
 
 To add a banner to Chef Automate:
 
-1. Create a `patch.toml` if one does not already exist for your Chef Automate installation.
+1. Create a `patch.toml` if one doesn't already exist for your Chef Automate installation.
 1. Add the banner configuration to the `patch.toml` file. Your configuration should look like:
 
 ```toml

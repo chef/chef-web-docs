@@ -44,7 +44,7 @@ When a failure of the primary cluster occurs, fail-over can be accomplished thro
 
 ### Set up the production and disaster recovery cluster
 
-1. Deploy the Primary cluster. To know more, follow the [deployment instructions](/automate/ha_onprim_deployment_procedure/#Run-these-steps-on-Bastion-Host-Machine).
+1. Deploy the Primary cluster. To know more, follow the [deployment instructions](/automate/ha_on_prem_deployment_procedure/#Run-these-steps-on-Bastion-Host-Machine).
 
 1. Deploy the disaster recovery cluster into a different data center and region using the same steps as the primary cluster.
 
@@ -75,11 +75,11 @@ Configure backups for both clusters using either [file system](/automate/ha_back
     {{< note >}}
     - Suggested frequency of backup and restore jobs is one hour. Be sure to monitor backup times to ensure they can be completed in the available time.
     - Make sure the Restore cron always restores the latest backed-up data.
-    - A cron job is a Linux command used to schedule a job that is executed periodically.
+    - A cron job is a Linux command used to schedule a job that's executed periodically.
     {{< /note >}}
 
     - To clean the data from the backed-up storage, either schedule a cron or delete it manually.
-        - To prune all but a certain number of the most recent backups manually, parse the output of chef-automate backup list and 
+        - To prune all but a certain number of the most recent backups manually, parse the output of chef-automate backup list and
         apply the command chef-automate backup delete.
         For example:
 
@@ -109,7 +109,7 @@ Configure backups for both clusters using either [file system](/automate/ha_back
 
         - To run the restore command, you need the airgap bundle. Get the Automate HA airgap bundle from the location `/var/tmp/` in Automate instance. For example: `frontend-4.x.y.aib`.
 
-        - In case the airgap bundle is not present at `/var/tmp`, it can be copied from the bastion node to the Automate frontend node
+        - In case the airgap bundle isn't present at `/var/tmp`, it can be copied from the bastion node to the Automate frontend node
 
         - Run the command at the Automate node of Automate HA cluster to get the applied config:
 
@@ -140,7 +140,7 @@ Configure backups for both clusters using either [file system](/automate/ha_back
         id=$(sudo chef-automate backup list | tail -1 | awk '{print $1}')
         sudo chef-automate backup restore /mnt/automate_backups/backups/$id/ --patch-config current_config.toml --airgap-bundle /var/tmp/frontend-4.x.y.aib --skip-preflight
         ```
-        
+
         For **GCS** execute the following command from the Bootstrapped Automate node to restore:
 
         ```sh
@@ -154,14 +154,13 @@ Configure backups for both clusters using either [file system](/automate/ha_back
         id=$(chef-automate backup list | grep completed | tail -1 | awk '{print $1}')
         sudo chef-automate backup restore <backup-url-to-object-storage>/automate/$id/ --patch-config /path/to/current_config.toml --airgap-bundle /var/tmp/frontend-4.x.y.aib --skip-preflight --s3-access-key "Access_Key"  --s3-secret-key "Secret_Key"
         ```
-        
+
         Sample cron for restoring backup saved in object storage **(GCS)** looks like this:
 
         ```sh
         id=$(chef-automate backup list | grep completed | tail -1 | awk '{print $1}')
         sudo chef-automate backup restore <backup-url-to-object-storage>/automate/$id/ --patch-config /path/to/current_config.toml --airgap-bundle /var/tmp/frontend-4.x.y.aib --skip-preflight --gcs-credentials-path "path/to/googleServiceAccount.json"
         ```
-
 
 ### Switch to disaster recovery cluster
 

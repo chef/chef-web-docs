@@ -14,7 +14,7 @@ This guide covers upgrading services used by Chef Automate.
 
 ## Upgrade Elasticsearch to OpenSearch
 
-On January 21, 2021, Elastic NV announced that they would change their software licensing strategy and not release new versions of Elasticsearch and Kibana under the permissive ALv2 license. Instead, Elastic is releasing Elasticsearch and Kibana under the Elastic license, with source code available under the Elastic License or Server Side Public License (SSPL). These licenses are not open source and do not offer users the same freedoms. Because of this, AWS decided to create and maintain a fork from the last ALv2 version of Elasticsearch and Kibana. The fork is called OpenSearch and is available under ALv2.
+On January 21, 2021, Elastic NV announced that they would change their software licensing strategy and not release new versions of Elasticsearch and Kibana under the permissive ALv2 license. Instead, Elastic is releasing Elasticsearch and Kibana under the Elastic license, with source code available under the Elastic License or Server Side Public License (SSPL). These licenses aren't open source and don't offer users the same freedoms. Because of this, AWS decided to create and maintain a fork from the last ALv2 version of Elasticsearch and Kibana. The fork is called OpenSearch and is available under ALv2.
 
 To upgrade AWS Elasticsearch, please follow the instructions on [Upgrading to AWS OpenSearch](https://aws.amazon.com/blogs/aws/amazon-elasticsearch-service-is-now-amazon-opensearch-service-and-supports-opensearch-10/)
 
@@ -33,7 +33,7 @@ This upgrade guide is for systems running:
 - A Single Elasticsearch v6.8 installation
 - Using Ubuntu 18.04 or higher
 - On a virtual machine such as an EC2 instance or on a single physical machine
-- Enough free space to run a second copy of the data that is in the existing Elasticsearch 6.8 installation. This upgrade requires a minimum of 55% free space on the machine.
+- Enough free space to run a second copy of the data that's in the existing Elasticsearch 6.8 installation. This upgrade requires a minimum of 55% free space on the machine.
 
 ### Backup Chef Automate
 
@@ -41,7 +41,7 @@ This upgrade guide is for systems running:
 **BACKUP CHEF AUTOMATE AND SECURE THE DATA**. Preserve your backup at all costs. Copy the backup to a second and separate location.
 {{< /danger >}}
 
-Database migrations have inherent risks to your system. Create a backup before beginning any migration or update. This ensures that you have a recoverable state in case any step in the process fails. Copy the backup to another disk that is not connected to Chef Automate. This ensures that you have state to restore, in case of a failure in the upgrade process.
+Database migrations have inherent risks to your system. Create a backup before beginning any migration or update. This ensures that you have a recoverable state in case any step in the process fails. Copy the backup to another disk that's not connected to Chef Automate. This ensures that you have state to restore, in case of a failure in the upgrade process.
 
 Follow the [Backup]({{< relref "backup.md" >}}) documentation to make a copy of your Chef Automate data.
 

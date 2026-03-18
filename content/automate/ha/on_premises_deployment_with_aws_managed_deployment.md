@@ -6,7 +6,7 @@ draft = false
   [menu.automate]
     title = "On-Premises Deployment with AWS Managed Database"
     parent = "automate/deploy_high_availability/deployment"
-    identifier = "automate/deploy_high_availability/deployment/ha_onprim_deployment_with_aws_managed_deployment.md On-premises Deployment with AWS Managed Database"
+    identifier = "automate/deploy_high_availability/deployment/ha_on_prem_deployment_with_aws_managed_deployment.md On-premises Deployment with AWS Managed Database"
     weight = 210
 +++
 
@@ -23,9 +23,9 @@ This section will discuss deploying Chef Automate HA on-premises machines with A
 
 {{< /warning >}}
 
-- Before proceeding with the deployment steps make sure to [provision](/automate/ha_onprim_deployment_procedure/#provisioning).
+- Before proceeding with the deployment steps make sure to [provision](/automate/ha_on_prem_deployment_procedure/#provisioning).
 
-- [Run on the Bastion host](/automate/ha_onprim_deployment_procedure/#deploy-the-bastion-host) to download the latest Automate CLI and Airgapped Bundle.
+- [Run on the Bastion host](/automate/ha_on_prem_deployment_procedure/#deploy-the-bastion-host) to download the latest Automate CLI and Airgapped Bundle.
 
 ## Generate configuration file
 
@@ -47,7 +47,7 @@ You can also view the [Sample Config](#sample-config-to-setup-on-premise-deploym
 
 #### * Directory Structure
 
-- The verification cli needs `$HOME` environment variable to be available on all nodes. 
+- The verification cli needs `$HOME` environment variable to be available on all nodes.
 - If in some case its not available then as a fallback the cli will be copied over to `/home/<ssh_user name>/`.
   - `ssh_user name` is read from `ssh_user` property in `config.toml`
 - Every node must have the `$HOME` directory with minimum permissions `drwx------`.
@@ -73,14 +73,15 @@ Once the verification is completed, proceed with deployment. In case of failure,
 The following command will run the deployment. The deploy command will first run the verify command internally, to skip verification process during deploy command use `--skip-verify` flag
 
 ```bash
- chef-automate deploy config.toml --airgap-bundle automate.aib
+chef-automate deploy config.toml --airgap-bundle automate.aib
 ```
 
 To skip verification in the deployment command, use `--skip-verify` flag
 
 ```bash
- chef-automate deploy config.toml --airgap-bundle automate.aib --skip-verify
+chef-automate deploy config.toml --airgap-bundle automate.aib --skip-verify
 ```
+
 ## Verify Deployment
 
 1. Once the deployment is successful, Get the consolidated status of the cluster
@@ -89,7 +90,7 @@ To skip verification in the deployment command, use `--skip-verify` flag
      chef-automate status summary
     ```
 
-1.  Get the service status from each node
+1. Get the service status from each node
 
     ```bash
      chef-automate status
@@ -111,13 +112,13 @@ Check if Chef Automate UI is accessible by going to (Domain used for Chef Automa
 
 After successful deployment, proceed with the following:
 
-   1. [Create users and organizations](/automate/ha_node_bootstraping/#create-users-and-organization)
-   1. [Workstation setup](/automate/ha_node_bootstraping/#workstation-setup)
-   1. [Node bootstrapping](/automate/ha_node_bootstraping/#bootstraping-a-node)
+   1. [Create users and organizations](/automate/ha_node_bootstrapping/#create-users-and-organization)
+   1. [Workstation setup](/automate/ha_node_bootstrapping/#workstation-setup)
+   1. [Node bootstrapping](/automate/ha_node_bootstrapping/#bootstrapping-a-node)
 
 ## Backup/Restore
 
-A shared file system is always required to create OpenSearch snapshots. To register the snapshot repository using OpenSearch, it is necessary to mount the same shared filesystem to the exact location on all master and data nodes. To know more about the backup and restore configuration, see On-Premise Deployment using [Filesystem](/automate/ha_backup_restore_file_system) or using [Object Storage](/automate/ha_backup_restore_object_storage).
+A shared file system is always required to create OpenSearch snapshots. To register the snapshot repository using OpenSearch, it's necessary to mount the same shared filesystem to the exact location on all master and data nodes. To know more about the backup and restore configuration, see On-Premise Deployment using [Filesystem](/automate/ha_backup_restore_file_system) or using [Object Storage](/automate/ha_backup_restore_object_storage).
 
 ## Add/Remove Nodes
 

@@ -91,7 +91,7 @@ Once the provisioning is successful, **if you have added custom DNS to your conf
 
 #### * Directory Structure
 
-- The verification cli needs `$HOME` environment variable to be available on all nodes. 
+- The verification cli needs `$HOME` environment variable to be available on all nodes.
 - If in some case its not available then as a fallback the cli will be copied over to `/home/<ssh_user name>/`.
   - `ssh_user name` is read from `ssh_user` property in `config.toml`
 - Every node must have the `$HOME` directory with minimum permissions `drwx------`.
@@ -121,6 +121,7 @@ Once the verification is completed, proceed with deployment. In case of failure,
     ```
 
    To skip verification in the deployment command, use `--skip-verify` flag
+
     ```bash
      chef-automate deploy config.toml --airgap-bundle automate.aib --skip-verify
     ```
@@ -133,7 +134,7 @@ Once the verification is completed, proceed with deployment. In case of failure,
      chef-automate status summary
     ```
 
-1.  Get the service status from each node
+1. Get the service status from each node
 
     ```bash
      chef-automate status
@@ -186,7 +187,7 @@ Once the verification is completed, proceed with deployment. In case of failure,
 
 {{< note >}}
 
-- Have DNS certificate ready in ACM for 2 DNS entries: Example: `chefautomate.example.com`, `chefinfraserver.example.com`, Reference for [Creating new DNS Certificate in ACM](/automate/ha_aws_cert_mngr/).
+- Have DNS certificate ready in ACM for 2 DNS entries: Example: `chefautomate.example.com`, `chefinfraserver.example.com`, Reference for [Creating new DNS Certificate in ACM](/automate/ha_aws_cert_manager/).
 - DNS should have entries for `chefautomate.example.com` and `chefinfraserver.example.com` pointing to respective Load Balancers as shown in the `chef-automate info` command
 
 {{< /note >}}
@@ -195,15 +196,15 @@ Check if Chef Automate UI is accessible by going to (Domain used for Chef Automa
 
 After successful deployment, proceed with the following:
 
-   1. To know moe about the user and organization creation, check the [Create Users and Organization](/automate/ha_node_bootstraping/#create-users-and-organization) section in Node Bootstrapping page.
-   1. To know more about Workstation setup, see the [Workstation Setup](/automate/ha_node_bootstraping/#workstation-setup) section.
-   1. To know more about Node bootstrapping, see the [Bootstraping a Node](/automate/ha_node_bootstraping/#bootstraping-a-node) section.
+   1. To know moe about the user and organization creation, check the [Create Users and Organization](/automate/ha_node_bootstrapping/#create-users-and-organization) section in Node Bootstrapping page.
+   1. To know more about Workstation setup, see the [Workstation Setup](/automate/ha_node_bootstrapping/#workstation-setup) section.
+    1. To know more about Node bootstrapping, see the [Bootstrapping a Node](/automate/ha_node_bootstrapping/#bootstrapping-a-node) section.
 
 ## Sample Config
 
 {{< note >}}
 
-Assuming 8+1 nodes (1 bastion, 1 for Chef Automate UI, 1 for Chef Infra Server, Managed RDS Postgresql, and Managed OpenSearch)
+Assuming 8+1 nodes (1 bastion, 1 for Chef Automate UI, 1 for Chef Infra Server, Managed RDS PostgreSQL, and Managed OpenSearch)
 
 {{< /note >}}
 
@@ -239,7 +240,7 @@ Assuming 8+1 nodes (1 bastion, 1 for Chef Automate UI, 1 for Chef Infra Server, 
     instance_count = "2"
 [chef_server]
   [chef_server.config]
-    fqdn = "chefserver.example.com"
+    fqdn = "chef-server.example.com"
     lb_root_ca = "-----BEGIN CERTIFICATE-----
     -----END CERTIFICATE-----"
     instance_count = "2"
@@ -286,7 +287,7 @@ Assuming 8+1 nodes (1 bastion, 1 for Chef Automate UI, 1 for Chef Infra Server, 
 
 ## Minimum Changes required in the Sample Config
 
-- Provide `ssh_user` which has access to all the machines. E.g., `ec2-user`
+- Provide `ssh_user` which has access to all the machines. For example, `ec2-user`
 - Provide a `ssh_key_file` path; this key should have access to all the Machines or VMs. E.g.: `~/.ssh/user-key.pem`.
 - Provide `region` Eg: `ap-southeast-2`.
 - Provide `aws_vpc_id` Eg: `vpc-0a12*****`.

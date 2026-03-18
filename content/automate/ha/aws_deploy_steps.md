@@ -33,8 +33,8 @@ Run the following steps on Bastion Host Machine:
 {{< note >}}
 
 - Ensure the bastion machine is in the same vpc as in `config.toml`. Otherwise, we need to do [vpc peering](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html).
-- Use subnet-id instead of CIDR block in `config.toml`, to avoid the subnet conflict. If we use a CIDR block, will fail if a consecutive cidr block is not available.
-- If you choose `backup_config` as `s3`, provide the bucket name to field `s3_bucketName`. If `s3_bucketName` exists, it is directly used for backup configuration, and if it doesn't exist, then the deployment process will create `s3_bucketName`.
+- Use subnet-id instead of CIDR block in `config.toml`, to avoid the subnet conflict. If we use a CIDR block, will fail if a consecutive cidr block isn't available.
+- If you choose `backup_config` as `s3`, provide the bucket name to field `s3_bucketName`. If `s3_bucketName` exists, it's directly used for backup configuration, and if it doesn't exist, then the deployment process will create `s3_bucketName`.
 - If you choose `backup_config` as `efs`, we will create the EFS and mount it on all frontend and backend nodes.
 - If you choose `backup_config` as `" "` (empty), you have to manually do the backup configuration after the deployment. But we recommended that to use `backup_config` be set to `s3` or `efs` at the time of deployment.
 
@@ -99,7 +99,7 @@ Run the following steps on Bastion Host Machine:
 
 #### * Directory Structure
 
-- The verification cli needs `$HOME` environment variable to be available on all nodes. 
+- The verification cli needs `$HOME` environment variable to be available on all nodes.
 - If in some case its not available then as a fallback the cli will be copied over to `/home/<ssh_user name>/`.
   - `ssh_user name` is read from `ssh_user` property in `config.toml`
 - Every node must have the `$HOME` directory with minimum permissions `drwx------`.
@@ -196,9 +196,9 @@ Check if Chef Automate UI is accessible by going to (Domain used for Chef Automa
 
 After successful deployment, proceed with the following:
 
-   1. [Create Users and Organization](/automate/ha_node_bootstraping/#create-users-and-organization) section on the Node Bootstrapping page.
-   1. See the [Workstation Setup](/automate/ha_node_bootstraping/#workstation-setup) section to learn more about workstation setup.
-   1. See the [Bootstraping a Node](/automate/ha_node_bootstraping/#bootstraping-a-node) section to learn more about node bootstrapping.
+   1. [Create Users and Organization](/automate/ha_node_bootstrapping/#create-users-and-organization) section on the Node Bootstrapping page.
+   1. See the [Workstation Setup](/automate/ha_node_bootstrapping/#workstation-setup) section to learn more about workstation setup.
+    1. See the [Bootstrapping a Node](/automate/ha_node_bootstrapping/#bootstrapping-a-node) section to learn more about node bootstrapping.
 
 ## Sample Config
 
@@ -239,7 +239,7 @@ Assuming 10+1 nodes (1 bastion, 2 for Automate UI, 2 for Chef-server, 3 for Post
     instance_count = "2"
 [chef_server]
   [chef_server.config]
-    fqdn = "chefserver.example.com"
+    fqdn = "chef-server.example.com"
     lb_root_ca = "-----BEGIN CERTIFICATE-----
     -----END CERTIFICATE-----"
     instance_count = "2"
@@ -285,7 +285,7 @@ Assuming 10+1 nodes (1 bastion, 2 for Automate UI, 2 for Chef-server, 3 for Post
 {{< danger >}}
 
 - Running the clean-up command will remove all AWS resources created by the `provision-infra` command
-- Adding the `--force` flag will remove storage (Object Storage/ NFS) if it is created by provision-infra`.
+- Adding the `--force` flag will remove storage (Object Storage/ NFS) if it's created by provision-infra`.
 
 {{< /danger >}}
 

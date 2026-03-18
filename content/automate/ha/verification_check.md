@@ -16,7 +16,7 @@ draft = false
 {{% automate/ha-warn %}}
 {{< /note >}}
 
-**High Availability (HA)** is designed to avoid loss of service by reducing or managing failures and minimizing unscheduled downtime (when your system or network is not available for use or is unresponsive) that happens due to power outages or failure of a component. In this page, we will see how to reduce the possibility of errors and improve your overall CLI experience to deploy Automate HA. We will discuss the deployment of Automate HA by automatically checking verification tests in different Automate HA deployment workflows.
+**High Availability (HA)** is designed to avoid loss of service by reducing or managing failures and minimizing unscheduled downtime (when your system or network isn't available for use or is unresponsive) that happens due to power outages or failure of a component. In this page, we will see how to reduce the possibility of errors and improve your overall CLI experience to deploy Automate HA. We will discuss the deployment of Automate HA by automatically checking verification tests in different Automate HA deployment workflows.
 
 ## Pre-requisites
 
@@ -64,7 +64,7 @@ You get a report irrespective of the fact that the everything passes of fails. I
 
 ### Pre-Deployment
 
-It is always good to know things early. Pre deployment verification will give the potential pointers of failure which may occur at the time of deployment. The pre deployment verification will ensure certain checks in the system. These checks will ensure that the failure of critical services of the end points of the system are taken care of. For example, in case of a certificate check, it will ensure that the validation of the check has already happened before the deployment process.
+It's always good to know things early. Pre deployment verification will give the potential pointers of failure which may occur at the time of deployment. The pre deployment verification will ensure certain checks in the system. These checks will ensure that the failure of critical services of the end points of the system are taken care of. For example, in case of a certificate check, it will ensure that the validation of the check has already happened before the deployment process.
 
 ### Post-Deployment
 
@@ -78,7 +78,7 @@ An example of a checks performed are shown in the below image:
 
 ![Config Verify Check](/images/automate/verify_checks_example.png)
 
-The above image shows the checks performed for Automate node. The checks in the above image are also performed on all the nodes in Automate HA, i.e., Chef Server, PostgreSQL, OpenSearch, and Chef Automate (the one showed above).
+The above image shows the checks performed for Automate node. The checks in the above image are also performed on all the nodes in Automate HA, i.e., Chef Infra Server, PostgreSQL, OpenSearch, and Chef Automate (the one showed above).
 
 The verify command checks all the nodes in Automate HA and it also provides the remediation steps for failures.
 

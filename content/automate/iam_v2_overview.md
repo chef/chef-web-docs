@@ -18,7 +18,7 @@ Chef Automate's Identity and Access Management (IAM) allows direct management of
 IAM supports the projects feature, which allow for filtering and segregation of your data amongst your user base.
 IAM policies allow you to use multiple permissions, distinguish policy membership from policy definition for fine-grained control, and include roles for role-based access control.
 
-The *policy* exists at the heart of Chef Automate's IAM system.
+The _policy_ exists at the heart of Chef Automate's IAM system.
 A policy defines permissions for who may perform what action on which resource and scopes these permissions by project.
 The "who" may be a user, a team, or an API token.
 
@@ -44,7 +44,7 @@ IAM policy evaluation order is:
 
 The following examples illustrate the net effect of a policy and how it grants access to a user:
 
-- User1, or any team that user1 belongs to, does not include a policy with the `iam:users:list` action.
+- User1, or any team that user1 belongs to, doesn't include a policy with the `iam:users:list` action.
   _Net effect_: Access denied to user1 to view the list of users.
   This example illustrates the global default DENY condition.
 - Bob is a member of team alpha and team omega.
@@ -78,40 +78,40 @@ Find more details about roles in [Role-Based Access Control]({{< relref "iam_v2_
 ## Members and Policies
 
 A **member** may be a user, a team, or an API token.
-Users and teams may be *local*, meaning their definition exists within Chef Automate only, or managed by an external identity provider, specifically LDAP or SAML.
+Users and teams may be _local_, meaning their definition exists within Chef Automate only, or managed by an external identity provider, specifically LDAP or SAML.
 
-IAM v2 policy *membership* is separate and distinct from policy *definition*.
+IAM v2 policy _membership_ is separate and distinct from policy _definition_.
 (Notice that members were **not** included as part of the [Policy Definition]({{< relref "iam_v2_overview.md#policy-definition" >}}).)
-You can edit policy membership for any policy, but you can adjust only the policy definition for *Custom* policies.
+You can edit policy membership for any policy, but you can adjust only the policy definition for _Custom_ policies.
 
 ## Policy Types
 
-IAM distinguishes two types of policies: *Chef-managed* and *Custom*.
-Chef provides *Chef-managed* policies, which are integral to the operation of Chef Automate.
-You cannot change the policy statements in Chef-managed policies.
-*Custom* policies are policies that you create for your own needs. You can add, edit, and delete policy statements in your custom policies.
+IAM distinguishes two types of policies: _Chef-managed_ and _Custom_.
+Chef provides _Chef-managed_ policies, which are integral to the operation of Chef Automate.
+You can't change the policy statements in Chef-managed policies.
+_Custom_ policies are policies that you create for your own needs. You can add, edit, and delete policy statements in your custom policies.
 
 Both types of policies allow for membership modification.
 
 ## Role-Based Access Control
 
 A role is a named list of actions.
-This list provides the benefit of *encapsulation*.
-A policy statement needs only the role's name, and the policy is not burdened by all the details.
-Also, the list offers *reusability* as you can apply the role to any statement that needs it.
+This list provides the benefit of _encapsulation_.
+A policy statement needs only the role's name, and the policy isn't burdened by all the details.
+Also, the list offers _reusability_ as you can apply the role to any statement that needs it.
 
-Just like policies, roles are either *Chef-managed* or *Custom* types.
-Default Chef-managed roles cannot change, like Chef-managed policies.
+Just like policies, roles are either _Chef-managed_ or _Custom_ types.
+Default Chef-managed roles can't change, like Chef-managed policies.
 
-Chef Automate includes five *Chef-managed* roles and two *Custom* roles by default.
-You can edit these Custom roles, *Compliance Viewer* and *Compliance Editor*.
+Chef Automate includes five _Chef-managed_ roles and two _Custom_ roles by default.
+You can edit these Custom roles, _Compliance Viewer_ and _Compliance Editor_.
 To see the actions comprising the roles, see [IAM Actions]({{< relref "iam_actions.md" >}}).
 
 Role              |Type          |Description
 ------------------|--------------|------------------------------
-Viewer            |Chef-managed  |**View** everything in the system *except* IAM
-Editor            |Chef-managed  |**Do** everything in the system *except* IAM and license application
-Owner             |Chef-managed  |**Do** everything in the system *including* IAM
+Viewer            |Chef-managed  |**View** everything in the system _except_ IAM
+Editor            |Chef-managed  |**Do** everything in the system _except_ IAM and license application
+Owner             |Chef-managed  |**Do** everything in the system _including_ IAM
 Project Owner     |Chef-managed  |Editor + **view** and **assign** projects
 Ingest            |Chef-managed  |Ingest data into the system
 Compliance Viewer |Custom        |Viewer for compliance resources
@@ -141,14 +141,14 @@ Set up IAM projects using the following steps:
 1. Define each project using the browser.
    Start on the _Projects List_ page to create your projects.
 2. Create or edit IAM policy statements to restrict permissions to specific projects as needed.
-   *Every* statement must either name specific projects, specify the wildcard (`*`), which denotes all projects, or specify as `(unassigned)`, which provides permissions on objects without projects.
+   _Every_ statement must either name specific projects, specify the wildcard (`*`), which denotes all projects, or specify as `(unassigned)`, which provides permissions on objects without projects.
    By default, any pre-upgrade previous policies are automatically set up with that wildcard, so they apply to all projects.
 3. [Assign teams or tokens to projects]({{< relref "iam_v2_guide.md#assigning-teams-and-tokens-to-projects" >}}).
 4. Select the projects to filter in the UI.
    After creating projects, use the **global project filter** in the top navigation to select one or more projects for viewing.
    No selection displays all resources for which you have permission.
 
-By default, Chef Automate includes a *project-owner* role, so the global admin may delegate much of these responsibilities for project management to others and share some of the global admin's burden.
+By default, Chef Automate includes a _project-owner_ role, so the global admin may delegate much of these responsibilities for project management to others and share some of the global admin's burden.
 
 ### Assigning Resources to Projects
 
@@ -157,8 +157,8 @@ Two categories of resources exist for project assignment:
 - Ingested client run and compliance nodes
 - Teams, API Tokens, Policies, and Roles created in Chef Automate
 
-Any of these resources not explicitly assigned to a project is *unassigned*.
-After upgrading and before creating projects, all your resources exist as *unassigned*.
+Any of these resources not explicitly assigned to a project is _unassigned_.
+After upgrading and before creating projects, all your resources exist as _unassigned_.
 
 Assign your set of ingested Client Run and Compliance Nodes to projects via the project ingest rules that you create for the project.
 An ingest rule specifies one or more conditions, and each condition specifies a set of attribute values that a node must include for assignment to the given project.
@@ -167,10 +167,10 @@ Once you define your set of projects with their contained ingest rules and condi
 
 You can assign teams and API tokens to projects directly in the browser.
 You can assign policies and roles only through the command line.
-These resources created within Chef Automate do not make use of, nor do they require, any project ingest rules.
+These resources created within Chef Automate don't make use of, nor do they require, any project ingest rules.
 
 Some resources in Chef Automate respect projects, and will filter when using the project filter.
-Resources that do not respect projects will always display and will ignore any applied project filters.
+Resources that don't respect projects will always display and will ignore any applied project filters.
 
 #### Resources that respect projects
 
@@ -181,7 +181,7 @@ Resources that do not respect projects will always display and will ignore any a
 - Teams
 - Roles
 
-#### Resources that do not respect projects
+#### Resources that don't respect projects
 
 - Compliance Profiles
 - Data Feeds
@@ -198,8 +198,8 @@ To assign a project to a set of ingested client run and compliance nodes, the pr
 #### Project Ingest Rules
 
 A rule consists of a list of **conditions**, where each condition describes a single characteristic.
-It also contains a type: *node* or *event*.
-*node* corresponds to ingested client run and compliance nodes, and *event* corresponds to ingested events on the _Event Feed_ page.
+It also contains a type: _node_ or _event_.
+_node_ corresponds to ingested client run and compliance nodes, and _event_ corresponds to ingested events on the _Event Feed_ page.
 
 Property   | Description
 -----------|------------

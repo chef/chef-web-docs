@@ -15,19 +15,19 @@ draft = false
 
 Chef Automate Identity and Access Management roles are named groups of actions used to define [policies]({{< relref "policies.md" >}}). Actions describe what is allowed by users in Automate. [IAM Actions]({{< relref "iam_actions.md" >}}) describes the associated action or actions required to access certain pages in the browser.
 
-Users require permission for the `iam:roles` action to interact with roles. Any user that is part of the `admins` team or the `Administrator` policy will have this permission. Otherwise, [IAM custom policies]({{< relref "iam_v2_guide.md#creating-custom-policies" >}}) can be created to assign this permission.
+Users require permission for the `iam:roles` action to interact with roles. Any user that's part of the `admins` team or the `Administrator` policy will have this permission. Otherwise, [IAM custom policies]({{< relref "iam_v2_guide.md#creating-custom-policies" >}}) can be created to assign this permission.
 
 ![](/images/automate/settings-roles.png)
 
 ### Chef-Managed Roles
 
-Chef-managed roles are roles provided by Chef that cannot be changed.
+Chef-managed roles are roles provided by Chef that can't be changed.
 
 Role          | Description
 --------------|------------
-Viewer        | **View** everything in the system *except* IAM
-Editor        | **Do** everything in the system *except* IAM and license application
-Owner         | **Do** everything in the system *including* IAM
+Viewer        | **View** everything in the system _except_ IAM
+Editor        | **Do** everything in the system _except_ IAM and license application
+Owner         | **Do** everything in the system _including_ IAM
 Project Owner | Editor + **view** and **assign** projects
 Ingest        | Ingest data into the system
 

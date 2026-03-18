@@ -27,10 +27,11 @@ ssl_ciphersuites = "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_
 ```
 
 This configuration:
--  Supports both TLS 1.2 (for legacy clients) and TLS 1.3 (for modern clients)
--  Prioritizes strongest ciphers
--  Provides forward secrecy with ECDHE key exchange
--  Disables weak and deprecated protocols
+
+- Supports both TLS 1.2 (for legacy clients) and TLS 1.3 (for modern clients)
+- Prioritizes strongest ciphers
+- Provides forward secrecy with ECDHE key exchange
+- Disables weak and deprecated protocols
 
 #### High Security Configuration (TLS 1.3 Only)
 
@@ -52,7 +53,7 @@ ssl_ciphersuites = "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256"
 - **TLSv1** - Deprecated, not supported by modern OpenSSL (1.1.0+)
 - **TLSv1.1** - Deprecated by major browsers and standards, not supported by modern OpenSSL
 
-These protocols are non-functional even if configured, as they are not supported by OpenSSL 1.1.0 and newer.
+These protocols are non-functional even if configured, as they're not supported by OpenSSL 1.1.0 and newer.
 {{< /warning >}}
 
 ### TLS Cipher Selection Guidelines
@@ -124,7 +125,7 @@ openssl s_client -connect your-automate-fqdn:443 -tls1     # Should fail
 openssl s_client -connect your-automate-fqdn:443 -tls1_1   # Should fail
 ```
 
-## Ensuring autocomplete remains disabled on the login screen.
+## Ensuring autocomplete remains disabled on the login screen
 
 A configuration maintained in Chef Automate's nginx.conf file determines the autocomplete functionality.
 

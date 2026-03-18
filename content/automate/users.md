@@ -19,7 +19,7 @@ Chef Automate supports three different types of users: local users, [LDAP users]
 Local users can sign in and interact with the system independent of LDAP or SAML.
 Local users will have their Chef Automate sessions refreshed while their Chef Automate browser window remains open or until they sign out directly.
 
-Permission for the `iam:users` action is required to interact with users other than yourself. Any user that is part of the `admins` team or the `Administrator` policy will have this permission. Otherwise, [IAM custom policies]({{< relref "iam_v2_guide.md#creating-custom-policies" >}}) can be created to assign this permission.
+Permission for the `iam:users` action is required to interact with users other than yourself. Any user that's part of the `admins` team or the `Administrator` policy will have this permission. Otherwise, [IAM custom policies]({{< relref "iam_v2_guide.md#creating-custom-policies" >}}) can be created to assign this permission.
 
 ## Managing Local Users
 
@@ -30,6 +30,7 @@ Navigate to _Users_ in the **Settings** tab. Select the **Create User** button, 
 ![Add Local User](/images/automate/admin-tab-users-list.png)
 
 Please attach the policy to the new users before their first login, and refer to it [Attached policies]({{< relref "policies.md#adding-members-to-policies" >}}).
+
 ### Changing Display Names
 
 Navigate to _Users_ in the **Settings** tab and locate the user who needs their display name changed. Navigate to their user page, provide a new display name, and select the **Save** button.

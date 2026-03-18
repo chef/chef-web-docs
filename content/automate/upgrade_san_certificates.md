@@ -34,7 +34,7 @@ Update non-SAN Certificates involves:
 
 1. If your setup has non-SAN certificates, the above script returns the list of non-SAN certificates as a response, as shown below.
    ![invalid_san_certificates](/images/automate/invalid_san_certificates.png)
-1. If the script does not return any values as invalid certificates, as below, your setup has valid internal certificates.
+1. If the script doesn't return any values as invalid certificates, as below, your setup has valid internal certificates.
    ![valid_san_certificates](/images/automate/valid_san_certificates.png)
 1. If you have non-SAN certificates, run the command
 
@@ -60,7 +60,7 @@ Update non-SAN Certificates involves:
     ```
 
 1. If the certificate is a SAN certificate, the above script gives the response as `Pass: your certificate is a valid SAN certificate`
-1. If the certificate is a non-SAN certificate, the above script gives the response as `Fail: your certificate is not a valid SAN certificate`
+1. If the certificate is a non-SAN certificate, the above script gives the response as `Fail: your certificate isn't a valid SAN certificate`
 
 ## SAN Validator Script
 
@@ -82,7 +82,7 @@ Update non-SAN Certificates involves:
    is_root_ca() {
    input_path="$1"
 
-       #Check the certificate is RootCA is not
+       #Check the certificate is RootCA isn't
        is_self_signed=$(openssl verify -CAfile "$cert" "$cert" 2>&1)
 
        #enable case insensitive match for reg-ex
@@ -110,7 +110,7 @@ Update non-SAN Certificates involves:
        if validate_cert "$cert_path"; then
            echo "Pass: your certificate is a valid SAN certificate"
        else
-           echo "Fail: your certificate is not a valid SAN certificate"
+           echo "Fail: your certificate isn't a valid SAN certificate"
        fi
        exit 1
    fi

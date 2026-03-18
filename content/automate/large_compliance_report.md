@@ -14,7 +14,7 @@ draft = false
 {{< note >}}
 
 - The Large Compliance Report is supported from Chef Automate Version **4.2.x** and above.
-- The Large Compliance Report feature is not available for Chef Automate High Availability (HA) as of now.
+- The Large Compliance Report feature isn't available for Chef Automate High Availability (HA) as of now.
 
 {{< /note >}}
 
@@ -52,21 +52,21 @@ Here is a benchmark test summary report run on
 
 ## Prerequisites
 
-{{< note >}} Automate installation does not include MinIO server. {{< /note >}}
+{{< note >}} Automate installation doesn't include MinIO server. {{< /note >}}
 
 - An external MinIO server needs to be set up and available to connect
 
 ### MinIO
 
-MinIO is a High-Performance Object Storage released under GNU Affero General Public License v3.0. It is API compatible with the Amazon S3 cloud storage service. MinIO is the only object storage suite available on the public cloud, every Kubernetes distribution, the private cloud, and the edge.
+MinIO is a High-Performance Object Storage released under GNU Affero General Public License v3.0. It's API compatible with the Amazon S3 cloud storage service. MinIO is the only object storage suite available on the public cloud, every Kubernetes distribution, the private cloud, and the edge.
 
-For more information on how to set up MinIO in the baremetal server, see how to [set up the MinIO](https://min.io/docs/minio/kubernetes/upstream/).
+For more information on how to set up MinIO on a bare-metal server, see how to [set up MinIO](https://min.io/docs/minio/kubernetes/upstream/).
 
 ## Enable Automate to Ingest Large Compliance Report
 
 To enable Automate to ingest Large Compliance reports:
 
-1. Create a `patch.toml` if one does not already exist for your Chef Automate installation.
+1. Create a `patch.toml` if one doesn't already exist for your Chef Automate installation.
 
 2. Add the following configuration to the `patch.toml` file:
 
@@ -89,7 +89,7 @@ To enable Automate to ingest Large Compliance reports:
     enable_large_reporting = true
 
 ## Uncomment and fill out if you want to modify the bucket name used to store data in the MinIO server; the default name is 'default'.
-## If MINIO is configured to use any public cloud platforms like S3, Azure blob storage, or Google Cloud Storage, It is mandatory to modify the bucket name other than `default`
+## If MINIO is configured to use any public cloud platforms like S3, Azure blob storage, or Google Cloud Storage, It's mandatory to modify the bucket name other than `default`
 #[report_manager.v1.sys.objstore]
 #  bucket = "default"
 ```
@@ -102,7 +102,7 @@ To enable Automate to ingest Large Compliance reports:
 
 ## AWS S3 as Object Storage
 
-{{< warning >}}  The below configuration is not tested to determine benchmark numbers. We recommend doing benchmark testing before considering the approach. {{< /warning >}}
+{{< warning >}}  The below configuration isn't tested to determine benchmark numbers. We recommend doing benchmark testing before considering the approach. {{< /warning >}}
 
 Automate can connect to AWS S3 for extensive compliance reports if you reuse the MinIO Configuration in the following manner:
 

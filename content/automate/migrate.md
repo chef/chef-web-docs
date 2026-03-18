@@ -25,7 +25,7 @@ The Chef Automate migration process performs the following steps, in order:
 1. Runs preflight checks to ensure the system is suitable for Chef Automate 2, your Chef Automate 1 installation can be migrated safely, and that the upgrade process will be able to migrate your data.
 1. Analyzes your Chef Automate 1 configuration files and migrates the relevant settings to a configuration file for Chef Automate 2. If incompatibilities are detected, the migration process fails and emits a description of the problem. You will have an opportunity to make any necessary changes to the generated Chef Automate 2 configuration.
 1. Downloads Chef Automate 2. Chef Automate 2 is distributed via [Habitat]({{< relref "/habitat/">}}) packages that are installed early in the process to minimize the downtime required for the migration.
-1. Puts your Chef Automate 1 installation into maintenance mode, waits for queued data to be processed, and then backs up all Chef Automate 1 data. This ensures that data will not be lost in the migration process and that you will be able to recover to a working state should an unforeseen error occur.
+1. Puts your Chef Automate 1 installation into maintenance mode, waits for queued data to be processed, and then backs up all Chef Automate 1 data. This ensures that data won't be lost in the migration process and that you will be able to recover to a working state should an unforeseen error occur.
 1. Creates a local snapshot of Chef Automate 1 data for import into Chef Automate 2.
 1. Shuts down Chef Automate 1.
 1. Imports the Chef Automate 1 snapshot into Chef Automate 2.
@@ -34,7 +34,7 @@ The Chef Automate migration process performs the following steps, in order:
 
 {{< warning >}}
 Chef Automate 2 migrates only the LDAP configuration and local users (also referred to as "internal users").
-SAML configuration is not migrated.
+SAML configuration isn't migrated.
 {{< /warning >}}
 
 ## Prerequisites
@@ -108,7 +108,7 @@ During the downtime, the migration process takes a backup of your Chef Automate 
 To minimize this downtime, we recommended that you create an online backup of Chef Automate 1 just prior to the upgrade.
 Historical information such as Chef Infra Client run data and compliance scan data is backed up incrementally, which means that the upgrade only needs to transfer data that has been added since the last backup.
 
-By default, the Chef Automate 2 upgrade process will not proceed if your Chef Automate 1 installation does not have backups configured.
+By default, the Chef Automate 2 upgrade process won't proceed if your Chef Automate 1 installation doesn't have backups configured.
 Invoke the migration using the `--skip-backup-check` flag to avoid this check.
 
 ### Unsupported Features and Topologies
@@ -116,11 +116,11 @@ Invoke the migration using the `--skip-backup-check` flag to avoid this check.
 Chef Automate 2 includes significant architectural and technical improvements to the core product platform.
 If you rely on any of the capabilities listed below, we recommend you continue to using your existing Chef Automate installation.
 
-* **Chef Manage:** Chef Automate 2, unlike Chef Automate 1, cannot serve as a SAML auth proxy
-* **FIPS:** Chef Automate 2 cannot operate in FIPS mode
-* **Disaster Recovery:** Chef Automate 2 cannot operate in a primary/standby mode
-* **Custom Kibana dashboards:** Chef Automate 2 does not include Kibana in its technology stack
-* **SAML config migration:** Chef Automate 2 supports SAML integration, however due to configuration incompatibilities Chef Automate 2 cannot migrate Chef Automate 1 SAML settings to Chef Automate 2 as part of the upgrade. After the upgrade is completed, you may follow [these configuration instructions]({{< relref "configuration.md#saml" >}}) to set up SAML.
+* **Chef Manage:** Chef Automate 2, unlike Chef Automate 1, can't serve as a SAML auth proxy
+* **FIPS:** Chef Automate 2 can't operate in FIPS mode
+* **Disaster Recovery:** Chef Automate 2 can't operate in a primary/standby mode
+* **Custom Kibana dashboards:** Chef Automate 2 doesn't include Kibana in its technology stack
+* **SAML config migration:** Chef Automate 2 supports SAML integration, however due to configuration incompatibilities Chef Automate 2 can't migrate Chef Automate 1 SAML settings to Chef Automate 2 as part of the upgrade. After the upgrade is completed, you may follow [these configuration instructions]({{< relref "configuration.md#saml" >}}) to set up SAML.
 
 To migrate to Chef Automate 2 without these features, invoke the migration with the appropriate flags:
 
@@ -144,13 +144,14 @@ Chef Automate 2 stores its data in directories named `/hab/svc/$service-name/dat
 * PostgreSQL data is stored in `/hab/svc/automate-postgresql/data/`
 
 If you use dedicated disks or partitions for either of these applications in Chef Automate 1, you must modify your disk mount configuration to make these disks/partitions available to Chef Automate 2.
+
 ### Chef Automate 2 License
 
 Login to Chef Automate to start a trial.
 The trial provides you with a 60-day license.
 Requesting a trial license requires internet connectivity in your Chef Automate 2 instance (only at the time of the license request).
 
-If you are migrating an [airgapped Chef Automate installation](https://docs.chef.io/install_chef_air_gap/#chef-automate),
+If you are migrating an [airgapped Chef Automate installation](/install_chef_air_gap/#chef-automate),
 contact your Chef account representative for a Chef Automate 2 license.
 
 ## Migrate
@@ -173,7 +174,7 @@ contact your Chef account representative for a Chef Automate 2 license.
     ./chef-automate migrate-from-v1 --airgap-bundle </path/to/bundle>
     ```
 
-After the migration runs the preflight checks and analyzes your Chef Automate 1 configuration, it asks for confirmation to continue. Review the generated configuration file and if it is correct, type `yes` to continue.
+After the migration runs the preflight checks and analyzes your Chef Automate 1 configuration, it asks for confirmation to continue. Review the generated configuration file and if it's correct, type `yes` to continue.
 
 The migration process backs up your Chef Automate 1 data, shuts down Chef Automate 1, imports your data to Chef Automate 2, then starts Chef Automate 2.
 At this point, you can use your existing Chef Automate 1 user credentials to login to Chef Automate 2.

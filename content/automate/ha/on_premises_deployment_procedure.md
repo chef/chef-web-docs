@@ -6,7 +6,7 @@ draft = false
   [menu.automate]
     title = "On-Prem Deployment with Chef Managed Database"
     parent = "automate/deploy_high_availability/deployment"
-    identifier = "automate/deploy_high_availability/deployment/ha_onprim_deployment_procedure.md On-premise Deployment with Chef Managed Database"
+    identifier = "automate/deploy_high_availability/deployment/ha_on_prem_deployment_procedure.md On-premise Deployment with Chef Managed Database"
     weight = 200
 +++
 
@@ -34,7 +34,7 @@ Ensure all resources are on existing or cloud infrastructure (`AWS`/`Azure`/`Goo
 
 ### AWS
 
-  Infrastructure on AWS can either be provisioned manually or using [provision utility](https://docs.chef.io/automate/ha_aws_deploy_steps/#steps-to-provision).
+  Infrastructure on AWS can either be provisioned manually or using [provision utility](/automate/ha_aws_deploy_steps/#steps-to-provision).
 
 ### Azure
 
@@ -59,7 +59,7 @@ Ensure all resources are on existing or cloud infrastructure (`AWS`/`Azure`/`Goo
 
     {{< note spaces=4 >}}
 
-    In case `/usr/bin` is not there then check for `/bin` directory
+    In case `/usr/bin` isn't there then check for `/bin` directory
 
     {{< /note >}}
     To download specific version bundle, replace `latest.aib` with Chef Automate version number. For example, `4.12.144.aib`.
@@ -104,7 +104,7 @@ You can also generate a configuration file using the `init-config` subcommand.
 
 #### * Directory Structure
 
-- The verification cli needs `$HOME` environment variable to be available on all nodes. 
+- The verification cli needs `$HOME` environment variable to be available on all nodes.
 - If in some case its not available then as a fallback the cli will be copied over to `/home/<ssh_user name>/`.
   - `ssh_user name` is read from `ssh_user` property in `config.toml`
 - Every node must have the `$HOME` directory with minimum permissions `drwx------`.
@@ -168,13 +168,13 @@ Once the verification completed successfully, proceed with the deployment. In ca
     Check if Chef Automate UI is accessible by going to (Domain used for Chef Automate) [https://chefautomate.example.com](https://chefautomate.example.com).
     After successful deployment, proceed with following...
 
-      1. [Create users and organizations](/automate/ha_node_bootstraping/#create-users-and-organization) section in Node Bootstrapping page.
-      1. [Setup Chef Workstation](/automate/ha_node_bootstraping/#workstation-setup)
-      1. [Bootstrap nodes](/automate/ha_node_bootstraping/#bootstraping-a-node)
+      1. [Create users and organizations](/automate/ha_node_bootstrapping/#create-users-and-organization) section in Node Bootstrapping page.
+      1. [Setup Chef Workstation](/automate/ha_node_bootstrapping/#workstation-setup)
+      1. [Bootstrap nodes](/automate/ha_node_bootstrapping/#bootstrapping-a-node)
 
 ## Backup/Restore
 
-A shared file system is always required to create OpenSearch snapshots. To register the snapshot repository using OpenSearch, it is necessary to mount the same shared filesystem to the exact location on all master and data nodes. To know more about the backup and restore configuration, see On-Premise Deployment using [Filesystem](/automate/ha_backup_restore_file_system) or using [Object Storage](/automate/ha_backup_restore_object_storage).
+A shared file system is always required to create OpenSearch snapshots. To register the snapshot repository using OpenSearch, it's necessary to mount the same shared filesystem to the exact location on all master and data nodes. To know more about the backup and restore configuration, see On-Premise Deployment using [Filesystem](/automate/ha_backup_restore_file_system) or using [Object Storage](/automate/ha_backup_restore_object_storage).
 
 ## Add/Remove Nodes
 
@@ -242,13 +242,13 @@ The bastion server can patch new configurations in all nodes. To know more see [
 {{< note >}}
 
 - Assuming 5+1 nodes (1 bastion, 2 for Chef Automate and Chef Infra Server, 3 for PostgreSQL and OpenSearch).
-- For the Frontend nodes you can use the same IP in Chef Automate and Chef Server.
+- For the Frontend nodes you can use the same IP in Chef Automate and Chef Infra Server.
 - For the Backend nodes you can use the same IP in PostgreSQL and OpenSearch.
 - To provide multiline certificates use triple quotes like `""" multiline certificate contents"""`.
 - Rebooting or restarting individual nodes outside a designated maintenance window should be avoided, especially during periods of high traffic.
 - This recommendation is based on our [performance benchmarking](/automate/ha_performance_benchmarks/#5-node-cluster-deployment) and is intended for customers managing up to 10,000 nodes under typical load conditions.
-- The 5 node Automate deployment pattern does not support dynamic scaling (i.e., adding or removing nodes). A 5 node deployment will always remain a 5 node setup.
--  Transitioning to an 11 node deployment requires decommissioning the existing 5 node cluster entirely. The new 11 node architecture must be provisioned from scratch.
+- The 5 node Automate deployment pattern doesn't support dynamic scaling (i.e., adding or removing nodes). A 5 node deployment will always remain a 5 node setup.
+- Transitioning to an 11 node deployment requires decommissioning the existing 5 node cluster entirely. The new 11 node architecture must be provisioned from scratch.
 {{< /note >}}
 
 ```config

@@ -14,7 +14,7 @@ draft = false
 {{% automate/ha-warn %}}
 {{< /note >}}
 
-The OpenSearch node in Chef Automate HA provides various configuration options that is patched to customize its behavior and meet specific requirements. This guide documents all the configurations that you can patch.
+The OpenSearch node in Chef Automate HA provides various configuration options that's patched to customize its behavior and meet specific requirements. This guide documents all the configurations that you can patch.
 
 The detailed document about how these individual properties affect the system is at [Official OpenSearch docs](https://opensearch.org/docs/1.3/)
 
@@ -38,7 +38,7 @@ destructive_requires_name = "true"
 memory_lock = false
 ```
 
-Disables swapping (along with memlock). Swapping can dramatically decrease performance and stability, so you should ensure it is disabled on production clusters.
+Disables swapping (along with `memlock`). Swapping can dramatically decrease performance and stability, so you should ensure it's disabled on production clusters.
 
 ## Cluster
 
@@ -115,7 +115,7 @@ repo = ""
 
 - Use `data` to set the path to the directory where to store the data (separate multiple locations by comma)
 - Use `logs` to set the path to your log files
-- Use `repo` to register the snapshot repository using OpenSearch. It is necessary to mount the same shared filesystem to the exact location on all master and data nodes. Register the location in the path.repo setting on all master and data nodes.
+- Use `repo` to register the snapshot repository using OpenSearch. It's necessary to mount the same shared filesystem to the exact location on all master and data nodes. Register the location in the path.repo setting on all master and data nodes.
 
 ## Plugin Security
 
@@ -137,18 +137,18 @@ This section configures security plugin settings. It allows the default initiali
 type = "internal_opensearch"
 ```
 
-This section configures security audit settings. It specifies the type of audit logging as "internal_opensearch".
+This section configures security audit settings. It specifies the type of audit logging as `internal_opensearch`.
 
-## Plugin Security Authcz
+## Plugin security authcz
 
 ```toml
 [plugins.security.authcz]
-admin_dn = "- <Common Name of Admin Public Key>"
+admin_dn = "- <COMMON_NAME_OF_ADMIN_PUBLIC_KEY>"
 ```
 
 This section specifies the distinguished name (DN) of the admin user.
 
-## Plugin Security Restapi
+## Plugin security restapi
 
 ```toml
 [plugins.security.restapi]

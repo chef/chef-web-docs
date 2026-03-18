@@ -548,7 +548,7 @@ This subcommand has the following options:
 
     This option will run against the existing `chef-backend.rb` file,
     which means the `--vip-interface` and `--publish-address` options
-    should not be specified. (They are already defined in the
+    should not be specified. (They're already defined in the
     `chef-backend.rb` file.)
 
     {{< /note >}}

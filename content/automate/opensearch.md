@@ -12,7 +12,7 @@ draft = false
     weight = 10
 +++
 
-You can configure Chef Automate to use OpenSearch clusters that are not deployed via Chef Automate itself.
+You can configure Chef Automate to use OpenSearch clusters that aren't deployed via Chef Automate itself.
 
 ## Configure External OpenSearch
 
@@ -25,7 +25,6 @@ Add the following to your `config.toml` for HTTPS connection:
 {{< warning >}}
 {{% automate/char-warn %}}
 {{< /warning >}}
-
 
 ```toml
 [global.v1.external.opensearch]
@@ -74,15 +73,15 @@ Add the following to your `config.toml` for HTTP connection:
   password = "<admin password>"
 ```
 
-Because externally-deployed OpenSearch nodes will not have access to Chef Automate's built-in backup storage services, you must configure OpenSearch backup settings separately from Chef Automate's primary backup settings. You can configure backups to use either the local filesystem or S3.
+Because externally-deployed OpenSearch nodes won't have access to Chef Automate's built-in backup storage services, you must configure OpenSearch backup settings separately from Chef Automate's primary backup settings. You can configure backups to use either the local filesystem or S3.
 
 ### Add Resolvers for OpenSearch
 
-In case you want to resolve the OpenSearch node IPs dynamically using DNS servers, you can add resolvers/nameservers to the configuration.
+In case you want to resolve the OpenSearch node IPs dynamically using DNS servers, you can add resolvers/name servers to the configuration.
 
-Name Servers can be added in two ways:
+Name servers can be added in two ways:
 
-1. **Add nameserver IPs:** Add the nameservers to your `config.toml` file to resolve the OpenSearch nodes.
+1. **Add name server IPs:** Add the name servers to your `config.toml` file to resolve the OpenSearch nodes.
 
     ```toml
     [esgateway.v1.sys.ngx.main.resolvers]
@@ -90,14 +89,14 @@ Name Servers can be added in two ways:
       nameservers = ["192.0.2.0:24", "198.51.100.0:24"]
     ```
 
-1. **Set system DNS entries:** To use existing system nameserver entries from `/etc/resolv.conf`, add the following setting to `config.toml`:
+1. **Set system DNS entries:** To use existing system name server entries from `/etc/resolv.conf`, add the following setting to `config.toml`:
 
     ```toml
     [esgateway.v1.sys.ngx.main.resolvers]
       enable_system_nameservers = true
     ```
 
-If both options are set, nameserver IPs takes precedence over the system nameserver entries.
+If both options are set, name server IPs takes precedence over the system name server entries.
 
 Apply the changes:
 
@@ -152,7 +151,7 @@ To configure AWS S3 backups of Chef Automate data stored in an externally-deploy
       bucket = "<bucket name>"
 
       # base_path (optional):  The path within the bucket where backups should be stored
-      # If base_path is not set, backups will be stored at the root of the bucket.
+      # If base_path isn't set, backups will be stored at the root of the bucket.
       base_path = "<base path>"
 
       # name of an s3 client configuration you create in your opensearch.yml

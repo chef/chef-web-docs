@@ -8,7 +8,7 @@ draft = false
   [menu.automate]
     title = "AWS Certificate Manager"
     parent = "automate/deploy_high_availability/reference"
-    identifier = "automate/deploy_high_availability/reference/ha_aws_cert_mngr.md AWS Certificate Manager"
+    identifier = "automate/deploy_high_availability/reference/ha_aws_cert_manager.md AWS Certificate Manager"
     weight = 230
 +++
 
@@ -20,7 +20,7 @@ This page explains how to use the **AWS Certificate Manager (ACM)** console to g
 
 You can either generate a new public certificate or copy an existing Amazon Resource Name (ARN) value of the certificate of your selected region in the AWS console.
 
-{{< figure src="/images/automate/ha_aws_cert_mngr_arn.png" alt="AWS ACM ARN Value">}}
+{{< figure src="/images/automate/ha_aws_cert_manager_arn.png" alt="AWS ACM ARN Value">}}
 
 ## Requesting a Public Certificate using AWS console
 
@@ -34,7 +34,7 @@ Follow these steps if you want to request an ACM public certificate:
 
 1. Select **Request a certificate**.
 
-    {{< figure src="/images/automate/ha_aws_cert_mngr_console.png" alt="AWS ACM">}}
+    {{< figure src="/images/automate/ha_aws_cert_manager_console.png" alt="AWS ACM">}}
 
 1. Select the **Request a public certificate** option from the **Certificate type** page, and select **Next**.
 
@@ -42,13 +42,13 @@ Follow these steps if you want to request an ACM public certificate:
 
     {{< note >}} Before ACM issues a certificate, it validates that you own or control the domain names in your certificate request. You can use either email validation or DNS validation. {{< /note >}}
 
-1. In the **Select validation method** section, select either *DNS validation* or *Email validation*.
+1. In the **Select validation method** section, select either _DNS validation_ or _Email validation_.
 
 1. From the **Tags** page, tag your certificate. Tags are key-value pairs that serve as metadata for identifying and organizing AWS resources.
 
     {{< figure src="/images/automate/ha_cert.png" alt="Certificates">}}
 
-1. Select **Request**. The console returns you to your certificate list after processing the request, where your new certificate displays with status, *Pending validation*.
+1. Select **Request**. The console returns you to your certificate list after processing the request, where your new certificate displays with status, _Pending validation_.
 
 You can also request a public certificate using the Command Line Interface (CLI). For detailed information on requesting these certificates, refer  [AWS documentation on requesting a public certificate](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html).
 

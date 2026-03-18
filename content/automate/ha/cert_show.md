@@ -38,9 +38,9 @@ chef-automate cert show -a
 chef-automate cert show --a2
 ```
 
-## Viewing certificates of Chef Server cluster
+## Viewing certificates of Chef Infra Server cluster
 
-To view certificates of Chef Server cluster, run the following command:
+To view certificates of Chef Infra Server cluster, run the following command:
 
 ```bash
 chef-automate cert show --chef_server

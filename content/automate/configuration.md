@@ -34,7 +34,7 @@ Your Chef Automate fully qualified domain name (FQDN) is customizable. There isn
 For reference, these are the parts of a URL:
 
 ```bash
-https://automate.4thcafe.com
+https://automate.example.com
 <scheme>://<subdomain>.<second-level domain>.<top-level domain>
 ```
 
@@ -86,7 +86,7 @@ The only supported `deployment_type` is `local`.
 
 #### Settings
 
-During initial deployment, you cannot change the admin username, name, and password set.
+During initial deployment, you can't change the admin username, name, and password set.
 
 To change the admin password after deployment, use the Chef Automate UI. Sign in as the admin user, and navigate to the _Users_ page under the **Settings** tab.
 Select "Local Administrator" to show the admin's _User Details_ page. Navigate to the _Reset Password_ tab. Enter your previous password, and enter and confirm your new password in the interface. Select the **Reset Password** button to save your changes.
@@ -122,14 +122,15 @@ Then run `chef-automate config patch </path/to/your-file.toml>` to deploy your c
 
 ### Include X-Forwarded-For Header
 
-To log the source node IP address in Automate Load Balancer and Chef Server Load Balancer, the following configuration needs to be patched:
+To log the source node IP address in Automate Load Balancer and Chef Infra Server Load Balancer, the following configuration needs to be patched:
 
 ```toml
 [global.v1.sys.ngx.http]
   include_x_forwarded_for = true
 ```
+
 Then run `chef-automate config patch </path/to/your-file.toml>` to deploy your change.
-The Automate Load Balancer and Chef Server Load Balancer will log the content of the `X-Forwarded-For` header data.
+The Automate Load Balancer and Chef Infra Server Load Balancer will log the content of the `X-Forwarded-For` header data.
 
 #### License Key
 
@@ -138,7 +139,7 @@ You can apply for your Chef Automate license with the `chef-automate license app
 * `chef-automate license apply </path/to/license-file.jwt>`
 * `chef-automate license apply <content-of-license>`
 
-After your initial deployment, you cannot apply for a license by patching the configuration file.
+After your initial deployment, you can't apply for a license by patching the configuration file.
 
 #### Proxy Settings
 
@@ -277,7 +278,7 @@ heapsize = "16g"
 To configure PostgreSQL for your Chef Automate installation, create a TOML file that contains the partial configuration below.
 Uncomment and change settings as needed, with the following caveats:
 
-* These configuration settings affect only the Chef Automate-deployed PostgreSQL database. They do not affect an [externally-deployed PostgreSQL database]({{< relref "install.md#configuring-an-external-postgresql-database" >}}).
+* These configuration settings affect only the Chef Automate-deployed PostgreSQL database. They don't affect an [externally-deployed PostgreSQL database]({{< relref "install.md#configuring-an-external-postgresql-database" >}}).
 * Chef Automate uses TLS mutual authentication to communicate with its PostgreSQL database.
 
 Then run `chef-automate config patch </path/to/your-file.toml>` to deploy your change.
@@ -366,11 +367,11 @@ Chef Automate supports TLS 1.2 and TLS 1.3 protocols for secure communication. Y
 
 ##### Supported TLS Versions
 
-- **TLSv1.2** (Recommended for compatibility)
-- **TLSv1.3** (Recommended for maximum security)
+* **TLSv1.2** (Recommended for compatibility)
+* **TLSv1.3** (Recommended for maximum security)
 
 {{< warning >}}
-**Deprecated Protocols**: SSLv2, SSLv3, TLSv1, and TLSv1.1 are deprecated and non-functional. These protocols are not supported by modern OpenSSL versions (1.1.0+) and will not work even if configured. Use only TLSv1.2 and TLSv1.3.
+**Deprecated Protocols**: SSLv2, SSLv3, TLSv1, and TLSv1.1 are deprecated and non-functional. These protocols aren't supported by modern OpenSSL versions (1.1.0+) and won't work even if configured. Use only TLSv1.2 and TLSv1.3.
 {{< /warning >}}
 
 ##### TLS 1.3 Cipher Suites
@@ -387,12 +388,12 @@ ssl_ciphersuites = "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_
 
 **Supported TLS 1.3 Cipher Suites:**
 
-- `TLS_AES_256_GCM_SHA384` - AES-256 with GCM mode (most secure)
-- `TLS_CHACHA20_POLY1305_SHA256` - ChaCha20-Poly1305 (optimized for mobile devices)
-- `TLS_AES_128_GCM_SHA256` - AES-128 with GCM mode (faster performance)
+* `TLS_AES_256_GCM_SHA384` - AES-256 with GCM mode (most secure)
+* `TLS_CHACHA20_POLY1305_SHA256` - ChaCha20-Poly1305 (optimized for mobile devices)
+* `TLS_AES_128_GCM_SHA256` - AES-128 with GCM mode (faster performance)
 
 {{< note >}}
-TLS 1.3 cipher suites use underscores in their names (e.g., `TLS_AES_256_GCM_SHA384`) and are separated by colons. Do not use hyphens or spaces.
+TLS 1.3 cipher suites use underscores in their names (for example, `TLS_AES_256_GCM_SHA384`) and are separated by colons. Do not use hyphens or spaces.
 {{< /note >}}
 
 ##### TLS 1.2 Ciphers
@@ -408,7 +409,7 @@ ssl_ciphers = "ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-E
 ```
 
 {{< note >}}
-TLS 1.2 ciphers use hyphens in their names (e.g., `ECDHE-RSA-AES256-GCM-SHA384`) and are separated by colons. Do not use semicolons or spaces.
+TLS 1.2 ciphers use hyphens in their names (for example, `ECDHE-RSA-AES256-GCM-SHA384`) and are separated by colons. Do not use semicolons or spaces.
 {{< /note >}}
 
 ##### Dual TLS 1.2 and TLS 1.3 Configuration
@@ -458,26 +459,31 @@ Chef Automate validates TLS/SSL configuration and provides error messages for co
 **Common Configuration Errors:**
 
 1. **Empty ciphers when TLS 1.2 is enabled:**
+
    ```
-   Error: ssl_ciphers cannot be empty when TLSv1.2 is enabled
+   Error: ssl_ciphers can't be empty when TLSv1.2 is enabled
    ```
-   
+
 2. **Empty cipher suites when TLS 1.3 is enabled:**
+
    ```
-   Error: ssl_ciphersuites cannot be empty when TLSv1.3 is enabled
+   Error: ssl_ciphersuites can't be empty when TLSv1.3 is enabled
    ```
 
 3. **Invalid protocol format:**
+
    ```
    Error: 'TLS1.3' contains invalid protocol versions. Use 'TLSv1.3'
    ```
 
 4. **Invalid separator in ciphers:**
+
    ```
    Error: ssl_ciphers should not contain spaces. Use colons (:) to separate cipher names
    ```
 
 5. **Wrong format for TLS 1.3 cipher suites:**
+
    ```
    Error: 'TLS-AES-256-GCM-SHA384' contains invalid characters. Use underscores: TLS_AES_256_GCM_SHA384
    ```
@@ -487,18 +493,21 @@ Chef Automate validates TLS/SSL configuration and provides error messages for co
 Chef Automate issues warnings for suboptimal configurations:
 
 1. **Deprecated protocols configured:**
+
    ```
-   WARNING: ssl_protocols 'TLSv1.1 TLSv1.2' contains deprecated and non-functional protocol versions (SSLv2, SSLv3, TLSv1, TLSv1.1). These protocols are not supported by OpenSSL 1.1.0+ and will not work. Use only TLSv1.2 and TLSv1.3.
+   WARNING: ssl_protocols 'TLSv1.1 TLSv1.2' contains deprecated and non-functional protocol versions (SSLv2, SSLv3, TLSv1, TLSv1.1). These protocols aren't supported by OpenSSL 1.1.0+ and won't work. Use only TLSv1.2 and TLSv1.3.
    ```
 
 2. **Cipher suites configured without TLS 1.3:**
+
    ```
-   WARNING: ssl_ciphersuites is configured, but ssl_protocols does not include TLSv1.3. The ssl_ciphersuites directive will be ignored by NGINX.
+   WARNING: ssl_ciphersuites is configured, but ssl_protocols doesn't include TLSv1.3. The ssl_ciphersuites directive will be ignored by NGINX.
    ```
 
 3. **TLS 1.2 ciphers configured without TLS 1.2:**
+
    ```
-   WARNING: ssl_ciphers is configured, but ssl_protocols does not include TLSv1.2. The ssl_ciphers directive will be ignored by NGINX.
+   WARNING: ssl_ciphers is configured, but ssl_protocols doesn't include TLSv1.2. The ssl_ciphers directive will be ignored by NGINX.
    ```
 
 ##### Testing TLS Configuration
@@ -524,6 +533,7 @@ openssl s_client -connect your-automate-fqdn:443 -tls1_3 | grep "Cipher"
 ```
 
 Expected output for TLS 1.3:
+
 ```
 New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
 ```
@@ -550,11 +560,11 @@ Uncomment and change settings as needed, and then run `chef-automate config patc
 # workers = 20
 ## Max number of detect and scan jobs that can be accepted in the jobs workers queue. Default: 1000
 # buffer_size = 2000
-## Option to specify the version of inspec to use for remote(e.g. AWS SSM) scan jobs
+## Option to specify the version of inspec to use for remote(for example, AWS SSM) scan jobs
 # remote_inspec_version = "4.3.2"
 ## A control result message that exceeds this character limit will be truncated. Default: 10000
 # result_message_limit = 20000
-## The array of results per control will be truncated at this limit to avoid large reports that cannot be processed. Default: 50
+## The array of results per control will be truncated at this limit to avoid large reports that can't be processed. Default: 50
 # control_results_limit = 100
 ## Control results that have a `run_time` (in seconds) below this limit will be stripped of the `start_time` and `run_time` fields. Default: 1.0
 # run_time_limit = 0.5
@@ -636,7 +646,7 @@ Configuration to display a disclosure on the sign-in page. Requires a `.txt` or 
 
 Content-Security-Policy is the name of a HTTP response header that modern browsers use to enhance the document's security(or web page). The Content-Security-Policy header allows you to restrict how resources such as JavaScript, CSS, or anything that the browser loads.
 
-Refer: https://owasp.org/www-community/controls/Content_Security_Policy
+Refer: <https://owasp.org/www-community/controls/Content_Security_Policy>
 
 In Chef Automate, enable the Content Security Policy header by patching the following configuration.
 
@@ -681,11 +691,11 @@ Automate Dex can be configured to support legacy RSA and 3DES ciphers to connect
 
 When legacy cipher support is enabled, the following ciphers are allowed:
 
-- TLS_RSA_WITH_AES_128_GCM_SHA256 (0x009C)
-- TLS_RSA_WITH_AES_256_GCM_SHA384 (0x009D)
-- TLS_RSA_WITH_AES_128_CBC_SHA (0x002F)
-- TLS_RSA_WITH_AES_256_CBC_SHA (0x0035)
-- TLS_RSA_WITH_AES_128_CBC_SHA256 (0x003C)
+* TLS_RSA_WITH_AES_128_GCM_SHA256 (0x009C)
+* TLS_RSA_WITH_AES_256_GCM_SHA384 (0x009D)
+* TLS_RSA_WITH_AES_128_CBC_SHA (0x002F)
+* TLS_RSA_WITH_AES_256_CBC_SHA (0x0035)
+* TLS_RSA_WITH_AES_128_CBC_SHA256 (0x003C)
 
 #### How to Enable Legacy Cipher Support
 
@@ -699,14 +709,14 @@ enable_legacy_3des = true
 
 Set the following values:
 
-- `enable_legacy_rsa`: Enable legacy RSA key exchange ciphers. Set to true to enable. Default: false.
-- `enable_legacy_3des`: Enable legacy 3DES ciphers. Set to true to enable. Default: false.
+* `enable_legacy_rsa`: Enable legacy RSA key exchange ciphers. Set to true to enable. Default: false.
+* `enable_legacy_3des`: Enable legacy 3DES ciphers. Set to true to enable. Default: false.
 
 When both are true, legacy RSA and 3DES ciphers are enabled (GODEBUG=tlsrsakex=1,tls3des=1).
 
 When one is true, that cipher type is enabled (GODEBUG=tlsrsakex=1 or GODEBUG=tls3des=1).
 
-When both are false or unset, legacy ciphers are not enabled (GODEBUG is unset).
+When both are false or unset, legacy ciphers aren't enabled (GODEBUG is unset).
 
 ### Troubleshooting
 
@@ -714,7 +724,7 @@ Common syntax errors may cause issues in configuration files:
 
 * Keys: Names use underscores, not dashes.
 * Ports: Use the correct type. Single numbers are integers and don't need quotation marks. Ranges are strings and require quotation marks.
-* Whitespace: Both tabs and spaces are whitespaces.
+* Whitespace: Both tabs and spaces are whitespace characters.
 * Arrays: Use square brackets with comma-separated entries of the same type.
 
 See the [TOML README](https://github.com/BurntSushi/toml-1) for more details.

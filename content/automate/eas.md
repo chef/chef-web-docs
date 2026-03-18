@@ -45,22 +45,22 @@ Find Chef Automate EAS system requirements, installation, and configuration inst
 ### Glossary
 
 _Application_ -
-An application is a program that is made up of multiple underlying services.
-Chef Habitat provides automation capabilities for building and delivering your applications service-by-service to any environment regardless of the infrastructure on which it is deployed.
+An application is a program that's made up of multiple underlying services.
+Chef Habitat provides automation capabilities for building and delivering your applications service-by-service to any environment regardless of the infrastructure on which it's deployed.
 In Chef Habitat, you define your application and its dependencies, configuration, management, and behavior in a `plan.sh` or `plan.ps1` file.
 
 _Application Lifecycle_ -
 In a typical enterprise software an application goes through stages of development, testing, acceptance, production, which together are called the _application lifecycle_. The application lifecycle is supported by codified infrastructure and configuration that correlates with each stage, which is called an _application delivery pipeline_.
 
 _Artifact_ -
-A Chef Habitat artifact (also known as a "hart file") is a software package produced by the Chef Habitat build tools. It is comparable to a deb file on Debian-based Linux systems, or a rpm file on RedHat-based Linux systems. While very simple application have two or three underlying services, most modern applications follow architecture patterns with many services that result in multiple artifacts.
+A Chef Habitat artifact (also known as a "hart file") is a software package produced by the Chef Habitat build tools. It's comparable to a deb file on Debian-based Linux systems, or a rpm file on RedHat-based Linux systems. While very simple application have two or three underlying services, most modern applications follow architecture patterns with many services that result in multiple artifacts.
 Artifacts are built according to the instructions in the `plan.sh` or `plan.ps1` file.
 Each artifact contains a software library or application, configuration settings for the application, and lifecycle hooks.
 
 _Channel_ -
 Chef Habitat supports continuous deployments through the use of channels, which are tags used to describe the status of your artifact. Channel are conceptual spaces expressed in code by adding a tag to an artifact, which is called a "promotion". Once promoted, an artifact is considered to "be" in that channel.
-In most cases, artifacts have three possible channels: "unstable", "testing", and "stable". The "unstable" tag denotes an artifact that is still in active development, "testing" means that the artifact is a candidate for release, and "stable" means that it is ready for consumption.
-When you upload your artifact to Builder, Chef Habitat labels your application artifact with the `unstable` tag, which means that it is in the "unstable" channel.
+In most cases, artifacts have three possible channels: "unstable", "testing", and "stable". The "unstable" tag denotes an artifact that's still in active development, "testing" means that the artifact is a candidate for release, and "stable" means that it's ready for consumption.
+When you upload your artifact to Builder, Chef Habitat labels your application artifact with the `unstable` tag, which means that it's in the "unstable" channel.
 When you promote your application artifact to another channel, such as "test" or "stable", Chef Habitat applies the new tag and makes it available to the respective channel.
 You can apply more than one tag to a single artifact, for example, artifacts are often tagged for both the "unstable" and "test" channels.
 For more information, see the Chef Habitat [Continuous Deployment Using Channels]({{< relref "/habitat/pkg_promote#continuous-deployment-using-channels" >}}) documentation.

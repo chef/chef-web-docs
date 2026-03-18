@@ -40,7 +40,7 @@ Asset reporting can be differentiated into three types:
 
 - **Reported Asset:** Any compliance node which has been sent or reported compliance between a specified data range time is called as **reported assets**.
 
-- **Unreported Asset:** Any assets which do not send a report in a specified date range is called as **unreported assets**.
+- **Unreported Asset:** Any assets which don't send a report in a specified date range is called as **unreported assets**.
 
 - **Unreachable Asset:** These assets are based on the predefined configuration. An asset is termed as unreachable if it has not sent any compliance report during the specified duration.
 
@@ -48,7 +48,7 @@ Asset reporting can be differentiated into three types:
 
 To enable the enhanced and asset compliance report:
 
-1. Create a `patch.toml` if one does not already exist for your Chef Automate installation.
+1. Create a `patch.toml` if one doesn't already exist for your Chef Automate installation.
 
 1. Add the following configuration to the `patch.toml` file:
 
@@ -118,7 +118,7 @@ Here are some performance numbers executed on a machine with 4 vCPUs and 16 GB o
 - The size of Compliance report
 - The number of asynchronous control data populator.
 
-| Size of the Report | Number of Nodes | Concurrency of Ingestion | Number of async Control Data Populators | Max CPU  | Max Memory |
+| Size of the Report | Number of Nodes | Concurrency of Ingestion | Number of async control data populators | Max CPU  | Max memory |
 |--------------------|-----------------|--------------------------|----------------------------------------|----------|------------|
 | 1MB                | 5000             | 100                      | 2                                      | 94.5%    | 65.74%     |
 | 1MB                | 5000             | 100                      | 5                                      | 94.3%    | 67.20%     |
@@ -133,7 +133,7 @@ The system gets impacted when `enhanced_compliance_reporting` is enabled. All th
 - 16 GB of RAM
 
 {{< note >}} Please go through the numbers before enabling the **enhanced compliance reporting**.
-It is always recommended using a dedicated machine for OpenSearch.{{< /note >}}
+It's always recommended using a dedicated machine for OpenSearch.{{< /note >}}
 
 Please take note of the following performance test numbers before enabling the feature:
 
@@ -143,7 +143,7 @@ The migration of data to the new index is done in asynchronous manner slowly in 
 The ingestion of data may be run during the migration and find out the impact on the resources.
 The performance benchmark is executed on an embedded Automate installation running on a machine with 4 vCPUs and 16 GB of RAM.
 
-| Enhanced Compliance Reporting enabled | Migration Running | Compliance Report Size | Concurrency | Max CPU Utilisation | Max Memory Utilisation |
+| Enhanced Compliance Reporting enabled | Migration Running | Compliance Report Size | Concurrency | Max CPU Utilization | Max Memory Utilization |
 |---------------------------------------|-------------------|------------------------|-------------|---------------------|------------------------|
 | No                                    | No                | 3MB                    | 100         | 79%                 | 76%                    |
 | Yes                                   | Yes               | 3MB                    | 100         | 97%                 | 78%                    |

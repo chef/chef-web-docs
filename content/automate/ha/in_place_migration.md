@@ -1,12 +1,12 @@
 +++
-title = "In-Place A2HA to Automate HA"
+title = "In place A2HA to Automate HA"
 draft = false
 
 [menu]
   [menu.automate]
-    title = "In-Place A2HA to Automate HA"
+    title = "In place A2HA to Automate HA"
     parent = "automate/deploy_high_availability/migration"
-    identifier = "automate/deploy_high_availability/migration/ha_inplace_migration.md In-Place A2HA to Automate HA"
+    identifier = "automate/deploy_high_availability/migration/ha_in_place_migration.md In-Place A2HA to Automate HA"
     weight = 200
 +++
 
@@ -16,7 +16,7 @@ draft = false
 
 {{< warning >}}
 
-- A2HA user can be migrated to Automate HA with a minimum Chef Automate version [20201230192246](https://docs.chef.io/release_notes_automate/#20201230192246).
+- A2HA user can be migrated to Automate HA with a minimum Chef Automate version [20201230192246](/release_notes_automate/#20201230192246).
 
 {{< /warning >}}
 
@@ -128,7 +128,7 @@ done
 
 ## Installing the Latest Automate HA
 
-Follow [Automate HA installation documentation](/automate/ha_onprim_deployment_procedure/) to know more about `config.toml` file and **provide** the same IPs and backup config in config.toml as in the  `a2ha.rb` file.
+Follow [Automate HA installation documentation](/automate/ha_on_prem_deployment_procedure/) to know more about `config.toml` file and **provide** the same IPs and backup config in config.toml as in the  `a2ha.rb` file.
 
 ## File System backup configuration
 
@@ -195,7 +195,7 @@ OR
 chef-automate config show > applied_config.toml
 ```
 
-Modify `applied_config.toml`, remove the elastic search config, and set the config. Set `applied_config.toml` on all the frontend nodes manually. As the removal of config is not supported from the bastion. Use the below command to set the config manually on each Frontend node.
+Modify `applied_config.toml`, remove the elastic search config, and set the config. Set `applied_config.toml` on all the frontend nodes manually. As the removal of config isn't supported from the bastion. Use the below command to set the config manually on each Frontend node.
 
 ```bash
 chef-automate config set applied_config.toml
@@ -214,7 +214,7 @@ To know more about the usage of S3 backup, see [On-Premise Deployment using Obje
 ## Validate successful migration
 
 1. Check the Automate UI of Automate HA. Check whether the data is present in Automate UI for HA.
-1. If you are using the embedded chef server, log in to the Chef Server HA node, and run the following script to get a count of objects from the Chef Infra Server, this should match the counts captured at the start of the migration
+1. If you are using the embedded chef server, log in to the Chef Infra Server HA node, and run the following script to get a count of objects from the Chef Infra Server, this should match the counts captured at the start of the migration
 
     Create `capture_infra_counts.sh` and run it using `./capture_infra_counts.sh > post_migration_infra_counts.log`
 

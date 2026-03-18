@@ -7,7 +7,7 @@ draft = false
   [menu.automate]
     title = "Automate HA Commands"
     parent = "automate/deploy_high_availability/manage_ha_cluster"
-    identifier = "automate/deploy_high_availability/manage_ha_cluster/ha_healthcheck.md Automate HA Commands"
+    identifier = "automate/deploy_high_availability/manage_ha_cluster/ha_health_check.md Automate HA Commands"
     weight = 240
 +++
 
@@ -15,7 +15,7 @@ draft = false
 {{% automate/ha-warn %}}s
 {{< /warning >}}
 
-This page includes commands that can be executed for the Chef Automate cluster part of the Chef Automate High Availability (HA) system. These commands aid you in assessing the health and status of the components part of the HA cluster. It is highly recommended to run these commands on a test cluster before using them in a production environment.
+This page includes commands that can be executed for the Chef Automate cluster part of the Chef Automate High Availability (HA) system. These commands aid you in assessing the health and status of the components part of the HA cluster. It's highly recommended to run these commands on a test cluster before using them in a production environment.
 
 ## Automate HA Service Commands
 
@@ -87,25 +87,25 @@ chef-automate status --os
 chef-automate config patch automate.toml --automate
 ```
 
-sorthands for --automate is --a2 and -a
+Shorthands for --automate are --a2 and -a.
 
-- Patch a config to the Front end nodes (Chef Server)
-  - create a config file `chefserver.toml`
+- Patch a config to the Front end nodes (Chef Infra Server)
+  - create a config file `chef-server.toml`
 
 ``` cmd
-chef-automate config patch chefserver.toml --chef_server
+chef-automate config patch chef-server.toml --chef_server
 ```
 
-sorthands for --chef_server is --cs and -c
+Shorthands for --chef_server are --cs and -c.
 
-- Patch a config to the all Front end nodes (Chef Server + Automate)
+- Patch a config to the all Front end nodes (Chef Infra Server + Automate)
   - Create a config file `frontend.toml`
 
 ``` cmd
 chef-automate config patch frontend.toml --frontend
 ```
 
-sorthands for --chef_server is --fe and -f
+Shorthands for --frontend are --fe and -f.
 
 - Patch a config to the Back end nodes (Open Search)
   - Create a config file `opensearch.toml`
@@ -114,32 +114,32 @@ sorthands for --chef_server is --fe and -f
 chef-automate config patch opensearch.toml --opensearch
 ```
 
-sorthands for --opensearch is --os and -o
+Shorthands for --opensearch are --os and -o.
 
-- Patch a config to the Back end nodes (Postgresql)
+- Patch a config to the Back end nodes (PostgreSQL)
   - Create a config file `postgresql.toml`
 
 ``` cmd
 chef-automate config patch postgresql.toml --postgresql
 ```
 
-sorthands for --postgresql is --pg and -p
+Shorthands for --postgresql are --pg and -p.
 
 {{< note >}}
 
 - Frontend patch will be applied to all nodes where are PostgreSQL and OpenSearch changes will be applied to only one node.
-- After patching, some services will go restart. So the health status will take up to 2 minutes to show healthy.
+- After patching, some services will restart, so the health status will take up to 2 minutes to show healthy.
 
 {{< /note >}}
 
 {{< warning >}}
 
 - For certificate rotation, don't use config patch. Instead, the cert-rotate command can be used. To learn more about certificate rotation, see [Certificate Rotation](/automate/ha_cert_rotation).
-- While patching the same from **the provision host**, structures such as TLS from OpenSearch configuration toml file and SSL from PostgreQL configuration toml file will be ignored.
+- While patching the same from **the provision host**, structures such as TLS from OpenSearch configuration toml file and SSL from PostgreSQL configuration toml file will be ignored.
 
 {{< /warning >}}
 
-- Collect the Gatherlogs for Automate HA cluster, and run the command from the bastion node.
+- Collect gather logs for the Automate HA cluster, and run the command from the bastion node.
   - Logs are collected at `/var/tmp`
 
 ```sh
@@ -177,26 +177,26 @@ automate-backend-ctl show --svc=automate-ha-postgresql
 
 ## Precaution During Backend Node Reboot
 
-To prevent data loss, do not restart all nodes in a PostgreSQL cluster in quick succession.
+To prevent data loss, don't restart all nodes in a PostgreSQL cluster in quick succession.
 
-When a follower node (e.g., f1) is restarted, it begins synchronizing data from the current leader. If the leader node is also restarted during this synchronization process, a leader election may occur. If f1 is elected as the new leader before completing its sync, it may not have the most recent data, which can lead to inconsistencies or data loss.
+When a follower node (for example, f1) is restarted, it begins synchronizing data from the current leader. If the leader node is also restarted during this synchronization process, a leader election may occur. If f1 is elected as the new leader before completing its sync, it may not have the most recent data, which can lead to inconsistencies or data loss.
 
-## Precaution during opensearch Reboot
+## Precaution during OpenSearch Reboot
 
 - Check cluster health
 Execute the following commands to verify the health of the cluster:
 
 ```sh
-curl -X GET "https://localhost:9200/_cat/health?v" -k 
---cacert /hab/svc/automate-ha-opensearch/config/certificates/root-ca.pem 
---key /hab/svc/automate-ha-opensearch/config/certificates/admin-key.pem  
+curl -X GET "https://localhost:9200/_cat/health?v" -k
+--cacert /hab/svc/automate-ha-opensearch/config/certificates/root-ca.pem
+--key /hab/svc/automate-ha-opensearch/config/certificates/admin-key.pem
 --cert /hab/svc/automate-ha-opensearch/config/certificates/admin.pem
 ```
 
 ```sh
-curl -X GET "https://localhost:9200/_cat/recovery?v" -k 
---cacert /hab/svc/automate-ha-opensearch/config/certificates/root-ca.pem 
---key /hab/svc/automate-ha-opensearch/config/certificates/admin-key.pem  
+curl -X GET "https://localhost:9200/_cat/recovery?v" -k
+--cacert /hab/svc/automate-ha-opensearch/config/certificates/root-ca.pem
+--key /hab/svc/automate-ha-opensearch/config/certificates/admin-key.pem
 --cert /hab/svc/automate-ha-opensearch/config/certificates/admin.pem
 ```
 
@@ -209,18 +209,18 @@ curl -X PUT "https://localhost:9200/_cluster/settings" -H 'Content-Type: applica
   "persistent": {
     "cluster.routing.allocation.enable": "primaries"
   }
-}' -k 
---cacert /hab/svc/automate-ha-opensearch/config/certificates/root-ca.pem 
---key /hab/svc/automate-ha-opensearch/config/certificates/admin-key.pem  
+}' -k
+--cacert /hab/svc/automate-ha-opensearch/config/certificates/root-ca.pem
+--key /hab/svc/automate-ha-opensearch/config/certificates/admin-key.pem
 --cert /hab/svc/automate-ha-opensearch/config/certificates/admin.pem
 ```
 
 - Stop indexing and flush the data to disk:
 
 ```sh
-curl -X POST "https://localhost:9200/_flush" -k 
---cacert /hab/svc/automate-ha-opensearch/config/certificates/root-ca.pem 
---key /hab/svc/automate-ha-opensearch/config/certificates/admin-key.pem  
+curl -X POST "https://localhost:9200/_flush" -k
+--cacert /hab/svc/automate-ha-opensearch/config/certificates/root-ca.pem
+--key /hab/svc/automate-ha-opensearch/config/certificates/admin-key.pem
 --cert /hab/svc/automate-ha-opensearch/config/certificates/admin.pem
 ```
 
@@ -232,22 +232,22 @@ curl -X PUT "https://localhost:9200/_cluster/settings" -H 'Content-Type: applica
   "persistent": {
     "cluster.routing.allocation.enable": null
   }
-}' -k 
---cacert /hab/svc/automate-ha-opensearch/config/certificates/root-ca.pem 
---key /hab/svc/automate-ha-opensearch/config/certificates/admin-key.pem  
+}' -k
+--cacert /hab/svc/automate-ha-opensearch/config/certificates/root-ca.pem
+--key /hab/svc/automate-ha-opensearch/config/certificates/admin-key.pem
 --cert /hab/svc/automate-ha-opensearch/config/certificates/admin.pem
 ```
 
 - Monitor the cluster state, and verify its health and recovery status to ensure overall stability.
 
 ```sh
-curl -X GET "https://localhost:9200/_cat/health?v" -k 
---cacert /hab/svc/automate-ha-opensearch/config/certificates/root-ca.pem 
---key /hab/svc/automate-ha-opensearch/config/certificates/admin-key.pem  
+curl -X GET "https://localhost:9200/_cat/health?v" -k
+--cacert /hab/svc/automate-ha-opensearch/config/certificates/root-ca.pem
+--key /hab/svc/automate-ha-opensearch/config/certificates/admin-key.pem
 --cert /hab/svc/automate-ha-opensearch/config/certificates/admin.pem
 
-curl -X GET "https://localhost:9200/_cat/recovery?v" -k 
---cacert /hab/svc/automate-ha-opensearch/config/certificates/root-ca.pem 
---key /hab/svc/automate-ha-opensearch/config/certificates/admin-key.pem  
+curl -X GET "https://localhost:9200/_cat/recovery?v" -k
+--cacert /hab/svc/automate-ha-opensearch/config/certificates/root-ca.pem
+--key /hab/svc/automate-ha-opensearch/config/certificates/admin-key.pem
 --cert /hab/svc/automate-ha-opensearch/config/certificates/admin.pem
 ```

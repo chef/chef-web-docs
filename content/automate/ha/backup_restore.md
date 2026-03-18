@@ -41,13 +41,13 @@ You can backup the Chef Automate HA data either using an External file-system (E
 
 ### What is EFS System?
 
-External file system refers to any non-volatile storage device external to the computer. It can be any storage device that serves as an addition to the computer's primary storage, RAM, and cache memory. EFS aids in backing up the data used for future restores or disaster recovery, long-term archiving of data that is not frequently accessed, and storage of non-critical data in lower-performing, less expensive drives. These systems do not directly interact with the computer's CPU (Central Processing Unit).
+External file system refers to any non-volatile storage device external to the computer. It can be any storage device that serves as an addition to the computer's primary storage, RAM, and cache memory. EFS aids in backing up the data used for future restores or disaster recovery, long-term archiving of data that's not frequently accessed, and storage of non-critical data in lower-performing, less expensive drives. These systems don't directly interact with the computer's CPU (Central Processing Unit).
 
 External file systems include devices such as Solid-state drives (SSDs), Hard disk drives (HDDs), Cloud storage, CD-ROM drives, DVD drives, Blu-ray drives, USB flash drives, SD cards, Tape drives.
 
 ### What is Amazon's S3 Bucket?
 
-An Amazon S3 bucket is a public cloud storage resource available in Amazon Web Services (AWS) Simple Storage Service (S3), an object storage offering. Amazon S3 buckets, similar to file folders, store objects consisting of data and its descriptive metadata. Amazon S3 is a program built to store, protect, and retrieve data from *buckets* at any time from anywhere on any device such as websites, mobile apps, archiving, data backups and restorations, IoT devices, enterprise application storage, and providing the underlying storage layer for your data lake.
+An Amazon S3 bucket is a public cloud storage resource available in Amazon Web Services (AWS) Simple Storage Service (S3), an object storage offering. Amazon S3 buckets, similar to file folders, store objects consisting of data and its descriptive metadata. Amazon S3 is a program built to store, protect, and retrieve data from _buckets_ at any time from anywhere on any device such as websites, mobile apps, archiving, data backups and restorations, IoT devices, enterprise application storage, and providing the underlying storage layer for your data lake.
 
 With the AWS Free Usage Tier*, you can get started with Amazon S3 for free in all regions except the AWS GovCloud Regions. [See](https://aws.amazon.com/s3/) for more information.
 

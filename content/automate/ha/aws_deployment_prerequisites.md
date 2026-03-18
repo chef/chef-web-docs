@@ -64,7 +64,7 @@ Current Automate HA supports integration with the following Chef tools:
 - Chef Infra Client: 17.0.242+
 - Chef Habitat: 0.81+
 
-We do not support **Chef Manage** integration in the ongoing Automate version.
+We don't support **Chef Manage** integration in the ongoing Automate version.
 
 ### External Supported Softwares
 
@@ -157,11 +157,11 @@ The first column in the table below represents the source of the connection. The
 
 Generate the certificates using recommended tools and supported algorithms and versions mentioned below:
 
--   OpenSSL: 1.0.2zb-fips
--   OpenSSL Algorithms: PBE-SHA1-3DES, RSA (2048), SHA-256
--   Certificate Format: X509 V3(PEM format) ,Private key is in PKCS8 format
+- OpenSSL: 1.0.2zb-fips
+- OpenSSL Algorithms: PBE-SHA1-3DES, RSA (2048), SHA-256
+- Certificate Format: X509 V3(PEM format) ,Private key is in PKCS8 format
 
-To understand how to generate certificates, refer to the [Certificate Generation](/automate/ha_cert_selfsign/#creating-a-certificate) documentation.
+To understand how to generate certificates, refer to the [Certificate Generation](/automate/ha_cert_self_sign/#creating-a-certificate) documentation.
 
 ## Deployment Specific Pre-requisites
 
@@ -169,59 +169,59 @@ The AWS deployment specific pre-requisites are as follows:
 
 ### AWS Cloud
 
--   Create an AWS Virtual Private Cloud (VPC) with an internet gateway before you start. For further knowledge, refer to the [VPC and CIDR creation](/automate/ha_vpc_setup/) page.
--   If you want to use Default VPC, create public and private subnets. If the subnet is not available. Please refer [to this](https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html)
--   Three private and three public subnets in a VPC (1 subnet for each AZ) are needed. As of now, only dedicated subnets for each AZ are supported.
--   It is recommended to create a new VPC.
--   Bastion must be in the same VPC for deployment.
--   It is recommended to use subnet IDs over CIDR, CIDR will only work if VPC has sufficient range available to create new subnets.
--   **In AWS Managed Services:**
-    -   Setup [AWS RDS PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html) 13.14 in the same VPC.
-    -   Setup [AWS OpenSearch](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html) of version 1.3 in the same VPC.
+- Create an AWS Virtual Private Cloud (VPC) with an internet gateway before you start. For further knowledge, refer to the [VPC and CIDR creation](/automate/ha_vpc_setup/) page.
+- If you want to use Default VPC, create public and private subnets. If the subnet isn't available. Please refer [to this](https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html)
+- Three private and three public subnets in a VPC (1 subnet for each AZ) are needed. As of now, only dedicated subnets for each AZ are supported.
+- It's recommended to create a new VPC.
+- Bastion must be in the same VPC for deployment.
+- It's recommended to use subnet IDs over CIDR, CIDR will only work if VPC has sufficient range available to create new subnets.
+- **In AWS Managed Services:**
+  - Setup [AWS RDS PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html) 13.14 in the same VPC.
+  - Setup [AWS OpenSearch](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html) of version 1.3 in the same VPC.
 
 ### Infra Server
 
--   Chef Automate HA comes with bundled Infra Server, and it is recommended not to use any external server in Automate HA. Using an external server will lose the Automate HA functionalities, and things may not work as expected.
+- Chef Automate HA comes with bundled Infra Server, and it's recommended not to use any external server in Automate HA. Using an external server will lose the Automate HA functionalities, and things may not work as expected.
 
 ### Access
 
--   AWS credentials (`aws_access_key_id` and `aws_secret_access_key`) with `AmazonS3FullAccess` and `AdministratorAccess` privileges are needed.
+- AWS credentials (`aws_access_key_id` and `aws_secret_access_key`) with `AmazonS3FullAccess` and `AdministratorAccess` privileges are needed.
 
--   **On Bastion Machine:**
-    -   We need a local user `hab` and local group `hab` linked together to complete the deployment process successfully.
-    -   If they are unavailable, the SSH user should have privileges to create local users and groups so that the deployment process can create the required local user `hab` and local group `hab`.
-    -   We only support local Linux users and groups for Installation flow. We don't support AD or LDAP managed users in nodes.
--   The SElinux config should either be disabled or permissive in the AMI Image used for deployment in config.
+- **On Bastion Machine:**
+  - We need a local user `hab` and local group `hab` linked together to complete the deployment process successfully.
+  - If they're unavailable, the SSH user should have privileges to create local users and groups so that the deployment process can create the required local user `hab` and local group `hab`.
+  - We only support local Linux users and groups for Installation flow. We don't support AD or LDAP managed users in nodes.
+- The SElinux config should either be disabled or permissive in the AMI Image used for deployment in config.
 
 ### Storage Space for Bastion
 
--   Operating System Root Volume (`/`) must be at least 40GB. Temporary space (`/var/tmp`) must be at least 10GB.
--   Separate Hab volume should be provisioned and mounted at `/hab` with at least 200GB space.
+- Operating System Root Volume (`/`) must be at least 40GB. Temporary space (`/var/tmp`) must be at least 10GB.
+- Separate Hab volume should be provisioned and mounted at `/hab` with at least 200GB space.
 
 ### SSH User
 
--   SSH Key Pair should be created in AWS, creating Bastion machine using that pair.
+- SSH Key Pair should be created in AWS, creating Bastion machine using that pair.
     Reference for [AWS SSH Key Pair creation](https://docs.aws.amazon.com/ground-station/latest/ug/create-ec2-ssh-key-pair.html)
--   SSH users should use key-based SSH login without a passphrase.
--   The user's SSH key should be generated using algorithm `ed25519` without a passphrase.
--   This SSH user should be a local Linux user on the Bastion machine.
--   This SSH user should have sudo privileges on the Bastion machine.
--   SSH user should have write permission in nodes.
--   Use the SSH user to access all machines using the same SSH private key.
--   The SSH user should have execute permissions on the `/tmp` directory.
+- SSH users should use key-based SSH login without a passphrase.
+- The user's SSH key should be generated using algorithm `ed25519` without a passphrase.
+- This SSH user should be a local Linux user on the Bastion machine.
+- This SSH user should have sudo privileges on the Bastion machine.
+- SSH user should have write permission in nodes.
+- Use the SSH user to access all machines using the same SSH private key.
+- The SSH user should have execute permissions on the `/tmp` directory.
 
 ### Cluster Setup
 
--   DNS certificate should be available in AWS Certificate Manager (ACM) for 2 DNS entries: Example: `chefautomate.example.com`, `chefinfraserver.example.com`
-    Reference for [Creating new DNS Certificate in ACM](/automate/ha_aws_cert_mngr/)
--   DNS is configured to redirect `chefautomate.example.com` to the Primary Load Balancer.
--   DNS is configured to redirect `chefinfraserver.example.com` to the Primary Load Balancer.
--   During deployment, the Domain Certificates from ACM will be attached to the new Load Balancers.
+- DNS certificate should be available in AWS Certificate Manager (ACM) for 2 DNS entries: Example: `chefautomate.example.com`, `chefinfraserver.example.com`
+    Reference for [Creating new DNS Certificate in ACM](/automate/ha_aws_cert_manager/)
+- DNS is configured to redirect `chefautomate.example.com` to the Primary Load Balancer.
+- DNS is configured to redirect `chefinfraserver.example.com` to the Primary Load Balancer.
+- During deployment, the Domain Certificates from ACM will be attached to the new Load Balancers.
 
 ### Config Changes
 
--   [Config Patch](/automate/ha_config/#patch-configuration/) in the whole application will result in downtime. For example, if you change or update something in OpenSearch or PostgreSQL, they will restart, resulting in restarting everything.
--   [Certificate Rotation](/automate/ha_cert_rotation/) will also change the system's configuration, leading to restarting the whole application.
+- [Config Patch](/automate/ha_config/#patch-configuration/) in the whole application will result in downtime. For example, if you change or update something in OpenSearch or PostgreSQL, they will restart, resulting in restarting everything.
+- [Certificate Rotation](/automate/ha_cert_rotation/) will also change the system's configuration, leading to restarting the whole application.
 
 To learn more about the above deployment, visit our [AWS deployment](/automate/ha_aws_deploy_steps/) page.
 
@@ -231,8 +231,8 @@ Setup the following databases with password-based authentication.
 
 ### AWS Managed
 
--   AWS RDS PostgreSQL: 13.14
--   AWS OpenSearch: 1.3
+- AWS RDS PostgreSQL: 13.14
+- AWS OpenSearch: 1.3
 
 Configure the backup only with **S3** when using AWS managed databases.
 
@@ -240,21 +240,21 @@ Configure the backup only with **S3** when using AWS managed databases.
 
 Things to keep in mind while upgrading are:
 
--   Backend upgrades will restart the backend service, which takes time for the cluster to be healthy.
--   Upgrade command currently supports only minor upgrades.
--   A downtime will occur while upgrading the **frontend**, **backend** or the **workspace**.
--   Rolling upgrades are not supported.
+- Backend upgrades will restart the backend service, which takes time for the cluster to be healthy.
+- Upgrade command currently supports only minor upgrades.
+- A downtime will occur while upgrading the **frontend**, **backend** or the **workspace**.
+- Rolling upgrades aren't supported.
 
 ## Disaster Recovery
 
 Chef Automate HA supports disaster recovery in active/passive mode. The primary cluster will be in active mode, and the disaster recovery cluster will be in passive mode.
-Active/Active Disaster Recovery is not supported right now as we do not support streaming of data across clusters and automatic fail over switching of clusters.
+Active/Active Disaster Recovery isn't supported right now as we don't support streaming of data across clusters and automatic fail over switching of clusters.
 
 The requirements for disaster recovery setup (Active/Passive) are:
 
--   Two identical clusters located in different data centers or cloud provider regions.
--   Network Attached Storage (NAS) or Object Store (S3) should be available in both data centers/regions.
--   Set up scheduled jobs to run backup and restore commands on both clusters. We recommend using **cron** to schedule the jobs.
+- Two identical clusters located in different data centers or cloud provider regions.
+- Network Attached Storage (NAS) or Object Store (S3) should be available in both data centers/regions.
+- Set up scheduled jobs to run backup and restore commands on both clusters. We recommend using **cron** to schedule the jobs.
 
 To know more about the AWS deployment disaster recovery, visit our [Disaster Recovery Setup](/automate/ha_disaster_recovery_setup/) page.
 
@@ -262,10 +262,10 @@ To know more about the AWS deployment disaster recovery, visit our [Disaster Rec
 
 ### Common Notes
 
--   Migrations involve downtime depending on how much data you have and the type of setup you are running.
--   Migration cannot be done from more than 1 Standalone Automate, more than 1 Standalone Infra Server, or more than 1 Chef Backend to a Single Automate HA cluster.
--   Automate HA will always have Chef Automate and Chef Infra Server running in the cluster.
--   Chef Manage or Private Chef Supermarket customers should not migrate to Automate HA.
+- Migrations involve downtime depending on how much data you have and the type of setup you are running.
+- Migration can't be done from more than 1 Standalone Automate, more than 1 Standalone Infra Server, or more than 1 Chef Backend to a Single Automate HA cluster.
+- Automate HA will always have Chef Automate and Chef Infra Server running in the cluster.
+- Chef Manage or Private Chef Supermarket customers should not migrate to Automate HA.
 
 | Existing System   | Supported Setup Type                                                                           | Minimum Eligible System Version      | Maximum Eligible System Version      | Pre-requisite Before Migration                                                                                                                                                                              |
 |-------------------|------------------------------------------------------------------------------------------------|--------------------------------------|--------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -276,18 +276,18 @@ To know more about the AWS deployment disaster recovery, visit our [Disaster Rec
 
 {{< note >}}
 
--   We do not support migration to Automate HA, if you have done any modification to the standard installation setup mentioned above.
--   We do not recommend in-place migration of A2HA and Chef Backend to Automate HA as the system levels change as ports, system users, and groups may conflict with the successful installation of Automate HA. Also, no easy rollback process is available. This may lead to higher downtime or loss of the existing setup.
+- We don't support migration to Automate HA, if you have done any modification to the standard installation setup mentioned above.
+- We don't recommend in-place migration of A2HA and Chef Backend to Automate HA as the system levels change as ports, system users, and groups may conflict with the successful installation of Automate HA. Also, no easy rollback process is available. This may lead to higher downtime or loss of the existing setup.
 
 {{< /note >}}
 
 ## Backup and Restore
 
--   **In AWS Deployment:** We support [**Elastic File System (EFS)**](/automate/ha_backup_restore_aws_efs/) or [**S3 storage)**](/automate/ha_backup_restore_aws_s3/) for taking backup.
--   **In AWS Managed Services:** We only support [**S3 storage**](/automate/ha_backup_restore_aws_s3/) for taking backup.
--   **In AWS Managed Services:** Create the below attributes by following [managed services documentation](/automate/managed_services/#enabling-opensearch-backup-restore)
-    -   `aws_os_snapshot_role_arn`
-    -   `os_snapshot_user_access_key_id`
-    -   `os_snapshot_user_access_key_secret`
+- **In AWS Deployment:** We support [**Elastic File System (EFS)**](/automate/ha_backup_restore_aws_efs/) or [**S3 storage)**](/automate/ha_backup_restore_aws_s3/) for taking backup.
+- **In AWS Managed Services:** We only support [**S3 storage**](/automate/ha_backup_restore_aws_s3/) for taking backup.
+- **In AWS Managed Services:** Create the below attributes by following [managed services documentation](/automate/managed_services/#enabling-opensearch-backup-restore)
+  - `aws_os_snapshot_role_arn`
+  - `os_snapshot_user_access_key_id`
+  - `os_snapshot_user_access_key_secret`
 
 Encrypted S3 bucket are supported with only Amazon S3 managed keys (SSE-S3).

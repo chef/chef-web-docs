@@ -13,7 +13,7 @@ The Chef Infra Server stores cookbooks, the policies that are applied to nodes, 
 
 {{< note >}}
 
-- If you are swtiching for existing cookbooks, there will be some data loss. You will not be able to download or upload the existing cookbooks after adding config.
+- If you are switching for existing cookbooks, there will be some data loss. You won't be able to download or upload the existing cookbooks after adding config.
 - This is strictly recommended to add the config at the time of setting up infra server.
 
 {{< /note >}}
@@ -38,4 +38,4 @@ Patch the above configuration using the following:
 chef-automate config patch </path/to/your-file.toml>.toml
 ```
 
-Refer to the [External Cookbooks](https://docs.chef.io/server/#external-cookbooks) section to learn about the cookbooks shored in Chef Infra Server.
+Refer to the [External Cookbooks](/server/#external-cookbooks) section to learn about the cookbooks shored in Chef Infra Server.

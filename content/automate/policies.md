@@ -17,18 +17,18 @@ Identity and Access Management policies manage the resources and actions used by
 Policies are composed of statements that specify permissions.
 
 Permission for the `iam:policies` action is required to interact with policies.
-Any user that is part of the `admins` team or the `Administrator` policy will have this permission.
+Any user that's part of the `admins` team or the `Administrator` policy will have this permission.
 Otherwise, [IAM custom policies]({{< relref "iam_v2_guide.md#creating-custom-policies" >}}) can be created to assign this permission.
 
 ![](/images/automate/settings-policies.png)
 
 ### Chef-Managed Policies
 
-*Chef-managed* policies are provided by Chef and are integral to the operation of Chef Automate. The policy statements in Chef-managed policies cannot be changed.
+_Chef-managed_ policies are provided by Chef and are integral to the operation of Chef Automate. The policy statements in Chef-managed policies can't be changed.
 
 ### Custom Policies
 
-*Custom* policies are policies that you create for your own needs.
+_Custom_ policies are policies that you create for your own needs.
 You can add, edit, and delete policy statements in your custom policies.
 Chef Automate ships with two custom policies, Compliance Viewers and Compliance Editors, which you can edit like other custom policies.
 
@@ -46,7 +46,7 @@ Then open the menu at the end of the table row and select **Delete Policy**.
 ### Policy Membership
 
 The policy membership can be changed for both _Chef-Managed_ and _Custom_ policies.
-The only exception is that the _admins_ team cannot be removed from the _Administrator_ policy.
+The only exception is that the _admins_ team can't be removed from the _Administrator_ policy.
 
 #### Adding Members to Policies
 

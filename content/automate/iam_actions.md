@@ -1,5 +1,5 @@
 +++
-title = "IAM Actions"
+title = "Identity and access management (IAM) Actions"
 
 draft = false
 
@@ -11,13 +11,14 @@ draft = false
     weight = 30
 +++
 
-Reference the chart on this page when creating a *Role* to know which action grants access to what page in the browser.
+Reference the chart on this page when creating a _Role_ to know which action grants access to what page in the browser.
 
-*IAM Action* lists the associated action or actions required to access that page in the browser.
+_IAM Action_ lists the associated action or actions required to access that page in the browser.
 Use `*` in these actions to give broad permissions to perform all associated actions such as get, list, create, delete, etc.
 Specify the action to restrict user access to the specific action.
 
 {{< responsive-table >}}
+
 |  Task           | Browser Tab     | IAM Action       | API endpoint  | URL       |
 | --------------- | --------------- | ---------------- | ------------- | --------- |
 | View Events | Dashboards | event:* | /event_feed | https://{{< example_fqdn "automate" >}}/dashboards/event-feed |
@@ -27,11 +28,11 @@ Specify the action to restrict user access to the specific action.
 | View Chef Servers | Infrastructure | infra:infraServers:* | /infra/servers | https://{{< example_fqdn "automate" >}}/infrastructure/chef-servers |
 | List Reports | Compliance | compliance:reporting:*  | /compliance/reporting/reports | https://{{< example_fqdn "automate" >}}/compliance/reports/overview |
 | List Scan Jobs | Compliance | compliance:scannerJobs:* | /compliance/scanner/jobs | https://{{< example_fqdn "automate" >}}/compliance/scan-jobs/jobs |
-| Manage Scan Jobs | Compliance | [compliance:scannerJobs:* , infra:nodes:* , infra:nodeManagers:* , compliance:profiles:* ] | /compliance/scanner/jobs | https://{{< example_fqdn "automate" >}}/compliance/scan-jobs/jobs |
+| Manage Scan Jobs | Compliance | [compliance:scannerJobs:_, infra:nodes:_ , infra:nodeManagers:_, compliance:profiles:_ ] | /compliance/scanner/jobs | https://{{< example_fqdn "automate" >}}/compliance/scan-jobs/jobs |
 | Manage Compliance Profiles | Compliance | compliance:profiles:* | /compliance/profiles | https://{{< example_fqdn "automate" >}}/compliance/compliance-profiles |
 | Manage Notifications | Settings | notifications:* | /notifications | https://{{< example_fqdn "automate" >}}/settings/notifications |
 | Manage Data Feed | Settings | datafeed:* | /data_feed/destination | https://{{< example_fqdn "automate" >}}/settings/data-feed |
-| Manage Node Integrations | Settings | [infra:nodeManagers:* , infra:nodes:* , secrets:* ] | /nodemanagers , /cfgmgmt/nodes , /secrets | https://{{< example_fqdn "automate" >}}/settings/node-integrations |
+| Manage Node Integrations | Settings | [infra:nodeManagers:_, infra:nodes:_ , secrets:* ] | /nodemanagers , /cfgmgmt/nodes , /secrets | https://{{< example_fqdn "automate" >}}/settings/node-integrations |
 | Manage Node Credentials | Settings | secrets:* | /secrets | https://{{< example_fqdn "automate" >}}/settings/node-credentials |
 | Manage Data Lifecycle | Settings | dataLifecycle:* | /data-lifecycle | https://{{< example_fqdn "automate" >}}/settings/data-lifecycle |
 | Manage Users | Settings | iam:users:* | /iam/v2/users | https://{{< example_fqdn "automate" >}}/settings/users |

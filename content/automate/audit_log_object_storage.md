@@ -167,7 +167,7 @@ To change the rotation size threshold, patch your Automate configuration.
     Rotation behavior:
 
     - Audit entries are written to `/hab/svc/automate-load-balancer/data/audit.log`.
-    - When `audit.log` exceeds `max_file_size`, it is rotated to `audit.1.log`.
+    - When `audit.log` exceeds `max_file_size`, it's rotated to `audit.1.log`.
     - Older rotated files are shifted up (`audit.1.log` -> `audit.2.log`, etc.).
     - Chef Automate keeps up to 10 rotated files (`audit.1.log` through `audit.10.log`).
 
@@ -471,7 +471,7 @@ The following TOML shows the default audit log settings:
 
   [global.v1.audit.storage]
     storage_type = "s3"
-    # Chef Automate does not fill in `endpoint` or `storage_region` automatically.
+    # Chef Automate doesn't fill in `endpoint` or `storage_region` automatically.
     # When you enable S3 uploads (by setting `bucket`), set `endpoint` and `storage_region` too.
     path_prefix = "audit-logs/"
 

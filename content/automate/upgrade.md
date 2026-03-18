@@ -11,7 +11,7 @@ draft = false
     weight = 10
 +++
 
-Chef Automate upgrades from one minor version to another automatically, but you cannot directly upgrade to any major version of Chef Automate. Use the `--major` flag to upgrade from the latest to a major version. This section will talk about the major version upgrade of Chef Automate with its possible scenarios.
+Chef Automate upgrades from one minor version to another automatically, but you can't directly upgrade to any major version of Chef Automate. Use the `--major` flag to upgrade from the latest to a major version. This section will talk about the major version upgrade of Chef Automate with its possible scenarios.
 
 {{< warning >}} Upgrade to the 4.7.52 version requires SAN certificates, refer to [update non-SAN certificates](/automate/upgrade_san_certificates) for more details. {{< /warning >}}
 
@@ -19,7 +19,7 @@ Chef Automate upgrades from one minor version to another automatically, but you 
 
 The Chef Automate upgrade process makes use of **release channels** to allow greater control over the automatic upgrades applied to your system. Chef Automate pulls the latest release within a specified release channel. The default channel is the `current` channel.
 
-To change the release channel that is used for upgrades, modify the `channel` setting in your `config.toml` file:
+To change the release channel that's used for upgrades, modify the `channel` setting in your `config.toml` file:
 
 ```toml
 channel = "current"

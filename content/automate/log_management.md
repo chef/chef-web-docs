@@ -45,11 +45,9 @@ level = "debug"
 
 Then run `chef-automate config patch </path/to/your-file.toml>` to deploy your change.
 
-
 ## Configuring Log Rotation and Retention
 
-Log rotation and retention settings are managed at a system level using `journald`. At this point, `journald` does not support log retention policies at a granular level for units within itself. See the [man page](https://www.freedesktop.org/software/systemd/man/journald.conf.html) for more configuration options in `/etc/systemd/journald.conf`.
-
+Log rotation and retention settings are managed at a system level using `journald`. At this point, `journald` doesn't support log retention policies at a granular level for units within itself. See the [man page](https://www.freedesktop.org/software/systemd/man/journald.conf.html) for more configuration options in `/etc/systemd/journald.conf`.
 
 ## Configuring Rate Limiter
 

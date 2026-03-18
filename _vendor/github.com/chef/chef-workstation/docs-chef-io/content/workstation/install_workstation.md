@@ -75,7 +75,7 @@ Alternatively, install Chef Workstation using the [Chocolatey](https://chocolate
 
 #### Headless Unattended Install
 
-"Headless" systems are configured to operate without a monitor (the "head") keyboard, and mouse. They are usually administered remotely using protocols such as SSH or WinRM.
+"Headless" systems are configured to operate without a monitor (the "head") keyboard, and mouse. They're usually administered remotely using protocols such as SSH or WinRM.
 
 Chef Workstation can be installed on a headless system using the `msiexec` command and flags to skip the installation of the Chef Workstation Application, which requires a GUI. Run the following command in Windows PowerShell or `cmd.exe`, replacing `MsiPath` with the path of the downloaded Chef Workstation installer.
 

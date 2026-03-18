@@ -27,8 +27,8 @@ In this section, you can view all of your v2 policies.
 
 This policy display includes the following:
 
-* New default, *Chef-managed* policies: Administrator, Ingest, Editors, and Viewers.
-* Imported v1 default policies--now called *legacy policies*--in the new v2 policy format and marked with the `[Legacy]` prefix.
+* New default, _Chef-managed_ policies: Administrator, Ingest, Editors, and Viewers.
+* Imported v1 default policies--now called _legacy policies_--in the new v2 policy format and marked with the `[Legacy]` prefix.
 * Imported v1 custom policies that you created, which are marked with the `[Legacy]` prefix and a `(custom)` suffix.
 
 ![](/images/automate/admin-policies-migrated.png)
@@ -116,7 +116,7 @@ Next, you will specify the permissions themselves--which in IAM v2 are the `stat
 The statement allows us to specify the `actions` a user is permitted to take upon resources that have been assigned to a `project`.
 The `projects` field on a statement is an array that may contain more than one existing project, a wildcard `*` to indicate permission to resources in _any project_, or `(unassigned)` to indicate permission to resources that have not been assigned to a project.
 
-Note that the `projects` property in statements designates permission for the resources within the statement (here, that is `iam:users` and `iam:teams`), _not_ for the policy itself, and _cannot_ be left empty.
+Note that the `projects` property in statements designates permission for the resources within the statement (here, that's `iam:users` and `iam:teams`), _not_ for the policy itself, and _can't_ be left empty.
 For more about projects, see [Projects in the IAM Guide]({{< relref "iam_v2_guide.md#projects" >}}) documentation.
 
 In this case, we only need a single statement providing access to the _get_, _list_, and _update_ actions for _users_ and _teams_ that have been assigned to the project `project-devops`.
@@ -177,7 +177,7 @@ Local users and teams are managed directly by Chef Automate.
 To add or delete members, navigate to the Policies list in the **Settings** tab, and then select a policy in the list to open its details.
 Select **Members** to view the current membership.
 Use the **Add Members** button to open a list of candidate members.
-This lists all those local members (both users and teams) that are *not* members of this policy.
+This lists all those local members (both users and teams) that are _not_ members of this policy.
 If all of the local members are already included in the policy, then this list will be empty.
 Select any members you wish to add to the policy.
 Use the **Add Members** button to complete the operation.
@@ -203,11 +203,11 @@ Enter a member expression using the format `team:<type>:<name>` or `user:<type>:
 * The `<type>` expression is either `ldap` or `saml`.
 * The `<name>` expression is the name of the user or team that the external identity provider knows. For example, this is a valid member expression `team:ldap:editors_team_1`, assuming the `editors_team_1` team is known by your identity provider.
 
-Alternately, you may add *all* teams to a policy using a wildcard as the last term in the member expression: `team:ldap:*` or `team:saml:*`.
+Alternately, you may add _all_ teams to a policy using a wildcard as the last term in the member expression: `team:ldap:*` or `team:saml:*`.
 
 The member expression dialog also supports tokens.
 You enter a token using the expression `token:<id>`.
-In order to find a token's ID, visit the *API Tokens* page.
+In order to find a token's ID, visit the _API Tokens_ page.
 
 ### Projects
 
@@ -215,7 +215,7 @@ Projects are used to group and permission Chef Automate resources as well as ing
 
 Projects can be managed via the Projects list under the **Settings** tab and consist of an ID, a name, and a collection of ingest rules. Project ingest rules are lists of conditions used only when
 [assigning ingested resources to projects]({{< relref "iam_v2_guide.md#assigning-ingested-resources-to-projects" >}}),
-so they are not relevant when assigning IAM resources such as teams or roles.
+so they're not relevant when assigning IAM resources such as teams or roles.
 
 #### Configuring Project Limit
 
@@ -328,7 +328,7 @@ You may cancel the update at any time by selecting the `Stop Project Update` but
 Avoid stopping an update unless absolutely necessary. It will leave your system in an unknown state where only some resources have been moved into their projects while others still remain in old projects. Only another successful update will restore the system to an up-to-date state.
 {{< /warning >}}
 
-Once rules have been successfully applied, the banner will be dismissed until the next time there are *pending edits* to any project.
+Once rules have been successfully applied, the banner will be dismissed until the next time there are _pending edits_ to any project.
 
 To verify that the ingested resources have been moved into the correct projects, select `project-devops` in the global projects filter, which is on the top navigation. The data in Chef Automate filters by the selected `project-devops` project.
 In this example, the effect is revealed by navigating to the Compliance Reports' Nodes tab, which only features nodes that belong to the `devops` Chef Organization.
@@ -338,12 +338,12 @@ In this example, the effect is revealed by navigating to the Compliance Reports'
 Now that we have the first set of our ingested data associated with our new project, let us add another condition and a new rule to add more data to `project-devops`.
 
 {{< note >}}
-Compliance and Infrastructure ingested resources are not the exact same nodes, so their properties may not be the same.
-Separate conditions governing said resources *may* need to be used if their properties do not match exactly.
+Compliance and Infrastructure ingested resources aren't the exact same nodes, so their properties may not be the same.
+Separate conditions governing said resources _may_ need to be used if their properties don't match exactly.
 {{< /note >}}
 
 {{< note >}}
-Ingested events require conditions of `Event` type to be associated with the correct project. A condition of type `Node` will not match an event, even if the condition's operator, attribute, and value all match exactly (and vice versa with `Event` project rules and nodes).
+Ingested events require conditions of `Event` type to be associated with the correct project. A condition of type `Node` won't match an event, even if the condition's operator, attribute, and value all match exactly (and vice versa with `Event` project rules and nodes).
 {{< /note >}}
 
 Return again to the project detail page and create two new ingest rules by selecting `Create Rule`. Creating new rules will expand the data set under `project-devops`,
@@ -358,18 +358,18 @@ Save the rule.
 Adding conditions further restricts the ingested data because every condition must be true for an ingested resource to be placed in the project.
 {{< /note >}}
 
-For the second rule, choose resource type `Event`. Fill in the first condition with attribute `Chef Server`, operator `member of`, and value `devops.pizza, devops.dog`, or any values matching your data set.
+For the second rule, choose resource type `Event`. Fill in the first condition with attribute `Chef Infra Server`, operator `member of`, and value `devops.pizza, devops.dog`, or any values matching your data set.
 
-Setting the project rule `Resource Type` determines what condition attributes are available to select. `Event` rule conditions can only have the attributes `Chef Organization` or `Chef Server`.
+Setting the project rule `Resource Type` determines what condition attributes are available to select. `Event` rule conditions can only have the attributes `Chef Organization` or `Chef Infra Server`.
 
-Rules of type `Node` can have conditions with attributes `Chef Organization`, `Chef Server`, `Environment`, `Chef Role`, `Chef Tag`, `Chef Policy Name`, `Chef Policy Group`.
+Rules of type `Node` can have conditions with attributes `Chef Organization`, `Chef Infra Server`, `Environment`, `Chef Role`, `Chef Tag`, `Chef Policy Name`, `Chef Policy Group`.
 
 Select the `Update Projects` button from the bottom banner.
 Upon completion of the update, you should be able to filter by `project-devops` across Automate's dashboards and see only the ingested data that you expect.
 
 #### Effortless Infra Project
 
-To create a project that contains all Effortless Infra nodes, create a ingest rule with resource type `Node` and a condition that uses attribute `Chef Server`, operator `equals`, and value `localhost`.
+To create a project that contains all Effortless Infra nodes, create a ingest rule with resource type `Node` and a condition that uses attribute `Chef Infra Server`, operator `equals`, and value `localhost`.
 
 ![](/images/automate/effortless-project-rule.png)
 
@@ -384,25 +384,25 @@ This next table further describes the roles associated with these policies.
 
 Policy Name                      | Role          | Description of role
 ---------------------------------|---------------|--------------------
-`<project-name>` Project Viewers | Viewer        | **View** everything in the project *except* IAM
-`<project-name>` Project Editors | Editor        | **Do** everything in the project *except* IAM
+`<project-name>` Project Viewers | Viewer        | **View** everything in the project _except_ IAM
+`<project-name>` Project Editors | Editor        | **Do** everything in the project _except_ IAM
 `<project-name>` Project Owners  | Project Owner | Editor + **view** and **assign** projects
 
 Consider the **Project Viewers** policy, which uses the **Viewer** role. The same **Viewer** role is also used in the default **Viewer** policy, which lets a user view everything in the system except IAM. Using the **Viewer** role in **Project Viewers** policy restricts the scope to your new project, and users attached to your **Project Viewers** policy will be able to view objects only associated with your project.
 
-Assume you named your project `Devops`, and have two users: Terry and Kelly. If Terry needs to *view* `Devops`-scoped resources, then add Terry as a member to the `Devops` Project Viewers policy. If Kelly needs the ability to *edit* `Devops`-scoped resources, then add Kelly to the `Devops` Project Editor policy.
+Assume you named your project `Devops`, and have two users: Terry and Kelly. If Terry needs to _view_ `Devops`-scoped resources, then add Terry as a member to the `Devops` Project Viewers policy. If Kelly needs the ability to _edit_ `Devops`-scoped resources, then add Kelly to the `Devops` Project Editor policy.
 
-When Terry is a member of the `Devops Project Viewers` policy and not a member of any other policy, they will only be able to see resources assigned to `Devops`. They will not be able to update or delete them. Kelly, however, will be able to update and delete.
+When Terry is a member of the `Devops Project Viewers` policy and not a member of any other policy, they will only be able to see resources assigned to `Devops`. They won't be able to update or delete them. Kelly, however, will be able to update and delete.
 
 See [Policy Membership]({{< relref "iam_v2_guide.md#policy-membership" >}}) for more information on policy membership.
 
 ## Restoring Admin Access
 
-While we have safeguards to prevent it, it is possible to lock yourself out of Chef Automate.
+While we have safeguards to prevent it, it's possible to lock yourself out of Chef Automate.
 If you have root access to the node where Chef Automate is installed, use the following commands to restore admin access:
 
 This command resets the local `admin` user's password and ensures that the user is a member of the local `admins` team, which is a permanent member of the Chef-managed `Administrator` policy.
 
 ```bash
-  chef-automate iam admin-access restore <your new password here>
+chef-automate iam admin-access restore <your new password here>
 ```

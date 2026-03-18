@@ -23,7 +23,7 @@ Only identity security specialists should configure SAML in Chef Automate and Ch
 
 Chef Automate supports externally managed users from an external identity provider (IdP) as well as local users. You can configure _one_ LDAP service (or MSAD for simplified configuration of Active Directory setups) and _one_ SAML IdP on the same instance.
 
-If you are only using local users and teams that you create in Chef Automate, then you do not need to configure an external IdP. See the [Users]({{< relref "users.md" >}}) documentation for information on creating and managing local users.
+If you are only using local users and teams that you create in Chef Automate, then you don't need to configure an external IdP. See the [Users]({{< relref "users.md" >}}) documentation for information on creating and managing local users.
 
 {{< warning >}}
 A Chef Automate instance supports using two different IdPs at the same time:
@@ -31,10 +31,10 @@ A Chef Automate instance supports using two different IdPs at the same time:
 - One IdP using SAML and
 - One IdP using LDAP
 
-A Chef Automate does not support using two of the _same_ IdPs at one time:
+A Chef Automate doesn't support using two of the _same_ IdPs at one time:
 
-- Two SAML IdPs on one Chef Automate instance will not work.
-- Two LDAP IdPs on one Chef Automate instance will not work/
+- Two SAML IdPs on one Chef Automate instance won't work.
+- Two LDAP IdPs on one Chef Automate instance won't work/
 {{< /warning >}}
 
 ### Configure Identity Providers
@@ -63,7 +63,7 @@ Chef Automate supports the following identity providers:
 {{< readfile file="content/automate/reusable/md/saml_supported_identity_providers.md" >}}
 
 Chef Automate uses the [Dex](https://github.com/dexidp/dex) library to support SAML integrations.
-Dex does not support IdP-initiated SAML logins for these IdPs, so Chef Automate also doesn't support IdP-initiated SAML logins with these IdPs.
+Dex doesn't support IdP-initiated SAML logins for these IdPs, so Chef Automate also doesn't support IdP-initiated SAML logins with these IdPs.
 
 Attempting to sign in with an unsupported IdP-supported SAML login causes the `unsupported auth mode` error. Fall back to the typical service provider-initiated login mode and proceed with your Chef Automate SAML configuration.
 
@@ -73,7 +73,7 @@ Using Azure AD as an SAML IdP requires specific configuration for both Azure AD 
 
 {{< note >}}
 The signing certificate used for Chef Automate's SAML integration with Azure AD requires manual management.
-Signing key rotation is not done automatically.
+Signing key rotation isn't done automatically.
 {{< /note >}}
 
 In Azure AD, add Chef Automate as a `non-gallery application`, and then configure its SAML sign-in method.
@@ -144,7 +144,7 @@ k2WFcoiiKyeIznNScx/K6AeykKR/lPrJedanSA==
 ```
 
 {{< warning >}}
-The `groups_attr` setting is optional, but if not provided, users authenticating via SAML will not be members of any teams.
+The `groups_attr` setting is optional, but if not provided, users authenticating via SAML won't be members of any teams.
 {{< /warning >}}
 
 Setting `allowed_groups` provides SAML sign-in for members of the listed groups and discards all user groups that are _not_ in the list. Groups must be on the `allowed_groups` list to access Chef Automate.
@@ -194,7 +194,7 @@ Member expressions are required for externally managed users and teams, as well 
 
 In your SAML Identity Provider (IdP), your Chef Automate instance needs to be referenced as a Service Provider (SP).
 To do so, use `https://{{< example_fqdn "automate" >}}/dex/callback`.
-The concrete configuration items differ between IdP products, but it is often something like "Assertion Consumption URI" or "Single sign on URL".
+The concrete configuration items differ between IdP products, but it's often something like "Assertion Consumption URI" or "Single sign on URL".
 For "Audience URI" or "SP Entity ID", use the same address.
 
 These values are accepted for `name_id_policy_format`:
@@ -218,7 +218,7 @@ Attempting to sign in with an unsupported IdP-supported SAML login causes the `u
 To remedy this error, fall back to the standard SP-initiated login mode.
 
 Chef Automate uses the [Dex](https://github.com/dexidp/dex) library to support SAML integrations.
-Dex does not support IdP-initiated SAML logins, so Chef Automate also does not support IdP-initiated SAML logins.
+Dex doesn't support IdP-initiated SAML logins, so Chef Automate also doesn't support IdP-initiated SAML logins.
 
 ## Chef SaaS SAML configuration
 
@@ -261,7 +261,7 @@ Use the following instructions to add a SAML configuration in Chef SaaS.
 
    Group Attribute
    : The group attribute in the SAML assertion.
-     If not provided, users authenticating with SSO will not be a member of any [team]({{< relref "/automate/teams" >}}).
+     If not provided, users authenticating with SSO won't be a member of any [team]({{< relref "/automate/teams" >}}).
    : _Optional_
 
    Allowed Groups

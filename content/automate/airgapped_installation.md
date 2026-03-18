@@ -71,7 +71,7 @@ These commands produce an Airgap Installation Bundle named:
 ## Deploy the Airgap Installation Bundle
 
 Transfer the `chef-automate` binary and the Airgap Installation Bundle to the airgapped host.
-Save the Chef Automate command-line tool in a directory that is not in your `$PATH`. The Chef Automate installation process puts a copy of `chef-automate` into `/bin` and manages it.
+Save the Chef Automate command-line tool in a directory that's not in your `$PATH`. The Chef Automate installation process puts a copy of `chef-automate` into `/bin` and manages it.
 
 ### Create Default Configuration
 
@@ -82,17 +82,17 @@ sudo ./chef-automate init-config --upgrade-strategy none
 creates a `config.toml` file with default values. Setting an upgrade strategy of `none`
 prevents Chef Automate from checking its release channel for updates via the internet.
 
-Edit `config.toml` to make changes to FQDN and other configuration settings. 
-add Elasticsearch heap size setting at end of config as shown below, 
-recommended heap size is 50% of total memory, but cannot exceed more than 32 gb.
+Edit `config.toml` to make changes to FQDN and other configuration settings.
+add Elasticsearch heap size setting at end of config as shown below,
+recommended heap size is 50% of total memory, but can't exceed more than 32 gb.
 
 ```toml
 [elasticsearch.v1.sys.runtime]
   heapsize = "...g" # ... must be replaced with number in gb example 4g mean (4 gb)
 ```
+
 See
 [Configuring Chef Automate]({{< relref "configuration.md" >}}) for more information on configuration settings.
-
 
 ### Deploy Chef Automate
 

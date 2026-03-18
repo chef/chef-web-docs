@@ -215,7 +215,7 @@ In high availability (HA) deployments, the command automatically detects the HA 
 {{< note >}}
 
 - For AWS managed deployments using Amazon RDS or Amazon OpenSearch Service, those node types are automatically skipped.
-- Previous versions of Habitat core packages (`hab`, `hab-sup`, `hab-launcher`) are not removed from PostgreSQL and OpenSearch backend nodes.
+- Previous versions of Habitat core packages (`hab`, `hab-sup`, `hab-launcher`) aren't removed from PostgreSQL and OpenSearch backend nodes.
 
 {{< /note >}}
 
@@ -353,7 +353,7 @@ Packages are stored in `/hab/pkgs`, with each package consuming:
 - [Chef Automate CLI reference]({{< ref "cli.md" >}})
 - [Chef Automate upgrade guide]({{< ref "upgrade.md" >}})
 - [Chef Automate backup guide]({{< ref "backup.md" >}})
-- [Chef Habitat Package Management](https://docs.chef.io/habitat/on_prem_builder/packages/update_packages/)
+- [Chef Habitat Package Management](/habitat/on_prem_builder/packages/update_packages/)
 
 ## Support
 

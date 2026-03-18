@@ -26,11 +26,11 @@ This page explains the procedure to migrate the existing Standalone Chef Infra S
 - Backup the data from an existing Chef Infra Server or Chef Backend via `knife-ec-backup`.
 - Restore the backed-up data to the newly deployed Chef Automate HA environment via `knife-ec-restore`.
 
-Take a backup using the `knife-ec-backup` utility and move the backup folder to the newly deployed Chef Server. Later, restore using the same utility. The backup migrates all the cookbooks, users, data bags, policies, and organizations. `knife-ec-backup` utility backups and restores the data in an Enterprise Chef Server installation, preserving the data in an intermediate, in editable text format.
+Take a backup using the `knife-ec-backup` utility and move the backup folder to the newly deployed Chef Infra Server. Later, restore using the same utility. The backup migrates all the cookbooks, users, data bags, policies, and organizations. `knife-ec-backup` utility backups and restores the data in an Enterprise Chef Infra Server installation, preserving the data in an intermediate, in editable text format.
 
 {{< note >}}
 
-- The migration procedure is tested on Chef Server versions 14+ and 15+.
+- The migration procedure is tested on Chef Infra Server versions 14+ and 15+.
 - The migration procedure is tested and is possible on the Chef Backend version above 2.1.0.
 
 {{< /note >}}
@@ -70,7 +70,7 @@ Check the [AWS Deployment Prerequisites](/automate/ha_aws_deployment_prerequisit
         hab pkg exec chef/knife-ec-backup knife tidy server report --node-threshold 60 -s https://chef.io -u pivotal -k /etc/opscode/pivotal.pem
     ```
 
-4. Execute the below command to initiate a backup of your Chef Server data.
+4. Execute the below command to initiate a backup of your Chef Infra Server data.
 
     ```sh
         hab pkg exec chef/knife-ec-backup knife ec backup backup_$(date '+%Y%m%d%H%M%s') --webui-key /etc/opscode/webui_priv.pem -s <chef server url>
@@ -78,7 +78,7 @@ Check the [AWS Deployment Prerequisites](/automate/ha_aws_deployment_prerequisit
 
     In this command:
 
-    - `--with-user-sql` is required to handle user passwords and ensure user-specific association groups are not duplicated.
+    - `--with-user-sql` is required to handle user passwords and ensure user-specific association groups aren't duplicated.
     - `--with-key-sql` is to handle cases where customers have users with multiple pem keys associated with their user or clients. The current chef-server API only dumps the default key. Sometimes, users will generate and assign additional keys to give additional users access to an account but still be able to lock them out later without removing everyone's access.
 
     For example:
@@ -93,17 +93,17 @@ Check the [AWS Deployment Prerequisites](/automate/ha_aws_deployment_prerequisit
         hab pkg exec chef/knife-ec-backup knife tidy server clean --backup-path /path/to/an-ec-backup
     ```
 
-5. Execute the below command to copy the backup directory to the Automate HA Chef Server.
+5. Execute the below command to copy the backup directory to the Automate HA Chef Infra Server.
 
     ```sh
         scp -i /path/to/key /path/to/backup-file user@host:/home/user
     ```
 
-    If your HA Chef Server is in a private subnet, scp backup file to bastion and then to Chef Server.
+    If your HA Chef Infra Server is in a private subnet, scp backup file to bastion and then to Chef Infra Server.
 
 ## Add S3 Configurations for Cookbook Storage
 
-Before restoring the backup on the Automate HA Chef Server, configure [S3 storage](/automate/chef_infra_external_cookbooks_in_chef_automate/) for cookbooks. The cookbooks stored in S3 in the Chef server can be stored in S3 or PostgreSQL in Automate HA.
+Before restoring the backup on the Automate HA Chef Infra Server, configure [S3 storage](/automate/chef_infra_external_cookbooks_in_chef_automate/) for cookbooks. The cookbooks stored in S3 in the Chef server can be stored in S3 or PostgreSQL in Automate HA.
 
 {{< note >}}
 
@@ -115,6 +115,7 @@ Before restoring the backup on the Automate HA Chef Server, configure [S3 storag
 ## Restore Data to Chef Automate HA
 
 To restore the data, you will need to use the `knife-ec-backup` utility, which can be installed on any of the Automate HA Chef-Infra-Server nodes.
+
 - Execute the below command to install the habitat package for `knife-ec-backup`
 
     ```sh
@@ -139,9 +140,9 @@ To restore the data, you will need to use the `knife-ec-backup` utility, which c
 
     Where:
 
-    - `-S` is the Chef Server URL
-    - `-K` is the path of pivotal.pem file
-    - `-F` is the path to store the output file
+  - `-S` is the Chef Infra Server URL
+  - `-K` is the path of pivotal.pem file
+  - `-F` is the path to store the output file
 
 - Execute the below command to get the counts of objects
 
@@ -164,8 +165,8 @@ As part of this scenario, the customer will migrate from the chef-backend (5 mac
 
 {{< note >}}
 
-- Set up your workstation based on the newly created Automate-HA's chef-server. It is only needed if you have set up the workstation earlier.
-- This in-place migration works when cookbooks are stored in a database or s3. This does not support use-case, where cookbooks are stored in the filesystem.
+- Set up your workstation based on the newly created Automate-HA's chef-server. It's only needed if you have set up the workstation earlier.
+- This in-place migration works when cookbooks are stored in a database or s3. This doesn't support use-case, where cookbooks are stored in the filesystem.
 
 {{< /note >}}
 
@@ -177,7 +178,7 @@ As part of this scenario, the customer will migrate from the chef-backend (5 mac
 
 Where:
 
-- `-S` is the Chef Server URL
+- `-S` is the Chef Infra Server URL
 - `-K` is the path of pivotal.pem file
 - `-F` is the path to store the output file
 
@@ -223,7 +224,7 @@ Where:
     - Update the `instance_count`
     - fqdn : load balance URL, which points to the frontend node.
     - keys : ssh username and private keys
-    - Ensure to provide Chef Backend's frontend server IPs for Automate HA Chef Automate and Chef Server.
+    - Ensure to provide Chef Backend's frontend server IPs for Automate HA Chef Automate and Chef Infra Server.
     - Ensure to provide Chef Backend's backend server IPs for Automate HA PostgreSQL and OpenSearch machines.
     - Sample configuration; please modify according to your needs.
 
@@ -305,12 +306,12 @@ Bootstrap the nodes to update the `chef_server_url` using the following steps:
 1. Open the `~/.chef/config.rb` file in your workstation and update the `chef_server_url` with the chef-server-lb fqdn.
 1. Go to your workstation and open the `~/.chef/config.rb` file.
 1. Update the `chef_server_url` with the chef server LB fqdn.
-1. Now do node bootstrapping. It will update the chef_server_url on that node. Refer: [Node Bootstrapping](https://docs.chef.io/install_bootstrap/)
+1. Now do node bootstrapping. It will update the chef_server_url on that node. Refer: [Node Bootstrapping](/install_bootstrap/)
 
 ## Use Automate HA for Chef-Backend User
 
 Download and install [Chef Workstation](https://www.chef.io/downloads) from the bastion host or local machine.
-To set up Chef Workstation, see the [Workstation Set Up documentation](https://docs.chef.io/workstation/getting_started/#set-up-your-chef-repo).
+To set up Chef Workstation, see the [Workstation Set Up documentation](/workstation/getting_started/#set-up-your-chef-repo).
 
 ## Use Existing Private Supermarket with Automate HA
 

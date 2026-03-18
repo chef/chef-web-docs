@@ -28,7 +28,7 @@ Run scan jobs on:
 
 ### Scheduled Jobs
 
-Jobs may be scheduled to be executed now, at some later point in time, as a one-off job, or a job that is executed at a given interval (like once a day, or every two hours).
+Jobs may be scheduled to be executed now, at some later point in time, as a one-off job, or a job that's executed at a given interval (like once a day, or every two hours).
 
 ### Creating a Job
 
@@ -90,7 +90,7 @@ curl -sSX POST "https://automate-url/api/v0/compliance/scanner/jobs" -d
 
 ### Manual Nodes
 
-For users that wish to scan nodes that are not otherwise discoverable via integrations, we provide a `manually added nodes manager`.
+For users that wish to scan nodes that aren't otherwise discoverable via integrations, we provide a `manually added nodes manager`.
 Users may add nodes via ui or api, specifying the node's ip/hostname, port configuration, and sudo requirement (if any). In order to be able to run a scan job on a node, the correct set of ssh, winrm, and/or sudo credentials must be associated with that node. This is done by associating the desired credential ids with the node.
 
 ```bash
@@ -113,7 +113,7 @@ curl -sSX POST "https://automate-url/api/v0/nodes" -d
 
 ### Unreachable and Reachable (status)
 
-Whenever we are provided with information about a scannable node, we run a detect job (`inspec detect`) against that scannable node. If we are able to successfully connect, it is marked as reachable. An unreachable scannable node will have an error message attached to it. A user may edit the credentials associated with the item to resolve the problem, or in some cases a user may just want to rerun a node (as in the case of a network error).
+Whenever we are provided with information about a scannable node, we run a detect job (`inspec detect`) against that scannable node. If we are able to successfully connect, it's marked as reachable. An unreachable scannable node will have an error message attached to it. A user may edit the credentials associated with the item to resolve the problem, or in some cases a user may just want to rerun a node (as in the case of a network error).
 
 ```bash
 curl -sSX GET "https://automate-url/api/v0/nodes/rerun/id/d92b0c26-0c9a-4a04-b694-82fa979b2578"
@@ -123,7 +123,6 @@ curl -sSX GET "https://automate-url/api/v0/nodes/rerun/id/d92b0c26-0c9a-4a04-b69
 
 When creating a manually added node, use the 'Environment' tag to assign an environment to the node. `Environment` is the only supported field for project filtering on scan job results.
 ![Manual Node With Environment Tag](/images/automate/environment-tag-manual-node.png)
-
 
 ### FAQ
 

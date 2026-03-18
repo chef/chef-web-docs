@@ -1,5 +1,5 @@
 +++
-title = "LDAP"
+title = "Authenticate users with LDAP"
 
 date = 2018-05-11T09:27:09+00:00
 draft = false
@@ -12,13 +12,13 @@ draft = false
     weight = 30
 +++
 
-## Authentication via Existing Identity Management Systems
+## Authentication with existing identity management systems
 
 Chef Automate can integrate with existing LDAP services to authenticate users in Chef Automate, and thus use their existing group memberships to determine their Chef Automate permissions.
 
 Chef Automate supports using both local users and externally managed users from an external identity provider (IdP).
 Both _one_ LDAP service (or MSAD for simplified configuration of Active Directory setups) and _one_ SAML IdP can be used.
-You do not need to configure an external IdP if you simply want to create users and teams local to Chef Automate.
+You don't need to configure an external IdP if you simply want to create users and teams local to Chef Automate.
 See the [Users]({{< relref "users.md" >}}) documentation for additional information.
 
 Chef Automate uses [Dex](https://github.com/dexidp/dex) to support LDAP integrations.
@@ -27,11 +27,11 @@ Then run `chef-automate config patch </path/to/your-file.toml>` to deploy your c
 
 {{< warning >}}
 You may only integrate one IdP using SAML and one IdP using LDAP at a time.
-Chef Automate does not support using _two_ SAML IdPs or _two_ LDAP services simultaneously.
+Chef Automate doesn't support using _two_ SAML IdPs or _two_ LDAP services simultaneously.
 {{< /warning >}}
 
 Switching between a Microsoft AD configuration and generic LDAP configuration will
-not affect your policies, as they are both LDAP configurations.
+not affect your policies, as they're both LDAP configurations.
 However, switching between either of those configurations and a SAML configuration will
 require you to adjust the [IAM]({{< relref "iam_v2_overview.md" >}}) policy membership.
 
@@ -46,7 +46,7 @@ Local, MSAD, and LDAP users will have their Chef Automate sessions refreshed whi
 
 ## Overview
 
-This is documentation for configuring Chef Automate's Lightweight Directory Application Protocol (LDAP) and Microsoft Active Directory (MSAD) integrations. LDAP is an established and open standard protocol for interacting with directory servers. A directory server stores information--in this case information for authenticating and authorizing users--in a tree of entries. (It is not a relational database.)
+This is documentation for configuring Chef Automate's Lightweight Directory Application Protocol (LDAP) and Microsoft Active Directory (MSAD) integrations. LDAP is an established and open standard protocol for interacting with directory servers. A directory server stores information--in this case information for authenticating and authorizing users--in a tree of entries. (It isn't a relational database.)
 
 ## Microsoft Active Directory
 
@@ -129,7 +129,7 @@ group_display_name_attr
 insecure_no_ssl
 : false
 {{< warning >}}
-Connecting to an LDAP service without TLS is not recommended.
+Connecting to an LDAP service without TLS isn't recommended.
 {{< /warning >}}
 
 user_display_name_attr
@@ -170,7 +170,7 @@ ca_contents = "<your ca contents>" # optional
 
 ## Extended LDAP Settings
 
-For those who do not use Microsoft AD or require greater control over their configuration,
+For those who don't use Microsoft AD or require greater control over their configuration,
 Chef Automate has the following customizable LDAP configuration settings:
 
 base_group_search_dn
@@ -216,7 +216,7 @@ username_attr
 : "your username attribute"
 
 user_id_attr
-: "your userid attribute"
+: "your user ID attribute"
 
 user_display_name_attr
 : "your user display name attribute"
@@ -236,7 +236,7 @@ insecure_no_ssl = true or false
 base_user_search_dn = "<your base user search DN>"
 user_query_filter = "<your user query filter>"
 username_attr = "<your username attribute>"
-user_id_attr = "<your userid attribute>"
+user_id_attr = "<your user ID attribute>"
 email_attr = "<your email attribute>"
 user_display_name_attr = "<your user display name attribute>"
 base_group_search_dn = "<your base group search DN>"
@@ -250,7 +250,7 @@ See the [LDAP]({{< relref "ldap.md" >}}) for more information on configuration f
 You have the full extent of TOML is at your disposal for declaring configuration fields.
 
 {{< warning >}}
-Connecting to an LDAP service without TLS is not recommended.
+Connecting to an LDAP service without TLS isn't recommended.
 {{< /warning >}}
 
 However, if you wish to integrate with an LDAP server with TLS disabled:
@@ -282,18 +282,16 @@ It will connect to the host configured in your TOML configuration, for example:
 host = "ldap.corp.com"
 ```
 
-Automate uses port `636` by default. To override the port, append it to the host setting, e.g.
+Automate uses port `636` by default. To override the port, append it to the host setting. For example:
 
 ```toml
 host = "ldap.corp.com:10636"
 ```
 
-Whether the validity of the server's TLS certificate will be enforced depends on the TLS setup: if you provide a certificate authority's (CA) certificate(s), Chef Automate will only communicate with the LDAP service if the certificate provided by the host can be validated using the CA certificate(s).
-
-
+Whether the validity of the server's TLS certificate will be enforced depends on the TLS setup: if you provide a certificate authority's (CA) certificates, Chef Automate will only communicate with the LDAP service if the certificate provided by the host can be validated using the CA certificates.
 
 {{< warning >}}
-Connecting to an LDAP service without TLS is not recommended.
+Connecting to an LDAP service without TLS isn't recommended.
 {{< /warning >}}
 
 However, if you wish to integrate with an LDAP server with TLS disabled:
@@ -334,7 +332,7 @@ for common issues related to _Bind_.
 
 #### User Search
 
-After binding successfully, Chef Automate will try to obtain the directory name of the user that is trying to sign in.
+After binding successfully, Chef Automate will try to obtain the directory name of the user that's trying to sign in.
 
 To do so, it will search, using the configured _base_ `base_user_search_dn`,
 for an entry such that `username_attr` equals the username that attempted to
@@ -416,9 +414,9 @@ for an example on using `ldapsearch`, and different directory layouts.
 When the search for a user directory entry has succeeded, the LDAP connector
 will attempt to bind as the user entry, using the supplied password.
 
-For example, if the sign in using `jane:janespassword` has resulted in a
+For example, if the sign in using `jane:janes_password` has resulted in a
 successful user search, returning `cn=jane,ou=People,dc=corp,dc=com`, the next
-step will be to _bind again_ using that DN, and the password `janespassword`.
+step will be to _bind again_ using that DN, and the password `janes_password`.
 
 {{< note >}}
 The `ldapsearch` command line corresponding to _User Search_ is
@@ -460,8 +458,8 @@ The correct configuration settings again depend on your directory server's schem
 see the example configs below.
 
 {{< warning >}}
-The `base_group_search_dn` setting is optional. However, if it is not provided,
-users authenticating via LDAP (or MSAD) will not be members of any teams.
+The `base_group_search_dn` setting is optional. However, if it isn't provided,
+users authenticating via LDAP (or MSAD) won't be members of any teams.
 {{< /warning >}}
 
 {{< note >}}
@@ -523,7 +521,7 @@ See below for the full configuration and additional details about all LDAP confi
    # Populating the Chef Automate User via LDAP
    ###
    # Determines which LDAP field populates the username in a user's Chef Automate session on successful authentication.
-   user_id_attr = "<your userid attribute>"
+  user_id_attr = "<your user ID attribute>"
 
    # Optional: determines which LDAP field populates the email in a user's Chef Automate session on successful authentication.
    # Defaults to "user_id_attr" if not specified.
@@ -690,7 +688,7 @@ the sign in process has failed.
 
 #### Troubleshoot your Connection
 
-If the host or port was wrong, or Chef Automate was not able to reach the LDAP
+If the host or port was wrong, or Chef Automate wasn't able to reach the LDAP
 service, the sign in screen will display
 
 > Internal Server Error
@@ -726,7 +724,7 @@ level=error msg="Failed to login user: ldap: initial bind for user \"cn=service_
 #### Troubleshoot User Search
 
 There's two main ways the user search could fail, and they lead to different
-sign in failures: One is queries that cannot be executed at all, leading to
+sign in failures: One is queries that can't be executed at all, leading to
 
 > Internal Server Error
 >
@@ -765,7 +763,7 @@ level=error msg="ldap: no results returned for filter: \"(cnn=jane)\""
 In this example output, the `username_attr` was set to `cnn` (not `cn`).
 
 Since there is no way for the LDAP integration to determine whether a
-configuration was _wrong_ or the provided user does not exist, the sign in UI can
+configuration was _wrong_ or the provided user doesn't exist, the sign in UI can
 only assume that the credentials were invalid.
 
 Note that invalid entries for `user_query_filter` will lead to queries that
@@ -817,7 +815,7 @@ restricting `base_user_search_dn`, if you only want to allow people from one of
 either cities to use Chef Automate.
 
 {{< warning >}}
-Attributes that have been configured, but are not found in the results, lead to
+Attributes that have been configured, but aren't found in the results, lead to
 user search failures, too. Note that this also affects default values.
 {{< /warning >}}
 
@@ -829,7 +827,7 @@ level=info msg="username \"jane\" mapped to entry cn=jane,ou=People,dc=corp,dc=c
 
 #### Troubleshoot Sign In Bind
 
-Failures in sign in bind that are not caused by invalid credentials will lead to
+Failures in sign in bind that aren't caused by invalid credentials will lead to
 
 > Internal Server Error
 >
@@ -852,11 +850,11 @@ level=info msg="performing ldap search ou=Groups,dc=example,dc=org sub (member=c
 level=error msg="Failed to login user: ldap: failed to query groups: ldap: search failed: LDAP Result Code 32 \"No Such Object\": "
 ```
 
-This, for example, is what you see when the `base_group_search_dn` does not
+This, for example, is what you see when the `base_group_search_dn` doesn't
 exist (`"ou=Groups,dc=..."`).
 
 However, contrary to how _User Search_ works, an empty result from _Group
-Search_ will not inhibit sign in, it will merely not populate the user's
+Search_ won't inhibit sign in, it will merely not populate the user's
 internal record with any groups.
 
 A successful sign in causes log entries like the following:
@@ -877,13 +875,13 @@ level=info msg="Authorization Query" action=search resource="compliance:profiles
 #### `ldapsearch` Example Queries
 
 For debugging purposes it can be useful to execute LDAP queries manually using
-the `ldapsearch` utility. On Ubuntu, it is provided via `ldap-utils` (i.e.,
+the `ldapsearch` utility. On Ubuntu, it's provided via `ldap-utils` (i.e.,
 `sudo apt-get install ldap-utils`).
 In what follows, we will outline an example directory layout, and the `ldapsearch`
 queries corresponding to the different phases.
 
 The _User Search_ query looks like this, with comments referencing the
-configurables for LDAP integration:
+configuration options for LDAP integration:
 
 ```shell
 ldapsearch -H ldap://ldap-server:636/ \  # host
@@ -903,7 +901,7 @@ ldapsearch -H ldap://ldap-server:636/ \ # host
   '(cn=jane)'                           # (username_attr=what-was-provided-via-sign-in-form)
 ```
 
-If you have configured a `user_query_filter`, it is wrapped into the filter
+If you have configured a `user_query_filter`, it's wrapped into the filter
 argument:
 
 ```shell
@@ -929,7 +927,7 @@ then the password verification can be simulated by
 ```shell
 ldapsearch -H ldap://ldap-server:636/ \ # host
   -b cn=jane,ou=People,dc=corp,dc=com \ # always the entry's DN
-  -w janespassword                      # as provided via sign in from
+  -w janes_password                      # as provided via sign in from
 ```
 
 where any non-failure result (such as `32 No such object`) would indicate valid
@@ -965,7 +963,7 @@ automate-dex.default(O): time="..." level=error msg="Failed to login user: faile
 
 **Solution:**
 
-Enable legacy cipher support in Automate Dex by following the instructions in the [Chef Automate Configuration Documentation: Legacy Cipher Support](https://docs.chef.io/automate/configuration/#legacy-cipher-support).
+Enable legacy cipher support in Automate Dex by following the instructions in the [Chef Automate Configuration Documentation: Legacy Cipher Support](/automate/configuration/#legacy-cipher-support).
 
 This allows Automate Dex to connect to older LDAP servers using the required ciphers. See the configuration documentation for supported ciphers and step-by-step instructions.
 
@@ -980,13 +978,13 @@ internal limits.
 
 This can have two causes: the user having too many groups, or referencing LDAP
 groups by distinguished names (DN). The latter can cause little information
-(e.g. the group name _"admins"_) to grow out of proportion (e.g.
-_"cn=admins,ou=DeptA,ou=CityB,ou=StateWA,dc=subcorp,dc=corp,dc=com"_). This can
+(for example, the group name _"admins"_) to grow out of proportion (for example,
+_"cn=admins,ou=DeptA,ou=CityB,ou=StateWA,dc=example,dc=corp,dc=com"_). This can
 be mitigated by changing the `group_display_name_attr` from `DN` to `cn`
-(common name). Note that for authorization purposes, that is also advisable.
+(common name). Note that for authorization purposes, that's also advisable.
 LDAP-provided groups are referenced in policies using `team:ldap:<group-name>`.
 Thus `team:ldap:admins` is handier than
-`team:ldap:cn=admins,ou=DeptA,ou=CityB,ou=StateWA,dc=subcorp,dc=corp,dc=com`.
+`team:ldap:cn=admins,ou=DeptA,ou=CityB,ou=StateWA,dc=example,dc=corp,dc=com`.
 
 The other cause, having too many groups for a user, can be addressed by using
 the `group_query_filter` to restrict the group results (for all users).

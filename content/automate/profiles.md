@@ -55,8 +55,8 @@ Chef ships only the latest versions of profiles.
 When Chef publishes a newer profile version that a user has installed to their namespace,
 a small notification appears, prompting the user to download the newest version.
 Installing the newest version adds the updated profile to the user namespace,
-but it does not overwrite an existing profile.
-You can keep multiple versions of a profile and it is up to you to curate your installed profiles.
+but it doesn't overwrite an existing profile.
+You can keep multiple versions of a profile and it's up to you to curate your installed profiles.
 
 ## Understanding Profiles
 
@@ -99,7 +99,7 @@ Total tests
 
 Severity
 : The impact of a control, from 0 to 1.
-  See the Chef InSpec documentation for more information about the [severity measure](https://docs.chef.io/inspec/dsl_inspec#syntax)
+  See the Chef InSpec documentation for more information about the [severity measure](/inspec/dsl_inspec#syntax)
 
 Selecting the shaded area next to the control name or the `+` on the right side expands the control to show a more detailed description.
 Selecting **View Code** displays the control's InSpec code.
@@ -120,7 +120,7 @@ Users in a Chef Automate instance with the same username in both saml and local 
 ## Interacting with Chef Automate Profiles
 
 You can interact with Chef Automate Profiles from the command line, as well as from the user interface.
-For more information, see the [InSpec CLI](https://docs.chef.io/inspec/cli/) subcommand.
+For more information, see the [InSpec CLI](/inspec/cli/) subcommand.
 
 ### API Calls
 

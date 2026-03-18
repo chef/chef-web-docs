@@ -1,14 +1,14 @@
 +++
-title = "Loadbalancer Configuration"
+title = "Load balancer configuration"
 
 draft = false
 
 
 [menu]
   [menu.automate]
-    title = "Loadbalancer Configuration"
+   title = "Load balancer configuration"
     parent = "automate/deploy_high_availability/reference"
-    identifier = "automate/deploy_high_availability/reference/loadbalancer_configuration.md Loadbalancer Configuration"
+   identifier = "automate/deploy_high_availability/reference/load_balancer_configuration.md Load balancer configuration"
     weight = 200
 +++
 
@@ -25,24 +25,24 @@ This is the sample guide will show you how to configure a load balancer for Chef
 
 ## Load Balancer Prerequisites
 
--  Before proceeding with the load balancer setup, you must configure DNS for Automate and Chef Server. In this guide, we assume that you have already set up DNS with the following domain names:
+- Before proceeding with the load balancer setup, you must configure DNS for Automate and Chef Infra Server. In this guide, we assume that you have already set up DNS with the following domain names:
 
-   - Chef Automate: chefautomate.example.com
-   - Chef Infra Server: chefinfraserver.example.com
+  - Chef Automate: chefautomate.example.com
+  - Chef Infra Server: chefinfraserver.example.com
 
 ## Load Balancer architecture
 
 There are two recommended load balancer setups for Automate, depending on your feasibility:
 
 - Option 1: 2 Load Balancers with 2 Private IPs Each
-   - This setup requires two identical load balancer nodes to ensure high availability.
-   - Each node needs two private IPs, one for Automate and another for Chef Server.
-   - To set up DNS, point the Chef Automate DNS (chefautomate.example.com) to Private IP 1 of both nodes, and the Chef Server DNS (chefinfraserver.example.com) to Private IP 2 of both nodes.
+  - This setup requires two identical load balancer nodes to ensure high availability.
+  - Each node needs two private IPs, one for Automate and another for Chef Infra Server.
+  - To set up DNS, point the Chef Automate DNS (chefautomate.example.com) to Private IP 1 of both nodes, and the Chef Infra Server DNS (chefinfraserver.example.com) to Private IP 2 of both nodes.
 
-- Option 2: 4 Load Balancers, separate for Automate and separate for Chef Server
-   - This setup requires two load balancers for Automate and two for Chef Server to ensure high availability.
-   - Each node only requires one private IP.
-   - To set up DNS, point the Chef Automate DNS (chefautomate.example.com) to the Automate nodes and the Chef Server DNS (chefinfraserver.example.com) to the Chef Server nodes.
+- Option 2: 4 Load Balancers, separate for Automate and separate for Chef Infra Server
+  - This setup requires two load balancers for Automate and two for Chef Infra Server to ensure high availability.
+  - Each node only requires one private IP.
+  - To set up DNS, point the Chef Automate DNS (chefautomate.example.com) to the Automate nodes and the Chef Infra Server DNS (chefinfraserver.example.com) to the Chef Infra Server nodes.
 
 With these load balancer setups, you can ensure high availability for Chef Automate and Chef Infra Server.
 
@@ -118,7 +118,7 @@ For Centos or Redhat :
 
    # The below section is used for HTTPS call
    server {
-      # Add the private IP that's connected to Chef Server DNS, like 10.1.1.67:443 
+      # Add the private IP that's connected to Chef Infra Server DNS, like 10.1.1.67:443 
       listen <PRIVATE-IP-CHEF-SERVER>:443 ssl;
       # You need to get your infra server DNS,
       # Here, we have taken an example DNS: chefinfraserver.example.com
@@ -214,7 +214,7 @@ For Centos or Redhat :
       bind *:80
       redirect scheme https code 301 if !{ ssl_fc }
 
-   # You need to get your own Automate DNS and Chef Server,
+   # You need to get your own Automate DNS and Chef Infra Server,
    # Here, we have taken example DNS: chefautomate.example.com and chefinfraserver.example.com
    # Generate SSL certificates and give the path of the certificate and key file.
    # If you want to use letsencript certificates, you can use the certBot
@@ -227,7 +227,7 @@ For Centos or Redhat :
       default_backend chef-automate-servers
 
    frontend chef-infra-servers
-      # Add the private IP thats connected to Chef Server DNS, like 10.1.1.67:443 
+      # Add the private IP thats connected to Chef Infra Server DNS, like 10.1.1.67:443 
       bind <PRIVATE-IP-CHEF-SERVER>:443 ssl crt /etc/ssl/chefinfraserver.example.com/chefinfraserver.example.com.pem
       mode http
       default_backend chef-infra-servers
@@ -261,7 +261,7 @@ For Centos or Redhat :
    sudo systemctl restart haproxy
    ```
 
-## 4 Load Balancers Setup, separate for Automate and separate for Chef Server 
+## 4 Load Balancers Setup, separate for Automate and separate for Chef Infra Server
 
 ### Load Balancer setup using NGINX
 
@@ -338,7 +338,7 @@ For Centos or Redhat :
    sudo systemctl restart nginx
    ```
 
-#### Configure these on Chef Server Load Balancers
+#### Configure these on Chef Infra Server Load Balancers
 
 1. Create a new file `/etc/nginx/sites-available/chef-infra-server-lb.conf`
 
@@ -468,7 +468,7 @@ For Centos or Redhat :
    sudo systemctl restart haproxy
    ```
 
-#### Configure on Chef Server Load Balancers
+#### Configure on Chef Infra Server Load Balancers
 
 1. HAProxy needs an SSL certificate to be one file in a specific format. To do that, we create a new directory with the SSL certificate for Infra Server that HAProxy reads will live. Then we output the "live" (latest) certificates from LetsEncrypt and dump that output into the certificate file for HAProxy to use:
 
@@ -491,7 +491,7 @@ For Centos or Redhat :
       bind *:80
       redirect scheme https code 301 if !{ ssl_fc }
 
-   # You need to get your own Chef Server DNS,
+   # You need to get your own Chef Infra Server DNS,
    # Here we have taken an example DNS: chefinfraserver.example.com
    # Generate SSL certificates and give the path of the certificate and key file.
    # If you want to use letsencript certificates, you can use the certBot

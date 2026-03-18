@@ -14,7 +14,7 @@ draft = false
 
 [\[edit on GitHub\]](https://github.com/chef/automate/blob/main/components/docs-chef-io/content/automate/postgresql.md)
 
-You can configure Chef Automate to use external PostgreSQL clusters that are not deployed via Chef Automate itself.
+You can configure Chef Automate to use external PostgreSQL clusters that aren't deployed via Chef Automate itself.
 
 ## Configuring an External PostgreSQL Database
 
@@ -25,7 +25,6 @@ Add the following settings to your `config.toml`:
 {{< warning >}}
 {{% automate/char-warn %}}
 {{< /warning >}}
-
 
 ```toml
 [global.v1.external.postgresql]
@@ -55,11 +54,11 @@ enable = true
 
 ## Adding Resolvers for PostgreSQL Database
 
-In case you want to resolve the PostgreSQL cluster node IPs dynamically using DNS servers, you can add resolvers/nameservers to the configuration.
+In case you want to resolve the PostgreSQL cluster node IPs dynamically using DNS servers, you can add resolvers/name servers to the configuration.
 
-Name Servers can be added in two ways:
+Name servers can be added in two ways:
 
-1. **Add nameserver IPs:** If you are aware of the nameservers which should resolve the PostgreSQL nodes, the nameservers can be added to your `config.toml` file.
+1. **Add name server IPs:** If you are aware of the name servers which should resolve the PostgreSQL nodes, the name servers can be added to your `config.toml` file.
 
     ```toml
     [pg_gateway.v1.sys.resolvers]
@@ -67,14 +66,14 @@ Name Servers can be added in two ways:
       nameservers = ["127.0.0.53:53"]
     ```
 
-1. **Set system DNS entries:** To use existing system nameserver entries from `/etc/resolv.conf`, add the following setting to `config.toml`:
+1. **Set system DNS entries:** To use existing system name server entries from `/etc/resolv.conf`, add the following setting to `config.toml`:
 
     ```toml
     [pg_gateway.v1.sys.resolvers]
       enable_system_nameservers = true
     ```
 
-If both options are set, nameserver IPs takes precedence over the system nameserver entries.
+If both options are set, name server IPs takes precedence over the system name server entries.
 
 Apply the changes:
 

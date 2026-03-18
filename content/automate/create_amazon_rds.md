@@ -55,7 +55,7 @@ Before proceeding, make sure you have the following prerequisites in place:
     - In **DB subnet group**, choose any private subnet available in your VPC.
     - In **Public Access** select **NO**
 9. Configure the remaining settings as per your requirements.
-10. Review all the settings and ensure they are accurate.
+10. Review all the settings and ensure they're accurate.
 11. Select **Create database** to start the creation process.
 
 ## Step 4: Wait for the Amazon RDS Instance to be Created

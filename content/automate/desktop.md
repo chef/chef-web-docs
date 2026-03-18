@@ -18,14 +18,14 @@ Desktop information populates this dashboard after a Chef Infra Client run has e
 ## Setting Up the Desktop Dashboard
 
 {{< warning >}}
-We recommend starting with a fresh installation of Chef Automate, Chef Infra Server, and Chef Desktop because the servers do not distinguish between the types of managed nodes when combining existing Chef Automate nodes with a new Chef Desktop installation.
+We recommend starting with a fresh installation of Chef Automate, Chef Infra Server, and Chef Desktop because the servers don't distinguish between the types of managed nodes when combining existing Chef Automate nodes with a new Chef Desktop installation.
 {{< /warning >}}
 
-For guidance on installing Chef Desktop, see the [installing Chef Desktop documentation](https://docs.chef.io/desktop/demonstration_setup/).
+For guidance on installing Chef Desktop, see the [installing Chef Desktop documentation](/desktop/demonstration_setup/).
 The Desktop dashboard has no supported compliance profiles, and Chef Desktop installation includes no compliance profiles.
 
 {{< note >}}
-When installing Chef Automate with Chef Desktop, _Data Lifecycle_ settings will not mark nodes as missing and not delete missing nodes by default.
+When installing Chef Automate with Chef Desktop, _Data Lifecycle_ settings won't mark nodes as missing and not delete missing nodes by default.
 We encourage users to not change these specific settings and not defeat the monitoring purpose of the Desktop dashboard.
 {{< /note >}}
 
@@ -34,7 +34,7 @@ We encourage users to not change these specific settings and not defeat the moni
 Within Chef Automate, the _Desktop_ dashboard uses four panels to summarize information: _Daily Check-in_ _Check-in History_, _Top 10 Errors_, and _Time since Last Check-in_.
 Selecting rows within these displays will list relevant desktops and selecting a singular desktop reveals its detailed information.
 
-The _Desktop_ dashboard does not support project filtering.
+The _Desktop_ dashboard doesn't support project filtering.
 Node counts in the _Desktop_ dashboard may include liveness agents.
 
 ### Daily Check-in
@@ -46,7 +46,7 @@ Below the bar, boxes display counts of all desktops, desktops with an `unknown` 
 `Unknown` desktops did not report to Chef Automate during the last twenty-four hours.
 
 Selecting a box will display a Filtered Desktop List of desktops for the selected status.
-The selected filters will not persist when selecting a different box.
+The selected filters won't persist when selecting a different box.
 
 ### Check-in History
 
@@ -56,8 +56,8 @@ The time period options are "Last 3 Days," "Last 7 Days," and "Last 14 Days".
 
 ### Time Since Last Check-in
 
-The _Time since Last Check-in_ display shows a count of desktops with an `unknown` status for defined timeframes.
-Selecting a row will reveal a Filtered Desktop List of desktops for the selected timeframe.
+The _Time since Last Check-in_ display shows a count of desktops with an `unknown` status for defined time frames.
+Selecting a row will reveal a Filtered Desktop List of desktops for the selected time frame.
 
 ### Top 10 Errors
 
@@ -67,7 +67,7 @@ Selecting an error opens the Filter Desktop List with the applied error filter t
 ### Filtered Desktop Lists
 
 Selecting rows in _Daily Check-in_, _Time since Last Check-in_, or _Top 10 Errors_ activates the Filtered Desktop List.
-The Filtered Desktop List displays a list of desktops filtered according to the selected status, timeframe, or error in the previous display.
+The Filtered Desktop List displays a list of desktops filtered according to the selected status, time frame, or error in the previous display.
 
 Apply more filters to this initial list if desired.
 Specific filter values populate according to available desktop information and include the categories of "platform," "environment," "domain," and "last run status."

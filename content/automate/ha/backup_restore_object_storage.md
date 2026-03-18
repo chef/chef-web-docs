@@ -65,7 +65,7 @@ Encrypted S3 buckets are supported only with Amazon S3 managed keys (SSE-S3).
     curl -X POST https://localhost:9200/_nodes/reload_secure_settings?pretty --cacert /hab/svc/automate-ha-opensearch/config/certificates/root-ca.pem --key /hab/svc/automate-ha-opensearch/config/certificates/admin-key.pem --cert /hab/svc/automate-ha-opensearch/config/certificates/admin.pem -k
     ```
 
-1. Repeat these steps on all OpenSearch nodes until they are all updated.
+1. Repeat these steps on all OpenSearch nodes until they're all updated.
 
 #### OpenSearch health check
 
@@ -105,7 +105,7 @@ Before starting, make sure the frontend nodes and OpenSearch nodes have access t
         bucket = "<BUCKET_NAME>"
 
         # base_path (optional): The path within the bucket where backups should be stored
-        # If base_path is not set, backups will be stored at the root of the bucket.
+        # If base_path isn't set, backups will be stored at the root of the bucket.
         base_path = "opensearch"
 
         # name of an s3 client configuration you create in your opensearch.yml
@@ -147,7 +147,7 @@ Before starting, make sure the frontend nodes and OpenSearch nodes have access t
         endpoint = "<OBJECT_STORAGE_URL>"
 
         # base_path (optional): The path within the bucket where backups should be stored
-        # If base_path is not set, backups will be stored at the root of the bucket.
+        # If base_path isn't set, backups will be stored at the root of the bucket.
         base_path = "automate"
 
       [global.v1.backups.s3.credentials]
@@ -200,7 +200,7 @@ Add a GCS service account file that gives access to the GCS bucket to every Open
     curl -X POST https://localhost:9200/_nodes/reload_secure_settings?pretty --cacert /hab/svc/automate-ha-opensearch/config/certificates/root-ca.pem --key /hab/svc/automate-ha-opensearch/config/certificates/admin-key.pem --cert /hab/svc/automate-ha-opensearch/config/certificates/admin.pem -k
     ```
 
-1. Repeat these steps on all OpenSearch nodes until they are all updated.
+1. Repeat these steps on all OpenSearch nodes until they're all updated.
 
 After updating all nodes, the above curl command will return an output similar to this:
 
@@ -250,7 +250,7 @@ Before starting, make sure the frontend nodes and OpenSearch nodes have access t
         bucket = "bucket-name"
 
         # base_path (optional): The path within the bucket where backups should be stored
-        # If base_path is not set, backups will be stored at the root of the bucket.
+        # If base_path isn't set, backups will be stored at the root of the bucket.
         base_path = "opensearch"
         client = "default"
 
@@ -264,7 +264,7 @@ Before starting, make sure the frontend nodes and OpenSearch nodes have access t
         # endpoint = ""
 
         # base_path (optional): The path within the bucket where backups should be stored
-        # If base_path is not set, backups will be stored at the root of the bucket.
+        # If base_path isn't set, backups will be stored at the root of the bucket.
         base_path = "automate"
 
       [global.v1.backups.gcs.credentials]
@@ -343,7 +343,7 @@ Restore a backup from external object storage.
 {{< note >}}
 
 - If you are restoring the backup from an older version, then you need to provide the `--airgap-bundle </path/to/current/bundle>`.
-- Large Compliance Report is not supported in Automate HA
+- Large Compliance Report isn't supported in Automate HA
 {{< /note >}}
 
 #### Troubleshooting

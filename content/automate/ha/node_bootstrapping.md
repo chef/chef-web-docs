@@ -6,7 +6,7 @@ draft = false
 [menu]
   [menu.automate]
     title = "Node Bootstrapping"
-    identifier = "automate/deploy_high_availability/manage_ha_cluster/ha_node_bootstraping.md Node Bootstrapping"
+    identifier = "automate/deploy_high_availability/manage_ha_cluster/ha_node_bootstrapping.md Node Bootstrapping"
     parent = "automate/deploy_high_availability/manage_ha_cluster"
     weight = 250
 +++
@@ -27,7 +27,7 @@ The knife bootstrap command is a common way to install Chef Infra Client on a no
 
 The Chef Infra Client installer will detect the version of the operating system and then install the appropriate Chef Infra Client version using a single command to install Chef Infra Client and all of its dependencies, including an embedded version of Ruby, OpenSSL, parsers, libraries, and command-line utilities.
 
-The Chef Infra Client installer puts everything into a unique directory (/opt/chef/) so that Chef Infra Client will not interfere with other applications that may be running on the target machine. Once installed, Chef Infra Client requires a few more configuration steps before performing its first Chef Infra Client run on a node.
+The Chef Infra Client installer puts everything into a unique directory (/opt/chef/) so that Chef Infra Client won't interfere with other applications that may be running on the target machine. Once installed, Chef Infra Client requires a few more configuration steps before performing its first Chef Infra Client run on a node.
 
 ## Bootstrap a Node
 
@@ -54,7 +54,7 @@ The Chef Infra Client installer puts everything into a unique directory (/opt/ch
     For Example:
 
     ```bash
-    sudo chef-server-ctl user-create johndoe John Doe john.doe@example.com John@123 -f ./johndoe.pem
+    sudo chef-server-ctl user-create john_doe John Doe john.doe@example.com John@123 -f ./john_doe.pem
     ```
 
     Created users can be listed using `sudo chef-server-ctl user-list`
@@ -70,7 +70,7 @@ The Chef Infra Client installer puts everything into a unique directory (/opt/ch
     For Example:
 
     ```bash
-    sudo chef-server-ctl org-create new_org 'New Organization' --association_user johndoe -f ./new_org.pem
+    sudo chef-server-ctl org-create new_org 'New Organization' --association_user john_doe -f ./new_org.pem
     ```
 
     Created organization can be listed using `sudo chef-server-ctl org-list`
@@ -99,11 +99,11 @@ The Chef Infra Client installer puts everything into a unique directory (/opt/ch
     chef -v
     ```
 
-    For additional information, see [Install Workstation](https://docs.chef.io/workstation/install_workstation/) page.
+    For additional information, see [Install Workstation](/workstation/install_workstation/) page.
 
-    1. Generate chef-repo using `chef generate repo chef-repo`. For more information, see the [getting station](https://docs.chef.io/workstation/getting_started/) page of Workstation.
+    1. Generate chef-repo using `chef generate repo chef-repo`. For more information, see the [getting station](/workstation/getting_started/) page of Workstation.
 
-    1. Paste `pem` files of user and organization inside `/root/.chef/`. For example: `Eg.: /root/.chef/johndoe.pem , /root/.chef/new_org.pem`
+    1. Paste `pem` files of user and organization inside `/root/.chef/`. For example: `Eg.: /root/.chef/john_doe.pem , /root/.chef/new_org.pem`
 
     1. Paste ssh key of node which you want to bootstrap inside `/root/.ssh/<ssh_key_of_node>`.
 
@@ -127,7 +127,7 @@ The Chef Infra Client installer puts everything into a unique directory (/opt/ch
     knife ssl check
     ```
 
-    {{< note >}} `knife ssl check` might throw certificate error in which case, configuration can be done using DNS attached to Chef Server URL {{< /note >}}
+    {{< note >}} `knife ssl check` might throw certificate error in which case, configuration can be done using DNS attached to Chef Infra Server URL {{< /note >}}
 
     The above command will fetch certificate details, save them to the trusted_cert folder in **/root/.chef/**, and verify the same.
 
@@ -141,13 +141,13 @@ The Chef Infra Client installer puts everything into a unique directory (/opt/ch
 
     - **name_of_node:** You can provide any name to your node.
 
-    For example: `knife bootstrap 3.124.**.** -i ~/.ssh/rsa.pem -U ubuntu -N johndoe`
+    For example: `knife bootstrap 3.124.**.** -i ~/.ssh/rsa.pem -U ubuntu -N john_doe`
 
 ## Troubleshoot
 
-- If `knife bootstrap` throws permission denied or cannot create directory error, add the following configuration in `/root/.chef/credentials` and then run the bootstrap command as shown in _Step No. 8_.
+- If `knife bootstrap` throws permission denied or can't create directory error, add the following configuration in `/root/.chef/credentials` and then run the bootstrap command as shown in _Step No. 8_.
 
-**Resolution** 
+**Resolution**
 
 ```bash
 [default.knife]
@@ -156,16 +156,16 @@ aws_profile = 'default'
 use_sudo = true
 ```
 
-- If you have an error while doing bootstrapping 
+- If you have an error while doing bootstrapping
 
-```automate-cs-nginx.default(O): 2022/10/21 08:53:02 [error] 5742#0: *2490 upstream SSL certificate verify 
+```automate-cs-nginx.default(O): 2022/10/21 08:53:02 [error] 5742#0: *2490 upstream SSL certificate verify
 error: (20:unable to get local issuer certificate) while SSL handshaking to upstream, client: 127.0.0.1, server: , 
 request: "POST /organizations/MYORGS/data-collector HTTP/1.1", 
 upstream: "https://<MP-AUTOMATE-FQDN>:443/data-collector/v0/", 
 host: "<MY-HOSTNAME>"
 ```
 
-**Resolution** 
+**Resolution**
 
 - patch the below config in chef-server.
 

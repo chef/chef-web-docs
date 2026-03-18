@@ -18,19 +18,19 @@ draft = false
 
 {{< note >}}
 
-- If the user chooses `backup_config` as `file_system` in `config.toml` backup is already configured during the deployment, and in that case **the below steps are not required**. If `backup_config` is left blank, then the configuration needs to be configured manually.
+- If the user chooses `backup_config` as `file_system` in `config.toml` backup is already configured during the deployment, and in that case **the below steps aren't required**. If `backup_config` is left blank, then the configuration needs to be configured manually.
 
 {{< /note >}}
 
 ## Overview
 
-A shared file system is always required to create **OpenSearch** snapshots. To register the snapshot repository using OpenSearch, it is necessary to mount the same shared filesystem to the exact location on all master and data nodes. Register the location (or one of its parent directories) in the `path.repo` setting on all master and data nodes.
+A shared file system is always required to create **OpenSearch** snapshots. To register the snapshot repository using OpenSearch, it's necessary to mount the same shared filesystem to the exact location on all master and data nodes. Register the location (or one of its parent directories) in the `path.repo` setting on all master and data nodes.
 
 ### Setting up the backup configuration
 
 #### Configuration in OpenSearch Node
 
-- Mount the shared file system to the base mount path which is mentioned in `backup_mount` on **all** OpenSearch and Frontend servers. 
+- Mount the shared file system to the base mount path which is mentioned in `backup_mount` on **all** OpenSearch and Frontend servers.
 
 {{< note >}}
 
@@ -66,7 +66,7 @@ Configure the OpenSearch `path.repo` setting by following the steps given below:
       chef-automate config patch --opensearch <PATH TO OS_CONFIG.TOML>
     ```
 
-##### Healthcheck commands
+##### Health check commands
 
 - Following command can be run at the bastion node
 
@@ -148,7 +148,7 @@ To restore backed-up data of the Chef Automate High Availability (HA) using Exte
 {{< note >}}
 
 - If you are restoring the backup from an older version, then you need to provide the `--airgap-bundle </path/to/current/bundle>`.
-- Large Compliance Report is not supported in Automate HA
+- Large Compliance Report isn't supported in Automate HA
 {{< /note >}}
 
 #### Troubleshooting

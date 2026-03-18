@@ -20,7 +20,7 @@ The _Reports_ page provides a comprehensive insight into all scanned infrastruct
 
 ## Dates in Compliance Reports
 
-The dashboard shows the results of all scans with end times on the *current selected day*. The *current selected day* is based on timestamps in Coordinated Universal Time (UTC). The trend graph provides a historical overview of node status over time. You can change it to display overviews of the past ten days, one month, three months, or one year.
+The dashboard shows the results of all scans with end times on the _current selected day_. The _current selected day_ is based on timestamps in Coordinated Universal Time (UTC). The trend graph provides a historical overview of node status over time. You can change it to display overviews of the past ten days, one month, three months, or one year.
 
 To view scan reports in the past, users can select a different date from the calendar located in the search bar.
 
@@ -29,7 +29,7 @@ To view scan reports in the past, users can select a different date from the cal
 ## Search Bar and Filters
 
 The Compliance search allows you to view and filter compliance scan results based on a defined set of filters.
-Wildcard searches on field values will not return suggestions, but they will filter the results.
+Wildcard searches on field values won't return suggestions, but they will filter the results.
 For example, you can search for `Node Name: prod*` and filter the results to list all the node names that begin with `prod`.
 
 Chef Infra Server
@@ -111,7 +111,7 @@ If the results returned by your deep filter are incorrectly scoped, review the `
 
 A node's waived status appears if applicable in displays where a node's status appears in Chef Automate. The Compliance Reports overview displays the node count, history of waived nodes, and the count and history of waived controls. _Nodes_ and _Profiles_ views include _Waived Nodes_ and _Waived Profiles_ status filters, respectively. The _Waived_ status filter displays the respective Node or Profile reporting with the `waived` status. Hover over the control's Waived icon under the Node Status column in _Controls_ to view more details about the waiver applied to the control.
 
-Use Chef InSpec to configure [waivers](https://docs.chef.io/inspec/waivers/).
+Use Chef InSpec to configure [waivers](/inspec/waivers/).
 
 ## Download Report Results (Default Configuration)
 
@@ -145,7 +145,7 @@ In case Automate is configured to ingest an extensive compliance report of size 
 
 ### Download Report
 
-Select the corresponding link on the status sidebar to download the genrated report.
+Select the corresponding link on the status sidebar to download the generated report.
 
 ![Report Download](/images/automate/lcr-report-download.png)
 
@@ -214,7 +214,7 @@ Scroll to the bottom of the page for pagination navigation options.
 ![Reports Nodes](/images/automate/reports-nodes.png)
 
 Node
-: A node is any machine that is under management by Chef.
+: A node is any machine that's under management by Chef.
 
 Platform
 : The operating system on your nodes, such as AIX, Amazon Linux, Apache, macOS, CentOS, Oracle Linux, Oracle Solaris, RHEL, SUSE Linux, Ubuntu, and Windows.

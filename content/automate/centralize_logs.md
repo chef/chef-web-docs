@@ -170,7 +170,7 @@ To do this, mount a network file system (NFS) or network-attached storage (NAS) 
 
 Splunk consolidates all the log data and pushes it to a central, accessible, easy-to-use interface.
 
-For information about configuring Splunk, see [Splunk's Universal Forwader documentation](https://docs.splunk.com/Documentation/Forwarder) and [Splunk's `inputs.conf` documentation](https://docs.splunk.com/Documentation/Splunk/latest/Admin/Inputsconf).
+For information about configuring Splunk, see [Splunk's Universal Forwarder documentation](https://docs.splunk.com/Documentation/Forwarder) and [Splunk's `inputs.conf` documentation](https://docs.splunk.com/Documentation/Splunk/latest/Admin/Inputsconf).
 
 1. If have your Splunk forwarder installed, start the Splunk Universal Forwarder:
 

@@ -43,11 +43,11 @@ Selecting this link opens a side panel showing the details of the collapsed even
 
 To filter the event feed and event timeline by Event Type, Chef Infra Server, or Chef Organization, use the search bar.
 The search bar appears to users with permission for the `infra:nodes:list` action.
-Available event type filters are clients, cookbooks, data bags, environments, nodes, policyfiles, profiles, roles, and scan jobs.
+Available event type filters are clients, cookbooks, data bags, environments, nodes, Policyfiles, profiles, roles, and scan jobs.
 
 To filter, select Event Type, Chef Infra Server, or Chef Organization in the search bar and start typing the name.
-You cannot filter compliance events -- profiles and scan jobs -- by organization or Chef Infra Server.
-Compliance events are not visible when either of these filters are applied.
+You can't filter compliance events -- profiles and scan jobs -- by organization or Chef Infra Server.
+Compliance events aren't visible when either of these filters are applied.
 
 You can also filter the _Event Feed_ event timeline by day or by set of days within the past week.
 The _Event Feed_ defaults to show all events in the past week.

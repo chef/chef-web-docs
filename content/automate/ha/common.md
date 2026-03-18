@@ -41,17 +41,17 @@ Once we have an AWS account, we'll need to create an IAM user to programmaticall
 ### Creating an IAM User
 
 1. Navigate to your AWS account.
-1. Select *IAM* from the list of services from the AWS console. The *IAM dashboard* screen appears.
+1. Select _IAM_ from the list of services from the AWS console. The _IAM dashboard_ screen appears.
 
     {{< figure src="/images/automate/ha_aws_iam.png" alt="AWS IAM Dashboard">}}
 
-1. Select *Users* from the *Access management* menu on the left.
-1. Select *Add Users*. The *Set User Details* screen appears.
+1. Select _Users_ from the _Access management_ menu on the left.
+1. Select _Add Users_. The _Set User Details_ screen appears.
 1. Type the user name for the new user and other necessary details.
 
     {{< figure src="/images/automate/ha_aws_iam_user.png" alt="AWS IAM User Creation">}}
 
-1. Check the *Access key - Programmatic access* box under *Select AWS access type* section.
+1. Check the _Access key - Programmatic access_ box under _Select AWS access type_ section.
 
     {{< figure src="/images/automate/ha_aws_iam_paccess.png" alt="AWS IAM User - Programmetic Access">}}
 
@@ -59,22 +59,22 @@ Once we have an AWS account, we'll need to create an IAM user to programmaticall
 
     This account will be used by your AWS CLI and will be connecting to the AWS API directly by not using the Management Console.
 
-1. Select *Next: Permissions*.
-1. Select *Attach existing policies directly*. Filter the policies by keyword: IAM. For this user, select IAMFullAccess from the list of available policies. The IAMFullAccess policy enables this user to create and manage user permissions in AWS.
+1. Select _Next: Permissions_.
+1. Select _Attach existing policies directly_. Filter the policies by keyword: IAM. For this user, select IAMFullAccess from the list of available policies. The IAMFullAccess policy enables this user to create and manage user permissions in AWS.
 
     {{< figure src="/images/automate/ha_aws_iam_policy.png" alt="AWS IAM User Policy">}}
 
 1. Set the user permissions.
-1. Search for **AdministratorAccess* and select the policy.
-1. Select *Next: Tags*.
+1. Search for *_AdministratorAccess_ and select the policy.
+1. Select _Next: Tags_.
 1. Provide key name and value as tagging for the user been created.
-1. Select *Next: Review*.
+1. Select _Next: Review_.
 
     {{< figure src="/images/automate/ha_aws_iam_user_review.png" alt="AWS IAM User Review with permissions">}}
 
-1. Select *Create user*.
-1. Select *show* to reveal the secret access key.
-1. Download and save the *Secret access key*.
+1. Select _Create user_.
+1. Select _show_ to reveal the secret access key.
+1. Download and save the _Secret access key_.
 
     {{< figure src="/images/automate/ha_aws_iam_user_created.png" alt="AWS IAM User Created with Access Key">}}
 
@@ -107,7 +107,7 @@ Follow these steps to rotate your certificates that are to be used in Chef Autom
 
     {{< note >}}
 
-    When you run this command first time, a series of certificates are created and saved in `/hab/a2_deploy_workspace/certs` location. You need to identify the appropriate certificates. For example, to rotate certificates for PostgreSQL, use certificate values into *pg_ssl_private.key*,  *pg_ssl_public.pem*, and *ca_root.pem*. Likewise, to rotate certificates for Elasticsearch, use certificate values into *ca_root.pem*, *es_admin_ssl_private.key*, *es_admin_ssl_public.pem*, *es_ssl_private.key*, *es_ssl_public.pem*, *kibana_ssl_private.key*, *kibana_ssl_public.pem*.
+    When you run this command first time, a series of certificates are created and saved in `/hab/a2_deploy_workspace/certs` location. You need to identify the appropriate certificates. For example, to rotate certificates for PostgreSQL, use certificate values into _pg_ssl_private.key_,  _pg_ssl_public.pem_, and _ca_root.pem_. Likewise, to rotate certificates for Elasticsearch, use certificate values into _ca_root.pem_, _es_admin_ssl_private.key_, _es_admin_ssl_public.pem_, _es_ssl_private.key_, _es_ssl_public.pem_, _kibana_ssl_private.key_, _kibana_ssl_public.pem_.
 
     {{< /note >}}
 
@@ -137,7 +137,7 @@ Follow these steps to rotate your certificates that are to be used in Chef Autom
 
 ### What are Self Signed Certificates?
 
-A self signed certificate is a digital certificate that is not signed by a publicly trusted certificate authority (CA). They are created, issued, and signed by the company or developer who is responsible for the website or software being signed. The private key used in such certificate is not validated by a third party and is generally used in low-risk internal networks or in the software development phase. In addition, unlike CA-issued certificates, self-signed certificates cannot be revoked.
+A self signed certificate is a digital certificate that's not signed by a publicly trusted certificate authority (CA). They're created, issued, and signed by the company or developer who is responsible for the website or software being signed. The private key used in such certificate isn't validated by a third party and is generally used in low-risk internal networks or in the software development phase. In addition, unlike CA-issued certificates, self-signed certificates can't be revoked.
 
 #### Certificate Creation
 
@@ -145,13 +145,13 @@ You can create a self-signed key and certificate pair with OpenSSL utility, a co
 
 Follow these steps to create a self-sign certificate:
 
-1. Install an *openssl* utility.
+1. Install an _openssl_ utility.
 
 1. Navigate to your workspace folder. For example, `cd /hab/a2_deploy_workspace`.
 
 1. Type the command, `./scripts/credentials set ssl --rotate-all`. This command creates a skeleton of certificates.
 
-1. Copy the below *bash script* to a new file:
+1. Copy the below _bash script_ to a new file:
 
     ```bash
     # !/bin/bash
@@ -201,7 +201,7 @@ Follow these steps to create a self-sign certificate:
 
 1. Navigate to your bastion host.
 
-1. Execute the new file that has the copied bash script. The script generates the certificates at `/hab/a2_deploy_worspace/certs` directory. For example, `bash cert.sh`, where *cert.sh is the name of the newly created bash script file.
+1. Execute the new file that has the copied bash script. The script generates the certificates at `/hab/a2_deploy_workspace/certs` directory. For example, `bash cert.sh`, where *cert.sh is the name of the newly created bash script file.
 
 1. Again, navigate to your workspace folder. For example, `cd /hab/a2_deploy_workspace`.
 
@@ -226,7 +226,7 @@ Follow these steps to create a self-sign certificate:
         I, [2021-12-20T16:44:20.979815 #411121] INFO - - : * SSL Certificates Rotated *
     ```
 
-1. Navigate to the Chef Automate and Chef Server instances and check the Chef Service health status. If the service is down or critical, then  wait for three to four minutes for the instances to be up.
+1. Navigate to the Chef Automate and Chef Infra Server instances and check the Chef Service health status. If the service is down or critical, then  wait for three to four minutes for the instances to be up.
 
 ## AWS Certificate Manager
 
@@ -234,7 +234,7 @@ This section explains how to use the **AWS Certificate Manager (ACM)** console t
 
 You can either generate a new public certificate or copy an existing Amazon Resource Name (ARN) value of the certificate of your selected region in the AWS console.
 
-{{< figure src="/images/automate/ha_aws_cert_mngr_arn.png" alt="AWS ACM ARN Value">}}
+{{< figure src="/images/automate/ha_aws_cert_manager_arn.png" alt="AWS ACM ARN Value">}}
 
 ### Requesting a Public Certificate using AWS console
 
@@ -248,7 +248,7 @@ Follow these steps if you want to request an ACM public certificate:
 
 1. Select **Request a certificate**.
 
-    {{< figure src="/images/automate/ha_aws_cert_mngr_console.png" alt="AWS ACM">}}
+    {{< figure src="/images/automate/ha_aws_cert_manager_console.png" alt="AWS ACM">}}
 
 1. Select the **Request a public certificate** option from the **Certificate type** page, and select **Next**.
 
@@ -256,11 +256,11 @@ Follow these steps if you want to request an ACM public certificate:
 
     Before ACM issues a certificate, it validates that you own or control the domain names in your certificate request. You can use either email validation or DNS validation.
 
-1. In the **Select validation method** section, select either *DNS validation* or *Email validation*.
+1. In the **Select validation method** section, select either _DNS validation_ or _Email validation_.
 
 1. From the **Tags** page, you can optionally tag your certificate. Tags are key-value pairs that serve as metadata for identifying and organizing AWS resources.
 
-1. Select **Request**. The console returns you to your certificate list after processing the request, where your new certificate displays with status, *Pending validation*.
+1. Select **Request**. The console returns you to your certificate list after processing the request, where your new certificate displays with status, _Pending validation_.
 
 You can also request a public certificate using the Command Line Interface (CLI). For detailed information on requesting these certificates, refer  [AWS documentation on requesting a public certificate](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html).
 
@@ -289,11 +289,11 @@ Follow these steps if you want to use the AWS certificates in your network infra
 
 Follow any of the step to destroy terraform or infrastructure created while deploying Chef Automate High Availability (HA) using AWS or Bare-metal model.
 
-- If the *provision-infra* command fails, execute the following command to clear the space utilized by this command before it fails, execute the command:
+- If the _provision-infra_ command fails, execute the following command to clear the space utilized by this command before it fails, execute the command:
 
 `for i in 1;do i=$PWD;cd /hab/a2_deploy_workspace/terraform/;terraform destroy -state=/hab/a2_deploy_workspace/terraform/destroy/aws/terraform.tfstate;cd $i;done`
 
-- If the *provision-infra* command ran successfully and if you want to clear the space utilized by this command, execute these commands in the order listed:
+- If the _provision-infra_ command ran successfully and if you want to clear the space utilized by this command, execute these commands in the order listed:
 
 1. `for i in 1;do i=$PWD;cd /hab/a2_deploy_workspace/terraform/destroy/aws/;terraform init;cd $i;done`.
 
@@ -305,7 +305,7 @@ Follow any of the step to destroy terraform or infrastructure created while depl
 
     {{< note spaces=4 >}}
 
-    The deployment destroy does not remove any remote server configuration made, however it taints the terraform and thus you need to redo the configurations.
+    The deployment destroy doesn't remove any remote server configuration made, however it taints the terraform and thus you need to redo the configurations.
 
     {{< /note >}}
 
@@ -321,9 +321,9 @@ This section elaborates the validation procedure that checks the firewall rules 
 
 Follow these steps to examine the firewall rules are stateful, and ports are open before Chef Automate High Availability (HA) backend cluster deployment in air-gapped environment (means no access to the internet):
 
-1. Download hab, *hab-x86_64-linux.tar.gz* by executing the command, `sudo wget https://packages.chef.io/files/stable/habitat/latest/hab-x86_64-linux.tar.gz`.
+1. Download hab, _hab-x86_64-linux.tar.gz_ by executing the command, `sudo wget https://packages.chef.io/files/stable/habitat/latest/hab-x86_64-linux.tar.gz`.
 
-1. Install hab package in your internet environment by executing the following commands that generate *netcate package*:
+1. Install hab package in your internet environment by executing the following commands that generate the _netcat package_:
 
     ```bash
 
@@ -333,7 +333,7 @@ Follow these steps to examine the firewall rules are stateful, and ports are ope
     ls -dtr1 /hab/cache/artifacts/core-netcat-*
     ```
 
-1. Provide the path of the `config.toml` file, `hab-utitlity` and `netcate` package in the command, ./chef-automate validate-ha-infrastructure */path/to/config.toml* */path/to/hab.tar.gz* */path/to/netcat.hart*  as parameters.
+1. Provide the path of the `config.toml` file, `hab-utility`, and the `netcat` package in the command, `./chef-automate validate-ha-infrastructure /path/to/config.toml /path/to/hab.tar.gz /path/to/netcat.hart`, as parameters.
 
     ```bash
     ./chef-automate validate-ha-infrastructure /root/config.toml /root/hab-x86_64-linux.tar.gz /hab/cache/artifact/core-netcat-<version>.hart
@@ -347,7 +347,7 @@ You need to execute the following command to examine the firewall rules are stat
 
 `./chef-automate validate-ha-infrastructure /path/to/config.toml`
 
-where you need to provide the path of the *config.toml* file in */path/to/config.toml* in the above command.
+where you need to provide the path of the _config.toml_ file in _/path/to/config.toml_ in the above command.
 
 This command show the status of the set firewall rules and the ports configured.
 
@@ -357,9 +357,9 @@ Amazon VPC, a virtual network dedicated to your AWS account, enables you to laun
 
 Amazon VPC is the networking layer for Amazon EC2. Amazon Elastic Compute Cloud (Amazon EC2) provides scalable computing capacity in the Amazon Web Services (AWS) Cloud. Using Amazon EC2 eliminates your need to invest in hardware upfront, so you can develop and deploy applications faster. You can use Amazon EC2 to launch as many or as few virtual servers as you need, configure security and networking, and manage storage. Amazon EC2 enables you to scale up or down to handle changes in requirements or spikes in popularity, reducing your need to forecast traffic.
 
-VPC creates an isolated virtual network environment in the AWS cloud, dedicated to your AWS account. Other AWS resources and services operate inside VPC networks to provide cloud services. AWS VPC looks familiar to anyone running a physical Data Center (DC). A VPC behaves like a traditional TCP/IP network that can be expanded and scaled as needed. However, the DC components you are used to dealing with---such as routers, switches, and VLANS---do not explicitly exist in a VPC. They have been abstracted and re-engineered into cloud software.
+VPC creates an isolated virtual network environment in the AWS cloud, dedicated to your AWS account. Other AWS resources and services operate inside VPC networks to provide cloud services. AWS VPC looks familiar to anyone running a physical Data Center (DC). A VPC behaves like a traditional TCP/IP network that can be expanded and scaled as needed. However, the DC components you are used to dealing with---such as routers, switches, and VLANS---don't explicitly exist in a VPC. They have been abstracted and re-engineered into cloud software.
 
-All VPCs are created and exist in one--and only one--AWS region. AWS regions are geographic locations where Amazon clusters its cloud data centers. The advantage of regionalisation is that a regional VPC provides network services originating from that geographical area. If you need to provide closer access for customers in another region, you can set up another VPC in that region. This aligns nicely with the theory of AWS cloud computing, where IT applications and resources are delivered through the internet on-demand and with pay-as-you-go pricing. Limiting VPC configurations to specific regions allows you to selectively provide network services where they are needed, as they are needed.
+All VPCs are created and exist in one--and only one--AWS region. AWS regions are geographic locations where Amazon clusters its cloud data centers. The advantage of regionalization is that a regional VPC provides network services originating from that geographical area. If you need to provide closer access for customers in another region, you can set up another VPC in that region. This aligns nicely with the theory of AWS cloud computing, where IT applications and resources are delivered through the internet on-demand and with pay-as-you-go pricing. Limiting VPC configurations to specific regions allows you to selectively provide network services where they're needed, as they're needed.
 
 Each Amazon account can host multiple VPCs. Because VPCs are isolated, you can duplicate private subnets among VPCs the same way you could use the same subnet in two different physical data centers. You can also add public IP addresses that can be used to reach VPC-launched instances from the internet.
 
@@ -371,7 +371,7 @@ You can either create a new VPC or use an existing available one in the region w
 
 #### VPC Limit
 
-The default limit to create a VPC in a region is *5*. However, if the VPCs used in the respective region are exhausted, you can increase the limit in your AWS account. Chef Automate HA on AWS deployment creates two VPCs, one for the bastion host and another for the rest of the node in a cluster.
+The default limit to create a VPC in a region is _5_. However, if the VPCs used in the respective region are exhausted, you can increase the limit in your AWS account. Chef Automate HA on AWS deployment creates two VPCs, one for the bastion host and another for the rest of the node in a cluster.
 
 {{< note >}}
 
@@ -379,71 +379,71 @@ You require a minimum of three node clusters for Elasticsearch and PostgreSQL in
 
 {{< /note >}}
 
-AWS limits the size of each VPC; a user cannot change the size once the VPC has been created. Amazon VPC also sets a limit of 200 subnets per VPC, each of which can support a minimum of 14 IP addresses. AWS places further limitations per account / per region, including limiting the number of VPCs to five, the number of Elastic IP addresses to five, the number of Internet gateways per VPC to one, the number of virtual private gateways to five, and the number of customer gateways to 50.
+AWS limits the size of each VPC; a user can't change the size once the VPC has been created. Amazon VPC also sets a limit of 200 subnets per VPC, each of which can support a minimum of 14 IP addresses. AWS places further limitations per account / per region, including limiting the number of VPCs to five, the number of Elastic IP addresses to five, the number of Internet gateways per VPC to one, the number of virtual private gateways to five, and the number of customer gateways to 50.
 
-VPC IP address ranges are defined using Classless interdomain routing (CIDR) IPv4 and IPv6 blocks. You can add primary and secondary CIDR blocks to your VPC, if the secondary CIDR block comes from the same address range as the primary block.
+VPC IP address ranges are defined using Classless Inter-Domain Routing (CIDR) IPv4 and IPv6 blocks. You can add primary and secondary CIDR blocks to your VPC, if the secondary CIDR block comes from the same address range as the primary block.
 
 #### Copying an Existing VPC
 
-1. Navigate to the *AWS Management Console*.
+1. Navigate to the _AWS Management Console_.
 
-1. Select your *AWS Region* from the top toolbar.
+1. Select your _AWS Region_ from the top toolbar.
 
-1. From the navigation pane, select *VPC Dashboard* in the upper-left corner.
+1. From the navigation pane, select _VPC Dashboard_ in the upper-left corner.
 
-1. Select *Your VPCs*.
+1. Select _Your VPCs_.
 
-1. Copy any available *VPC ID* from the *Your VPCs* screen.
+1. Copy any available _VPC ID_ from the _Your VPCs_ screen.
 
 {{< figure src="/images/automate/ha_aws_vpc_existing.png" alt="Using Existing VPC">}}
 
 ##### Adding a Private Subnet to the Available VPC
 
-1. From the navigation pane, select *Subnets*.
+1. From the navigation pane, select _Subnets_.
 
-1. Search your *VPC ID* in the *Subnets* screen.
+1. Search your _VPC ID_ in the _Subnets_ screen.
 
-1. Copy the corresponding *IPv4 CIDR* value.
+1. Copy the corresponding _IPv4 CIDR_ value.
 
 {{< figure src="/images/automate/ha_aws_vpc_existing_subnet.png" alt="Using Existing VPC Subnet Value">}}
 
 #### Creating a VPC
 
-1. Navigate to the *AWS Management Console*.
+1. Navigate to the _AWS Management Console_.
 
-1. Select your *AWS Region* from the top toolbar.
+1. Select your _AWS Region_ from the top toolbar.
 
-1. From the navigation pane, select *VPC Dashboard* in the upper-left corner.
+1. From the navigation pane, select _VPC Dashboard_ in the upper-left corner.
 
-1. Select *Your VPCs*.
+1. Select _Your VPCs_.
 
-1. Select *Create VPC* from the left.
+1. Select _Create VPC_ from the left.
 
-1. For *IPv4 CIDR* block, enter the CIDR block for the VPC. We recommend that you use a CIDR block from the private (non-publicly routable) IP address ranges. For example, 10.0.0.0/16. For more information, refer [VPC and Subnet Sizing for IPv4 page](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-sizing-ipv4).
+1. For _IPv4 CIDR_ block, enter the CIDR block for the VPC. We recommend that you use a CIDR block from the private (non-publicly routable) IP address ranges. For example, 10.0.0.0/16. For more information, refer [VPC and Subnet Sizing for IPv4 page](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-sizing-ipv4).
 
-1. For *IPv6 CIDR* block, keep No IPv6 CIDR Block.
+1. For _IPv6 CIDR_ block, keep No IPv6 CIDR Block.
 
-1. For VPC name, enter a *tag name*.
+1. For VPC name, enter a _tag name_.
 
-1. Select *Create VPC*. After the VPC is created, choose OK.
+1. Select _Create VPC_. After the VPC is created, choose OK.
 
 {{< figure src="/images/automate/ha_aws_vpc.png" alt="VPC Creation">}}
 
 ##### Adding a Private Subnet
 
-1. From the navigation pane, select *Subnets*.
+1. From the navigation pane, select _Subnets_.
 
-1. Select *Create Subnet*.
+1. Select _Create Subnet_.
 
-1. Select your *VPC ID* from the drop-down.
+1. Select your _VPC ID_ from the drop-down.
 
-1. Enter *Subnet name* for the private subnet (for example, WorkSpaces Private Subnet 2).
+1. Enter _Subnet name_ for the private subnet (for example, WorkSpaces Private Subnet 2).
 
-1. To make an appropriate selection for *Availability Zone*, see Availability Zones for Amazon WorkSpaces.
+1. To make an appropriate selection for _Availability Zone_, see Availability Zones for Amazon WorkSpaces.
 
-1. Enter the CIDR block for the subnet in the *IPv4 CIDR block*. For example, 10.0.2.0/24. Ensure you provide a unique value.
+1. Enter the CIDR block for the subnet in the _IPv4 CIDR block_. For example, 10.0.2.0/24. Ensure you provide a unique value.
 
-1. Select *Create Subnet*.
+1. Select _Create Subnet_.
 
 {{< figure src="/images/automate/ha_aws_subnet.png" alt="VPC Subnets">}}
 
@@ -455,7 +455,7 @@ Refer [select correct CIDR block](https://www.calculator.net/ip-subnet-calculato
 
 ## Understanding CIDR
 
-We need to understand IPv4 addresses/ notation to understand CIDR blocks. For eg, 10.10.101.5, might be the address of the database, and it's a 32-bit binary number. So, the 10 maps to the first octet of the 0001010, another octet for the second 10, a third octet, fourth octet, each one ranging from 0 to 255 as far as our numbers. We are not describing a single number and describing a range of numbers, all the possible IP addresses that begin with the numbers 10.10. So, to describe a number, a range of numbers, that begin 10.10 using CIDR notation. CIDR stands for Classless Inter-Domain Routing, a 32 -bit number underlying the octets.
+We need to understand IPv4 addresses/ notation to understand CIDR blocks. For eg, 10.10.101.5, might be the address of the database, and it's a 32-bit binary number. So, the 10 maps to the first octet of the 0001010, another octet for the second 10, a third octet, fourth octet, each one ranging from 0 to 255 as far as our numbers. We aren't describing a single number and describing a range of numbers, all the possible IP addresses that begin with the numbers 10.10. So, to describe a number, a range of numbers, that begin 10.10 using CIDR notation. CIDR stands for Classless Inter-Domain Routing, a 32 -bit number underlying the octets.
 
 In this case, we are freezing the first 16 bits, and wild card the rest, so we draw out the number as 10.10, meaning these are the numbers that are going to stay the same. It doesn't matter commonly we'll put zeros here. And then, after the slash, announced how many bits are frozen, so 10.10.0.0. whatever/16 indicates, in this case, the first 2 octets never change, the last 2 can be whatever you want. Inside a notation is then simply determining how many bits are you freezing. The rest are all being wild carded in IPv4 notation.
 
@@ -463,7 +463,7 @@ In this case, we are freezing the first 16 bits, and wild card the rest, so we d
 
 If /16 is my CIDR block for your main VPC, we then subdivide into subnets, which need to be a subset of the /16, so they all need to start at least with a 10.10, but if I want multiple subnets, I then don't want any collisions, commonly we'll see those as /24. What a /24 means, means I'm freezing the first 24 bits. So say I want the subnet where my database lives, so we call that out as 10.10.101. who cares /24, which means for this subnet, if I'm defining it as a /24, I could have any private IP address beginning from 0 up to 255. In other words, wildcard the last 8 bits.
 
-A /32 is a single specific address. In this case, 10.10.101.5, not wildcarding anything. This is only one IP address used to authorize in a security group traffic. Likewise, if you want to authorize traffic from the entire internet, wild card everything. So 000/0 becomes the final notation to the front-end web servers or other elements.
+A /32 is a single specific address. In this case, 10.10.101.5, so no wildcards are used. This is only one IP address used to authorize traffic in a security group. Likewise, if you want to authorize traffic from the entire internet, allow all addresses. So 000/0 becomes the final notation to the front-end web servers or other elements.
 
 ### Example config.toml file with VPC and CIDR Values
 

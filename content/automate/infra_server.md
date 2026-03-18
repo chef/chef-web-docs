@@ -15,20 +15,20 @@ draft = false
 
 {{< warning >}}
 
-Chef Automate will not deploy the Chef Manage add-on for Chef Infra Server.
+Chef Automate won't deploy the Chef Manage add-on for Chef Infra Server.
 
 {{< /warning >}}
 
 {{< warning >}}
 
-Supermarket cannot authenticate users on Chef Infra Server deployed
+Supermarket can't authenticate users on Chef Infra Server deployed
 with Chef Automate.
 
 {{< /warning >}}
 
 {{< warning >}}
 
-The Chef Server deployed and running with Automate will also require a license. The Chef Automate license will cover the Chef Server license.
+The Chef Infra Server deployed and running with Automate will also require a license. The Chef Automate license will cover the Chef Infra Server license.
 
 {{< /warning >}}
 
@@ -144,7 +144,7 @@ Installations require elevated privileges, so run the commands as the superuser 
     root_cert = """<pem format root CA cert>
     """
     [auth_n.v1.sys.service]
-    # It is fine to use an A2 data collector token.
+    # It's fine to use an A2 data collector token.
     a1_data_collector_token = "<data-collector token>"
     [erchef.v1.sys.data_collector]
     enabled = true
@@ -171,7 +171,7 @@ Installations require elevated privileges, so run the commands as the superuser 
        [deployment.v1.svc]
        products=["infra-server"]
 
-       # Disable Automate data collection as Automate will not be deployed
+       # Disable Automate data collection as Automate won't be deployed
        [erchef.v1.sys.data_collector]
        enabled = false
     ```
@@ -197,7 +197,7 @@ Installations require elevated privileges, so run the commands as the superuser 
     root_cert = """<pem format root CA cert>
     """
     [auth_n.v1.sys.service]
-    # It is fine to use an A2 data collector token.
+    # It's fine to use an A2 data collector token.
     a1_data_collector_token = "<data-collector token>"
     [erchef.v1.sys.data_collector]
     enabled = true
@@ -248,10 +248,10 @@ On the Chef Infra Server host:
 
 1. Apply License:  
    Chef Automate offers two license tiers that have different entitlements:  
-   **Trial:** A trial license is for users or organizations interested in exploring the product before buying. Generate the license from https://www.chef.io/license-generation-free-trial  
+   **Trial:** A trial license is for users or organizations interested in exploring the product before buying. Generate the license from <https://www.chef.io/license-generation-free-trial>  
    **Commercial:** A commercial license is for customers who have purchased and are entitled to use it according to the license terms.
 
-   If you do not have the license, you can use the trial license to explore the product or contact the Chef Account Team to get a commercial license.  
+   If you don't have the license, you can use the trial license to explore the product or contact the Chef Account Team to get a commercial license.  
    Please follow the instructions in the [Chef Automate License]({{< relref "chef_automate_license.md" >}}) documentation to apply for the license.  
 
 2. Run the following command to create a user:
@@ -270,9 +270,9 @@ On the Chef Infra Server host:
       sudo chef-server-ctl org-create SHORT_NAME 'FULL_ORGANIZATION_NAME' --association_user USER_NAME --filename ORGANIZATION-validator.pem
     ```
 
-    The short name must begin with a lower-case letter or digit, may contain lower-case letters, digits, hyphens, and underscores, and must be between 1 and 255 characters. For example: `4thcoffee`.
+    The short name must begin with a lower-case letter or digit, may contain lower-case letters, digits, hyphens, and underscores, and must be between 1 and 255 characters. For example: `example_org`.
 
-    The full organization name must begin with a non-white space character and must be between 1 and 1023 characters. For example: `'Fourth Coffee, Inc.'`.
+    The full organization name must begin with a non-white space character and must be between 1 and 1023 characters. For example: `'Example Organization, Inc.'`.
 
     The `--association_user` option will associate the `USER_NAME` with the `admins` security group on the Chef Infra Server.
 

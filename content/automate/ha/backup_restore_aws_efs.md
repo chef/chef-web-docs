@@ -18,13 +18,13 @@ draft = false
 
 {{< note >}}
 
-- If the user chooses `backup_config` as `efs` in `config.toml` backup is already configured during deployment, **the below steps are not required and can be skipped**. i.e., **`backup_config = "efs"`** . If we have kept the `backup_config` blank, then the configuration needs to be configured manually.
+- If the user chooses `backup_config` as `efs` in `config.toml` backup is already configured during deployment, **the below steps aren't required and can be skipped**. i.e., **`backup_config = "efs"`** . If we have kept the `backup_config` blank, then the configuration needs to be configured manually.
 
 {{< /note >}}
 
 ## Overview
 
-A shared file system is always required to create **OpenSearch** snapshots. To register the snapshot repository using OpenSearch, it is necessary to mount the same shared filesystem to the exact location on all master and data nodes. Register the location in the `path.repo` setting on all master and data nodes.
+A shared file system is always required to create **OpenSearch** snapshots. To register the snapshot repository using OpenSearch, it's necessary to mount the same shared filesystem to the exact location on all master and data nodes. Register the location in the `path.repo` setting on all master and data nodes.
 
 ### Setting up the backup configuration
 
@@ -62,7 +62,8 @@ Configure the OpenSearch `path.repo` attribute.
 
 - Above command will restart the OpenSearch cluster.
 
-#### Healthcheck commands
+#### Health check commands
+
 - Get the OpenSearch Cluster status
 
     ```sh
@@ -142,7 +143,7 @@ To restore backed-up data of the Chef Automate High Availability (HA) using Exte
 {{< note >}}
 
 - If you are restoring the backup from an older version, then you need to provide the `--airgap-bundle </path/to/current/bundle>`.
-- Large Compliance Report is not supported in Automate HA
+- Large Compliance Report isn't supported in Automate HA
 {{< /note >}}
 
 ## Troubleshooting

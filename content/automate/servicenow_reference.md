@@ -176,7 +176,7 @@ Refer to ServiceNow's [Create a CI reconciliation rule](https://docs.servicenow.
 
 {{< note >}}
 
-The Chef Automate Integration App does not provide any reconciliation rules.
+The Chef Automate Integration App doesn't provide any reconciliation rules.
 
 {{< /note >}}
 
@@ -266,10 +266,10 @@ The Integration App has nine configurable **Application Properties**. Changing t
 : Used to set a highest number of compliance reports for a node. Default: `5`.
 
 `x_chef_automate.insert_manufacturer`
-: Inserts the new record during the import if a model is not found in the _core\_company_ table by settingthe property to **Yes**. Default: `Yes`.
+: Inserts the new record during the import if a model isn't found in the _core\_company_ table by setting the property to **Yes**. Default: `Yes`.
 
 `x_chef_automate.insert_model`
-: Inserts the new record during the import if a model is not found in the _cmdb\_model_ table by setting the property to **Yes**. Default: `Yes`
+: Inserts the new record during the import if a model isn't found in the _cmdb\_model_ table by setting the property to **Yes**. Default: `Yes`
 
 `x_chef_automate. logging.enabled`
 : Used to flag the logging with **enable** or **disable** values. Default: `No`.
@@ -336,7 +336,7 @@ The **Chef Infra Client runs** tab of the incident displays the associated clien
 
 `x_chef_incident.scan_association`
 
-: Used to associate the Chef InSpec scan record with an incident record. The possible values are: `profile` and `node`. Deault: `profile`.
+: Used to associate the Chef InSpec scan record with an incident record. The possible values are: `profile` and `node`. Default: `profile`.
 
 Setting the value to `profile` creates an incident for the failed Chef InSpec compliance profile. All Chef InSpec scans on failing nodes associates with the corresponding incident. `profile` is the default value as the number of nodes exceeds the number of profiles. The short description of the incident indicates the failed profile.
 
@@ -399,7 +399,7 @@ The **Admin** role grants user access to the following:
 
 ### Role `x_chef_event.chef_inspec_scans_user`
 
-The `x_chef_event.chef_inspec_scans_user` role provides a user access to applications. It does not provide administration privileges. Client run and Chef InSpec scan records are linked to events, and is appropriate to assign this role to users who manage events in ServiceNow.
+The `x_chef_event.chef_inspec_scans_user` role provides a user access to applications. It doesn't provide administration privileges. Client run and Chef InSpec scan records are linked to events, and is appropriate to assign this role to users who manage events in ServiceNow.
 
 This role grants a user access to the:
 

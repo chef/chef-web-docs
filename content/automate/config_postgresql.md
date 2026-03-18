@@ -48,7 +48,7 @@ In the above snippet:
 
 - `checkpoint_timeout` is the maximum time between automatic WAL checkpoints. The valid range is between 30 seconds and one day. The default is five minutes (5min). Increasing this parameter can increase the amount of time needed for crash recovery.
 - `max_wal_size` is the maximum size to let the WAL grow during automatic checkpoints. The default is 1 GB. Increasing this parameter can increase the amount of time needed for crash recovery. This parameter can only be set in the PostgreSQL.conf file or the server command line.
-- `min_wal_size` can ensure enough WAL space is reserved to handle spikes in WAL usage, for example, when running large batch jobs. If this value is specified without units, it is taken as megabytes. The default is 80 MB.
+- `min_wal_size` can ensure enough WAL space is reserved to handle spikes in WAL usage, for example, when running large batch jobs. If this value is specified without units, it's taken as megabytes. The default is 80 MB.
 
 ### Wal Keep Size
 
@@ -64,9 +64,9 @@ wal_keep_size = 1600
 max_locks_per_transaction = 64
 ```
 
-The shared lock table tracks locks on `max_locks_per_transaction` * (max_connections + max_prepared_transactions) objects (e.g., tables); hence, no more than this many distinct objects can be locked at any time. This parameter controls the average number of object locks allocated for each transaction; individual transactions can lock more objects as long as the locks of all transactions fit in the lock table. This is not the number of rows that can be locked; that value is unlimited. The default is 64.
+The shared lock table tracks locks on `max_locks_per_transaction` * (max_connections + max_prepared_transactions) objects (for example, tables); hence, no more than this many distinct objects can be locked at any time. This parameter controls the average number of object locks allocated for each transaction; individual transactions can lock more objects as long as the locks of all transactions fit in the lock table. This isn't the number of rows that can be locked; that value is unlimited. The default is 64.
 
-When running a standby server, you must set this parameter to the same or higher value than on the master server. Otherwise, queries will not be allowed on the standby server.
+When running a standby server, you must set this parameter to the same or higher value than on the master server. Otherwise, queries won't be allowed on the standby server.
 
 ### Max Connections
 
@@ -76,9 +76,9 @@ max_connections = 350
 
 In the above snippet, `max_connections` determines the maximum number of concurrent connections to the database server. The default for Automate is 350 connections.
 
-When running a standby server, you must set this parameter to the same or higher value than on the master server. Otherwise, queries will not be allowed on the standby server.
+When running a standby server, you must set this parameter to the same or higher value than on the master server. Otherwise, queries won't be allowed on the standby server.
 
-**Note:** Modifications to the 'max_connections' require a reboot of the  leader, during which a new leader will be elected. The updated value for 'max_connections' will be reflected in the configuration only after the reboot, in accordance with [PostgresSQL documentation](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-MAX-CONNECTIONS).
+**Note:** Modifications to the `max_connections` require a reboot of the leader, during which a new leader will be elected. The updated value for `max_connections` will be reflected in the configuration only after the reboot, in accordance with [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-MAX-CONNECTIONS).
 
 ### Pg Dump
 
@@ -109,8 +109,9 @@ wal_compression = "off"
 ```
 
 This section configures replication settings:
+
 - `name`: replication name
-- `password`: replication password. 
+- `password`: replication password.
 - `lag_health_threshold`: it sets the lag health threshold to 307200 bytes(300 kb), the maximum allowed replication lag.
 - `max_replay_lag_before_restart_s`: Custom setting; maximum lag time in seconds since log was last replayed before replica is eligible for a restart.
 - `max_wal_senders`: Limits how many standbys can connect for replication (default: 10).

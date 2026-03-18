@@ -16,7 +16,7 @@ draft = false
 
 ### Indices with bad default mappings
 
-Status of the root cause fix for this can be found at: https://chef-software.ideas.aha.io/ideas/AUTO-I-91
+Status of the root cause fix for this can be found at: <https://chef-software.ideas.aha.io/ideas/AUTO-I-91>
 
 A complaint in the `journalctl -u chef-automate` output that has to do with bad default index mappings may look like
 
@@ -33,9 +33,9 @@ The list of INDEX_NAME given here can be used in the following command sequence 
 * node-attribute
 * node-state-7
 
-First, stop traffic coming in to the Automate system. You can turn off your Chef Server, for example.
-If you are running a combined Automate and Chef Server system, use `chef-server-ctl maintenance on`
-Choose a method that is comfortable for you.
+First, stop traffic coming in to the Automate system. You can turn off your Chef Infra Server, for example.
+If you are running a combined Automate and Chef Infra Server system, use `chef-server-ctl maintenance on`
+Choose a method that's comfortable for you.
 
 Then, perform the deletion with the following commands, remembering to substitute the desired INDEX_NAME from the list above.
 
@@ -53,7 +53,7 @@ If you continue to see mapping errors, it may be best to contact Support to get 
 
 ### Error: Unable to make a request to the deployment-service
 
-The `chef-automate` CLI emits this error when the CLI is unable to communicate with a Chef Automate deployment. In particular, when Chef Automate 2 (as distinct from Chef Automate 1) is not deployed, running `chef-automate` CLI commands such as `version` or `status` causes this error.
+The `chef-automate` CLI emits this error when the CLI is unable to communicate with a Chef Automate deployment. In particular, when Chef Automate 2 (as distinct from Chef Automate 1) isn't deployed, running `chef-automate` CLI commands such as `version` or `status` causes this error.
 
 ## File exists (os error 17)
 
@@ -108,7 +108,7 @@ To confirm that you've successfully removed the blocks, run:
 curl 'localhost:10141/_all/_settings'
 ```
 
-Verify that the output does not contain `"blocks":{"read_only_allow_delete":"true"}`.
+Verify that the output doesn't contain `"blocks":{"read_only_allow_delete":"true"}`.
 
 ## Uninstalling Chef Automate
 
@@ -148,14 +148,14 @@ Possible reason of failures in data collector API could be due to change in the 
 
 This can be due to the following reasons:
 
-- Increase in frequency of scan
-- Number of controls have changed
-- Increase in number of nodes
+* Increase in frequency of scan
+* Number of controls have changed
+* Increase in number of nodes
 
 ### Possible fixes
 
-- Changing heap size. Heap size should not be more than 70% of the RAM
-- Upgrading machine to improve performance
+* Changing heap size. Heap size should not be more than 70% of the RAM
+* Upgrading machine to improve performance
 
 ## Issue: Maximum Shards Open
 
@@ -190,7 +190,7 @@ The knife node list and knife node search commands are inconsistent in the numbe
 
 This issue occurs because OpenSearch, by default, limits the maximum number of records (or documents) returned in a single query to 10,000. This safeguard prevents large queries from overloading the system. This approach will do that if you try to retrieve more than 10,000 records.
 
-#### Step 1: Increase the max_result_window to retrieve more than **10000** records.
+#### Step 1: Increase the max_result_window to retrieve more than **10000** records
 
 In the case of embedded opensearch:
 

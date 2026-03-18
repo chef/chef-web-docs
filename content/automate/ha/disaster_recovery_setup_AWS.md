@@ -75,7 +75,7 @@ When the primary cluster fails, accomplish the fail-over by updating DNS records
     {{< note >}}
     - Suggested frequency of backup and restore jobs is one hour. Monitor backup times to ensure they can be completed in the available time.
     - Make sure the Restore cron always restores the latest backed-up data.
-    - A cron job is a Linux command used to schedule a job that is executed periodically.
+    - A cron job is a Linux command used to schedule a job that's executed periodically.
     {{< /note >}}
 
     - To clean the data from the backed-up storage, either schedule a cron or delete it manually.
@@ -114,7 +114,7 @@ When the primary cluster fails, accomplish the fail-over by updating DNS records
 
         - To run the restore command, you need the airgap bundle. Get the Automate HA airgap bundle from the location `/var/tmp/` in Automate instance. For example: `frontend-4.x.y.aib`.
 
-        - In case the airgap bundle is not present at `/var/tmp`, it can be copied from the bastion node to the Automate frontend node
+        - In case the airgap bundle isn't present at `/var/tmp`, it can be copied from the bastion node to the Automate frontend node
 
         - Run the command at the Automate node of Automate HA cluster to get the applied config:
 
@@ -138,6 +138,7 @@ When the primary cluster fails, accomplish the fail-over by updating DNS records
         ```
 
 If the restore is unsuccessful check [Troubleshooting](/automate/ha_backup_restore_aws_s3/#troubleshooting)
+
 ### Switch to Disaster Recovery Cluster
 
 Steps to switch to the disaster recovery cluster are as follows:

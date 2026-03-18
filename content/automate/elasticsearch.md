@@ -10,18 +10,18 @@ draft = false
     parent = "automate/configuring_automate/elasticsearch"
 +++
 
-You can configure Chef Automate to use Elasticsearch clusters that are not deployed via Chef Automate itself.
+You can configure Chef Automate to use Elasticsearch clusters that aren't deployed via Chef Automate itself.
 
 ## Configure External Elasticsearch
 
 These configuration directions are intended for in the initial deployment of Chef Automate.
 
 {{< warning >}}
-Since Chef Automate releases after version 3.0.49 do not support Elasticsearch and only supports OpenSearch, please make sure to use the configuration shown on this page only with Chef Automate 3.0.49 or below.
+Since Chef Automate releases after version 3.0.49 don't support Elasticsearch and only supports OpenSearch, please make sure to use the configuration shown on this page only with Chef Automate 3.0.49 or below.
 {{< /warning >}}
 
 {{< note >}}
-Chef Automate supports the official Elasticsearch Service by Elastic. Chef Automate does not test or support alternative services, such as Amazon Elasticsearch Service (Amazon ES).
+Chef Automate supports the official Elasticsearch Service by Elastic. Chef Automate doesn't test or support alternative services, such as Amazon Elasticsearch Service (Amazon ES).
 {{< /note >}}
 
 Add the following to your config.toml:
@@ -52,15 +52,15 @@ Add the following to your config.toml:
 #  ssl_verify_depth = "2"
 ```
 
-Because externally-deployed Elasticsearch nodes will not have access to Chef Automate's built-in backup storage services, you must configure Elasticsearch backup settings separately from Chef Automate's primary backup settings. You can configure backups to use either the local filesystem or S3.
+Because externally-deployed Elasticsearch nodes won't have access to Chef Automate's built-in backup storage services, you must configure Elasticsearch backup settings separately from Chef Automate's primary backup settings. You can configure backups to use either the local filesystem or S3.
 
 ### Add Resolvers for Elasticsearch
 
-In case you want to resolve the Elasticsearch node IPs dynamically using DNS servers, you can add resolvers/nameservers to the configuration.
+In case you want to resolve the Elasticsearch node IPs dynamically using DNS servers, you can add resolvers/name servers to the configuration.
 
-Name Servers can be added in two ways:
+Name servers can be added in two ways:
 
-1. **Add nameserver IPs:** Add the nameservers to your `config.toml` file to resolve the Elasticsearch nodes.
+1. **Add name servers IPs:** Add the name server to your `config.toml` file to resolve the Elasticsearch nodes.
 
     ```toml
     [esgateway.v1.sys.ngx.main.resolvers]
@@ -68,14 +68,14 @@ Name Servers can be added in two ways:
       nameservers = ["192.0.2.0:24", "198.51.100.0:24"]
     ```
 
-1. **Set system DNS entries:** To use existing system nameserver entries from `/etc/resolv.conf`, add the following setting to `config.toml`:
+1. **Set system DNS entries:** To use existing system name server entries from `/etc/resolv.conf`, add the following setting to `config.toml`:
 
     ```toml
     [esgateway.v1.sys.ngx.main.resolvers]
       enable_system_nameservers = true
     ```
 
-If both options are set, nameserver IPs takes precedence over the system nameserver entries.
+If both options are set, name server IPs takes precedence over the system name server entries.
 
 Apply the changes:
 
@@ -130,7 +130,7 @@ To configure AWS S3 backups of Chef Automate data stored in an externally-deploy
       bucket = "<bucket name>"
 
       # base_path (optional):  The path within the bucket where backups should be stored
-      # If base_path is not set, backups will be stored at the root of the bucket.
+      # If base_path isn't set, backups will be stored at the root of the bucket.
       base_path = "<base path>"
 
       # name of an s3 client configuration you create in your elasticsearch.yml

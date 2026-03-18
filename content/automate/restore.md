@@ -29,9 +29,9 @@ Before restoring a Chef Automate installation, see how to [configure your backup
      Ensure access for the backup type used:
 
      1. To restore [a network-attached filesystem backup]({{< ref "backup.md#backup-to-a-filesystem" >}}), mount the shared backup directory to the same mount point configured at the time of the backup.
-     1. To restore [a backup directory that is not a network-attached filesystem]({{< ref "backup.md#backup-to-a-filesystem" >}}), copy the backup directory to the configured location at the time of the backup.
+     1. To restore [a backup directory that's not a network-attached filesystem]({{< ref "backup.md#backup-to-a-filesystem" >}}), copy the backup directory to the configured location at the time of the backup.
      1. To restore a [single-file backup archive]({{< ref "backup.md#store-a-filesystem-backup-in-a-single-file-archive" >}}), copy your archive to the restore host and extract it to the configured backup directory.
-   
+
      With this step complete, the `ls` command should show a timestamp-based directory and an `automate-elasticsearch-data` directory in the backup directory.
 
 1. To restore a backup to a host with a different fully qualified domain name (FQDN) than the original backup host, create a `patch.toml` file that specifies the new FQDN and provide it at restore time:
@@ -109,8 +109,8 @@ sudo chef-automate backup fix-repo-permissions <path>
 ### Restore in an Airgapped Environment
 
 To restore a backup of an [airgapped installation]({{< relref "airgapped_installation.md" >}}), you must specify the [Airgap Installation Bundle]({{< relref "airgapped_installation.md#create-an-airgap-installation-bundle" >}}) used by the installation.
-If you have [configured the backup directory]({{< relref "backup.md#backup-to-a-filesystem" >}}) to a directory that is not the default `/var/opt/chef-automate/backups`, then you must supply the backup directory.
-If you do not provide a backup ID, Chef Automate uses the most recent backup in the backup directory.
+If you have [configured the backup directory]({{< relref "backup.md#backup-to-a-filesystem" >}}) to a directory that's not the default `/var/opt/chef-automate/backups`, then you must supply the backup directory.
+If you don't provide a backup ID, Chef Automate uses the most recent backup in the backup directory.
 
 To restore on a new host, run:
 
@@ -213,7 +213,7 @@ Success: Restored backup 20180517223558
      chef-automate debug set-log-level deployment-service debug
      ```
 
-1. If you have already deployed Chef Automate and are getting this error in the logs while restoring: `The Access Key ID you provided does not exist in our records`. Before proceeding, delete the `.tmp` folder in the configured backup directory (the default directory is `/var/opt/chef-automate/backups`).
+1. If you have already deployed Chef Automate and are getting this error in the logs while restoring: `The Access Key ID you provided doesn't exist in our records`. Before proceeding, delete the `.tmp` folder in the configured backup directory (the default directory is `/var/opt/chef-automate/backups`).
 
 ## References
 

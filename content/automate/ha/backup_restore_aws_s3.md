@@ -18,7 +18,7 @@ draft = false
 
 {{< note >}}
 
-- If the user chooses `backup_config` as `s3` in `config.toml,` backup is already configured during deployment, **the below steps are not required**. If we have kept the `backup_config` blank, then the configuration needs to be configured manually.
+- If the user chooses `backup_config` as `s3` in `config.toml,` backup is already configured during deployment, **the below steps aren't required**. If we have kept the `backup_config` blank, then the configuration needs to be configured manually.
 - Encrypted S3 bucket are supported with only Amazon S3 managed keys (SSE-S3).
 
 {{< /note >}}
@@ -69,7 +69,7 @@ In case of if you are using the Managed AWS Service you need to create a [snapsh
         bucket = "bucket-name"
 
         # base_path (optional):  The path within the bucket where backups should be stored
-        # If base_path is not set, backups will be stored at the root of the bucket.
+        # If base_path isn't set, backups will be stored at the root of the bucket.
         base_path = "opensearch"
 
         # name of an s3 client configuration you create in your opensearch.yml
@@ -111,7 +111,7 @@ In case of if you are using the Managed AWS Service you need to create a [snapsh
         endpoint = "https://s3.amazonaws.com"
 
         # base_path (optional):  The path within the bucket where backups should be stored
-        # If base_path is not set, backups will be stored at the root of the bucket.
+        # If base_path isn't set, backups will be stored at the root of the bucket.
         base_path = "automate"
 
       [global.v1.backups.s3.credentials]
@@ -164,7 +164,7 @@ To restore backed-up data of the Chef Automate High Availability (HA) using Exte
 
 - If you are restoring the backup from an older version, then you need to provide the `--airgap-bundle </path/to/current/bundle>`.
 - If you have not configured S3 access and secret keys during deployment or if you have taken backup on a different bucket, then you need to provide the `--s3-access-key <Access_Key>` and `--s3-secret-key <Secret_Key>` flags.
-- Large Compliance Report is not supported in Automate HA
+- Large Compliance Report isn't supported in Automate HA
 {{< /note >}}
 
 #### Troubleshooting
@@ -174,7 +174,7 @@ To restore backed-up data of the Chef Automate High Availability (HA) using Exte
 For **Disaster Recovery or AMI upgrade**, while running the restore in the secondary cluster which is in a different region follow the steps given below.
 
 - Make a curl request in any OpenSearch node`curl -XGET https://localhost:9200/_snapshot?pretty --cacert /hab/svc/automate-ha-opensearch/config/certificates/root-ca.pem --key /hab/svc/automate-ha-opensearch/config/certificates/admin-key.pem --cert /hab/svc/automate-ha-opensearch/config/certificates/admin.pem -k`
-- Check the curl request response if the region is not matching with the primary cluster follow the below steps:
+- Check the curl request response if the region isn't matching with the primary cluster follow the below steps:
 
 1. Modify the region in FrontEnd nodes by patching the below configs with command, `chef-automate config patch <file-name>.toml --fe`
 

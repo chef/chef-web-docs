@@ -37,5 +37,5 @@ criteria.
 ## Supported Browsers
 
 Chef Automate supports the current browser versions for Chrome, Edge, and Firefox. Chef
-Automate does not support other browsers and may not be compatible with older browser
+Automate doesn't support other browsers and may not be compatible with older browser
 versions.

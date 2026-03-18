@@ -41,11 +41,11 @@ The minimum with which Chef Automate and Chef Habitat Builder can be deployed on
 For deployments that are expected to see production-scale workload, we recommend:
 
 * 64 GB of RAM.
-* 200 GB of diskspace, available to /hab.
+* 200 GB of disk space, available to /hab.
 * 16 vCPUs.
 
 Roughly 80 GB of the disk space is designated for Chef Automate; the rest is used for Chef Habitat Builder and the artifacts it stores.
-The current implementation uses MinIO for Chef Habitat artifact storage; we do not support using Artifactory for artifact storage.
+The current implementation uses MinIO for Chef Habitat artifact storage; we don't support using Artifactory for artifact storage.
 
 ### Operating System
 
@@ -65,7 +65,7 @@ Chef Automate and Chef Habitat Builder require:
 
 ### Unsupported Topologies
 
-* high-availability/DR/multinode Builder
+* high-availability/DR/multi-node Builder
 
 ## Get Started with Chef Automate and Chef Habitat On-prem
 
@@ -222,7 +222,7 @@ Patch an existing Chef Automate installation to add Chef Habitat Builder:
    password = "abcdefgh1234567890PASSWORDSTRING"
    ```
 
-1. Navigate to `https://{{< example_fqdn "automate" >}}` in your browser. If you cannot access the site in Google Chrome, try Mozilla Firefox or Microsoft Edge.
+1. Navigate to `https://{{< example_fqdn "automate" >}}` in your browser. If you can't access the site in Google Chrome, try Mozilla Firefox or Microsoft Edge.
 1. Sign in to Chef Automate using the [credentials provided during deployment]({{< relref
    "install.md#open-chef-automate" >}}).
 1. Select **Applications** in the top navigation bar
@@ -334,7 +334,7 @@ Should produce the output:
 ```output
 Preparing to upload artifacts to the 'stable' channel on https://{{< example_fqdn "automate" >}}/bldr/v1
 Using builder_bootstrap/artifacts for artifacts and builder_bootstrap/keys signing keys
-Found 46 artifact(s) for upload.
+Found 46 artifacts for upload.
 Discovering origin names from local artifact cache
 Missing origin 'chef'
 Origin 'core' already exists

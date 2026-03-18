@@ -34,7 +34,7 @@ To store backups in a configurable backup directory, the backup directory should
 This best practice ensures that you can restore from your backup data during a hardware failure.
 
 The default backup directory is `/var/opt/chef-automate/backups`.
-If it does not exist, the deployment process creates it.
+If it doesn't exist, the deployment process creates it.
 
 To configure your Chef Automate installation's backup directory to another location:
 
@@ -60,6 +60,7 @@ To configure your Chef Automate installation's backup directory to another locat
 Offline backups can be stored in single-file archives, which must include the configuration and reporting data in the standard backup.
 
 The [configured backup directory]({{< ref "backup.md#backup-to-a-filesystem" >}}) contains the following directories
+
 1. The timestamp-based directory has the configuration data.
 2. `automate-elasticsearch-data` directory having reporting data stored.
 
@@ -87,11 +88,11 @@ To store backups in an existing AWS S3 bucket, use the supported S3-related sett
   endpoint = "https://s3.amazonaws.com"
 
   # base_path (optional):  The path within the bucket where backups should be stored
-  # If base_path is not set, backups will be stored at the root of the bucket.
+  # If base_path isn't set, backups will be stored at the root of the bucket.
   base_path = "<base path>"
 
 [global.v1.backups.s3.credentials]
-  # Optionally, AWS credentials may be provided. If these are not provided, IAM instance
+  # Optionally, AWS credentials may be provided. If these aren't provided, IAM instance
   # credentials will be used. It's also possible for these to be read through the standard
   # AWS environment variables or through the shared AWS config files.
   access_key = "<access_key>"
@@ -158,7 +159,7 @@ To store backups in an existing Google Cloud Storage (GCS) bucket, [generate a s
   name = "<bucket name>"
 
   # base_path (optional):  The path within the bucket where backups should be stored.
-  # If base_path is not set, backups will be stored at the root of the bucket.
+  # If base_path isn't set, backups will be stored at the root of the bucket.
   base_path = "<base path>"
 
 [global.v1.backups.gcs.credentials]
