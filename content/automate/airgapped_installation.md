@@ -12,6 +12,8 @@ draft = false
     weight = 20
 +++
 
+<!-- vale off -->
+
 ## Overview
 
 An airgapped host is one that has no direct inbound or outbound internet

@@ -13,6 +13,8 @@ aliases = ['/automate/centralizing_log/']
     weight = 42
 +++
 
+<!-- vale off -->
+
 You can centralize Chef Automate logs to a file and configure log rotation and retention. This is helpful if you want to transmit the Automate log to a third-party application like Splunk or Logstash.
 
 ## Prerequisites

@@ -11,6 +11,8 @@ draft = false
     weight = 20
 +++
 
+<!-- vale off -->
+
 ## Audit Cookbook + Chef InSpec + Chef Automate 2 Versions Support Matrix
 
 Refer to the [following Supported Versions list](https://github.com/chef-cookbooks/audit#chef-automate) to confirm a full set of working versions for your Chef Infra Client, Audit cookbook, Chef InSpec, and Chef Automate. When these don't match up, ingestion problems can occur because the messages won't show up in the expected format.

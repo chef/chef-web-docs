@@ -92,9 +92,11 @@ sudo chef-automate stop
     sudo sdiff -s /etc/postgresql/9.6/main/pg_hba.conf /etc/postgresql/13/main/pg_hba.conf
     ```
 
-### Prepare the Database for Migration
+### Prepare the database for migration
 
-Run `vacuumdb --all --full` on the PostgreSQL database if you don't have automatic vacuuming set up. This process will reduce the size of the database by deleting unnecessary data and speeds up the migration. This operation takes around 1 to 2 minutes per gigabyte of data depending on the complexity of the data, and requires at least as much free disk space as the size of your database.
+If you don't have automatic vacuuming set up, run `vacuumdb --all --full` on the PostgreSQL database before migrating.
+This command reclaims space from dead rows, reducing the size of the database and speeding up the migration.
+The operation takes approximately 1 to 2 minutes for each gigabyte of data, depending on data complexity, and requires at least as much free disk space as the current size of your database.
 
 For more information on upgrading using `vacuumdb` see the PostgreSQL 13 documentation for [vacuumdb](https://www.postgresql.org/docs/13/app-vacuumdb.html).
 
@@ -256,9 +258,9 @@ sudo su - postgres
     sudo chef-automate status
     ```
 
-## Troubleshoot Upgrade Failures
+## Troubleshoot upgrade failures
 
-1. If the upgrade failed and you are left with a corrupted Chef Automate or a corrupted PostgreSQL database, **DO NOT RISK YOUR BACKUP OF AUTOMATE**. Take all steps necessary to preserve the backup, including copying it to another disk.
+1. If the upgrade failed and you are left with a corrupted Chef Automate or a corrupted PostgreSQL database, don't risk your Chef Automate backup. Take all steps necessary to preserve the backup, including copying it to another disk.
 1. Contact Chef customer support.
 1. If you have configured the backup directory as a location other than the default directory (`/var/opt/chef-automate/backups`), you must supply the backup directory path to the `backup restore` command as shown in the snippet below. Without a backup ID, Chef Automate uses the most recent backup in the backup directory.
 
@@ -270,4 +272,4 @@ sudo su - postgres
 
       For other restoration types please refer this [Restore]({{< ref "restore.md" >}})
 
-1. Do not upgrade PostgreSQL until you have an uncorrupted Chef Automate and an uncorrupted PostgreSQL database.
+1. Don't upgrade PostgreSQL until you have an uncorrupted Chef Automate and an uncorrupted PostgreSQL database.

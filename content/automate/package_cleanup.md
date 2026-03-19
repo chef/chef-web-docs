@@ -320,8 +320,8 @@ The package cleanup command includes multiple safety mechanisms:
 ## Performance considerations
 
 - Cleanup time scales with the number of packages to delete
-- Typical cleanup takes 2-5 minutes for 50-100 packages
-- Large cleanups (500+ packages) may take 15-30 minutes
+- Typical cleanup takes 2--5 minutes for 50--100 packages
+- Large cleanups (500+ packages) may take 15--30 minutes
 - Disk I/O is the primary performance factor
 - No impact on running services during cleanup
 
@@ -335,8 +335,8 @@ Typical space savings vary by installation and upgrade history:
 
 Packages are stored in `/hab/pkgs`, with each package consuming:
 
-- Small packages (binaries): 10-50 MB
-- Medium packages (services): 50-200 MB
+- Small packages (binaries): 10--50 MB
+- Medium packages (services): 50--200 MB
 - Large packages (runtimes): 200 MB - 1 GB
 
 ## Related commands

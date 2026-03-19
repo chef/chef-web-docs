@@ -13,6 +13,8 @@ draft = false
     weight = 60
 +++
 
+<!-- vale off -->
+
 {{< warning >}}
 
 Chef Automate won't deploy the Chef Manage add-on for Chef Infra Server.

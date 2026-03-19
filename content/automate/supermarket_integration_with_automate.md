@@ -11,9 +11,11 @@ draft = false
     weight = 70
 +++
 
+<!-- vale off -->
+
 Chef Supermarket is the site for cookbooks. It provides a searchable cookbook repository and a friendly web UI. In this article, we will configure and integrate an existing private Supermarket with an Airgapped installation of Chef Automate.
 
-## Pre-requisites
+## Prerequisites
 
 1. To start with the supermarket integration, firstly, use the `chef-automate` binary to create an **Airgap Installation Bundle (`.aib`)** for Automate on an internet-connected host. Refer to the [System Requirement](/automate/system_requirements/) page for the hardware and software requirements. Refer to the [Airgapped Installation](/automate/airgapped_installation/) page for the complete steps of airgapped installation. Once you are done with the deployment of Automate, following the steps below:
 

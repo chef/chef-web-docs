@@ -250,8 +250,10 @@ To know more about the usage of S3 backup, see [On-Premise Deployment using Obje
 
 1. While restoring the backup if an error related to backup directory occurs like:
 
-> **Error in Automate node:** failed to create snapshot repository: Elasticsearch repository create request failed for repo**
-> OR
-> **Error in OpenSearch node:** /mnt/automate_backups/backups/automate-elasticsearch-data/chef-automate-*-service] doesn't match any of the locations specified by path.repo
+   - **Error in Automate node:** failed to create snapshot repository: Elasticsearch repository create request failed for repo**
 
-Please re-check your EFS backup [configuration](/automate/ha_backup_restore_file_system/#configuration-for-automate-node-from-provision-host) for the Automate and OpenSearch node.
+   or
+
+   - **Error in OpenSearch node:** /mnt/automate_backups/backups/automate-elasticsearch-data/chef-automate-*-service] doesn't match any of the locations specified by path.repo
+
+Re-check your EFS backup [configuration](/automate/ha_backup_restore_file_system/#configuration-for-automate-node-from-provision-host) for the Automate and OpenSearch node.

@@ -12,6 +12,8 @@ draft = false
     weight = 50
 +++
 
+<!-- vale off -->
+
 The Chef Automate _Desktop_ dashboard displays status information about all desktops connected to Chef Automate.
 Desktop information populates this dashboard after a Chef Infra Client run has executed.
 

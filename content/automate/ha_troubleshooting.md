@@ -9,6 +9,8 @@ draft = false
     weight = 132
 +++
 
+<!-- vale off -->
+
 This page explains the frequently encountered issues in Chef Automate High Availability (HA) functionality and the steps to resolve them.
 
 ## Issues and Solutions

@@ -11,6 +11,8 @@ draft = false
     weight = 204
 +++
 
+<!-- vale off -->
+
 You can follow the AWS documentation directly for detailed steps on [how to create an Amazon OpenSearch Cluster](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html).
 
 Below is our guide on the steps required to create an Amazon OpenSearch cluster. This guide will walk you through creating an Amazon OpenSearch cluster and retrieving the necessary connection details, including the hostname, username, and password.

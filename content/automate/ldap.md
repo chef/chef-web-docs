@@ -12,6 +12,8 @@ draft = false
     weight = 30
 +++
 
+<!-- vale off -->
+
 ## Authentication with existing identity management systems
 
 Chef Automate can integrate with existing LDAP services to authenticate users in Chef Automate, and thus use their existing group memberships to determine their Chef Automate permissions.

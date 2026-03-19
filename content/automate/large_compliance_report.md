@@ -72,7 +72,7 @@ To enable Chef Automate to ingest large compliance reports:
 
 ```toml
 [global.v1.external.minio]
-    ##Do not add the protocol(http or https) for MinIO server endpoint. ex. mydomain.com:1234
+    ##Don't add the protocol(http or https) for MinIO server endpoint. ex. mydomain.com:1234
     endpoint = "<minio server end point>:<port>"
     root_user = "<username>"
     root_password = "<password>"

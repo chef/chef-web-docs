@@ -111,7 +111,7 @@ If you wish to reset to the default configuration or to modify the configuration
 
 To configure local filesystem backups of Chef Automate data stored in an externally-deployed OpenSearch cluster:
 
-1. Ensure that the filesystems you intend to use for backups are mounted to the same path on all OpenSearch master and data nodes.
+1. Ensure that the filesystems you intend to use for backups are mounted to the same path on all OpenSearch cluster manager and data nodes.
 1. Configure the OpenSearch `path.repo` setting on each node as described in the [OpenSearch documentation](https://opensearch.org/docs/latest/monitoring-plugins/pa/reference/).
 1. Add the following to your `config.toml`:
 
@@ -180,7 +180,7 @@ To configure AWS S3 backups of Chef Automate data stored in an externally-deploy
 To configure Google Cloud Storage Bucket (GCS) backups of Chef Automate data stored in an externally-deployed OpenSearch cluster:
 
 1. Install the `repository-gcs` plugin on all nodes in your OpenSearch cluster.
-1. Create a storage bucket and configure a service account to access it per the steps described in the OpenSearch documentation.
+1. Create a storage bucket and configure a service account to access it in accordance with the steps described in the OpenSearch documentation.
 1. Configure each OpenSearch node with a GCS client configuration that contains the proper GCS settings as described in the OpenSearch documentation.
 1. Enable GCS backups by adding the following settings to your `config.toml`:
 

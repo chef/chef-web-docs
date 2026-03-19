@@ -11,6 +11,8 @@ draft = false
     weight = 208
 +++
 
+<!-- vale off -->
+
 You can follow the AWS documentation directly for detailed steps on [how to create an Amazon RDS PostgreSQL Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html).
 
 Below is our guide on the steps required to create an Amazon RDS PostgreSQL instance. This guide will walk you through creating an Amazon RDS PostgreSQL instance and retrieving the necessary connection details, including the hostname, port, username, and password.

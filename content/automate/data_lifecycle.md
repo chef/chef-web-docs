@@ -11,6 +11,8 @@ draft = false
     weight = 30
 +++
 
+<!-- vale off -->
+
 Data Lifecycle manages the retention of events, service groups, Chef Infra Client runs, compliance reports, and scans in Chef Automate. Chef Automate stores data from the ingest-service, event-feed-service, compliance-service and applications-service in OpenSearch or PostgreSQL. Over time, you may wish to remove that data from Chef Automate by using the data lifecycle settings.
 
 ## Data Lifecycle

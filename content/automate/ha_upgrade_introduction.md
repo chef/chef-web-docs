@@ -11,6 +11,8 @@ draft = false
     weight = 70
 +++
 
+<!-- vale off -->
+
 Steps to upgrade the Chef Automate HA are as shown below:
 
 - Download the latest CLI

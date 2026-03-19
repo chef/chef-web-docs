@@ -12,6 +12,8 @@ draft = false
     weight = 200
 +++
 
+<!-- vale off -->
+
 {{< note >}}
 
 - All the nodes will apply the Frontend patch/set wherever the PostgreSQL and OpenSearch changes will be used to only one cluster node.

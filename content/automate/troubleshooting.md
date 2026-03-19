@@ -12,6 +12,8 @@ draft = false
     weight = 100
 +++
 
+<!-- vale off -->
+
 ## Index issues
 
 ### Indices with bad default mappings

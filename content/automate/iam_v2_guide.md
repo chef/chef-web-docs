@@ -12,6 +12,8 @@ draft = false
     weight = 20
 +++
 
+<!-- vale off -->
+
 {{< note >}}
 This documentation covers Chef Automate's IAM feature in release 20200326170928 and later.
 {{< /note >}}

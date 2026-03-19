@@ -81,7 +81,7 @@ This command will upgrade Chef Automate to the latest version from your install 
 
 #### Deployment Type
 
-Do not change `deployment_type`.
+Don't change `deployment_type`.
 The only supported `deployment_type` is `local`.
 
 #### Settings
@@ -393,7 +393,7 @@ ssl_ciphersuites = "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_
 * `TLS_AES_128_GCM_SHA256` - AES-128 with GCM mode (faster performance)
 
 {{< note >}}
-TLS 1.3 cipher suites use underscores in their names (for example, `TLS_AES_256_GCM_SHA384`) and are separated by colons. Do not use hyphens or spaces.
+TLS 1.3 cipher suites use underscores in their names (for example, `TLS_AES_256_GCM_SHA384`) and are separated by colons. Don't use hyphens or spaces.
 {{< /note >}}
 
 ##### TLS 1.2 Ciphers
@@ -409,7 +409,7 @@ ssl_ciphers = "ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-E
 ```
 
 {{< note >}}
-TLS 1.2 ciphers use hyphens in their names (for example, `ECDHE-RSA-AES256-GCM-SHA384`) and are separated by colons. Do not use semicolons or spaces.
+TLS 1.2 ciphers use hyphens in their names (for example, `ECDHE-RSA-AES256-GCM-SHA384`) and are separated by colons. Don't use semicolons or spaces.
 {{< /note >}}
 
 ##### Dual TLS 1.2 and TLS 1.3 Configuration
@@ -622,8 +622,8 @@ Configuration displays a custom banner on every Chef Automate page, including th
     show = true # Set 'show' to 'true' to enable the banner. Set to 'false' to disable the banner. Default: false.
 
     message = "Lorem ipsum dolor sit amet" # Add the Message for the banner
-    background_color = "3864f2" # Set the background color using the Hex Color Code (Do not add # to the code)
-    text_color = "FFF" # Set the color of the text using the Hex Color Code (Do not add # to the code)
+    background_color = "3864f2" # Set the background color using the Hex Color Code (Don't add # to the code)
+    text_color = "FFF" # Set the color of the text using the Hex Color Code (Don't add # to the code)
 
     # Find valid HEX codes at https://htmlcolorcodes.com/
 ```

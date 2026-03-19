@@ -10,6 +10,8 @@ draft = false
     weight = 80
 +++
 
+<!-- vale off -->
+
 Before running Chef Automate, you must accept the Chef EULA.
 
 Chef Automate offers two license tiers that have different entitlements:

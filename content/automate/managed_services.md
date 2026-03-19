@@ -11,6 +11,8 @@ draft = false
     weight = 80
 +++
 
+<!-- vale off -->
+
 ## Prerequisites
 
 ### PostgreSQL Setup
@@ -364,7 +366,7 @@ If you have taken a backup from Chef Automate's internal automated OpenSearch se
 
 ### Registering Snapshot Repository
 
-To register a snapshot repository, send a PUT request to the OpenSearch Service domain endpoint. Do not use curl to operate as it doesn't support AWS request signing. Instead, use the [sample Python client](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-snapshots.html#managedomains-snapshot-client-python), Postman, or some other method to send a signed request to register the snapshot repository.
+To register a snapshot repository, send a PUT request to the OpenSearch Service domain endpoint. Don't use curl to operate as it doesn't support AWS request signing. Instead, use the [sample Python client](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-snapshots.html#managedomains-snapshot-client-python), Postman, or some other method to send a signed request to register the snapshot repository.
 
 Make sure to follow the steps mentioned in the prerequisite while setting up the Amazon OpenSearch Domain. Use the same `role_arn` and `IAM user` credentials mapped to the `manage_snapshots` role on OpenSearch dashboards.
 

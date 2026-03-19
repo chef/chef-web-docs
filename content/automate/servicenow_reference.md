@@ -25,7 +25,7 @@ Find the Chef Automate features in the ServiceNow instance by searching **Chef**
 
 The Chef Automate Installation team has tested the integration of the Integration App with 10K nodes of Chef Infra Client Run data. Infrastructure with more than 10K nodes may have performance issues. The system performance will decrease with other applications running in your environment.
 
-The typical production instance of ServiceNow can have between 8-12K nodes, and will perform at +10K nodes per hour processed with Chef Infra Client run data. Benchmarking indicates that the increase in the number of nodes in the ServiceNow instance reduces the processing time.
+The typical production instance of ServiceNow can have between 8-12K nodes, and will perform at +10K nodes each hour processed with Chef Infra Client run data. Benchmarking indicates that the increase in the number of nodes in the ServiceNow instance reduces the processing time.
 
 | Client Nodes  | Total Time Taken (Dev 1 Node)  | Total Time Taken (Vendor 2 Node)  |
 |---------------|--------------------------------|-----------------------------------|

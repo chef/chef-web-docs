@@ -12,6 +12,8 @@ draft = false
     weight = 10
 +++
 
+<!-- vale off -->
+
 The Chef Enterprise Application Stack (EAS) allows organizations to automate infrastructure, security, and application delivery together, helping them deploy software quickly while maintaining compliance with industry regulations. Chef EAS helps teams drive efficiency and consistency for any application across multi-cloud and heterogeneous infrastructure.
 
 Chef EAS includes the following Chef solutions:

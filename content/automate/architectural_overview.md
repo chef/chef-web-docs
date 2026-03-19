@@ -11,6 +11,8 @@ draft = false
     weight = 10
 +++
 
+<!-- vale off -->
+
 ## Chef Automate 2 Architecture
 
 ![Chef Automate 2 Architecture](/images/automate/a2-architecture-os.png)

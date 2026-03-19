@@ -12,6 +12,8 @@ automate = "On-Premises Prerequisites"
     weight = 20
 +++
 
+<!-- vale off -->
+
 {{< warning >}}
 
 The following  prerequisites are according to the standard Chef Automate HA setup. You can contact the customer success manager or account manager if you use any specified version not mentioned here or a third-party extension or software.
@@ -125,8 +127,8 @@ The first column in the table below represents the source of the connection. The
 |---------------|----------------|-------------------|-------------------------------------|--------------------------------------|---------| ------------- |
 | Chef Automate |                |                   | 5432, 6432, 7432, 9631                                | 9200, 9631                                  |         |               |
 | Infra Server  |                |                   | 5432, 6432, 7432, 9631                                 | 9200, 9631                                  |         | 443              |
-| PostgreSQL    |                |                   | 9631, 7432, 5432, 6432, 9638<br/>UDP 9638 |                                      |         |               |
-| OpenSearch    |                |                   |                                     | 9631, 9200, 9300, 9638 <br/>UDP 9638 |         |               |
+| PostgreSQL    |                |                   | 9631, 7432, 5432, 6432, 9638, UDP 9638 |                                      |         |               |
+| OpenSearch    |                |                   |                                     | 9631, 9200, 9300, 9638, UDP 9638 |         |               |
 | Bastion       | 22, 9631, 9638, 7799 | 22, 9631, 9638, 7799    | 22, 9631, 9638, 7432, 7799                | 22, 9631, 9638, 9200, 7799                 |         | 22            |
 | Automate Load Balancer | 443, 80        | 443, 80           |                                     |                                      |         |               |
 
@@ -259,8 +261,8 @@ To know more about the on-premises deployment disaster recovery, visit our [Disa
 |-----------------|----------------------|---------------------------------|-----------|------------------------------|
 | Chef Automate | [Standalone](/automate/install/) | Automate 2020XXXXXX |    | To migrate to the Managed OpenSearch Automate HA cluster, the current standalone Chef Automate version should be at most 4.3.0. |
 | Chef Backend | [Chef Backend Cluster](/server/install_server_ha/) | Backend 2.X and Infra Server 14.X | Chef Infra Server 15.4.0 | Chef Backend using PostgreSQL storage for Cookbooks should only migrate to Automate HA. |
-| Chef Infra Server | [Standalone](/server/install_server/#standalone)<br />[Tiered](/server/install_server_tiered/) | Infra server 14.XXX | Chef Infra Server 15.4.0 | Chef Infra Server using PostgreSQL storage for Cookbooks should only migrate to Automate HA. |
-| A2HA | PS Lead A2HA On-Premises Deployment |Chef Automate version 20201230192246 | Chef Automate Version 20220223121207 | The A2HA cluster-mounted backup file system should also be attached to Automate HA cluster.<br />In case of In-Place migration, the volume having `/hab` should have more than 60% free space on each node. |
+| Chef Infra Server | [Standalone](/server/install_server/#standalone) [Tiered](/server/install_server_tiered/) | Infra server 14.XXX | Chef Infra Server 15.4.0 | Chef Infra Server using PostgreSQL storage for Cookbooks should only migrate to Automate HA. |
+| A2HA | PS Lead A2HA On-Premises Deployment |Chef Automate version 20201230192246 | Chef Automate Version 20220223121207 | The A2HA cluster-mounted backup file system should also be attached to Automate HA cluster. In case of In-Place migration, the volume having `/hab` should have more than 60% free space on each node. |
 
 {{< note >}}
 

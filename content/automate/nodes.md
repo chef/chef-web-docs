@@ -27,7 +27,7 @@ All nodes have one of three possible statuses: 'unknown', 'reachable', and 'unre
 
 Each time a user adds one or more nodes manually or with a node integration (AWS, Azure, or GCP), Chef Automate runs an`inspec detect` job on the newly added nodes.
 If the detect job is successful, the node status updates from 'unknown' to 'reachable', and the platform information is updated from the `inspec detect` results.
-If the detect job is unsuccessful, meaning the node could not be reached, the node's status updates to 'unreachable'.
+If the detect job is unsuccessful, meaning the node couldn't be reached, the node's status updates to 'unreachable'.
 The status updates every time a scan job runs on the node.
 
 ### Node State
@@ -154,7 +154,10 @@ https://a2-dev.test/api/v0/nodes/search -d '{
 
 ### Bulk Node Add
 
- Use the `nodes/bulk-create` endpoint to add multiple nodes with the same set of tags and credentials.  Specifying a `name_prefix` for the nodes in question results in a node name of `prefix-host`.  Specified tags will be added to each node. The endpoint takes an array of node objects, allowing users to add as many nodes as needed.
+Use the `nodes/bulk-create` endpoint to add multiple nodes that share the same tags and credentials.
+The endpoint accepts an array of node objects.
+If you specify a `name_prefix`, Chef Automate generates a node name by combining the prefix and the host value, resulting in a name like `prefix-host`.
+Any tags you specify are applied to each node in the request.
 
 ```bash
 curl -s --insecure -H "api-token: $token_val" https://a2-dev.test/api/v0/nodes/bulk-create -d '

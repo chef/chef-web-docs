@@ -12,6 +12,8 @@ draft = false
         weight = 210
 +++
 
+<!-- vale off -->
+
 {{< note >}}
 
 - If the user chooses `backup_config` as `file_system` in `config.toml` backup is already configured during the deployment, and in that case **the below steps aren't required**. If `backup_config` is left blank, then the configuration needs to be configured manually.
@@ -32,7 +34,7 @@ A shared file system is always required to create **OpenSearch** snapshots. To r
 
 - `/mnt/automate_backups` is the default value for the `backup_mount`, which is also used in this document page as reference backup path.
 - While using `file_system` as backup type, the `uid` of `hab` user should be same across all **the remote nodes**. The same will be verified during `verify` check before deployment
-- Do not `modify`/`delete` any file manually inside the `backup_mount` directory
+- Don't `modify`/`delete` any file manually inside the `backup_mount` directory
 {{< /note >}}
 
 Apply the following steps on **all of the OpenSearch server** node

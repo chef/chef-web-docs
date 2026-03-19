@@ -11,6 +11,8 @@ draft = false
     weight = 30
 +++
 
+<!-- vale off -->
+
 {{< warning >}} _Elasticsearch support has been removed from this version (4.0.27) of Chef Automate._ {{< /warning >}}
 
 Chef Automate provides an entire suite of enterprise capabilities for node visibility and compliance. Chef Automate upgrades from one minor version to another automatically. However, Chef Automate won't automatically upgrade to a major version. See the instructions below for manually upgrading Chef Automate from date-based versions to Chef Automate _4.x_.

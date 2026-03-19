@@ -12,6 +12,8 @@ draft = false
     weight = 30
 +++
 
+<!-- vale off -->
+
 The Chef Automate _Applications_ dashboard allows you to organize and display your applications data from Chef Habitat in an intuitive way.
 Chef Automate organizes data from the application and environment tags provided by the Chef Habitat supervisor.
 Under the Chef Automate _Applications_ dashboard, the _Service Groups_ display lets you understand the status of your Chef Habitat services, even when scaling out to large numbers of services.

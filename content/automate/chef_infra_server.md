@@ -12,6 +12,8 @@ draft = false
     weight = 30
 +++
 
+<!-- vale off -->
+
 ## Overview
 
 The _Chef Infra Server_ page (**Infrastructure > Chef Infra Servers**) lets you connect existing Chef Infra Servers to Chef Automate, view all the connected Chef Infra Servers, and manage all of the objects on your connected Chef Infra Servers.

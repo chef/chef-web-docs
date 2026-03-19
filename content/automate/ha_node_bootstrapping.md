@@ -11,6 +11,8 @@ draft = false
     weight = 250
 +++
 
+<!-- vale off -->
+
 A node is any physical, virtual, or cloud device configured and maintained by an instance of Chef Infra Client.
 Bootstrapping installs Chef Infra Client on a target system,
 so it can run as a client and sets the node up to communicate with a Chef Infra Server.

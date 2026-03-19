@@ -11,6 +11,8 @@ draft = false
     weight = 50
 +++
 
+<!-- vale off -->
+
 Chef Automate can integrate with existing Security Assertion Markup Language (SAML) services to authenticate users in Chef Automate, and use their existing group memberships to determine their Chef Automate permissions.
 
 {{< note >}}

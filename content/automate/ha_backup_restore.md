@@ -12,6 +12,8 @@ draft = false
     weight = 200
 +++
 
+<!-- vale off -->
+
 Computer security safeguards the computer system and data against theft, unlawful access, or any disaster. It's guarding against and detecting unlawful access to your computer system. Data security refers to securing data from unlawful access or any disaster. This process includes the following terms:
 
 - Data Backup
