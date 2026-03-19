@@ -11,6 +11,9 @@ draft = false
     weight = 80
 +++
 
+<!-- markdownlint-disable-file -->
+<!-- vale off -->
+
 This page lists the Chef Infra server keys that can be configured in standalone Chef Automate and Automate HA.
 
 When operated in a standalone mode, the list contains specific available parameters that a person can patch or modify beyond what the values are in Chef Infra Server. All the parameters have their default values in Chef Infra Server. Now, you can access the same parameters from Chef Automate, which you can patch or change the values from the configuration file.

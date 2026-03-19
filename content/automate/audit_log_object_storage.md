@@ -10,6 +10,9 @@ draft = false
     weight = 43
 +++
 
+<!-- markdownlint-disable-file -->
+<!-- vale off -->
+
 You can configure Chef Automate to use an object storage backend (AWS S3 or MinIO) for audit log storage.
 This is helpful when you want audit log data to live outside the local filesystem and to integrate with object-storage-based retention and access controls.
 

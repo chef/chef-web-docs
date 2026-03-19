@@ -85,12 +85,11 @@ If Automate is configured with external Elasticsearch then data should be migrat
 For Automate configured with embedded Elasticsearch then data will be migrate in the upgrade flow to embedded OpenSearch.
 {{< /note >}}
 
-{{< warning >}} Your drive should have a minimum of sixty percent of free space to start the major version upgrade. {{< /warning >}}
+{{< warning >}} Your drive should have a minimum of 60% of free space to start the major version upgrade. {{< /warning >}}
 
 ### Chef Automate With Embedded Elasticsearch
 
 To upgrade Chef Automate from version 3.0.49 to 4.x with embedded Elasticsearch, follow these steps:
-
 
 1. Download latest chef-automate cli.
 
