@@ -12,8 +12,6 @@ draft = false
 
 <!-- vale off -->
 
-
-
 ## Command Usage
 
 ```bash

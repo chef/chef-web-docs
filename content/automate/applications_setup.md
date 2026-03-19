@@ -14,7 +14,6 @@ draft = false
 
 <!-- vale off -->
 
-
 <!-- ## Health Checks
 
 To maximize the utility of the Chef Automate EAS Applications feature, it's recommended to implement meaningful health check hooks for your services.

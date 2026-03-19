@@ -21,7 +21,7 @@ For all other users, you can create [IAM custom policies]({{< relref "iam_v2_gui
 
 ![Chef Automate settings roles page](/images/automate/settings-roles.png)
 
-### Chef-Managed Roles
+## Chef-managed roles
 
 Chef-managed roles are roles provided by Chef that can't be changed.
 
@@ -40,7 +40,7 @@ Project Owner
 Ingest
 : Ingest data into the system.
 
-#### Actions for Chef-managed roles
+### Actions for Chef-managed roles
 
 Owner
 : ID: owner
@@ -67,7 +67,7 @@ Ingest
 
   Actions: infra:ingest:\*, compliance:profiles:get, compliance:profiles:list
 
-### Custom Roles
+## Custom Roles
 
 Custom roles are roles that any user with the permission for `iam:roles:update` can change.
 In addition to the Chef-managed roles above, Chef Automate includes two custom roles by default.
@@ -109,6 +109,6 @@ _Custom_ roles can only be created using the [Roles API]({{< relref "api/#tag/ro
 
 For _custom_ roles, use the [Roles API]({{< relref "api/#tag/roles" >}}) to change the role name, actions list, and projects.
 
-### Deleting Roles
+### Delete Roles
 
 Navigate to _Roles_ in the **Settings** tab. Then open the menu at the end of the table row and select **Delete Role**.
