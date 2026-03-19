@@ -55,7 +55,7 @@ Follow the steps below to deploy Chef Automate High Availability (HA) on AWS (Am
 
     To know more about on how to generate config, refer to the [Automate HA Config Generation](/automate/ha_config_gen) page.
 
-    {{< note spaces=4 >}}
+    {{< note >}}
 
     You can also generate a configuration file using the `init-config` subcommand. The command is as shown below:
 
@@ -63,9 +63,7 @@ Follow the steps below to deploy Chef Automate High Availability (HA) on AWS (Am
 
     {{< /note >}}
 
-    {{< warning spaces=4 >}}
-    {{% automate/char-warn %}}
-    {{< /warning >}}
+    {{< readfile file="content/automate/reusable/md/password_character_warning.md" >}}
 
 ## Steps to Provision
 

@@ -53,14 +53,14 @@ Ensure all resources are on existing or cloud infrastructure (`AWS`/`Azure`/`Goo
     "
     ```
 
-    {{< note spaces=4 >}}
+    {{< note >}}
 
     In case `/usr/bin` isn't there then check for `/bin` directory
 
     {{< /note >}}
     To download specific version bundle, replace `latest.aib` with Chef Automate version number. For example, `4.12.144.aib`.
 
-    {{< note spaces=4 >}}
+    {{< note >}}
 
     Chef Automate bundles are available for 365 days from the release of a version. However, the milestone release bundles are available for download forever.
 

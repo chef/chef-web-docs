@@ -33,7 +33,7 @@ This section will discuss deploying Chef Automate HA on-premises machines with a
 
     You can also view the [Sample Config](#sample-config-to-set-up-on-premises-deployment-with-self-managed-services).
 
-    {{< note spaces=4 >}}
+    {{< note >}}
 
     You can also generate config using the `init-config-ha` subcommand and to generate init config for existing infrastructure.
 

@@ -51,7 +51,7 @@ Run the following steps on Bastion Host Machine:
     "
     ```
 
-    {{< note spaces=4 >}}
+    {{< note >}}
 
     Chef Automate bundles are available for 365 days from the release of a version. However, the milestone release bundles are available for download forever.
 
@@ -67,7 +67,7 @@ Run the following steps on Bastion Host Machine:
 
     Refer to the [Automate HA Config Generation](/automate/ha_config_gen) page to learn more about generating config.
 
-    {{< note spaces=4 >}}
+    {{< note >}}
 
     You can also generate a configuration file using the `init-config` subcommand.
 
