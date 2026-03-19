@@ -73,7 +73,7 @@ You need to have `Chef Automate HA` as a topology for HA deployments.
 : Chef Automate FQDN. For example, `chef-server.example.com`.
 
 `Chef Infra Server FQDN ARN`
-: For AWS deployment ARN name is required for Chef Servers FQDN domain.
+: For AWS deployment ARN name is required for Chef Infra Servers FQDN domain.
 
 `Chef Infra Server FQDN Root Certificate`
 : SSL root certificate for Chef Infra Server FQDN domain.

@@ -13,58 +13,58 @@ draft = false
 
 {{< note >}}
 
-- The Large Compliance Report is supported from Chef Automate Version **4.2.x** and above.
-- The Large Compliance Report feature isn't available for Chef Automate High Availability (HA) as of now.
+- Chef Automate version **4.2.x** and later support Large Compliance Report ingestion.
+- This feature isn't available for Chef Automate High Availability (HA).
 
 {{< /note >}}
 
-Automate fails to ingest Compliance reports larger than 4MB sent through the data collector endpoint. Chef Automate data collector sends the error back to the client.
+Chef Automate fails to ingest compliance reports larger than 4 MB sent through the data collector endpoint. The Chef Automate data collector returns the error to the client.
 
-The following change in architecture enables Automate to ingest reports larger than 4MB without failure.
+The following architecture change enables Chef Automate to ingest reports larger than 4 MB.
 
 ![LCR Architecture](/images/automate/lcr_architecture.jpg)
 
-Automate with the configuration to allow ingestion of an extensive compliance report and allow the data to be sent to the OpenSearch data and in an externally deployed MinIO Service. Automate in the configuration expects that a MinIO Server is running externally to Automate ecosystem, which Automate can connect and transact to.
+With this configuration, Chef Automate allows ingestion of large compliance reports and sends data to OpenSearch and an externally deployed MinIO service. In this configuration, Chef Automate expects a MinIO server running outside the Chef Automate ecosystem.
 
-Automate with the configuration will enable Automate to:
+With this configuration, Chef Automate can:
 
 - Allow ingestion of compliance reports larger than 4MB,
 - Exporting or downloading complete reports larger than 4MB in size.
 
-This change has implications for the performance of Automate data ingestion because:
+This change affects Chef Automate data ingestion performance because:
 
-- Automate processes much more extensive data than the usual.
-- Automate uploads the data to an external service over a network.
+- Chef Automate processes much more data than usual.
+- Chef Automate uploads data to an external service over a network.
 
 The impact depends on different factors like network configuration and machine configuration.
 Here is a benchmark test summary report run on
 
 - Instance Type: **16 vCPU, 30 GB memory**
 - Number of Compliance Targets: **20K**
-- **OpenSearch** and **PostgreSQL** are deployed internally
+- You deploy **OpenSearch** and **PostgreSQL** internally
 
 | Report Size | Supported Concurrency |
 | --- | --- |
 | 1 MB | 100 |
-5 MB | 50 |
-8 MB | 30 |
-12 MB | 20 |
+| 5 MB | 50 |
+| 8 MB | 30 |
+| 12 MB | 20 |
 
 ## Prerequisites
 
-{{< note >}} Automate installation doesn't include MinIO server. {{< /note >}}
+{{< note >}} Chef Automate installation doesn't include a MinIO server. {{< /note >}}
 
-- An external MinIO server needs to be set up and available to connect
+- An external MinIO server that Chef Automate can connect to
 
 ### MinIO
 
-MinIO is a High-Performance Object Storage released under GNU Affero General Public License v3.0. It's API compatible with the Amazon S3 cloud storage service. MinIO is the only object storage suite available on the public cloud, every Kubernetes distribution, the private cloud, and the edge.
+MinIO is a high-performance object storage system released under the GNU Affero General Public License v3.0. Its API is compatible with the Amazon S3 cloud storage service. MinIO is available on the public cloud, in every Kubernetes distribution, on private clouds, and at the edge.
 
 For more information on how to set up MinIO on a bare-metal server, see how to [set up MinIO](https://min.io/docs/minio/kubernetes/upstream/).
 
-## Enable Automate to Ingest Large Compliance Report
+## Enable Chef Automate to ingest large compliance reports
 
-To enable Automate to ingest Large Compliance reports:
+To enable Chef Automate to ingest large compliance reports:
 
 1. Create a `patch.toml` if one doesn't already exist for your Chef Automate installation.
 
@@ -94,17 +94,17 @@ To enable Automate to ingest Large Compliance reports:
 #  bucket = "default"
 ```
 
-3. Patch the config by running the following command:
+1. Patch the config by running the following command:
 
 ```toml
 `chef-automate config patch patch.toml`
 ```
 
-## AWS S3 as Object Storage
+## Use Amazon S3 as object storage
 
-{{< warning >}}  The below configuration isn't tested to determine benchmark numbers. We recommend doing benchmark testing before considering the approach. {{< /warning >}}
+{{< warning >}} The configuration below isn't tested for benchmark numbers. Run benchmark testing before you adopt this approach. {{< /warning >}}
 
-Automate can connect to AWS S3 for extensive compliance reports if you reuse the MinIO Configuration in the following manner:
+Chef Automate can connect to Amazon S3 for large compliance reports if you reuse the MinIO configuration in the following way:
 
 ```toml
 [global.v1.external.minio]

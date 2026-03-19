@@ -957,7 +957,7 @@ attribute, multiple queries will be executed, and their results combined.
 
 If you encounter errors like the following one after upgrading Chef Automate, and you can still authenticate using `ldapsearch` but not through Automate, your LDAP server may require legacy RSA or 3DES ciphers for TLS connections:
 
-```
+```text
 automate-dex.default(O): time="..." level=error msg="Failed to login user: failed to connect: LDAP Result Code 200 \"Network Error\": remote error: tls: handshake failure"
 ```
 

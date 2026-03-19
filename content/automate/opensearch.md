@@ -12,13 +12,12 @@ draft = false
     weight = 10
 +++
 
-You can configure Chef Automate to use OpenSearch clusters that aren't deployed via Chef Automate itself.
+You can configure Chef Automate to use OpenSearch clusters that aren't deployed through Chef Automate itself.
+Chef Automate supports OpenSearch connection over HTTPS or HTTP
 
 ## Configure External OpenSearch
 
 These configuration directions are intended for the initial deployment of Chef Automate.
-
-**Automate supports OpenSearch connection over HTTPS or HTTP**
 
 Add the following to your `config.toml` for HTTPS connection:
 

@@ -1,5 +1,5 @@
 
-* [Azure AD](#azure-active-directory)
+* Azure AD
 * Microsoft 365
 * Okta
 * OneLogin

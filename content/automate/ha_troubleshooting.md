@@ -302,9 +302,9 @@ In the case of HA setup, while doing `knife ssl fetch`, if the certificate fetch
 - Provide `https://<RECORD_NAME>` while running knife ssl check. For example, `knife ssl check https://<RECORD_NAME>`.
 
 - Log in to the OpenSearch dashboard
-- Run this query: GET _snapshot/_all to get all the snapshots.
-- Delete all the snapshots using this query: DELETE _snapshot/<snapshot name>
-  For example: DELETE_snapshot/ chef-automate-es6-event-feed-service
+- Run this query: `GET _snapshot/_all` to get all the snapshots.
+- Delete all the snapshots using this query: `DELETE _snapshot/<snapshot-name>`
+  For example: `DELETE _snapshot/chef-automate-es6-event-feed-service`
 
 ### Issue: rename /tmp/temp2137181075 automate.config.toml: invalid cross-device link
 

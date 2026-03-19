@@ -16,7 +16,7 @@ draft = false
 
 ## Configurations
 
-The PostgreSQL node in Automate HA provides various configuration options you can configure to customize its behavior and meet specific requirements. This guide documents all the configurations that you can patch.
+The PostgreSQL node in Chef Automate HA provides configuration options you can use to customize its behavior and meet specific requirements. This guide documents all settings you can patch.
 
 The detailed document about how these individual properties affect the system is at [Official PostgreSQL docs](https://www.postgresql.org/docs/13/)
 
@@ -32,7 +32,7 @@ logging_collector = "on"
 
 In the above snippet:
 
-- `log_level` controls which message levels are written to the server log. Valid values are DEBUG5, DEBUG4, DEBUG3, DEBUG2, DEBUG1, INFO, NOTICE, WARNING, ERROR, LOG, FATAL, and PANIC. The default is WARNING.
+- `log_level` controls which message levels the server log records. Valid values are DEBUG5, DEBUG4, DEBUG3, DEBUG2, DEBUG1, INFO, NOTICE, WARNING, ERROR, LOG, FATAL, and PANIC. The default value is WARNING.
 - `log_line_prefix` is a printf-style string output at the beginning of each log line.
 - `logging_collector` enables the logging collector, which is a background process that captures log messages sent to stderr and redirects them into log files
 
@@ -46,17 +46,17 @@ min_wal_size = "80MB"
 
 In the above snippet:
 
-- `checkpoint_timeout` is the maximum time between automatic WAL checkpoints. The valid range is between 30 seconds and one day. The default is five minutes (5min). Increasing this parameter can increase the amount of time needed for crash recovery.
-- `max_wal_size` is the maximum size to let the WAL grow during automatic checkpoints. The default is 1 GB. Increasing this parameter can increase the amount of time needed for crash recovery. This parameter can only be set in the PostgreSQL.conf file or the server command line.
-- `min_wal_size` can ensure enough WAL space is reserved to handle spikes in WAL usage, for example, when running large batch jobs. If this value is specified without units, it's taken as megabytes. The default is 80 MB.
+- `checkpoint_timeout` sets the longest time between automatic WAL checkpoints. The valid range is between 30 seconds and one day. The default is five minutes (5min). Increasing this parameter can increase the amount of time needed for crash recovery.
+- `max_wal_size` sets the largest size that WAL can grow to during automatic checkpoints. The default is 1 GB. Increasing this parameter can increase the amount of time needed for crash recovery. Set this parameter in the PostgreSQL.conf file or on the server command line.
+- `min_wal_size` helps reserve enough WAL space to handle spikes in WAL usage, for example, when running large batch jobs. If you specify this value without units, PostgreSQL treats it as megabytes. The default is 80 MB.
 
-### Wal Keep Size
+### Write-ahead log keep size
 
 ```bash
 wal_keep_size = 1600
 ```
 
-`wal_keep_size` specifies the minimum size of past log file segments kept in the pg_wal directory if a standby server needs to fetch them for streaming replication. If wal_keep_size is zero (the default), the system doesn't keep extra segments for standby purposes. Hence, the number of old WAL segments available to standby servers is a function of the location of the previous checkpoint and the status of WAL archiving.
+`wal_keep_size` specifies the smallest size of past log file segments kept in the pg_wal directory if a standby server needs to fetch them for streaming replication. If wal_keep_size is zero (the default), the system doesn't keep extra segments for standby purposes. As a result, the number of old WAL segments available to standby servers depends on the location of the previous checkpoint and the status of WAL archiving.
 
 ### Lock Management
 
@@ -64,21 +64,21 @@ wal_keep_size = 1600
 max_locks_per_transaction = 64
 ```
 
-The shared lock table tracks locks on `max_locks_per_transaction` * (max_connections + max_prepared_transactions) objects (for example, tables); hence, no more than this many distinct objects can be locked at any time. This parameter controls the average number of object locks allocated for each transaction; individual transactions can lock more objects as long as the locks of all transactions fit in the lock table. This isn't the number of rows that can be locked; that value is unlimited. The default is 64.
+The shared lock table tracks locks on `max_locks_per_transaction` * (max_connections + max_prepared_transactions) objects (for example, tables). This means the system can lock at most that number of distinct objects at a time. This parameter controls the average number of object locks allocated for each transaction. Individual transactions can lock more objects as long as all transaction locks fit in the lock table. This doesn't limit the number of rows that a transaction can lock. The default is 64.
 
-When running a standby server, you must set this parameter to the same or higher value than on the master server. Otherwise, queries won't be allowed on the standby server.
+When running a standby server, you must set this parameter to the same or higher value than on the primary server. Otherwise, the standby server won't allow queries.
 
-### Max Connections
+### Max connections
 
 ```bash
 max_connections = 350
 ```
 
-In the above snippet, `max_connections` determines the maximum number of concurrent connections to the database server. The default for Automate is 350 connections.
+The highest number of concurrent connections to the database server. The default for Chef Automate is 350 connections.
 
-When running a standby server, you must set this parameter to the same or higher value than on the master server. Otherwise, queries won't be allowed on the standby server.
+When running a standby server, set this parameter to the same or higher value than on the primary server. Otherwise, the standby server won't allow queries.
 
-**Note:** Modifications to the `max_connections` require a reboot of the leader, during which a new leader will be elected. The updated value for `max_connections` will be reflected in the configuration only after the reboot, in accordance with [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-MAX-CONNECTIONS).
+**Note:** Modifications to `max_connections` require a reboot of the leader, and the cluster elects a new leader during that reboot. The configuration reflects the updated `max_connections` value after the reboot, as described in the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-MAX-CONNECTIONS).
 
 ### Pg Dump
 
@@ -88,7 +88,7 @@ enable = true
 path = "/mnt/automate_backups/postgresql/pg_dump"
 ```
 
-This section configures pg_dump, a PostgreSQL utility for performing database backups. It enables pg_dump and specifies the path where the backups should be stored.
+This section configures pg_dump, a PostgreSQL utility for performing database backups. It enables pg_dump and specifies the path where pg_dump stores backups.
 
 ### Replication
 
@@ -99,7 +99,7 @@ password = 'replication'
 # note: lag_health_threshold is in bytes - default to 300KB
 # this is just greater than 1 WAL segment
 lag_health_threshold = 307200
-# maximum lag time in seconds since log was last replayed before replica is eligible for a restart
+# largest lag time in seconds since log was last replayed before replica is eligible for a restart
 max_replay_lag_before_restart_s = 180
 max_wal_senders = 10
 max_replication_slots = 5
@@ -112,15 +112,15 @@ This section configures replication settings:
 
 - `name`: replication name
 - `password`: replication password.
-- `lag_health_threshold`: it sets the lag health threshold to 307200 bytes(300 kb), the maximum allowed replication lag.
-- `max_replay_lag_before_restart_s`: Custom setting; maximum lag time in seconds since log was last replayed before replica is eligible for a restart.
-- `max_wal_senders`: Limits how many standbys can connect for replication (default: 10).
-- `max_replication_slots`: Sets how many replication slots are allowed (default: 5).
+- `lag_health_threshold`: Sets the lag health threshold to 307200 bytes (300 KB), the highest allowed replication lag.
+- `max_replay_lag_before_restart_s`: Custom setting; largest lag time in seconds since log was last replayed before replica is eligible for a restart.
+- `max_wal_senders`: Limits the number of standbys that can connect for replication (default: 10).
+- `max_replication_slots`: Sets the number of allowed replication slots (default: 5).
 - `wal_sender_timeout`: Primary waits 60 seconds for standby response before disconnecting.
 - `wal_receiver_timeout`: Standby waits 60 seconds for data from primary before timing out.
 - `wal_compression`: Controls compression of WAL data; "off" disables it, "on" enables it.
 
-### SSL
+### Transport security settings
 
 ```bash
 [ssl]
@@ -131,7 +131,7 @@ ssl_key = "----Enter Private Key----"
 tls_ciphers = "ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256"
 ```
 
-This section configures SSL/TLS settings. It enables SSL and specifies the root CA (issuer) certificate, the public key certificate, the private key, and the allowed TLS ciphers.
+This section configures SSL/TLS settings. It turns on SSL and specifies the root CA (issuer) certificate, the public key certificate, the private key, and the allowed TLS ciphers.
 
 ### User
 
@@ -143,7 +143,7 @@ password = "admin"
 
 This section specifies the username and password for the superuser (administrator) account.
 
-### Wal Archive
+### Write-ahead log archive
 
 ```bash
 [wal_archive]
@@ -151,7 +151,7 @@ enable = false
 path = "/mnt/automate_backups/postgresql/archive"
 ```
 
-This section configures WAL archiving. It specifies whether WAL archiving is enabled (false in this case) and the path where archived WAL files should be stored.
+This section configures WAL archiving. It specifies whether WAL archiving is on (false in this case) and the path where the system stores archived WAL files.
 
 ### Full config for PostgreSQL node
 
@@ -202,6 +202,6 @@ log_level = "DEBUG"
 
 - Run the patch command `chef-automate config patch log.toml --pg` to apply the patch.
 
-### Centralized Logs
+### Centralized logs
 
 Take a tour of the main page to know about [Centralized logs](/automate/centralizing_log/).

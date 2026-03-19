@@ -144,7 +144,7 @@ chef-automate iam admin-access restore NEW_PASSWORD --dry-run
 
 ### Details
 
-Possible reason of failures in data collector API could be due to change in the use case we are running.
+Possible reason of failures in data collector API could be due to change in the use case we're running.
 
 This can be due to the following reasons:
 

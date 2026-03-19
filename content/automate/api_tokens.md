@@ -36,7 +36,7 @@ After creating an API Token, you can obtain the token's value by opening the men
 Admin tokens are tokens that are automatically added to the Administrator policy, which grants full access to Chef Automate.
 Admin tokens can only be created using the `chef-automate` command line.
 
-```
+```bash
 chef-automate iam token create <your-token-name> --admin
 ```
 

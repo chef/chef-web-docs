@@ -15,7 +15,7 @@ draft = false
 {{% automate/ha-warn %}}
 {{< /note >}}
 
-**High availability (HA)** refers to a system or application that offers high operational availability. This means the entire site or application won't be down if one server goes down due to traffic overload or other issues. HA represents the application remains available with no interruption. We achieve high availability when an application continues to operate even when one or more underlying components fail.
+High availability (HA) refers to a system or application that offers high operational availability. This means the entire site or application won't be down if one server goes down due to traffic overload or other issues. HA represents the application remains available with no interruption. We achieve high availability when an application continues to operate even when one or more underlying components fail.
 
 Thus, HA is designed to avoid loss of service by reducing or managing failures and minimizing unscheduled downtime (when your system or network isn't available for use or is unresponsive) that happens due to power outages or failure of a component.
 
@@ -25,7 +25,7 @@ The Chef Automate HA equates to reliability, efficiency, and productivity, built
 
 ## Chef Automate HA Architecture
 
-HA architecture includes the cluster of the _Chef Automate_, _Chef Server_, _PostgreSQL_, and _OpenSearch_.
+HA architecture includes Chef Automate, Chef Infra Server, PostgreSQL, and OpenSearch.
 
 {{< note >}}
 Port **7799** must be accessible from the bastion host to all nodes within the Chef Automate cluster.
@@ -96,22 +96,22 @@ Chef Automate's high availability solution can run on cloud providers and on-pre
 
 ### Cloud provisioning
 
-Systems and services from the following cloud providers are supported:
+Chef Automate is supported on the following cloud providers:
 
 - [AWS](/automate/ha_aws_deploy_steps/#steps-to-provision)
 - Azure
 - Google
 
-Deploy the Automate HA on the cloud infrastructure after provisioning the cloud systems. We have a simplified provisioning utility for AWS, Azure, and Google, and we expect to provision the systems manually.
+Deploy Chef Automate HA on cloud infrastructure after provisioning the cloud systems.
 
-## Deployment Methods
+## Deployment methods
 
 Chef Automate High Availability (HA) supports two types of deployment:
 
 - [on-premises Deployment (Existing Node) Deployment](/automate/ha_on_prem_deployment_procedure/)
 - [Amazon Web Services (AWS) Deployment](/automate/ha_aws_deploy_steps/)
 
-### On-premises Deployment (Existing Node/Bare Infrastructure)
+### On-premises deployment (Existing Node/Bare Infrastructure)
 
 In this, we expect VM (Virtual machine) or Bare Metal machines (Physical machine) that are already created and have initial Operating System (OS) setup done. Including Ports and Security policies changed according to requirements.
 
@@ -119,7 +119,7 @@ After this, installation steps will Deploy Chef Automate, Chef Infra Server, Pos
 
 See the [performance benchmarking documentation](/automate/ha_performance_benchmarks/#performance-benchmarks) for more information.
 
-### Cloud Deployment using Amazon Web Services (AWS)
+### Cloud deployment using Amazon Web Services (AWS)
 
 The two-step deployment process is as shown below:
 
@@ -127,7 +127,7 @@ The two-step deployment process is as shown below:
 - Deployment of services on the provisioned infrastructure.
   - Installation of _PostgreSQL_, _OpenSearch_, _Chef Automate_, and _Chef Infra Server_ will be done in this step.
 
-### Cloud Deployment using Azure
+### Cloud deployment using Azure
 
 The two-step deployment process is as shown below:
 
@@ -136,7 +136,7 @@ The two-step deployment process is as shown below:
   - Installation of _PostgreSQL_, _OpenSearch_, _Chef Automate_, and _Chef Infra Server_ will be done in this step.
 - Only File System Backup and Restore are supported.
 
-### Cloud Deployment using Google Cloud Platform (GCP)
+### Cloud deployment using Google Cloud Platform (GCP)
 
 The two-step deployment process is as shown below:
 

@@ -136,7 +136,7 @@ The first column in the table below represents the source of the connection. The
 
 {{< note >}} Custom SSH port is supported, but use the same port across all the machines. {{< /note >}}
 
-**Port usage definitions**
+Port usage definitions:
 
 | Protocol | Port Number | Usage                                                    |
 |----------|-------------|----------------------------------------------------------|

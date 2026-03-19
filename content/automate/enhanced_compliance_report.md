@@ -27,10 +27,10 @@ The modification and introduction of compliance APIs cover the following functio
 Asset Compliance Reporting gives you count of how many compliance nodes have been reported between the specified date range. The new APIs cover the below functionalities:
 
 - Finding the number of assets reported over a date range.
-- Find the number of assets which have not reported over a date range.
+- Find the number of assets which haven't reported over a date range.
 - Find the number of assets which can be termed as **unreachable**.
 
-The asset compliance report also gives the count of how many nodes have not been reported and have been unreachable in the specified date range.
+The asset compliance report also gives the count of how many nodes haven't been reported and have been unreachable in the specified date range.
 
 The above-mentioned APIs are also data range specific, i.e., the end date will always be the current date whereas the start date can be any date before 90 days.
 
@@ -93,9 +93,9 @@ The migration is dependent on :
 Here are some indications of migration performance:
 
 | OpenSearch Deployment Type | Number of controls each report | Total size of report | Total time taken |
-|----------------------------|--------------------------------|----------------------|------------------|
-| External (8CPU, 32GB RAM)  | 2000                           | 6GB                  | 60 minutes          |
-| Internal (4CPU, 16GB RAM)  | 2000                           | 6GB                  | 48 hours           |
+| -------------------------- | ------------------------------ | -------------------- | ---------------- |
+| External (8CPU, 32GB RAM)  | 2000                           | 6GB                  | 60 minutes       |
+| Internal (4CPU, 16GB RAM)  | 2000                           | 6GB                  | 48 hours         |
 
 ## Compliance Data Ingestion and Impact
 
@@ -118,12 +118,12 @@ Here are some performance numbers executed on a machine with 4 vCPUs and 16 GB o
 - The size of Compliance report
 - The number of asynchronous control data populator.
 
-| Size of the Report | Number of Nodes | Concurrency of Ingestion | Number of async control data populators | Max CPU  | Max memory |
-|--------------------|-----------------|--------------------------|----------------------------------------|----------|------------|
-| 1MB                | 5000             | 100                      | 2                                      | 94.5%    | 65.74%     |
-| 1MB                | 5000             | 100                      | 5                                      | 94.3%    | 67.20%     |
-| 3MB                | 5000             | 20                       | 2                                      | 95%      | 64%        |
-| 3MB                | 5000             | 20                       | 5                                      | 99%      | 67%        |
+| Size of the Report | Number of Nodes | Concurrency of Ingestion | Number of async control data populators | Max CPU | Max memory |
+| ------------------ | --------------- | ------------------------ | --------------------------------------- | ------- | ---------- |
+| 1MB                | 5000            | 100                      | 2                                       | 94.5%   | 65.74%     |
+| 1MB                | 5000            | 100                      | 5                                       | 94.3%   | 67.20%     |
+| 3MB                | 5000            | 20                       | 2                                       | 95%     | 64%        |
+| 3MB                | 5000            | 20                       | 5                                       | 99%     | 67%        |
 
 ## Performance Benchmark
 

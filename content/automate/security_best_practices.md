@@ -129,7 +129,8 @@ openssl s_client -connect your-automate-fqdn:443 -tls1_1   # Should fail
 
 A configuration maintained in Chef Automate's nginx.conf file determines the autocomplete functionality.
 
-    add_header Cache-Control "no-cache, no-store, must-revalidate";
-    
+```shell
+add_header Cache-Control "no-cache, no-store, must-revalidate";
+```
 
 Please ensure you don't update or change this configuration.

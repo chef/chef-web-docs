@@ -124,7 +124,6 @@ For more information, see the [InSpec CLI](/inspec/cli/) subcommand.
 
 ### API Calls
 
-We've provided you with some essential cURL commands for interacting with Chef Automate Profiles.
 In these examples, the owner is same value as first part of identifier, as discussed in [About the Profile Identifier]({{< relref "#about-the-profile-identifier" >}}).
 
 #### Get All Installed Profiles

@@ -299,7 +299,7 @@ cp /hab/svc/automate-load-balancer/data/{{< example_fqdn "automate" >}}.cert /ha
 ### Download Seed List Packages from the Public Chef Habitat Builder
 
 Your host must have access to the internet to download the curated seed list packages from the **public** [Chef Habitat Builder](https://bldr.habitat.sh).
-If you have not already done so, create a user account and personal access token on the **public** [Chef Habitat Builder](https://bldr.habitat.sh/).
+If you haven't already done so, create a user account and personal access token on the **public** [Chef Habitat Builder](https://bldr.habitat.sh/).
 
 Use the `hab pkg download` command with a seed list `</path/to/seed_list>` to download packages for
 your desired architecture `<arch>` from a channel `<channel>` to a directory `<artifact-dir>`:

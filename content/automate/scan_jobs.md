@@ -113,7 +113,7 @@ curl -sSX POST "https://automate-url/api/v0/nodes" -d
 
 ### Unreachable and Reachable (status)
 
-Whenever we are provided with information about a scannable node, we run a detect job (`inspec detect`) against that scannable node. If we are able to successfully connect, it's marked as reachable. An unreachable scannable node will have an error message attached to it. A user may edit the credentials associated with the item to resolve the problem, or in some cases a user may just want to rerun a node (as in the case of a network error).
+Whenever we're provided with information about a scannable node, we run a detect job (`inspec detect`) against that scannable node. If we're able to successfully connect, it's marked as reachable. An unreachable scannable node will have an error message attached to it. A user may edit the credentials associated with the item to resolve the problem, or in some cases a user may just want to rerun a node (as in the case of a network error).
 
 ```bash
 curl -sSX GET "https://automate-url/api/v0/nodes/rerun/id/d92b0c26-0c9a-4a04-b694-82fa979b2578"

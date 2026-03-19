@@ -20,7 +20,7 @@ The _Reports_ page provides a comprehensive insight into all scanned infrastruct
 
 ## Dates in Compliance Reports
 
-The dashboard shows the results of all scans with end times on the _current selected day_. The _current selected day_ is based on timestamps in Coordinated Universal Time (UTC). The trend graph provides a historical overview of node status over time. You can change it to display overviews of the past ten days, one month, three months, or one year.
+The dashboard shows the results of all scans with end times on the _current selected day_. Chef Automate bases the _current selected day_ on timestamps in Coordinated Universal Time (UTC). The trend graph provides a historical overview of node status over time. You can change it to display overviews of the past ten days, one month, three months, or one year.
 
 To view scan reports in the past, users can select a different date from the calendar located in the search bar.
 
@@ -50,7 +50,7 @@ Controls
 Environment
 : Filter your results by the environment.
 
-InSpec Version
+Chef InSpec Version
 : Filter your results by Chef InSpec version.
 
 Node Name
@@ -78,7 +78,7 @@ Role
 
 Deep filtering provides reports on compliance profiles and controls. Apply deep filtering to see the compliance reporting for a profile version or one of its controls.
 
-Chef Automate saves computational time and storage space by calculating compliance reporting statistics at the aggregate level. Deep filtering uses the `profile_id` attribute to drill down to the granular level of your compliance status. In contrast, filtering with the `profile_name` attribute instead of `profile_id` creates a report for every version of `profile_name` in your infrastructure.
+Chef Automate saves computational time and storage space by calculating compliance reporting statistics at the total level. Deep filtering uses the `profile_id` attribute to drill down to the granular level of your compliance status. In contrast, filtering with the `profile_name` attribute instead of `profile_id` creates a report for every version of `profile_name` in your infrastructure.
 
 Deep filtering supports reports for:
 
@@ -91,9 +91,9 @@ Deep Filtering with `profile_id` scopes a compliance report to a versioned profi
 
 To create a report at the profile level:
 
-    1. Specify the profile in the filter using `profile_id`
-    1. Leave the control filter empty
-    1. Apply additional reporting filters
+1. Specify the profile in the filter using `profile_id`
+1. Leave the control filter empty
+1. Apply more reporting filters
 
 ### Control Deep Filtering
 
@@ -101,9 +101,9 @@ Deep filtering for a control scopes a compliance report to a single control with
 
 To create a report at the control level:
 
-    1. Enter the `profile_id` in the filter
-    1. Add a control
-    1. Apply additional reporting filters
+1. Enter the `profile_id` in the filter
+1. Add a control
+1. Apply more reporting filters
 
 If the results returned by your deep filter are incorrectly scoped, review the `profile_id` and control field contents.
 
@@ -119,7 +119,7 @@ The download button to the right of the search bar allows users to download a JS
 
 ## Download Report Results (With Large Compliance Report Configuration)
 
-In case Automate is configured to ingest an extensive compliance report of size more than 4MB, the download of the report becomes a two-step engagement:
+When you configure Chef Automate to ingest an extensive compliance report of size more than 4MB, the download of the report becomes a two-step engagement:
 
 - **Step1:** Generate the report in the requested format from the object storage with all the applied filers, including the end time selected.
 
@@ -139,9 +139,9 @@ In case Automate is configured to ingest an extensive compliance report of size 
 
 ![Report Generation Status Check Panel](/images/automate/lcr-request-view-panel.png)
 
-- A popup notification is produced when a requested report is generated to make you aware about the report generation status.
+- The system generates and processes the requested report on a sidebar showing the status.
 
-![Report Generation Completed Successfully and Ready for Download](/images/automate/lcr-report-ready.png)
+![Report Generation Completed and Ready for Download](/images/automate/lcr-report-ready.png)
 
 ### Download Report
 
@@ -232,7 +232,7 @@ Filter
 : Select the filter icon on the right side of the row to select a node.
 
 More Options
-: Select the ellipses icon {{< fontawesome class="fas fa-ellipsis-h" >}} to display a menu with two additional options: _Add Filter_ and _Scan Results_. Use _Add Filter_ to narrow the results to the `id` of the selected node. Use _Scan Results_ to show the scan results of controls for the specific node in a side window.
+: Select the ellipses icon {{< fontawesome class="fas fa-ellipsis-h" >}} to display a menu with two options: _Add Filter_ and _Scan Results_. Use _Add Filter_ to narrow the results to the `id` of the selected node. Use _Scan Results_ to show the scan results of controls for the specific node in a side window.
 
 ### Profiles
 
@@ -250,7 +250,7 @@ Identifier
 : The name under which the profile is installed and a short profile title.
 
 More Options
-: Select the ellipses icon {{< fontawesome class="fas fa-ellipsis-h" >}} to display a menu with two additional options: _Add Filter_ and _Scan Results_. Use _Add Filter_ to narrow the results to the `id` of the selected profile. Use _Scan Results_ to show the scan results of controls for the specific node in a side window.
+: Select the ellipses icon {{< fontawesome class="fas fa-ellipsis-h" >}} to display a menu with two options: _Add Filter_ and _Scan Results_. Use _Add Filter_ to narrow the results to the `id` of the selected profile. Use _Scan Results_ to show the scan results of controls for the specific node in a side window.
 
 ### Controls
 
@@ -274,7 +274,7 @@ Node Status
 : Shows the number of failed, passed, and skipped nodes
 
 More Information
-: Select the ellipses icon {{< fontawesome class="fas fa-ellipsis-h" >}} to display a menu with one additional option: _Add Filter_. Use _Add Filter_ to narrow the results to the `id` of the selected profile and the `id` of the selected control.
+: Select the ellipses icon {{< fontawesome class="fas fa-ellipsis-h" >}} to display a menu with one option: _Add Filter_. Use _Add Filter_ to narrow the results to the `id` of the selected profile and the `id` of the selected control.
 
 ### Individual Node Display
 

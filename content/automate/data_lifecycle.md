@@ -46,13 +46,13 @@ The default is to remove compliance reports after 60 days, and to remove complia
 
 The data retention period set in the data lifecycle settings impacts the number of shards in OpenSearch.
 
-If the number of shards per node grows higher than the max shards per node configured in OpenSearch, you may see failures while ingesting data to Automate. For more information, refer to the [error troubleshoot](/automate/troubleshooting/#issue-maximum-shards-open) document.
+If the number of shards one each node node grows higher than the max shards per node configured in OpenSearch, you may see failures while ingesting data to Automate. For more information, refer to the [error troubleshoot](/automate/troubleshooting/#issue-maximum-shards-open) document.
 
 The default value for max shards per node in OpenSearch is 1000.
 
 Refer to the following table to calculate the max shards based on your data retention requirement.
 
-| Days | Number of Shards Per Node for <br />Client Run | Number of Shards Per Node for <br />Compliance | Total Number of Shards Per Node |
+| Days | Number of Shards Per Node for Client Run | Number of Shards Per Node for Compliance | Total Number of Shards Per Node |
 | ---- |------------------------------------------------|------------------------------------------------|---------------------------------|
 | 30 | 350                                            | 650                                            | 1000 |
 | 60 | 700                                            | 1300                                           | 2000 |

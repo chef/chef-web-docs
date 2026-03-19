@@ -11,7 +11,7 @@ draft = false
     weight = 40
 +++
 
-### Nodes
+## Nodes
 
 The `/nodes` endpoint in Chef Automate is something of a 'logbook' of the nodes in your infrastructure.
 

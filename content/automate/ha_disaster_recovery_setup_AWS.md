@@ -49,7 +49,7 @@ When the primary cluster fails, accomplish the fail-over by updating DNS records
 
 1. Deploy the Disaster Recovery cluster into a different data center/region using the same steps as the Primary cluster
 
-1. Do the backup configuration only when you have not provided the (backup information) configuration at the time of deployment. Refer backup section for [object storage](/automate/ha_backup_restore_aws_s3/).
+1. Do the backup configuration only when you haven't provided the (backup information) configuration at the time of deployment. Refer backup section for [object storage](/automate/ha_backup_restore_aws_s3/).
 
     {{< note >}}
     - During the deployment for the Primary and DR clusters, use the same S3 bucket name.

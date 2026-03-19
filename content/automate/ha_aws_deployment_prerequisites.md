@@ -113,7 +113,7 @@ LoadBalancers in AWS deployment are set up according to [Chef Automate HA Archit
 
 The Chef Automate HA cluster requires multiple ports for the frontend and backend servers to operate effectively.
 
-**Ports for Bastion before deployment**
+Ports for Bastion before deployment:
 
 | Port No. | Outgoing to | Incoming from |
 |----------|-------------|---------------|
@@ -121,7 +121,7 @@ The Chef Automate HA cluster requires multiple ports for the frontend and backen
 | 80       |             | Internet      |
 | 443      |             | Internet      |
 
-**Port mappings required before deployment:**
+Port mappings required before deployment:
 
 The first column in the table below represents the source of the connection. The table's other columns represent the destination with the matrix value as a port number. The specified port numbers need to be opened on the origin and destination.
 
@@ -137,7 +137,7 @@ The first column in the table below represents the source of the connection. The
 
 {{< note >}} Custom SSH port is supported, but use the same port across all the machines. {{< /note >}}
 
-**Port usage definitions**
+Port usage definitions:
 
 | Protocol | Port Number | Usage                                                     |
 |----------|-------------|-----------------------------------------------------------|

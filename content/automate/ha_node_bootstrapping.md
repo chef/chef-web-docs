@@ -135,7 +135,7 @@ The Chef Infra Client installer puts everything into a unique directory (/opt/ch
 
     `knife bootstrap <Public_ip> -i ~/<pem_file_of_node> -U ubuntu -N <name_of_node> --sudo`
 
-    - **Public IP:** IP address of the node which we are bootstrapping.
+    - **Public IP:** IP address of the node which we're bootstrapping.
 
     - **pem_file_of_node:** `pem` file of node which we have saved at `/root/.ssh/<pem_file_of_node>`.
 
@@ -147,7 +147,7 @@ The Chef Infra Client installer puts everything into a unique directory (/opt/ch
 
 - If `knife bootstrap` throws permission denied or can't create directory error, add the following configuration in `/root/.chef/credentials` and then run the bootstrap command as shown in _Step No. 8_.
 
-**Resolution**
+Resolution:
 
 ```bash
 [default.knife]
@@ -159,13 +159,13 @@ use_sudo = true
 - If you have an error while doing bootstrapping
 
 ```automate-cs-nginx.default(O): 2022/10/21 08:53:02 [error] 5742#0: *2490 upstream SSL certificate verify
-error: (20:unable to get local issuer certificate) while SSL handshaking to upstream, client: 127.0.0.1, server: , 
-request: "POST /organizations/MYORGS/data-collector HTTP/1.1", 
-upstream: "https://<MP-AUTOMATE-FQDN>:443/data-collector/v0/", 
+error: (20:unable to get local issuer certificate) while SSL handshaking to upstream, client: 127.0.0.1, server: ,
+request: "POST /organizations/MYORGS/data-collector HTTP/1.1",
+upstream: "https://<MP-AUTOMATE-FQDN>:443/data-collector/v0/",
 host: "<MY-HOSTNAME>"
 ```
 
-**Resolution**
+Resolution for certificate verification:
 
 - patch the below config in chef-server.
 

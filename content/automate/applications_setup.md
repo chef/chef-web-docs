@@ -59,7 +59,7 @@ To get started, you need:
 
 ## Sending Event Data to Chef Automate
 
-If you have not already done so, [create an API token]({{< ref "api_tokens#creating-a-standard-api-token" >}}) in Chef Automate. Save it somewhere safe and accessible to you for use in this step.
+If you haven't already done so, [create an API token]({{< ref "api_tokens#creating-a-standard-api-token" >}}) in Chef Automate. Save it somewhere safe and accessible to you for use in this step.
 
 ### Customize the Event Stream Command
 

@@ -94,7 +94,7 @@ Applying the filter changes the Service Groups list to display matching results 
 
 ## Lifecycle Management
 
-Disconnected services are defined services that have not reported back with a health check message for a user-defined period of time.
+Disconnected services are defined services that haven't reported back with a health check message for a user-defined period of time.
 
 Use the [Service Group Data Lifecycle settings](/automate/data_lifecycle/#service-groups) to manage the activity of periodic jobs, and to assess disconnection status and removal of services.
 

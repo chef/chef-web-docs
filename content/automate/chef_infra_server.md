@@ -14,7 +14,7 @@ draft = false
 
 ## Overview
 
-The _Chef Infra Server_ page (**Infrastructure > Chef Servers**) lets you connect existing Chef Infra Servers to Chef Automate, view all the connected Chef Infra Servers, and manage all of the objects on your connected Chef Infra Servers.
+The _Chef Infra Server_ page (**Infrastructure > Chef Infra Servers**) lets you connect existing Chef Infra Servers to Chef Automate, view all the connected Chef Infra Servers, and manage all of the objects on your connected Chef Infra Servers.
 
 The _Chef Infra Server_ acts as a hub for configuration data. The Chef Infra Server stores _cookbooks_, the policies that are applied to _nodes_, and metadata that describes each registered node managed by Chef Infra Client.
 
@@ -54,7 +54,7 @@ Once done, select **Add Chef Infra Server** and see the server in the list of Ch
 ## Connect a Chef Organization to a Chef Infra Server
 
 To view a list of existing [organizations]({{< relref "server_orgs" >}}) on a Chef Infra Server,
-select a Chef Infra Server from the **Chef Servers** list, then select the **Organizations** tab, as shown below:
+select a Chef Infra Server from the **Chef Infra Servers** list, then select the **Organizations** tab, as shown below:
 
 {{< figure src="/images/automate/chef-server-organization.png" alt="Chef Infra Server Organization">}}
 
@@ -77,7 +77,7 @@ Manage the following Chef Infra Server components for an organization using Chef
 - Data Bags
 - Clients
 
-To access these components for an organization, select **Chef Servers > Organizations** and then select an organization. Refer to the image below:
+To access these components for an organization, select **Chef Infra Servers > Organizations** and then select an organization. Refer to the image below:
 
 {{< figure src="/images/automate/chef-infra-server-objects.png" alt="Chef Infra Server Objects">}}
 

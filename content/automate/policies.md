@@ -14,17 +14,17 @@ draft = false
 ## Overview
 
 Identity and Access Management policies manage the resources and actions used by identities.
-Policies are composed of statements that specify permissions.
+Policies contain statements that specify permissions.
 
-Permission for the `iam:policies` action is required to interact with policies.
+You need permission for the `iam:policies` action to interact with policies.
 Any user that's part of the `admins` team or the `Administrator` policy will have this permission.
-Otherwise, [IAM custom policies]({{< relref "iam_v2_guide.md#creating-custom-policies" >}}) can be created to assign this permission.
+Otherwise, you can create [IAM custom policies]({{< relref "iam_v2_guide.md#creating-custom-policies" >}}) to assign this permission.
 
-![](/images/automate/settings-policies.png)
+![Chef Automate Settings Policies page](/images/automate/settings-policies.png)
 
 ### Chef-Managed Policies
 
-_Chef-managed_ policies are provided by Chef and are integral to the operation of Chef Automate. The policy statements in Chef-managed policies can't be changed.
+Chef provides _Chef-managed_ policies, and they're integral to the operation of Chef Automate. You can't change the policy statements in Chef-managed policies.
 
 ### Custom Policies
 
@@ -36,7 +36,7 @@ Chef Automate ships with two custom policies, Compliance Viewers and Compliance 
 
 ### Creating Policies
 
-_Custom_ policies can only be created using the [Policies API]({{< relref "api/#tag/policies" >}}).
+You can create _Custom_ policies using the [Policies API]({{< relref "api/#tag/policies" >}}).
 
 ### Deleting Policies
 
@@ -45,20 +45,20 @@ Then open the menu at the end of the table row and select **Delete Policy**.
 
 ### Policy Membership
 
-The policy membership can be changed for both _Chef-Managed_ and _Custom_ policies.
-The only exception is that the _admins_ team can't be removed from the _Administrator_ policy.
+You can change the policy membership for both _Chef-Managed_ and _Custom_ policies.
+The exception is that you can't remove the _admins_ team from the _Administrator_ policy.
 
 #### Adding Members to Policies
 
 To add members to a policy, navigate to _Policies_ in the **Settings** tab and locate the policy.
 Navigate to the policy's detail page and use the **Add Members** button.
-Select local users or teams from the list, or use the **Add Member Expression** button to add API Tokens, and SAML or LDAP users or groups.
+Select local users or teams from the list. You can also use the **Add Member Expression** button to add API Tokens, and SAML or LDAP users or groups.
 
 #### Removing Members from Policies
 
 To remove members from a policy, navigate to _Policies_ in the **Settings** tab and locate the policy.
 Navigate to the policy's detail page and select the **Members** tab.
-Then locate the member to remove and use the menu at the end of the table row to remove the user.
+Then locate the member you want to remove and use the menu at the end of the table row to remove the user.
 
 ### Changing Policy Details
 

@@ -35,7 +35,7 @@ This section will discuss deploying Chef Automate HA on-premises machines with a
     sudo chef-automate config gen config.toml
     ```
 
-    You can also view the [Sample Config](#sample-config-to-setup-on-premises-deployment-with-self-managed-services).
+    You can also view the [Sample Config](#sample-config-to-set-up-on-premises-deployment-with-self-managed-services).
 
     {{< note spaces=4 >}}
 

@@ -24,7 +24,7 @@ The "who" may be a user, a team, or an API token.
 
 The following diagram shows the new policy structure. We detail the specifics in the next sections.
 
-![](/images/automate/iam-v2-diagram.png)
+![IAM v2 policy structure diagram](/images/automate/iam-v2-diagram.png)
 
 ## Policy Definition
 

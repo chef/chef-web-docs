@@ -76,7 +76,7 @@ done
 
 1. Detach the File system from the old A2HA cluster.
 
-1. Configure the backup at Automate HA cluster. If you have not configured it, please refer to this [Doc: Pre Backup Configuration for File System Backup](/automate/ha_backup_restore_file_system/#setting-up-the-backup-configuration)
+1. Configure the backup at Automate HA cluster. If you haven't configured it, please refer to this [Doc: Pre Backup Configuration for File System Backup](/automate/ha_backup_restore_file_system/#setting-up-the-backup-configuration)
 
 1. From the above Step, you will get the backup mount path.
 
@@ -265,7 +265,7 @@ In Automate HA there are equivalent command which had been used in A2HA:
 
 ## Troubleshooting
 
-**In case of Restore failure from Elasticsearch to OpenSearch**
+### In case of Restore failure from Elasticsearch to OpenSearch
 
 > **Error: Failed to restore a snapshot**
 

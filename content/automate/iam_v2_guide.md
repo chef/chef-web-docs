@@ -31,7 +31,7 @@ This policy display includes the following:
 * Imported v1 default policies--now called _legacy policies_--in the new v2 policy format and marked with the `[Legacy]` prefix.
 * Imported v1 custom policies that you created, which are marked with the `[Legacy]` prefix and a `(custom)` suffix.
 
-![](/images/automate/admin-policies-migrated.png)
+![Migrated IAM v2 policies page](/images/automate/admin-policies-migrated.png)
 
 ## Policy Conversion
 
@@ -114,7 +114,7 @@ Let us further assume you want user `Bob` as well as anyone on team `gamma` to b
 
 Next, you will specify the permissions themselves--which in IAM v2 are the `statements`-- declared as an array.
 The statement allows us to specify the `actions` a user is permitted to take upon resources that have been assigned to a `project`.
-The `projects` field on a statement is an array that may contain more than one existing project, a wildcard `*` to indicate permission to resources in _any project_, or `(unassigned)` to indicate permission to resources that have not been assigned to a project.
+The `projects` field on a statement is an array that may contain more than one existing project, a wildcard `*` to indicate permission to resources in _any project_, or `(unassigned)` to indicate permission to resources that haven't been assigned to a project.
 
 Note that the `projects` property in statements designates permission for the resources within the statement (here, that's `iam:users` and `iam:teams`), _not_ for the policy itself, and _can't_ be left empty.
 For more about projects, see [Projects in the IAM Guide]({{< relref "iam_v2_guide.md#projects" >}}) documentation.
@@ -177,7 +177,7 @@ Local users and teams are managed directly by Chef Automate.
 To add or delete members, navigate to the Policies list in the **Settings** tab, and then select a policy in the list to open its details.
 Select **Members** to view the current membership.
 Use the **Add Members** button to open a list of candidate members.
-This lists all those local members (both users and teams) that are _not_ members of this policy.
+This lists all those local members (both users and teams) that aren't members of this policy.
 If all of the local members are already included in the policy, then this list will be empty.
 Select any members you wish to add to the policy.
 Use the **Add Members** button to complete the operation.
@@ -195,7 +195,7 @@ Near the bottom of the page, select the **Add Member Expression** button.
 
 {{< note >}}
 The member expression dialog box appears after selecting **Add Member Expression** and guides you through creating a member expression. This dialog box ensures correct syntax use in a user-friendly way.
-The next few paragraphs explain the syntax if you want to add members via the API.
+The next few paragraphs explain the syntax if you want to add members through the API.
 {{< /note >}}
 
 Enter a member expression using the format `team:<type>:<name>` or `user:<type>:<name>`. Note that these expressions are case-sensitive.
@@ -213,7 +213,7 @@ In order to find a token's ID, visit the _API Tokens_ page.
 
 Projects are used to group and permission Chef Automate resources as well as ingested data, specifically Compliance reports, Chef Infra Server events, and Infrastructure nodes.
 
-Projects can be managed via the Projects list under the **Settings** tab and consist of an ID, a name, and a collection of ingest rules. Project ingest rules are lists of conditions used only when
+Projects can be managed through the Projects list under the **Settings** tab and consist of an ID, a name, and a collection of ingest rules. Project ingest rules are lists of conditions used only when
 [assigning ingested resources to projects]({{< relref "iam_v2_guide.md#assigning-ingested-resources-to-projects" >}}),
 so they're not relevant when assigning IAM resources such as teams or roles.
 
@@ -223,7 +223,7 @@ By default, Chef Automate limits you to 300 projects. You can increase the proje
 
 First, write the file with your new project limit:
 
-```
+```bash
 cat << EOF > authz.toml
 [auth_z.v1.sys.service]
 project_limit = <desired-max-projects>
@@ -309,13 +309,13 @@ Compliance reports must be using **audit cookbook 7.5+** in order to make use of
 }
 ```
 
-![](/images/automate/create-project-rule.png)
+![Create project rule interface](/images/automate/create-project-rule.png)
 
 Save the rule. If you later need to change the name or the conditions, select the project rule name on the project details page.
 
 When edits are pending, a banner will be shown at the bottom of every page. Selecting the `Update Projects` button on that banner will apply those changes.
 
-![](/images/automate/admin-projects.png)
+![Chef Automate admin projects page](/images/automate/admin-projects.png)
 
 Updating a project begins an operation that applies all pending rule edits and then moves ingested resources into the correct projects according to those latest changes. An ingested resource is moved into a project if it matches at least one of the project's rules.
 In this example, upon successful update, all ingested resources whose Chef Organization matches `devops` will be considered a part of the project `project-devops`.
@@ -325,7 +325,7 @@ A percentage count appears in the bottom banner while the operation takes place.
 You may cancel the update at any time by selecting the `Stop Project Update` button in the banner and confirming the cancel in the modal that pops up.
 
 {{< warning >}}
-Avoid stopping an update unless absolutely necessary. It will leave your system in an unknown state where only some resources have been moved into their projects while others still remain in old projects. Only another successful update will restore the system to an up-to-date state.
+Avoid stopping an update unless necessary. It will leave your system in an unknown state where only some resources have been moved into their projects while others still remain in old projects. Only another successful update will restore the system to an up-to-date state.
 {{< /warning >}}
 
 Once rules have been successfully applied, the banner will be dismissed until the next time there are _pending edits_ to any project.
@@ -333,9 +333,9 @@ Once rules have been successfully applied, the banner will be dismissed until th
 To verify that the ingested resources have been moved into the correct projects, select `project-devops` in the global projects filter, which is on the top navigation. The data in Chef Automate filters by the selected `project-devops` project.
 In this example, the effect is revealed by navigating to the Compliance Reports' Nodes tab, which only features nodes that belong to the `devops` Chef Organization.
 
-![](/images/automate/global-projects-filter.png)
+![Global projects filter in navigation](/images/automate/global-projects-filter.png)
 
-Now that we have the first set of our ingested data associated with our new project, let us add another condition and a new rule to add more data to `project-devops`.
+Now that the first set of ingested data associated is in the new project, add another condition and a new rule to add more data to `project-devops`.
 
 {{< note >}}
 Compliance and Infrastructure ingested resources aren't the exact same nodes, so their properties may not be the same.
@@ -371,7 +371,7 @@ Upon completion of the update, you should be able to filter by `project-devops` 
 
 To create a project that contains all Effortless Infra nodes, create a ingest rule with resource type `Node` and a condition that uses attribute `Chef Infra Server`, operator `equals`, and value `localhost`.
 
-![](/images/automate/effortless-project-rule.png)
+![Effortless Infra project rule configuration](/images/automate/effortless-project-rule.png)
 
 The above rule matches on a node's Chef Infra Server field, which is set to `localhost`. This rule works because all Effortless Infra nodes list the `Chef Infra Server` attribute as `localhost`.
 

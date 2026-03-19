@@ -134,11 +134,11 @@ Follow [Automate HA installation documentation](/automate/ha_on_prem_deployment_
 
 In case the [backup configuration](/automate/ha_backup_restore_file_system/#configuration-for-automate-node-from-provision-host) was skipped in the deployment config.toml, the User needs to configure EFS backup manually in Automate HA.
 
-{{<note>}}
+{{< note >}}
 
 While configuring the backup configuration provide the path of **Elasticsearch** instead of **OpenSearch** as A2HA backup was in Elasticsearch directory like instead of `/mnt/automate_backups/opensearch/` it will be `/mnt/automate_backups/elasticsearch/`.
 
-{{</note>}}
+{{< /note >}}
 
 ## Restore Backup
 

@@ -110,7 +110,7 @@ We can also pass a flag in upgrade command to avoid prompt for workspace upgrade
 
 1. Deploy the New cluster into a same/different region with S3 backup configuration.you can refer [AWS Deployment steps](/automate/ha_aws_deploy_steps/#deployment).
 
-2. Do the backup configuration only when you have not provided the (backup information) configuration at the time of deployment. Refer backup section for [s3 configuration](/automate/ha_backup_restore_aws_s3/#configuration-in-provision-host).
+2. Do the backup configuration only when you haven't provided the (backup information) configuration at the time of deployment. Refer backup section for [s3 configuration](/automate/ha_backup_restore_aws_s3/#configuration-in-provision-host).
 
 3. On Primary Cluster
 

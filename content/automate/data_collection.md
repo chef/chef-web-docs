@@ -132,8 +132,7 @@ sudo chef-server-ctl reconfigure
 ### Setting Up Chef Infra Client to Send Compliance Scan Data Through the Chef Infra Server to Chef Automate
 
 Now that the Chef Infra Server is configured for data collection, you can also enable Compliance Scanning
-
-on your Chef Infra Clients via the [Audit Cookbook](https://github.com/chef-cookbooks/audit).
+on your Chef Infra Clients with the [Audit Cookbook](https://github.com/chef-cookbooks/audit).
 
 * Set the following attributes for the audit cookbook:
 
@@ -151,20 +150,40 @@ default['audit']['interval'] = {
 ```
 
 Now, any node with `audit::default` its runlist will fetch and report data to and from Chef Automate
-via the Chef Infra Server. Please see the audit cookbook for an
+using Chef Infra Server. Please see the audit cookbook for an
 [exhaustive list of configuration options](https://github.com/chef-cookbooks/audit).
 
 ### Additional Chef Infra Server Data Collection Configuration Options
 
-| Option | Description | Default |
-| --- | --- | --- |
-|`data_collector['proxy']`|If set to true, Chef Infra Server will proxy all requests sent to /data-collector to the configured Chef Automate `data_collector['root_url']`. Note that this route doesn't check the request signature and add the right data_collector token, but just proxies the Chef Automate endpoint as-is.|Default: `nil`|
-`data_collector['timeout']`|Timeout in milliseconds to abort an attempt to send a message to the Chef Automate server.| Default: `30000`|
- `data_collector['http_init_count']`|Number of Chef Automate HTTP workers Chef Infra Server should start.|Default: `25`|
-|`data_collector['http_max_count']`|Maximum number of Chef Automate HTTP workers Chef Infra Server should allow to exist at any time.|Default: `100`|
-|`data_collector['http_max_age']`|Maximum age a Chef Automate HTTP worker should be allowed to live, specified as an Erlang tuple.|Default: `{70, sec}`|
-|`data_collector['http_cull_interval']`|How often Chef Infra Server should cull aged-out Chef Automate HTTP workers that have exceeded their `http_max_age`, specified as an Erlang tuple.|Default: `{1, min}`|
-|`data_collector['http_max_connection_duration']`|Maximum duration an HTTP connection is allowed to exist before it's terminated, specified as an Erlang tuple.|Default: `{70, sec}`|
+`data_collector['proxy']`
+: If set to true, Chef Infra Server will proxy all requests sent to /data-collector to the configured Chef Automate `data_collector['root_url']`. Note that this route doesn't check the request signature and add the right data_collector token, but just proxies the Chef Automate endpoint as-is.
+
+  Default: `nil`
+
+`data_collector['timeout']`
+: Timeout in milliseconds to abort an attempt to send a message to the Chef Automate server.
+
+  Default: `30000`
+
+`data_collector['http_init_count']`
+: Number of Chef Automate HTTP workers Chef Infra Server should start.
+
+  Default: `25`
+
+`data_collector['http_max_count']`
+: Maximum number of Chef Automate HTTP workers Chef Infra Server should allow to exist at any time.
+
+  Default: `100`
+
+`data_collector['http_cull_interval']`
+: How often Chef Infra Server should cull aged-out Chef Automate HTTP workers that have exceeded their `http_max_age`, specified as an Erlang tuple.
+
+  Default: `{1, min}`
+
+`data_collector['http_max_connection_duration']`
+: Maximum duration an HTTP connection is allowed to exist before it's terminated, specified as an Erlang tuple.
+
+  Default: `{70, sec}`
 
 ## Configure your Chef Infra Client to Send Data to Chef Automate without Chef Infra Server
 
@@ -240,11 +259,26 @@ Chef Automate. Please see the audit cookbook for an
 
 #### Additional Chef Infra Client Data Collection Configuration Options
 
-| Configuration                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Options                        | Default |
-| --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ------- |
-| `data_collector.mode`             | The mode in which the data collector is allowed to operate. This can be used to run data collector only when running as Chef solo but not when using Chef Infra Client.                                                                                                                                                                                                                                                                                                                                         | `:solo`, `:client`, or `:both` | `:both` |
-| `data_collector.raise_on_failure` | When the data collector can't send the "starting a run" message to the data collector server, the data collector will be disabled for that run. In some situations, such as highly-regulated environments, it may be more reasonable to Prevents data collection when the data collector can't send the "starting a run" message to the data collector server. In these situations, setting this value to `true` will cause the Chef run to raise an exception before starting any converge activities. | `true`, `false`                | `false` |
-| `data_collector.organization`     | A user-supplied organization string that can be sent in payloads generated by the data collector when Chef is run in Solo mode. This allows users to associate their Solo nodes with faux organizations without the nodes being connected to an actual Chef Infra Server.                                                                                                                                                                                                                                       | `string`                       | `none`  |
+`data_collector.mode`
+: The mode in which the data collector is allowed to operate. This can be used to run data collector only when running as Chef solo but not when using Chef Infra Client.
+
+  Options: `:solo`, `:client`, or `:both`
+
+  Default: `:both`
+
+`data_collector.raise_on_failure`
+: When the data collector can't send the "starting a run" message to the data collector server, the data collector will be disabled for that run. In some situations, such as highly-regulated environments, it may be more reasonable to prevent data collection when the data collector can't send the "starting a run" message to the data collector server. In these situations, setting this value to `true` will cause the Chef run to raise an exception before starting any converge activities.
+
+  Options: `true`, `false`
+
+  Default: `false`
+
+`data_collector.organization`
+: A user-supplied organization string that can be sent in payloads generated by the data collector when Chef is run in Solo mode. This allows users to associate their Solo nodes with faux organizations without the nodes being connected to an actual Chef Infra Server.
+
+  Options: `string`
+
+  Default: `none`
 
 ## Performance Testing of Compliance Data Ingestion
 
@@ -254,7 +288,7 @@ The following performance numbers are benchmarked on a machine with
 * 16 GB of RAM
 
 | Compliance Report Size | Concurrency | Max CPU Utilization | Max Memory Utilization |
-|------------------------|-------------|---------------------|------------------------|
+| ---------------------- | ----------- | ------------------- | ---------------------- |
 | 3MB                    | 100         | 79%                 | 76%                    |
 
 If you have a higher requirement of concurrency, please deploy Automate in HA mode.
@@ -262,7 +296,7 @@ Refer [Automate HA]({{< relref "ha.md" >}})
 
 ## Troubleshooting
 
-**My Data Does Not Show Up in the User Interface**
+### Data doesn't show up in the user interface
 
 Organizations without associated nodes won't show up on the Chef Automate _Nodes_ page. A node
 isn't associated with Automate until a Chef Infra Client run has completed. This is also true for roles,

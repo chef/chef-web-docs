@@ -17,7 +17,7 @@ draft = false
 
 ## Overview
 
-While the total number of nodes is an important measure, the data processing speeds of Chef Automate will be primarily determined by the rate of Chef Client Runs per Minute (CCR/m).  This also includes InSpec if configured to do so. The CCR/m rate can be significantly impacted by adjusting the Chef client's converge interval (how frequently does Chef run) and the `splay` (level of randomization so that all Chef clients don't run at the exact second).
+While the total number of nodes is an important measure, the data processing speeds of Chef Automate will be primarily determined by the rate of Chef Client Runs each minute (CCR/m).  This also includes InSpec if configured to do so. The CCR/m rate can be significantly impacted by adjusting the Chef client's converge interval (how frequently does Chef run) and the `splay` (level of randomization so that all Chef clients don't run at the exact second).
 
 Our calculations below are according to the 60 minute converge interval. Cutting the converge interval or splay will affect the cluster nodes' incoming request rates and processing requirements. From a calculation standpoint, 5,000 nodes at a 30 minute converge interval are equivalent to 10,000 nodes at a 60-minute intermission.
 
@@ -27,7 +27,7 @@ Several factors can increase the load of the Automate HA cluster, including, but
 
 The following assumptions were used for calculating performance and system specifications
 
-1. 60-minute Chef Client converge interval with one compliance scan per node daily.
+1. 60-minute Chef Client converge interval with one compliance scan for each node daily.
 
 1. Chef Client converge size of approximately 400KB
 
@@ -55,7 +55,7 @@ A complete cluster deployment will separate various components of the Automate H
 
 | Nodes  | CCR/m | Infra FE Server Count | Automate FE Server Count | Frontend Specs             |
 |--------|-------|-----------------------|--------------------------|----------------------------|
-| 20000  | 333   | 2                     | 2                        | 8 vCPU, 16GB (c5.2xlarge)  |  
+| 20000  | 333   | 2                     | 2                        | 8 vCPU, 16GB (c5.2xlarge)  |
 | 60000  | 1000  | 2                     | 2                        | 8 vCPU, 16GB (c5.2xlarge)  |
 | 100000 | 1666  | 3                     | 3                        | 16 vCPU, 32GB (c5.4xlarge) |
 

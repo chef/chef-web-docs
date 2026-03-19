@@ -11,7 +11,7 @@ draft = false
     weight = 50
 +++
 
-### About Telemetry
+## About Telemetry
 
 Users of this Chef Automate server may elect to share user-anonymized usage data with
 Chef Software, Inc.

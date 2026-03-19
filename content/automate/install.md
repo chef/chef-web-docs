@@ -130,11 +130,11 @@ You can configure Chef Automate to use PostgreSQL and OpenSearch clusters that a
 
 #### Configuring External OpenSearch
 
+Chef Automate supports OpenSearch connection over HTTPS or HTTP.
+
 {{< note >}}
 Chef Automate supports the official OpenSearch Service by Amazon Web Services. Chef Automate doesn't test or support alternative services, such as Amazon OpenSearch Service (Amazon OS).
 {{< /note >}}
-
-**Automate supports OpenSearch connection over HTTPS or HTTP**
 
 Add the following to your `config.toml` for HTTPS connection:
 
@@ -193,7 +193,7 @@ Because externally-deployed OpenSearch nodes won't have access to Chef Automate'
 
 ##### Adding Resolvers for OpenSearch
 
-In case you want to resolve the OpenSearch node IPs dynamically using DNS servers, you can add resolvers/name servers to the configuration.
+To resolve the OpenSearch node IPs dynamically using DNS servers, you can add resolvers/name servers to the configuration.
 
 Name servers can be added in two ways:
 
@@ -299,7 +299,7 @@ To configure AWS S3 backups of Chef Automate data stored in an externally-deploy
 To configure Google Cloud Storage Bucket (GCS) backups of Chef Automate data stored in an externally-deployed OpenSearch cluster:
 
 1. Install the `repository-gcs` plugin on all nodes in your OpenSearch cluster.
-1. Create a storage bucket and configure a service account to access it per the steps described in the OpenSearch documentation.
+1. Create a storage bucket and configure a service account to access it according to the steps described in the OpenSearch documentation.
 1. Configure each OpenSearch node with a GCS client configuration that contains the proper GCS settings as described in the OpenSearch documentation.
 1. Enable GCS backups by adding the following settings to your `config.toml`:
 
@@ -307,35 +307,35 @@ To configure Google Cloud Storage Bucket (GCS) backups of Chef Automate data sto
 {{% automate/char-warn %}}
 {{< /warning >}}
 
-    ```toml
-    [global.v1.external.opensearch]
-      enable = true
-      nodes = ["https://my-es.cluster"]
-      ## If multiple
-      # nodes = ["https://my-es.node-1", "https://my-es.node-2", "etc..."]
+```toml
+[global.v1.external.opensearch]
+  enable = true
+  nodes = ["https://my-es.cluster"]
+  ## If multiple
+  # nodes = ["https://my-es.node-1", "https://my-es.node-2", "etc..."]
 
-    ## The following settings are required if you have OpenSearch setup with basic auth
-    #[global.v1.external.opensearch.auth]
-    #  scheme = "basic_auth"
-    #
-    #[global.v1.external.opensearch.auth.basic_auth]
-    #  username = "everyuser"
-    #  password = "pass123"
+## The following settings are required if you have OpenSearch setup with basic auth
+#[global.v1.external.opensearch.auth]
+#  scheme = "basic_auth"
+#
+#[global.v1.external.opensearch.auth.basic_auth]
+#  username = "everyuser"
+#  password = "pass123"
 
-    [global.v1.external.opensearch.backup]
-      enable = true
-      location = "gcs"
+[global.v1.external.opensearch.backup]
+  enable = true
+  location = "gcs"
 
-    [global.v1.external.opensearch.backup.gcs]
-      bucket = "<bucket name>"
-      # Client name is normally default, but can be set here if you have generated service
-      # account credentials with a different client name
-      client = "default"
+[global.v1.external.opensearch.backup.gcs]
+  bucket = "<bucket name>"
+  # Client name is normally default, but can be set here if you have generated service
+  # account credentials with a different client name
+  client = "default"
 
-    ## GCS Bucket Settings:
-    # type = nearline
-    # access control = uniform
-    ```
+## GCS Bucket Settings:
+# type = nearline
+# access control = uniform
+```
 
 #### Configuring an External PostgreSQL Database
 

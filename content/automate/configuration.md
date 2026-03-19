@@ -427,7 +427,7 @@ Then run `chef-automate config patch </path/to/your-file.toml>` to deploy your c
 
 ##### Configuration Examples
 
-**Example 1: TLS 1.3 Only (Maximum Security)**
+Example 1: TLS 1.3 Only (Maximum Security):
 
 ```toml
 [load_balancer.v1.sys.ngx.http]
@@ -435,7 +435,7 @@ ssl_protocols = "TLSv1.3"
 ssl_ciphersuites = "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256"
 ```
 
-**Example 2: TLS 1.2 Only (Legacy Compatibility)**
+Example 2: TLS 1.2 Only (Legacy Compatibility):
 
 ```toml
 [load_balancer.v1.sys.ngx.http]
@@ -452,7 +452,7 @@ ssl_ciphers = "ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-E
 ssl_ciphersuites = "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256"
 ```
 
-##### Configuration Validation
+### Configuration Validation
 
 Chef Automate validates TLS/SSL configuration and provides error messages for common issues:
 
@@ -460,31 +460,31 @@ Chef Automate validates TLS/SSL configuration and provides error messages for co
 
 1. **Empty ciphers when TLS 1.2 is enabled:**
 
-   ```
+   ```text
    Error: ssl_ciphers can't be empty when TLSv1.2 is enabled
    ```
 
 2. **Empty cipher suites when TLS 1.3 is enabled:**
 
-   ```
+   ```text
    Error: ssl_ciphersuites can't be empty when TLSv1.3 is enabled
    ```
 
 3. **Invalid protocol format:**
 
-   ```
+   ```text
    Error: 'TLS1.3' contains invalid protocol versions. Use 'TLSv1.3'
    ```
 
 4. **Invalid separator in ciphers:**
 
-   ```
+   ```text
    Error: ssl_ciphers should not contain spaces. Use colons (:) to separate cipher names
    ```
 
 5. **Wrong format for TLS 1.3 cipher suites:**
 
-   ```
+   ```text
    Error: 'TLS-AES-256-GCM-SHA384' contains invalid characters. Use underscores: TLS_AES_256_GCM_SHA384
    ```
 
@@ -494,23 +494,23 @@ Chef Automate issues warnings for suboptimal configurations:
 
 1. **Deprecated protocols configured:**
 
-   ```
+   ```text
    WARNING: ssl_protocols 'TLSv1.1 TLSv1.2' contains deprecated and non-functional protocol versions (SSLv2, SSLv3, TLSv1, TLSv1.1). These protocols aren't supported by OpenSSL 1.1.0+ and won't work. Use only TLSv1.2 and TLSv1.3.
    ```
 
 2. **Cipher suites configured without TLS 1.3:**
 
-   ```
+   ```text
    WARNING: ssl_ciphersuites is configured, but ssl_protocols doesn't include TLSv1.3. The ssl_ciphersuites directive will be ignored by NGINX.
    ```
 
 3. **TLS 1.2 ciphers configured without TLS 1.2:**
 
-   ```
+   ```text
    WARNING: ssl_ciphers is configured, but ssl_protocols doesn't include TLSv1.2. The ssl_ciphers directive will be ignored by NGINX.
    ```
 
-##### Testing TLS Configuration
+#### Testing TLS Configuration
 
 After applying TLS configuration, verify it's working correctly:
 
@@ -534,7 +534,7 @@ openssl s_client -connect your-automate-fqdn:443 -tls1_3 | grep "Cipher"
 
 Expected output for TLS 1.3:
 
-```
+```text
 New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
 ```
 
