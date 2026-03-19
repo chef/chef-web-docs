@@ -12,10 +12,6 @@ draft = false
     weight = 220
 +++
 
-{{< note >}}
-{{% automate/ha-warn %}}
-{{< /note >}}
-
 This document shows how to configure, back up, and restore a Chef Automate high availability deployment with object storage.
 
 During deployment of Chef Automate, if you set `backup_config = "object_storage"` or `backup_config = "file_system"` in the Automate configuration TOML file, then backup is already configured and you don't need to configure data backup for Chef Automate.

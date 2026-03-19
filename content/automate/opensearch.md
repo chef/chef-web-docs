@@ -21,9 +21,7 @@ These configuration directions are intended for the initial deployment of Chef A
 
 Add the following to your `config.toml` for HTTPS connection:
 
-{{< warning >}}
-{{% automate/char-warn %}}
-{{< /warning >}}
+{{< readfile file="content/automate/reusable/md/password_character_warning.md" >}}
 
 ```toml
 [global.v1.external.opensearch]
@@ -53,9 +51,7 @@ Add the following to your `config.toml` for HTTPS connection:
 
 Add the following to your `config.toml` for HTTP connection:
 
-{{< warning >}}
-{{% automate/char-warn %}}
-{{< /warning >}}
+{{< readfile file="content/automate/reusable/md/password_character_warning.md" >}}
 
 ```toml
 [global.v1.external.opensearch]

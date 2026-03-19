@@ -10,9 +10,7 @@ draft = false
     weight = 225
 +++
 
-{{< warning >}}
- {{% automate/ha-warn %}}
-{{< /warning >}}
+
 
 ## Pre-requisite
 

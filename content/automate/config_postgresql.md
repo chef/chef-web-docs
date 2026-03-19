@@ -10,10 +10,6 @@ draft = false
     weight = 220
 +++
 
-{{< note >}}
-{{% automate/ha-warn %}}
-{{< /note >}}
-
 ## Configurations
 
 The PostgreSQL node in Chef Automate HA provides configuration options you can use to customize its behavior and meet specific requirements. This guide documents all settings you can patch.

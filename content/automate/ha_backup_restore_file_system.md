@@ -13,10 +13,6 @@ draft = false
 +++
 
 {{< note >}}
-{{% automate/ha-warn %}}
-{{< /note >}}
-
-{{< note >}}
 
 - If the user chooses `backup_config` as `file_system` in `config.toml` backup is already configured during the deployment, and in that case **the below steps aren't required**. If `backup_config` is left blank, then the configuration needs to be configured manually.
 

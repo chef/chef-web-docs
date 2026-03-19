@@ -11,10 +11,6 @@ draft = false
     weight = 210
 +++
 
-{{< note >}}
-{{% automate/ha-warn %}}
-{{< /note >}}
-
 ## Setup Disaster Recovery Cluster For AWS Deployment
 
 Recovery Point Objective (RPO) is the maximum acceptable amount of time since the last data recovery point, if an RPO of 1 to 24 hours is acceptable then using a typical backup and restore strategy for your disaster recovery plan is recommended.

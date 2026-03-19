@@ -10,10 +10,6 @@ draft = false
     weight = 210
 +++
 
-{{< note >}}
-{{% automate/ha-warn %}}
-{{< /note >}}
-
 The OpenSearch node in Chef Automate HA provides various configuration options that's patched to customize its behavior and meet specific requirements. This guide documents all the configurations that you can patch.
 
 The detailed document about how these individual properties affect the system is at [Official OpenSearch docs](https://opensearch.org/docs/1.3/)

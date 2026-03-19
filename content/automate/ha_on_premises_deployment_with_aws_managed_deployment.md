@@ -10,10 +10,6 @@ draft = false
     weight = 210
 +++
 
-{{< note >}}
-{{% automate/ha-warn %}}
-{{< /note >}}
-
 This section will discuss deploying Chef Automate HA on-premises machines with AWS Managed Database. Please see the [On-Premises Prerequisites](/automate/ha_on_premises_deployment_prerequisites/) page and move ahead with the following sections of this page.
 
 {{< warning >}}

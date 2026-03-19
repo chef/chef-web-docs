@@ -9,10 +9,6 @@ draft = false
     weight = 210
 +++
 
-{{< note >}}
-{{% automate/ha-warn %}}
-{{< /note >}}
-
 {{< warning >}}
 
 - Customers using only **Standalone Chef Infra Server** or **Chef Backend** are advised to follow this migration guidance. Customers using **Chef Manage** with Chef Backend should not migrate with this.

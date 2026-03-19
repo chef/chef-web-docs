@@ -10,10 +10,6 @@ draft = false
     weight = 230
 +++
 
-{{< note >}}
-{{% automate/ha-warn %}}
-{{< /note >}}
-
 Follow the steps below to deploy Chef Automate High Availability (HA) on AWS (Amazon Web Services) cloud. Please see the [AWS Deployment Prerequisites](/automate/ha_aws_deployment_prerequisites/) page and move ahead with the following sections of this page.
 
 {{< warning >}}

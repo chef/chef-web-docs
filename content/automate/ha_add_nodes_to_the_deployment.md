@@ -10,10 +10,6 @@ draft = false
     weight = 200
 +++
 
-{{< note >}}
-{{% automate/ha-warn %}}
-{{< /note >}}
-
 Chef Automate HA comes with five different types of deployment flows. This page tells you how to add more nodes to your deployment processes.
 
 {{< warning >}}

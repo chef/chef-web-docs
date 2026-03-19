@@ -13,10 +13,6 @@ draft = false
 +++
 
 {{< note >}}
-{{% automate/ha-warn %}}
-{{< /note >}}
-
-{{< note >}}
 
 - If `backup_config` is set to `s3` in `config.toml,` backup is already configured during deployment, **the below steps aren't required**. If the value of `backup_config` is empty, then the configuration needs to be configured manually.
 - Encrypted S3 bucket are supported with only Amazon S3 managed keys (SSE-S3).

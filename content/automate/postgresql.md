@@ -14,7 +14,7 @@ draft = false
 
 [\[edit on GitHub\]](https://github.com/chef/automate/blob/main/components/docs-chef-io/content/automate/postgresql.md)
 
-You can configure Chef Automate to use external PostgreSQL clusters that aren't deployed via Chef Automate itself.
+You can configure Chef Automate to use external PostgreSQL clusters that aren't deployed with Chef Automate itself.
 
 ## Configuring an External PostgreSQL Database
 
@@ -22,9 +22,7 @@ These configuration directions are intended for in the initial deployment of Che
 
 Add the following settings to your `config.toml`:
 
-{{< warning >}}
-{{% automate/char-warn %}}
-{{< /warning >}}
+{{< readfile file="content/automate/reusable/md/password_character_warning.md" >}}
 
 ```toml
 [global.v1.external.postgresql]

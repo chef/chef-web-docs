@@ -11,10 +11,6 @@ draft = false
     weight = 10
 +++
 
-{{< note >}}
-{{% automate/ha-warn %}}
-{{< /note >}}
-
 High availability (HA) refers to a system or application that offers high operational availability. This means the entire site or application won't be down if one server goes down due to traffic overload or other issues. HA represents the application remains available with no interruption. We achieve high availability when an application continues to operate even when one or more underlying components fail.
 
 Thus, HA is designed to avoid loss of service by reducing or managing failures and minimizing unscheduled downtime (when your system or network isn't available for use or is unresponsive) that happens due to power outages or failure of a component.

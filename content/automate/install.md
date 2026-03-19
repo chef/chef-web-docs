@@ -126,7 +126,7 @@ sudo chef-automate config patch config.toml
 
 ### Configuring External Data Stores
 
-You can configure Chef Automate to use PostgreSQL and OpenSearch clusters that aren't deployed via Chef Automate. The directions below are intended for use only during the initial deployment of Chef Automate.
+You can configure Chef Automate to use PostgreSQL and OpenSearch clusters that aren't deployed with Chef Automate. The directions below are intended for use only during the initial deployment of Chef Automate.
 
 #### Configuring External OpenSearch
 
@@ -137,10 +137,6 @@ Chef Automate supports the official OpenSearch Service by Amazon Web Services. C
 {{< /note >}}
 
 Add the following to your `config.toml` for HTTPS connection:
-
-{{< warning >}}
-{{% automate/char-warn %}}
-{{< /warning >}}
 
 ```toml
 [global.v1.external.opensearch]
@@ -168,11 +164,9 @@ Add the following to your `config.toml` for HTTPS connection:
 #  ssl_verify_depth = "2"
 ```
 
-Add the following to your `config.toml` for HTTP connection:
+{{< readfile file="content/automate/reusable/md/password_character_warning.md" >}}
 
-{{< warning >}}
-{{% automate/char-warn %}}
-{{< /warning >}}
+Add the following to your `config.toml` for HTTP connection:
 
 ```toml
 [global.v1.external.opensearch]
@@ -188,6 +182,8 @@ Add the following to your `config.toml` for HTTP connection:
   username = "<admin username>"
   password = "<admin password>"
 ```
+
+{{< readfile file="content/automate/reusable/md/password_character_warning.md" >}}
 
 Because externally-deployed OpenSearch nodes won't have access to Chef Automate's built-in backup storage services, you must configure OpenSearch backup settings separately from Chef Automate's primary backup settings. You can configure backups to use either the local filesystem or S3.
 
@@ -303,9 +299,7 @@ To configure Google Cloud Storage Bucket (GCS) backups of Chef Automate data sto
 1. Configure each OpenSearch node with a GCS client configuration that contains the proper GCS settings as described in the OpenSearch documentation.
 1. Enable GCS backups by adding the following settings to your `config.toml`:
 
-{{< warning >}}
-{{% automate/char-warn %}}
-{{< /warning >}}
+{{< readfile file="content/automate/reusable/md/password_character_warning.md" >}}
 
 ```toml
 [global.v1.external.opensearch]
@@ -341,9 +335,7 @@ To configure Google Cloud Storage Bucket (GCS) backups of Chef Automate data sto
 
 Add the following settings to your `config.toml`:
 
-{{< warning >}}
-{{% automate/char-warn %}}
-{{< /warning >}}
+{{< readfile file="content/automate/reusable/md/password_character_warning.md" >}}
 
 ```toml
 [global.v1.external.postgresql]

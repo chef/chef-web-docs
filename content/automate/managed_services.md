@@ -253,9 +253,7 @@ These configuration directions are intended for the initial deployment of Chef A
 
 Create `postgresql.toml` file and add the following details of your AWS PostgreSQL RDS:
 
-{{< warning >}}
-{{% automate/char-warn %}}
-{{< /warning >}}
+{{< readfile file="content/automate/reusable/md/password_character_warning.md" >}}
 
 ```toml
 [global.v1.external.postgresql]
@@ -472,9 +470,7 @@ These configuration directions are intended for External AWS managed PostgreSQL 
 
 Add the following settings to your `config.toml`:
 
-{{< warning >}}
-{{% automate/char-warn %}}
-{{< /warning >}}
+{{< readfile file="content/automate/reusable/md/password_character_warning.md" >}}
 
 ```toml
 [global.v1.external.postgresql]
@@ -508,9 +504,7 @@ These configuration directions are intended for External AWS managed OpenSearch 
 
 Add the following to your `config.toml` file:
 
-{{< warning >}}
-{{% automate/char-warn %}}
-{{< /warning >}}
+{{< readfile file="content/automate/reusable/md/password_character_warning.md" >}}
 
 ```toml
 [global.v1.external.opensearch]

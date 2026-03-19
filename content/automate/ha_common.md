@@ -12,10 +12,6 @@ draft = false
     weight = 240
 +++
 
-{{< note >}}
-{{% automate/ha-warn %}}
-{{< /note >}}
-
 This page details the topics that are common to Chef Automate High Availability (HA) deployment models and aid you in deploying it in your network infrastructure.
 
 ## IAM Users

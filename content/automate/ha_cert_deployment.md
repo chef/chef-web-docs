@@ -12,10 +12,6 @@ draft = false
     weight = 210
 +++
 
-{{< note >}}
-{{% automate/ha-warn %}}
-{{< /note >}}
-
 Custom certificates can be added during deployment for different services.
 
 ## Setting common certificates for all the nodes of a service

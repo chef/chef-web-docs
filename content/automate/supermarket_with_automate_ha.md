@@ -10,10 +10,6 @@ draft = false
     weight = 85
 +++
 
-{{< note >}}
-{{% automate/ha-warn %}}
-{{< /note >}}
-
 This page will discuss the integration of Supermarket with Automate HA setup. The page will guide you to register an existing private Supermarket with Automate HA.
 
 Before starting this page, refer to the [Supermarket Integration](/automate/supermarket_integration_with_automate/) page with Automate for basic understanding.

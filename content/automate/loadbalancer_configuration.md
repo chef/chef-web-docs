@@ -12,10 +12,6 @@ draft = false
     weight = 200
 +++
 
-{{< note >}}
-{{% automate/ha-warn %}}
-{{< /note >}}
-
 This is the sample guide will show you how to configure a load balancer for Chef Automate and Chef Infra Server. For more details check with expert in your organization.
 
 ## Load Balancer Setup Examples

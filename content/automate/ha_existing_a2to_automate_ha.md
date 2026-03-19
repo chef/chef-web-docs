@@ -11,10 +11,6 @@ draft = false
     weight = 200
 +++
 
-{{< note >}}
-{{% automate/ha-warn %}}
-{{< /note >}}
-
 {{< warning >}}
 
 - A2HA user can be migrated to Automate HA with a minimum Chef Automate version [20201230192246](/release_notes_automate/#20201230192246).
@@ -132,9 +128,7 @@ done
 
     - If using AWS Managed services, then add the below config into `current_config.toml` (change this with your actual credentials)
 
-{{< warning >}}
-{{% automate/char-warn %}}
-{{< /warning >}}
+{{< readfile file="content/automate/reusable/md/password_character_warning.md" >}}
 
 ```sh
     [global.v1.external.opensearch.auth]

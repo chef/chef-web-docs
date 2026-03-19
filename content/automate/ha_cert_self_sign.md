@@ -12,10 +12,6 @@ draft = false
     weight = 220
 +++
 
-{{< note >}}
-{{% automate/ha-warn %}}
-{{< /note >}}
-
 ## What are Certificates?
 
 A security certificate is a small data file used as an Internet security technique through which the identity, authenticity, and reliability of a website or web application are established.

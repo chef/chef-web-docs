@@ -10,10 +10,6 @@ draft = false
     weight = 200
 +++
 
-{{< note >}}
-{{% automate/ha-warn %}}
-{{< /note >}}
-
 Recovery Point Objective (RPO) is the maximum acceptable amount of time since the last data recovery point.
 If an RPO of 1 to 24 hours is acceptable, then Chef recommends using a typical backup and restore strategy for your disaster recovery plan.
 

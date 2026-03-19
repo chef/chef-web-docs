@@ -10,10 +10,6 @@ draft = false
     weight = 220
 +++
 
-{{< note >}}
-{{% automate/ha-warn %}}
-{{< /note >}}
-
 This section will discuss deploying Chef Automate HA on-premises machines with a customer-managed database. Please see the [On-Premises Prerequisites](/automate/ha_on_premises_deployment_prerequisites/) page and move ahead with the following sections of this page.
 
 {{< warning >}}

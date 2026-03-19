@@ -10,10 +10,6 @@ automate = "AWS Deployment Prerequisites"
     weight = 30
 +++
 
-{{< note >}}
-{{% automate/ha-warn %}}
-{{< /note >}}
-
 {{< warning >}}
 The below prerequisites are according to the standard Chef Automate HA setup. You can contact the customer success manager or account manager if you use any specified version not mentioned here or a third-party extension or software.
 {{< /warning >}}

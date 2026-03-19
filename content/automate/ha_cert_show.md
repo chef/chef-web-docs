@@ -12,10 +12,6 @@ draft = false
     weight = 200
 +++
 
-{{< note >}}
-{{% automate/ha-warn %}}
-{{< /note >}}
-
 Certificates can be viewed for different services using below commands.
 
 ## Viewing certificates of all services

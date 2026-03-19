@@ -10,9 +10,7 @@ draft = false
     weight = 220
 +++
 
-{{< warning >}}
- {{% automate/ha-warn %}}
-{{< /warning >}}
+
 
 ## Command Usage
 

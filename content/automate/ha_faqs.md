@@ -11,10 +11,6 @@ draft = false
     weight = 130
 +++
 
-{{< note >}}
-{{% automate/ha-warn %}}
-{{< /note >}}
-
 This page explains the frequently encountered issues in Chef Automate High Availability (HA) feature and the steps to resolve them. In addition, this page also lists the health check commands.
 
 ## Frequently Asked Questions

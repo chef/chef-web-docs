@@ -9,10 +9,6 @@ draft = false
     weight = 220
 +++
 
-{{< note >}}
-{{% automate/ha-warn %}}
-{{< /note >}}
-
 {{< warning >}}
 
 - Standalone Chef Automate or Chef Automate with embedded Chef Infra Server can migrate to Automate HA, with the minimum version of Chef Automate: [20201230192246](/release_notes_automate/#20201230192246)
@@ -111,9 +107,7 @@ Follow the steps below when migrating to On-Premises or AWS HA deployment **(but
         password = "admin"
     ```
 
-    {{< warning >}}
-    {{% automate/char-warn %}}
-    {{< /warning >}}
+    {{< readfile file="content/automate/reusable/md/password_character_warning.md" >}}
 
 1. On every Frontend Node, copy the `bootstrap.abb` file and unpack the file using the following command:
 
@@ -225,9 +219,7 @@ Follow the steps below when migrating to On-Premises or Cloud HA deployment **(b
         password = "admin"
     ```
 
-    {{< warning >}}
-    {{% automate/char-warn %}}
-    {{< /warning >}}
+    {{< readfile file="content/automate/reusable/md/password_character_warning.md" >}}
 
 1. Transfer the `bootstrap.abb` file to all the Chef Automate HA FrontEnd Nodes (both Chef Automate and Chef Infra Server) using the following command:
 
@@ -407,9 +399,7 @@ For AWS managed services, map the snapshot role to the OpenSearch dashboard. It'
         password = "admin"
     ```
 
-    {{< warning >}}
-    {{% automate/char-warn %}}
-    {{< /warning >}}
+    {{< readfile file="content/automate/reusable/md/password_character_warning.md" >}}
 
 1. On every Frontend Node, copy the `bootstrap.abb` file and unpack the file using the following command:
 

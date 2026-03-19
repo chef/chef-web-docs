@@ -10,10 +10,6 @@ draft = false
     weight = 200
 +++
 
-{{< note >}}
-{{% automate/ha-warn %}}
-{{< /note >}}
-
 {{< warning >}}
 
 - A2HA user can be migrated to Automate HA with a minimum Chef Automate version [20201230192246](/release_notes_automate/#20201230192246).
