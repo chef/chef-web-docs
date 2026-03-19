@@ -206,7 +206,7 @@ The on-premises deployment specific pre-requisites are as follows:
 - [Config Patch](/automate/ha_config/#patch-configuration/) in the whole application will result in downtime. For example, if you change or update something in OpenSearch or PostgreSQL, they will restart, resulting in restarting everything.
 - [Certificate Rotation](/automate/ha_cert_rotation/) will also change the system's configuration, leading to restarting the whole application.
 
-To learn more about the above deployment, visit our [on-premises deployment](/automate/ha_on_prem_deployment_procedure/) page.
+To learn more about the above deployment, visit our [on-premises deployment](/automate/ha_on_premises_deployment_procedure/) page.
 
 ## External Managed Databases
 

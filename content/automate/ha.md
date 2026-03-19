@@ -104,7 +104,7 @@ Deploy Chef Automate HA on cloud infrastructure after provisioning the cloud sys
 
 Chef Automate High Availability (HA) supports two types of deployment:
 
-- [on-premises Deployment (Existing Node) Deployment](/automate/ha_on_prem_deployment_procedure/)
+- [on-premises Deployment (Existing Node) Deployment](/automate/ ha_on_premises_deployment_procedure/)
 - [Amazon Web Services (AWS) Deployment](/automate/ha_aws_deploy_steps/)
 
 ### On-premises deployment (Existing Node/Bare Infrastructure)
@@ -128,7 +128,7 @@ The two-step deployment process is as shown below:
 The two-step deployment process is as shown below:
 
 - Provisioning Infrastructure: Manually provision the infrastructure
-- Deployment of services on the provisioned infrastructure (follow the [on-premises deployment procedure](/automate/ha_on_prem_deployment_procedure/)).
+- Deployment of services on the provisioned infrastructure (follow the [on-premises deployment procedure](/automate/ ha_on_premises_deployment_procedure/)).
   - Installation of _PostgreSQL_, _OpenSearch_, _Chef Automate_, and _Chef Infra Server_ will be done in this step.
 - Only File System Backup and Restore are supported.
 
@@ -137,7 +137,7 @@ The two-step deployment process is as shown below:
 The two-step deployment process is as shown below:
 
 - Provisioning Infrastructure: Manually provision the infrastructure
-- Deployment of services on the provisioned infrastructure (follow the [on-premises deployment procedure](/automate/ha_on_prem_deployment_procedure/)).
+- Deployment of services on the provisioned infrastructure (follow the [on-premises deployment procedure](/automate/ ha_on_premises_deployment_procedure/)).
   - Installation of _PostgreSQL_, _OpenSearch_, _Chef Automate_, and _Chef Infra Server_ will be done in this step.
 
 ## Performance (Benchmarking)
