@@ -116,7 +116,9 @@ After successful deployment, proceed with the following:
 
 ## Backup/Restore
 
-A shared file system is always required to create OpenSearch snapshots. To register the snapshot repository using OpenSearch, it's necessary to mount the same shared filesystem to the exact location on all master and data nodes. To know more about the backup and restore configuration, see On-Premise Deployment using [Filesystem](/automate/ha_backup_restore_file_system) or using [Object Storage](/automate/ha_backup_restore_object_storage).
+A shared file system is required to create OpenSearch snapshots.
+To register the snapshot repository in OpenSearch, mount the same shared file system at the same path on all cluster manager and data nodes.
+To learn more about backup and restore configuration, see on-premises deployment using [Filesystem](/automate/ha_backup_restore_file_system) or [Object Storage](/automate/ha_backup_restore_object_storage).
 
 ## Add/Remove Nodes
 
@@ -126,7 +128,7 @@ The Chef Automate commands require some arguments so that it can determine which
 
 The bastion server can patch new configurations in all nodes. To know more see [Patch Configuration](/automate/ha_config/#patch-configuration) section.
 
-## Sample Config to setup On-Premise Deployment with AWS Managed Services
+## Sample Config to setup on-premises deployment with AWS Managed Services
 
 ```toml
 [architecture]

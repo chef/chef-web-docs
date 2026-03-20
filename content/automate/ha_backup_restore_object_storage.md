@@ -1,12 +1,12 @@
 +++
-title = "Back Up On-Prem Deployment With Object Storage"
+title = "Back up on-premises deployment with object storage"
 
 draft = false
 
 
 [menu]
   [menu.automate]
-    title = "On-Prem Back Up With Object Storage"
+    title = "On-prem back up with object storage"
     identifier = "automate/deploy_high_availability/backup_and_restore/ha_backup_restore_prerequisites.md Backup and Restore Object Storage"
     parent = "automate/deploy_high_availability/backup_and_restore"
     weight = 220

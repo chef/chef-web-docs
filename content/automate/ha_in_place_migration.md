@@ -138,9 +138,10 @@ While configuring the backup configuration provide the path of **Elasticsearch**
 
 ## Restore Backup
 
-Once deployment is successful, proceed with restoring the backup in Automate HA. For more information, see [On-Premise Deployment using Filesystem](/automate/ha_backup_restore_file_system/).
+After the deployment completes successfully, restore the backup to Automate HA.
+For more information, see [On-Premises Deployment using Filesystem](/automate/ha_backup_restore_file_system/).
 
-Login to one of automate nodes, and take **current_config.toml** file as shown below:
+Log in to one of the Automate nodes, and save the current configuration to `current_config.toml` as shown below:
 
 ```sudo
 sudo chef-automate config show > current_config.toml
@@ -199,7 +200,7 @@ chef-automate config set applied_config.toml
 
 {{< /note >}}
 
-To know more about the usage of S3 backup, see [On-Premise Deployment using Object Storage page](/automate/ha_backup_restore_object_storage/).
+To know more about the usage of S3 backup, see [on-premises deployment using Object Storage page](/automate/ha_backup_restore_object_storage/).
 
 {{< note >}}
 

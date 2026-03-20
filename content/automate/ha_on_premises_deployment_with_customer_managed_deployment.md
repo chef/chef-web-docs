@@ -6,7 +6,7 @@ draft = false
   [menu.automate]
     title = "On-Prem Deployment with Customer Managed Database"
     parent = "automate/deploy_high_availability/deployment"
-    identifier = "automate/deploy_high_availability/deployment/ha_on_prem_deployment_with_customer_managed_deployment.md On-premise Deployment with Customer Managed Database"
+    identifier = "automate/deploy_high_availability/deployment/ha_on_prem_deployment_with_customer_managed_deployment.md on-premises deployment with Customer Managed Database"
     weight = 220
 +++
 
@@ -120,7 +120,7 @@ After successful deployment, proceed with the following:
 
 ## Backup/Restore
 
-A shared file system is always required to create OpenSearch snapshots. To register the snapshot repository using OpenSearch, it's necessary to mount the same shared filesystem to the exact location on all master and data nodes. To know more about the backup and restore configuration, see On-Premise Deployment using [Filesystem](/automate/ha_backup_restore_file_system) or using [Object Storage](/automate/ha_backup_restore_object_storage).
+A shared file system is always required to create OpenSearch snapshots. To register the snapshot repository using OpenSearch, it's necessary to mount the same shared filesystem to the exact location on all master and data nodes. To know more about the backup and restore configuration, see on-premises deployment using [Filesystem](/automate/ha_backup_restore_file_system) or using [Object Storage](/automate/ha_backup_restore_object_storage).
 
 ## Add/Remove Nodes
 

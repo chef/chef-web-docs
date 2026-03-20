@@ -76,19 +76,23 @@ You need to have `Chef Automate HA` as a topology for HA deployments.
 `Chef Infra Server FQDN Root Certificate`
 : SSL root certificate for Chef Infra Server FQDN domain.
 
-## Number of Nodes in Automate HA Cluster
+## Number of nodes in an Automate HA cluster
 
 `Automate node count`
-: Number of nodes we want to keep for automate, in case of On-Premise deployment need to provide IP Address for all nodes.
+: The number of Chef Automate nodes in the cluster.
+  For an on-premises deployment, you must provide the IP address for each node.
 
 `Chef Infra Server node count`
-: Number of nodes we want to keep for Chef Infra Server, in case of On-Premise deployment need to provide IP Address for all nodes.
+: The number of Chef Infra Server nodes in the cluster.
+  For an on-premises deployment, you must provide the IP address for each node.
 
 `OpenSearch node count`
-: Number of nodes we want to keep for OpenSearch, in case of On-Premise deployment need to provide IP Address for all nodes.
+: The number of OpenSearch nodes in the cluster.
+  For an on-premises deployment, you must provide the IP address for each node.
 
 `PostgreSQL node count`
-: Number of nodes we want to keep for PostgreSQL, in case of On-Premise deployment need to provide IP Address for all nodes.
+: The number of PostgreSQL nodes in the cluster.
+  For an on-premises deployment, you must provide the IP address for each node.
 
 ## Private/Public Key For Automate
 

@@ -1,12 +1,12 @@
 +++
-title = "On-Prem Deployment using Filesystem"
+title = "On-premises deployment using filesystem"
 
 draft = false
 
 
 [menu]
     [menu.automate]
-        title = "On-Prem Deployment using Filesystem"
+        title = "On-prem deployment using filesystem"
         identifier = "automate/deploy_high_availability/backup_and_restore/ha_backup_restore_prerequisites.md Backup and Restore File System"
         parent = "automate/deploy_high_availability/backup_and_restore"
         weight = 210
@@ -16,13 +16,16 @@ draft = false
 
 {{< note >}}
 
-- If the user chooses `backup_config` as `file_system` in `config.toml` backup is already configured during the deployment, and in that case **the below steps aren't required**. If `backup_config` is left blank, then the configuration needs to be configured manually.
+- If you set `backup_config = "file_system"` in `config.toml`, backup is configured during deployment, and the following steps aren't required.
+- If `backup_config` is blank, you must configure backup manually.
 
 {{< /note >}}
 
 ## Overview
 
-A shared file system is always required to create **OpenSearch** snapshots. To register the snapshot repository using OpenSearch, it's necessary to mount the same shared filesystem to the exact location on all master and data nodes. Register the location (or one of its parent directories) in the `path.repo` setting on all master and data nodes.
+A shared file system is required to create **OpenSearch** snapshots.
+To register the snapshot repository in OpenSearch, mount the same shared file system at the same path on all cluster manager and data nodes.
+Then register that location, or one of its parent directories, in the `path.repo` setting on all cluster manager and data nodes.
 
 ### Setting up the backup configuration
 
