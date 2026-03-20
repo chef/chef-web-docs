@@ -6,6 +6,7 @@
           - static/360/**
           - content/release_notes/360.md
           - static/images/360/**
+          - _vendor/github.com/chef/samples/**
 "Component: Chef Automate":
   - changed-files:
       - any-glob-to-any-file:
@@ -17,7 +18,7 @@
 "Component: Chef Compliance and Remediation":
   - changed-files:
       - any-glob-to-any-file:
-          - _vendor/github.com/chef/compliance-**
+          - _vendor/github.com/chef/compliance-{profiles,remediation-2022}/**
 "Component: Chef Desktop":
   - changed-files:
       - any-glob-to-any-file:
@@ -40,6 +41,7 @@
           - static/client/**
           - content/release_notes/client.md
           - static/images/client/**
+          - data/infra/**
 "Component: Chef Infra Server":
   - changed-files:
       - any-glob-to-any-file:
@@ -55,7 +57,6 @@
           - static/inspec/**
           - static/images/inspec/**
           - content/release_notes/inspec**
-
 "Component: Expeditor":
   - changed-files:
       - any-glob-to-any-file: .expeditor/**
@@ -75,3 +76,4 @@
           - static/images/workstation/**
           - content/release_notes/workstation.md
           - _vendor/github.com/chef/chef-workstation
+          - generated/**
