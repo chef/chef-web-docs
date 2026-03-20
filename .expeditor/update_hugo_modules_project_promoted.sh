@@ -24,7 +24,7 @@ case "${EXPEDITOR_PROJECT}" in
     ;;
 esac
 
-timestamp="$(date '+%Y%m%d%H%M%S')"
+timestamp="$(date '+%Y-%m-%dT%H-%M-%S')"
 branch="expeditor/update_docs_${product_key}_${timestamp}"
 git checkout -B "$branch"
 
