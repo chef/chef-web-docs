@@ -174,3 +174,12 @@
   from = "/inspec/resources/*"
   to = "/inspec/latest/resources/"
   status = 301
+
+####
+# Chef Workstation redirects
+####
+
+[[redirects]]
+  from = "/workstation/latest/*"
+  to = "/workstation/:splat"
+  status = 301

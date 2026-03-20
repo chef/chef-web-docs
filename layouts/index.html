@@ -1,120 +1,127 @@
 {{ define "main" }}
+{{/*
+  Landing page: responsive grid of Chef product documentation cards.
+  Uses Foundation 6 grid, card components, Material Symbols icons, and
+  existing product SVGs from /static/images/ where available.
+*/}}
 
-<div id="main-content-col" class="cell auto index-page">
-<div class="col-content">
+{{ $products := slice
+  (dict
+    "name"     "Chef 360 Platform"
+    "url"      "/360/latest/"
+    "icon"     ""
+    "icon_mat" "hub"
+    "desc"     "A DevSecOps platform for automating security, compliance, and operational governance across your infrastructure."
+  )
+  (dict
+    "name"     "Chef Automate"
+    "url"      "/automate/"
+    "icon"     ""
+    "icon_mat" "space_dashboard"
+    "desc"     "Compliance dashboards, event feeds, and visibility into your Chef-managed infrastructure."
+  )
+  (dict
+    "name"     "Chef Desktop"
+    "url"      "/desktop/"
+    "icon"     ""
+    "icon_mat" "desktop_windows"
+    "desc"     "Automate the setup and ongoing management of desktop and laptop endpoints across your organization."
+  )
+  (dict
+    "name"     "Chef Habitat"
+    "url"      "/habitat/latest/"
+    "icon"     ""
+    "icon_mat" "deployed_code"
+    "desc"     "An application automation framework for building, packaging, deploying, and managing applications anywhere."
+  )
+  (dict
+    "name"     "Chef Infra Client"
+    "url"      "/client/latest/"
+    "icon"     ""
+    "icon_mat" "smb_share"
+    "desc"     "Automate infrastructure configuration and enforce policy on every node using infrastructure-as-code."
+  )
+  (dict
+    "name"     "Chef Infra Server"
+    "url"      "/server/"
+    "icon"     ""
+    "icon_mat" "storage"
+    "desc"     "A central hub for storing and distributing infrastructure configuration data, policies, and cookbooks."
+  )
+  (dict
+    "name"     "Chef InSpec"
+    "url"      "/inspec/latest/"
+    "icon"     ""
+    "icon_mat" "search_check"
+    "desc"     "A compliance-as-code framework for auditing and testing the state and security of your infrastructure."
+  )
+  (dict
+    "name"     "Chef Supermarket"
+    "url"      "/supermarket/"
+    "icon"     ""
+    "icon_mat" "storefront"
+    "desc"     "The community cookbook sharing platform for discovering, publishing, and reusing Chef content."
+  )
+  (dict
+    "name"     "Chef Workstation"
+    "url"      "/workstation/latest/"
+    "icon"     ""
+    "icon_mat" "computer"
+    "desc"     "The all-in-one development environment for authoring, testing, and running Chef Infra and InSpec code."
+  )
+}}
 
-    <div class="index-prose">
-      <p>Welcome to the Chef Software Documentation!</p>
-      <p>This is the documentation for:</p>
+<div class="product-landing">
 
-      <div class="grid-container fluid" style="margin-top: 1rem;">
-        <div class="grid-x">
-          <div class="cell small-12 mediumlarge-4" style="box-shadow: none; border: none; margin-left: 0;">
-            <ul style="margin-bottom: 0;">
-              <li>Chef Automate</li>
-              <li>Chef Desktop</li>
-              <li>Chef Habitat</li>
-              <li>Chef Infra Client</li>
-            </ul>
-          </div>
-          <div class="cell small-12 mediumlarge-4" style="box-shadow: none; border: none; margin-left: 0;">
-            <ul style="margin-bottom: 0;">
-              <li>Chef Infra Server</li>
-              <li>Chef InSpec</li>
-              <li>Chef Workstation</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid-container fluid">
-        <div class="grid-x grid-margin-x grid-margin-y grid-padding-x grid-padding-y">
-
-          <div class="cell small-12 mediumlarge-6">
-            <h4><i class="far fa-map"></i>Getting Started</h4>
-            <ul>
-              <li><a href="/platform_overview/">Platform Overview</a></li>
-              <li><a href="/chef_overview/">Chef Infra Overview</a></li>
-              <li><a href="/quick_start/">Chef Infra Quick Start</a></li>
-              <li><a href="/automate/">Chef Automate Quickstart</a></li>
-              <li><a href="https://learn.chef.io/" class="external">Learn Chef</a>
-                <div class="external_link_icon"></div>
-              </li>
-            </ul>
-          </div>
-
-          <div class="cell small-12 mediumlarge-6">
-            <h4><i class="fa-regular fa-file-code"></i>Chef Infra</h4>
-            <ul>
-              <li><a href="/chef_client_overview/">Chef Infra Client Overview</a></li>
-              <li><a href="/server/">Chef Infra Server Overview</a></li>
-              <li><a href="/server/install_server/">Install Chef Infra Server</a></li>
-            </ul>
-          </div>
-
-          <div class="cell small-12 mediumlarge-6">
-            <h4><img src="/images/workstation-logo.svg">Chef Workstation</h4>
-            <ul>
-              <li><a href="/workstation/">About Workstation</a></li>
-              <li><a href="/workstation/install_workstation/">Install Workstation</a></li>
-              <li><a href="/workstation/knife/">Knife</a></li>
-              <li><a href="/workstation/config_rb">config.rb</a></li>
-            </ul>
-          </div>
-
-          <div class="cell small-12 mediumlarge-6">
-            <h4><i class="fas fa-sync-alt"></i>Chef Automate</h4>
-            <ul>
-              <li><a href="/automate/install/">Chef Automate Install Guide</a></li>
-              <li><a href="/automate/api/">Chef Automate API</a></li>
-              <li><a href="/automate/cli_chef_automate/">Chef Automate CLI</a></li>
-              <li><a href="/automate/desktop/">Chef Automate Desktop Dashboard</a></li>
-            </ul>
-          </div>
-
-          <div class="cell small-12 mediumlarge-6">
-            <h4><i class="fas fa-search"></i>Chef InSpec</h4>
-            <ul>
-              <li><a href="/inspec/latest/">Chef InSpec Overview</a></li>
-              <li><a href="/inspec/latest/reference/cli/">Chef InSpec CLI</a></li>
-              <li><a href="/inspec/latest/profiles/">Chef InSpec Profiles</a></li>
-              <li><a href="/inspec/latest/resources/">Chef InSpec Resources</a></li>
-            </ul>
-          </div>
-
-          <div class="cell small-12 mediumlarge-6">
-            <h4><i class="fa-regular fa-file-lines"></i>Chef Infra Cookbooks</h4>
-            <ul>
-              <li><a href="/cookbooks/">About Cookbooks</a></li>
-              <li><a href="/recipes/">Recipes</a></li>
-              <li><a href="/infra_language/">Chef Infra Language</a></li>
-              <li><a href="/supermarket/">Chef Supermarket</a></li>
-            </ul>
-          </div>
-
-          <div class="cell small-12 mediumlarge-6">
-            <h4><i class="far fa-file"></i>Chef Infra Resources</h4>
-            <ul>
-              <li><a href="/resource/">About Resources</a></li>
-              <li><a href="/resources/">Resources Reference</a></li>
-              <li><a href="/resource_common/">Common Functionality</a></li>
-              <li><a href="/custom_resources/">Custom Resources</a></li>
-            </ul>
-          </div>
-
-          <div class="cell small-12 mediumlarge-6">
-            <h4><i class="far fa-sticky-note"></i>Release Notes</h4>
-            <ul>
-              <li><a href="/release_notes_automate/">Chef Automate</a></li>
-              <li><a href="/release_notes_client/">Chef Infra Client</a></li>
-              <li><a href="/release_notes_server/">Chef Infra Server</a></li>
-              <li><a href="/release_notes_inspec/">Chef InSpec</a></li>
-              <li><a href="/release_notes_workstation/">Chef Workstation</a></li>
-            </ul>
+  {{- if and (ne (.Param "search") false) (ne (.Site.Param "search") false) }}
+  <div id="product-landing-search-container">
+    <div id="product-landing-search-input" class="float-center">
+      <form id="product-landing-search-form"
+            onsubmit="event.preventDefault(); var q = document.getElementById('product-landing-search-input-field').value.trim(); if (q) { window.location.href = '/search/#stq=' + encodeURIComponent(q); }">
+        <div class="input-group">
+          <span class="input-group-label hide-for-small-only"><i class="fa fa-search"></i></span>
+          <input id="product-landing-search-input-field" class="input-group-field" type="text" placeholder="Search Chef documentation..." aria-label="Search Chef documentation" />
+          <div class="input-group-button">
+            <button type="submit" class="button">Search</button>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   </div>
+  {{- end }}
+
+  <p class="lead">Select a product to browse its documentation.</p>
+
+  <div class="grid-x grid-padding-x small-up-1 medium-up-2 large-up-3 product-card-grid">
+    {{ range $products }}
+    <div class="cell">
+      <div class="card product-card">
+
+        <div class="card-section">
+          <div class="product-card-icon" aria-hidden="true">
+            {{ if .icon }}
+              <img src="{{ .icon }}" alt="">
+            {{ else }}
+              <span class="material-symbols-outlined" translate="no">{{ .icon_mat }}</span>
+            {{ end }}
+          </div>
+          <h2 class="product-card-name">
+            <a href="{{ .url }}">{{ .name }}</a>
+          </h2>
+          <p>{{ .desc }}</p>
+        </div>
+
+        <div class="card-divider">
+          <a href="{{ .url }}" aria-hidden="true" tabindex="-1">
+            View docs
+            <span class="material-symbols-outlined" translate="no" aria-hidden="true">arrow_forward</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+    {{ end }}
+  </div>
+
 </div>
 {{ end }}
