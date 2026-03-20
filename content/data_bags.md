@@ -13,6 +13,8 @@ product = ["client", "server"]
     weight = 40
 +++
 
+<!-- markdownlint-disable-file MD007 -->
+
 {{< readfile file="content/reusable/md/data_bag.md" >}}
 
 ## Create a data bag

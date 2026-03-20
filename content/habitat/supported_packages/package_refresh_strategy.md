@@ -9,6 +9,7 @@ title = "Chef Habitat package refresh strategy"
 +++
 
 <!-- vale Microsoft.Quotes = NO -->
+<!-- markdownlint-disable-file MD007 -->
 
 A Habitat package is an artifact that has the built application artifacts, lifecycle configurations, and a manifest that includes a plan file that defines the build and runtime dependencies of the application.
 The package is bundled into a Habitat Artifact (`.HART`) file, which is a binary distribution of a given package built with Chef Habitat.

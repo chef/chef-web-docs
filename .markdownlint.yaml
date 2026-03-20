@@ -86,6 +86,3 @@ MD046:
 MD047: true
 MD049:
   style: "underscore"
-MD060:
-  aligned_delimiter: true
-  style: aligned

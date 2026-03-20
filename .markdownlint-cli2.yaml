@@ -9,3 +9,7 @@ ignores:
   - CONTRIBUTING.md
   - COPYRIGHT.md
   - SECURITY.MD
+  - node_modules/**
+  - public/**
+  - resources/**
+  - generated/**

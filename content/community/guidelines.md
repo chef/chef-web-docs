@@ -42,7 +42,7 @@ Be careful in the words that you choose. Be kind to others. Practice
 empathy. Don't insult or put down others. Remember that sexist, racist,
 ableist, ageist, and other exclusionary jokes can be offensive to those
 around you. If you think your conversation is making another community
-member uncomfortable *or* if they tell you so, stop immediately, make
+member uncomfortable or if they tell you so, stop immediately, make
 amends, and move forward.
 
 As you are working with other members of the community, please keep in
@@ -136,7 +136,7 @@ by other members of the project's leadership.
 ## Consequences of Unacceptable Behavior
 
 Unacceptable behavior from any community member, including sponsors and
-those with decision-making authority, will *not* be tolerated.
+those with decision-making authority, won't be tolerated.
 
 Anyone who is asked to stop unacceptable behavior is expected to comply
 immediately.
@@ -144,13 +144,13 @@ immediately.
 If a community member engages in unacceptable behavior, the community
 organizers may take action that they deem appropriate -- up to and
 including a temporary ban or permanent expulsion from the community
-*without warning* (and without refund, in the case of a paid event). If
+without warning (and without refund, in the case of a paid event). If
 you have been involved in unacceptable behavior with current Chef
 community members outside the boundaries of the Chef Community, the
 Community Organizers retain the right to treat those external incidents
 in the same manner as internal incidents.
 
-Any physical violence *or* intimidation, threatened or acted on, is a
+Any physical violence or intimidation, threatened or acted on, is a
 serious offense and will result in immediate exclusion from the
 community and appropriate follow up with law enforcement. No, we're not
 kidding.
