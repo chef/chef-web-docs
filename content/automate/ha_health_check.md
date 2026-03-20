@@ -1,0 +1,249 @@
++++
+title = "Automate HA Commands"
+
+draft = false
+
+[menu]
+  [menu.automate]
+    title = "Automate HA Commands"
+    parent = "automate/deploy_high_availability/manage_ha_cluster"
+    identifier = "automate/deploy_high_availability/manage_ha_cluster/ha_health_check.md Automate HA Commands"
+    weight = 240
++++
+
+This page includes commands that can be executed for the Chef Automate cluster part of the Chef Automate High Availability (HA) system. These commands aid you in assessing the health and status of the components part of the HA cluster. It's highly recommended to run these commands on a test cluster before using them in a production environment.
+
+## Automate HA Service Commands
+
+- Get the Automate HA cluster Information
+
+```sh
+chef-automate info
+```
+
+- Post Deployment, run the smoke test cases on Automate HA cluster and run the command from the bastion node.
+
+```sh
+chef-automate test --full
+```
+
+- Validate the cluster but skip "chef-automate diagnostic run" when performing the smoke tests
+
+```sh
+chef-automate test
+```
+
+- Run the smoke test on specific cluster
+
+```sh
+chef-automate test automate
+chef-automate test chef_server
+chef-automate test opensearch
+chef-automate test postgresql
+```
+
+- To get the status of the cluster, run the command from the bastion node.
+
+```sh
+chef-automate status
+```
+
+- To check the service status on Automate nodes.
+
+```sh
+chef-automate status --automate
+chef-automate status --a2
+```
+
+- To check the service status on Chef Infra Server nodes.
+
+```sh
+chef-automate status --chef_server
+chef-automate status --cs
+```
+
+- To check the service status on PostgreSQL nodes.
+
+```sh
+chef-automate status --postgresql
+chef-automate status -pg
+```
+
+- To check the service status on OpenSearch nodes.
+
+```sh
+chef-automate status --opensearch
+chef-automate status --os
+```
+
+- Patch a config to the Front end nodes (Automate)
+  - create a config file `automate.toml`
+
+``` cmd
+chef-automate config patch automate.toml --automate
+```
+
+Shorthands for --automate are --a2 and -a.
+
+- Patch a config to the Front end nodes (Chef Infra Server)
+  - create a config file `chef-server.toml`
+
+``` cmd
+chef-automate config patch chef-server.toml --chef_server
+```
+
+Shorthands for --chef_server are --cs and -c.
+
+- Patch a config to the all Front end nodes (Chef Infra Server + Automate)
+  - Create a config file `frontend.toml`
+
+``` cmd
+chef-automate config patch frontend.toml --frontend
+```
+
+Shorthands for --frontend are --fe and -f.
+
+- Patch a config to the Back end nodes (Open Search)
+  - Create a config file `opensearch.toml`
+
+``` cmd
+chef-automate config patch opensearch.toml --opensearch
+```
+
+Shorthands for --opensearch are --os and -o.
+
+- Patch a config to the Back end nodes (PostgreSQL)
+  - Create a config file `postgresql.toml`
+
+``` cmd
+chef-automate config patch postgresql.toml --postgresql
+```
+
+Shorthands for --postgresql are --pg and -p.
+
+{{< note >}}
+
+- Frontend patch will be applied to all nodes where are PostgreSQL and OpenSearch changes will be applied to only one node.
+- After patching, some services will restart, so the health status will take up to 2 minutes to show healthy.
+
+{{< /note >}}
+
+{{< warning >}}
+
+- For certificate rotation, don't use config patch. Instead, the cert-rotate command can be used. To learn more about certificate rotation, see [Certificate Rotation](/automate/ha_cert_rotation).
+- While patching the same from **the provision host**, structures such as TLS from OpenSearch configuration toml file and SSL from PostgreSQL configuration toml file will be ignored.
+
+{{< /warning >}}
+
+- Collect gather logs for the Automate HA cluster, and run the command from the bastion node.
+  - Logs are collected at `/var/tmp`
+
+```sh
+chef-automate gather-logs
+```
+
+- View the active Habitat gossiped toml config for any locally loaded service:
+  - SSH to the backend OpenSearch nodes `chef-automate ssh --hostname os`
+
+```sh
+source /hab/sup/default/SystemdEnvironmentFile.sh
+automate-backend-ctl show --svc=automate-ha-opensearch
+```
+
+- SSH to the backend PostgreSQL nodes `chef-automate ssh --hostname pg`
+
+```sh
+source /hab/sup/default/SystemdEnvironmentFile.sh
+automate-backend-ctl show --svc=automate-ha-postgresql
+```
+
+- To Rotate the password for PostgreSQL cluster, run the command from the bastion node
+
+```sh
+  cd /hab/a2_deploy_workspace/
+  ./scripts/credentials set postgresql --no-auto
+```
+
+- To Rotate the password for OpenSearch cluster, run the command from the bastion node
+
+```sh
+  cd /hab/a2_deploy_workspace/
+  ./scripts/credentials set opensearch --no-auto
+```
+
+## Precaution During Backend Node Reboot
+
+To prevent data loss, don't restart all nodes in a PostgreSQL cluster in quick succession.
+
+When a follower node (for example, f1) is restarted, it begins synchronizing data from the current leader. If the leader node is also restarted during this synchronization process, a leader election may occur. If f1 is elected as the new leader before completing its sync, it may not have the most recent data, which can lead to inconsistencies or data loss.
+
+## Precaution during OpenSearch Reboot
+
+- Check cluster health
+Execute the following commands to verify the health of the cluster:
+
+```sh
+curl -X GET "https://localhost:9200/_cat/health?v" -k
+--cacert /hab/svc/automate-ha-opensearch/config/certificates/root-ca.pem
+--key /hab/svc/automate-ha-opensearch/config/certificates/admin-key.pem
+--cert /hab/svc/automate-ha-opensearch/config/certificates/admin.pem
+```
+
+```sh
+curl -X GET "https://localhost:9200/_cat/recovery?v" -k
+--cacert /hab/svc/automate-ha-opensearch/config/certificates/root-ca.pem
+--key /hab/svc/automate-ha-opensearch/config/certificates/admin-key.pem
+--cert /hab/svc/automate-ha-opensearch/config/certificates/admin.pem
+```
+
+- Disable shard allocation
+Before restarting the node, disable shard allocation to prevent unnecessary rebalancing during the process:
+
+```sh
+curl -X PUT "https://localhost:9200/_cluster/settings" -H 'Content-Type: application/json' -d'
+{
+  "persistent": {
+    "cluster.routing.allocation.enable": "primaries"
+  }
+}' -k
+--cacert /hab/svc/automate-ha-opensearch/config/certificates/root-ca.pem
+--key /hab/svc/automate-ha-opensearch/config/certificates/admin-key.pem
+--cert /hab/svc/automate-ha-opensearch/config/certificates/admin.pem
+```
+
+- Stop indexing and flush the data to disk:
+
+```sh
+curl -X POST "https://localhost:9200/_flush" -k
+--cacert /hab/svc/automate-ha-opensearch/config/certificates/root-ca.pem
+--key /hab/svc/automate-ha-opensearch/config/certificates/admin-key.pem
+--cert /hab/svc/automate-ha-opensearch/config/certificates/admin.pem
+```
+
+- Enable shard allocation once the node is back online to resume normal data distribution.
+
+```sh
+curl -X PUT "https://localhost:9200/_cluster/settings" -H 'Content-Type: application/json' -d'
+{
+  "persistent": {
+    "cluster.routing.allocation.enable": null
+  }
+}' -k
+--cacert /hab/svc/automate-ha-opensearch/config/certificates/root-ca.pem
+--key /hab/svc/automate-ha-opensearch/config/certificates/admin-key.pem
+--cert /hab/svc/automate-ha-opensearch/config/certificates/admin.pem
+```
+
+- Monitor the cluster state, and verify its health and recovery status to ensure overall stability.
+
+```sh
+curl -X GET "https://localhost:9200/_cat/health?v" -k
+--cacert /hab/svc/automate-ha-opensearch/config/certificates/root-ca.pem
+--key /hab/svc/automate-ha-opensearch/config/certificates/admin-key.pem
+--cert /hab/svc/automate-ha-opensearch/config/certificates/admin.pem
+
+curl -X GET "https://localhost:9200/_cat/recovery?v" -k
+--cacert /hab/svc/automate-ha-opensearch/config/certificates/root-ca.pem
+--key /hab/svc/automate-ha-opensearch/config/certificates/admin-key.pem
+--cert /hab/svc/automate-ha-opensearch/config/certificates/admin.pem
+```

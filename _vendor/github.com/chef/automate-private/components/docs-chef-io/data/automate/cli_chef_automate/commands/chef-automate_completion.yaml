@@ -1,0 +1,28 @@
+name: chef-automate completion
+synopsis: Generate the autocompletion script for the specified shell
+usage: chef-automate completion [flags]
+description: |
+    Generate the autocompletion script for chef-automate for the specified shell.
+    See each sub-command's help for details on how to use the generated script.
+options:
+    - name: help
+      shorthand: h
+      default_value: "false"
+      usage: help for completion
+inherited_options:
+    - name: debug
+      shorthand: d
+      default_value: "false"
+      usage: Enable debug output
+    - name: no-check-version
+      default_value: "false"
+      usage: Disable version check
+    - name: result-json
+      usage: Write command result as JSON to PATH
+see_also:
+    - chef-automate - Chef Automate CLI
+    - bash - Generate the autocompletion script for bash
+    - fish - Generate the autocompletion script for fish
+    - powershell - Generate the autocompletion script for powershell
+    - zsh - Generate the autocompletion script for zsh
+supported_on: Bastion

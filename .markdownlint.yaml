@@ -84,3 +84,8 @@ MD045: true
 MD046:
   style: fenced
 MD047: true
+MD049:
+  style: "underscore"
+MD060:
+  aligned_delimiter: true
+  style: aligned

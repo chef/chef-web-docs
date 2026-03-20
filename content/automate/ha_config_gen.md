@@ -1,0 +1,264 @@
++++
+title = "Automate HA Config Generation"
+draft = false
+
+[menu]
+  [menu.automate]
+    title = "Automate Config Generation"
+    parent = "automate/deploy_high_availability/manage_ha_cluster"
+    identifier = "automate/deploy_high_availability/manage_ha_cluster/ha_config_gen.md Automate Config Generation"
+    weight = 220
++++
+
+<!-- vale off -->
+
+## Command Usage
+
+```bash
+chef-automate config gen config.toml
+```
+
+`config.toml` is the file where all the generated config will be saved at the end, you can choose to not provide this then the output will be shown to stdout.
+
+Refer the fields below to generate Chef Automate High Availability (HA) configuration using `chef-automate config gen` command:
+
+## Automate HA Topology
+
+You need to have `Chef Automate HA` as a topology for HA deployments.
+
+`On-Premise`
+: To deploy on customer created Chef Automate HA cluster.
+
+`AWS`
+: To deploy in AWS environment. Cluster will be created by Automate HA.
+
+`Deployment`
+: The configuration type.
+
+## SSH User and Group
+
+`ssh user name`
+: User name to SSH to cluster instances.
+
+`ssh group name`
+: Group name which is associated with SSH user.
+
+`ssh port no`
+: Port to connect using SSH. Default value: `22`.
+
+`ssh key file path`
+: SSH key file path, same will be used to SSH to cluster instances. For example, `/home/ec2-user/KEY_FILENAME.pem`.
+
+## Automate Load Balancer FQDN
+
+`Automate FQDN`
+: Chef Automate FQDN. For example, `chefautomate.example.com`.
+
+`Automate FQDN ARN`
+: For AWS deployment ARN name is required for Automate FQDN domain.
+
+`Automate FQDN Root Certificate`
+: SSL root certificate for Automate FQDN domain.
+
+## Automate Admin
+
+`Automate Admin Password`
+: Admin password to login to automate dashboard.
+
+## Chef Infra Server Load Balancer FQDN
+
+`Chef Infra Server FQDN`
+: Chef Automate FQDN. For example, `chef-server.example.com`.
+
+`Chef Infra Server FQDN ARN`
+: For AWS deployment ARN name is required for Chef Infra Servers FQDN domain.
+
+`Chef Infra Server FQDN Root Certificate`
+: SSL root certificate for Chef Infra Server FQDN domain.
+
+## Number of nodes in an Automate HA cluster
+
+`Automate node count`
+: The number of Chef Automate nodes in the cluster.
+  For an on-premises deployment, you must provide the IP address for each node.
+
+`Chef Infra Server node count`
+: The number of Chef Infra Server nodes in the cluster.
+  For an on-premises deployment, you must provide the IP address for each node.
+
+`OpenSearch node count`
+: The number of OpenSearch nodes in the cluster.
+  For an on-premises deployment, you must provide the IP address for each node.
+
+`PostgreSQL node count`
+: The number of PostgreSQL nodes in the cluster.
+  For an on-premises deployment, you must provide the IP address for each node.
+
+## Private/Public Key For Automate
+
+`Private key for Automate`
+: If you have a custom certificate for Automate node provide your private for Automate, If you have a custom certificates for each Automate node then provide different private key for each of Automate node.
+
+`Public key for Automate`
+: If you have a custom certificate for Automate node provide your public for Automate, If you have a custom certificates for each Automate node then provide different public key for each of Automate node.
+
+## Private/Public Key For Chef Infra Server
+
+`Private key for Chef Infra Server`
+: If you have a custom certificate for Chef Infra Server node provide your private for Chef Infra Server. If you have a custom certificates for each Chef Infra Server node then provide different private key for each of Chef Infra Server node.
+
+`Public key for Chef Infra Server`
+: If you have a custom certificate for Chef Infra Server node provide your public for Chef Infra Server. If you have a custom certificates for each Chef Infra Server node then provide different public key for each of Chef Infra Server node.
+
+## OpenSearch Certificate and Private/Public Key
+
+`Root CA for OpenSearch`
+: In case of have custom certificates for OpenSearch node provide root certificates.
+
+`Admin Key certificate for OpenSearch`
+: In case of have custom certificates for OpenSearch node provide admin key certificates.
+
+`Admin certificate for OpenSearch`
+: In case of have custom certificates for OpenSearch node provide admin certificates.
+
+`Private key for OpenSearch`
+: If you have a custom certificate for OpenSearch node provide your private for OpenSearch, If you have a custom certificates for each OpenSearch node then provide different private key for each of OpenSearch node.
+
+`Public key for OpenSearch`
+: If you have a custom certificate for OpenSearch node provide your public for OpenSearch, If you have a custom certificates for each OpenSearch node then provide different public key for each of OpenSearch node.
+
+## PostgreSQL Certificate and Private/Public Key
+
+`Root CA for PostgreSQL`
+: In case of have custom certificates for PostgreSQL node provide root certificates.
+
+`Private key for PostgreSQL`
+: If you have a custom certificate for PostgreSQL node provide your private for PostgreSQL, If you have a custom certificates for each PostgreSQL node then provide different private key for each of PostgreSQL node.
+
+`Public key for PostgreSQL`
+: If you have a custom certificate for PostgreSQL node provide your public for PostgreSQL, If you have a custom certificates for each PostgreSQL node then provide different public key for each of PostgreSQL node.
+
+## AWS Deployment
+
+Settings required for AWS deployment.
+
+`VPC ID`
+: VPC ID in which you want to create cluster.
+
+`Private subnet ids`
+: Three private subnets are required to create cluster.
+
+`Public subnet ids`
+: If you want to have public load balancer then, Three public subnets are required to create cluster.
+
+`Instance type`
+: Instance type to create cluster.
+
+`EBS volume size`
+: The EBS volume size.
+
+`EBS volume type`
+: Default is `gp3`.
+
+`EBS volume IOPS`
+: It should be based on your load needs.
+
+`ssh key pair name`
+: SSH key pair name on AWS. For example, `my-key`.
+
+`Region`
+: AWS region to create cluster.
+
+`AMI Id`
+: AWS AMI ID for specific region to create cluster of particular AMI.
+
+`AWS profile name`. AWS profile name configured in .aws/credentials, Skip this if the IAM role is configured on the bastion host.
+
+## External Databases
+
+Settings for AWS-managed or customer-managed databases.
+
+### OpenSearch
+
+`OpenSearch domain name`
+: OpenSearch domain name deployed on AWS or customer environment.
+
+`OpenSearch domain url`
+: For AWS managed provide domain URL without port and protocol.
+
+  For example, `opensearch.example.com`.
+
+: For customer managed OpenSearch provide domain URL along with port.
+
+  For example, `opensearch.example.com:9200`.
+
+`OpenSearch user name`
+: Username to login to OpenSearch.
+
+`OpenSearch user passwords`
+: Password to login to OpenSearch.
+
+`OpenSearch root-ca`
+: SSL root certificates to connect with OpenSearch.
+
+  If you have AWS managed databases we have option to use default AWS certificates - - If using default certificates then no need to provide root certificates.
+
+### PostgreSQL
+
+`PostgreSQL URL and port`
+: PostgreSQL URL along with port.
+
+  For example, `postgresql.example.com:5432`.
+
+`PostgreSQL super username`
+: Superuser username to login to PostgreSQL.
+
+`PostgreSQL super user password`
+: Superuser password to login to PostgreSQL.
+
+`PostgreSQL database username`
+: Database username to login to PostgreSQL.
+
+`PostgreSQL database user password`
+: Database password to login to PostgreSQL.
+
+### AWS OpenSearch
+
+`AWS OpenSearch snapshot arn`
+: Snapshot arn is required to take a backup from AWS OpenSearch
+
+`AWS OpenSearch snapshot user accesskey`
+: Snapshot user accesskey is required to take a backup from AWS OpenSearch
+
+`AWS OpenSearch snapshot secret key`
+: Snapshot user accesskey is required to take a backup from AWS OpenSearch. Refer to the [Enabling OpenSearch Backup Restore](/automate/managed_services/#enabling-opensearch-backup-restore) section, to create them and get their values.
+
+## Backup
+
+If backup is configured during deployment, set the following settings.
+
+`Bucket name`
+: Object storage bucket name. In case of AWS deployment bucket will be created if not exist in AWS.
+
+`Access Key`
+: S3 access key.
+
+`Secret Key`
+: S3 secret key.
+
+`Endpoint`
+: Endpoint of object storage.
+
+`Region`
+: S3 Bucket region.
+
+`Mount path`
+: For file system or EFS backup, provide the mount path of the backup directory.
+
+`Location`
+: For Google Cloud Storage backup, `gcs`.
+
+  For S3 backup (AWS S3, MinIO, non-AWS S3), `s3`.
+
+`Google Service Account File`
+: For Google Cloud Storage provide the credentials file path. For example, `/path/to/file/test.json`.

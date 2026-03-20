@@ -206,4 +206,4 @@ errorLevel = 'ignore'
 highlightBroken = true
 
 [render_hooks.image]
-errorLevel = 'ignore'
+errorLevel = 'warning'

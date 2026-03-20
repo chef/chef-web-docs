@@ -1,3 +1,79 @@
-Documentation:
-- changed-files:
-  - any-glob-to-any-file: '**/*'
+
+"Component: Chef 360 Platform":
+  - changed-files:
+      - any-glob-to-any-file:
+          - content/360/**
+          - static/360/**
+          - content/release_notes/360.md
+          - static/images/360/**
+          - _vendor/github.com/chef/samples/**
+"Component: Chef Automate":
+  - changed-files:
+      - any-glob-to-any-file:
+          - content/automate/**
+          - _vendor/github.com/chef/automate-private/**
+          - static/automate/**
+          - content/release_notes/automate.md
+          - static/images/automate/**
+"Component: Chef Compliance and Remediation":
+  - changed-files:
+      - any-glob-to-any-file:
+          - _vendor/github.com/chef/compliance-{profiles,remediation-2022}/**
+"Component: Chef Desktop":
+  - changed-files:
+      - any-glob-to-any-file:
+          - content/desktop/**
+          - _vendor/github.com/chef/desktop-config**
+          - static/desktop/**
+          - static/images/desktop/**
+"Component: Chef Habitat":
+  - changed-files:
+      - any-glob-to-any-file:
+          - content/habitat/**
+          - _vendor/github.com/habitat-sh/**
+          - static/habitat/**
+          - content/release_notes/habitat.md
+          - static/images/habitat/**
+"Component: Chef Infra Client":
+  - changed-files:
+      - any-glob-to-any-file:
+          - content/client/**
+          - static/client/**
+          - content/release_notes/client.md
+          - static/images/client/**
+          - data/infra/**
+"Component: Chef Infra Server":
+  - changed-files:
+      - any-glob-to-any-file:
+          - content/server/**
+          - static/server/**
+          - static/images/server/**
+          - content/release_notes/server.md
+          - _vendor/github.com/chef/chef-server
+"Component: Chef InSpec":
+  - changed-files:
+      - any-glob-to-any-file:
+          - content/inspec/**
+          - static/inspec/**
+          - static/images/inspec/**
+          - content/release_notes/inspec**
+"Component: Expeditor":
+  - changed-files:
+      - any-glob-to-any-file: .expeditor/**
+"Component: Supermarket":
+  - changed-files:
+      - any-glob-to-any-file:
+          - content/supermarket/**
+          - static/supermarket/**
+          - static/images/supermarket/**
+          - content/release_notes/supermarket.md
+          - _vendor/github.com/chef/supermarket
+"Component: Chef Workstation":
+  - changed-files:
+      - any-glob-to-any-file:
+          - content/workstation/**
+          - static/workstation/**
+          - static/images/workstation/**
+          - content/release_notes/workstation.md
+          - _vendor/github.com/chef/chef-workstation
+          - generated/**
