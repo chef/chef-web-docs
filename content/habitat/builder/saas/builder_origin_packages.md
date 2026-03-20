@@ -73,7 +73,7 @@ hab pkg promote -z <TOKEN> origin/package/version/release stable
 
 {{< note >}}
 
-You can also promote packages to the `stable` channel using the *promote to stable* button in the web app.
+You can also promote packages to the `stable` channel using the **promote to stable** button in the web app.
 
 {{< /note >}}
 
