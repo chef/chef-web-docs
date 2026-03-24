@@ -28,28 +28,32 @@ Target Mode has the following requirements:
 
 - A network-enabled system to execute Target Mode.
 - The `chef-client` CLI. This is included with Chef Workstation.
-- A credentials file which provides the system with information to connect to a target node.
+- A target_credentials file which provides the system with information to connect to a target node.
 - A recipe that only includes Target Mode-enabled resources.
 
-## Credentials file
+## Target_Credentials file
 
-The credentials file defines the SSH connection settings for each node in TOML format.
+The target_credentials file defines the SSH connection settings for each node in TOML format.
 
-Create a credentials file on the computer running Chef Workstation in the following location:
+Create a target_credentials file on the computer running Chef Workstation in the following location:
 
-- on Linux and macOS: `~/.chef/credentials`
-- on Windows: `c:\Users\<USERNAME>\.chef\credentials`
+- on Linux and macOS: `~/.chef/target_credentials`
+
+- on Windows: `c:\Users\<USERNAME>\.chef\target_credentials`
+
+- Previous iterations of the documentation referred to a "credentials" file. This has been deprecated.
 
 ### Define node connections
 
 Define connection settings for each node with an [inline table](https://toml.io/en/v1.0.0#inline-table).
-For example, this adds credentials for three nodes:
+For example, this adds credentials for three nodes to your target_credentials file:
 
 ```toml
 ['HOST-1']
 host = 'target.system.host.1.com'
 user = 'root'
-key_files = '~/.keys/key-pair.pem'
+sudo = true
+key_files = ['~/.keys/key-pair.pem']
 
 ['HOST-2']
 host = 'target.system.host.2.com'
@@ -104,7 +108,7 @@ host = '<IP_ADDRESS OR FQDN>'
 # forward_agent: Whether the connection to the authentication agent (if any) will be forwarded to the remote machine. Default is false.
 # forward_agent = false
 
-# transport_protocol: The protocol to use to connect to a node. Define this once for all nodes in the credentials file. Set to 'ssh'. (Required)
+# transport_protocol: The protocol to use to connect to a node. Define this once for all nodes in the target_credentials file. Set to 'ssh'. (Required)
 transport_protocol = 'ssh'
 ```
 
@@ -112,7 +116,7 @@ transport_protocol = 'ssh'
 
 <!-- markdownlint-disable MD007 MD006 -->
 
-Target Mode supports the following SSH connection parameters in a credentials file.
+Target Mode supports the following SSH connection parameters in a target_credentials file.
 
 Common parameters:
 
@@ -136,7 +140,7 @@ Common parameters:
 : If connecting with a password, the password string to connect to a node.
 
 `transport_protocol`
-: (Required) The protocol to use to connect to a node. Define this once for all nodes in the credentials file. Set to `ssh`.
+: (Required) The protocol to use to connect to a node. Define this once for all nodes in the target_credentials file. Set to `ssh`.
 
 Additional parameters:
 
@@ -199,18 +203,19 @@ Run the `chef-client` executable using `-t` or `--target` to target a specific n
 chef-client -t <TARGET_NAME>
 ```
 
-Replace `<TARGET_NAME>` with the name of the host as defined in the credentials file.
+Replace `<TARGET_NAME>` with the name of the host as defined in the target_credentials file.
 For example, `HOST-1` in the [credential file example](#define-node-connections).
 
 To execute a specific Cookbook in Target Mode, run:
 
 ```sh
 chef-client -t <TARGET_NAME> <PATH/TO/COOKBOOK/COOKBOOK_NAME>
+chef-client -t SQL_Server 'recipe[sql_harden::default]' # this method assumes you are using a Chef/Automate server
 ```
 
 Replace the following:
 
-- `<TARGET_NAME>` with the name of the host as defined in the credentials file.
+- `<TARGET_NAME>` with the name of the host as defined in the target_credentials file.
 - `<PATH/TO/COOKBOOK/COOKBOOK_NAME>` with the path to the Cookbook on your system. For example, `/chef-repo/cookbooks/example_cookbook.rb`
 
 ### Target Mode in Local Mode
@@ -222,12 +227,25 @@ Use `-z` and `-t` to run Target Mode in Local Mode:
 
 ```sh
 chef-client -z -t <TARGET_NAME>
+chef-client -z -t SQL_Server ~/.chef/apply.rb
 ```
 
-Replace `<TARGET_NAME>` with the name of the host as defined in the credentials file.
+Replace `<TARGET_NAME>` with the name of the host as defined in the target_credentials file.
 For example, `HOST-1` in the [credential file example](#define-node-connections).
 
 ## Run Target Mode with Chef Automate or Chef Infra Server
+
+Upload the cookbooks you need to the chef server for your target node.
+
+Don't forget to add those cookbooks to the run_list for each of your target nodes
+
+```sh
+knife ssl fetch
+knife ssl check
+knife cookbook upload sql_harden
+knife node run_list add SQL_Server 'recipe[sql_harden::default]'
+chef-client -t SQL_Server 'recipe[sql_harden::default]'
+```
 
 You can configure Chef Automate or Chef Infra Server to run Target Mode on a regular schedule.
 
@@ -238,7 +256,7 @@ For example, this create a cron file that executes Target Mode every thirty minu
 ```ruby
 cat > /etc/cron.d/nodename.cron <<EOF
 PATH="/opt/chefdk/bin:/opt/chefdk/embedded/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-GEM_ROOT="/opt/chefdk/embedded/lib/ruby/gems/2.6.0"
+GEM_ROOT="/opt/chefdk/embedded/lib/ruby/gems/3.4.0"
 
 0,30 * * * * * chef-runner /usr/bin/chef-client -t <TARGET_NAME>
 EOF
@@ -258,7 +276,7 @@ The following are the common errors and their potential troubleshooting steps.
 
 ### `chef-client` execute error
 
-Verify that the target node's hostname or IP address is correct, that the host accessible using SSH, and that the user and password specified in the credentials file are correct.
+Verify that the target node's hostname or IP address is correct, that the host accessible using SSH, and that the user and password specified in the target_credentials file are correct.
 
 ### Custom resources don't execute
 
