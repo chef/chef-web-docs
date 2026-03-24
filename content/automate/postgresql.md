@@ -12,8 +12,6 @@ draft = false
     weight = 10
 +++
 
-[\[edit on GitHub\]](https://github.com/chef/automate/blob/main/components/docs-chef-io/content/automate/postgresql.md)
-
 You can configure Chef Automate to use external PostgreSQL clusters that aren't deployed with Chef Automate itself.
 
 ## Configuring an External PostgreSQL Database
