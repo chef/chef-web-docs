@@ -16,6 +16,141 @@ summary = "Chef Workstation release notes"
 <!-- markdownlint-disable-file -->
 <!-- cSpell:disable  -->
 <!-- vale off -->
+## Chef Workstation 26.1
+
+Release date: TBD
+
+### Major Architectural Change
+
+Chef Workstation Enterprise now transitions from traditional native OS packages to a unified Habitat-based distribution model. This marks a significant modernization in how Chef Workstation is packaged, delivered, and managed across platforms.
+
+This new architecture provides improved consistency, simplified dependency management, and better isolation across environments.
+
+### Key features
+
+#### Single Package Installation
+
+All Chef Workstation tools are now bundled into a single Habitat package, replacing multiple OS-specific installers.
+
+#### Cross-Platform Consistency
+
+Linux and Windows users now receive the same toolset with consistent behavior, reducing platform-specific differences.
+
+#### Simplified Dependency Management
+
+Habitat manages all runtime dependencies, including:
+
+- Ruby runtime
+- System libraries
+- Tool dependencies
+
+This eliminates dependency conflicts and reduces environment drift.
+
+#### Improved Isolation
+
+Each tool runs in a controlled environment using Habitat wrappers, improving reliability and reducing runtime conflicts.
+
+#### Ruby 3.4 Runtime
+
+All tools now run on Ruby 3.4.x, providing:
+
+- Improved performance
+- Better security
+- Modern Ruby compatibility
+
+### Component updates
+
+#### Chef CLI
+
+- Updated Chef CLI from v5.6.16 to v6.1.29.
+
+#### Knife
+
+- Updated Knife from v18.x to v19.0.93.
+
+- Fixed argument errors in knife bootstrap.
+
+- Updated to Cookstyle for linting (replaced chefstyle).
+
+- Added Ruby 3.4 compatibility fixes.
+
+- Added libyajl >= 2.1 requirement for ffi-yajl 2.7.7 compatibility.
+
+#### Cookstyle
+
+- Updated Cookstyle from v7.32.8 to v8.6.0.
+
+- Updated RuboCop engine to 1.82.1 with significant improvements.
+
+- Enhanced autocorrection capabilities.
+
+#### Chef InSpec
+
+- Major upgrade from InSpec 5.x to InSpec 7.x.
+
+- Latest security and compliance features.
+
+- Enhanced resource pack support.
+
+- Improved profile management.
+
+#### Test Kitchen Enterprise
+
+- New Chef Test Kitchen Enterprise added.
+
+#### Ohai
+
+- Updated Ohai from v18.x to v19.1.17.
+
+- Fixed IPROUTE_INT_REGEX to match interfaces with semicolon.
+
+#### Fauxhai
+
+- Updated Fauxhai from v9.3.x to v9.4.15.
+
+#### Berkshelf
+
+- Updated Berkshelf to v8.1.21 with Habitat packaging optimizations.
+
+#### Chef Vault
+
+- Updated Chef Vault to v4.1.14.
+
+### Tools Removed
+
+The following tools have been removed from Chef Workstation Enterprise as part of the transition to Habitat-based packaging:
+
+- chef-resource-inspector: Use built-in CLI commands instead.
+
+- delivery: Chef Delivery/Workflow reached EOL in December 2020.
+
+- foodcritic: Deprecated in favor of Cookstyle.
+
+- stove: Replaced by built-in Supermarket commands.
+
+- mixlib-install: Habitat manages dependencies.
+
+### Packaging
+
+Chef Workstation Enterprise now uses Habitat-based packaging exclusively. This change provides:
+
+- Consistent cross-platform experience for Linux and Windows.
+
+- All dependencies managed through Habitat ecosystem.
+
+- Uses base-2025 Habitat channel for all component dependencies.
+
+- Ruby 3.4.x runtime embedded in package.
+
+We no longer build native OS packages for:
+
+- macOS (use Habitat on macOS or native tools)
+
+- Debian/Ubuntu DEB packages
+
+- RHEL/CentOS RPM packages
+
+- Windows MSI installers
 
 ## Chef Workstation 25.13.7
 
