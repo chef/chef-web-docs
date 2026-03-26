@@ -862,6 +862,55 @@ identifier = "client"
 # End Chef Infra Menu
 ####
 
+
+####
+# Chef Infra Client 18.8 Menu
+####
+
+
+
+[[client_18_8]]
+title = "About"
+identifier = "about"
+weight = 100
+
+
+[[client_18_8]]
+title = "Install"
+identifier = "install"
+weight = 10
+
+
+[[client_18_8]]
+title = "REsources"
+identifier = "resources"
+
+
+####
+# End Chef Infra Client 18.8 Menu
+####
+
+####
+# Chef Infra Client 19 Menu
+####
+
+
+
+
+[[client_19]]
+title = "About"
+identifier = "about"
+
+
+[[client_19]]
+title = "Install"
+identifier = "install"
+
+
+[[client_19]]
+title = "Resources"
+identifier = "resources"
+
 ####
 # Chef Cloud Menu
 ####

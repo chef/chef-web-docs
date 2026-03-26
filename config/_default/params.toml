@@ -1,6 +1,6 @@
 ## The order of the menus (e.g. menu.infra, menu.inspec, etc...) in the left nav menu
 ## is set by the menuOrder parameter below.
-menuOrder = [
+menu_order = [
   "overview",
   "360",
   "automate",
@@ -224,3 +224,17 @@ highlightBroken = true
 
 [render_hooks.image]
 errorLevel = 'warning'
+
+#######
+#
+# Versioned products
+#
+#######
+
+[[versions.client]]
+link_text = "Chef Infra Client 19"
+base_url = "/client/19/"
+
+[[versions.client]]
+link_text = "Chef Infra Client 18.8"
+base_url = "/client/18.8/"
