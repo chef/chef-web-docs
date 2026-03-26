@@ -22,12 +22,12 @@ Release date: March 26, 2026
 - After installing the Habitat-based Chef Infra Client with Chef Migrate, the `chef-client -v` command now correctly points to the new version instead of an older Omnibus-based version.
 - Fixed Chef Infra Client 19 installation failures on multi-drive (for example, `C:`, `D:`, `E:`) Windows servers:
   - Chef Migrate now looks for and cleans up the Omnibus Chef Infra Client MSI if it's installed on a non-default drive. Previously, Chef Migrate only looked for Omnibus files in `C:\opscode\`, and it would fail to find or clean up an installation in other drives.
-  - Chef Migrate now correctly resolves the drive that Windows and Habitat are installed on. Previously it assumed they were installed on the `C:\` drive. If they were installed on another drive, the installation failed to install Chef Infra Client in the correct location.
-- The Chef Migrate no longer deletes an existing Chef Automate installation when installing Chef Infra Client 19.x.
+  - Chef Migrate now correctly resolves the drive that Windows and Habitat are installed on. Previously, it assumed they were installed on the `C:\` drive. If they were installed on another drive, the installation failed to install Chef Infra Client in the correct location.
+- Chef Migrate no longer deletes an existing Chef Automate installation when installing Chef Infra Client 19.x.
 
 ### Legal
 
-- Updated `NOTICE.txt` with the latest third-party attribution content received from the legal team
+- Updated `NOTICE.txt` with the latest third-party attribution content received from the legal team.
 
 ### Dependencies
 
