@@ -60,6 +60,9 @@
 "Component: Expeditor":
   - changed-files:
       - any-glob-to-any-file: .expeditor/**
+"Component: Chef Migrate":
+  - changed-files:
+    - any-glob-to-any-file: content/release_notes/migrate.md
 "Component: Supermarket":
   - changed-files:
       - any-glob-to-any-file:
