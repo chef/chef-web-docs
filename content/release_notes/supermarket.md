@@ -10,7 +10,7 @@ summary = "Chef Supermarket release notes"
     title = "Chef Supermarket"
     identifier = "release_notes/Chef Supermarket"
     parent = "release_notes"
-    weight = 100
+    weight = 120
 +++
 
 <!-- markdownlint-disable-file -->
