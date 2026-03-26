@@ -10,7 +10,7 @@ summary = "Chef Manage release notes"
     title = "Chef Manage"
     identifier = "release_notes/release_notes_manage.md Chef Manage"
     parent = "release_notes"
-    weight = 95
+    weight = 100
 +++
 
 <!-- markdownlint-disable-file -->
