@@ -14,6 +14,6 @@ examples: |2-
 
   # good
   Copyright:: 2019 Tim Smith
-  Copyright:: 2019 Chef Software, Inc.
+  Copyright:: Copyright (c) 2016-2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
 version_added: 5.12.0
 enabled: true

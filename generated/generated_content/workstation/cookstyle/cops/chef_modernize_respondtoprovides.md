@@ -15,7 +15,7 @@ The Cookstyle cops department: `Chef/Modernize`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
-In Chef Infra Client 12+ is is no longer necessary to gate the use of the provides methods in resources with `if respond_to?(:provides)` or `if defined? provides`.
+In Chef Infra Client 12+ it is no longer necessary to gate the use of the provides methods in resources with `if respond_to?(:provides)` or `if defined? provides`.
 
 ## Examples
 

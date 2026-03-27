@@ -8,16 +8,16 @@ target_chef_version: All Versions
 examples: |2-
 
   # bad
-  Copyright:: 2013-2022 Opscode, Inc.
-  Copyright:: 2013-2022 Chef Inc.
-  Copyright:: 2013-2022 Chef Software Inc.
-  Copyright:: 2009-2010 2013-2022 Chef Software Inc.
-  Copyright:: Chef Software Inc.
+  Copyright:: Copyright (c) 2016-2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
+  Copyright:: Copyright (c) 2016-2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
+  Copyright:: Copyright (c) 2016-2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
+  Copyright:: Copyright (c) 2016-2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
+   Copyright (c) 2016-2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
   Copyright:: Tim Smith
-  Copyright:: Copyright (c) 2015-2022 Chef Software, Inc.
+  Copyright:: Copyright (c) 2016-2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
 
   # good
-  Copyright:: 2013-2022 Chef Software, Inc.
+  Copyright:: Copyright (c) 2016-2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
   Copyright:: 2013-2022 Tim Smith
   Copyright:: 2019 37Signals, Inc.
 version_added: 5.0.0

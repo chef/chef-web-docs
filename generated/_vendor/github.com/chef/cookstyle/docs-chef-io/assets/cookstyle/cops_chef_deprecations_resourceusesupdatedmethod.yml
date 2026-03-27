@@ -21,6 +21,7 @@ examples: |2-
     converge_by('resource did something') do
       # code that causes the resource to converge
     end
+  end
 version_added: 5.7.0
 enabled: false
 included_file_paths:

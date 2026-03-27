@@ -15,7 +15,7 @@ The Cookstyle cops department: `Chef/Correctness`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
-Don't use node.save to save partial node data to the Chef Infra Server mid-run unless it's a requirement of cookbook design that can't be avoided. Node.save can result in failed Chef Infra runs appearing in search and increases load on the Chef Infra Server."
+Don't use node.save to save partial node data to the Chef Infra Server mid-run unless it's a requirement of cookbook design that can't be avoided. Node.save can result in failed Chef Infra runs appearing in search and increases load on the Chef Infra Server.
 
 ## Examples
 

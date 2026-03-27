@@ -4,7 +4,7 @@ full_name: Chef/Deprecations/WindowsTaskChangeAction
 department: Chef/Deprecations
 description: |-
   The :change action in the windows_task resource was removed when windows_task was added to Chef Infra Client 13+
-  The default action of :create should can now be used to create an update tasks.
+  The default action of :create can now be used to create and update tasks.
 autocorrection: true
 target_chef_version: 13.0+
 examples: |2-

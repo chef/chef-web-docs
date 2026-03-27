@@ -17,9 +17,6 @@ The Cookstyle cops department: `Chef/Modernize`
 
 The default actions can now be specified using the `default_action` helper instead of using the @action variable in the resource provider initialize method. In general we recommend against writing HWRPs, but if HWRPs are necessary you should utilize as much of the resource DSL as possible.
 
- ### correct
- default_action :create
-
 ## Examples
 
 ```ruby
@@ -34,6 +31,9 @@ def initialize(*args)
   super
   @default_action = :create
 end
+
+# good
+default_action :create
 ```
 
 ## Configurable attributes

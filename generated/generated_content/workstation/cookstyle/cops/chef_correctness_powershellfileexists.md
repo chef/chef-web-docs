@@ -20,10 +20,10 @@ Use Ruby's built-in `File.exist?('C:\somefile')` method instead of executing Pow
 ## Examples
 
 ```ruby
-### incorrect
+# bad
 powershell_out('Test-Path "C:\\Program Files\\LAPS\\CSE\\AdmPwd.dll"').stdout.strip == 'True'
 
-### correct
+# good
 ::File.exist?('C:\Program Files\LAPS\CSE\AdmPwd.dll')
 ```
 

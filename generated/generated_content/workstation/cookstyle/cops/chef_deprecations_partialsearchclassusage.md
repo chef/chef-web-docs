@@ -21,7 +21,7 @@ Legacy Chef::PartialSearch class usage should be updated to use the `search` hel
 
 ```ruby
 # bad
-::Chef::PartialSearch.new.search((:node, 'role:web',
+::Chef::PartialSearch.new.search(:node, 'role:web',
   keys: { 'name' => [ 'name' ],
           'ip' => [ 'ipaddress' ],
           'kernel_version' => %w(kernel version),

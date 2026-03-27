@@ -17,9 +17,6 @@ The Cookstyle cops department: `Chef/Modernize`
 
 Use the powershell_package resource built into Chef Infra Client instead of the powershell_script resource to run Install-Package
 
- ### correct
- powershell_package 'docker'
-
 ## Examples
 
 ```ruby
@@ -27,6 +24,9 @@ Use the powershell_package resource built into Chef Infra Client instead of the 
 powershell_script 'Expand website' do
   code 'Install-Package -Name docker'
 end
+
+# good
+powershell_package 'docker'
 ```
 
 ## Configurable attributes
