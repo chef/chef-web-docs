@@ -20,137 +20,85 @@ summary = "Chef Workstation release notes"
 
 Release date: TBD
 
-### Major Architectural Change
-
-Chef Workstation Enterprise now transitions from traditional native OS packages to a unified Habitat-based distribution model. This marks a significant modernization in how Chef Workstation is packaged, delivered, and managed across platforms.
-
-This new architecture provides improved consistency, simplified dependency management, and better isolation across environments.
-
 ### Key features
 
-#### Single Package Installation
+Chef Workstation 26 is built entirely on Chef Habitat. We aren't providing traditional Omnibus builds.
+Chef Workstation 26 uses standard licensing for commercial, community, and trial customers.
 
-All Chef Workstation tools are now bundled into a single Habitat package, replacing multiple OS-specific installers.
+### Improvements
 
-#### Cross-Platform Consistency
-
-Linux and Windows users now receive the same toolset with consistent behavior, reducing platform-specific differences.
-
-#### Simplified Dependency Management
-
-Habitat manages all runtime dependencies, including:
-
-- Ruby runtime
-- System libraries
-- Tool dependencies
-
-This eliminates dependency conflicts and reduces environment drift.
-
-#### Improved Isolation
-
-Each tool runs in a controlled environment using Habitat wrappers, improving reliability and reducing runtime conflicts.
-
-#### Ruby 3.4 Runtime
-
-All tools now run on Ruby 3.4.x, providing:
-
-- Improved performance
-- Better security
-- Modern Ruby compatibility
+Chef Workstation 26 and all components are Ruby 3.4 compatible.
+All components are Habitat packages.
+Improved runtime isolation with Habitat wrappers for each tool.
+Simplified dependency management through Habitat ecosystem.
+Faster component updates without full Workstation reinstallation.
+Consistent behavior across Linux and Windows platforms.
 
 ### Component updates
 
-#### Chef CLI
+#### Chef Infra Client
 
-- Updated Chef CLI from v5.6.16 to v6.1.29.
+Updated Chef Infra Client to v19.x. Chef Infra Client 19 is the long-term support (LTS) version and is built entirely on Chef Habitat.
+
+For details, see the [Chef Infra Client 19 release notes](https://docs.chef.io/release_notes/client/).
 
 #### Knife
 
-- Updated Knife from v18.x to v19.0.93.
-
-- Fixed argument errors in knife bootstrap.
-
-- Updated to Cookstyle for linting (replaced chefstyle).
-
-- Added Ruby 3.4 compatibility fixes.
-
-- Added libyajl >= 2.1 requirement for ffi-yajl 2.7.7 compatibility.
-
-#### Cookstyle
-
-- Updated Cookstyle from v7.32.8 to v8.6.0.
-
-- Updated RuboCop engine to 1.82.1 with significant improvements.
-
-- Enhanced autocorrection capabilities.
-
-#### Chef InSpec
-
-- Major upgrade from InSpec 5.x to InSpec 7.x.
-
-- Latest security and compliance features.
-
-- Enhanced resource pack support.
-
-- Improved profile management.
+Updated Knife to v19.0.93.
 
 #### Test Kitchen Enterprise
 
-- New Chef Test Kitchen Enterprise added.
+Added Chef Test Kitchen Enterprise.
+
+#### Chef CLI
+
+Updated Chef CLI to v6.1.29.
+
+#### Cookstyle
+
+Updated Cookstyle to v8.6.5 with RuboCop engine 1.82.1.
+
+#### Chef InSpec
+
+Updated Chef InSpec to v7.x.
+
+For details, see the [Chef InSpec 7 release notes](https://docs.chef.io/release_notes/inspec/).
 
 #### Ohai
 
-- Updated Ohai from v18.x to v19.1.17.
-
-- Fixed IPROUTE_INT_REGEX to match interfaces with semicolon.
+Updated Ohai to v19.1.17.
 
 #### Fauxhai
 
-- Updated Fauxhai from v9.3.x to v9.4.15.
+Updated Fauxhai to v9.4.15.
 
 #### Berkshelf
 
-- Updated Berkshelf to v8.1.21 with Habitat packaging optimizations.
+Updated Berkshelf to v8.1.21.
 
 #### Chef Vault
 
-- Updated Chef Vault to v4.1.14.
+Updated Chef Vault to v4.2.9.
 
-### Tools Removed
-
-The following tools have been removed from Chef Workstation Enterprise as part of the transition to Habitat-based packaging:
-
-- chef-resource-inspector: Use built-in CLI commands instead.
+### Tools removed
 
 - delivery: Chef Delivery/Workflow reached EOL in December 2020.
-
 - foodcritic: Deprecated in favor of Cookstyle.
-
 - stove: Replaced by built-in Supermarket commands.
-
 - mixlib-install: Habitat manages dependencies.
 
-### Packaging
+### Packages
 
-Chef Workstation Enterprise now uses Habitat-based packaging exclusively. This change provides:
+Chef Workstation 26 provides Habitat-based packages.
 
-- Consistent cross-platform experience for Linux and Windows.
+This provides support for Chef Workstation on the following platforms:
 
-- All dependencies managed through Habitat ecosystem.
+- Linux (x86_64)
+- Windows (x86_64)
 
-- Uses base-2025 Habitat channel for all component dependencies.
+We no longer build packages for Intel-based Macs.
 
-- Ruby 3.4.x runtime embedded in package.
-
-We no longer build native OS packages for:
-
-- macOS (use Habitat on macOS or native tools)
-
-- Debian/Ubuntu DEB packages
-
-- RHEL/CentOS RPM packages
-
-- Windows MSI installers
+We no longer produce Omnibus builds for Chef Workstation and associated tools.
 
 ## Chef Workstation 25.13.7
 
