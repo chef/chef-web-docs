@@ -17,10 +17,12 @@ The Cookstyle cops department: `Chef/RedundantCode`
 
 Every Chef Infra resource already includes a sensitive property with a default value of false.
 
-### incorrect
-property :sensitive, [true, false], default: false
-
 ## Examples
+
+```ruby
+# bad
+property :sensitive, [true, false], default: false
+```
 
 ## Configurable attributes
 

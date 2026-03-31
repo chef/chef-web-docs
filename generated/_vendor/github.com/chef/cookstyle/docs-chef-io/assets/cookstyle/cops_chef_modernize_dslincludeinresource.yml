@@ -3,7 +3,7 @@ short_name: DslIncludeInResource
 full_name: Chef/Modernize/DslIncludeInResource
 department: Chef/Modernize
 description: Chef Infra Client 12.4+ includes the Chef::DSL::Recipe in the resource
-  and provider classed by default so there is no need to include this DSL in your
+  and provider classes by default so there is no need to include this DSL in your
   resources or providers.
 autocorrection: true
 target_chef_version: All Versions

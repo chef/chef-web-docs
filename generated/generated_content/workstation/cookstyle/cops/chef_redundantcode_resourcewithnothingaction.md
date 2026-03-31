@@ -21,7 +21,7 @@ Chef Infra Client provides the :nothing action by default for every resource. Th
 
 ```ruby
 # bad
-action :nothing
+action :nothing do
   # let's do nothing
 end
 ```

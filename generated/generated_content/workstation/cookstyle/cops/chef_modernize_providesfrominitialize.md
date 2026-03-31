@@ -15,7 +15,7 @@ The Cookstyle cops department: `Chef/Modernize`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
-Provides should be set using the `provides` resource DSL method instead of instead of setting @provides in the initialize method.
+Provides should be set using the `provides` resource DSL method instead of setting @provides in the initialize method.
 
 ## Examples
 

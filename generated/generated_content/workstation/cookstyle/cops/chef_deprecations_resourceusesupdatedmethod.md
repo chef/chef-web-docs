@@ -30,6 +30,7 @@ action :foo do
   converge_by('resource did something') do
     # code that causes the resource to converge
   end
+end
 ```
 
 ## Configurable attributes

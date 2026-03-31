@@ -28,7 +28,7 @@ node['platform_version'].split('.')[0].to_i
 
 # good
 
-# check to see if we're on RHEL 7 on a RHEL 7.6 node where node['platform_version] is 7.6.1810
+# check to see if we're on RHEL 7 on a RHEL 7.6 node where node['platform_version'] is 7.6.1810
 if node['platform_version'].to_i == 7
   # some code
 end

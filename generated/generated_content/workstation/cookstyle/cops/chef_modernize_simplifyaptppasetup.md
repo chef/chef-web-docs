@@ -20,21 +20,21 @@ The apt_repository resource allows setting up PPAs without using the full URL to
 ## Examples
 
 ```ruby
-### incorrect
-  apt_repository 'atom-ppa' do
-    uri 'http://ppa.launchpad.net/webupd8team/atom/ubuntu'
-    components ['main']
-    keyserver 'keyserver.ubuntu.com'
-    key 'C2518248EEA14886'
-  end
+# bad
+apt_repository 'atom-ppa' do
+  uri 'http://ppa.launchpad.net/webupd8team/atom/ubuntu'
+  components ['main']
+  keyserver 'keyserver.ubuntu.com'
+  key 'C2518248EEA14886'
+end
 
-### correct
-  apt_repository 'atom-ppa' do
-    uri 'ppa:webupd8team/atom'
-    components ['main']
-    keyserver 'keyserver.ubuntu.com'
-    key 'C2518248EEA14886'
-  end
+# good
+apt_repository 'atom-ppa' do
+  uri 'ppa:webupd8team/atom'
+  components ['main']
+  keyserver 'keyserver.ubuntu.com'
+  key 'C2518248EEA14886'
+end
 ```
 
 ## Configurable attributes

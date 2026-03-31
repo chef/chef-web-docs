@@ -21,7 +21,7 @@ Checks for incorrectly formatted headers
 
 ```ruby
 # bad
-Copyright 2013-2016 Chef Software, Inc.
+Copyright (c) 2016-2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
 Recipe default.rb
 Attributes default.rb
 License Apache2
@@ -30,7 +30,7 @@ Cookbook Name:: Tomcat
 Attributes File:: default
 
 # good
-Copyright:: 2013-2016 Chef Software, Inc.
+Copyright:: Copyright (c) 2016-2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
 Recipe:: default.rb
 Attributes:: default.rb
 License:: Apache License, Version 2.0

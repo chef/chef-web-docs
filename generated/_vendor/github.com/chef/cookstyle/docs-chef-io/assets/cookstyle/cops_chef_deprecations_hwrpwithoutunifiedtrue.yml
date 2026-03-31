@@ -3,7 +3,7 @@ short_name: HWRPWithoutUnifiedTrue
 full_name: Chef/Deprecations/HWRPWithoutUnifiedTrue
 department: Chef/Deprecations
 description: Chef Infra Client 15.3 and later include a new Unified Mode that simplifies
-  the execution of resources by replace the traditional compile and converge phases
+  the execution of resources by replacing the traditional compile and converge phases
   with a single phase. Unified mode simplifies writing advanced resources and avoids
   confusing errors that often occur when mixing ruby and Chef Infra resources. Chef
   Infra Client 17.0 and later will begin warning that `unified_mode true` should be
@@ -13,34 +13,34 @@ autocorrection: false
 target_chef_version: 15.3+
 examples: |2-
 
-  ### incorrect
-   class Chef
-     class Resource
-       class UlimitRule < Chef::Resource
-         provides :ulimit_rule
+  # bad
+  class Chef
+    class Resource
+      class UlimitRule < Chef::Resource
+        provides :ulimit_rule
 
-         property :type, [Symbol, String], required: true
-         property :item, [Symbol, String], required: true
+        property :type, [Symbol, String], required: true
+        property :item, [Symbol, String], required: true
 
-         # additional resource code
-       end
-     end
-   end
+        # additional resource code
+      end
+    end
+  end
 
-  ### correct
-   class Chef
-     class Resource
-       class UlimitRule < Chef::Resource
-         provides :ulimit_rule
-         unified_mode true
+  # good
+  class Chef
+    class Resource
+      class UlimitRule < Chef::Resource
+        provides :ulimit_rule
+        unified_mode true
 
-         property :type, [Symbol, String], required: true
-         property :item, [Symbol, String], required: true
+        property :type, [Symbol, String], required: true
+        property :item, [Symbol, String], required: true
 
-         # additional resource code
-       end
-     end
-   end
+        # additional resource code
+      end
+    end
+  end
 version_added: 7.12.0
 enabled: true
 included_file_paths:

@@ -15,7 +15,7 @@ The Cookstyle cops department: `Chef/Modernize`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
-Chef Infra Client 12.4+ includes the Chef::DSL::Recipe in the resource and provider classed by default so there is no need to include this DSL in your resources or providers.
+Chef Infra Client 12.4+ includes the Chef::DSL::Recipe in the resource and provider classes by default so there is no need to include this DSL in your resources or providers.
 
 ## Examples
 

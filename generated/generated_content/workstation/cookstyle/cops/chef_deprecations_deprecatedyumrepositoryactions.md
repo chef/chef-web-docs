@@ -15,7 +15,7 @@ The Cookstyle cops department: `Chef/Deprecations`
 | --- | --- | --- |
 | Enabled | Yes | 12.14+ |
 
-With the release of Chef Infra Client 12.14 and the yum cookbook 3.0 the actions the `yum_repository` resource actions were renamed. The `add` action became `create` and `delete` became `remove` to better match other resources in Chef Infra Client.
+With the release of Chef Infra Client 12.14 and the yum cookbook 3.0 the `yum_repository` resource actions were renamed. The `add` action became `create` and `delete` became `remove` to better match other resources in Chef Infra Client.
 
 ## Examples
 

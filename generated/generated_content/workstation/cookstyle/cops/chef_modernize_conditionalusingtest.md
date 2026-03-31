@@ -24,7 +24,7 @@ Use ::File.exist?('/foo/bar') instead of the slower 'test -f /foo/bar' which req
 only_if 'test -f /bin/foo'
 
 # good
-only_if { ::File.exist?('bin/foo') }
+only_if { ::File.exist?('/bin/foo') }
 ```
 
 ## Configurable attributes

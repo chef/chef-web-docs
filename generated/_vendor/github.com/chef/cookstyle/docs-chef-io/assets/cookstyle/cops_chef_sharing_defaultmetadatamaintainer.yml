@@ -3,7 +3,7 @@ short_name: DefaultMetadataMaintainer
 full_name: Chef/Sharing/DefaultMetadataMaintainer
 department: Chef/Sharing
 description: Metadata contains default maintainer information from the `chef generate
-  cookbook` command. This should be updated to reflect that actual maintainer of the
+  cookbook` command. This should be updated to reflect the actual maintainer of the
   cookbook.
 autocorrection: false
 target_chef_version: All Versions
@@ -14,6 +14,7 @@ examples: |2-
   maintainer_email 'YOUR_EMAIL'
   maintainer 'The Authors'
   maintainer_email 'you@example.com'
+
   # good
   maintainer 'Bob Bobberson'
   maintainer_email 'bob@bobberson.com'
