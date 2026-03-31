@@ -10,7 +10,7 @@ summary = "Chef Workstation release notes"
     title = "Chef Workstation"
     identifier = "release_notes/release_notes.md Chef Workstation"
     parent = "release_notes"
-    weight = 110
+    weight = 130
 +++
 
 <!-- markdownlint-disable-file -->
