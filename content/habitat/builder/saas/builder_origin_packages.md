@@ -65,10 +65,10 @@ As long as you are already a member of the Habitat origin, once Builder possesse
 
 ## Promote packages
 
-By default, newly uploaded packages are placed in the `unstable` channel. However, the default package that's downloaded is the latest `stable` version of a package, unless overridden in commands such as `hab sup run`, `hab svc load`, and `hab pkg install`. If you want to promote your package to the `stable` channel, run the `hab pkg promote` command as follows:
+By default, newly uploaded packages are placed in the `unstable` channel. However, the default package that's downloaded is the latest `base` version of a package, unless overridden in commands such as `hab sup run`, `hab svc load`, and `hab pkg install`. If you want to promote your package to the `base` channel, run the `hab pkg promote` command as follows:
 
 ```bash
-hab pkg promote -z <TOKEN> origin/package/version/release stable
+hab pkg promote -z <TOKEN> origin/package/version/release base
 ```
 
 {{< note >}}
