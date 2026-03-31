@@ -81,7 +81,7 @@ See our policy on [support for derived platforms](#support-for-derived-platforms
 
 | Platform | Architecture | Version | Parent platform |
 | --- | --- | --- | --- |
-| AlmaLinux | `x86_64` | `8.x`, `9.x`, `10.x` | CentOS |
+| AlmaLinux | `x86_64` | `8.x` | CentOS |
 | Rocky Linux | `x86_64` | `8.x` | CentOS |
 
 ### Chef Infra Client
@@ -114,7 +114,7 @@ See our policy on [support for derived platforms](#support-for-derived-platforms
 
 | Platform | Architecture | Version | Parent platform |
 | --- | --- | --- | --- |
-| AlmaLinux | `x86_64`, `aarch64` | `8.x` | CentOS |
+| AlmaLinux | `x86_64`, `aarch64` | `8.x`, `9.x`, `10.x` | CentOS |
 
 #### Community support
 
