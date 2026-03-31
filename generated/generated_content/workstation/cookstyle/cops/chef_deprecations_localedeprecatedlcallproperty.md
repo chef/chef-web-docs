@@ -15,7 +15,7 @@ The Cookstyle cops department: `Chef/Deprecations`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
-The local resource's lc_all property has been deprecated and will be removed in Chef Infra Client 17
+The locale resource's lc_all property has been deprecated and will be removed in Chef Infra Client 17
 
 ## Examples
 

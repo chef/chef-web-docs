@@ -3,7 +3,7 @@ short_name: ExecuteAptUpdate
 full_name: Chef/Modernize/ExecuteAptUpdate
 department: Chef/Modernize
 description: Instead of using the execute resource to run the `apt-get update` use
-  Chef Infra Client's built-n apt_update resource which is available in Chef Infra
+  Chef Infra Client's built-in apt_update resource which is available in Chef Infra
   Client 12.7 and later.
 autocorrection: true
 target_chef_version: All Versions

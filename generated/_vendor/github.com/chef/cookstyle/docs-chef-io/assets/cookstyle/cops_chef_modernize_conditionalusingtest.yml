@@ -12,7 +12,7 @@ examples: |2-
   only_if 'test -f /bin/foo'
 
   # good
-  only_if { ::File.exist?('bin/foo') }
+  only_if { ::File.exist?('/bin/foo') }
 version_added: 6.11.0
 enabled: true
 excluded_file_paths:

@@ -15,7 +15,7 @@ The Cookstyle cops department: `Chef/Deprecations`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
-Use the type `property` instead of the deprecated `supports` property in the `chef_handler` resource. The `supports` property was removed in `chef_handler` cookbook version 3.0 (June 2017) and Chef Infra Client 14.0.
+Use the `type` property instead of the deprecated `supports` property in the `chef_handler` resource. The `supports` property was removed in `chef_handler` cookbook version 3.0 (June 2017) and Chef Infra Client 14.0.
 
 ## Examples
 
@@ -23,7 +23,7 @@ Use the type `property` instead of the deprecated `supports` property in the `ch
 # bad
 chef_handler 'whatever' do
   supports start: true, report: true, exception: true
-end0
+end
 
 # good
 chef_handler 'whatever' do

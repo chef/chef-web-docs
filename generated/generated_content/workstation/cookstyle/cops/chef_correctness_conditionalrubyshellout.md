@@ -15,7 +15,7 @@ The Cookstyle cops department: `Chef/Correctness`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
-Don't use Ruby to shellout in a `only_if` / `not_if` conditional. Any string value used in an `only_if` / `not_if` is executed in your system's shell and the return code of the command is the result for the `not_if` / `only_if` determination.
+Don't use Ruby to shellout in an `only_if` / `not_if` conditional. Any string value used in an `only_if` / `not_if` is executed in your system's shell and the return code of the command is the result for the `not_if` / `only_if` determination.
 
 ## Examples
 

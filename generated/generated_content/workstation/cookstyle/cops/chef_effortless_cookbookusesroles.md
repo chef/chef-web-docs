@@ -15,7 +15,7 @@ The Cookstyle cops department: `Chef/Effortless`
 | --- | --- | --- |
 | Not Enabled | No | All Versions |
 
-Neither Policyfiles or Effortless Infra which is based on Policyfiles supports Chef Infra Roles
+Neither Policyfiles nor Effortless Infra which is based on Policyfiles supports Chef Infra Roles
 
 ## Examples
 

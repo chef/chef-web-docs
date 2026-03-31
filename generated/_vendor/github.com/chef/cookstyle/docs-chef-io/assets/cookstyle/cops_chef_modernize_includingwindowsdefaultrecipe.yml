@@ -2,7 +2,7 @@
 short_name: IncludingWindowsDefaultRecipe
 full_name: Chef/Modernize/IncludingWindowsDefaultRecipe
 department: Chef/Modernize
-description: Don't include the windows default recipe that is either full of gem install
+description: Don't include the windows default recipe that is either full of gem installs
   that are part of the Chef Infra Client, or empty (depends on version).
 autocorrection: true
 target_chef_version: All Versions
