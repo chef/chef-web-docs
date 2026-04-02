@@ -17,6 +17,29 @@ summary = "Chef Habitat release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
+## Chef Habitat 2.0.488
+
+Release date: April 1, 2026
+
+### Improvements
+
+- Entering the interactive Docker-based Habitat Studio with `hab studio enter -D` now works on Windows container hosts older than Windows Server 2025. Note that you must run in `process` isolation mode, not `hyperv` isolation mode. `process` isolation is the default on Windows Server SKUs and `hyperv` is the default on client SKUs. To force `hab studio enter` to use `process` isolation mode, set `$ENV:HAB_DOCKER_OPTS` to `'--isolation process'`.
+- Updated several downstream dependencies that addressed various security vulnerabilities.
+- The `HAB_AUTH_TOKEN` environment variable is now applied to the `install` hook environment.
+
+### Bug fixes
+
+- The `hab license accept` command no longer prompts the user to accept the license.
+- The `hab pkg build` command no longer errors with the `Remove-Item` command when deleting directories on Windows Server 2019.
+
+  While this fix applies to code in the Habitat build system, individual package plan files may still be susceptible. To fix plan files failing to delete directories with `Remove-Item` on Windows Server 2019, use `cmd.exe /c RMDIR /S /Q "$my_directory"` instead of `Remove-Item -Recurse -Force "$my_directory"`.
+
+- Fixed an edge case where the `hab pkg uninstall` command could error stating that a Habitat Supervisor can't be reached.
+
+### Backward incompatibilities
+
+- The `base` channel is now the default channel for all origins, not just the `core` origin. Habitat package downloads no longer pull from the `stable` channel by default.
+
 ## Chef Habitat 2.0.450
 
 Release date: March 4, 2026
