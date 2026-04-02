@@ -74,6 +74,7 @@ chef
 : The chef origin has packages of Chef products like Chef Infra Client, Chef InSpec, Chef Habitat, and Chef Automate.
 
   - **stable** channel has all releases of Chef products.
+  - **base** channel always points to the latest base-YYYY channel.
     This becomes the default channel when building, downloading, or installing packages from chef origin.
   - **base-YYYY** channel has the releases of Chef products built with the core origin dependencies from the corresponding base-YYYY channel.
     The base-YYYY channel in Chef origin is supported as long as Chef products in those channels are supported.
@@ -85,7 +86,8 @@ chef-platform
 : The chef-platform origin has packages of Chef 360 Platform skills.
 
   - **stable** channel has all releases of Chef 360 Platform skills.
-    This becomes the default channel when building, downloading, or installing packages from chef origin.
+  - **base** channel always points to the latest base-YYYY channel.
+    This becomes the default channel when building, downloading, or installing packages from chef-platform origin.
   - **base-YYYY** channel has the releases of Chef 360 Platform skills that are built with the core origin dependencies from the corresponding base-YYYY channel.
     The base-YYYY channel in chef-platform origin is supported as long as Chef 360 Platform skills in those channels are supported.
   - **Point-in-time** releases and versions of Chef 360 Platform skills in **base-YYYY-timestamp** channels.
@@ -94,6 +96,8 @@ habitat
 : The habitat origin has packages for deploying Chef Habitat On-Prem Builder.
 
   - **stable** channel has all releases of Habitat On-Prem Builder-related packages.
+  - **base** channel always points to the latest base-YYYY channel.
+    This becomes the default channel when building, downloading, or installing packages from habitat origin.
   - **base-YYYY** channel has the releases of On-Prem Builder-related packages that are built with the core origin dependencies from the corresponding base-YYYY channel.
   - **Point-in-time** releases and versions of On-Prem Builder related packages in **base-YYYY-timestamp**.
 
@@ -126,11 +130,11 @@ To do this, use the `--refresh-channel` option in Chef Habitat 2.x and above to 
 
 ### Availability of Chef product packages in chef origin
 
-|                                                                                  | stable                          | base-YYYY                                                                              | LTS-2024                  | current |
-| -------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------------- | ------------------------- | ------- |
-| Infra Client 18.x and below, InSpec 5.x and below                          | Yes                             | NA                                                                                     | With latest CVE/Bug fixes | NA      |
-| Habitat 2.x and above, Infra Client 19.x and above, InSpec 7.x and above | Yes (all versions and releases) | Yes (release built with the core origin dependencies from the corresponding base-YYYY) | NA                        | NA      |
-| Automate 4.x and below                                                           | NA                              | NA                                                                                     | NA                        | Yes     |
+|                                                                                  | stable                          | base-YYYY                                                                              | base                                                      | LTS-2024                  | current |
+| -------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------------- | --------------------------------------------------------- | ------------------------- | ------- |
+| Infra Client 18.x and below, InSpec 5.x and below                          | Yes                             | NA                                                                                     | Default channel that mirrors the latest base-YYYY channel | With latest CVE/Bug fixes | NA      |
+| Habitat 2.x and above, Infra Client 19.x and above, InSpec 7.x and above | Yes (all versions and releases) | Yes (release built with the core origin dependencies from the corresponding base-YYYY) | Default channel that mirrors the latest base-YYYY channel | NA                        | NA      |
+| Automate 4.x and below                                                           | NA                              | NA                                                                                     | NA                                                        | NA                        | Yes     |
 
 ## Deprecated or end-of-life (EOL) packages
 
@@ -235,7 +239,7 @@ A requested package is added for backlog prioritization if it belongs to one of 
 
 ## Guidance for using packages from different origins and channels
 
-- **Default channel**: While the base channel becomes the default channel for the core origin instead of the stable channel, we recommend specifying a particular base-YYYY channel. The base channel always points to the latest base-YYYY channel and using base to fetch packages could introduce breaking changes when we release a new base-YYYY channel.
+- **Default channel**: While the base channel becomes the default channel for all origins instead of the stable channel, for the core origin, we recommend specifying a particular base-YYYY channel. The base channel always points to the latest base-YYYY channel and using base to fetch packages could introduce breaking changes when we release a new base-YYYY channel.
 - **Package pinning**: When applications have multiple dependencies, avoid pinning some dependencies to specific versions.
   This can introduce conflicting versions and cause the build to fail due to each package having a fixed dependency tree.
 - **Applications with cross-origin dependencies**: For users developing applications with dependencies in multiple origins, the following practices ensure compatibility:
