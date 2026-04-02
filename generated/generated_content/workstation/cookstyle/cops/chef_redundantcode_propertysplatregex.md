@@ -15,7 +15,7 @@ The Cookstyle cops department: `Chef/RedundantCode`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
-When a property has a type of String it can accept any string. There is no need to also validate string inputs against a regex that accept all values.
+When a property has a type of String it can accept any string. There is no need to also validate string inputs against a regex that accepts all values.
 
 ## Examples
 

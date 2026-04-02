@@ -17,21 +17,21 @@ The Cookstyle cops department: `Chef/Deprecations`
 
 Resources written in the class based HWRP style should inherit from the 'Chef::Resource' class and not the 'ChefCompat::Resource' class from the deprecated compat_resource cookbook.
 
+ # better
+ Write a custom resource using the custom resource DSL and avoid class based HWRPs entirely
+
 ## Examples
 
 ```ruby
-### incorrect
+# bad
 class AptUpdate < ChefCompat::Resource
   # some resource code
 end
 
-### correct
+# good
 class AptUpdate < Chef::Resource
   # some resource code
 end
-
-# better
-Write a custom resource using the custom resource DSL and avoid class based HWRPs entirely
 ```
 
 ## Configurable attributes

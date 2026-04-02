@@ -15,7 +15,7 @@ The Cookstyle cops department: `Chef/Style`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
-Use the platform_family?() helpers instead of node['os] == 'foo' for platform_families that match one-to-one with OS values. These helpers are easier to read and can accept multiple platform arguments, which greatly simplifies complex platform logic. All values of `os` from Ohai match one-to-one with `platform_family` values except for `linux`, which has no single equivalent `platform_family`.
+Use the platform_family?() helpers instead of node['os'] == 'foo' for platform_families that match one-to-one with OS values. These helpers are easier to read and can accept multiple platform arguments, which greatly simplifies complex platform logic. All values of `os` from Ohai match one-to-one with `platform_family` values except for `linux`, which has no single equivalent `platform_family`.
 
 ## Examples
 
@@ -30,7 +30,7 @@ node['os'].eql?('aix')
 platform_family?('mac_os_x')
 platform_family?('windows')
 platform_family?('aix')
-platform_family?('netbsd', 'openbsd', 'freebsd)
+platform_family?('netbsd', 'openbsd', 'freebsd')
 ```
 
 ## Configurable attributes

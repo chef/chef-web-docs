@@ -17,18 +17,18 @@ The Cookstyle cops department: `Chef/Modernize`
 
 Use the windows_feature resource built into Chef Infra Client 14+ instead of the powershell_script resource to run Install-WindowsFeature or Add-WindowsFeature
 
- ### correct
- windows_feature 'Net-framework-Core' do
-   action :install
-   install_method :windows_feature_powershell
- end
-
 ## Examples
 
 ```ruby
 # bad
 powershell_script 'Install Feature' do
   code 'Install-WindowsFeature -Name "Net-framework-Core"'
+end
+
+# good
+windows_feature 'Net-framework-Core' do
+  action :install
+  install_method :windows_feature_powershell
 end
 ```
 

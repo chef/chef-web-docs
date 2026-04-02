@@ -15,7 +15,7 @@ description: |-
   name_property of config_file. All throughout the code of this resource we'd
   use new_resource.config_file when referencing the path to the config.
 
-  We can use a friendly name for the block and specific a value to config_file
+  We can use a friendly name for the block and specify a value for config_file
   ntp_config 'Configure the main config file' do
     config_file '/etc/ntp/ntp.conf'
     action :create
@@ -27,7 +27,7 @@ description: |-
     action :create
   end
 
-  The core tenant of the name property feature is that these properties are optional
+  The core tenet of the name property feature is that these properties are optional
   and making them required effectively turns off the functionality provided by name
   properties. If the goal is to always require the user to pass the config_file property
   then it should just be made a required property and not a name_property.

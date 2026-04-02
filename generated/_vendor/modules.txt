@@ -1,1 +1,1 @@
-# github.com/chef/cookstyle/docs-chef-io v0.0.0-20251230211722-4043aaa44331
+# github.com/chef/cookstyle/docs-chef-io v0.0.0-20260327090130-d5031f92ee94

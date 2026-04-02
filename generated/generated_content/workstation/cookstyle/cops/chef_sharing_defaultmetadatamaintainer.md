@@ -15,7 +15,7 @@ The Cookstyle cops department: `Chef/Sharing`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
-Metadata contains default maintainer information from the `chef generate cookbook` command. This should be updated to reflect that actual maintainer of the cookbook.
+Metadata contains default maintainer information from the `chef generate cookbook` command. This should be updated to reflect the actual maintainer of the cookbook.
 
 ## Examples
 
@@ -25,6 +25,7 @@ maintainer 'YOUR_COMPANY_NAME'
 maintainer_email 'YOUR_EMAIL'
 maintainer 'The Authors'
 maintainer_email 'you@example.com'
+
 # good
 maintainer 'Bob Bobberson'
 maintainer_email 'bob@bobberson.com'

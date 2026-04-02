@@ -26,7 +26,7 @@ Copyright:: 2019 YOUR_COMPANY_NAME
 
 # good
 Copyright:: 2019 Tim Smith
-Copyright:: 2019 Chef Software, Inc.
+Copyright:: Copyright (c) 2016-2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
 ```
 
 ## Configurable attributes

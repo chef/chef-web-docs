@@ -15,14 +15,21 @@ The Cookstyle cops department: `Chef/Deprecations`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
-correct
-
-query(:node, '*:*')
- search(:node, '*:*', start: 0, rows: 1000, filter_result: { :ip_address => ["ipaddress"] })
- search(:node, '*:*', start: 0, rows: 1000)
- search(:node, '*:*', start: 0)
+In the cookbook search helper you need to use named parameters (key/value style) other than the first (type) and second (query string) values.
 
 ## Examples
+
+```ruby
+# bad
+search(:node, '*:*', 0, 1000, { :ip_address => ["ipaddress"] })
+search(:node, '*:*', 0, 1000)
+search(:node, '*:*', 0)
+
+# good
+search(:node, '*:*', start: 0, rows: 1000, filter_result: { :ip_address => ["ipaddress"] })
+search(:node, '*:*', start: 0, rows: 1000)
+search(:node, '*:*', start: 0)
+```
 
 ## Configurable attributes
 
