@@ -16,6 +16,94 @@ summary = "Chef Workstation release notes"
 <!-- markdownlint-disable-file -->
 <!-- cSpell:disable  -->
 <!-- vale off -->
+## Chef Workstation 26.1
+
+Release date: TBD
+
+### Key features
+
+- Chef Workstation 26 is built entirely on Chef Habitat. We aren't providing traditional Omnibus builds.
+- Chef Workstation 26 uses standard licensing for commercial, community, and trial customers.
+
+### Improvements
+
+- Chef Workstation 26 and its components are now compatible with Ruby 3.4.
+- All components are delivered as Habitat packages.
+- Habitat wrappers provide improved runtime isolation for each tool.
+- Dependency management is streamlined within the Habitat ecosystem.
+- Component updates are faster and no longer require a full Workstation reinstall.
+- Behavior remains consistent on both Linux and Windows platforms.
+
+### Component updates
+
+#### Chef Infra Client
+
+Chef Infra Client has been updated to version 19.2.12. This LTS version is fully built on Chef Habitat.
+
+For details, see the [Chef Infra Client 19 release notes](https://docs.chef.io/release_notes/client/#chef-infra-client-19212).
+
+#### Knife
+
+Knife has been updated to version 19.0.99. Knife is now maintained as a separate repository.
+
+For details, see the [Knife changelog](https://github.com/chef/knife/blob/main/CHANGELOG.md).
+
+#### Test Kitchen Enterprise
+
+Chef Test Kitchen Enterprise has been added (version 2.0.11).
+Chef Test Kitchen is now available as a Habitat package and can be upgraded using the hab command.
+
+#### Chef CLI
+
+Chef CLI has been updated to version 6.1.29.
+
+#### Cookstyle
+
+Cookstyle has been updated to version 8.6.10 with RuboCop engine 1.82.1.
+
+#### Chef InSpec
+
+Chef InSpec has been updated to version 7.0.107.
+
+For details, see the [Chef InSpec 7 release notes](https://docs.chef.io/release_notes/inspec/#chef-inspec-70107).
+
+#### Ohai
+
+Ohai has been updated to version 19.1.24.
+
+#### Fauxhai
+
+Fauxhai has been updated to version 9.4.20.
+
+#### Berkshelf
+
+Berkshelf has been updated to version 8.1.21.
+
+#### Chef Vault
+
+Chef Vault has been updated to version 4.2.9.
+
+### Tools removed
+
+- delivery: Chef Delivery/Workflow reached EOL in December 2020.
+- foodcritic: Deprecated in favor of Cookstyle.
+- stove: Replaced by built-in Supermarket commands.
+- mixlib-install: Habitat manages dependencies.
+
+### Packages
+
+- Chef Workstation 26 provides Habitat-based packages for the following platforms:
+
+  - Linux (x86_64)
+  - Windows (x86_64)
+
+- We no longer build packages for Intel-based Macs.
+- We no longer produce Omnibus builds for Chef Workstation and associated tools.
+
+### Known issues
+
+- Custom gem or changing ruby path not supported in this release.
+- `knife google server create`  for Windows can fail during password reset if the GCEAgent initializes slowly (e.g., on slow boot or low-resource machines).
 
 ## Chef Workstation 25.13.7
 
