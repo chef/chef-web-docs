@@ -100,6 +100,11 @@ Chef Vault has been updated to version 4.2.9.
 - We no longer build packages for Intel-based Macs.
 - We no longer produce Omnibus builds for Chef Workstation and associated tools.
 
+### Known issues
+
+- Custom gem or changing ruby path not supported in this release.
+- `knife google server create`  for Windows can fail during password reset if the GCEAgent initializes slowly (e.g., on slow boot or low-resource machines).
+
 ## Chef Workstation 25.13.7
 
 Release Date: March 5, 2026.
