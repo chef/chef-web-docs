@@ -1,0 +1,26 @@
++++
+title = "Deprecation: Ohai::Config removal (OHAI-1)"
+draft = false
+
+gh_repo = "chef-web-docs"
+robots = "noindex"
+sitemapExclude = true
+aliases = "/deprecations_ohai_legacy_config.html"
++++
+
+Ohai 8.8.0 (Chef Infra Client 12.6.0) introduced a new Ohai configuration
+system as defined in
+[RFC-053](https://github.com/chef/chef-rfc/blob/main/rfc053-ohai-config.md).
+This system replaced the existing usage of `Ohai::Config` config system,
+which will be removed in Chef Infra Client 13.
+
+## Remediation
+
+Previous Ohai configuration values in the `client.rb` file need to be
+updated for the new configuration system format. For example, to
+configure the `plugin_path` value previously you would set
+`Ohai::Config[:plugin_path] = "/etc/chef/ohai/plugins.local"`, where as
+you would now use `ohai.plugin_path = "/etc/chef/ohai/plugins.local"`.
+See the [Ohai Configuration
+Documentation](/features/ohai/#ohai-settings-in-clientrb) for additional
+usage information.
