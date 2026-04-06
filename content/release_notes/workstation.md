@@ -84,11 +84,10 @@ Berkshelf has been updated to version 8.1.21.
 Chef Vault has been updated to version 4.2.9.
 
 ### Tools removed
-
-- delivery: Chef Delivery/Workflow reached EOL in December 2020.
-- foodcritic: Deprecated in favor of Cookstyle.
-- stove: Replaced by built-in Supermarket commands.
+- Chef workstation app: Dashboard to help manage cookbooks
 - mixlib-install: Habitat manages dependencies.
+- chef-run: chef-run is no longer supported. Use chef agentless mode.
+- chef report : chef report command no longer supported
 
 ### Packages
 
