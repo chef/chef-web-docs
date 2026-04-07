@@ -19,3 +19,4 @@ swap:
   'Depot': Chef Habitat Artifact storage
   '(?:[^\s]* ){0,2}Studio': Chef Habitat Studio
   '(?<!Chef Habitat) Supervisor': Chef Habitat Supervisor
+  'Chef 360 (?!Platform)': Chef 360 Platform
