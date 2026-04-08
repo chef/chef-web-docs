@@ -16,93 +16,97 @@ summary = "Chef Workstation release notes"
 <!-- markdownlint-disable-file -->
 <!-- cSpell:disable  -->
 <!-- vale off -->
+
 ## Chef Workstation 26.1
 
-Release date: TBD
+Release date: April 13, 2026
 
 ### Key features
 
 - Chef Workstation 26 is built entirely on Chef Habitat. We aren't providing traditional Omnibus builds.
-- Chef Workstation 26 uses standard licensing for commercial, community, and trial customers.
-- Chef Workstation 26 fully supports Chef Infra Client 19 development and deployment using Test Kitchen Enterprise and Knife.
-
-### Improvements
-
 - Chef Workstation now uses Semantic Versioning (SemVer). Chef Workstation 26 supports Chef Infra Client 19 development, while Chef Workstation 25 supports Chef Infra Client 18.
-- All components are delivered as Habitat packages.
+- Chef Workstation 26 fully supports Chef Infra Client 19 development and deployment using Test Kitchen Enterprise (TKE) and Knife.
+- Chef Workstation 26 uses standard licensing for commercial, community, and trial customers.
+- Workstation behavior remains consistent on both Linux and Windows platforms.
+
+### Chef Workstation tools
+
+- All Workstation tools are released as Habitat packages.
 - Habitat wrappers provide improved runtime isolation for each tool.
 - Dependency management is streamlined within the Habitat ecosystem.
-- Component updates are faster and no longer require a full Workstation reinstall.
-- Behavior remains consistent on both Linux and Windows platforms.
+- Tool updates are faster and no longer require a full Workstation reinstall.
 
-### Component updates
+#### Tool updates
 
-#### Chef Infra Client
+- **Berkshelf**:
 
-Chef Infra Client has been updated to version 19.2.12. This LTS version is fully built on Chef Habitat.
+  - Updated Berkshelf to version 8.1.21.
 
-For details, see the [Chef Infra Client 19 release notes](https://docs.chef.io/release_notes/client/#chef-infra-client-19212).
+- **Chef CLI**:
 
-#### Knife
+  - Updated the `chef` CLI to version 6.1.29.
 
-Knife has been updated to version 19.0.99. Knife is now maintained as a separate repository.
+  - The `chef report cookbooks` and `chef report nodes` commands are no longer supported.
 
-For details, see the [Knife changelog](https://github.com/chef/knife/blob/main/CHANGELOG.md).
+- **Chef Infra Client**:
 
-#### Test Kitchen Enterprise
+  - Updated Chef Infra Client to version 19.2.12. This LTS version is fully built on Chef Habitat.
 
-Chef Test Kitchen Enterprise has been added (version 2.0.11).
-Chef Test Kitchen is now available as a Habitat package and can be upgraded using the hab command.
+    For details, see the [Chef Infra Client 19 release notes](https://docs.chef.io/release_notes/client/#chef-infra-client-19212).
 
-#### Chef CLI
+- **Chef InSpec**:
 
-Chef CLI has been updated to version 6.1.29.
+  - Updated Chef InSpec to version 7.0.107.
 
-#### Cookstyle
+    For details, see the [Chef InSpec 7 release notes](https://docs.chef.io/release_notes/inspec/#chef-inspec-70107).
 
-Cookstyle has been updated to version 8.6.10 with RuboCop engine 1.82.1.
+- **Chef Vault**:
 
-#### Chef InSpec
+  - Updated Chef Vault to version 4.2.9.
 
-Chef InSpec has been updated to version 7.0.107.
+- **Cookstyle**:
 
-For details, see the [Chef InSpec 7 release notes](https://docs.chef.io/release_notes/inspec/#chef-inspec-70107).
+  - Updated Cookstyle to version 8.6.10 with RuboCop engine 1.82.1.
 
-#### Ohai
+- **Fauxhai**:
 
-Ohai has been updated to version 19.1.24.
+  - Updated Fauxhai to version 9.4.20.
 
-#### Fauxhai
+- **Knife**:
 
-Fauxhai has been updated to version 9.4.20.
+  - Knife is now maintained separately in the [chef/knife](https://github.com/chef/knife/) GitHub repository.
+  - Updated Knife to version 19.0.99.
 
-#### Berkshelf
+    For details, see the [Knife changelog](https://github.com/chef/knife/blob/main/CHANGELOG.md).
 
-Berkshelf has been updated to version 8.1.21.
+- **Ohai**:
 
-#### Chef Vault
+  - Updated Ohai to version 19.1.24.
 
-Chef Vault has been updated to version 4.2.9.
+- **Test Kitchen Enterprise**:
 
-### Tools removed
-- Chef workstation app: Dashboard to help manage cookbooks
-- mixlib-install: Habitat manages dependencies.
-- chef-run: chef-run is no longer supported. Use chef agentless mode.
-- chef report : chef report command no longer supported
+  - We replaced community-supported Test Kitchen with Chef Test Kitchen Enterprise (TKE) version 2.0.11.
+
+  - Test Kitchen Enterprise is available as a Habitat package and can be managed using the hab CLI.
+
+#### Removed tools
+
+- The Chef Workstation App is no longer included in Chef Workstation.
+- `mixlib-install` is no longer a Workstation component. Workstation now uses Chef Habitat to manage dependencies.
+- The `chef-run` CLI is no longer a Workstation component. Use Agentless Mode in Chef Infra Client instead.
 
 ### Packages
 
-- Chef Workstation 26 provides Habitat-based packages for the following platforms:
+- For this Chef Workstation version, we're only releasing Habitat packages of Workstation and not OS-native packages.
+- This release has Habitat-based packages for the following platforms:
 
   - Linux (x86_64)
   - Windows (x86_64)
 
-- We're only releasing Habitat packages of this Chef Workstation version and not OS-native packages.
-
 ### Known issues
 
-- Custom gem or changing ruby path not supported in this release.
-- `knife google server create`  for Windows can fail during password reset if the GCEAgent initializes slowly (e.g., on slow boot or low-resource machines).
+- Using custom gems or changing the Ruby path isn't supported in this release.
+- The `knife google server create` command on Windows can fail during password reset if the GCEAgent initializes slowly (for example, on slow boot or low-resource machines).
 
 ## Chef Workstation 25.13.7
 
@@ -2699,7 +2703,7 @@ Chef Infra Client has been updated from 16.4.38 to 16.4.41. This release:
 
 `chef-run` has been updated to add support for YAML-based recipes introduced in Chef Infra Client 16. Users can specify a YAML recipe in the same way that they would normally specify a Ruby recipe, such as `chef run target chef_repo/recipes/my_recipe.yml`.
 
-NOTE: We incorrectly said we released this feature in Chef Workstation 20.6.62, but the updated dependency wasn't pulled for that release. 
+NOTE: We incorrectly said we released this feature in Chef Workstation 20.6.62, but the updated dependency wasn't pulled for that release.
 
 #### Chef Vault
 
