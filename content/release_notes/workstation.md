@@ -24,10 +24,11 @@ Release date: TBD
 
 - Chef Workstation 26 is built entirely on Chef Habitat. We aren't providing traditional Omnibus builds.
 - Chef Workstation 26 uses standard licensing for commercial, community, and trial customers.
+- Chef Workstation 26 fully supports Chef Infra Client 19 development and deployment using Test Kitchen Enterprise and Knife.
 
 ### Improvements
 
-- Chef Workstation 26 and its components are now compatible with Ruby 3.4.
+- Chef Workstation now uses Semantic Versioning (SemVer). Chef Workstation 26 supports Chef Infra Client 19 development, while Chef Workstation 25 supports Chef Infra Client 18.
 - All components are delivered as Habitat packages.
 - Habitat wrappers provide improved runtime isolation for each tool.
 - Dependency management is streamlined within the Habitat ecosystem.
@@ -96,8 +97,7 @@ Chef Vault has been updated to version 4.2.9.
   - Linux (x86_64)
   - Windows (x86_64)
 
-- We no longer build packages for Intel-based Macs.
-- We no longer produce Omnibus builds for Chef Workstation and associated tools.
+- We're only releasing Habitat packages of this Chef Workstation version and not OS-native packages.
 
 ### Known issues
 
