@@ -17,7 +17,7 @@ summary = "Chef Workstation release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
-## Chef Workstation 26.1
+## Chef Workstation 26.0.18
 
 Release date: April 13, 2026
 
@@ -75,7 +75,7 @@ Release date: April 13, 2026
 - **Knife**:
 
   - Knife is now maintained separately in the [chef/knife](https://github.com/chef/knife/) GitHub repository.
-  - Updated Knife to version 19.0.99.
+  - Updated Knife to version 19.0.105.
 
     For details, see the [Knife changelog](https://github.com/chef/knife/blob/main/CHANGELOG.md).
 
