@@ -1,5 +1,5 @@
 +++
-title = "Deprecation: Amazon linux moved to the Amazon platform_family (OHAI-7)"
+title = "Deprecation: Amazon Linux moved to the Amazon platform_family (OHAI-7)"
 draft = false
 
 gh_repo = "chef-web-docs"

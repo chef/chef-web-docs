@@ -62,47 +62,137 @@ following search indexes are built:
 
 ### Using Knife
 
-{{< readfile file="content/workstation/reusable/md/knife_search_summary.md" >}}
+Use the `knife search` subcommand to run a search query for information
+that's indexed on a Chef Infra Server.
 
 #### Search by platform ID
 
-{{< readfile file="content/workstation/reusable/md/knife_search_by_platform_ids.md" >}}
+To search for the IDs of all nodes running on the Amazon EC2 platform,
+enter:
+
+```bash
+knife search node 'ec2:*' -i
+```
+
+to return something like:
+
+```bash
+4 items found
+
+ip-0A7CA19F.ec2.internal
+
+ip-0A58CF8E.ec2.internal
+
+ip-0A58E134.ec2.internal
+
+ip-0A7CFFD5.ec2.internal
+```
 
 #### Search by instance type
 
-{{< readfile file="content/workstation/reusable/md/knife_search_by_platform_instance_type.md" >}}
+To search for the instance type (flavor) of all nodes running on the
+Amazon EC2 platform, enter:
+
+```bash
+knife search node 'ec2:*' -a ec2.instance_type
+```
+
+to return something like:
+
+```bash
+4 items found
+
+ec2.instance_type:  m1.large
+id:                 ip-0A7CA19F.ec2.internal
+
+ec2.instance_type:  m1.large
+id:                 ip-0A58CF8E.ec2.internal
+
+ec2.instance_type:  m1.large
+id:                 ip-0A58E134.ec2.internal
+
+ec2.instance_type:  m1.large
+id:                 ip-0A7CFFD5.ec2.internal
+```
 
 #### Search by recipe
 
-{{< readfile file="content/workstation/reusable/md/knife_search_by_recipe.md" >}}
+To search for recipes that are used by a node, use the `recipes`
+attribute to search for the recipe names, enter something like:
+
+```bash
+knife search node 'recipes:recipe_name'
+```
+
+or:
+
+```bash
+knife search node '*:*' -a recipes | grep 'recipe_name'
+```
 
 #### Search by cookbook, then recipe
 
-{{< readfile file="content/workstation/reusable/md/knife_search_by_cookbook.md" >}}
+To search for cookbooks on a node, use the `recipes` attribute followed
+by the `cookbook::recipe` pattern, escaping both of the `:` characters.
+For example:
+
+```bash
+knife search node 'recipes:cookbook_name\:\:recipe_name'
+```
 
 #### Search by node
 
-{{< readfile file="content/workstation/reusable/md/knife_search_by_node.md" >}}
+To search for all nodes running Ubuntu, enter:
+
+```bash
+knife search node 'platform:ubuntu'
+```
 
 #### Search by node and environment
 
-{{< readfile file="content/workstation/reusable/md/knife_search_by_node_and_environment.md" >}}
+To search for all nodes running CentOS in the production environment,
+enter:
+
+```bash
+knife search node 'chef_environment:production AND platform:centos'
+```
 
 #### Search for nested attributes
 
-{{< readfile file="content/workstation/reusable/md/knife_search_by_nested_attribute.md" >}}
+To find a nested attribute, use a pattern similar to the following:
+
+```bash
+knife search node <query_to_run> -a <main_attribute>.<nested_attribute>
+```
 
 #### Search for multiple attributes
 
-{{< readfile file="content/workstation/reusable/md/knife_search_by_query_for_many_attributes.md" >}}
+To build a search query to use more than one attribute, use an
+underscore (`_`) to separate each attribute. For example, the following
+query will search for all nodes running a specific version of Ruby:
+
+```bash
+knife search node "languages_ruby_version:2.7.0"
+```
 
 #### Search for nested attributes using a search query
 
-{{< readfile file="content/workstation/reusable/md/knife_search_by_query_for_nested_attribute.md" >}}
+To build a search query that can find a nested attribute:
+
+```bash
+knife search node name: <node_name> -a kernel.machine
+```
 
 #### Use a test query
 
-{{< readfile file="content/workstation/reusable/md/knife_search_test_query_for_ssh.md" >}}
+To test a search query that will be used in a `knife ssh` subcommand:
+
+```bash
+knife search node "role:web NOT name:web03"
+```
+
+where the query in the previous example will search all servers that
+have the `web` role, but not on the server named `web03`.
 
 ## Query Syntax
 

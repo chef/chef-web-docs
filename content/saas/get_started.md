@@ -15,7 +15,7 @@ This guide explains how to set up and configure Chef SaaS. For details on how to
 
 Chef SaaS has the following prerequisites:
 
-- You must have a system with [Chef Workstation installed](/workstation/install_workstation/).
+- You must have a system with [Chef Workstation installed](/workstation/latest/install/).
 
 - Chef SaaS Starter Kit (provided by Progress Chef):
   - SaaS Environment URL
@@ -65,7 +65,7 @@ For details on configuring Chef Workstation, refer to the following sections.
 
    This gives you the proper credentials to connect to Chef SaaS in the following steps.
 
-1. Create an organization using the [`knife org create`](/workstation/knife_org/) command. This organization acts as a top-level entity for role-based access control.
+1. Create an organization using the [`knife org create`](/workstation/latest/tools/knife/knife_org/) command. This organization acts as a top-level entity for role-based access control.
 
     ```sh
     knife org create <ORGANIZATION_NAME> "<ORGANIZATION_FULL_NAME>"
@@ -92,7 +92,7 @@ For details on configuring Chef Workstation, refer to the following sections.
 
     Copy the new `<FILE_NAME>.pem` file created with this command to the `~/.chef` directory before updating the credentials file later in this document.
 
-1. Add the new user to the organization using the [`knife org user`](/workstation/knife_org/) command:
+1. Add the new user to the organization using the [`knife org user`](/workstation/latest/tools/knife/knife_org/) command:
 
     ```sh
     knife org user add <ORGANIZATION_NAME> <USERNAME>

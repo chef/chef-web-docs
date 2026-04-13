@@ -130,11 +130,63 @@ Run [`knife ssl check`](/workstation/latest/tools/knife/knife_ssl_check/) to ver
 
 ##### Verified
 
-{{< readfile file="content/workstation/reusable/md/knife_ssl_check_verify_server_config.md" >}}
+If the SSL certificate can be verified, the response to
+
+```bash
+knife ssl check
+```
+
+is similar to:
+
+```bash
+Connecting to host chef-server.example.com:443
+Successfully verified certificates from 'chef-server.example.com'
+```
 
 ##### Unverified
 
-{{< readfile file="content/workstation/reusable/md/knife_ssl_check_bad_ssl_certificate.md" >}}
+If the SSL certificate can't be verified, the response to
+
+```bash
+knife ssl check
+```
+
+is similar to:
+
+```bash
+Connecting to host chef-server.example.com:443
+ERROR: The SSL certificate of chef-server.example.com could not be verified
+Certificate issuer data:
+  /C=US/ST=WA/L=S/O=Corp/OU=Ops/CN=chef-server.example.com/emailAddress=you@example.com
+
+Configuration Info:
+
+OpenSSL Configuration:
+* Version: OpenSSL 1.0.2u  20 Dec 2019
+* Certificate file: /opt/chef-workstation/embedded/ssl/cert.pem
+* Certificate directory: /opt/chef-workstation/embedded/ssl/certs
+Chef SSL Configuration:
+* ssl_ca_path: nil
+* ssl_ca_file: nil
+* trusted_certs_dir: "/Users/grantmc/Downloads/chef-repo/.chef/trusted_certs"
+
+TO FIX THIS ERROR:
+
+If the server you are connecting to uses a self-signed certificate,
+you must configure chef to trust that certificate.
+
+By default, the certificate is stored in the following location on the
+host where your Chef Infra Server runs:
+
+  /var/opt/opscode/nginx/ca/SERVER_HOSTNAME.crt
+
+Copy that file to your trusted_certs_dir (currently:
+
+  /Users/grantmc/Downloads/chef-repo/.chef/trusted_certs)
+
+using SSH/SCP or some other secure method, then re-run this command to
+confirm that the certificate is now trusted.
+```
 
 #### knife ssl fetch
 
@@ -142,4 +194,33 @@ Run [`knife ssl fetch`](/workstation/latest/tools/knife/knife_ssl_fetch/) to dow
 
 ##### Verify checksums
 
-{{< readfile file="content/workstation/reusable/md/knife_ssl_fetch_verify_certificate.md" >}}
+The SSL certificate that's downloaded to the `/.chef/trusted_certs`
+directory should be verified to ensure that it's, in fact, the same
+certificate as the one located on the Chef Infra Server. This can be
+done by comparing the SHA-256 checksums.
+
+1. View the checksum on the Chef Infra Server:
+
+    ```bash
+    ssh ubuntu@chef-server.example.com sudo sha256sum /var/opt/opscode/nginx/ca/chef-server.example.com.crt
+    ```
+
+    The response is similar to:
+
+    ```bash
+    <ABC123checksum>  /var/opt/opscode/nginx/ca/chef-server.example.com.crt
+    ```
+
+2. View the checksum on the workstation:
+
+    ```bash
+    gsha256sum .chef/trusted_certs/chef-server.example.com.crt
+    ```
+
+    The response is similar to:
+
+    ```bash
+    <ABC123checksum>  .chef/trusted_certs/chef-server.example.com.crt
+    ```
+
+3. Verify that the checksum values are identical.

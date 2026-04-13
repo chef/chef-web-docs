@@ -50,7 +50,7 @@ more consistent and less likely to produce CI test failures.
 
 Cookbook development differs from traditional Ruby software development,
 so we maintain a tailored set of built-in cops from Rubocop. Cops that
-are not useful for cookbook development are disabled and occasionally we
+aren't useful for cookbook development are disabled and occasionally we
 change the configuration of a rule to enforce a different behavior.
 We've also extended the base RuboCop package with a set of our own Chef
 Infra-specific cops. These cops are only found in Cookstyle and will

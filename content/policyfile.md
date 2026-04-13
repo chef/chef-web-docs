@@ -19,13 +19,13 @@ product = ["client", "server"]
 
 Policyfiles make it easier to test and promote code safely with a simpler interface. Using a Policyfile improves the user experience and resolves real-world problems that some workflows built around Chef Infra must deal with. The following sections discuss in more detail some of the good reasons to use Policyfile, including:
 
-* Focus the workflow on the entire system
-* Safer development workflows
-* Less expensive computation
-* Code visibility
-* Role mutability
-* Cookbook mutability
-* Replaces Berkshelf and the environment cookbook pattern
+- Focus the workflow on the entire system
+- Safer development workflows
+- Less expensive computation
+- Code visibility
+- Role mutability
+- Cookbook mutability
+- Replaces Berkshelf and the environment cookbook pattern
 
 ### Focused System Workflows
 
@@ -41,11 +41,11 @@ Policyfile encourages safer workflows by making it easier to publish development
 
 When running Chef Infra without a Policyfile, the exact set of cookbooks that are applied to a node is defined by:
 
-* The node's `run_list` property
-* Any roles that are present in the node's run-list or recursively included by those roles
-* The environment, which may restrict the set of valid cookbook versions for a node based on a variety of constraint operators
-* Dependencies, as defined by each cookbook's metadata
-* Dependency resolution picks the "best" set of cookbooks that meet dependency and environment criteria
+- The node's `run_list` property
+- Any roles that are present in the node's run-list or recursively included by those roles
+- The environment, which may restrict the set of valid cookbook versions for a node based on a variety of constraint operators
+- Dependencies, as defined by each cookbook's metadata
+- Dependency resolution picks the "best" set of cookbooks that meet dependency and environment criteria
 
 These conditions are re-evaluated every time Chef Infra Client runs, which can make it harder to know which cookbooks will be run by Chef Infra Client or what the effects of updating a role or uploading a new cookbook will be.
 
@@ -73,10 +73,10 @@ For example, name/version collisions can occur when users temporarily fork an up
 
 The opaque identifier that's computed from the content of a cookbook is the only place where an opaque identifier is necessary. When working with Policyfile, be sure to:
 
-* Use the same names and version constraints as normal in the `Policyfile.rb` file
-* Use the same references to cookbooks pulled from Chef Supermarket
-* Use the same branch, tag, and revision patterns for cookbooks pulled from git
-* Use the same paths for cookbooks pulled from disk
+- Use the same names and version constraints as normal in the `Policyfile.rb` file
+- Use the same references to cookbooks pulled from Chef Supermarket
+- Use the same branch, tag, and revision patterns for cookbooks pulled from git
+- Use the same paths for cookbooks pulled from disk
 
 Extra metadata about the cookbook is stored and included in Chef Infra Server API responses and in the `Policyfile.lock.json` file, including the source of a cookbook (Chef Supermarket, git, local disk, etc.), as well as any upstream identifiers, such as git revisions. For cookbooks that are loaded from the local disk that are in a git repo, the upstream URL, current revision ID, and the state of the repo are stored also.
 
@@ -201,121 +201,321 @@ As `chef_zero` explicitly tests outside the context of a Chef Infra Server, the 
 
 ### chef clean-policy-cookbooks
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_clean_policy_cookbooks.md" >}}
+Use the `chef clean-policy-cookbooks` subcommand to delete cookbooks
+that aren't used by Policyfile files. Cookbooks are considered unused
+when they aren't referenced by any policy revisions on the Chef Infra
+Server.
+
+{{< note >}}
+
+Cookbooks that are referenced by orphaned policy revisions aren't
+removed. Use `chef clean-policy-revisions` to remove orphaned policies.
+
+{{< /note >}}
 
 #### Syntax
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_clean_policy_cookbooks_syntax.md" >}}
+This subcommand has the following syntax:
+
+```bash
+chef clean-policy-cookbooks (options)
+```
 
 #### Options
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_clean_policy_cookbooks_options.md" >}}
+This subcommand has the following options:
+
+`-c CONFIG_FILE`, `--config CONFIG_FILE`
+
+:   The path to the knife configuration file.
+
+`-D`, `--debug`
+
+:   Enable stack traces and other debug output. Default value: `false`.
+
+`-h`, `--help`
+
+:   Show help for the command.
+
+`-v`, `--version`
+
+:   The Chef Infra Client version.
 
 ### chef clean-policy-revisions
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_clean_policy_revisions.md" >}}
+Use the `chef clean-policy-revisions` subcommand to delete orphaned
+policy revisions to Policyfile files from the Chef Infra Server. An
+orphaned policy revision isn't associated to any policy group and
+therefore isn't in active use by any node. Use
+`chef show-policy --orphans` to view a list of orphaned policy
+revisions.
 
 #### Syntax
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_clean_policy_revisions_syntax.md" >}}
+This subcommand has the following syntax:
+
+```bash
+chef clean-policy-revisions (options)
+```
 
 #### Options
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_clean_policy_revisions_options.md" >}}
+This subcommand has the following options:
+
+`-c CONFIG_FILE`, `--config CONFIG_FILE`
+
+:   The path to the knife configuration file.
+
+`-D`, `--debug`
+
+:   Enable stack traces and other debug output. Default value: `false`.
+
+`-h`, `--help`
+
+:   Show help for the command.
+
+`-v`, `--version`
+
+:   The Chef Infra Client version.
 
 ### chef delete-policy
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_delete_policy.md" >}}
+Use the `chef delete-policy` subcommand to delete all revisions of the
+named policy that exist on the Chef Infra Server. (The state of the
+policy revision is backed up locally and may be restored using the
+`chef undelete` subcommand.)
 
 #### Syntax
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_delete_policy_syntax.md" >}}
+This subcommand has the following syntax:
+
+```bash
+chef delete-policy POLICY_NAME (options)
+```
 
 #### Options
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_delete_policy_options.md" >}}
+This subcommand has the following options:
+
+`-c CONFIG_FILE`, `--config CONFIG_FILE`
+
+:   The path to the knife configuration file.
+
+`-D`, `--debug`
+
+:   Enable stack traces and other debug output. Default value: `false`.
+
+`-h`, `--help`
+
+:   Show help for the command.
+
+`-v`, `--version`
+
+:   The Chef Infra Client version.
 
 ### chef delete-policy-group
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_delete_policy_group.md" >}}
+Use the `chef delete-policy-group` subcommand to delete the named policy
+group from the Chef Infra Server. Any policy revision associated with
+that policy group isn't deleted. (The state of the policy group is
+backed up locally and may be restored using the `chef undelete`
+subcommand.)
 
 #### Syntax
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_delete_policy_group_syntax.md" >}}
+This subcommand has the following syntax:
+
+```bash
+chef delete-policy-group POLICY_GROUP (options)
+```
 
 #### Options
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_delete_policy_group_options.md" >}}
+This subcommand has the following options:
+
+`-c CONFIG_FILE`, `--config CONFIG_FILE`
+
+:   The path to the knife configuration file.
+
+`-D`, `--debug`
+
+:   Enable stack traces and other debug output. Default value: `false`.
+
+`-h`, `--help`
+
+:   Show help for the command.
+
+`-v`, `--version`
+
+:   The Chef Infra Client version.
 
 ### chef diff
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_diff.md" >}}
+Use the `chef diff` subcommand to display an itemized comparison of two
+revisions of a `Policyfile.lock.json` file.
 
 #### Syntax
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_diff_syntax.md" >}}
+This subcommand has the following syntax:
+
+```bash
+chef diff POLICY_FILE --head | --git POLICY_GROUP | POLICY_GROUP...POLICY_GROUP (options)
+```
 
 #### Options
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_diff_options.md" >}}
+This subcommand has the following options:
+
+`-c CONFIG_FILE`, `--config CONFIG_FILE`
+
+:   The path to the knife configuration file.
+
+`-D`, `--debug`
+
+:   Enable stack traces and other debug output. Default value: `false`.
+
+`-g GIT_REF`, `--git GIT_REF`
+
+:   Compare the specified git reference against the current revision of
+    a `Policyfile.lock.json` file or against another git reference.
+
+`-h`, `--help`
+
+:   Show help for the command.
+
+`--head`
+
+:   A shortcut for `chef diff --git HEAD`. When a git-specific flag is
+    not provided, the on-disk `Policyfile.lock.json` file is compared to
+    one on the Chef Infra Server or (if a `Policyfile.lock.json` file is
+    not present on-disk) two `Policyfile.lock.json` files in the
+    specified policy group on the Chef Infra Server are compared.
+
+`--[no-]pager`
+
+:   Use `--pager` to enable paged output for a `Policyfile.lock.json`
+    file. Default value: `--pager`.
+
+`-v`, `--version`
+
+:   The Chef Infra Client version.
 
 #### Examples
 
 ##### Compare current lock to latest commit on latest branch
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_diff_current_lock_latest_branch.md" >}}
+```bash
+chef diff --git HEAD
+```
 
 ##### Compare current lock with latest commit on master branch
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_diff_current_lock_master_branch.md" >}}
+```bash
+chef diff --git master
+```
 
 ##### Compare current lock to specified revision
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_diff_current_lock_specified_revision.md" >}}
+```bash
+chef diff --git v1.0.0
+```
 
 ##### Compare lock on master branch to lock on revision
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_diff_master_lock_revision_lock.md" >}}
+```bash
+chef diff --git master...dev
+```
 
 ##### Compare lock for version with latest commit on master branch
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_diff_version_lock_master_branch.md" >}}
+```bash
+chef diff --git v1.0.0...master
+```
 
 ##### Compare current lock with latest lock for policy group
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_diff_current_lock_policy_group.md" >}}
+```bash
+chef diff staging
+```
 
 ##### Compare locks for two policy group
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_diff_two_policy_groups.md" >}}
+```bash
+chef diff production...staging
+```
 
 ### chef export
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_export.md" >}}
+Use the `chef export` subcommand to create a chef-zero-compatible
+chef-repo that contains the cookbooks described by a
+`Policyfile.lock.json` file. After a chef-zero-compatible chef-repo is
+copied to a node, the policy can be applied locally on that machine by
+running `chef-client -z` (local mode).
 
 #### Syntax
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_export_syntax.md" >}}
+This subcommand has the following syntax:
+
+```bash
+chef export POLICY_FILE DIRECTORY (options)
+```
 
 #### Options
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_export_options.md" >}}
+This subcommand has the following options:
+
+`-a`, `--archive`
+
+:   Export an archive as a tarball, instead as a directory. Default
+    value: `false`.
+
+`-D`, `--debug`
+
+:   Enable stack traces and other debug output. Default value: `false`.
+
+`-f`, `--force`
+
+:   Remove the contents of the destination directory if that directory
+    isn't empty. Default value: `false`.
+
+`-h`, `--help`
+
+:   Show help for the command.
+
+`-v`, `--version`
+
+:   The Chef Infra Client version.
 
 ### chef generate policyfile
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_generate_policyfile.md" >}}
+Use the `chef generate policyfile` subcommand to generate a file to be
+used with Policyfile.
 
 #### Syntax
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_generate_policyfile_syntax.md" >}}
+This subcommand has the following syntax:
+
+```bash
+chef generate policyfile POLICY_NAME (options)
+```
 
 #### Options
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_generate_policyfile_options.md" >}}
+This subcommand has the following options:
+
+`-h`, `--help`
+
+:   Show help for the command.
+
+`-v`, `--version`
+
+:   The Chef Infra Client version.
 
 ### chef generate repo
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_generate_repo.md" >}}
+Use the `chef generate repo` subcommand to create a chef-repo. By
+default, the repo is a cookbook repo with options available to support
+generating a cookbook that supports Policyfile.
 
 {{< note >}}
 
@@ -325,23 +525,71 @@ This subcommand requires using one (or more) of the options (below) to support P
 
 #### Syntax
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_generate_repo_syntax.md" >}}
+This subcommand has the following syntax:
+
+```bash
+chef generate repo REPO_NAME (options)
+```
 
 #### Options
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_generate_repo_options.md" >}}
+This subcommand has the following options:
+
+`-h`, `--help`
+
+:   Show help for the command.
+
+`-p`, `--policy-only`
+
+:   Create a repository that Doesn't store cookbook files, only
+    Policyfile files.
+
+`-P`, `--policy`
+
+:   Use Policyfile instead of Berkshelf.
+
+`-r`, `--roles`
+
+:   Create directories for `/roles` and `/environments` instead of
+    creating directories for Policyfile.
+
+`-v`, `--version`
+
+:   The Chef Infra Client version.
 
 ### chef install
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_install.md" >}}
+Use the `chef install` subcommand to evaluate a Policyfile and find a
+compatible set of cookbooks, build a run-list, cache it locally, and
+then emit a `Policyfile.lock.json` file that describes the locked policy
+set. The `Policyfile.lock.json` file may be used to install the locked
+policy set to other machines and may be pushed to a policy group on the
+Chef Infra Server to apply that policy to a group of nodes that are
+under management by Chef.
 
 #### Syntax
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_install_syntax.md" >}}
+This subcommand has the following syntax:
+
+```bash
+chef install POLICY_FILE (options)
+```
 
 #### Options
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_install_options.md" >}}
+This subcommand has the following options:
+
+`-D`, `--debug`
+
+:   Enable stack traces and other debug output.
+
+`-h`, `--help`
+
+:   Show help for the command.
+
+`-v`, `--version`
+
+:   The Chef Infra Client version.
 
 #### Policyfile.lock.json
 
@@ -351,60 +599,209 @@ This subcommand requires using one (or more) of the options (below) to support P
 
 ### chef push
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_push.md" >}}
+Use the `chef push` subcommand to upload an existing
+`Policyfile.lock.json` file to the Chef Infra Server, along with all of
+the cookbooks that are contained in the file. The `Policyfile.lock.json`
+file will be applied to the specified policy group, which is a set of
+nodes that share the same run-list and cookbooks.
 
 #### Syntax
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_push_syntax.md" >}}
+This subcommand has the following syntax:
+
+```bash
+chef push POLICY_GROUP POLICY_FILE (options)
+```
 
 #### Options
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_push_options.md" >}}
+This subcommand has the following options:
+
+`-c CONFIG_FILE`, `--config CONFIG_FILE`
+
+:   The path to the knife configuration file.
+
+`-D`, `--debug`
+
+:   Enable stack traces and other debug output.
+
+`-h`, `--help`
+
+:   Show help for the command.
+
+`-v`, `--version`
+
+:   The Chef Infra Client version.
 
 ### chef push-archive
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_push_archive.md" >}}
+The `chef push-archive` subcommand is used to publish a policy archive
+file to the Chef Infra Server. (A policy archive is created using the
+`chef export` subcommand.) The policy archive is assigned to the
+specified policy group, which is a set of nodes that share the same
+run-list and cookbooks.
 
 #### Syntax
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_push_archive_syntax.md" >}}
+This subcommand has the following syntax:
+
+```bash
+chef push-archive POLICY_GROUP ARCHIVE_FILE (options)
+```
 
 #### Options
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_push_archive_options.md" >}}
+This subcommand has the following options:
+
+`-c CONFIG_FILE`, `--config CONFIG_FILE`
+
+:   The path to the knife configuration file.
+
+`-D`, `--debug`
+
+:   Enable stack traces and other debug output. Default value: `false`.
+
+`-h`, `--help`
+
+:   Show help for the command.
+
+`-v`, `--version`
+
+:   The Chef Infra Client version.
 
 ### chef show-policy
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_show_policy.md" >}}
+Use the `chef show-policy` subcommand to display revisions for every
+`Policyfile.rb` file that's on the Chef Infra Server. By default, only
+active policy revisions are shown. When both a policy and policy group
+are specified, the contents of the active `Policyfile.lock.json` file
+for the policy group is returned.
 
 #### Syntax
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_show_policy_syntax.md" >}}
+This subcommand has the following syntax:
+
+```bash
+chef show-policy POLICY_NAME POLICY_GROUP (options)
+```
 
 #### Options
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_show_policy_options.md" >}}
+This subcommand has the following options:
+
+`-c CONFIG_FILE`, `--config CONFIG_FILE`
+
+:   The path to the knife configuration file.
+
+`-D`, `--debug`
+
+:   Enable stack traces and other debug output. Default value: `false`.
+
+`-h`, `--help`
+
+:   Show help for the command.
+
+`-o`, `--orphans`
+
+:   Show policy revisions that aren't currently assigned to any policy
+    group.
+
+`--[no-]pager`
+
+:   Use `--pager` to enable paged output for a `Policyfile.lock.json`
+    file. Default value: `--pager`.
+
+`-v`, `--version`
+
+:   The Chef Infra Client version.
 
 ### chef undelete
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_undelete.md" >}}
+Use the `chef undelete` subcommand to recover a deleted policy or policy
+group. This command:
+
+- Doesn't detect conflicts. If a deleted item has been recreated,
+    running this command will overwrite it
+- Doesn't include cookbooks that may be referenced by Policyfiles;
+    cookbooks that are cleaned after running this command may not be
+    fully restorable to their previous state
+- Doesn't store access control data
 
 #### Syntax
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_undelete_syntax.md" >}}
+This subcommand has the following syntax:
+
+```bash
+chef undelete (options)
+```
+
+When run with no arguments, returns a list of available operations.
 
 #### Options
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_undelete_options.md" >}}
+This subcommand has the following options:
+
+`-c CONFIG_FILE`, `--config CONFIG_FILE`
+
+:   The path to the knife configuration file.
+
+`-D`, `--debug`
+
+:   Enable stack traces and other debug output.
+
+`-h`, `--help`
+
+:   Show help for the command.
+
+`-i ID`, `--id ID`
+
+:   Undo the delete operation specified by `ID`.
+
+`-l`, `--last`
+
+:   Undo the most recent delete operation.
+
+`--list`
+
+:   Default. Return a list of available operations.
+
+`-v`, `--version`
+
+:   The Chef Infra Client version.
 
 ### chef update
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_update.md" >}}
+Use the `chef update` subcommand to read the `Policyfile.rb` file, and
+then apply any changes. This will resolve dependencies and will create a
+`Policyfile.lock.json` file. The locked policy will reflect any changes
+to the run-list and will pull in any cookbook updates that are
+compatible with any version constraints defined in the `Policyfile.rb`
+file.
 
 #### Syntax
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_update_syntax.md" >}}
+This subcommand has the following syntax:
+
+```bash
+chef update POLICY_FILE (options)
+```
 
 #### Options
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_update_options.md" >}}
+This subcommand has the following options:
+
+`-a`, `--attributes`
+
+:   Update attributes. Default value: `false`.
+
+`-D`, `--debug`
+
+:   Enable stack traces and other debug output. Default value: `false`.
+
+`-h`, `--help`
+
+:   Show help for the command.
+
+`-v`, `--version`
+
+:   The Chef Infra Client version.

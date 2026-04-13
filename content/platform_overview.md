@@ -28,7 +28,7 @@ development to production. Here's the complete Chef solution.
 
 ### Using Chef Workstation
 
-[Chef Workstation](/workstation/) allows you to author cookbooks and administer your
+[Chef Workstation](/workstation/latest/) allows you to author cookbooks and administer your
 infrastructure. Chef Workstation runs on the computer you use everyday,
 whether it's Linux, macOS, or Windows.
 
