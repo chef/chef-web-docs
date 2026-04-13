@@ -119,14 +119,14 @@ Use following [`client.rb` file]({{< relref "config_rb_client" >}}) settings to 
 
 The Chef Infra Client includes two knife commands for managing SSL certificates:
 
-- Use [knife ssl check](/workstation/knife_ssl_check/) to troubleshoot SSL certificate issues.
-- Use [knife ssl fetch](/workstation/knife_ssl_fetch/) to pull down a certificate from the Chef Infra Server to the `/.chef/trusted_certs` directory on the workstation.
+- Use [knife ssl check](/workstation/latest/tools/knife/knife_ssl_check/) to troubleshoot SSL certificate issues.
+- Use [knife ssl fetch](/workstation/latest/tools/knife/knife_ssl_fetch/) to pull down a certificate from the Chef Infra Server to the `/.chef/trusted_certs` directory on the workstation.
 
 After the workstation has the correct SSL certificate, bootstrap operations from that workstation uses the certificate in the `/.chef/trusted_certs` directory during the bootstrap operation.
 
 #### knife ssl check
 
-Run [`knife ssl check`]({{< relref "/workstation/knife_ssl_check/" >}}) to verify the state of the SSL certificate, and then use the response to help troubleshoot any issues.
+Run [`knife ssl check`](/workstation/latest/tools/knife/knife_ssl_check/) to verify the state of the SSL certificate, and then use the response to help troubleshoot any issues.
 
 ##### Verified
 
@@ -138,7 +138,7 @@ Run [`knife ssl check`]({{< relref "/workstation/knife_ssl_check/" >}}) to verif
 
 #### knife ssl fetch
 
-Run [`knife ssl fetch`]({{< relref "/workstation/knife_ssl_fetch/" >}}) to download the self-signed certificate from the Chef Infra Server to the `/.chef/trusted_certs` directory on a workstation.
+Run [`knife ssl fetch`](/workstation/latest/tools/knife/knife_ssl_fetch/) to download the self-signed certificate from the Chef Infra Server to the `/.chef/trusted_certs` directory on a workstation.
 
 ##### Verify checksums
 
