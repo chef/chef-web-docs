@@ -2,6 +2,11 @@
 title = "Chef/Modernize/ExecuteSysctl"
 aliases = ["/workstation/cookstyle/chef_modernize_executesysctl/"]
 
+[menu]
+  [menu.workstation]
+    title = "ExecuteSysctl"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/ExecuteSysctl"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

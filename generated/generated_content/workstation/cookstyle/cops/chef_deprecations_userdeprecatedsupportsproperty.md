@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/UserDeprecatedSupportsProperty"
 aliases = ["/workstation/cookstyle/chef_deprecations_userdeprecatedsupportsproperty/"]
 
+[menu]
+  [menu.workstation]
+    title = "UserDeprecatedSupportsProperty"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/UserDeprecatedSupportsProperty"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

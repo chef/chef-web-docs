@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/ErlCallResource"
 aliases = ["/workstation/cookstyle/chef_deprecations_erlcallresource/"]
 
+[menu]
+  [menu.workstation]
+    title = "ErlCallResource"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/ErlCallResource"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

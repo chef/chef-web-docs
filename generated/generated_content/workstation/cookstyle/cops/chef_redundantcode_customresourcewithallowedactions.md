@@ -2,6 +2,11 @@
 title = "Chef/RedundantCode/CustomResourceWithAllowedActions"
 aliases = ["/workstation/cookstyle/chef_redundantcode_customresourcewithallowedactions/"]
 
+[menu]
+  [menu.workstation]
+    title = "CustomResourceWithAllowedActions"
+    identifier = "chef_workstation/cookstyle/cops/Chef/RedundantCode/CustomResourceWithAllowedActions"
+    parent = "chef_workstation/cookstyle/cops/Chef/RedundantCode"
 +++
 
 <!-- vale off -->

@@ -2,6 +2,11 @@
 title = "Chef/Effortless/SearchForEnvironmentsOrRoles"
 aliases = ["/workstation/cookstyle/chef_effortless_searchforenvironmentsorroles/"]
 
+[menu]
+  [menu.workstation]
+    title = "SearchForEnvironmentsOrRoles"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Effortless/SearchForEnvironmentsOrRoles"
+    parent = "chef_workstation/cookstyle/cops/Chef/Effortless"
 +++
 
 <!-- vale off -->

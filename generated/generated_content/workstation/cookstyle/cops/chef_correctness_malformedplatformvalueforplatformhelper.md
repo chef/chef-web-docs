@@ -2,6 +2,11 @@
 title = "Chef/Correctness/MalformedPlatformValueForPlatformHelper"
 aliases = ["/workstation/cookstyle/chef_correctness_malformedplatformvalueforplatformhelper/"]
 
+[menu]
+  [menu.workstation]
+    title = "MalformedPlatformValueForPlatformHelper"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/MalformedPlatformValueForPlatformHelper"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

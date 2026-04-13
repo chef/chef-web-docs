@@ -2,6 +2,11 @@
 title = "Chef/Correctness/MetadataMalformedDepends"
 aliases = ["/workstation/cookstyle/chef_correctness_metadatamalformeddepends/"]
 
+[menu]
+  [menu.workstation]
+    title = "MetadataMalformedDepends"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/MetadataMalformedDepends"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

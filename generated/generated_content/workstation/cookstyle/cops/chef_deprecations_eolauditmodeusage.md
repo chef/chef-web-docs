@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/EOLAuditModeUsage"
 aliases = ["/workstation/cookstyle/chef_deprecations_eolauditmodeusage/"]
 
+[menu]
+  [menu.workstation]
+    title = "EOLAuditModeUsage"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/EOLAuditModeUsage"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

@@ -2,6 +2,11 @@
 title = "Chef/Style/NegatingOnlyIf"
 aliases = ["/workstation/cookstyle/chef_style_negatingonlyif/"]
 
+[menu]
+  [menu.workstation]
+    title = "NegatingOnlyIf"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Style/NegatingOnlyIf"
+    parent = "chef_workstation/cookstyle/cops/Chef/Style"
 +++
 
 <!-- vale off -->

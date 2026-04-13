@@ -2,6 +2,11 @@
 title = "Chef/Style/CommentSentenceSpacing"
 aliases = ["/workstation/cookstyle/chef_style_commentsentencespacing/"]
 
+[menu]
+  [menu.workstation]
+    title = "CommentSentenceSpacing"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Style/CommentSentenceSpacing"
+    parent = "chef_workstation/cookstyle/cops/Chef/Style"
 +++
 
 <!-- vale off -->

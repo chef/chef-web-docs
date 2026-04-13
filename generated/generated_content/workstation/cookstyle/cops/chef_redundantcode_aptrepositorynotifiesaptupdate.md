@@ -2,6 +2,11 @@
 title = "Chef/RedundantCode/AptRepositoryNotifiesAptUpdate"
 aliases = ["/workstation/cookstyle/chef_redundantcode_aptrepositorynotifiesaptupdate/"]
 
+[menu]
+  [menu.workstation]
+    title = "AptRepositoryNotifiesAptUpdate"
+    identifier = "chef_workstation/cookstyle/cops/Chef/RedundantCode/AptRepositoryNotifiesAptUpdate"
+    parent = "chef_workstation/cookstyle/cops/Chef/RedundantCode"
 +++
 
 <!-- vale off -->

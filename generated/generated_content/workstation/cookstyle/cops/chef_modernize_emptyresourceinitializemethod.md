@@ -2,6 +2,11 @@
 title = "Chef/Modernize/EmptyResourceInitializeMethod"
 aliases = ["/workstation/cookstyle/chef_modernize_emptyresourceinitializemetho/"]
 
+[menu]
+  [menu.workstation]
+    title = "EmptyResourceInitializeMethod"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/EmptyResourceInitializeMethod"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

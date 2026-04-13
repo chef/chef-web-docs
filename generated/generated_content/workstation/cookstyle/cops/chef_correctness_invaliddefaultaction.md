@@ -2,6 +2,11 @@
 title = "Chef/Correctness/InvalidDefaultAction"
 aliases = ["/workstation/cookstyle/chef_correctness_invaliddefaultaction/"]
 
+[menu]
+  [menu.workstation]
+    title = "InvalidDefaultAction"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/InvalidDefaultAction"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

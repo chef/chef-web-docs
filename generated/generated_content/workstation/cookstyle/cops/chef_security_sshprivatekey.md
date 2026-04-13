@@ -2,6 +2,11 @@
 title = "Chef/Security/SshPrivateKey"
 aliases = ["/workstation/cookstyle/chef_security_sshprivatekey/"]
 
+[menu]
+  [menu.workstation]
+    title = "SshPrivateKey"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Security/SshPrivateKey"
+    parent = "chef_workstation/cookstyle/cops/Chef/Security"
 +++
 
 <!-- vale off -->

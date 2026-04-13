@@ -2,6 +2,11 @@
 title = "Chef/Correctness/PowershellScriptDeleteFile"
 aliases = ["/workstation/cookstyle/chef_correctness_powershellscriptdeletefile/"]
 
+[menu]
+  [menu.workstation]
+    title = "PowershellScriptDeleteFile"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/PowershellScriptDeleteFile"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

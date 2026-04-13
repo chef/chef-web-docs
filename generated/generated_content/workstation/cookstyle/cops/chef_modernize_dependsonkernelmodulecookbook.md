@@ -2,6 +2,11 @@
 title = "Chef/Modernize/DependsOnKernelModuleCookbook"
 aliases = ["/workstation/cookstyle/chef_modernize_dependsonkernelmodulecookbook/"]
 
+[menu]
+  [menu.workstation]
+    title = "DependsOnKernelModuleCookbook"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/DependsOnKernelModuleCookbook"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

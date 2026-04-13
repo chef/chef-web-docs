@@ -2,6 +2,11 @@
 title = "Chef/Correctness/ScopedFileExist"
 aliases = ["/workstation/cookstyle/chef_correctness_scopedfileexist/"]
 
+[menu]
+  [menu.workstation]
+    title = "ScopedFileExist"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/ScopedFileExist"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

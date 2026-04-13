@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/ChefSugarHelpers"
 aliases = ["/workstation/cookstyle/chef_deprecations_chefsugarhelpers/"]
 
+[menu]
+  [menu.workstation]
+    title = "ChefSugarHelpers"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/ChefSugarHelpers"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

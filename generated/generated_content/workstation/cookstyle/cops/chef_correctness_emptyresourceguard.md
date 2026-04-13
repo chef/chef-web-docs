@@ -2,6 +2,11 @@
 title = "Chef/Correctness/EmptyResourceGuard"
 aliases = ["/workstation/cookstyle/chef_correctness_emptyresourceguar/"]
 
+[menu]
+  [menu.workstation]
+    title = "EmptyResourceGuard"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/EmptyResourceGuard"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

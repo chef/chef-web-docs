@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/PartialSearchClassUsage"
 aliases = ["/workstation/cookstyle/chef_deprecations_partialsearchclassusage/"]
 
+[menu]
+  [menu.workstation]
+    title = "PartialSearchClassUsage"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/PartialSearchClassUsage"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

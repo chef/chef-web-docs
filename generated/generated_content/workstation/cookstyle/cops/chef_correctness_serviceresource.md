@@ -2,6 +2,11 @@
 title = "Chef/Correctness/ServiceResource"
 aliases = ["/workstation/cookstyle/chef_correctness_serviceresource/"]
 
+[menu]
+  [menu.workstation]
+    title = "ServiceResource"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/ServiceResource"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

@@ -2,6 +2,11 @@
 title = "Chef/Style/OverlyComplexSupportsDependsMetadata"
 aliases = ["/workstation/cookstyle/chef_style_overlycomplexsupportsdependsmetadata/"]
 
+[menu]
+  [menu.workstation]
+    title = "OverlyComplexSupportsDependsMetadata"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Style/OverlyComplexSupportsDependsMetadata"
+    parent = "chef_workstation/cookstyle/cops/Chef/Style"
 +++
 
 <!-- vale off -->

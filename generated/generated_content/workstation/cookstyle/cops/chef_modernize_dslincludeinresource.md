@@ -2,6 +2,11 @@
 title = "Chef/Modernize/DslIncludeInResource"
 aliases = ["/workstation/cookstyle/chef_modernize_dslincludeinresource/"]
 
+[menu]
+  [menu.workstation]
+    title = "DslIncludeInResource"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/DslIncludeInResource"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

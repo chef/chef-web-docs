@@ -2,6 +2,11 @@
 title = "Chef/Style/UnnecessaryOSCheck"
 aliases = ["/workstation/cookstyle/chef_style_unnecessaryoscheck/"]
 
+[menu]
+  [menu.workstation]
+    title = "UnnecessaryOSCheck"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Style/UnnecessaryOSCheck"
+    parent = "chef_workstation/cookstyle/cops/Chef/Style"
 +++
 
 <!-- vale off -->

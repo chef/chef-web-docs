@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/VerifyPropertyUsesFileExpansion"
 aliases = ["/workstation/cookstyle/chef_deprecations_verifypropertyusesfileexpansion/"]
 
+[menu]
+  [menu.workstation]
+    title = "VerifyPropertyUsesFileExpansion"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/VerifyPropertyUsesFileExpansion"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

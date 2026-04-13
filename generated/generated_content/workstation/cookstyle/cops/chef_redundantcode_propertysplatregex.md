@@ -2,6 +2,11 @@
 title = "Chef/RedundantCode/PropertySplatRegex"
 aliases = ["/workstation/cookstyle/chef_redundantcode_propertysplatregex/"]
 
+[menu]
+  [menu.workstation]
+    title = "PropertySplatRegex"
+    identifier = "chef_workstation/cookstyle/cops/Chef/RedundantCode/PropertySplatRegex"
+    parent = "chef_workstation/cookstyle/cops/Chef/RedundantCode"
 +++
 
 <!-- vale off -->

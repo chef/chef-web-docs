@@ -2,6 +2,11 @@
 title = "Chef/Style/ChefWhaaat"
 aliases = ["/workstation/cookstyle/chef_style_chefwhaaat/"]
 
+[menu]
+  [menu.workstation]
+    title = "ChefWhaaat"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Style/ChefWhaaat"
+    parent = "chef_workstation/cookstyle/cops/Chef/Style"
 +++
 
 <!-- vale off -->

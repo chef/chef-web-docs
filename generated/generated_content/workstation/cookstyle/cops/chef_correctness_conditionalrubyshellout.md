@@ -2,6 +2,11 @@
 title = "Chef/Correctness/ConditionalRubyShellout"
 aliases = ["/workstation/cookstyle/chef_correctness_conditionalrubyshellout/"]
 
+[menu]
+  [menu.workstation]
+    title = "ConditionalRubyShellout"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/ConditionalRubyShellout"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

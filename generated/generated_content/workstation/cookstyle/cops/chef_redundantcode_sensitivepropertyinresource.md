@@ -2,6 +2,11 @@
 title = "Chef/RedundantCode/SensitivePropertyInResource"
 aliases = ["/workstation/cookstyle/chef_redundantcode_sensitivepropertyinresource/"]
 
+[menu]
+  [menu.workstation]
+    title = "SensitivePropertyInResource"
+    identifier = "chef_workstation/cookstyle/cops/Chef/RedundantCode/SensitivePropertyInResource"
+    parent = "chef_workstation/cookstyle/cops/Chef/RedundantCode"
 +++
 
 <!-- vale off -->

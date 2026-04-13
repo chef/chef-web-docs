@@ -2,6 +2,11 @@
 title = "Chef/Sharing/EmptyMetadataField"
 aliases = ["/workstation/cookstyle/chef_sharing_emptymetadatafiel/"]
 
+[menu]
+  [menu.workstation]
+    title = "EmptyMetadataField"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Sharing/EmptyMetadataField"
+    parent = "chef_workstation/cookstyle/cops/Chef/Sharing"
 +++
 
 <!-- vale off -->

@@ -2,6 +2,11 @@
 title = "Chef/Correctness/OctalModeAsString"
 aliases = ["/workstation/cookstyle/chef_correctness_octalmodeasstring/"]
 
+[menu]
+  [menu.workstation]
+    title = "OctalModeAsString"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/OctalModeAsString"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/NodeSetUnless"
 aliases = ["/workstation/cookstyle/chef_deprecations_nodesetunless/"]
 
+[menu]
+  [menu.workstation]
+    title = "NodeSetUnless"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/NodeSetUnless"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

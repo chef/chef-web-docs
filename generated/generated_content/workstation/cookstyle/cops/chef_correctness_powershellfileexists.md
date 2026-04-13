@@ -2,6 +2,11 @@
 title = "Chef/Correctness/PowershellFileExists"
 aliases = ["/workstation/cookstyle/chef_correctness_powershellfileexists/"]
 
+[menu]
+  [menu.workstation]
+    title = "PowershellFileExists"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/PowershellFileExists"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

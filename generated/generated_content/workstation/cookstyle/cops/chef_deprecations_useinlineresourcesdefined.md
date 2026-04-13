@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/UseInlineResourcesDefined"
 aliases = ["/workstation/cookstyle/chef_deprecations_useinlineresourcesdefine/"]
 
+[menu]
+  [menu.workstation]
+    title = "UseInlineResourcesDefined"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/UseInlineResourcesDefined"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

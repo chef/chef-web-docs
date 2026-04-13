@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/ChefWindowsPlatformHelper"
 aliases = ["/workstation/cookstyle/chef_deprecations_chefwindowsplatformhelper/"]
 
+[menu]
+  [menu.workstation]
+    title = "ChefWindowsPlatformHelper"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/ChefWindowsPlatformHelper"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

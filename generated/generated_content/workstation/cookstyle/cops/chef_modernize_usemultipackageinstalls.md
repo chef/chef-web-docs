@@ -2,6 +2,11 @@
 title = "Chef/Modernize/UseMultipackageInstalls"
 aliases = ["/workstation/cookstyle/chef_modernize_usemultipackageinstalls/"]
 
+[menu]
+  [menu.workstation]
+    title = "UseMultipackageInstalls"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/UseMultipackageInstalls"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

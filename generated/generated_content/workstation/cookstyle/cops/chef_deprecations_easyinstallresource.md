@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/EasyInstallResource"
 aliases = ["/workstation/cookstyle/chef_deprecations_easyinstallresource/"]
 
+[menu]
+  [menu.workstation]
+    title = "EasyInstallResource"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/EasyInstallResource"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/RubyBlockCreateAction"
 aliases = ["/workstation/cookstyle/chef_deprecations_rubyblockcreateaction/"]
 
+[menu]
+  [menu.workstation]
+    title = "RubyBlockCreateAction"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/RubyBlockCreateAction"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

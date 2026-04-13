@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/HWRPWithoutProvides"
 aliases = ["/workstation/cookstyle/chef_deprecations_hwrpwithoutprovides/"]
 
+[menu]
+  [menu.workstation]
+    title = "HWRPWithoutProvides"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/HWRPWithoutProvides"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

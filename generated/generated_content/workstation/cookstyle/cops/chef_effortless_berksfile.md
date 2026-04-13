@@ -2,6 +2,11 @@
 title = "Chef/Effortless/Berksfile"
 aliases = ["/workstation/cookstyle/chef_effortless_berksfile/"]
 
+[menu]
+  [menu.workstation]
+    title = "Berksfile"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Effortless/Berksfile"
+    parent = "chef_workstation/cookstyle/cops/Chef/Effortless"
 +++
 
 <!-- vale off -->

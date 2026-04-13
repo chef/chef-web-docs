@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/LaunchdDeprecatedHashProperty"
 aliases = ["/workstation/cookstyle/chef_deprecations_launchddeprecatedhashproperty/"]
 
+[menu]
+  [menu.workstation]
+    title = "LaunchdDeprecatedHashProperty"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/LaunchdDeprecatedHashProperty"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

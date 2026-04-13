@@ -2,6 +2,11 @@
 title = "Chef/Correctness/IncorrectLibraryInjection"
 aliases = ["/workstation/cookstyle/chef_correctness_incorrectlibraryinjection/"]
 
+[menu]
+  [menu.workstation]
+    title = "IncorrectLibraryInjection"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/IncorrectLibraryInjection"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

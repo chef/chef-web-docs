@@ -2,6 +2,11 @@
 title = "Chef/Modernize/LibarchiveFileResource"
 aliases = ["/workstation/cookstyle/chef_modernize_libarchivefileresource/"]
 
+[menu]
+  [menu.workstation]
+    title = "LibarchiveFileResource"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/LibarchiveFileResource"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

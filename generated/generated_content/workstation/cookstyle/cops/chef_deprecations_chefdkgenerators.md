@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/ChefDKGenerators"
 aliases = ["/workstation/cookstyle/chef_deprecations_chefdkgenerators/"]
 
+[menu]
+  [menu.workstation]
+    title = "ChefDKGenerators"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/ChefDKGenerators"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

@@ -2,6 +2,11 @@
 title = "Chef/Modernize/PowershellScriptExpandArchive"
 aliases = ["/workstation/cookstyle/chef_modernize_powershellscriptexpandarchive/"]
 
+[menu]
+  [menu.workstation]
+    title = "PowershellScriptExpandArchive"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/PowershellScriptExpandArchive"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

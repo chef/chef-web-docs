@@ -2,6 +2,11 @@
 title = "Chef/Modernize/ExecuteTzUtil"
 aliases = ["/workstation/cookstyle/chef_modernize_executetzutil/"]
 
+[menu]
+  [menu.workstation]
+    title = "ExecuteTzUtil"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/ExecuteTzUtil"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

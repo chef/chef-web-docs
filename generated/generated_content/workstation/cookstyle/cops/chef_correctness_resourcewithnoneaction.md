@@ -2,6 +2,11 @@
 title = "Chef/Correctness/ResourceWithNoneAction"
 aliases = ["/workstation/cookstyle/chef_correctness_resourcewithnoneaction/"]
 
+[menu]
+  [menu.workstation]
+    title = "ResourceWithNoneAction"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/ResourceWithNoneAction"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

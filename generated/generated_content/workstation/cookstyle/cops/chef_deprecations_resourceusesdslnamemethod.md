@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/ResourceUsesDslNameMethod"
 aliases = ["/workstation/cookstyle/chef_deprecations_resourceusesdslnamemetho/"]
 
+[menu]
+  [menu.workstation]
+    title = "ResourceUsesDslNameMethod"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/ResourceUsesDslNameMethod"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

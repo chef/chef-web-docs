@@ -2,6 +2,11 @@
 title = "Chef/RedundantCode/DoubleCompileTime"
 aliases = ["/workstation/cookstyle/chef_redundantcode_doublecompiletime/"]
 
+[menu]
+  [menu.workstation]
+    title = "DoubleCompileTime"
+    identifier = "chef_workstation/cookstyle/cops/Chef/RedundantCode/DoubleCompileTime"
+    parent = "chef_workstation/cookstyle/cops/Chef/RedundantCode"
 +++
 
 <!-- vale off -->

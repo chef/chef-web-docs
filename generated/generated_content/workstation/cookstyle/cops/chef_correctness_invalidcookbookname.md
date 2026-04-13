@@ -2,6 +2,11 @@
 title = "Chef/Correctness/InvalidCookbookName"
 aliases = ["/workstation/cookstyle/chef_correctness_invalidcookbookname/"]
 
+[menu]
+  [menu.workstation]
+    title = "InvalidCookbookName"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/InvalidCookbookName"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

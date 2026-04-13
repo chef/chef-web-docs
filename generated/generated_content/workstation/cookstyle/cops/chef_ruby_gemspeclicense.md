@@ -2,6 +2,11 @@
 title = "Chef/Ruby/GemspecLicense"
 aliases = ["/workstation/cookstyle/chef_ruby_gemspeclicense/"]
 
+[menu]
+  [menu.workstation]
+    title = "GemspecLicense"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Ruby/GemspecLicense"
+    parent = "chef_workstation/cookstyle/cops/Chef/Ruby"
 +++
 
 <!-- vale off -->

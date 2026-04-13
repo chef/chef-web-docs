@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/ChefShellout"
 aliases = ["/workstation/cookstyle/chef_deprecations_chefshellout/"]
 
+[menu]
+  [menu.workstation]
+    title = "ChefShellout"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/ChefShellout"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

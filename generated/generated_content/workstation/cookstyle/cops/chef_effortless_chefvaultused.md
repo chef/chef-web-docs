@@ -2,6 +2,11 @@
 title = "Chef/Effortless/ChefVaultUsed"
 aliases = ["/workstation/cookstyle/chef_effortless_chefvaultuse/"]
 
+[menu]
+  [menu.workstation]
+    title = "ChefVaultUsed"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Effortless/ChefVaultUsed"
+    parent = "chef_workstation/cookstyle/cops/Chef/Effortless"
 +++
 
 <!-- vale off -->

@@ -2,6 +2,11 @@
 title = "Chef/Modernize/UnnecessaryMixlibShelloutRequire"
 aliases = ["/workstation/cookstyle/chef_modernize_unnecessarymixlibshelloutrequire/"]
 
+[menu]
+  [menu.workstation]
+    title = "UnnecessaryMixlibShelloutRequire"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/UnnecessaryMixlibShelloutRequire"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

@@ -2,6 +2,11 @@
 title = "Chef/Correctness/NodeNormalUnless"
 aliases = ["/workstation/cookstyle/chef_correctness_nodenormalunless/"]
 
+[menu]
+  [menu.workstation]
+    title = "NodeNormalUnless"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/NodeNormalUnless"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

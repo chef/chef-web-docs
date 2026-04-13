@@ -2,6 +2,11 @@
 title = "Chef/Ruby/UnlessDefinedRequire"
 aliases = ["/workstation/cookstyle/chef_ruby_unlessdefinedrequire/"]
 
+[menu]
+  [menu.workstation]
+    title = "UnlessDefinedRequire"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Ruby/UnlessDefinedRequire"
+    parent = "chef_workstation/cookstyle/cops/Chef/Ruby"
 +++
 
 <!-- vale off -->

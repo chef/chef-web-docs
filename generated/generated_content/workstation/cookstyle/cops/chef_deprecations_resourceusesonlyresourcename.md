@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/ResourceUsesOnlyResourceName"
 aliases = ["/workstation/cookstyle/chef_deprecations_resourceusesonlyresourcename/"]
 
+[menu]
+  [menu.workstation]
+    title = "ResourceUsesOnlyResourceName"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/ResourceUsesOnlyResourceName"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

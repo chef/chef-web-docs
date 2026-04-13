@@ -2,6 +2,11 @@
 title = "Chef/Effortless/CookbookUsesPolicygroups"
 aliases = ["/workstation/cookstyle/chef_effortless_cookbookusespolicygroups/"]
 
+[menu]
+  [menu.workstation]
+    title = "CookbookUsesPolicygroups"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Effortless/CookbookUsesPolicygroups"
+    parent = "chef_workstation/cookstyle/cops/Chef/Effortless"
 +++
 
 <!-- vale off -->

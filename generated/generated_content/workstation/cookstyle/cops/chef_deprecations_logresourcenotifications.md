@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/LogResourceNotifications"
 aliases = ["/workstation/cookstyle/chef_deprecations_logresourcenotifications/"]
 
+[menu]
+  [menu.workstation]
+    title = "LogResourceNotifications"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/LogResourceNotifications"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

@@ -2,6 +2,11 @@
 title = "Chef/Correctness/CookbookUsesNodeSave"
 aliases = ["/workstation/cookstyle/chef_correctness_cookbookusesnodesave/"]
 
+[menu]
+  [menu.workstation]
+    title = "CookbookUsesNodeSave"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/CookbookUsesNodeSave"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

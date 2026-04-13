@@ -2,6 +2,11 @@
 title = "Chef/Sharing/InvalidLicenseString"
 aliases = ["/workstation/cookstyle/chef_sharing_invalidlicensestring/"]
 
+[menu]
+  [menu.workstation]
+    title = "InvalidLicenseString"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Sharing/InvalidLicenseString"
+    parent = "chef_workstation/cookstyle/cops/Chef/Sharing"
 +++
 
 <!-- vale off -->

@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/PowershellCookbookHelpers"
 aliases = ["/workstation/cookstyle/chef_deprecations_powershellcookbookhelpers/"]
 
+[menu]
+  [menu.workstation]
+    title = "PowershellCookbookHelpers"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/PowershellCookbookHelpers"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

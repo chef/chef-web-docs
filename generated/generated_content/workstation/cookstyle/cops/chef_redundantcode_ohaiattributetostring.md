@@ -2,6 +2,11 @@
 title = "Chef/RedundantCode/OhaiAttributeToString"
 aliases = ["/workstation/cookstyle/chef_redundantcode_ohaiattributetostring/"]
 
+[menu]
+  [menu.workstation]
+    title = "OhaiAttributeToString"
+    identifier = "chef_workstation/cookstyle/cops/Chef/RedundantCode/OhaiAttributeToString"
+    parent = "chef_workstation/cookstyle/cops/Chef/RedundantCode"
 +++
 
 <!-- vale off -->

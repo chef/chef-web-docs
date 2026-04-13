@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/LegacyNotifySyntax"
 aliases = ["/workstation/cookstyle/chef_deprecations_legacynotifysyntax/"]
 
+[menu]
+  [menu.workstation]
+    title = "LegacyNotifySyntax"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/LegacyNotifySyntax"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

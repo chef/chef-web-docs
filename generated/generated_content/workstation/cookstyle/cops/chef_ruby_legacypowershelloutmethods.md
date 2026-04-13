@@ -2,6 +2,11 @@
 title = "Chef/Ruby/LegacyPowershellOutMethods"
 aliases = ["/workstation/cookstyle/chef_ruby_legacypowershelloutmethods/"]
 
+[menu]
+  [menu.workstation]
+    title = "LegacyPowershellOutMethods"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Ruby/LegacyPowershellOutMethods"
+    parent = "chef_workstation/cookstyle/cops/Chef/Ruby"
 +++
 
 <!-- vale off -->

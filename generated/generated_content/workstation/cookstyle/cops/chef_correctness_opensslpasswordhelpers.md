@@ -2,6 +2,11 @@
 title = "Chef/Correctness/OpenSSLPasswordHelpers"
 aliases = ["/workstation/cookstyle/chef_correctness_opensslpasswordhelpers/"]
 
+[menu]
+  [menu.workstation]
+    title = "OpenSSLPasswordHelpers"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/OpenSSLPasswordHelpers"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

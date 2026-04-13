@@ -2,6 +2,11 @@
 title = "Chef/Correctness/ResourceSetsInternalProperties"
 aliases = ["/workstation/cookstyle/chef_correctness_resourcesetsinternalproperties/"]
 
+[menu]
+  [menu.workstation]
+    title = "ResourceSetsInternalProperties"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/ResourceSetsInternalProperties"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

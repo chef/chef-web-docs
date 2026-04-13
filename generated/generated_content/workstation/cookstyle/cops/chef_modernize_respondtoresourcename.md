@@ -2,6 +2,11 @@
 title = "Chef/Modernize/RespondToResourceName"
 aliases = ["/workstation/cookstyle/chef_modernize_respondtoresourcename/"]
 
+[menu]
+  [menu.workstation]
+    title = "RespondToResourceName"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/RespondToResourceName"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

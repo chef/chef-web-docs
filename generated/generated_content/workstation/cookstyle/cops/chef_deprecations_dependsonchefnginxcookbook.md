@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/DependsOnChefNginxCookbook"
 aliases = ["/workstation/cookstyle/chef_deprecations_dependsonchefnginxcookbook/"]
 
+[menu]
+  [menu.workstation]
+    title = "DependsOnChefNginxCookbook"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/DependsOnChefNginxCookbook"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

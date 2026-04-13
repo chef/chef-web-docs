@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/ExecutePathProperty"
 aliases = ["/workstation/cookstyle/chef_deprecations_executepathproperty/"]
 
+[menu]
+  [menu.workstation]
+    title = "ExecutePathProperty"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/ExecutePathProperty"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

@@ -2,6 +2,11 @@
 title = "Chef/Modernize/PowershellInstallPackage"
 aliases = ["/workstation/cookstyle/chef_modernize_powershellinstallpackage/"]
 
+[menu]
+  [menu.workstation]
+    title = "PowershellInstallPackage"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/PowershellInstallPackage"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

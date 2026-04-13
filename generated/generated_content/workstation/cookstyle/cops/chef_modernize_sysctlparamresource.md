@@ -2,6 +2,11 @@
 title = "Chef/Modernize/SysctlParamResource"
 aliases = ["/workstation/cookstyle/chef_modernize_sysctlparamresource/"]
 
+[menu]
+  [menu.workstation]
+    title = "SysctlParamResource"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/SysctlParamResource"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

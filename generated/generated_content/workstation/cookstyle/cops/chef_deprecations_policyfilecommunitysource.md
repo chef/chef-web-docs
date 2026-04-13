@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/PolicyfileCommunitySource"
 aliases = ["/workstation/cookstyle/chef_deprecations_policyfilecommunitysource/"]
 
+[menu]
+  [menu.workstation]
+    title = "PolicyfileCommunitySource"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/PolicyfileCommunitySource"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

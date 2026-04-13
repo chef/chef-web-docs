@@ -2,6 +2,11 @@
 title = "Chef/Modernize/SetOrReturnInResources"
 aliases = ["/workstation/cookstyle/chef_modernize_setorreturninresources/"]
 
+[menu]
+  [menu.workstation]
+    title = "SetOrReturnInResources"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/SetOrReturnInResources"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

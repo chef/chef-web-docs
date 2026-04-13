@@ -2,6 +2,11 @@
 title = "Chef/Modernize/IfProvidesDefaultAction"
 aliases = ["/workstation/cookstyle/chef_modernize_ifprovidesdefaultaction/"]
 
+[menu]
+  [menu.workstation]
+    title = "IfProvidesDefaultAction"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/IfProvidesDefaultAction"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

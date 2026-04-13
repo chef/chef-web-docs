@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/NodeMethodsInsteadofAttributes"
 aliases = ["/workstation/cookstyle/chef_deprecations_nodemethodsinsteadofattributes/"]
 
+[menu]
+  [menu.workstation]
+    title = "NodeMethodsInsteadofAttributes"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/NodeMethodsInsteadofAttributes"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/LocaleDeprecatedLcAllProperty"
 aliases = ["/workstation/cookstyle/chef_deprecations_localedeprecatedlcallproperty/"]
 
+[menu]
+  [menu.workstation]
+    title = "LocaleDeprecatedLcAllProperty"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/LocaleDeprecatedLcAllProperty"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

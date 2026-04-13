@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/MacosUserdefaultsGlobalProperty"
 aliases = ["/workstation/cookstyle/chef_deprecations_macosuserdefaultsglobalproperty/"]
 
+[menu]
+  [menu.workstation]
+    title = "MacosUserdefaultsGlobalProperty"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/MacosUserdefaultsGlobalProperty"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

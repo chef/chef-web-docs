@@ -2,6 +2,11 @@
 title = "Chef/Correctness/PropertyWithoutType"
 aliases = ["/workstation/cookstyle/chef_correctness_propertywithouttype/"]
 
+[menu]
+  [menu.workstation]
+    title = "PropertyWithoutType"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/PropertyWithoutType"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

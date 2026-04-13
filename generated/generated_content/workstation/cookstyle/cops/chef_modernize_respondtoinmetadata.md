@@ -2,6 +2,11 @@
 title = "Chef/Modernize/RespondToInMetadata"
 aliases = ["/workstation/cookstyle/chef_modernize_respondtoinmetadata/"]
 
+[menu]
+  [menu.workstation]
+    title = "RespondToInMetadata"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/RespondToInMetadata"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

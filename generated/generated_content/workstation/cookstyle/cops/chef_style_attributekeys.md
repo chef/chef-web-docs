@@ -2,6 +2,11 @@
 title = "Chef/Style/AttributeKeys"
 aliases = ["/workstation/cookstyle/chef_style_attributekeys/"]
 
+[menu]
+  [menu.workstation]
+    title = "AttributeKeys"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Style/AttributeKeys"
+    parent = "chef_workstation/cookstyle/cops/Chef/Style"
 +++
 
 <!-- vale off -->

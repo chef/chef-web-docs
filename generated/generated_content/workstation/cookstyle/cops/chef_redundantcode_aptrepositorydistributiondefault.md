@@ -2,6 +2,11 @@
 title = "Chef/RedundantCode/AptRepositoryDistributionDefault"
 aliases = ["/workstation/cookstyle/chef_redundantcode_aptrepositorydistributiondefault/"]
 
+[menu]
+  [menu.workstation]
+    title = "AptRepositoryDistributionDefault"
+    identifier = "chef_workstation/cookstyle/cops/Chef/RedundantCode/AptRepositoryDistributionDefault"
+    parent = "chef_workstation/cookstyle/cops/Chef/RedundantCode"
 +++
 
 <!-- vale off -->

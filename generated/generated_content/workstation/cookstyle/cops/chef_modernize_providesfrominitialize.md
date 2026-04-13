@@ -2,6 +2,11 @@
 title = "Chef/Modernize/ProvidesFromInitialize"
 aliases = ["/workstation/cookstyle/chef_modernize_providesfrominitialize/"]
 
+[menu]
+  [menu.workstation]
+    title = "ProvidesFromInitialize"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/ProvidesFromInitialize"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

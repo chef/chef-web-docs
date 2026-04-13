@@ -2,6 +2,11 @@
 title = "Chef/Modernize/UnnecessaryDependsChef14"
 aliases = ["/workstation/cookstyle/chef_modernize_unnecessarydependschef14/"]
 
+[menu]
+  [menu.workstation]
+    title = "UnnecessaryDependsChef14"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/UnnecessaryDependsChef14"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

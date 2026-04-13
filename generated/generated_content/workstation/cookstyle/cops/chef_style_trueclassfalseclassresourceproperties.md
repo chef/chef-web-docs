@@ -2,6 +2,11 @@
 title = "Chef/Style/TrueClassFalseClassResourceProperties"
 aliases = ["/workstation/cookstyle/chef_style_trueclassfalseclassresourceproperties/"]
 
+[menu]
+  [menu.workstation]
+    title = "TrueClassFalseClassResourceProperties"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Style/TrueClassFalseClassResourceProperties"
+    parent = "chef_workstation/cookstyle/cops/Chef/Style"
 +++
 
 <!-- vale off -->

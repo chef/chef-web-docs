@@ -2,6 +2,11 @@
 title = "Chef/Correctness/NotifiesActionNotSymbol"
 aliases = ["/workstation/cookstyle/chef_correctness_notifiesactionnotsymbol/"]
 
+[menu]
+  [menu.workstation]
+    title = "NotifiesActionNotSymbol"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/NotifiesActionNotSymbol"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

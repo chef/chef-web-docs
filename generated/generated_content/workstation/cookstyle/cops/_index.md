@@ -3,9 +3,9 @@ title = "Cookstyle Cops List"
 
 [menu]
   [menu.workstation]
-    title = "All Cookstyle Cops"
-    identifier = "chef_workstation/chef_workstation_tools/cookstyle/All Cookstyle Cops"
-    parent = "chef_workstation/chef_workstation_tools/cookstyle"
+    title = "Cookstyle cops list"
+    identifier = "chef_workstation/cookstyle/All Cookstyle Cops"
+    parent = "chef_workstation/cookstyle"
     weight = 20
 +++
 

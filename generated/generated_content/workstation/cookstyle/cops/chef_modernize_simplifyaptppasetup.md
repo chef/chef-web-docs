@@ -2,6 +2,11 @@
 title = "Chef/Modernize/SimplifyAptPpaSetup"
 aliases = ["/workstation/cookstyle/chef_modernize_simplifyaptppasetup/"]
 
+[menu]
+  [menu.workstation]
+    title = "SimplifyAptPpaSetup"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/SimplifyAptPpaSetup"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

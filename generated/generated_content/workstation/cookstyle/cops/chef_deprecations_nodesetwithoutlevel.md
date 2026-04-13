@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/NodeSetWithoutLevel"
 aliases = ["/workstation/cookstyle/chef_deprecations_nodesetwithoutlevel/"]
 
+[menu]
+  [menu.workstation]
+    title = "NodeSetWithoutLevel"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/NodeSetWithoutLevel"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

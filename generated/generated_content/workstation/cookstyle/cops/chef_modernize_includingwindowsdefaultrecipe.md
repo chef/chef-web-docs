@@ -2,6 +2,11 @@
 title = "Chef/Modernize/IncludingWindowsDefaultRecipe"
 aliases = ["/workstation/cookstyle/chef_modernize_includingwindowsdefaultrecipe/"]
 
+[menu]
+  [menu.workstation]
+    title = "IncludingWindowsDefaultRecipe"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/IncludingWindowsDefaultRecipe"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

@@ -2,6 +2,11 @@
 title = "Chef/Modernize/NodeRolesInclude"
 aliases = ["/workstation/cookstyle/chef_modernize_noderolesinclude/"]
 
+[menu]
+  [menu.workstation]
+    title = "NodeRolesInclude"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/NodeRolesInclude"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

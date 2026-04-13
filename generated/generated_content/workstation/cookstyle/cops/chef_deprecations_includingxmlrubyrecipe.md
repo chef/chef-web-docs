@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/IncludingXMLRubyRecipe"
 aliases = ["/workstation/cookstyle/chef_deprecations_includingxmlrubyrecipe/"]
 
+[menu]
+  [menu.workstation]
+    title = "IncludingXMLRubyRecipe"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/IncludingXMLRubyRecipe"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->
