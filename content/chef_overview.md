@@ -110,59 +110,53 @@ The workstation is where users do most of their work, including:
 - Configuring organizational policy by including defining roles and applying Policyfiles or policy groups
 - Interacting with nodes, as (or when) required, such as performing a bootstrap operation
 
-### Chef Workstation Components and Tools
+### Chef Workstation compontents and tools
 
 Some important tools and components of Chef Workstation include:
 
-<table>
-<colgroup>
-<col style="width: 19%" />
-<col style="width: 80%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Component</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><p><img src="/images/icon_workstation.svg" class="align-center" width="130" alt="" /></p></td>
-<td>{{< readfile file="content/workstation/reusable/md/chef_workstation.md" >}}</td>
-</tr>
-<tr>
-<td><p><img src="/images/icon_ctl_chef.svg" class="align-center" width="130" alt="" /></p>
-<p><img src="/images/icon_ctl_knife.svg" class="align-center" width="130" alt="" /></p></td>
-<td><p>Chef Workstation includes important command-line tools:</p>
-<ul>
-<li>Chef Infra: Use the chef command-line tool to work with items in a chef-repo, which is the primary location in which cookbooks are authored, tested, and maintained, and from which policy is uploaded to the Chef Infra Server</li>
-<li>Knife: Use the knife command-line tool to interact with nodes or work with objects on the Chef Infra Server</li>
-<li>Chef Infra Client: an agent that configures your nodes</li>
-<li>Test Kitchen: a testing harness for rapid validation of Chef code</li>
-<li>Chef InSpec: Chef's open source security &amp; compliance automation framework</li>
-<li>chef-run: a tool for running ad-hoc tasks</li>
-<li>Chef Workstation App: for updating and managing your chef tools</li>
-</ul></td>
-</tr>
-<tr>
-<td><p><img src="/images/icon_repository.svg" class="align-center" width="130" alt="" /></p></td>
-<td><p>The chef-repo is the repository structure in which cookbooks are authored, tested, and maintained:</p>
-<ul>
-<li>Cookbooks contain recipes, attributes, custom resources, libraries, files, templates, tests, and metadata</li>
-<li>The chef-repo should be synchronized with a version control system (such as git), and then managed as if it were source code</li>
-</ul>
-<p>The directory structure within the chef-repo varies. Some organizations prefer to keep all of their cookbooks in a single chef-repo, while other organizations prefer to use a chef-repo for every cookbook.</p></td>
-</tr>
-<tr>
-<td><p><img src="/images/icon_kitchen.svg" class="align-center" width="130" alt="" /></p></td>
-<td>{{< readfile file="content/workstation/reusable/md/test_kitchen.md" >}}</td>
-</tr>
-<tr>
-<td><p><img src="/images/icon_chefspec.svg" class="align-center" width="130" alt="" /></p></td>
-<td>{{< readfile file="content/reusable/md/chefspec_summary.md" >}}</td>
-</tr>
-</tbody>
-</table>
+#### Chef Workstation
+
+Start your infrastructure automation with [Chef Workstation](/workstation/). Chef Workstation gives you everything you need to get started with Chef - ad hoc remote execution, remote scanning, configuration tasks, cookbook creation tools as well as robust dependency and testing software - all in one easy-to-install package.
+
+Chef Workstation includes:
+
+- Chef Infra Client
+- Chef InSpec
+- Chef Habitat
+- chef and knife command line tools
+- Testing tools such as Test Kitchen and Cookstyle
+- Everything else needed to author cookbooks and upload them to the Chef Infra Server
+
+#### Command-line tools
+
+Chef Workstation includes important command-line tools:
+
+- Chef Infra: Use the chef command-line tool to work with items in a chef-repo, which is the primary location in which cookbooks are authored, tested, and maintained, and from which policy is uploaded to the Chef Infra Server
+- Knife: Use the knife command-line tool to interact with nodes or work with objects on the Chef Infra Server
+- Chef Infra Client: an agent that configures your nodes
+- Test Kitchen: a testing harness for rapid validation of Chef code
+- Chef InSpec: Chef's open source security and compliance automation framework
+
+#### Chef repository
+
+The chef-repo is the repository structure in which cookbooks are authored, tested, and maintained:
+
+- Cookbooks contain recipes, attributes, custom resources, libraries, files, templates, tests, and metadata
+- The chef-repo should be synchronized with a version control system (such as git), and then managed as if it were source code
+
+The directory structure within the chef-repo varies. Some organizations prefer to keep all of their cookbooks in a single chef-repo, while other organizations prefer to use a chef-repo for every cookbook.
+
+#### Test Kitchen
+
+Use [Test Kitchen Enterprise](/workstation/latest/tools/kitchen) to automatically test cookbooks across any combination of platforms and test suites:
+
+- Test suites are defined in a kitchen.yml file. See the [configuration](/workstation/latest/tools/kitchen/config_yml_kitchen/) documentation for options and syntax information.
+- Supports cookbook testing across many cloud providers and virtualization technologies.
+- Uses a comprehensive set of operating system base images from Chef's [Bento](https://github.com/chef/bento) project.
+
+#### ChefSpec
+
+{{< readfile file="content/reusable/md/chefspec_summary.md" >}}
 
 ## Cookbooks
 

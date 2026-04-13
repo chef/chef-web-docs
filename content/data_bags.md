@@ -298,9 +298,38 @@ management console.
 
 ### Edit a data bag with knife
 
-{{< readfile file="content/workstation/reusable/md/knife_data_bag_edit.md" >}}
+Use the `edit` argument to edit the data contained in a data bag. If
+encryption is being used, the data bag will be decrypted, the data will
+be made available in the \$EDITOR, and then encrypted again before
+saving it to the Chef Infra Server.
 
-{{< readfile file="content/workstation/reusable/md/knife_data_bag_edit_item.md" >}}
+To edit an item named "charlie" that is contained in a data bag named
+"admins", enter:
+
+```bash
+knife data bag edit admins charlie
+```
+
+to open the \$EDITOR. Once opened, you can update the data before saving
+it to the Chef Infra Server. For example, by changing:
+
+```javascript
+{
+   "id": "charlie"
+}
+```
+
+to:
+
+```javascript
+{
+   "id": "charlie",
+   "uid": 1005,
+   "gid": "ops",
+   "shell": "/bin/zsh",
+   "comment": "Crazy Charlie"
+}
+```
 
 ## Use data bags
 

@@ -30,25 +30,107 @@ Infra Server.
 
 ### Quotes, Windows
 
-{{< readfile file="content/workstation/reusable/md/knife_common_windows_quotes.md" >}}
+When running knife in Windows, a string may be interpreted as
+a wildcard pattern when quotes are not present in the command. The
+number of quotes to use depends on the shell from which the command is
+being run.
+
+When running knife from the command prompt, a string should be
+surrounded by single quotes (`' '`). For example:
+
+```bash
+knife node run_list set test-node 'recipe[iptables]'
+```
+
+When running knife from Windows PowerShell, a string should be
+surrounded by triple single quotes (`''' '''`). For example:
+
+```bash
+knife node run_list set test-node '''recipe[iptables]'''
+```
 
 #### Import-Module chef
 
-{{< readfile file="content/workstation/reusable/md/knife_common_windows_quotes_module.md" >}}
+The Chef Infra Client 12.4 release adds an optional feature to the Microsoft
+Installer Package (MSI) for Chef. This feature enables the ability to
+pass quoted strings from the Windows PowerShell command line without the
+need for triple single quotes (`''' '''`). This feature installs a
+Windows PowerShell module (typically in `C:\opscode\chef\modules`) that
+is also appended to the `PSModulePath` environment variable. This
+feature is not enabled by default. To activate this feature, run the
+following command from within Windows PowerShell:
+
+```bash
+Import-Module chef
+```
+
+or add `Import-Module chef` to the profile for Windows PowerShell
+located at:
+
+```bash
+~\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+```
+
+This module exports cmdlets that have the same name as the command-line
+tools---chef-client, knife---that are built into Chef.
+
+For example:
+
+```bash
+knife exec -E 'puts ARGV' """&s0meth1ng"""
+```
+
+is now:
+
+```bash
+knife exec -E 'puts ARGV' '&s0meth1ng'
+```
+
+and:
+
+```bash
+knife node run_list set test-node '''role[ssssssomething]'''
+```
+
+is now:
+
+```bash
+knife node run_list set test-node 'role[ssssssomething]'
+```
+
+To remove this feature, run the following command from within Windows
+PowerShell:
+
+```bash
+Remove-Module chef
+```
 
 ### run_list add
 
-{{< readfile file="content/workstation/reusable/md/knife_node_run_list_add.md" >}}
+Use the `run_list add` argument to add run-list items (roles or recipes)
+to a node.
 
 {{< readfile file="content/reusable/md/node_run_list_format.md" >}}
 
 #### Syntax
 
-{{< readfile file="content/workstation/reusable/md/knife_node_run_list_add_syntax.md" >}}
+This argument has the following syntax:
+
+```bash
+knife node run_list add NODE_NAME RUN_LIST_ITEM (options)
+```
 
 #### Options
 
-{{< readfile file="content/workstation/reusable/md/knife_node_run_list_add_options.md" >}}
+This argument has the following options:
+
+`-a ITEM`, `--after ITEM`
+
+:   Add a run-list item after the specified run-list item.
+
+`-b ITEM`, `--before ITEM`
+
+:   Add a run-list item before the specified run-list item.
 
 {{< note >}}
 
@@ -62,31 +144,61 @@ The following examples show how to use this knife subcommand:
 
 ##### Add a role
 
-{{< readfile file="content/workstation/reusable/md/knife_node_run_list_add_role.md" >}}
+To add a role to a run-list, enter:
+
+```bash
+knife node run_list add NODE_NAME 'role[ROLE_NAME]'
+```
 
 ##### Add roles and recipes
 
-{{< readfile file="content/workstation/reusable/md/knife_node_run_list_add_roles_and_recipes.md" >}}
+To add roles and recipes to a run-list, enter:
+
+```bash
+knife node run_list add NODE_NAME 'recipe[COOKBOOK::RECIPE_NAME],recipe[COOKBOOK::RECIPE_NAME],role[ROLE_NAME]'
+```
 
 ##### Add a recipe with a FQDN
 
-{{< readfile file="content/workstation/reusable/md/knife_node_run_list_add_recipe_with_fqdn.md" >}}
+To add a recipe to a run-list using the fully qualified format, enter:
+
+```bash
+knife node run_list add NODE_NAME 'recipe[COOKBOOK::RECIPE_NAME]'
+```
 
 ##### Add a recipe with a cookbook
 
-{{< readfile file="content/workstation/reusable/md/knife_node_run_list_add_recipe_with_cookbook.md" >}}
+To add a recipe to a run-list using the cookbook format, enter:
+
+```bash
+knife node run_list add NODE_NAME 'COOKBOOK::RECIPE_NAME'
+```
 
 ##### Add the default recipe
 
-{{< readfile file="content/workstation/reusable/md/knife_node_run_list_add_default_recipe.md" >}}
+To add the default recipe of a cookbook to a run-list, enter:
+
+```bash
+knife node run_list add NODE_NAME 'COOKBOOK'
+```
 
 ### run_list remove
 
-{{< readfile file="content/workstation/reusable/md/knife_node_run_list_remove.md" >}}
+Use the `run_list remove` argument to remove run-list items (roles or
+recipes) from a node. A recipe must be in one of the following formats:
+fully qualified, cookbook, or default. Both roles and recipes must be in
+quotes, for example: `'role[ROLE_NAME]'` or
+`'recipe[COOKBOOK::RECIPE_NAME]'`. Use a comma to separate roles and
+recipes when removing more than one, like this:
+`'recipe[COOKBOOK::RECIPE_NAME],COOKBOOK::RECIPE_NAME,role[ROLE_NAME]'`.
 
 #### Syntax
 
-{{< readfile file="content/workstation/reusable/md/knife_node_run_list_remove_syntax.md" >}}
+This argument has the following syntax:
+
+```bash
+knife node run_list remove NODE_NAME RUN_LIST_ITEM
+```
 
 #### Options
 
@@ -104,19 +216,37 @@ The following examples show how to use this knife subcommand:
 
 ##### Remove a role
 
-{{< readfile file="content/workstation/reusable/md/knife_node_run_list_remove_role.md" >}}
+To remove a role from a run-list, enter:
+
+```bash
+knife node run_list remove NODE_NAME 'role[ROLE_NAME]'
+```
 
 ##### Remove a run-list
 
-{{< readfile file="content/workstation/reusable/md/knife_node_run_list_remove_run_list.md" >}}
+To remove a recipe from a run-list using the fully qualified format,
+enter:
+
+```bash
+knife node run_list remove NODE_NAME 'recipe[COOKBOOK::RECIPE_NAME]'
+```
 
 ### run_list set
 
-{{< readfile file="content/workstation/reusable/md/knife_node_run_list_set.md" >}}
+Use the `run_list set` argument to set the run-list for a node. A recipe
+must be in one of the following formats: fully qualified, cookbook, or
+default. Both roles and recipes must be in quotes, for example:
+`"role[ROLE_NAME]"` or `"recipe[COOKBOOK::RECIPE_NAME]"`. Use a comma to
+separate roles and recipes when setting more than one, like this:
+`"recipe[COOKBOOK::RECIPE_NAME],COOKBOOK::RECIPE_NAME,role[ROLE_NAME]"`.
 
 #### Syntax
 
-{{< readfile file="content/workstation/reusable/md/knife_node_run_list_set_syntax.md" >}}
+This argument has the following syntax:
+
+```bash
+knife node run_list set NODE_NAME RUN_LIST_ITEM
+```
 
 #### Options
 
@@ -133,11 +263,41 @@ verify the status of run-lists.
 
 #### View status, include run-lists
 
-{{< readfile file="content/workstation/reusable/md/knife_status_include_run_lists.md" >}}
+To include run-lists in the status, enter:
+
+```bash
+knife status --run-list
+```
+
+to return something like:
+
+```bash
+20 hours ago, dev-vm.chisamore.com, ubuntu 10.04, dev-vm.chisamore.com, 10.66.44.126, role[lb].
+3 hours ago, i-225f954f, ubuntu 10.04, ec2-67-202-63-102.compute-1.amazonaws.com, 67.202.63.102, role[web].
+3 hours ago, i-a45298c9, ubuntu 10.04, ec2-174-129-127-206.compute-1.amazonaws.com, 174.129.127.206, role[web].
+3 hours ago, i-5272a43f, ubuntu 10.04, ec2-184-73-9-250.compute-1.amazonaws.com, 184.73.9.250, role[web].
+3 hours ago, i-226ca64f, ubuntu 10.04, ec2-75-101-240-230.compute-1.amazonaws.com, 75.101.240.230, role[web].
+3 hours ago, i-f65c969b, ubuntu 10.04, ec2-184-73-60-141.compute-1.amazonaws.com, 184.73.60.141, role[web].
+```
 
 #### View status using a query
 
-{{< readfile file="content/workstation/reusable/md/knife_status_returned_by_query.md" >}}
+To show the status of a subset of nodes that are returned by a specific
+query, enter:
+
+```bash
+knife status "role:web" --run-list
+```
+
+to return something like:
+
+```bash
+3 hours ago, i-225f954f, ubuntu 10.04, ec2-67-202-63-102.compute-1.amazonaws.com, 67.202.63.102, role[web].
+3 hours ago, i-a45298c9, ubuntu 10.04, ec2-174-129-127-206.compute-1.amazonaws.com, 174.129.127.206, role[web].
+3 hours ago, i-5272a43f, ubuntu 10.04, ec2-184-73-9-250.compute-1.amazonaws.com, 184.73.9.250, role[web].
+3 hours ago, i-226ca64f, ubuntu 10.04, ec2-75-101-240-230.compute-1.amazonaws.com, 75.101.240.230, role[web].
+3 hours ago, i-f65c969b, ubuntu 10.04, ec2-184-73-60-141.compute-1.amazonaws.com, 184.73.60.141, role[web].
+```
 
 ## Run-lists, Applied
 

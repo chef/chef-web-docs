@@ -182,7 +182,14 @@ See our policy on [support for derived platforms](#support-for-derived-platforms
 
 The following table lists the commercially supported platforms and versions for the Chef Workstation.
 
-{{< readfile file = "content/workstation/reusable/md/workstation_supported_platforms.md" >}}
+| Platform                          | Architecture                | Version                                                                    |
+|-----------------------------------| ----------------------------| ---------------------------------------------------------------------------|
+| Amazon Linux                      | x86_64, arch64 (2023 only)  | 2.x, 2023                                                                  |
+| macOS                             | aarch64                     | 13.x, 14.x                                                                 |
+| Debian                            | x86_64                      | 10.x, 11.x                                                                 |
+| Red Hat Enterprise Linux / CentOS | x86_64                      | 7.x, 8.x, 9.x                                                              |
+| Ubuntu                            | x86_64                      | 18.04, 20.04, 22.04                                                        |
+| Windows                           | x64                         | 10, 11, Server 2016, Server 2019, Server 2022                              |
 
 #### Derived platforms
 
@@ -190,7 +197,10 @@ The following table lists supported derived platforms and versions for Chef Work
 
 See our policy on [support for derived platforms](#support-for-derived-platforms) for more information.
 
-{{< readfile file = "content/workstation/reusable/md/workstation_supported_derived_platforms.md" >}}
+| Platform | Architecture | Version | Parent platform |
+| --- | --- | --- | --- |
+| AlmaLinux | `x86_64` | `8.x` | CentOS |
+| Rocky Linux | `x86_64` | `8.x` | CentOS |
 
 ## Platform end-of-life policy
 
