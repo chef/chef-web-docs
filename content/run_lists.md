@@ -57,7 +57,7 @@ pass quoted strings from the Windows PowerShell command line without the
 need for triple single quotes (`''' '''`). This feature installs a
 Windows PowerShell module (typically in `C:\opscode\chef\modules`) that
 is also appended to the `PSModulePath` environment variable. This
-feature is not enabled by default. To activate this feature, run the
+feature isn't enabled by default. To activate this feature, run the
 following command from within Windows PowerShell:
 
 ```bash

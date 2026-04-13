@@ -110,7 +110,7 @@ The workstation is where users do most of their work, including:
 - Configuring organizational policy by including defining roles and applying Policyfiles or policy groups
 - Interacting with nodes, as (or when) required, such as performing a bootstrap operation
 
-### Chef Workstation compontents and tools
+### Chef Workstation components and tools
 
 Some important tools and components of Chef Workstation include:
 

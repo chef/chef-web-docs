@@ -18,7 +18,7 @@ where `file.json` is similar to:
 }
 ```
 
-and where `_default` is the name of the environment that is assigned to
+and where `_default` is the name of the environment that's assigned to
 the node.
 
 {{< warning >}}

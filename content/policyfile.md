@@ -19,13 +19,13 @@ product = ["client", "server"]
 
 Policyfiles make it easier to test and promote code safely with a simpler interface. Using a Policyfile improves the user experience and resolves real-world problems that some workflows built around Chef Infra must deal with. The following sections discuss in more detail some of the good reasons to use Policyfile, including:
 
-* Focus the workflow on the entire system
-* Safer development workflows
-* Less expensive computation
-* Code visibility
-* Role mutability
-* Cookbook mutability
-* Replaces Berkshelf and the environment cookbook pattern
+- Focus the workflow on the entire system
+- Safer development workflows
+- Less expensive computation
+- Code visibility
+- Role mutability
+- Cookbook mutability
+- Replaces Berkshelf and the environment cookbook pattern
 
 ### Focused System Workflows
 
@@ -41,11 +41,11 @@ Policyfile encourages safer workflows by making it easier to publish development
 
 When running Chef Infra without a Policyfile, the exact set of cookbooks that are applied to a node is defined by:
 
-* The node's `run_list` property
-* Any roles that are present in the node's run-list or recursively included by those roles
-* The environment, which may restrict the set of valid cookbook versions for a node based on a variety of constraint operators
-* Dependencies, as defined by each cookbook's metadata
-* Dependency resolution picks the "best" set of cookbooks that meet dependency and environment criteria
+- The node's `run_list` property
+- Any roles that are present in the node's run-list or recursively included by those roles
+- The environment, which may restrict the set of valid cookbook versions for a node based on a variety of constraint operators
+- Dependencies, as defined by each cookbook's metadata
+- Dependency resolution picks the "best" set of cookbooks that meet dependency and environment criteria
 
 These conditions are re-evaluated every time Chef Infra Client runs, which can make it harder to know which cookbooks will be run by Chef Infra Client or what the effects of updating a role or uploading a new cookbook will be.
 
@@ -73,10 +73,10 @@ For example, name/version collisions can occur when users temporarily fork an up
 
 The opaque identifier that's computed from the content of a cookbook is the only place where an opaque identifier is necessary. When working with Policyfile, be sure to:
 
-* Use the same names and version constraints as normal in the `Policyfile.rb` file
-* Use the same references to cookbooks pulled from Chef Supermarket
-* Use the same branch, tag, and revision patterns for cookbooks pulled from git
-* Use the same paths for cookbooks pulled from disk
+- Use the same names and version constraints as normal in the `Policyfile.rb` file
+- Use the same references to cookbooks pulled from Chef Supermarket
+- Use the same branch, tag, and revision patterns for cookbooks pulled from git
+- Use the same paths for cookbooks pulled from disk
 
 Extra metadata about the cookbook is stored and included in Chef Infra Server API responses and in the `Policyfile.lock.json` file, including the source of a cookbook (Chef Supermarket, git, local disk, etc.), as well as any upstream identifiers, such as git revisions. For cookbooks that are loaded from the local disk that are in a git repo, the upstream URL, current revision ID, and the state of the repo are stored also.
 
@@ -202,13 +202,13 @@ As `chef_zero` explicitly tests outside the context of a Chef Infra Server, the 
 ### chef clean-policy-cookbooks
 
 Use the `chef clean-policy-cookbooks` subcommand to delete cookbooks
-that are not used by Policyfile files. Cookbooks are considered unused
-when they are not referenced by any policy revisions on the Chef Infra
+that aren't used by Policyfile files. Cookbooks are considered unused
+when they aren't referenced by any policy revisions on the Chef Infra
 Server.
 
 {{< note >}}
 
-Cookbooks that are referenced by orphaned policy revisions are not
+Cookbooks that are referenced by orphaned policy revisions aren't
 removed. Use `chef clean-policy-revisions` to remove orphaned policies.
 
 {{< /note >}}
@@ -245,8 +245,8 @@ This subcommand has the following options:
 
 Use the `chef clean-policy-revisions` subcommand to delete orphaned
 policy revisions to Policyfile files from the Chef Infra Server. An
-orphaned policy revision is not associated to any policy group and
-therefore is not in active use by any node. Use
+orphaned policy revision isn't associated to any policy group and
+therefore isn't in active use by any node. Use
 `chef show-policy --orphans` to view a list of orphaned policy
 revisions.
 
@@ -317,7 +317,7 @@ This subcommand has the following options:
 
 Use the `chef delete-policy-group` subcommand to delete the named policy
 group from the Chef Infra Server. Any policy revision associated with
-that policy group is not deleted. (The state of the policy group is
+that policy group isn't deleted. (The state of the policy group is
 backed up locally and may be restored using the `chef undelete`
 subcommand.)
 
@@ -476,7 +476,7 @@ This subcommand has the following options:
 `-f`, `--force`
 
 :   Remove the contents of the destination directory if that directory
-    is not empty. Default value: `false`.
+    isn't empty. Default value: `false`.
 
 `-h`, `--help`
 
@@ -541,7 +541,7 @@ This subcommand has the following options:
 
 `-p`, `--policy-only`
 
-:   Create a repository that does not store cookbook files, only
+:   Create a repository that Doesn't store cookbook files, only
     Policyfile files.
 
 `-P`, `--policy`
@@ -672,7 +672,7 @@ This subcommand has the following options:
 ### chef show-policy
 
 Use the `chef show-policy` subcommand to display revisions for every
-`Policyfile.rb` file that is on the Chef Infra Server. By default, only
+`Policyfile.rb` file that's on the Chef Infra Server. By default, only
 active policy revisions are shown. When both a policy and policy group
 are specified, the contents of the active `Policyfile.lock.json` file
 for the policy group is returned.
@@ -703,7 +703,7 @@ This subcommand has the following options:
 
 `-o`, `--orphans`
 
-:   Show policy revisions that are not currently assigned to any policy
+:   Show policy revisions that aren't currently assigned to any policy
     group.
 
 `--[no-]pager`
@@ -720,12 +720,12 @@ This subcommand has the following options:
 Use the `chef undelete` subcommand to recover a deleted policy or policy
 group. This command:
 
-- Does not detect conflicts. If a deleted item has been recreated,
+- Doesn't detect conflicts. If a deleted item has been recreated,
     running this command will overwrite it
-- Does not include cookbooks that may be referenced by Policyfiles;
+- Doesn't include cookbooks that may be referenced by Policyfiles;
     cookbooks that are cleaned after running this command may not be
     fully restorable to their previous state
-- Does not store access control data
+- Doesn't store access control data
 
 #### Syntax
 
