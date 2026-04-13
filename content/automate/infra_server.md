@@ -70,7 +70,7 @@ Install Chef Automate and Chef Infra Server on the same host with this command:
 sudo chef-automate deploy --product automate --product infra-server
 ```
 
-Then, [set up knife]({{< relref "workstation/knife_setup.md" >}}) for use with Chef Infra Server.
+Then, [set up knife](/workstation/latest/tools/knife/set_up/) for use with Chef Infra Server.
 
 ### Configuration File Install of Chef Automate and Infra Server
 
@@ -98,7 +98,7 @@ Installations require elevated privileges, so run the commands as the superuser 
       sudo chef-automate deploy config.toml
     ```
 
-1. [Set up knife]({{< relref "workstation/knife_setup.md" >}}) for use with Chef Infra Server.
+1. [Set up knife](/workstation/latest/tools/knife/set_up/) for use with Chef Infra Server.
 
 ## Install A Standalone Chef Infra Server
 
@@ -131,7 +131,7 @@ Installations require elevated privileges, so run the commands as the superuser 
        sudo chef-automate deploy --product infra-server <configuration_file>
     ```
 
-1. [Set up knife]({{< relref "workstation/knife_setup.md" >}}) for use with Chef Infra Server.
+1. [Set up knife](/workstation/latest/tools/knife/set_up/) for use with Chef Infra Server.
 
 1. To send data from the Chef Infra Server to an external Chef Automate installation, first create a `patch.toml` file that contains the configuration stanza:
 
@@ -184,7 +184,7 @@ Installations require elevated privileges, so run the commands as the superuser 
       sudo chef-automate deploy config.toml
     ```
 
-1. [Set up knife]({{< relref "workstation/knife_setup.md" >}}) for use with Chef Infra Server.
+1. [Set up knife](/workstation/latest/tools/knife/set_up/) for use with Chef Infra Server.
 
 1. To send data from the Chef Infra Server to an external Chef Automate installation, first create a `patch.toml` file that contains the configuration stanza:
 
@@ -244,17 +244,17 @@ Patch an existing Chef Automate installation to add Chef Infra Server:
 
 ## Set Up the Chef Infra Server
 
-The [`knife` command-line utility]({{< relref "workstation/knife.md" >}}) provides an interface to interact with a Chef Infra Server from a workstation.
+The [`knife` command-line utility](/workstation/latest/tools/knife) provides an interface to interact with a Chef Infra Server from a workstation.
 
 On the Chef Infra Server host:
 
-1. Apply License:  
-   Chef Automate offers two license tiers that have different entitlements:  
-   **Trial:** A trial license is for users or organizations interested in exploring the product before buying. Generate the license from <https://www.chef.io/license-generation-free-trial>  
+1. Apply License:
+   Chef Automate offers two license tiers that have different entitlements:
+   **Trial:** A trial license is for users or organizations interested in exploring the product before buying. Generate the license from <https://www.chef.io/license-generation-free-trial>
    **Commercial:** A commercial license is for customers who have purchased and are entitled to use it according to the license terms.
 
-   If you don't have the license, you can use the trial license to explore the product or contact the Chef Account Team to get a commercial license.  
-   Please follow the instructions in the [Chef Automate License]({{< relref "chef_automate_license.md" >}}) documentation to apply for the license.  
+   If you don't have the license, you can use the trial license to explore the product or contact the Chef Account Team to get a commercial license.
+   Please follow the instructions in the [Chef Automate License]({{< relref "chef_automate_license.md" >}}) documentation to apply for the license.
 
 2. Run the following command to create a user:
 
@@ -284,7 +284,7 @@ On the Chef Infra Server host:
 
 On the workstation:
 
-1. Install [Chef Workstation]({{< relref "workstation/install_workstation.md" >}}).
+1. Install [Chef Workstation](/workstation/latest/install/).
 
 1. Create a Chef repository by using the `chef generate repo` subcommand.
      For example, create a Chef repository named `chef-repo` by running:
@@ -320,4 +320,4 @@ On the workstation:
 
 1. Run `knife ssl fetch` to get the SSL certificates from Chef Infra Server and make them available to `knife`.
 
-For more information on how to set up the workstation, see [the Chef Workstation documentation]({{< relref "workstation/getting_started.md" >}}).
+For more information on how to set up the workstation, see [the Chef Workstation documentation](/workstation/latest/install/).

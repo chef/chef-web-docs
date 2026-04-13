@@ -90,31 +90,6 @@ workspace = ''
   target = "layouts"
 
 ###
-# Chef Workstation
-###
-
-[[imports]]
-  disable = false
-  ignoreConfig = false
-  path = "github.com/chef/chef-workstation/docs-chef-io"
-
-[[imports.mounts]]
-  source = "content"
-  target = "content"
-
-[[imports.mounts]]
-  source = "layouts"
-  target = "layouts"
-
-[[imports.mounts]]
-  source = "static"
-  target = "assets"
-
-[[imports.mounts]]
-  source = "data"
-  target = "data"
-
-###
 # Chef Supermarket
 ###
 
