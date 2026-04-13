@@ -39,5 +39,5 @@ The following documentation pages provide for guidance on downloading and instal
 - [Chef Infra Client](/install_bootstrap/)
 - [Chef Infra Server](/server/install_server/)
 - [Chef InSpec](/inspec/install/)
-- [Chef Workstation](/workstation/install_workstation/)
+- [Chef Workstation](/workstation/latest/install/)
 - [Private Chef Supermarket](/supermarket/install_supermarket/)

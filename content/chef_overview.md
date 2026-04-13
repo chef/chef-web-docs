@@ -19,8 +19,8 @@ product = ["client", "server", "workstation"]
 - **Chef Workstation** is the location where users interact with Chef
     Infra. With Chef Workstation, users can author and test
     [cookbooks](/cookbooks/) using tools such as [Test
-    Kitchen](/workstation/kitchen/) and interact with the Chef Infra Server
-    using the [knife](/workstation/knife/) and [chef](/ctl_chef/) command
+    Kitchen](/workstation/latest/tools/kitchen/) and interact with the Chef Infra Server
+    using the [knife](/workstation/latest/tools/knife/) and [chef](/ctl_chef/) command
     line tools.
 - **Chef Infra Client** Chef Infra Client runs on systems that are managed by
     Chef Infra. The Chef Infra Client executes on a schedule to configure a system to
@@ -116,7 +116,7 @@ Some important tools and components of Chef Workstation include:
 
 #### Chef Workstation
 
-Start your infrastructure automation with [Chef Workstation](/workstation/). Chef Workstation gives you everything you need to get started with Chef - ad hoc remote execution, remote scanning, configuration tasks, cookbook creation tools as well as robust dependency and testing software - all in one easy-to-install package.
+Start your infrastructure automation with [Chef Workstation](/workstation/latest/). Chef Workstation gives you everything you need to get started with Chef - ad hoc remote execution, remote scanning, configuration tasks, cookbook creation tools as well as robust dependency and testing software - all in one easy-to-install package.
 
 Chef Workstation includes:
 

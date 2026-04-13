@@ -64,7 +64,7 @@ You can install a specific version of Chef Infra Client using the [Chef install 
 
 ### Upgrade multiple hosts with knife
 
-You can use the [`knife ssh` command](/workstation/knife_ssh/) in Chef Workstation to execute the install script on multiple Linux, macOS, and Unix-based hosts at once.
+You can use the [`knife ssh` command](/workstation/latest/tools/knife/knife_ssh/) in Chef Workstation to execute the install script on multiple Linux, macOS, and Unix-based hosts at once.
 
 ```bash
 knife ssh <SEARCH_QUERY> 'curl -L https://chefdownload-commercial.chef.io/install.sh?license_id=<LICENSE_ID> | sudo bash'

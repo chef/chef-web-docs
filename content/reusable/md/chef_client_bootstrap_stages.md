@@ -7,9 +7,9 @@ When you run `knife bootstrap` on a node for the first time, Chef Workstation, I
 
 1. **Run `knife bootstrap`**
 
-   Run the [`knife bootstrap`](/workstation/knife_bootstrap/) subcommand from a workstation. Include the hostname, IP address, or FQDN of the target node as part of this command. Knife establishes an SSH or WinRM connection with the target system and runs the bootstrap script.
+   Run the [`knife bootstrap`](/workstation/latest/tools/knife/knife_bootstrap/) subcommand from a workstation. Include the hostname, IP address, or FQDN of the target node as part of this command. Knife establishes an SSH or WinRM connection with the target system and runs the bootstrap script.
 
-    By default, the first Chef Infra Client run has an empty run list. You can add a [run list](/run_lists/) to the initial bootstrap operation using the [`--run-list`](/workstation/knife_bootstrap/#node-options) option.
+    By default, the first Chef Infra Client run has an empty run list. You can add a [run list](/run_lists/) to the initial bootstrap operation using the [`--run-list`](/workstation/latest/tools/knife/knife_bootstrap/#node-options) option.
 
 1. **Get the install script**
 

@@ -22,12 +22,11 @@ machine.
 
 Chef Workstation on Azure Cloud Shell lets you use:
 
-- [chef](/ctl_chef/)
-- [kitchen](/workstation/ctl_kitchen/)
-- [inspec](/inspec/cli/)
-- [knife](/workstation/knife/)
+- [chef](/workstation/latest/tools/ctl_chef/)
+- [kitchen](/workstation/latest/kitchen/ctl_kitchen/)
+- [inspec](/inspec/latest/reference/cli/)
+- [knife](/workstation/latest/tools/knife/)
 - [cookstyle](/workstation/cookstyle/)
-- [chef-run](/workstation/chef_run/)
 
 Combine the Chef Workstation command utilities with the other tools
 available in Cloud Shell, such as git, az-cli, terraform to write your

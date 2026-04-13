@@ -157,7 +157,7 @@ chef-client OPTION VALUE
 
 You can accept the Chef License with the Chef Infra Client or Knife config files.
 
-On a workstation, you can set this in the [`~/.chef/config.rb` or `~/.chef/knife.rb` files](/workstation/config_rb/), and on a node you can set this in the [`/etc/chef/client.rb`]({{< relref "/config_rb_client" >}}) file.
+On a workstation, you can set this in the [`~/.chef/config.rb` or `~/.chef/knife.rb` files](/workstation/latest/tools/knife/config_rb/), and on a node you can set this in the [`/etc/chef/client.rb`]({{< relref "/config_rb_client" >}}) file.
 
 ```ruby
 chef_license "<LICENSE_OPTION>"
@@ -237,7 +237,7 @@ Chef Workstation accepts the following license acceptance options:
 
 #### Command line option
 
-Use the [`chef` executable](/workstation/ctl_chef/) to accept the Chef License for Chef Workstation, Chef Infra Client, and Chef InSpec.
+Use the [`chef` executable](/workstation/latest/tools/ctl_chef/) to accept the Chef License for Chef Workstation, Chef Infra Client, and Chef InSpec.
 
 ```sh
 chef <command> --chef-license <LICENSE_OPTION>
@@ -261,7 +261,7 @@ We aim to support this behavior so Workstation users don't have their workflow a
 
 Test Kitchen isn't owned by or covered by the Chef License, but installing Chef Infra Client on a test instance is covered by the EULA. Without accepting the Chef License, the converge will fail on the test instance.
 
-Users can set the `CHEF_LICENSE` environment variable or add `chef_license: accept` to their provisioner config in the [`kitchen.yml` file](/workstation/kitchen/#kitchenyml).
+Users can set the `CHEF_LICENSE` environment variable or add `chef_license: accept` to their provisioner config in the [`kitchen.yml` file](/workstation/latest/tools/kitchen/#kitchenyml).
 If you specify `accept`, Test Kitchen will attempt to persist the license acceptance locally.
 If Test Kitchen detects a local license marker file, acceptance is automatically transferred to the test instance.
 
@@ -276,19 +276,6 @@ You don't have to accept the EULA to use the `knife` executable, but a Chef Infr
 
 Usually with Chef Workstation, this license will already have been accepted and will transfer across transparently.
 But if a user installs Chef Workstation and the first command they run is `knife bootstrap`, it will perform the same license acceptance flow as the Chef Infra Client product.
-
-#### `chef-run`
-
-To accept the Chef License using the [`chef-run` executable](/workstation/chef_run/), complete one of the following three tasks:
-
-- Pass the `--chef-license` command line flag
-- Set the `CHEF_LICENSE` environment variable
-- Add the license acceptance to your `~/.chef-workstation/config.toml` file:
-
-  ```toml
-  [chef]
-  chef_license = "accept"
-  ```
 
 #### Vagrant
 
