@@ -304,7 +304,7 @@ be made available in the \$EDITOR, and then encrypted again before
 saving it to the Chef Infra Server.
 
 To edit an item named "charlie" that's contained in a data bag named
-"admins", enter:
+`admins`, enter:
 
 ```bash
 knife data bag edit admins charlie

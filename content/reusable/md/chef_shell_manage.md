@@ -27,7 +27,7 @@ Where:
 - `command` is the command: `list`, `show`, `find`, or `edit`.
 
 For example, to list all of the nodes in a configuration named
-"preprod", enter:
+`preprod`, enter:
 
 ```bash
 chef (preprod) > nodes.list

@@ -45,11 +45,11 @@ During every Chef Infra Client run, the following happens:
 </tr>
 <tr>
 <td><strong>Compile the resource collection</strong></td>
-<td>Chef Infra Client identifies each resource in the node object and builds the resource collection. Libraries are loaded first to ensure that all language extensions and Ruby classes are available to all resources. Next, attributes are loaded, followed by custom resources. Finally, all recipes are loaded in the order specified by the expanded run-list. This is also referred to as the "compile phase".</td>
+<td>Chef Infra Client identifies each resource in the node object and builds the resource collection. Libraries are loaded first to ensure that all language extensions and Ruby classes are available to all resources. Next, attributes are loaded, followed by custom resources. Finally, all recipes are loaded in the order specified by the expanded run-list. This is also referred to as the <em>compile phase</em>.</td>
 </tr>
 <tr>
 <td><strong>Converge the node</strong></td>
-<td>Chef Infra Client configures the system based on the information that has been collected. Each resource is executed in the order identified by the run-list, and then by the order in which each resource is listed in each recipe. Each resource defines an action to run, which configures a specific part of the system. This process is also referred to as convergence. This is also referred to as the "execution phase".</td>
+<td>Chef Infra Client configures the system based on the information that has been collected. Each resource is executed in the order identified by the run-list, and then by the order in which each resource is listed in each recipe. Each resource defines an action to run, which configures a specific part of the system. This process is also referred to as convergence. This is also referred to as the <em>execution phase</em>.</td>
 </tr>
 <tr>
 <td><p><strong>Update the node object, process exception and report handlers</strong></p></td>

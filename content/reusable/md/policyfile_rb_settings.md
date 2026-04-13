@@ -270,7 +270,7 @@ A `Policyfile.rb` file may contain the following settings:
   where:
 
   - `ATTRIBUTE_TYPE` is either `default` or `override` as described above.
-  - `POLICY_GROUP` is a user-defined policy group, such as "dev", "test" "staging", or "production".
+  - `POLICY_GROUP` is a user-defined policy group, such as _dev_, _test_ _staging_, or _production_.
 
   In the following example, the value of `default['attribute']` is set to either `dev_value` or `prod_value` depending on the policy group.
 

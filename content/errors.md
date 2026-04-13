@@ -263,7 +263,7 @@ Commit or stash your changes before importing cookbooks
 
 #### Troubleshooting steps
 
-Solve this by committing the cookbook changes. For example, the following command would commit all new changes with the message "updates".
+Solve this by committing the cookbook changes. For example, the following command would commit all new changes with a commit message.
 
 ```bash
 git commit -am "Updating so I can install a site cookbook"
@@ -404,7 +404,7 @@ where `CHEF-SUPERUSER-NAME` is replaced with the same user name specified by `po
 host     postgres     @chef_users     192.168.93.0/24     md5
 ```
 
-or, using the same `$PGDATA/chef_users` file (from the previous example), the following example shows a way to limit connections to specific nodes that are running components of the Chef Infra Server.This approach requires more maintenance because the `pg_hba.conf`file must be updated when machines are added to or removed from theChef Infra Server configuration. For example, a high availability configuration with four nodes: `backend-1` (192.0.2.100),`backend-2` (192.0.2.101), `frontend-1` (192.0.2.110), and`frontend-2` (192.0.2.111).
+or, using the same `$PGDATA/chef_users` file (from the previous example), the following example shows a way to limit connections to specific nodes that are running components of the Chef Infra Server. This approach requires more maintenance because the `pg_hba.conf`file must be updated when machines are added to or removed from theChef Infra Server configuration. For example, a high availability configuration with four nodes: `backend-1` (192.0.2.100),`backend-2` (192.0.2.101), `frontend-1` (192.0.2.110), and`frontend-2` (192.0.2.111).
 
 The corresponding `pg_hba.conf` entry is similar to:
 
