@@ -2,6 +2,11 @@
 title = "Chef/Correctness/LazyInResourceGuard"
 aliases = ["/workstation/cookstyle/chef_correctness_lazyinresourceguar/"]
 
+[menu]
+  [menu.workstation]
+    title = "LazyInResourceGuard"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/LazyInResourceGuard"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

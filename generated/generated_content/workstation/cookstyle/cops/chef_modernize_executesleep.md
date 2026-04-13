@@ -2,6 +2,11 @@
 title = "Chef/Modernize/ExecuteSleep"
 aliases = ["/workstation/cookstyle/chef_modernize_executesleep/"]
 
+[menu]
+  [menu.workstation]
+    title = "ExecuteSleep"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/ExecuteSleep"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

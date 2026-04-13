@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/WindowsPackageInstallerTypeString"
 aliases = ["/workstation/cookstyle/chef_deprecations_windowspackageinstallertypestring/"]
 
+[menu]
+  [menu.workstation]
+    title = "WindowsPackageInstallerTypeString"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/WindowsPackageInstallerTypeString"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

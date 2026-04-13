@@ -2,6 +2,11 @@
 title = "Chef/Modernize/ExecuteAptUpdate"
 aliases = ["/workstation/cookstyle/chef_modernize_executeaptupdate/"]
 
+[menu]
+  [menu.workstation]
+    title = "ExecuteAptUpdate"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/ExecuteAptUpdate"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

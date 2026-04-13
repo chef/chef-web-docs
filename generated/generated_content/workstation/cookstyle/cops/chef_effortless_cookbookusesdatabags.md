@@ -2,6 +2,11 @@
 title = "Chef/Effortless/CookbookUsesDatabags"
 aliases = ["/workstation/cookstyle/chef_effortless_cookbookusesdatabags/"]
 
+[menu]
+  [menu.workstation]
+    title = "CookbookUsesDatabags"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Effortless/CookbookUsesDatabags"
+    parent = "chef_workstation/cookstyle/cops/Chef/Effortless"
 +++
 
 <!-- vale off -->

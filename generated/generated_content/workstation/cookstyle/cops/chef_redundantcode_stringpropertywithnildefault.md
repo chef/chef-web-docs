@@ -2,6 +2,11 @@
 title = "Chef/RedundantCode/StringPropertyWithNilDefault"
 aliases = ["/workstation/cookstyle/chef_redundantcode_stringpropertywithnildefault/"]
 
+[menu]
+  [menu.workstation]
+    title = "StringPropertyWithNilDefault"
+    identifier = "chef_workstation/cookstyle/cops/Chef/RedundantCode/StringPropertyWithNilDefault"
+    parent = "chef_workstation/cookstyle/cops/Chef/RedundantCode"
 +++
 
 <!-- vale off -->

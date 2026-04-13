@@ -2,6 +2,11 @@
 title = "Chef/Modernize/WhyRunSupportedTrue"
 aliases = ["/workstation/cookstyle/chef_modernize_whyrunsupportedtrue/"]
 
+[menu]
+  [menu.workstation]
+    title = "WhyRunSupportedTrue"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/WhyRunSupportedTrue"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

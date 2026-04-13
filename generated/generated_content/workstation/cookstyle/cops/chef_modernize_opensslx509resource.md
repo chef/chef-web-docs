@@ -2,6 +2,11 @@
 title = "Chef/Modernize/OpensslX509Resource"
 aliases = ["/workstation/cookstyle/chef_modernize_opensslx509resource/"]
 
+[menu]
+  [menu.workstation]
+    title = "OpensslX509Resource"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/OpensslX509Resource"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

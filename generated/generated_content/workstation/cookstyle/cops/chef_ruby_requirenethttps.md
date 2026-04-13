@@ -2,6 +2,11 @@
 title = "Chef/Ruby/RequireNetHttps"
 aliases = ["/workstation/cookstyle/chef_ruby_requirenethttps/"]
 
+[menu]
+  [menu.workstation]
+    title = "RequireNetHttps"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Ruby/RequireNetHttps"
+    parent = "chef_workstation/cookstyle/cops/Chef/Ruby"
 +++
 
 <!-- vale off -->

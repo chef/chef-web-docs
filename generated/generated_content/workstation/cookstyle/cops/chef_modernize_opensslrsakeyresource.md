@@ -2,6 +2,11 @@
 title = "Chef/Modernize/OpensslRsaKeyResource"
 aliases = ["/workstation/cookstyle/chef_modernize_opensslrsakeyresource/"]
 
+[menu]
+  [menu.workstation]
+    title = "OpensslRsaKeyResource"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/OpensslRsaKeyResource"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

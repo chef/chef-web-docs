@@ -2,6 +2,11 @@
 title = "Chef/Style/ImmediateNotificationTiming"
 aliases = ["/workstation/cookstyle/chef_style_immediatenotificationtiming/"]
 
+[menu]
+  [menu.workstation]
+    title = "ImmediateNotificationTiming"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Style/ImmediateNotificationTiming"
+    parent = "chef_workstation/cookstyle/cops/Chef/Style"
 +++
 
 <!-- vale off -->

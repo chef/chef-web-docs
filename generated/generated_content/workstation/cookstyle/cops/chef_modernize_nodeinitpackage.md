@@ -2,6 +2,11 @@
 title = "Chef/Modernize/NodeInitPackage"
 aliases = ["/workstation/cookstyle/chef_modernize_nodeinitpackage/"]
 
+[menu]
+  [menu.workstation]
+    title = "NodeInitPackage"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/NodeInitPackage"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

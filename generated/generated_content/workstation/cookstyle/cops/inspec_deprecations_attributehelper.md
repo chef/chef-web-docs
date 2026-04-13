@@ -2,6 +2,11 @@
 title = "InSpec/Deprecations/AttributeHelper"
 aliases = ["/workstation/cookstyle/inspec_deprecations_attributehelper/"]
 
+[menu]
+  [menu.workstation]
+    title = "AttributeHelper"
+    identifier = "chef_workstation/cookstyle/cops/InSpec/Deprecations/AttributeHelper"
+    parent = "chef_workstation/cookstyle/cops/InSpec/Deprecations"
 +++
 
 <!-- vale off -->

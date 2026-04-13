@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/Ruby27KeywordArgumentWarnings"
 aliases = ["/workstation/cookstyle/chef_deprecations_ruby27keywordargumentwarnings/"]
 
+[menu]
+  [menu.workstation]
+    title = "Ruby27KeywordArgumentWarnings"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/Ruby27KeywordArgumentWarnings"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

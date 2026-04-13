@@ -2,6 +2,11 @@
 title = "Chef/Modernize/WindowsRegistryUAC"
 aliases = ["/workstation/cookstyle/chef_modernize_windowsregistryuac/"]
 
+[menu]
+  [menu.workstation]
+    title = "WindowsRegistryUAC"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/WindowsRegistryUAC"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

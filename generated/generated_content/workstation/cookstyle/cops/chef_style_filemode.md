@@ -2,6 +2,11 @@
 title = "Chef/Style/FileMode"
 aliases = ["/workstation/cookstyle/chef_style_filemode/"]
 
+[menu]
+  [menu.workstation]
+    title = "FileMode"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Style/FileMode"
+    parent = "chef_workstation/cookstyle/cops/Chef/Style"
 +++
 
 <!-- vale off -->

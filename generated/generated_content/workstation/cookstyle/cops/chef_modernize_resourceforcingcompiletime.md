@@ -2,6 +2,11 @@
 title = "Chef/Modernize/ResourceForcingCompileTime"
 aliases = ["/workstation/cookstyle/chef_modernize_resourceforcingcompiletime/"]
 
+[menu]
+  [menu.workstation]
+    title = "ResourceForcingCompileTime"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/ResourceForcingCompileTime"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

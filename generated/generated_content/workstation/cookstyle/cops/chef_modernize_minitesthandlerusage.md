@@ -2,6 +2,11 @@
 title = "Chef/Modernize/MinitestHandlerUsage"
 aliases = ["/workstation/cookstyle/chef_modernize_minitesthandlerusage/"]
 
+[menu]
+  [menu.workstation]
+    title = "MinitestHandlerUsage"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/MinitestHandlerUsage"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

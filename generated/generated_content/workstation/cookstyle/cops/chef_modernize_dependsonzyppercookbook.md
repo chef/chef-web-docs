@@ -2,6 +2,11 @@
 title = "Chef/Modernize/DependsOnZypperCookbook"
 aliases = ["/workstation/cookstyle/chef_modernize_dependsonzyppercookbook/"]
 
+[menu]
+  [menu.workstation]
+    title = "DependsOnZypperCookbook"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/DependsOnZypperCookbook"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

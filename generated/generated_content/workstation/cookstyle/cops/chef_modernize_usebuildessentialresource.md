@@ -2,6 +2,11 @@
 title = "Chef/Modernize/UseBuildEssentialResource"
 aliases = ["/workstation/cookstyle/chef_modernize_usebuildessentialresource/"]
 
+[menu]
+  [menu.workstation]
+    title = "UseBuildEssentialResource"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/UseBuildEssentialResource"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

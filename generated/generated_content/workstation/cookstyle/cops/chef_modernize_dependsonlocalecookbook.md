@@ -2,6 +2,11 @@
 title = "Chef/Modernize/DependsOnLocaleCookbook"
 aliases = ["/workstation/cookstyle/chef_modernize_dependsonlocalecookbook/"]
 
+[menu]
+  [menu.workstation]
+    title = "DependsOnLocaleCookbook"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/DependsOnLocaleCookbook"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

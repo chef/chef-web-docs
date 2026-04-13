@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/SearchUsesPositionalParameters"
 aliases = ["/workstation/cookstyle/chef_deprecations_searchusespositionalparameters/"]
 
+[menu]
+  [menu.workstation]
+    title = "SearchUsesPositionalParameters"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/SearchUsesPositionalParameters"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

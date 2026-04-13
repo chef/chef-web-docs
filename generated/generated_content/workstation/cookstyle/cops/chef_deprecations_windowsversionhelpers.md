@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/WindowsVersionHelpers"
 aliases = ["/workstation/cookstyle/chef_deprecations_windowsversionhelpers/"]
 
+[menu]
+  [menu.workstation]
+    title = "WindowsVersionHelpers"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/WindowsVersionHelpers"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

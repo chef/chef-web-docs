@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/NodeDeepFetch"
 aliases = ["/workstation/cookstyle/chef_deprecations_nodedeepfetch/"]
 
+[menu]
+  [menu.workstation]
+    title = "NodeDeepFetch"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/NodeDeepFetch"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

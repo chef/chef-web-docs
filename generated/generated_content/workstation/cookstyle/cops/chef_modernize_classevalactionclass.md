@@ -2,6 +2,11 @@
 title = "Chef/Modernize/ClassEvalActionClass"
 aliases = ["/workstation/cookstyle/chef_modernize_classevalactionclass/"]
 
+[menu]
+  [menu.workstation]
+    title = "ClassEvalActionClass"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/ClassEvalActionClass"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

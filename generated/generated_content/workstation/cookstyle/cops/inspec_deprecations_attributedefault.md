@@ -2,6 +2,11 @@
 title = "InSpec/Deprecations/AttributeDefault"
 aliases = ["/workstation/cookstyle/inspec_deprecations_attributedefault/"]
 
+[menu]
+  [menu.workstation]
+    title = "AttributeDefault"
+    identifier = "chef_workstation/cookstyle/cops/InSpec/Deprecations/AttributeDefault"
+    parent = "chef_workstation/cookstyle/cops/InSpec/Deprecations"
 +++
 
 <!-- vale off -->

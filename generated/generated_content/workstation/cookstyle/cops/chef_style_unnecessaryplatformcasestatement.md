@@ -2,6 +2,11 @@
 title = "Chef/Style/UnnecessaryPlatformCaseStatement"
 aliases = ["/workstation/cookstyle/chef_style_unnecessaryplatformcasestatement/"]
 
+[menu]
+  [menu.workstation]
+    title = "UnnecessaryPlatformCaseStatement"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Style/UnnecessaryPlatformCaseStatement"
+    parent = "chef_workstation/cookstyle/cops/Chef/Style"
 +++
 
 <!-- vale off -->

@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/UsesDeprecatedMixins"
 aliases = ["/workstation/cookstyle/chef_deprecations_usesdeprecatedmixins/"]
 
+[menu]
+  [menu.workstation]
+    title = "UsesDeprecatedMixins"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/UsesDeprecatedMixins"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

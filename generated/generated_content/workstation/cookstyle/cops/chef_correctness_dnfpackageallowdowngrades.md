@@ -2,6 +2,11 @@
 title = "Chef/Correctness/DnfPackageAllowDowngrades"
 aliases = ["/workstation/cookstyle/chef_correctness_dnfpackageallowdowngrades/"]
 
+[menu]
+  [menu.workstation]
+    title = "DnfPackageAllowDowngrades"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/DnfPackageAllowDowngrades"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

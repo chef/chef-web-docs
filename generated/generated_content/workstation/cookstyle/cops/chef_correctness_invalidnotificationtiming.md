@@ -2,6 +2,11 @@
 title = "Chef/Correctness/InvalidNotificationTiming"
 aliases = ["/workstation/cookstyle/chef_correctness_invalidnotificationtiming/"]
 
+[menu]
+  [menu.workstation]
+    title = "InvalidNotificationTiming"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/InvalidNotificationTiming"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

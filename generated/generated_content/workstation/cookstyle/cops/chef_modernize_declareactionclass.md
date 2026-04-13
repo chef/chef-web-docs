@@ -2,6 +2,11 @@
 title = "Chef/Modernize/DeclareActionClass"
 aliases = ["/workstation/cookstyle/chef_modernize_declareactionclass/"]
 
+[menu]
+  [menu.workstation]
+    title = "DeclareActionClass"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/DeclareActionClass"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

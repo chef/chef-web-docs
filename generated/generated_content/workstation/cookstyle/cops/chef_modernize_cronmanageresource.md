@@ -2,6 +2,11 @@
 title = "Chef/Modernize/CronManageResource"
 aliases = ["/workstation/cookstyle/chef_modernize_cronmanageresource/"]
 
+[menu]
+  [menu.workstation]
+    title = "CronManageResource"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/CronManageResource"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

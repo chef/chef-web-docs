@@ -2,6 +2,11 @@
 title = "Chef/Style/UsePlatformHelpers"
 aliases = ["/workstation/cookstyle/chef_style_useplatformhelpers/"]
 
+[menu]
+  [menu.workstation]
+    title = "UsePlatformHelpers"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Style/UsePlatformHelpers"
+    parent = "chef_workstation/cookstyle/cops/Chef/Style"
 +++
 
 <!-- vale off -->

@@ -2,6 +2,11 @@
 title = "Chef/Modernize/ConditionalUsingTest"
 aliases = ["/workstation/cookstyle/chef_modernize_conditionalusingtest/"]
 
+[menu]
+  [menu.workstation]
+    title = "ConditionalUsingTest"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/ConditionalUsingTest"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

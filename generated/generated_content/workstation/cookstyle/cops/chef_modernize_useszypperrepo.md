@@ -2,6 +2,11 @@
 title = "Chef/Modernize/UsesZypperRepo"
 aliases = ["/workstation/cookstyle/chef_modernize_useszypperrepo/"]
 
+[menu]
+  [menu.workstation]
+    title = "UsesZypperRepo"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/UsesZypperRepo"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

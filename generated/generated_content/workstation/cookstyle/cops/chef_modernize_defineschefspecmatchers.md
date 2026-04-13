@@ -2,6 +2,11 @@
 title = "Chef/Modernize/DefinesChefSpecMatchers"
 aliases = ["/workstation/cookstyle/chef_modernize_defineschefspecmatchers/"]
 
+[menu]
+  [menu.workstation]
+    title = "DefinesChefSpecMatchers"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/DefinesChefSpecMatchers"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

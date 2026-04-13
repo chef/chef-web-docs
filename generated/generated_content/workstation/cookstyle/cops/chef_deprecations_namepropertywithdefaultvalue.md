@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/NamePropertyWithDefaultValue"
 aliases = ["/workstation/cookstyle/chef_deprecations_namepropertywithdefaultvalue/"]
 
+[menu]
+  [menu.workstation]
+    title = "NamePropertyWithDefaultValue"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/NamePropertyWithDefaultValue"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

@@ -2,6 +2,11 @@
 title = "Chef/Modernize/RespondToCompileTime"
 aliases = ["/workstation/cookstyle/chef_modernize_respondtocompiletime/"]
 
+[menu]
+  [menu.workstation]
+    title = "RespondToCompileTime"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/RespondToCompileTime"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

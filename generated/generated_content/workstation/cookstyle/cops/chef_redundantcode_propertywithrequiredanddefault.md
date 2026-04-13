@@ -2,6 +2,11 @@
 title = "Chef/RedundantCode/PropertyWithRequiredAndDefault"
 aliases = ["/workstation/cookstyle/chef_redundantcode_propertywithrequiredanddefault/"]
 
+[menu]
+  [menu.workstation]
+    title = "PropertyWithRequiredAndDefault"
+    identifier = "chef_workstation/cookstyle/cops/Chef/RedundantCode/PropertyWithRequiredAndDefault"
+    parent = "chef_workstation/cookstyle/cops/Chef/RedundantCode"
 +++
 
 <!-- vale off -->

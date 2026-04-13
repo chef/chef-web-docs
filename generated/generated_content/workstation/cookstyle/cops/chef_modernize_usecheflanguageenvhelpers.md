@@ -2,6 +2,11 @@
 title = "Chef/Modernize/UseChefLanguageEnvHelpers"
 aliases = ["/workstation/cookstyle/chef_modernize_usecheflanguageenvhelpers/"]
 
+[menu]
+  [menu.workstation]
+    title = "UseChefLanguageEnvHelpers"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/UseChefLanguageEnvHelpers"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

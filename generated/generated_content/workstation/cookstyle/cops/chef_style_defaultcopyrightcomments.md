@@ -2,6 +2,11 @@
 title = "Chef/Style/DefaultCopyrightComments"
 aliases = ["/workstation/cookstyle/chef_style_defaultcopyrightcomments/"]
 
+[menu]
+  [menu.workstation]
+    title = "DefaultCopyrightComments"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Style/DefaultCopyrightComments"
+    parent = "chef_workstation/cookstyle/cops/Chef/Style"
 +++
 
 <!-- vale off -->

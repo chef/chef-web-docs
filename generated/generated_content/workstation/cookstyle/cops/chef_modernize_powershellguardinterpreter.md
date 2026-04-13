@@ -2,6 +2,11 @@
 title = "Chef/Modernize/PowerShellGuardInterpreter"
 aliases = ["/workstation/cookstyle/chef_modernize_powershellguardinterpreter/"]
 
+[menu]
+  [menu.workstation]
+    title = "PowerShellGuardInterpreter"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/PowerShellGuardInterpreter"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

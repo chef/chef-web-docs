@@ -2,6 +2,11 @@
 title = "Chef/Modernize/WindowsScResource"
 aliases = ["/workstation/cookstyle/chef_modernize_windowsscresource/"]
 
+[menu]
+  [menu.workstation]
+    title = "WindowsScResource"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/WindowsScResource"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

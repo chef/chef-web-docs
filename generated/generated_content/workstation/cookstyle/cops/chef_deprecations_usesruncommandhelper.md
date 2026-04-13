@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/UsesRunCommandHelper"
 aliases = ["/workstation/cookstyle/chef_deprecations_usesruncommandhelper/"]
 
+[menu]
+  [menu.workstation]
+    title = "UsesRunCommandHelper"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/UsesRunCommandHelper"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

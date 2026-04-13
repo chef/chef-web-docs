@@ -2,6 +2,11 @@
 title = "Chef/Modernize/LegacyBerksfileSource"
 aliases = ["/workstation/cookstyle/chef_modernize_legacyberksfilesource/"]
 
+[menu]
+  [menu.workstation]
+    title = "LegacyBerksfileSource"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/LegacyBerksfileSource"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

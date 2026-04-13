@@ -2,6 +2,11 @@
 title = "Chef/Modernize/IncludingOhaiDefaultRecipe"
 aliases = ["/workstation/cookstyle/chef_modernize_includingohaidefaultrecipe/"]
 
+[menu]
+  [menu.workstation]
+    title = "IncludingOhaiDefaultRecipe"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/IncludingOhaiDefaultRecipe"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

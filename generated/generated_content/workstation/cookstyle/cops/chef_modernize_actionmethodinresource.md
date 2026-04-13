@@ -2,6 +2,11 @@
 title = "Chef/Modernize/ActionMethodInResource"
 aliases = ["/workstation/cookstyle/chef_modernize_actionmethodinresource/"]
 
+[menu]
+  [menu.workstation]
+    title = "ActionMethodInResource"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/ActionMethodInResource"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

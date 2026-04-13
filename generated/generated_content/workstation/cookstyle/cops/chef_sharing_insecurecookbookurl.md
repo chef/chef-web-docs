@@ -2,6 +2,11 @@
 title = "Chef/Sharing/InsecureCookbookURL"
 aliases = ["/workstation/cookstyle/chef_sharing_insecurecookbookurl/"]
 
+[menu]
+  [menu.workstation]
+    title = "InsecureCookbookURL"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Sharing/InsecureCookbookURL"
+    parent = "chef_workstation/cookstyle/cops/Chef/Sharing"
 +++
 
 <!-- vale off -->

@@ -2,6 +2,11 @@
 title = "Chef/Modernize/CronDFileOrTemplate"
 aliases = ["/workstation/cookstyle/chef_modernize_crondfileortemplate/"]
 
+[menu]
+  [menu.workstation]
+    title = "CronDFileOrTemplate"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/CronDFileOrTemplate"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

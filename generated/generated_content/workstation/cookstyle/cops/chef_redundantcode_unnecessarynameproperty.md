@@ -2,6 +2,11 @@
 title = "Chef/RedundantCode/UnnecessaryNameProperty"
 aliases = ["/workstation/cookstyle/chef_redundantcode_unnecessarynameproperty/"]
 
+[menu]
+  [menu.workstation]
+    title = "UnnecessaryNameProperty"
+    identifier = "chef_workstation/cookstyle/cops/Chef/RedundantCode/UnnecessaryNameProperty"
+    parent = "chef_workstation/cookstyle/cops/Chef/RedundantCode"
 +++
 
 <!-- vale off -->

@@ -2,6 +2,11 @@
 title = "Chef/Correctness/LazyEvalNodeAttributeDefaults"
 aliases = ["/workstation/cookstyle/chef_correctness_lazyevalnodeattributedefaults/"]
 
+[menu]
+  [menu.workstation]
+    title = "LazyEvalNodeAttributeDefaults"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/LazyEvalNodeAttributeDefaults"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

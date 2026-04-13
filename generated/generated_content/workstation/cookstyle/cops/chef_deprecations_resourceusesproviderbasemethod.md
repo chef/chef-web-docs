@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/ResourceUsesProviderBaseMethod"
 aliases = ["/workstation/cookstyle/chef_deprecations_resourceusesproviderbasemetho/"]
 
+[menu]
+  [menu.workstation]
+    title = "ResourceUsesProviderBaseMethod"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/ResourceUsesProviderBaseMethod"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

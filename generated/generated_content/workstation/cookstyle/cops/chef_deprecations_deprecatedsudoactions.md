@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/DeprecatedSudoActions"
 aliases = ["/workstation/cookstyle/chef_deprecations_deprecatedsudoactions/"]
 
+[menu]
+  [menu.workstation]
+    title = "DeprecatedSudoActions"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/DeprecatedSudoActions"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

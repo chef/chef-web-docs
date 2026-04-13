@@ -2,6 +2,11 @@
 title = "Chef/Modernize/OsxConfigProfileResource"
 aliases = ["/workstation/cookstyle/chef_modernize_osxconfigprofileresource/"]
 
+[menu]
+  [menu.workstation]
+    title = "OsxConfigProfileResource"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/OsxConfigProfileResource"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

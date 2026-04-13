@@ -2,6 +2,11 @@
 title = "Chef/Correctness/ChefApplicationFatal"
 aliases = ["/workstation/cookstyle/chef_correctness_chefapplicationfatal/"]
 
+[menu]
+  [menu.workstation]
+    title = "ChefApplicationFatal"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/ChefApplicationFatal"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

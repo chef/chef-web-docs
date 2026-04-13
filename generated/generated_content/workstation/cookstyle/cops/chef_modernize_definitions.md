@@ -2,6 +2,11 @@
 title = "Chef/Modernize/Definitions"
 aliases = ["/workstation/cookstyle/chef_modernize_definitions/"]
 
+[menu]
+  [menu.workstation]
+    title = "Definitions"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/Definitions"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

@@ -2,6 +2,11 @@
 title = "Chef/Modernize/DependsOnTimezoneLwrpCookbook"
 aliases = ["/workstation/cookstyle/chef_modernize_dependsontimezonelwrpcookbook/"]
 
+[menu]
+  [menu.workstation]
+    title = "DependsOnTimezoneLwrpCookbook"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/DependsOnTimezoneLwrpCookbook"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

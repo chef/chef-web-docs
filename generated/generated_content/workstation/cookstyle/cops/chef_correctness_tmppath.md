@@ -2,6 +2,11 @@
 title = "Chef/Correctness/TmpPath"
 aliases = ["/workstation/cookstyle/chef_correctness_tmppath/"]
 
+[menu]
+  [menu.workstation]
+    title = "TmpPath"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/TmpPath"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/IncludingYumDNFCompatRecipe"
 aliases = ["/workstation/cookstyle/chef_deprecations_includingyumdnfcompatrecipe/"]
 
+[menu]
+  [menu.workstation]
+    title = "IncludingYumDNFCompatRecipe"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/IncludingYumDNFCompatRecipe"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

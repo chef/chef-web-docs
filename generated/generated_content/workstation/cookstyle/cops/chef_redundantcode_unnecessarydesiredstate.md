@@ -2,6 +2,11 @@
 title = "Chef/RedundantCode/UnnecessaryDesiredState"
 aliases = ["/workstation/cookstyle/chef_redundantcode_unnecessarydesiredstate/"]
 
+[menu]
+  [menu.workstation]
+    title = "UnnecessaryDesiredState"
+    identifier = "chef_workstation/cookstyle/cops/Chef/RedundantCode/UnnecessaryDesiredState"
+    parent = "chef_workstation/cookstyle/cops/Chef/RedundantCode"
 +++
 
 <!-- vale off -->

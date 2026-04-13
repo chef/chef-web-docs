@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/WindowsFeatureServermanagercmd"
 aliases = ["/workstation/cookstyle/chef_deprecations_windowsfeatureservermanagerc/"]
 
+[menu]
+  [menu.workstation]
+    title = "WindowsFeatureServermanagercmd"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/WindowsFeatureServermanagercmd"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

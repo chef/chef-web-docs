@@ -2,6 +2,11 @@
 title = "Chef/Correctness/InvalidVersionMetadata"
 aliases = ["/workstation/cookstyle/chef_correctness_invalidversionmetadata/"]
 
+[menu]
+  [menu.workstation]
+    title = "InvalidVersionMetadata"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/InvalidVersionMetadata"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

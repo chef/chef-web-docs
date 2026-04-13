@@ -2,6 +2,11 @@
 title = "Chef/Sharing/IncludePropertyDescriptions"
 aliases = ["/workstation/cookstyle/chef_sharing_includepropertydescriptions/"]
 
+[menu]
+  [menu.workstation]
+    title = "IncludePropertyDescriptions"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Sharing/IncludePropertyDescriptions"
+    parent = "chef_workstation/cookstyle/cops/Chef/Sharing"
 +++
 
 <!-- vale off -->

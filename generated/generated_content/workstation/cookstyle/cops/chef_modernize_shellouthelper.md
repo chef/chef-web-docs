@@ -2,6 +2,11 @@
 title = "Chef/Modernize/ShellOutHelper"
 aliases = ["/workstation/cookstyle/chef_modernize_shellouthelper/"]
 
+[menu]
+  [menu.workstation]
+    title = "ShellOutHelper"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/ShellOutHelper"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

@@ -2,6 +2,11 @@
 title = "Chef/Correctness/BlockGuardWithOnlyString"
 aliases = ["/workstation/cookstyle/chef_correctness_blockguardwithonlystring/"]
 
+[menu]
+  [menu.workstation]
+    title = "BlockGuardWithOnlyString"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/BlockGuardWithOnlyString"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

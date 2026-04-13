@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/ResourceOverridesProvidesMethod"
 aliases = ["/workstation/cookstyle/chef_deprecations_resourceoverridesprovidesmetho/"]
 
+[menu]
+  [menu.workstation]
+    title = "ResourceOverridesProvidesMethod"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/ResourceOverridesProvidesMethod"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

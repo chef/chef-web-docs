@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/CookbookDependsOnCompatResource"
 aliases = ["/workstation/cookstyle/chef_deprecations_cookbookdependsoncompatresource/"]
 
+[menu]
+  [menu.workstation]
+    title = "CookbookDependsOnCompatResource"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/CookbookDependsOnCompatResource"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

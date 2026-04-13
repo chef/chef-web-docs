@@ -2,6 +2,11 @@
 title = "Chef/Correctness/MacosUserdefaultsInvalidType"
 aliases = ["/workstation/cookstyle/chef_correctness_macosuserdefaultsinvalidtype/"]
 
+[menu]
+  [menu.workstation]
+    title = "MacosUserdefaultsInvalidType"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/MacosUserdefaultsInvalidType"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

@@ -2,6 +2,11 @@
 title = "Chef/Correctness/SupportsMustBeFloat"
 aliases = ["/workstation/cookstyle/chef_correctness_supportsmustbefloat/"]
 
+[menu]
+  [menu.workstation]
+    title = "SupportsMustBeFloat"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/SupportsMustBeFloat"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

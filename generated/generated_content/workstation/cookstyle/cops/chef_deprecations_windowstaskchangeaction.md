@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/WindowsTaskChangeAction"
 aliases = ["/workstation/cookstyle/chef_deprecations_windowstaskchangeaction/"]
 
+[menu]
+  [menu.workstation]
+    title = "WindowsTaskChangeAction"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/WindowsTaskChangeAction"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

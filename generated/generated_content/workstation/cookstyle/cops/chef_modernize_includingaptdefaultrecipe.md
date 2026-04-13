@@ -2,6 +2,11 @@
 title = "Chef/Modernize/IncludingAptDefaultRecipe"
 aliases = ["/workstation/cookstyle/chef_modernize_includingaptdefaultrecipe/"]
 
+[menu]
+  [menu.workstation]
+    title = "IncludingAptDefaultRecipe"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/IncludingAptDefaultRecipe"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

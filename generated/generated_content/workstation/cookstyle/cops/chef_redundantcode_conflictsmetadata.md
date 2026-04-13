@@ -2,6 +2,11 @@
 title = "Chef/RedundantCode/ConflictsMetadata"
 aliases = ["/workstation/cookstyle/chef_redundantcode_conflictsmetadata/"]
 
+[menu]
+  [menu.workstation]
+    title = "ConflictsMetadata"
+    identifier = "chef_workstation/cookstyle/cops/Chef/RedundantCode/ConflictsMetadata"
+    parent = "chef_workstation/cookstyle/cops/Chef/RedundantCode"
 +++
 
 <!-- vale off -->

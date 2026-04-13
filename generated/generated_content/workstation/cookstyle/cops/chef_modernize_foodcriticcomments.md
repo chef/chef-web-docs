@@ -2,6 +2,11 @@
 title = "Chef/Modernize/FoodcriticComments"
 aliases = ["/workstation/cookstyle/chef_modernize_foodcriticcomments/"]
 
+[menu]
+  [menu.workstation]
+    title = "FoodcriticComments"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/FoodcriticComments"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

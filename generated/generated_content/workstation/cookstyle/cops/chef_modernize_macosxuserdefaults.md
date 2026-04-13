@@ -2,6 +2,11 @@
 title = "Chef/Modernize/MacOsXUserdefaults"
 aliases = ["/workstation/cookstyle/chef_modernize_macosxuserdefaults/"]
 
+[menu]
+  [menu.workstation]
+    title = "MacOsXUserdefaults"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/MacOsXUserdefaults"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

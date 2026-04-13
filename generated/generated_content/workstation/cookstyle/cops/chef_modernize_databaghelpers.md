@@ -2,6 +2,11 @@
 title = "Chef/Modernize/DatabagHelpers"
 aliases = ["/workstation/cookstyle/chef_modernize_databaghelpers/"]
 
+[menu]
+  [menu.workstation]
+    title = "DatabagHelpers"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/DatabagHelpers"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

@@ -2,6 +2,11 @@
 title = "Chef/Modernize/PropertyWithNameAttribute"
 aliases = ["/workstation/cookstyle/chef_modernize_propertywithnameattribute/"]
 
+[menu]
+  [menu.workstation]
+    title = "PropertyWithNameAttribute"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/PropertyWithNameAttribute"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

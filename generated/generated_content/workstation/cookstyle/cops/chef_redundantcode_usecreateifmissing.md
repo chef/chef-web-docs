@@ -2,6 +2,11 @@
 title = "Chef/RedundantCode/UseCreateIfMissing"
 aliases = ["/workstation/cookstyle/chef_redundantcode_usecreateifmissing/"]
 
+[menu]
+  [menu.workstation]
+    title = "UseCreateIfMissing"
+    identifier = "chef_workstation/cookstyle/cops/Chef/RedundantCode/UseCreateIfMissing"
+    parent = "chef_workstation/cookstyle/cops/Chef/RedundantCode"
 +++
 
 <!-- vale off -->

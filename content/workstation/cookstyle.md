@@ -1,16 +1,20 @@
 +++
-title = "Cookstyle"
+title = "About Cookstyle"
 draft = false
 
 gh_repo = "chef-workstation"
 
+
 aliases = ["/cookstyle/"]
+
+[cascade]
+  product = ["workstation"]
 
 [menu]
   [menu.workstation]
     title = "About Cookstyle"
-    identifier = "chef_workstation/chef_workstation_tools/cookstyle/Cookstyle"
-    parent = "chef_workstation/chef_workstation_tools/cookstyle"
+    identifier = "chef_workstation/cookstyle/about"
+    parent = "chef_workstation/cookstyle"
     weight = 10
 +++
 

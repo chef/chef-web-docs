@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/ChocolateyPackageUninstallAction"
 aliases = ["/workstation/cookstyle/chef_deprecations_chocolateypackageuninstallaction/"]
 
+[menu]
+  [menu.workstation]
+    title = "ChocolateyPackageUninstallAction"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/ChocolateyPackageUninstallAction"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

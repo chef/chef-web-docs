@@ -981,6 +981,67 @@ identifier = "chef_workstation"
   url = "/workstation/25/"
   weight = 20
 
+  [[workstation]]
+  title = "Cookstyle"
+  parent = "chef_workstation"
+  identifier = "chef_workstation/cookstyle"
+  weight = 500
+
+    [[workstation]]
+    title = "Cops"
+    parent = "chef_workstation/cookstyle"
+    identifier = "chef_workstation/cookstyle/cops"
+    weight = 500
+
+      [[workstation]]
+      title = "Chef/Correctness"
+      parent = "chef_workstation/cookstyle/cops"
+      identifier = "chef_workstation/cookstyle/cops/Chef/Correctness"
+
+      [[workstation]]
+      title = "Chef/Deprecations"
+      parent = "chef_workstation/cookstyle/cops"
+      identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations"
+
+      [[workstation]]
+      title = "Chef/Effortless"
+      parent = "chef_workstation/cookstyle/cops"
+      identifier = "chef_workstation/cookstyle/cops/Chef/Effortless"
+
+      [[workstation]]
+      title = "Chef/Modernize"
+      parent = "chef_workstation/cookstyle/cops"
+      identifier = "chef_workstation/cookstyle/cops/Chef/Modernize"
+
+      [[workstation]]
+      title = "Chef/RedundantCode"
+      parent = "chef_workstation/cookstyle/cops"
+      identifier = "chef_workstation/cookstyle/cops/Chef/RedundantCode"
+
+      [[workstation]]
+      title = "Chef/Ruby"
+      parent = "chef_workstation/cookstyle/cops"
+      identifier = "chef_workstation/cookstyle/cops/Chef/Ruby"
+
+      [[workstation]]
+      title = "Chef/Security"
+      parent = "chef_workstation/cookstyle/cops"
+      identifier = "chef_workstation/cookstyle/cops/Chef/Security"
+
+      [[workstation]]
+      title = "Chef/Sharing"
+      parent = "chef_workstation/cookstyle/cops"
+      identifier = "chef_workstation/cookstyle/cops/Chef/Sharing"
+
+      [[workstation]]
+      title = "Chef/Style"
+      parent = "chef_workstation/cookstyle/cops"
+      identifier = "chef_workstation/cookstyle/cops/Chef/Style"
+
+      [[workstation]]
+      title = "InSpec/Deprecations"
+      parent = "chef_workstation/cookstyle/cops"
+      identifier = "chef_workstation/cookstyle/cops/InSpec/Deprecations"
 ####
 # End Chef Workstation Menu
 ####

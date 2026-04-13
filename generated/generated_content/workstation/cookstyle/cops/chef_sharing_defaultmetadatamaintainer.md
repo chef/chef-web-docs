@@ -2,6 +2,11 @@
 title = "Chef/Sharing/DefaultMetadataMaintainer"
 aliases = ["/workstation/cookstyle/chef_sharing_defaultmetadatamaintainer/"]
 
+[menu]
+  [menu.workstation]
+    title = "DefaultMetadataMaintainer"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Sharing/DefaultMetadataMaintainer"
+    parent = "chef_workstation/cookstyle/cops/Chef/Sharing"
 +++
 
 <!-- vale off -->

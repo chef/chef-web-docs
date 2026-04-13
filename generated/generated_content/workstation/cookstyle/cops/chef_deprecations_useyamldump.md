@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/UseYamlDump"
 aliases = ["/workstation/cookstyle/chef_deprecations_useyamldump/"]
 
+[menu]
+  [menu.workstation]
+    title = "UseYamlDump"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/UseYamlDump"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

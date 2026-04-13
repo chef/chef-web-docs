@@ -2,6 +2,11 @@
 title = "Chef/Modernize/SevenZipArchiveResource"
 aliases = ["/workstation/cookstyle/chef_modernize_sevenziparchiveresource/"]
 
+[menu]
+  [menu.workstation]
+    title = "SevenZipArchiveResource"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/SevenZipArchiveResource"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

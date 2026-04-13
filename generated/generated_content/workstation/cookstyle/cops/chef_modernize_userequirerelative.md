@@ -2,6 +2,11 @@
 title = "Chef/Modernize/UseRequireRelative"
 aliases = ["/workstation/cookstyle/chef_modernize_userequirerelative/"]
 
+[menu]
+  [menu.workstation]
+    title = "UseRequireRelative"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/UseRequireRelative"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

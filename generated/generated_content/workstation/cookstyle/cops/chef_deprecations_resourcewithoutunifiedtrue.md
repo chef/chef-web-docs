@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/ResourceWithoutUnifiedTrue"
 aliases = ["/workstation/cookstyle/chef_deprecations_resourcewithoutunifiedtrue/"]
 
+[menu]
+  [menu.workstation]
+    title = "ResourceWithoutUnifiedTrue"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/ResourceWithoutUnifiedTrue"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

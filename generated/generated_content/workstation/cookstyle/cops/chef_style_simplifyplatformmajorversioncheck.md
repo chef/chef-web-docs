@@ -2,6 +2,11 @@
 title = "Chef/Style/SimplifyPlatformMajorVersionCheck"
 aliases = ["/workstation/cookstyle/chef_style_simplifyplatformmajorversioncheck/"]
 
+[menu]
+  [menu.workstation]
+    title = "SimplifyPlatformMajorVersionCheck"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Style/SimplifyPlatformMajorVersionCheck"
+    parent = "chef_workstation/cookstyle/cops/Chef/Style"
 +++
 
 <!-- vale off -->

@@ -2,6 +2,11 @@
 title = "Chef/Modernize/IncludingMixinShelloutInResources"
 aliases = ["/workstation/cookstyle/chef_modernize_includingmixinshelloutinresources/"]
 
+[menu]
+  [menu.workstation]
+    title = "IncludingMixinShelloutInResources"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/IncludingMixinShelloutInResources"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

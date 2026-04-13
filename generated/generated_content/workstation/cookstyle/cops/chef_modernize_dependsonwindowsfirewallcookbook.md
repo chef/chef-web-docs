@@ -2,6 +2,11 @@
 title = "Chef/Modernize/DependsOnWindowsFirewallCookbook"
 aliases = ["/workstation/cookstyle/chef_modernize_dependsonwindowsfirewallcookbook/"]
 
+[menu]
+  [menu.workstation]
+    title = "DependsOnWindowsFirewallCookbook"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/DependsOnWindowsFirewallCookbook"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

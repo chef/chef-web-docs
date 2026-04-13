@@ -2,6 +2,11 @@
 title = "Chef/Modernize/ExecuteScExe"
 aliases = ["/workstation/cookstyle/chef_modernize_executescexe/"]
 
+[menu]
+  [menu.workstation]
+    title = "ExecuteScExe"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/ExecuteScExe"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

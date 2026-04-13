@@ -2,6 +2,11 @@
 title = "Chef/Modernize/AllowedActionsFromInitialize"
 aliases = ["/workstation/cookstyle/chef_modernize_allowedactionsfrominitialize/"]
 
+[menu]
+  [menu.workstation]
+    title = "AllowedActionsFromInitialize"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/AllowedActionsFromInitialize"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

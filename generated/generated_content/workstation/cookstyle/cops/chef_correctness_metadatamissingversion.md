@@ -2,6 +2,11 @@
 title = "Chef/Correctness/MetadataMissingVersion"
 aliases = ["/workstation/cookstyle/chef_correctness_metadatamissingversion/"]
 
+[menu]
+  [menu.workstation]
+    title = "MetadataMissingVersion"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/MetadataMissingVersion"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

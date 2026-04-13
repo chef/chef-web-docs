@@ -2,6 +2,11 @@
 title = "Chef/Style/IncludeRecipeWithParentheses"
 aliases = ["/workstation/cookstyle/chef_style_includerecipewithparentheses/"]
 
+[menu]
+  [menu.workstation]
+    title = "IncludeRecipeWithParentheses"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Style/IncludeRecipeWithParentheses"
+    parent = "chef_workstation/cookstyle/cops/Chef/Style"
 +++
 
 <!-- vale off -->

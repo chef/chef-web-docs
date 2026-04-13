@@ -2,6 +2,11 @@
 title = "Chef/Correctness/InvalidPlatformFamilyInCase"
 aliases = ["/workstation/cookstyle/chef_correctness_invalidplatformfamilyincase/"]
 
+[menu]
+  [menu.workstation]
+    title = "InvalidPlatformFamilyInCase"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Correctness/InvalidPlatformFamilyInCase"
+    parent = "chef_workstation/cookstyle/cops/Chef/Correctness"
 +++
 
 <!-- vale off -->

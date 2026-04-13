@@ -2,6 +2,11 @@
 title = "Chef/Modernize/CustomResourceWithAttributes"
 aliases = ["/workstation/cookstyle/chef_modernize_customresourcewithattributes/"]
 
+[menu]
+  [menu.workstation]
+    title = "CustomResourceWithAttributes"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/CustomResourceWithAttributes"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->

@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/ExecuteRelativeCreatesWithoutCwd"
 aliases = ["/workstation/cookstyle/chef_deprecations_executerelativecreateswithoutcw/"]
 
+[menu]
+  [menu.workstation]
+    title = "ExecuteRelativeCreatesWithoutCwd"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/ExecuteRelativeCreatesWithoutCwd"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

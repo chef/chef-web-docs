@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/DeprecatedYumRepositoryActions"
 aliases = ["/workstation/cookstyle/chef_deprecations_deprecatedyumrepositoryactions/"]
 
+[menu]
+  [menu.workstation]
+    title = "DeprecatedYumRepositoryActions"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/DeprecatedYumRepositoryActions"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

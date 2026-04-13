@@ -2,6 +2,11 @@
 title = "Chef/RedundantCode/MultiplePlatformChecks"
 aliases = ["/workstation/cookstyle/chef_redundantcode_multipleplatformchecks/"]
 
+[menu]
+  [menu.workstation]
+    title = "MultiplePlatformChecks"
+    identifier = "chef_workstation/cookstyle/cops/Chef/RedundantCode/MultiplePlatformChecks"
+    parent = "chef_workstation/cookstyle/cops/Chef/RedundantCode"
 +++
 
 <!-- vale off -->

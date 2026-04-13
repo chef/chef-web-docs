@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/ResourceInheritsFromCompatResource"
 aliases = ["/workstation/cookstyle/chef_deprecations_resourceinheritsfromcompatresource/"]
 
+[menu]
+  [menu.workstation]
+    title = "ResourceInheritsFromCompatResource"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/ResourceInheritsFromCompatResource"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

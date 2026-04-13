@@ -2,6 +2,11 @@
 title = "Chef/Deprecations/DeprecatedShelloutMethods"
 aliases = ["/workstation/cookstyle/chef_deprecations_deprecatedshelloutmethods/"]
 
+[menu]
+  [menu.workstation]
+    title = "DeprecatedShelloutMethods"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Deprecations/DeprecatedShelloutMethods"
+    parent = "chef_workstation/cookstyle/cops/Chef/Deprecations"
 +++
 
 <!-- vale off -->

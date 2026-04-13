@@ -2,6 +2,11 @@
 title = "Chef/Style/CommentFormat"
 aliases = ["/workstation/cookstyle/chef_style_commentformat/"]
 
+[menu]
+  [menu.workstation]
+    title = "CommentFormat"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Style/CommentFormat"
+    parent = "chef_workstation/cookstyle/cops/Chef/Style"
 +++
 
 <!-- vale off -->

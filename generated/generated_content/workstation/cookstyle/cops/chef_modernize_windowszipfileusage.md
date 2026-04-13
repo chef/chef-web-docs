@@ -2,6 +2,11 @@
 title = "Chef/Modernize/WindowsZipfileUsage"
 aliases = ["/workstation/cookstyle/chef_modernize_windowszipfileusage/"]
 
+[menu]
+  [menu.workstation]
+    title = "WindowsZipfileUsage"
+    identifier = "chef_workstation/cookstyle/cops/Chef/Modernize/WindowsZipfileUsage"
+    parent = "chef_workstation/cookstyle/cops/Chef/Modernize"
 +++
 
 <!-- vale off -->
