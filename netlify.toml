@@ -185,6 +185,16 @@
 ####
 
 [[redirects]]
+  from = "/workstation/26/*"
+  to = "https://release-26--chef-workstation-docs.netlify.app/workstation/26/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/workstation/25/*"
+  to = "https://release-25--chef-workstation-docs.netlify.app/workstation/25/:splat"
+  status = 200
+
+[[redirects]]
   from = "/workstation/latest/*"
-  to = "/workstation/:splat"
+  to = "/workstation/26/:splat"
   status = 301
