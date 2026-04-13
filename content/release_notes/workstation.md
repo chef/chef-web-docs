@@ -17,6 +17,97 @@ summary = "Chef Workstation release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
+## Chef Workstation 26.0.18
+
+Release date: April 13, 2026
+
+### Key features
+
+- Chef Workstation 26 is built entirely on Chef Habitat. We aren't providing traditional Omnibus builds.
+- Chef Workstation now uses Semantic Versioning (SemVer). Chef Workstation 26 supports Chef Infra Client 19 development, while Chef Workstation 25 supports Chef Infra Client 18.
+- Chef Workstation 26 fully supports Chef Infra Client 19 development and deployment using Test Kitchen Enterprise (TKE) and Knife.
+- Chef Workstation 26 uses standard licensing for commercial, community, and trial customers.
+- Workstation behavior remains consistent on both Linux and Windows platforms.
+
+### Chef Workstation tools
+
+- All Workstation tools are released as Habitat packages.
+- Habitat wrappers provide improved runtime isolation for each tool.
+- Dependency management is streamlined within the Habitat ecosystem.
+- Tool updates are faster and no longer require a full Workstation reinstall.
+
+#### Tool updates
+
+- **Berkshelf**:
+
+  - Updated Berkshelf to version 8.1.21.
+
+- **Chef CLI**:
+
+  - Updated the `chef` CLI to version 6.1.29.
+
+  - The `chef report cookbooks` and `chef report nodes` commands are no longer supported.
+
+- **Chef Infra Client**:
+
+  - Updated Chef Infra Client to version 19.2.12. This LTS version is fully built on Chef Habitat.
+
+    For details, see the [Chef Infra Client 19 release notes](https://docs.chef.io/release_notes/client/#chef-infra-client-19212).
+
+- **Chef InSpec**:
+
+  - Updated Chef InSpec to version 7.0.107.
+
+    For details, see the [Chef InSpec 7 release notes](https://docs.chef.io/release_notes/inspec/#chef-inspec-70107).
+
+- **Chef Vault**:
+
+  - Updated Chef Vault to version 4.2.9.
+
+- **Cookstyle**:
+
+  - Updated Cookstyle to version 8.6.10 with RuboCop engine 1.82.1.
+
+- **Fauxhai**:
+
+  - Updated Fauxhai to version 9.4.20.
+
+- **Knife**:
+
+  - Knife is now maintained separately in the [chef/knife](https://github.com/chef/knife/) GitHub repository.
+  - Updated Knife to version 19.0.105.
+
+    For details, see the [Knife changelog](https://github.com/chef/knife/blob/main/CHANGELOG.md).
+
+- **Ohai**:
+
+  - Updated Ohai to version 19.1.24.
+
+- **Test Kitchen Enterprise**:
+
+  - We replaced community-supported Test Kitchen with Chef Test Kitchen Enterprise (TKE) version 2.0.11.
+
+  - Test Kitchen Enterprise is available as a Habitat package and can be managed using the hab CLI.
+
+#### Removed tools
+
+- The Chef Workstation App is no longer included in Chef Workstation.
+- `mixlib-install` is no longer a Workstation component. Workstation now uses Chef Habitat to manage dependencies.
+- The `chef-run` CLI is no longer a Workstation component. Use Agentless Mode in Chef Infra Client instead.
+
+### Packages
+
+- For this Chef Workstation version, we're only releasing Habitat packages of Workstation and not OS-native packages.
+- This release has Habitat-based packages for the following platforms:
+
+  - Linux (x86_64)
+  - Windows (x86_64)
+
+### Known issues
+
+- Using custom gems or changing the Ruby path isn't supported in this release.
+- The `knife google server create` command on Windows can fail during password reset if the GCEAgent initializes slowly (for example, on slow boot or low-resource machines).
+
 ## Chef Workstation 25.13.7
 
 Release Date: March 5, 2026.
@@ -2612,7 +2703,7 @@ Chef Infra Client has been updated from 16.4.38 to 16.4.41. This release:
 
 `chef-run` has been updated to add support for YAML-based recipes introduced in Chef Infra Client 16. Users can specify a YAML recipe in the same way that they would normally specify a Ruby recipe, such as `chef run target chef_repo/recipes/my_recipe.yml`.
 
-NOTE: We incorrectly said we released this feature in Chef Workstation 20.6.62, but the updated dependency wasn't pulled for that release. 
+NOTE: We incorrectly said we released this feature in Chef Workstation 20.6.62, but the updated dependency wasn't pulled for that release.
 
 #### Chef Vault
 
