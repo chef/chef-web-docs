@@ -185,6 +185,11 @@
 ####
 
 [[redirects]]
+  from = "/workstation/knife_*"
+  to = "/workstation/latest/tools/knife/knife_:splat"
+  status = 301
+
+[[redirects]]
   from = "/workstation/26/*"
   to = "https://release-26--chef-workstation-docs.netlify.app/workstation/26/:splat"
   status = 200

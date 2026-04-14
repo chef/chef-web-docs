@@ -20,11 +20,6 @@ A `Policyfile.rb` file may contain the following settings:
 
   Possible values for `:SOURCE_TYPE` are:
 
-  - `:artifactory`
-  - `:chef_repo`
-  - `:chef_server`
-  - `:supermarket`
-
   `:artifactory`
   : Pulls cookbooks from an Artifactory server.
 
@@ -75,9 +70,7 @@ A `Policyfile.rb` file may contain the following settings:
   default_source :supermarket, 'https://supermarket.example'
   ```
 
-  <div class="admonition-note">
-  <p class="admonition-note-title">Note</p>
-  <div class="admonition-note-text">
+  {{< note >}}
 
   If a run-list or any dependencies require a cookbook that's present
   in more than one source, be explicit about which source is
@@ -103,8 +96,7 @@ A `Policyfile.rb` file may contain the following settings:
   end
   ```
 
-  </div>
-  </div>
+  {{< /note >}}
 
 `cookbook "NAME" [, "VERSION_CONSTRAINT"] [, SOURCE_OPTIONS]`
 
@@ -270,7 +262,7 @@ A `Policyfile.rb` file may contain the following settings:
   where:
 
   - `ATTRIBUTE_TYPE` is either `default` or `override` as described above.
-  - `POLICY_GROUP` is a user-defined policy group, such as _dev_, _test_ _staging_, or _production_.
+  - `POLICY_GROUP` is a user-defined policy group, such as `dev`, `test`, `staging`, or `production`.
 
   In the following example, the value of `default['attribute']` is set to either `dev_value` or `prod_value` depending on the policy group.
 

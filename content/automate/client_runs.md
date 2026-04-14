@@ -60,7 +60,7 @@ Filter nodes from the search bar based on existing node information. You can app
 [Chef Organization](/server_orgs/)
 : A Chef Infra Server organization name.
 
-[Chef Infra Server](/server_overview/)
+[Chef Infra Server](/server/)
 : A Chef Infra Server URL.
 
 [Cookbook](/cookbooks/)
