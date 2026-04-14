@@ -49,6 +49,6 @@ resource "aws_instance" "web" {
 
 The [Terraform Chef Provider](https://www.terraform.io/docs/providers/chef/index.html) allows you to manage Chef Infra Server resources (nodes, data bags, etc.) using the Chef Infra Server API. Policyfiles, cookbooks, clients, and ACLs aren't currently managed with the Provider. The [Terraform Chef Provider documentation](https://www.terraform.io/docs/providers/chef/index.html) provides a complete list of supported options and an example of usage. HashiCorp provides support for the Terraform Chef Provider and it's not officially supported by Chef Software.
 
-## Additional Terraform Integrations
+## Additional Terraform integrations
 
-* [Kitchen Terraform](https://newcontext-oss.github.io/kitchen-terraform/) is a community [Test Kitchen](/kitchen/) driver that allows for multi-node testing.
+* [Kitchen Terraform](https://newcontext-oss.github.io/kitchen-terraform/) is a community [Test Kitchen](/workstation/latest/tools/kitchen/) driver that allows for multi-node testing.

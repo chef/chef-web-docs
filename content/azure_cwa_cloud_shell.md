@@ -23,7 +23,7 @@ machine.
 Chef Workstation on Azure Cloud Shell lets you use:
 
 - [chef](/workstation/latest/tools/ctl_chef/)
-- [kitchen](/workstation/latest/kitchen/ctl_kitchen/)
+- [kitchen](/workstation/latest/tools/kitchen/ctl_kitchen/)
 - [inspec](/inspec/latest/reference/cli/)
 - [knife](/workstation/latest/tools/knife/)
 - [cookstyle](/workstation/cookstyle/)
@@ -39,4 +39,4 @@ Ensure you have an accessible Azure Cloud Shell instance. You may need
 to create a storage account to use Azure Cloud Shell if you haven't used
 it before in this tenant. For more information on accessing, setting up,
 and using Azure Cloud Shell, see the [Cloud Shell
-Documentation](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart).
+Documentation](https://learn.microsoft.com/en-us/azure/cloud-shell/get-started/classic?tabs=azurecli).
