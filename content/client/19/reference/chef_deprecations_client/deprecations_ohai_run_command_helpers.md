@@ -2,7 +2,6 @@
 title = "Deprecation: run_command and popen4 helper method removal (OHAI-3)"
 draft = false
 
-gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
 aliases = "/deprecations_ohai_run_command_helpers.html"

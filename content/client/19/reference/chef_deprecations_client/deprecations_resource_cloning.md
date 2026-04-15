@@ -2,7 +2,6 @@
 title = "Deprecation: Resource Cloning (CHEF-3694)"
 draft = false
 
-gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
 aliases = "/deprecations_resource_cloning.html"

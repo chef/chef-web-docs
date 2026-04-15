@@ -2,7 +2,6 @@
 title = "Deprecation: Cloud_v2 attribute removal (OHAI-11)"
 draft = false
 
-gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
 aliases = "/deprecations_ohai_cloud_v2.html"

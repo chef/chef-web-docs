@@ -2,7 +2,6 @@
 title = "Deprecation: DigitalOcean plugin attribute changes (OHAI-6)"
 draft = false
 
-gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
 aliases = "/deprecations_ohai_digitalocean.html"

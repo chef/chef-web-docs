@@ -2,7 +2,6 @@
 title = "Deprecation: Deprecation of lc_all from locale resource (CHEF-27)"
 draft = false
 
-gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
 aliases = "/deprecations_locale_lc_all.html"

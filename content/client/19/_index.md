@@ -1,6 +1,6 @@
 +++
 title = "Chef Infra Client"
-linkTitle = "Chef Infra Client"
+linkTitle = "19"
 
 [cascade]
   [cascade.params]

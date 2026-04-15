@@ -2,7 +2,6 @@
 title = "Deprecation: Internal API Changes (CHEF-0)"
 draft = false
 
-gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
 aliases = "/deprecations_internal_api.html"

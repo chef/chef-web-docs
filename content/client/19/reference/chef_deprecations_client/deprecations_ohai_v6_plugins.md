@@ -2,7 +2,6 @@
 title = "Deprecation: Removal of support for Ohai version 6 plugins (OHAI-10)"
 draft = false
 
-gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
 aliases = "/deprecations_ohai_v6_plugins.html"

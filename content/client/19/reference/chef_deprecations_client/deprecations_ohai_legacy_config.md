@@ -2,7 +2,6 @@
 title = "Deprecation: Ohai::Config removal (OHAI-1)"
 draft = false
 
-gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
 aliases = "/deprecations_ohai_legacy_config.html"

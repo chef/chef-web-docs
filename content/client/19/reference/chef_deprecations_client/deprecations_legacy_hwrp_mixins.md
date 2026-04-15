@@ -2,7 +2,6 @@
 title = "Deprecation: Legacy HWRP mixins (CHEF-23)"
 draft = false
 
-gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
 aliases = "/deprecations_legacy_hwrp_mixins.html"

@@ -2,7 +2,6 @@
 title = "Deprecation: Chef Gem Compile Time (CHEF-3)"
 draft = false
 
-gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
 aliases = "/deprecations_chef_gem_compile_time.html"

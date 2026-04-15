@@ -2,7 +2,6 @@
 title = "Deprecation: Deprecation of run_command (CHEF-14)"
 draft = false
 
-gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
 aliases = "/deprecations_run_command.html"

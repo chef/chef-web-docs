@@ -2,7 +2,6 @@
 title = "Deprecation: System Profile plugin (OHAI-14)"
 draft = false
 
-gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
 +++

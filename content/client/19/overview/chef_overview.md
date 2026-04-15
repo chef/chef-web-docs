@@ -1,7 +1,6 @@
 +++
 title = "Chef Infra overview"
 draft = false
-gh_repo = "chef-web-docs"
 
 [menu]
   [menu.client_19]

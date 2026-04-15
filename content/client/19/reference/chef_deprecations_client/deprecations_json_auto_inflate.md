@@ -2,7 +2,6 @@
 title = "Deprecation: JSON Auto Inflate (CHEF-1)"
 draft = false
 
-gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
 aliases = "/deprecations_json_auto_inflate.html"

@@ -2,7 +2,6 @@
 title = "Deprecation: Chef::Platform methods (CHEF-13)"
 draft = false
 
-gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
 aliases = "/deprecations_chef_platform_methods.html"

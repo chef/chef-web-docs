@@ -2,7 +2,6 @@
 title = "Deprecation: resource_name declaration without provides (CHEF-31)"
 draft = false
 
-gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
 +++

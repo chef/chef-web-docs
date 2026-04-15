@@ -5,8 +5,8 @@ draft = false
 [menu]
   [menu.client_19]
     title = "About chef-repo"
-    identifier = "chef_repo/chef_repo.md"
-    parent = "chef_repo"
+    identifier = "cookbooks/chef_repo.md"
+    parent = "cookbooks"
     weight = 15
 +++
 

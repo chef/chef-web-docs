@@ -2,7 +2,6 @@
 title = "Deprecation: Cloud plugin replaced by the Cloud_V2 plugin (OHAI-8)"
 draft = false
 
-gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
 aliases = "/deprecations_ohai_cloud.html"

@@ -2,7 +2,6 @@
 title = "Deprecation: Deploy Resource (CHEF-20)"
 draft = false
 
-gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
 aliases = "/deprecations_deploy_resource.html"

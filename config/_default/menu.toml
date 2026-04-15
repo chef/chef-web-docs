@@ -616,7 +616,7 @@ identifier = "client"
   title = "Chef Infra Client 19"
   identifier = "chef_infra/19"
   parent = "client"
-  url = "https://docs.chef.io/client/19"
+  url = "/client/19/"
   weight = 5
 
   [[infra]]
@@ -894,15 +894,15 @@ identifier = "resources"
 # Chef Infra Client 19 Menu
 ####
 
-
-
 [[client_19]]
 title = "Overview"
 identifier = "overview"
+weight = 10
 
 [[client_19]]
 title = "Install"
 identifier = "install"
+weight = 20
 
   [[client_19]]
   title = "Installer"
@@ -919,10 +919,12 @@ identifier = "install"
 [[client_19]]
 title = "Licensing"
 identifier = "licensing"
+weight = 30
 
 [[client_19]]
 title = "Features"
 identifier = "features"
+weight = 40
 
   [[client_19]]
   title = "Agentless Mode"
@@ -948,6 +950,7 @@ identifier = "features"
 [[client_19]]
 title = "Integrations"
 identifier = "integrations"
+weight = 50
 
   [[client_19]]
   title = "Azure"
@@ -962,14 +965,17 @@ identifier = "integrations"
 [[client_19]]
 title = "Policy"
 identifier = "policy"
+weight = 60
 
 [[client_19]]
 title = "Security"
 identifier = "security"
+weight = 70
 
 [[client_19]]
 title = "Cookbooks"
 identifier = "cookbooks"
+weight = 90
 
   [[client_19]]
   title = "Attributes"
@@ -986,10 +992,12 @@ identifier = "cookbooks"
 [[client_19]]
 title = "Infra language"
 identifier = "infra_language"
+weight = 100
 
 [[client_19]]
 title = "Resources"
 identifier = "resources"
+weight = 110
 
   [[client_19]]
   title = "Bundled resources"
@@ -1004,6 +1012,7 @@ identifier = "resources"
 [[client_19]]
 title = "Extension APIs"
 identifier = "extension_apis"
+weight = 120
 
   [[client_19]]
   title = "Compliance DSL"
@@ -1041,6 +1050,7 @@ identifier = "extension_apis"
 [[client_19]]
 title = "Reference"
 identifier = "reference"
+weight = 130
 
     [[client_19]]
     title = "chef-solo (executable)"

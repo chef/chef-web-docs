@@ -2,7 +2,6 @@
 title = "Deprecation: Easy Install Resource (CHEF-6)"
 draft = false
 
-gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
 aliases = "/deprecations_easy_install.html"

@@ -2,7 +2,6 @@
 title = "Deprecation: :uninstall Resource for chocolatey_package (CHEF-21)"
 draft = false
 
-gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
 aliases = "/deprecations_chocolatey_uninstall.html"

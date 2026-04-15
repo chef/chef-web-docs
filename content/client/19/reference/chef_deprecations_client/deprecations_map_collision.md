@@ -2,7 +2,6 @@
 title = "Deprecation: Map Collision (CHEF-25)"
 draft = false
 
-gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
 aliases = "/deprecations_map_collision.html"

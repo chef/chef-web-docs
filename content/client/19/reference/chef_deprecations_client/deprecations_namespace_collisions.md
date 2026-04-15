@@ -2,7 +2,6 @@
 title = "Deprecation: Use of property_name inside of actions (CHEF-19)"
 draft = false
 
-gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
 aliases = "/deprecations_namespace_collisions.html"

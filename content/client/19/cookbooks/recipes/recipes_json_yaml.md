@@ -1,13 +1,13 @@
 +++
 title = "Chef Infra JSON and YAML recipes"
 draft = false
-gh_repo = "chef-web-docs"
+
 
 [menu]
   [menu.client_19]
     title = "JSON/YAML recipes"
-    identifier = "chef_infra/cookbook_reference/recipes/YAML recipes"
-    parent = "chef_infra/cookbook_reference/recipes"
+    identifier = "cookbooks/recipes/YAML recipes"
+    parent = "cookbooks/recipes"
     weight = 20
 +++
 

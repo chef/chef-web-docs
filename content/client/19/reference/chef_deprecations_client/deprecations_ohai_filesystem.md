@@ -2,7 +2,6 @@
 title = "Deprecation: Filesystem plugin replaced by the Filesystem V2 plugin. (OHAI-9)"
 draft = false
 
-gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
 aliases = "/deprecations_ohai_filesystem.html"

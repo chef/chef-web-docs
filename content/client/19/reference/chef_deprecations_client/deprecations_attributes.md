@@ -2,7 +2,6 @@
 title = "Deprecation: Some Attribute Methods (CHEF-4)"
 draft = false
 
-gh_repo = "chef-web-docs"
 sitemapExclude = true
 robots = "noindex"
 

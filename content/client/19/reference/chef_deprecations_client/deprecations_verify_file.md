@@ -2,7 +2,6 @@
 title = "Deprecation: Verify File Expansion (CHEF-7)"
 draft = false
 
-gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
 aliases = "/deprecations_verify_file.html"

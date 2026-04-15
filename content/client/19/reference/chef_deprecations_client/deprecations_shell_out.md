@@ -2,7 +2,6 @@
 title = "Deprecation: Deprecation of legacy shell_out APIs (CHEF-26)"
 draft = false
 
-gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
 aliases = "/deprecations_shell_out.html"

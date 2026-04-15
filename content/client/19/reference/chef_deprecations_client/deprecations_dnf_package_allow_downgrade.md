@@ -2,7 +2,6 @@
 title = "Deprecation: DNF Package allow_downgrade Property (CHEF-10)"
 draft = false
 
-gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
 aliases = "/deprecations_dnf_package_allow_downgrade.html"

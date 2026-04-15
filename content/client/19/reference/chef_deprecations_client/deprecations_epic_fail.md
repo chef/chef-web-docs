@@ -2,7 +2,6 @@
 title = "Deprecation: epic_fail (CHEF-24)"
 draft = false
 
-gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
 aliases = "/deprecations_epic_fail.html"

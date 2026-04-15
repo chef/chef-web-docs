@@ -2,7 +2,6 @@
 title = "Deprecation: Amazon linux moved to the Amazon platform_family (OHAI-7)"
 draft = false
 
-gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
 aliases = "/deprecations_ohai_amazon_linux.html"
