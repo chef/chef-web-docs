@@ -85,13 +85,13 @@ version 2.0.
 The following products are deprecated. Users are advised to move to
 newer versions or products.
 
-| Product           | Version | Lifecycle Status | EOL Date       |
-|-------------------|---------|------------------|----------------|
-| Chef Backend      | 3.x     | Deprecated       | TBD            |
-| Chef Infra Client | 18.x    | Deprecated       | TBD            |
-| Chef Infra Server | 15.x    | Deprecated       | November 2026  |
-| Chef InSpec       | 4.x     | Deprecated       | TBD            |
-| Chef Manage       | 2.5.x+  | Deprecated       | February 2026  |
+| Product           | Version | Lifecycle Status | EOL Date       | Current equivalent product    |
+|-------------------|---------|------------------|----------------|-------------------------------|
+| Chef Backend      | 3.x     | Deprecated       | TBD            | Chef 360 Platform             |
+| Chef Infra Client | 18.x    | Deprecated       | TBD            | Chef Infra Client 19.x        |
+| Chef Infra Server | 15.x    | Deprecated       | November 2026  | Chef 360 Platform             |
+| Chef InSpec       | 4.x     | Deprecated       | TBD            | Chef Inspec 5.x               |
+| Chef Manage       | 2.5.x+  | Deprecated       | February 2026  | Chef 360 Platform             |
 
 ## End of Life (EOL) products
 
