@@ -3,7 +3,7 @@ title = "Chef Infra Language: Windows"
 draft = false
 
 [menu]
-  [menu.infra_language]
+  [menu.client_19]
     title = "Windows"
     identifier = "infra_language/windows.md Windows"
     parent = "infra_language"

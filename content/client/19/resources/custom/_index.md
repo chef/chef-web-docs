@@ -4,7 +4,7 @@ title = "Custom resource guide"
 linkTitle = "Custom resources"
 
 [menu]
-  [menu.resources]
+  [menu.client_19]
     title = "Custom resource guide"
     identifier = "resources/custom/custom_resources.md custom resources"
     parent = "resources/custom"
@@ -152,23 +152,23 @@ site 'foo'
 
 ## Agentless Mode
 
-{{< readfile file="content/reusable/md/agentless_summary.md" >}} For more information on Agentless Mode, see the [Agentless Mode documentation]({{< relref "/features/agentless.md" >}}).
+{{< readfile file="content/client/19/reusable/md/agentless_summary.md" >}} For more information on Agentless Mode, see the [Agentless Mode documentation]({{< relref "/client/19/features/agentless.md" >}}).
 
-{{< readfile file="/content/reusable/md/agentless_custom_resource.md" >}}
+{{< readfile file="content/client/19/reusable/md/agentless_custom_resource.md" >}}
 
 ### Example
 
-{{< readfile file="/content/reusable/md/agentless_custom_resource_example.md" >}}
+{{< readfile file="content/client/19/reusable/md/agentless_custom_resource_example.md" >}}
 
 ## Unified Mode
 
-{{< readfile file="content/reusable/md/unified_mode_overview.md" >}}
+{{< readfile file="content/client/19/reusable/md/unified_mode_overview.md" >}}
 
 For more information on Unified Mode, see the [Unified Mode documentation]({{< relref "unified_mode.md" >}}).
 
 ### Enable Unified Mode
 
-{{< readfile file="content/reusable/md/unified_mode_enable.md" >}}
+{{< readfile file="content/client/19/reusable/md/unified_mode_enable.md" >}}
 
 ## Learn more
 

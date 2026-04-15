@@ -4,16 +4,16 @@ draft = false
 list_pages = true
 
 [menu]
-  [menu.infra_language]
+  [menu.client_19]
     title = "Language Overview"
     identifier = "infra_language/ Language Overview"
     parent = "infra_language"
     weight = 10
 +++
 
-{{< readfile file="content/reusable/md/infra_lang_summary.md" >}}
+{{< readfile file="content/client/19/reusable/md/infra_lang_summary.md" >}}
 
-{{< readfile file="content/reusable/md/infra_lang_ruby.md" >}}
+{{< readfile file="content/client/19/reusable/md/infra_lang_ruby.md" >}}
 
 ## Resources
 

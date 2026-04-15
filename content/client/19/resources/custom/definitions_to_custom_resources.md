@@ -2,7 +2,7 @@
 title = "Converting definitions to custom resources"
 
 [menu]
-  [menu.resources]
+  [menu.client_19]
     title = "Migrating from definitions"
     identifier = "resources/custom/definitions.md Migrating from Definitions"
     parent = "resources/custom"
@@ -13,7 +13,7 @@ The definitions feature in Chef Infra has been deprecated and will be removed in
 
 This guide describes how to migrate from an existing Definition to a custom resource.
 
-If you are creating a custom resource from scratch please see the [Custom resource getting started guide]({{< relref "/resources/custom" >}}) instead.
+If you are creating a custom resource from scratch please see the [Custom resource getting started guide]({{< relref "/client/19/resources/custom" >}}) instead.
 
 ## Definitions
 

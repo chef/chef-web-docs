@@ -3,7 +3,7 @@ title = "Install Chef Infra Client on Windows Nodes"
 draft = false
 
 [menu]
-  [menu.integrations]
+  [menu.client_19]
     title = "Windows Installation Guide"
     identifier = "integrations/windows/install_windows.md Chef Infra Client on Windows"
     parent = "integrations/windows"
@@ -14,25 +14,25 @@ draft = false
 
 There are several methods available to install Chef Infra Client depending on the needs of your organization.
 
-{{< readfile file="content/reusable/md/windows_install_overview.md" >}}
+{{< readfile file="content/client/19/reusable/md/windows_install_overview.md" >}}
 
 ### Use knife CLI
 
-{{< readfile file="content/reusable/md/workstation/knife_windows_summary.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/knife_windows_summary.md" >}}
 
 #### Necessary Ports
 
-{{< readfile file="content/reusable/md/workstation/knife_windows_winrm_ports.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/knife_windows_winrm_ports.md" >}}
 
 ### Use MSI Installer
 
 A Microsoft Installer Package (MSI) is available for installing Chef Infra Client on a Windows machine at [Chef Downloads](https://www.chef.io/downloads).
 
-{{< readfile file="content/reusable/md/windows_msiexec.md" >}}
+{{< readfile file="content/client/19/reusable/md/windows_msiexec.md" >}}
 
 #### ADDLOCAL Options
 
-{{< readfile file="content/reusable/md/windows_msiexec_addlocal.md" >}}
+{{< readfile file="content/client/19/reusable/md/windows_msiexec_addlocal.md" >}}
 
 #### Running as a Scheduled Task
 
@@ -40,12 +40,12 @@ On Windows, run Chef Infra Client periodically as a scheduled task. Scheduled ta
 
 #### Scheduled Task Options
 
-{{< readfile file="content/reusable/md/install_chef_client_windows_as_scheduled_task.md" >}}
+{{< readfile file="content/client/19/reusable/md/install_chef_client_windows_as_scheduled_task.md" >}}
 
 ### Use an Existing Process
 
-{{< readfile file="content/reusable/md/windows_install_system_center.md" >}}
+{{< readfile file="content/client/19/reusable/md/windows_install_system_center.md" >}}
 
 ### PATH System Variable
 
-{{< readfile file="content/reusable/md/windows_environment_variable_path.md" >}}
+{{< readfile file="content/client/19/reusable/md/windows_environment_variable_path.md" >}}

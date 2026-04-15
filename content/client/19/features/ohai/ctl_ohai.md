@@ -3,7 +3,7 @@ title = "ohai (executable)"
 draft = false
 
 [menu]
-  [menu.features]
+  [menu.client_19]
     title = "ohai (executable)"
     identifier = "features/ohai/ctl_ohai.md ohai Commands"
     parent = "features/ohai"

@@ -3,7 +3,7 @@ title = "Writing Ohai Custom Plugins"
 draft = false
 
 [menu]
-  [menu.extension_apis]
+  [menu.client_19]
     title = "Custom Plugins"
     identifier = "extension_apis/ohai_plugins/ohai_custom.md Custom Plugins"
     parent = "extension_apis/ohai_plugins"

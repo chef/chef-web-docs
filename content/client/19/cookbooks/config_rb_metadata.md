@@ -3,7 +3,7 @@ title = "metadata.rb"
 draft = false
 
 [menu]
-  [menu.cookbooks]
+  [menu.client_19]
     title = "metadata.rb"
     identifier = "cookbooks/config_rb_metadata.md metadata.rb Configuration"
     parent = "cookbooks"
@@ -12,7 +12,7 @@ draft = false
 
 <!-- markdownlint-disable-file MD046 -->
 
-{{< readfile file="content/reusable/md/cookbooks_metadata.md" >}}
+{{< readfile file="content/client/19/reusable/md/cookbooks_metadata.md" >}}
 
 * Located at the top level of a cookbook's directory structure.
 * Compiled whenever a cookbook is uploaded to Chef Infra Server or when the `knife cookbook metadata` subcommand is run, and then stored as JSON data.

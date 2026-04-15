@@ -3,14 +3,14 @@ title = "About Search"
 draft = false
 
 [menu]
-  [menu.features]
+  [menu.client_19]
     title = "Search"
     identifier = "features/chef_search.md Search"
     parent = "features"
     weight = 70
 +++
 <!-- markdownlint-disable-file MD033 -->
-{{< readfile file="content/reusable/md/search.md" >}}
+{{< readfile file="content/client/19/reusable/md/search.md" >}}
 
 Many of the examples in this section use knife, but the search indexes
 and search query syntax can be used in many locations, including from
@@ -59,51 +59,51 @@ following search indexes are built:
 
 ### Using Knife
 
-{{< readfile file="content/reusable/md/workstation/knife_search_summary.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/knife_search_summary.md" >}}
 
 #### Search by platform ID
 
-{{< readfile file="content/reusable/md/workstation/knife_search_by_platform_ids.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/knife_search_by_platform_ids.md" >}}
 
 #### Search by instance type
 
-{{< readfile file="content/reusable/md/workstation/knife_search_by_platform_instance_type.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/knife_search_by_platform_instance_type.md" >}}
 
 #### Search by recipe
 
-{{< readfile file="content/reusable/md/workstation/knife_search_by_recipe.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/knife_search_by_recipe.md" >}}
 
 #### Search by cookbook, then recipe
 
-{{< readfile file="content/reusable/md/workstation/knife_search_by_cookbook.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/knife_search_by_cookbook.md" >}}
 
 #### Search by node
 
-{{< readfile file="content/reusable/md/workstation/knife_search_by_node.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/knife_search_by_node.md" >}}
 
 #### Search by node and environment
 
-{{< readfile file="content/reusable/md/workstation/knife_search_by_node_and_environment.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/knife_search_by_node_and_environment.md" >}}
 
 #### Search for nested attributes
 
-{{< readfile file="content/reusable/md/workstation/knife_search_by_nested_attribute.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/knife_search_by_nested_attribute.md" >}}
 
 #### Search for multiple attributes
 
-{{< readfile file="content/reusable/md/workstation/knife_search_by_query_for_many_attributes.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/knife_search_by_query_for_many_attributes.md" >}}
 
 #### Search for nested attributes using a search query
 
-{{< readfile file="content/reusable/md/workstation/knife_search_by_query_for_nested_attribute.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/knife_search_by_query_for_nested_attribute.md" >}}
 
 #### Use a test query
 
-{{< readfile file="content/reusable/md/workstation/knife_search_test_query_for_ssh.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/knife_search_test_query_for_ssh.md" >}}
 
 ## Query Syntax
 
-{{< readfile file="content/reusable/md/search_query_syntax.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_query_syntax.md" >}}
 
 {{< note >}}
 
@@ -113,83 +113,83 @@ Search queries may not contain newlines.
 
 ## Filter Search Results
 
-{{< readfile file="content/reusable/md/infra_lang_method_search_filter_result.md" >}}
+{{< readfile file="content/client/19/reusable/md/infra_lang_method_search_filter_result.md" >}}
 
 ## Keys
 
-{{< readfile file="content/reusable/md/search_key.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_key.md" >}}
 
 ### Nested Fields
 
-{{< readfile file="content/reusable/md/search_key_nested.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_key_nested.md" >}}
 
 ### Examples
 
-{{< readfile file="content/reusable/md/search_key_name.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_key_name.md" >}}
 
-{{< readfile file="content/reusable/md/search_key_wildcard_question_mark.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_key_wildcard_question_mark.md" >}}
 
-{{< readfile file="content/reusable/md/search_key_wildcard_asterisk.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_key_wildcard_asterisk.md" >}}
 
-{{< readfile file="content/reusable/md/search_key_nested_starting_with.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_key_nested_starting_with.md" >}}
 
-{{< readfile file="content/reusable/md/search_key_nested_range.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_key_nested_range.md" >}}
 
 ## Patterns
 
-{{< readfile file="content/reusable/md/search_pattern.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_pattern.md" >}}
 
 ### Exact Matching
 
-{{< readfile file="content/reusable/md/search_pattern_exact.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_pattern_exact.md" >}}
 
-{{< readfile file="content/reusable/md/search_pattern_exact_key_and_item.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_pattern_exact_key_and_item.md" >}}
 
-{{< readfile file="content/reusable/md/search_pattern_exact_key_and_item_string.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_pattern_exact_key_and_item_string.md" >}}
 
 ### Wildcard Matching
 
-{{< readfile file="content/reusable/md/search_pattern_wildcard.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_pattern_wildcard.md" >}}
 
-{{< readfile file="content/reusable/md/search_pattern_wildcard_any_node.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_pattern_wildcard_any_node.md" >}}
 
-{{< readfile file="content/reusable/md/search_pattern_wildcard_node_contains.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_pattern_wildcard_node_contains.md" >}}
 
 ### Range Matching
 
-{{< readfile file="content/reusable/md/search_pattern_range.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_pattern_range.md" >}}
 
-{{< readfile file="content/reusable/md/search_pattern_range_in_between.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_pattern_range_in_between.md" >}}
 
-{{< readfile file="content/reusable/md/search_pattern_range_exclusive.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_pattern_range_exclusive.md" >}}
 
 ### Fuzzy Matching
 
-{{< readfile file="content/reusable/md/search_pattern_fuzzy.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_pattern_fuzzy.md" >}}
 
-{{< readfile file="content/reusable/md/search_pattern_fuzzy_summary.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_pattern_fuzzy_summary.md" >}}
 
 ## Operators
 
-{{< readfile file="content/reusable/md/search_boolean_operators.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_boolean_operators.md" >}}
 
-{{< readfile file="content/reusable/md/search_boolean_operators_andnot.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_boolean_operators_andnot.md" >}}
 
 ### AND
 
-{{< readfile file="content/reusable/md/search_boolean_and.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_boolean_and.md" >}}
 
 ### NOT
 
-{{< readfile file="content/reusable/md/search_boolean_not.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_boolean_not.md" >}}
 
 ### OR
 
-{{< readfile file="content/reusable/md/search_boolean_or.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_boolean_or.md" >}}
 
 ## Special Characters
 
-{{< readfile file="content/reusable/md/search_special_characters.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_special_characters.md" >}}
 
 ## Targets
 
@@ -373,12 +373,12 @@ be used in templates as a variable, among other possible uses.
 
 ### Environments
 
-{{< readfile file="content/reusable/md/environment.md" >}}
+{{< readfile file="content/client/19/reusable/md/environment.md" >}}
 
-{{< readfile file="content/reusable/md/search_environment.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_environment.md" >}}
 
 ### Data Bags
 
-{{< readfile file="content/reusable/md/data_bag.md" >}}
+{{< readfile file="content/client/19/reusable/md/data_bag.md" >}}
 
-{{< readfile file="content/reusable/md/search_data_bag.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_data_bag.md" >}}

@@ -3,7 +3,7 @@ title = "Chef Infra Language: Reading Data Bags"
 draft = false
 
 [menu]
-  [menu.infra_language]
+  [menu.client_19]
     title = "Reading Data Bags"
     identifier = "infra_language/reading_data_bags.md Reading Data Bags"
     parent = "infra_language"
@@ -11,7 +11,7 @@ draft = false
 
 ## data_bag
 
-{{< readfile file="content/reusable/md/data_bag.md" >}}
+{{< readfile file="content/client/19/reusable/md/data_bag.md" >}}
 
 Use the `data_bag` method to get a list of the contents of a data bag.
 
@@ -27,11 +27,11 @@ The following example shows how the `data_bag` method can be used in a recipe.
 
 #### Get a data bag, and then iterate through each data bag item
 
-{{< readfile file="content/reusable/md/infra_lang_data_bag.md" >}}
+{{< readfile file="content/client/19/reusable/md/infra_lang_data_bag.md" >}}
 
 ## data_bag_item
 
-{{< readfile file="content/reusable/md/data_bag.md" >}}
+{{< readfile file="content/client/19/reusable/md/data_bag.md" >}}
 
 The `data_bag_item` method can be used in a recipe to get the contents of a data bag item.
 
@@ -49,7 +49,7 @@ The following examples show how the `data_bag_item` method can be used in a reci
 
 #### Get a data bag, and then iterate through each data bag item
 
-{{< readfile file="content/reusable/md/infra_lang_data_bag.md" >}}
+{{< readfile file="content/client/19/reusable/md/infra_lang_data_bag.md" >}}
 
 #### Use the contents of a data bag in a recipe
 

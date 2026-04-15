@@ -8,7 +8,7 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.resources]
+  [menu.client_19]
     title = "chef_client"
     identifier = "resources/bundled/chef_client"
     parent = "resources/bundled"

@@ -3,7 +3,7 @@ title = "Helpers"
 draft = false
 
 [menu]
-  [menu.resources]
+  [menu.client_19]
     title = "Helpers"
     identifier = "resources/custom/helpers Library Helpers"
     parent = "resources/custom"

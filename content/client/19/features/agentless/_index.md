@@ -4,14 +4,14 @@ draft = false
 linkTitle = "Agentless"
 
 [menu]
-  [menu.features]
+  [menu.client_19]
     title = "About Agentless Mode"
     identifier = "features/agentless/About"
     parent = "features/agentless"
     weight = 10
 +++
 
-{{< readfile file="content/reusable/md/agentless_summary.md" >}}
+{{< readfile file="content/client/19/reusable/md/agentless_summary.md" >}}
 
 The target node can be any remote system, edge device, or cloud resource that the host can reach. This includes edge devices, Wi-Fi routers, switches, relays, cloud resources, IP phones, router hubs, and network management peripherals.
 
@@ -181,14 +181,14 @@ See the list of [built-in Chef Infra resources](resources) that are supported in
 
 ### Custom resources
 
-{{< readfile file="/reusable/md/agentless_custom_resource.md" >}}
+{{< readfile file="client/19/reusable/md/agentless_custom_resource.md" >}}
 
 For documentation on updating custom resources, see the [RC3 custom resources documentation](resources/custom).
 For general guidelines on writing a custom resource, see the [custom resources documentation](https://docs.chef.io/custom_resources/).
 
 #### Example
 
-{{< readfile file="/reusable/md/agentless_custom_resource_example.md" >}}
+{{< readfile file="client/19/reusable/md/agentless_custom_resource_example.md" >}}
 
 ## Run Agentless Mode
 

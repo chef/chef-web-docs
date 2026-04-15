@@ -3,13 +3,13 @@ title = "Ruby Guide"
 draft = false
 
 [menu]
-  [menu.infra_language]
+  [menu.client_19]
     title = "Ruby Guide"
     identifier = "infra_language/ruby.md Ruby Guide"
     parent = "infra_language"
 +++
 
-{{< readfile file="content/reusable/md/ruby_summary.md" >}}
+{{< readfile file="content/client/19/reusable/md/ruby_summary.md" >}}
 
 ## Ruby basics
 
@@ -195,7 +195,7 @@ if %w(debian ubuntu).include?(node['platform'])
 end
 ```
 
-{{< readfile file="content/reusable/md/ruby_style_patterns_string_quoting_vs_whitespace_array.md" >}}
+{{< readfile file="content/client/19/reusable/md/ruby_style_patterns_string_quoting_vs_whitespace_array.md" >}}
 
 ##### Example
 
@@ -429,7 +429,7 @@ This will prevent commit log entries similar to
 
 ### Use of hyphens
 
-{{< readfile file="content/reusable/md/ruby_style_patterns_hyphens.md" >}}
+{{< readfile file="content/client/19/reusable/md/ruby_style_patterns_hyphens.md" >}}
 
 ### Cookbook naming
 
@@ -535,7 +535,7 @@ need interpolation.
 
 #### Whitespace arrays
 
-{{< readfile file="content/reusable/md/ruby_style_patterns_string_quoting_vs_whitespace_array.md" >}}
+{{< readfile file="content/client/19/reusable/md/ruby_style_patterns_string_quoting_vs_whitespace_array.md" >}}
 
 ### Recipes
 

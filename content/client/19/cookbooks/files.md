@@ -3,7 +3,7 @@ title = "Cookbook Files"
 draft = false
 
 [menu]
-  [menu.cookbooks]
+  [menu.client_19]
     title = "Files"
     identifier = "cookbooks/files.md Files"
     parent = "cookbooks"

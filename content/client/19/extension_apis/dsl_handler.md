@@ -3,22 +3,22 @@ title = "About the Handler DSL"
 draft = false
 
 [menu]
-  [menu.extension_apis]
+  [menu.client_19]
     title = "Handler DSL"
     identifier = "extension_apis/handlers/dsl_handler.md Handler DSL"
     parent = "extension_apis/handlers"
     weight = 20
 +++
 
-{{< readfile file="content/reusable/md/dsl_handler_summary.md" >}}
+{{< readfile file="content/client/19/reusable/md/dsl_handler_summary.md" >}}
 
 ## on Method
 
-{{< readfile file="content/reusable/md/dsl_handler_method_on.md" >}}
+{{< readfile file="content/client/19/reusable/md/dsl_handler_method_on.md" >}}
 
 ## Event Types
 
-{{< readfile file="content/reusable/md/dsl_handler_event_types.md" >}}
+{{< readfile file="content/client/19/reusable/md/dsl_handler_event_types.md" >}}
 
 ## Examples
 
@@ -26,27 +26,27 @@ The following examples show ways to use the Handler DSL.
 
 ### Send Email
 
-{{< readfile file="content/reusable/md/dsl_handler_slide_send_email.md" >}}
+{{< readfile file="content/client/19/reusable/md/dsl_handler_slide_send_email.md" >}}
 
 #### Define How Email is Sent
 
-{{< readfile file="content/reusable/md/dsl_handler_slide_send_email_library.md" >}}
+{{< readfile file="content/client/19/reusable/md/dsl_handler_slide_send_email_library.md" >}}
 
 #### Add the Handler
 
-{{< readfile file="content/reusable/md/dsl_handler_slide_send_email_handler.md" >}}
+{{< readfile file="content/client/19/reusable/md/dsl_handler_slide_send_email_handler.md" >}}
 
 #### Test the Handler
 
-{{< readfile file="content/reusable/md/dsl_handler_slide_send_email_test.md" >}}
+{{< readfile file="content/client/19/reusable/md/dsl_handler_slide_send_email_test.md" >}}
 
 ### etcd Locks
 
-{{< readfile file="content/reusable/md/dsl_handler_example_etcd_lock.md" >}}
+{{< readfile file="content/client/19/reusable/md/dsl_handler_example_etcd_lock.md" >}}
 
 ### HipChat Notifications
 
-{{< readfile file="content/reusable/md/dsl_handler_example_hipchat.md" >}}
+{{< readfile file="content/client/19/reusable/md/dsl_handler_example_hipchat.md" >}}
 
 ### `attribute_changed` event hook
 

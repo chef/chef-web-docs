@@ -8,7 +8,7 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.resources]
+  [menu.client_19]
     title = "openssl_x509_request"
     identifier = "resources/bundled/openssl_x509_request"
     parent = "resources/bundled"

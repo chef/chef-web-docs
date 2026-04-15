@@ -8,7 +8,7 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.resources]
+  [menu.client_19]
     title = "zypper_package"
     identifier = "resources/bundled/zypper_package"
     parent = "resources/bundled"

@@ -3,7 +3,7 @@ title = "About the Compliance Phase"
 draft = false
 
 [menu]
-  [menu.features]
+  [menu.client_19]
     title = "Compliance Phase"
     identifier = "features/chef_compliance_phase.md Compliance Phase"
     parent = "features"
@@ -17,8 +17,8 @@ Chef Infra Client's Compliance Phase lets you automatically execute compliance a
 
 Existing audit cookbook users can migrate to the new Compliance Phase by removing the audit cookbook from their run_list and setting the `node['audit']['compliance_phase']` attribute to `true`.
 
-The Compliance Phase replaces the `audit cookbook` by integrating Chef InSpec compliance checks into the [Chef Infra Client run]({{< relref "/" >}})
-The Compliance Phase is designed to run on any node in your system that's set up--or [bootstrapped]({{< relref "/install/" >}})--for a `chef-client` run.
+The Compliance Phase replaces the `audit cookbook` by integrating Chef InSpec compliance checks into the [Chef Infra Client run]({{< relref "/client/19/" >}})
+The Compliance Phase is designed to run on any node in your system that's set up--or [bootstrapped]({{< relref "/client/19/install/" >}})--for a `chef-client` run.
 
 Once turned on, the Compliance Phase always outputs its results in the CLI on manual runs. The output for automated runs is handled by [reporters]({{< relref "#reporters" >}}).
 
@@ -272,7 +272,7 @@ Use [waivers](https://docs.chef.io/inspec/waivers/) to mark individual failing c
 To use waivers:
 
 1. Prepare a YAML waiver file.
-1. Deliver the waiver file to the node in a [cookbook_file]({{< relref "/resources/bundled/cookbook_file" >}}) or [remote_file]({{< relref "/resources/bundled/remote_file" >}}).
+1. Deliver the waiver file to the node in a [cookbook_file]({{< relref "/client/19/resources/bundled/cookbook_file" >}}) or [remote_file]({{< relref "/client/19/resources/bundled/remote_file" >}}).
 1. Set the `waiver_file` attribute for the Compliance Phase to that location. For example:
 
 ```ruby

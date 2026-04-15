@@ -2,7 +2,7 @@
 title = "Apply a license in Chef Infra Client"
 linkTitle = "Apply a license"
 
-[menu.licensing]
+[menu.client_19]
 title = "Apply a license"
 identifier = "licensing/apply"
 parent = "licensing"
@@ -141,7 +141,7 @@ chef-client OPTION VALUE
 
 You can accept the Chef License with the Chef Infra Client or Knife config files.
 
-On a workstation, you can set this in the [`~/.chef/config.rb` or `~/.chef/knife.rb` files](https://docs.chef.io/workstation/config_rb/), and on a node you can set this in the [`/etc/chef/client.rb`]({{< relref "/install/config_rb_client" >}}) file.
+On a workstation, you can set this in the [`~/.chef/config.rb` or `~/.chef/knife.rb` files](https://docs.chef.io/workstation/config_rb/), and on a node you can set this in the [`/etc/chef/client.rb`]({{< relref "/client/19/install/config_rb_client" >}}) file.
 
 ```ruby
 chef_license "<LICENSE_OPTION>"

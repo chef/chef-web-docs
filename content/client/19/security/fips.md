@@ -3,7 +3,7 @@ title = "FIPS (Federal Information Processing Standards)"
 draft = false
 
 [menu]
-  [menu.security]
+  [menu.client_19]
     title = "FIPS"
     identifier = "security/fips.md FIPS"
     parent = "security"
@@ -118,4 +118,4 @@ If you have FIPS compliance enabled at the kernel level, Chef Infra Client will 
 
 #### Bootstrap a node using FIPS
 
-{{< readfile file="content/reusable/md/workstation/knife_bootstrap_node_fips.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/knife_bootstrap_node_fips.md" >}}

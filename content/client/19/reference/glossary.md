@@ -3,7 +3,7 @@ title = "Glossary"
 draft = false
 
 [menu]
-  [menu.reference]
+  [menu.client_19]
     title = "Glossary"
     identifier = "reference/glossary.md Glossary"
     parent = "reference"

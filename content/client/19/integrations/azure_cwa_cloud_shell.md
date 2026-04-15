@@ -3,7 +3,7 @@ title = "Chef Workstation in Azure Cloud Shell"
 draft = false
 
 [menu]
-  [menu.integrations]
+  [menu.client_19]
     title = "Chef Workstation in Azure Cloud Shell"
     identifier = "integrations/azure/azure_cwa_cloud_shell.md Chef Workstation in Azure Cloud Shell"
     parent = "integrations/azure"

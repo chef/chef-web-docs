@@ -3,14 +3,14 @@ title = "About Data Bags"
 draft = false
 
 [menu]
-  [menu.policy]
+  [menu.client_19]
     title = "Data Bags"
     identifier = "policy/data_bags.md Data Bags"
     parent = "policy"
     weight = 40
 +++
 
-{{< readfile file="content/reusable/md/data_bag.md" >}}
+{{< readfile file="content/client/19/reusable/md/data_bag.md" >}}
 
 ## Create a data bag
 
@@ -156,11 +156,11 @@ data bag items.
 
 ### Data bag items
 
-{{< readfile file="content/reusable/md/data_bag_item.md" >}}
+{{< readfile file="content/client/19/reusable/md/data_bag_item.md" >}}
 
 ## Encrypt a data bag item
 
-{{< readfile file="content/reusable/md/data_bag_encryption.md" >}}
+{{< readfile file="content/client/19/reusable/md/data_bag_encryption.md" >}}
 
 ### Encryption versions
 
@@ -225,7 +225,7 @@ arguments and the following options:
 
 ### Secret keys
 
-{{< readfile file="content/reusable/md/data_bag_encryption_secret_key.md" >}}
+{{< readfile file="content/client/19/reusable/md/data_bag_encryption_secret_key.md" >}}
 
 ### Encrypt
 
@@ -293,9 +293,9 @@ management console.
 
 ### Edit a data bag with knife
 
-{{< readfile file="content/reusable/md/workstation/knife_data_bag_edit.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/knife_data_bag_edit.md" >}}
 
-{{< readfile file="content/reusable/md/workstation/knife_data_bag_edit_item.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/knife_data_bag_edit_item.md" >}}
 
 ## Use data bags
 
@@ -303,9 +303,9 @@ Data bags can be accessed in the following ways:
 
 ### Search
 
-{{< readfile file="content/reusable/md/data_bag.md" >}}
+{{< readfile file="content/client/19/reusable/md/data_bag.md" >}}
 
-{{< readfile file="content/reusable/md/search_data_bag.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_data_bag.md" >}}
 
 ### Environments
 

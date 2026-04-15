@@ -1,7 +1,7 @@
 +++
 title = "Upgrade Chef Infra Client to version 19 RC3 using the migration tool in an air-gapped environment"
 
-[menu.install]
+[menu.client_19]
 title = "Air-gapped upgrade"
 identifier = "install/migration_tool/upgrade_airgap"
 parent = "install/migration_tool"

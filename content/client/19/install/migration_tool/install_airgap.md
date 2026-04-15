@@ -2,7 +2,7 @@
 title = "Install Chef Infra Client using the migration tool in an air-gapped environment"
 draft = true
 
-[menu.install]
+[menu.client_19]
 title = "Air-gapped install"
 identifier = "install/migration_tool/install_airgap"
 parent = "install/migration_tool"

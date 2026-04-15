@@ -3,7 +3,7 @@ title = "Chef Infra Language: Search"
 draft = false
 
 [menu]
-  [menu.infra_language]
+  [menu.client_19]
     title = "Search"
     identifier = "infra_language/search.md Search"
     parent = "infra_language"
@@ -11,7 +11,7 @@ draft = false
 
 ## search
 
-{{< readfile file="content/reusable/md/search.md" >}}
+{{< readfile file="content/client/19/reusable/md/search.md" >}}
 
 Use the `search` method to perform a search query against Chef Infra Server from within a recipe.
 
@@ -43,47 +43,47 @@ end
 
 ### :filter_result
 
-{{< readfile file="content/reusable/md/infra_lang_method_search_filter_result.md" >}}
+{{< readfile file="content/client/19/reusable/md/infra_lang_method_search_filter_result.md" >}}
 
 ### Query Syntax
 
-{{< readfile file="content/reusable/md/search_query_syntax.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_query_syntax.md" >}}
 
 #### Keys
 
-{{< readfile file="content/reusable/md/search_key.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_key.md" >}}
 
 #### Nested Fields
 
-{{< readfile file="content/reusable/md/search_key_nested.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_key_nested.md" >}}
 
 #### Patterns
 
-{{< readfile file="content/reusable/md/search_pattern.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_pattern.md" >}}
 
 #### Exact Match
 
-{{< readfile file="content/reusable/md/search_pattern_exact.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_pattern_exact.md" >}}
 
 #### Wildcard Match
 
-{{< readfile file="content/reusable/md/search_pattern_wildcard.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_pattern_wildcard.md" >}}
 
 #### Range Match
 
-{{< readfile file="content/reusable/md/search_pattern_range.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_pattern_range.md" >}}
 
 #### Fuzzy Match
 
-{{< readfile file="content/reusable/md/search_pattern_fuzzy.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_pattern_fuzzy.md" >}}
 
 #### Operators
 
-{{< readfile file="content/reusable/md/search_boolean_operators.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_boolean_operators.md" >}}
 
 #### Special Characters
 
-{{< readfile file="content/reusable/md/search_special_characters.md" >}}
+{{< readfile file="content/client/19/reusable/md/search_special_characters.md" >}}
 
 ### Examples
 

@@ -4,7 +4,7 @@ linkTitle = "Checking Architectures"
 draft = false
 
 [menu]
-  [menu.infra_language]
+  [menu.client_19]
     title = "Checking Architectures"
     identifier = "infra_language/checking_architectures.md Checking Architectures"
     parent = "infra_language"

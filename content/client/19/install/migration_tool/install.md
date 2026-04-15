@@ -1,7 +1,7 @@
 +++
 title = "Install Chef Infra Client using the migration tool in an online environment"
 
-[menu.install]
+[menu.client_19]
 title = "Online install"
 identifier = "install/migration_tool/install_online"
 parent = "install/migration_tool"

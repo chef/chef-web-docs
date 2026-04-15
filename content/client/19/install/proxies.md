@@ -3,7 +3,7 @@ title = "Working with proxies"
 draft = false
 
 [menu]
-  [menu.install]
+  [menu.client_19]
     title = "Working with proxies"
     identifier = "install/proxies.md Working with Proxies"
     parent = "install"
@@ -18,7 +18,7 @@ variables to specify the proxy settings using a lowercase value.
 
 ## Windows
 
-{{< readfile file="content/reusable/md/proxy_windows.md" >}}
+{{< readfile file="content/client/19/reusable/md/proxy_windows.md" >}}
 
 ## Linux
 
@@ -189,4 +189,4 @@ used to set the proxy:
 
 ### ENV
 
-{{< readfile file="content/reusable/md/proxy_env.md" >}}
+{{< readfile file="content/client/19/reusable/md/proxy_env.md" >}}

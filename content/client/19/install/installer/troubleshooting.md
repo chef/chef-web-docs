@@ -1,7 +1,7 @@
 +++
 title = "Chef Infra Client native installer troubleshooting"
 
-[menu.install]
+[menu.client_19]
 title = "Troubleshooting"
 identifier = "install/installer/troubleshooting"
 parent = "install/installer"

@@ -1,7 +1,7 @@
 +++
 title = "Chef Infra Agentless Mode example"
 
-[menu.features]
+[menu.client_19]
 title = "Agentless Mode example"
 identifier = "features/agentless/example"
 parent = "features/agentless"

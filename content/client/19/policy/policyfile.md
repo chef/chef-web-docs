@@ -3,14 +3,14 @@ title = "About Policyfiles"
 draft = false
 
 [menu]
-  [menu.policy]
+  [menu.client_19]
     title = "About Policyfiles"
     identifier = "policy/policyfile.md About Policyfiles"
     parent = "policy"
     weight = 20
 +++
 
-{{< readfile file="content/reusable/md/policyfile_summary.md" >}}
+{{< readfile file="content/client/19/reusable/md/policyfile_summary.md" >}}
 
 ## Why Policyfiles?
 
@@ -93,19 +93,19 @@ knife node policy set test-node 'test-policy-group-name' 'test-policy-name'
 
 ## Policyfile.rb
 
-{{< readfile file="content/reusable/md/policyfile_rb.md" >}}
+{{< readfile file="content/client/19/reusable/md/policyfile_rb.md" >}}
 
 ### Syntax
 
-{{< readfile file="content/reusable/md/policyfile_rb_syntax.md" >}}
+{{< readfile file="content/client/19/reusable/md/policyfile_rb_syntax.md" >}}
 
 ### Settings
 
-{{< readfile file="content/reusable/md/policyfile_rb_settings.md" >}}
+{{< readfile file="content/client/19/reusable/md/policyfile_rb_settings.md" >}}
 
 ### Example
 
-{{< readfile file="content/reusable/md/policyfile_rb_example.md" >}}
+{{< readfile file="content/client/19/reusable/md/policyfile_rb_example.md" >}}
 
 ## client.rb Settings
 
@@ -194,125 +194,125 @@ As `chef_zero` explicitly tests outside the context of a Chef Infra Server, the 
 
 ## `chef` CLI commands
 
-{{< readfile file="content/reusable/md/policyfile_chef_commands.md" >}}
+{{< readfile file="content/client/19/reusable/md/policyfile_chef_commands.md" >}}
 
 ### `chef clean-policy-cookbooks`
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_clean_policy_cookbooks.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_clean_policy_cookbooks.md" >}}
 
 #### Syntax
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_clean_policy_cookbooks_syntax.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_clean_policy_cookbooks_syntax.md" >}}
 
 #### Options
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_clean_policy_cookbooks_options.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_clean_policy_cookbooks_options.md" >}}
 
 ### `chef clean-policy-revisions`
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_clean_policy_revisions.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_clean_policy_revisions.md" >}}
 
 #### Syntax
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_clean_policy_revisions_syntax.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_clean_policy_revisions_syntax.md" >}}
 
 #### Options
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_clean_policy_revisions_options.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_clean_policy_revisions_options.md" >}}
 
 ### `chef delete-policy`
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_delete_policy.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_delete_policy.md" >}}
 
 #### Syntax
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_delete_policy_syntax.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_delete_policy_syntax.md" >}}
 
 #### Options
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_delete_policy_options.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_delete_policy_options.md" >}}
 
 ### `chef delete-policy-group`
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_delete_policy_group.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_delete_policy_group.md" >}}
 
 #### Syntax
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_delete_policy_group_syntax.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_delete_policy_group_syntax.md" >}}
 
 #### Options
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_delete_policy_group_options.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_delete_policy_group_options.md" >}}
 
 ### `chef diff`
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_diff.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_diff.md" >}}
 
 #### Syntax
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_diff_syntax.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_diff_syntax.md" >}}
 
 #### Options
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_diff_options.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_diff_options.md" >}}
 
 #### Examples
 
 ##### Compare current lock to latest commit on latest branch
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_diff_current_lock_latest_branch.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_diff_current_lock_latest_branch.md" >}}
 
 ##### Compare current lock with latest commit on main branch
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_diff_current_lock_main_branch.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_diff_current_lock_main_branch.md" >}}
 
 ##### Compare current lock to specified revision
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_diff_current_lock_specified_revision.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_diff_current_lock_specified_revision.md" >}}
 
 ##### Compare lock on main branch to lock on revision
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_diff_main_lock_revision_lock.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_diff_main_lock_revision_lock.md" >}}
 
 ##### Compare lock for version with latest commit on main branch
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_diff_version_lock_main_branch.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_diff_version_lock_main_branch.md" >}}
 
 ##### Compare current lock with latest lock for policy group
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_diff_current_lock_policy_group.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_diff_current_lock_policy_group.md" >}}
 
 ##### Compare locks for two policy group
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_diff_two_policy_groups.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_diff_two_policy_groups.md" >}}
 
 ### `chef export`
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_export.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_export.md" >}}
 
 #### Syntax
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_export_syntax.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_export_syntax.md" >}}
 
 #### Options
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_export_options.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_export_options.md" >}}
 
 ### `chef generate policyfile`
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_generate_policyfile.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_generate_policyfile.md" >}}
 
 #### Syntax
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_generate_policyfile_syntax.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_generate_policyfile_syntax.md" >}}
 
 #### Options
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_generate_policyfile_options.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_generate_policyfile_options.md" >}}
 
 ### `chef generate repo`
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_generate_repo.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_generate_repo.md" >}}
 
 {{< note >}}
 
@@ -322,86 +322,86 @@ This subcommand requires using one (or more) of the options (below) to support P
 
 #### Syntax
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_generate_repo_syntax.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_generate_repo_syntax.md" >}}
 
 #### Options
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_generate_repo_options.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_generate_repo_options.md" >}}
 
 ### `chef install`
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_install.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_install.md" >}}
 
 #### Syntax
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_install_syntax.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_install_syntax.md" >}}
 
 #### Options
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_install_options.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_install_options.md" >}}
 
 #### Policyfile.lock.json
 
-{{< readfile file="content/reusable/md/policyfile_lock_json.md" >}}
+{{< readfile file="content/client/19/reusable/md/policyfile_lock_json.md" >}}
 
-{{< readfile file="content/reusable/md/policyfile_lock_json_example.md" >}}
+{{< readfile file="content/client/19/reusable/md/policyfile_lock_json_example.md" >}}
 
 ### `chef push`
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_push.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_push.md" >}}
 
 #### Syntax
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_push_syntax.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_push_syntax.md" >}}
 
 #### Options
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_push_options.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_push_options.md" >}}
 
 ### `chef push-archive`
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_push_archive.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_push_archive.md" >}}
 
 #### Syntax
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_push_archive_syntax.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_push_archive_syntax.md" >}}
 
 #### Options
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_push_archive_options.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_push_archive_options.md" >}}
 
 ### `chef show-policy`
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_show_policy.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_show_policy.md" >}}
 
 #### Syntax
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_show_policy_syntax.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_show_policy_syntax.md" >}}
 
 #### Options
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_show_policy_options.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_show_policy_options.md" >}}
 
 ### `chef undelete`
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_undelete.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_undelete.md" >}}
 
 #### Syntax
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_undelete_syntax.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_undelete_syntax.md" >}}
 
 #### Options
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_undelete_options.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_undelete_options.md" >}}
 
 ### `chef update`
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_update.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_update.md" >}}
 
 #### Syntax
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_update_syntax.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_update_syntax.md" >}}
 
 #### Options
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_update_options.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_update_options.md" >}}

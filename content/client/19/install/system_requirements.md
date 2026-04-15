@@ -3,7 +3,7 @@ title = "System requirements"
 draft = false
 
 [menu]
-  [menu.install]
+  [menu.client_19]
     title = "System requirements"
     identifier = "install/chef_system_requirements.md System Requirements"
     parent = "install"

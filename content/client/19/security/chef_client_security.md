@@ -3,7 +3,7 @@ title = "Chef Infra Client security"
 draft = false
 
 [menu]
-  [menu.security]
+  [menu.client_19]
     title = "Chef Infra Client security"
     identifier = "security/chef_client_security.md Security"
     parent = "security"
@@ -11,21 +11,21 @@ draft = false
 +++
 <!-- markdownlint-disable-file MD033 -->
 
-{{< readfile file="content/reusable/md/server/chef_auth.md" >}}
+{{< readfile file="content/client/19/reusable/md/server/chef_auth.md" >}}
 
 ## Authentication
 
-{{< readfile file="content/reusable/md/server/chef_auth_authentication.md" >}}
+{{< readfile file="content/client/19/reusable/md/server/chef_auth_authentication.md" >}}
 
 ### chef-validator
 
-{{< readfile file="content/reusable/md/security_chef_validator.md" >}}
+{{< readfile file="content/client/19/reusable/md/security_chef_validator.md" >}}
 
-{{< readfile file="content/reusable/md/security_chef_validator_context.md" >}}
+{{< readfile file="content/client/19/reusable/md/security_chef_validator_context.md" >}}
 
 ## SSL certificates
 
-{{< readfile file="content/reusable/md/server/server_security_ssl_cert_client.md" >}}
+{{< readfile file="content/client/19/reusable/md/server/server_security_ssl_cert_client.md" >}}
 
 ### trusted_certs directory
 
@@ -35,7 +35,7 @@ The `trusted_certs` directory on Chef Workstation and in Chef Infra Client works
 
 Place private and self-signed certificates in the `trusted_certs` directory to use them within Chef Infra Client and Workstation tools.
 
-Use the [`chef_client_trusted_certificate`]({{< relref "/resources/bundled/chef_client_trusted_certificate" >}}) Chef Infra Client resource to manage these certificates continuously.
+Use the [`chef_client_trusted_certificate`]({{< relref "/client/19/resources/bundled/chef_client_trusted_certificate" >}}) Chef Infra Client resource to manage these certificates continuously.
 
 #### trusted_certs directory locations
 
@@ -126,11 +126,11 @@ Run [`knife ssl check`](https://docs.chef.io/workstation/knife_ssl_check/) to ve
 
 ##### Verified
 
-{{< readfile file="content/reusable/md/workstation/knife_ssl_check_verify_server_config.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/knife_ssl_check_verify_server_config.md" >}}
 
 ##### Unverified
 
-{{< readfile file="content/reusable/md/workstation/knife_ssl_check_bad_ssl_certificate.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/knife_ssl_check_bad_ssl_certificate.md" >}}
 
 #### knife ssl fetch
 
@@ -138,4 +138,4 @@ Run [`knife ssl fetch`](https://docs.chef.io/workstation/knife_ssl_fetch/) to do
 
 ##### Verify checksums
 
-{{< readfile file="content/reusable/md/workstation/knife_ssl_fetch_verify_certificate.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/knife_ssl_fetch_verify_certificate.md" >}}

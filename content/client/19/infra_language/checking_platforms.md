@@ -3,7 +3,7 @@ title = "Chef Infra Language: Checking Platforms"
 draft = false
 
 [menu]
-  [menu.infra_language]
+  [menu.client_19]
     title = "Checking Platforms"
     identifier = "infra_language/checking_platforms.md Checking Platforms"
     parent = "infra_language"
@@ -385,7 +385,7 @@ value_for_platform(
 
 ### Operators
 
-{{< readfile file="content/reusable/md/cookbooks_version_constraints_operators.md" >}}
+{{< readfile file="content/client/19/reusable/md/cookbooks_version_constraints_operators.md" >}}
 
 ### Examples
 

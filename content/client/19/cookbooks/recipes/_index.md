@@ -3,14 +3,14 @@ title = "About Recipes"
 draft = false
 
 [menu]
-  [menu.cookbooks]
+  [menu.client_19]
     title = "About Recipes"
     identifier = "cookbooks/recipes/recipes.md About Recipes"
     parent = "cookbooks/recipes"
     weight = 10
 +++
 
-{{< readfile file="content/reusable/md/cookbooks_recipe.md" >}}
+{{< readfile file="content/client/19/reusable/md/cookbooks_recipe.md" >}}
 
 ## YAML and JSON recipes
 
@@ -20,11 +20,11 @@ See the [YAML and JSON recipe documentation]({{< relref "recipes_json_yaml" >}})
 
 ## Recipe Attributes
 
-{{< readfile file="content/reusable/md/cookbooks_attribute.md" >}}
+{{< readfile file="content/client/19/reusable/md/cookbooks_attribute.md" >}}
 
 {{< note >}}
 
-{{< readfile file="content/reusable/md/notes_see_attributes_overview.md" >}}
+{{< readfile file="content/client/19/reusable/md/notes_see_attributes_overview.md" >}}
 
 {{< /note >}}
 
@@ -60,7 +60,7 @@ The following sections show approaches to working with recipes.
 
 ### Use Data Bags
 
-{{< readfile file="content/reusable/md/data_bag.md" >}}
+{{< readfile file="content/client/19/reusable/md/data_bag.md" >}}
 
 The contents of a data bag can be loaded into a recipe. For example, a
 data bag named `apps` and a data bag item named `my_app`:
@@ -86,7 +86,7 @@ my_bag['repository'] #=> 'git://github.com/company/my_app.git'
 
 #### Secret Keys
 
-{{< readfile file="content/reusable/md/data_bag_encryption_secret_key.md" >}}
+{{< readfile file="content/client/19/reusable/md/data_bag_encryption_secret_key.md" >}}
 
 #### Store Keys on Nodes
 
@@ -135,7 +135,7 @@ depends 'apache2'
 
 ### Include Recipes
 
-{{< readfile file="content/reusable/md/cookbooks_recipe_include_in_recipe.md" >}}
+{{< readfile file="content/client/19/reusable/md/cookbooks_recipe_include_in_recipe.md" >}}
 
 ### Reload Attributes
 
@@ -334,7 +334,7 @@ sudo chef-solo -j /etc/chef/dna.json
 
 ### Use Search Results
 
-{{< readfile file="content/reusable/md/search.md" >}}
+{{< readfile file="content/client/19/reusable/md/search.md" >}}
 
 The results of a search query can be loaded into a recipe. For example,
 a simple search query (in a recipe) might look like this:
@@ -359,9 +359,9 @@ end
 
 ### Use Tags
 
-{{< readfile file="content/reusable/md/chef_tags.md" >}}
+{{< readfile file="content/client/19/reusable/md/chef_tags.md" >}}
 
-{{< readfile file="content/reusable/md/cookbooks_recipe_tags.md" >}}
+{{< readfile file="content/client/19/reusable/md/cookbooks_recipe_tags.md" >}}
 
 ### End Chef Infra Client Run
 

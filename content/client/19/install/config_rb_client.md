@@ -3,7 +3,7 @@ title = "client.rb"
 draft = false
 
 [menu]
-  [menu.install]
+  [menu.client_19]
     title = "client.rb"
     identifier = "install/config_rb_client.md client.rb Configuration"
     parent = "install"
@@ -12,7 +12,7 @@ draft = false
 
 <!-- markdownlint-disable-file MD046 -->
 
-{{< readfile file="content/reusable/md/config_rb_client_summary.md" >}}
+{{< readfile file="content/client/19/reusable/md/config_rb_client_summary.md" >}}
 
 ## Settings
 
@@ -567,17 +567,17 @@ This configuration file has the following settings:
 
 ### Automatic Proxy Config
 
-{{< readfile file="content/reusable/md/proxy_env.md" >}}
+{{< readfile file="content/client/19/reusable/md/proxy_env.md" >}}
 
 ## .d Directories
 
-{{< readfile file="content/reusable/md/config_rb_client_dot_d_directories.md" >}}
+{{< readfile file="content/client/19/reusable/md/config_rb_client_dot_d_directories.md" >}}
 
 ## Ohai Settings
 
-{{< readfile file="content/reusable/md/config_rb_ohai.md" >}}
+{{< readfile file="content/client/19/reusable/md/config_rb_ohai.md" >}}
 
-{{< readfile file="content/reusable/md/config_rb_ohai_settings.md" >}}
+{{< readfile file="content/client/19/reusable/md/config_rb_ohai_settings.md" >}}
 
 ## Example
 

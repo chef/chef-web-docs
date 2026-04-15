@@ -3,34 +3,34 @@ title = "About Roles"
 draft = false
 
 [menu]
-  [menu.policy]
+  [menu.client_19]
     title = "Roles"
     identifier = "policy/roles.md Roles"
     parent = "policy"
     weight = 70
 +++
 <!-- markdownlint-disable-file MD033 -->
-{{< readfile file="content/reusable/md/role.md" >}}
+{{< readfile file="content/client/19/reusable/md/role.md" >}}
 
 ## Role Attributes
 
 {{< note >}}
 
-{{< readfile file="content/reusable/md/notes_see_attributes_overview.md" >}}
+{{< readfile file="content/client/19/reusable/md/notes_see_attributes_overview.md" >}}
 
 {{< /note >}}
 
-{{< readfile file="content/reusable/md/role_attribute.md" >}}
+{{< readfile file="content/client/19/reusable/md/role_attribute.md" >}}
 
 ### Attribute types
 
 There are two types of attributes that can be used with roles:
 
 `default`
-: {{< readfile file="content/reusable/md/node_attribute_type_default.md" >}}
+: {{< readfile file="content/client/19/reusable/md/node_attribute_type_default.md" >}}
 
 `override`
-: {{< readfile file="content/reusable/md/node_attribute_type_override.md" >}}
+: {{< readfile file="content/client/19/reusable/md/node_attribute_type_override.md" >}}
 
 ## Role formats
 
@@ -39,7 +39,7 @@ domain-specific language or as JSON data.
 
 ### Chef Language
 
-{{< readfile file="content/reusable/md/ruby_summary.md" >}}
+{{< readfile file="content/client/19/reusable/md/ruby_summary.md" >}}
 
 Domain-specific Ruby attributes:
 

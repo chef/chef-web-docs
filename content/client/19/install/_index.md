@@ -3,7 +3,7 @@ title = "Install Chef Infra Client"
 linkTitle = "Install"
 
 [menu]
-  [menu.install]
+  [menu.client_19]
     title = "Overview"
     identifier = "install/overview"
     parent = "install"

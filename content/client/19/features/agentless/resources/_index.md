@@ -2,7 +2,7 @@
 title = "Supported Chef Infra resources in Agentless Mode"
 linkTitle = "Supported resources"
 
-[menu.features]
+[menu.client_19]
 title = "Supported resources"
 identifier = "features/agentless/resources/overview"
 parent = "features/agentless/resources"

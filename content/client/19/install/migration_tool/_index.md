@@ -2,7 +2,7 @@
 title = "Install Chef Infra Client using the migration tool"
 linkTitle = "Migration tool"
 
-[menu.install]
+[menu.client_19]
 title = "Overview"
 parent = "install/migration_tool"
 weight = 10

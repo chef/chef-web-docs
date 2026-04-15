@@ -3,9 +3,9 @@ title = "Troubleshooting"
 draft = false
 
 [menu]
-  [menu.troubleshooting]
+  [menu.client_19]
     title = "Troubleshooting"
-    identifier = "Troubleshooting"
+    identifier = "troubleshooting"
 +++
 
 <!-- vale Microsoft.Avoid = NO -->
@@ -72,7 +72,7 @@ Response:  Failed to authenticate as USERNAME. Ensure that your node_name and cl
 
 If you see this error when trying to recreate the ORGANIZATION-validator.pem, it's possible that Chef Infra Client itself was deleted. In this situation, the ORGANIZATION-validator.pem will need to be recreated. In these directions, `ORGANIZATION` should be replaced with the name of your organization.
 
-{{< readfile file="content/reusable/md/manage_webui_policy_validation_reset_key.md" >}}
+{{< readfile file="content/client/19/reusable/md/manage_webui_policy_validation_reset_key.md" >}}
 
 ### Synchronize the clock on your host
 

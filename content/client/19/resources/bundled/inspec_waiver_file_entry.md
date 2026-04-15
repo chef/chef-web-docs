@@ -8,7 +8,7 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.resources]
+  [menu.client_19]
     title = "inspec_waiver_file_entry"
     identifier = "resources/bundled/inspec_waiver_file_entry"
     parent = "resources/bundled"

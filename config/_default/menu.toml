@@ -896,20 +896,207 @@ identifier = "resources"
 
 
 
-
 [[client_19]]
-title = "About"
-identifier = "about"
-
+title = "Overview"
+identifier = "overview"
 
 [[client_19]]
 title = "Install"
 identifier = "install"
 
+  [[client_19]]
+  title = "Installer"
+  identifier = "install/installer"
+  parent = "install"
+  weight = 20
+
+  [[client_19]]
+  title = "Migration Tool"
+  identifier = "install/migration_tool"
+  parent = "install"
+  weight = 30
+
+[[client_19]]
+title = "Licensing"
+identifier = "licensing"
+
+[[client_19]]
+title = "Features"
+identifier = "features"
+
+  [[client_19]]
+  title = "Agentless Mode"
+  identifier = "features/agentless"
+  parent = "features"
+
+    [[client_19]]
+    title = "Resources"
+    identifier = "features/agentless/resources"
+    parent = "features/agentless"
+    weight = 40
+
+  [[client_19]]
+  title = "Chef Solo"
+  identifier = "features/chef_solo"
+  parent = "features"
+
+  [[client_19]]
+  title = "Ohai"
+  identifier = "features/ohai"
+  parent = "features"
+
+[[client_19]]
+title = "Integrations"
+identifier = "integrations"
+
+  [[client_19]]
+  title = "Azure"
+  identifier = "integrations/azure"
+  parent = "integrations"
+
+  [[client_19]]
+  title = "Windows"
+  identifier = "integrations/windows"
+  parent = "integrations"
+
+[[client_19]]
+title = "Policy"
+identifier = "policy"
+
+[[client_19]]
+title = "Security"
+identifier = "security"
+
+[[client_19]]
+title = "Cookbooks"
+identifier = "cookbooks"
+
+  [[client_19]]
+  title = "Attributes"
+  identifier = "cookbooks/attributes"
+  parent = "cookbooks"
+  weight = 30
+
+  [[client_19]]
+  title = "Recipes"
+  identifier = "cookbooks/recipes"
+  parent = "cookbooks"
+  weight = 70
+
+[[client_19]]
+title = "Infra language"
+identifier = "infra_language"
 
 [[client_19]]
 title = "Resources"
 identifier = "resources"
+
+  [[client_19]]
+  title = "Bundled resources"
+  parent = "resources"
+  identifier = "resources/bundled"
+
+  [[client_19]]
+  title = "Custom resources"
+  parent = "resources"
+  identifier = "resources/custom"
+
+[[client_19]]
+title = "Extension APIs"
+identifier = "extension_apis"
+
+  [[client_19]]
+  title = "Compliance DSL"
+  identifier = "extension_apis/inspec/dsl_inspec/ Compliance DSL"
+  parent = "extension_apis"
+  url = "https://docs.chef.io/inspec/latest/profiles/controls/"
+  weight = 20
+
+  [[client_19]]
+  title = "Handlers"
+  identifier = "extension_apis/handlers"
+  parent = "extension_apis"
+  weight = 20
+
+    [[client_19]]
+    title = "Custom handlers"
+    identifier = "extension_apis/handlers/handlers.md#custom-handlers Custom Handlers"
+    parent = "extension_apis/handlers"
+    url = "/features/handlers/#custom-handlers"
+    weight = 10
+
+    [[client_19]]
+    title = "Community handlers"
+    identifier = "extension_apis/handlers/plugin_community.md#handlers Community Handlers"
+    parent = "extension_apis/handlers"
+    url = "/extension_apis/community_plugins/#handlers"
+    weight = 30
+
+  [[client_19]]
+  title = "Ohai plugins"
+  identifier = "extension_apis/ohai_plugins"
+  parent = "extension_apis"
+  weight = 40
+
+[[client_19]]
+title = "Reference"
+identifier = "reference"
+
+    [[client_19]]
+    title = "chef-solo (executable)"
+    identifier = "reference/ctl_chef_solo.md chef-solo (executable)"
+    parent = "reference"
+    url = "/features/chef_solo/ctl_chef_solo/"
+    weight = 20
+
+    [[client_19]]
+    title = "Handler DSL"
+    identifier = "reference/dsl_handler.md Handler Commands"
+    parent = "reference"
+    url = "/extension_apis/dsl_handler/"
+    weight = 40
+
+    [[client_19]]
+    title = "ohai (executable)"
+    identifier = "reference/ctl_ohai.md ohai (executable)"
+    parent = "reference"
+    url = "/features/ohai/ctl_ohai/"
+    weight = 50
+
+    [[client_19]]
+    title = "supermarket-ctl"
+    identifier = "supermarket/reference/ctl_supermarket.md supermarket-ctl"
+    parent = "reference"
+    url = "https://docs.chef.io/supermarket/ctl_supermarket/"
+    weight = 60
+
+    [[client_19]]
+    title = "client.rb"
+    identifier = "reference/config_rb_client.md client.rb"
+    parent = "reference"
+    url = "/install/config_rb_client/"
+    weight = 70
+
+    [[client_19]]
+    title = "metadata.rb"
+    identifier = "reference/config_rb_metadata.md metadata.rb"
+    parent = "reference"
+    url = "/cookbooks/config_rb_metadata/"
+    weight = 80
+
+    [[client_19]]
+    title = "Policyfile.rb"
+    identifier = "reference/config_rb_policyfile.md Policyfile.rb"
+    parent = "reference"
+    url = "/policy/config_rb_policyfile/"
+    weight = 90
+
+    [[client_19]]
+    title = "solo.rb"
+    identifier = "reference/config_rb_solo.md solo.rb"
+    parent = "reference"
+    url = "/install/config_rb_solo/"
+    weight = 100
 
 ####
 # Chef Cloud Menu

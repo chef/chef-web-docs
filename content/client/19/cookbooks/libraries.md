@@ -3,14 +3,14 @@ title = "About Libraries"
 draft = false
 
 [menu]
-  [menu.cookbooks]
+  [menu.client_19]
     title = "Libraries"
     identifier = "cookbooks/libraries.md Libraries"
     parent = "cookbooks"
     weight = 50
 +++
 
-{{< readfile file="content/reusable/md/libraries_summary.md" >}}
+{{< readfile file="content/client/19/reusable/md/libraries_summary.md" >}}
 
 Use a library to:
 
@@ -27,7 +27,7 @@ section below for samples.
 
 ## Template Helper Modules
 
-{{< readfile file="content/reusable/md/resource_template_library_module.md" >}}
+{{< readfile file="content/client/19/reusable/md/resource_template_library_module.md" >}}
 
 ## Examples
 

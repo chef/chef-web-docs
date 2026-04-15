@@ -2,7 +2,7 @@
 title = "Custom resource guide"
 
 [menu]
-  [menu.features]
+  [menu.client_19]
     title = "Custom resource guide"
     identifier = "features/agentless/resources/custom"
     parent = "features/agentless/resources"

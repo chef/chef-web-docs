@@ -3,20 +3,20 @@ title = "Bootstrap a node"
 draft = true
 
 [menu]
-  [menu.install]
+  [menu.client_19]
     title = "Install using Bootstrap"
     identifier = "install/install_bootstrap.md Install using Bootstrap"
     parent = "install"
     weight = 40
 +++
 
-{{< readfile file="content/reusable/md/chef_client_bootstrap_node.md" >}}
+{{< readfile file="content/client/19/reusable/md/chef_client_bootstrap_node.md" >}}
 
-{{< readfile file="content/reusable/md/chef_client_bootstrap_stages.md" >}}
+{{< readfile file="content/client/19/reusable/md/chef_client_bootstrap_stages.md" >}}
 
 ## knife bootstrap
 
-{{< readfile file="content/reusable/md/install_chef_client.md" >}}
+{{< readfile file="content/client/19/reusable/md/install_chef_client.md" >}}
 
 ### Run the bootstrap command
 
@@ -454,4 +454,4 @@ It's important that settings in the [client.rb file](/install/config_rb_client/)
 
 ##### Setting the initial run-list
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_client_bootstrap_initial_run_list.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_client_bootstrap_initial_run_list.md" >}}

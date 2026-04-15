@@ -1,7 +1,7 @@
 +++
 title = "Troubleshoot licensing issues"
 
-[menu.licensing]
+[menu.client_19]
 title = "Troubleshooting"
 identifier = "licensing/troubleshoot"
 parent = "licensing"

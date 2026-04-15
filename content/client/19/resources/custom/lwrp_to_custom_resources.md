@@ -5,7 +5,7 @@ title = "Migrating from LWRPs to Custom Resources"
 
 
 [menu]
-  [menu.resources]
+  [menu.client_19]
     title = "Migrating from LWRPs"
     identifier = "resources/custom/lwrp"
     parent = "resources/custom"
@@ -18,7 +18,7 @@ It's no longer recommended to write resources in the __Light Weight Resource Pro
 
 This guide describes how to migrate from an existing LWRP to a Custom Resource.
 
-If you are creating a Custom Resource from scratch please see the [Custom Resource Getting Started Guide]({{< relref "/resources/custom" >}}) instead.
+If you are creating a Custom Resource from scratch please see the [Custom Resource Getting Started Guide]({{< relref "/client/19/resources/custom" >}}) instead.
 
 ## Convert files to Custom Resources Layout
 

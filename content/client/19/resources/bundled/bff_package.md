@@ -8,7 +8,7 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.resources]
+  [menu.client_19]
     title = "bff_package"
     identifier = "resources/bundled/bff_package"
     parent = "resources/bundled"

@@ -3,14 +3,14 @@ title = "chef-solo"
 draft = false
 
 [menu]
-  [menu.features]
+  [menu.client_19]
     title = "About Chef Solo"
     identifier = "features/chef_solo/chef_solo.md About Chef Solo"
     parent = "features/chef_solo"
     weight = 10
 +++
 
-{{< readfile file="content/reusable/md/chef_solo_summary.md" >}}
+{{< readfile file="content/client/19/reusable/md/chef_solo_summary.md" >}}
 
 ## Cookbooks
 
@@ -154,7 +154,7 @@ and finally, JSON data passed to chef-solo:
 
 ## Environments
 
-{{< readfile file="content/reusable/md/chef_solo_environments.md" >}}
+{{< readfile file="content/client/19/reusable/md/chef_solo_environments.md" >}}
 
 ## chef-solo (executable)
 

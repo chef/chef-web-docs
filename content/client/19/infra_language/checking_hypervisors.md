@@ -3,7 +3,7 @@ title = "Chef Infra Language: Checking Hypervisors"
 draft = false
 
 [menu]
-  [menu.infra_language]
+  [menu.client_19]
     title = "Checking Hypervisors"
     identifier = "infra_language/checking_hypervisors.md Checking Hypervisors"
     parent = "infra_language"

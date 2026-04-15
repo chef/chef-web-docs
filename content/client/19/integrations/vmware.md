@@ -3,7 +3,7 @@ title = "Chef and VMware"
 draft = false
 
 [menu]
-  [menu.integrations]
+  [menu.client_19]
     title = "VMware"
     identifier = "integrations/vmware.md VMware"
     parent = "integrations"

@@ -3,7 +3,7 @@ title = "Attribute Precedence"
 draft = false
 
 [menu]
-  [menu.cookbooks]
+  [menu.client_19]
     title = "Attribute Precedence"
     identifier = "cookbooks/attributes/attribute_precedence"
     parent = "cookbooks/attributes"

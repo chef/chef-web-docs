@@ -3,7 +3,7 @@ title = "Attribute Sources"
 draft = false
 
 [menu]
-  [menu.cookbooks]
+  [menu.client_19]
     title = "Attribute Sources"
     identifier = "cookbooks/attributes/attribute_sources Attributes"
     parent = "cookbooks/attributes"
@@ -51,9 +51,9 @@ Notes:
 
 ## Automatic Attributes (Ohai)
 
-{{< readfile file="content/reusable/md/ohai_automatic_attribute.md" >}}
+{{< readfile file="content/client/19/reusable/md/ohai_automatic_attribute.md" >}}
 
-{{< readfile file="content/reusable/md/ohai_attribute_list.md" >}}
+{{< readfile file="content/client/19/reusable/md/ohai_attribute_list.md" >}}
 
 ## Attribute Files
 
@@ -127,18 +127,18 @@ end
 
 ## Attributes from Recipes
 
-{{< readfile file="content/reusable/md/cookbooks_recipe.md" >}}
+{{< readfile file="content/client/19/reusable/md/cookbooks_recipe.md" >}}
 
-{{< readfile file="content/reusable/md/cookbooks_attribute.md" >}}
+{{< readfile file="content/client/19/reusable/md/cookbooks_attribute.md" >}}
 
 ## Attributes from Roles
 
-{{< readfile file="content/reusable/md/role.md" >}}
+{{< readfile file="content/client/19/reusable/md/role.md" >}}
 
-{{< readfile file="content/reusable/md/role_attribute.md" >}}
+{{< readfile file="content/client/19/reusable/md/role_attribute.md" >}}
 
 ## Attributes from Environments
 
-{{< readfile file="content/reusable/md/environment.md" >}}
+{{< readfile file="content/client/19/reusable/md/environment.md" >}}
 
-{{< readfile file="content/reusable/md/environment_attribute.md" >}}
+{{< readfile file="content/client/19/reusable/md/environment_attribute.md" >}}

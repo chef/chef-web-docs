@@ -2,7 +2,7 @@
 title = "Install Chef Infra Client RC3 with a native installer"
 linkTitle = "Native installer"
 
-[menu.install]
+[menu.client_19]
 title = "Install"
 identifier = "install/installer/install"
 parent = "install/installer"

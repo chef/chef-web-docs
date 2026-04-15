@@ -4,14 +4,14 @@ draft = false
 linkTitle = "Resources"
 
 [menu]
-  [menu.resources]
+  [menu.client_19]
     title = "About Resources"
     identifier = "resources/resource.md About Resources"
     parent = "resources"
     weight = 10
 +++
 <!-- markdownlint-disable-file MD033 -->
-{{< readfile file="content/reusable/md/resources_common.md" >}}
+{{< readfile file="content/client/19/reusable/md/resources_common.md" >}}
 
 ## Resource Syntax
 

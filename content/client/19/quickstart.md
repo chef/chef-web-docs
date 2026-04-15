@@ -3,7 +3,7 @@ title = "Chef Infra quickstart guide"
 draft = false
 
 [menu]
-  [menu.quickstart]
+  [menu.client_19]
     title = "Quickstart"
     identifier = "quick_start.md Quick Start"
     weight = 10

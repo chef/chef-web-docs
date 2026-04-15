@@ -3,7 +3,7 @@ title = "Accumulators"
 
 
 [menu]
-  [menu.resources]
+  [menu.client_19]
     title = "Accumulators"
     identifier = "resources/custom/accumulators"
     parent = "resources/custom"
@@ -12,7 +12,7 @@ title = "Accumulators"
 
 This is an advanced topic. You should have already written a custom resource and be familiar with:
 
-- The built-in Chef Infra [`template`]({{< relref "/resources/bundled/template" >}}) resource
+- The built-in Chef Infra [`template`]({{< relref "/client/19/resources/bundled/template" >}}) resource
 - Cookbook execution [`with_run_context`]({{< relref "infra_language/cookbook_execution/#with_run_context" >}})
 
 ## Overview

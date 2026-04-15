@@ -3,7 +3,7 @@ title = "Chef Infra Language: Secrets"
 draft = false
 
 [menu]
-  [menu.infra_language]
+  [menu.client_19]
     title = "Secrets Management Integrations"
     identifier = "infra_language/secrets.md Secrets Management Integrations"
     parent = "infra_language"

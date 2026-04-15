@@ -3,18 +3,18 @@ title = "About Cookbooks"
 draft = false
 
 [menu]
-  [menu.cookbooks]
+  [menu.client_19]
     title = "About Cookbooks"
     identifier = "cookbooks/cookbooks.md About Cookbooks"
     parent = "cookbooks"
     weight = 10
 +++
 
-{{< readfile file="content/reusable/md/cookbooks_summary.md" >}}
+{{< readfile file="content/client/19/reusable/md/cookbooks_summary.md" >}}
 
-{{< readfile file="content/reusable/md/infra_lang_ruby.md" >}}
+{{< readfile file="content/client/19/reusable/md/infra_lang_ruby.md" >}}
 
-{{< readfile file="content/reusable/md/infra_lang_summary.md" >}}
+{{< readfile file="content/client/19/reusable/md/infra_lang_summary.md" >}}
 
 Chef Infra Client runs a recipe only when instructed. When Chef Infra Client runs the same recipe more than once, the results will be the same system state each time. When a recipe is run against a system, but nothing has changed on either the system or in the recipe, Chef Infra Client won't change anything.
 
@@ -25,12 +25,12 @@ A cookbook is comprised of recipes and other optional components as files or dir
 [Recipes](recipes)
 : Directory: `recipes/`
 
-  {{< readfile file="content/reusable/md/cookbooks_recipe.md" >}}
+  {{< readfile file="content/client/19/reusable/md/cookbooks_recipe.md" >}}
 
 [Attributes](attributes)
 : Directory: `attributes/`
 
-  {{< readfile file="content/reusable/md/cookbooks_attribute.md" >}}
+  {{< readfile file="content/client/19/reusable/md/cookbooks_attribute.md" >}}
 
 [Files](files)
 : Directory: `files/`

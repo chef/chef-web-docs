@@ -6,7 +6,7 @@ title = "Custom resources glossary"
 
 
 [menu]
-  [menu.resources]
+  [menu.client_19]
     title = "Glossary"
     identifier = "resources/custom/glossary"
     parent = "resources/custom"
@@ -15,7 +15,7 @@ title = "Custom resources glossary"
 
 The following domain-specific language (DSL) methods are available when writing custom resources.
 
-For further information about how to write custom resources please see [about custom resources]({{< relref "/resources/custom" >}})
+For further information about how to write custom resources please see [about custom resources]({{< relref "/client/19/resources/custom" >}})
 
 ## action_class
 
@@ -626,15 +626,15 @@ logs of the Chef Infra Client run.
 
 ## target_mode
 
-{{< readfile file="content/reusable/md/agentless_summary.md" >}}
+{{< readfile file="content/client/19/reusable/md/agentless_summary.md" >}}
 
-{{< readfile file="/content/reusable/md/agentless_custom_resource.md" >}}
+{{< readfile file="content/client/19/reusable/md/agentless_custom_resource.md" >}}
 
-For more information on Agentless Mode, see the [Agentless Mode documentation]({{< relref "/features/agentless.md" >}}).
+For more information on Agentless Mode, see the [Agentless Mode documentation]({{< relref "/client/19/features/agentless.md" >}}).
 
 ## unified_mode
 
-{{< readfile file="content/reusable/md/unified_mode_overview.md" >}}
+{{< readfile file="content/client/19/reusable/md/unified_mode_overview.md" >}}
 
 To enable Unified Mode in a resource, declare it at the top of the resource. For example:
 

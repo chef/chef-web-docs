@@ -3,7 +3,7 @@ title = "Get Started"
 draft = false
 
 [menu]
-  [menu.cookbooks]
+  [menu.client_19]
     title = "Cookbook Directory"
     identifier = "cookbooks/cookbook_repo.md Cookbook Repo"
     parent = "cookbooks"

@@ -3,7 +3,7 @@ title = "Debug Recipes, Chef Infra Client Runs"
 draft = false
 
 [menu]
-  [menu.cookbooks]
+  [menu.client_19]
     title = "Debug Recipes, Client Runs"
     identifier = "cookbooks/recipes/debug.md Debug Recipes, Client Runs"
     parent = "cookbooks/recipes"
@@ -30,7 +30,7 @@ Some simple ways to identify common issues that can trigger recipe and/or Chef I
 
 ### Empty Run-lists
 
-{{< readfile file="content/reusable/md/node_run_list_empty.md" >}}
+{{< readfile file="content/client/19/reusable/md/node_run_list_empty.md" >}}
 
 ### Knife
 
@@ -79,7 +79,7 @@ New in 12.0, `-o RUN_LIST_ITEM`. Changed in 12.0 `-f` no longer allows unforked 
 
 #### Syntax
 
-{{< readfile file="content/reusable/md/resource_log_syntax.md" >}}
+{{< readfile file="content/client/19/reusable/md/resource_log_syntax.md" >}}
 
 #### Actions
 
@@ -87,7 +87,7 @@ The log resource has the following actions:
 
 `:nothing`
 
-:   {{< readfile file="content/reusable/md/resources_common_actions_nothing.md" >}}
+:   {{< readfile file="content/client/19/reusable/md/resources_common_actions_nothing.md" >}}
 
 `:write`
 
@@ -95,7 +95,7 @@ The log resource has the following actions:
 
 #### Properties
 
-{{< readfile file="content/reusable/md/resource_log_properties.md" >}}
+{{< readfile file="content/client/19/reusable/md/resource_log_properties.md" >}}
 
 #### Examples
 
@@ -110,11 +110,11 @@ log 'a string to log'
 
 ##### Set debug logging level
 
-{{< readfile file="content/reusable/md/resource_log_set_debug.md" >}}
+{{< readfile file="content/client/19/reusable/md/resource_log_set_debug.md" >}}
 
 ##### Create log entry when the contents of a data bag are used
 
-{{< readfile file="content/reusable/md/resource_log_set_debug.md" >}}
+{{< readfile file="content/client/19/reusable/md/resource_log_set_debug.md" >}}
 
 ##### Add a message to a log file
 
@@ -138,37 +138,37 @@ include:
 
 ### chef_handler
 
-{{< readfile file="content/reusable/md/handler.md" >}}
+{{< readfile file="content/client/19/reusable/md/handler.md" >}}
 
-{{< readfile file="content/reusable/md/handler_types.md" >}}
+{{< readfile file="content/client/19/reusable/md/handler_types.md" >}}
 
 Read more [about exception, report, and start handlers](/features/handlers/).
 
 ### chef-shell
 
-{{< readfile file="content/reusable/md/chef_shell_summary.md" >}}
+{{< readfile file="content/client/19/reusable/md/chef_shell_summary.md" >}}
 
-{{< readfile file="content/reusable/md/chef_shell_modes.md" >}}
+{{< readfile file="content/client/19/reusable/md/chef_shell_modes.md" >}}
 
 #### Configure
 
-{{< readfile file="content/reusable/md/chef_shell_config.md" >}}
+{{< readfile file="content/client/19/reusable/md/chef_shell_config.md" >}}
 
 #### chef-shell.rb
 
-{{< readfile file="content/reusable/md/chef_shell_config_rb.md" >}}
+{{< readfile file="content/client/19/reusable/md/chef_shell_config_rb.md" >}}
 
 #### Run as a Chef Infra Client
 
-{{< readfile file="content/reusable/md/chef_shell_run_as_chef_client.md" >}}
+{{< readfile file="content/client/19/reusable/md/chef_shell_run_as_chef_client.md" >}}
 
 #### Manage
 
-{{< readfile file="content/reusable/md/chef_shell_manage.md" >}}
+{{< readfile file="content/client/19/reusable/md/chef_shell_manage.md" >}}
 
 ### breakpoint Resource
 
-{{< readfile file="content/reusable/md/chef_shell_breakpoints.md" >}}
+{{< readfile file="content/client/19/reusable/md/chef_shell_breakpoints.md" >}}
 
 Use the **breakpoint** resource to add breakpoints to recipes. Run the
 chef-shell in Chef Infra Client mode, and then use those breakpoints to
@@ -203,7 +203,7 @@ The breakpoint resource has the following actions:
 
 `:nothing`
 
-:   {{< readfile file="content/reusable/md/resources_common_actions_nothing.md" >}}
+:   {{< readfile file="content/client/19/reusable/md/resources_common_actions_nothing.md" >}}
 
 #### Attributes
 
@@ -271,15 +271,15 @@ before or after a resource, and then also to specify which resource.
 
 ### Step Through Run-list
 
-{{< readfile file="content/reusable/md/chef_shell_step_through_run_list.md" >}}
+{{< readfile file="content/client/19/reusable/md/chef_shell_step_through_run_list.md" >}}
 
 ### Debug Existing Recipe
 
-{{< readfile file="content/reusable/md/chef_shell_debug_existing_recipe.md" >}}
+{{< readfile file="content/client/19/reusable/md/chef_shell_debug_existing_recipe.md" >}}
 
 ### Advanced Debugging
 
-{{< readfile file="content/reusable/md/chef_shell_advanced_debug.md" >}}
+{{< readfile file="content/client/19/reusable/md/chef_shell_advanced_debug.md" >}}
 
 ### debug_value
 
@@ -345,6 +345,6 @@ All resources share a set of common actions, attributes, and other properties. U
 
 See [chef-solo (executable)](/features/chef_solo/ctl_chef_solo/) for complete CTL documentation.
 
-{{< readfile file="content/reusable/md/chef_solo_summary.md" >}}
+{{< readfile file="content/client/19/reusable/md/chef_solo_summary.md" >}}
 
 See [chef-solo (executable)](/features/chef_solo/ctl_chef_solo/) for complete CTL documentation.

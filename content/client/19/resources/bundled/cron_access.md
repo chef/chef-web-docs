@@ -8,7 +8,7 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.resources]
+  [menu.client_19]
     title = "cron_access"
     identifier = "resources/bundled/cron_access"
     parent = "resources/bundled"

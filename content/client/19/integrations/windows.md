@@ -3,7 +3,7 @@ title = "Chef for Windows"
 draft = false
 
 [menu]
-  [menu.integrations]
+  [menu.client_19]
     title = "Chef for Windows"
     identifier = "integrations/windows/windows.md Chef for Windows"
     parent = "integrations/windows"
@@ -16,7 +16,7 @@ The Chef Infra Client has specific components that are designed to
 support unique aspects of the Windows platform, including
 PowerShell, PowerShell DSC, and Internet Information Services (IIS).
 
-{{< readfile file="content/reusable/md/windows_install_overview.md" >}}
+{{< readfile file="content/client/19/reusable/md/windows_install_overview.md" >}}
 
 ## Setting up Windows Workstations
 
@@ -25,7 +25,7 @@ Windows](https://docs.chef.io/workstation/install_workstation/)
 
 ## Install Chef Infra Client on Windows Nodes
 
-{{< readfile file="content/reusable/md/chef_client_summary.md" >}}
+{{< readfile file="content/client/19/reusable/md/chef_client_summary.md" >}}
 
 This command has the following syntax:
 
@@ -78,35 +78,35 @@ main configuration file for Chef Infra Client is located at
 
 #### Run With Elevated Privileges
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_client_elevated_privileges.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_client_elevated_privileges.md" >}}
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_client_elevated_privileges_windows.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_client_elevated_privileges_windows.md" >}}
 
 #### Spaces and Directories
 
-{{< readfile file="content/reusable/md/windows_spaces_and_directories.md" >}}
+{{< readfile file="content/client/19/reusable/md/windows_spaces_and_directories.md" >}}
 
 #### Top-level Directory Names
 
-{{< readfile file="content/reusable/md/windows_top_level_directory_names.md" >}}
+{{< readfile file="content/client/19/reusable/md/windows_top_level_directory_names.md" >}}
 
 #### PATH System Variable
 
-{{< readfile file="content/reusable/md/windows_environment_variable_path.md" >}}
+{{< readfile file="content/client/19/reusable/md/windows_environment_variable_path.md" >}}
 
 #### Proxy Settings
 
-{{< readfile file="content/reusable/md/proxy_windows.md" >}}
+{{< readfile file="content/client/19/reusable/md/proxy_windows.md" >}}
 
 ### Remotely administering nodes
 
-{{< readfile file="content/reusable/md/workstation/knife_windows_summary.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/knife_windows_summary.md" >}}
 
 For more information, see the [`knife windows` documentation](https://docs.chef.io/workstation/knife_windows/).
 
 #### Ports
 
-{{< readfile file="content/reusable/md/workstation/knife_windows_winrm_ports.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/knife_windows_winrm_ports.md" >}}
 
 ### Install Chef Infra Client using the MSI Installer
 
@@ -115,19 +115,19 @@ Infra Client on a Windows machine from [Chef Downloads](https://www.chef.io/down
 
 #### Msiexec.exe
 
-{{< readfile file="content/reusable/md/windows_msiexec.md" >}}
+{{< readfile file="content/client/19/reusable/md/windows_msiexec.md" >}}
 
 #### ADDLOCAL Options
 
-{{< readfile file="content/reusable/md/windows_msiexec_addlocal.md" >}}
+{{< readfile file="content/client/19/reusable/md/windows_msiexec_addlocal.md" >}}
 
 #### Enable as a Scheduled Task
 
-{{< readfile file="content/reusable/md/install_chef_client_windows_as_scheduled_task.md" >}}
+{{< readfile file="content/client/19/reusable/md/install_chef_client_windows_as_scheduled_task.md" >}}
 
 ### Install Chef Infra Client using an Existing Process
 
-{{< readfile file="content/reusable/md/windows_install_system_center.md" >}}
+{{< readfile file="content/client/19/reusable/md/windows_install_system_center.md" >}}
 
 ## Windows Cookbooks
 
@@ -183,7 +183,7 @@ Two community supports two provisioners for Kitchen:
 
 ## Windows Resources
 
-{{< readfile file="content/reusable/md/resources_common.md" >}}
+{{< readfile file="content/client/19/reusable/md/resources_common.md" >}}
 
 ### Windows Resources
 

@@ -3,7 +3,7 @@ title = "Attribute Types"
 draft = false
 
 [menu]
-  [menu.cookbooks]
+  [menu.client_19]
     title = "Attribute Types"
     identifier = "cookbooks/attributes/attributes_types.md Attributes"
     parent = "cookbooks/attributes"
@@ -16,19 +16,19 @@ The combination of attribute types and sources makes up to 15 different competin
 The attribute types are:
 
 `default`
-: {{< readfile file="content/reusable/md/node_attribute_type_default.md" >}}
+: {{< readfile file="content/client/19/reusable/md/node_attribute_type_default.md" >}}
 
 `force_default`
 : Use the force_default attribute to ensure that an attribute defined in a cookbook (by an attribute file or by a recipe) takes precedence over a default attribute set by a role or an environment.
 
 `normal`
-: {{< readfile file="content/reusable/md/node_attribute_type_normal.md" >}}
+: {{< readfile file="content/client/19/reusable/md/node_attribute_type_normal.md" >}}
 
 `override`
-: {{< readfile file="content/reusable/md/node_attribute_type_override.md" >}}
+: {{< readfile file="content/client/19/reusable/md/node_attribute_type_override.md" >}}
 
 `force_override`
 : Use the force_override attribute to ensure that an attribute defined in a cookbook (by an attribute file or by a recipe) takes precedence over an override attribute set by a role or an environment.
 
 `automatic`
-: {{< readfile file="content/reusable/md/node_attribute_type_automatic.md" >}}
+: {{< readfile file="content/client/19/reusable/md/node_attribute_type_automatic.md" >}}

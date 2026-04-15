@@ -2,7 +2,7 @@
 title = "Partials"
 
 [menu]
-  [menu.resources]
+  [menu.client_19]
     title = "Partials"
     identifier = "resources/custom/partials"
     parent = "resources/custom"

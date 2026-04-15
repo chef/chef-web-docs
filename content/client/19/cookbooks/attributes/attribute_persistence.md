@@ -3,7 +3,7 @@ title = "Attribute Persistence"
 draft = false
 
 [menu]
-  [menu.cookbooks]
+  [menu.client_19]
     title = "Attribute Persistence"
     identifier = "cookbooks/attributes/attribute_persistence.md Attributes"
     parent = "cookbooks/attributes"
@@ -56,17 +56,17 @@ Legacy attribute config mapping:
 
 {{< warning >}}
 
-{{< readfile file="content/reusable/md/node_attribute_blocklist_warning.md" >}}
+{{< readfile file="content/client/19/reusable/md/node_attribute_blocklist_warning.md" >}}
 
 {{< /warning >}}
 
-{{< readfile file="content/reusable/md/node_attribute_blocklist.md" >}}
+{{< readfile file="content/client/19/reusable/md/node_attribute_blocklist.md" >}}
 
 ### Attribute Allowlist
 
 {{< warning >}}
 
-{{< readfile file="content/reusable/md/node_attribute_allowlist_warning.md" >}}
+{{< readfile file="content/client/19/reusable/md/node_attribute_allowlist_warning.md" >}}
 
 {{< /warning >}}
 

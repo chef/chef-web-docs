@@ -4,7 +4,7 @@ linkTitle = "Checking Clouds"
 draft = false
 
 [menu]
-  [menu.infra_language]
+  [menu.client_19]
     title = "Checking Clouds"
     identifier = "infra_language/checking_clouds.md Checking Clouds"
     parent = "infra_language"

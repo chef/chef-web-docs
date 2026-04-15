@@ -3,14 +3,14 @@ title = "About chef-repo"
 draft = false
 
 [menu]
-  [menu.chef_repo]
+  [menu.client_19]
     title = "About chef-repo"
     identifier = "chef_repo/chef_repo.md"
     parent = "chef_repo"
     weight = 15
 +++
 
-{{< readfile file="content/reusable/md/chef_repo_description.md" >}}
+{{< readfile file="content/client/19/reusable/md/chef_repo_description.md" >}}
 
 ## Generate the chef-repo
 
@@ -113,4 +113,4 @@ and for Vim swap files:
 
 ## Many Users, Same Repo
 
-{{< readfile file="content/reusable/md/chef_repo_many_users_same_knife.md" >}}
+{{< readfile file="content/client/19/reusable/md/chef_repo_many_users_same_knife.md" >}}

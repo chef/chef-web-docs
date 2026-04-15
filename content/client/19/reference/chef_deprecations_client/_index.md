@@ -3,7 +3,7 @@ title = "Chef Deprecation Warnings"
 draft = false
 
 [menu]
-  [menu.reference]
+  [menu.client_19]
     title = "Deprecations"
     identifier = "reference/chef_deprecations_client.md Deprecations"
     parent = "reference"

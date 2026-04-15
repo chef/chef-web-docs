@@ -3,7 +3,7 @@ title = "Community Plugins"
 draft = false
 
 [menu]
-  [menu.extension_apis]
+  [menu.client_19]
       title = "Community Plugins"
       identifier = "extension_apis/ohai_plugins/Community Plugins"
       parent = "extension_apis/ohai_plugins"
@@ -16,7 +16,7 @@ that are developed and maintained by the Chef community.
 
 ## Ohai
 
-{{< readfile file="content/reusable/md/ohai_summary.md" >}}
+{{< readfile file="content/client/19/reusable/md/ohai_summary.md" >}}
 
 The following Ohai plugins are available from the open source community:
 
@@ -97,6 +97,6 @@ The following Ohai plugins are available from the open source community:
 
 ## Handlers
 
-{{< readfile file="content/reusable/md/handler.md" >}}
+{{< readfile file="content/client/19/reusable/md/handler.md" >}}
 
-{{< readfile file="content/reusable/md/handler_community_handlers.md" >}}
+{{< readfile file="content/client/19/reusable/md/handler_community_handlers.md" >}}

@@ -3,7 +3,7 @@ title = "Install Chef in an air-gapped environment"
 draft = false
 
 [menu]
-  [menu.install]
+  [menu.client_19]
     title = "Air-gapped Installation"
     identifier = "install/install_chef_air_gap.md Air-gapped Installation"
     parent = "install"
@@ -77,7 +77,7 @@ group.
 
 1. Upload the package to the machine that will run Chef Infra Server, and then record its location on the file system. The rest of these steps assume this location is in the `/tmp` directory.
 
-1. {{< readfile file="content/reusable/md/server/install_chef_server_install_package.md" >}}
+1. {{< readfile file="content/client/19/reusable/md/server/install_chef_server_install_package.md" >}}
 
 1. Run the following to start all of the services:
 
@@ -89,9 +89,9 @@ group.
     that work together to create a functioning system, this step may
     take a few minutes to complete.
 
-1. {{< readfile file="content/reusable/md/server/ctl_chef_server_user_create_admin.md">}}
+1. {{< readfile file="content/client/19/reusable/md/server/ctl_chef_server_user_create_admin.md">}}
 
-1. {{< readfile file="content/reusable/md/server/ctl_chef_server_org_create_summary.md">}}
+1. {{< readfile file="content/client/19/reusable/md/server/ctl_chef_server_org_create_summary.md">}}
 
 ## Chef Workstation
 
@@ -264,7 +264,7 @@ Supermarket.
 
 1. Update the `/etc/opscode/chef-server.rb` configuration file.
 
-    {{< readfile file="content/reusable/md/server/config_ocid_application_hash_supermarket.md" >}}
+    {{< readfile file="content/client/19/reusable/md/server/config_ocid_application_hash_supermarket.md" >}}
 
 1. Reconfigure Chef Infra Server.
 

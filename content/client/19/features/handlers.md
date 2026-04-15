@@ -3,24 +3,24 @@ title = "About Handlers"
 draft = false
 
 [menu]
-  [menu.features]
+  [menu.client_19]
     title = "Handlers"
     identifier = "features/handlers.md Handlers"
     parent = "features"
     weight = 40
 +++
 <!-- markdownlint-disable-file MD033 -->
-{{< readfile file="content/reusable/md/handler.md" >}}
+{{< readfile file="content/client/19/reusable/md/handler.md" >}}
 
-{{< readfile file="content/reusable/md/handler_types.md" >}}
+{{< readfile file="content/client/19/reusable/md/handler_types.md" >}}
 
 ## Exception/Report Handlers
 
-{{< readfile file="content/reusable/md/handler_type_exception_report.md" >}}
+{{< readfile file="content/client/19/reusable/md/handler_type_exception_report.md" >}}
 
 ### Run from Recipes
 
-{{< readfile file="content/reusable/md/handler_type_exception_report_run_from_recipe.md" >}}
+{{< readfile file="content/client/19/reusable/md/handler_type_exception_report_run_from_recipe.md" >}}
 
 ### Run from client.rb
 
@@ -50,11 +50,11 @@ exception_handlers << email_handler           # run at the end of a failed run
 
 ## Start Handlers
 
-{{< readfile file="content/reusable/md/handler_type_start.md" >}}
+{{< readfile file="content/client/19/reusable/md/handler_type_start.md" >}}
 
 ### Run from Recipes
 
-{{< readfile file="content/reusable/md/handler_type_start_run_from_recipe.md" >}}
+{{< readfile file="content/client/19/reusable/md/handler_type_start_run_from_recipe.md" >}}
 
 ### Run from client.rb
 
@@ -101,15 +101,15 @@ end
 
 ## Event Handlers
 
-{{< readfile file="content/reusable/md/dsl_handler_summary.md" >}}
+{{< readfile file="content/client/19/reusable/md/dsl_handler_summary.md" >}}
 
 ### on Method
 
-{{< readfile file="content/reusable/md/dsl_handler_method_on.md" >}}
+{{< readfile file="content/client/19/reusable/md/dsl_handler_method_on.md" >}}
 
 ### Event types
 
-{{< readfile file="content/reusable/md/dsl_handler_event_types.md" >}}
+{{< readfile file="content/client/19/reusable/md/dsl_handler_event_types.md" >}}
 
 ### Examples
 
@@ -117,27 +117,27 @@ The following examples show ways to use the Handler DSL.
 
 #### Send Email
 
-{{< readfile file="content/reusable/md/dsl_handler_slide_send_email.md" >}}
+{{< readfile file="content/client/19/reusable/md/dsl_handler_slide_send_email.md" >}}
 
 ##### Define How Email is Sent
 
-{{< readfile file="content/reusable/md/dsl_handler_slide_send_email_library.md" >}}
+{{< readfile file="content/client/19/reusable/md/dsl_handler_slide_send_email_library.md" >}}
 
 ##### Add the Handler
 
-{{< readfile file="content/reusable/md/dsl_handler_slide_send_email_handler.md" >}}
+{{< readfile file="content/client/19/reusable/md/dsl_handler_slide_send_email_handler.md" >}}
 
 ##### Test the Handler
 
-{{< readfile file="content/reusable/md/dsl_handler_slide_send_email_test.md" >}}
+{{< readfile file="content/client/19/reusable/md/dsl_handler_slide_send_email_test.md" >}}
 
 #### etcd Locks
 
-{{< readfile file="content/reusable/md/dsl_handler_example_etcd_lock.md" >}}
+{{< readfile file="content/client/19/reusable/md/dsl_handler_example_etcd_lock.md" >}}
 
 #### HipChat Notifications
 
-{{< readfile file="content/reusable/md/dsl_handler_example_hipchat.md" >}}
+{{< readfile file="content/client/19/reusable/md/dsl_handler_example_hipchat.md" >}}
 
 ## Handlers and Cookbooks
 
@@ -147,7 +147,7 @@ The following cookbooks can be used to load handlers during a Chef InfraClient r
 
 Exception and report handlers can be distributed using the **chef_handler** resource. This resource is included with Chef 14 and above. It can be used to enable custom handlers from within recipes and to include product-specific handlers from cookbooks.
 
-See the [chef_handler Resource]({{< relref "/resources/bundled/chef_handler">}}) documentation for more information.
+See the [chef_handler Resource]({{< relref "/client/19/resources/bundled/chef_handler">}}) documentation for more information.
 
 ### Chef Infra Client
 
@@ -544,4 +544,4 @@ end
 
 ### Community Handlers
 
-{{< readfile file="content/reusable/md/handler_community_handlers.md" >}}
+{{< readfile file="content/client/19/reusable/md/handler_community_handlers.md" >}}

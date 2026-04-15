@@ -3,7 +3,7 @@ title = "Chef Infra Language: Cookbook Execution"
 draft = false
 
 [menu]
-  [menu.infra_language]
+  [menu.client_19]
     title = "Cookbook Execution"
     identifier = "infra_language/cookbook_execution.md Cookbook Execution"
     parent = "infra_language"
@@ -124,7 +124,7 @@ These helpers allow you to include recipes and impact how resources run on the s
 
 ### include_recipe
 
-{{< readfile file="content/reusable/md/cookbooks_recipe_include_in_recipe.md" >}}
+{{< readfile file="content/client/19/reusable/md/cookbooks_recipe_include_in_recipe.md" >}}
 
 ### with_run_context
 

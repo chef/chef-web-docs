@@ -3,14 +3,14 @@ title = "Chef Infra Client (executable)"
 draft = false
 
 [menu]
-  [menu.reference]
+  [menu.client_19]
     title = "chef-client (executable)"
     identifier = "reference/ctl_chef_client.md chef-client Commands"
     parent = "reference"
     weight = 10
 +++
 <!-- markdownlint-disable-file MD036 MD046 -->
-{{< readfile file="content/reusable/md/chef_client_summary.md" >}}
+{{< readfile file="content/client/19/reusable/md/chef_client_summary.md" >}}
 
 {{< note >}}
 
@@ -22,7 +22,7 @@ The Chef Infra Client executable is run as a command-line tool.
 
 {{< note >}}
 
-{{< readfile file="content/reusable/md/config_rb_client_summary.md" >}}
+{{< readfile file="content/client/19/reusable/md/config_rb_client_summary.md" >}}
 
 {{< /note >}}
 
@@ -80,7 +80,7 @@ This command has the following options:
 
 `-F FORMAT`, `--format FORMAT`
 
-: {{< readfile file="content/reusable/md/workstation/ctl_chef_client_options_format.md" >}}
+: {{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_client_options_format.md" >}}
 
 `--force-formatter`
 
@@ -108,7 +108,7 @@ This command has the following options:
 
     **Run-lists**
 
-    {{< readfile file="content/reusable/md/node_ctl_run_list.md" >}}
+    {{< readfile file="content/client/19/reusable/md/node_ctl_run_list.md" >}}
 
     **Environments**
 
@@ -138,7 +138,7 @@ This command has the following options:
 
     **All attributes are normal attributes**
 
-    {{< readfile file="content/reusable/md/node_ctl_attribute.md" >}}
+    {{< readfile file="content/client/19/reusable/md/node_ctl_attribute.md" >}}
 
     {{< note >}}
 
@@ -467,20 +467,20 @@ version 12 endpoints, except `/universe`.
 
 ### Use Encrypted Data Bags
 
-{{< readfile file="content/reusable/md/data_bag.md" >}}
+{{< readfile file="content/client/19/reusable/md/data_bag.md" >}}
 
 **Create an encrypted data bag for use with Chef Infra Client local
 mode**
 
-{{< readfile file="content/reusable/md/workstation/knife_data_bag_from_file_create_encrypted_local_mode.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/knife_data_bag_from_file_create_encrypted_local_mode.md" >}}
 
 ## Run in FIPS Mode
 
-{{< readfile file="content/reusable/md/fips_intro_client.md" >}}
+{{< readfile file="content/client/19/reusable/md/fips_intro_client.md" >}}
 
 **Bootstrap a node using FIPS**
 
-{{< readfile file="content/reusable/md/workstation/knife_bootstrap_node_fips.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/knife_bootstrap_node_fips.md" >}}
 
 ## Run as a Service
 
@@ -523,7 +523,7 @@ supported.
 
 ## Run with Elevated Privileges
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_client_elevated_privileges.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_client_elevated_privileges.md" >}}
 
 ### Linux
 
@@ -566,7 +566,7 @@ ways this can be done:
 
 ### Windows
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_client_elevated_privileges_windows.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_client_elevated_privileges_windows.md" >}}
 
 ## Run as Non-root User
 
@@ -889,4 +889,4 @@ sudo killall -USR1 chef-client
 
 **Setting the initial run-list using a JSON file**
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_client_bootstrap_initial_run_list.md" >}}
+{{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_client_bootstrap_initial_run_list.md" >}}

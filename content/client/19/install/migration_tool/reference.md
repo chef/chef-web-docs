@@ -1,7 +1,7 @@
 +++
 title = "Migration tool CLI reference"
 
-[menu.install]
+[menu.client_19]
 title = "CLI reference"
 identifier = "install/migration_tool/reference"
 parent = "install/migration_tool"

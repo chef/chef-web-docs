@@ -3,14 +3,14 @@ title = "About Templates"
 draft = false
 
 [menu]
-  [menu.cookbooks]
+  [menu.client_19]
     title = "Templates"
     identifier = "cookbooks/templates.md Templates"
     parent = "cookbooks"
     weight = 100
 +++
 
-{{< readfile file="content/reusable/md/template.md" >}}
+{{< readfile file="content/client/19/reusable/md/template.md" >}}
 
 The `templates` directory doesn't exist by default in a cookbook.
 Generate the `templates` directory and a template file from the `chef-repo/cookbooks` directory with the command:
@@ -55,36 +55,36 @@ The `custom_web` cookbook directory with a template has the structure:
 
 ## Requirements
 
-{{< readfile file="content/reusable/md/template_requirements.md" >}}
+{{< readfile file="content/client/19/reusable/md/template_requirements.md" >}}
 
 ## Variables
 
-{{< readfile file="content/reusable/md/template_variables.md" >}}
+{{< readfile file="content/client/19/reusable/md/template_variables.md" >}}
 
 ## File Specificity
 
-{{< readfile file="content/reusable/md/template_specificity.md" >}}
+{{< readfile file="content/client/19/reusable/md/template_specificity.md" >}}
 
-{{< readfile file="content/reusable/md/template_specificity_pattern.md" >}}
+{{< readfile file="content/client/19/reusable/md/template_specificity_pattern.md" >}}
 
-{{< readfile file="content/reusable/md/template_specificity_example.md" >}}
+{{< readfile file="content/client/19/reusable/md/template_specificity_example.md" >}}
 
 ## Host Notation
 
-{{< readfile file="content/reusable/md/template_host_notation.md" >}}
+{{< readfile file="content/client/19/reusable/md/template_host_notation.md" >}}
 
 ## Transfer Frequency
 
-{{< readfile file="content/reusable/md/template_transfer_frequency.md" >}}
+{{< readfile file="content/client/19/reusable/md/template_transfer_frequency.md" >}}
 
 ## Partial Templates
 
-{{< readfile file="content/reusable/md/template_partials.md" >}}
+{{< readfile file="content/client/19/reusable/md/template_partials.md" >}}
 
 ### variables Attribute
 
-{{< readfile file="content/reusable/md/template_partials_variables_attribute.md" >}}
+{{< readfile file="content/client/19/reusable/md/template_partials_variables_attribute.md" >}}
 
 ### render Method
 
-{{< readfile file="content/reusable/md/template_partials_render_method.md" >}}
+{{< readfile file="content/client/19/reusable/md/template_partials_render_method.md" >}}

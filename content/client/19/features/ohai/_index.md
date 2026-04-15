@@ -4,14 +4,14 @@ draft = false
 linkTitle = "Ohai"
 
 [menu]
-  [menu.features]
+  [menu.client_19]
     title = "About Ohai"
     identifier = "features/ohai/ohai.md About Ohai"
     parent = "features/ohai"
     weight = 10
 +++
 
-{{< readfile file="content/reusable/md/ohai_summary.md" >}}
+{{< readfile file="content/client/19/reusable/md/ohai_summary.md" >}}
 
 Ohai collects data for many platforms, including AIX, macOS, Linux, FreeBSD, Solaris, and any Windows operating systems.
 
@@ -21,31 +21,31 @@ See the [Chef Infra Client release notes](https://docs.chef.io/release_notes/cli
 
 {{< note >}}
 
-{{< readfile file="content/reusable/md/notes_see_attributes_overview.md" >}}
+{{< readfile file="content/client/19/reusable/md/notes_see_attributes_overview.md" >}}
 
 {{< /note >}}
 
-{{< readfile file="content/reusable/md/ohai_automatic_attribute.md" >}}
+{{< readfile file="content/client/19/reusable/md/ohai_automatic_attribute.md" >}}
 
 ### Get a list of automatic attributes for a node
 
-{{< readfile file="content/reusable/md/ohai_attribute_list.md" >}}
+{{< readfile file="content/client/19/reusable/md/ohai_attribute_list.md" >}}
 
 ### Attributes Blocklist
 
 {{< warning >}}
 
-{{< readfile file="content/reusable/md/node_attribute_blocklist_warning.md" >}}
+{{< readfile file="content/client/19/reusable/md/node_attribute_blocklist_warning.md" >}}
 
 {{< /warning >}}
 
-{{< readfile file="content/reusable/md/node_attribute_blocklist.md" >}}
+{{< readfile file="content/client/19/reusable/md/node_attribute_blocklist.md" >}}
 
 ### Attribute Allowlist
 
 {{< warning >}}
 
-{{< readfile file="content/reusable/md/node_attribute_allowlist_warning.md" >}}
+{{< readfile file="content/client/19/reusable/md/node_attribute_allowlist_warning.md" >}}
 
 {{< /warning >}}
 
@@ -244,9 +244,9 @@ The Ohai optional_plugins config array must contain an array of plugin names as 
 
 ## Ohai Settings in client.rb
 
-{{< readfile file="content/reusable/md/config_rb_ohai.md" >}}
+{{< readfile file="content/client/19/reusable/md/config_rb_ohai.md" >}}
 
-{{< readfile file="content/reusable/md/config_rb_ohai_settings.md" >}}
+{{< readfile file="content/client/19/reusable/md/config_rb_ohai_settings.md" >}}
 
 ## Custom Plugins
 

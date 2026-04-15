@@ -3,14 +3,14 @@ title = "chef-solo (executable)"
 draft = false
 
 [menu]
-  [menu.features]
+  [menu.client_19]
     title = "chef-solo (executable)"
     identifier = "features/chef_solo/ctl_chef_solo.md chef-solo Commands"
     parent = "features/chef_solo"
     weight = 20
 +++
 <!-- markdownlint-disable-file MD046 -->
-{{< readfile file="content/reusable/md/chef_solo_summary.md" >}}
+{{< readfile file="content/client/19/reusable/md/chef_solo_summary.md" >}}
 
 ## Options
 
@@ -40,7 +40,7 @@ This command has the following options:
 
 `-F FORMAT`, `--format FORMAT`
 
-: {{< readfile file="content/reusable/md/workstation/ctl_chef_client_options_format.md" >}}
+: {{< readfile file="content/client/19/reusable/md/workstation/ctl_chef_client_options_format.md" >}}
 
 `--force-formatter`
 
@@ -66,11 +66,11 @@ This command has the following options:
 
 : The path to a file that contains JSON data.
 
-    {{< readfile file="content/reusable/md/node_ctl_run_list.md" spaces=4 >}}
+    {{< readfile file="content/client/19/reusable/md/node_ctl_run_list.md" spaces=4 >}}
 
     {{< warning >}}
 
-    {{< readfile file="content/reusable/md/node_ctl_attribute.md">}}
+    {{< readfile file="content/client/19/reusable/md/node_ctl_attribute.md">}}
 
     {{< /warning >}}
 

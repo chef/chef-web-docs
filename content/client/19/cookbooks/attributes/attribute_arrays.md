@@ -4,7 +4,7 @@ description = "Define multiple attributes in an array or hash and deep merge"
 draft = false
 
 [menu]
-  [menu.cookbooks]
+  [menu.client_19]
     title = "Attributes Arrays"
     identifier = "cookbooks/attributes/attribute_arrays Attribute Arrays"
     parent = "cookbooks/attributes"

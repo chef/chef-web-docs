@@ -3,7 +3,7 @@ title = "solo.rb"
 draft = false
 
 [menu]
-  [menu.features]
+  [menu.client_19]
     title = "solo.rb"
     identifier = "features/chef_solo/config_rb_solo.md solo.rb Configuration"
     parent = "features/chef_solo"

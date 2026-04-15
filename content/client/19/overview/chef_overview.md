@@ -4,7 +4,7 @@ draft = false
 gh_repo = "chef-web-docs"
 
 [menu]
-  [menu.overview]
+  [menu.client_19]
     title = "Chef Infra overview"
     identifier = "overview/chef_overview.md Chef Infra Overview"
     parent = "overview"
@@ -12,7 +12,7 @@ gh_repo = "chef-web-docs"
 +++
 <!-- markdownlint-disable-file MD033 -->
 
-{{< readfile file="content/reusable/md/chef.md" >}}
+{{< readfile file="content/client/19/reusable/md/chef.md" >}}
 
 - **Chef Workstation** is the location where users interact with Chef
     Infra. With Chef Workstation, users can author and test
@@ -70,7 +70,7 @@ Chef Infra has the following major components:
 </tr>
 <tr>
 <td><p><img src="/images/icon_node.svg" class="align-center" width="130" alt="" /></p></td>
-<td><p>{{< readfile file="content/reusable/md/node.md" >}}</p></td>
+<td><p>{{< readfile file="content/client/19/reusable/md/node.md" >}}</p></td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_chef_client.svg" class="align-center" width="130" alt="" /></p></td>
@@ -126,7 +126,7 @@ Some important tools and components of Chef Workstation include:
 <tbody>
 <tr>
 <td><p><img src="/images/icon_workstation.svg" class="align-center" width="130" alt="" /></p></td>
-<td>{{< readfile file="content/reusable/md/workstation/chef_workstation.md" >}}</td>
+<td>{{< readfile file="content/client/19/reusable/md/workstation/chef_workstation.md" >}}</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_ctl_chef.svg" class="align-center" width="130" alt="" /></p>
@@ -153,18 +153,18 @@ Some important tools and components of Chef Workstation include:
 </tr>
 <tr>
 <td><p><img src="/images/icon_kitchen.svg" class="align-center" width="130" alt="" /></p></td>
-<td>{{< readfile file="content/reusable/md/workstation/test_kitchen.md" >}}</td>
+<td>{{< readfile file="content/client/19/reusable/md/workstation/test_kitchen.md" >}}</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_chefspec.svg" class="align-center" width="130" alt="" /></p></td>
-<td>{{< readfile file="content/reusable/md/chefspec_summary.md" >}}</td>
+<td>{{< readfile file="content/client/19/reusable/md/chefspec_summary.md" >}}</td>
 </tr>
 </tbody>
 </table>
 
 ## Cookbooks
 
-{{< readfile file="content/reusable/md/cookbooks_summary.md" >}}
+{{< readfile file="content/client/19/reusable/md/cookbooks_summary.md" >}}
 
 The Chef Infra Client uses Ruby as its reference language for creating
 cookbooks and defining recipes, with an extended DSL for specific
@@ -191,34 +191,34 @@ Cookbooks are comprised of the following components:
 <tbody>
 <tr>
 <td><p><img src="/images/icon_cookbook_attributes.svg" class="align-center" width="130" alt="" /></p></td>
-<td>{{< readfile file="content/reusable/md/cookbooks_attribute.md" >}}</td>
+<td>{{< readfile file="content/client/19/reusable/md/cookbooks_attribute.md" >}}</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_cookbook_files.svg" class="align-center" width="130" alt="" /></p></td>
-<td>{{< readfile file="content/reusable/md/resource_cookbook_file_summary.md" >}}</td>
+<td>{{< readfile file="content/client/19/reusable/md/resource_cookbook_file_summary.md" >}}</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_cookbook_libraries.svg" class="align-center" width="130" alt="" /></p></td>
-<td>{{< readfile file="content/reusable/md/libraries_summary.md" >}}</td>
+<td>{{< readfile file="content/client/19/reusable/md/libraries_summary.md" >}}</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_cookbook_metadata.svg" class="align-center" width="130" alt="" /></p></td>
-<td>{{< readfile file="content/reusable/md/cookbooks_metadata.md" >}}</td>
+<td>{{< readfile file="content/client/19/reusable/md/cookbooks_metadata.md" >}}</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_cookbook_recipes.svg" class="align-center" width="130" alt="" /></p></td>
-<td><p>{{< readfile file="content/reusable/md/cookbooks_recipe.md" >}}</p>
+<td><p>{{< readfile file="content/client/19/reusable/md/cookbooks_recipe.md" >}}</p>
 <p>The Chef Infra Client will run a recipe only when asked. When the Chef Infra Client runs the same recipe more than once, the results will be the same system state each time. When a recipe is run against a system, but nothing has changed on either the system or in the recipe, the Chef Infra Client won't change anything.</p>
-<p>{{< readfile file="content/reusable/md/infra_lang_summary.md" >}}</p></td>
+<p>{{< readfile file="content/client/19/reusable/md/infra_lang_summary.md" >}}</p></td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_cookbook_resources.svg" class="align-center" width="130" alt="" /></p></td>
-<td><p>{{< readfile file="content/reusable/md/resources_common.md" >}}</p>
+<td><p>{{< readfile file="content/client/19/reusable/md/resources_common.md" >}}</p>
 <p>Chef has <a href="/resources/">many built-in resources</a> that cover all of the most common actions across all of the most common platforms. You can <a href="/custom_resources/">build your own resources</a> to handle any situation that's not covered by a built-in resource.</p></td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_cookbook_templates.svg" class="align-center" width="130" alt="" /></p></td>
-<td>{{< readfile file="content/reusable/md/template.md" >}}</td>
+<td>{{< readfile file="content/client/19/reusable/md/template.md" >}}</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_cookbook_tests.svg" class="align-center" width="130" alt="" /></p></td>
@@ -229,11 +229,11 @@ Cookbooks are comprised of the following components:
 
 ## Nodes
 
-{{< readfile file="content/reusable/md/node.md" >}}
+{{< readfile file="content/client/19/reusable/md/node.md" >}}
 
 ### Node Types
 
-{{< readfile file="content/reusable/md/node_types.md" >}}
+{{< readfile file="content/client/19/reusable/md/node_types.md" >}}
 
 ### Chef on Nodes
 
@@ -253,19 +253,19 @@ The key components of nodes that are under management by Chef include:
 <tbody>
 <tr>
 <td><p><img src="/images/icon_chef_client.svg" class="align-center" width="130" alt="" /></p></td>
-<td><p>{{< readfile file="content/reusable/md/chef_client_summary.md" >}}</p>
-<p>{{< readfile file="content/reusable/md/security_key_pairs_chef_client.md" >}}</p></td>
+<td><p>{{< readfile file="content/client/19/reusable/md/chef_client_summary.md" >}}</p>
+<p>{{< readfile file="content/client/19/reusable/md/security_key_pairs_chef_client.md" >}}</p></td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_ohai.svg" class="align-center" width="130" alt="" /></p></td>
-<td>{{< readfile file="content/reusable/md/ohai_summary.md" >}}</td>
+<td>{{< readfile file="content/client/19/reusable/md/ohai_summary.md" >}}</td>
 </tr>
 </tbody>
 </table>
 
 ## The Chef Infra Server
 
-{{< readfile file="content/reusable/md/server/chef_server.md" >}}
+{{< readfile file="content/client/19/reusable/md/server/chef_server.md" >}}
 
 <table>
 <colgroup>
@@ -281,15 +281,15 @@ The key components of nodes that are under management by Chef include:
 <tbody>
 <tr>
 <td><p><img src="/images/icon_search.svg" class="align-center" width="130" alt="" /></p></td>
-<td>{{< readfile file="content/reusable/md/search.md" >}}</td>
+<td>{{< readfile file="content/client/19/reusable/md/search.md" >}}</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_manage.svg" class="align-center" width="130" alt="" /></p></td>
-<td>{{< readfile file="content/reusable/md/chef_manager.md" >}}</td>
+<td>{{< readfile file="content/client/19/reusable/md/chef_manager.md" >}}</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_data_bags.svg" class="align-center" width="130" alt="" /></p></td>
-<td>{{< readfile file="content/reusable/md/data_bag.md" >}}</td>
+<td>{{< readfile file="content/client/19/reusable/md/data_bag.md" >}}</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_policy.svg" class="align-center" width="130" alt="" /></p></td>
@@ -300,7 +300,7 @@ The key components of nodes that are under management by Chef include:
 
 ### Policy
 
-{{< readfile file="content/reusable/md/policy_summary.md" >}}
+{{< readfile file="content/client/19/reusable/md/policy_summary.md" >}}
 
 Some important aspects of policy include:
 
@@ -318,19 +318,19 @@ Some important aspects of policy include:
 <tbody>
 <tr>
 <td><p><img src="/images/icon_roles.svg" class="align-center" width="130" alt="" /></p></td>
-<td>{{< readfile file="content/reusable/md/role.md" >}}</td>
+<td>{{< readfile file="content/client/19/reusable/md/role.md" >}}</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_environments.svg" class="align-center" width="130" alt="" /></p></td>
-<td>{{< readfile file="content/reusable/md/environment.md" >}}</td>
+<td>{{< readfile file="content/client/19/reusable/md/environment.md" >}}</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_cookbook_versions.svg" class="align-center" width="130" alt="" /></p></td>
-<td>{{< readfile file="content/reusable/md/cookbooks_version.md" >}}</td>
+<td>{{< readfile file="content/client/19/reusable/md/cookbooks_version.md" >}}</td>
 </tr>
 <tr>
 <td><p><img src="/images/icon_run_lists.svg" class="align-center" width="130" alt="" /></p></td>
-<td>{{< readfile file="content/reusable/md/node_run_list.md" >}}</td>
+<td>{{< readfile file="content/client/19/reusable/md/node_run_list.md" >}}</td>
 </tr>
 </tbody>
 </table>

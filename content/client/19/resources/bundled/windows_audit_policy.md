@@ -8,7 +8,7 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.resources]
+  [menu.client_19]
     title = "windows_audit_policy"
     identifier = "resources/bundled/windows_audit_policy"
     parent = "resources/bundled"
