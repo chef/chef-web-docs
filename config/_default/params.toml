@@ -42,6 +42,8 @@ sitemaps = [
   "https://docs.chef.io/inspec/6.8/sitemap.xml",
   "https://docs.chef.io/inspec/7.0/sitemap.xml",
   "https://docs.chef.io/inspec/resource_packs/sitemap.xml",
+  "https://docs.chef.io/habitat/1.6/sitemap.xml",
+  "https://docs.chef.io/habitat/2.0/sitemap.xml",
   "https://docs.chef.io/workstation/26/sitemap.xml",
   "https://docs.chef.io/workstation/25/sitemap.xml"
 ]
@@ -76,7 +78,7 @@ gh_path = "https://github.com/chef/license-service/tree/main/docs-chef-io/conten
 
 [search]
 
-default_search_product_keys = ["", "chef-360-saas", "chef-360-1.7", "automate", "desktop", "habitat", "habitat-2.0", "client", "server", "inspec", "inspec-7.0", "saas", "supermarket", "workstation", "workstation-26"]
+default_search_product_keys = ["", "chef-360-saas", "chef-360-1.7", "automate", "desktop", "habitat", "chef-habitat-2.0", "client-19.1", "server", "inspec", "inspec-7.0", "saas", "supermarket", "workstation", "workstation-26"]
 
 [search.products]
 
@@ -134,11 +136,11 @@ product_key = "habitat"
 
 [[search.products.habitat.versions]]
 name = "2.0"
-product_version_key = "habitat-2.0"
+product_version_key = "chef-habitat-2.0"
 
 [[search.products.habitat.versions]]
 name = "1.6"
-product_version_key = "habitat-1.6"
+product_version_key = "chef-habitat-1.6"
 
 [search.products.infra_client]
 name = "Chef Infra Client"
