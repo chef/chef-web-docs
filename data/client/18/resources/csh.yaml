@@ -1,0 +1,106 @@
+---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: csh
+resource_description_list:
+- markdown: Use the **csh** resource to execute scripts using the csh interpreter.
+    This resource may also use any of the actions and properties that are available
+    to the **execute** resource. Commands that are executed with this resource are
+    (by their nature) not idempotent, as they are typically unique to the environment
+    in which they are run. Use `not_if` and `only_if` to guard this resource for idempotence.
+syntax_full_code_block: |-
+  csh 'name' do
+    code             String
+    command          String, Array # default value: 'name' unless specified
+    creates          String
+    cwd              String
+    default_env      true, false # default value: false
+    domain           String
+    elevated         true, false # default value: false
+    environment      Hash
+    flags            String
+    group            String, Integer
+    input            String
+    interpreter      String
+    live_stream      true, false # default value: false
+    login            true, false # default value: false
+    password         String
+    returns          Integer, Array # default value: 0
+    timeout          Integer, String, Float # default value: 3600
+    user             String, Integer
+    action           Symbol # defaults to :run if not specified
+  end
+syntax_properties_list:
+syntax_full_properties_list:
+- "`csh` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`code`, `command`, `creates`, `cwd`, `default_env`, `domain`, `elevated`, `environment`,
+  `flags`, `group`, `input`, `interpreter`, `live_stream`, `login`, `password`, `returns`,
+  `timeout`, and `user` are the properties available to this resource."
+actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :run:
+    markdown: Run a command. (default)
+properties_list:
+- property: code
+  ruby_type: String
+  required: true
+  description_list:
+  - markdown: A quoted string of code to be executed.
+- property: creates
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Prevent a command from creating a file when that file already exists.
+- property: cwd
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The current working directory from which the command will be run.
+- property: environment
+  ruby_type: Hash
+  required: false
+  description_list:
+  - markdown: 'A Hash of environment variables in the form of `({''ENV_VARIABLE''
+      => ''VALUE''})`. **Note**: These variables must exist for a command to be run
+      successfully.'
+- property: flags
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: One or more command line flags that are passed to the interpreter when
+      a command is invoked.
+- property: group
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown: The group name or group ID that must be changed before running a command.
+- property: returns
+  ruby_type: Integer, Array
+  required: false
+  default_value: '0'
+  description_list:
+  - markdown: The return value for a command. This may be an array of accepted values.
+      An exception is raised when the return value(s) do not match.
+- property: timeout
+  ruby_type: Integer, String, Float
+  required: false
+  default_value: '3600'
+  description_list:
+  - markdown: The amount of time (in seconds) a command is to wait before timing out.
+- property: user
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown: The user name or user ID that should be changed before running a command.
+- property: umask
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown: The file mode creation mask, or umask.
+examples:

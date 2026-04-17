@@ -1,0 +1,305 @@
+---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: bash
+resource_description_list:
+- markdown: Use the **bash** resource to execute scripts using the Bash interpreter.
+    This resource may also use any of the actions and properties that are available
+    to the **execute** resource. Commands that are executed with this resource are
+    (by their nature) not idempotent, as they are typically unique to the environment
+    in which they are run. Use `not_if` and `only_if` to guard this resource for idempotence.
+syntax_full_code_block: |-
+  bash 'name' do
+    code             String
+    command          String, Array # default value: 'name' unless specified
+    creates          String
+    cwd              String
+    default_env      true, false # default value: false
+    domain           String
+    elevated         true, false # default value: false
+    environment      Hash
+    flags            String
+    group            String, Integer
+    input            String
+    interpreter      String
+    live_stream      true, false # default value: false
+    login            true, false # default value: false
+    password         String
+    returns          Integer, Array # default value: 0
+    timeout          Integer, String, Float # default value: 3600
+    user             String, Integer
+    action           Symbol # defaults to :run if not specified
+  end
+syntax_properties_list: 
+syntax_full_properties_list:
+- "`bash` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`code`, `command`, `creates`, `cwd`, `default_env`, `domain`, `elevated`, `environment`,
+  `flags`, `group`, `input`, `interpreter`, `live_stream`, `login`, `password`, `returns`,
+  `timeout`, and `user` are the properties available to this resource."
+actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :run:
+    markdown: Run a command. (default)
+properties_list:
+- property: code
+  ruby_type: String
+  required: true
+  description_list:
+  - markdown: A quoted string of code to be executed.
+- property: command
+  ruby_type: String, Array
+  required: false
+  default_value: The resource block's name
+  description_list:
+  - markdown: An optional property to set the command to be executed if it differs
+      from the resource block's name.
+  - note:
+      markdown: Use the **execute** resource to run a single command. Use multiple
+        **execute** resource blocks to run multiple commands.
+- property: creates
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Prevent a command from creating a file when that file already exists.
+- property: cwd
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The current working directory from which the command will be run.
+- property: default_env
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  new_in: '14.2'
+  description_list:
+  - markdown: When `true` this enables ENV magic to add path_sanity to the PATH and
+      force the locale to English+UTF-8 for parsing output.
+- property: domain
+  ruby_type: String
+  required: false
+  new_in: '12.21'
+  description_list:
+  - markdown: 'Windows only: The domain of the user specified by the user property.
+      If not specified, the username and password specified by the `user` and `password`
+      properties will be used to resolve that user against the domain in which the
+      system running Chef Infra Client is joined, or if that system is not joined
+      to a domain it will resolve the user as a local account on that system. An alternative
+      way to specify the domain is to leave this property unspecified and specify
+      the domain as part of the user property.'
+- property: elevated
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  new_in: '13.3'
+  description_list:
+  - markdown: |-
+      Determines whether the script will run with elevated permissions to circumvent User Access Control (UAC) from interactively blocking the process.
+      This will cause the process to be run under a batch login instead of an interactive login. The user running chef-client needs the 'Replace a process level token' and 'Adjust Memory Quotas for a process' permissions. The user that is running the command needs the 'Log on as a batch job' permission.
+      Because this requires a login, the user and password properties are required.
+- property: environment
+  ruby_type: Hash
+  required: false
+  description_list:
+  - markdown: 'A Hash of environment variables in the form of `({''ENV_VARIABLE''
+      => ''VALUE''})`. **Note**: These variables must exist for a command to be run
+      successfully.'
+- property: flags
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: One or more command line flags that are passed to the interpreter when
+      a command is invoked.
+- property: group
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown: The group name or group ID that must be changed before running a command.
+- property: input
+  ruby_type: String
+  required: false
+  new_in: '16.2'
+  description_list:
+  - markdown: An optional property to set the input sent to the command as STDIN.
+- property: live_stream
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  description_list:
+  - markdown: Send the output of the command run by this execute resource block to
+      the Chef Infra Client event stream.
+- property: login
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  new_in: '17.0'
+  description_list:
+  - markdown: Use a login shell to run the commands instead of inheriting the existing
+      execution environment.
+- property: password
+  ruby_type: String
+  required: false
+  new_in: '12.21'
+  description_list:
+  - markdown: 'Windows only: The password of the user specified by the user property.
+      This property is mandatory if user is specified on Windows and may only be specified
+      if user is specified. The sensitive property for this resource will automatically
+      be set to true if password is specified.'
+- property: returns
+  ruby_type: Integer, Array
+  required: false
+  default_value: '0'
+  description_list:
+  - markdown: The return value for a command. This may be an array of accepted values.
+      An exception is raised when the return value(s) do not match.
+- property: timeout
+  ruby_type: Integer, String, Float
+  required: false
+  default_value: '3600'
+  description_list:
+  - markdown: The amount of time (in seconds) a command is to wait before timing out.
+- property: user
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown: The user name of the user identity with which to launch the new process.
+      The user name may optionally be specified with a domain, i.e. `domain\user`
+      or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can
+      also be specified without a domain simply as user if the domain is instead specified
+      using the domain property. On Windows only, if this property is specified, the
+      password property must be specified.
+examples: |
+  **Compile an application**
+
+  ```ruby
+  bash 'install_something' do
+    user 'root'
+    cwd '/tmp'
+    code <<-EOH
+      wget http://www.example.com/tarball.tar.gz
+      tar -zxf tarball.tar.gz
+      cd tarball
+      ./configure
+      make
+      make install
+    EOH
+  end
+  ```
+
+  **Using escape characters in a string of code**
+
+  In the following example, the `find` command uses an escape character (`\`). Use a second escape character (`\\`) to preserve the escape character in the code string:
+
+  ```ruby
+  bash 'delete some archives ' do
+    code <<-EOH
+      find ./ -name "*.tar.Z" -mtime +180 -exec rm -f {} \\;
+    EOH
+    ignore_failure true
+  end
+  ```
+
+  **Install a file from a remote location**
+
+  The following is an example of how to install the foo123 module for Nginx. This module adds shell-style functionality to an Nginx configuration file and does the following:
+
+    - Declares three variables
+    - Gets the Nginx file from a remote location
+    - Installs the file using Bash to the path specified by the `src_filepath` variable
+
+  ```ruby
+  src_filename = "foo123-nginx-module-v#{node['nginx']['foo123']['version']}.tar.gz"
+  src_filepath = "#{Chef::Config['file_cache_path']}/#{src_filename}"
+  extract_path = "#{Chef::Config['file_cache_path']}/nginx_foo123_module/#{node['nginx']['foo123']['checksum']}"
+
+  remote_file 'src_filepath' do
+    source node['nginx']['foo123']['url']
+    checksum node['nginx']['foo123']['checksum']
+    owner 'root'
+    group 'root'
+    mode '0755'
+  end
+
+  bash 'extract_module' do
+    cwd ::File.dirname(src_filepath)
+    code <<-EOH
+      mkdir -p #{extract_path}
+      tar xzf #{src_filename} -C #{extract_path}
+      mv #{extract_path}/*/* #{extract_path}/
+    EOH
+    not_if { ::File.exist?(extract_path) }
+  end
+  ```
+
+  **Install an application from git**
+
+  ```ruby
+  git "#{Chef::Config[:file_cache_path]}/ruby-build" do
+    repository 'git://github.com/rbenv/ruby-build.git'
+    revision 'master'
+    action :sync
+  end
+
+  bash 'install_ruby_build' do
+    cwd "#{Chef::Config[:file_cache_path]}/ruby-build"
+    user 'rbenv'
+    group 'rbenv'
+    code <<-EOH
+      ./install.sh
+    EOH
+    environment 'PREFIX' => '/usr/local'
+  end
+  ```
+
+  **Using Attributes in Bash Code**
+
+  The following recipe shows how an attributes file can be used to store certain settings. An attributes file is located in the `attributes/`` directory in the same cookbook as the recipe which calls the attributes file. In this example, the attributes file specifies certain settings for Python that are then used across all nodes against which this recipe will run.
+
+  Python packages have versions, installation directories, URLs, and checksum files. An attributes file that exists to support this type of recipe would include settings like the following:
+
+  ```ruby
+  default['python']['version'] = '2.7.1'
+
+  if python['install_method'] == 'package'
+    default['python']['prefix_dir'] = '/usr'
+  else
+    default['python']['prefix_dir'] = '/usr/local'
+  end
+
+  default['python']['url'] = 'http://www.python.org/ftp/python'
+  default['python']['checksum'] = '80e387...85fd61'
+  ```
+
+  and then the methods in the recipe may refer to these values. A recipe that is used to install Python will need to do the following:
+
+    - Identify each package to be installed (implied in this example, not shown)
+    - Define variables for the package `version` and the `install_path`
+    - Get the package from a remote location, but only if the package does not already exist on the target system
+    - Use the **bash** resource to install the package on the node, but only when the package is not already installed
+
+  ```ruby
+  version = node['python']['version']
+  install_path = "#{node['python']['prefix_dir']}/lib/python#{version.split(/(^\d+\.\d+)/)[1]}"
+
+  remote_file "#{Chef::Config[:file_cache_path]}/Python-#{version}.tar.bz2" do
+    source "#{node['python']['url']}/#{version}/Python-#{version}.tar.bz2"
+    checksum node['python']['checksum']
+    mode '0755'
+    not_if { ::File.exist?(install_path) }
+  end
+
+  bash 'build-and-install-python' do
+    cwd Chef::Config[:file_cache_path]
+    code <<-EOF
+      tar -jxvf Python-#{version}.tar.bz2
+      (cd Python-#{version} && ./configure #{configure_options})
+      (cd Python-#{version} && make && make install)
+    EOF
+    not_if { ::File.exist?(install_path) }
+  end
+  ```

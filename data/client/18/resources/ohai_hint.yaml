@@ -1,0 +1,84 @@
+---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: ohai_hint
+resource_description_list:
+- markdown: Use the **ohai_hint** resource to aid in configuration detection by passing
+    hint data to Ohai.
+resource_new_in: '14.0'
+syntax_full_code_block: |-
+  ohai_hint 'name' do
+    compile_time      true, false # default value: true
+    content           Hash
+    hint_name         String # default value: 'name' unless specified
+    action            Symbol # defaults to :create if not specified
+  end
+syntax_properties_list:
+syntax_full_properties_list:
+- "`ohai_hint` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`compile_time`, `content`, and `hint_name` are the properties available to this
+  resource."
+actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: Create an Ohai hint file. (default)
+  :delete:
+    markdown: Delete an Ohai hint file.
+properties_list:
+- property: compile_time
+  ruby_type: true, false
+  required: false
+  default_value: 'true'
+  description_list:
+  - markdown: Determines whether or not the resource is executed during the compile
+      time phase.
+- property: content
+  ruby_type: Hash
+  required: false
+  description_list:
+  - markdown: Values to include in the hint file.
+- property: hint_name
+  ruby_type: String
+  required: false
+  default_value: The resource block's name
+  description_list:
+  - markdown: An optional property to set the hint name if it differs from the resource
+      block's name.
+examples: |
+  **Create a hint file**
+
+  ```ruby
+  ohai_hint 'example' do
+    content a: 'test_content'
+  end
+  ```
+
+  **Create a hint file with a name that does not match the resource name**
+
+  ```ruby
+  ohai_hint 'example' do
+    hint_name 'custom'
+  end
+  ```
+
+  **Create a hint file that is not loaded at compile time**
+
+  ```ruby
+  ohai_hint 'example' do
+    compile_time false
+  end
+  ```
+
+  **Delete a hint file**
+
+  ```ruby
+  ohai_hint 'example' do
+    action :delete
+  end
+  ```

@@ -175,6 +175,6 @@ For more information on Unified Mode, see the [Unified Mode documentation]({{< r
 See these resources to learn more about custom resources:
 
 - See the LearnChef interactive tutorial: [Extending Chef Infra: Custom Resources](https://www.chef.io/training/tutorials).
-- For a description of available methods, see the [custom resources glossary]({{< relref "custom_resource_glossary" >}}).
-- For running resources in Agentless Mode, see the [Agentless Mode documentation]({{< relref "agentless" >}}).
-- For running resources in Unified Mode, see the [Unified Mode documentation]({{< relref "unified_mode" >}}).
+- For a description of available methods, see the [custom resources glossary](custom_resource_glossary).
+- For running resources in Agentless Mode, see the [Agentless Mode documentation](/client/19/features/agentless/_index.md).
+- For running resources in Unified Mode, see the [Unified Mode documentation](unified_mode).

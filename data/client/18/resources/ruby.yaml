@@ -1,0 +1,130 @@
+---
+resource_reference: true
+resource: ruby
+resource_description_list:
+- markdown: Use the **ruby** resource to execute scripts using the Ruby interpreter.
+    This resource may also use any of the actions and properties that are available
+    to the **execute** resource. Commands that are executed with this resource are
+    (by their nature) not idempotent, as they are typically unique to the environment
+    in which they are run. Use `not_if` and `only_if` to guard this resource for idempotence.
+syntax_description: |
+  A **ruby** resource block executes scripts using Ruby:
+  ```ruby
+  ruby 'hello world' do
+    code <<-EOH
+      puts "Hello world! From Chef and Ruby."
+    EOH
+  end
+  ```
+syntax_full_code_block: |-
+  ruby 'name' do
+    code             String
+    creates          String
+    cwd              String
+    environment      Hash
+    flags            String
+    group            String, Integer
+    ignore_failure   True, False
+    notifies         Symbol
+    returns          Integer, Array # default value: 0
+    subscribes       Symbol
+    timeout          Integer, String, Float # default value: 3600
+    user             String, Integer
+    umask            String, Integer
+    action           Symbol # defaults to :run if not specified
+  end
+syntax_properties_list:
+- '`cwd` specifies the directory from which the command is run'
+- '`code` specifies the command to run'
+syntax_full_properties_list:
+- "`ruby` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`code`, `creates`, `cwd`, `environment`, `flags`,
+  `group`, `ignore_failure`, `notifies`, `returns`, `subscribes`
+  `timeout`, `user`, and `umask` are the properties available to this resource."
+actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :run:
+    markdown: Run a command. (default)
+properties_list:
+- property: code
+  ruby_type: String
+  required: true
+  description_list:
+  - markdown: A quoted string of code to be executed.
+- property: creates
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Prevent a command from creating a file when that file already exists.
+- property: cwd
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The current working directory from which the command will be run.
+- property: environment
+  ruby_type: Hash
+  required: false
+  description_list:
+  - markdown: 'A Hash of environment variables in the form of `({''ENV_VARIABLE''
+      => ''VALUE''})`. **Note**: These variables must exist for a command to be run
+      successfully.'
+- property: flags
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: One or more command line flags that are passed to the interpreter when
+      a command is invoked.
+- property: group
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown: The group name or group ID that must be changed before running a command.
+- property: ignore_failure
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  description_list:
+  - markdown: Continue running a recipe if a resource fails for any reason.
+- property: notifies
+  ruby_type: Symbol, Chef::Resource\[String\]
+  required: false
+  description_list:
+  - shortcode: resources_common_notification_notifies.md
+  - shortcode: resources_common_notification_timers.md
+  - shortcode: resources_common_notification_notifies_syntax.md
+- property: returns
+  ruby_type: Integer, Array
+  required: false
+  default_value: '0'
+  description_list:
+  - markdown: The return value for a command. This may be an array of accepted values.
+      An exception is raised when the return value(s) do not match.
+- property: subscribes
+  ruby_type: Symbol, Chef::Resource\[String\]
+  required: false
+  description_list:
+  - shortcode: resources_common_notification_subscribes.md
+  - shortcode: resources_common_notification_timers.md
+  - shortcode: resources_common_notification_subscribes_syntax.md
+- property: timeout
+  ruby_type: Integer, String, Float
+  required: false
+  default_value: '3600'
+  description_list:
+  - markdown: The amount of time (in seconds) a command is to wait before timing out.
+- property: umask
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown: The file mode creation mask, or umask.
+- property: user
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown: 'The user name or user ID that should be changed before running a
+      command.'
+examples:

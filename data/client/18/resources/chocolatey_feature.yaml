@@ -1,0 +1,57 @@
+---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: chocolatey_feature
+resource_description_list:
+- markdown: Use the **chocolatey_feature** resource to enable and disable Chocolatey
+    features.
+- note:
+    markdown: The Chocolatey package manager is not installed on Windows by default.
+      You will need to install it prior to using this resource by adding the [Chocolatey
+      cookbook](https://supermarket.chef.io/cookbooks/chocolatey/) to your node's
+      run list.
+resource_new_in: '15.1'
+syntax_full_code_block: |-
+  chocolatey_feature 'name' do
+    feature_name      String # default value: 'name' unless specified
+    action            Symbol # defaults to :enable if not specified
+  end
+syntax_properties_list:
+syntax_full_properties_list:
+- "`chocolatey_feature` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`feature_name` is the property available to this resource."
+actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :enable:
+    markdown: Enables a named Chocolatey feature. (default)
+  :disable:
+    markdown: Disables a named Chocolatey feature.
+properties_list:
+- property: feature_name
+  ruby_type: String
+  required: false
+  default_value: The resource block's name
+  description_list:
+  - markdown: The name of the Chocolatey feature to enable or disable.
+examples: |
+  **Enable the checksumFiles Chocolatey feature**
+
+  ```ruby
+  chocolatey_feature 'checksumFiles' do
+    action :enable
+  end
+  ```
+
+  **Disable the checksumFiles Chocolatey feature**
+
+  ```ruby
+  chocolatey_feature 'checksumFiles' do
+    action :disable
+  end
+  ```
