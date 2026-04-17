@@ -1,8 +1,5 @@
 +++
 title = "Chef Infra Client"
 
+list_pages = true
 +++
-
-Chef Infra Client versions:
-
-- [Chef Infra Client 19](https://docs.chef.io/client/19/)
