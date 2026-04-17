@@ -3,7 +3,7 @@ title = "selinux_boolean Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","selinux_boolean"]
+data_path = ["client","19","resources","selinux_boolean"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

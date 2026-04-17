@@ -3,7 +3,7 @@ title = "macosx_service Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","macosx_service"]
+data_path = ["client","19","resources","macosx_service"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

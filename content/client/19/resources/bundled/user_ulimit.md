@@ -3,7 +3,7 @@ title = "user_ulimit Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","user_ulimit"]
+data_path = ["client","19","resources","user_ulimit"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

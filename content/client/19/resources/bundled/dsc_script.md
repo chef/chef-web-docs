@@ -3,7 +3,7 @@ title = "dsc_script Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","dsc_script"]
+data_path = ["client","19","resources","dsc_script"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

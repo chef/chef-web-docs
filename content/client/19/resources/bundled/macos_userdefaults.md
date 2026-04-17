@@ -3,7 +3,7 @@ title = "macos_userdefaults Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","macos_userdefaults"]
+data_path = ["client","19","resources","macos_userdefaults"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

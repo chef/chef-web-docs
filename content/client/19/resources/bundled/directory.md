@@ -3,7 +3,7 @@ title = "directory Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","directory"]
+data_path = ["client","19","resources","directory"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

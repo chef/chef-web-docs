@@ -3,7 +3,7 @@ title = "rhsm_subscription Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","rhsm_subscription"]
+data_path = ["client","19","resources","rhsm_subscription"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

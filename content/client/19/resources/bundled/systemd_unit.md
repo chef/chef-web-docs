@@ -3,7 +3,7 @@ title = "systemd_unit Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","systemd_unit"]
+data_path = ["client","19","resources","systemd_unit"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

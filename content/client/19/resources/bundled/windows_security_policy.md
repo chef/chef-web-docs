@@ -3,7 +3,7 @@ title = "windows_security_policy Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","windows_security_policy"]
+data_path = ["client","19","resources","windows_security_policy"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

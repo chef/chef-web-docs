@@ -3,7 +3,7 @@ title = "http_request Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","http_request"]
+data_path = ["client","19","resources","http_request"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

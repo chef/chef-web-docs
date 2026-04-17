@@ -3,7 +3,7 @@ title = "cron Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","cron"]
+data_path = ["client","19","resources","cron"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

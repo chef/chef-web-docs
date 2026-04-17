@@ -3,7 +3,7 @@ title = "windows_certificate Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","windows_certificate"]
+data_path = ["client","19","resources","windows_certificate"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

@@ -3,7 +3,7 @@ title = "kernel_module Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","kernel_module"]
+data_path = ["client","19","resources","kernel_module"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

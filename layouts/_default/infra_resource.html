@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{ $product := index .Params.data_path 0 }}
 
-{{ if eq $product "infra" }}
+{{ if eq $product "client" }}
   <p data-swiftype-index='false'>
     <button onclick="resource_note_function('resource_note')" class="note-btn note-block note-left-align">Edit this page in the Chef repository</button>
     <div id="resource_note" class="note-container note-hide">
@@ -12,8 +12,8 @@
     </div>
   </p>
 {{ end }}
-{{ if eq $product "infra" }}
-  <p data-swiftype-index='false'><a href="/resources/">All Infra resources page</a></p>
+{{ if eq $product "client" }}
+  <p data-swiftype-index='false'><a href="../">All Chef Infra Client resources page</a></p>
 {{ else }}
   <p data-swiftype-index='false'><a href="/{{ $product }}/resources/">All {{ $product | title }} resources page</a></p>
 {{ end }}

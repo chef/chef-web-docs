@@ -3,7 +3,7 @@ title = "apt_preference Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","apt_preference"]
+data_path = ["client","19","resources","apt_preference"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

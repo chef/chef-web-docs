@@ -3,7 +3,7 @@ title = "windows_update_settings Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","windows_update_settings"]
+data_path = ["client","19","resources","windows_update_settings"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

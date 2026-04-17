@@ -3,7 +3,7 @@ title = "windows_dns_record Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","windows_dns_record"]
+data_path = ["client","19","resources","windows_dns_record"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

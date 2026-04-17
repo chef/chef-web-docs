@@ -3,7 +3,7 @@ title = "locale Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","locale"]
+data_path = ["client","19","resources","locale"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

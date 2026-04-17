@@ -3,7 +3,7 @@ title = "plist Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","plist"]
+data_path = ["client","19","resources","plist"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

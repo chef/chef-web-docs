@@ -3,7 +3,7 @@ title = "ohai_hint Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","ohai_hint"]
+data_path = ["client","19","resources","ohai_hint"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

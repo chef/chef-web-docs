@@ -3,7 +3,7 @@ title = "chocolatey_installer Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","chocolatey_installer"]
+data_path = ["client","19","resources","chocolatey_installer"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

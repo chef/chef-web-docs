@@ -3,7 +3,7 @@ title = "openssl_x509_certificate Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","openssl_x509_certificate"]
+data_path = ["client","19","resources","openssl_x509_certificate"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

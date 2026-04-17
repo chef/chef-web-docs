@@ -3,7 +3,7 @@ title = "windows_workgroup Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","windows_workgroup"]
+data_path = ["client","19","resources","windows_workgroup"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

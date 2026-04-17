@@ -5,7 +5,7 @@ description = "This reference describes each of the resources available to Chef 
 linkTitle = "Bundled resources"
 
 
-data_path = ["infra","resources"]
+data_path = ["client","19","resources"]
 layout = "infra_resources_all"
 toc_layout = "infra_resources_all_toc"
 

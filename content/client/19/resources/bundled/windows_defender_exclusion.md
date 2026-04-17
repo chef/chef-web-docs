@@ -3,7 +3,7 @@ title = "windows_defender_exclusion Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","windows_defender_exclusion"]
+data_path = ["client","19","resources","windows_defender_exclusion"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

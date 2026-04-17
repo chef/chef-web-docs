@@ -3,7 +3,7 @@ title = "ips_package Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","ips_package"]
+data_path = ["client","19","resources","ips_package"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

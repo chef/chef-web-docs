@@ -3,7 +3,7 @@ title = "zypper_repository Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","zypper_repository"]
+data_path = ["client","19","resources","zypper_repository"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

@@ -3,7 +3,7 @@ title = "pacman_package Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","pacman_package"]
+data_path = ["client","19","resources","pacman_package"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

@@ -3,7 +3,7 @@ title = "launchd Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","launchd"]
+data_path = ["client","19","resources","launchd"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

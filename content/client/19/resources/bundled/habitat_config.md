@@ -3,7 +3,7 @@ title = "habitat_config Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","habitat_config"]
+data_path = ["client","19","resources","habitat_config"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

@@ -3,7 +3,7 @@ title = "smartos_package Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","smartos_package"]
+data_path = ["client","19","resources","smartos_package"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

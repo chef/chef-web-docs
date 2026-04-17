@@ -3,7 +3,7 @@ title = "osx_profile Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","osx_profile"]
+data_path = ["client","19","resources","osx_profile"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

@@ -3,7 +3,7 @@ title = "windows_uac Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","windows_uac"]
+data_path = ["client","19","resources","windows_uac"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

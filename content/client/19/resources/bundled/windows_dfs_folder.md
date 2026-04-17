@@ -3,7 +3,7 @@ title = "windows_dfs_folder Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","windows_dfs_folder"]
+data_path = ["client","19","resources","windows_dfs_folder"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

@@ -3,7 +3,7 @@ title = "inspec_waiver_file_entry Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","inspec_waiver_file_entry"]
+data_path = ["client","19","resources","inspec_waiver_file_entry"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

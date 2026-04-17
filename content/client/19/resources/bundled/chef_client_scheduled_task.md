@@ -3,7 +3,7 @@ title = "chef_client_scheduled_task Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","chef_client_scheduled_task"]
+data_path = ["client","19","resources","chef_client_scheduled_task"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

@@ -3,7 +3,7 @@ title = "ssh_known_hosts_entry Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","ssh_known_hosts_entry"]
+data_path = ["client","19","resources","ssh_known_hosts_entry"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

@@ -3,7 +3,7 @@ title = "windows_feature_powershell Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","windows_feature_powershell"]
+data_path = ["client","19","resources","windows_feature_powershell"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

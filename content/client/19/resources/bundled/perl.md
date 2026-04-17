@@ -3,7 +3,7 @@ title = "perl Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","perl"]
+data_path = ["client","19","resources","perl"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

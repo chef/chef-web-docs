@@ -3,7 +3,7 @@ title = "ifconfig Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","ifconfig"]
+data_path = ["client","19","resources","ifconfig"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

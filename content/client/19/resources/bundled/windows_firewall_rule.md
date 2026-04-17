@@ -3,7 +3,7 @@ title = "windows_firewall_rule Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","windows_firewall_rule"]
+data_path = ["client","19","resources","windows_firewall_rule"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

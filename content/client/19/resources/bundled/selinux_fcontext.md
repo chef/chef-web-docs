@@ -3,7 +3,7 @@ title = "selinux_fcontext Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","selinux_fcontext"]
+data_path = ["client","19","resources","selinux_fcontext"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

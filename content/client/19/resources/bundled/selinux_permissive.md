@@ -3,7 +3,7 @@ title = "selinux_permissive Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","selinux_permissive"]
+data_path = ["client","19","resources","selinux_permissive"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

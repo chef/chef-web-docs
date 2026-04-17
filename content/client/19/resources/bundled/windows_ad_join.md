@@ -3,7 +3,7 @@ title = "windows_ad_join Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","windows_ad_join"]
+data_path = ["client","19","resources","windows_ad_join"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

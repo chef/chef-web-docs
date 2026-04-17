@@ -3,7 +3,7 @@ title = "cookbook_file Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","cookbook_file"]
+data_path = ["client","19","resources","cookbook_file"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

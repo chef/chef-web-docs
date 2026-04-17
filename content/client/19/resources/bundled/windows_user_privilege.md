@@ -3,7 +3,7 @@ title = "windows_user_privilege Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","windows_user_privilege"]
+data_path = ["client","19","resources","windows_user_privilege"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

@@ -3,7 +3,7 @@ title = "registry_key Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","registry_key"]
+data_path = ["client","19","resources","registry_key"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

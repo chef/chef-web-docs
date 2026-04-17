@@ -3,7 +3,7 @@ title = "selinux_module Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","selinux_module"]
+data_path = ["client","19","resources","selinux_module"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

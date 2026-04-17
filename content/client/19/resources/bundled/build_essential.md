@@ -3,7 +3,7 @@ title = "build_essential Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","build_essential"]
+data_path = ["client","19","resources","build_essential"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

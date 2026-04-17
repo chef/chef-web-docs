@@ -3,7 +3,7 @@ title = "windows_printer Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","windows_printer"]
+data_path = ["client","19","resources","windows_printer"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

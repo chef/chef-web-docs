@@ -3,7 +3,7 @@ title = "windows_shortcut Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","windows_shortcut"]
+data_path = ["client","19","resources","windows_shortcut"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

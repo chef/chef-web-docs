@@ -3,7 +3,7 @@ title = "homebrew_update Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","homebrew_update"]
+data_path = ["client","19","resources","homebrew_update"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

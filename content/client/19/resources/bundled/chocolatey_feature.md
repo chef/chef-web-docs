@@ -3,7 +3,7 @@ title = "chocolatey_feature Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","chocolatey_feature"]
+data_path = ["client","19","resources","chocolatey_feature"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

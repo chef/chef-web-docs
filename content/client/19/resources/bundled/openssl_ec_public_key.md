@@ -3,7 +3,7 @@ title = "openssl_ec_public_key Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","openssl_ec_public_key"]
+data_path = ["client","19","resources","openssl_ec_public_key"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

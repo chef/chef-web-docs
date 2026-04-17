@@ -3,7 +3,7 @@ title = "ksh Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","ksh"]
+data_path = ["client","19","resources","ksh"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

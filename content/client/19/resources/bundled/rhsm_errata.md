@@ -3,7 +3,7 @@ title = "rhsm_errata Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","rhsm_errata"]
+data_path = ["client","19","resources","rhsm_errata"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

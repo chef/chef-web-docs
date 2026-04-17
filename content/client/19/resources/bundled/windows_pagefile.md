@@ -3,7 +3,7 @@ title = "windows_pagefile Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","windows_pagefile"]
+data_path = ["client","19","resources","windows_pagefile"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

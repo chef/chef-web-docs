@@ -3,7 +3,7 @@ title = "apt_update Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","apt_update"]
+data_path = ["client","19","resources","apt_update"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

@@ -3,7 +3,7 @@ title = "powershell_script Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","powershell_script"]
+data_path = ["client","19","resources","powershell_script"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

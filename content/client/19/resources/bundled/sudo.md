@@ -3,7 +3,7 @@ title = "sudo Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","sudo"]
+data_path = ["client","19","resources","sudo"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 

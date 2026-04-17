@@ -3,7 +3,7 @@ title = "chef_client_trusted_certificate Resource"
 draft = false
 robots = ""
 
-data_path = ["infra","resources","chef_client_trusted_certificate"]
+data_path = ["client","19","resources","chef_client_trusted_certificate"]
 layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
