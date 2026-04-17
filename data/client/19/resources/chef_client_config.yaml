@@ -374,7 +374,7 @@ examples: |
   end
   ```
 
-  **Report directly to the [Chef Automate data collector endpoint](/automate/data_collection/#configure-chef-infra-client-to-use-the-data-collector-endpoint-in-chef-automate).**
+  **Report directly to the [Chef Automate data collector endpoint](https://docs.chef.io/automate/data_collection/#configure-chef-infra-client-to-use-the-data-collector-endpoint-in-chef-automate).**
 
   ```ruby
   chef_client_config 'Create client.rb' do

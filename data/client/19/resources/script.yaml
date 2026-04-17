@@ -15,12 +15,12 @@ resource_description_list:
 - markdown: 'This resource is the base resource for several other resources used for
     scripting on specific platforms. For more information about specific
     resources for specific platforms, see the following topics:
-    -   [bash](/resources/bash/)
-    -   [csh](/resources/csh/)
-    -   [ksh](/resources/ksh/)
-    -   [perl](/resources/perl/)
-    -   [python](/resources/python/)
-    -   [ruby](/resources/ruby/)
+    -   [bash](/resources/bundled/bash/)
+    -   [csh](/resources/bundled/csh/)
+    -   [ksh](/resources/bundled/ksh/)
+    -   [perl](/resources/bundled/perl/)
+    -   [python](/resources/bundled/python/)
+    -   [ruby](/resources/bundled/ruby/)
     Changed in 12.19 to support windows alternate user identity in execute
     resources'
 syntax_description: "A **script** resource block typically executes scripts using\

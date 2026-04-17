@@ -10,7 +10,7 @@ resource_description_list:
 - warning:
     markdown: Chef Infra Client also ships with the **cron** resource for managing
       the monolithic `/etc/crontab` file on platforms that lack cron.d support. See
-      the [cron resource](/resources/cron/) for information on using that resource.
+      the [cron resource](/resources/bundled/cron/) for information on using that resource.
 resource_new_in: '14.4'
 syntax_description: |
   A **cron_d** resource block manages cron.d files. For example,
