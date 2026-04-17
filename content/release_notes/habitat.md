@@ -23,7 +23,7 @@ Release date: XXXXXXX
 
 ### Bug fixes
 
-- The Supervisor now uses `base` as the default channel when downloading, instead of `stable`, if the channel doesn't exist when invoked by the launcher.
+- The launcher now uses `base` as the default channel when downloading the Habitat Supervisor, instead of `stable`, if the supervisor doesn't exist when invoked by the launcher.
 - The tar and container exporters now use `base` instead of `stable` when downloading the busybox package.
 - Hooks now use `base` instead of `stable` when downloading busybox or PowerShell if not present.
 - Updated all CLI documentation to reference `hab cli setup` instead of `hab setup`.
