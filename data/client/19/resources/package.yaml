@@ -12,31 +12,31 @@ resource_description_list:
 
     For more information about specific resources for specific platforms,
     see the following topics:
-    - [apt_package](/resources/bundled/apt_package/)
-    - [bff_package](/resources/bundled/bff_package/)
-    - [cab_package](/resources/bundled/cab_package/)
-    - [chef_gem](/resources/bundled/chef_gem/)
-    - [chocolatey_package](/resources/bundled/chocolatey_package/)
-    - [dmg_package](/resources/bundled/dmg_package/)
-    - [dnf_package](/resources/bundled/dnf_package/)
-    - [dpkg_package](/resources/bundled/dpkg_package/)
-    - [freebsd_package](/resources/bundled/freebsd_package/)
-    - [gem_package](/resources/bundled/gem_package/)
-    - [homebrew_package](/resources/bundled/homebrew_package/)
-    - [ips_package](/resources/bundled/ips_package/)
-    - [macports_package](/resources/bundled/macports_package/)
-    - [msu_package](/resources/bundled/msu_package/)
-    - [openbsd_package](/resources/bundled/openbsd_package/)
-    - [pacman_package](/resources/bundled/pacman_package/)
-    - [paludis_package](/resources/bundled/paludis_package/)
-    - [portage_package](/resources/bundled/portage_package/)
-    - [rpm_package](/resources/bundled/rpm_package/)
-    - [smartos_package](/resources/bundled/smartos_package/)
-    - [snap_package](/resources/bundled/snap_package/)
-    - [solaris_package](/resources/bundled/solaris_package/)
-    - [windows_package](/resources/bundled/windows_package/)
-    - [yum_package](/resources/bundled/yum_package/)
-    - [zypper_package](/resources/bundled/zypper_package/)
+    - apt_package resource
+    - bff_package resource
+    - cab_package resource
+    - chef_gem resource
+    - chocolatey_package resource
+    - dmg_package resource
+    - dnf_package resource
+    - dpkg_package resource
+    - freebsd_package resource
+    - gem_package resource
+    - homebrew_package resource
+    - ips_package resource
+    - macports_package resource
+    - msu_package resource
+    - openbsd_package resource
+    - pacman_package resource
+    - paludis_package resource
+    - portage_package resource
+    - rpm_package resource
+    - smartos_package resource
+    - snap_package resource
+    - solaris_package resource
+    - windows_package resource
+    - yum_package resource
+    - zypper_package resource
 syntax_description: |
   A **package** resource block manages a package on a node, typically by
   installing it. The simplest use of the **package** resource is:
