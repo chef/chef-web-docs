@@ -102,7 +102,7 @@ Follow these steps to create a new custom resource:
 ## Example custom resource
 
 This example creates a custom resource called `site`, which uses Chef Infra's built-in `file`, `service` and `package` resources, and includes `:create` and `:delete` actions.
-It also assumes the existence of a [custom httpd template]({{< relref "templates.md" >}}).
+It also assumes the existence of a [custom httpd template](/client/19/cookbooks/templates/).
 The code in this custom resource is similar to a typical recipe because it uses built-in Chef Infra Client resources, with the addition of the property and actions definitions for this custom resource.
 
 ```ruby

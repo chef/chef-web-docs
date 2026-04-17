@@ -1,10 +1,6 @@
 +++
 title = "Custom resources glossary"
 
-
-
-
-
 [menu]
   [menu.client_18]
     title = "Glossary"
@@ -15,7 +11,7 @@ title = "Custom resources glossary"
 
 The following domain-specific language (DSL) methods are available when writing custom resources.
 
-For further information about how to write custom resources please see [about custom resources]({{< relref "/resources/custom" >}})
+For further information about how to write custom resources please see [about custom resources](/client/18/resources/custom/)
 
 ## action_class
 
@@ -628,9 +624,9 @@ logs of the Chef Infra Client run.
 
 {{< readfile file="content/client/18/reusable/md/agentless_summary.md" >}}
 
-{{< readfile file="/content/reusable/md/agentless_custom_resource.md" >}}
+{{< readfile file="content/client/18/reusable/md/agentless_custom_resource.md" >}}
 
-For more information on Agentless Mode, see the [Agentless Mode documentation]({{< relref "/features/agentless.md" >}}).
+For more information on Agentless Mode, see the [Agentless Mode documentation](/client/18/features/agentless/).
 
 ## unified_mode
 

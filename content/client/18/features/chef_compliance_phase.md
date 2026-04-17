@@ -28,7 +28,7 @@ The Compliance Phase requires Chef Infra Client 17 or higher.
 If your system is configured to use the `audit cookbook`, make these changes to switch to the Compliance Phase:
 
 1. Set the `node['audit']['compliance_phase']` attribute to `true` through a Policyfile or cookbook attributes file.
-1. Remove the `audit cookbook` from your [run-list]({{< relref "run_lists.md" >}}).
+1. Remove the `audit cookbook` from your [run-list](/client/18/policy/run_lists/).
 
 1. On your next Chef Infra Client run, you should see the Compliance Phase results.
 
@@ -271,7 +271,7 @@ Use [waivers](https://docs.chef.io/inspec/waivers/) to mark individual failing c
 To use waivers:
 
 1. Prepare a YAML waiver file.
-1. Deliver the waiver file to the node in a [cookbook_file]({{< relref "/resources/bundled/cookbook_file" >}}) or [remote_file]({{< relref "/resources/bundled/remote_file" >}}).
+1. Deliver the waiver file to the node in a [cookbook_file](/client/18/resources/bundled/cookbook_file/) or [remote_file](/client/18/resources/bundled/remote_file/).
 1. Set the `waiver_file` attribute for the Compliance Phase to that location. For example:
 
 ```ruby

@@ -35,7 +35,7 @@ The `trusted_certs` directory on Chef Workstation and in Chef Infra Client works
 
 Place private and self-signed certificates in the `trusted_certs` directory to use them within Chef Infra Client and Workstation tools.
 
-Use the [`chef_client_trusted_certificate`]({{< relref "/resources/bundled/chef_client_trusted_certificate" >}}) Chef Infra Client resource to manage these certificates continuously.
+Use the [`chef_client_trusted_certificate`](/client/18/resources/bundled/chef_client_trusted_certificate/) Chef Infra Client resource to manage these certificates continuously.
 
 #### trusted_certs directory locations
 
@@ -68,7 +68,7 @@ To use a custom CA bundle, update the environment variable to specify the path t
 
 <!-- markdownlint-disable MD006 MD007 -->
 
-Use following [`client.rb` file]({{< relref "config_rb_client" >}}) settings to manage SSL certificate preferences:
+Use following [`client.rb` file](/client/18/install/config_rb_client/) settings to manage SSL certificate preferences:
 
 `local_key_generation`
 : Whether Chef Infra Server or Chef Infra Client generates the private/public key pair.

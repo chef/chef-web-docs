@@ -13,7 +13,7 @@ draft = false
 
 {{< readfile file = "content/reusable/md/recipes_yaml_json_overview.md" >}}
 
-For information about Ruby recipes, see the [Ruby recipe documentation]({{< relref "recipes" >}}).
+For information about Ruby recipes, see the [Ruby recipe documentation](/client/19/cookbooks/recipes/).
 
 ## Support
 

@@ -68,7 +68,7 @@ To use a custom CA bundle, update the environment variable to specify the path t
 
 <!-- markdownlint-disable MD006 MD007 -->
 
-Use following [`client.rb` file]({{< relref "config_rb_client" >}}) settings to manage SSL certificate preferences:
+Use following [`client.rb` file](/client/19/install/config_rb_client/) settings to manage SSL certificate preferences:
 
 `local_key_generation`
 : Whether Chef Infra Server or Chef Infra Client generates the private/public key pair.

@@ -13,7 +13,7 @@ gh_repo = "chef-web-docs"
 
 {{< readfile file = "content/reusable/md/recipes_yaml_json_overview.md" >}}
 
-For information about Ruby recipes, see the [Ruby recipe documentation]({{< relref "recipes" >}}).
+For information about Ruby recipes, see the [Ruby recipe documentation](/client/18/cookbooks/recipes/).
 
 ## Support
 
@@ -106,14 +106,14 @@ To create a JSON or YAML recipe, follow these steps:
 
     In this example:
 
-    - the [`package` resource]({{< relref "/resources/bundled/package/" >}}) uses the `install` action and the `version` property to install Nginx 1.18.0.
-    - the [`service` resource]({{< relref "/resources/bundled/service/" >}}) uses the `enable` and `start` actions to enable and start Nginx.
+    - the [`package` resource](/client/18/resources/bundled/package/) uses the `install` action and the `version` property to install Nginx 1.18.0.
+    - the [`service` resource](/client/18/resources/bundled/service/) uses the `enable` and `start` actions to enable and start Nginx.
 
 ## Examples
 
 ### Basic file management
 
-Use the [`directory` resource]({{< relref "/resources/bundled/directory">}}) to create the `/opt/app_name` directory and apply owner and group permissions to the directory. Use the [`file` resource]({{< relref "/resources/bundled/">}}) to create the `/opt/app_name/config.txt` file, add text to the file, and apply file owner and group permissions to the file.
+Use the [`directory` resource](/client/18/resources/bundled/directory/) to create the `/opt/app_name` directory and apply owner and group permissions to the directory. Use the [`file` resource](/client/18/resources/bundled/file/) to create the `/opt/app_name/config.txt` file, add text to the file, and apply file owner and group permissions to the file.
 
 {{< foundation_tabs tabs-id="basic-file-management-json-yaml-recipe-example" >}}
   {{< foundation_tab active="true" panel-link="basic-file-management-yaml-recipe-example" tab-text="YAML">}}
@@ -173,7 +173,7 @@ resources:
 
 ### Package and service management
 
-Use the [`package` resource]({{< relref "/resources/bundled/package">}}) to install Nginx and curl. Then use the [`service` resource]({{< relref "/resources/bundled/service">}}) to enable and start Nginx.
+Use the [`package` resource](/client/18/resources/bundled/package/) to install Nginx and curl. Then use the [`service` resource](/client/18/resources/bundled/service/) to enable and start Nginx.
 
 {{< foundation_tabs tabs-id="package-service-management-json-yaml-recipe-example" >}}
   {{< foundation_tab active="true" panel-link="package-service-management-yaml-recipe-example" tab-text="YAML">}}
@@ -233,7 +233,7 @@ resources:
 
 ### User management
 
-Use the [`group` resource]({{< relref "/resources/bundled/group">}}) to create a group called "developers" and the [`user` resource]({{< relref "/resources/bundled/">}}) to create a user, give them properties, and assign them to the developers group.
+Use the [`group` resource](/client/18/resources/bundled/group/) to create a group called "developers" and the [`user` resource](/client/18/resources/bundled/user/) to create a user, give them properties, and assign them to the developers group.
 
 {{< foundation_tabs tabs-id="user-management-json-yaml-recipe-example" >}}
   {{< foundation_tab active="true" panel-link="user-management-yaml-recipe-example" tab-text="YAML">}}
@@ -289,7 +289,7 @@ resources:
 
 ### Template with static variables
 
-Use the [`template` resource]({{< relref "/resources/bundled/template">}}) create the `/etc/app_name/config.yml` file using the `config.yml.erb` template.
+Use the [`template` resource](/client/18/resources/bundled/template/) create the `/etc/app_name/config.yml` file using the `config.yml.erb` template.
 
 {{< foundation_tabs tabs-id="template-with-static-variables-json-yaml-recipe-example" >}}
   {{< foundation_tab active="true" panel-link="template-with-static-variables-yaml-recipe-example" tab-text="YAML">}}
@@ -334,7 +334,7 @@ resources:
 
 ### Guards
 
-Some common resource functionality is also supported, as long as the value of a property can be expressed as one of the four primitive types (string, integer, boolean, array). That means it's possible to use [`only_if` or `not_if` guards]({{< relref "/resources/common_functionality/#guards" >}}) as long as they shell out to Bash or PowerShell and aren't passed a Ruby block.
+Some common resource functionality is also supported, as long as the value of a property can be expressed as one of the four primitive types (string, integer, boolean, array). That means it's possible to use [`only_if` or `not_if` guards](/client/18/resources/common_functionality/#guards) as long as they shell out to Bash or PowerShell and aren't passed a Ruby block.
 
 For example, this is supported:
 

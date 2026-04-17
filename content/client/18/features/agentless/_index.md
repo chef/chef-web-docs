@@ -170,23 +170,23 @@ All resources included in a Cookbook must be enabled in Agentless to run in Agen
 
 The following Chef Infra Client resources are supported in Agentless starting in Chef Infra Client 15.1.36:
 
-- [apt_package]({{< relref "/resources/bundled/apt_package" >}})
-- [breakpoint]({{< relref "/resources/bundled/breakpoint" >}})
-- [execute]({{< relref "/resources/bundled/execute" >}})
-- [log]({{< relref "/resources/bundled/log" >}})
-- [ruby_block]({{< relref "/resources/bundled/ruby_block" >}})
-- [service]({{< relref "/resources/bundled/service" >}})
-- [systemd_unit]({{< relref "/resources/bundled/systemd_unit" >}})
+- [apt_package](/client/18/resources/bundled/apt_package/)
+- [breakpoint](/client/18/resources/bundled/breakpoint/)
+- [execute](/client/18/resources/bundled/execute/)
+- [log](/client/18/resources/bundled/log/)
+- [ruby_block](/client/18/resources/bundled/ruby_block/)
+- [service](/client/18/resources/bundled/service/)
+- [systemd_unit](/client/18/resources/bundled/systemd_unit/)
 
 ### Custom resources
 
-{{< readfile file="/reusable/md/agentless_custom_resource.md" >}}
+{{< readfile file="content/client/18/reusable/md/agentless_custom_resource.md" >}}
 
-See the [Custom Resources documentation]({{< relref "/resources/custom" >}}) for more detailed documentation about creating custom resources.
+See the [Custom Resources documentation](/client/18/resources/custom/) for more detailed documentation about creating custom resources.
 
 #### Example
 
-{{< readfile file="/reusable/md/agentless_custom_resource_example.md" >}}
+{{< readfile file="content/client/18/reusable/md/agentless_custom_resource_example.md" >}}
 
 ## Run Agentless
 
@@ -212,7 +212,7 @@ Replace the following:
 
 ### Agentless in Local Mode
 
-You can run Agentless in [Local Mode]({{< relref "/reference/ctl_chef_client#run-in-local-mode" >}}).
+You can run Agentless in [Local Mode](/client/18/reference/ctl_chef_client/#run-in-local-mode).
 Local Mode runs chef-zero locally as a lightweight instance of Chef Infra Server to execute a Client run on target nodes.
 
 Use `-z` and `-t` to run Agentless in Local Mode:

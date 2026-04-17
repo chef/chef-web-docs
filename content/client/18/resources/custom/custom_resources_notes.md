@@ -12,7 +12,7 @@ draft = false
 
 {{< warning >}}
 
-This page mentions multiple ways of building custom resources. Chef Software recommends you try the approach outlined in the [Custom Resource documentation]({{< relref "/resources/custom" >}}) first, before trying the resource/provider pair (older approach) or library type (pure Ruby) approaches. If you run into issues while designing 12.5-style custom resources, please ask for help in the [Chef Mailing List](https://discourse.chef.io) or [file a bug](https://github.com/chef/chef/issues/new) for Chef Infra Client.
+This page mentions multiple ways of building custom resources. Chef Software recommends you try the approach outlined in the [Custom Resource documentation](/client/18/resources/custom/) first, before trying the resource/provider pair (older approach) or library type (pure Ruby) approaches. If you run into issues while designing 12.5-style custom resources, please ask for help in the [Chef Mailing List](https://discourse.chef.io) or [file a bug](https://github.com/chef/chef/issues/new) for Chef Infra Client.
 
 {{< /warning >}}
 
@@ -192,7 +192,7 @@ end
 
 When the `converge_by` block is run in why-run mode, it will only log `touch "/tmp/foo"` and won't run the code inside the block.
 
-A `converge_by` block that isn't wrapped in an idempotency check will always cause the resource to be updated, and will always cause notifications to fire. To prevent this, a properly written resource should wrap all `converge_by` checks with an idempotency check. The [`converge_if_changed`]({{< relref "/resources/custom.md#converge_if_changed" >}}) block may be used instead which will wrap a `converge_by` block with an idempotency check for you.
+A `converge_by` block that isn't wrapped in an idempotency check will always cause the resource to be updated, and will always cause notifications to fire. To prevent this, a properly written resource should wrap all `converge_by` checks with an idempotency check. The [`converge_if_changed`](/client/18/resources/custom/#converge_if_changed) block may be used instead which will wrap a `converge_by` block with an idempotency check for you.
 
 ```ruby
 action :run do

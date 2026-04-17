@@ -249,7 +249,7 @@ The way to control the problem traditionally is by pinning the versions of cookb
 
 The dependency solver will also work properly if you upload the minimum number of cookbook versions needed to Chef Infra Server.
 
-You can make a start at this by only uploading tested and blessed cookbook versions to your Chef Infra Server. These cookbooks would be ones where each scenario or role for the nodes is considered and that small set of cookbook versions are made available for those sets of nodes. Before Policyfiles, this policy could be implemented by constraining dependency solver access to candidate versions using an [environment]({{< relref "environments" >}}) file.
+You can make a start at this by only uploading tested and blessed cookbook versions to your Chef Infra Server. These cookbooks would be ones where each scenario or role for the nodes is considered and that small set of cookbook versions are made available for those sets of nodes. Before Policyfiles, this policy could be implemented by constraining dependency solver access to candidate versions using an [environment](/client/18/policy/environments/) file.
 
 ## Version Source Control
 

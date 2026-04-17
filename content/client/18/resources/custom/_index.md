@@ -102,7 +102,7 @@ Follow these steps to create a new custom resource:
 ## Example custom resource
 
 This example creates a custom resource called `site`, which uses Chef Infra's built-in `file`, `service` and `package` resources, and includes `:create` and `:delete` actions.
-It also assumes the existence of a [custom httpd template]({{< relref "templates.md" >}}).
+It also assumes the existence of a [custom httpd template](/client/18/cookbooks/templates/).
 The code in this custom resource is similar to a typical recipe because it uses built-in Chef Infra Client resources, with the addition of the property and actions definitions for this custom resource.
 
 ```ruby
@@ -152,13 +152,13 @@ site 'foo'
 
 ## Agentless Mode
 
-{{< readfile file="content/client/18/reusable/md/agentless_summary.md" >}} For more information on Agentless Mode, see the [Agentless Mode documentation]({{< relref "/features/agentless.md" >}}).
+{{< readfile file="content/client/18/reusable/md/agentless_summary.md" >}} For more information on Agentless Mode, see the [Agentless Mode documentation](/client/18/features/agentless/).
 
-{{< readfile file="/content/reusable/md/agentless_custom_resource.md" >}}
+{{< readfile file="content/client/18/reusable/md/agentless_custom_resource.md" >}}
 
 ### Example
 
-{{< readfile file="/content/reusable/md/agentless_custom_resource_example.md" >}}
+{{< readfile file="content/client/18/reusable/md/agentless_custom_resource_example.md" >}}
 
 ## Unified Mode
 
@@ -176,5 +176,5 @@ See these resources to learn more about custom resources:
 
 - See the LearnChef interactive tutorial: [Extending Chef Infra: Custom Resources](https://www.chef.io/training/tutorials).
 - For a description of available methods, see the [custom resources glossary]({{< relref "custom_resource_glossary" >}}).
-- For running resources in Agentless Mode, see the [Agentless Mode documentation]({{< relref "agentless" >}}).
+- For running resources in Agentless Mode, see the [Agentless Mode documentation](/client/18/features/agentless/).
 - For running resources in Unified Mode, see the [Unified Mode documentation]({{< relref "unified_mode" >}}).

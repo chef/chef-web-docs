@@ -13,7 +13,7 @@ The definitions feature in Chef Infra has been deprecated and will be removed in
 
 This guide describes how to migrate from an existing Definition to a Custom Resource.
 
-If you are creating a Custom Resource from scratch please see the [Custom Resource Getting Started Guide]({{< relref "/resources/custom" >}}) instead.
+If you are creating a Custom Resource from scratch please see the [Custom Resource Getting Started Guide](/client/18/resources/custom/) instead.
 
 ## Definitions
 

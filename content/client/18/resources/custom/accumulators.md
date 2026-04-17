@@ -12,8 +12,8 @@ title = "Accumulators"
 
 This is an advanced topic. You should have already written a custom resource and be familiar with:
 
-- The built-in Chef Infra [`template`]({{< relref "/resources/bundled/template" >}}) resource
-- Cookbook execution [`with_run_context`]({{< relref "infra_language/cookbook_execution/#with_run_context" >}})
+- The built-in Chef Infra [`template`](/client/18/resources/bundled/template/) resource
+- Cookbook execution [`with_run_context`](/client/18/infra_language/cookbook_execution/#with_run_context)
 
 ## Overview
 
