@@ -2,17 +2,12 @@
 title = "AWS Marketplace"
 draft = false
 
-gh_repo = "chef-web-docs"
-
-
-
-product = ["client", "workstation", "automate"]
 
 [menu]
-  [menu.infra]
+  [menu.automate]
     title = "AWS Marketplace"
-    identifier = "chef_infra/integrations/aws_marketplace.md AWS Marketplace"
-    parent = "chef_infra/integrations"
+    parent = "automate/integrations"
+    identifier = "automate/integrations/AWS Marketplace"
     weight = 10
 +++
 
