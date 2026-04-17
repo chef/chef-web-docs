@@ -14,8 +14,10 @@
 {{ end }}
 {{ if eq $product "client" }}
   <p data-swiftype-index='false'><a href="../">All Chef Infra Client resources page</a></p>
+{{ else if eq $product "desktop" }}
+  <p data-swiftype-index='false'><a href="../">All Chef Desktop resources page</a></p>
 {{ else }}
-  <p data-swiftype-index='false'><a href="/{{ $product }}/resources/">All {{ $product | title }} resources page</a></p>
+  {{ errorf "infra_resource layout: unknown product %q in data_path. Expected \"client\" or \"desktop\". (Page: %s)" $product .RelPermalink }}
 {{ end }}
 
 <hr>

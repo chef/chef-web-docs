@@ -10,11 +10,7 @@
     {{ if index $yaml_file "resource_reference" }}
 
       <h2 id="{{ $resource_ID}}-resource">{{ $resource }} resource</h2>
-      {{ if eq $product "client" }}
-        <a href="{{ $resource }}">{{ $resource }} resource page</a>
-      {{ else }}
-        <a href="/{{ $product }}/resources/{{ $resource }}/">{{ $resource }} resource page</a>
-      {{ end }}
+      <a href="{{ $resource }}">{{ $resource }} resource page</a>
 
     {{ end }}
 
