@@ -10,19 +10,26 @@
 $(document).ready(function() {
 
   // Retrieve list of default search product keys from search page HTML and parse into JSON array
-  let defaultSearchProducts = $('#swiftype-search').data('default-search-keys');
+  const defaultSearchProducts = $('#swiftype-search').data('default-search-keys');
 
-  function returnParsedJson(jsonString) {
-    if (jsonString) {
-      let stringifiedJSON = JSON.stringify(jsonString);
-      let parsedJSON = JSON.parse(stringifiedJSON);
-      return parsedJSON;
-    } else {
-      return null;
+  function parseDefaultSearchProducts(searchKeys) {
+    if (Array.isArray(searchKeys)) {
+      return searchKeys;
     }
+
+    if (typeof searchKeys === 'string') {
+      try {
+        const parsedSearchKeys = JSON.parse(searchKeys);
+        return Array.isArray(parsedSearchKeys) ? parsedSearchKeys : [];
+      } catch (error) {
+        return [];
+      }
+    }
+
+    return [];
   }
 
-  let parsedDefaultSearchProducts = returnParsedJson(defaultSearchProducts);
+  const parsedDefaultSearchProducts = parseDefaultSearchProducts(defaultSearchProducts);
 
   ///////////////////////////////////
   //
@@ -49,7 +56,7 @@ $(document).ready(function() {
   // Hide search modal if it's already visible and click outside modal box
   $('body').on('click', function(event) {
     if ($('#swiftype-modal').is(':visible') && !$(event.target).closest("#swiftype-modal").length) {
-      $('#swiftype-modal:visible').hide();
+      hideSearchModal();
     }
   });
 
@@ -65,17 +72,17 @@ $(document).ready(function() {
   });
 
   // on pressing enter key, navigate to search page and submit search string
-  $("input.swiftype-search-input").on('keypress', function (event) {
-    if (event.keycode == 13 || event.which == 13) {
+  $("input.swiftype-search-input").on('keypress', function(event) {
+    if (event.key === 'Enter' || event.which === 13) {
       event.preventDefault();
       window.location.href = "/search/#stq=" + encodeURIComponent($(this).val()) + '&stp=1';
       hideSearchModal();
-    };
+    }
   });
 
   // on clicking modal search button, navigate to search page and submit search string
   $("#swiftype-search-form-modal-input-search").click(function(){
-    const searchInput = $("input#swiftype-search-form-modal-input").val()
+    const searchInput = $("input#swiftype-search-form-modal-input").val();
     window.location.href = "/search/#stq=" + encodeURIComponent(searchInput) + '&stp=1';
     hideSearchModal();
   });
@@ -93,7 +100,7 @@ $(document).ready(function() {
   $('input#swiftype-search-top-container-form-input-clear').click(function() {
     $('input#swiftype-search-top-container-form-input').val('');
     $('input#swiftype-search-top-container-form-input').focus();
-    history.pushState({page: "Chef Documentation Search"}, "", "/search/")
+    history.pushState({page: "Chef Documentation Search"}, "", "/search/");
   });
 
   $("input#swiftype-search-top-container-form-input-search").on('click', function() {
@@ -102,7 +109,7 @@ $(document).ready(function() {
    });
 
   // trigger hideCustomFacets function after resize ends
-  var debounce = function(fn, interval) {
+  const debounce = function(fn, interval) {
     let timer;
     return function debounced(...args) {
       clearTimeout(timer);
@@ -110,11 +117,11 @@ $(document).ready(function() {
         fn(...args);
       }, interval);
     };
-  }
+  };
 
   // show and hide elements when resizing
-  var hideCustomFacets = function() {
-    if ($(this).width() > 768) {
+  const hideCustomFacets = function() {
+    if ($(window).width() > 768) {
       $('#swiftype-custom-facet-products').show();
       $("#search-facet-product-toggle-caret > svg.fa-caret-down").hide();
       $("#search-facet-product-toggle-caret > svg.fa-caret-up").hide();
@@ -123,7 +130,7 @@ $(document).ready(function() {
       $("#search-facet-product-toggle-caret > svg.fa-caret-down").hide();
       $("#search-facet-product-toggle-caret > svg.fa-caret-up").show();
     }
-  }
+  };
 
   $(window).resize(debounce(hideCustomFacets, 400));
 
@@ -185,13 +192,18 @@ $(document).ready(function() {
 
 
   var processLocationHash = function() {
-    var hash = searchStringMatchRegex.exec(window.location.hash)[1];
-    pageNumTrue = searchPageNumRegex.exec(hash);
-    if (pageNumTrue) {
-      var matchString = decodeURIComponent(hash.substring(0,pageNumTrue.index));
-    } else {
-      var matchString = decodeURIComponent(hash);
-    };
+    const hashMatch = searchStringMatchRegex.exec(window.location.hash);
+
+    if (!hashMatch) {
+      return;
+    }
+
+    const hash = hashMatch[1];
+    const pageNumMatch = searchPageNumRegex.exec(hash);
+    const matchString = pageNumMatch
+      ? decodeURIComponent(hash.substring(0, pageNumMatch.index))
+      : decodeURIComponent(hash);
+
     $('input#swiftype-search-top-container-form-input').val(matchString);
   };
 
@@ -219,32 +231,31 @@ $(document).ready(function() {
   /////////////////////////
   // Handle Search Results
   /////////////////////////
-  var searchConfig = {
+  const searchConfig = {
     "facets": {}
   };
 
   // Define default products used in search
   searchConfig.facets['chef-products'] = parsedDefaultSearchProducts;
 
-  var resultTemplate = Hogan.compile([
+  const resultTemplate = Hogan.compile([
     "<li>",
       "<a class='swiftype-result' href='{{url}}'>",
         "<span class='st-result-title'>{{title}}</span>",
         "<span class='st-result-highlight-product'>Product: {{product}} </span>",
         "<span class='st-result-sections detail'>{{{sections}}}</span>",
-        "<span class='st-result-detail-body detail'>{{{body}}}</span></span>",
+        "<span class='st-result-detail-body detail'>{{{body}}}</span>",
       "</a>",
     "</li>"
   ].join('') );
 
-  var customRenderFunction = function(document_type, item) {
-    var
-      data = {
+  var customRenderFunction = function(_documentType, item) {
+    const data = {
         title: item['title'],
         product: item['chef-product'],
         url: item['url'],
-        sections: item['highlight']['sections'],
-        body: item.highlight['body'],
+        sections: item.highlight && item.highlight.sections ? item.highlight.sections : '',
+        body: item.highlight && item.highlight.body ? item.highlight.body : '',
       };
     return resultTemplate.render(data);
   };
@@ -252,7 +263,14 @@ $(document).ready(function() {
   // Update the hash value in window.location
   var reloadResults = function() {
     // Reset window to page 1
-    window.location.hash = window.location.hash.replace(/stp=[^&]*/i, 'stp=1');
+    if (/stp=[^&]*/i.test(window.location.hash)) {
+      window.location.hash = window.location.hash.replace(/stp=[^&]*/i, 'stp=1');
+    } else if (window.location.hash) {
+      window.location.hash = window.location.hash + '&stp=1';
+    } else {
+      window.location.hash = '#stp=1';
+    }
+
     $(window).hashchange();
   };
 
@@ -263,7 +281,7 @@ $(document).ready(function() {
       searchConfig.facets['chef-products'] = parsedDefaultSearchProducts;
     } else {
       searchConfig.facets['chef-products'] = $("#swiftype-custom-facets input:checkbox[name='chef-product']:checked, select.search-facet-versions:visible option:selected").map(function() {
-        return $(this).val()
+        return $(this).val();
       }).get();
     }
   };
@@ -278,12 +296,12 @@ $(document).ready(function() {
     }
   };
 
-  var highlightFields = {
+  const highlightFields = {
     "page": {
       "sections":{"size": 200, "fallback":true},
       "body":{"size": 250, "fallback": true},
     }
-  }
+  };
 
   /*
     The swiftypeSearch function is from the Swiftype jQuery Plugin - "jquery.swiftype.search.js"

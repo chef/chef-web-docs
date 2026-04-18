@@ -2,7 +2,7 @@
 {{- /* See https://gohugo.io/functions/css/sass/ */ -}}
 
 <link rel="shortcut icon" type="image/png" href="{{ "images/progress-emoticon.ico" | relURL }}" />
-{{ $silenceSassDeprecations := slice "mixed-decls" "color-functions" "global-builtin" "import"}}
+{{ $silenceSassDeprecations := slice "color-functions" "global-builtin" "import" "if-function"}}
 {{ $options := dict
   "transpiler" "dartsass"
   "vars" site.Params.styles
