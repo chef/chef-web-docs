@@ -616,7 +616,7 @@ identifier = "client"
   title = "Chef Infra Client 19"
   identifier = "chef_infra/19"
   parent = "client"
-  url = "https://docs.chef.io/client/19.1"
+  url = "https://docs.chef.io/client/19"
   weight = 5
 
   [[infra]]

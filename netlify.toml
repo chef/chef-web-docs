@@ -122,13 +122,18 @@
 ####
 
 [[redirects]]
-  from = "/client/19.1/*"
-  to = "https://release-19-1--chef-infra-client.netlify.app/client/19.1/:splat"
+  from = "/client/19/*"
+  to = "https://release-19--chef-infra-client.netlify.app/client/19/:splat"
   status = 200
 
 [[redirects]]
+  from = "/client/19.1/*"
+  to = "/client/19/:splat"
+  status = 301
+
+[[redirects]]
   from = "/client/latest/*"
-  to = "/client/19.1/:splat"
+  to = "/client/19/:splat"
   status = 301
 
 ####
