@@ -1,5 +1,7 @@
 +++
 title = "Chef Infra Client"
+linkTitle = "version 18"
+summary = "Chef Infra Client v 18"
 
 [cascade]
   [cascade.params]
