@@ -236,5 +236,5 @@ link_text = "Chef Infra Client 19"
 base_url = "/client/19/"
 
 [[versions.client]]
-link_text = "Chef Infra Client 18.8"
-base_url = "/client/18.8/"
+link_text = "Chef Infra Client 18"
+base_url = "/client/18/"
