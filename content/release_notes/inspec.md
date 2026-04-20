@@ -29,18 +29,15 @@ Release date: April 14th, 2026
 
 - Fixed issues in the JSON reporter. ([#7799](https://github.com/inspec/inspec/pull/7799), [#7810](https://github.com/inspec/inspec/pull/7810))
 - Fixed the AST parser for InSpec check. ([#7641](https://github.com/inspec/inspec/pull/7641))
-- Fixed the `uninitialized constant Gem::Package::TarWriter` error by adding the required dependency. ([#7651](https://github.com/inspec/inspec/pull/7651))
-- Resolved `ThreadError` warnings occurring when using Train transport with WinRM and running `inspec exec` or `inspec shell`. ([#7753](https://github.com/inspec/inspec/pull/7753))
 
 ### Security fixes
 
-- Pinned `connection_pool` to `>= 2.5`, `< 3.0`. ([#7703](https://github.com/inspec/inspec/pull/7703))
 - Added a common CI configuration to block pull request merges when TruffleHog secret scanning fails, preventing accidental exposure of credentials in the codebase. ([#7803](https://github.com/inspec/inspec/pull/7803))
 
 ### Dependency updates
 
-- Updated `addressable` gem to `2.9.0`. ([#7833](https://github.com/inspec/inspec/pull/7833))
-- Updated `json` gem to `2.19.2`. ([#829](https://github.com/inspec/train/pull/829))
+- Updated `addressable` gem from `2.4` to `2.9.0`. ([#7833](https://github.com/inspec/inspec/pull/7833))
+- Updated `json` gem from `>= 1.8` to `2.19.2`. (train [#829](https://github.com/inspec/train/pull/829))
 
 ### Build and infrastructure
 
