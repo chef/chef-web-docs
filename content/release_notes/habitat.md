@@ -17,6 +17,18 @@ summary = "Chef Habitat release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
+## Chef Habitat 2.0.504
+
+Release date: April 20, 2026
+
+### Bug fixes
+
+- The launcher now uses `base` as the default channel when downloading the Habitat Supervisor, instead of `stable`, if the supervisor doesn't exist when invoked by the launcher.
+- The tar and container exporters now use `base` instead of `stable` when downloading the busybox package.
+- Hooks now use `base` instead of `stable` when downloading busybox or PowerShell if not present.
+- Updated all CLI documentation to reference `hab cli setup` instead of `hab setup`.
+- Restored the kernel2 platform as a viable target in the underlying target verification code. We no longer build kernel2 core packages or kernel2-compatible versions of Habitat binaries, but kernel2 must remain a viable package target to store those packages in a Builder instance.
+
 ## Chef Habitat 2.0.488
 
 Release date: April 1, 2026
