@@ -7,41 +7,40 @@
   https://swiftype.com/documentation/site-search/guides/faceted-search
 */
 
-// Returns a debounced version of fn that delays invoking it until after
-// interval milliseconds have elapsed since the last call. Resets the timer
-// on every call, so fn only fires once the calls have stopped for interval ms.
-function debounce(fn, interval) {
-  let timer;
-  return function debounced(...args) {
-    clearTimeout(timer);
-    timer = setTimeout(function call() {
-      fn(...args);
-    }, interval);
-  };
-}
-
-// Normalizes the raw data-default-search-keys attribute value into a JavaScript
-// array. Returns the value as-is if it is already an array, attempts JSON.parse
-// if it is a string, and returns an empty array for any other type or on parse error.
-function parseDefaultSearchProducts(searchKeys) {
-  if (Array.isArray(searchKeys)) {
-    return searchKeys;
-  }
-
-  if (typeof searchKeys === 'string') {
-    try {
-      const parsedSearchKeys = JSON.parse(searchKeys);
-      return Array.isArray(parsedSearchKeys) ? parsedSearchKeys : [];
-    } catch (error) {
-      console.error('Failed to parse default search keys:', error);
-      return [];
-    }
-  }
-
-  return [];
-}
-
 $(document).ready(function() {
+  // Returns a debounced version of fn that delays invoking it until after
+  // interval milliseconds have elapsed since the last call. Resets the timer
+  // on every call, so fn only fires once the calls have stopped for interval ms.
+  function debounce(fn, interval) {
+    let timer;
+    return function debounced(...args) {
+      clearTimeout(timer);
+      timer = setTimeout(function call() {
+        fn(...args);
+      }, interval);
+    };
+  }
+
+  // Normalizes the raw data-default-search-keys attribute value into a JavaScript
+  // array. Returns the value as-is if it is already an array, attempts JSON.parse
+  // if it is a string, and returns an empty array for any other type or on parse error.
+  function parseDefaultSearchProducts(searchKeys) {
+    if (Array.isArray(searchKeys)) {
+      return searchKeys;
+    }
+
+    if (typeof searchKeys === 'string') {
+      try {
+        const parsedSearchKeys = JSON.parse(searchKeys);
+        return Array.isArray(parsedSearchKeys) ? parsedSearchKeys : [];
+      } catch (error) {
+        console.error('Failed to parse default search keys:', error);
+        return [];
+      }
+    }
+
+    return [];
+  }
 
   // Retrieve list of default search product keys from search page HTML and parse into JSON array
   const defaultSearchProducts = $('#swiftype-search').data('default-search-keys');
