@@ -93,7 +93,7 @@ $(document).ready(function() {
   $("input.swiftype-search-input").on('keypress', function(event) {
     if (event.key === 'Enter' || event.which === 13) {
       event.preventDefault();
-      window.location.href = "/search/#stq=" + encodeURIComponent($(this).val()) + '&stp=1';
+      globalThis.location.href = "/search/#stq=" + encodeURIComponent($(this).val()) + '&stp=1';
       hideSearchModal();
     }
   });
@@ -101,7 +101,7 @@ $(document).ready(function() {
   // on clicking modal search button, navigate to search page and submit search string
   $("#swiftype-search-form-modal-input-search").click(function(){
     const searchInput = $("input#swiftype-search-form-modal-input").val();
-    window.location.href = "/search/#stq=" + encodeURIComponent(searchInput) + '&stp=1';
+    globalThis.location.href = "/search/#stq=" + encodeURIComponent(searchInput) + '&stp=1';
     hideSearchModal();
   });
 
@@ -123,7 +123,7 @@ $(document).ready(function() {
 
   $("input#swiftype-search-top-container-form-input-search").on('click', function() {
     const searchString = $('input#swiftype-search-top-container-form-input').val();
-    window.location.href = "/search/#stq=" + encodeURIComponent(searchString) + '&stp=1';
+    globalThis.location.href = "/search/#stq=" + encodeURIComponent(searchString) + '&stp=1';
    });
 
   // Shows or hides the product facet filter panel based on viewport width.
@@ -196,7 +196,7 @@ $(document).ready(function() {
   // Reads the search string from the URL hash (format: #stq=<query>&stp=<page>)
   // and populates the search input field with the decoded query.
   var processLocationHash = function() {
-    const hashMatch = searchStringMatchRegex.exec(window.location.hash);
+    const hashMatch = searchStringMatchRegex.exec(globalThis.location.hash);
 
     if (!hashMatch) {
       return;
@@ -214,12 +214,12 @@ $(document).ready(function() {
   // Watches for URL hash changes and calls processLocationHash when the hash
   // matches the search format (#stq=<query>&stp=<page>).
   $(globalThis).on('hashchange', function() {
-    if (searchHashRegex.test(window.location.hash)) {
+    if (searchHashRegex.test(globalThis.location.hash)) {
       processLocationHash();
     }
   });
 
-  if (searchHashRegex.test(window.location.hash)) {
+  if (searchHashRegex.test(globalThis.location.hash)) {
     processLocationHash();
   };
 
@@ -271,12 +271,12 @@ $(document).ready(function() {
   // reload search results with the current query and filters.
   var reloadResults = function() {
     // Reset window to page 1
-    if (/stp=[^&]*/i.test(window.location.hash)) {
-      window.location.hash = window.location.hash.replace(/stp=[^&]*/i, 'stp=1');
-    } else if (window.location.hash) {
-      window.location.hash = window.location.hash + '&stp=1';
+    if (/stp=[^&]*/i.test(globalThis.location.hash)) {
+      globalThis.location.hash = globalThis.location.hash.replace(/stp=[^&]*/i, 'stp=1');
+    } else if (globalThis.location.hash) {
+      globalThis.location.hash = globalThis.location.hash + '&stp=1';
     } else {
-      window.location.hash = '#stp=1';
+      globalThis.location.hash = '#stp=1';
     }
 
     $(globalThis).hashchange();
