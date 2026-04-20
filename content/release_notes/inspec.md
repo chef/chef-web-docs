@@ -40,7 +40,7 @@ Release date: April 14th, 2026
 ### Dependency updates
 
 - Updated `addressable` gem to `2.9.0`. ([#7833](https://github.com/inspec/inspec/pull/7833))
-- Updated `json` gem to `2.19.2`.
+- Updated `json` gem to `2.19.2`. ([#829](https://github.com/inspec/train/pull/829))
 
 ### Build and infrastructure
 
