@@ -17,9 +17,9 @@ summary = "Chef Habitat release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
-## Chef Habitat 2.0.x
+## Chef Habitat 2.0.504
 
-Release date: XXXXXXX
+Release date: April 20, 2026
 
 ### Bug fixes
 
