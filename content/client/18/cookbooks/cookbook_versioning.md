@@ -107,7 +107,7 @@ Versions and version constraints can be specified in a cookbook's `metadata.rb` 
 Each function accepts a name and an optional version constraint.
 If a version constraint isn't provided, `>= 0.0.0` is used as the default.
 
-<!-- markdownlint-disable MD007 -->
+<!-- markdownlint-disable MD007 MD006 -->
 
 `depends`
 : Specify that a cookbook has a dependency on another cookbook.

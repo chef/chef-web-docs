@@ -9,6 +9,8 @@ draft = false
     parent = "infra_language"
 +++
 
+<!-- cspell:ignore devel -->
+
 ## platform?
 
 Use the `platform?` helper method to ensure that certain actions are run for specific platforms. The `platform?` method will return true if one of the listed parameters matches the `node['platform']` attribute that's detected by [Ohai](/features/ohai) during every Chef Infra Client run.
