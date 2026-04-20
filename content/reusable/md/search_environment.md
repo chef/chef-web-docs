@@ -1,7 +1,7 @@
 When searching, an environment is an attribute. This allows search
 results to be limited to a specified environment by using Boolean
 operators and extra search terms. For example, to use knife to search
-for all of the servers running CentOS in an environment named "QA",
+for all of the servers running CentOS in an environment named `QA`,
 enter the following:
 
 ```bash

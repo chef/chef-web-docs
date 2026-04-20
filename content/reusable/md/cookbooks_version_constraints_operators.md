@@ -26,7 +26,7 @@ The following operators may be used:
 </tr>
 <tr>
 <td><code>&gt;=</code></td>
-<td>greater than or equal to; also known as "optimistically greater than", or "optimistic"</td>
+<td>greater than or equal to; also known as <em>optimistically greater than</em>, or <em>optimistic</em></td>
 </tr>
 <tr>
 <td><code>&lt;=</code></td>
@@ -34,7 +34,7 @@ The following operators may be used:
 </tr>
 <tr>
 <td><code>~&gt;</code></td>
-<td>approximately greater than; also known as "pessimistically greater than", or "pessimistic"</td>
+<td>approximately greater than; also known as <em>pessimistically greater than</em>, or <em>pessimistic</em></td>
 </tr>
 </tbody>
 </table>

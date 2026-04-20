@@ -62,7 +62,7 @@ don't reveal personal information in examples, such as the names of real people,
 
 don't use the names of bands, musicians, or characters from works that are under copyright.
 
-When writing about security, follow the accepted convention and use "Alice" and "Bob". Following this convention helps readers see that they're reading a topic about security and integrate the Chef information with their existing knowledge.
+When writing about security, follow the accepted convention and use _Alice_ and _Bob_. Following this convention helps readers see that they're reading a topic about security and integrate the Chef information with their existing knowledge.
 
 Here is a list of some example names for you to use (the last names are translations of "Chef"):
 

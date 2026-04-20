@@ -47,7 +47,7 @@ Client keys can be managed from the Chef management console.
 
 {{< warning >}}
 
-The images below refer to client keys as a "Client".
+The images below refer to client keys as a Client.
 
 {{< /warning >}}
 

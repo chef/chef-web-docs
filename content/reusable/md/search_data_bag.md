@@ -20,7 +20,7 @@ may be necessary to load everything in a data bag (but not know what
 "everything" is). Using a search query is the ideal way to deal with
 that ambiguity, yet still ensure that all of the required data is
 returned. The following examples show how a recipe can use a series of
-search queries to search within a data bag named "admins". For example,
+search queries to search within a data bag named `admins`. For example,
 to find every administrator:
 
 ```ruby

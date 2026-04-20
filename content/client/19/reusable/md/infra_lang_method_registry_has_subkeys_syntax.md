@@ -8,7 +8,7 @@ where:
 
 - `KEY_PATH` is the path to the registry key. The path must include
     the registry hive, which can be specified either as its full name or
-    as the 3- or 4-letter abbreviation. For example, both
+    as the 3- or 4-letter short form. For example, both
     `HKLM\SECURITY` and `HKEY_LOCAL_MACHINE\SECURITY` are both valid and
     equivalent. The following hives are valid: `HKEY_LOCAL_MACHINE`,
     `HKLM`, `HKEY_CURRENT_CONFIG`, `HKCC`, `HKEY_CLASSES_ROOT`, `HKCR`,

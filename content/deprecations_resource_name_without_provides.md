@@ -25,7 +25,7 @@ subsequent `provides` declaration followed. When this worked it was
 easy to use, but when it failed the edge conditions were confusing and
 required too much background knowledge to debug.
 
-An attempt was made to preserve more complete backwards compatibility between
+An attempt was made to preserve greater backwards compatibility between
 Chef Infra Client 16.0 and earlier versions by retaining some automatic
 wiring of the `provides` statement with the `resource_name`. This failed
 due to complicated interactions between cookbooks that used multiple
