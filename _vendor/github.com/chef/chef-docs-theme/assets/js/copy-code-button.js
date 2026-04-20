@@ -22,6 +22,11 @@ function addCopyButtons(clipboard) {
     button.textContent = 'Copy';
 
     button.addEventListener('click', function () {
+      function resetButton() {
+        button.textContent = 'Copy';
+        button.setAttribute('aria-label', 'Copy code to clipboard');
+      }
+
       clipboard.writeText(codeBlock.textContent).then(
         function () {
           // Update both the visible label and aria-label so screen readers
@@ -30,20 +35,14 @@ function addCopyButtons(clipboard) {
           // users by losing their place in the page (WCAG 2.4.3).
           button.textContent = 'Copied!';
           button.setAttribute('aria-label', 'Copied to clipboard');
-          setTimeout(function () {
-            button.textContent = 'Copy';
-            button.setAttribute('aria-label', 'Copy code to clipboard');
-          }, 2000);
+          setTimeout(resetButton, 2000);
         },
         function (error) {
           button.textContent = 'Error';
           button.setAttribute('aria-label', 'Failed to copy code');
           console.error('Failed to copy code:', error);
           // Reset so the button doesn't stay in an error state indefinitely.
-          setTimeout(function () {
-            button.textContent = 'Copy';
-            button.setAttribute('aria-label', 'Copy code to clipboard');
-          }, 2000);
+          setTimeout(resetButton, 2000);
         }
       );
     });
