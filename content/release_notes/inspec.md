@@ -21,29 +21,32 @@ summary = "Chef InSpec release notes"
 
 Release date: April 14th, 2026
 
+### Key features
+
+- InSpec 7.0.* is the long-term support (LTS) version.
+- InSpec 7.0.* is built entirely on Chef Habitat. We aren’t providing traditional Omnibus builds.
+
 ### Improvements
 
 - Added a `trust_server_certificate` option to the `mssql_session` resource. ([#7791](https://github.com/inspec/inspec/pull/7791))
 
 ### Bug fixes
 
-- Fixed issues in the JSON reporter. ([#7799](https://github.com/inspec/inspec/pull/7799), [#7810](https://github.com/inspec/inspec/pull/7810))
+- Fixed issues in the JSON reporter. ([#7799](https://github.com/inspec/inspec/pull/7799))
 - Fixed the AST parser for InSpec check. ([#7641](https://github.com/inspec/inspec/pull/7641))
 
-### Security fixes
+### Packaging
 
-- Added a common CI configuration to block pull request merges when TruffleHog secret scanning fails, preventing accidental exposure of credentials in the codebase. ([#7803](https://github.com/inspec/inspec/pull/7803))
+- We now provide OS-native and Habitat-based InSpec Packaging.
+  This provides support for InSpec on the following platforms:
+
+  - Currently supported Linux distributions and versions running Linux kernel 2.6.32 and later
+  - Currently supported Windows versions greater than or equal to Windows 10.
 
 ### Dependency updates
 
 - Updated `addressable` gem from `2.4` to `2.9.0`. ([#7833](https://github.com/inspec/inspec/pull/7833))
 - Updated `json` gem from `>= 1.8` to `2.19.2`. (train [#829](https://github.com/inspec/train/pull/829))
-
-### Build and infrastructure
-
-- Updated common GitHub Actions workflows to use the `main` branch. ([#7807](https://github.com/inspec/inspec/pull/7807))
-- Added a GitHub Actions pipeline for automating Habitat package promotion. ([#7796](https://github.com/inspec/inspec/pull/7796))
-- Pinned the Habitat version in Expeditor CI configuration. ([#7802](https://github.com/inspec/inspec/pull/7802))
 
 ## Chef InSpec 7.0.107
 
