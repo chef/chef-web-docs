@@ -108,7 +108,7 @@ includes:
 - Inappropriate physical contact or unwelcome sexual attention.
 
 **NOTE**: If you are in a physical space -- for example, Chef Conf, Meetup, etc.
--- see the [Event Code of Conduct ](https://www.progress.com/events/code-of-conduct).
+-- see the [Event Code of Conduct](https://www.progress.com/events/code-of-conduct).
 
 ## Enforcement/Getting Help
 

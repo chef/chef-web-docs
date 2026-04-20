@@ -59,6 +59,8 @@ Leave the value empty to prevent all attributes of that attribute type from bein
 allowed_automatic_attributes []
 ```
 
+<!-- cspell:ignore diskos -->
+
 For attributes that contain slashes (`/`) within the attribute value, such as the `filesystem` attribute `'/dev/diskos2'`, use an array. For example:
 
 ```ruby
