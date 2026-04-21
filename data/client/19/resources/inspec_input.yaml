@@ -38,7 +38,7 @@ properties_list:
   default_value: The resource block's name
   description_list:
   - markdown:
-examples: |2
+examples: |-
 
   **Activate the default input in the openssh cookbook's compliance segment**:
 

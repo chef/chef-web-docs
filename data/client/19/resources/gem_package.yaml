@@ -16,6 +16,7 @@ resource_description_list:
 syntax_full_code_block: |-
   gem_package 'name' do
     clear_sources               true, false
+    environment                 Hash
     gem_binary                  String
     include_default_source      true, false
     options                     String, Hash, Array
@@ -31,8 +32,9 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`clear_sources`, `gem_binary`, `include_default_source`, `options`, `package_name`,
-  `source`, `timeout`, and `version` are the properties available to this resource."
+- "`clear_sources`, `environment`, `gem_binary`, `include_default_source`, `options`,
+  `package_name`, `source`, `timeout`, and `version` are the properties available
+  to this resource."
 actions_list:
   :install:
     markdown: Install a package. If a version is specified, install the specified
@@ -52,6 +54,14 @@ properties_list:
   description_list:
   - markdown: Set to `true` to download a gem from the path specified by the `source`
       property (and not from RubyGems).
+- property: environment
+  ruby_type: Hash
+  required: false
+  new_in: '19.0'
+  description_list:
+  - markdown: 'A Hash of environment variables in the form of `({''ENV_VARIABLE''
+      => ''VALUE''})`. **Note**: These variables must exist for a command to be run
+      successfully.'
 - property: gem_binary
   ruby_type: String
   required: false

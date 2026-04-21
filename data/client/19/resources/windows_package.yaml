@@ -4,6 +4,7 @@ resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
 resource: windows_package
+resource_new_in: '11.12'
 resource_description_list:
 - markdown: |-
     Use the **windows_package** resource to manage packages on the Microsoft Windows platform.

@@ -12,6 +12,7 @@ resource_description_list:
     in which they are run. Use `not_if` and `only_if` to guard this resource for idempotence.
 syntax_full_code_block: |-
   csh 'name' do
+    cgroup           String
     code             String
     command          String, Array # default value: 'name' unless specified
     creates          String
@@ -38,15 +39,23 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`code`, `command`, `creates`, `cwd`, `default_env`, `domain`, `elevated`, `environment`,
-  `flags`, `group`, `input`, `interpreter`, `live_stream`, `login`, `password`, `returns`,
-  `timeout`, and `user` are the properties available to this resource."
+- "`cgroup`, `code`, `command`, `creates`, `cwd`, `default_env`, `domain`, `elevated`,
+  `environment`, `flags`, `group`, `input`, `interpreter`, `live_stream`, `login`,
+  `password`, `returns`, `timeout`, and `user` are the properties available to this
+  resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :run:
     markdown: Run a command. (default)
 properties_list:
+- property: cgroup
+  ruby_type: String
+  required: false
+  new_in: '19.0'
+  description_list:
+  - markdown: 'Linux only: Run the command within a specific cgroup, creating it if
+      it doesn''t exist.'
 - property: code
   ruby_type: String
   required: true

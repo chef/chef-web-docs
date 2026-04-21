@@ -23,6 +23,7 @@ syntax_description: |
     `code` specifies the command to run.
 syntax_full_code_block: |-
   perl 'name' do
+    cgroup           String
     code             String
     command          String, Array # default value: 'name' unless specified
     creates          String
@@ -50,7 +51,7 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`code`, `creates`, `cwd`, `environment`,
+- "`cgroup`, `code`, `creates`, `cwd`, `environment`,
   `flags`, `group`, `ignore_failure`, `notifies`, `returns`,
   `subscribes`,`timeout`, `user`, and `umask` are the properties available to this resource."
 actions_list:
@@ -59,6 +60,13 @@ actions_list:
   :run:
     markdown: Run a command. (default)
 properties_list:
+- property: cgroup
+  ruby_type: String
+  required: false
+  new_in: '19.0'
+  description_list:
+  - markdown: 'Linux only: Run the command within a specific cgroup, creating it if
+      it doesn''t exist.'
 - property: code
   ruby_type: String
   required: true

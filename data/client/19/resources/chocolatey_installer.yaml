@@ -7,7 +7,7 @@ resource: chocolatey_installer
 resource_description_list:
 - markdown: Use the chocolatey_installer resource to install the Chocolatey package manager. Use the chocolatey_feature resource to customize
     your install and the chocolatey_package resource to install packages.
-resource_new_in: '18.4'
+resource_new_in: '18.3'
 syntax_full_code_block: |-
   chocolatey_installer 'name' do
     chocolatey_version      String

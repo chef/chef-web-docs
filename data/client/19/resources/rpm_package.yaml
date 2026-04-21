@@ -47,7 +47,7 @@ properties_list:
   ruby_type: Hash
   required: false
   default_value: "{}"
-  new_in: '18.8'
+  new_in: '19.0'
   description_list:
   - markdown: A Hash of environment variables in the form of {'ENV_VARIABLE' => 'VALUE'}
       to be set before running the command.

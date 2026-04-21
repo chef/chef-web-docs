@@ -7,7 +7,7 @@ resource: dsc_resource
 resource_description_list:
 - shortcode: resources_common_powershell.md
 - shortcode: resources_common_powershell_dsc.md
-- markdown: The dsc_resource allows any DSC resource to be used in a recipe,
+- markdown: The dsc_resource resource allows any DSC resource to be used in a recipe,
     as well as any custom resources that have been added to your Windows PowerShell
     environment. Microsoft frequently adds new resources to the DSC resource collection.
 - warning:

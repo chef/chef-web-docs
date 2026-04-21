@@ -58,6 +58,7 @@ syntax_properties_list:
   that file already exists'
 syntax_full_code_block: |-
   execute 'name' do
+    cgroup           String
     command          String, Array # default value: 'name' unless specified
     creates          String
     cwd              String
@@ -80,15 +81,22 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`command`, `creates`, `cwd`, `default_env`, `domain`, `elevated`, `environment`,
-  `group`, `input`, `live_stream`, `login`, `password`, `returns`, `timeout`, and
-  `user` are the properties available to this resource."
+- "`cgroup`, `command`, `creates`, `cwd`, `default_env`, `domain`, `elevated`,
+  `environment`, `group`, `input`, `live_stream`, `login`, `password`, `returns`,
+  `timeout`, and `user` are the properties available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :run:
     markdown: Run a command. (default)
 properties_list:
+- property: cgroup
+  ruby_type: String
+  required: false
+  new_in: '19.0'
+  description_list:
+  - markdown: 'Linux only: Run the command within a specific cgroup, creating it if
+      it doesn''t exist.'
 - property: command
   ruby_type: String, Array
   required: false
