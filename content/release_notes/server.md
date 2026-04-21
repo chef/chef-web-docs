@@ -21,25 +21,25 @@ summary = "Chef Infra Server release notes"
 
 Released on February 10th, 2026
 
-## Security improvements
+### Security improvements
 
-### KeyDB to Valkey migration
+#### KeyDB to Valkey migration
 Replaced KeyDB with Valkey to resolve the following CVEs:
 - CVE-2025-49844
 
 This change doesn't require any configuration changes and the service name has not changed. For more information about Valkey, see the [Valkey documentation](https://valkey.io/topics/).
 
-### Ruby Rack
+#### Ruby Rack
 Updated Ruby rack to v3.2.4 which resolves:
 - CVE-2025-61919
 - CVE-2025-61780
 - CVE-2025-58767
 
-## Bug Fixes
+### Bug Fixes
 - Fixed an issue which was causing the `gather-logs` command to fail with a check_version_conflict error. ([#4127](https://github.com/chef/chef-server/pull/4127))
 - Fixed the command to show the user details. ([#4132](https://github.com/chef/chef-server/pull/4132))
 
-## Service versions
+### Service versions
 This release uses:
 
 - OpenResty 1.27.1.2
