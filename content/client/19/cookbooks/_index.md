@@ -74,7 +74,7 @@ Chef maintains a large collection of cookbooks. In addition, there are thousands
 
 ## Generate a Cookbook
 
-Use the [chef generate cookbook subcommand](https://docs.chef.io/workstation/ctl_chef/#chef-generate-cookbook) to generate a cookbook.
+Use the [chef generate cookbook subcommand](https://docs.chef.io/workstation/latest/tools/ctl_chef/#chef-generate-cookbook) to generate a cookbook.
 
 A cookbook generated with`chef generate cookbook custom_web` creates a cookbook named `custom_web` with the directory structure:
 

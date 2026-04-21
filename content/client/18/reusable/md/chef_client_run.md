@@ -16,7 +16,7 @@ During every Chef Infra Client run, the following happens:
 
 1. **Authenticate to Chef Infra Server**
 
-   Chef Infra Client [authenticates](https://docs.chef.io/server/auth/) to Chef Infra Server using an RSA private key and the Chef Infra Server API.
+   Chef Infra Client [authenticates](/server/auth/) to Chef Infra Server using an RSA private key and the Chef Infra Server API.
    Authentication with Infra Server requires the node name.
    If this is the first Chef Infra Client run for a node, the chef-validator generates an RSA private key.
 

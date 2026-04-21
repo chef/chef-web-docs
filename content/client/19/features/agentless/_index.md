@@ -271,7 +271,7 @@ The configure Agentless Mode to run on Chef Infra Server, follow these steps:
 
 1. Define your node connection settings in the `credentials` file.
 
-    **Note**: This configuration uses the [`credentials` file](https://docs.chef.io/workstation/knife_setup/), not the `target_credentials` file.
+    **Note**: This configuration uses the [`credentials` file](https://docs.chef.io/workstation/latest/tools/knife/set_up/), not the `target_credentials` file.
 
     ```sh
     # ~/.chef/credentials
@@ -290,7 +290,7 @@ The configure Agentless Mode to run on Chef Infra Server, follow these steps:
     transport_protocol = 'ssh'
     ```
 
-1. Update your [Knife `config.rb` file](https://docs.chef.io/workstation/config_rb/) so both Knife and Chef Infra Client can use it:
+1. Update your [Knife `config.rb` file](https://docs.chef.io/workstation/latest/tools/knife/config_rb/) so both Knife and Chef Infra Client can use it:
 
     ```ruby
     # Path to your Chef repository

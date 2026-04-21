@@ -10,7 +10,7 @@ draft = false
     weight = 50
 +++
 
-The following sections describe the upgrade process for Chef Infra Client. If you are also [upgrading Chef Infra Server](https://docs.chef.io/server/upgrades) complete that process **first** and **then** upgrade the Chef Infra Client.
+The following sections describe the upgrade process for Chef Infra Client. If you are also [upgrading Chef Infra Server](/server/upgrades) complete that process **first** and **then** upgrade the Chef Infra Client.
 
 ## Prerequisites
 
@@ -60,7 +60,7 @@ You can install a specific version of Chef Infra Client using the [Chef install 
 
 ### Upgrade multiple hosts with knife
 
-You can use the [`knife ssh` command](https://docs.chef.io/workstation/knife_ssh/) in Chef Workstation to execute the install script on multiple Linux, macOS, and Unix-based hosts at once.
+You can use the [`knife ssh` command](https://docs.chef.io/workstation/25/tools/knife/knife_ssh/) in Chef Workstation to execute the install script on multiple Linux, macOS, and Unix-based hosts at once.
 
 ```bash
 knife ssh <SEARCH_QUERY> 'curl -L https://chefdownload-commercial.chef.io/install.sh?license_id=<LICENSE_ID> | sudo bash'

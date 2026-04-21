@@ -1,6 +1,6 @@
 +++
-title = "Bootstrap a node"
-draft = true
+title = "Bootstrap a node with Chef Infra"
+draft = false
 
 [menu]
   [menu.client_19]
@@ -12,95 +12,68 @@ draft = true
 
 {{< readfile file="content/client/19/reusable/md/chef_client_bootstrap_node.md" >}}
 
-{{< readfile file="content/client/19/reusable/md/chef_client_bootstrap_stages.md" >}}
+## Requirements
 
-## knife bootstrap
+To bootstrap a node with Chef Infra Client 19 or above, you must use Chef Workstation 26 or above.
+
+## What the bootstrap operation does
+
+{{< readfile file="content/client/19/reusable/md/chef_client_bootstrap_stages.md" >}}
 
 {{< readfile file="content/client/19/reusable/md/install_chef_client.md" >}}
 
-### Run the bootstrap command
+### Validatorless bootstrapping
 
-The `knife bootstrap` command runs a bootstrap operation that installs Chef Infra Client on a target node. The following steps describe how to bootstrap a node using knife.
+Validatorless bootstrapping generates a key for each node, which is then transferred to the new node and used to authenticate with Chef Infra Server instead of relying on a shared validator key.
 
-1. Identify the FQDN or IP address of the target node. The `knife bootstrap` command requires the FQDN or the IP address for the node to complete the bootstrap operation.
+By default, the Chef Infra bootstrap process is validatorless and is the recommended way to authenticate new nodes with Chef Infra Server.
 
-2. Once the workstation machine is configured, it can be used to install Chef Infra Client on one (or more) nodes across the organization using a knife bootstrap operation. The `knife bootstrap` command is used to SSH into the target machine, and then do what's needed to allow Chef Infra Client to run on the node. It will install the Chef Infra Client executable (if necessary), generate keys, and register the node with Chef Infra Server. The bootstrap operation requires the IP address or FQDN of the target system, the SSH credentials (username, password or identity file) for an account that has root access to the node, and (if the operating system isn't Ubuntu, which is the default distribution used by `knife bootstrap`) the operating system running on the target system.
+The legacy Chef Infra validator-based node bootstrapping process depended on using a shared validator key throughout an organization to authenticate new nodes with Chef Infra Server.
+
+Shortcomings of the legacy validator process include:
+
+- All users share the same key for bootstrapping new systems.
+- Key sharing makes key rotation difficult if the key is compromised or if an employee leaves the organization.
+
+If you receive a warning during a bootstrap that a validator key is in use, remove the configuration for this legacy bootstrap mode. Edit your [config.rb (knife.rb)](https://docs.chef.io/workstation/latest/tools/knife/config_rb/) file and remove any `validation_key` or `validation_client_name` entries.
+
+## Bootstrap a node
+
+The `knife bootstrap` command runs a bootstrap operation that installs Chef Infra Client on a target node.
+
+Before you begin, you need:
+
+- The IP address or FQDN of the target node.
+- SSH credentials (username, and password or identity file) for an account with root access on the node.
+- The target node's operating system, if it isn't Ubuntu (the default distribution used by `knife bootstrap`).
+
+To bootstrap a node with Chef Infra Client, run the following:
+
+1. Run `knife bootstrap` from your workstation to connect to the target node and install Chef Infra Client.
 
     In a command window, enter the following:
 
     ```bash
-    knife bootstrap <ADDRESS> -U <USERNAME> --sudo
+    knife bootstrap <ADDRESS> -U <USERNAME> --sudo --chef-license-key <LICENSE>
     ```
 
     Replace:
 
-    - `<ADDRESS>` the IP address or the FQDN of the node
+    - `<ADDRESS>` with the IP address or FQDN of the node
     - `<USERNAME>` with the username used to connect to the node
+    - `<LICENSE>` with your Progress Chef License ID
 
     The `--sudo` option elevates privileges using the sudo command on UNIX-based systems.
 
-    While the bootstrap operation is running, the command window returns something similar to the following:
+    The command SSHs into the target machine, installs the Chef Infra Client executable (if necessary), generates keys, and registers the node with Chef Infra Server.
+
+1. After the bootstrap operation is complete, verify that the node is recognized by Chef Infra Server. To show only the node that was just bootstrapped, run the following command:
 
     ```bash
-    Enter password for ubuntu@172.16.1.233:
-
-    Connecting to 172.16.1.233
-    Performing legacy client registration with the validation key at /Users/USERNAME/.chef/validator.pem...
-    Delete your validation key to use your user credentials for client registration instead.
-    Bootstrapping 172.16.1.233
-    [172.16.1.233] -----> Installing Chef Omnibus (stable/16)
-    downloading https://omnitruck.chef.io/chef/install.sh
-    [172.16.1.233]   to file /tmp/install.sh.1624/install.sh
-    [172.16.1.233] trying wget...
-    [172.16.1.233] ubuntu 20.04 aarch64
-    [172.16.1.233] Getting information for chef stable 16 for ubuntu...
-    [172.16.1.233] downloading https://omnitruck.chef.io/stable/chef/metadata?v=16&p=ubuntu&pv=20.04&m=aarch64
-      to file /tmp/install.sh.1628/metadata.txt
-    [172.16.1.233] trying wget...
-    [172.16.1.233] sha1  8d89f8ac2e7f52d170be8ec1c2a028a6449d7e3a
-    sha256  85cc73bed06e8d6699fc5c0b26c20d2837bf03831873444febccfc8bfa561f00
-    url  https://packages.chef.io/files/stable/chef/16.1.16/ubuntu/20.04/chef_16.1.16-1_arm64.deb
-    version  16.1.16
-    [172.16.1.233]
-    [172.16.1.233] downloaded metadata file looks valid...
-    [172.16.1.233] downloading https://packages.chef.io/files/stable/chef/16.1.16/ubuntu/20.04/chef_16.1.16-1_arm64.deb
-      to file /tmp/install.sh.1628/chef_16.1.16-1_arm64.deb
-    [172.16.1.233] trying wget...
-    [172.16.1.233] Comparing checksum with sha256sum...
-    [172.16.1.233] Installing chef 16
-    installing with dpkg...
-    [172.16.1.233] Selecting previously unselected package chef.
-    [172.16.1.233] (Reading database ... 99114 files and directories currently installed.)
-    [172.16.1.233] Preparing to unpack .../chef_16.1.16-1_arm64.deb ...
-    [172.16.1.233] Unpacking chef (16.1.16-1) ...
-    [172.16.1.233] Setting up chef (16.1.16-1) ...
-    [172.16.1.233] Thank you for installing Chef Infra Client! For help getting started visit https://learn.chef.io
-    [172.16.1.233] Starting the first Chef Infra Client Client run...
-    [172.16.1.233] +---------------------------------------------+
-    ✓ 2 product licenses accepted.
-    +---------------------------------------------+
-    [172.16.1.233] Starting Chef Infra Client, version 16.1.16
-    [172.16.1.233] [2020-06-08T23:49:10+00:00] ERROR: shard_seed: Failed to get dmi property serial_number: is dmidecode installed?
-    [172.16.1.233] Creating a new client identity for name_of_node using the validator key.
-    [172.16.1.233] resolving cookbooks for run list: []
-    [172.16.1.233] Synchronizing Cookbooks:
-    [172.16.1.233] Installing Cookbook Gems:
-    [172.16.1.233] Compiling Cookbooks...
-    [172.16.1.233] [2020-06-08T23:49:17+00:00] WARN: Node name_of_node has an empty run list.
-    [172.16.1.233] Converging 0 resources
-    [172.16.1.233]
-    [172.16.1.233] Running handlers:
-    [172.16.1.233] Running handlers complete
-    [172.16.1.233] Chef Infra Client finished, 0/0 resources updated in 11 seconds
+    knife client show <NODE_NAME>
     ```
 
-3. After the bootstrap operation has finished, verify that the node is recognized by Chef Infra Server. To show only the node that was just bootstrapped, run the following command:
-
-    ```bash
-    knife client show NAME_OF_NODE
-    ```
-
-    where `NODE_NAME` is the name of the node that was just bootstrapped. Chef Infra Server will return something similar to:
+    Replace `<NODE_NAME>` with the name of the node that was just bootstrapped. Chef Infra Server returns something similar to:
 
     ```bash
     admin: false
@@ -109,13 +82,13 @@ The `knife bootstrap` command runs a bootstrap operation that installs Chef Infr
     validator: false
     ```
 
-    and to show the full list of nodes (and workstations) that are registered with Chef Infra Server, run the following command:
+    To show the full list of nodes and workstations registered with Chef Infra Server, run the following command:
 
     ```bash
     knife client list
     ```
 
-    Chef Infra Server will return something similar to:
+    Chef Infra Server returns something similar to:
 
     ```bash
     workstation1
@@ -125,79 +98,76 @@ The `knife bootstrap` command runs a bootstrap operation that installs Chef Infr
     client2
     ```
 
-## Validatorless and legacy validator bootstraps
+For more information, see the [Knife bootstrap documentation](https://docs.chef.io/workstation/latest/tools/knife/knife_bootstrap/).
 
-We recommended using "validatorless bootstrapping" to authenticate new nodes with Chef Infra Server.
+## Bootstrap a node with a Chef Vault item
 
-The legacy Chef Infra validator-based node bootstrapping process depended on using a shared "validatory" key throughout an organization for authenticating new nodes with Chef Infra Server.
+You can bootstrap nodes using a Chef Vault item. This automatically grants access to secrets that are encrypted with Chef Vault at the time that the node is registered with Chef Infra Server and makes secrets available for the first Chef Infra Client run.
 
-Shortcomings of the legacy validator process are:
-
-- All users share the same key for bootstrapping new systems
-- Key sharing makes key rotation difficult, if it's compromised or if an employee leaves the organization.
-
-The "validatorless bootstrap" generates a key for each node, which is then transferred to the new node and used to authenticate with Chef Infra Server instead of relying on a shared "validator" key.
-
-The Chef Infra bootstrap process is validatorless by default. If you receive a warning during a bootstrap that a validator key is in use, remove the configuration for this legacy bootstrap mode. Edit your [config.rb (knife.rb)](https://docs.chef.io/workstation/config_rb/) file and remove any `validation_key` or `validation_client_name` entries.
-
-## Bootstrapping with chef-vault
+### chef-vault options
 
 Use the following options with a validatorless bootstrap to specify items that are stored in chef-vault:
 
-`--bootstrap-vault-file VAULT_FILE`
+`--bootstrap-vault-file <VAULT_FILE>`
 
 : The path to a JSON file that contains a list of vaults and items to be updated.
 
-`--bootstrap-vault-item VAULT_ITEM`
+`--bootstrap-vault-item <VAULT>:<VAULT_ITEM>`
 
 : A single vault and item to update as `vault:item`.
 
-`--bootstrap-vault-json VAULT_JSON`
+`--bootstrap-vault-json <VAULT_JSON_STRING>`
 
 : A JSON string that contains a list of vaults and items to be updated. `--bootstrap-vault-json '{ "vault1": \["item1", "item2"\], "vault2": "item2" }'`
 
-## Examples
+### Examples
 
-The `--bootstrap-vault-*` options add the client identify of the bootstrapping node to the permissions list of the specified vault item. This enables the newly-bootstrapped Chef Infra Client to be able to read items from the vault. Only a single client is authorized at a time for access to the vault. (The `-S` search query option with the `knife vault create` subcommand does the same.)
+The following examples show how to:
 
-### Recreate a data bag item
+- Create a Chef Vault item with two authorized administrators.
+- Bootstrap a node using one of the `--bootstrap-vault-*` options so the node is added to the permissions list of the specified Chef Vault item.
+
+#### Create a data bag item
 
 The following example shows how to recreate a data bag item:
 
 ```bash
-knife vault delete sea power
-Do you really want to delete sea/power? (Y/N) Y
-Deleted chef_vault_item[sea/power]
+echo "{\"password\":\"password_string\"}" > vault-filename.json
 
-echo "{\"some\":\"content for them\"}" > sea-power-content.json
+cat vault-filename.json
+{"password":"password_string"}
 
-cat sea-power-content.json
-{"some":"content for them"}
-
-knife vault create sea power -M client -A sean_horn,angle -J sea-power-content.json
+knife vault create credentials root \
+  --mode client \
+  --admins user_1,user_2 \
+  --json vault-filename.json
 ```
 
-No clients, because the `-S` option wasn't specified while creating the vault.
+In the above example:
 
-At this time, only the users `sean_horn` and `angle` are authorized to read and manage the vault.
+- A Chef Vault item (`credentials:root`) is created with the following JSON string: `{"password":"password_string"}`.
+- Only the users `user_1` and `user_2` are authorized to read and manage the Vault item.
+- Client nodes aren't added to the permissions list because the `-S`/`--search` option wasn't used when the Vault item was created.
+
+You can see the details of the `credentials:root` Vault item with the `knife vault show` command:
 
 ```bash
-knife vault show sea power  --mode client -p all
+knife vault show credentials root  --mode client --print all
 admins:
-  sean_horn
-  angle
+  user_1
+  user_2
 clients:
-id: power
+id: root
 search_query:
-some:  content for them
+password: password_string
 ```
 
-It's definitely an encrypted databag, see?
+The data bag is encrypted, as confirmed by running the `knife data bag show` command:
 
 ```bash
-knife data_bag show sea power
+knife data bag show credentials root
 WARNING: Encrypted data bag detected, but no secret provided for decoding. Displaying encrypted data.
-id: power
+id: root
 some:
 cipher:  aes-256-cbc
 encrypted_data: c7Axnyg+1KDxBPOZdYN9QuIYx6dmSmK70unAQbn12Lygvsv2g9DPJJbueXVh
@@ -206,168 +176,132 @@ iv: ONoVR7OjPZiAzaqOZ30bjg==
 version: 1
 ```
 
-### Use --bootstrap-vault-file
+#### Bootstrap with a JSON file
 
-Use the `sea:power` recreation step above first, to follow the difference in the vault permissions.
+With the [existing `credentials:root` Vault item](#create-a-data-bag-item), bootstrap a new node by creating a JSON file that defines the Vault item and then use the `--bootstrap-vault-file` to give the new node permissions to the Vault item.
 
 ```bash
-echo "{\"sea\":\"power\"}" > sea-power-bootstrap-vault-file.json
+echo "{\"credentials\":\"root\"}" > vault-item.json
 
-knife bootstrap localhost -p 2200 -N ubuntu-20.04 -r 'role[group1]' --connection-user vagrant --sudo --bootstrap-vault-file sea-power-bootstrap-vault-file.json
-Node ubuntu-20.04 exists, overwrite it? (Y/N) Y
-Client ubuntu-20.04 exists, overwrite it? (Y/N) Y
-Creating new client for ubuntu-20.04
-Creating new node for ubuntu-20.04
-Connecting to localhost
-localhost -----> Existing Chef installation detected
-localhost Starting first Chef Infra Client run...
-localhost Starting Chef Infra Client, version 12.2.1
-localhost resolving cookbooks for run list: ["delay-test-reporting"]
-localhost Synchronizing Cookbooks:
-localhost   - delay-test-reporting
-localhost Compiling Cookbooks...
-localhost Converging 1 resources
-localhost Recipe: delay-test-reporting::default
-localhost   * execute[sleep 30] action run
-localhost     - execute sleep 30
-localhost
-localhost Running handlers:
-localhost Running handlers complete
-localhost Chef Infra Client finished, 1/1 resources updated in 34.307257232 seconds
+knife bootstrap <ADDRESS> \
+  --node-name unique_node_name \
+  --run-list 'role[group1]' \
+  --connection-user <USERNAME> \
+  --sudo \
+  --bootstrap-vault-file vault-item.json
 ```
 
-The client `ubuntu-20.04` was added to the `chef-vault` during the bootstrap.
+The client node is added to the Chef Vault item during the bootstrap operation:
 
 ```bash
-knife vault show sea power  --mode client -p all
+knife vault show credentials root --mode client --print all
 admins:
-  sean_horn
-  angle
-clients:  ubuntu-20.04
-id: power
+  user_1
+  user_2
+clients:  unique_node_name
+id: root
 search_query:
-some:  content for them
+password: password_string
 ```
 
-### Use --bootstrap-vault-item
+#### Bootstrap with a single Vault item
 
-Use the `sea:power` re-creation step above first, to follow the difference in the vault permissions.
+With the [existing `credentials:root` Vault item](#create-a-data-bag-item), bootstrap a new node by specifying a single Vault item with the `--bootstrap-vault-item` to give the new node permissions to the Vault item.
 
 ```bash
-knife bootstrap localhost -p 2200 -N ubuntu-20.04 -r 'role[group1]' --connection-user vagrant --sudo --bootstrap-vault-item sea:power
-Node ubuntu-20.04 exists, overwrite it? (Y/N) Y
-Client ubuntu-20.04 exists, overwrite it? (Y/N) Y
-Creating new client for ubuntu-20.04
-Creating new node for ubuntu-20.04
-Connecting to localhost
-localhost -----> Existing Chef installation detected
-localhost Starting first Chef Infra Client run...
-localhost Starting Chef Infra Client, version 12.2.1
-localhost resolving cookbooks for run list: ["delay-test-reporting"]
-localhost Synchronizing Cookbooks:
-localhost   - delay-test-reporting
-localhost Compiling Cookbooks...
-localhost Converging 1 resources
-localhost Recipe: delay-test-reporting::default
-localhost   * execute[sleep 30] action run
-localhost     - execute sleep 30
-localhost
-localhost Running handlers:
-localhost Running handlers complete
-localhost Chef Infra Client finished, 1/1 resources updated in 34.322229474
-seconds
+knife bootstrap <ADDRESS>  \
+  --node-name unique_node_name \
+  --run-list 'role[group1]' \
+  --connection-user <USERNAME> \
+  --sudo \
+  --bootstrap-vault-item credentials:root
 ```
 
-During the above run, the `sea:power` vault item was updated with the `ubuntu-20.04` client during the validatorless bootstrap. Previously, it only had the two admins authorized to view the content
+The bootstrap operation updates the `credentials:root` Vault item so the `unique_node_name` client has access.
+Previously, only the two admins were authorized to view the content.
+
+When you show the `credentials:root` Vault item, it shows that new node and the two administrators have access to the Vault item.
 
 ```bash
-knife vault show sea power -p all
+knife vault show credentials root --print all
 admins:
-  sean_horn
-  angle
-clients:  ubuntu-20.04
-id: power
+  user_1
+  user_2
+clients:  unique_node_name
+id: root
 search_query: role:stuff
-some:  secret stuff for them
+password: password_string
 ```
 
-Then, let's check the `ubuntu-20.04` client. The client itself can decrypt and read the encrypted databag contents as well using the embedded knife CLI in the Chef Infra Client package.
+You can verify that the `unique_node_name` client can decrypt and read the encrypted data bag contents using the embedded knife CLI in the Chef Infra Client package:
 
 ```bash
-sudo /opt/chef/bin/knife vault show sea power -c /etc/chef/client.rb -M client -p all
+sudo /opt/chef/bin/knife vault show credentials root \
+  -c /etc/chef/client.rb \
+  -M client \
+  --print all
 admins:
-  sean_horn
-  angle
-clients:  ubuntu-20.04
-id: power
+  user_1
+  user_2
+clients:  unique_node_name
+id: root
 search_query: role:group1
-some:  secret stuff for them
+password: password_string
 ```
 
-Success! The client is authorized to view the content of the `sea:power` databag item
+#### Bootstrap with a JSON string
 
-### Use --bootstrap-vault-json
-
-Use the `sea:power` re-creation step above first, to follow the difference in the vault permissions.
+With the [existing `credentials:root` Vault item](#create-a-data-bag-item),
+bootstrap a new node with the `--bootstrap-vault-json` to pass in a JSON string that defines the Vault item and gives the new node permissions to the item.
 
 ```bash
-knife bootstrap localhost -p 2200 -N ubuntu-20.04 -r 'role[group1]' --connection-user vagrant --sudo --bootstrap-vault-json '{"sea": "power"}'
-Node ubuntu-20.04 exists, overwrite it? (Y/N) Y
-Client ubuntu-20.04 exists, overwrite it? (Y/N) Y
-Creating new client for ubuntu-.04
-Creating new node for ubuntu-20.04
-Connecting to localhost
-localhost -----> Existing Chef installation detected
-localhost Starting first Chef Infra Client run...
-localhost Starting Chef Infra Client, version 12.2.1
-localhost resolving cookbooks for run list: ["delay-test-reporting"]
-localhost Synchronizing Cookbooks:
-localhost   - delay-test-reporting
-localhost Compiling Cookbooks...
-localhost Converging 1 resources
-localhost Recipe: delay-test-reporting::default
-
-localhost   * execute[sleep 30] action run
-localhost     - execute sleep 30
-localhost
-localhost Running handlers:
-localhost Running handlers complete
-localhost Chef Infra Client finished, 1/1 resources updated in 33.732784033 seconds
+knife bootstrap <ADDRESS> \
+  --node-name unique_node_name \
+  --run-list 'role[group1]' \
+  --connection-user <USERNAME> \
+  --sudo \
+  --bootstrap-vault-json '{"credentials": "root"}'
 ```
 
+When you show the `credentials:root` Vault item, it shows that new node and the two administrators have access to the Vault item.
+
 ```bash
-knife vault show sea power -M client -p all
+knife vault show credentials root -M client --print all
 admins:
-  sean_horn
-  angle
-clients:  ubuntu-20.04
-id: power
+  user_1
+  user_2
+clients:  unique_node_name
+id: root
 search_query:
-some:  content for them
+password: password_string
 ```
 
-## Unattended installs
+## Unattended bootstrapping
 
-Chef Infra Client can be installed using an unattended bootstrap. This allows Chef Infra Client to be installed from itself, without requiring SSH. For example, machines are often created using environments like AWS Auto Scaling, AWS CloudFormation, Rackspace Auto Scale, and PXE. In this scenario, using tooling for attended, single-machine installs like `knife bootstrap` or `knife CLOUD_PLUGIN create` isn't practical because the machines are created automatically and someone can't always be on-hand to initiate the bootstrap process.
+Chef Infra Client can be installed using an unattended bootstrap, which doesn't require SSH or WinRM connectivity.
+This is useful when you want to create machines automatically using environments like AWS Auto Scaling, AWS CloudFormation, Rackspace Auto Scale, and PXE---where tools for attended, single-machine installs like `knife bootstrap` aren't practical because someone can't always be on hand to initiate the bootstrap process.
 
-When Chef Infra Client is installed using an unattended bootstrap, remember that Chef Infra Client:
+When using an unattended bootstrap, Chef Infra Client:
 
 - Must be able to authenticate to Chef Infra Server.
 - Must be able to configure a run-list.
-- May require custom attributes, depending on the cookbooks that are being used.
+- May require custom attributes, depending on the cookbooks that are used.
 - Must be able to access the `chef-validator.pem` file so that it may create a new identity on Chef Infra Server.
-- Must have a unique node name; Chef Infra Client will use the FQDN for the host system by default.
+- Must have a unique node name; Chef Infra Client uses the FQDN for the host system by default.
 
-When Chef Infra Client is installed using an unattended bootstrap, it may be built into an image that starts Chef Infra Client on boot, or installed using User Data or some other kind of post-deployment script. The type of image or User Data used depends on the platform on which the unattended bootstrap will take place.
+You can build Chef Infra Client into an image that starts on boot, or install it using user data or another post-deployment script.
+The type of image or user data used depends on the platform.
 
 ### Bootstrapping with user data
 
 The method used to inject a user data script into a server varies depending on the infrastructure platform being used.
 For example, on AWS you can pass this data in as a text file using the command line.
 
-The following user data examples demonstrate the process of bootstrapping Windows and Linux nodes.
+The following examples demonstrate the process of bootstrapping Windows and Linux nodes.
 
-#### PowerShell user data
+#### Example Windows unattended bootstrap PowerShell script
+
+The following example PowerShell script runs an unattended bootstrap on Windows nodes:
 
 ```powershell
 ## Set host file so the instance knows where to find chef-server
@@ -376,12 +310,18 @@ $file = "C:\Windows\System32\drivers\etc\hosts"
 $hosts | Add-Content $file
 
 ## Download Chef Infra Client
-$clientURL = "https://chefdownload-commercial.chef.io/stable/client/download?p=windows>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>"
+$clientURL = "https://chefdownload-commercial.chef.io/stable/client/download?" +
+  "p=windows&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>"
 $clientDestination = "C:\chef-client.msi"
 Invoke-WebRequest $clientURL -OutFile $clientDestination
 
 ## Install the Chef Infra Client
-Start-Process msiexec.exe -ArgumentList @('/qn', '/lv C:\Windows\Temp\chef-log.txt', '/i C:\chef-client.msi', 'ADDLOCAL="ChefClientFeature,ChefSchTaskFeature,ChefPSModuleFeature"') -Wait
+Start-Process msiexec.exe -ArgumentList @(
+  '/qn',
+  '/lv C:\Windows\Temp\chef-log.txt',
+  '/i C:\chef-client.msi',
+  'ADDLOCAL="ChefClientFeature,ChefSchTaskFeature,ChefPSModuleFeature"'
+) -Wait
 
 ## Create first-boot.json
 $firstboot = @{
@@ -393,7 +333,7 @@ Set-Content -Path c:\chef\first-boot.json -Value ($firstboot | ConvertTo-Json -D
 $nodeName = "lab-win-{0}" -f (-join ((65..90) + (97..122) | Get-Random -Count 4 | % {[char]$_}))
 
 $clientrb = @"
-chef_server_url        'https://chef-server/organizations/my-org'
+chef_server_url        'https://example.com/organizations/org-name'
 validation_client_name 'validator'
 validation_key         'C:\chef\validator.pem'
 node_name              '{0}'
@@ -405,7 +345,9 @@ Set-Content -Path c:\chef\client.rb -Value $clientrb
 C:\opscode\chef\bin\chef-client.bat -j C:\chef\first-boot.json
 ```
 
-#### Bash user data
+#### Example unattended bootstrap Bash script
+
+The following example script runs an unattended bootstrap on Linux nodes:
 
 ```bash
 #!/bin/bash -xev
@@ -414,6 +356,7 @@ C:\opscode\chef\bin\chef-client.bat -j C:\chef\first-boot.json
 /bin/mkdir -p /etc/chef
 /bin/mkdir -p /var/lib/chef
 /bin/mkdir -p /var/log/chef
+/bin/mkdir -p /hab
 
 # Setup hosts file correctly
 cat >> "/etc/hosts" << EOF
@@ -422,10 +365,11 @@ cat >> "/etc/hosts" << EOF
 10.0.0.7    automate-server automate-server.automate.com
 EOF
 
-cd /etc/chef/
+cd /hab
 
-# Install chef
-curl -L https://omnitruck.chef.io/install.sh | bash || error_exit "couldn't install chef"
+# Install Chef
+curl -L https://chefdownload-community.chef.io/install.sh?license_id=<LICENSE_ID> | sudo bash -s -- -P chef-ice
+ || error_exit "couldn't install chef"
 
 # Create first-boot.json
 cat > "/etc/chef/first-boot.json" << EOF
@@ -441,9 +385,9 @@ NODE_NAME=node-$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 4 | head -n 1)
 # Create client.rb
 cat > '/etc/chef/client.rb' << EOF
 log_location            STDOUT
-chef_server_url         'https://aut-chef-server/organizations/my-org'
-validation_client_name  'my-org-validator'
-validation_key          '/etc/chef/my_org_validator.pem'
+chef_server_url         'https://example.com/organizations/org-name'
+validation_client_name  'org-name-validator'
+validation_key          '/etc/chef/org-validation-key.pem'
 node_name               "${NODE_NAME}"
 EOF
 

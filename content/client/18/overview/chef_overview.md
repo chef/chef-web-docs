@@ -17,14 +17,14 @@ gh_repo = "chef-web-docs"
 - **Chef Workstation** is the location where users interact with Chef
     Infra. With Chef Workstation, users can author and test
     [cookbooks](/cookbooks/) using tools such as [Test
-    Kitchen](https://docs.chef.io/workstation/kitchen/) and interact with the Chef Infra Server
-    using the [knife](https://docs.chef.io/workstation/knife/) and [chef](https://docs.chef.io/workstation/ctl_chef/) command
+    Kitchen](https://docs.chef.io/workstation/25/tools/kitchen/) and interact with the Chef Infra Server
+    using the [knife](https://docs.chef.io/workstation/25/tools/knife/) and [chef](https://docs.chef.io/workstation/25/tools/ctl_chef/) command
     line tools.
 - **Chef Infra Client** Chef Infra Client runs on systems that are managed by
     Chef Infra. The Chef Infra Client executes on a schedule to configure a system to
     the desired state.
 - **Chef Infra Server** acts as [a hub for configuration
-    data](https://docs.chef.io/server/). Chef Infra Server stores cookbooks,
+    data](/server/). Chef Infra Server stores cookbooks,
     the policies that are applied to nodes, and metadata that describes
     each registered node that's being managed by Chef. Nodes use the
     Chef Infra Client to ask the Chef Infra Server for configuration

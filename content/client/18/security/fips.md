@@ -50,7 +50,7 @@ enabling FIPS if it's contractually necessary.
 **Supported:**
 
 - [Chef Infra Client](#how-to-enable-fips-mode-for-chef-infra-client)
-- [Chef Workstation](https://docs.chef.io/workstation/knife_bootstrap/#fips-mode)
+- [Chef Workstation](https://docs.chef.io/workstation/25/tools/knife/knife_bootstrap/#fips-mode)
 - [Chef Infra Server](#how-to-enable-fips-mode-for-chef-infra-server)
 
 **Unsupported:**
@@ -97,7 +97,7 @@ FIPS mode.
 
 To enable FIPS manually for Chef Infra Server, can add `fips true`
 to the `/etc/opscode/chef-server.rb` and reconfigure. For more
-configuration information see [chef-server.rb Optional Settings](https://docs.chef.io/server/config_rb_server_optional_settings/).
+configuration information see [chef-server.rb Optional Settings](/server/config_rb_server_optional_settings/).
 
 ## How to enable FIPS mode for Chef Infra Client
 

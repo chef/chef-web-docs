@@ -1,5 +1,5 @@
 
-The authentication process ensures that Chef Infra Server only responds to requests made by trusted users or clients. Chef Infra Server uses public key encryption. You create the public and private keys when you configure [Chef Infra Client](/install/config_rb_client/) or setup [Chef Workstation](https://docs.chef.io/workstation/getting_started/#set-up-chef-credentials).
+The authentication process ensures that Chef Infra Server only responds to requests made by trusted users or clients. Chef Infra Server uses public key encryption. You create the public and private keys when you configure [Chef Infra Client](/install/config_rb_client/) or setup [Chef Workstation](https://docs.chef.io/workstation/25/set_up/).
 
 * Chef Infra Server stores the public key
 * Chef Workstation saves the private key in `~/.chef/`

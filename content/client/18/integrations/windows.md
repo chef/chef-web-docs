@@ -21,7 +21,7 @@ PowerShell, PowerShell DSC, and Internet Information Services (IIS).
 ## Setting up Windows Workstations
 
 To set up your Windows workstation follow the steps on [Chef for
-Windows](https://docs.chef.io/workstation/install_workstation/)
+Windows](https://docs.chef.io/workstation/25/install/)
 
 ## Install Chef Infra Client on Windows Nodes
 
@@ -102,7 +102,7 @@ main configuration file for Chef Infra Client is located at
 
 {{< readfile file="content/client/18/reusable/md/workstation/knife_windows_summary.md" >}}
 
-For more information, see the [`knife windows` documentation](https://docs.chef.io/workstation/knife_windows/).
+For more information, see the [`knife windows` documentation](https://docs.chef.io/workstation/25/tools/knife/knife_windows/).
 
 #### Ports
 
