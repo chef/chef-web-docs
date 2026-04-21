@@ -536,7 +536,6 @@ rest_property_map({
 }
 ```
 
-
 ### Query-based resource selection
 
 This example demonstrates how to use query parameters to identify a unique resource when the API doesn't support path-based resource selection. It also shows how to use `rest_identity_map` when the JSON field names differ from the URI template variable names.
