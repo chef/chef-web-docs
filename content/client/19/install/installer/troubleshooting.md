@@ -44,8 +44,8 @@ If the Chef Workstation is already on your system, the installation process fail
 
 To resolve the error:
 
-1. [Uninstall Chef Workstation](https://docs.chef.io/workstation/latest/uninstall/).
-1. [Reinstall Chef Infra Client](install).
+1. [Uninstall Chef Workstation](https://docs.chef.io/workstation/26/uninstall/).
+1. [Reinstall Chef Infra Client](..).
 
 ## Error: Invalid license
 
