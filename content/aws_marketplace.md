@@ -113,28 +113,28 @@ For additional information about these options, see [Amazon's documentation on C
 ## Post-Installation
 
 1. Navigate to the AWS deployment **Outputs** tab and locate the Chef Automate URL, user name, and password. You will need these in the next steps.
-![AWS Chef Automate deployment **Outputs** tab contains your instance URL, user name, and password ](/images/OutputPage.png "Output")
+![AWS CloudFormation Outputs tab listing the ChefInfraServer URL, ChefAutomate URL, Password, StarterKitPath, and Username.](/images/OutputPage.png "Output")
 
 1. Open your browser and paste the Chef Automate URL, which will open an alert page.
 
 1. Select **Advanced** and continue.
-![Select 'advanced' to bypass the warning that the page isn't secure](/images/NotSecurePage.png "Not Secure Page").
+![Browser warning "Your connection isn't private" with the Advanced section expanded and the Continue to the site link highlighted.](/images/NotSecurePage.png "Not Secure Page").
 
 1. Enter your **Username** and **Password** and select **Sign In**.
-![ ](/images/chef_automate_login.png "Chef Automate Login")
+![Chef Automate Local User Sign In with Username and Password fields.](/images/chef_automate_login.png "Chef Automate Login")
 
 1. Fill out the registration form and [Accept the Chef License](/licensing/accept/).
 
 1. Select **Register** to enter Chef Automate.
-![ ](/images/WelcomePage.png "Welcome Page")
+![Welcome to Chef Automate dialog with First Name, Last Name, and Email fields, and the Register button highlighted.](/images/WelcomePage.png "Welcome Page")
 
 1. Congratulations! You've started Chef Automate!
-![ ](/images/DashboardsPage.png "Dashboards Page")
+![Chef Automate Dashboards Event Feed page showing a weekly calendar with 0 total events.](/images/DashboardsPage.png "Dashboards Page")
 
 ## Add Chef Servers
 
 1. Add Chef-Server Details, select the Add Chef Infra Server Button.
-![ ](/images/chef_automate_add_server.png "Add Chef Server")
+![Chef Automate Infrastructure page showing an empty Chef Infra Servers list with the Add Chef Infra Server button.](/images/chef_automate_add_server.png "Add Chef Server")
 
 1. Enter the server name, FQDN, and IP address. Then select **Add Chef Infra Server** to create the server.
 
@@ -147,13 +147,13 @@ For additional information about these options, see [Amazon's documentation on C
    IP Address
    : Public IP address of the EC2 instance.
 
-   {{< figure src="/images/automate/add-chef-server-popup-menu.png" alt="Add Chef Infra Server Form" width="500" >}}
+   {{< figure src="/images/automate/add-chef-server-popup-menu.png" alt="Add Chef Infra Server dialog with Name, FQDN, and IP Address fields." width="500" >}}
 
 1. The Chef Infra Server will appear in the list of servers. Selecting the server allows you to view information about it.
-![Select a server from the list](/images/chef_automate_single_server.png "Single Server View")
+![Chef Automate Chef Infra Servers list with one server entry showing the FQDN, IP address, and number of organizations.](/images/chef_automate_single_server.png "Single Server View")
 
 1. Select **Add Chef Organization**.
-{{< figure src="/images/chef_automate_add_org_page.png" style="width: 30%;" >}}
+{{< figure src="/images/chef_automate_add_org_page.png" alt="Chef Automate server detail page for your-chef-server with the Orgs tab and the Add Chef Organization button." style="width: 30%;" >}}
 
 1. Enter the following information:
 
@@ -167,22 +167,22 @@ For additional information about these options, see [Amazon's documentation on C
    : _copy the key from starter kit_
 
 1. Select **Add Chef Organization**.
-{{< figure src="/images/OrgPageDetails.png" alt="Select the Add Chef Organization button to complete this actio" width="500" >}}
+{{< figure src="/images/OrgPageDetails.png" alt="Add Chef Organization dialog with Name, Projects, Admin User, and Admin Key fields." width="500" >}}
 
 ## AWS Deployment Security
 
 Update the AWS Deployment **Security Group** to require source IP addresses for a secure SSH connection.
 
 1. Select the **Instance Security** group in the **Resources** tab of your AWS Chef Automate deployment.
-![ ](/images/aws_resources.png "Resources Page")
+![AWS CloudFormation Resources tab for the chef-automate stack with the InstanceSecurityGroup row highlighted.](/images/aws_resources.png "Resources Page")
 
 1. Select the **Security Group ID** for your Chef Automate deployment.
-![Locate and copy your security group ID from the second column](/images/aws_security_group.png "Security Group")
+![AWS Security Groups list showing Chef_Automate_SecurityGroup with its security group ID sg-0023f2b0456cd503e highlighted.](/images/aws_security_group.png "Security Group")
 
 1. Select **Edit inbound rules**.
-![Select the Edit inbound rules button](/images/aws_inbound_rules_edit.png "Edit Inbound Rules")
+![Chef_Automate_SG security group detail page with the Inbound rules tab and the Edit inbound rules button highlighted.](/images/aws_inbound_rules_edit.png "Edit Inbound Rules")
 
 1. Select **Add rule** and then **SSH** and enter the source IP.
 
 1. Select **Save rules** to finish.
-![Add your IP address range as a custom SSH rule](/images/aws_inbound_rule.png "Add Rule")
+![Edit inbound rules page showing HTTP, HTTPS, and SSH rules with the new SSH rule source IP field and Save rules button highlighted.](/images/aws_inbound_rule.png "Add Rule")
