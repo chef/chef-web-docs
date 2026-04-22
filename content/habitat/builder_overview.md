@@ -1,4 +1,4 @@
 +++
 layout = "redirect"
-redirect_url = "https://docs.chef.io/habitat/saas_builder/"
+redirect_url = "/habitat/builder/saas/"
 +++

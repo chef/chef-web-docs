@@ -45,17 +45,16 @@ See [this post on FAQs from I'd Rather Be Writing](https://idratherbewriting.com
 
 We use the fictional company "Fourth Cafe, Inc." as an example throughout the docs.
 
-Fourth Cafe, Inc.
+Example Org, Inc.
 123579 4th Ave
 Seattle, WA 98122
 
 Examples in code:
-`admin@4thcafe.com`
-`4thcafe.pem`
+`admin@example.com`
 
 ### Example domains
 
-Use the `4thcafe.com` domain for generic domains and email addresses in the documentation. Use the `chef.io` or `progress.com` for examples that should refer directly back to the company.
+Use the `example.com` domain for generic domains and email addresses in the documentation. Use the `chef.io` or `progress.com` for examples that should refer directly back to the company.
 
 ### Example names
 
@@ -82,14 +81,14 @@ Here is a list of some example names for you to use (the last names are translat
 
 ### Example email addresses
 
-- akoch@4thcafe.com
-- tbucatar@4thcafe.com
-- dgotvach@4thcafe.com
-- lchushi@4thcafe.com
-- hshefu@4thcafe.com
-- byolisa@4thcafe.com
-- kbaavarchee@4thcafe.com
-- stagaluto@4thcafe.com
+- akoch@example.com
+- tbucatar@example.com
+- dgotvach@example.com
+- lchushi@example.com
+- hshefu@example.com
+- byolisa@example.com
+- kbaavarchee@example.com
+- stagaluto@example.com
 
 Use `chef-docs@progress.com` for the Chef Technical Documentation team.
 

@@ -40,7 +40,7 @@ When a failure of the primary cluster occurs, fail-over can be accomplished thro
 
 ### Set up the production and disaster recovery cluster
 
-1. Deploy the Primary cluster. To know more, follow the [deployment instructions](/automate/ha_on_prem_deployment_procedure/#Run-these-steps-on-Bastion-Host-Machine).
+1. Deploy the Primary cluster. To know more, follow the [deployment instructions](/automate/ha_on_premises_deployment_procedure/).
 
 1. Deploy the disaster recovery cluster into a different data center and region using the same steps as the primary cluster.
 

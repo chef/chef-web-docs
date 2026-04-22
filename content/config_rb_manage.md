@@ -140,7 +140,7 @@ This configuration file has the following settings:
 
 : The secret token used by Ruby on Rails to prevent session tampering. See: <http://guides.rubyonrails.org/security.html#session-storage>. Default value: **generated**.
 
-  To override the default value, use the [Secrets Management](/ctl_chef_server/#ctl-chef-server-secrets-management) commands: `chef-server-ctl set-secret manage secret_token`.
+  To override the default value, use the [Secrets Management](/server/ctl_chef_server/#ctl-chef-server-secrets-management) commands: `chef-server-ctl set-secret manage secret_token`.
 
 `services['opscode-manage-events'].enable`
 
@@ -215,7 +215,7 @@ when connecting to the Infra Server. Most common setting: `"/etc/chef/trusted_ce
 
 ## Web UI Private Key
 
-Chef Manage uses the Web UI private key for signing requests sent to the Chef Infra Server. The key is subject to Chef server's [Secrets Management](/ctl_chef_server/#ctl-chef-server-secrets-management), and will be stored in `/etc/opscode/private-chef-secrets.json`.
+Chef Manage uses the Web UI private key for signing requests sent to the Chef Infra Server. The key is subject to Chef server's [Secrets Management](/server/ctl_chef_server/#ctl-chef-server-secrets-management), and will be stored in `/etc/opscode/private-chef-secrets.json`.
 
 Any run of `chef-server-ctl reconfigure` will ensure the key exists and is stored without any additional steps.
 

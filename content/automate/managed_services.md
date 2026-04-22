@@ -400,7 +400,7 @@ chef-automate-es6-event-feed-service
 chef-automate-es6-ingest-service
 ```
 
-If your domain resides within a virtual private cloud (VPC), your computer must be connected to the VPC for the request to register the snapshot repository successfully. Accessing a VPC varies by network configuration but likely involves connecting to a VPN or corporate network. Reach the OpenSearch Service domain, navigate to <https://your-vpc-domain.region.es.amazonaws.com> in a web browser and verify that you receive the default JSON response.
+If your domain resides within a virtual private cloud (VPC), your computer must be connected to the VPC for the request to register the snapshot repository successfully. Accessing a VPC varies by network configuration but likely involves connecting to a VPN or corporate network. Reach the OpenSearch Service domain, navigate to `https://your-vpc-domain.region.es.amazonaws.com` in a web browser and verify that you receive the default JSON response.
 
 You can get the information about all snapshot repositories registered in the cluster by using the following API:
 

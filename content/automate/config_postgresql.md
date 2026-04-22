@@ -200,4 +200,4 @@ log_level = "DEBUG"
 
 ### Centralized logs
 
-Take a tour of the main page to know about [Centralized logs](/automate/centralizing_log/).
+Take a tour of the main page to know about [Centralized logs](/automate/centralize_logs/).

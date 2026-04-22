@@ -163,7 +163,7 @@ Once the verification completed successfully, proceed with the deployment. In ca
      chef-automate info
     ```
 
-    Check if Chef Automate UI is accessible by going to (Domain used for Chef Automate) [https://chefautomate.example.com](https://chefautomate.example.com).
+    Check if Chef Automate UI is accessible by going to the Chef Automate domain, for example `https://chefautomate.example.com`.
     After successful deployment, proceed with following...
 
       1. [Create users and organizations](/automate/ha_node_bootstrapping/#create-users-and-organization) section in Node Bootstrapping page.
