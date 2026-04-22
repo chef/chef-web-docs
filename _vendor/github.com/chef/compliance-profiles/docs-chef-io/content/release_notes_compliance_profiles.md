@@ -10,6 +10,17 @@ draft = false
     weight = 10
 +++
 
+## 20260416
+
+### New features
+
+- CIS Windows Server 2019 v4.0.0
+- CIS Kubernetes V1.12.0
+
+### Improvements
+
+- CIS Oracle Linux 10 v1.0.0 audits controls 6.3.3.35 and 6.3.3.36: added empty files check
+
 ## 20260316
 
 ### New features
