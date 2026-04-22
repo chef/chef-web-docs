@@ -10,6 +10,13 @@ draft = false
     weight = 20
 +++
 
+## 20260416
+
+### New features
+
+- CIS Windows Server 2019 v4.0.0
+- CIS Kubernetes V1.12.0
+
 ## 20251215
 
 ### New Features
