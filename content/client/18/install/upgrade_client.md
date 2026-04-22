@@ -69,7 +69,7 @@ knife ssh <SEARCH_QUERY> 'curl -L https://chefdownload-commercial.chef.io/instal
 Replace:
 
 - `<LICENSE_ID>` with your license ID
-- `<SEARCH_QUERY>` with a [node search query](/features/chef_search/)
+- `<SEARCH_QUERY>` with a [node search query](/client/18/features/chef_search/)
 
 ## Cookbook-based upgrade
 

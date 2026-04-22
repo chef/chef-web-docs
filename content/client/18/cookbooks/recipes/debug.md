@@ -142,7 +142,7 @@ include:
 
 {{< readfile file="content/client/18/reusable/md/handler_types.md" >}}
 
-Read more [about exception, report, and start handlers](/features/handlers/).
+Read more [about exception, report, and start handlers](/client/18/features/handlers/).
 
 ### chef-shell
 
@@ -343,8 +343,8 @@ All resources share a set of common actions, attributes, and other properties. U
 
 ### chef-solo
 
-See [chef-solo (executable)](/features/chef_solo/ctl_chef_solo/) for complete CTL documentation.
+See [chef-solo (executable)](/client/18/features/chef_solo/ctl_chef_solo/) for complete CTL documentation.
 
 {{< readfile file="content/client/18/reusable/md/chef_solo_summary.md" >}}
 
-See [chef-solo (executable)](/features/chef_solo/ctl_chef_solo/) for complete CTL documentation.
+See [chef-solo (executable)](/client/18/features/chef_solo/ctl_chef_solo/) for complete CTL documentation.

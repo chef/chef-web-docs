@@ -24,7 +24,7 @@ the node.
 {{< warning >}}
 
 This approach may be used to update
-[normal](/cookbooks/attributes/attribute_types/) attributes, but should never
+[normal](/client/19/cookbooks/attributes/attribute_types/) attributes, but should never
 be used to update any other attribute type, as all attributes updated
 using this option are treated as `normal` attributes.
 

@@ -1,4 +1,4 @@
-`Chef::Log` will print log entries to the default logger that's configured for the machine on which Chef Infra Client is running. (To create a log entry that's built into the resource collection, use the [log resource](/resources/bundled/log/) instead of `Chef::Log`.)
+`Chef::Log` will print log entries to the default logger that's configured for the machine on which Chef Infra Client is running. (To create a log entry that's built into the resource collection, use the [log resource](/client/19/resources/bundled/log/) instead of `Chef::Log`.)
 
 <!-- markdownlint-disable-file MD002 -->
 

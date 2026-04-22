@@ -50,7 +50,7 @@ A better strategy is to move the code, which requires the gem, into
 a custom resource. Since all the actions of custom resources run
 at converge time, this defers requiring
 the gem until later in the overall Chef Infra Client execution. [Unified
-mode](/resources/custom/unified_mode/) can also be used in the resource to eliminate compile/converge
+mode](/client/19/resources/custom/unified_mode/) can also be used in the resource to eliminate compile/converge
 mode issues entirely:
 
 ```ruby
@@ -143,7 +143,7 @@ A better approach in this type of situation is to install the package
 before the resource collection is built to ensure that it's available
 to other resources later on.
 
-The best approach to this problem is to use [`unified mode`](/resources/custom/unified_mode/), which eliminates
+The best approach to this problem is to use [`unified mode`](/client/19/resources/custom/unified_mode/), which eliminates
 the compile time and converge time distinction while allowing notifications
 to work correctly.
 

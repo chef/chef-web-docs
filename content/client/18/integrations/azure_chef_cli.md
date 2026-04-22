@@ -174,7 +174,7 @@ The extension has the following options that can be provided in the
 
 `hints`
 
-: Specifies the [Ohai Hints](/features/ohai/#hints) to be set in the Ohai configuration of the target node.
+: Specifies the [Ohai Hints](/client/18/features/ohai/#hints) to be set in the Ohai configuration of the target node.
 
 `chef_package_url`
 

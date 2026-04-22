@@ -9,7 +9,7 @@ draft = false
     parent = "infra_language"
 +++
 <!-- markdownlint-disable-file MD026 -->
-In most cases when you need to run a particular command in a cookbook, you'll want to use the [execute resource](/resources/bundled/execute/). Helper methods for shelling out can be useful when writing custom resources or other more advanced Ruby code.
+In most cases when you need to run a particular command in a cookbook, you'll want to use the [execute resource](/client/19/resources/bundled/execute/). Helper methods for shelling out can be useful when writing custom resources or other more advanced Ruby code.
 
 ## shell_out
 

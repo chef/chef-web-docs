@@ -13,7 +13,7 @@ draft = false
 
 ## platform?
 
-Use the `platform?` helper method to ensure that certain actions are run for specific platforms. The `platform?` method will return true if one of the listed parameters matches the `node['platform']` attribute that's detected by [Ohai](/features/ohai) during every Chef Infra Client run.
+Use the `platform?` helper method to ensure that certain actions are run for specific platforms. The `platform?` method will return true if one of the listed parameters matches the `node['platform']` attribute that's detected by [Ohai](/client/19/features/ohai/) during every Chef Infra Client run.
 
 The syntax for the `platform?` method is as follows:
 
@@ -199,7 +199,7 @@ end
 
 ## platform_family?
 
-Use the `platform_family?` method to ensure that certain actions are run for specific platform families. The `platform_family?` method will return true if one of the listed parameters matches the `node['platform_family']` attribute that are detected by [Ohai](/features/ohai) during every Chef Infra Client run.
+Use the `platform_family?` method to ensure that certain actions are run for specific platform families. The `platform_family?` method will return true if one of the listed parameters matches the `node['platform_family']` attribute that are detected by [Ohai](/client/19/features/ohai/) during every Chef Infra Client run.
 
 The syntax for the `platform_family?` method is as follows:
 

@@ -394,7 +394,7 @@ EOF
 chef-client -j /etc/chef/first-boot.json
 ```
 
-It's important that settings in the [client.rb file](/install/config_rb_client/)---for example `chef_server_url` and `http_proxy`---are used to ensure that configuration details are built into the unattended bootstrap process.
+It's important that settings in the [client.rb file](/client/19/install/config_rb_client/)---for example `chef_server_url` and `http_proxy`---are used to ensure that configuration details are built into the unattended bootstrap process.
 
 ##### Setting the initial run-list
 

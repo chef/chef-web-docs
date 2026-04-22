@@ -225,7 +225,7 @@ If you continually upload all versions of many cookbooks to your Chef Infra Serv
 
 There are three solutions to this problem:
 
-- use [Policyfiles](/policy/policyfile/) (recommended)
+- use [Policyfiles](/client/19/policy/policyfile/) (recommended)
 - place version constraints on all cookbooks and all dependencies of all cookbooks in any run list you use for a Chef Infra Client run
 - upload only the required cookbook versions to a Chef Infra Server
 
@@ -237,13 +237,13 @@ The dependency solver workers in a Chef Infra Server have a default timeout of f
 
 ### Policyfiles
 
-The current best practice is to control cookbook versions through Policyfiles. In this way, the dependency resolution is shifted left to the cookbook author designing the cookbook, its dependency structure, and the needed versions of all involved cookbooks. See the [Policyfiles](/policy/policyfile/) documentation for more information.
+The current best practice is to control cookbook versions through Policyfiles. In this way, the dependency resolution is shifted left to the cookbook author designing the cookbook, its dependency structure, and the needed versions of all involved cookbooks. See the [Policyfiles](/client/19/policy/policyfile/) documentation for more information.
 
 ### Version Constraints
 
 In a CI/CD environment where you have many versions of cookbooks, place version constraints on all cookbooks and all dependencies of all cookbooks in any run list you use for a Chef Infra Client run.
 
-The way to control the problem traditionally is by pinning the versions of cookbooks in an environment file or by using a wrapper cookbook that calls out the dependencies AND their versions in its `metadata.rb` file, and the dependencies do the same in their own `metadata.rb` files. See the [Cookbook Metadata Files](/cookbooks/config_rb_metadata/) for more information.
+The way to control the problem traditionally is by pinning the versions of cookbooks in an environment file or by using a wrapper cookbook that calls out the dependencies AND their versions in its `metadata.rb` file, and the dependencies do the same in their own `metadata.rb` files. See the [Cookbook Metadata Files](/client/19/cookbooks/config_rb_metadata/) for more information.
 
 ### Minimum Number of Cookbook Versions
 

@@ -74,7 +74,7 @@ During every Chef Infra Client run, the following happens:
 
 1. **Get and run Chef InSpec Compliance Profiles**
 
-   After the Chef Infra Client run finishes, it begins the [Compliance Phase](/features/chef_compliance_phase/), which is a Chef InSpec run within the Chef Infra Client. Chef InSpec retrieves tests from either a legacy audit cookbook or a current InSpec profile.
+   After the Chef Infra Client run finishes, it begins the [Compliance Phase](/client/18/features/chef_compliance_phase/), which is a Chef InSpec run within the Chef Infra Client. Chef InSpec retrieves tests from either a legacy audit cookbook or a current InSpec profile.
 
 1. **Send or save Compliance Report**
 

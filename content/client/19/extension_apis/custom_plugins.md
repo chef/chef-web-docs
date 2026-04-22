@@ -15,7 +15,7 @@ You can write custom Ohai plugins to collect additional configuration attributes
 Ohai plugins are written in Ruby with a plugin DSL documented below. Being written in Ruby provides access to all Ruby's built-in functionality, as well as 3rd party gem functionality. Plugins can parse the output of any local command on the node, or they can fetch data from external APIs. Examples of plugins that users have written: - A plugin to gather node information including data center, rack, and rack position from an inventory server - A plugin to gather additional RAID array information from a controller utility - A plugin to gather hardware
 warranty information from a vendor API
 
-See [About Ohai](/features/ohai/) for information on Ohai configuration and usage.
+See [About Ohai](/client/19/features/ohai/) for information on Ohai configuration and usage.
 
 ## Install Ohai Plugins
 

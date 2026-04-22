@@ -533,7 +533,7 @@ report_handlers << Chef::Handler::ErrorReport.new()
 exception_handlers << Chef::Handler::ErrorReport.new()
 ```
 
-By using the [chef_handler](/resources/bundled/chef_handler/) resource in a recipe, similar to the following:
+By using the [chef_handler](/client/19/resources/bundled/chef_handler/) resource in a recipe, similar to the following:
 
 ```ruby
 chef_handler 'Chef::Handler::ErrorReport' do

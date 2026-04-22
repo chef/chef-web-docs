@@ -1133,7 +1133,7 @@ rest_api_collection "/api/v1/users"              # leading slash required
 
 ## Additional resources
 
-- [Custom resources documentation](/resources/custom/)
+- [Custom resources documentation](/client/19/resources/custom/)
 - [JMESPath Tutorial](https://jmespath.org/tutorial.html)
 - [RFC 6570 URI Template Specification](https://tools.ietf.org/html/rfc6570)
 - [REST API Tutorial](https://restfulapi.net/)

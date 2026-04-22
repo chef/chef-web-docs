@@ -14,7 +14,7 @@ Attributes are defined by:
 During every Chef Infra Client run, Chef Infra Client builds the attribute list using:
 
 - Attributes passed using JSON on the command line
-- Data about the node collected by [Ohai](/features/ohai/).
+- Data about the node collected by [Ohai](/client/19/features/ohai/).
 - The node object that was saved to Chef Infra Server at the end of the previous Chef Infra Client run.
 - The rebuilt node object from the current Chef Infra Client run, after it's updated for changes to cookbooks (attribute files and/or recipes) and/or Policyfiles, and updated for any changes to the state of the node itself.
 

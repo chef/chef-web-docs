@@ -11,7 +11,7 @@ linkTitle = "Custom resources"
     weight = 10
 +++
 
-Chef Infra Client ships with over 150 [built-in resources](/resources/bundled/) for managing system configuration such as `directory`, `remote_file`, and `windows_firewall`.
+Chef Infra Client ships with over 150 [built-in resources](/client/19/resources/bundled/) for managing system configuration such as `directory`, `remote_file`, and `windows_firewall`.
 With custom resources you can extend the built-in capabilities of Chef Infra Client to create reusable resources for use anywhere in your infrastructure.
 
 Custom resources:

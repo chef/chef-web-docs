@@ -158,5 +158,5 @@ and finally, JSON data passed to chef-solo:
 
 ## chef-solo (executable)
 
-See [chef-solo (executable)](/features/chef_solo/ctl_chef_solo/) for complete CTL
+See [chef-solo (executable)](/client/19/features/chef_solo/ctl_chef_solo/) for complete CTL
 documentation.

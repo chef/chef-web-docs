@@ -22,7 +22,7 @@ Some organizations find it helpful to control attribute data stored by Chef Infr
 For example, your organization may find the data from the Ohai `Package` plugin useful when writing cookbooks, but don't see the need in saving ~100kB of package information for each Chef Infra Client run.
 Attribute data will still be available on the node within cookbooks, but any information you limit won't be saved to Chef Infra Server for use in searches.
 
-You can block or allow the saving of specific key using the [`client.rb`](/install/config_rb_client/) file.
+You can block or allow the saving of specific key using the [`client.rb`](/client/19/install/config_rb_client/) file.
 Each setting is an array of keys specifying each attribute to be filtered out or allowed. Use a "/" to separate subkeys, for example `network/interfaces`.
 
 For attributes containing slashes (`/`) within the attribute value, such as the `filesystem` attribute, use a nested array. For example:

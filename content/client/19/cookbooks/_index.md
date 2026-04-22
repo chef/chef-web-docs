@@ -42,7 +42,7 @@ A cookbook is comprised of recipes and other optional components as files or dir
 
   A library allows the use of arbitrary Ruby code in a cookbook, either as a way to extend the Chef Infra Client language or to implement a new class.
 
-[Custom Resources](/resources/custom/)
+[Custom Resources](/client/19/resources/custom/)
 : Directory: `resources/`
 
   A custom resource is an abstract approach for defining a set of actions and (for each action) a set of properties and validation parameters.
@@ -52,7 +52,7 @@ A cookbook is comprised of recipes and other optional components as files or dir
 
   A template is a file written in markup language that uses Ruby statements to solve complex configuration scenarios.
 
-[Ohai Plugins](/extension_apis/custom_plugins/)
+[Ohai Plugins](/client/19/extension_apis/custom_plugins/)
 : Directory: `ohai/`
 
   Custom Ohai plugins can be written to load additional information about your nodes to be used in recipes. This requires Chef Infra Server 12.18.14 or later.

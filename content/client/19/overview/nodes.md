@@ -108,7 +108,7 @@ attributes from the attribute file, and the attributes set by the role
 will take precedence over the attributes specified in the cookbook's
 attribute files.
 
-See [Attributes](/cookbooks/attributes) for detailed information on the different types of node attributes and how they're used to set policy on nodes.
+See [Attributes](/client/19/cookbooks/attributes/) for detailed information on the different types of node attributes and how they're used to set policy on nodes.
 
 ### Run-lists
 

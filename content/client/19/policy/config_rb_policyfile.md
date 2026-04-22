@@ -16,7 +16,7 @@ draft = false
 
 {{< note >}}
 
-For more information, see the [Policyfile documentation](/policy/policyfile/).
+For more information, see the [Policyfile documentation](/client/19/policy/policyfile/).
 
 {{< /note >}}
 

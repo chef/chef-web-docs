@@ -11,5 +11,5 @@ draft = false
 +++
 
 The `files` directory in Chef Infra cookbooks stores files that are used
-in your cookbook with the [cookbook_file](/resources/bundled/cookbook_file/)
+in your cookbook with the [cookbook_file](/client/19/resources/bundled/cookbook_file/)
 resource.

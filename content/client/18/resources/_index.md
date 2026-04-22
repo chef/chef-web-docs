@@ -82,7 +82,7 @@ See these guides for additional information about resources:
 </thead>
 <tbody>
 <tr>
-<td><a href="/resource_common/">Common Properties</a></td>
+<td><a href="/client/18/resources/common_functionality/">Common Properties</a></td>
 <td>Provides a detailed list of the common properties that are available in all resources.</td>
 </tr>
 <tr>

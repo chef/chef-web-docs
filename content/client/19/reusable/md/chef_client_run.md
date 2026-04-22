@@ -9,7 +9,7 @@ During every Chef Infra Client run, the following happens:
 
 1. **Get configuration data**
 
-   Chef Infra Client gets process configuration data from the [`client.rb`](/install/config_rb_client/) file on the [node](/overview/nodes/) and then gets node configuration data from Ohai.
+   Chef Infra Client gets process configuration data from the [`client.rb`](/client/19/install/config_rb_client/) file on the [node](/client/19/overview/nodes/) and then gets node configuration data from Ohai.
    The node name is an important piece of configuration data.
    Chef Infra Client gets the node name from the `node_name` attribute in the `client.rb` file or from Ohai.
    If Ohai provides the node name, it's typically the FQDN for the node, which is always unique within an organization.
@@ -30,7 +30,7 @@ During every Chef Infra Client run, the following happens:
 
 1. **Expand the run-list**
 
-   Chef Infra Client expands the [run-list](/policy/run_lists/) from the rebuilt node object and compiles a complete list of recipes in the exact order that they will be applied to the node.
+   Chef Infra Client expands the [run-list](/client/19/policy/run_lists/) from the rebuilt node object and compiles a complete list of recipes in the exact order that they will be applied to the node.
 
 1. **Synchronize cookbooks**
 
@@ -74,7 +74,7 @@ During every Chef Infra Client run, the following happens:
 
 1. **Get and run Chef InSpec Compliance Profiles**
 
-   After the Chef Infra Client run finishes, it begins the [Compliance Phase](/features/chef_compliance_phase/), which is a Chef InSpec run within the Chef Infra Client. Chef InSpec retrieves tests from either a legacy audit cookbook or a current InSpec profile.
+   After the Chef Infra Client run finishes, it begins the [Compliance Phase](/client/19/features/chef_compliance_phase/), which is a Chef InSpec run within the Chef Infra Client. Chef InSpec retrieves tests from either a legacy audit cookbook or a current InSpec profile.
 
 1. **Send or save Compliance Report**
 

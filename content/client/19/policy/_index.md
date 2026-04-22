@@ -17,14 +17,14 @@ draft = false
 {{< readfile file="content/client/19/reusable/md/cookbooks_version.md" >}}
 
 For more information about cookbook versioning, see [About Cookbook
-Versioning](/cookbooks/cookbook_versioning/)
+Versioning](/client/19/cookbooks/cookbook_versioning/)
 
 ## Data Bags (Secrets)
 
 {{< readfile file="content/client/19/reusable/md/data_bag.md" >}}
 
 For more information about data bags, see [About Data
-Bags](/policy/data_bags/)
+Bags](/client/19/policy/data_bags/)
 
 ## Environments
 
@@ -44,4 +44,4 @@ For more information about roles, see [About Roles](roles)
 {{< readfile file="content/client/19/reusable/md/policyfile_summary.md" >}}
 
 For more information about Policyfile, see [About
-Policyfile](/policy/policyfile/)
+Policyfile](/client/19/policy/policyfile/)
