@@ -6,6 +6,7 @@ aliases = ["/chef_license/", "/license/"]
 
 [cascade]
   product = ["automate", "client", "server", "habitat", "inspec", "supermarket", "workstation"]
+  feedback = false
 
 [menu]
   [menu.overview]
