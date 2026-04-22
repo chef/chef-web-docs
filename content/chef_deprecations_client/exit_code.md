@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_exit_code.html"
+aliases = ["/deprecations_exit_code.html", "/deprecations_exit_code/"]
 +++
 
 In older versions of Chef Infra Client, it wasn't possible to discern why a

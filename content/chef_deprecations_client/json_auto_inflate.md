@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_json_auto_inflate.html"
+aliases = ["/deprecations_json_auto_inflate.html", "/deprecations_json_auto_inflate/"]
 +++
 
 Internally, the `Chef::REST` class attempts to guess which Chef class a

@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_namespace_collisions.html"
+aliases = ["/deprecations_namespace_collisions.html", "/deprecations_namespace_collisions/"]
 +++
 
 In Chef Infra Client 12.5.1, the custom resources API allowed specifying

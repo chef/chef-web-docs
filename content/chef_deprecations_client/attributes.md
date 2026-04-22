@@ -6,7 +6,7 @@ gh_repo = "chef-web-docs"
 sitemapExclude = true
 robots = "noindex"
 
-aliases = "/deprecations_attributes.html"
+aliases = ["/deprecations_attributes.html", "/deprecations_attributes/"]
 
 +++
 

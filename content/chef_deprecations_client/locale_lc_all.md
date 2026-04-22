@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_locale_lc_all.html"
+aliases = ["/deprecations_locale_lc_all.html", "/deprecations_locale_lc_all/"]
 +++
 
 Setting the `LC_ALL` variable isn't recommended. As a system-wide

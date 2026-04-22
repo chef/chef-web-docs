@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_local_listen.html"
+aliases = ["/deprecations_local_listen.html", "/deprecations_local_listen/"]
 +++
 
 When using <span class="title-ref">chef-client</span> Local Mode, there

@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_ohai_amazon_linux.html"
+aliases = ["/deprecations_ohai_amazon_linux.html", "/deprecations_ohai_amazon_linux/"]
 +++
 
 In Ohai/Chef releases before Chef Infra Client 13, Amazon Linux was

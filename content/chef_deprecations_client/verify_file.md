@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_verify_file.html"
+aliases = ["/deprecations_verify_file.html", "/deprecations_verify_file/"]
 +++
 
 The `verify` metaproperty allows the user to specify a `{path}` variable

@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_ohai_ipscopes.html"
+aliases = ["/deprecations_ohai_ipscopes.html", "/deprecations_ohai_ipscopes/"]
 +++
 
 Chef/Ohai 14 (April 2018) will remove the IpScopes plugin. The data

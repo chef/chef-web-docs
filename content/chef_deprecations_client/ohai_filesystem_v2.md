@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_ohai_filesystem_v2.html"
+aliases = ["/deprecations_ohai_filesystem_v2.html", "/deprecations_ohai_filesystem_v2/"]
 +++
 
 In Ohai/Chef Infra Client 13 we replaced the existing Filesystem plugin with

@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_epic_fail.html"
+aliases = ["/deprecations_epic_fail.html", "/deprecations_epic_fail/"]
 +++
 
 The original name for the `ignore_failure` property in resources was

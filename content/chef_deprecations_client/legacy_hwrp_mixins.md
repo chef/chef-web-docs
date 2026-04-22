@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_legacy_hwrp_mixins.html"
+aliases = ["/deprecations_legacy_hwrp_mixins.html", "/deprecations_legacy_hwrp_mixins/"]
 +++
 
 In Chef Infra Client 14 several legacy mixins will be removed. Usage of these

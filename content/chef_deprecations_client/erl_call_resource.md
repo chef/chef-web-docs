@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_erl_call_resource.html"
+aliases = ["/deprecations_erl_call_resource.html", "/deprecations_erl_call_resource/"]
 +++
 
 The erl_call resource was deprecated in Chef Infra Client 13.7 and removed

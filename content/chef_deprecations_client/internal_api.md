@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_internal_api.html"
+aliases = ["/deprecations_internal_api.html", "/deprecations_internal_api/"]
 +++
 
 During the lifecycle of a release, we realize that some APIs are no

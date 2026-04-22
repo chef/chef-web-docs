@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_property_name_collision.html"
+aliases = ["/deprecations_property_name_collision.html", "/deprecations_property_name_collision/"]
 +++
 
 A resource property, defined with the `property` method, conflicts with

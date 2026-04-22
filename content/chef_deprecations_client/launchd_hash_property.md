@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_launchd_hash_property.html"
+aliases = ["/deprecations_launchd_hash_property.html", "/deprecations_launchd_hash_property/"]
 +++
 
 The launchd resource has a property called `hash` which conflicts with

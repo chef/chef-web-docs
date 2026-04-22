@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_ohai_legacy_config.html"
+aliases = ["/deprecations_ohai_legacy_config.html", "/deprecations_ohai_legacy_config/"]
 +++
 
 Ohai 8.8.0 (Chef Infra Client 12.6.0) introduced a new Ohai configuration

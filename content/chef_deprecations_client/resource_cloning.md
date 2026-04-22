@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_resource_cloning.html"
+aliases = ["/deprecations_resource_cloning.html", "/deprecations_resource_cloning/"]
 +++
 
 Chef allows resources to be created with duplicate names, rather than

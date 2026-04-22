@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_ohai_v6_plugins.html"
+aliases = ["/deprecations_ohai_v6_plugins.html", "/deprecations_ohai_v6_plugins/"]
 +++
 
 Ohai 7.0 released with Chef Infra Client 11.12 introduced an improved plugin

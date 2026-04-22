@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_ohai_digitalocean.html"
+aliases = ["/deprecations_ohai_digitalocean.html", "/deprecations_ohai_digitalocean/"]
 +++
 
 Ohai's previous Digital Ocean plugin relied on hint data passed to Ohai

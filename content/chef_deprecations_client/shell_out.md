@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_shell_out.html"
+aliases = ["/deprecations_shell_out.html", "/deprecations_shell_out/"]
 +++
 
 The functionality of multiple legacy <span

@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_supports_property.html"
+aliases = ["/deprecations_supports_property.html", "/deprecations_supports_property/"]
 +++
 
 The `user` resource previously allowed a cookbook author to set policy

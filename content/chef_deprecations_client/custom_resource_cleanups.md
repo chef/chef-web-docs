@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_custom_resource_cleanups.html"
+aliases = ["/deprecations_custom_resource_cleanups.html", "/deprecations_custom_resource_cleanups/"]
 
 +++
 

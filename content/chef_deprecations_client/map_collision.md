@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_map_collision.html"
+aliases = ["/deprecations_map_collision.html", "/deprecations_map_collision/"]
 +++
 
 The resources referenced in the error message has been loaded from a

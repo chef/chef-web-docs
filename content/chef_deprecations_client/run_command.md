@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_run_command.html"
+aliases = ["/deprecations_run_command.html", "/deprecations_run_command/"]
 +++
 
 The old run_command API has been replaced by shell_out (a wrapper

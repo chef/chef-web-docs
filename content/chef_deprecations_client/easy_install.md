@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_easy_install.html"
+aliases = ["/deprecations_easy_install.html", "/deprecations_easy_install/"]
 +++
 
 The Python community recommends that users prefer `pip` rather than

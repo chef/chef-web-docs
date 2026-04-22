@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_ohai_sigar_plugins.html"
+aliases = ["/deprecations_ohai_sigar_plugins.html", "/deprecations_ohai_sigar_plugins/"]
 +++
 
 When Ohai was first released it depended on the sigar gem for

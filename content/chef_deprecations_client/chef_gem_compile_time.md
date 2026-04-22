@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_chef_gem_compile_time.html"
+aliases = ["/deprecations_chef_gem_compile_time.html", "/deprecations_chef_gem_compile_time/"]
 
 +++
 

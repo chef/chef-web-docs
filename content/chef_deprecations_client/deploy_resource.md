@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_deploy_resource.html"
+aliases = ["/deprecations_deploy_resource.html", "/deprecations_deploy_resource/"]
 +++
 
 The `deploy` and `deploy_revision` resources have been deprecated as of

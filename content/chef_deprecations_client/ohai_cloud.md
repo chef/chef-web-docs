@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_ohai_cloud.html"
+aliases = ["/deprecations_ohai_cloud.html", "/deprecations_ohai_cloud/"]
 +++
 
 In Ohai/Chef releases 13 we replaced the existing Cloud plugin with the

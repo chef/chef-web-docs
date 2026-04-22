@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_chocolatey_uninstall.html"
+aliases = ["/deprecations_chocolatey_uninstall.html", "/deprecations_chocolatey_uninstall/"]
 
 +++
 

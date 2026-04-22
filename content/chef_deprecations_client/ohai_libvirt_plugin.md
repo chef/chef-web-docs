@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_ohai_libvirt_plugin.html"
+aliases = ["/deprecations_ohai_libvirt_plugin.html", "/deprecations_ohai_libvirt_plugin/"]
 +++
 
 The Ohai libvirt plugin no longer places libvirt attributes under

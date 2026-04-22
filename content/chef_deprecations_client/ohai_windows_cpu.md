@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_ohai_windows_cpu.html"
+aliases = ["/deprecations_ohai_windows_cpu.html", "/deprecations_ohai_windows_cpu/"]
 +++
 
 The Windows Ohai plugin has been updated to correctly return CPU

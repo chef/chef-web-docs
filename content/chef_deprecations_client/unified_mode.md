@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_unified_mode.html"
+aliases = ["/deprecations_unified_mode.html", "/deprecations_unified_mode/"]
 +++
 
 {{< readfile file="content/reusable/md/unified_mode_overview.md" >}}

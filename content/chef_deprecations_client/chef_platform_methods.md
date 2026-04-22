@@ -5,7 +5,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 sitemapExclude = true
-aliases = "/deprecations_chef_platform_methods.html"
+aliases = ["/deprecations_chef_platform_methods.html", "/deprecations_chef_platform_methods/"]
 +++
 
 Several methods under `Chef::Platform` that were previously public APIs
