@@ -304,7 +304,7 @@ Bootstrap the nodes to update the `chef_server_url` using the following steps:
 1. Open the `~/.chef/config.rb` file in your workstation and update the `chef_server_url` with the chef-server-lb fqdn.
 1. Go to your workstation and open the `~/.chef/config.rb` file.
 1. Update the `chef_server_url` with the chef server LB fqdn.
-1. Now do node bootstrapping. It will update the chef_server_url on that node. Refer: [Node Bootstrapping](/install_bootstrap/)
+1. Now do node bootstrapping. It will update the chef_server_url on that node. Refer: [Node Bootstrapping](/client/latest/install/bootstrap/)
 
 ## Use Automate HA for Chef-Backend User
 
