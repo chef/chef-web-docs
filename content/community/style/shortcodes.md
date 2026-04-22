@@ -519,11 +519,7 @@ If you add a Markdown shortcode to a page using HTML shortcode delimiters, Hugo 
 
 A Markdown shortcode must be processed into HTML when Hugo builds the site.
 
-To include a Markdown shortcode in a page, wrap the name of the shortcode file, without the file type suffix, in between double curly braces and percent characters, `{{%/* SHORTCODE */%}}`. For example, if you wanted to add the [`chef.md`](https://github.com/chef/chef-web-docs/blob/main/layouts/shortcodes/chef.md) shortcode to a page, add the following text to the Markdown page:
-
-```markdown
-{{%/* chef */%}}
-```
+To include a Markdown shortcode in a page, wrap the name of the shortcode file, without the file type suffix, in between double curly braces and percent characters, `{{%/* SHORTCODE */%}}`.
 
 For shortcodes located in a repository other than chef-web-docs, use `{{%/* REPO_NAME/SHORTCODE */%}}`. For example:
 

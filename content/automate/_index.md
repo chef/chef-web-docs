@@ -80,7 +80,7 @@ Chef Automate includes data integrations for ServiceNow, Splunk, and ELK/Kibana.
 
 ### Learning
 
-- [Learn Chef: Secure Your Infrastructure with Chef Automate](https://learn.chef.io/courses/course-v1:chef+Automate101+Perpetual/about)
+- [Learn Chef: Secure Your Infrastructure with Chef Automate](https://www.chef.io/training/tutorials)
 - [Chef Automate webinars](https://www.chef.io/webinars?products=chef-automate&page=1)
 - [Resource Library](https://www.chef.io/resources?products=chef-automate&page=1)
 
@@ -93,8 +93,4 @@ Chef Automate includes data integrations for ServiceNow, Splunk, and ELK/Kibana.
 ### Support
 
 - [Chef Support](https://www.chef.io/support)
-- [Chef Help Center](https://supportlink.chef.io/s/topic/0TO4Q0000009cLrWAI/chef-automate)
-
-### GitHub Repositories
-
-- [chef/automate repository](https://github.com/chef/automate/)
+- [Chef Help Center](https://community.progress.com/s/products/chef)

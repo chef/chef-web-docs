@@ -64,7 +64,6 @@ Learn a bit about VSCode through Microsoft Learn Videos and tutorials.
 Install the extensions:
 
 - [Docs Authoring Pack](https://marketplace.visualstudio.com/items?itemName=docsmsft.docs-authoring-pack) (includes Code Street Spell and Markdownlint, adds some automatic configuration.)
-- [Grammarly](https://marketplace.visualstudio.com/items?itemName=znck.grammarly)
 - [Trailing Spaces](https://marketplace.visualstudio.com/items?itemName=shardulm94.trailing-spaces)
 - [Code Street Spell](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
 - [Markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
@@ -73,7 +72,6 @@ Install the extensions:
 - [YAML](https://marketplace.visualstudio.com/items?itemName=docsmsft.docs-yaml)
 - [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
 - [Chef Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=chef-software.Chef)
-- [LiveShare](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack)
 
 ### Code Spell Checker
 

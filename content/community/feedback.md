@@ -29,14 +29,14 @@ Use the feedback form at the bottom of this page for submitting general feedback
 about Chef's documentation.
 
 These forms aren't for customer support. If you need support,
-contact [Chef support](https://supportlink.chef.io/).
+contact [Chef support](https://www.chef.io/support/).
 
 ## Email
 
 Send an email to <chef-docs@progress.com> for documentation bugs,
 ideas, thoughts, and suggestions. This email address is
 not a support email address, however. If you need support,
-contact [Chef support](https://supportlink.chef.io/).
+contact [Chef support](https://www.chef.io/support/).
 
 ## GitHub issues
 

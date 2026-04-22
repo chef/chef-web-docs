@@ -57,11 +57,6 @@ community.
 
 - [Effective DevOps (Building a Culture of Collaboration, Affinity, and Tooling at Scale) - O'Reilly Media](http://shop.oreilly.com/product/0636920039846.do)
 - [Customizing Chef (Getting the Most Out of Your Infrastructure Automation) - O'Reilly Media](http://shop.oreilly.com/product/0636920032984.do)
-- [Chef: Powerful Infrastructure Automation - Packt Publishing](https://www.packtpub.com/virtualization-and-cloud/chef-powerful-infrastructure-automation)
-- [Chef Cookbook Third Edition - Packt Publishing](https://www.packtpub.com/networking-and-servers/chef-cookbook-third-edition)
-- [Learning Chef - Packt Publishing](https://www.packtpub.com/networking-and-servers/learning-chef)
-- [Chef Infrastructure Automation Cookbook Second Edition - Packt Publishing](https://www.packtpub.com/networking-and-servers/chef-infrastructure-automation-cookbook-second-edition/)
-- [Mastering Chef - Packt Publishing](https://www.packtpub.com/networking-and-servers/mastering-chef/)
 
 ## Supermarket
 
