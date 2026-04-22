@@ -19,7 +19,7 @@ summary = "Chef InSpec release notes"
 
 ## Chef InSpec 7.0.109
 
-Release date: April 14th, 2026
+Release date: April 30th, 2026
 
 ### Key features
 
@@ -47,6 +47,7 @@ Release date: April 14th, 2026
 
 - Updated `addressable` gem from `2.4` to `2.9.0`. ([#7833](https://github.com/inspec/inspec/pull/7833))
 - Updated `json` gem from `>= 1.8` to `2.19.2`. (train [#829](https://github.com/inspec/train/pull/829))
+- Updated `activesupport` gem from `>= 7.2.2.1` to `>= 7.2.3.1`. (train [#830](https://github.com/inspec/train/pull/830))
 
 ## Chef InSpec 7.0.107
 
