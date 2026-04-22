@@ -826,6 +826,12 @@ weight = 10
     pageRef = "/install/config_rb_solo/"
     weight = 100
 
+    [[client_18]]
+    title = "Chef Infra Client deprecations"
+    identifier = "reference/deprecations"
+    parent = "reference"
+    pageRef = "/chef_deprecations_client/"
+
 ####
 # End Chef Infra Client 18 Menu
 ####
@@ -1047,6 +1053,12 @@ weight = 130
     parent = "reference"
     url = "/install/config_rb_solo/"
     weight = 100
+
+    [[client_19]]
+    title = "Chef Infra Client deprecations"
+    identifier = "reference/deprecations"
+    parent = "reference"
+    pageRef = "/chef_deprecations_client/"
 
 ####
 # Chef Cloud Menu
