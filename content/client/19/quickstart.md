@@ -46,5 +46,5 @@ This creates a file named `test.txt` at the home path on your computer. Open tha
 
 There's a lot more that Chef Infra can do, obviously, but that was super easy!
 
-- See <https://learn.chef.io/> for more detailed setup scenarios.
+- See [LearnChef Tutorials](https://www.chef.io/training/tutorials) for more detailed setup scenarios.
 - Keep reading for more information about setting up a workstation, configuring Test Kitchen to run virtual environments, setting up a more detailed cookbook, resources, and more.

@@ -12,31 +12,31 @@ resource_description_list:
 
     For more information about specific resources for specific platforms,
     see the following topics:
-    - apt_package resource
-    - bff_package resource
-    - cab_package resource
-    - chef_gem resource
-    - chocolatey_package resource
-    - dmg_package resource
-    - dnf_package resource
-    - dpkg_package resource
-    - freebsd_package resource
-    - gem_package resource
-    - homebrew_package resource
-    - ips_package resource
-    - macports_package resource
-    - msu_package resource
-    - openbsd_package resource
-    - pacman_package resource
-    - paludis_package resource
-    - portage_package resource
-    - rpm_package resource
-    - smartos_package resource
-    - snap_package resource
-    - solaris_package resource
-    - windows_package resource
-    - yum_package resource
-    - zypper_package resource
+    - [/client/18/resources/bundled/apt_package/](apt_package resource)
+    - [/client/18/resources/bundled/bff_package/](bff_package resource)
+    - [/client/18/resources/bundled/cab_package/](cab_package resource)
+    - [/client/18/resources/bundled/chef_gem/](chef_gem resource)
+    - [/client/18/resources/bundled/chocolatey_package/](chocolatey_package resource)
+    - [/client/18/resources/bundled/dmg_package/](dmg_package resource)
+    - [/client/18/resources/bundled/dnf_package/](dnf_package resource)
+    - [/client/18/resources/bundled/dpkg_package/](dpkg_package resource)
+    - [/client/18/resources/bundled/freebsd_package/](freebsd_package resource)
+    - [/client/18/resources/bundled/gem_package/](gem_package resource)
+    - [/client/18/resources/bundled/homebrew_package/](homebrew_package resource)
+    - [/client/18/resources/bundled/ips_package/](ips_package resource)
+    - [/client/18/resources/bundled/macports_package/](macports_package resource)
+    - [/client/18/resources/bundled/msu_package/](msu_package resource)
+    - [/client/18/resources/bundled/openbsd_package/](openbsd_package resource)
+    - [/client/18/resources/bundled/pacman_package/](pacman_package resource)
+    - [/client/18/resources/bundled/paludis_package/](paludis_package resource)
+    - [/client/18/resources/bundled/portage_package/](portage_package resource)
+    - [/client/18/resources/bundled/rpm_package/](rpm_package resource)
+    - [/client/18/resources/bundled/smartos_package/](smartos_package resource)
+    - [/client/18/resources/bundled/snap_package/](snap_package resource)
+    - [/client/18/resources/bundled/solaris_package/](solaris_package resource)
+    - [/client/18/resources/bundled/windows_package/](windows_package resource)
+    - [/client/18/resources/bundled/yum_package/](yum_package resource)
+    - [/client/18/resources/bundled/zypper_package/](zypper_package resource)
 syntax_description: |
   A **package** resource block manages a package on a node, typically by
   installing it. The simplest use of the **package** resource is:

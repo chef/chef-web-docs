@@ -122,6 +122,16 @@
 ####
 
 [[redirects]]
+  from = "/deprecations_*"
+  to = "/chef_deprecations_client/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/resources/*"
+  to = "/client/19/resources/bundled/:splat"
+  status = 301
+
+[[redirects]]
   from = "/client/19.1/*"
   to = "/client/19/:splat"
   status = 301
@@ -130,6 +140,8 @@
   from = "/client/latest/*"
   to = "/client/19/:splat"
   status = 301
+
+
 
 ####
 # Chef InSpec redirects
