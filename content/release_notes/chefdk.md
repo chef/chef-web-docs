@@ -457,10 +457,10 @@ With the addition of these new departments, we've moved many cops out of the Che
 
 kitchen-azurerm has been updated from 0.14.9 to 0.15.1 with the following improvements:
 
-- Enable the WinRM HTTP listener by default. Thanks [@sean-nixon](https//github.com/sean-nixon)
+- Enable the WinRM HTTP listener by default. Thanks [@sean-nixon](https://github.com/sean-nixon)
 - Allow overriding of the `subscription_id` by setting the `AZURE_SUBSCRIPTION_ID` ENV variable.
-- Add a new `nic_name` config. Thanks [@libertymutual](https//github.com/libertymutual)
-- Support for creating VM with Azure KeyVault certificate. Thanks [@javgallegos](https//github.com/javgallegos)
+- Add a new `nic_name` config. Thanks [@libertymutual](https://github.com/libertymutual)
+- Support for creating VM with Azure KeyVault certificate. Thanks [@javgallegos](https://github.com/javgallegos)
 
 #### kitchen-dokken
 
@@ -1550,13 +1550,13 @@ kitchen-azurerm has been updated from 0.14.9 to 0.15.1 with the
 following improvements:
 
 - Enable the WinRM HTTP listener by default. Thanks
-    [@sean-nixon](https//github.com/sean-nixon)
+    [@sean-nixon](https://github.com/sean-nixon)
 - Allow overriding of the `subscription_id` by setting the
     `AZURE_SUBSCRIPTION_ID` ENV variable.
 - Add a new `nic_name` config. Thanks
-    [@libertymutual](https//github.com/libertymutual)
+    [@libertymutual](https://github.com/libertymutual)
 - Support for creating VM with Azure KeyVault certificate. Thanks
-    [@javgallegos](https//github.com/javgallegos)
+    [@javgallegos](https://github.com/javgallegos)
 
 #### kitchen-dokken
 
@@ -2803,7 +2803,7 @@ in libraries.
 Berkshelf adds support for two new sources:
 
 - Artifactory: source artifactory:
-    '<https://myserver/api/chef/chef-virtual>'
+    `https://myserver/api/chef/chef-virtual`
 - Chef Repo: source chef_repo: '.'
 
 ### Chef Vault 3.1

@@ -124,7 +124,7 @@ done
 
 ## Installing the Latest Automate HA
 
-Follow [Automate HA installation documentation](/automate/ha_on_prem_deployment_procedure/) to know more about `config.toml` file and **provide** the same IPs and backup config in config.toml as in the  `a2ha.rb` file.
+Follow [Automate HA installation documentation](/automate/ha_on_premises_deployment_procedure/) to know more about `config.toml` file and **provide** the same IPs and backup config in config.toml as in the  `a2ha.rb` file.
 
 ## File System backup configuration
 
