@@ -42,7 +42,7 @@
           - content/release_notes/client.md
           - static/images/client/**
           - data/infra/**
-          - content/deprecations/**
+          - content/chef_deprecations_client/**
 "Component: Chef Infra Server":
   - changed-files:
       - any-glob-to-any-file:
