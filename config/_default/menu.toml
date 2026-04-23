@@ -977,14 +977,14 @@ weight = 120
     title = "Custom handlers"
     identifier = "extension_apis/handlers/handlers.md#custom-handlers Custom Handlers"
     parent = "extension_apis/handlers"
-    url = "/features/handlers/#custom-handlers"
+    url = "/client/19/features/handlers/#custom-handlers"
     weight = 10
 
     [[client_19]]
     title = "Community handlers"
     identifier = "extension_apis/handlers/plugin_community.md#handlers Community Handlers"
     parent = "extension_apis/handlers"
-    url = "/extension_apis/community_plugins/#handlers"
+    url = "/client/19/extension_apis/community_plugins/#handlers"
     weight = 30
 
   [[client_19]]
@@ -1002,21 +1002,21 @@ weight = 130
     title = "chef-solo (executable)"
     identifier = "reference/ctl_chef_solo.md chef-solo (executable)"
     parent = "reference"
-    url = "/features/chef_solo/ctl_chef_solo/"
+    url = "/client/19/features/chef_solo/ctl_chef_solo/"
     weight = 20
 
     [[client_19]]
     title = "Handler DSL"
     identifier = "reference/dsl_handler.md Handler Commands"
     parent = "reference"
-    url = "/extension_apis/dsl_handler/"
+    url = "/client/19/extension_apis/dsl_handler/"
     weight = 40
 
     [[client_19]]
     title = "ohai (executable)"
     identifier = "reference/ctl_ohai.md ohai (executable)"
     parent = "reference"
-    url = "/features/ohai/ctl_ohai/"
+    url = "/client/19/features/ohai/ctl_ohai/"
     weight = 50
 
     [[client_19]]
@@ -1030,28 +1030,28 @@ weight = 130
     title = "client.rb"
     identifier = "reference/config_rb_client.md client.rb"
     parent = "reference"
-    url = "/install/config_rb_client/"
+    url = "/client/19/install/config_rb_client/"
     weight = 70
 
     [[client_19]]
     title = "metadata.rb"
     identifier = "reference/config_rb_metadata.md metadata.rb"
     parent = "reference"
-    url = "/cookbooks/config_rb_metadata/"
+    url = "/client/19/cookbooks/config_rb_metadata/"
     weight = 80
 
     [[client_19]]
     title = "Policyfile.rb"
     identifier = "reference/config_rb_policyfile.md Policyfile.rb"
     parent = "reference"
-    url = "/policy/config_rb_policyfile/"
+    url = "/client/19/policy/config_rb_policyfile/"
     weight = 90
 
     [[client_19]]
     title = "solo.rb"
     identifier = "reference/config_rb_solo.md solo.rb"
     parent = "reference"
-    url = "/install/config_rb_solo/"
+    url = "/client/19/features/chef_solo/config_rb_solo/"
     weight = 100
 
     [[client_19]]

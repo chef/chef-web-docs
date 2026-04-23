@@ -13,4 +13,4 @@ The types of attributes Ohai collects include but aren't limited to:
 - Virtualization
 - Cloud provider metadata
 
-Ohai includes required and optional plugins to detect common configuration information. Ohai has a plugin model and language to write [custom plugins](/extension_apis/custom_plugins/) to collect additional system state information.
+Ohai includes required and optional plugins to detect common configuration information. Ohai has a plugin model and language to write [custom plugins](/client/18/extension_apis/custom_plugins/) to collect additional system state information.

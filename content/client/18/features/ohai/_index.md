@@ -198,7 +198,7 @@ windows
 
 ## Optional Plugins
 
-Ohai ships several optional plugins that you can enable in the [client.rb configuration file](/install/config_rb_client/).
+Ohai ships several optional plugins that you can enable in the [client.rb configuration file](/client/18/install/config_rb_client/).
 
  `:Grub2`
 : Information from the Linux Grub2 bootloader
@@ -227,7 +227,7 @@ Ohai ships several optional plugins that you can enable in the [client.rb config
 
 ### Enabling Optional Plugins
 
-Optional plugins can be enabled in the [client.rb configuration file](/install/config_rb_client/):
+Optional plugins can be enabled in the [client.rb configuration file](/client/18/install/config_rb_client/):
 
 ```ruby
 ohai.optional_plugins = [
@@ -250,7 +250,7 @@ The Ohai optional_plugins config array must contain an array of plugin names as 
 
 ## Custom Plugins
 
-Custom Ohai plugins can be written to collect additional information from systems as necessary. See the [Ohai Custom Plugins](/extension_apis/custom_plugins/) docs for more information.
+Custom Ohai plugins can be written to collect additional information from systems as necessary. See the [Ohai Custom Plugins](/client/18/extension_apis/custom_plugins/) docs for more information.
 
 ## Hints
 
@@ -274,11 +274,11 @@ else
 end
 ```
 
-Hint files are located in the `/etc/chef/ohai/hints/` directory by default. Use the `Ohai.config[:hints_path]` setting in the [client.rb configuration file](/install/config_rb_client/) to customize this location.
+Hint files are located in the `/etc/chef/ohai/hints/` directory by default. Use the `Ohai.config[:hints_path]` setting in the [client.rb configuration file](/client/18/install/config_rb_client/) to customize this location.
 
 ## `ohai` Resource
 
-Chef Infra Client includes an `ohai` resource that allows you to reload the Ohai data on a node. This allows recipes or resources that change system attributes (like a recipe that adds a user) to refer to those attributes later on during a Chef Infra Client run. See the [ohai resource](/resources/bundled/ohai) for complete usage information.
+Chef Infra Client includes an `ohai` resource that allows you to reload the Ohai data on a node. This allows recipes or resources that change system attributes (like a recipe that adds a user) to refer to those attributes later on during a Chef Infra Client run. See the [ohai resource](/client/18/resources/bundled/ohai) for complete usage information.
 
 ## ohai Command Line Tool
 

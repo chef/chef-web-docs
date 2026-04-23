@@ -328,7 +328,7 @@ Supermarket.
 Define the attributes for the Chef Supermarket installation and how it
 connects to Chef Infra Server. One approach would be to hard-code
 attributes in the wrapper cookbook's `default.rb` recipe. A better
-approach is to place these attributes in a [data bag](/policy/data_bags/),
+approach is to place these attributes in a [data bag](/client/18/policy/data_bags/),
 and then reference them from the recipe. For example, the data bag could
 be named `apps` and then a data bag item within the data bag could be
 named `supermarket`. The following attributes are required:

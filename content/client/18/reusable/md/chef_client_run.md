@@ -9,7 +9,7 @@ During every Chef Infra Client run, the following happens:
 
 1. **Get configuration data**
 
-   Chef Infra Client gets process configuration data from the [`client.rb`](/install/config_rb_client/) file on the [node](/overview/nodes/) and then gets node configuration data from Ohai.
+   Chef Infra Client gets process configuration data from the [`client.rb`](/client/18/install/config_rb_client/) file on the [node](/client/18/overview/nodes/) and then gets node configuration data from Ohai.
    The node name is an important piece of configuration data.
    Chef Infra Client gets the node name from the `node_name` attribute in the `client.rb` file or from Ohai.
    If Ohai provides the node name, it's typically the FQDN for the node, which is always unique within an organization.
@@ -30,11 +30,11 @@ During every Chef Infra Client run, the following happens:
 
 1. **Expand the run-list**
 
-   Chef Infra Client expands the [run-list](/policy/run_lists/) from the rebuilt node object and compiles a complete list of recipes in the exact order that they will be applied to the node.
+   Chef Infra Client expands the [run-list](/client/18/policy/run_lists/) from the rebuilt node object and compiles a complete list of recipes in the exact order that they will be applied to the node.
 
 1. **Synchronize cookbooks**
 
-   Chef Infra Client requests all the [cookbook files](/cookbooks/) (including recipes, templates, resources, providers, attributes, and libraries) that it needs for every action identified in the run-list from Chef Infra Server.
+   Chef Infra Client requests all the [cookbook files](/client/18/cookbooks/) (including recipes, templates, resources, providers, attributes, and libraries) that it needs for every action identified in the run-list from Chef Infra Server.
    Chef Infra Server responds to Chef Infra Client with the complete list of files.
    Chef Infra Client compares the list of files to the files that already exist on the node from previous runs and then downloads a copy of every new or modified file from Chef Infra Server.
 

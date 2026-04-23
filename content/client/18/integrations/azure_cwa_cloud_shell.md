@@ -20,7 +20,7 @@ Chef Workstation on Azure Cloud Shell lets you use:
 
 - [chef](https://docs.chef.io/workstation/25/tools/ctl_chef/)
 - [kitchen](https://docs.chef.io/workstation/25/tools/kitchen/ctl_kitchen/)
-- [inspec](https://docs.chef.io/inspec/latest/cli/)
+- [inspec](https://docs.chef.io/inspec/latest/reference/cli/)
 - [knife](https://docs.chef.io/workstation/25/tools/knife/)
 - [cookstyle](https://docs.chef.io/workstation/cookstyle/)
 - [chef-run](https://docs.chef.io/workstation/25/tools/)

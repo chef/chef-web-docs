@@ -88,13 +88,13 @@ You can use Chef Infra Client to automate infrastructure management tasks:
 
 ## Related content
 
-- [Chef Infra Client (executable)](/reference/ctl_chef_client/)
+- [Chef Infra Client (executable)](/client/18/reference/ctl_chef_client/)
 - [Chef Infra Server](/server/)
-- [Cookbooks](/cookbooks/)
-- [Nodes](/overview/nodes/)
-- [Run Lists](/policy/run_lists/)
+- [Cookbooks](/client/18/cookbooks/)
+- [Nodes](/client/18/overview/nodes/)
+- [Run Lists](/client/18/policy/run_lists/)
 
 ## Next steps
 
-- [Install Chef Workstation](https://docs.chef.io/workstation/25/install/)
+- [Install Chef Workstation](/workstation/25/install/)
 - [Bootstrap Nodes](/client/18/install/install_bootstrap/)

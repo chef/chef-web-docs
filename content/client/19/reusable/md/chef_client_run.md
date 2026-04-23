@@ -34,7 +34,7 @@ During every Chef Infra Client run, the following happens:
 
 1. **Synchronize cookbooks**
 
-   Chef Infra Client requests all the [cookbook files](/cookbooks/) (including recipes, templates, resources, providers, attributes, and libraries) that it needs for every action identified in the run-list from Chef Infra Server.
+   Chef Infra Client requests all the [cookbook files](/client/19/cookbooks/) (including recipes, templates, resources, providers, attributes, and libraries) that it needs for every action identified in the run-list from Chef Infra Server.
    Chef Infra Server responds to Chef Infra Client with the complete list of files.
    Chef Infra Client compares the list of files to the files that already exist on the node from previous runs and then downloads a copy of every new or modified file from Chef Infra Server.
 

@@ -651,7 +651,7 @@ init systems.
 
 **System Requirements**
 
-The Chef Infra Client has the [same system requirements](/install/system_requirements/#chef-infra-client-requirements) on the AIX platform as any other platform, with the following notes:
+The Chef Infra Client has the [same system requirements](/client/18/install/system_requirements/#chef-infra-client-requirements) on the AIX platform as any other platform, with the following notes:
 
 - Expand the file system on the AIX platform using `chfs` or by
     passing the `-X` flag to `installp` to automatically expand the
@@ -866,7 +866,7 @@ end
 
 ## Configuring a Proxy Server
 
-See the [proxies](/install/proxies/) documentation for information on how to
+See the [proxies](/client/18/install/proxies/) documentation for information on how to
 configure Chef Infra Client to use a proxy server.
 
 ## Examples
