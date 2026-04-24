@@ -1,7 +1,7 @@
 +++
 title = "Chef Infra Client release notes"
 draft = false
-product = ["client"]
+swiftype_search_products = ["client"]
 linkTitle = "Chef Infra Client"
 summary = "Chef Infra Client release notes"
 

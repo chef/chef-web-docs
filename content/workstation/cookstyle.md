@@ -8,7 +8,7 @@ gh_repo = "chef-workstation"
 aliases = ["/cookstyle/"]
 
 [cascade]
-  product = ["workstation"]
+  swiftype_search_products = ["workstation"]
 
 [menu]
   [menu.workstation]

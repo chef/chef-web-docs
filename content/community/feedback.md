@@ -3,7 +3,7 @@ title = "Send feedback"
 draft = false
 gh_repo = "chef-web-docs"
 
-product = []
+swiftype_search_products = []
 
 [menu]
   [menu.overview]

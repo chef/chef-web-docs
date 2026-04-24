@@ -5,8 +5,8 @@ summary = "Chef Infra Client v 19"
 
 [cascade]
   [cascade.params]
-    product = ["client-19"]
-    product_versions_key = "client"
+    swiftype_search_products = ["client-19"]
+    version_selector_product = "client"
     version_selector = true
     this_version_text = "Chef Infra Client 19"
     section_root = "/client/19"

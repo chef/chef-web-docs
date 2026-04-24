@@ -6,7 +6,7 @@ gh_repo = "chef-web-docs"
 aliases = ["/downloads"]
 
 [cascade]
-  product = []
+  swiftype_search_products = []
 
 [menu]
   [menu.overview]

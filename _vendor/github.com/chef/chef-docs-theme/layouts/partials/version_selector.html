@@ -17,19 +17,23 @@
     {{- errorf "The content section params in %s requires a path defined in section_root." $page_path -}}
   {{- end -}}
 
-  {{- $product_versions_key := .Params.product_versions_key -}}
+  {{- $version_selector_product := .Params.version_selector_product -}}
 
-  {{- if not $product_versions_key  -}}
-    {{- errorf "The content section params in %s requires a product_versions_key to generate the version selector."  $page_path -}}
+  {{- if not $version_selector_product  -}}
+    {{- errorf "The content section params in %s requires a version_selector_product to generate the version selector."  $page_path -}}
   {{- end -}}
 
-  {{- $versions_list = index .Site.Params.versions $product_versions_key -}}
+  {{- $versions_list = index .Site.Params.versions $version_selector_product -}}
   {{- $this_version_text = .Params.this_version_text -}}
 
   {{- if not $this_version_text -}}
     {{- errorf "The content section params in %s requires a version string defined in this_version_text." $page_path -}}
   {{- end -}}
 
+{{- end -}}
+
+{{- if not $versions_list -}}
+  {{- errorf "The version selector in %s requires a non-empty versions list. Check your version_selector_product or versions.version_selector.versions config." $page_path -}}
 {{- end -}}
 
 <div class="version-select">

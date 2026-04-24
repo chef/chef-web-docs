@@ -3,7 +3,7 @@ title = "Organizations and Groups"
 draft = false
 gh_repo = "chef-web-docs"
 
-product = ["client", "server"]
+swiftype_search_products = ["client", "server"]
 
 [menu]
   [menu.legacy]

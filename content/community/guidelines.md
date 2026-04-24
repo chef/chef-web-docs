@@ -3,7 +3,7 @@ title = "Chef Contributor Covenant Code of Conduct"
 draft = false
 gh_repo = "chef-web-docs"
 
-product = []
+swiftype_search_products = []
 
 [menu]
   [menu.overview]

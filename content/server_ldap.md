@@ -3,7 +3,7 @@ title = "Active Directory and LDAP"
 draft = false
 gh_repo = "chef-web-docs"
 
-product = ["server"]
+swiftype_search_products = ["server"]
 
 [menu]
   [menu.legacy]

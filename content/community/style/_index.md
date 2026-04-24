@@ -4,7 +4,7 @@ draft = false
 gh_repo = "chef-web-docs"
 
 [cascade]
-  product = []
+  swiftype_search_products = []
 
 [menu]
   [menu.overview]

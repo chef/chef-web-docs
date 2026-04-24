@@ -7,9 +7,9 @@ summary = "Chef Infra Client v 18"
   [cascade.params]
     breadcrumbs = true
     st_robots = ''
-    product = ["client-18"]
+    swiftype_search_products = ["client-18"]
     version_selector = true
-    product_versions_key = "client"
+    version_selector_product = "client"
     section_root = "/client/18"
     menu_id = "client_18"
     this_version_text = "Chef Infra Client 18"
