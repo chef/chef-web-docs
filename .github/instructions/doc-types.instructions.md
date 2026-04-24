@@ -252,41 +252,43 @@ If the concept has multiple types, versions, or similar alternatives, include a 
 **Purpose**: Communicate new features, improvements, bug fixes, and known issues to stakeholders. Release notes are customer-facing---use plain language, not developer-facing changelog language. Written for both technical and non-technical readers.
 
 ```markdown
-# Release notes---v<version> (<YYYY-MM-DD>)
+## <PRODUCT> <VERSION>
+
+Release date: <MONTH> <DAY>, <YEAR>
 
 (Optional) One to two sentences highlighting the most important items in this release.
 
-## Breaking changes (include if present---always lead with this section)
+### Breaking changes (include if present---always lead with this section)
 
 > **Warning:** The following changes require action before upgrading.
 
 - **<Change name>**: What changed, what the reader must do, and a link to the migration guide.
 
-## New features
+### New features
 
 - **<Feature name>**: What the feature does and how it benefits the reader.
   See [<feature docs>](<link>) for more information.
 
-## New features requiring configuration updates
+### New features requiring configuration updates
 
 - **<Feature name>**: What the feature does. To use this feature, you must <describe the required config>.
   See [<feature docs>](<link>) for configuration steps.
 
-## Improvements
+### Improvements
 
 - **<Area or feature>**: What was added, updated, or removed and the benefit to the reader.
 
-## Bug fixes
+### Bug fixes
 
 - **[<issue-id>](<link>) <Short description>**: <What the software now does correctly>.
   See [<docs link>](<link>) for more information.
 
-## Known issues
+### Known issues
 
 - **[<issue-id>](<link>) <Short description>**: <What happens and in what scenario>.
   Workaround: <Steps to work around the issue, if available>.
 
-## Deprecated features (optional)
+### Deprecated features (optional)
 
 - **<Feature name>**: <Feature> will be removed in <version or date>.
   <Replacement feature> replaces it. The system will <describe data migration if applicable>.
