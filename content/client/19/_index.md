@@ -15,10 +15,8 @@ summary = "Chef Infra Client v 19"
     st_robots = ''
 
 [menu.client_19]
-    title = "Chef Infra Client"
-    identifier = "overview/Client Overview"
-    parent = "overview"
-    weight = 10
+  title = "Chef Infra Client"
+  weight = 1
 +++
 
 Chef Infra Client is an agent that runs locally on every node that's under management by Chef Infra Server.

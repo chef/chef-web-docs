@@ -643,12 +643,12 @@ weight = 10
 [[client_18]]
 title = "Install"
 identifier = "install"
-weight = 10
+weight = 20
 
 [[client_18]]
 title = "Features"
 identifier = "features"
-weight = 10
+weight = 30
 
   [[client_18]]
   title = "Agentless"
@@ -668,7 +668,7 @@ weight = 10
 [[client_18]]
 title = "Integrations"
 identifier = "integrations"
-weight = 10
+weight = 40
 
   [[client_18]]
   title = "Azure"
@@ -683,17 +683,17 @@ weight = 10
 [[client_18]]
 title = "Policy"
 identifier = "policy"
-weight = 10
+weight = 50
 
 [[client_18]]
 title = "Security"
 identifier = "security"
-weight = 10
+weight = 60
 
 [[client_18]]
 title = "Cookbooks"
 identifier = "cookbooks"
-weight = 10
+weight = 70
 
   [[client_18]]
   title = "Attributes"
@@ -710,12 +710,12 @@ weight = 10
 [[client_18]]
 title = "Infra language"
 identifier = "infra_language"
-weight = 10
+weight = 80
 
 [[client_18]]
 title = "Resources"
 identifier = "resources"
-weight = 10
+weight = 90
 
   [[client_18]]
   title = "Bundled resources"
@@ -730,13 +730,13 @@ weight = 10
 [[client_18]]
 title = "Extension APIs"
 identifier = "extension_apis"
-weight = 10
+weight = 100
 
   [[client_18]]
   title = "Compliance DSL"
   identifier = "extension_apis/inspec/dsl_inspec/ Compliance DSL"
   parent = "extension_apis"
-  pageRef = "/inspec/latest/profiles/controls/"
+  url = "https://docs.chef.io/inspec/latest/profiles/controls/"
   weight = 20
 
   [[client_18]]
@@ -749,14 +749,14 @@ weight = 10
     title = "Custom handlers"
     identifier = "extension_apis/handlers/handlers.md#custom-handlers Custom Handlers"
     parent = "extension_apis/handlers"
-    pageRef = "/features/handlers/#custom-handlers"
+    url = "/client/18/features/handlers/#custom-handlers"
     weight = 10
 
     [[client_18]]
     title = "Community handlers"
     identifier = "extension_apis/handlers/plugin_community.md#handlers Community Handlers"
     parent = "extension_apis/handlers"
-    pageRef = "/extension_apis/community_plugins/#handlers"
+    url = "/client/18/extension_apis/community_plugins/#handlers"
     weight = 30
 
   [[client_18]]
@@ -768,69 +768,69 @@ weight = 10
 [[client_18]]
 title = "Reference"
 identifier = "reference"
-weight = 10
+weight = 110
 
     [[client_18]]
     title = "chef-solo (executable)"
     identifier = "reference/ctl_chef_solo.md chef-solo (executable)"
     parent = "reference"
-    pageRef = "/features/chef_solo/ctl_chef_solo/"
+    url = "/client/18/features/chef_solo/ctl_chef_solo/"
     weight = 20
 
     [[client_18]]
     title = "Handler DSL"
     identifier = "reference/dsl_handler.md Handler Commands"
     parent = "reference"
-    pageRef = "/extension_apis/dsl_handler/"
+    url = "/client/18/extension_apis/dsl_handler/"
     weight = 40
 
     [[client_18]]
     title = "ohai (executable)"
     identifier = "reference/ctl_ohai.md ohai (executable)"
     parent = "reference"
-    pageRef = "/features/ohai/ctl_ohai/"
+    url = "/client/18/features/ohai/ctl_ohai/"
     weight = 50
 
     [[client_18]]
     title = "supermarket-ctl"
     identifier = "supermarket/reference/ctl_supermarket.md supermarket-ctl"
     parent = "reference"
-    pageRef = "/supermarket/ctl_supermarket/"
+    url = "https://docs.chef.io/supermarket/ctl_supermarket/"
     weight = 60
 
     [[client_18]]
     title = "client.rb"
     identifier = "reference/config_rb_client.md client.rb"
     parent = "reference"
-    pageRef = "/install/config_rb_client/"
+    url = "/client/18/install/config_rb_client/"
     weight = 70
 
     [[client_18]]
     title = "metadata.rb"
     identifier = "reference/config_rb_metadata.md metadata.rb"
     parent = "reference"
-    pageRef = "/cookbooks/config_rb_metadata/"
+    url = "/client/18/cookbooks/config_rb_metadata/"
     weight = 80
 
     [[client_18]]
     title = "Policyfile.rb"
     identifier = "reference/config_rb_policyfile.md Policyfile.rb"
     parent = "reference"
-    pageRef = "/policy/config_rb_policyfile/"
+    url = "/client/18/policy/config_rb_policyfile/"
     weight = 90
 
     [[client_18]]
     title = "solo.rb"
     identifier = "reference/config_rb_solo.md solo.rb"
     parent = "reference"
-    pageRef = "/install/config_rb_solo/"
+    url = "/client/18/features/chef_solo/config_rb_solo/"
     weight = 100
 
     [[client_18]]
     title = "Chef Infra Client deprecations"
     identifier = "reference/deprecations"
     parent = "reference"
-    pageRef = "/chef_deprecations_client/"
+    url = "/chef_deprecations_client/"
 
 ####
 # End Chef Infra Client 18 Menu
@@ -1058,7 +1058,7 @@ weight = 130
     title = "Chef Infra Client deprecations"
     identifier = "reference/deprecations"
     parent = "reference"
-    pageRef = "/chef_deprecations_client/"
+    url = "/chef_deprecations_client/"
 
 ####
 # Chef Cloud Menu
