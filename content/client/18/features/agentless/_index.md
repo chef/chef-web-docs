@@ -6,7 +6,7 @@ draft = false
   [menu.client_18]
     identifier = "features/agentless/About"
     parent = "features/agentless"
-    weight = 30
+    weight = 10
 +++
 
 {{< readfile file="content/client/18/reusable/md/agentless_summary.md" >}}
