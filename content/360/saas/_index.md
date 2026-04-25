@@ -4,7 +4,7 @@ linkTitle = "Chef 360 SaaS"
 
 [cascade]
   [cascade.params]
-    product = ['chef-360-saas']
+    swiftype_search_products = ['chef-360-saas']
 
 [menu.cloud]
 title = "Overview"

@@ -1,0 +1,65 @@
+---
+title: chef_data_bag resource
+resource: chef_data_bag
+aliases:
+- /resource_chef_data_bag.html
+menu:
+  infra:
+    title: chef_data_bag
+    identifier: chef_infra/resources/chef_data_bag chef_data_bag
+    parent: chef_infra/resources
+
+resource_reference: true
+resource_description_list:
+- shortcode: data_bag.md
+- markdown: Use the **chef_data_bag** resource to manage data bags.
+syntax_description: "The syntax for using the **chef_data_bag** resource in a recipe\
+  \ is as\nfollows:\n\n```ruby\nchef_data_bag 'name' do\n  attribute 'value' # see\
+  \ properties section below\n  ...\n  action :action # see actions section below\n\
+  end\n```"
+syntax_properties_list:
+- '`chef_data_bag` tells Chef Infra Client to use the `Chef::Provider::ChefDataBag`
+  provider during a Chef Infra Client run'
+- '`name` is the name of the resource block and also the name of the data bag'
+- '`attribute` is zero (or more) of the properties that are available for this resource'
+- '`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state'
+actions_list:
+  :create:
+    markdown: (default) Use to create a data bag.
+  :delete:
+    markdown: Use to delete a data bag.
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+properties_list:
+- property: chef_server
+  ruby_type: null
+  required: false
+  description_list:
+  - markdown: The URL for the Chef Infra Server.
+- property: ignore_failure
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  description_list:
+  - markdown: Continue running a recipe if a resource fails for any reason.
+- property: name
+  ruby_type: null
+  required: false
+  description_list:
+  - markdown: The name of the data bag.
+- property: notifies
+  ruby_type: Symbol, Chef::Resource\[String\]
+  required: false
+  description_list:
+  - shortcode: resources_common_notification_notifies.md
+  - shortcode: resources_common_notification_timers.md
+  - shortcode: resources_common_notification_notifies_syntax.md
+- property: subscribes
+  ruby_type: Symbol, Chef::Resource\[String\]
+  required: false
+  description_list:
+  - shortcode: resources_common_notification_subscribes.md
+  - shortcode: resources_common_notification_timers.md
+  - shortcode: resources_common_notification_subscribes_syntax.md
+

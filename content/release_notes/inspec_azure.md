@@ -1,7 +1,7 @@
 +++
 title = "Chef InSpec Azure Cloud Resource release notes"
 draft = false
-product = ["inspec"]
+swiftype_search_products = ["inspec"]
 linkTitle = "Chef InSpec Azure Cloud Resource"
 summary = "Chef InSpec Azure Cloud Resource release notes"
 

@@ -1,0 +1,1 @@
+A Policyfile is a way to create immutable collections of cookbooks, cookbook dependencies, and attributes defined in a single document that's uploaded to Chef Infra Server. The Policyfile is then associated with a group of nodes. When these nodes perform a Chef Infra Client run, they utilize recipes specified in the Policyfile.

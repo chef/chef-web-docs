@@ -2,7 +2,7 @@
 title = "Test Page"
 draft = false
 robots = "noindex"
-product = []
+swiftype_search_products = []
 
 +++
 

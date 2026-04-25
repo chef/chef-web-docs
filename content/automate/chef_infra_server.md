@@ -85,7 +85,7 @@ To access these components for an organization, select **Chef Infra Servers > Or
 
 ### Cookbooks
 
-A [cookbook]({{< relref "cookbooks" >}}) is the fundamental unit of configuration and policy distribution. A cookbook contains recipes and other files, components, or directories.
+A [cookbook](/client/latest/cookbooks) is the fundamental unit of configuration and policy distribution. A cookbook contains recipes and other files, components, or directories.
 
 The Chef Infra Server lets you view:
 

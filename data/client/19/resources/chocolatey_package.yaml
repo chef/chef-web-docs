@@ -1,0 +1,139 @@
+---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: chocolatey_package
+resource_description_list:
+- markdown: Use the **chocolatey_package** resource to manage packages using the Chocolatey
+    package manager on the Microsoft Windows platform.
+- note:
+    markdown: The Chocolatey package manager is not installed on Windows by default.
+      You will need to install it prior to using this resource by adding the [chocolatey
+      cookbook](https://supermarket.chef.io/cookbooks/chocolatey/) to your node's
+      run list.
+- warning:
+    markdown: The **chocolatey_package** resource must be specified as `chocolatey_package`
+      and cannot be shortened to `package` in a recipe.
+resource_new_in: '12.7'
+syntax_full_code_block: |-
+  chocolatey_package 'name' do
+    bulk_query          true, false # default value: false
+    list_options        String
+    options             String, Array
+    package_name        String, Array
+    password            String
+    returns             Integer, Array # default value: [0, 2]
+    source              String
+    timeout             String, Integer
+    use_choco_list      true, false # default value: false
+    user                String
+    version             String, Array
+    action              Symbol # defaults to :install if not specified
+  end
+syntax_properties_list:
+syntax_full_properties_list:
+- "`chocolatey_package` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`bulk_query`, `list_options`, `options`, `package_name`, `password`, `returns`,
+  `source`, `timeout`, `use_choco_list`, `user`, and `version` are the properties
+  available to this resource."
+actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :install:
+    markdown: Install a package. If a version is specified, install the specified
+      version of the package. (default)
+  :upgrade:
+    markdown: Install a package and ensure that a package is the latest version.
+  :remove:
+    markdown: Remove a package.
+  :purge:
+    markdown: Purge a package. This action typically removes the configuration files
+      as well as the package.
+properties_list:
+- property: bulk_query
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  description_list:
+  - markdown: Whether to bulk query the Chocolatey server. This makes the provider list
+      all packages instead of doing individual queries.
+- property: list_options
+  ruby_type: String
+  required: false
+  new_in: '15.3'
+  description_list:
+  - markdown: One (or more) additional list options that are passed to the command.
+- property: options
+  ruby_type: String, Array
+  required: false
+  description_list:
+  - markdown: One (or more) additional options that are passed to the command.
+- property: package_name
+  ruby_type: String, Array
+  required: false
+  description_list:
+  - markdown: 'The name of the package. Default value: the name of the resource block.'
+- property: password
+  ruby_type: String
+  required: false
+  new_in: '15.3'
+  description_list:
+  - markdown: The password to authenticate to the source.
+- property: returns
+  ruby_type: Integer, Array
+  required: false
+  default_value: "[0, 2]"
+  new_in: '12.18'
+  description_list:
+  - markdown: The exit code(s) returned by the `choco` command that indicate a successful
+      action. See [Chocolatey Exit Codes](https://docs.chocolatey.org/en-us/choco/commands/info#exit-codes)
+      for a complete list of exit codes used by Chocolatey.
+- property: source
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The optional path to a package on the local file system.
+- property: timeout
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown: The amount of time (in seconds) to wait before timing out.
+- property: use_choco_list
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  description_list:
+  - markdown: Whether to use `choco list` for getting locally installed packages instead of querying for NuGet package files.
+      This defaults to `false` since reading the package data is faster.
+- property: user
+  ruby_type: String
+  required: false
+  new_in: '15.3'
+  description_list:
+  - markdown: The username to authenticate feeds.
+- property: version
+  ruby_type: String, Array
+  required: false
+  description_list:
+  - markdown: The version of a package to be installed or upgraded.
+examples: |
+  **Install a Chocolatey package**:
+
+  ```ruby
+  chocolatey_package 'name of package' do
+    action :install
+  end
+  ```
+
+  **Install a package with options with Chocolatey's `--checksum` option**:
+
+  ```ruby
+  chocolatey_package 'name of package' do
+    options '--checksum 1234567890'
+    action :install
+  end
+  ```

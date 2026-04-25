@@ -1,45 +1,131 @@
-.copy-code-button {
-  color: $charcoal;
-  background-color: $code-background;
-  border: 1px solid $light-light-gray;
-  border-radius: 2px 2px 0px 0px;
+/* Toolbar sits directly above the code block, connecting flush to its border.
+   Uses a solid background ($sidebar-gray) instead of the semi-transparent
+   $code-background so contrast ratios can be calculated against a known color. */
+.code-toolbar {
+  display: flex;
+  // stretch (not center) so children fill the full toolbar height —
+  // this makes the copy button and its border-left extend edge-to-edge.
+  align-items: stretch;
+  justify-content: space-between;
+  background-color: $sidebar-gray;
+  // $border-medium (#848484) gives 3.43:1 against $sidebar-gray and 3.74:1
+  // against $white — passes WCAG 1.4.11 non-text contrast (requires 3:1).
+  // It is a neutral gray so it reads lighter than the blue-tinted $slate-light
+  // even though both sit above the 3:1 threshold.
+  border: 1px solid $border-medium;
+  border-radius: $border-radius-base $border-radius-base 0 0;
+  font-size: .8rem;
+  font-weight: 600;
 
-  /* right-align */
-  display: block;
-  margin: 0 0 -1px auto;
-  padding: 5px 9px;
-  font-size: .9em;
+  /* Overlap the code block's top border by 1px so there's no double-border. */
+  margin: 0 0 -1px 0;
+  padding: 0;
 }
 
-.copy-code-button:hover {
-  cursor: pointer;
-  background-color: $code-background-hover;
-}
-
-.copy-code-button:focus {
-  /* Avoid an ugly focus outline on click in Chrome,
-      but darken the button for accessibility.
-      See https://stackoverflow.com/a/25298082/1481479 */
-  background-color: $code-background-focus;
-  outline: 0;
-}
-
-.copy-code-button:active {
-  background-color: $code-background-active;
-}
-
-.highlight pre {
-  /* Avoid pushing up the copy buttons. */
-  margin-top: 0;
-}
-
-/* reduce spacing when block follows a p */
-p + button.copy-code-button {
+/* Reduce spacing when the toolbar immediately follows a paragraph. */
+p + .code-toolbar {
   margin-top: -.5rem;
 }
 
+/* Language badge shown in the top-left corner of the code block.
+   $slate (#243541) on $sidebar-gray (#f4f5f7) gives 11.58:1 —
+   passes WCAG AA and AAA (requires 4.5:1 / 7:1 for small text). */
+.code-language {
+  // $border-medium (#848484) gives 3.43:1 against $sidebar-gray —
+  // passes WCAG 1.4.11 non-text contrast (requires 3:1).
+  border-right: 1px solid $border-medium;
+  padding: 6px 12px;
+  // Center text vertically within the stretched flex item.
+  display: flex;
+  align-items: center;
+  font-family: $font-family-monospace;
+  font-size: .9em;
+  // Explicit line-height ensures a consistent height even when the language
+  // string is empty — browsers won't collapse an empty element to 0 line-height.
+  line-height: 1.2;
+  font-weight: 600;
+  // $slate gives 11.58:1 on $sidebar-gray, passing WCAG AAA.
+  // Previously $blue-darker was used but only gave 4.27:1 — failing AA (4.5:1).
+  color: $slate;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  user-select: none;
+}
+
+.copy-code-button {
+  color: $charcoal;
+  background-color: transparent;
+  border: none;
+  // $border-medium (#848484) gives 3.43:1 against $sidebar-gray —
+  // passes WCAG 1.4.11 non-text contrast (requires 3:1).
+  border-left: 1px solid $border-medium;
+  border-radius: 0 $border-radius-base 0 0;
+  padding: 6px 12px;
+  // Center text vertically within the stretched flex item.
+  display: flex;
+  align-items: center;
+  font-size: .9em;
+  // Match line-height of .code-language so both items are always the same height.
+  line-height: 1.2;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.15s ease;
+
+  // Respect the user's motion preference (WCAG 2.3.3).
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+
+  &:hover {
+    // $code-background-focus (#E6E6E6) is visibly distinct from $sidebar-gray
+    // (#f4f5f7). $code-background-hover (#F2F2F2) is nearly identical to the
+    // base color and would make the hover state imperceptible.
+    background-color: $code-background-focus;
+  }
+
+  &:focus:not(:focus-visible) {
+    /* Suppress the focus ring on mouse click without hiding it from keyboard
+       users in browsers that don't support :focus-visible.
+       See https://stackoverflow.com/a/25298082/1481479 */
+    background-color: $code-background-focus;
+    outline: 0;
+  }
+
+  &:focus-visible {
+    /* Restore a visible focus indicator for keyboard navigation. */
+    outline: 2px solid $blue-darker;
+    outline-offset: -2px;
+  }
+
+  &:active {
+    background-color: $code-background-active;
+  }
+}
+
+.highlight pre {
+  /* Prevent the code block from pushing the toolbar away. */
+  margin-top: 0;
+}
+
+// When a toolbar is present, the code block's border should match the toolbar's
+// so they read as a unified component. Also square off the top corners since the
+// toolbar provides the rounded top edge.
+.code-toolbar + pre,
+.code-toolbar + .highlight > pre {
+  border-color: $border-medium;
+  border-radius: 0 0 $border-radius-base $border-radius-base;
+}
+
+// Suppress the divider border when no language label is present so there's
+// no orphan line sitting at the left edge of the toolbar.
+.code-language:empty {
+  border-right: none;
+  padding: 0;
+}
+
 @media print {
-  .copy-code-button{
-    display:none;
+  .code-toolbar {
+    display: none;
   }
 }

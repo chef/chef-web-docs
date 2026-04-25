@@ -4,7 +4,7 @@ draft = true
 linkTitle = "Chef InSpec Alibaba Cloud Resources"
 summary = "Chef InSpec Alibaba Cloud Resource release notes"
 
-product = ["inspec"]
+swiftype_search_products = ["inspec"]
 
 [menu]
   [menu.release_notes]

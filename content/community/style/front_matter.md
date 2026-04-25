@@ -27,7 +27,7 @@ The following is a page front matter example. See the following sections for a d
 title = "Example Documentation Page"
 draft = false
 gh_repo = "chef-web-docs"
-product = ["client", "server"]
+swiftype_search_products = ["client", "server"]
 aliases = "/style_guide.html"
 robots = ""
 st_robots = ""
@@ -57,13 +57,13 @@ aliases (optional)
 gh_repo
 : The GitHub repository that the document originates from. This is used to generate "Edit on GitHub" links on each page. For example: `gh_repo = "chef-server"`.
 
-product (optional)
-: `product` is a list of Chef products that are relevant to a page.
+swiftype_search_products (optional)
+: A list of Chef products that are relevant to a page.
   This list is used to facet search results by product in the documentation site search.
 
   This value is automatically added to every page in a section of documentation using [Hugo's Front Matter Cascade](https://gohugo.io/content-management/front-matter#front-matter-cascade) to specify the product in the index page of that section.
 
-  Use the `product` parameter in a page to override the automatically generated value. You may want to add a product parameter to a page's front matter if that page references more than one Chef product. For example, if a page in the Chef InSpec documentation describes passing data to Chef Automate, you may want to add `product = ["inspec", "automate"]` to the page front matter.
+  Use the `swiftype_search_products` parameter in a page to override the automatically generated value. You may want to add a product parameter to a page's front matter if that page references more than one Chef product. For example, if a page in the Chef InSpec documentation describes passing data to Chef Automate, you may want to add `swiftype_search_products = ["inspec", "automate"]` to the page front matter.
 
 : Relevant values:
 

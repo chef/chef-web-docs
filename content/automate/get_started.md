@@ -4,7 +4,7 @@ weight = 10
 draft = false
 
 [cascade]
-  product = ["automate"]
+  swiftype_search_products = ["automate"]
 
 [menu]
   [menu.automate]

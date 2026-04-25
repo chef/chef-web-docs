@@ -2,7 +2,7 @@
 <p>This is a site map for the following products:</p>
 
 <ul>
-  {{ range $menu_name := .Site.Params.menuOrder }}
+  {{ range $menu_name := or .Site.Params.menu_order .Site.Params.menuOrder }}
   {{ if and (ne $menu_name "extra") (ne $menu_name "legacy") (ne $menu_name "release_notes") (ne $menu_name "effortless") (ne $menu_name "overview")}}
     {{ $menu := index $.Site.Menus $menu_name }}
     {{ range $index, $item := $menu }}
@@ -19,7 +19,7 @@
 </p>
 
 <div class = "site-map">
-  {{ range $menu_name := .Site.Params.menuOrder }}
+  {{ range $menu_name := or .Site.Params.menu_order .Site.Params.menuOrder }}
     {{ $menu := index $.Site.Menus $menu_name }}
     {{ range $index,$item := $menu }}
 

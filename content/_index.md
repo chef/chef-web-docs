@@ -6,5 +6,5 @@ toc = false
 feedback = false
 
 [cascade]
-  product = ["client"]
+  swiftype_search_products = ["client"]
 +++

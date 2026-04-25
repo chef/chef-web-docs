@@ -4,7 +4,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 
-product = []
+swiftype_search_products = []
 
 [menu]
   [menu.legacy]
@@ -76,7 +76,7 @@ chef-manage-ctl show-config
 
 The `uninstall` subcommand is used to manage the hooks between runit and
 `sysvinit` or `upstart`. This subcommand doesn't [uninstall the Chef
-management console](/uninstall/#chef-manage) or remove `.rpm` or
+management console](/manage_uninstall/#chef-manage) or remove `.rpm` or
 `.deb` files.
 
 This subcommand has the following syntax:

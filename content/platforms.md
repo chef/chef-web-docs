@@ -3,7 +3,7 @@ title = "Supported platforms"
 draft = false
 gh_repo = "chef-web-docs"
 
-product = ["automate", "client", "server", "habitat", "inspec", "workstation"]
+swiftype_search_products = ["automate", "client", "server", "habitat", "inspec", "workstation"]
 
 [menu]
   [menu.overview]

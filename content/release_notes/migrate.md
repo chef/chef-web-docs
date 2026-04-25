@@ -1,7 +1,7 @@
 +++
 title = "Chef Migrate release notes"
 draft = false
-product = []
+swiftype_search_products = []
 linkTitle = "Chef Migrate"
 summary = "Chef Migrate release notes"
 

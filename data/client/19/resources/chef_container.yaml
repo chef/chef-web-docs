@@ -1,0 +1,66 @@
+---
+title: chef_container resource
+resource: chef_container
+aliases:
+- /resource_chef_container.html
+menu:
+  infra:
+    title: chef_container
+    identifier: chef_infra/resources/chef_container chef_container
+    parent: chef_infra/resources
+
+resource_reference: true
+resource_description_list:
+- markdown: 'Use the **chef_container** resource to interact with container objects
+
+    that exist on the Chef Infra Server.'
+syntax_description: "The syntax for using the **chef_container** resource in a recipe\
+  \ is as\nfollows:\n\n```ruby\nchef_container 'name' do\n  attribute 'value' # see\
+  \ properties section below\n  ...\n  action :action # see actions section below\n\
+  end\n```"
+syntax_properties_list:
+- '`chef_container` tells Chef Infra Client to use the `Chef::Provider::ChefContainer`
+  provider during a Chef Infra Client run'
+- '`name` is the name of the resource block'
+- '`attribute` is zero (or more) of the properties that are available for this resource'
+- '`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state'
+actions_list:
+  :create:
+    markdown: (default)
+  :delete:
+    markdown: ''
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+properties_list:
+- property: chef_server
+  ruby_type: null
+  required: false
+  description_list:
+  - markdown: The URL for the Chef Infra Server.
+- property: ignore_failure
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  description_list:
+  - markdown: Continue running a recipe if a resource fails for any reason.
+- property: name
+  ruby_type: null
+  required: false
+  description_list:
+  - markdown: The name of the container.
+- property: notifies
+  ruby_type: Symbol, Chef::Resource\[String\]
+  required: false
+  description_list:
+  - shortcode: resources_common_notification_notifies.md
+  - shortcode: resources_common_notification_timers.md
+  - shortcode: resources_common_notification_notifies_syntax.md
+- property: subscribes
+  ruby_type: Symbol, Chef::Resource\[String\]
+  required: false
+  description_list:
+  - shortcode: resources_common_notification_subscribes.md
+  - shortcode: resources_common_notification_timers.md
+  - shortcode: resources_common_notification_subscribes_syntax.md
+

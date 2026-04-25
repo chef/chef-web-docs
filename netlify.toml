@@ -122,9 +122,9 @@
 ####
 
 [[redirects]]
-  from = "/client/19/*"
-  to = "https://release-19--chef-infra-client.netlify.app/client/19/:splat"
-  status = 200
+  from = "/resources/*"
+  to = "/client/19/resources/bundled/:splat"
+  status = 301
 
 [[redirects]]
   from = "/client/19.1/*"

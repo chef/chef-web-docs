@@ -1,6 +1,6 @@
 ## The order of the menus (e.g. menu.infra, menu.inspec, etc...) in the left nav menu
 ## is set by the menuOrder parameter below.
-menuOrder = [
+menu_order = [
   "overview",
   "360",
   "automate",
@@ -36,7 +36,6 @@ sitemaps = [
   "https://docs.chef.io/360/1.5/sitemap.xml",
   "https://docs.chef.io/360/1.6/sitemap.xml",
   "https://docs.chef.io/360/1.7/sitemap.xml",
-  "https://docs.chef.io/client/19/sitemap.xml",
   "https://docs.chef.io/inspec/5.23/sitemap.xml",
   "https://docs.chef.io/inspec/5.24/sitemap.xml",
   "https://docs.chef.io/inspec/6.8/sitemap.xml",
@@ -152,7 +151,7 @@ product_version_key = "client-19"
 
 [[search.products.infra_client.versions]]
 name = "18"
-product_version_key = "client"
+product_version_key = "client-18"
 
 [search.products.infra_server]
 name = "Infra Server"
@@ -224,3 +223,17 @@ highlightBroken = true
 
 [render_hooks.image]
 errorLevel = 'warning'
+
+#######
+#
+# Versioned products
+#
+#######
+
+[[versions.client]]
+link_text = "Chef Infra Client 19"
+base_url = "/client/19/"
+
+[[versions.client]]
+link_text = "Chef Infra Client 18"
+base_url = "/client/18/"

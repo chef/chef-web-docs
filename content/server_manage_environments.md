@@ -4,7 +4,7 @@ draft = false
 gh_repo = "chef-web-docs"
 robots = "noindex"
 
-product = []
+swiftype_search_products = []
 
 [menu]
   [menu.legacy]

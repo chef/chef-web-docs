@@ -1,0 +1,140 @@
+---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: windows_printer
+resource_description_list:
+- markdown: Use the **windows_printer** resource to setup Windows printers. This resource
+    will automatically install the driver specified in the `driver_name` property
+    and will automatically create a printer port using either the `ipv4_address` property
+    or the `port_name` property.
+resource_new_in: '14.0'
+syntax_full_code_block: |-
+  windows_printer 'name' do
+    comment           String
+    create_port       true, false # default value: true
+    default           true, false # default value: false
+    device_id         String # default value: 'name' unless specified
+    driver_name       String
+    ipv4_address      String
+    location          String
+    port_name         String
+    share_name        String
+    shared            true, false # default value: false
+    action            Symbol # defaults to :create if not specified
+  end
+syntax_properties_list:
+syntax_full_properties_list:
+- "`windows_printer` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`comment`, `create_port`, `default`, `device_id`, `driver_name`, `ipv4_address`,
+  `location`, `port_name`, `share_name`, and `shared` are the properties available
+  to this resource."
+actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: Create a new printer and printer port, if one doesn't already. (default)
+  :delete:
+    markdown: Delete an existing printer. Note that this resource does not delete
+      the associated printer port.
+properties_list:
+- property: comment
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Optional descriptor for the printer queue.
+- property: create_port
+  ruby_type: true, false
+  required: false
+  default_value: 'true'
+  new_in: '17.3'
+  description_list:
+  - markdown: Create a printer port for the printer. Set this to false and specify
+      the `port_name` property if using the `windows_printer_port` resource to create
+      the port instead.
+- property: default
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  description_list:
+  - markdown: Determines whether or not this should be the system's default printer.
+- property: device_id
+  ruby_type: String
+  required: false
+  default_value: The resource block's name
+  description_list:
+  - markdown: 'An optional property to set the printer queue name if it differs from
+      the resource block''s name. Example: `HP LJ 5200 in fifth floor copy room`.'
+- property: driver_name
+  ruby_type: String
+  required: true
+  description_list:
+  - markdown: The exact name of printer driver installed on the system.
+- property: ipv4_address
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The IPv4 address of the printer, such as `10.4.64.23`
+- property: location
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Printer location, such as `Fifth floor copy room`.
+- property: port_name
+  ruby_type: String
+  required: false
+  default_value: The resource block name or the ipv4_address prepended with IP_.
+  new_in: '17.3'
+  description_list:
+  - markdown: The port name.
+- property: share_name
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The name used to identify the shared printer.
+- property: shared
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  description_list:
+  - markdown: Determines whether or not the printer is shared.
+examples: |
+  **Create a printer**:
+
+  ```ruby
+  windows_printer 'HP LaserJet 5th Floor' do
+    driver_name 'HP LaserJet 4100 Series PCL6'
+    ipv4_address '10.4.64.38'
+  end
+  ```
+
+  **Delete a printer**:
+
+  Note: this doesn't delete the associated printer port. See windows_printer_port above for how to delete the port.
+
+  ```ruby
+  windows_printer 'HP LaserJet 5th Floor' do
+    action :delete
+  end
+  ```
+
+  **Create a printer port and a printer that uses that port (new in 17.3)**
+
+  ```ruby
+  windows_printer_port '10.4.64.39' do
+    port_name 'My awesome printer port'
+    snmp_enabled true
+    port_protocol 2
+  end
+
+  windows_printer 'HP LaserJet 5th Floor' do
+    driver_name 'HP LaserJet 4100 Series PCL6'
+    port_name 'My awesome printer port'
+    ipv4_address '10.4.64.38'
+    create_port false
+  end
+  ```
