@@ -45,7 +45,7 @@ Create a `target_credentials` file on the computer running Chef Workstation:
 
 {{< note >}}
 
-Chef Infra Client 18 used a `credentials` file; this has been deprecated.
+Previously this was configured with a `credentials` file. That file is deprecated; use `target_credentials` instead.
 
 {{< /note >}}
 
