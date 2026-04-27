@@ -96,21 +96,21 @@ If you're using one of these products, migrate to a supported version or product
 
 ## End of Life (EOL) products
 
-| Product                  | Version              | Lifecycle Status | EOL Date          |
-|--------------------------|----------------------|------------------|-------------------|
-| Analytics                | All                  | EOL              | December 31, 2018 |
-| Chef Automate            | 2.x and under        | EOL              | May 13, 2022      |
-| Chef Infra Client        | 17 and under         | EOL              | February 5, 2026  |
-| Chef Compliance Server   | All                  | EOL              | December 31, 2018 |
-| ChefDK                   | All                  | EOL              | December 31, 2020 |
-| Chef Infra Server        | 14.x                 | EOL              | December 31, 2025 |
-| Chef InSpec              | 2 and under          | EOL              | December 31, 2019 |
-| Chef InSpec              | 3.x                  | EOL              | April 30, 2020    |
-| Chef Provisioning        | All                  | EOL              | August 31, 2019   |
-| Chef Push Jobs           | All                  | EOL              | December 31, 2020 |
-| Chef Replication/Sync    | All                  | EOL              | August 31, 2019   |
-| Chef Server DRBD HA      | All                  | EOL              | March 31, 2019    |
-| Chef Workflow (Delivery) | All                  | EOL              | December 31, 2020 |
-| Chef Workstation         | 23.12.1055 and under | EOL              | December 31, 2024 |
-| Enterprise Chef          | All                  | EOL              | December 31, 2018 |
-| Reporting                | All                  | EOL              | December 31, 2018 |
+| Product                  | Version              | Lifecycle Status | EOL Date          |Replacement product or version |
+|--------------------------|----------------------|------------------|-------------------|-------------------------------|
+| Analytics                | All                  | EOL              | December 31, 2018 | None                          |
+| Chef Automate            | 2.x and under        | EOL              | May 13, 2022      | Latest version                |
+| Chef Infra Client        | 17 and under         | EOL              | February 5, 2026  | Latest version                |
+| Chef Compliance Server   | All                  | EOL              | December 31, 2018 | Chef Automate Latest          |
+| ChefDK                   | All                  | EOL              | December 31, 2020 | Chef Workstation Latest       |
+| Chef Infra Server        | 14.x                 | EOL              | December 31, 2025 | Chef 360 Platform             |
+| Chef InSpec              | 2 and under          | EOL              | December 31, 2019 | Chef Inspec Latest            | 
+| Chef InSpec              | 3.x                  | EOL              | April 30, 2020    | Chef Inspec Latest            | 
+| Chef Provisioning        | All                  | EOL              | August 31, 2019   | None                          |
+| Chef Push Jobs           | All                  | EOL              | December 31, 2020 | Chef 360 Platform             |
+| Chef Replication/Sync    | All                  | EOL              | August 31, 2019   | None                          |
+| Chef Server DRBD HA      | All                  | EOL              | March 31, 2019    | Chef 360 Platform             |
+| Chef Workflow (Delivery) | All                  | EOL              | December 31, 2020 | None                          |
+| Chef Workstation         | 23.12.1055 and under | EOL              | December 31, 2024 | Chef Workstation Latest       |
+| Enterprise Chef          | All                  | EOL              | December 31, 2018 | Chef 360 Platform             |
+| Reporting                | All                  | EOL              | December 31, 2018 | Chef Automate Latest          |
