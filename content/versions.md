@@ -91,7 +91,7 @@ If you're using one of these products, migrate to a supported version or product
 | Chef Backend      | 3.x     | Deprecated       | TBD            | Chef 360 Platform              |
 | Chef Infra Client | 18.x    | Deprecated       | TBD            | Chef Infra Client 19.x         |
 | Chef Infra Server | 15.x    | Deprecated       | November 2026  | Chef 360 Platform              |
-| Chef InSpec       | 4.x     | Deprecated       | TBD            | Chef Inspec 5.x                |
+| Chef InSpec       | 4.x     | Deprecated       | TBD            | Chef InSpec 5.x                |
 | Chef Workstation  | 24.x    | Deprecated       | April 2026     | Chef Workstation 25 or above   |
 
 ## End of Life (EOL) products
