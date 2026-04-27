@@ -98,7 +98,7 @@ If you're using one of these products, migrate to a supported version or product
 
 | Product                  | Version              | Lifecycle Status | EOL Date          | Replacement product or version |
 |--------------------------|----------------------|------------------|-------------------|--------------------------------|
-| Analytics                | All                  | EOL              | December 31, 2018 | None                           |
+| Analytics                | All                  | EOL              | December 31, 2018 | Chef Automate Latest           |
 | Chef Automate            | 2.x and under        | EOL              | May 13, 2022      | Latest version                 |
 | Chef Infra Client        | 17 and under         | EOL              | February 5, 2026  | Latest version                 |
 | Chef Compliance Server   | All                  | EOL              | December 31, 2018 | Chef Automate Latest           |
@@ -109,7 +109,7 @@ If you're using one of these products, migrate to a supported version or product
 | Chef Manage              | 2.5.x+               | EOL              | February 2026     | Chef 360 Platform              |
 | Chef Provisioning        | All                  | EOL              | August 31, 2019   | No planned replacement; use your organization's preferred provisioning tools |
 | Chef Push Jobs           | All                  | EOL              | December 31, 2020 | Chef 360 Platform              |
-| Chef Replication/Sync    | All                  | EOL              | August 31, 2019   | None                           |
+| Chef Replication/Sync    | All                  | EOL              | August 31, 2019   | Chef SaaS                      |
 | Chef Server DRBD HA      | All                  | EOL              | March 31, 2019    | Chef 360 Platform              |
 | Chef Workflow (Delivery) | All                  | EOL              | December 31, 2020 | No planned replacement                                                       |
 | Chef Workstation         | 23.12.1055 and under | EOL              | December 31, 2024 | Chef Workstation Latest        |
