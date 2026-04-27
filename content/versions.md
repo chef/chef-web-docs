@@ -106,6 +106,7 @@ If you're using one of these products, migrate to a supported version or product
 | Chef Infra Server        | 14.x                 | EOL              | December 31, 2025 | Chef 360 Platform              |
 | Chef InSpec              | 2 and under          | EOL              | December 31, 2019 | Chef InSpec Latest             |
 | Chef InSpec              | 3.x                  | EOL              | April 30, 2020    | Chef InSpec Latest             |
+| Chef Manage              | 2.5.x+               | EOL              | February 2026     | Chef 360 Platform              |
 | Chef Provisioning        | All                  | EOL              | August 31, 2019   | No planned replacement; use your organization's preferred provisioning tools |
 | Chef Push Jobs           | All                  | EOL              | December 31, 2020 | Chef 360 Platform              |
 | Chef Replication/Sync    | All                  | EOL              | August 31, 2019   | None                           |
