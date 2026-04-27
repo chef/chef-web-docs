@@ -44,9 +44,10 @@ This stage indicates that Chef has set a date after which the application or ver
 
 {{< important >}}
 
-Chef Infra Client generally follows an N-1 support strategy. This means that if version 16 is the latest version, then both 15 and 16 are supported. As soon as version 17 is released, then 15 is placed in EOL status and no longer supported.
-
-Unless otherwise stated, versions older than those listed below are EOL.
+Chef follows a Long-Term Support (LTS) model.
+Designated LTS releases receive extended support, while non-LTS releases and older versions reach End of Life (EOL) on fixed dates.
+Chef Infra Client version 19.x is the current LTS baseline.
+Non-LTS versions below this baseline are EOL.
 
 {{< /important >}}
 
@@ -95,22 +96,21 @@ If you're using one of these products, migrate to a supported version or product
 
 ## End of Life (EOL) products
 
-| Product                  | Version              | Lifecycle Status | EOL Date          | Replacement               |
-|--------------------------|----------------------|------------------|-------------------|---------------------------|
-| Analytics                | All                  | EOL              | December 31, 2018 |                           |
-| Chef Automate            | 2.x and under        | EOL              | May 13, 2022      | Latest Chef Automate      |
-| Chef Infra Client        | 17 and under         | EOL              | February 5, 2026  | Latest Chef Infra Client  |
-| Chef Compliance Server   | All                  | EOL              | December 31, 2018 |                           |
-| ChefDK                   | All                  | EOL              | December 31, 2020 |                           |
-| Chef Infra Server        | 14.x                 | EOL              | December 31, 2025 |                           |
-| Chef Manage              | 2.5.x+               | EOL              | February 2026     | Chef 360 Platform         |
-| Chef InSpec              | 2 and under          | EOL              | December 31, 2019 |                           |
-| Chef InSpec              | 3.x                  | EOL              | April 30, 2020    |                           |
-| Chef Provisioning        | All                  | EOL              | August 31, 2019   |                           |
-| Chef Push Jobs           | All                  | EOL              | December 31, 2020 |                           |
-| Chef Replication/Sync    | All                  | EOL              | August 31, 2019   |                           |
-| Chef Server DRBD HA      | All                  | EOL              | March 31, 2019    |                           |
-| Chef Workflow (Delivery) | All                  | EOL              | December 31, 2020 |                           |
-| Chef Workstation         | 23.12.1055 and under | EOL              | December 31, 2024 |                           |
-| Enterprise Chef          | All                  | EOL              | December 31, 2018 |                           |
-| Reporting                | All                  | EOL              | December 31, 2018 |                           |
+| Product                  | Version              | Lifecycle Status | EOL Date          | Replacement product or version |
+|--------------------------|----------------------|------------------|-------------------|--------------------------------|
+| Analytics                | All                  | EOL              | December 31, 2018 | None                           |
+| Chef Automate            | 2.x and under        | EOL              | May 13, 2022      | Latest version                 |
+| Chef Infra Client        | 17 and under         | EOL              | February 5, 2026  | Latest version                 |
+| Chef Compliance Server   | All                  | EOL              | December 31, 2018 | Chef Automate Latest           |
+| ChefDK                   | All                  | EOL              | December 31, 2020 | Chef Workstation Latest        |
+| Chef Infra Server        | 14.x                 | EOL              | December 31, 2025 | Chef 360 Platform              |
+| Chef InSpec              | 2 and under          | EOL              | December 31, 2019 | Chef InSpec Latest             |
+| Chef InSpec              | 3.x                  | EOL              | April 30, 2020    | Chef InSpec Latest             |
+| Chef Provisioning        | All                  | EOL              | August 31, 2019   | No planned replacement; use your organization's preferred provisioning tools |
+| Chef Push Jobs           | All                  | EOL              | December 31, 2020 | Chef 360 Platform              |
+| Chef Replication/Sync    | All                  | EOL              | August 31, 2019   | None                           |
+| Chef Server DRBD HA      | All                  | EOL              | March 31, 2019    | Chef 360 Platform              |
+| Chef Workflow (Delivery) | All                  | EOL              | December 31, 2020 | No planned replacement                                                       |
+| Chef Workstation         | 23.12.1055 and under | EOL              | December 31, 2024 | Chef Workstation Latest        |
+| Enterprise Chef          | All                  | EOL              | December 31, 2018 | Chef 360 Platform              |
+| Reporting                | All                  | EOL              | December 31, 2018 | Chef Automate Latest           |
