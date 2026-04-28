@@ -34,6 +34,7 @@ Release date: April 30th, 2026
 
 - Fixed issues in the JSON reporter. ([#7799](https://github.com/inspec/inspec/pull/7799))
 - Fixed the AST parser for InSpec check. ([#7641](https://github.com/inspec/inspec/pull/7641))
+- Pre-check waivers before control block evaluation ([#7641](https://github.com/inspec/inspec/pull/7870))
 
 ### Packaging
 
@@ -48,6 +49,8 @@ Release date: April 30th, 2026
 - Updated `addressable` gem from `2.4` to `2.9.0`. ([#7833](https://github.com/inspec/inspec/pull/7833))
 - Updated `json` gem from `>= 1.8` to `2.19.2`. (train [#829](https://github.com/inspec/train/pull/829))
 - Updated `activesupport` gem from `>= 7.2.2.1` to `>= 7.2.3.1`. (train [#830](https://github.com/inspec/train/pull/830))
+- Updated `faraday` gem from `1.10.4` to `1.10.5`. ([#7887](https://github.com/inspec/inspec/pull/7887))
+- Updated `rake` gem from to `>= 12.3.3`. ([#7890](https://github.com/inspec/inspec/pull/7890))
 
 ## Chef InSpec 7.0.107
 
