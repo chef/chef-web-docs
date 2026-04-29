@@ -111,7 +111,7 @@ The `metadata` endpoint returns data about a particular package of a Chef produc
 https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/metadata?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
 ```
 
-For Chef Infra Client Enterprise and Chef Infra Client Legacy Migration, include the `pm` (package manager) query parameter. This value determines the type of package to retrieve (for example: `deb`, `rpm`, `msi`, or `tar`) and is required because these products support multiple packaging formats.
+You can optionally include the `pm` (package manager) query parameter to specify the type of package to retrieve (for example: `deb`, `rpm`, `msi`, or `tar`).
 
 ```plain
 https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/metadata?p=<PLATFORM>&pm=<PACKAGE_MANAGER>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
@@ -125,8 +125,7 @@ The `download` endpoint downloads a particular package of a Chef product.
 https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
 ```
 
-For Chef Infra Client Enterprise or Chef Infra Client Legacy Migration, include the `pm` (package manager) query parameter in your request.
-This parameter specifies the package format to download---for example, `deb`, `rpm`, `msi`, or `tar`.
+You can optionally include the `pm` (package manager) query parameter to specify the package format to download---for example, `deb`, `rpm`, `msi`, or `tar`.
 
 ```plain
 https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM>&pm=<PACKAGE_MANAGER>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
@@ -140,8 +139,7 @@ The `fileName` endpoint returns the file name.
 https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/fileName?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
 ```
 
-For Chef Infra Client Enterprise or Chef Infra Client Legacy Migration, include the `pm` (package manager) query parameter in your request.
-This parameter specifies the package format---for example, `deb`, `rpm`, `msi`, or `tar`.
+You can optionally include the `pm` (package manager) query parameter to specify the package format---for example, `deb`, `rpm`, `msi`, or `tar`.
 
 ```plain
 https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/fileName?p=<PLATFORM>&pm=<PACKAGE_MANAGER>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
@@ -207,9 +205,7 @@ The API accepts the following parameters in a query string.
   Default value: `latest`.
 
 `pm`
-: The package manager.
-
-  Use this parameter only for Chef Infra Client Enterprise and Chef Infra Client Legacy Migration.
+: The package manager. This parameter is optional.
 
   Possible values:
 
@@ -285,11 +281,7 @@ To use curl to download a package, enter the following:
 curl -LOJ 'https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&license_id=<LICENSE_ID>'
 ```
 
-To use curl to download a Chef Infra Client Enterprise or Chef Infra Client Legacy Migration package, include the `pm` (package manager) parameter as shown:
-
-```bash
-curl -LOJ 'https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM>&pm=<PACKAGE_MANAGER>&m=<ARCHITECTURE>&license_id=<LICENSE_ID>'
-```
+To download a specific package format, add the optional `pm=<PACKAGE_MANAGER>` parameter to the URL.
 
 To use GNU Wget to download a package, enter the following:
 
@@ -297,8 +289,4 @@ To use GNU Wget to download a package, enter the following:
 wget --content-disposition https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&license_id=<LICENSE_ID>
 ```
 
-To use GNU Wget to download a Chef Infra Client Enterprise or Chef Infra Client Legacy Migration package, enter the following:
-
-```bash
-wget --content-disposition https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM>&pm=<PACKAGE_MANAGER>&m=<ARCHITECTURE>&license_id=<LICENSE_ID>
-```
+To download a specific package format, add the optional `pm=<PACKAGE_MANAGER>` parameter to the URL.
