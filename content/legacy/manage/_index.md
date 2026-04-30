@@ -12,7 +12,6 @@ swiftype_search_products = []
     parent = "legacy/manage"
     weight = 10
 +++
-{{< chef_automate_mark >}}
 
 {{< warning >}}
 

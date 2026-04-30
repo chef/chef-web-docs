@@ -13,8 +13,6 @@ robots = "noindex"
     weight = 100
 +++
 
-{{< chef_automate_mark >}}
-
 {{< warning >}}
 
 {{< readfile file="content/reusable/md/EOL_manage.md" >}}
@@ -22,12 +20,6 @@ robots = "noindex"
 This document is no longer maintained.
 
 {{< /warning >}}
-
-{{< danger >}}
-
-{{< readfile file="content/reusable/md/EOL_a1.md" >}}
-
-{{< /danger >}}
 
 {{< readfile file="content/reusable/md/chef_manager.md" >}}
 

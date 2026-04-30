@@ -11,7 +11,6 @@ gh_repo = "chef-web-docs"
     weight = 999
 +++
 
-
 ## Chef Analytics
 
 Use the `uninstall` subcommand to remove the Chef Analytics

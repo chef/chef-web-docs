@@ -13,8 +13,6 @@ swiftype_search_products = []
     parent = "legacy/manage"
 +++
 
-{{< chef_automate_mark >}}
-
 {{< warning >}}
 
 {{< readfile file="content/reusable/md/EOL_manage.md" >}}
