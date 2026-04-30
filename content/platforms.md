@@ -152,30 +152,6 @@ The following platforms are supported only using the community.
 
 See the [Chef InSpec documentation](/inspec/latest/).
 
-### Chef Manage
-
-#### Commercial support
-
-The following table lists the commercially supported platforms for Chef Manage.
-
-| Platform | Architecture | Version |
-| --- | --- | --- |
-| CentOS | `x86_64` | `7.x` |
-| Oracle Enterprise Linux | `x86_64` | `7.x`, `8.x` |
-| Red Hat Enterprise Linux | `x86_64` | `7.x`, `8.x` |
-| Ubuntu (LTS releases) | `x86_64` | `16.04`, `18.04`, `20.04` |
-
-#### Derived platforms
-
-The following table lists supported derived platforms and versions for Chef Manage.
-
-See our policy on [support for derived platforms](#support-for-derived-platforms) for more information.
-
-| Platform | Architecture | Version | Parent platform |
-| --- | --- | --- | --- |
-| AlmaLinux | `x86_64` | `8.x` | CentOS |
-| Rocky Linux | `x86_64` | `8.x` | CentOS |
-
 ### Chef Workstation
 
 #### Commercial support

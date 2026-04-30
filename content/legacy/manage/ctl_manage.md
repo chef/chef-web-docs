@@ -14,8 +14,6 @@ swiftype_search_products = []
     weight = 110
 +++
 
-{{< chef_automate_mark >}}
-
 {{< warning >}}
 
 {{< readfile file="content/reusable/md/EOL_manage.md" >}}
@@ -23,12 +21,6 @@ swiftype_search_products = []
 This document is no longer maintained.
 
 {{< /warning >}}
-
-{{< danger >}}
-
-{{< readfile file="content/reusable/md/EOL_a1.md" >}}
-
-{{< /danger >}}
 
 The Chef management console includes a command-line utility named
 `chef-manage-ctl`. This command-line tool is used to reconfigure,
