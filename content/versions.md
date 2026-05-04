@@ -42,10 +42,9 @@ This stage indicates that Chef has set a date after which the application or ver
 
 ### Versions and status
 
-Chef follows a Long-Term Support (LTS) model in which designated LTS releases receive extended support.
-Non-LTS releases reach End of Life (EOL) on fixed dates.
+Chef follows a Long-Term Support (LTS) model.
 Chef Infra Client 19.x is the current LTS release.
-Chef Infra Client 18.x is deprecated, and versions below 18.x are EOL.
+Chef Infra Client 18.x is deprecated, and any version lower than 18 is EOL.
 For more information about our LTS policy, review [this blog post](https://www.chef.io/blog/long-term-support-progress-chef-providing-stability).
 
 ## Supported commercial distributions
