@@ -17,9 +17,9 @@ summary = "Chef InSpec release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
-## Chef InSpec 7.0.109
+## Chef InSpec 7.1.1
 
-Release date: April 30th, 2026
+Release date: May 15th, 2026
 
 ### Key features
 
@@ -51,6 +51,8 @@ Release date: April 30th, 2026
 - Updated `activesupport` gem from `>= 7.2.2.1` to `>= 7.2.3.1`. (train [#830](https://github.com/inspec/train/pull/830))
 - Updated `faraday` gem from `1.10.4` to `1.10.5`. ([#7887](https://github.com/inspec/inspec/pull/7887))
 - Updated `rake` gem from to `>= 12.3.3`. ([#7890](https://github.com/inspec/inspec/pull/7890))
+- Updated `erb` gem from to `4.0.4.1`. ([#7895](https://github.com/inspec/inspec/pull/7895))
+- Updated `zlib` gem from to `3.2.3`. ([#7895](https://github.com/inspec/inspec/pull/7895))
 
 ## Chef InSpec 7.0.107
 
