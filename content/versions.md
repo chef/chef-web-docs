@@ -45,8 +45,8 @@ This stage indicates that Chef has set a date after which the application or ver
 Chef follows a Long-Term Support (LTS) model in which designated LTS releases receive extended support.
 Non-LTS releases reach End of Life (EOL) on fixed dates.
 Chef Infra Client 19.x is the current LTS release.
-Chef Infra Client versions below 19.x are EOL.
-For more information, see [this blog post](https://www.chef.io/blog/long-term-support-progress-chef-providing-stability).
+Chef Infra Client 18.x is deprecated, and versions below 18.x are EOL.
+For more information about our LTS policy, review [this blog post](https://www.chef.io/blog/long-term-support-progress-chef-providing-stability).
 
 ## Supported commercial distributions
 
@@ -96,7 +96,7 @@ If you're using one of these products, migrate to a supported version or product
 | Product                  | Version              | Lifecycle Status | EOL Date          | Replacement product or version |
 | ------------------------ | -------------------- | ---------------- | ----------------- | ------------------------------ |
 | Analytics                | All                  | EOL              | December 31, 2018 | Chef 360 Platform              |
-| Chef Automate            | 2.x and under        | EOL              | May 13, 2022      | Chef 360 Platform              |
+| Chef Automate            | 2.x and under        | EOL              | May 13, 2022      | Chef Automate latest           |
 | Chef Infra Client        | 17 and under         | EOL              | February 5, 2026  | Chef Infra Client latest       |
 | Chef Compliance Server   | All                  | EOL              | December 31, 2018 | Chef 360 Platform              |
 | ChefDK                   | All                  | EOL              | December 31, 2020 | Chef Workstation latest        |
