@@ -50,9 +50,9 @@ Release date: May 15th, 2026
 - Updated `json` gem from `>= 1.8` to `2.19.2`. (train [#829](https://github.com/inspec/train/pull/829))
 - Updated `activesupport` gem from `>= 7.2.2.1` to `>= 7.2.3.1`. (train [#830](https://github.com/inspec/train/pull/830))
 - Updated `faraday` gem from `1.10.4` to `1.10.5`. ([#7887](https://github.com/inspec/inspec/pull/7887))
-- Updated `rake` gem from to `>= 12.3.3`. ([#7890](https://github.com/inspec/inspec/pull/7890))
-- Updated `erb` gem from to `4.0.4.1`. ([#7895](https://github.com/inspec/inspec/pull/7895))
-- Updated `zlib` gem from to `3.2.3`. ([#7895](https://github.com/inspec/inspec/pull/7895))
+- Updated `erb` gem from `4.0.4` to `4.0.4.1`. ([#7895](https://github.com/inspec/inspec/pull/7895))
+- Updated `zlib` gem from `3.2.1` to `3.2.3`. ([#7895](https://github.com/inspec/inspec/pull/7895))
+- Pinned `rake` gem to `>= 12.3.3`. ([#7890](https://github.com/inspec/inspec/pull/7890))
 
 ## Chef InSpec 7.0.107
 
