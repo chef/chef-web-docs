@@ -36,6 +36,18 @@ Added a `trust_server_certificate` option to the `mssql_session` resource to sup
 - Fixed the AST parser for `inspec check` to correctly handle array nodes, nested hash nodes inside array elements, and empty control blocks. ([#7641](https://github.com/inspec/inspec/pull/7641))
 - Fixed an issue where controls waived with `run: false` evaluated the entire control block before skipping, causing expensive commands to run unnecessarily. ([#7870](https://github.com/inspec/inspec/pull/7870))
 
+### Packaging
+
+We added OS-native packages alongside the existing Habitat packages.
+You can download packages from the Chef customer download portal or the download API.
+
+The following native packages are available:
+
+- Linux x86: RPM (`.rpm`) and DEB (`.deb`) packages
+- Windows x86: MSI installer (`.msi`), supporting
+
+OS-native packages aren't available for Linux ARM or macOS.
+
 ### Dependency updates
 
 - Updated `addressable` gem from `2.4` to `2.9.0`. ([#7833](https://github.com/inspec/inspec/pull/7833))
