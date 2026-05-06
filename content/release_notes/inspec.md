@@ -40,7 +40,7 @@ Added a `trust_server_certificate` option to the `mssql_session` resource. ([#77
 
 We now provide OS-native and Habitat-based InSpec Packaging. This provides support for InSpec on the following platforms:
 
-- Currently supported Linux distributions and versions running Linux kernel 2.6.32 and later
+- Currently supported Linux distributions and versions running Linux kernel 2.6.32 and later.
 - Currently supported Windows versions greater than or equal to Windows 10.
 
 ### Dependency updates
