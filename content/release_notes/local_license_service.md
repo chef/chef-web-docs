@@ -1,7 +1,7 @@
 +++
 title = "Chef Local License Service release notes"
 draft = false
-product = []
+swiftype_search_products = []
 linkTitle = "Chef Local License Service"
 summary = "Chef Local License Service release notes"
 

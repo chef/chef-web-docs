@@ -99,7 +99,7 @@ Total tests
 
 Severity
 : The impact of a control, from 0 to 1.
-  See the Chef InSpec documentation for more information about the [severity measure](/inspec/dsl_inspec#syntax)
+  See the Chef InSpec documentation for more information about the [severity measure](/inspec/latest/profiles/controls/)
 
 Selecting the shaded area next to the control name or the `+` on the right side expands the control to show a more detailed description.
 Selecting **View Code** displays the control's InSpec code.

@@ -1,7 +1,7 @@
 +++
 title = "Chef Infra Server release notes"
 draft = false
-product = ["server"]
+swiftype_search_products = ["server"]
 linkTitle = "Chef Infra Server"
 summary = "Chef Infra Server release notes"
 
@@ -21,25 +21,25 @@ summary = "Chef Infra Server release notes"
 
 Released on February 10th, 2026
 
-## Security improvements
+### Security improvements
 
-### KeyDB to Valkey migration
+#### KeyDB to Valkey migration
 Replaced KeyDB with Valkey to resolve the following CVEs:
 - CVE-2025-49844
 
 This change doesn't require any configuration changes and the service name has not changed. For more information about Valkey, see the [Valkey documentation](https://valkey.io/topics/).
 
-### Ruby Rack
+#### Ruby Rack
 Updated Ruby rack to v3.2.4 which resolves:
 - CVE-2025-61919
 - CVE-2025-61780
 - CVE-2025-58767
 
-## Bug Fixes
+### Bug Fixes
 - Fixed an issue which was causing the `gather-logs` command to fail with a check_version_conflict error. ([#4127](https://github.com/chef/chef-server/pull/4127))
 - Fixed the command to show the user details. ([#4132](https://github.com/chef/chef-server/pull/4132))
 
-## Service versions
+### Service versions
 This release uses:
 
 - OpenResty 1.27.1.2
@@ -1347,7 +1347,7 @@ Updated Components
 
 ### Upgrade Notes
 
-Upgrading to Chef Infra Server 14 will require a reindexing operation for most users. We expect this reindexing operation to take an estimated 2 minutes for each 1000 nodes. However, this estimate can be substantially impacted by your server hardware and the complexity of your Chef data. Generally the size of Elasticsearch indices is observed to be 1/10th of the Postgres database size. To be safe we would recommend that the filesystem containing the `/var/opt/opscode` directory should have at least 20% free space before upgrade. Learn more about [upgrading to Chef Infra Server 14](https://docs.chef.io/upgrade_server/).
+Upgrading to Chef Infra Server 14 will require a reindexing operation for most users. We expect this reindexing operation to take an estimated 2 minutes for each 1000 nodes. However, this estimate can be substantially impacted by your server hardware and the complexity of your Chef data. Generally the size of Elasticsearch indices is observed to be 1/10th of the Postgres database size. To be safe we would recommend that the filesystem containing the `/var/opt/opscode` directory should have at least 20% free space before upgrade. Learn more about [upgrading to Chef Infra Server 14](https://docs.chef.io/server/upgrades/).
 
 ### Improvements
 
@@ -1863,7 +1863,7 @@ not substantially affect the performance of Chef server; however in
 certain situations it can be helpful to clean them up. This command is
 primarily intended for use by Chef support.
 
-See the [cleanup-bifrost](/ctl_chef_server/#cleanup-bifrost)
+See the [cleanup-bifrost](/server/ctl_chef_server/#cleanup-bifrost)
 subcommand documentation for syntax examples and additional options.
 
 ## Chef Infra Server 12.16.2
@@ -2075,7 +2075,7 @@ server features that require providing passwords in
 `/etc/opscode/chef-server.rb`, we've also provided commands that allow
 you to set these passwords outside of the configuration file. For
 information about these commands see [Secrets
-Management](/ctl_chef_server/#secrets-management).
+Management](/server/ctl_chef_server/#secrets-management).
 
 **Note:**
 
@@ -2085,7 +2085,7 @@ to keepalived and DRBD in `/var/opt/opscode`.
 For further information see:
 
 See [Chef Server Credentials
-Management](/server_security/#chef-infra-server-credentials-management)
+Management](/server/server_security/#chef-infra-server-credentials-management)
 for more details.
 
 ## Chef Infra Server 12.13.0
@@ -2343,11 +2343,11 @@ each Chef server in a cluster.
 
 Five new commands have been created to support credential rotation:
 
-- [require-credential-rotation](/ctl_chef_server/#require-credential-rotation)
-- [rotate-all-credentials](/ctl_chef_server/#rotate-all-credentials)
-- [rotate-credentials](/ctl_chef_server/#rotate-credentials)
-- [rotate-shared-secrets](/ctl_chef_server/#rotate-shared-secrets)
-- [show-service-credentials](/ctl_chef_server/#show-service-credentials)
+- [require-credential-rotation](/server/ctl_chef_server/#require-credential-rotation)
+- [rotate-all-credentials](/server/ctl_chef_server/#rotate-all-credentials)
+- [rotate-credentials](/server/ctl_chef_server/#rotate-credentials)
+- [rotate-shared-secrets](/server/ctl_chef_server/#rotate-shared-secrets)
+- [show-service-credentials](/server/ctl_chef_server/#show-service-credentials)
 
 Your secrets file is located at
 `/etc/opscode/private-chef-secrets.json`, so whenever you rotate your
@@ -4555,7 +4555,7 @@ The following items are new for Chef server 12:
     12 server** Upgrades to Chef server 12 are supported from Enterprise
     Chef 11 high availability and standalone configurations and Open
     Source Chef 11 standalone configurations. View the topic [Upgrade to
-    Chef Server 12](/upgrade_server/) for more information about
+    Chef Server 12](/server/upgrades/) for more information about
     these processes.
 - **chef-server.rb configuration file is created by default** Previous
     versions of the Chef server didn't create the chef-server.rb file

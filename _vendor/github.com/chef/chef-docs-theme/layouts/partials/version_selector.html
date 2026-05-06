@@ -1,17 +1,52 @@
-{{- if .Site.Params.versions.version_selector.enabled -}}
+{{- if .Params.version_selector -}}
 {{- $page_path := .Page.Path -}}
-{{- $this_version_text := .Site.Params.versions.version_selector.this_version_text -}}
-{{- if not $this_version_text -}}
-  {{- errorf "The params.toml file requires a version in release_data.version." -}}
+{{- $versions_list := slice -}}
+{{- $this_version_text := "" -}}
+
+{{- if .Site.Params.versions.version_selector.enabled -}}
+  {{- $versions_list = .Site.Params.versions.version_selector.versions -}}
+  {{- $this_version_text = .Site.Params.versions.version_selector.this_version_text -}}
+
+  {{- if not $this_version_text -}}
+    {{- errorf "The config params requires a version string in versions.version_selector.this_version_text" -}}
+  {{- end -}}
+{{- else -}}
+  {{- $section_root := .Params.section_root -}}
+
+  {{- if not $section_root  -}}
+    {{- errorf "The content section params in %s requires a path defined in section_root." $page_path -}}
+  {{- end -}}
+
+  {{- $version_selector_product := .Params.version_selector_product -}}
+
+  {{- if not $version_selector_product  -}}
+    {{- errorf "The content section params in %s requires a version_selector_product to generate the version selector."  $page_path -}}
+  {{- end -}}
+
+  {{- $versions_list = index .Site.Params.versions $version_selector_product -}}
+  {{- $this_version_text = .Params.this_version_text -}}
+
+  {{- if not $this_version_text -}}
+    {{- errorf "The content section params in %s requires a version string defined in this_version_text." $page_path -}}
+  {{- end -}}
+
 {{- end -}}
+
+{{- if not $versions_list -}}
+  {{- errorf "The version selector in %s requires a non-empty versions list. Check your version_selector_product or versions.version_selector.versions config." $page_path -}}
+{{- end -}}
+
 <div class="version-select">
   <span class="version-select-label">Version</span>
   <ul class="dropdown menu version-select-menu" data-dropdown-menu>
     <li class="version-select-menu-parent">
       <a href="#">{{ $this_version_text }}</a>
       <ul class="menu version-selector-submenu">
-        {{ range .Site.Params.versions.version_selector.versions -}}
-          <li><a href="{{.base_url}}{{ $page_path }}">{{ .link_text }}</a></li>
+        {{ range $versions_list -}}
+          {{- if not (hasPrefix .base_url "/") -}}
+            {{- errorf "base_url in site params must begin with '/'. See base URL path %s for %v" .base_url .link_text -}}
+          {{- end }}
+          <li><a href="{{ .base_url }}">{{ .link_text }}</a></li>
         {{- end }}
       </ul>
     </li>

@@ -1,0 +1,37 @@
++++
+title = "System requirements"
+draft = false
+
+[menu]
+  [menu.client_18]
+    title = "System requirements"
+    identifier = "install/chef_system_requirements.md System Requirements"
+    parent = "install"
+    weight = 5
++++
+
+Before you bootstrap Chef Infra Client on nodes:
+
+1. Install and configure Chef Infra Server
+1. Install and configure Chef Workstation on your local computer
+
+## Chef Infra Client requirements
+
+- The recommended amount of RAM available to Chef Infra Client during
+    a Chef Infra Client run is 512MB
+- The Chef Infra Client binaries are stored in the `/opt/chef`
+    directory, which requires a minimum of 200MB of disk space. On
+    Windows, the Chef Infra Client binaries can be found in
+    `C:\opscode\`, and they require a minimum of 600MB of disk space.
+- The processor must be [supported](https://docs.chef.io/platforms/). We recommend
+    a 1 gigahertz (GHz) or faster processor, but the processor speed
+    should be based on the other system loads.
+- Chef Infra Client caches to `/var/chef/cache` during a Chef Infra
+    Client run. This is the location in which downloaded cookbooks,
+    packages required by those cookbooks, and other large files are
+    stored. This directory requires enough space to save all of this
+    data and should be generously sized. 5GB is a safe number as a
+    starting point, but tune the size of `/var/chef/cache` as necessary.
+    This location is tunable in a node's
+    [client.rb](/install/config_rb_client/) file using the
+    `file_cache_path` setting.

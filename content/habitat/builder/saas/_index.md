@@ -7,7 +7,7 @@ list_pages = true
 
 [cascade]
   [cascade.params]
-    product = ['habitat-builder-saas', 'habitat']
+    swiftype_search_products = ['habitat-builder-saas', 'habitat']
 
 [menu.habitat]
     title = "About Habitat SaaS Builder"

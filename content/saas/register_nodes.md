@@ -18,7 +18,7 @@ The following are prerequisites for migrating nodes from AWS OpsWorks to Chef Sa
 - AWS OpsWorks must be running Chef Automate 2.0.
 - A Chef SaaS environment must be configured. Refer to the [Getting Started with Chef SaaS](/saas/get_started/) page.
 - Restoration is performed on AWS OpsWorks for Chef SaaS.
-- Splay mode and baseline are up to two client runs an hour. Refer to the [Chef Infra Client](/ctl_chef_client/) page for more details on configuring splay mode in the `client.rb` file.
+- Splay mode and baseline are up to two client runs an hour. Refer to the [Chef Infra Client](/client/latest/reference/ctl_chef_client/) page for more details on configuring splay mode in the `client.rb` file.
 - There must be one compliance scan each hour.
 
 ## Redirect nodes to Chef SaaS
@@ -27,8 +27,8 @@ Progress Chef developed a cookbook that can run against all nodes under manageme
 
 To redirect nodes from AWS OpsWorks to Chef SaaS:
 
-1. Create a [new cookbook](/cookbooks/#generate-a-cookbook).
-1. Update the [Policyfile](/config_rb_policyfile/) with the following content:
+1. Create a [new cookbook](/client/latest/cookbooks/#generate-a-cookbook).
+1. Update the [Policyfile](/client/latest/policy/config_rb_policyfile/) with the following content:
 
     ```ruby
     # Policyfile.rb  Describe how you want Chef Infra Client to build your system.

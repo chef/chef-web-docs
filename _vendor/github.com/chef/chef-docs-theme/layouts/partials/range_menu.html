@@ -1,7 +1,11 @@
 {{ $currentPage := . }}
 {{ $currentSection := $currentPage.Section }}
+{{ $menu_order := or .Site.Params.menu_order .Site.Params.menuOrder }}
+{{ with .Params.menu_id }}
+  {{ $menu_order = slice . }}
+{{ end }}
 
-{{ range $menu_name := .Site.Params.menuOrder }}
+{{ range $menu_name := $menu_order }}
   {{ $menu := index $.Site.Menus $menu_name }}
   {{ range $menu }}
     {{ if .HasChildren }}

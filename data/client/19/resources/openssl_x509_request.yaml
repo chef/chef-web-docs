@@ -1,0 +1,176 @@
+---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: openssl_x509_request
+resource_description_list:
+- markdown: Use the **openssl_x509_request** resource to generate PEM-formatted x509
+    certificates requests. If no existing key is specified, the resource will automatically
+    generate a passwordless key with the certificate.
+resource_new_in: '14.4'
+syntax_full_code_block: |-
+  openssl_x509_request 'name' do
+    city             String
+    common_name      String
+    country          String
+    email            String
+    group            String, Integer
+    key_curve        String # default value: "prime256v1"
+    key_file         String
+    key_length       Integer # default value: 2048
+    key_pass         String
+    key_type         String # default value: "ec"
+    mode             Integer, String
+    org              String
+    org_unit         String
+    owner            String, Integer
+    path             String # default value: 'name' unless specified
+    state            String
+    action           Symbol # defaults to :create if not specified
+  end
+syntax_properties_list:
+syntax_full_properties_list:
+- "`openssl_x509_request` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`city`, `common_name`, `country`, `email`, `group`, `key_curve`, `key_file`, `key_length`,
+  `key_pass`, `key_type`, `mode`, `org`, `org_unit`, `owner`, `path`, and `state`
+  are the properties available to this resource."
+actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: Generate a certificate request file. (default)
+properties_list:
+- property: city
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Value for the `L` certificate field.
+- property: common_name
+  ruby_type: String
+  required: true
+  description_list:
+  - markdown: Value for the `CN` certificate field.
+- property: country
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Value for the `C` certificate field.
+- property: email
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Value for the `email` certificate field.
+- property: group
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown: The group ownership applied to all files created by the resource.
+- property: key_curve
+  ruby_type: String
+  required: false
+  default_value: prime256v1
+  allowed_values: '"prime256v1", "secp384r1", "secp521r1"'
+  description_list:
+  - markdown: The desired curve of the generated key (if key_type is equal to `ec`).
+      Run `openssl ecparam -list_curves` to see available options.
+- property: key_file
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The path to a certificate key file on the filesystem. If the `key_file`
+      property is specified, the resource will attempt to source a key from this location.
+      If no key file is found, the resource will generate a new key file at this location.
+      If the `key_file` property is not specified, the resource will generate a key
+      file in the same directory as the generated certificate, with the same name
+      as the generated certificate.
+- property: key_length
+  ruby_type: Integer
+  required: false
+  default_value: '2048'
+  allowed_values: 1024, 2048, 4096, 8192
+  description_list:
+  - markdown: The desired bit length of the generated key (if key_type is equal to
+      `rsa`).
+- property: key_pass
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The passphrase for an existing key's passphrase.
+- property: key_type
+  ruby_type: String
+  required: false
+  default_value: ec
+  allowed_values: '"ec", "rsa"'
+  description_list:
+  - markdown: The desired type of the generated key.
+- property: mode
+  ruby_type: Integer, String
+  required: false
+  description_list:
+  - markdown: The permission mode applied to all files created by the resource.
+- property: org
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Value for the `O` certificate field.
+- property: org_unit
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Value for the `OU` certificate field.
+- property: owner
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown: The owner applied to all files created by the resource.
+- property: path
+  ruby_type: String
+  required: false
+  default_value: The resource block's name
+  description_list:
+  - markdown: An optional property for specifying the path to write the file to if
+      it differs from the resource block's name.
+- property: state
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Value for the `ST` certificate field.
+examples: |
+  **Generate new EC key and CSR file**
+
+  ```ruby
+  openssl_x509_request '/etc/ssl_files/my_ec_request.csr' do
+    common_name 'myecrequest.example.com'
+    org 'Test Kitchen Example'
+    org_unit 'Kitchens'
+    country 'UK'
+  end
+  ```
+
+  **Generate a new CSR file from an existing EC key**
+
+  ```ruby
+  openssl_x509_request '/etc/ssl_files/my_ec_request2.csr' do
+    common_name 'myecrequest2.example.com'
+    org 'Test Kitchen Example'
+    org_unit 'Kitchens'
+    country 'UK'
+    key_file '/etc/ssl_files/my_ec_request.key'
+  end
+  ```
+
+  **Generate new RSA key and CSR file**
+
+  ```ruby
+  openssl_x509_request '/etc/ssl_files/my_rsa_request.csr' do
+    common_name 'myrsarequest.example.com'
+    org 'Test Kitchen Example'
+    org_unit 'Kitchens'
+    country 'UK'
+    key_type 'rsa'
+  end
+  ```

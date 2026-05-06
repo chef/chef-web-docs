@@ -1,7 +1,7 @@
 +++
 title = "Chef Workstation release notes"
 draft = false
-product = ["workstation"]
+swiftype_search_products = ["workstation"]
 linkTitle = "Chef Workstation"
 summary = "Chef Workstation release notes"
 

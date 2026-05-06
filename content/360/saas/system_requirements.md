@@ -79,5 +79,5 @@ Chef 360 SaaS skills are supported on the following platforms.
 
 Skills have the following dependencies:
 
-- The Chef Infra Client interpreter requires that [Chef Infra Client](/chef_client_overview/) is installed on the node.
+- The Chef Infra Client interpreter requires that [Chef Infra Client](/client/latest/overview/chef_overview/) is installed on the node.
 - The InSpec interpreter requires that [Chef InSpec](/inspec/) is installed on the node.

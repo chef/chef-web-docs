@@ -8,7 +8,12 @@
   {{- with .Params.st_robots -}}
     <meta name="st:robots" content="{{ . }}">
   {{- end }}
-  {{ with or .Params.product .Params.swiftype_search_product_key $.Site.Params.versions.this_version.swiftype_search_products -}}
+  {{- if and .Params.product -}}
+    {{- $path := "" -}}
+    {{- with $.Page.File -}}{{- $path = .Path -}}{{- end -}}
+    {{- warnf "DEPRECATED: 'product' front matter is deprecated in %s. Use 'swiftype_search_products' instead." $path -}}
+  {{- end -}}
+  {{ with or .Params.product .Params.swiftype_search_products $.Site.Params.versions.this_version.swiftype_search_products -}}
     {{- range $tag := . -}}
       <meta class="swiftype" name="chef-product" data-type="string" content="{{ $tag }}" />
     {{- end -}}

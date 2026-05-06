@@ -3,7 +3,7 @@ title = "Supported platforms"
 draft = false
 gh_repo = "chef-web-docs"
 
-product = ["automate", "client", "server", "habitat", "inspec", "workstation"]
+swiftype_search_products = ["automate", "client", "server", "habitat", "inspec", "workstation"]
 
 [menu]
   [menu.overview]
@@ -152,35 +152,26 @@ The following platforms are supported only using the community.
 
 See the [Chef InSpec documentation](/inspec/latest/).
 
-### Chef Manage
-
-#### Commercial support
-
-The following table lists the commercially supported platforms for Chef Manage.
-
-| Platform | Architecture | Version |
-| --- | --- | --- |
-| CentOS | `x86_64` | `7.x` |
-| Oracle Enterprise Linux | `x86_64` | `7.x`, `8.x` |
-| Red Hat Enterprise Linux | `x86_64` | `7.x`, `8.x` |
-| Ubuntu (LTS releases) | `x86_64` | `16.04`, `18.04`, `20.04` |
-
-#### Derived platforms
-
-The following table lists supported derived platforms and versions for Chef Manage.
-
-See our policy on [support for derived platforms](#support-for-derived-platforms) for more information.
-
-| Platform | Architecture | Version | Parent platform |
-| --- | --- | --- | --- |
-| AlmaLinux | `x86_64` | `8.x` | CentOS |
-| Rocky Linux | `x86_64` | `8.x` | CentOS |
-
 ### Chef Workstation
 
 #### Commercial support
 
 The following table lists the commercially supported platforms and versions for the Chef Workstation.
+
+{{< foundation_tabs tabs-id="chef-workstation-commercial-support" >}}
+  {{< foundation_tab active="true" panel-link="chef-workstation-commercial-support-v26" tab-text="Chef Workstation 26">}}
+  {{< foundation_tab panel-link="chef-workstation-commercial-support-v25" tab-text="Chef Workstation 25" >}}
+{{< /foundation_tabs >}}
+
+{{< foundation_tabs_panels tabs-id="chef-workstation-commercial-support" >}}
+{{< foundation_tabs_panel active="true" panel-id="chef-workstation-commercial-support-v26" >}}
+
+- Linux (x86_64)
+- Windows (x86_64)
+
+{{< /foundation_tabs_panel >}}
+
+{{< foundation_tabs_panel panel-id="chef-workstation-commercial-support-v25" >}}
 
 | Platform                          | Architecture                | Version                                                                    |
 |-----------------------------------| ----------------------------| ---------------------------------------------------------------------------|
@@ -191,16 +182,20 @@ The following table lists the commercially supported platforms and versions for 
 | Ubuntu                            | x86_64                      | 18.04, 20.04, 22.04                                                        |
 | Windows                           | x64                         | 10, 11, Server 2016, Server 2019, Server 2022                              |
 
+{{< /foundation_tabs_panel >}}
+
+{{< /foundation_tabs_panels >}}
+
 #### Derived platforms
 
-The following table lists supported derived platforms and versions for Chef Workstation.
-
-See our policy on [support for derived platforms](#support-for-derived-platforms) for more information.
+Chef Workstation 25 supports the following derived platforms and versions.
 
 | Platform | Architecture | Version | Parent platform |
 | --- | --- | --- | --- |
 | AlmaLinux | `x86_64` | `8.x` | CentOS |
 | Rocky Linux | `x86_64` | `8.x` | CentOS |
+
+See our policy on [support for derived platforms](#support-for-derived-platforms) for more information.
 
 ## Platform end-of-life policy
 

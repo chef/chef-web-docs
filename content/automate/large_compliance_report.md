@@ -60,7 +60,7 @@ Here is a benchmark test summary report run on
 
 MinIO is a high-performance object storage system released under the GNU Affero General Public License v3.0. Its API is compatible with the Amazon S3 cloud storage service. MinIO is available on the public cloud, in every Kubernetes distribution, on private clouds, and at the edge.
 
-For more information on how to set up MinIO on a bare-metal server, see how to [set up MinIO](https://min.io/docs/minio/kubernetes/upstream/).
+For more information on how to set up MinIO on a bare-metal server, see how to [set up MinIO](https://docs.min.io/enterprise/aistor-object-store/).
 
 ## Enable Chef Automate to ingest large compliance reports
 

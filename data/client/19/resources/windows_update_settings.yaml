@@ -1,0 +1,149 @@
+---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: windows_update_settings
+resource_description_list:
+- markdown: Use the **windows_update_settings** resource to manage the various Windows
+    Update patching options.
+resource_new_in: '17.3'
+syntax_full_code_block: |-
+  windows_update_settings 'name' do
+    automatic_update_option                  Integer, Symbol # default value: :download_and_schedule
+    automatically_install_minor_updates      true, false # default value: false
+    block_windows_update_website             true, false # default value: false
+    custom_detection_frequency               Integer # default value: 22
+    disable_automatic_updates                true, false # default value: false
+    disable_os_upgrades                      true, false # default value: false
+    elevate_non_admins                       true, false # default value: true
+    enable_detection_frequency               true, false # default value: false
+    no_reboot_with_users_logged_on           true, false # default value: true
+    scheduled_install_day                    String # default value: "Everyday"
+    scheduled_install_hour                   Integer
+    target_wsus_group_name                   String
+    update_other_ms_products                 true, false # default value: true
+    wsus_server_url                          String
+    action                                   Symbol # defaults to :set if not specified
+  end
+syntax_properties_list:
+syntax_full_properties_list:
+- "`windows_update_settings` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`automatic_update_option`, `automatically_install_minor_updates`, `block_windows_update_website`,
+  `custom_detection_frequency`, `disable_automatic_updates`, `disable_os_upgrades`,
+  `elevate_non_admins`, `enable_detection_frequency`, `no_reboot_with_users_logged_on`,
+  `scheduled_install_day`, `scheduled_install_hour`, `target_wsus_group_name`, `update_other_ms_products`,
+  and `wsus_server_url` are the properties available to this resource."
+actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :set:
+    markdown: Set Windows Update settings. (default)
+properties_list:
+- property: automatic_update_option
+  ruby_type: Integer, Symbol
+  required: false
+  default_value: ":download_and_schedule"
+  allowed_values: ":download_and_notify, :download_and_schedule, :local_admin_decides,
+    :notify"
+  description_list:
+  - markdown: Control what to do when updates are found. This allows you to notify,
+      automatically download and notify to install, automatically download and schedule
+      the install, or let the local admin decide what action to take.
+- property: automatically_install_minor_updates
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  description_list:
+  - markdown: Automatically install minor updates.
+- property: block_windows_update_website
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  description_list:
+  - markdown: Block accessing the Windows Update website.
+- property: custom_detection_frequency
+  ruby_type: Integer
+  required: false
+  default_value: '22'
+  description_list:
+  - markdown: If you decided to override the OS default detection frequency, specify
+      your choice here. Valid choices are 0 - 22
+- property: disable_automatic_updates
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  description_list:
+  - markdown: Disable Windows Update.
+- property: disable_os_upgrades
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  description_list:
+  - markdown: Disable OS upgrades.
+- property: elevate_non_admins
+  ruby_type: true, false
+  required: false
+  default_value: 'true'
+  description_list:
+  - markdown: Allow normal user accounts to temporarily be elevated to install patches.
+- property: enable_detection_frequency
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  description_list:
+  - markdown: Used to override the OS default of how often to check for updates
+- property: no_reboot_with_users_logged_on
+  ruby_type: true, false
+  required: false
+  default_value: 'true'
+  description_list:
+  - markdown: Prevents the OS from rebooting while someone is on the console.
+- property: scheduled_install_day
+  ruby_type: String
+  required: false
+  default_value: Everyday
+  allowed_values: '"Everyday", "Friday", "Monday", "Saturday", "Sunday", "Thursday",
+    "Tuesday", "Wednesday"'
+  description_list:
+  - markdown: A day of the week to tell Windows when to install updates.
+- property: scheduled_install_hour
+  ruby_type: Integer
+  required: false
+  description_list:
+  - markdown: If you chose a scheduled day to install, then choose an hour on that
+      day for you installation
+- property: target_wsus_group_name
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Add the node to a WSUS Target Group.
+- property: update_other_ms_products
+  ruby_type: true, false
+  required: false
+  default_value: 'true'
+  description_list:
+  - markdown: Allows for other Microsoft products to get updates too
+- property: wsus_server_url
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The URL of your WSUS server if you use one.
+examples: |
+  **Set Windows Update settings**:
+
+  ```ruby
+  windows_update_settings 'Settings to Configure Windows Nodes to automatically receive updates' do
+    disable_os_upgrades true
+    elevate_non_admins true
+    block_windows_update_website true
+    automatically_install_minor_updates true
+    scheduled_install_day 'Friday'
+    scheduled_install_hour 18
+    update_other_ms_products true
+    action :enable
+  end
+  ```

@@ -1,0 +1,245 @@
+---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: openssl_x509_certificate
+resource_description_list:
+- markdown: Use the **openssl_x509_certificate** resource to generate signed or self-signed,
+    PEM-formatted x509 certificates. If no existing key is specified, the resource
+    will automatically generate a passwordless key with the certificate. If a CA private
+    key and certificate are provided, the certificate will be signed with them.
+- note:
+    markdown: This resource was renamed from openssl_x509 to openssl_x509_certificate.
+      The legacy name will continue to function, but cookbook code should be updated
+      for the new resource name.
+resource_new_in: '14.4'
+syntax_full_code_block: |-
+  openssl_x509_certificate 'name' do
+    ca_cert_file             String
+    ca_key_file              String
+    ca_key_pass              String
+    city                     String
+    common_name              String
+    country                  String
+    csr_file                 String
+    email                    String
+    expire                   Integer # default value: 365
+    extensions               Hash # default value: {}
+    group                    String, Integer
+    key_curve                String # default value: "prime256v1"
+    key_file                 String
+    key_length               Integer # default value: 2048
+    key_pass                 String
+    key_type                 String # default value: "rsa"
+    mode                     Integer, String
+    org                      String
+    org_unit                 String
+    owner                    String, Integer
+    path                     String # default value: 'name' unless specified
+    renew_before_expiry      Integer
+    state                    String
+    subject_alt_name         Array # default value: []
+    action                   Symbol # defaults to :create if not specified
+  end
+syntax_properties_list:
+syntax_full_properties_list:
+- "`openssl_x509_certificate` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`ca_cert_file`, `ca_key_file`, `ca_key_pass`, `city`, `common_name`, `country`,
+  `csr_file`, `email`, `expire`, `extensions`, `group`, `key_curve`, `key_file`, `key_length`,
+  `key_pass`, `key_type`, `mode`, `org`, `org_unit`, `owner`, `path`, `renew_before_expiry`,
+  `state`, and `subject_alt_name` are the properties available to this resource."
+actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: Generate a certificate file. (default)
+properties_list:
+- property: ca_cert_file
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The path to the CA X509 Certificate on the filesystem. If the `ca_cert_file`
+      property is specified, the `ca_key_file` property must also be specified, the
+      certificate will be signed with them.
+- property: ca_key_file
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The path to the CA private key on the filesystem. If the `ca_key_file`
+      property is specified, the `ca_cert_file` property must also be specified, the
+      certificate will be signed with them.
+- property: ca_key_pass
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The passphrase for CA private key's passphrase.
+- property: city
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Value for the `L` certificate field.
+- property: common_name
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Value for the `CN` certificate field.
+- property: country
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Value for the `C` certificate field.
+- property: csr_file
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The path to a X509 Certificate Request (CSR) on the filesystem. If the
+      `csr_file` property is specified, the resource will attempt to source a CSR
+      from this location. If no CSR file is found, the resource will generate a Self-Signed
+      Certificate and the certificate fields must be specified (common_name at last).
+- property: email
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Value for the `email` certificate field.
+- property: expire
+  ruby_type: Integer
+  required: false
+  default_value: '365'
+  description_list:
+  - markdown: Value representing the number of days from now through which the issued
+      certificate cert will remain valid. The certificate will expire after this period.
+- property: extensions
+  ruby_type: Hash
+  required: false
+  default_value: "{}"
+  description_list:
+  - markdown: Hash of X509 Extensions entries, in format `{ 'keyUsage' => { 'values'
+      => %w( keyEncipherment digitalSignature), 'critical' => true } }`.
+- property: group
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown: The group ownership applied to all files created by the resource.
+- property: key_curve
+  ruby_type: String
+  required: false
+  default_value: prime256v1
+  allowed_values: '"prime256v1", "secp384r1", "secp521r1"'
+  description_list:
+  - markdown: The desired curve of the generated key (if key_type is equal to 'ec').
+      Run `openssl ecparam -list_curves` to see available options.
+- property: key_file
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The path to a certificate key file on the filesystem. If the key_file
+      property is specified, the resource will attempt to source a key from this location.
+      If no key file is found, the resource will generate a new key file at this location.
+      If the key_file property is not specified, the resource will generate a key
+      file in the same directory as the generated certificate, with the same name
+      as the generated certificate.
+- property: key_length
+  ruby_type: Integer
+  required: false
+  default_value: '2048'
+  allowed_values: 1024, 2048, 4096, 8192
+  description_list:
+  - markdown: The desired bit length of the generated key (if key_type is equal to
+      'rsa').
+- property: key_pass
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The passphrase for an existing key's passphrase.
+- property: key_type
+  ruby_type: String
+  required: false
+  default_value: rsa
+  allowed_values: '"ec", "rsa"'
+  description_list:
+  - markdown: The desired type of the generated key.
+- property: mode
+  ruby_type: Integer, String
+  required: false
+  description_list:
+  - markdown: The permission mode applied to all files created by the resource.
+- property: org
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Value for the `O` certificate field.
+- property: org_unit
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Value for the `OU` certificate field.
+- property: owner
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown: The owner applied to all files created by the resource.
+- property: path
+  ruby_type: String
+  required: false
+  default_value: The resource block's name
+  description_list:
+  - markdown: An optional property for specifying the path to write the file to if
+      it differs from the resource block's name.
+- property: renew_before_expiry
+  ruby_type: Integer
+  required: false
+  new_in: '15.7'
+  description_list:
+  - markdown: The number of days before the expiry. The certificate will be automatically
+      renewed when the value is reached.
+- property: state
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Value for the `ST` certificate field.
+- property: subject_alt_name
+  ruby_type: Array
+  required: false
+  default_value: "[]"
+  description_list:
+  - markdown: Array of Subject Alternative Name entries, in format `DNS:example.com`
+      or `IP:1.2.3.4`.
+examples: |
+  Create a simple self-signed certificate file
+
+  ```ruby
+  openssl_x509_certificate '/etc/httpd/ssl/mycert.pem' do
+    common_name 'www.f00bar.com'
+    org 'Foo Bar'
+    org_unit 'Lab'
+    country 'US'
+  end
+  ```
+
+  Create a certificate using additional options
+
+  ```ruby
+  openssl_x509_certificate '/etc/ssl_files/my_signed_cert.crt' do
+    common_name 'www.f00bar.com'
+    ca_key_file '/etc/ssl_files/my_ca.key'
+    ca_cert_file '/etc/ssl_files/my_ca.crt'
+    expire 365
+    extensions(
+      'keyUsage' => {
+        'values' => %w(
+          keyEncipherment
+          digitalSignature),
+        'critical' => true,
+      },
+      'extendedKeyUsage' => {
+        'values' => %w(serverAuth),
+        'critical' => false,
+      }
+    )
+    subject_alt_name ['IP:127.0.0.1', 'DNS:localhost.localdomain']
+  end
+  ```

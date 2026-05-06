@@ -1,0 +1,104 @@
+---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: openssl_dhparam
+resource_description_list:
+- markdown: Use the **openssl_dhparam** resource to generate `dhparam.pem` files.
+    If a valid `dhparam.pem` file is found at the specified location, no new file
+    will be created. If a file is found at the specified location but it is not a
+    valid `dhparam.pem` file, it will be overwritten.
+resource_new_in: '14.0'
+syntax_full_code_block: |-
+  openssl_dhparam 'name' do
+    generator       Integer # default value: 2
+    group           String, Integer
+    key_length      Integer # default value: 2048
+    mode            Integer, String # default value: "0640"
+    owner           String, Integer
+    path            String # default value: 'name' unless specified
+    action          Symbol # defaults to :create if not specified
+  end
+syntax_properties_list:
+syntax_full_properties_list:
+- "`openssl_dhparam` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`generator`, `group`, `key_length`, `mode`, `owner`, and `path` are the properties
+  available to this resource."
+actions_list:
+  :create:
+    markdown: Create the `dhparam.pem` file. (default)
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+properties_list:
+- property: generator
+  ruby_type: Integer
+  required: false
+  default_value: '2'
+  allowed_values: 2, 5
+  description_list:
+  - markdown: The desired Diffie-Hellmann generator.
+- property: group
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown: The group ownership applied to all files created by the resource.
+- property: key_length
+  ruby_type: Integer
+  required: false
+  default_value: '2048'
+  allowed_values: 1024, 2048, 4096, 8192
+  description_list:
+  - markdown: The desired bit length of the generated key.
+- property: mode
+  ruby_type: Integer, String
+  required: false
+  default_value: '0640'
+  description_list:
+  - markdown: The permission mode applied to all files created by the resource.
+- property: owner
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown: The owner applied to all files created by the resource.
+- property: path
+  ruby_type: String
+  required: false
+  default_value: The resource block's name
+  description_list:
+  - markdown: An optional property for specifying the path to write the file to if
+      it differs from the resource block's name.
+examples: |
+  **Create a dhparam file**
+
+  ```ruby
+  openssl_dhparam '/etc/httpd/ssl/dhparam.pem'
+  ```
+
+  **Create a dhparam file with a specific key length**
+
+  ```ruby
+  openssl_dhparam '/etc/httpd/ssl/dhparam.pem' do
+    key_length 4096
+  end
+  ```
+
+  **Create a dhparam file with specific user/group ownership**
+
+  ```ruby
+  openssl_dhparam '/etc/httpd/ssl/dhparam.pem' do
+    owner 'www-data'
+    group 'www-data'
+  end
+  ```
+
+  **Manually specify the dhparam file path**
+
+  ```ruby
+  openssl_dhparam 'httpd_dhparam' do
+    path '/etc/httpd/ssl/dhparam.pem'
+  end
+  ```

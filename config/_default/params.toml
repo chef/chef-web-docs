@@ -1,6 +1,6 @@
 ## The order of the menus (e.g. menu.infra, menu.inspec, etc...) in the left nav menu
 ## is set by the menuOrder parameter below.
-menuOrder = [
+menu_order = [
   "overview",
   "360",
   "automate",
@@ -36,12 +36,13 @@ sitemaps = [
   "https://docs.chef.io/360/1.5/sitemap.xml",
   "https://docs.chef.io/360/1.6/sitemap.xml",
   "https://docs.chef.io/360/1.7/sitemap.xml",
-  "https://docs.chef.io/client/19.1/sitemap.xml",
   "https://docs.chef.io/inspec/5.23/sitemap.xml",
   "https://docs.chef.io/inspec/5.24/sitemap.xml",
   "https://docs.chef.io/inspec/6.8/sitemap.xml",
   "https://docs.chef.io/inspec/7.0/sitemap.xml",
   "https://docs.chef.io/inspec/resource_packs/sitemap.xml",
+  "https://docs.chef.io/habitat/1.6/sitemap.xml",
+  "https://docs.chef.io/habitat/2.0/sitemap.xml",
   "https://docs.chef.io/workstation/26/sitemap.xml",
   "https://docs.chef.io/workstation/25/sitemap.xml"
 ]
@@ -76,7 +77,7 @@ gh_path = "https://github.com/chef/license-service/tree/main/docs-chef-io/conten
 
 [search]
 
-default_search_product_keys = ["", "chef-360-saas", "chef-360-1.7", "automate", "desktop", "habitat", "habitat-2.0", "client", "server", "inspec", "inspec-7.0", "saas", "supermarket", "workstation", "workstation-26"]
+default_search_product_keys = ["", "chef-360-saas", "chef-360-1.7", "automate", "desktop", "habitat", "chef-habitat-2.0", "client-19", "server", "inspec", "inspec-7.0", "saas", "supermarket", "workstation", "workstation-26"]
 
 [search.products]
 
@@ -134,11 +135,11 @@ product_key = "habitat"
 
 [[search.products.habitat.versions]]
 name = "2.0"
-product_version_key = "habitat-2.0"
+product_version_key = "chef-habitat-2.0"
 
 [[search.products.habitat.versions]]
 name = "1.6"
-product_version_key = "habitat-1.6"
+product_version_key = "chef-habitat-1.6"
 
 [search.products.infra_client]
 name = "Chef Infra Client"
@@ -146,11 +147,11 @@ product_key = "client"
 
 [[search.products.infra_client.versions]]
 name = "19"
-product_version_key = "client-19.1"
+product_version_key = "client-19"
 
 [[search.products.infra_client.versions]]
 name = "18"
-product_version_key = "client"
+product_version_key = "client-18"
 
 [search.products.infra_server]
 name = "Infra Server"
@@ -222,3 +223,17 @@ highlightBroken = true
 
 [render_hooks.image]
 errorLevel = 'warning'
+
+#######
+#
+# Versioned products
+#
+#######
+
+[[versions.client]]
+link_text = "Chef Infra Client 19"
+base_url = "/client/19/"
+
+[[versions.client]]
+link_text = "Chef Infra Client 18"
+base_url = "/client/18/"

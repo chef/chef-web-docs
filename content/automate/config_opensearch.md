@@ -360,4 +360,4 @@ maxHeapsize = "2g"
 
 ## Centralized Logs
 
-Take a tour of the main page to know about [Centralized logs](/automate/centralizing_log/).
+Take a tour of the main page to know about [Centralized logs](/automate/centralize_logs/).
