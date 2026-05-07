@@ -23,8 +23,8 @@ Release date: May 11th, 2026
 
 ### Key features
 
-- InSpec 7.0.* is the long-term support (LTS) version.
-- InSpec 7.0.* is built entirely on Chef Habitat. We aren't providing traditional Omnibus builds.
+- InSpec 7.1.* is the long-term support (LTS) version.
+- InSpec 7.1.* is built entirely on Chef Habitat. We aren't providing traditional Omnibus builds.
 
 ### Improvements
 
