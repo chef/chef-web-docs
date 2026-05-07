@@ -112,6 +112,8 @@ https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/metadata?p=<PLATFORM
 ```
 
 You can optionally include the `pm` (package manager) query parameter to specify the type of package to retrieve (for example: `deb`, `rpm`, `msi`, or `tar`).
+If you don't include `pm`, include `p` (platform) so the API can derive the package format from `p`.
+Include `pm` when you want to request a specific package format explicitly.
 
 ```plain
 https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/metadata?p=<PLATFORM>&pm=<PACKAGE_MANAGER>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
@@ -126,6 +128,8 @@ https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM
 ```
 
 You can optionally include the `pm` (package manager) query parameter to specify the package format to download---for example, `deb`, `rpm`, `msi`, or `tar`.
+If you don't include `pm`, include `p` (platform) so the API can derive the package format from `p`.
+Include `pm` when you want to request a specific package format explicitly.
 
 ```plain
 https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM>&pm=<PACKAGE_MANAGER>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
@@ -140,6 +144,8 @@ https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/fileName?p=<PLATFORM
 ```
 
 You can optionally include the `pm` (package manager) query parameter to specify the package format---for example, `deb`, `rpm`, `msi`, or `tar`.
+If you don't include `pm`, include `p` (platform) so the API can derive the package format from `p`.
+Include `pm` when you want to request a specific package format explicitly.
 
 ```plain
 https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/fileName?p=<PLATFORM>&pm=<PACKAGE_MANAGER>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
@@ -182,8 +188,9 @@ The API accepts the following parameters in a query string.
 `p`
 : The platform.
 
-  Possible values: `debian`, `el` (for RHEL derivatives), `freebsd`, `mac_os_x`, `solaris2`, `sles`, `suse`, `ubuntu` or
-  `windows`.
+  Common values include `debian`, `el` (for RHEL derivatives), `linux`, `linux-kernel2`, `mac_os_x`, `sles`, `ubuntu`, and `windows`.
+
+  For the complete and current list, use the [`platforms`](#platforms) endpoint.
 
 `pv`
 : The platform version.
@@ -207,6 +214,7 @@ The API accepts the following parameters in a query string.
 `pm`
 : This parameter is optional.
   If not provided, the API automatically detects the platform and derives the package format from it.
+  Include `pm` when you want to request a specific package format explicitly.
 
   Possible values:
 
