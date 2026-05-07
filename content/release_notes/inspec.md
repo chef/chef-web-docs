@@ -43,7 +43,7 @@ You can download packages from the Chef customer download portal or the download
 The following native packages are available:
 
 - Linux x86: RPM (`.rpm`) and DEB (`.deb`) packages
-- Windows x86: MSI installer (`.msi`), supporting
+- Windows x86: MSI installer (`.msi`)
 
 OS-native packages aren't available for Linux ARM or macOS.
 
