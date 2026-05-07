@@ -61,6 +61,7 @@ Release date: MM DD, 2026
 - Added SELinux fcontext install hook for Habitat packages ([#15787](https://github.com/chef/chef/pull/15787)).
 - Enabled Docker ARM image build and push ([#15856](https://github.com/chef/chef/pull/15856)).
 - Removed Knife from Chef distribution and continued Knife reference cleanup ([#15847](https://github.com/chef/chef/pull/15847), [#15887](https://github.com/chef/chef/pull/15887)).
+- Added support for Linux ARM platforms ([#15716](https://github.com/chef/chef/pull/15716)).
 
 ## Improvements
 - Optimized dnf command execution to reduce shell_out calls ([#15718](https://github.com/chef/chef/pull/15718)).
