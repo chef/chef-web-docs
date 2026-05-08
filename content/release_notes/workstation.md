@@ -28,7 +28,7 @@ Release Date: May 21, 2026.
 - Updated chef-vault to v4.2.9
 - Updated fauxhai-chef to v9.4.20
 - Updated test-kitchen to v4.0.0, which adds support for authenticated downloads from the new download API.
-
+- Replaced winrm, winrm-elevated, and winrm-fs gems with chef-winrm, chef-winrm-elevated, and chef-winrm-fs.
 
 Updated the following Test Kitchen drivers:
  - Updated kitchen-ec2 to v3.22.3.
@@ -37,8 +37,6 @@ Updated the following Test Kitchen drivers:
  - Updated kitchen-openstack to v7.0.1.
  - Updated kitchen-vagrant to v2.2.1.
  - Updated kitchen-vcenter to v2.12.3.
-
-- Replaced winrm, winrm-elevated, and winrm-fs gems with chef-winrm, chef-winrm-elevated, and chef-winrm-fs.
 
 ### Security
 
