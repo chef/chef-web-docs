@@ -17,9 +17,9 @@ summary = "Chef Workstation release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
-## Chef Workstation 25.14.2
+## Chef Workstation 25.14
 
-Release Date: May 22, 2026.
+Release Date: May 21, 2026.
 
 ### Component updates
 
