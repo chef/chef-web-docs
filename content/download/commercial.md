@@ -238,7 +238,7 @@ The API accepts the following parameters in a query string.
 : The machine architecture for the machine on which the product will be installed.
 
   Possible values depend on the platform. For example, for
-  Ubuntu or Debian: `i386` or `x86_64`, or for macOS: `x86_64`.
+  Ubuntu or Debian: `i386`, `x86_64`, or `aarch64`, or for macOS: `x86_64`.
 
   To get the supported architecture values, use the [`architectures`](#architectures) endpoint.
 
