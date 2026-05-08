@@ -27,7 +27,8 @@ Release Date: May 21, 2026.
 - Updated berkshelf to v8.1.21
 - Updated chef-vault to v4.2.9
 - Updated fauxhai-chef to v9.4.20
-- Updated test-kitchen to v4.0.0, which adds support for authenticated downloads from the new download API.
+- Updated test-kitchen to v4.0.0, which moves the provisioner to it's own gem.
+- Added kitchen-omnibus-chef gem for the chef provisioner and adds support for authenticated downloads from the new download API.
 - Replaced winrm, winrm-elevated, and winrm-fs gems with chef-winrm, chef-winrm-elevated, and chef-winrm-fs.
 
 Updated the following Test Kitchen drivers:
