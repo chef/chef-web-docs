@@ -484,39 +484,46 @@ title = "Chef InSpec"
 identifier = "inspec"
 
   [[inspec]]
+  title = "version 7.1"
+  identifier = "inspec/7.1/"
+  parent = "inspec"
+  url = "/inspec/7.1/"
+  weight = 10
+
+  [[inspec]]
   title = "version 7.0"
   identifier = "inspec/7.0/"
   parent = "inspec"
   url = "/inspec/7.0/"
-  weight = 10
+  weight = 20
 
   [[inspec]]
   title = "version 6.8"
   identifier = "inspec/6.8/"
   parent = "inspec"
   url = "/inspec/6.8/"
-  weight = 20
+  weight = 30
 
   [[inspec]]
   title = "version 5.24"
   identifier = "inspec/5.24/"
   parent = "inspec"
   url = "/inspec/5.24/"
-  weight = 30
+  weight = 40
 
   [[inspec]]
   title = "version 5.23"
   identifier = "inspec/5.23/"
   parent = "inspec"
   url = "/inspec/5.23/"
-  weight = 40
+  weight = 50
 
   [[inspec]]
   title = "Resource packs"
   identifier = "inspec/resource_packs"
   parent = "inspec"
   url = "/inspec/resource_packs/"
-  weight = 50
+  weight = 60
 
 ####
 # End Chef InSpec Menu
