@@ -172,7 +172,7 @@
 
 [[redirects]]
   from = "/inspec/latest/*"
-  to = "/inspec/7.0/:splat"
+  to = "/inspec/7.1/:splat"
   status = 301
 
 [[redirects]]
