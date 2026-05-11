@@ -40,6 +40,7 @@ sitemaps = [
   "https://docs.chef.io/inspec/5.24/sitemap.xml",
   "https://docs.chef.io/inspec/6.8/sitemap.xml",
   "https://docs.chef.io/inspec/7.0/sitemap.xml",
+  "https://docs.chef.io/inspec/7.1/sitemap.xml",
   "https://docs.chef.io/inspec/resource_packs/sitemap.xml",
   "https://docs.chef.io/habitat/1.6/sitemap.xml",
   "https://docs.chef.io/habitat/2.0/sitemap.xml",
@@ -77,7 +78,7 @@ gh_path = "https://github.com/chef/license-service/tree/main/docs-chef-io/conten
 
 [search]
 
-default_search_product_keys = ["", "chef-360-saas", "chef-360-1.7", "automate", "desktop", "habitat", "chef-habitat-2.0", "client-19", "server", "inspec", "inspec-7.0", "saas", "supermarket", "workstation", "workstation-26"]
+default_search_product_keys = ["", "chef-360-saas", "chef-360-1.7", "automate", "desktop", "habitat", "chef-habitat-2.0", "client-19", "server", "inspec", "inspec-7.1", "saas", "supermarket", "workstation", "workstation-26"]
 
 [search.products]
 
@@ -160,6 +161,10 @@ product_key = "server"
 [search.products.inspec]
 name = "InSpec"
 product_key = "inspec"
+
+[[search.products.inspec.versions]]
+name = "7.1"
+product_version_key = "inspec-7.1"
 
 [[search.products.inspec.versions]]
 name = "7.0"
