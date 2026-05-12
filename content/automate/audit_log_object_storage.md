@@ -223,6 +223,78 @@ If you don't set `[global.v1.audit.output]`, Chef Automate uses these defaults:
     sudo chef-automate config patch </PATH/TO/TOML/FILE>
     ```
 
+### Configure audit log retention
+
+Chef Automate can automatically delete old audit log objects from your S3 or MinIO bucket on a daily schedule.
+
+**Rotating audit log objects stored in S3** are deleted based on how old they are (in days).
+**Requested-log export files** (generated when a user calls the audit request API) are deleted based on how long ago they were created (in hours or days).
+
+#### Configure daily cleanup of stored audit logs
+
+To enable daily deletion of audit log objects older than a set number of days, follow these steps:
+
+1. Create a TOML file with the following content:
+
+    ```toml
+    [global.v1.audit]
+
+      [global.v1.audit.retention]
+        days = 30
+        schedule_hour = 2
+        schedule_minute = 0
+    ```
+
+    Replace the following:
+
+    - `days` with the number of days to retain audit logs. Set to `0` to disable automatic cleanup (unlimited retention).
+    - `schedule_hour` with the hour (0-23) when cleanup runs. Default: `2` (2 AM).
+    - `schedule_minute` with the minute (0-59) when cleanup runs. Default: `0`.
+
+    {{< note >}}
+    Retention is enabled when `days` is greater than `0`.
+    Setting `days = 0` disables automatic cleanup entirely.
+    {{< /note >}}
+
+1. Patch the Chef Automate configuration:
+
+    ```bash
+    sudo chef-automate config patch </PATH/TO/TOML/FILE>
+    ```
+
+#### Configure automatic deletion of requested log export files
+
+When a user requests audit logs through the API, Chef Automate generates a log export file and stores it in your configured bucket under the `requested-logs/` path prefix.
+These files are automatically cleaned up on an hourly schedule.
+
+To configure how long requested-log files are retained before deletion, follow these steps:
+
+1. Create a TOML file with the following content:
+
+    ```toml
+    [global.v1.audit]
+
+      [global.v1.audit.async]
+        requested_logs_retention_duration = "1hr"
+    ```
+
+    Replace `"1hr"` with your retention duration.
+    Valid formats:
+
+    - `"0"` disables automatic cleanup (files are retained indefinitely).
+    - `"1hr"`, `"24hr"` retain for the specified number of hours.
+    - `"7d"`, `"30d"` retain for the specified number of days.
+
+    {{< note >}}
+    If the value is invalid, Chef Automate disables cleanup (fail-closed) and logs a warning.
+    {{< /note >}}
+
+1. Patch the Chef Automate configuration:
+
+    ```bash
+    sudo chef-automate config patch </PATH/TO/TOML/FILE>
+    ```
+
 ## Troubleshooting
 
 - If uploads fail to MinIO with TLS enabled, verify the endpoint scheme (`http://` vs `https://`) matches the `ssl.enabled` setting.
@@ -441,6 +513,47 @@ For a complete set of log storage settings, see the [reference examples](#audit-
 
     Units: minutes only (`m`).
 
+`[global.v1.audit.retention]`
+
+: Configures automatic daily cleanup of audit log objects stored in S3 or MinIO:
+
+  ```toml
+  [global.v1.audit.retention]
+    days = 30
+    schedule_hour = 2
+    schedule_minute = 0
+  ```
+
+: `days`
+  : Default value: `30`
+
+    Number of days to retain audit logs.
+    A value of `0` disables automatic cleanup (unlimited retention).
+    A value greater than 0 enables cleanup and sets the retention period.
+
+    Must be `>= 0`.
+
+: `schedule_hour`
+  : Default value: `2`
+
+    Hour of day (0-23) when the daily cleanup job runs.
+    Default is `2` (2 AM).
+
+: `schedule_minute`
+  : Default value: `0`
+
+    Minute (0-59) when the daily cleanup job runs.
+
+: `requested_logs_retention_duration` (under `[global.v1.audit.async]`)
+  : Default value: `"1hr"`
+
+    Controls how long requested audit log export files (stored under `requested-logs/` in your bucket) are kept before automatic hourly cleanup.
+    Valid formats: `"0"` (disabled), `"1hr"`, `"24hr"`, `"7d"`, `"30d"`, and so on.
+    Must use `hr` for hours or `d` for days.
+    For example, `"24h"` is not valid. Use `"24hr"`.
+
+    If set to an invalid value, cleanup is disabled and a warning is logged.
+
 ### Audit log configuration file examples
 
 The following examples show all audit log settings in a single TOML file (logging, local rotation, S3 or MinIO storage, TLS settings, and upload behavior).
@@ -471,6 +584,12 @@ The following TOML shows the default audit log settings:
     max_concurrent_workers = 4
     queue_size = 100
     multipart_chunk_size = "10M"
+    requested_logs_retention_duration = "1hr"
+
+  [global.v1.audit.retention]
+    days = 0
+    schedule_hour = 2
+    schedule_minute = 0
 
   [global.v1.audit.storage]
     storage_type = "s3"
