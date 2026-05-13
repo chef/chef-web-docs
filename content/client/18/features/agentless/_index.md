@@ -25,25 +25,30 @@ Agentless has the following requirements:
 
 - A network-enabled system to execute Agentless.
 - The `chef-client` CLI. This is included with Chef Workstation.
-- A target_credentials file which provides the system with information to connect to a target node.
+- A `target_credentials` file which provides the system with information to connect to a target node.
 - A recipe that only includes Target Mode-enabled resources.
 
-## Target_Credentials file
+## Target credentials file
 
-The target_credentials file defines the SSH connection settings for each node in TOML format.
+The `target_credentials` file defines the SSH connection settings for each node in TOML format.
 
-Create a target_credentials file on the computer running Chef Workstation in the following location:
+Chef Infra Client looks for the target credentials file in the following locations, in order of priority:
 
-- on Linux and macOS: `~/.chef/target_credentials`
+1. The path set by the `CHEF_CREDENTIALS_FILE` environment variable, if defined.
+1. The path set by `target_mode.credentials_file` in your `client.rb`.
+1. A host-specific file at `/etc/chef/<TARGET_NAME>/credentials` on Linux and macOS.
+1. The default user file:
+   - On Linux and macOS: `~/.chef/target_credentials`
+   - On Windows: `C:\Users\<USERNAME>\.chef\target_credentials`
 
-- on Windows: `c:\Users\<USERNAME>\.chef\target_credentials`
-
-- Previous iterations of the documentation referred to a "credentials" file. This has been deprecated.
+{{< note >}}
+Previous versions of the documentation referred to a `credentials` file at `~/.chef/credentials`. That file is deprecated for Target Mode. Use `target_credentials` instead.
+{{< /note >}}
 
 ### Define node connections
 
 Define connection settings for each node with an [inline table](https://toml.io/en/v1.0.0#inline-table).
-For example, this adds credentials for three nodes to your target_credentials file:
+For example, this adds credentials for three nodes to your `target_credentials` file:
 
 ```toml
 ['HOST-1']
@@ -113,11 +118,7 @@ transport_protocol = 'ssh'
 
 <!-- markdownlint-disable MD007 MD006 -->
 
-<<<<<<< HEAD:content/client/18/features/agentless/_index.md
-Agentless supports the following SSH connection parameters in a credentials file.
-=======
 Target Mode supports the following SSH connection parameters in a target_credentials file.
->>>>>>> 915d15e23 (target mode is challenging):content/target_mode.md
 
 Common parameters:
 
@@ -204,10 +205,16 @@ Run the `chef-client` executable using `-t` or `--target` to target a specific n
 chef-client -t <TARGET_NAME>
 ```
 
-Replace `<TARGET_NAME>` with the name of the host as defined in the target_credentials file.
+Replace `<TARGET_NAME>` with the name of the host as defined in the target credentials file.
 For example, `HOST-1` in the [credential file example](#define-node-connections).
 
-To execute a specific Cookbook in Agentless, run:
+You can also pass a Train URI directly instead of a target name from the credentials file:
+
+```sh
+chef-client --target ssh://user@target.example.com
+```
+
+To execute a specific Cookbook in Target Mode, run:
 
 ```sh
 chef-client -t <TARGET_NAME> <PATH/TO/COOKBOOK/COOKBOOK_NAME>
@@ -236,9 +243,6 @@ For example, `HOST-1` in the [credential file example](#define-node-connections)
 
 ## Run Agentless with Chef Automate or Chef Infra Server
 
-<<<<<<< HEAD:content/client/18/features/agentless/_index.md
-You can configure Chef Automate or Chef Infra Server to run Agentless on a regular schedule.
-=======
 Upload the cookbooks you need to the chef server for your target node.
 
 Don't forget to add those cookbooks to the run_list for each of your target nodes
@@ -252,7 +256,6 @@ chef-client -t SQL_Server 'recipe[sql_harden::default]'
 ```
 
 You can configure Chef Automate or Chef Infra Server to run Target Mode on a regular schedule.
->>>>>>> 915d15e23 (target mode is challenging):content/target_mode.md
 
 Agentless doesn't have a way to schedule Chef Infra Client runs on a node, but you can create a cron file that executes Agentless on a regular schedule.
 

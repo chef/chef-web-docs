@@ -77,15 +77,15 @@ Release date: February 5, 2026
 - Improved performance when looking up cookbook files, especially for large cookbooks. This makes cookbook file resolution more reliable and faster. [#14829](https://github.com/chef/chef/pull/14829)
 - Improved performance when running recipes by reducing internal overhead in how resource properties are read and written. [#15328](https://github.com/chef/chef/pull/15328)
 
-### Agentless Mode
+### Target Mode
 
-- This release improves Agentless Mode (previously called Target Mode). Agentless Mode lets you execute Chef Infra Client runs on nodes that don't have the Infra Client installed on them and can work against nodes that only have SSH access.
-- There are now 90+ built-in Infra Client resources that run in Agentless Mode.
-- Added sudo capabilities to Agentless Mode. [#15015](https://github.com/chef/chef/pull/15015)
-- Added support for retrieving HashiCorp Vault secrets in Agentless Mode. [#15064](https://github.com/chef/chef/pull/15064)
-- Fixed an issue in Agentless Mode where required GUIDs were missing, which could cause errors or inconsistent behavior when running Infra Client against targets. This update ensures resources and targets are identified correctly during execution. [#15467](https://github.com/chef/chef/pull/15467)
-- The yum_package resource now works correctly in Agentless Mode on Fedora and RHEL systems, and Chef handles file permission checks and temporary directory creation more robustly on remote targets. [#14786](https://github.com/chef/chef/pull/14786)
-- Updated mixlib-shellout to fully support Agentless Mode. [#14807](https://github.com/chef/chef/pull/14807)
+- This release improves Target Mode. Target Mode lets you execute Chef Infra Client runs on nodes that don't have Chef Infra Client installed on them and can work against nodes that only have SSH access.
+- There are now 90+ built-in Chef Infra Client resources that run in Target Mode.
+- Added sudo capabilities to Target Mode. [#15015](https://github.com/chef/chef/pull/15015)
+- Added support for retrieving HashiCorp Vault secrets in Target Mode. [#15064](https://github.com/chef/chef/pull/15064)
+- Fixed an issue in Target Mode where required GUIDs were missing, which could cause errors or inconsistent behavior when running Chef Infra Client against targets. This update ensures resources and targets are identified correctly during execution. [#15467](https://github.com/chef/chef/pull/15467)
+- The yum_package resource now works correctly in Target Mode on Fedora and RHEL systems, and Chef handles file permission checks and temporary directory creation more robustly on remote targets. [#14786](https://github.com/chef/chef/pull/14786)
+- Updated mixlib-shellout to fully support Target Mode. [#14807](https://github.com/chef/chef/pull/14807)
 
 ### Compliance Phase
 
