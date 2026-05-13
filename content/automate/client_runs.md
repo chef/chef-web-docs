@@ -63,7 +63,7 @@ Filter nodes from the search bar based on existing node information. You can app
 [Chef Infra Server](/server/)
 : A Chef Infra Server URL.
 
-[Cookbook](/cookbooks/)
+[Cookbook](/client/latest/cookbooks/)
 : A cookbook name.
 
 [Environment](/environments/)
@@ -84,10 +84,10 @@ Filter nodes from the search bar based on existing node information. You can app
 [Policy Revision](/release_notes_server/#policiesnamerevisions)
 : The policy revision ID, only nodes using Policyfiles appear.
 
-[Recipe](/recipes/)
+[Recipe](/client/latest/cookbooks/recipes/)
 : A recipe within a cookbook.
 
-[Resource Name](/resources/)
+[Resource Name](/client/latest/resources/bundled/)
 : A resource within a cookbook.
 
 [Role](/roles/)
@@ -160,7 +160,7 @@ Chef Automate considers the instances of ephemeral nodes, which are nodes that a
 
 Set Chef Automate to consider ephemeral nodes as manifestations of the same node by configuring the UUID on the client-side. Configuring the UUID on the client-side keeps the node associated with the same ID, making Chef Automate consider it the same node every time it recreates. In the node's `client.rb`, set `chef_guid` to the _desired UUID_. If the node already exists, check that it uses the correct UUID. Otherwise, it appears as a new node the next time it recreates.
 
-See the `client.rb` documentation for more information about [configuring your client nodes](/config_rb_client/).
+See the `client.rb` documentation for more information about [configuring your client nodes](/client/latest/install/config_rb_client/).
 
 The following are the configuration parameters available:
 

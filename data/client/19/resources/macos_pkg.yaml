@@ -1,0 +1,89 @@
+---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: macos_pkg
+resource_description_list:
+- markdown: Use the **macos_pkg** resource to install a macOS `.pkg` file, optionally
+    downloading it from a remote source. A `package_id` property must be provided
+    for idempotency. Either a `file` or `source` property is required.
+resource_new_in: '18.1'
+syntax_full_code_block: |-
+  macos_pkg 'name' do
+    checksum         String
+    file             String
+    headers          Hash
+    package_id       String
+    source           String
+    target           String # default value: '/'
+    action           Symbol # defaults to :install if not specified
+  end
+syntax_properties_list:
+syntax_full_properties_list:
+- "`macos_pkg` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`checksum`, `file`, `headers`, `package_id`, `source`, and `target` are the properties
+  available to this resource."
+actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :install:
+    markdown: Install a macOS `.pkg` file. (default)
+properties_list:
+- property: checksum
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The SHA-256 checksum of the `.pkg` file to download.
+- property: file
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The absolute path to the `.pkg` file on the local system.
+- property: headers
+  ruby_type: Hash
+  required: false
+  description_list:
+  - markdown: Allows custom HTTP headers (such as cookies) to be set on the `remote_file`
+      resource used to download the package.
+- property: package_id
+  ruby_type: String
+  required: true
+  description_list:
+  - markdown: The package ID registered with `pkgutil` when a `pkg` or `mpkg` is
+      installed. Required for idempotency.
+- property: source
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The remote URL used to download the `.pkg` file.
+- property: target
+  ruby_type: String
+  required: false
+  default_value: /
+  description_list:
+  - markdown: The device to install the package on.
+examples: |
+  **Install osquery**:
+
+  ```ruby
+  macos_pkg 'osquery' do
+    checksum   '1fea8ac9b603851d2e76c5fc73138a468a3075a3002c8cb1fd7fff53b889c4dd'
+    package_id 'io.osquery.agent'
+    source     'https://pkg.osquery.io/darwin/osquery-5.8.2.pkg'
+    action     :install
+  end
+  ```
+
+  **Install a local package**:
+
+  ```ruby
+  macos_pkg 'my-app' do
+    file       '/tmp/my-app.pkg'
+    package_id 'com.example.my-app'
+    action     :install
+  end
+  ```

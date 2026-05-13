@@ -3,7 +3,7 @@ title = "Chef SaaS Overview"
 draft = false
 
 [cascade]
-  product = ["saas"]
+  swiftype_search_products = ["saas"]
 
 [menu]
   [menu.cloud]

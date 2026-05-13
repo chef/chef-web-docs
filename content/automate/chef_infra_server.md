@@ -55,7 +55,7 @@ Once done, select **Add Chef Infra Server** and see the server in the list of Ch
 
 ## Connect a Chef Organization to a Chef Infra Server
 
-To view a list of existing [organizations]({{< relref "server_orgs" >}}) on a Chef Infra Server,
+To view a list of existing [organizations](/server/server_orgs/) on Chef Infra Server,
 select a Chef Infra Server from the **Chef Infra Servers** list, then select the **Organizations** tab, as shown below:
 
 {{< figure src="/images/automate/chef-server-organization.png" alt="Chef Infra Server Organization">}}
@@ -85,7 +85,7 @@ To access these components for an organization, select **Chef Infra Servers > Or
 
 ### Cookbooks
 
-A [cookbook]({{< relref "cookbooks" >}}) is the fundamental unit of configuration and policy distribution. A cookbook contains recipes and other files, components, or directories.
+A [cookbook](/client/latest/cookbooks) is the fundamental unit of configuration and policy distribution. A cookbook contains recipes and other files, components, or directories.
 
 The Chef Infra Server lets you view:
 

@@ -10,8 +10,6 @@ draft = false
     weight = 225
 +++
 
-
-
 ## Pre-requisite
 
 - Have a working HA cluster with Bastion.

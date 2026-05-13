@@ -3,7 +3,7 @@ title = "Chef Contributor Covenant Code of Conduct"
 draft = false
 gh_repo = "chef-web-docs"
 
-product = []
+swiftype_search_products = []
 
 [menu]
   [menu.overview]
@@ -108,8 +108,7 @@ includes:
 - Inappropriate physical contact or unwelcome sexual attention.
 
 **NOTE**: If you are in a physical space -- for example, Chef Conf, Meetup, etc.
--- please see the [Physical Spaces Code of
-Conduct](https://www.chef.io/code-of-conduct/physical-spaces/).
+-- see the [Event Code of Conduct](https://www.progress.com/events/code-of-conduct).
 
 ## Enforcement/Getting Help
 

@@ -2,7 +2,7 @@
 title = "Omnitruck API"
 draft = false
 gh_repo = "chef-web-docs"
-product = []
+swiftype_search_products = []
 robots = "noindex"
 +++
 

@@ -1,0 +1,69 @@
+---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: selinux_user
+resource_description_list:
+- markdown: Use the **selinux_user** resource to add, update, or remove SELinux users.
+resource_new_in: '18.1'
+syntax_full_code_block: |-
+  selinux_user 'name' do
+    level      String
+    range      String
+    roles      Array
+    user       String # default value: 'name' unless specified
+    action     Symbol # defaults to :manage if not specified
+  end
+syntax_properties_list:
+syntax_full_properties_list:
+- "`selinux_user` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`level`, `range`, `roles`, and `user` are the properties available to this resource."
+actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :manage:
+    markdown: Sets the SELinux user to the desired settings regardless of previous
+      state. (default)
+  :add:
+    markdown: Creates the SELinux user if not previously created.
+  :modify:
+    markdown: Updates the SELinux user if previously created.
+  :delete:
+    markdown: Removes the SELinux user if previously created.
+properties_list:
+- property: level
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Multi-Level Security (MLS) or Multi-Category Security (MCS) security level for the SELinux user.
+- property: range
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: Multi-Level Security (MLS) or Multi-Category Security (MCS) security range for the SELinux user.
+- property: roles
+  ruby_type: Array
+  required: false
+  description_list:
+  - markdown: Associated SELinux roles for the user.
+- property: user
+  ruby_type: String
+  required: false
+  default_value: The resource block's name
+  description_list:
+  - markdown: An optional property to set the SELinux user value if it differs from
+      the resource block's name.
+examples: |
+  **Set an SELinux user with a level and range of `s0` and roles `sysadm_r` and `staff_r`**:
+
+  ```ruby
+  selinux_user 'username' do
+    level 's0'
+    range 's0'
+    roles %w(sysadm_r staff_r)
+  end
+  ```

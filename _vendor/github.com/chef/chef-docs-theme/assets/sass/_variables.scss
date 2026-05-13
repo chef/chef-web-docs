@@ -21,6 +21,10 @@ $footer-text: #f3f6f8;
 $white: #FFFFFF;
 $border: #eeeeee;
 $border-dark: #a1a1a1;
+// #848484 gives 3.43:1 against $sidebar-gray and 3.74:1 against $white —
+// passes WCAG 1.4.11 non-text contrast (requires 3:1) while being lighter
+// and less saturated than $slate-light.
+$border-medium: #848484;
 
 $fa-font-path: "../fonts/fontawesome";
 $font-family-monospace: "Source Code Pro", "Consolas","Inconsolata","Menlo","Monaco","Courier New","monospace";

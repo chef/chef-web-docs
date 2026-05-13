@@ -122,9 +122,9 @@
 ####
 
 [[redirects]]
-  from = "/client/19/*"
-  to = "https://release-19--chef-infra-client.netlify.app/client/19/:splat"
-  status = 200
+  from = "/resources/*"
+  to = "/client/19/resources/bundled/:splat"
+  status = 301
 
 [[redirects]]
   from = "/client/19.1/*"
@@ -143,6 +143,11 @@
 [[redirects]]
   from = "/inspec/resource_packs/*"
   to = "https://inspec-resource-pack-docs.netlify.app/inspec/resource_packs/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/inspec/7.1/*"
+  to = "https://release-7-1--chef-inspec-docs.netlify.app/inspec/7.1/:splat"
   status = 200
 
 [[redirects]]
@@ -167,7 +172,7 @@
 
 [[redirects]]
   from = "/inspec/latest/*"
-  to = "/inspec/7.0/:splat"
+  to = "/inspec/7.1/:splat"
   status = 301
 
 [[redirects]]

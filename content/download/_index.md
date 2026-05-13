@@ -6,7 +6,7 @@ gh_repo = "chef-web-docs"
 aliases = ["/downloads"]
 
 [cascade]
-  product = []
+  swiftype_search_products = []
 
 [menu]
   [menu.overview]
@@ -36,7 +36,7 @@ The following documentation pages provide for guidance on downloading and instal
 - [Chef Automate](/automate/install/)
 - [Chef Automate HA](/automate/ha/)
 - [Chef Habitat](/habitat/install_habitat/)
-- [Chef Infra Client](/install_bootstrap/)
+- [Chef Infra Client](/client/latest/install/bootstrap/)
 - [Chef Infra Server](/server/install_server/)
 - [Chef InSpec](/inspec/install/)
 - [Chef Workstation](/workstation/latest/install/)

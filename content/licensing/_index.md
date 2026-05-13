@@ -5,7 +5,7 @@ gh_repo = "chef-web-docs"
 aliases = ["/chef_license/", "/license/"]
 
 [cascade]
-  product = ["automate", "client", "server", "habitat", "inspec", "supermarket", "workstation"]
+  swiftype_search_products = ["automate", "client", "server", "habitat", "inspec", "supermarket", "workstation"]
   feedback = false
 
 [menu]

@@ -11,6 +11,8 @@ gh_repo = "chef-web-docs"
     weight = 30
 +++
 
+<!-- vale Microsoft.Percentages = NO -->
+
 This page describes shortcodes that we use in Chef documentation.
 
 [Shortcodes](https://gohugo.io/content-management/shortcodes/) add short snippets of Hugo code, Markdown, or HTML to a page.

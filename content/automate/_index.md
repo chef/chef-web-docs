@@ -4,7 +4,7 @@ weight = 10
 draft = false
 
 [cascade]
-  product = ["automate"]
+  swiftype_search_products = ["automate"]
 
 [menu]
   [menu.automate]
@@ -18,7 +18,7 @@ Chef Automate is an enterprise dashboard that provides a full suite of capabilit
 
 Chef Automate integrates with:
 
-- [Chef Infra Server](/server/) and [Chef Infra Client](/chef_client_overview/) for infrastructure automation
+- [Chef Infra Server](/server/) and [Chef Infra Client](/client/latest/) for infrastructure automation
 - [Chef InSpec](/inspec/) for compliance and security automation
 - [Chef Habitat](/habitat/) for application automation
 

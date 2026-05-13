@@ -1,0 +1,125 @@
+---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: openssl_x509_crl
+resource_description_list:
+- markdown: Use the **openssl_x509_crl** resource to generate PEM-formatted x509 certificate
+    revocation list (CRL) files.
+resource_new_in: '14.4'
+syntax_full_code_block: |-
+  openssl_x509_crl 'name' do
+    ca_cert_file           String
+    ca_key_file            String
+    ca_key_pass            String
+    expire                 Integer # default value: 8
+    group                  String, Integer
+    mode                   Integer, String
+    owner                  String, Integer
+    path                   String # default value: 'name' unless specified
+    renewal_threshold      Integer # default value: 1
+    revocation_reason      Integer # default value: 0
+    serial_to_revoke       Integer, String
+    action                 Symbol # defaults to :create if not specified
+  end
+syntax_properties_list:
+syntax_full_properties_list:
+- "`openssl_x509_crl` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`ca_cert_file`, `ca_key_file`, `ca_key_pass`, `expire`, `group`, `mode`, `owner`,
+  `path`, `renewal_threshold`, `revocation_reason`, and `serial_to_revoke` are the
+  properties available to this resource."
+actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: Create the certificate revocation list (CRL) file. (default)
+properties_list:
+- property: ca_cert_file
+  ruby_type: String
+  required: true
+  description_list:
+  - markdown: The path to the CA X509 Certificate on the filesystem. If the `ca_cert_file`
+      property is specified, the `ca_key_file` property must also be specified, the
+      CRL will be signed with them.
+- property: ca_key_file
+  ruby_type: String
+  required: true
+  description_list:
+  - markdown: The path to the CA private key on the filesystem. If the `ca_key_file`
+      property is specified, the `ca_cert_file` property must also be specified, the
+      CRL will be signed with them.
+- property: ca_key_pass
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The passphrase for CA private key's passphrase.
+- property: expire
+  ruby_type: Integer
+  required: false
+  default_value: '8'
+  description_list:
+  - markdown: Value representing the number of days from now through which the issued
+      CRL will remain valid. The CRL will expire after this period.
+- property: group
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown: The group permission for the CRL file.
+- property: mode
+  ruby_type: Integer, String
+  required: false
+  description_list:
+  - markdown: The permission mode of the CRL file.
+- property: owner
+  ruby_type: String, Integer
+  required: false
+  description_list:
+  - markdown: The owner permission for the CRL file.
+- property: path
+  ruby_type: String
+  required: false
+  default_value: The resource block's name
+  description_list:
+  - markdown: An optional property for specifying the path to write the file to if
+      it differs from the resource block's name.
+- property: renewal_threshold
+  ruby_type: Integer
+  required: false
+  default_value: '1'
+  description_list:
+  - markdown: Number of days before the expiration. It this threshold is reached,
+      the CRL will be renewed.
+- property: revocation_reason
+  ruby_type: Integer
+  required: false
+  default_value: '0'
+  description_list:
+  - markdown: Reason for the revocation.
+- property: serial_to_revoke
+  ruby_type: Integer, String
+  required: false
+  description_list:
+  - markdown: Serial of the X509 Certificate to revoke.
+examples: |
+  **Create a certificate revocation file**
+
+  ```ruby
+  openssl_x509_crl '/etc/ssl_test/my_ca.crl' do
+    ca_cert_file '/etc/ssl_test/my_ca.crt'
+    ca_key_file '/etc/ssl_test/my_ca.key'
+  end
+  ```
+
+  **Create a certificate revocation file for a particular serial**
+
+  ```ruby
+  openssl_x509_crl '/etc/ssl_test/my_ca.crl' do
+    ca_cert_file '/etc/ssl_test/my_ca.crt'
+    ca_key_file '/etc/ssl_test/my_ca.key'
+    serial_to_revoke C7BCB6602A2E4251EF4E2827A228CB52BC0CEA2F
+  end
+  ```

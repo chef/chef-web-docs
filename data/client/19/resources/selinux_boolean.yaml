@@ -1,0 +1,63 @@
+---
+resource_reference: true
+resources_common_guards: true
+resources_common_notification: true
+resources_common_properties: true
+resource: selinux_boolean
+resource_description_list:
+- markdown: Use the **selinux_boolean** resource to set SELinux boolean values.
+resource_new_in: '18.0'
+syntax_full_code_block: |-
+  selinux_boolean 'name' do
+    boolean         String # default value: 'name' unless specified
+    persistent      true, false # default value: true
+    value           Integer, String, true, false
+    action          Symbol # defaults to :set if not specified
+  end
+syntax_properties_list:
+syntax_full_properties_list:
+- "`selinux_boolean` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`boolean`, `persistent`, and `value` are the properties available to this resource."
+actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :set:
+    markdown: Set the state of the boolean. (default)
+properties_list:
+- property: boolean
+  ruby_type: String
+  required: false
+  default_value: The resource block's name.
+  description_list:
+  - markdown: SELinux boolean to set.
+- property: persistent
+  ruby_type: true, false
+  required: false
+  default_value: 'true'
+  description_list:
+  - markdown: Set to `true` for value setting to survive reboot.
+- property: value
+  ruby_type: Integer, String, true, false
+  required: true
+  allowed_values: '"on", "off", true, false, 0, 1'
+  description_list:
+  - markdown: SELinux boolean value.
+examples: |
+  **Set ssh_keysign to true**:
+
+  ```ruby
+  selinux_boolean 'ssh_keysign' do
+    value true
+  end
+  ```
+
+  **Set ssh_sysadm_login to 'on'**:
+
+  ```ruby
+  selinux_boolean 'ssh_sysadm_login' do
+    value 'on'
+  end
+  ```

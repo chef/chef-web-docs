@@ -1,7 +1,7 @@
 +++
 title = "Chef InSpec release notes"
 draft = false
-product = ["inspec"]
+swiftype_search_products = ["inspec"]
 linkTitle = "Chef InSpec"
 summary = "Chef InSpec release notes"
 
@@ -16,6 +16,46 @@ summary = "Chef InSpec release notes"
 <!-- markdownlint-disable-file -->
 <!-- cSpell:disable  -->
 <!-- vale off -->
+
+## Chef InSpec 7.1.7
+
+Release date: May 11th, 2026
+
+### Key features
+
+- InSpec 7.1.* is built entirely on Chef Habitat. We aren't providing traditional Omnibus builds.
+
+### Improvements
+
+Added a `trust_server_certificate` option to the `mssql_session` resource to support SQL Server instances that require encrypted connections, such as SQL Server 2025 and later. This backports the `trust_server_certificate` option from Chef InSpec 5.24. ([#7791](https://github.com/inspec/inspec/pull/7791))
+
+### Bug fixes
+
+- Fixed resource ID extraction in the JSON reporter to correctly prefer the resource object's ID when available, escape regular expressions, and cap resource IDs at 256 characters to prevent bloated reports. ([#7799](https://github.com/inspec/inspec/pull/7799))
+- Fixed the AST parser for `inspec check` to correctly handle array nodes, nested hash nodes inside array elements, and empty control blocks. ([#7641](https://github.com/inspec/inspec/pull/7641))
+- Fixed an issue where controls waived with `run: false` evaluated the entire control block before skipping, causing expensive commands to run unnecessarily. ([#7870](https://github.com/inspec/inspec/pull/7870))
+
+### Packaging
+
+We added OS-native packages alongside the existing Habitat packages.
+You can download packages from the Chef customer download portal or the download API.
+
+The following native packages are available:
+
+- Linux x86: RPM (`.rpm`) and DEB (`.deb`) packages
+- Windows x86: MSI installer (`.msi`)
+
+OS-native packages aren't available for Linux ARM or macOS.
+
+### Dependency updates
+
+- Updated `addressable` gem from `2.4` to `2.9.0`. ([#7833](https://github.com/inspec/inspec/pull/7833))
+- Updated `json` gem from `>= 1.8` to `>= 2.19.2`. ([#829](https://github.com/inspec/train/pull/829))
+- Updated `activesupport` gem from `>= 7.2.2.1` to `>= 7.2.3.1`. ([#830](https://github.com/inspec/train/pull/830))
+- Updated `faraday` gem from `1.10.4` to `1.10.5`. ([#7887](https://github.com/inspec/inspec/pull/7887))
+- Updated `erb` gem from `4.0.4` to `4.0.4.1`. ([#7895](https://github.com/inspec/inspec/pull/7895))
+- Updated `zlib` gem from `3.2.1` to `3.2.3`. ([#7895](https://github.com/inspec/inspec/pull/7895))
+- Pinned `rake` gem to `>= 12.3.3`. ([#7890](https://github.com/inspec/inspec/pull/7890))
 
 ## Chef InSpec 7.0.107
 

@@ -233,7 +233,6 @@ You can also use the [products endpoint](#products)
 | Chef Infra Client Legacy Migration | `migrate-ice`      |
 | Chef Infra Server                  | `chef-server`      |
 | Chef InSpec                        | `inspec`           |
-| Chef Management Console            | `manage`           |
 | Chef Supermarket                   | `supermarket`      |
 | Chef Workstation                   | `chef-workstation` |
 

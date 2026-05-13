@@ -20,7 +20,7 @@ Descriptive link text helps these users scan documents quickly.
 
 Use the following guidelines in link text:
 
-- Don't use phrases like "click here", "read more", "this document", "this article", or a URL in the text of a link.
+- Don't use phrases like _click here_, _read more_, _this document_, _this article_, or a URL in the text of a link.
 - Keep link text short where possible.
 - Link text should be unique. Don't use the same link text to link to different pages.
 - Place important words at the beginning of link text.

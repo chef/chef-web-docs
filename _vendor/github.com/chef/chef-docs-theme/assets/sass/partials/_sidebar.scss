@@ -76,6 +76,10 @@
           color: $blue-darker;
         }
       }
+
+      .is-accordion-submenu-parent:not(.has-submenu-toggle) > a {
+        padding-right: 2rem;
+      }
     }
 
     .menu {

@@ -1,7 +1,7 @@
 +++
 title = "Chef Infra Client release notes"
 draft = false
-product = ["client"]
+swiftype_search_products = ["client"]
 linkTitle = "Chef Infra Client"
 summary = "Chef Infra Client release notes"
 
@@ -10078,7 +10078,7 @@ The following items are new for Chef Infra Client 12.12 and/or are changes from 
 - **Data collector updates** Minor enhancements to data that the data
     collector reports on.
 - **knife cookbook create has been deprecated** You should use [chef
-    generate cookbook](/ctl_chef/#chef-generate-cookbook) instead.
+    generate cookbook](/workstation/latest/tools/ctl_chef/#chef-generate-cookbook) instead.
 
 ### New node attribute read, write, unlink, and exist? APIs
 
