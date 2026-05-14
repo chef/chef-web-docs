@@ -9,7 +9,7 @@ parent = "install/migration_tool"
 weight = 20
 +++
 
-This page documents how to do a fresh install of Chef Infra Client RC3 in an air-gapped environment.
+This page documents how to do a fresh install of Chef Infra Client in an air-gapped environment.
 
 ## Supported platforms
 

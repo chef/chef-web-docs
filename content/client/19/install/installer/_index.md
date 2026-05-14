@@ -1,5 +1,5 @@
 +++
-title = "Install Chef Infra Client RC3 with a native installer"
+title = "Install Chef Infra Client with a native installer"
 linkTitle = "Native installer"
 
 [menu.client_19]
