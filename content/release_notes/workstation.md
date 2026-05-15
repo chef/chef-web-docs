@@ -108,7 +108,7 @@ Release date: April 13, 2026
 - Using custom gems or changing the Ruby path isn't supported in this release.
 - The `knife google server create` command on Windows can fail during password reset if the GCEAgent initializes slowly (for example, on slow boot or low-resource machines).
 
-## Chef Workstation 25.14
+## Chef Workstation 25.14.1
 
 Release date: May 21, 2026
 
@@ -137,7 +137,7 @@ Updated the following Test Kitchen drivers:
 - Updated Go from v1.23.12 to v1.26.2.
 - Updated git-windows from v2.48.1 to v2.54.0.
 - Updated activesupport from v7.2.3 to v7.2.3.1.
-- Updated json from v2.18.1 to v2.19.4.
+- Updated json from v2.18.1 to v2.19.5.
 - Updated rack from v3.2.5 to v3.2.6.
 - Updated chef-analyze from v0.1.192 to v0.1.194.
 - Updated golang.org/x/text from v0.3.8 to v0.24.0.
