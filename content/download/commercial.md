@@ -203,6 +203,8 @@ The API accepts the following parameters in a query string.
   Possible values depend on the platform. For example, for
   Ubuntu or Debian: `i386` or `x86_64`, or for macOS: `x86_64`.
 
+  To get the supported architecture values, use the [`architectures`](#architectures) endpoint.
+
 `v`
 : The version of the product to be installed.
 
@@ -238,6 +240,7 @@ You can also use the [products endpoint](#products)
 | Chef Infra Client Legacy Migration | `migrate-ice`      |
 | Chef Infra Server                  | `chef-server`      |
 | Chef InSpec                        | `inspec`           |
+| Chef InSpec Enterprise             | `inspec-enterprise` |
 | Chef Supermarket                   | `supermarket`      |
 | Chef Workstation                   | `chef-workstation` |
 
