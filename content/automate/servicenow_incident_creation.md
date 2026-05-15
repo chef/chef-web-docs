@@ -37,7 +37,6 @@ The Incident App generates a data stream of compliance events that you can lever
 * Chef Automate has a valid SSL/TLS certificate from a trusted certificate authority (CA).
 * A running [ServiceNow](https://www.servicenow.com/) instance. The supported ServiceNow versions are Xanadu, Yokohama, and Zurich.
 * The ServiceNow instance is reachable on port 443.
-* The ServiceNow instance should be compatible with Xanadu, Yokohama, and Zurich versions.
 
 ## Install
 
