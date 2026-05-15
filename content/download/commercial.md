@@ -105,15 +105,22 @@ https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/versions/latest?lice
 
 ### metadata
 
-The `metadata` endpoint returns data about a particular package of a Chef product.
+The `metadata` endpoint returns data about a particular Chef product package.
+
+The endpoint determines the package type (for example, `rpm` or `deb`) from the `pm` or `p` query parameter:
+
+- `p`: (required) The platform that the package is installed on.
+  - If you also specify `pm`, you can use a generic value such as `linux`.
+  - If you omit `pm`, specify the exact platform name (for example, `ubuntu`, `amazon`, or `redhat`) so the API can derive the package type from the platform.
+- `pm`: (optional) The package type to retrieve (for example: `deb`, `rpm`, `msi`, or `tar`). If provided, the API uses `pm` to determine the package type directly.
+
+Retrieve metadata by specifying the platform:
 
 ```plain
 https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/metadata?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
 ```
 
-You can optionally include the `pm` (package manager) query parameter to specify the type of package to retrieve (for example: `deb`, `rpm`, `msi`, or `tar`).
-If you don't include `pm`, include `p` (platform) so the API can derive the package format from `p`.
-Include `pm` when you want to request a specific package format explicitly.
+Retrieve metadata by specifying the platform and package type:
 
 ```plain
 https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/metadata?p=<PLATFORM>&pm=<PACKAGE_MANAGER>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
@@ -123,13 +130,20 @@ https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/metadata?p=<PLATFORM
 
 The `download` endpoint downloads a particular package of a Chef product.
 
+The endpoint determines the package type (for example, `rpm` or `deb`) from the `pm` or `p` query parameter:
+
+- `p`: (required) The platform that the package is installed on.
+  - If you also specify `pm`, you can use a generic value such as `linux`.
+  - If you omit `pm`, specify the exact platform name (for example, `ubuntu`, `amazon`, or `redhat`) so the API can derive the package type from the platform.
+- `pm`: (optional) The package type to retrieve (for example: `deb`, `rpm`, `msi`, or `tar`). If provided, the API uses `pm` to determine the package type directly.
+
+Download a package by specifying the platform:
+
 ```plain
 https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
 ```
 
-You can optionally include the `pm` (package manager) query parameter to specify the package format to download---for example, `deb`, `rpm`, `msi`, or `tar`.
-If you don't include `pm`, include `p` (platform) so the API can derive the package format from `p`.
-Include `pm` when you want to request a specific package format explicitly.
+Download a package by specifying the platform and package type:
 
 ```plain
 https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM>&pm=<PACKAGE_MANAGER>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
@@ -139,13 +153,20 @@ https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM
 
 The `fileName` endpoint returns the file name.
 
+The endpoint determines the package type (for example, `rpm` or `deb`) from the `pm` or `p` query parameter:
+
+- `p`: (required) The platform that the package is installed on.
+  - If you also specify `pm`, you can use a generic value such as `linux`.
+  - If you omit `pm`, specify the exact platform name (for example, `ubuntu`, `amazon`, or `redhat`) so the API can derive the package type from the platform.
+- `pm`: (optional) The package type to retrieve (for example: `deb`, `rpm`, `msi`, or `tar`). If provided, the API uses `pm` to determine the package type directly.
+
+Retrieve a file name by specifying the platform:
+
 ```plain
 https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/fileName?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
 ```
 
-You can optionally include the `pm` (package manager) query parameter to specify the package format---for example, `deb`, `rpm`, `msi`, or `tar`.
-If you don't include `pm`, include `p` (platform) so the API can derive the package format from `p`.
-Include `pm` when you want to request a specific package format explicitly.
+Retrieve a file name by specifying the platform and package type:
 
 ```plain
 https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/fileName?p=<PLATFORM>&pm=<PACKAGE_MANAGER>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
@@ -153,7 +174,7 @@ https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/fileName?p=<PLATFORM
 
 ### package-managers
 
-The `package-managers` endpoint lists the available package managers.
+The `package-managers` endpoint lists the available package types.
 
 ```plain
 https://chefdownload-commercial.chef.io/package-managers
@@ -188,9 +209,25 @@ The API accepts the following parameters in a query string.
 `p`
 : The platform.
 
-  Common values include `debian`, `el` (for RHEL derivatives), `linux`, `linux-kernel2`, `mac_os_x`, `sles`, `ubuntu`, and `windows`.
+  Possible values include: `debian`, `el` (for RHEL derivatives), `linux`, `linux-kernel2`, `mac_os_x`, `sles`, `ubuntu` or `windows`.
 
-  For the complete and current list, use the [`platforms`](#platforms) endpoint.
+  For a complete list, use the [`platforms`](#platforms) endpoint.
+
+`pm`
+: The package type.
+
+  This parameter is optional.
+  If not provided, the API automatically detects the platform and derives the package format from it.
+  Include `pm` when you want to request a specific package format explicitly.
+
+  Values include:
+
+  - `deb` for Debian-based systems, for example, Ubuntu
+  - `rpm` for Red Hat-based systems, for example, CentOS or Fedora
+  - `tar` for generic Unix-like systems
+  - `msi` for Windows systems
+
+  For a complete list, use the [`package-managers`](#package-managers) endpoint.
 
 `pv`
 : The platform version.
@@ -213,36 +250,24 @@ The API accepts the following parameters in a query string.
 
   Default value: `latest`.
 
-`pm`
-: This parameter is optional.
-  If not provided, the API automatically detects the platform and derives the package format from it.
-  Include `pm` when you want to request a specific package format explicitly.
-
-  Possible values:
-
-  - `deb` for Debian-based systems, for example, Ubuntu
-  - `rpm` for Red Hat-based systems, for example, CentOS or Fedora
-  - `tar` for generic Unix-like systems
-  - `msi` for Windows systems
-
 ## Chef product names
 
 Use the following product keys to download packages or retrieve data for different Chef products.
 You can also use the [products endpoint](#products)
 
-| Product                            | Product key        |
-| ---------------------------------- | ------------------ |
-| Chef Automate                      | `automate`         |
-| Chef Backend                       | `chef-backend`     |
-| Chef Habitat                       | `habitat`          |
-| Chef Infra Client                  | `chef`             |
-| Chef Infra Client Enterprise       | `chef-ice`         |
-| Chef Infra Client Legacy Migration | `migrate-ice`      |
-| Chef Infra Server                  | `chef-server`      |
-| Chef InSpec                        | `inspec`           |
+| Product                            | Product key         |
+| ---------------------------------- | ------------------- |
+| Chef Automate                      | `automate`          |
+| Chef Backend                       | `chef-backend`      |
+| Chef Habitat                       | `habitat`           |
+| Chef Infra Client                  | `chef`              |
+| Chef Infra Client Enterprise       | `chef-ice`          |
+| Chef Infra Client Legacy Migration | `migrate-ice`       |
+| Chef Infra Server                  | `chef-server`       |
+| Chef InSpec                        | `inspec`            |
 | Chef InSpec Enterprise             | `inspec-enterprise` |
-| Chef Supermarket                   | `supermarket`      |
-| Chef Workstation                   | `chef-workstation` |
+| Chef Supermarket                   | `supermarket`       |
+| Chef Workstation                   | `chef-workstation`  |
 
 See the [supported versions]({{< relref "versions" >}}) documentation for information about the support status of individual products.
 
@@ -292,7 +317,11 @@ To use curl to download a package, enter the following:
 curl -LOJ 'https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&license_id=<LICENSE_ID>'
 ```
 
-To download a specific package format, add the optional `pm=<PACKAGE_MANAGER>` parameter to the URL.
+To download a specific package format, add the optional `pm=<PACKAGE_MANAGER>` parameter to the URL, for example:
+
+```bash
+curl -LOJ 'https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM>&pm=<PACKAGE_MANAGER>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&license_id=<LICENSE_ID>'
+```
 
 To use GNU Wget to download a package, enter the following:
 
@@ -300,4 +329,8 @@ To use GNU Wget to download a package, enter the following:
 wget --content-disposition https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&license_id=<LICENSE_ID>
 ```
 
-To download a specific package format, add the optional `pm=<PACKAGE_MANAGER>` parameter to the URL.
+To download a specific package format, add the optional `pm=<PACKAGE_MANAGER>` parameter to the URL. For example:
+
+```bash
+wget --content-disposition https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM>&pm=<PACKAGE_MANAGER>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&license_id=<LICENSE_ID>
+```
