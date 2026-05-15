@@ -146,7 +146,7 @@ Updated the following Test Kitchen drivers:
 ### Bug fixes
 
 - Fixed REXML XPath deprecation warnings that appeared during Test Kitchen converge operations when using the Azure driver on Windows platforms.
-- Fixed "Exception in finalizer" and "can't alloc thread (ThreadError)" warnings that appeared after Test Kitchen completed when using the vCenter driver with Windows targets.
+- Fixed "Exception in finalizer" and "can't alloc thread (ThreadError)" warnings that appeared after Test Kitchen run against Windows targets.
 
 ## Chef Workstation 25.13.7
 
