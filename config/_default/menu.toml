@@ -616,7 +616,7 @@ identifier = "server"
 ####
 
 [[infra]]
-title = "Chef Infra"
+title = "Chef Infra Client"
 identifier = "client"
 
   [[infra]]
