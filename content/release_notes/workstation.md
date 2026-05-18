@@ -108,7 +108,7 @@ Release date: April 13, 2026
 - Using custom gems or changing the Ruby path isn't supported in this release.
 - The `knife google server create` command on Windows can fail during password reset if the GCEAgent initializes slowly (for example, on slow boot or low-resource machines).
 
-## Chef Workstation 25.14.1
+## Chef Workstation 25.14.2
 
 Release date: May 21, 2026
 
