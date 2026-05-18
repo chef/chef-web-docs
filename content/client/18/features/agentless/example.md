@@ -9,7 +9,7 @@ weight = 20
 +++
 
 This document provides a simplified, end-to-end guide to configure and run
-Chef Infra Client 19 RC3 in Agentless (Target Mode) using Habitat (`hab`)
+Chef Infra Client 19 in Agentless (Target Mode) using Habitat (`hab`)
 for managing remote systems.
 
 ## Prerequisites

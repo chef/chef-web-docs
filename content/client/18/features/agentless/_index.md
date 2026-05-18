@@ -234,8 +234,8 @@ For example, this create a cron file that executes Agentless every thirty minute
 
 ```ruby
 cat > /etc/cron.d/nodename.cron <<EOF
-PATH="/opt/chefdk/bin:/opt/chefdk/embedded/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-GEM_ROOT="/opt/chefdk/embedded/lib/ruby/gems/2.6.0"
+PATH="/opt/chef-workstation/bin:/opt/chef-workstation/embedded/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+GEM_ROOT="/opt/chef-workstation/embedded/lib/ruby/gems/3.4.0"
 
 0,30 * * * * * chef-runner /usr/bin/chef-client -t <TARGET_NAME>
 EOF

@@ -31,21 +31,25 @@ Agentless Mode has the following requirements:
 
 - A network-enabled system to execute Agentless Mode.
 - The `chef-client` CLI. This is included with Chef Workstation.
-- A [target credentials file](#target-credentials-file) that provides the system with information to connect to a target node.
+- A [`target_credentials` file](#target-credentials-file) that provides the system with information to connect to a target node.
 - A recipe that only includes [Agentless Mode-enabled resources](#resources).
 
-## Target credentials file
+## `target_credentials` file
 
-The target credentials file defines the SSH connection settings for each node in TOML format.
+The `target_credentials` file defines the SSH connection settings for each node in TOML format.
 
-Create a `target_credentials` file on the computer running Chef Workstation:
+Chef Infra Client looks for the `target_credentials` file in the following locations, in order of priority:
 
-- on Linux and macOS: `~/.chef/target_credentials`
-- on Windows: `c:\Users\<USERNAME>\.chef\target_credentials`
+1. The path set by the `CHEF_CREDENTIALS_FILE` environment variable, if defined.
+1. The path set by `target_mode.credentials_file` in your `client.rb`.
+1. A host-specific file at `/etc/chef/<TARGET_NAME>/credentials` on Linux and macOS.
+1. The default user file:
+   - On Linux and macOS: `~/.chef/target_credentials`
+   - On Windows: `C:\Users\<USERNAME>\.chef\target_credentials`
 
 {{< note >}}
 
-Previously this was configured with a `credentials` file. That file is deprecated; use `target_credentials` instead.
+Previous versions of the documentation referred to a `credentials` file at `~/.chef/credentials`. That file is deprecated---use `target_credentials` instead.
 
 {{< /note >}}
 
@@ -59,7 +63,7 @@ For example, this `target_credentials` file adds credentials for three nodes:
 host = 'target.system.host.1.com'
 user = 'username'
 sudo = true
-key_files = '~/.keys/key-pair.pem'
+key_files = ['~/.keys/key-pair.pem']
 
 ['HOST-2']
 host = 'target.system.host.2.com'
@@ -116,7 +120,7 @@ host = '<IP_ADDRESS OR FQDN>'
 # forward_agent: Whether the connection to the authentication agent (if any) will be forwarded to the remote machine. Default is false.
 # forward_agent = false
 
-# transport_protocol: The protocol to use to connect to a node. Define this once for all nodes in the target credentials file. Default value is 'ssh'.
+# transport_protocol: The protocol to use to connect to a node. Define this once for all nodes in the target_credentials file. Default value is 'ssh'.
 transport_protocol = 'ssh'
 ```
 
@@ -124,7 +128,7 @@ transport_protocol = 'ssh'
 
 <!-- markdownlint-disable MD007 MD006 -->
 
-Agentless Mode supports the following SSH connection parameters in a target credentials file.
+Agentless Mode supports the following SSH connection parameters in a `target_credentials` file.
 
 Common parameters:
 
@@ -192,7 +196,7 @@ See the list of [built-in Chef Infra resources](resources) that are supported in
 
 {{< readfile file="client/19/reusable/md/agentless_custom_resource.md" >}}
 
-For documentation on updating custom resources, see the [RC3 custom resources documentation](resources/custom).
+For documentation on updating custom resources, see the [custom resources documentation](resources/custom).
 For general guidelines on writing a custom resource, see the [custom resources documentation](https://docs.chef.io/custom_resources/).
 
 #### Example
@@ -207,8 +211,14 @@ Run the `chef-client` executable using `-t` or `--target` to target a specific n
 chef-client -t <TARGET_NAME>
 ```
 
-Replace `<TARGET_NAME>` with the name of the host as defined in the target credentials file.
+Replace `<TARGET_NAME>` with the name of the host as defined in the `target_credentials` file.
 For example, `HOST-1` in the [credential file example](#define-node-connections).
+
+You can also pass a Train URI directly instead of a target name from the `target_credentials` file:
+
+```sh
+chef-client --target ssh://user@target.example.com
+```
 
 To execute a specific cookbook in Agentless Mode, run:
 
@@ -230,6 +240,7 @@ Use `-z` and `-t` to run Agentless Mode in Local Mode:
 
 ```sh
 chef-client -z -t <TARGET_NAME>
+chef-client -z -t SQL_Server ~/.chef/apply.rb
 ```
 
 Replace `<TARGET_NAME>` with the name of the host as defined in the `target_credentials` file.
@@ -357,17 +368,19 @@ To do this, follow these steps:
     knife ssl fetch
     knife ssl check
     knife cookbook upload <COOKBOOK>
-    knife node run_list add <TARGET_NAME> 'recipe[sql_harden::default]'
-    chef-client -t <TARGET_NAME> 'recipe[sql_harden::default]'
+    knife node run_list add <TARGET_NAME> '<RUN_LIST_ITEM>'
+    chef-client -t <TARGET_NAME> '<RUN_LIST_ITEM>'
     ```
+
+    Where `<COOKBOOK>` is a cookbook like `sql_harden` and `<RUN_LIST_ITEM>` is a run list item, for example `recipe[sql_harden::default]`.
 
 1. Create a cron file that executes Agentless Mode on a regular schedule.
     For example, this creates a cron file that executes Agentless Mode every thirty minutes:
 
     ```ruby
     cat > /etc/cron.d/nodename.cron <<EOF
-    PATH="/opt/chefdk/bin:/opt/chefdk/embedded/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-    GEM_ROOT="/opt/chefdk/embedded/lib/ruby/gems/3.4.0"
+    PATH="/opt/chef-workstation/bin:/opt/chef-workstation/embedded/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    GEM_ROOT="/opt/chef-workstation/embedded/lib/ruby/gems/3.4.0"
 
     0,30 * * * * * chef-runner /usr/bin/chef-client -t <TARGET_NAME>
     EOF

@@ -8,7 +8,7 @@ parent = "install/migration_tool"
 weight = 20
 +++
 
-This page documents how to install Chef Infra Client RC3 in an online environment.
+This page documents how to install Chef Infra Client in an online environment.
 
 ## Supported platforms
 

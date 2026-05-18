@@ -1,5 +1,5 @@
 +++
-title = "Upgrade Chef Infra Client to version 19 RC3 using the migration tool in an air-gapped environment"
+title = "Upgrade Chef Infra Client to version 19 using the migration tool in an air-gapped environment"
 
 [menu.client_19]
 title = "Air-gapped upgrade"
@@ -8,7 +8,7 @@ parent = "install/migration_tool"
 weight = 20
 +++
 
-This page documents how to upgrade Chef Infra Client to version 19 RC3 in an air-gapped environment.
+This page documents how to upgrade Chef Infra Client to version 19 in an air-gapped environment.
 
 ## Supported platforms
 

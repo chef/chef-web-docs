@@ -156,7 +156,7 @@ migrate-ice apply airgap </PATH/TO/BUNDLE> --fresh-install --license-key "<LICEN
 
 ### Upgrade Chef Infra Client
 
-These examples show how to upgrade Chef Infra Client to version 19 RC3 from an earlier version.
+These examples show how to upgrade Chef Infra Client to version 19 from an earlier version.
 
 Standard online upgrade:
 
