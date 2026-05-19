@@ -17,23 +17,28 @@ summary = "Chef Infra Client release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
-## Chef Infra Client 19.2.x
+## Chef Infra Client 19.3.14
 
-Release date: MM DD, 2026
+Release date: May 20, 2026
 
-## Bug fixes
-- Fixed trusted certificate recipe behavior to use a local server and certificate instead of external endpoints ([#15923](https://github.com/chef/chef/pull/15923)).
-- Fixed target mode node identity resolution when using Chef Server in agentless mode ([#15735](https://github.com/chef/chef/pull/15735)).
-- Fixed file resource lazy content blocks to evaluate only once ([#15714](https://github.com/chef/chef/pull/15714)).
-- Fixed incorrect platform_family matching behavior ([#15728](https://github.com/chef/chef/pull/15728)).
-- Reverted a path update that caused execution issues ([#15773](https://github.com/chef/chef/pull/15773)).
-- Fixed Ruby version parsing issues ([#15790](https://github.com/chef/chef/pull/15790)).
-- Fixed invalid TOML in unit tests ([#15812](https://github.com/chef/chef/pull/15812)).
-- Fixed CI pipeline apt usage to restore pipeline reliability ([#15838](https://github.com/chef/chef/pull/15838)).
-- Fixed inconsistent Gemfile and Gemfile.lock platform entries ([#15872](https://github.com/chef/chef/pull/15872), [#15891](https://github.com/chef/chef/pull/15891)).
-- Corrected REST resource behavior ([#15867](https://github.com/chef/chef/pull/15867)).
+### Improvements
 
-## Dependency updates
+- The `rest_resource` DSL now supports two new methods: `rest_api_endpoint`, which stores the base URL of the target REST API, and `rest_identity_property`, which declares which property uniquely identifies a resource.
+  These additions remove the need to manually configure the Train transport endpoint and auto-generate document URLs.
+  DSL inheritance is also fixed so subclasses correctly inherit values from parent classes. ([#15867](https://github.com/chef/chef/pull/15867))
+- The `dnf_package` resource now locates the DNF Python helper more efficiently, reducing unnecessary `shell_out` calls during converge runs on systems using DNF. ([#15718](https://github.com/chef/chef/pull/15718))
+
+### Bug fixes
+
+- Fixed an issue in Agentless Mode where Chef Infra Client converged the local workstation node instead of the specified remote target when connecting to Chef Infra Server.
+  The client now correctly sets the node name to the target and authenticates all Chef Infra Server API calls using the operator's credentials. ([#15735](https://github.com/chef/chef/pull/15735))
+- Fixed an issue where `lazy` content blocks in the `file` resource were evaluated more than once during a single converge run. ([#15714](https://github.com/chef/chef/pull/15714))
+- Fixed an issue where `platform_family` matching incorrectly used `fedora_derived` as a platform family identifier instead of the `fedora_derived?` helper method. ([#15728](https://github.com/chef/chef/pull/15728))
+- Fixed an issue where the slow report was written to standard output instead of `Chef::Log`, making slow report data inaccessible in deployments that rely on `client.log`. ([#15721](https://github.com/chef/chef/pull/15721))
+
+### Dependency updates
+
+- Knife has been moved to its own repository and now loads as a gem. ([#15847](https://github.com/chef/chef/pull/15847), [#15887](https://github.com/chef/chef/pull/15887))
 - Updated aws-sdk-s3 from 1.213.0 to 1.220.0 ([#15950](https://github.com/chef/chef/pull/15950)).
 - Updated aws-sdk-secretsmanager from 1.124.0 to 1.129.0 ([#15797](https://github.com/chef/chef/pull/15797)).
 - Updated mixlib-shellout requirement from ~> 3.3.8 to >= 3.3.8, < 3.5.0 ([#15941](https://github.com/chef/chef/pull/15941)).
@@ -56,20 +61,12 @@ Release date: MM DD, 2026
 - Updated Ohai from 19.1.16 to 19.1.31 ([#15964](https://github.com/chef/chef/pull/15964)).
 - Updated Cheffish from f8740fc to 5095f56 ([#15917](https://github.com/chef/chef/pull/15917)).
 
-## Packaging
-- Ensured Habitat 2.0.504 is installed ([#15935](https://github.com/chef/chef/pull/15935)).
-- Added SELinux fcontext install hook for Habitat packages ([#15787](https://github.com/chef/chef/pull/15787)).
-- Enabled Docker ARM image build and push ([#15856](https://github.com/chef/chef/pull/15856)).
-- Removed Knife from Chef distribution and continued Knife reference cleanup ([#15847](https://github.com/chef/chef/pull/15847), [#15887](https://github.com/chef/chef/pull/15887)).
-- Added support for Linux ARM platforms ([#15716](https://github.com/chef/chef/pull/15716)).
+### Packaging
 
-## Improvements
-- Optimized dnf command execution to reduce shell_out calls ([#15718](https://github.com/chef/chef/pull/15718)).
-- Improved slow report logging to use Chef::Log instead of puts ([#15721](https://github.com/chef/chef/pull/15721)).
-- Enabled manual kitchen tests and fixed push kitchen test flows ([#15886](https://github.com/chef/chef/pull/15886)).
-
-## Known issues
-- 
+- We now release Chef Infra Client Habitat packages for Linux ARM. ([#15716](https://github.com/chef/chef/pull/15716))
+- Added a Habitat install hook that automatically applies SELinux file context (`fcontext`) rules when Chef Infra Client is installed on SELinux-enforcing systems such as Fedora and RHEL.
+  This ensures Chef Infra Client binaries are labeled as `bin_t` and can execute under SELinux policy. ([#15787](https://github.com/chef/chef/pull/15787))
+- The `chef/chef-hab` Docker image now supports both amd64 and arm64. Users on ARM-based systems can now pull the image natively without platform emulation. ([#15856](https://github.com/chef/chef/pull/15856))
 
 ## Chef Infra Client 19.2.12
 
