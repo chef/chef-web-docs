@@ -27,7 +27,7 @@ Release date: May 20, 2026
   These additions remove the need to manually configure the Train transport endpoint and auto-generate document URLs.
   DSL inheritance is also fixed so subclasses correctly inherit values from parent classes. ([#15867](https://github.com/chef/chef/pull/15867))
 - The `dnf_package` resource now locates the DNF Python helper more efficiently, reducing unnecessary `shell_out` calls during converge runs on systems using DNF. ([#15718](https://github.com/chef/chef/pull/15718))
-- The `package` and `dnf_package` resources now support DNF5, including updated version-lock handling and `config-manager` command differences between DNF4 and DNF5. Thanks to [@jaymzh](https://github.com/jaymzh) for this contribution. ([#15993](https://github.com/chef/chef/pull/15993))
+- The `package` and `dnf_package` resources now support the DNF5 package manager used in Fedora 41+ and future RHEL-based systems, including updated version-lock handling and `config-manager` command differences between DNF4 and DNF5. Chef Infra Client detects which version of DNF is installed (DNF4 or DNF5)---no changes to existing cookbooks or recipes are required. Thanks to [@jaymzh](https://github.com/jaymzh) for this contribution. ([#15993](https://github.com/chef/chef/pull/15993))
 
 ### Bug fixes
 
