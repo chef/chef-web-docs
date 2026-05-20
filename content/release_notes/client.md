@@ -17,6 +17,58 @@ summary = "Chef Infra Client release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
+## Chef Infra Client 19.3.14
+
+Release date: May 20, 2026
+
+### Improvements
+
+- The `rest_resource` DSL now supports two new methods: `rest_api_endpoint`, which stores the base URL of the target REST API, and `rest_identity_property`, which declares which property uniquely identifies a resource.
+  These additions remove the need to manually configure the Train transport endpoint and auto-generate document URLs.
+  DSL inheritance is also fixed so subclasses correctly inherit values from parent classes. ([#15867](https://github.com/chef/chef/pull/15867))
+- The `dnf_package` resource now locates the DNF Python helper more efficiently, reducing unnecessary `shell_out` calls during converge runs on systems using DNF. ([#15718](https://github.com/chef/chef/pull/15718))
+- The `package` and `dnf_package` resources now support the DNF5 package manager used in Fedora 41+ and future RHEL-based systems, including updated version-lock handling and `config-manager` command differences between DNF4 and DNF5. Chef Infra Client detects which version of DNF is installed (DNF4 or DNF5)---no changes to existing cookbooks or recipes are required. Thanks to [@jaymzh](https://github.com/jaymzh) for this contribution. ([#15993](https://github.com/chef/chef/pull/15993))
+
+### Bug fixes
+
+- Fixed an issue in Agentless Mode where Chef Infra Client converged the local workstation node instead of the specified remote target when connecting to Chef Infra Server.
+  The client now correctly sets the node name to the target and authenticates all Chef Infra Server API calls using the operator's credentials. ([#15735](https://github.com/chef/chef/pull/15735))
+- Fixed an issue where `lazy` content blocks in the `file` resource were evaluated more than once during a single converge run. ([#15714](https://github.com/chef/chef/pull/15714))
+- Fixed an issue where `platform_family` matching incorrectly used `fedora_derived` as a platform family identifier instead of the `fedora_derived?` helper method. ([#15728](https://github.com/chef/chef/pull/15728))
+- Fixed an issue where the slow report was written to standard output instead of `Chef::Log`, making slow report data inaccessible in deployments that rely on `client.log`. ([#15721](https://github.com/chef/chef/pull/15721))
+
+### Dependency updates
+
+- Knife has been moved to its own repository and now loads as a gem. ([#15847](https://github.com/chef/chef/pull/15847), [#15887](https://github.com/chef/chef/pull/15887))
+- Updated aws-sdk-s3 from 1.213.0 to 1.220.0 ([#15950](https://github.com/chef/chef/pull/15950)).
+- Updated aws-sdk-secretsmanager from 1.124.0 to 1.129.0 ([#15797](https://github.com/chef/chef/pull/15797)).
+- Updated mixlib-shellout requirement from ~> 3.3.8 to >= 3.3.8, < 3.5.0 ([#15941](https://github.com/chef/chef/pull/15941)).
+- Updated train-core from 3.16.1 to 3.16.2 ([#15928](https://github.com/chef/chef/pull/15928)).
+- Updated train-winrm from 0.4.0 to 0.4.3 ([#15827](https://github.com/chef/chef/pull/15827)).
+- Updated ffi from 1.17.3 to 1.17.4 ([#15813](https://github.com/chef/chef/pull/15813)).
+- Updated rake from 13.3.1 to 13.4.2 ([#15906](https://github.com/chef/chef/pull/15906)).
+- Updated cookstyle from 8.5.2 to 8.6.10 ([#15822](https://github.com/chef/chef/pull/15822)).
+- Updated uri requirement from ~> 1.0.4 to >= 1.0.4, < 1.2.0 ([#15823](https://github.com/chef/chef/pull/15823)).
+- Updated vault requirement from ~> 0.18.2 to >= 0.18.2, < 0.21.0 ([#15794](https://github.com/chef/chef/pull/15794)).
+- Updated chef-vault from 4.2.5 to 4.2.9 ([#15792](https://github.com/chef/chef/pull/15792)).
+- Updated highline requirement from >= 1.6.9, < 3 to >= 1.6.9, < 4 ([#15788](https://github.com/chef/chef/pull/15788)).
+- Updated win32-eventlog from 0.6.3 to 0.6.7 ([#15820](https://github.com/chef/chef/pull/15820)).
+- Updated webmock from 3.26.1 to 3.26.2 ([#15798](https://github.com/chef/chef/pull/15798)).
+- Updated pry from 0.15.2 to 0.16.0 ([#15875](https://github.com/chef/chef/pull/15875)).
+- Updated pry-byebug from 3.11.0 to 3.12.0 ([#15909](https://github.com/chef/chef/pull/15909)).
+- Updated pry-stack_explorer from 0.6.1 to 0.6.3 ([#15876](https://github.com/chef/chef/pull/15876)).
+- Updated repl_type_completor from 0.1.12 to 0.1.15 ([#15795](https://github.com/chef/chef/pull/15795)).
+- Updated tomlrb from 1.3.0 to 2.0.4 ([#15800](https://github.com/chef/chef/pull/15800)).
+- Updated Ohai from 19.1.16 to 19.1.31 ([#15964](https://github.com/chef/chef/pull/15964)).
+- Updated Cheffish from f8740fc to 5095f56 ([#15917](https://github.com/chef/chef/pull/15917)).
+
+### Packaging
+
+- We now release Chef Infra Client Habitat packages for Linux ARM. ([#15716](https://github.com/chef/chef/pull/15716))
+- Added a Habitat install hook that automatically applies SELinux file context (`fcontext`) rules when Chef Infra Client is installed on SELinux-enforcing systems such as Fedora and RHEL.
+  This ensures Chef Infra Client binaries are labeled as `bin_t` and can execute under SELinux policy. ([#15787](https://github.com/chef/chef/pull/15787))
+- The `chef/chef-hab` Docker image now supports both amd64 and arm64. Users on ARM-based systems can now pull the image natively without platform emulation. ([#15856](https://github.com/chef/chef/pull/15856))
+
 ## Chef Infra Client 19.2.12
 
 Release date: March 17, 2026
