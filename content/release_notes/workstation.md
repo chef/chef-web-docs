@@ -131,6 +131,13 @@ Updated the following Test Kitchen drivers:
  - Updated kitchen-vagrant to v2.2.1.
  - Updated kitchen-vcenter to v2.12.3.
 
+### Dependency updates
+
+- Updated mixlib-install to v3.16.0.
+- Updated net-ssh to v7.3.2.
+- Updated mixlib-archive to v1.3.3.
+- Updated openssl gem to v4.0.1.
+
 ### Security
 
 - Updated curl from v8.16.0 to v8.19.0.
@@ -139,6 +146,7 @@ Updated the following Test Kitchen drivers:
 - Updated activesupport from v7.2.3 to v7.2.3.1.
 - Updated json from v2.18.1 to v2.19.5.
 - Updated rack from v3.2.5 to v3.2.6.
+- Updated net-imap from v0.2.5 to v0.5.14.
 - Updated chef-analyze from v0.1.192 to v0.1.194.
 - Updated golang.org/x/text from v0.3.8 to v0.24.0.
 - Updated golang.org/x/crypto from v0.31.0 to v0.45.0.
