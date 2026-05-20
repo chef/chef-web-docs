@@ -16,8 +16,8 @@ You can download and install the pre-built `.msi`, `.deb`, or `.rpm` packages us
 
 Chef Infra Client is supported on:
 
-- Currently supported Linux distributions and versions running Linux kernel 2.6.32 and later
-- Currently supported Windows versions greater than or equal to Windows 10
+- Currently supported Linux distributions and versions running Linux kernel 2.6.32 and later on x86-64 (amd64) and ARM (aarch64) architectures
+- Currently supported Windows versions greater than or equal to Windows 10 and Windows Server 2016
 
 ## Prerequisites
 
@@ -46,14 +46,30 @@ To install Chef Infra Client , follow these steps:
 
     - Using Wget:
 
+      For x86-64 (amd64):
+
       ```sh
       wget -O "chef-ice-<VERSION>-linux.deb" "https://chefdownload-commercial.chef.io/stable/chef-ice/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=linux&pm=deb&v=<VERSION>"
       ```
 
+      For ARM (aarch64):
+
+      ```sh
+      wget -O "chef-ice-<VERSION>-linux.deb" "https://chefdownload-commercial.chef.io/stable/chef-ice/download?eol=false&license_id=<LICENSE_ID>&m=aarch64&p=linux&pm=deb&v=<VERSION>"
+      ```
+
     - Using curl:
+
+      For x86-64 (amd64):
 
       ```sh
       curl -o "chef-ice-<VERSION>-linux.deb" "https://chefdownload-commercial.chef.io/stable/chef-ice/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=linux&pm=deb&v=<VERSION>"
+      ```
+
+      For ARM (aarch64):
+
+      ```sh
+      curl -o "chef-ice-<VERSION>-linux.deb" "https://chefdownload-commercial.chef.io/stable/chef-ice/download?eol=false&license_id=<LICENSE_ID>&m=aarch64&p=linux&pm=deb&v=<VERSION>"
       ```
 
     {{< /accordion-item >}}
@@ -63,14 +79,30 @@ To install Chef Infra Client , follow these steps:
 
     - Using Wget:
 
+      For x86-64 (amd64):
+
       ```sh
       wget -O chef-ice-<VERSION>-linux.rpm "https://chefdownload-commercial.chef.io/stable/chef-ice/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=linux&pm=rpm&v=<VERSION>"
       ```
 
+      For ARM (aarch64):
+
+      ```sh
+      wget -O chef-ice-<VERSION>-linux.rpm "https://chefdownload-commercial.chef.io/stable/chef-ice/download?eol=false&license_id=<LICENSE_ID>&m=aarch64&p=linux&pm=rpm&v=<VERSION>"
+      ```
+
     - Using curl:
+
+      For x86-64 (amd64):
 
       ```sh
       curl -o chef-ice-<VERSION>-linux.rpm "https://chefdownload-commercial.chef.io/stable/chef-ice/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=linux&pm=rpm&v=<VERSION>"
+      ```
+
+      For ARM (aarch64):
+
+      ```sh
+      curl -o chef-ice-<VERSION>-linux.rpm "https://chefdownload-commercial.chef.io/stable/chef-ice/download?eol=false&license_id=<LICENSE_ID>&m=aarch64&p=linux&pm=rpm&v=<VERSION>"
       ```
 
     {{< /accordion-item >}}
