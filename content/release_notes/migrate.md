@@ -40,28 +40,7 @@ Release date: May 20, 2026
 
 ### Dependencies
 
-- Upgraded Go toolchain from 1.26.1 to 1.26.3 to address known CVEs:
-  - CVE-2026-39820
-  - CVE-2026-27143
-  - CVE-2026-42499
-  - CVE-2026-32281
-  - CVE-2026-33814
-  - CVE-2026-32280
-  - CVE-2026-32283
-  - CVE-2026-33811
-  - CVE-2026-39836
-  - CVE-2026-27140
-  - CVE-2026-42501
-  - CVE-2026-39817
-  - CVE-2026-33810
-  - CVE-2026-39826
-  - CVE-2026-39823
-  - CVE-2026-39825
-  - CVE-2026-32289
-  - CVE-2026-32282
-  - CVE-2026-27144
-  - CVE-2026-39819
-  - CVE-2026-32288
+- Upgraded Go toolchain from 1.26.1 to 1.26.3 to address CVEs.
 
 ## Chef Migrate 1.2.30
 
