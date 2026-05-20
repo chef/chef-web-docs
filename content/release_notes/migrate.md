@@ -13,30 +13,30 @@ summary = "Chef Migrate release notes"
     weight = 110
 +++
 
+## Chef Migrate 1.2.32
 
-### Chef Migrate 1.2.32
-
-Release date: TBD
+Release date: May 20, 2026
 
 ### Bug fixes
 
-- Migration tool fails and corrupts install if chef-client is running
-- Chef Client migration tool not working with legacy chef-client version (13,14)
+- Fixed an issue where Chef Migrate could fail and corrupt the Chef Infra Client installation if Chef Infra Client is running during migration.
+  Chef Migrate now detects running Chef Infra Client processes and waits up to five minutes for them to complete before proceeding.
+- Fixed an issue where migration failed on systems running legacy Chef Infra Client versions 13 or 14.
+  The Omnibus uninstall scripts for these versions deleted binaries from `/usr/bin` during package removal.
+  Chef Migrate now automatically restores these binaries after Omnibus uninstall using `hab pkg binlink`.
 
-### New Features
+### New features
 
-- Support for arm/linux
-- Chef Client GUI Installer Missing Scheduler Options
-- Habitat path compatibility with Chef ICE packages: Migration tool now automatically supports both new (`hab/pkgs/chef/hab/`) and legacy (`hab/pkgs/core/hab/`) package path formats for seamless compatibility with all Chef ICE package versions
-
-
-### Known issues
-
-- None
+- Adds support for Linux ARM distributions.
+- Adds the `--set-chef-schedule-task` flag to create a Windows scheduled task that runs Chef Infra Client every 30 minutes.
+- Adds support for both new (`hab/pkgs/chef/hab/`) and legacy (`hab/pkgs/core/hab/`) Habitat package path formats, ensuring compatibility with all Chef ICE package versions.
+- Package removal writes a log file to a platform-specific location, including timestamps, removal status, binlink restoration events, and exit codes:
+  - Linux and macOS: `/var/log/chef-package-removal.log`
+  - Windows: `%TEMP%\chef-package-removal.log`
 
 ### Legal
 
-- Updated NOTICE.txt with the latest third-party attribution content received from the legal team.
+- Updated `NOTICE.txt` with the latest third-party attribution content received from the legal team.
 
 ### Dependencies
 
@@ -62,7 +62,6 @@ Release date: TBD
   - CVE-2026-27144
   - CVE-2026-39819
   - CVE-2026-32288
- 
 
 ## Chef Migrate 1.2.30
 
