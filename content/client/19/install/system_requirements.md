@@ -19,8 +19,8 @@ Before you bootstrap Chef Infra Client on nodes:
 
 Chef Infra Client is supported on:
 
-- Currently supported Linux distributions and versions running Linux kernel 2.6.32 and later
-- Currently supported Windows versions greater than or equal to Windows 10
+- Currently supported Linux distributions (including RPM and Debian-based systems) running Linux kernel 2.6.32 and later.
+- Currently supported Windows versions greater than or equal to Windows 10 and Windows Server 2016.
 
 ## Chef Infra Client requirements
 
