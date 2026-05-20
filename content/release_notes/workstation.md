@@ -112,6 +112,11 @@ Release date: April 13, 2026
 
 Release date: May 21, 2026
 
+### Bug fixes
+
+- Fixed REXML XPath deprecation warnings that appeared during Test Kitchen converge operations when using the Azure driver on Windows platforms.
+- Fixed "Exception in finalizer" and "can't alloc thread (ThreadError)" warnings that appeared after Test Kitchen completed a `kitchen verify` run against Windows targets.
+
 ### Component updates
 
 - Updated Cookstyle to v8.6.10.
@@ -124,12 +129,12 @@ Release date: May 21, 2026
 
 Updated the following Test Kitchen drivers:
 
- - Updated kitchen-ec2 to v3.22.3.
- - Updated kitchen-digitalocean to v0.16.2.
- - Updated kitchen-google to v2.6.2.
- - Updated kitchen-openstack to v7.0.1.
- - Updated kitchen-vagrant to v2.2.1.
- - Updated kitchen-vcenter to v2.12.3.
+- Updated kitchen-ec2 to v3.22.3.
+- Updated kitchen-digitalocean to v0.16.2.
+- Updated kitchen-google to v2.6.2.
+- Updated kitchen-openstack to v7.0.1.
+- Updated kitchen-vagrant to v2.2.1.
+- Updated kitchen-vcenter to v2.12.3.
 
 ### Dependency updates
 
@@ -140,7 +145,7 @@ Updated the following Test Kitchen drivers:
 
 ### Security
 
-- Updated curl from v8.16.0 to v8.19.0.
+- Updated cURL from v8.16.0 to v8.19.0.
 - Updated Go from v1.23.12 to v1.26.2.
 - Updated git-windows from v2.48.1 to v2.54.0.
 - Updated activesupport from v7.2.3 to v7.2.3.1.
@@ -150,11 +155,6 @@ Updated the following Test Kitchen drivers:
 - Updated chef-analyze from v0.1.192 to v0.1.194.
 - Updated golang.org/x/text from v0.3.8 to v0.24.0.
 - Updated golang.org/x/crypto from v0.31.0 to v0.45.0.
-
-### Bug fixes
-
-- Fixed REXML XPath deprecation warnings that appeared during Test Kitchen converge operations when using the Azure driver on Windows platforms.
-- Fixed "Exception in finalizer" and "can't alloc thread (ThreadError)" warnings that appeared after Test Kitchen run against Windows targets.
 
 ## Chef Workstation 25.13.7
 
