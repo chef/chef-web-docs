@@ -15,26 +15,13 @@ summary = "Chef Migrate release notes"
 
 ## Chef Migrate 1.2.33
 
-Release date: TBD
+Release date: May 21, 2026
 
 ### Bug fixes
 
-- Windows multi-drive support
-  - HAB-related paths now respect `SYSTEMDRIVE` environment variable (e.g., D:\hab, E:\hab)
-  - OMNIBUS-related paths remain hardcoded to C:\ (legacy omnibus always installs to C:\opscode)
-  - Allows Chef ICE to be installed on non-C: drives while maintaining backward compatibility with omnibus installations
-
-### New features
-
-- None
-
-### Legal
-
-- None
-
-### Dependencies
-
-- None
+- Fixed an issue where Chef Infra Client 19 (ICE) couldn't be installed on Windows drives other than `C:\`.
+  Habitat-related paths now respect the `SYSTEMDRIVE` environment variable (for example, `D:\hab`, `E:\hab`), allowing you to install Chef ICE on any drive.
+  Omnibus-related paths remain hardcoded to `C:\opscode` to maintain backward compatibility with legacy Omnibus installations.
 
 ## Chef Migrate 1.2.32
 
