@@ -13,6 +13,29 @@ summary = "Chef Migrate release notes"
     weight = 110
 +++
 
+## Chef Migrate 1.2.33
+
+Release date: TBD
+
+### Bug fixes
+
+- Windows multi-drive support
+  - HAB-related paths now respect `SYSTEMDRIVE` environment variable (e.g., D:\hab, E:\hab)
+  - OMNIBUS-related paths remain hardcoded to C:\ (legacy omnibus always installs to C:\opscode)
+  - Allows Chef ICE to be installed on non-C: drives while maintaining backward compatibility with omnibus installations
+
+### New features
+
+- None
+
+### Legal
+
+- None
+
+### Dependencies
+
+- None
+
 ## Chef Migrate 1.2.32
 
 Release date: May 20, 2026
