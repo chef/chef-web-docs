@@ -17,6 +17,15 @@ summary = "Chef Infra Client release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
+## Chef Infra Client 19.3.15
+
+Release date: May 21, 2026
+
+### Bug fixes
+
+-  Habitat-related paths now respect the `SYSTEMDRIVE` environment variable (for example, `D:\hab`, `E:\hab`), allowing you to install Chef ICE on any drive.
+  Omnibus-related paths remain hardcoded to `C:\opscode` to maintain backward compatibility with legacy Omnibus installations.
+
 ## Chef Infra Client 19.3.14
 
 Release date: May 20, 2026
