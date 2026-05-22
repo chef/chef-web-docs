@@ -19,7 +19,7 @@ summary = "Chef Infra Client release notes"
 
 ## Chef Infra Client 19.3.15
 
-Release date: May 21, 2026
+Release date: May 22, 2026
 
 ### Bug fixes
 
