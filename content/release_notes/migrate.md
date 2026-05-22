@@ -13,6 +13,15 @@ summary = "Chef Migrate release notes"
     weight = 110
 +++
 
+## Chef Migrate 1.2.33
+
+Release date: May 22, 2026
+
+### Improvements
+
+- Habitat-related paths now respect the `SYSTEMDRIVE` environment variable (for example, `D:\hab`, `E:\hab`), allowing you to install Chef Infra Client 19 (ICE) on any drive.
+- Omnibus-related paths remain hardcoded to `C:\opscode` to maintain backward compatibility with legacy Omnibus installations.
+
 ## Chef Migrate 1.2.32
 
 Release date: May 20, 2026
