@@ -21,6 +21,10 @@ summary = "Chef Infra Client release notes"
 
 Release date: May 22, 2026
 
+### Improvements
+
+- We identified an additional issue preventing users from upgrading from older 19.x versions to 19.3.14. Users running 19.3.14 can now migrate seamlessly to 19.3.15.
+
 ### Bug fixes
 
 - Fixed an issue where Chef Infra Client 19 couldn't be installed on Windows drives other than `C:\`.
