@@ -15,7 +15,7 @@ summary = "Chef Migrate release notes"
 
 ## Chef Migrate 1.2.33
 
-Release date: May 21, 2026
+Release date: May 22, 2026
 
 ### Improvements
 
