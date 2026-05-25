@@ -393,6 +393,21 @@ We overhauled the `inspec check` and `inspec export` commands to use the parser 
 
 - We no longer support Ruby 2.7 since it became end-of-life (EOL) in March 2023.
 
+## Chef InSpec 5.24.*
+
+Release date:
+
+### Bug fixes
+
+- fix: CHEF-32686 - Pre-check waivers before control block evaluation to avoid eager resource execution ([#7832](https://github.com/inspec/inspec/pull/7832))
+
+### Dependency updates
+
+- Updated `addressable` gem from `2.4` to `2.9.0`. ([#7920](https://github.com/inspec/inspec/pull/7920))
+- Updated `json` gem from `>= 1.8` to `>= 2.19.2`. ([#829](https://github.com/inspec/train/pull/829))
+- Updated `activesupport` gem from `>= 7.2.2.1` to `>= 7.2.3.1`. ([#830](https://github.com/inspec/train/pull/830))
+- Updated `net-imap` gem from `>= 0.2.5` to `>= 0.5.14`. ([#7911](https://github.com/inspec/inspec/pull/7911))
+
 ## Chef InSpec 5.24.7
 
 Release date: March 2, 2026
