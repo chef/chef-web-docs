@@ -23,8 +23,7 @@ Release date: May 22, 2026
 
 ### Known issues
 
-- You can only upgrade to Chef Infra Client 19.3.15 from version 19.3.14. 
-  To upgrade from an earlier 19.x version, upgrade to version 19.3.14 first and then upgrade to 19.3.15.
+- On Linux systems (RPM and DEB), you can only upgrade to Chef Infra Client 19.3.15 from version 19.3.14. Internal testing revealed issues when upgrading from earlier 19.x versions to 19.3.15. For systems running an earlier 19.x release, we recommend uninstalling the existing build first and then installing 19.3.15.
 
 ### Bug fixes
 
