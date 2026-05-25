@@ -399,7 +399,7 @@ Release date:
 
 ### Bug fixes
 
-- fix: CHEF-32686 - Pre-check waivers before control block evaluation to avoid eager resource execution ([#7832](https://github.com/inspec/inspec/pull/7832))
+- Pre-check waivers before control block evaluation to avoid eager resource execution ([#7832](https://github.com/inspec/inspec/pull/7832))
 
 ### Dependency updates
 
