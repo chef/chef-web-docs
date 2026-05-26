@@ -5,8 +5,8 @@ title = "Chef Workstation"
 
 ## Chef Workstation releases
 
-- [Chef Habitat v 26](/workstation/26/)
-- [Chef Habitat v 25](/workstation/25/)
+- [Chef Workstation v26](/workstation/26/)
+- [Chef Workstation v25](/workstation/25/)
 
 ## Cookstyle
 
