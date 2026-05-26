@@ -108,6 +108,54 @@ Release date: April 13, 2026
 - Using custom gems or changing the Ruby path isn't supported in this release.
 - The `knife google server create` command on Windows can fail during password reset if the GCEAgent initializes slowly (for example, on slow boot or low-resource machines).
 
+## Chef Workstation 25.14.2
+
+Release date: May 26, 2026
+
+### Bug fixes
+
+- Fixed REXML XPath deprecation warnings that appeared during Test Kitchen converge operations when using the Azure driver on Windows platforms.
+- Fixed "Exception in finalizer" and "can't alloc thread (ThreadError)" warnings that appeared after Test Kitchen completed a `kitchen verify` run against Windows targets.
+
+### Component updates
+
+- Updated Cookstyle to v8.6.10.
+- Updated Berkshelf to v8.1.21.
+- Updated Chef Vault to v4.2.9.
+- Updated Fauxhai to v9.4.20.
+- Updated Test Kitchen to v4.0.0, which moves the provisioner to its own gem.
+- Updated the kitchen-omnibus-chef gem. This gem provides the Chef provisioner to Test Kitchen and now supports authenticated downloads with a license from the Chef Downloads API. This gem is deprecated, and starting with Chef Workstation 26, the kitchen-chef-enterprise plugin will be automatically bundled and shipped for enterprise customer usage.
+- Replaced winrm, winrm-elevated, and winrm-fs gems with chef-winrm, chef-winrm-elevated, and chef-winrm-fs.
+
+Updated the following Test Kitchen drivers:
+
+- Updated kitchen-ec2 to v3.22.3.
+- Updated kitchen-digitalocean to v0.16.2.
+- Updated kitchen-google to v2.6.2.
+- Updated kitchen-openstack to v7.0.1.
+- Updated kitchen-vagrant to v2.2.1.
+- Updated kitchen-vcenter to v2.12.3.
+
+### Dependency updates
+
+- Updated mixlib-install to v3.16.0.
+- Updated net-ssh to v7.3.2.
+- Updated mixlib-archive to v1.3.3.
+- Updated openssl gem to v4.0.1.
+
+### Security
+
+- Updated cURL from v8.16.0 to v8.19.0.
+- Updated Go from v1.23.12 to v1.26.2.
+- Updated git-windows from v2.48.1 to v2.54.0.
+- Updated activesupport from v7.2.3 to v7.2.3.1.
+- Updated json from v2.18.1 to v2.19.5.
+- Updated rack from v3.2.5 to v3.2.6.
+- Updated net-imap from v0.2.5 to v0.5.14.
+- Updated chef-analyze from v0.1.192 to v0.1.194.
+- Updated golang.org/x/text from v0.3.8 to v0.24.0.
+- Updated golang.org/x/crypto from v0.31.0 to v0.45.0.
+
 ## Chef Workstation 25.13.7
 
 Release Date: March 5, 2026.
