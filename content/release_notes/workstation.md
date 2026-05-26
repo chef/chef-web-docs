@@ -124,7 +124,7 @@ Release date: May 26, 2026
 - Updated Chef Vault to v4.2.9.
 - Updated Fauxhai to v9.4.20.
 - Updated Test Kitchen to v4.0.0, which moves the provisioner to its own gem.
-- Updated the kitchen-omnibus-chef gem, which provides the Chef provisioner for Test Kitchen and supports authenticated downloads from the Chef Downloads API, to support license acceptance. The plugin is now deprecated, and starting with Chef Workstation 26, the kitchen-chef-enterprise plugin will be automatically bundled and shipped for enterprise customer usage
+- Updated the kitchen-omnibus-chef gem. This gem provides the Chef provisioner to Test Kitchen and now supports authenticated downloads with a license from the Chef Downloads API. This gem is deprecated, and starting with Chef Workstation 26, the kitchen-chef-enterprise plugin will be automatically bundled and shipped for enterprise customer usage.
 - Replaced winrm, winrm-elevated, and winrm-fs gems with chef-winrm, chef-winrm-elevated, and chef-winrm-fs.
 
 Updated the following Test Kitchen drivers:
