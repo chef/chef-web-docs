@@ -110,7 +110,7 @@ Release date: April 13, 2026
 
 ## Chef Workstation 25.14.2
 
-Release date: May 21, 2026
+Release date: May 26, 2026
 
 ### Bug fixes
 
