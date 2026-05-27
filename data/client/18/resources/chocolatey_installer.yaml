@@ -49,10 +49,13 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: The URL to download Chocolatey from. This sets the value of `$env:ChocolateyDownloadUrl`
-      and causes the installer to choose an alternate download location. If this is
-      not set, this resource downloads Chocolatey from the official Chocolatey community
-      repository. You can set a path to a `chocolatey.nupkg` file for offline installation.
+  - markdown: "The URL to download Chocolatey from. This sets the value of `$env:ChocolateyDownloadUrl`\
+      \ and causes the installer to choose an alternate download location. If this is\
+      \ not set, this resource downloads Chocolatey from the official Chocolatey community\
+      \ repository. It can also be used for offline installation by providing a path to a Chocolatey.nupkg.\
+      \ If the provided URL is a PowerShell script (ending in .ps1), that script will be downloaded and executed directly.\
+      \ If it is any other file type, it will be downloaded to the Chef client directory.\
+      \ ChefConfig::Config.etc_chef_dir(windows: true) is used to find that location."
 - property: ignore_proxy
   ruby_type: true, false
   required: false
