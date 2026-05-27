@@ -17,6 +17,83 @@ summary = "Chef Infra Server release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
+## Chef Infra Server 15.10.108
+
+Released on TBD
+
+### Security
+
+#### JWT Empty-Key HMAC Bypass
+
+Updated `jwt` from 3.1.2 to 3.2.0 in `oc-id` and `chef-server-ctl` to resolve an authentication
+bypass vulnerability affecting versions prior to 3.2.0.
+
+- CVE-2026-45363
+
+#### Addressable URI Template ReDoS
+
+Updated `addressable` from 2.8.7 to 2.9.0 in `oc-id` and `chef-server-ctl` to fully remediate a
+regular expression denial of service (ReDoS) vulnerability in URI template matching.
+
+- CVE-2026-35611
+
+#### Erlang Security Updates
+
+Updated Erlang/OTP from 26.2.2 to 26.2.5, which resolves the following CVEs:
+
+- CVE-2025-32433
+- CVE-2025-30211
+- CVE-2025-26618
+- CVE-2025-48041
+- CVE-2025-48038
+- CVE-2025-48039
+- CVE-2025-48040
+- CVE-2025-4748
+- CVE-2024-53846
+- CVE-2025-46712
+
+#### Reduced Information Disclosure at `/version` Endpoint
+
+The `/version` API endpoint no longer exposes internal library names and version details.
+
+### Bug Fixes
+
+- Fixed an incorrect log rotation configuration in the Bifrost service that caused crash.log to
+  rotate out of the base filename. ([#4188](https://github.com/chef/chef-server/pull/4188))
+- Fixed a crash in `chef-server-ctl reconfigure` that caused a `NameError: uninitialized constant
+  Parser::AST::Processor::Mixin` when the `addressable 2.9.0` security pin was active.
+  ([#4195](https://github.com/chef/chef-server/pull/4195))
+
+### Improvements
+
+- Added a `log_rotation_type` configuration option to select between `rotate` and `wrap` style
+  request logging. Default behavior is unchanged.
+  ([#4188](https://github.com/chef/chef-server/pull/4188))
+- Added support for a local license file check, controlled by the `OC_LICENSE_PATH` build-time
+  macro. When the macro is unset (the default), existing behavior is preserved. When set to a file
+  path, Chef Infra Server reads the license from that location at runtime. If the file is missing
+  or invalid, a 90-day trial period begins from the time of upgrade.
+  ([#4152](https://github.com/chef/chef-server/pull/4152))
+
+### Updated Components
+
+- Chef Infra Client updated from 18.8.46 to 18.10.17.
+- knife updated from 18.8.68 to 19.0.105.
+- knife-ec-backup updated from 3.0.5 to 3.0.8.
+- PostgreSQL client updated from version 13 to 14.
+- Rails updated from 7.1.5.2 to 7.1.6 (includes a pending security fix).
+
+### Service versions
+
+This release uses:
+
+- OpenResty 1.27.1.2
+- OpenJRE 17.0.9+9
+- PostgreSQL 13.22.tuxcare.1.0.1
+- OpenSearch 1.3.20-tuxcare-1.0.2
+- Rack 3.2.6
+- Valkey 7.2.11
+
 ## Chef Infra Server 15.10.91
 
 Released on February 10th, 2026
