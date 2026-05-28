@@ -1,5 +1,5 @@
-The `install` subcommand downloads packages from <https://packages.chef.io> by default.
-For systems that are not behind a firewall (and have connectivity to <https://packages.chef.io>), these packages can be installed as described below.
+The `install` subcommand downloads packages from the Chef download API by default (<https://chefdownload-commercial.chef.io> for commercial users or <https://chefdownload-community.chef.io> for community users).
+For systems that are not behind a firewall (and have connectivity to the Chef download API), these packages can be installed as described below.
 
 1. Install add-ons
 

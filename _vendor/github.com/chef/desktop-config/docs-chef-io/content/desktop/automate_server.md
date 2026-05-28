@@ -39,8 +39,19 @@ sysctl -w vm.dirty_expire_centisecs=20000
 
 Download the Chef Automate CLI:
 
+**For commercial license users:**
+
 ```bash
-curl https://packages.chef.io/files/current/latest/chef-automate-cli/chef-automate_linux_amd64.zip | gunzip - > chef-automate
+curl -L "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<YOUR_LICENSE_ID>" -o chef-automate
+chmod +x chef-automate
+```
+
+Replace `<YOUR_LICENSE_ID>` with your commercial license ID.
+
+**For community/trial license users:**
+
+```bash
+curl -L "https://chefdownload-community.chef.io/stable/automate/download?p=linux&m=x86_64" -o chef-automate
 chmod +x chef-automate
 ```
 

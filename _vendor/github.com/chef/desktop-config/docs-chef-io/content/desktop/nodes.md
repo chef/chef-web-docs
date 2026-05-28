@@ -44,15 +44,35 @@ Go to your test node and install the Chef Infra Client from an elevated PowerShe
 
 #### On Windows
 
+**For commercial license users:**
+
 ```powershell
-. { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install -project chef
+. { iwr -useb https://chefdownload-commercial.chef.io/install.ps1?license_id=<LICENSE_ID> } | iex; install -project chef
 ```
+
+**For community/trial license users:**
+
+```powershell
+. { iwr -useb https://chefdownload-community.chef.io/install.ps1?license_id=<LICENSE_ID> } | iex; install -project chef
+```
+
+Replace `<LICENSE_ID>` with your license ID.
 
 #### On macOS
 
+**For commercial license users:**
+
 ```bash
-sudo bash -c "$(curl -sL https://chef.io/chef/install.sh)"
+curl -L https://chefdownload-commercial.chef.io/install.sh?license_id=<LICENSE_ID> | sudo bash
 ```
+
+**For community/trial license users:**
+
+```bash
+curl -L https://chefdownload-community.chef.io/install.sh?license_id=<LICENSE_ID> | sudo bash
+```
+
+Replace `<LICENSE_ID>` with your license ID.
 
 ### Load the client.rb
 

@@ -127,7 +127,7 @@ Chef Automate doesn't run a detect job on the instances; all instances with an S
 
 The `ssm` Scan Job:
 
-1. Installs the latest stable InSpec from `packages.chef.io`
+1. Installs the latest stable InSpec
 1. Executes InSpec locally, providing InSpec with the `fqdn` of Chef Automate and a data collector token, so each instance reports directly back to Chef Automate
 
 Your Automate instance must be reachable (open to incoming traffic) from the instances being scanned in order for the SSM scanning to work. You can filter the instances to be scanned by specifying tag key/value matches or regions.
