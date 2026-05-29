@@ -23,7 +23,7 @@ Released on TBD
 
 ### Security
 
-#### JWT Empty-Key HMAC Bypass
+#### JWT empty-key HMAC bypass
 
 Updated `jwt` from 3.1.2 to 3.2.0 in `oc-id` and `chef-server-ctl` to resolve an authentication
 bypass vulnerability affecting versions prior to 3.2.0.
@@ -52,14 +52,22 @@ Updated Erlang/OTP from 26.2.2 to 26.2.5, which resolves the following CVEs:
 - CVE-2024-53846
 - CVE-2025-46712
 
-#### Reduced Information Disclosure at `/version` Endpoint
+#### Rack security update
+
+Updated Rack from 3.2.4 to 3.2.6 to resolve the following CVEs:
+
+- CVE-2025-9230
+- CVE-2025-9231
+- CVE-2025-9232
+
+#### Reduced information disclosure at `/version` endpoint
 
 The `/version` API endpoint no longer exposes internal library names and version details.
 
 ### Bug Fixes
 
-- Fixed an incorrect log rotation configuration in the Bifrost service that caused crash.log to
-  rotate out of the base filename. ([#4188](https://github.com/chef/chef-server/pull/4188))
+- Fixed an incorrect log rotation configuration in the Bifrost service where the request logger
+  was writing to `crash.log` instead of `requests.log`. ([#4188](https://github.com/chef/chef-server/pull/4188))
 - Fixed a crash in `chef-server-ctl reconfigure` that caused a `NameError: uninitialized constant
   Parser::AST::Processor::Mixin` when the `addressable 2.9.0` security pin was active.
   ([#4195](https://github.com/chef/chef-server/pull/4195))
@@ -70,9 +78,9 @@ The `/version` API endpoint no longer exposes internal library names and version
   request logging. Default behavior is unchanged.
   ([#4188](https://github.com/chef/chef-server/pull/4188))
 - Added support for a local license file check, controlled by the `OC_LICENSE_PATH` build-time
-  macro. When the macro is unset (the default), existing behavior is preserved. When set to a file
-  path, Chef Infra Server reads the license from that location at runtime. If the file is missing
-  or invalid, a 90-day trial period begins from the time of upgrade.
+  macro. When the macro is unset (the default), Chef Infra Server uses the `chef-automate` CLI to check the license, which is the previous default behavior. When set to
+  a file path, Chef Infra Server reads the license from that location at runtime. If the file is
+  missing or invalid, a 90-day trial period begins from the time of upgrade.
   ([#4152](https://github.com/chef/chef-server/pull/4152))
 
 ### Updated Components
