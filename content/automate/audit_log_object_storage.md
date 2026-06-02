@@ -305,7 +305,6 @@ The following defines the default audit log storage settings.
 For a complete set of log storage settings, see the [reference examples](#audit-log-configuration-file-examples) below.
 
 `[global.v1.audit.logging]`
-
 : Audit logging is disabled by default:
 
   ```toml
@@ -325,7 +324,6 @@ For a complete set of log storage settings, see the [reference examples](#audit-
     If audit logging is disabled (`false`), Automate doesn't validate the audit `storage`, `input`, `output`, and `async` fields.
 
 `[global.v1.audit.async]`
-
 : Audit log generation settings have the following defaults:
 
   ```toml
@@ -360,17 +358,17 @@ For a complete set of log storage settings, see the [reference examples](#audit-
     Format: `KB`, `MB`, or `GB` suffixes (use `"20MB"`, not `"20M"`).
 
 : `requested_logs_retention_duration`
-  : Default value: `"1hr"`
+  : Controls how long requested audit log export files (stored under `requested-logs/` in your bucket) are kept before automatic hourly cleanup.
 
-    Controls how long requested audit log export files (stored under `requested-logs/` in your bucket) are kept before automatic hourly cleanup.
     Valid formats: `"0"` (disabled), `"1hr"`, `"24hr"`, `"7d"`, `"30d"`, and so on.
     Must use `hr` for hours or `d` for days.
     For example, `"24h"` is not valid. Use `"24hr"`.
 
+    Default value: `"1hr"`
+
     If set to an invalid value, cleanup is disabled and a warning is logged.
 
 `[global.v1.audit.input]`
-
 : The audit log input settings have the following defaults:
 
   ```toml
@@ -397,7 +395,6 @@ For a complete set of log storage settings, see the [reference examples](#audit-
     Positive value (seconds)
 
 : `mem_buf_limit`
-
   : The in-memory buffer limit.
 
     Default value: `"5M"`
@@ -405,7 +402,6 @@ For a complete set of log storage settings, see the [reference examples](#audit-
     Format: If set, must be a size in `M` without a suffix (for example, `"5M"`). An empty string is invalid.
 
 `[global.v1.audit.storage]`
-
 : The audit log storage settings have the following defaults:
 
   ```toml
@@ -422,11 +418,11 @@ For a complete set of log storage settings, see the [reference examples](#audit-
     Must be `"s3"` or `"minio"`
 
 : `endpoint`
-  : Required for S3 when `bucket` is set, and always required for MinIO. For AWS S3, use a regional endpoint (for example, `https://s3.<AWS_REGION>.amazonaws.com`). For `us-east-1`, `https://s3.amazonaws.com` also works.
+  : The AWS S3 or MinIO endpoint URL.
 
-  Default value: `"https://s3.amazonaws.com"`
+    Required for S3 when `bucket` is set, and always required for MinIO. For AWS S3, use a regional endpoint (for example, `https://s3.<AWS_REGION>.amazonaws.com`). For `us-east-1`, `https://s3.amazonaws.com` also works.
 
-    The AWS S3 or MinIO endpoint URL.
+    Default value: `"https://s3.amazonaws.com"`
 
 : `bucket`
   : Default value: n/a
@@ -455,7 +451,6 @@ For a complete set of log storage settings, see the [reference examples](#audit-
     Required if `access_key` is set.
 
 `[global.v1.audit.storage.ssl]`
-
 : The storage SSL settings have the following defaults:
 
   ```toml
@@ -485,7 +480,6 @@ For a complete set of log storage settings, see the [reference examples](#audit-
     PEM-encoded CA certificate (optional, for private CAs or self-signed certs).
 
 `[global.v1.audit.output]`
-
 : The audit log output settings have the following defaults:
 
   ```toml
