@@ -305,26 +305,27 @@ The following defines the default audit log storage settings.
 For a complete set of log storage settings, see the [reference examples](#audit-log-configuration-file-examples) below.
 
 `[global.v1.audit.logging]`
-: Audit logging is disabled by default:
+: Controls whether audit logging is enabled.
+  When disabled, Automate skips validation of the `storage`, `input`, `output`, and `async` fields.
+
+  Default settings:
 
   ```toml
   [global.v1.audit.logging]
     enabled = false
   ```
 
-: Configure whether logging is enabled with the following:
+: `enabled`
+  : Whether logging is enabled. Must be `true` or `false`.
 
-  `enabled`
-
-  : Default value: `false`
-
-    Must be `true` or `false`.
-
-  : Audit validation is only enforced if `enabled` is `true`.
     If audit logging is disabled (`false`), Automate doesn't validate the audit `storage`, `input`, `output`, and `async` fields.
 
+    Default value: `false`
+
 `[global.v1.audit.async]`
-: Audit log generation settings have the following defaults:
+: Controls asynchronous upload worker behavior.
+
+  Default settings:
 
   ```toml
   [global.v1.audit.async]
@@ -335,18 +336,18 @@ For a complete set of log storage settings, see the [reference examples](#audit-
   ```
 
 : `max_concurrent_workers`
-  : Default value: `4`
-
-    If set, must be between `1` and `100`.
+  : If set, must be between `1` and `100`.
 
     Higher values increase throughput but also CPU and memory usage.
 
-: `queue_size`
-  : Default value: `100`
+    Default value: `4`
 
-    If set, must be between `1` and `10000`.
+: `queue_size`
+  : If set, must be between `1` and `10000`.
 
     If full, new requests may be rejected.
+
+    Default value: `100`
 
 : `multipart_chunk_size`
   : Multipart upload part size.
@@ -369,11 +370,13 @@ For a complete set of log storage settings, see the [reference examples](#audit-
     If set to an invalid value, cleanup is disabled and a warning is logged.
 
 `[global.v1.audit.input]`
-: The audit log input settings have the following defaults:
+: Controls how Fluent Bit tails the local audit log file written by the load balancer.
+
+  Default settings:
 
   ```toml
   [global.v1.audit.input]
-    max_file_size = "10MB"
+    max_file_size = "100MB"
     refresh_interval = "60"
     mem_buf_limit = "5M"
   ```
@@ -402,20 +405,35 @@ For a complete set of log storage settings, see the [reference examples](#audit-
     Format: If set, must be a size in `M` without a suffix (for example, `"5M"`). An empty string is invalid.
 
 `[global.v1.audit.storage]`
-: The audit log storage settings have the following defaults:
+: Configures the object storage backend for audit logs.
+
+  Default settings:
 
   ```toml
   [global.v1.audit.storage]
     storage_type = "s3"
     endpoint = "https://s3.amazonaws.com"
-    storage_region = "us-east-1"
-    path_prefix = ""
+    storage_region = ""
+    path_prefix = "audit-logs"
+  ```
+
+  All settings:
+
+  ```toml
+  [global.v1.audit.storage]
+    storage_type = "s3"
+    endpoint = "https://s3.<AWS_REGION>.amazonaws.com"
+    bucket = "<BUCKET_NAME>"
+    storage_region = "<AWS_REGION>"
+    path_prefix = "audit-logs"
+    access_key = "<ACCESS_KEY>"
+    secret_key = "<SECRET_KEY>"
   ```
 
 : `storage_type`
-  : Default value: `"s3"`
+  : Must be `"s3"` or `"minio"`.
 
-    Must be `"s3"` or `"minio"`
+    Default value: `"s3"`
 
 : `endpoint`
   : The AWS S3 or MinIO endpoint URL.
@@ -425,33 +443,36 @@ For a complete set of log storage settings, see the [reference examples](#audit-
     Default value: `"https://s3.amazonaws.com"`
 
 : `bucket`
-  : Default value: n/a
+  : Required. Uploads don't run unless a bucket is configured.
 
-    Required. Uploads don't run unless a bucket is configured.
+    Default value: n/a
 
 : `storage_region`
-  : Default value: `""`
+  : Required for AWS S3 when `bucket` is set. For MinIO, use `"us-east-1"`.
 
-    Required for AWS S3 when `bucket` is set. For MinIO, use `"us-east-1"`.
+    Default value: `""`
 
 : `path_prefix`
-  : Default value: `"audit-logs"`
+  : Optional key prefix inside the bucket.
 
-    Optional key prefix inside bucket
+    Default value: `"audit-logs"`
 
 : `access_key`
-  : Default value: `""`
-
-    - For MinIO: required
+  : - For MinIO: required
     - For AWS: optional if using an IAM role or instance
 
-: `secret_key`
-  : Default value: `""`
+    Default value: `""`
 
-    Required if `access_key` is set.
+: `secret_key`
+  : Required if `access_key` is set.
+
+    Default value: `""`
 
 `[global.v1.audit.storage.ssl]`
-: The storage SSL settings have the following defaults:
+: Configures TLS for the object storage connection.
+  Enable TLS for HTTPS endpoints, enforce certificate verification, and supply a CA certificate for private or self-signed certificates.
+
+  Default settings:
 
   ```toml
   [global.v1.audit.storage.ssl]
@@ -461,26 +482,28 @@ For a complete set of log storage settings, see the [reference examples](#audit-
   ```
 
 : `enabled`
-  : Default value: `false`
-
-    If using an HTTPS endpoint, set to `true`. If using HTTP endpoint, set to `false`.
+  : If using an HTTPS endpoint, set to `true`. If using an HTTP endpoint, set to `false`.
 
     If MinIO uses a private certificate authority or self-signed certificate, set to `true` and add PEM file contents to `root_cert`.
 
-: `verify_ssl`
-  : Default value: `false`
+    Default value: `false`
 
-    Set to `true` if `enabled = true` and `root_cert` is set.
+: `verify_ssl`
+  : Set to `true` if `enabled = true` and `root_cert` is set.
+
+    Default value: `false`
 
 : `root_cert`
-  : Required if `enabled` is `true`.
+  : PEM-encoded CA certificate (optional, for private CAs or self-signed certs).
+
+    Required if `enabled` is `true`.
 
     Default value: `""`
 
-    PEM-encoded CA certificate (optional, for private CAs or self-signed certs).
-
 `[global.v1.audit.output]`
-: The audit log output settings have the following defaults:
+: Controls how Fluent Bit batches and uploads audit log data to the object storage backend using the [Fluent Bit S3 output plugin](https://docs.fluentbit.io/manual/pipeline/outputs/s3).
+
+  Default settings:
 
   ```toml
   [global.v1.audit.output]
@@ -488,8 +511,6 @@ For a complete set of log storage settings, see the [reference examples](#audit-
     upload_chunk_size = "6M"
     upload_timeout = "10m"
   ```
-
-: The audit output settings control the [Fluent Bit S3 output plugin behavior](https://docs.fluentbit.io/manual/pipeline/outputs/s3).
 
 : `total_file_size`
   : Total size threshold before the output is split into additional objects.
@@ -503,21 +524,23 @@ For a complete set of log storage settings, see the [reference examples](#audit-
     Units: `M` or `G` only. Must be between 1 MB and 50GB, and must be greater than or equal to twice the `upload_chunk_size` value.
 
 : `upload_chunk_size`
-  : Default value: `"6M"`
-
-    Min value: `"6M"`
+  : Min value: `"6M"`
 
     Max value: `"50M"`
 
     Units: `M` or `G` only. Must be between 6 MB and 50 MB.
 
-: `upload_timeout`
-  : Default value: `"10m"`
+    Default value: `"6M"`
 
-    Units: minutes only (`m`).
+: `upload_timeout`
+  : Units: minutes only (`m`).
+
+    Default value: `"10m"`
 
 `[global.v1.audit.retention]`
-: Configures automatic daily cleanup of audit log objects stored in S3 or MinIO:
+: Configures automatic daily deletion of audit log objects stored in S3 or MinIO.
+
+  Default settings:
 
   ```toml
   [global.v1.audit.retention]
@@ -527,24 +550,23 @@ For a complete set of log storage settings, see the [reference examples](#audit-
   ```
 
 : `days`
-  : Default value: `30`
-
-    Number of days to retain audit logs.
+  : Number of days to retain audit logs.
     A value of `0` disables automatic cleanup (unlimited retention).
     A value greater than 0 enables cleanup and sets the retention period.
 
     Must be greater than or equal to `0`.
 
-: `schedule_hour`
-  : Default value: `2`
+    Default value: `30`
 
-    Hour of day (0--23) when the daily cleanup job runs.
-    Default is `2` (2 AM).
+: `schedule_hour`
+  : Hour of day (0--23) when the daily cleanup job runs.
+
+    Default value: `2` (2 AM)
 
 : `schedule_minute`
-  : Default value: `0`
+  : Minute (0-59) when the daily cleanup job runs.
 
-    Minute (0-59) when the daily cleanup job runs.
+    Default value: `0`
 
 <!-- markdownlint-enable MD046 -->
 
