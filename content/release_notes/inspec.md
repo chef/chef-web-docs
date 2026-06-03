@@ -395,13 +395,17 @@ We overhauled the `inspec check` and `inspec export` commands to use the parser 
 
 ## Chef InSpec 5.24.*
 
-Release date:
+Release date: June 21th, 2026
+
+### Key features / Improvements
+
+- **Omnibus build configuration as Git submodule**: The omnibus build configuration is now managed as a Git submodule from a private Chef repository, improving separation of concerns and enabling better control over official release builds. Community contributors can continue building InSpec packages using the public [`inspec-omnibus-community-config`](https://github.com/chef/inspec-omnibus-community-config) repository. See [Building InSpec with Omnibus](/inspec/install/) for configuration details.
 
 ### Bug fixes
 
 - Pre-check waivers before control block evaluation to avoid eager resource execution ([#7832](https://github.com/inspec/inspec/pull/7832))
 
-### Dependency updates
+#### Security fixes
 
 - Updated `addressable` gem from `2.4` to `2.9.0`. ([#7920](https://github.com/inspec/inspec/pull/7920))
 - Updated `json` gem from `>= 1.8` to `>= 2.19.2`. ([#829](https://github.com/inspec/train/pull/829))
