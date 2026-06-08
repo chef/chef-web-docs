@@ -49,8 +49,10 @@ For example, if today you are on version _2021201164433_, your upgrade journey s
 - **Download latest chef-automate cli:**
 
     ```sh
-    curl https://packages.chef.io/files/current/latest/chef-automate-cli/chef-automate_linux_amd64.zip | gunzip - > chef-automate && chmod +x chef-automate
+    curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
     ```
+
+    Replace `<LICENSE_ID>` with your commercial license ID.
 
 ## Upgrade to Version 3.0.49
 
@@ -96,8 +98,10 @@ To upgrade Chef Automate from version 3.0.49 to 4.x with embedded Elasticsearch,
 1. Download latest chef-automate cli.
 
     ```sh
-    curl https://packages.chef.io/files/current/latest/chef-automate-cli/chef-automate_linux_amd64.zip | gunzip - > chef-automate && chmod +x chef-automate
+    curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
     ```
+
+    Replace `<LICENSE_ID>` with your commercial license ID.
 
 2. Start a major version upgrade:
 
@@ -241,8 +245,10 @@ To upgrade Chef Automate with external Elasticsearch from version 3.0.49 to 4.x,
 1. Download latest chef-automate cli.
 
     ```sh
-    curl https://packages.chef.io/files/current/latest/chef-automate-cli/chef-automate_linux_amd64.zip | gunzip - > chef-automate && chmod +x chef-automate
+    curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
     ```
+
+    Replace `<LICENSE_ID>` with your commercial license ID.
 
 2. Start major version upgrade:
 
@@ -343,8 +349,10 @@ To upgrade from version 3.0.49 to 4.x, follow the steps below:
 1. Download latest CLI of Chef Automate.
 
     ```sh
-    curl https://packages.chef.io/files/current/latest/chef-automate-cli/chef-automate_linux_amd64.zip | gunzip - > chef-automate && chmod +x chef-automate
+    curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
     ```
+
+    Replace `<LICENSE_ID>` with your commercial license ID.
 
 2. Create an Airgap Installation Bundle (AIB).
 
@@ -355,8 +363,10 @@ To upgrade from version 3.0.49 to 4.x, follow the steps below:
     OR we can directly download via curl request
 
     ```sh
-    curl https://packages.chef.io/airgap_bundle/current/automate/latest.aib -o automate-4.x.y.aib
+    curl "https://chefdownload-commercial.chef.io/airgap_bundle/current/automate/latest.aib?license_id=<LICENSE_ID>" -o automate-4.x.y.aib
     ```
+
+    Replace `<LICENSE_ID>` with your commercial license ID.
 
 3. Copy the latest Chef Automate CLI (`chef-automate`) and AIB (`automate-4.x.y.aib`) to the air-gapped machine running Chef Automate.
 
@@ -516,8 +526,10 @@ To upgrade to version 3.0.49 to 4.x, follow the steps below:
 1. Download latest CLI of Chef Automate
 
     ```sh
-    curl https://packages.chef.io/files/current/latest/chef-automate-cli/chef-automate_linux_amd64.zip | gunzip - > chef-automate && chmod +x chef-automate
+    curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
     ```
+
+    Replace `<LICENSE_ID>` with your commercial license ID.
 
 2. Create an Airgap Installation Bundle (AIB):
 
@@ -528,8 +540,10 @@ To upgrade to version 3.0.49 to 4.x, follow the steps below:
     OR we can directly download via curl request
 
     ```sh
-    curl https://packages.chef.io/airgap_bundle/current/automate/latest.aib -o automate-4.x.y.aib
+    curl "https://chefdownload-commercial.chef.io/airgap_bundle/current/automate/latest.aib?license_id=<LICENSE_ID>" -o automate-4.x.y.aib
     ```
+
+    Replace `<LICENSE_ID>` with your commercial license ID.
 
 3. Copy the latest Chef Automate CLI (`chef-automate`) and AIB (`automate-4.x.y.aib`) to the air-gapped machine running Chef Automate.
 
@@ -686,10 +700,12 @@ DeploymentServiceCallError: A request to the deployment-service failed: Request 
 To move ahead with the upgrade you can download the latest CLI and Airgapped bundle using the curl command with proxy settings:
 
 ```sh
-curl -x http://proxy_server:proxy_port --proxy-user username:password -L https://packages.chef.io/files/current/latest/chef-automate-cli/chef-automate_linux_amd64.zip | gunzip - > chef-automate && chmod +x chef-automate
+curl -x http://proxy_server:proxy_port --proxy-user username:password -L "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
 
-curl -x http://proxy_server:proxy_port --proxy-user username:password -L https://packages.chef.io/airgap_bundle/current/automate/latest.aib -o automate-latest.aib
+curl -x http://proxy_server:proxy_port --proxy-user username:password -L "https://chefdownload-commercial.chef.io/airgap_bundle/current/automate/latest.aib?license_id=<LICENSE_ID>" -o automate-latest.aib
 ```
+
+Replace `<LICENSE_ID>` with your commercial license ID.
 
 After downloading, run the upgrade command with airgapped bundle option:
 

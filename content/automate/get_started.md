@@ -36,7 +36,9 @@ By installing Chef Automate with the Vagrantfile provided below you're automatic
 
 ## Create a Vagrantfile
 
-Copy and paste this script into your command line to create the Chef Automate `Vagrantfile`:
+Copy and paste this script into your command line to create the Chef Automate `Vagrantfile`.
+
+**Note:** Replace `<LICENSE_ID>` in the script with your commercial license ID before running.
 
 ```ruby
 cat > Vagrantfile <<'EOH'
@@ -52,8 +54,7 @@ apt-get clean
 sysctl -w vm.max_map_count=262144
 sysctl -w vm.dirty_expire_centisecs=20000
 echo "${CFG_IP} ${CFG_HOSTNAME}" | tee -a /etc/hosts
-curl -fsSL https://packages.chef.io/files/current/automate/latest/chef-automate_linux_amd64.zip -o /tmp/chef-automate_linux_amd64.zip
-unzip -qod /usr/local/bin /tmp/chef-automate_linux_amd64.zip
+curl -fsSL "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o /usr/local/bin/chef-automate
 chmod +x /usr/local/bin/chef-automate
 chef-automate deploy --accept-terms-and-mlsa
 echo "Server is up and running. Please log in at https://${CFG_HOSTNAME}/"
