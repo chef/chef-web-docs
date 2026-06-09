@@ -17,6 +17,53 @@ summary = "Chef Habitat release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
+## Chef Habitat 2.1.x
+
+Release date: June 10, 2026
+
+### New features
+
+#### macOS Apple Silicon: Habitat filesystem and package support (aarch64-darwin)
+
+While the `hab` CLI has been available on Apple Silicon Macs for some time, this release delivers full Habitat filesystem and package functionality on aarch64-darwin. Specifically, this release brings:
+
+- A true Habitat filesystem---Chef Habitat now provisions and manages `/opt/hab` on Apple Silicon, mirroring the role `/hab` plays on Linux. (macOS uses `/opt/hab` because modern macOS doesn't permit creating directories on the root filesystem.)
+- `hab pkg install`---Install packages from Chef Habitat Builder directly on Apple Silicon.
+- Native macOS Habitat Studio---Build Habitat packages locally using `hab studio enter`.
+- `hab pkg export tar`---Export built packages as tar archives.
+
+##### What's not supported
+
+- Habitat Supervisor and Services---Not supported on macOS (Apple Silicon or Intel).
+- `hab pkg export container`---Container export requires a running Docker daemon with Linux container support. Use `hab studio -D` to build Linux packages and export container images from within a Docker-based Studio instead.
+- `hab pkg export container` from the native macOS Studio---The native Studio can't access the Docker daemon directly; use the Docker Studio (`-D`) for container exports.
+
+##### Things to know before you start
+
+- **Studio isolation uses `sandbox-exec`, not chroot.** The macOS native Studio provides isolation through `sandbox-exec`, but the `/opt/hab` filesystem is shared between the Studio and your host. Packages installed during a build persist on the host, and builds aren't guaranteed to be clean between sessions. Progress Chef recommends running the macOS Studio inside a virtual machine (such as UTM or Parallels) to avoid affecting your host Habitat environment.
+
+- **`sandbox-exec` is deprecated by Apple.** The macOS Studio depends on `sandbox-exec`, which Apple has deprecated in recent macOS releases. Progress Chef is tracking this and will address it in a future release.
+
+- **The sandbox may block plan dependencies.** Because `sandbox-exec` starts with all access disabled, some build tools or plan dependencies may encounter permission errors. Use the `buildtime_sandbox` function in your `plan.sh` to extend the sandbox configuration with the permissions your plan requires. Run `log stream --predicate 'sender="Sandbox"'` in a separate terminal to identify blocked operations.
+
+- **Building packages requires Xcode Command Line Tools.**
+
+  ```shell
+  xcode-select --install
+  ```
+
+- **macOS 14 or later required.** Both Apple Silicon and Intel Mac support requires macOS Sonoma (14) or later.
+
+### Bug fixes
+
+- Fixed the aarch64-linux Studio to support a Docker-based Studio.
+- Fixed an issue where the Supervisor couldn't install required interpreters (such as `busybox-static`) from Builder when running `install` hooks if `HAB_AUTH_TOKEN` wasn't set in the environment.
+
+### Backward incompatibilities
+
+- `hab pkg export container` no longer downloads `core/docker` as a runtime dependency. Install the Docker CLI independently and add it to your PATH.
+- `hab pkg export container` no longer downloads `core/buildah` when you specify `buildah` with the `--engine` argument. Install Buildah independently and add it to your PATH.
+
 ## Chef Habitat 2.0.504
 
 Release date: April 20, 2026
