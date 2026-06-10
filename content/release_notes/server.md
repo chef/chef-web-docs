@@ -53,7 +53,7 @@ This release uses:
 
 ### Improvements
 
-- Chef Server supports running in FIPS mode on the Amazon Linux 2 platform.
+- Chef Server now supports running in FIPS mode on the Amazon Linux 2 platform and continues to support running in FIPS modes on the RHEL platform.
 
 ### Updated Components
 
