@@ -7,3 +7,20 @@ updates:
     time: "06:00"
     timezone: America/New_York
   open-pull-requests-limit: 10
+  cooldown:
+    default-days: 7
+    exclude:
+      - "github.com/chef/*"
+      - "github.com/habitat-sh/*"
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "06:00"
+    timezone: America/New_York
+  open-pull-requests-limit: 0
+  cooldown:
+    default-days: 7
+    semver-major-days: 7
+    semver-minor-days: 7
+    semver-patch-days: 7

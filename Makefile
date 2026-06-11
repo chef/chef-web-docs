@@ -4,7 +4,7 @@ SHELL=bash -eou pipefail
 
 # bundle is also executed from other repositories when people run local previews
 bundle:
-	npm install
+	npm ci
 
 clean_hugo_mod:
 	hugo mod clean --all
@@ -61,7 +61,7 @@ update_theme:
 	hugo mod tidy
 	hugo mod vendor
 	hugo mod npm pack
-	npm install
+	npm ci
 
 ## See:
 ## - https://cspell.org/docs/getting-started/
