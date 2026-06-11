@@ -17,9 +17,9 @@ summary = "Chef Habitat release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
-## Chef Habitat 2.1.x
+## Chef Habitat 2.1.23
 
-Release date: June 10, 2026
+Release date: June 11, 2026
 
 ### New features
 
