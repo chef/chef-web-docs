@@ -113,8 +113,13 @@
   status = 200
 
 [[redirects]]
+  from = "/habitat/2.1/*"
+  to = "https://release-2-1--chef-habitat-docs.netlify.app/habitat/2.1/:splat"
+  status = 200
+
+[[redirects]]
   from = "/habitat/latest/*"
-  to = "/habitat/2.0/:splat"
+  to = "/habitat/2.1/:splat"
   status = 301
 
 ####

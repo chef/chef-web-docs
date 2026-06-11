@@ -5,6 +5,7 @@ title = "Chef Habitat"
 
 ## Chef Habitat releases
 
+- [Chef Habitat v 2.1](/habitat/2.1/)
 - [Chef Habitat v 2.0](/habitat/2.0/)
 - [Chef Habitat v 1.6](/habitat/1.6/)
 
