@@ -404,6 +404,7 @@ Release date: June 21th, 2026
 ### Bug fixes
 
 - Pre-check waivers before control block evaluation to avoid eager resource execution ([#7832](https://github.com/inspec/inspec/pull/7832))
+- Fixed Windows architecture detection over WinRM when os.arch was missing or unknown, which could cause incorrect architecture reporting and downstream transport failures. This adds robust fallback detection in Train and InSpec. ([#7935](https://github.com/inspec/inspec/pull/7935), train [#832](https://github.com/inspec/train/pull/832))
 
 #### Security fixes
 
