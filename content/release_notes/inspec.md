@@ -393,13 +393,13 @@ We overhauled the `inspec check` and `inspec export` commands to use the parser 
 
 - We no longer support Ruby 2.7 since it became end-of-life (EOL) in March 2023.
 
-## Chef InSpec 5.24.*
+## Chef InSpec 5.24.17
 
 Release date: June 21th, 2026
 
 ### Key features / Improvements
 
-- **Omnibus build configuration as Git submodule**: The omnibus build configuration is now managed as a Git submodule from a private Chef repository, improving separation of concerns and enabling better control over official release builds. Community contributors can continue building InSpec packages using the public [`inspec-omnibus-community-config`](https://github.com/chef/inspec-omnibus-community-config) repository. See [Building InSpec with Omnibus](/inspec/install/) for configuration details.
+- **Omnibus build configuration as Git submodule**: The omnibus build configuration is now managed as a Git submodule from a private Chef repository, improving separation of concerns and enabling better control over official release builds. Community contributors can continue building InSpec packages using the public [`inspec-omnibus-community-config`](https://github.com/chef/inspec-omnibus-community-config) repository. ([#7827](https://github.com/inspec/inspec/pull/7827))
 
 ### Bug fixes
 
@@ -409,9 +409,11 @@ Release date: June 21th, 2026
 #### Security fixes
 
 - Updated `addressable` gem from `2.4` to `2.9.0`. ([#7920](https://github.com/inspec/inspec/pull/7920))
-- Updated `json` gem from `>= 1.8` to `>= 2.19.2`. ([#829](https://github.com/inspec/train/pull/829))
-- Updated `activesupport` gem from `>= 7.2.2.1` to `>= 7.2.3.1`. ([#830](https://github.com/inspec/train/pull/830))
+- Updated `json` gem from `>= 1.8` to `>= 2.19.2`. (train [#829](https://github.com/inspec/train/pull/829))
+- Updated `activesupport` gem from `>= 7.2.2.1` to `>= 7.2.3.1`. (train [#830](https://github.com/inspec/train/pull/830))
 - Updated `net-imap` gem from `>= 0.2.5` to `>= 0.5.14`. ([#7911](https://github.com/inspec/inspec/pull/7911))
+- Updated `jwt` gem from `2.10.2` to `2.10.3`. ([#7925](https://github.com/inspec/inspec/pull/7925))
+- Updated `faraday` gem from `1.10.4` to `1.10.5`. ([#7925](https://github.com/inspec/inspec/pull/7925))
 
 ## Chef InSpec 5.24.7
 
