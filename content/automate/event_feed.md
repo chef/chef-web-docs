@@ -31,7 +31,7 @@ Hovering over the icon shows a text box summarizing the events for that 4-hour w
 
 ## Icon Legend
 
-![Chef Automate event feed icon legend showing symbols for Cookbook, Data Bag, Environment, Group, Multiple Events, Node, Organization, Permission, Policy File, Profile, Role, Scan Job, and User.](/images/automate/event_icons.png)
+![Chef Automate event feed icon legend showing symbols for Cookbook, Data Bag, Environment, Group, Multiple Events, Node, Organization, Permission, Policyfile, Profile, Role, Scan Job, and User.](/images/automate/event_icons.png)
 
 ## Grouped Events
 

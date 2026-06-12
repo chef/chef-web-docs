@@ -58,7 +58,7 @@ Scan Jobs
 
 ### Create a Scan Job Targeting Your AWS Account Configuration
 
-![Chef Automate Create AWS API Scan Job form showing step 1 (Add Nodes) with 1 available node and 1 selected from aws-api integration, Specify regions section with Include dropdown and Add new rule option, and tag filtering with vj key showing windows value selected.](/images/automate/create-aws-api-scanjob.png)
+![Chef Automate Create AWS API Scan Job form showing step 1 (Add Nodes) with 1 available node and 1 selected.](/images/automate/create-aws-api-scanjob.png)
 
 ### AWS API Scanning Endpoints
 

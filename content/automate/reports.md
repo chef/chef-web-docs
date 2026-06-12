@@ -129,7 +129,7 @@ When you configure Chef Automate to ingest an extensive compliance report of siz
 
 - Select **Download JSON** or **Download CSV** buttons to trigger the report generation process. A notification pops up to confirm that the generation has started.
 
-![Chef Automate Large Compliance Report download confirmation notification stating 'Download request is submitted. You will get notification once it is ready for download.' with blue notification banner and Node Status overview visible.](/images/automate/lcr-acknowledgement.png)
+![Chef Automate Large Compliance Report download confirmation notification stating 'Download request is submitted. You will get notification once it's ready for download.' with blue notification banner and Node Status overview visible.](/images/automate/lcr-acknowledgement.png)
 
 - Select **Open Report** link to view the report status.
 
@@ -256,7 +256,7 @@ More Options
 
 Use the **Controls** tab to examine the compliance controls installed under your user account.
 
-![Chef Automate Controls tab showing a table of compliance controls from CIS Azure Foundations Benchmark profile with columns for Control Name (e.g., 1.1, 1.10, 1.11, 1.12), Profile, Impact severity (MAJOR 0.5), Last Scan, and Node Status counts.](/images/automate/reports-controls.png)
+![Chef Automate Controls tab showing a table of compliance controls from CIS Azure Foundations Benchmark profile with columns for Control Name (for example, 1.1, 1.10, 1.11, 1.12), Profile, Impact severity (MAJOR 0.5), Last Scan, and Node Status counts.](/images/automate/reports-controls.png)
 
 Control Name
 : Control name and a short description of its purpose
