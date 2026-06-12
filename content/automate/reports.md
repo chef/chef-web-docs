@@ -16,7 +16,7 @@ The _Reports_ page provides a comprehensive insight into all scanned infrastruct
 
 {{< note >}} If the size of a report goes over 4MB, enable the **Large Compliance Report** feature to make the **Reports Page** and **Download Report** work as expected. {{< /note >}}
 
-![Reports](/images/automate/reports.png)
+![Chef Automate Reports page showing a Node Status donut chart with 30 total nodes (29 failed, 0 passed, 1 skipped), severity bar chart with critical/major/minor failures, Node Status trend graph over time, and platform/environment bubble charts.](/images/automate/reports.png)
 
 ## Dates in Compliance Reports
 
@@ -24,7 +24,7 @@ The dashboard shows the results of all scans with end times on the _current sele
 
 To view scan reports in the past, users can select a different date from the calendar located in the search bar.
 
-![Reports Date Selector](/images/automate/reports-date.png)
+![Chef Automate Reports page date selector showing a blue calendar button with "10 Aug 2020" in the upper right corner for selecting different scan report dates.](/images/automate/reports-date.png)
 
 ## Search Bar and Filters
 
@@ -129,31 +129,31 @@ When you configure Chef Automate to ingest an extensive compliance report of siz
 
 - Select **Download JSON** or **Download CSV** buttons to trigger the report generation process. A notification pops up to confirm that the generation has started.
 
-![Notification upon Download request submitted](/images/automate/lcr-acknowledgement.png)
+![Chef Automate Large Compliance Report download confirmation notification stating 'Download request is submitted. You will get notification once it is ready for download.' with blue notification banner and Node Status overview visible.](/images/automate/lcr-acknowledgement.png)
 
 - Select **Open Report** link to view the report status.
 
-![Report Status Link](/images/automate/lcr-request-view.png)
+![Chef Automate Report status showing Download CSV and Download JSON buttons and Open Report link with the Reports page displaying Node Status donut chart and severity failure chart.](/images/automate/lcr-request-view.png)
 
 - The report's status shows the generation and processing status of the Reports on a sidebar.
 
-![Report Generation Status Check Panel](/images/automate/lcr-request-view-panel.png)
+![Chef Automate Generated Reports sidebar panel showing pending and completed report requests with timestamps, sizes (275.20kb), and durations, plus a progress bar for the report generation status.](/images/automate/lcr-request-view-panel.png)
 
 - The system generates and processes the requested report on a sidebar showing the status.
 
-![Report Generation Completed and Ready for Download](/images/automate/lcr-report-ready.png)
+![Chef Automate report generation completion notification stating 'JSON report is ready for download' with blue banner and Reports page showing Node Status overview.](/images/automate/lcr-report-ready.png)
 
 ### Download Report
 
 Select the corresponding link on the status sidebar to download the generated report.
 
-![Report Download](/images/automate/lcr-report-download.png)
+![Chef Automate Generated Reports sidebar showing completed report downloads with blue highlighted first row, file size (183.60kb), and generation duration (3s) ready for download selection.](/images/automate/lcr-report-download.png)
 
 ## Compliance Status and Report Metadata
 
 The _Compliance Status and Report Metadata_ bars are directly beneath the search bar. Select the compliance status bar to expand the `Report Metadata` information. The report metadata summarizes the nodes, report date, duration, status, number of platforms, number of environments, and number of profiles used in your scan.
 
-![Reports Metadata](/images/automate/reports-metadata.png)
+![Chef Automate Report Metadata bar showing 30 Nodes, Report Date Mon, 10 Aug 2020, Status Failed on left side and 5 Platforms, 10 Environments, 12 Profiles on right side.](/images/automate/reports-metadata.png)
 
 ## Compliance Overview
 
@@ -256,7 +256,7 @@ More Options
 
 Use the **Controls** tab to examine the compliance controls installed under your user account.
 
-![Reports Controls](/images/automate/reports-controls.png)
+![Chef Automate Controls tab showing a table of compliance controls from CIS Azure Foundations Benchmark profile with columns for Control Name (e.g., 1.1, 1.10, 1.11, 1.12), Profile, Impact severity (MAJOR 0.5), Last Scan, and Node Status counts.](/images/automate/reports-controls.png)
 
 Control Name
 : Control name and a short description of its purpose
@@ -280,7 +280,7 @@ More Information
 
 The node name is at the top of the header, directly above the node compliance status.
 
-![Reports Node Detail](/images/automate/reports-node-detail.png)
+![Chef Automate node detail page for q2-local-desktop-fresh-install-acceptance.cd.chef.co showing failed scan results with 71 total controls (62 failed, 9 passed, 0 skipped), plus control details table with ssh-01 control showing CRITICAL severity, ssh-baseline profile, 11 test results, and Results/Source tabs.](/images/automate/reports-node-detail.png)
 
 The node history table displays the following information:
 
@@ -304,4 +304,4 @@ More Information
 Select **Scan History** in the upper right corner to open a side-window.
 Choosing a compliance scan from this list redirects you to a view of all controls run during the selected scan.
 
-![Scan History](/images/automate/reports-scan-history.png)
+![Chef Automate Scan History side panel showing scan history for node q2-local-desktop-fresh-install-acceptance.cd.chef.co with a list of scan results including Mon, 10 Aug 2020 16:19:36 UTC (6 hours ago) highlighted in blue.](/images/automate/reports-scan-history.png)

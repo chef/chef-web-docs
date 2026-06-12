@@ -19,7 +19,7 @@ The Chef Automate Credentials page allows you to add, edit, and delete ``SSH``, 
 
 To manage your credentials, navigate to the _Node Credentials_ page from the **Settings** tab.
 
-![Node Credentials](/images/automate/node-credentials.png)
+![Chef Automate Node Credentials page in Settings showing Create Credential button, credentials table with columns for Name, Credential Type, and Last Modified, displaying one example SSH credential entry.](/images/automate/node-credentials.png)
 
 Adding SSH, WinRM, and Sudo credentials is the first step for using the Chef Automate Compliance Scanner. After adding credentials, you'll be able to add nodes and create scan jobs.
 
@@ -35,13 +35,13 @@ Select _Add Credential_ and a dialog box appears as shown below. Select the _Cre
 
 ### Add a SSH Credential
 
-![SSH Credential Form](/images/automate/credentials-ssh.png)
+![Chef Automate Create Credential form for SSH with fields for Name, Credential Type dropdown (SSH selected), SSH Username (abc), SSH Credential Type radio buttons (Password selected), SSH password field, and Create Credential/Cancel buttons.](/images/automate/credentials-ssh.png)
 
 **SSH** requires a credential name, a user name and either a SSH password **or** a SSH Private key, but not both.
 
 ### Add a WinRM Credential
 
-![WINRM Credential Form](/images/automate/credentials-winrm.png)
+![Chef Automate Create Credential form for WinRM with fields for Name, Credential Type dropdown (WinRM selected), WinRM Username, WinRM password (password for private WinRM), and Create Credential/Cancel buttons.](/images/automate/credentials-winrm.png)
 
 **WinRM** requires a credential name, a user name, and a WinRM password.
 
@@ -69,7 +69,7 @@ Windows machines **must have** the following configurations:
 
 ### Add a Sudo Credential
 
-![Sudo Credential Form](/images/automate/credentials-sudo.png)
+![Chef Automate Create Credential form for Sudo with fields for Name, Credential Type dropdown (Sudo selected), Sudo Password (password for sudo), Command Line options field, and Create Credential/Cancel buttons.](/images/automate/credentials-sudo.png)
 
 **Sudo** requires a credential name, a user name, and a password **or** sudo options, but not both.
 

@@ -31,7 +31,7 @@ The _Applications_ dashboard _Service Groups_ display gives you a top-level view
 The default _Service Groups_ view shows only the services that are available.
 The right sidebar provides detailed reporting for each individual service.
 
-![EAS Service Groups List](/images/automate/eas-service-groups.png)
+![Chef Automate Applications dashboard showing the Service Groups list with health status indicators and instance counts grouped by criticality in the sidebar.](/images/automate/eas-service-groups.png)
 
 ### Service Health Status Count
 
@@ -92,7 +92,7 @@ Available search field types include _Origin_, _Service Name_, _Version_, _Chann
 After selecting your search field type, enter your specific search term, or select one from the auto-populated list of existing values.
 Applying the filter changes the Service Groups list to display matching results and updates health status display accordingly.
 
-![EAS Filtered Service Groups List](/images/automate/eas-filtered-service-groups.png)
+![Chef Automate Service Groups list filtered with environment:demo showing filtered services with their health status donut charts and updated health status counts in the sidebar (Total 5, Critical 2, Warning 2, OK 1).](/images/automate/eas-filtered-service-groups.png)
 
 ## Lifecycle Management
 

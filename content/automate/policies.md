@@ -20,7 +20,7 @@ You need permission for the `iam:policies` action to interact with policies.
 Any user that's part of the `admins` team or the `Administrator` policy will have this permission.
 Otherwise, you can create [IAM custom policies]({{< relref "iam_v2_guide.md#creating-custom-policies" >}}) to assign this permission.
 
-![Chef Automate Settings Policies page](/images/automate/settings-policies.png)
+![Chef Automate Settings Policies page showing a policies table with columns for Name, Type, and Status, listing Chef-managed policies (Administrator, Editors, Ingest, Viewers) and custom project policies with their membership status.](/images/automate/settings-policies.png)
 
 ### Chef-Managed Policies
 

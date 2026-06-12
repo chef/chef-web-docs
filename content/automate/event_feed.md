@@ -19,7 +19,7 @@ The Guitar Strings visualization helps you drill into infrastructure and complia
 Users require permission for the `event:*` action to view and interact with _Event Feed_.
 Filter and search ability in _Event Feed_ requires user permission for the `infra:nodes:list` action.
 
-![Event feed](/images/automate/event-feed.png)
+![Chef Automate Event Feed dashboard showing a timeline of infrastructure events with symbols for create (blue circles), delete (pink circles), and update (purple diamonds) events.](/images/automate/event-feed.png)
 
 ## Event Guitar Strings
 
@@ -31,7 +31,7 @@ Hovering over the icon shows a text box summarizing the events for that 4-hour w
 
 ## Icon Legend
 
-![Event feed icon legend](/images/automate/event_icons.png)
+![Chef Automate event feed icon legend showing symbols for Cookbook, Data Bag, Environment, Group, Multiple Events, Node, Organization, Permission, Policy File, Profile, Role, Scan Job, and User.](/images/automate/event_icons.png)
 
 ## Grouped Events
 
