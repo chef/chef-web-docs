@@ -211,7 +211,7 @@ The _Nodes_ view provides more detailed insight into the compliance status of th
 Sort this table by node name, platform, environment, last scan, and the number of control failures from the most recent compliance scan.
 Scroll to the bottom of the page for pagination navigation options.
 
-![Reports Nodes](/images/automate/reports-nodes.png)
+![Reports Nodes tab showing node compliance totals and a table of nodes with platform, environment, last scan time, and control failures.](/images/automate/reports-nodes.png)
 
 Node
 : A node is any machine that's under management by Chef.
@@ -238,7 +238,7 @@ More Options
 
 Use the **Profiles** tab to examine the compliance profiles installed under your user account.
 
-![Reports Profiles](/images/automate/reports-profiles.png)
+![Reports Profiles tab showing profile compliance totals and a table of profile titles with versions and identifiers.](/images/automate/reports-profiles.png)
 
 Profile Title
 : The profile's name is obtained from the _Profile Store_ or uploaded.

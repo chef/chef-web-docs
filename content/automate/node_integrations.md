@@ -132,7 +132,7 @@ The `ssm` Scan Job:
 
 Your Automate instance must be reachable (open to incoming traffic) from the instances being scanned in order for the SSM scanning to work. You can filter the instances to be scanned by specifying tag key/value matches or regions.
 
-![Chef Automate Create AWS-EC2 Scan Job](/images/automate/create-aws-ec2-scanjob.png)
+![Create scan job form for an AWS EC2 manager with selected nodes and optional region and tag filter rules.](/images/automate/create-aws-ec2-scanjob.png)
 
 ### AWS Credential-less Scanning
 
@@ -163,7 +163,7 @@ When creating an Azure VM Node Manager, you will be required to provide:
 
 This information is required to detect the nodes in your Azure account. Chef Automate creates a nodes reference for each VM in your account, reading in all tags associated with each instance. Chef Automate detects your nodes immediately after any update to the Node Manager in order to maintain a current list of your node status. The following example uses a tag with the key 'Name' and the value 'vj-' to associate those nodes with the 'ssh ec2' credential.
 
-![Chef Automate Create Azure-VM Manager](/images/automate/create-azure-vm-mgr.png)
+![Add cloud management service form with Azure VM selected and fields for client ID, client secret, tenant ID, and tag association rules.](/images/automate/create-azure-vm-mgr.png)
 
 Chef Automate uses Azure's RunCommand functionality to run scan jobs on instances without needing `ssh` and `WinRM` credentials. In order for this functionality to work, the Automate instance must be reachable (open to incoming traffic) from the instances being scanned.
 
@@ -178,7 +178,7 @@ You also have the option of using the traditional `ssh` and `WinRM` scanning by 
 
 Chef Automate detects your nodes immediately after any update to the Node Manager, keeping a current view of your nodes' reachability.
 
-![Chef Automate Instance Credentials](/images/automate/instance-credentials.png)
+![Node manager credential association fields for matching VM tags to SSH or WinRM credentials.](/images/automate/instance-credentials.png)
 
 ### Create a Scan Job Targeting Your Azure VMs
 
@@ -186,7 +186,7 @@ Filter the regions for the scan job by specifying regions to include or exclude.
 
 Filter instances for scanning by specifying either regions or tags by their keys and values.
 
-![Chef Automate Create Azure-VM Scan Job](/images/automate/create-azure-vm-scanjob.png)
+![Create scan job form for an Azure VM manager with selected nodes and optional region and tag filters.](/images/automate/create-azure-vm-scanjob.png)
 
 ## Use Case: Azure Account Scanning with Chef Automate
 
@@ -203,7 +203,7 @@ When creating an Azure API Node Manager, you will be required to provide:
 
 This information is required to detect all subscriptions available to your Azure account. Chef Automate creates a nodes reference for each subscription in your account.
 
-![Chef Automate Create API-Azure Manager](/images/automate/Node-Integrations-api-Azure.png)
+![Add cloud management service form with Azure API selected and fields for Azure credentials and subscription ID.](/images/automate/Node-Integrations-api-Azure.png)
 
 ### Create a Scan Job Targeting Your Azure Account Configuration
 
