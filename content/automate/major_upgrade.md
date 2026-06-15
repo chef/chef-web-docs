@@ -200,7 +200,7 @@ To upgrade to 3.0.x, follow the steps below:
     Or you can download it with a curl request.
 
     ```sh
-    curl "https://chefdownload-commercial.chef.io/airgap_bundle/current/automate/3.0.49.aib?license_id=<LICENSE_ID>" -o automate-3.0.49.aib
+    curl "https://packages.chef.io/airgap_bundle/current/automate/3.0.49.aib" -o automate-3.0.49.aib
     ```
 
     Replace `<LICENSE_ID>` with your commercial license ID.
@@ -276,7 +276,7 @@ To upgrade to 3.0.x, follow the steps below:
     Or you can download it with a curl request.
 
     ```sh
-    curl "https://chefdownload-commercial.chef.io/airgap_bundle/current/automate/latest.aib?license_id=<LICENSE_ID>" -o automate-3.0.49.aib
+    curl "https://packages.chef.io/airgap_bundle/current/automate/latest.aib" -o automate-3.0.49.aib
     ```
 
     Replace `<LICENSE_ID>` with your commercial license ID.

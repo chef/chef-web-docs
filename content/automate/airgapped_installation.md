@@ -39,7 +39,7 @@ Replace `<LICENSE_ID>` with your commercial license ID.
 Download the airgap installation bundles of the latest automate version to an internet-connected machine using:
 
 ```shell
-curl "https://chefdownload-commercial.chef.io/airgap_bundle/current/automate/latest.aib?license_id=<LICENSE_ID>" -o </path/to/airgap-install-bundle>
+curl "https://packages.chef.io/airgap_bundle/current/automate/latest.aib" -o </path/to/airgap-install-bundle>
 ```
 
 Replace `<LICENSE_ID>` with your commercial license ID.
@@ -47,7 +47,7 @@ Replace `<LICENSE_ID>` with your commercial license ID.
 Download the bundle of a specific version using:
 
 ```shell
-curl "https://chefdownload-commercial.chef.io/airgap_bundle/current/automate/<version>.aib?license_id=<LICENSE_ID>" -o </path/to/airgap-install-bundle>
+curl "https://packages.chef.io/airgap_bundle/current/automate/<version>.aib" -o </path/to/airgap-install-bundle>
 ```
 
 Replace `<LICENSE_ID>` with your commercial license ID and `<version>` with the desired version.

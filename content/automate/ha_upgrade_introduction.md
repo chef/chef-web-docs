@@ -26,7 +26,7 @@ To upgrade Chef Automate HA, follow these steps:
     To download the latest bundle, run:
 
     ```bash
-    curl "https://chefdownload-commercial.chef.io/airgap_bundle/current/automate/latest.aib?license_id=<LICENSE_ID>" -o latest.aib
+    curl "https://packages.chef.io/airgap_bundle/current/automate/latest.aib" -o latest.aib
     ```
 
     Replace `<LICENSE_ID>` with your commercial license ID.
@@ -34,7 +34,7 @@ To upgrade Chef Automate HA, follow these steps:
     To download a specific version, run:
 
     ```bash
-    curl "https://chefdownload-commercial.chef.io/airgap_bundle/current/automate/<version>.aib?license_id=<LICENSE_ID>" -o automate-<version>.aib
+    curl "https://packages.chef.io/airgap_bundle/current/automate/<version>.aib" -o automate-<version>.aib
     ```
 
     Replace `<LICENSE_ID>` with your commercial license ID and `<version>` with the desired version.

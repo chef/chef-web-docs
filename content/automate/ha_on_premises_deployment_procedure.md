@@ -50,7 +50,7 @@ Ensure all resources are on existing or cloud infrastructure (`AWS`/`Azure`/`Goo
     sudo -- sh -c "
     curl \"https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>\" \
     -o /usr/bin/chef-automate && chmod +x /usr/bin/chef-automate
-    curl \"https://chefdownload-commercial.chef.io/airgap_bundle/current/automate/latest.aib?license_id=<LICENSE_ID>\" -o automate.aib
+    curl \"https://packages.chef.io/airgap_bundle/current/automate/latest.aib\" -o automate.aib
     "
     ```
 

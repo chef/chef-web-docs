@@ -363,7 +363,7 @@ To upgrade from version 3.0.49 to 4.x, follow the steps below:
     OR we can directly download via curl request
 
     ```sh
-    curl "https://chefdownload-commercial.chef.io/airgap_bundle/current/automate/latest.aib?license_id=<LICENSE_ID>" -o automate-4.x.y.aib
+    curl "https://packages.chef.io/airgap_bundle/current/automate/latest.aib" -o automate-4.x.y.aib
     ```
 
     Replace `<LICENSE_ID>` with your commercial license ID.
@@ -540,7 +540,7 @@ To upgrade to version 3.0.49 to 4.x, follow the steps below:
     OR we can directly download via curl request
 
     ```sh
-    curl "https://chefdownload-commercial.chef.io/airgap_bundle/current/automate/latest.aib?license_id=<LICENSE_ID>" -o automate-4.x.y.aib
+    curl "https://packages.chef.io/airgap_bundle/current/automate/latest.aib" -o automate-4.x.y.aib
     ```
 
     Replace `<LICENSE_ID>` with your commercial license ID.
@@ -702,7 +702,7 @@ To move ahead with the upgrade you can download the latest CLI and Airgapped bun
 ```sh
 curl -x http://proxy_server:proxy_port --proxy-user username:password -L "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
 
-curl -x http://proxy_server:proxy_port --proxy-user username:password -L "https://chefdownload-commercial.chef.io/airgap_bundle/current/automate/latest.aib?license_id=<LICENSE_ID>" -o automate-latest.aib
+curl -x http://proxy_server:proxy_port --proxy-user username:password -L "https://packages.chef.io/airgap_bundle/current/automate/latest.aib" -o automate-latest.aib
 ```
 
 Replace `<LICENSE_ID>` with your commercial license ID.

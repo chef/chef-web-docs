@@ -46,7 +46,7 @@ Run the following steps on Bastion Host Machine:
     -o /usr/bin/chef-automate && chmod +x /usr/bin/chef-automate
     #Download the latest Airgapped Bundle.
     #To download specific version bundle, example version: 4.2.59 then replace latest.aib with 4.2.59.aib
-    curl \"https://chefdownload-commercial.chef.io/airgap_bundle/current/automate/latest.aib?license_id=<LICENSE_ID>\" -o automate.aib
+    curl \"https://packages.chef.io/airgap_bundle/current/automate/latest.aib\" -o automate.aib
     "
     ```
 
