@@ -319,12 +319,19 @@ This section elaborates the validation procedure that checks the firewall rules 
 
 Follow these steps to examine the firewall rules are stateful, and ports are open before Chef Automate High Availability (HA) backend cluster deployment in air-gapped environment (means no access to the internet):
 
-1. Download hab, _hab-x86_64-linux.tar.gz_ by executing the command, `sudo wget "https://chefdownload-commercial.chef.io/stable/habitat/download?p=linux&pv=2.6&m=x86_64&license_id=<YOUR_LICENSE_ID>" -O hab-x86_64-linux.tar.gz`. Replace `<YOUR_LICENSE_ID>` with your commercial license ID.
+1. Download the Chef Habitat CLI:
+
+    ```bash
+    sudo wget \
+      "https://chefdownload-commercial.chef.io/stable/habitat/download?p=linux&pv=2.6&m=x86_64&license_id=<LICENSE_ID>" \
+      -O /tmp/hab-x86_64-linux.tar.gz
+    ```
+
+    Replace `<LICENSE_ID>` with your commercial license ID.
 
 1. Install hab package in your internet environment by executing the following commands that generate the _netcat package_:
 
     ```bash
-
     sudo tar -xvzf /tmp/hab-x86_64-linux.tar.gz -C /usr/local/bin --strip-components 1
     export HAB_LICENSE=accept-no-persist
     hab pkg install core/netcat -bf

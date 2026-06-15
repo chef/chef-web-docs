@@ -10,7 +10,7 @@ draft = false
     weight = 240
 +++
 
-Follow the steps below to deploy Chef Automate High Availability (HA) on AWS (Amazon Web Services) cloud with Managed AWS Services. Please see the [AWS Deployment Prerequisites](/automate/ha_aws_deployment_prerequisites/) page and move ahead with the following sections of this page.
+Follow these steps to deploy Chef Automate High Availability (HA) on AWS (Amazon Web Services) with AWS Managed Services. See the [AWS Deployment Prerequisites](/automate/ha_aws_deployment_prerequisites/) page before you continue.
 
 {{< warning >}}
 
@@ -22,31 +22,33 @@ Follow the steps below to deploy Chef Automate High Availability (HA) on AWS (Am
 
 {{< /warning >}}
 
-## Run these steps on Bastion Host Machine
+## Install the Chef Automate CLI and air-gapped bundle
 
-1. Run the below commands to download the latest Automate CLI and Airgapped Bundle:
+1. On the bastion host, install the Chef Automate CLI and the air-gapped bundle:
 
-   ```bash
-   #Run commands as sudo.
-   sudo -- sh -c "
-   #Download Chef Automate CLI.
-   curl \"https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>\" \
-   -o /usr/bin/chef-automate && chmod +x /usr/bin/chef-automate
-   #Download the latest Airgapped Bundle.
-   #To download specific version bundle, example version: 4.2.59 then replace latest.aib with 4.2.59.aib
-  curl \"https://packages.chef.io/airgap_bundle/current/automate/latest.aib\" -o automate.aib
-   "
-   ```
+    ```bash
+    sudo -- sh -c "
+    # Download Chef Automate CLI.
+    curl \"https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>\" \
+    -o /usr/bin/chef-automate && chmod +x /usr/bin/chef-automate
 
-   Replace `<LICENSE_ID>` with your commercial license ID.
+    # Download the air-gapped bundle.
+    curl \"https://packages.chef.io/airgap_bundle/current/automate/<VERSION>.aib\" -o automate.aib
+    "
+    ```
 
-   {{< note spaces=3 >}}
+    Replace the following values:
+    
+    - `<LICENSE_ID>` with your commercial license ID.
+    - `<VERSION>` with the version of the air-gapped bundle you want to install. Use `latest` for the latest version, or specify a version number, for example, `4.2.59`.
 
-   Chef Automate bundles are available for 365 days from the release of a version. However, the milestone release bundles are available for download forever.
+    {{< note >}}
 
-   {{< /note >}}
+    Chef Automate bundles are available for 365 days after a version is released. Milestone release bundles remain available indefinitely.
 
-## Steps to Generate Config
+    {{< /note >}}
+
+## Generate the Chef Automate config
 
 1. Generate config with relevant data using the below command:
 
@@ -68,7 +70,7 @@ Follow the steps below to deploy Chef Automate High Availability (HA) on AWS (Am
 
     {{< readfile file="content/automate/reusable/md/password_character_warning.md" >}}
 
-## Steps to Provision
+## Provision Chef Automate
 
 1. Continue with the deployment after generating the config:
 
@@ -82,7 +84,7 @@ Once the provisioning is successful, **if you have added custom DNS to your conf
 
 {{< /note >}}
 
-## Config Verify
+## Verify the Chef Automate configuration
 
 ### Prerequisites
 

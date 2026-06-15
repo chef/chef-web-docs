@@ -34,10 +34,10 @@ To upgrade Chef Automate HA, follow these steps:
     To download a specific version, run:
 
     ```bash
-    curl "https://packages.chef.io/airgap_bundle/current/automate/<version>.aib" -o automate-<version>.aib
+    curl "https://packages.chef.io/airgap_bundle/current/automate/<VERSION>.aib" -o automate-<VERSION>.aib
     ```
 
-    Replace `<LICENSE_ID>` with your commercial license ID and `<version>` with the desired version.
+    Replace `<LICENSE_ID>` with your commercial license ID and `<VERSION>` with the desired version.
 
     {{< note >}}
     Chef Automate bundles are available for 365 days from the release of a version. However, the milestone release bundles are available for download forever.
