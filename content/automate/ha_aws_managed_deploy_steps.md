@@ -24,6 +24,8 @@ Follow these steps to deploy Chef Automate High Availability (HA) on AWS (Amazon
 
 ## Install the Chef Automate CLI and air-gapped bundle
 
+<!-- markdownlint-disable MD009 -->
+
 1. On the bastion host, install the Chef Automate CLI and the air-gapped bundle:
 
     ```bash
@@ -56,7 +58,7 @@ Follow these steps to deploy Chef Automate High Availability (HA) on AWS (Amazon
     chef-automate config gen config.toml
     ```
 
-    To know more about on how to generate config, refer to the [Automate HA Config Generation](/automate/ha_config_gen) page.
+    For more information, see the [Chef Automate HA config generation documentation](/automate/ha_config_gen).
 
     {{< note >}}
 
