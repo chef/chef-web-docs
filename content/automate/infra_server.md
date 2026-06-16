@@ -47,7 +47,6 @@ To download the `chef-automate` command line tool, run the following command in 
 curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
 ```
 
-
 ## Install Chef Automate and Chef Infra Server on the Same Host
 
 Use either a command line interface or a configuration file to install Chef Automate and Chef Infra Server on the same host.

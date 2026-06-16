@@ -54,7 +54,6 @@ Ensure all resources are on existing or cloud infrastructure (`AWS`/`Azure`/`Goo
     "
     ```
 
-
     {{< note >}}
 
     In case `/usr/bin` isn't there then check for `/bin` directory

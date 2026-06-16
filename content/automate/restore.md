@@ -18,7 +18,7 @@ Before restoring a Chef Automate installation, see how to [configure your backup
 
 ## Prerequisites
 
-1. On the restore host, download and unzip the Chef Automate command-line tool:
+1. On the restore host, download the Chef Automate command-line tool:
 
    ```shell
         curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate

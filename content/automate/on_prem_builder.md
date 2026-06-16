@@ -71,7 +71,7 @@ Chef Automate and Chef Habitat Builder require:
 
 ### Download the Chef Automate Installer
 
-Download and unzip the installer:
+Download the installer:
 
 ```shell
 curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate

@@ -50,7 +50,6 @@ Run the following steps on Bastion Host Machine:
     "
     ```
 
-
     {{< note >}}
 
     Chef Automate bundles are available for 365 days from the release of a version. However, the milestone release bundles are available for download forever.
