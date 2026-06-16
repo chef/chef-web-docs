@@ -167,7 +167,7 @@ In addition to the default install behavior, the Chef Software install script su
 `-P` (`-project` on Windows)
 
 : The product name to install. Supported Chef products are:
-  `chef`, `chef-backend`, `chef-ice`, `chef-server`, `chef-workstation`, `inspec`, `inspec-enterprise`, `manage`, and `supermarket`. Default value: `chef` (Chef Infra Client 18 and below).
+  `chef`, `chef-backend`, `chef-ice`, `chef-server`, `chef-workstation`, `chef-workstation-enterprise`, `inspec`, `inspec-enterprise`, `manage`, and `supermarket`. Default value: `chef` (Chef Infra Client 18 and below).
 
 `-s` (`-install_strategy` on Windows)
 
