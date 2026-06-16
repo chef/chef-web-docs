@@ -124,7 +124,7 @@ curl -sSX GET "https://automate-url/api/v0/nodes/rerun/id/d92b0c26-0c9a-4a04-b69
 ### How to Add an Environment Value for Project Assignment
 
 When creating a manually added node, use the 'Environment' tag to assign an environment to the node. `Environment` is the only supported field for project filtering on scan job results.
-![Manual Node With Environment Tag](/images/automate/environment-tag-manual-node.png)
+![Chef Automate manually added node form showing Environment Tag input with value "development" and Environment dropdown showing "chef-dev" selected for environment assignment.](/images/automate/environment-tag-manual-node.png)
 
 ### FAQ
 

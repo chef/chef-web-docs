@@ -59,7 +59,7 @@ You can set up automatic event creation and alerts for:
 
   The scheduled jobs include a script that deletes client runs and Chef InSpec scans when clients remove associated events. Client event rules delete those events.
 
-  ![ServiceNow Event Creation modules](/images/automate/sn_event_menus.png)
+  ![ServiceNow Chef Events navigation showing modules for client run alerts, InSpec scan alerts, all events, runs, scans, logs, and scheduled jobs.](/images/automate/sn_event_menus.png)
 
 ## Properties
 
@@ -72,7 +72,7 @@ To change the Event Creation App properties:
 1. Enter your changes in the **Chef Events Properties** form.
 1. Select **Save**.
 
-   ![ServiceNow Event Creation Configuration Page](/images/automate/sn_event_properties.png)
+  ![Chef Event Properties page with message key settings for Client Run and InSpec Scan and an option to enable logging.](/images/automate/sn_event_properties.png)
 
 ### Chef Infra Client events
 
@@ -90,7 +90,7 @@ To set up automatic event reporting for failed Chef Infra Client runs from Chef 
 
 1. Select **Test Notification**. If the test passes, ServiceNow displays **Notification test connected**. If the test fails, ServiceNow displays a message with connection or credential details to help you fix the error.
 
-   ![Chef Automate Event Creation for Client Run Failures](/images/automate/sn_event_client_run_creation.png)
+  ![Create Notification dialog configured for ServiceNow client run event alerts with webhook URL and credentials.](/images/automate/sn_event_client_run_creation.png)
 
 1. Select **Create Notification** to save this notification. A confirmation message, **Created notification "unique notification name specified"** appears.
 
@@ -110,7 +110,7 @@ Follow these steps to report failed Chef InSpec scans from Chef Automate:
 
 1. Select **Test Notification**. If the test passes, ServiceNow displays **Notification test connected**. If the test fails, ServiceNow displays a message with connection or credential details to help you fix the error.
 
-   ![Chef Automate Notification for Chef InSpec Scan Failures](/images/automate/sn_event_compliance_scan_creation.png)
+  ![Create Notification dialog configured for ServiceNow InSpec scan event alerts with failure type and webhook URL.](/images/automate/sn_event_compliance_scan_creation.png)
 
 1. Select **Create Notification** to save this notification. A confirmation message, **Created notification "unique notification name specified"** appears.
 
