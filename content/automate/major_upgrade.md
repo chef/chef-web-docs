@@ -199,7 +199,6 @@ To upgrade to 3.0.x, follow the steps below:
     curl "https://packages.chef.io/airgap_bundle/current/automate/3.0.49.aib" -o automate-3.0.49.aib
     ```
 
-
 3. Copy the latest Chef Automate CLI (`chef-automate`) and AIB (`automate_3.0.x.aib`) to the air-gapped machine running Chef Automate.
 
 #### On air-gapped machine running Chef Automate
@@ -260,7 +259,6 @@ To upgrade to 3.0.x, follow the steps below:
     curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
     ```
 
-
 2. Create an Airgap Installation Bundle (AIB):
 
     ```sh
@@ -272,7 +270,6 @@ To upgrade to 3.0.x, follow the steps below:
     ```sh
     curl "https://packages.chef.io/airgap_bundle/current/automate/latest.aib" -o automate-3.0.49.aib
     ```
-
 
 3. Copy the latest Chef Automate CLI (`chef-automate`) and AIB (`automate_3.0.x.aib`) to the air-gapped machine running Chef Automate.
 

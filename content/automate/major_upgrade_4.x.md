@@ -358,7 +358,6 @@ To upgrade from version 3.0.49 to 4.x, follow the steps below:
     curl "https://packages.chef.io/airgap_bundle/current/automate/latest.aib" -o automate-4.x.y.aib
     ```
 
-
 3. Copy the latest Chef Automate CLI (`chef-automate`) and AIB (`automate-4.x.y.aib`) to the air-gapped machine running Chef Automate.
 
 #### On Air-Gapped machine running Chef Automate

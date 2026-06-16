@@ -456,7 +456,6 @@ Download the Chef Automate command-line tool:
 curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
 ```
 
-
 ### Create Default Configuration
 
 Create a `config.toml` file with default values for your Chef Automate installation:
