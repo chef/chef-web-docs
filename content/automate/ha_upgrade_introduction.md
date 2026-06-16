@@ -19,7 +19,6 @@ To upgrade Chef Automate HA, follow these steps:
     curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o /usr/bin/chef-automate && chmod +x /usr/bin/chef-automate
     ```
 
-    Replace `<LICENSE_ID>` with your commercial license ID.
 
 1. Download the airgap bundle.
 
@@ -29,7 +28,6 @@ To upgrade Chef Automate HA, follow these steps:
     curl "https://packages.chef.io/airgap_bundle/current/automate/latest.aib" -o latest.aib
     ```
 
-    Replace `<LICENSE_ID>` with your commercial license ID.
 
     To download a specific version, run:
 

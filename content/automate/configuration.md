@@ -173,6 +173,7 @@ Chef Automate must be able to access the following:
 
 * `chefdownload-commercial.chef.io`
 * `chefdownload-community.chef.io`
+* `packages.chef.io`
 * `licensing.chef.io`
 * `raw.githubusercontent.com`
 * `api.bintray.com`

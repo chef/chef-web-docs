@@ -53,7 +53,6 @@ You will need the `chef-automate` command line tool to initiate your upgrade.
     wget "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -O chef-automate_linux_amd64.zip
     ```
 
-    Replace `<LICENSE_ID>` with your commercial license ID.
 
 2. Unzip the package:
 
@@ -75,6 +74,7 @@ If you filter internet access via proxy or by other means, you must ensure the f
 
 * `chefdownload-commercial.chef.io`
 * `chefdownload-community.chef.io`
+* `packages.chef.io`
 * `licensing.chef.io`
 * `raw.githubusercontent.com`
 * `api.bintray.com`

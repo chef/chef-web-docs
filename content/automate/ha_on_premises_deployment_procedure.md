@@ -54,7 +54,6 @@ Ensure all resources are on existing or cloud infrastructure (`AWS`/`Azure`/`Goo
     "
     ```
 
-    Replace `<LICENSE_ID>` with your commercial license ID.
 
     {{< note >}}
 

@@ -54,7 +54,6 @@ Please upgrade to latest date pattern version number.
     curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
     ```
 
-    Replace `<LICENSE_ID>` with your commercial license ID.
 
 1. Create a bundle for version 20220329091442.
 
@@ -189,7 +188,6 @@ To upgrade to 3.0.x, follow the steps below:
     curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
     ```
 
-    Replace `<LICENSE_ID>` with your commercial license ID.
 
 2. Create an Airgap Installation Bundle (AIB):
 
@@ -203,7 +201,6 @@ To upgrade to 3.0.x, follow the steps below:
     curl "https://packages.chef.io/airgap_bundle/current/automate/3.0.49.aib" -o automate-3.0.49.aib
     ```
 
-    Replace `<LICENSE_ID>` with your commercial license ID.
 
 3. Copy the latest Chef Automate CLI (`chef-automate`) and AIB (`automate_3.0.x.aib`) to the air-gapped machine running Chef Automate.
 
@@ -265,7 +262,6 @@ To upgrade to 3.0.x, follow the steps below:
     curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
     ```
 
-    Replace `<LICENSE_ID>` with your commercial license ID.
 
 2. Create an Airgap Installation Bundle (AIB):
 
@@ -279,7 +275,6 @@ To upgrade to 3.0.x, follow the steps below:
     curl "https://packages.chef.io/airgap_bundle/current/automate/latest.aib" -o automate-3.0.49.aib
     ```
 
-    Replace `<LICENSE_ID>` with your commercial license ID.
 
 3. Copy the latest Chef Automate CLI (`chef-automate`) and AIB (`automate_3.0.x.aib`) to the air-gapped machine running Chef Automate.
 

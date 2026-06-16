@@ -50,7 +50,6 @@ Run the following steps on Bastion Host Machine:
     "
     ```
 
-    Replace `<LICENSE_ID>` with your commercial license ID.
 
     {{< note >}}
 

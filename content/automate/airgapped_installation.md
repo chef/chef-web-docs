@@ -32,7 +32,6 @@ Download the Chef Automate command-line tool from the `current` [release channel
 curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
 ```
 
-Replace `<LICENSE_ID>` with your commercial license ID.
 
 ## Download the Airgap Installation Bundle
 
@@ -42,7 +41,6 @@ Download the airgap installation bundles of the latest automate version to an in
 curl "https://packages.chef.io/airgap_bundle/current/automate/latest.aib" -o </path/to/airgap-install-bundle>
 ```
 
-Replace `<LICENSE_ID>` with your commercial license ID.
 
 Download the bundle of a specific version using:
 
