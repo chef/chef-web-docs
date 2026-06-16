@@ -54,7 +54,6 @@ Please upgrade to latest date pattern version number.
     curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
     ```
 
-
 1. Create a bundle for version 20220329091442.
 
     ```sh
@@ -187,7 +186,6 @@ To upgrade to 3.0.x, follow the steps below:
     ```sh
     curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
     ```
-
 
 2. Create an Airgap Installation Bundle (AIB):
 
