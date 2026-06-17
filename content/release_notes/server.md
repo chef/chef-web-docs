@@ -23,48 +23,13 @@ Released on TBD
 
 ### Security
 
-#### JWT empty-key HMAC bypass
+- Updated `jwt` from 3.1.2 to 3.2.0 in `oc-id` and `chef-server-ctl`.
+- Updated `addressable` from 2.8.7 to 2.9.0 in `oc-id` and `chef-server-ctl`.
+- Updated Erlang/OTP from 26.2.2 to 26.2.5.
+- Updated Rack from 3.2.4 to 3.2.6.
+- The `/version` API endpoint no longer exposes internal library names and version details.
 
-Updated `jwt` from 3.1.2 to 3.2.0 in `oc-id` and `chef-server-ctl` to resolve an authentication
-bypass vulnerability affecting versions prior to 3.2.0.
-
-- CVE-2026-45363
-
-#### Addressable URI Template ReDoS
-
-Updated `addressable` from 2.8.7 to 2.9.0 in `oc-id` and `chef-server-ctl` to fully remediate a
-regular expression denial of service (ReDoS) vulnerability in URI template matching.
-
-- CVE-2026-35611
-
-#### Erlang Security Updates
-
-Updated Erlang/OTP from 26.2.2 to 26.2.5, which resolves the following CVEs:
-
-- CVE-2025-32433
-- CVE-2025-30211
-- CVE-2025-26618
-- CVE-2025-48041
-- CVE-2025-48038
-- CVE-2025-48039
-- CVE-2025-48040
-- CVE-2025-4748
-- CVE-2024-53846
-- CVE-2025-46712
-
-#### Rack security update
-
-Updated Rack from 3.2.4 to 3.2.6 to resolve the following CVEs:
-
-- CVE-2025-9230
-- CVE-2025-9231
-- CVE-2025-9232
-
-#### Reduced information disclosure at `/version` endpoint
-
-The `/version` API endpoint no longer exposes internal library names and version details.
-
-### Bug Fixes
+### Bug fixes
 
 - Fixed an incorrect log rotation configuration in the Bifrost service where the request logger
   was writing to `crash.log` instead of `requests.log`. ([#4188](https://github.com/chef/chef-server/pull/4188))
@@ -83,7 +48,7 @@ The `/version` API endpoint no longer exposes internal library names and version
   missing or invalid, a 90-day trial period begins from the time of upgrade.
   ([#4152](https://github.com/chef/chef-server/pull/4152))
 
-### Updated Components
+### Updated components
 
 - Chef Infra Client updated from 18.8.46 to 18.10.17.
 - knife updated from 18.8.68 to 19.0.105.
