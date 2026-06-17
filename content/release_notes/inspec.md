@@ -393,13 +393,14 @@ We overhauled the `inspec check` and `inspec export` commands to use the parser 
 
 - We no longer support Ruby 2.7 since it became end-of-life (EOL) in March 2023.
 
-## Chef InSpec 5.24.17
+## Chef InSpec 5.24.20
 
 Release date: June 21th, 2026
 
 ### Key features / Improvements
 
 - **Omnibus build configuration as Git submodule**: The omnibus build configuration is now managed as a Git submodule from a private Chef repository, improving separation of concerns and enabling better control over official release builds. Community contributors can continue building InSpec packages using the public [`inspec-omnibus-community-config`](https://github.com/chef/inspec-omnibus-community-config) repository. ([#7827](https://github.com/inspec/inspec/pull/7827))
+- Updated `nokogiri` test dependency gem from `1.17.1` to `1.18.10`. ([#7946](https://github.com/inspec/inspec/pull/7946))
 
 ### Bug fixes
 
