@@ -23,6 +23,6 @@ rm dart-sass-$DART_SASS_VERSION-linux-x64.tar.gz
 export PATH=$(pwd)/dart-sass:$PATH
 
 pnpm install
-npm ls
+pnpm list
 
 hugo --gc --minify --enableGitInfo --buildFuture
