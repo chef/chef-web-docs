@@ -4,7 +4,7 @@ SHELL=bash -eou pipefail
 
 # bundle is also executed from other repositories when people run local previews
 bundle:
-	pnpm install
+	pnpm install --frozen-lockfile
 
 clean_hugo_mod:
 	hugo mod clean --all

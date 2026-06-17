@@ -75,29 +75,30 @@ few days. The important part is submitting your change.
 The Chef Documentation website is built using:
 
 - [Hugo](https://gohugo.io/) 0.142.0 or higher
-- [Node](https://www.nodejs.com) 20.0.0 or higher
-- [NPM](https://www.npmjs.com/) 10.4.0 or higher
+- [Node](https://www.nodejs.com) 22.0.0 or higher
+- [pnpm](https://pnpm.io/) 11.7.0 or higher
 - [Go](https://golang.org/dl/) 1.22 or higher
 - [Dart Sass](https://sass-lang.com/dart-sass/) 2.7.1
 
-To install Hugo, NPM, and Go on Windows, run:
+To install Hugo, pnpm, and Go on Windows, run:
 
 ```ps1
-choco install hugo-extended nodejs golang sass
+choco install hugo-extended nodejs golang sass pnpm
 ```
 
-To install Hugo, NPM, Go, and Dart Sass on macOS, run:
+To install Hugo, pnpm, Go, and Dart Sass on macOS, run:
 
 ```sh
-brew install hugo node go sass/sass/sass
+brew install hugo node go sass/sass/sass pnpm
 ```
 
 To install Hugo on Ubuntu, run:
 
 - `apt install -y build-essential`
-- `snap install node --classic --channel=12`
+- `snap install node --classic --channel=22`
 - `snap install hugo --channel=extended`
 - `snap install dart-sass`
+- `npm install -g pnpm`
 
 ### Troubleshoot your development environment
 
@@ -254,7 +255,7 @@ To update first-level Node dependencies:
 
 To update transitive Node dependencies in this repo:
 
-- Run `npm update`.
+- Run `pnpm update`.
 
 #### Javascript dependencies imported with Hugo
 
