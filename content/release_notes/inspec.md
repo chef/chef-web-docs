@@ -400,7 +400,6 @@ Release date: June 21th, 2026
 ### Key features / Improvements
 
 - **Omnibus build configuration as Git submodule**: The omnibus build configuration is now managed as a Git submodule from a private Chef repository, improving separation of concerns and enabling better control over official release builds. Community contributors can continue building InSpec packages using the public [`inspec-omnibus-community-config`](https://github.com/chef/inspec-omnibus-community-config) repository. ([#7827](https://github.com/inspec/inspec/pull/7827))
-- Updated `nokogiri` test dependency gem from `1.17.1` to `1.18.10`. ([#7946](https://github.com/inspec/inspec/pull/7946))
 
 ### Bug fixes
 
@@ -415,6 +414,7 @@ Release date: June 21th, 2026
 - Updated `net-imap` gem from `>= 0.2.5` to `>= 0.5.14`. ([#7911](https://github.com/inspec/inspec/pull/7911))
 - Updated `jwt` gem from `2.10.2` to `2.10.3`. ([#7925](https://github.com/inspec/inspec/pull/7925))
 - Updated `faraday` gem from `1.10.4` to `1.10.5`. ([#7925](https://github.com/inspec/inspec/pull/7925))
+- Updated `nokogiri` test dependency gem from `1.17.1` to `1.18.10`. ([#7946](https://github.com/inspec/inspec/pull/7946))
 
 ## Chef InSpec 5.24.7
 
