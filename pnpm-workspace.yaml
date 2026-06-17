@@ -9,9 +9,6 @@ blockExoticSubdeps: true
 trustPolicy: no-downgrade
 trustPolicyIgnoreAfter: 525600
 
-# Packages whose build scripts are intentionally skipped (ignore-scripts=true in .npmrc)
-ignoredBuiltDependencies:
-  - core-js
-
+# Explicitly disallow build scripts for packages that don't need them
 allowBuilds:
   core-js: false
