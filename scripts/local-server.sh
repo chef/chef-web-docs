@@ -10,7 +10,7 @@ set -eou pipefail
 
 echo Hugo env: $HUGO_ENV
 
-npm ci
+pnpm install
 npm ls
 
 # Netlify CLI prepends node_modules/.bin to PATH when running this script.

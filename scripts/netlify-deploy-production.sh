@@ -20,7 +20,7 @@ tar -xf dart-sass-$DART_SASS_VERSION-linux-x64.tar.gz
 rm dart-sass-$DART_SASS_VERSION-linux-x64.tar.gz
 export PATH=/opt/build/repo/dart-sass:$PATH
 
-npm ci
+pnpm install
 npm ls
 
 hugo --gc --minify --enableGitInfo --ignoreCache

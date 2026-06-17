@@ -20,7 +20,7 @@ updates:
     timezone: America/New_York
   open-pull-requests-limit: 0
   cooldown:
-    default-days: 7
-    semver-major-days: 7
-    semver-minor-days: 7
-    semver-patch-days: 7
+    default-days: 14
+    semver-major-days: 14
+    semver-minor-days: 14
+    semver-patch-days: 14
