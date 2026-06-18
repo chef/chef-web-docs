@@ -246,16 +246,21 @@ We source Javascript dependencies in the chef/chef-docs-theme repository using N
 
 #### Node dependencies
 
+The direct Node dependencies (`foundation-sites`, `jquery`, `redoc`) are defined in the [`package.json`](package.json) file in this repo, but their versions are set by the [chef/chef-docs-theme](https://github.com/chef/chef-docs-theme) repository.
+Dependabot is configured to ignore these packages so they don't drift out of sync with the theme.
+Update them through the theme update workflow described below.
+
 To update first-level Node dependencies:
 
 1. Update the dependency in the [chef/chef-docs-theme package.hugo.json file](https://github.com/chef/chef-docs-theme/blob/main/package.hugo.json).
-2. Update the [package.json file in chef/chef-docs-theme](https://github.com/chef/chef-docs-theme/blob/main/package.json) by running `hugo mod npm pack`
+2. Update the [package.json file in chef/chef-docs-theme](https://github.com/chef/chef-docs-theme/blob/main/package.json) by running `hugo mod npm pack`.
 3. Commit the package file updates to main in chef/chef-docs-theme.
 4. Update the theme in this repo by running `make update_theme`.
 
 To update transitive Node dependencies in this repo:
 
-- Run `pnpm update`.
+1. Run `pnpm update`.
+1. Commit the updated `pnpm-lock.yaml` file.
 
 #### Javascript dependencies imported with Hugo
 
@@ -264,8 +269,8 @@ We use Hugo to import JavaScript dependencies from GitHub repositories. You can 
 To update these dependencies, follow these steps:
 
 1. Update the dependency in the go.mod file in chef/chef-docs-theme using the [`hugo mod get -u` command](https://gohugo.io/commands/hugo_mod_get/).
-2. Tidy the go.sum file with `hugo mod tidy`.
-3. Commit the changes to chef/chef-docs-theme
+2. Tidy the go.mod and go.sum files with `hugo mod tidy`.
+3. Commit the changes to chef/chef-docs-theme.
 4. Update the theme contents in this repo with `make update_theme`.
 
 ### Local theme testing
