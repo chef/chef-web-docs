@@ -395,25 +395,31 @@ We overhauled the `inspec check` and `inspec export` commands to use the parser 
 
 ## Chef InSpec 5.24.20
 
-Release date: June 21th, 2026
+Release date: June 21, 2026
 
-### Key features / Improvements
+### Improvements
 
-- **Omnibus build configuration as Git submodule**: The omnibus build configuration is now managed as a Git submodule from a private Chef repository, improving separation of concerns and enabling better control over official release builds. Community contributors can continue building InSpec packages using the public [`inspec-omnibus-community-config`](https://github.com/chef/inspec-omnibus-community-config) repository. ([#7827](https://github.com/inspec/inspec/pull/7827))
+- **Omnibus build configuration**: Moves the omnibus build configuration to a private Git submodule, improving separation of concerns and enabling better control over official release builds.
+Community contributors can continue building InSpec packages using the public [`inspec-omnibus-community-config`](https://github.com/chef/inspec-omnibus-community-config) repository. ([#7827](https://github.com/inspec/inspec/pull/7827))
 
 ### Bug fixes
 
-- Pre-check waivers before control block evaluation to avoid eager resource execution ([#7832](https://github.com/inspec/inspec/pull/7832))
-- Fixed Windows architecture detection over WinRM when os.arch was missing or unknown, which could cause incorrect architecture reporting and downstream transport failures. This adds robust fallback detection in Train and InSpec. ([#7935](https://github.com/inspec/inspec/pull/7935), train [#832](https://github.com/inspec/train/pull/832))
+- Fixed an issue where controls waived with `run: false` still executed the entire control block before skipping, causing expensive commands to run unnecessarily.
+InSpec now pre-checks waivers before evaluating the control block, so waived controls skip execution entirely. ([#7832](https://github.com/inspec/inspec/pull/7832))
+- Fixed an issue where the `package` resource failed to detect 32-bit packages when running InSpec against Windows Server 2025 through a WinRM session (for example, with Test Kitchen).
+PowerShell WinRM sessions don't expand CMD-style environment variables, which caused architecture detection to return an unknown value and `WOW6432Node` registry paths to be skipped, making 32-bit packages appear as not installed.
+Train now falls back to PowerShell-native syntax for architecture detection when CMD variable expansion fails. ([#7935](https://github.com/inspec/inspec/pull/7935), train [#832](https://github.com/inspec/train/pull/832))
 
 #### Security fixes
 
-- Updated `addressable` gem from `2.4` to `2.9.0`. ([#7920](https://github.com/inspec/inspec/pull/7920))
+- Updated `addressable` gem constraint from `< 2.8.8` to `~> 2.9`. ([#7920](https://github.com/inspec/inspec/pull/7920))
 - Updated `json` gem from `>= 1.8` to `>= 2.19.2`. (train [#829](https://github.com/inspec/train/pull/829))
 - Updated `activesupport` gem from `>= 7.2.2.1` to `>= 7.2.3.1`. (train [#830](https://github.com/inspec/train/pull/830))
+<!-- TODO: verify — PR #7911 (inspec/inspec) was not merged; confirm whether net-imap was updated in this release or remove this entry -- It looks like this was done in #7924 and not #7911. -->
 - Updated `net-imap` gem from `>= 0.2.5` to `>= 0.5.14`. ([#7911](https://github.com/inspec/inspec/pull/7911))
 - Updated `jwt` gem from `2.10.2` to `2.10.3`. ([#7925](https://github.com/inspec/inspec/pull/7925))
 - Updated `faraday` gem from `1.10.4` to `1.10.5`. ([#7925](https://github.com/inspec/inspec/pull/7925))
+- Pinned `bigdecimal` to `< 4` in Train to prevent install failures on el-7 platforms (RHEL 7, CentOS 7). (train [#833](https://github.com/inspec/train/pull/833))
 - Updated `nokogiri` test dependency gem from `1.17.1` to `1.18.10`. ([#7946](https://github.com/inspec/inspec/pull/7946))
 
 ## Chef InSpec 5.24.7
