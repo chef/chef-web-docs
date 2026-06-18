@@ -8,7 +8,7 @@ updates:
     timezone: America/New_York
   open-pull-requests-limit: 10
   cooldown:
-    default-days: 7
+    default-days: 14
     exclude:
       - "github.com/chef/*"
       - "github.com/habitat-sh/*"
