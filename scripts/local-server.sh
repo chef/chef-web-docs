@@ -11,7 +11,7 @@ set -eou pipefail
 echo Hugo env: $HUGO_ENV
 
 pnpm install
-npm ls
+pnpm list
 
 # Netlify CLI prepends node_modules/.bin to PATH when running this script.
 # The pure-JS sass build in node_modules/.bin does not support the
