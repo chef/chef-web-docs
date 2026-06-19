@@ -415,8 +415,7 @@ Train now falls back to PowerShell-native syntax for architecture detection when
 - Updated `addressable` gem constraint from `< 2.8.8` to `~> 2.9`. ([#7920](https://github.com/inspec/inspec/pull/7920))
 - Updated `json` gem from `>= 1.8` to `>= 2.19.2`. (train [#829](https://github.com/inspec/train/pull/829))
 - Updated `activesupport` gem from `>= 7.2.2.1` to `>= 7.2.3.1`. (train [#830](https://github.com/inspec/train/pull/830))
-<!-- TODO: verify — PR #7911 (inspec/inspec) was not merged; confirm whether net-imap was updated in this release or remove this entry -- It looks like this was done in #7924 and not #7911. -->
-- Updated `net-imap` gem from `>= 0.2.5` to `>= 0.5.14`. ([#7911](https://github.com/inspec/inspec/pull/7911))
+- Updated `net-imap` gem from `>= 0.2.5` to `>= 0.5.14`. ([#7924](https://github.com/inspec/inspec/pull/7924))
 - Updated `jwt` gem from `2.10.2` to `2.10.3`. ([#7925](https://github.com/inspec/inspec/pull/7925))
 - Updated `faraday` gem from `1.10.4` to `1.10.5`. ([#7925](https://github.com/inspec/inspec/pull/7925))
 - Pinned `bigdecimal` to `< 4` in Train to prevent install failures on el-7 platforms (RHEL 7, CentOS 7). (train [#833](https://github.com/inspec/train/pull/833))
