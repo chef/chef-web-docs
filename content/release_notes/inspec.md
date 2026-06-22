@@ -395,12 +395,11 @@ We overhauled the `inspec check` and `inspec export` commands to use the parser 
 
 ## Chef InSpec 5.24.21
 
-Release date: June 21, 2026
+Release date: June 23, 2026
 
 ### Improvements
 
-- **Omnibus build configuration**: Moves the omnibus build configuration to a private Git submodule, improving separation of concerns and enabling better control over official release builds.
-Community contributors can continue building InSpec packages using the public [`inspec-omnibus-community-config`](https://github.com/chef/inspec-omnibus-community-config) repository. ([#7827](https://github.com/inspec/inspec/pull/7827))
+- Moved the omnibus build configuration to a private Git submodule to improve control over official release builds. Community contributors can continue building InSpec packages using the public [`inspec-omnibus-community-config`](https://github.com/chef/inspec-omnibus-community-config) repository. ([#7827](https://github.com/inspec/inspec/pull/7827))
 
 ### Bug fixes
 
@@ -411,7 +410,7 @@ InSpec now pre-checks waivers before evaluating the control block, so waived con
 PowerShell WinRM sessions don't expand CMD-style environment variables, which caused architecture detection to return an unknown value and `WOW6432Node` registry paths to be skipped, making 32-bit packages appear as not installed.
 Train now falls back to PowerShell-native syntax for architecture detection when CMD variable expansion fails. ([#7935](https://github.com/inspec/inspec/pull/7935), train [#832](https://github.com/inspec/train/pull/832))
 
-#### Security fixes
+### Security fixes
 
 - Updated `addressable` gem constraint from `< 2.8.8` to `~> 2.9`. ([#7920](https://github.com/inspec/inspec/pull/7920))
 - Updated `json` gem from `>= 1.8` to `>= 2.19.2`. (train [#829](https://github.com/inspec/train/pull/829))
@@ -419,7 +418,7 @@ Train now falls back to PowerShell-native syntax for architecture detection when
 - Updated `net-imap` gem from `>= 0.2.5` to `>= 0.5.14`. ([#7924](https://github.com/inspec/inspec/pull/7924))
 - Updated `nokogiri` test dependency gem from `1.17.1` to `1.18.10`. ([#7946](https://github.com/inspec/inspec/pull/7946))
 
-#### Dependency update
+### Dependency updates
 
 - Updated train and train-core from 3.16.1 to 3.16.5. ([#7925](https://github.com/inspec/inspec/pull/7925))
 
