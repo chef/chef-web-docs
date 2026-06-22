@@ -393,7 +393,7 @@ We overhauled the `inspec check` and `inspec export` commands to use the parser 
 
 - We no longer support Ruby 2.7 since it became end-of-life (EOL) in March 2023.
 
-## Chef InSpec 5.24.20
+## Chef InSpec 5.24.21
 
 Release date: June 21, 2026
 
@@ -404,6 +404,7 @@ Community contributors can continue building InSpec packages using the public [`
 
 ### Bug fixes
 
+- Fixed resource ID extraction in the JSON reporter to correctly prefer the resource object's ID when available, escape regular expressions, and cap resource IDs at 256 characters to prevent bloated reports. ([#7799](https://github.com/inspec/inspec/pull/7799))
 - Fixed an issue where controls waived with `run: false` still executed the entire control block before skipping, causing expensive commands to run unnecessarily.
 InSpec now pre-checks waivers before evaluating the control block, so waived controls skip execution entirely. ([#7832](https://github.com/inspec/inspec/pull/7832))
 - Fixed an issue where the `package` resource failed to detect 32-bit packages when running InSpec against Windows Server 2025 through a WinRM session (for example, with Test Kitchen).
@@ -416,10 +417,11 @@ Train now falls back to PowerShell-native syntax for architecture detection when
 - Updated `json` gem from `>= 1.8` to `>= 2.19.2`. (train [#829](https://github.com/inspec/train/pull/829))
 - Updated `activesupport` gem from `>= 7.2.2.1` to `>= 7.2.3.1`. (train [#830](https://github.com/inspec/train/pull/830))
 - Updated `net-imap` gem from `>= 0.2.5` to `>= 0.5.14`. ([#7924](https://github.com/inspec/inspec/pull/7924))
-- Updated `jwt` gem from `2.10.2` to `2.10.3`. ([#7925](https://github.com/inspec/inspec/pull/7925))
-- Updated `faraday` gem from `1.10.4` to `1.10.5`. ([#7925](https://github.com/inspec/inspec/pull/7925))
-- Pinned `bigdecimal` to `< 4` in Train to prevent install failures on el-7 platforms (RHEL 7, CentOS 7). (train [#833](https://github.com/inspec/train/pull/833))
 - Updated `nokogiri` test dependency gem from `1.17.1` to `1.18.10`. ([#7946](https://github.com/inspec/inspec/pull/7946))
+
+#### Dependency update
+
+- Updated train and train-core from 3.16.1 to 3.16.5. ([#7925](https://github.com/inspec/inspec/pull/7925))
 
 ## Chef InSpec 5.24.7
 
