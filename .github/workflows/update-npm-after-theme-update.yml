@@ -26,7 +26,7 @@ jobs:
       - name: Check if chef-docs-theme changed
         id: theme-check
         run: |
-          if git diff HEAD~1 HEAD -- go.mod | grep -q 'chef/chef-docs-theme'; then
+          if git diff --unified=0 HEAD~1 HEAD -- go.mod | grep -qE '^[+-][[:space:]]*github.com/chef/chef-docs-theme[[:space:]]'; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
           else
             echo "changed=false" >> "$GITHUB_OUTPUT"

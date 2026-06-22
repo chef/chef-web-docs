@@ -80,13 +80,13 @@ The Chef Documentation website is built using:
 - [Go](https://golang.org/dl/) 1.22 or higher
 - [Dart Sass](https://sass-lang.com/dart-sass/) 2.7.1
 
-To install Hugo, pnpm, and Go on Windows, run:
+To install Hugo, Node.js, pnpm, Go, and Dart Sass on Windows, run:
 
 ```ps1
 choco install hugo-extended nodejs golang sass pnpm
 ```
 
-To install Hugo, pnpm, Go, and Dart Sass on macOS, run:
+To install Hugo, Node.js, pnpm, Go, and Dart Sass on macOS, run:
 
 ```sh
 brew install hugo node go sass/sass/sass pnpm
