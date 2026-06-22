@@ -62,6 +62,26 @@ update_theme:
 	hugo mod vendor
 	hugo mod npm pack
 	pnpm install
+	$(MAKE) update_transitive_deps
+
+## Updates transitive (non-direct) dependencies in pnpm-lock.yaml without
+## changing the direct dependency versions defined in package.json.
+## package.json is backed up, then direct deps are pinned to their exact installed
+## versions so pnpm update cannot move them. After all transitive deps are updated,
+## package.json is restored verbatim and the lockfile specifiers for direct deps
+## are patched back to their original values.
+update_transitive_deps:
+	@cp package.json package.json.bak; \
+	trap 'mv -f package.json.bak package.json 2>/dev/null; exit 1' ERR; \
+	EXACT=$$(node -e "const {execSync}=require('child_process'); const d=JSON.parse(execSync('pnpm ls --json --depth 0').toString())[0].dependencies; process.stdout.write(Object.entries(d).map(([k,v])=>k+'@'+v.version).join(' '))"); \
+	echo "Pinning direct deps to exact resolved versions: $$EXACT"; \
+	pnpm add --save-exact $$EXACT; \
+	echo "Updating transitive dependencies..."; \
+	pnpm update --depth Infinity; \
+	echo "Restoring original package.json..."; \
+	mv package.json.bak package.json; \
+	echo "Fixing lockfile specifiers for direct deps..."; \
+	node -e "const fs=require('fs');const pkg=JSON.parse(fs.readFileSync('./package.json','utf8'));let lock=fs.readFileSync('./pnpm-lock.yaml','utf8');for(const[name,spec]of Object.entries(pkg.dependencies)){const marker='      '+name+':\n        specifier: ';const idx=lock.indexOf(marker);if(idx!==-1){const s=idx+marker.length;const e=lock.indexOf('\n',s);lock=lock.slice(0,s)+spec+lock.slice(e);}}fs.writeFileSync('./pnpm-lock.yaml',lock);"
 
 ## See:
 ## - https://cspell.org/docs/getting-started/

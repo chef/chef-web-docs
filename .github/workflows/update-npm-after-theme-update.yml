@@ -1,0 +1,83 @@
+# Runs after a chef-docs-theme Go module update is merged to main.
+# Syncs npm packages by running hugo mod npm pack, pnpm install, and
+# make update_transitive_deps, then opens a pull request with any changes.
+
+name: Update npm after theme update
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - go.mod
+
+jobs:
+  update-npm:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Check if chef-docs-theme changed
+        id: theme-check
+        run: |
+          if git diff HEAD~1 HEAD -- go.mod | grep -q 'chef/chef-docs-theme'; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Set up Go
+        if: steps.theme-check.outputs.changed == 'true'
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Set up Hugo
+        if: steps.theme-check.outputs.changed == 'true'
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.152.2'
+          extended: true
+
+      - name: Set up pnpm
+        if: steps.theme-check.outputs.changed == 'true'
+        uses: pnpm/action-setup@v4
+        with:
+          version: '11'
+
+      - name: Set up Node.js
+        if: steps.theme-check.outputs.changed == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'pnpm'
+
+      - name: Sync npm packages from updated theme
+        if: steps.theme-check.outputs.changed == 'true'
+        run: |
+          hugo mod tidy
+          hugo mod vendor
+          hugo mod npm pack
+          pnpm install
+          make update_transitive_deps
+
+      - name: Open pull request
+        if: steps.theme-check.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "build(deps): update npm packages after chef-docs-theme update"
+          branch: auto/update-npm-after-theme-update
+          delete-branch: true
+          title: "build(deps): update npm packages after chef-docs-theme update"
+          body: |
+            Automated update of npm packages following a `chef-docs-theme` Go module update.
+
+            Runs `hugo mod npm pack`, `pnpm install`, and `make update_transitive_deps` to keep `package.json` and `pnpm-lock.yaml` in sync with the updated theme.
+          labels: dependencies
