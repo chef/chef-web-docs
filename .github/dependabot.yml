@@ -8,7 +8,7 @@ updates:
     timezone: America/New_York
   open-pull-requests-limit: 10
   cooldown:
-    default-days: 7
+    default-days: 14
     exclude:
       - "github.com/chef/*"
       - "github.com/habitat-sh/*"
@@ -18,9 +18,16 @@ updates:
     interval: daily
     time: "06:00"
     timezone: America/New_York
-  open-pull-requests-limit: 0
+  open-pull-requests-limit: 10
+  # These packages are managed through the chef-docs-theme.
+  # Rather than updating them with Dependabot, update them in the theme,
+  # then run `make update_theme` to update them in this repository.
+  ignore:
+    - dependency-name: "foundation-sites"
+    - dependency-name: "jquery"
+    - dependency-name: "redoc"
   cooldown:
-    default-days: 7
-    semver-major-days: 7
-    semver-minor-days: 7
-    semver-patch-days: 7
+    default-days: 14
+    semver-major-days: 14
+    semver-minor-days: 14
+    semver-patch-days: 14
