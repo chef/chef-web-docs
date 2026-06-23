@@ -54,6 +54,8 @@ You will need the `chef-automate` command line tool to initiate your upgrade.
     chmod +x chef-automate
     ```
 
+    Replace `<LICENSE_ID>` with your Progress Chef commercial license ID.
+
 2. Move the `chef-automate` binary to `/usr/local/bin`:
 
     ```shell

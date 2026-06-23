@@ -327,6 +327,8 @@ Follow these steps to examine the firewall rules are stateful, and ports are ope
       -O /tmp/hab-x86_64-linux.tar.gz
     ```
 
+    Replace `<LICENSE_ID>` with your Progress Chef commercial license ID.
+
 1. Install hab package in your internet environment by executing the following commands that generate the _netcat package_:
 
     ```bash

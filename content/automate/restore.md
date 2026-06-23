@@ -20,9 +20,11 @@ Before restoring a Chef Automate installation, see how to [configure your backup
 
 1. On the restore host, download the Chef Automate command-line tool:
 
-   ```shell
-        curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
+    ```shell
+    curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
     ```
+
+    Replace `<LICENSE_ID>` with your Progress Chef commercial license ID.
 
 1. To restore from **filesystem backups**, Chef Automate requires access to a backup directory containing a timestamp-based directory and an `automate-elasticsearch-data` directory in the [configured location]({{< ref "backup.md#backup-to-a-filesystem" >}}).
 

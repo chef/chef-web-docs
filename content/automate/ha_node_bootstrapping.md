@@ -81,9 +81,11 @@ The Chef Infra Client installer puts everything into a unique directory (/opt/ch
 
     - Install the latest version of chef Workstation on the ubuntu system.
 
-    ```bash
-    wget "https://chefdownload-commercial.chef.io/stable/chef-workstation/download?p=ubuntu&pv=20.04&m=x86_64&v=21.7.524&license_id=<LICENSE_ID>" -O chef-workstation_21.7.524-1_amd64.deb
-    ```
+      ```bash
+      wget "https://chefdownload-commercial.chef.io/stable/chef-workstation/download?p=ubuntu&pv=20.04&m=x86_64&v=21.7.524&license_id=<LICENSE_ID>" -O chef-workstation_21.7.524-1_amd64.deb
+      ```
+
+      Replace `<LICENSE_ID>` with your Progress Chef commercial license ID.
 
     - To install the same:
 

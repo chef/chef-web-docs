@@ -77,6 +77,8 @@ Download the installer:
 curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
 ```
 
+Replace `<LICENSE_ID>` with your Progress Chef commercial license ID.
+
 ### Deploy Chef Automate and Chef Habitat Builder On-prem
 
 Deploying Chef Habitat Builder with Chef Automate requires a Chef Automate license.

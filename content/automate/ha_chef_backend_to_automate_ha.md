@@ -206,6 +206,8 @@ Where:
     curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o /usr/bin/chef-automate && chmod +x /usr/bin/chef-automate
     ```
 
+    Replace `<LICENSE_ID>` with your Progress Chef commercial license ID.
+
 6. Create an air-gapped bundle on the bastion host:
 
     ```bash
