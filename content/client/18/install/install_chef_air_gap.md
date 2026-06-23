@@ -128,8 +128,12 @@ group.
 
 By default, `knife bootstrap` uses the `chef-full` template to bootstrap
 a node. This template contains useful features, but it also
-attempts to pull an installation script from `https://omnitruck.chef.io`. In
-this section, you'll copy the contents of the `chef-full` template to a
+attempts to pull an installation script from the Chef download endpoints:
+
+- Commercial: `https://chefdownload-commercial.chef.io/install.sh?license_id=<LICENSE_ID>` (replace `<LICENSE_ID>` with your license ID)
+- Community: `https://chefdownload-community.chef.io/install.sh`
+
+In this section, you'll copy the contents of the `chef-full` template to a
 custom template, and then modify the package and Ruby gem sources.
 
 1. Navigate to the `.chef` directory, and create a `bootstrap`
@@ -158,7 +162,13 @@ custom template, and then modify the package and Ruby gem sources.
     template file name, be sure to replace `airgap.erb` with the
     template file you created during the last step.
 
-1. Update `airgap.erb` to replace `omnitruck.chef.io` with the URL of `install.sh` on your artifact store:
+1. Update `airgap.erb` to replace the Chef download endpoint with the URL of `install.sh` on your artifact store.
+
+    The default endpoints are:
+    - Commercial: `https://chefdownload-commercial.chef.io/install.sh?license_id=<LICENSE_ID>` (replace `<LICENSE_ID>` with your license ID)
+    - Community: `https://chefdownload-community.chef.io/install.sh`
+
+    Replace with your internal artifact store URL:
 
     ```ruby
     install_sh="<%= knife_config[:bootstrap_url] ? knife_config[:bootstrap_url] : "http://packages.example.com/install.sh" %>"
