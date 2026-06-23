@@ -400,6 +400,7 @@ Release date: June 23, 2026
 ### Improvements
 
 - Moved the omnibus build configuration to a private Git submodule to improve control over official release builds. Community contributors can continue building InSpec packages using the public [`inspec-omnibus-community-config`](https://github.com/chef/inspec-omnibus-community-config) repository. ([#7827](https://github.com/inspec/inspec/pull/7827))
+- Removed the unused `--overwrite` CLI option from the `inspec compliance upload` command. Profiles after any updates must now be uploaded without this option. ([#7966](https://github.com/inspec/inspec/pull/7966))
 
 ### Bug fixes
 
