@@ -395,7 +395,7 @@ We overhauled the `inspec check` and `inspec export` commands to use the parser 
 
 ## Chef InSpec 5.24.22
 
-Release date: June 23, 2026
+Release date: June 25, 2026
 
 ### Improvements
 
