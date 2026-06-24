@@ -260,8 +260,6 @@ Release date: <MONTH> <DAY>, <YEAR>
 
 ### Breaking changes (include if present---always lead with this section)
 
-> **Warning:** The following changes require action before upgrading.
-
 - **<Change name>**: What changed, what the reader must do, and a link to the migration guide.
 
 ### New features
@@ -294,14 +292,10 @@ Release date: <MONTH> <DAY>, <YEAR>
   <Replacement feature> replaces it. The system will <describe data migration if applicable>.
   See [<deprecated feature docs>](<link>).
 
-### Packages
+### Packages (include if package availability or behavior changed this release)
 
-Packages are available for the following platforms and architectures.
-List only platforms and architectures available for this specific release.
-
-| Platform | Architecture | Package format |
-|----------|--------------|----------------|
-| <Platform name> | <x86-64, ARM64> | `.<format>` |
+- <Description of what changed and the benefit to the user>. ([#<PR-number>](<link>))
+```
 
 **Guidelines**:
 - Write in a positive, friendly tone; use plain language
@@ -313,7 +307,7 @@ List only platforms and architectures available for this specific release.
 - Include issue or PR numbers and link them where your organization permits
 - Omit any section that has no entries
 - Use semantic versioning for release numbers (for example, `1.3.2`); include the date in `YYYY-MM-DD` format
-- In the Packages section, list only the platforms and architectures available for the specific release; omit rows that don't apply
+- Include the Packages section only when package availability or behavior changed in this release; entries may cover new platform or architecture support, Docker image changes, install behavior, and packages no longer provided; omit the section if packages are unchanged
 
 ---
 
