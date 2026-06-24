@@ -184,47 +184,51 @@ Where:
     bash infra_server_objects_count_collector.sh -S <chef-serve-url> -K /path/to/key -F Filename
 ```
 
-## Steps for In-place Migration
+## Migrate from Chef Backend to Chef Automate in place
 
-1. [Backup the existing chef server data](/automate/ha_chef_backend_to_automate_ha/##backup-the-existing-chef-infra-server-or-chef-backend-data)
-2. ssh to all the backend nodes of chef-backend and run
+1. [Back up the existing Chef Infra Server data](/automate/ha_chef_backend_to_automate_ha/##backup-the-existing-chef-infra-server-or-chef-backend-data)
+2. SSH to each Chef Backend backend node and run the following command to stop the services:
 
-    ```sh
-        chef-backend-ctl stop
+    ```bash
+    chef-backend-ctl stop
     ```
 
-3. ssh to all frontend nodes of chef-backend and run
+3. SSH to each Chef Backend frontend node and run the following command to stop the services:
 
-    ```sh
-        chef-server-ctl stop
+    ```bash
+    chef-server-ctl stop
     ```
 
-4. Create one bastion machine under the same network space.
-5. ssh to bastion machine and download chef-automate CLI and extract the downloaded zip file
+4. Create one bastion host under the same network space.
+5. SSH to the bastion host and download the Chef Automate CLI:
 
-    ```sh
-        https://packages.chef.io/files/current/latest/chef-automate-cli/chef-automate_linux_amd64.zip | gunzip - > chef-automate && chmod +x chef-automate | cp -f chef-automate /usr/bin/chef-automate
+    ```bash
+    curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o /usr/bin/chef-automate && chmod +x /usr/bin/chef-automate
     ```
 
-6. Create an airgap bundle using the command
+    Replace `<LICENSE_ID>` with your Progress Chef commercial license ID.
 
-    ```sh
-        ./chef-automate airgap bundle create
+6. Create an air-gapped bundle on the bastion host:
+
+    ```bash
+    ./chef-automate airgap bundle create
     ```
 
-7. Generate the `config.toml` file using the following command:
+7. Generate the `config.toml` file:
 
-    ```sh
-        ./chef-automate init-config-ha existing_infra
+    ```bash
+    ./chef-automate init-config-ha existing_infra
     ```
 
-8. Edit `config.toml` and add the following:
-    - Update the `instance_count`
-    - fqdn : load balance URL, which points to the frontend node.
-    - keys : ssh username and private keys
-    - Ensure to provide Chef Backend's frontend server IPs for Automate HA Chef Automate and Chef Infra Server.
-    - Ensure to provide Chef Backend's backend server IPs for Automate HA PostgreSQL and OpenSearch machines.
-    - Sample configuration; please modify according to your needs.
+8. Edit `config.toml` with the following information:
+
+    - Update the `instance_count` for each component.
+    - Set `fqdn` to the load balancer URL pointing to the frontend node.
+    - Set `ssh_user` and `ssh_key_file` for SSH access.
+    - Provide Chef Backend's frontend server IPs for Automate HA Chef Automate and Chef Infra Server in `automate_private_ips` and `chef_server_private_ips`.
+    - Provide Chef Backend's backend server IPs for Automate HA PostgreSQL and OpenSearch in `postgresql_private_ips` and `opensearch_private_ips`.
+
+    See the following example configuration below and modify it for your environment:
 
     ```sh
     [architecture.existing_infra]
@@ -236,7 +240,7 @@ Where:
     ssh_port = "22"
     ssh_key_file = "~/.ssh/mykey.pem"
     sudo_password = ""
-    # DON'T MODIFY THE BELOW LINE (backup_mount)
+    # Don't modify backup_mount
     backup_mount = "/mnt/automate_backups"
     # Eg.: backup_config = "object_storage" or "file_system"
     backup_config = "file_system"
@@ -273,15 +277,15 @@ Where:
     postgresql_private_ips = ["10.0.3.0","10.0.4.0","10.0.5.0"]
     ```
 
-9. Deploy using the following command:
+9. Deploy Automate HA:
 
-    ```sh
-    ./chef-automate deploy config.toml --airgap-bundle <airgapped bundle name>
+    ```bash
+    ./chef-automate deploy config.toml --airgap-bundle <AIRGAPPED_BUNDLE_NAME>
     ```
 
-10. Clean up the old packages from the chef-backend (like Elasticsearch and PostgreSQL)
-11. Once done, [restore data to Chef Automate HA](/automate/ha_chef_backend_to_automate_ha/#restore-data-to-chef-automate-ha)
-12. [Validate the data](/automate/ha_chef_backend_to_automate_ha/#steps-to-validate-if-migration-is-successful)
+10. [Restore the backup data to Chef Automate HA](/automate/ha_chef_backend_to_automate_ha/#restore-data-to-chef-automate-ha).
+11. [Validate the migration](/automate/ha_chef_backend_to_automate_ha/#steps-to-validate-if-migration-is-successful).
+12. Remove the old packages from the Chef Backend nodes (Elasticsearch, PostgreSQL, and other Chef Backend components).
 
 ## Connect Workstation/Nodes to Automate HA
 

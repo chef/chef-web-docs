@@ -48,10 +48,9 @@ Ensure all resources are on existing or cloud infrastructure (`AWS`/`Azure`/`Goo
 
     ```bash
     sudo -- sh -c "
-    curl https://packages.chef.io/files/current/latest/chef-automate-cli/chef-automate_linux_amd64.zip \
-    | gunzip - > chef-automate && chmod +x chef-automate \
-    | cp -f chef-automate /usr/bin/chef-automate
-    curl https://packages.chef.io/airgap_bundle/current/automate/latest.aib -o automate.aib
+    curl \"https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>\" \
+    -o /usr/bin/chef-automate && chmod +x /usr/bin/chef-automate
+    curl \"https://packages.chef.io/airgap_bundle/current/automate/latest.aib\" -o automate.aib
     "
     ```
 
