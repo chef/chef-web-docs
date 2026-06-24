@@ -397,6 +397,10 @@ We overhauled the `inspec check` and `inspec export` commands to use the parser 
 
 Release date: June 25, 2026
 
+## Deprecations
+
+The `--overwrite` flag does not work as expected while using the `inspec compliance upload` command to upload to Automate. This option will be removed going forward.
+
 ### Improvements
 
 - Moved the omnibus build configuration to a private Git submodule to improve control over official release builds. Community contributors can continue building InSpec packages using the public [`inspec-omnibus-community-config`](https://github.com/chef/inspec-omnibus-community-config) repository. ([#7827](https://github.com/inspec/inspec/pull/7827))
