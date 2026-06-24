@@ -399,7 +399,7 @@ Release date: June 25, 2026
 
 ## Deprecations
 
-The `--overwrite` flag does not work as expected while using the `inspec compliance upload` command to upload to Automate. This option will be removed going forward.
+The `--overwrite` flag does not work as expected while using the `inspec compliance upload` command to upload to Automate. This option will be removed going forward. ([#7971](https://github.com/inspec/inspec/pull/7971))
 
 ### Improvements
 
