@@ -399,7 +399,7 @@ Release date: June 23, 2026
 
 ### Breaking changes
 
-- **Removed `--overwrite` from `inspec compliance upload`**: The `--overwrite` CLI option and its associated profile existence check and override logic have been removed from the `inspec compliance upload` command.
+- **Removed `--overwrite` from `inspec compliance upload`**: The `--overwrite` CLI option and its associated profile existence check and override logic have been temporarily removed from the `inspec compliance upload` command because of a bug in Automate.
   If you use `--overwrite` in scripts or automation, remove it before upgrading.
   ([#7966](https://github.com/inspec/inspec/pull/7966))
 
