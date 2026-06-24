@@ -145,7 +145,7 @@ When documenting UI elements, follow these guidelines:
 - **Text field**: Use "field" instead of "box" - "In the **Name** field, enter your username"
 - **Dialog**: Use "dialog" not "pop-up window"
 - **Tab**: Use "the LABEL_NAME tab"
-- **Toggle**: Don't use "toggle" as a verb - "To turn on the setting, click the **Wi-Fi** toggle"
+- **Toggle**: Don't use "toggle" as a verb - "To turn on the setting, select the **Wi-Fi** toggle"
 
 #### Verbs for UI interactions
 

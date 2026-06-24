@@ -296,16 +296,12 @@ Release date: <MONTH> <DAY>, <YEAR>
 
 ### Packages
 
-Packages are available for the following platforms and architectures:
+Packages are available for the following platforms and architectures.
+List only platforms and architectures available for this specific release.
 
 | Platform | Architecture | Package format |
 |----------|--------------|----------------|
-| Windows | x86-64 | `.msi` |
-| macOS | x86-64, ARM64 | `.pkg` |
-| Red Hat Enterprise Linux, CentOS | x86-64, ARM64 | `.rpm` |
-| Debian, Ubuntu | x86-64, ARM64 | `.deb` |
-| Chef Habitat | x86-64, ARM64 | `.hart` |
-```
+| <Platform name> | <x86-64, ARM64> | `.<format>` |
 
 **Guidelines**:
 - Write in a positive, friendly tone; use plain language
