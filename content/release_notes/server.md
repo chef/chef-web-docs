@@ -2155,7 +2155,7 @@ Chef server now uses Java's native rotation for the gclog. This prevents
 situations where logrotate creates large sparse files on disk, which may
 be problematic to manage with tools that can't handle sparse files.
 
-The Solr 4 GC log can now be found at__
+The Solr 4 GC log can now be found at
 `/var/log/opscode/opscode-solr4/gclog.log.N.current` where *N* is an
 integer. The `.current` extension denotes the log currently being
 written to.
