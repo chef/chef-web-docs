@@ -19,7 +19,7 @@ summary = "Chef Infra Server release notes"
 
 ## Chef Infra Server 15.10.108
 
-Released on TBD
+Released on June 25th, 2026
 
 ### Security
 
