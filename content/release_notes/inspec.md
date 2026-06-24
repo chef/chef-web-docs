@@ -397,12 +397,6 @@ We overhauled the `inspec check` and `inspec export` commands to use the parser 
 
 Release date: June 23, 2026
 
-### Breaking changes
-
-- **Removed `--overwrite` from `inspec compliance upload`**: The `--overwrite` CLI option and its associated profile existence check and override logic have been temporarily removed from the `inspec compliance upload` command because of a bug in Automate.
-  If you use `--overwrite` in scripts or automation, remove it before upgrading.
-  ([#7966](https://github.com/inspec/inspec/pull/7966))
-
 ### Improvements
 
 - Moved the omnibus build configuration to a private Git submodule to improve control over official release builds. Community contributors can continue building InSpec packages using the public [`inspec-omnibus-community-config`](https://github.com/chef/inspec-omnibus-community-config) repository. ([#7827](https://github.com/inspec/inspec/pull/7827))
