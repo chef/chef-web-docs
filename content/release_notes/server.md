@@ -17,7 +17,7 @@ summary = "Chef Infra Server release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
-## Chef Infra Server 15.10.108
+## Chef Infra Server 15.10.114
 
 Released on June 25, 2026
 
