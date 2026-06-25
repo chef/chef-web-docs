@@ -75,7 +75,7 @@ version 2.0.
 
 | Product     | Version | Lifecycle Status | EOL Date |
 | ----------- | ------- | ---------------- | -------- |
-| Supermarket | 5.x     | GA               | TBD      |
+| Supermarket | 5.x     | GA               | To Be Determined (TBD)      |
 
 ## Deprecated products and versions
 
