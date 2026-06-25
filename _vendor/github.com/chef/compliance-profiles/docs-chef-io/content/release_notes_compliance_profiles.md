@@ -10,6 +10,14 @@ draft = false
     weight = 10
 +++
 
+## 20260615
+
+### New features
+
+- CIS Oracle Database 19c v2.0.0
+- CIS IBM Websphere Liberty v1.0.0
+- CIS Debian Linux 13 v1.0.0
+
 ## 20260416
 
 ### New features
