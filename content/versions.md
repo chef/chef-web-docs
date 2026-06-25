@@ -75,20 +75,20 @@ version 2.0.
 
 | Product     | Version | Lifecycle Status | EOL Date |
 | ----------- | ------- | ---------------- | -------- |
-| Supermarket | 5.x     | GA               | TBD      |
+| Supermarket | 5.x     | GA               | To Be Determined (TBD)      |
 
 ## Deprecated products and versions
 
 Progress Chef has deprecated the following products.
 If you're using one of these products, migrate to a supported version or product.
 
-| Product           | Version | Lifecycle Status | EOL Date      | Replacement product or version |
-| ----------------- | ------- | ---------------- | ------------- | ------------------------------ |
-| Chef Backend      | 3.x     | Deprecated       | TBD           | Chef 360 Platform              |
-| Chef Infra Client | 18.x    | Deprecated       | TBD           | Chef Infra Client 19.x         |
-| Chef Infra Server | 15.x    | Deprecated       | November 2026 | Chef 360 Platform              |
-| Chef InSpec       | 4.x     | Deprecated       | TBD           | Chef InSpec 5.x                |
-| Chef Workstation  | 24.x    | Deprecated       | April 2026    | Chef Workstation 25 or above   |
+| Product           | Version | Lifecycle Status | EOL Date          | Replacement product or version |
+| ----------------- | ------- | ---------------- | ----------------- | ------------------------------ |
+| Chef Backend      | 3.x     | Deprecated       | TBD               | Chef 360 Platform              |
+| Chef Infra Client | 18.x    | Deprecated       | TBD               | Chef Infra Client 19.x         |
+| Chef Infra Server | 15.x    | Deprecated       | November 30, 2026 | Chef 360 Platform              |
+| Chef InSpec       | 4.x     | Deprecated       | TBD               | Chef InSpec 5.x                |
+| Chef Workstation  | 24.x    | Deprecated       | April 2026        | Chef Workstation 25 or above   |
 
 ## End of Life (EOL) products
 
