@@ -80,3 +80,12 @@
           - static/images/workstation/**
           - content/release_notes/workstation.md
           - generated/**
+"Component: AI":
+  - changed-files:
+      - any-glob-to-any-file:
+          - .github/copilot-instructions.md
+          - .github/**-instructions.md
+          - .github/instructions/**
+          - .github/skills/**
+          - .github/agents/**
+          - .github/prompts/**
