@@ -12,7 +12,6 @@
     "jquery": "^3.7.1",
     "redoc": "^2.4.0"
   },
-  "devDependencies": {},
   "name": "chef-web-docs",
   "version": "0.1.0"
 }

@@ -1,0 +1,14 @@
+# Keep lockfile-first behavior as the default for pnpm installs
+preferFrozenLockfile: true
+
+# Two-week dependency cooldown (minutes; 20160 = 14 days)
+minimumReleaseAge: 20160
+
+# pnpm-specific hardening
+blockExoticSubdeps: true
+trustPolicy: no-downgrade
+trustPolicyIgnoreAfter: 525600
+
+# Explicitly disallow build scripts for packages that don't need them
+allowBuilds:
+  core-js: false
