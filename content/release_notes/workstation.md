@@ -27,8 +27,9 @@ We added OS-native packages alongside the existing Habitat packages. You can dow
 
 The following native packages are available:
 
-Linux x86: RPM (.rpm) and DEB (.deb) packages
-Windows x86: MSI installer (.msi)
+- Linux x86: RPM (.rpm) and DEB (.deb) packages
+- Windows x86: MSI installer (.msi)
+
 OS-native packages for Linux ARM and macOS aren't available in this release.
 We plan to add Linux ARM and macOS OS-native packages in upcoming releases.
 
