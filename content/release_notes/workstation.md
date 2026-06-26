@@ -17,9 +17,9 @@ summary = "Chef Workstation release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
-## Chef Workstation 26.1.x
+## Chef Workstation 26.1.0
 
-Release date: 
+Release date: July 8, 2026
 
 ### Packaging
 
@@ -29,7 +29,8 @@ The following native packages are available:
 
 Linux x86: RPM (.rpm) and DEB (.deb) packages
 Windows x86: MSI installer (.msi)
-OS-native packages aren’t available for Linux ARM or macOS.
+OS-native packages for Linux ARM and macOS aren't available in this release.
+We plan to add Linux ARM and macOS OS-native packages in upcoming releases.
 
 ### Bug fixes
 
@@ -73,7 +74,7 @@ OS-native packages aren’t available for Linux ARM or macOS.
 
 - **Knife**:
 
-  - Updated Knife to version  19.0.133.
+  - Updated Knife to version  19.0.134.
 
     For details, see the [Knife changelog](https://github.com/chef/knife/blob/main/CHANGELOG.md).
 
@@ -86,6 +87,14 @@ OS-native packages aren’t available for Linux ARM or macOS.
   - Updated Test Kitchen Enterprise to version  2.0.15.
 
     For details, see the [Test Kitchen Enterprise changelog](https://github.com/chef/chef-test-kitchen-enterprise/blob/main/CHANGELOG.md#v2015-2026-06-18).
+
+#### Security
+
+- Updated faraday in knife to v2.14.3.
+- Updated concurrent-ruby in knife to v1.3.7.
+- Updated mixlib-shellout in knife to v3.4.10.
+- Updated addressable in chef-cli to v2.9.0.
+
 
 ## Chef Workstation 26.0.18
 
