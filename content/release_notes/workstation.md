@@ -95,7 +95,6 @@ We plan to add Linux ARM and macOS OS-native packages in upcoming releases.
 - Updated mixlib-shellout in knife to v3.4.10.
 - Updated addressable in chef-cli to v2.9.0.
 
-
 ## Chef Workstation 26.0.18
 
 Release date: April 13, 2026
