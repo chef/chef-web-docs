@@ -227,6 +227,86 @@ Release date: February 5, 2026
 - This release doesn't support FIPS Mode.
 - The chef_client_systemd_timer resource doesn't work with SELinux.
 
+## Chef Infra Client 18.10.103
+
+Release date: July XX, 2026
+
+### New features
+
+- The `package` and `dnf_package` resources now support DNF5, the package manager used in Fedora 41+ and future RHEL-based systems.
+  Chef Infra Client detects which version of DNF is installed---no changes to existing cookbooks or recipes are required.
+  Thanks to [@jaymzh](https://github.com/jaymzh) for this contribution.
+  ([#16007](https://github.com/chef/chef/pull/16007))
+- The `chef_client_config` resource has two new properties: `directory_specs`, which lets you set per-directory permission overrides for Chef-managed directories (including owner, group, and mode, and on Windows, rights and inheritance), and `client_rb_mode`, which sets the file permissions of the generated `client.rb` file.
+  ([#16025](https://github.com/chef/chef/pull/16025))
+
+### Improvements
+
+- The `rest_resource` DSL now implements the `rest_api_endpoint` and `rest_identity_property` methods.
+  `rest_api_endpoint` stores the base URL of the target REST API.
+  `rest_identity_property` declares which property uniquely identifies a resource and auto-generates document URLs.
+  DSL inheritance is also fixed so subclasses correctly inherit values from parent classes.
+  ([#15970](https://github.com/chef/chef/pull/15970))
+- The `dnf_package` resource now locates the DNF Python helper more efficiently, reducing unnecessary `shell_out` calls during converge runs on systems using DNF.
+  ([#15971](https://github.com/chef/chef/pull/15971))
+- Template error messages now include the cookbook name and template file name, making it easier to identify which template caused the failure without exposing large node attribute data.
+  ([#16087](https://github.com/chef/chef/pull/16087))
+
+### Bug fixes
+
+- Fixed an issue where the Compliance Phase ran twice when a cookbook resource used `action :reboot_now` during a Chef Infra Client run.
+  On Windows and RHEL systems, this caused a race condition where the second InSpec scan could be interrupted mid-run by the OS reboot timer.
+  ([#15997](https://github.com/chef/chef/pull/15997))
+- Fixed an issue where `lazy` content blocks in the `file` resource were evaluated more than once during a single converge run.
+  ([#15715](https://github.com/chef/chef/pull/15715))
+- Fixed an issue in the `chocolatey_installer` resource where `Invoke-WebRequest -OutFile` on Windows PowerShell 5.1 failed when given a directory path instead of a full file path, causing "Access to the path is denied" errors.
+  ([#15925](https://github.com/chef/chef/pull/15925))
+- Fixed an intermittent `NoMethodError` crash on Windows Server 2019, 2022, and 2025 during cookbook synchronization, caused by multiple concurrent threads racing to export a Windows certificate to the same hardcoded temp file path.
+  Each thread now uses a unique per-thread temp path, and the temporary PFX file is always cleaned up after use.
+  ([#16076](https://github.com/chef/chef/pull/16076))
+
+### Packaging
+
+- Chef Infra Client packages are now available again for AIX (PowerPC, versions 7.1, 7.2, and 7.3).
+  ([#16109](https://github.com/chef/chef/pull/16109))
+- The Chef Infra Client Habitat package for Windows no longer depends on the `chef/chef-powershell-shim` Habitat package.
+  Pre-flight checks now verify that the required MSVC runtime libraries are present and surface clear errors if they're missing.
+  ([#16092](https://github.com/chef/chef/pull/16092))
+
+### Security
+
+- Updated `aws-sdk-s3` to address CVE-2025-14762.
+  ([#15848](https://github.com/chef/chef/pull/15848))
+- Updated `rack` to 3.2.6.
+  ([#15854](https://github.com/chef/chef/pull/15854), [#16054](https://github.com/chef/chef/pull/16054))
+
+### Dependency updates
+
+- Updated `aws-sdk-s3` from 1.213.0 to 1.218.0. ([#15832](https://github.com/chef/chef/pull/15832))
+- Updated `aws-sdk-secretsmanager` from 1.128.0 to 1.129.0. ([#15807](https://github.com/chef/chef/pull/15807))
+- Updated `net-ssh` from 7.3.0 to 7.3.2. ([#15818](https://github.com/chef/chef/pull/15818))
+- Updated `train-core` from 3.16.1 to 3.16.5. ([#15930](https://github.com/chef/chef/pull/15930), [#15976](https://github.com/chef/chef/pull/15976), [#16103](https://github.com/chef/chef/pull/16103))
+- Updated `train-winrm`. ([#15671](https://github.com/chef/chef/pull/15671))
+- Updated `pry` from 0.13.0 to 0.15.2. ([#15801](https://github.com/chef/chef/pull/15801))
+- Updated `pry-stack_explorer` from 0.6.1 to 0.6.3. ([#15830](https://github.com/chef/chef/pull/15830), [#15877](https://github.com/chef/chef/pull/15877))
+- Updated `rake` from 13.3.1 to 13.4.2. ([#15907](https://github.com/chef/chef/pull/15907))
+- Updated `ohai`. ([#15805](https://github.com/chef/chef/pull/15805), [#15951](https://github.com/chef/chef/pull/15951), [#15965](https://github.com/chef/chef/pull/15965))
+- Updated `chef-zero` from 15.1.0 to 15.1.11. ([#16057](https://github.com/chef/chef/pull/16057))
+- Updated `cookstyle` from 8.6.4 to 8.6.10. ([#15810](https://github.com/chef/chef/pull/15810))
+- Updated `ffi` requirement to `>= 1.15.5, <= 1.17.5`. ([#16100](https://github.com/chef/chef/pull/16100))
+- Updated `ffi-yajl` requirement to `>= 2.2, < 4.0`. ([#16013](https://github.com/chef/chef/pull/16013))
+- Updated `uuidtools` requirement to `>= 2.1.5, < 4.0`. ([#16056](https://github.com/chef/chef/pull/16056))
+- Updated `inspec-core` requirement to `>= 5, < 8`. ([#15814](https://github.com/chef/chef/pull/15814))
+- Updated `vault` requirement to `>= 0.18.2, < 0.21.0`. ([#15802](https://github.com/chef/chef/pull/15802))
+- Updated `highline` requirement to `>= 1.6.9, < 4`. ([#15831](https://github.com/chef/chef/pull/15831))
+- Updated `unf_ext` requirement to `>= 0.0.8.2, < 0.0.10.0`. ([#15816](https://github.com/chef/chef/pull/15816))
+- Updated `uri` requirement to `>= 1.0.4, < 1.2.0`. ([#15804](https://github.com/chef/chef/pull/15804))
+- Updated `tomlrb` from 1.3.0 to 2.0.4. ([#15808](https://github.com/chef/chef/pull/15808))
+- Updated `addressable` from 2.8.7 to 2.8.9. ([#15819](https://github.com/chef/chef/pull/15819))
+- Updated `win32-eventlog` from 0.6.3 to 0.6.7. ([#15829](https://github.com/chef/chef/pull/15829))
+- Updated `webmock` from 3.26.1 to 3.26.2. ([#15809](https://github.com/chef/chef/pull/15809))
+- Updated `crack` from 0.4.5 to 1.0.1. ([#15828](https://github.com/chef/chef/pull/15828))
+
 ## Chef Infra Client 18.10.17
 
 Release date: February 25, 2026
