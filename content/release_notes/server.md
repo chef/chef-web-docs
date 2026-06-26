@@ -54,16 +54,16 @@ Released on June 25, 2026
 - knife updated from 18.8.68 to 19.0.105.
 - knife-ec-backup updated from 3.0.5 to 3.0.8.
 - PostgreSQL client updated from version 13 to 14.
-- Rails updated from 7.1.5.2 to 7.1.6 (includes a pending security fix).
+- Rails updated from 7.1.5.2 to 7.2.3.1 (includes a pending security fix).
 
 ### Service versions
 
 This release uses:
 
-- OpenResty 1.27.1.2
+- OpenResty 1.29.2.5
 - OpenJRE 17.0.9+9
-- PostgreSQL 13.22.tuxcare.1.0.1
-- OpenSearch 1.3.20-tuxcare-1.0.2
+- PostgreSQL 13.23.tuxcare.1.0.0
+- OpenSearch 1.3.20-tuxcare-1.0.3
 - Rack 3.2.6
 - Valkey 7.2.11
 
