@@ -10,9 +10,6 @@ draft = false
     weight = 43
 +++
 
-<!-- markdownlint-disable-file -->
-<!-- vale off -->
-
 You can configure Chef Automate to use an object storage backend (AWS S3 or MinIO) for audit log storage.
 This is helpful when you want audit log data to live outside the local filesystem and to integrate with object-storage-based retention and access controls.
 
@@ -106,7 +103,7 @@ To create the minimum configuration for uploading audit logs, follow these steps
 
 1. Patch the Chef Automate configuration:
 
-    ```bash
+    ```shell
     sudo chef-automate config patch </PATH/TO/TOML/FILE> [flags]
     ```
 
@@ -119,7 +116,7 @@ To create the minimum configuration for uploading audit logs, follow these steps
 
     After you patch the configuration, Automate starts running the audit log collector and uploads audit log data to the configured bucket.
 
-1. Optional: Once audit logs are uploaded, you can optionally configure the following:
+1. Optional: Once audit logs are uploaded, you can configure the following:
 
    - a prefix inside the bucket to group objects
    - TLS options enable and verify a `root_cert` for private certificate authorities
@@ -148,7 +145,7 @@ To verify audit log uploads, follow these steps:
 ### Configure local audit log rotation
 
 Chef Automate rotates the local audit log file written by the load balancer.
-To change the rotation size threshold, patch your Automate configuration.
+To change the rotation size threshold, patch your Automate configuration:
 
 1. Create a TOML file with the following content:
 
@@ -169,14 +166,14 @@ To change the rotation size threshold, patch your Automate configuration.
 
     Rotation behavior:
 
-    - Audit entries are written to `/hab/svc/automate-load-balancer/data/audit.log`.
+    - Chef Automate writes audit entries to `/hab/svc/automate-load-balancer/data/audit.log`.
     - When `audit.log` exceeds `max_file_size`, it's rotated to `audit.1.log`.
-    - Older rotated files are shifted up (`audit.1.log` -> `audit.2.log`, etc.).
+    - The load balancer shifts older rotated files up (`audit.1.log` -> `audit.2.log`, etc.).
     - Chef Automate keeps up to 10 rotated files (`audit.1.log` through `audit.10.log`).
 
 1. Patch the Chef Automate configuration:
 
-    ```bash
+    ```shell
     sudo chef-automate config patch </PATH/TO/TOML/FILE>
     ```
 
@@ -219,7 +216,78 @@ If you don't set `[global.v1.audit.output]`, Chef Automate uses these defaults:
 
 1. Patch the Chef Automate configuration:
 
-    ```bash
+    ```shell
+    sudo chef-automate config patch </PATH/TO/TOML/FILE>
+    ```
+
+### Configure audit log retention
+
+Chef Automate can automatically delete old audit log objects from your S3 or MinIO bucket on a daily schedule.
+
+**Rotating audit log objects stored in S3** are deleted based on their age in days.
+**Requested-log export files** (generated when you call the audit request API) are deleted based on how long ago they were created (in hours or days).
+
+#### Configure daily cleanup of stored audit logs
+
+To enable daily deletion of audit log objects older than a set number of days, follow these steps:
+
+1. Create a TOML file with the following content:
+
+    ```toml
+    [global.v1.audit]
+
+      [global.v1.audit.retention]
+        days = <DAYS>
+        schedule_hour = <HOUR>
+        schedule_minute = <MINUTE>
+    ```
+
+    Replace the following:
+
+    - `<DAYS>` with the number of days to retain audit logs. Default value: `30`.
+
+      Retention is enabled when `days` is greater than `0`.
+      Set to `0` to disable automatic cleanup (unlimited retention).
+
+    - `<HOUR>` with the hour (0-23) when cleanup runs. Default: `2` (2 AM).
+    - `<MINUTE>` with the minute (0-59) when cleanup runs. Default: `0`.
+
+1. Patch the Chef Automate configuration:
+
+    ```shell
+    sudo chef-automate config patch </PATH/TO/TOML/FILE>
+    ```
+
+#### Configure automatic deletion of requested log export files
+
+When you request audit logs through the API, Chef Automate generates a log export file and stores it in your configured bucket under the `requested-logs/` path prefix.
+These files are automatically cleaned up on an hourly schedule.
+
+To configure how long requested-log files are retained before deletion, follow these steps:
+
+1. Create a TOML file with the following content:
+
+    ```toml
+    [global.v1.audit]
+
+      [global.v1.audit.async]
+        requested_logs_retention_duration = "1hr"
+    ```
+
+    Replace `"1hr"` with your retention duration.
+    Valid formats:
+
+    - `"0"` disables automatic cleanup (files are retained indefinitely).
+    - `"1hr"`, `"24hr"` retain for the specified number of hours.
+    - `"7d"`, `"30d"` retain for the specified number of days.
+
+    {{< note >}}
+    If the value is invalid, Chef Automate disables cleanup (fail-closed) and logs a warning.
+    {{< /note >}}
+
+1. Patch the Chef Automate configuration:
+
+    ```shell
     sudo chef-automate config patch </PATH/TO/TOML/FILE>
     ```
 
@@ -231,53 +299,55 @@ If you don't set `[global.v1.audit.output]`, Chef Automate uses these defaults:
 
 ## Audit log settings reference
 
+<!-- markdownlint-disable MD046 -->
+
 The following defines the default audit log storage settings.
 For a complete set of log storage settings, see the [reference examples](#audit-log-configuration-file-examples) below.
 
 `[global.v1.audit.logging]`
+: Controls whether audit logging is enabled.
+  When disabled, Automate skips validation of the `storage`, `input`, `output`, and `async` fields.
 
-: Audit logging is disabled by default:
+  Default settings:
 
   ```toml
   [global.v1.audit.logging]
     enabled = false
   ```
 
-: Configure whether logging is enabled with the following:
+: `enabled`
+  : Whether logging is enabled. Must be `true` or `false`.
 
-  `enabled`
-
-  : Default value: `false`
-
-    Must be `true` or `false`.
-
-  : Audit validation is only enforced if `enabled` is `true`.
     If audit logging is disabled (`false`), Automate doesn't validate the audit `storage`, `input`, `output`, and `async` fields.
 
-`[global.v1.audit.async]`
+    Default value: `false`
 
-: Audit log generation settings have the following defaults:
+`[global.v1.audit.async]`
+: Controls asynchronous upload worker behavior.
+
+  Default settings:
 
   ```toml
   [global.v1.audit.async]
     max_concurrent_workers = 4
     queue_size = 100
     multipart_chunk_size = "10MB"
+    requested_logs_retention_duration = "1hr"
   ```
 
 : `max_concurrent_workers`
-  : Default value: `4`
-
-    If set, must be between `1` and `100`.
+  : If set, must be between `1` and `100`.
 
     Higher values increase throughput but also CPU and memory usage.
 
-: `queue_size`
-  : Default value: `100`
+    Default value: `4`
 
-    If set, must be between `1` and `10000`.
+: `queue_size`
+  : If set, must be between `1` and `10000`.
 
     If full, new requests may be rejected.
+
+    Default value: `100`
 
 : `multipart_chunk_size`
   : Multipart upload part size.
@@ -288,13 +358,25 @@ For a complete set of log storage settings, see the [reference examples](#audit-
 
     Format: `KB`, `MB`, or `GB` suffixes (use `"20MB"`, not `"20M"`).
 
-`[global.v1.audit.input]`
+: `requested_logs_retention_duration`
+  : Controls how long requested audit log export files (stored under `requested-logs/` in your bucket) are kept before automatic hourly cleanup.
 
-: The audit log input settings have the following defaults:
+    Valid formats: `"0"` (disabled), `"1hr"`, `"24hr"`, `"7d"`, `"30d"`, and so on.
+    Must use `hr` for hours or `d` for days.
+    For example, `"24h"` is not valid. Use `"24hr"`.
+
+    Default value: `"1hr"`
+
+    If set to an invalid value, cleanup is disabled and a warning is logged.
+
+`[global.v1.audit.input]`
+: Controls how Fluent Bit tails the local audit log file written by the load balancer.
+
+  Default settings:
 
   ```toml
   [global.v1.audit.input]
-    max_file_size = "10MB"
+    max_file_size = "100MB"
     refresh_interval = "60"
     mem_buf_limit = "5M"
   ```
@@ -316,7 +398,6 @@ For a complete set of log storage settings, see the [reference examples](#audit-
     Positive value (seconds)
 
 : `mem_buf_limit`
-
   : The in-memory buffer limit.
 
     Default value: `"5M"`
@@ -324,58 +405,74 @@ For a complete set of log storage settings, see the [reference examples](#audit-
     Format: If set, must be a size in `M` without a suffix (for example, `"5M"`). An empty string is invalid.
 
 `[global.v1.audit.storage]`
+: Configures the object storage backend for audit logs.
 
-: The audit log storage settings have the following defaults:
+  Default settings:
 
   ```toml
   [global.v1.audit.storage]
     storage_type = "s3"
     endpoint = "https://s3.amazonaws.com"
-    storage_region = "us-east-1"
-    path_prefix = ""
+    storage_region = ""
+    path_prefix = "audit-logs"
+  ```
+
+  All settings:
+
+  ```toml
+  [global.v1.audit.storage]
+    storage_type = "s3"
+    endpoint = "https://s3.<AWS_REGION>.amazonaws.com"
+    bucket = "<BUCKET_NAME>"
+    storage_region = "<AWS_REGION>"
+    path_prefix = "audit-logs"
+    access_key = "<ACCESS_KEY>"
+    secret_key = "<SECRET_KEY>"
   ```
 
 : `storage_type`
-  : Default value: `"s3"`
+  : Must be `"s3"` or `"minio"`.
 
-    Must be `"s3"` or `"minio"`
+    Default value: `"s3"`
 
 : `endpoint`
-  : Required for S3 when `bucket` is set, and always required for MinIO. For AWS S3, use a regional endpoint (for example, `https://s3.<AWS_REGION>.amazonaws.com`). For `us-east-1`, `https://s3.amazonaws.com` also works.
+  : The AWS S3 or MinIO endpoint URL.
 
-  Default value: `"https://s3.amazonaws.com"`
+    Required for S3 when `bucket` is set, and always required for MinIO. For AWS S3, use a regional endpoint (for example, `https://s3.<AWS_REGION>.amazonaws.com`). For `us-east-1`, `https://s3.amazonaws.com` also works.
 
-    The AWS S3 or MinIO endpoint URL.
+    Default value: `"https://s3.amazonaws.com"`
 
 : `bucket`
-  : Default value: n/a
+  : Required. Uploads don't run unless a bucket is configured.
 
-    Required. Uploads don't run unless a bucket is configured.
+    Default value: n/a
 
 : `storage_region`
-  : Default value: `""`
+  : Required for AWS S3 when `bucket` is set. For MinIO, use `"us-east-1"`.
 
-    Required for AWS S3 when `bucket` is set. For MinIO, use `"us-east-1"`.
+    Default value: `""`
 
 : `path_prefix`
-  : Default value: `"audit-logs"`
+  : Optional key prefix inside the bucket.
 
-    Optional key prefix inside bucket
+    Default value: `"audit-logs"`
 
 : `access_key`
-  : Default value: `""`
-
-    - For MinIO: required
+  : - For MinIO: required
     - For AWS: optional if using an IAM role or instance
 
-: `secret_key`
-  : Default value: `""`
+    Default value: `""`
 
-    Required if `access_key` is set.
+: `secret_key`
+  : Required if `access_key` is set.
+
+    Default value: `""`
 
 `[global.v1.audit.storage.ssl]`
+: Configures TLS for the object storage connection.
+  Enable TLS for HTTPS endpoints, enforce certificate verification, and supply a CA certificate for private or self-signed certificates.
 
-: The storage SSL settings have the following defaults:
+  Default settings:
 
   ```toml
   [global.v1.audit.storage.ssl]
@@ -385,27 +482,28 @@ For a complete set of log storage settings, see the [reference examples](#audit-
   ```
 
 : `enabled`
-  : Default value: `false`
-
-    If using an HTTPS endpoint, set to `true`. If using HTTP endpoint, set to `false`.
+  : If using an HTTPS endpoint, set to `true`. If using an HTTP endpoint, set to `false`.
 
     If MinIO uses a private certificate authority or self-signed certificate, set to `true` and add PEM file contents to `root_cert`.
 
-: `verify_ssl`
-  : Default value: `false`
+    Default value: `false`
 
-    Set to `true` if `enabled = true` and `root_cert` is set.
+: `verify_ssl`
+  : Set to `true` if `enabled = true` and `root_cert` is set.
+
+    Default value: `false`
 
 : `root_cert`
-  : Required if `enabled` is `true`.
+  : PEM-encoded CA certificate (optional, for private CAs or self-signed certs).
+
+    Required if `enabled` is `true`.
 
     Default value: `""`
 
-    PEM-encoded CA certificate (optional, for private CAs or self-signed certs).
-
 `[global.v1.audit.output]`
+: Controls how Fluent Bit batches and uploads audit log data to the object storage backend using the [Fluent Bit S3 output plugin](https://docs.fluentbit.io/manual/pipeline/outputs/s3).
 
-: The audit log output settings have the following defaults:
+  Default settings:
 
   ```toml
   [global.v1.audit.output]
@@ -413,8 +511,6 @@ For a complete set of log storage settings, see the [reference examples](#audit-
     upload_chunk_size = "6M"
     upload_timeout = "10m"
   ```
-
-: The audit output settings control the [Fluent Bit S3 output plugin behavior](https://docs.fluentbit.io/manual/pipeline/outputs/s3).
 
 : `total_file_size`
   : Total size threshold before the output is split into additional objects.
@@ -428,18 +524,51 @@ For a complete set of log storage settings, see the [reference examples](#audit-
     Units: `M` or `G` only. Must be between 1 MB and 50GB, and must be greater than or equal to twice the `upload_chunk_size` value.
 
 : `upload_chunk_size`
-  : Default value: `"6M"`
-
-    Min value: `"6M"`
+  : Min value: `"6M"`
 
     Max value: `"50M"`
 
     Units: `M` or `G` only. Must be between 6 MB and 50 MB.
 
-: `upload_timeout`
-  : Default value: `"10m"`
+    Default value: `"6M"`
 
-    Units: minutes only (`m`).
+: `upload_timeout`
+  : Units: minutes only (`m`).
+
+    Default value: `"10m"`
+
+`[global.v1.audit.retention]`
+: Configures automatic daily deletion of audit log objects stored in S3 or MinIO.
+
+  Default settings:
+
+  ```toml
+  [global.v1.audit.retention]
+    days = 30
+    schedule_hour = 2
+    schedule_minute = 0
+  ```
+
+: `days`
+  : Number of days to retain audit logs.
+    A value of `0` disables automatic cleanup (unlimited retention).
+    A value greater than 0 enables cleanup and sets the retention period.
+
+    Must be greater than or equal to `0`.
+
+    Default value: `30`
+
+: `schedule_hour`
+  : Hour of day (0--23) when the daily cleanup job runs.
+
+    Default value: `2` (2 AM)
+
+: `schedule_minute`
+  : Minute (0-59) when the daily cleanup job runs.
+
+    Default value: `0`
+
+<!-- markdownlint-enable MD046 -->
 
 ### Audit log configuration file examples
 
@@ -471,6 +600,12 @@ The following TOML shows the default audit log settings:
     max_concurrent_workers = 4
     queue_size = 100
     multipart_chunk_size = "10M"
+    requested_logs_retention_duration = "1hr"
+
+  [global.v1.audit.retention]
+    days = 30
+    schedule_hour = 2
+    schedule_minute = 0
 
   [global.v1.audit.storage]
     storage_type = "s3"
@@ -510,6 +645,12 @@ The following example includes all available settings:
     max_concurrent_workers = 4
     queue_size = 100
     multipart_chunk_size = "10M"
+    requested_logs_retention_duration = "1hr"
+
+  [global.v1.audit.retention]
+    days = 30
+    schedule_hour = 2
+    schedule_minute = 0
 
   [global.v1.audit.storage]
     # Use "s3" for AWS S3 or "minio" for MinIO.
@@ -550,7 +691,7 @@ All audit APIs require authentication.
 
 All endpoints accept a bearer token (JWT) in the `Authorization` header:
 
-```bash
+```shell
 curl -sS \
   -H "Authorization: Bearer <TOKEN>" \
   "https://<FQDN>/api/v0/audit/..."
@@ -567,7 +708,7 @@ The Self request API doesn't accept `api-token` authentication; use a bearer (JW
 
 Example using an API token header:
 
-```bash
+```shell
 curl -sS \
   -H "api-token: $API_TOKEN" \
   "https://$FQDN/api/v0/audit/admin/request"
@@ -645,7 +786,7 @@ Response:
 - Access control: Self only (you can only view your own requested logs)
 - Query parameters:
   - `request_id` (optional):
-    - If omitted, returns the status of the latest request for the current user.
+    - If omitted, returns the status of your latest request.
     - If provided, returns the status for that specific request ID.
 
 Examples:
@@ -697,7 +838,7 @@ Example (completed):
 - Access control: Self only (you can only download your own audit logs)
 - Query parameters:
   - `request_id` (optional):
-    - If omitted, returns the last requested audit log file for the current user.
+    - If omitted, returns your last requested audit log file.
     - If provided, returns the audit log file for that specific request ID.
 - Returns: The audit log file as a gzip-compressed download.
 
