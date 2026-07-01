@@ -17,7 +17,7 @@ summary = "Chef Infra Client release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
-## Chef Infra Client 18.11.4
+## Chef Infra Client 18.11.5
 
 Release date: July, 2026
 
@@ -81,9 +81,12 @@ Release date: July, 2026
 - Update uuidtools requirement from >= 2.1.5, < 3.0 to >= 2.1.5, < 4.0 [#16056](https://github.com/chef/chef/pull/16056)
 - Bump chef-zero from 15.1.0 to 15.1.11 [#16057](https://github.com/chef/chef/pull/16057)
 - Bump actions/labeler from 6.0.1 to 6.1.0 [#15990](https://github.com/chef/chef/pull/15990)
-- Update ffi requirement from >= 1.15.5, <= 1.16.3 to >= 1.15.5, <= 1.17.5 [#16100](https://github.com/chef/chef/pull/16100)
 - Bump train-core from 3.16.3 to 3.16.5 [#16103](https://github.com/chef/chef/pull/16103)
 - Bump danger/danger-js from 13.0.5 to 13.0.8 [#16124](https://github.com/chef/chef/pull/16124)
+- Bump chef-vault from 4.2.9 to 4.2.12 [#16129](https://github.com/chef/chef/pull/16129)
+- Bump concurrent-ruby from 1.3.6 to 1.3.7 [#16114](https://github.com/chef/chef/pull/16114)
+- Updated InSpec to latest version [#16142](https://github.com/chef/chef/pull/16142)
+- Update diff-lcs requirement from >= 1.2.4, != 1.4.0, < 1.6.0 to >= 1.2.4, != 1.4.0, < 2.1.0 [#15826](https://github.com/chef/chef/pull/15826)
 
 
 ### Packaging
@@ -107,11 +110,16 @@ Release date: July, 2026
 - Remove Chef-PowerShell from Habitat [#16092](https://github.com/chef/chef/pull/16092)
 - Re-add AIX support for Chef 18 omnibus builds [#16109](https://github.com/chef/chef/pull/16109)
 
+### Bug fixes
+- Fixed a path traversal vulnerability in the `archive_file` resource. [#16119](https://github.com/chef/chef/pull/16119)
+- Fixed an issue where the `sensitive` flag on a resource wasn't being honored correctly. [#16138](https://github.com/chef/chef/pull/16138)
+
 ### Security
 - Updating aws-sdk-s3 for CVE-2025-14762 [#15848](https://github.com/chef/chef/pull/15848)
 - Update rack to 3.2.6 [#15854](https://github.com/chef/chef/pull/15854)
 - Document CVE PR label requirements [#16034](https://github.com/chef/chef/pull/16034)
 - Updating Rack via Chef-Zero [#16054](https://github.com/chef/chef/pull/16054)
+- Bump faraday to 2.14.3 to address a CVE. [#16154](https://github.com/chef/chef/pull/16154)
 
 
 
