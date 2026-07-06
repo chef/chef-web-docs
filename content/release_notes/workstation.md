@@ -21,9 +21,15 @@ summary = "Chef Workstation release notes"
 
 Release date: July 8, 2026
 
-### Packaging
+### Bug fixes
 
-We added OS-native packages alongside the existing Habitat packages. You can download packages from the Chef customer download portal or the download API.
+- Fixed Chef Test Kitchen Enterprise warnings during `kitchen verify` that occurred due to unresolved or ambiguous gem specifications when multiple versions of gems (such as `reline`, `minitest`, and `drb`) were installed in the environment.
+- Fixed a `knife search` command issue where queries containing spaces were incorrectly parsed due to unquoted argument expansion in the Habitat knife wrapper.
+- Fixed Cookstyle inline `# cookstyle:disable` directives being ignored after the RuboCop engine upgrade. Directive comments are now parsed correctly regardless of whether the raw source contains the literal string `rubocop`.
+
+### Packages
+
+Chef Workstation now includes OS-native packages alongside the existing Habitat packages. You can download packages from the Chef customer download portal or the download API.
 
 The following native packages are available:
 
@@ -33,13 +39,14 @@ The following native packages are available:
 OS-native packages for Linux ARM and macOS aren't available in this release.
 We plan to add Linux ARM and macOS OS-native packages in upcoming releases.
 
-### Bug fixes
+### Security
 
-- Fixed Chef Test Kitchen Enterprise warnings during `kitchen verify` that occurred due to unresolved or ambiguous gem specifications when multiple versions of gems (such as `reline`, `minitest`, and `drb`) were installed in the environment.
-- Fixed a `knife search` command issue where queries containing spaces were incorrectly parsed due to unquoted argument expansion in the Habitat knife wrapper.
-- Fixed Cookstyle inline `# cookstyle:disable` directives being ignored after the RuboCop engine upgrade. Directive comments are now parsed correctly regardless of whether the raw source contains the literal string `rubocop`.
+- Updated faraday in knife to v2.14.3.
+- Updated concurrent-ruby in knife to v1.3.7.
+- Updated mixlib-shellout in knife to v3.4.10.
+- Updated addressable in chef-cli to v2.9.0.
 
-#### Tool updates
+### Tool updates
 
 - **Berkshelf**:
 
@@ -75,7 +82,7 @@ We plan to add Linux ARM and macOS OS-native packages in upcoming releases.
 
 - **Knife**:
 
-  - Updated Knife to version  19.0.134.
+  - Updated Knife to version 19.0.134.
 
     For details, see the [Knife changelog](https://github.com/chef/knife/blob/main/CHANGELOG.md).
 
@@ -85,16 +92,9 @@ We plan to add Linux ARM and macOS OS-native packages in upcoming releases.
 
 - **Test Kitchen Enterprise**:
 
-  - Updated Test Kitchen Enterprise to version  2.0.15.
+  - Updated Test Kitchen Enterprise to version 2.0.15.
 
     For details, see the [Test Kitchen Enterprise changelog](https://github.com/chef/chef-test-kitchen-enterprise/blob/main/CHANGELOG.md#v2015-2026-06-18).
-
-#### Security
-
-- Updated faraday in knife to v2.14.3.
-- Updated concurrent-ruby in knife to v1.3.7.
-- Updated mixlib-shellout in knife to v3.4.10.
-- Updated addressable in chef-cli to v2.9.0.
 
 ## Chef Workstation 26.0.18
 
