@@ -17,113 +17,6 @@ summary = "Chef Infra Client release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
-## Chef Infra Client 18.11.7
-
-Release date: July xx, 2026
-
-### Compliance Phase Improvements
-- Fixed an issue where the Compliance Phase ran twice when a reboot was scheduled during a Chef Infra Client run. [#15997](https://github.com/chef/chef/pull/15997)
-
-## New Resources
-- Added a recipe for chrony to update Kitchen tests in the CI pipeline. [#15739](https://github.com/chef/chef/pull/15739)
-
-### Resource Updates
-- Updated train-winrm train-core and chef to latest release for upcoming Knife release. [#15671](https://github.com/chef/chef/pull/15671)
-- Pinned Habitat version to 1.6 to avoid HAB_AUTH_TOKEN errors. [#15736](https://github.com/chef/chef/pull/15736)
-- Fixed an issue where the lazy block for content was evaluated more than once. [#15715](https://github.com/chef/chef/pull/15715)
-- Updated pry from 0.13.0 to 0.15.2. [#15801](https://github.com/chef/chef/pull/15801)
-- Updated vault requirement from > 0.18.2 to >= 0.18.2, < 0.21.0. [#15802](https://github.com/chef/chef/pull/15802)
-- Updated webmock from 3.26.1 to 3.26.2. [#15809](https://github.com/chef/chef/pull/15809)
-- Updated aws-sdk-s3 from 1.213.0 to 1.218.0. [#15832](https://github.com/chef/chef/pull/15832)
-- Updated crack from 0.4.5 to 1.0.1. [#15828](https://github.com/chef/chef/pull/15828)
-- Updated win32-eventlog requirement from = 0.6.3 to = 0.6.7. [#15829](https://github.com/chef/chef/pull/15829)
-- Updated highline requirement from >= 1.6.9, < 3 to >= 1.6.9, < 4. [#15831](https://github.com/chef/chef/pull/15831)
-- Updated unf_ext requirement from > 0.0.8.2 to >= 0.0.8.2, < 0.0.10.0. [#15816](https://github.com/chef/chef/pull/15816)
-- Updated ohai from `73fcb7e` to `7a4e10c`; this updated ohai, json, and net-ssh gems. [#15805](https://github.com/chef/chef/pull/15805)
-- Updated pry-stack_explorer from 0.6.1 to 0.6.2. [#15830](https://github.com/chef/chef/pull/15830)
-- Updated cookstyle from 8.6.4 to 8.6.10. [#15810](https://github.com/chef/chef/pull/15810)
-- Updated aws-sdk-secretsmanager from 1.128.0 to 1.129.0. [#15807](https://github.com/chef/chef/pull/15807)
-- Updated net-ssh from 7.3.0 to 7.3.2. [#15818](https://github.com/chef/chef/pull/15818)
-- Updated inspec-core requirement from >= 5, < 6 to >= 5, < 8. [#15814](https://github.com/chef/chef/pull/15814)
-- Updated uri requirement from ~> 1.0.4 to >= 1.0.4, < 1.2.0. [#15804](https://github.com/chef/chef/pull/15804)
-- Fixed an issue where invalid TOML in unit tests caused failures. [#15841](https://github.com/chef/chef/pull/15841)
-- Updated tomlrb from 1.3.0 to 2.0.4. [#15808](https://github.com/chef/chef/pull/15808)
-- Updated addressable from 2.8.7 to 2.8.9. [#15819](https://github.com/chef/chef/pull/15819)
-- Kept Chef-18 on inspec-core-bin ~> 5.0 and tomlrb ~> 1.0. [#15858](https://github.com/chef/chef/pull/15858)
-- Removed MSYS-installed OpenSSL on Windows because Chef uses a different version. [#15863](https://github.com/chef/chef/pull/15863)
-- Fixed an issue where the chocolatey resource download failed under PowerShell 5.1. [#15925](https://github.com/chef/chef/pull/15925)
-- Fixed an issue where Fedora 42 and openSUSE Leap 15 CI tests failed (cherry-pick from #15902). [#15932](https://github.com/chef/chef/pull/15932)
-- Pinned ntp and openssh cookbook versions to prevent CI breakage. [#15931](https://github.com/chef/chef/pull/15931)
-- Updated pry-stack_explorer from 0.6.2 to 0.6.3. [#15877](https://github.com/chef/chef/pull/15877)
-- Updated danger/danger-js from 11.3.1 to 13.0.5. [#15959](https://github.com/chef/chef/pull/15959)
-- Updated streetsidesoftware/cspell-action from 2.12.0 to 8.4.0. [#15955](https://github.com/chef/chef/pull/15955)
-- Corrected the `rest_resource` DSL. [#15970](https://github.com/chef/chef/pull/15970)
-- Locked aws-sdk-s3 to a specific version to prevent incompatible GCC versions from loading. [#15966](https://github.com/chef/chef/pull/15966)
-- Updated ohai from `2b30698` to `31b00ef`. [#15965](https://github.com/chef/chef/pull/15965)
-- Fixed an issue where reline 0.3.1 had a keyboard bug. [#15963](https://github.com/chef/chef/pull/15963)
-- Updated rake from 13.3.1 to 13.4.2. [#15907](https://github.com/chef/chef/pull/15907)
-- Updated ohai from `7a4e10c` to `2b30698`. [#15951](https://github.com/chef/chef/pull/15951)
-- Updated train-core from 3.16.1 to 3.16.2. [#15930](https://github.com/chef/chef/pull/15930)
-- Updated actions/checkout from 5 to 6. [#15954](https://github.com/chef/chef/pull/15954)
-- Locked Gemfile to pry-byebug 3.11. [#15944](https://github.com/chef/chef/pull/15944)
-- Backported sugarjar config to chef-18. [#15946](https://github.com/chef/chef/pull/15946)
-- Updated wechuli/allcheckspassed from 1 to 2. [#15956](https://github.com/chef/chef/pull/15956)
-- Fixed an issue where trusted certs tests failed intermittently; local resources are now used instead of cloud-based options. [#15961](https://github.com/chef/chef/pull/15961)
-- Optimized dnf_command to reduce shell_out calls. [#15971](https://github.com/chef/chef/pull/15971)
-- Added DNF5 support to the dnf_package provider. [#16007](https://github.com/chef/chef/pull/16007)
-- Updated ffi-yajl requirement from ~> 2.2 to >= 2.2, < 4.0. [#16013](https://github.com/chef/chef/pull/16013)
-- Updated train-core from 3.16.2 to 3.16.3. [#15976](https://github.com/chef/chef/pull/15976)
-- Added directory_specs and client_rb_mode properties to the chef_client_config resource [#16025](https://github.com/chef/chef/pull/16025)
-- Backported AlmaLinux 10 chrony exemption. [#16032](https://github.com/chef/chef/pull/16032)
-- Fixed an issue where `authenticator.retrieve_certificate_key` intermittently raised `NoMethodError` on Windows. [#16076](https://github.com/chef/chef/pull/16076)
-- Limited excessive output from template errors (#16073). [#16087](https://github.com/chef/chef/pull/16087)
-- Disabled chrony kitchen tests for Rocky Linux 10. [#16084](https://github.com/chef/chef/pull/16084)
-- Updated uuidtools requirement from >= 2.1.5, < 3.0 to >= 2.1.5, < 4.0. [#16056](https://github.com/chef/chef/pull/16056)
-- Updated chef-zero from 15.1.0 to 15.1.11. [#16057](https://github.com/chef/chef/pull/16057)
-- Updated actions/labeler from 6.0.1 to 6.1.0. [#15990](https://github.com/chef/chef/pull/15990)
-- Updated train-core from 3.16.3 to 3.16.5. [#16103](https://github.com/chef/chef/pull/16103)
-- Updated danger/danger-js from 13.0.5 to 13.0.8. [#16124](https://github.com/chef/chef/pull/16124)
-- Updated chef-vault from 4.2.9 to 4.2.12. [#16129](https://github.com/chef/chef/pull/16129)
-- Updated concurrent-ruby from 1.3.6 to 1.3.7. [#16114](https://github.com/chef/chef/pull/16114)
-- Updated InSpec to the latest version. [#16142](https://github.com/chef/chef/pull/16142)
-- Updated diff-lcs requirement from >= 1.2.4, != 1.4.0, < 1.6.0 to >= 1.2.4, != 1.4.0, < 2.1.0. [#15826](https://github.com/chef/chef/pull/15826)
-
-
-### Packaging
-- Removed release notes actions from Chef 18. [#15546](https://github.com/chef/chef/pull/15546)
-- Updated the GitHub workflow actions for SBOM and related checks. [#15734](https://github.com/chef/chef/pull/15734)
-- Fixed an issue where Chef-18 CI failed by updating Black Duck scanning. [#15743](https://github.com/chef/chef/pull/15743)
-- Moved the DCO check to GitHub Actions. [#15750](https://github.com/chef/chef/pull/15750)
-- Fixed an issue where `platform_family` matches were incorrect. [#15742](https://github.com/chef/chef/pull/15742)
-- Backported Dependabot fixes to chef-18 and made gemspec loading more deterministic. [#15789](https://github.com/chef/chef/pull/15789)
-- Disabled Expeditor gem bumps on chef-18 because they were creating confusion and delay. [#15843](https://github.com/chef/chef/pull/15843)
-- Moved Omnibus to a privatization submodule. [#15659](https://github.com/chef/chef/pull/15659)
-- Removed Code Climate from chef-18. [#15939](https://github.com/chef/chef/pull/15939)
-- Prevented Buildkite time from being wasted on GitHub-only changes. [#15949](https://github.com/chef/chef/pull/15949)
-- Updated CODEOWNERS on chef-18. [#15948](https://github.com/chef/chef/pull/15948)
-- Upgraded the GH labeler. [#15960](https://github.com/chef/chef/pull/15960)
-- Fixed an issue where kitchen tests for nscd and git cookbooks failed. [#16010](https://github.com/chef/chef/pull/16010)
-- Removed kernel 2 support from testing. [#15973](https://github.com/chef/chef/pull/15973)
-- Removed unused Dependabot config on chef-18. [#15968](https://github.com/chef/chef/pull/15968)
-- Community omnibus - Added a How To after moving it to a submodule [#16008](https://github.com/chef/chef/pull/16008)
-- Added `git safe.directory` to the Habitat Linux plan `do_download` step. [#16121](https://github.com/chef/chef/pull/16121)
-- Removed Chef-PowerShell from Habitat. [#16092](https://github.com/chef/chef/pull/16092)
-- Re-added AIX support for Chef 18 Omnibus builds. [#16109](https://github.com/chef/chef/pull/16109)
-
-### Bug fixes
-- Fixed an issue where the `archive_file` resource was vulnerable to path traversal. [#16119](https://github.com/chef/chef/pull/16119)
-- Fixed an issue where the `sensitive` flag on a resource wasn't being honored correctly. [#16138](https://github.com/chef/chef/pull/16138)
-
-### Security
-- Updated aws-sdk-s3 for CVE-2025-14762. [#15848](https://github.com/chef/chef/pull/15848)
-- Updated rack to 3.2.6. [#15854](https://github.com/chef/chef/pull/15854)
-- Documented CVE PR label requirements. [#16034](https://github.com/chef/chef/pull/16034)
-- Updated rack through Chef-Zero. [#16054](https://github.com/chef/chef/pull/16054)
-- Updated faraday to 2.14.3 to address a CVE. [#16154](https://github.com/chef/chef/pull/16154)
-
-
-
-
 ## Chef Infra Client 19.3.15
 
 Release date: May 22, 2026
@@ -333,6 +226,78 @@ Release date: February 5, 2026
 - Don't install this version of Chef Infra Client on a machine that already has Chef Automate installed.
 - This release doesn't support FIPS Mode.
 - The chef_client_systemd_timer resource doesn't work with SELinux.
+
+## Chef Infra Client 18.11.7
+
+Release date: July 8, 2026
+
+### New features
+
+- **`chef_client_config` resource**: Adds two new properties. `directory_specs` lets you configure permissions (owner, group, mode, and Windows rights and inherits) for each Chef-managed directory: `:config`, `:client_d`, `:logs`, `:cache`, and `:backups`. `client_rb_mode` lets you set the file mode of the generated `client.rb` file (defaults to `"0640"`). ([#16025](https://github.com/chef/chef/pull/16025))
+- **`dnf_package` and `package` resources**: Adds support for the DNF5 package manager used in Fedora 41+ and future RHEL-based systems, including updated version-lock handling and `config-manager` command differences between DNF4 and DNF5. Chef Infra Client automatically detects which version of DNF is installed. No changes to existing cookbooks or recipes are required. ([#16007](https://github.com/chef/chef/pull/16007))
+
+### Improvements
+
+- Template error messages now include the cookbook name and template filename, and are truncated to 10,000 characters to prevent exposing large node attribute data in logs. ([#16087](https://github.com/chef/chef/pull/16087))
+- The `dnf_package` resource now locates the DNF Python helper more efficiently, reducing unnecessary `shell_out` calls during converge runs on DNF-based systems. ([#15971](https://github.com/chef/chef/pull/15971))
+
+### Bug fixes
+
+- The Compliance Phase now runs only once per client run. When a resource triggers `action :reboot_now`, the second Compliance Phase execution is skipped. ([#15997](https://github.com/chef/chef/pull/15997))
+- Passwords, auth tokens, and private key passphrases are now properly masked in logs and run reports for resources including `chocolatey_installer`, `chocolatey_package`, `habitat_package`, `habitat_sup`, `openssl_ec_private_key`, and `openssl_rsa_private_key`. ([#16138](https://github.com/chef/chef/pull/16138))
+- The `chocolatey_installer` resource now constructs a full file path for `Invoke-WebRequest -OutFile`, which PowerShell 5.1 requires. ([#15925](https://github.com/chef/chef/pull/15925))
+- The `authenticator.retrieve_certificate_key` method no longer intermittently raises `NoMethodError` on Windows. ([#16076](https://github.com/chef/chef/pull/16076))
+- `lazy` content blocks in the `file` resource are now evaluated only once during a single converge run. ([#15715](https://github.com/chef/chef/pull/15715))
+- The `rest_resource` DSL now behaves correctly. ([#15970](https://github.com/chef/chef/pull/15970))
+- The keyboard input issue in reline 0.3.1 that affected interactive Ruby sessions is resolved. ([#15963](https://github.com/chef/chef/pull/15963))
+- `platform_family` now correctly identifies platform families on all supported platforms. ([#15742](https://github.com/chef/chef/pull/15742))
+
+### Security
+
+- Fixed a path traversal vulnerability in the `archive_file` resource. Extraction now rejects archive entries with `..` sequences, absolute paths, and unsafe symlinks. ([#16119](https://github.com/chef/chef/pull/16119))
+- Updated aws-sdk-s3 to 1.218.0 to address CVE-2025-14762 and GHSA-wx95-c6cv-8532. ([#15848](https://github.com/chef/chef/pull/15848))
+- Updated rack to 3.2.6 to address multiple CVEs including CVE-2026-34835 and CVE-2026-34829. ([#15854](https://github.com/chef/chef/pull/15854))
+- Updated faraday to 2.14.3 to address GHSA-98m9-hrrm-r99r and GHSA-5rv5-xj5j-3484. ([#16154](https://github.com/chef/chef/pull/16154))
+
+### Packages
+
+- Re-added AIX support for Chef Infra Client 18 Omnibus builds. ([#16109](https://github.com/chef/chef/pull/16109))
+
+### Dependency updates
+
+- Updated train-winrm, train-core, and chef to the latest releases. ([#15671](https://github.com/chef/chef/pull/15671))
+- Updated pry from 0.13.0 to 0.15.2. ([#15801](https://github.com/chef/chef/pull/15801))
+- Updated vault requirement from > 0.18.2 to >= 0.18.2, < 0.21.0. ([#15802](https://github.com/chef/chef/pull/15802))
+- Updated webmock from 3.26.1 to 3.26.2. ([#15809](https://github.com/chef/chef/pull/15809))
+- Updated crack from 0.4.5 to 1.0.1. ([#15828](https://github.com/chef/chef/pull/15828))
+- Updated win32-eventlog requirement from = 0.6.3 to = 0.6.7. ([#15829](https://github.com/chef/chef/pull/15829))
+- Updated highline requirement from >= 1.6.9, < 3 to >= 1.6.9, < 4. ([#15831](https://github.com/chef/chef/pull/15831))
+- Updated unf_ext requirement from > 0.0.8.2 to >= 0.0.8.2, < 0.0.10.0. ([#15816](https://github.com/chef/chef/pull/15816))
+- Updated Ohai from `73fcb7e` to `7a4e10c`; this updated ohai, json, and net-ssh gems. ([#15805](https://github.com/chef/chef/pull/15805))
+- Updated pry-stack_explorer from 0.6.1 to 0.6.2. ([#15830](https://github.com/chef/chef/pull/15830))
+- Updated Cookstyle from 8.6.4 to 8.6.10. ([#15810](https://github.com/chef/chef/pull/15810))
+- Updated aws-sdk-secretsmanager from 1.128.0 to 1.129.0. ([#15807](https://github.com/chef/chef/pull/15807))
+- Updated net-ssh from 7.3.0 to 7.3.2. ([#15818](https://github.com/chef/chef/pull/15818))
+- Updated inspec-core requirement from >= 5, < 6 to >= 5, < 8. ([#15814](https://github.com/chef/chef/pull/15814))
+- Updated uri requirement from ~> 1.0.4 to >= 1.0.4, < 1.2.0. ([#15804](https://github.com/chef/chef/pull/15804))
+- Updated tomlrb from 1.3.0 to 2.0.4. ([#15808](https://github.com/chef/chef/pull/15808))
+- Updated addressable from 2.8.7 to 2.8.9. ([#15819](https://github.com/chef/chef/pull/15819))
+- Removed MSYS-installed OpenSSL on Windows because Chef uses a different version. ([#15863](https://github.com/chef/chef/pull/15863))
+- Updated pry-stack_explorer from 0.6.2 to 0.6.3. ([#15877](https://github.com/chef/chef/pull/15877))
+- Updated rake from 13.3.1 to 13.4.2. ([#15907](https://github.com/chef/chef/pull/15907))
+- Updated Ohai from `7a4e10c` to `2b30698`. ([#15951](https://github.com/chef/chef/pull/15951))
+- Updated train-core from 3.16.1 to 3.16.2. ([#15930](https://github.com/chef/chef/pull/15930))
+- Locked aws-sdk-s3 to a specific version to prevent incompatible GCC versions from loading. ([#15966](https://github.com/chef/chef/pull/15966))
+- Updated Ohai from `2b30698` to `31b00ef`. ([#15965](https://github.com/chef/chef/pull/15965))
+- Updated ffi-yajl requirement from ~> 2.2 to >= 2.2, < 4.0. ([#16013](https://github.com/chef/chef/pull/16013))
+- Updated train-core from 3.16.2 to 3.16.3. ([#15976](https://github.com/chef/chef/pull/15976))
+- Updated uuidtools requirement from >= 2.1.5, < 3.0 to >= 2.1.5, < 4.0. ([#16056](https://github.com/chef/chef/pull/16056))
+- Updated chef-zero from 15.1.0 to 15.1.11. ([#16057](https://github.com/chef/chef/pull/16057))
+- Updated train-core from 3.16.3 to 3.16.5. ([#16103](https://github.com/chef/chef/pull/16103))
+- Updated chef-vault from 4.2.9 to 4.2.12. ([#16129](https://github.com/chef/chef/pull/16129))
+- Updated concurrent-ruby from 1.3.6 to 1.3.7. ([#16114](https://github.com/chef/chef/pull/16114))
+- Updated Chef InSpec to 5.24.24. ([#16142](https://github.com/chef/chef/pull/16142))
+- Updated diff-lcs requirement from >= 1.2.4, != 1.4.0, < 1.6.0 to >= 1.2.4, != 1.4.0, < 2.1.0. ([#15826](https://github.com/chef/chef/pull/15826))
 
 ## Chef Infra Client 18.10.17
 
