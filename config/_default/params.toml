@@ -45,7 +45,8 @@ sitemaps = [
   "https://docs.chef.io/habitat/1.6/sitemap.xml",
   "https://docs.chef.io/habitat/2.0/sitemap.xml",
   "https://docs.chef.io/habitat/2.1/sitemap.xml",
-  "https://docs.chef.io/workstation/26/sitemap.xml",
+  "https://docs.chef.io/workstation/26.1/sitemap.xml",
+  "https://docs.chef.io/workstation/26.0/sitemap.xml",
   "https://docs.chef.io/workstation/25/sitemap.xml"
 ]
 
@@ -200,8 +201,12 @@ name = "Workstation"
 product_key = "workstation"
 
 [[search.products.workstation.versions]]
-name = "26"
-product_version_key = "workstation-26"
+name = "26.1"
+product_version_key = "workstation-26.1"
+
+[[search.products.workstation.versions]]
+name = "26.0"
+product_version_key = "workstation-26.0"
 
 [[search.products.workstation.versions]]
 name = "25"

@@ -187,12 +187,12 @@
 
 [[redirects]]
   from = "/inspec/profiles/*"
-  to = "/inspec/latest/profiles/:splat"
+  to = "/inspec/7.1/profiles/:splat"
   status = 301
 
 [[redirects]]
   from = "/inspec/resources/*"
-  to = "/inspec/latest/resources/"
+  to = "/inspec/7.1/resources/"
   status = 301
 
 ####
@@ -201,12 +201,17 @@
 
 [[redirects]]
   from = "/workstation/knife_*"
-  to = "/workstation/latest/tools/knife/knife_:splat"
+  to = "/workstation/26.1/tools/knife/knife_:splat"
   status = 301
 
 [[redirects]]
-  from = "/workstation/26/*"
-  to = "https://release-26--chef-workstation-docs.netlify.app/workstation/26/:splat"
+  from = "/workstation/26.1/*"
+  to = "https://release-26-1--chef-workstation-docs.netlify.app/workstation/26.1/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/workstation/26.0/*"
+  to = "https://release-26-0--chef-workstation-docs.netlify.app/workstation/26.0/:splat"
   status = 200
 
 [[redirects]]
@@ -216,5 +221,10 @@
 
 [[redirects]]
   from = "/workstation/latest/*"
-  to = "/workstation/26/:splat"
+  to = "/workstation/26.1/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/workstation/26/*"
+  to = "/workstation/26.1/:splat"
   status = 301
