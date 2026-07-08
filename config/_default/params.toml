@@ -80,7 +80,23 @@ gh_path = "https://github.com/chef/license-service/tree/main/docs-chef-io/conten
 
 [search]
 
-default_search_product_keys = ["", "chef-360-saas", "chef-360-1.7", "automate", "desktop", "habitat", "chef-habitat-2.1", "client-19", "server", "inspec", "inspec-7.1", "saas", "supermarket", "workstation", "workstation-26"]
+default_search_product_keys = [
+  "",
+  "chef-360-saas",
+  "chef-360-1.7",
+  "automate",
+  "desktop",
+  "habitat",
+  "chef-habitat-2.1",
+  "client-19",
+  "server",
+  "inspec",
+  "inspec-7.1",
+  "saas",
+  "supermarket",
+  "workstation",
+  "workstation-26.1"
+]
 
 [search.products]
 
