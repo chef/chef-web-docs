@@ -1180,18 +1180,25 @@ title = "Chef Workstation"
 identifier = "chef_workstation"
 
   [[workstation]]
-  title = "Workstation v26"
+  title = "Workstation v26.1"
   parent = "chef_workstation"
-  identifier = "chef_workstation/26"
-  url = "/workstation/26/"
+  identifier = "chef_workstation/26.1"
+  url = "/workstation/26.1/"
   weight = 10
+
+  [[workstation]]
+  title = "Workstation v26.0"
+  parent = "chef_workstation"
+  identifier = "chef_workstation/26.0"
+  url = "/workstation/26.0/"
+  weight = 20
 
   [[workstation]]
   title = "Workstation v25"
   parent = "chef_workstation"
   identifier = "workstation/25"
   url = "/workstation/25/"
-  weight = 20
+  weight = 30
 
   [[workstation]]
   title = "Cookstyle"
