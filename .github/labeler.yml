@@ -41,7 +41,7 @@
           - static/client/**
           - content/release_notes/client.md
           - static/images/client/**
-          - data/infra/**
+          - data/client/**
           - content/chef_deprecations_client/**
 "Component: Chef Infra Server":
   - changed-files:
