@@ -229,7 +229,7 @@ Release date: February 5, 2026
 
 ## Chef Infra Client 18.11.6
 
-Release date: July 8, 2026
+Release date: July 13, 2026
 
 ### New features
 
