@@ -227,7 +227,7 @@ Release date: February 5, 2026
 - This release doesn't support FIPS Mode.
 - The chef_client_systemd_timer resource doesn't work with SELinux.
 
-## Chef Infra Client 18.11.6
+## Chef Infra Client 18.11.11
 
 Release date: July 13, 2026
 
