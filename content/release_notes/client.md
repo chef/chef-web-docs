@@ -261,7 +261,7 @@ Release date: July 13, 2026
 
 ### Packages
 
-- Re-added AIX support for Chef Infra Client 18 Omnibus builds. ([#16109](https://github.com/chef/chef/pull/16109))
+- We're releasing an AIX package for this release. ([#16109](https://github.com/chef/chef/pull/16109))
 
 ### Dependency updates
 
