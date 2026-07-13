@@ -255,20 +255,20 @@ The API accepts the following parameters in a query string.
 Use the following product keys to download packages or retrieve data for different Chef products.
 You can also use the [products endpoint](#products)
 
-| Product                            | Product key         |
-| ---------------------------------- | ------------------- |
-| Chef Automate                      | `automate`          |
-| Chef Backend                       | `chef-backend`      |
-| Chef Habitat                       | `habitat`           |
-| Chef Infra Client                  | `chef`              |
-| Chef Infra Client Enterprise       | `chef-ice`          |
-| Chef Infra Client Legacy Migration | `migrate-ice`       |
-| Chef Infra Server                  | `chef-server`       |
-| Chef InSpec                        | `inspec`            |
-| Chef InSpec Enterprise             | `inspec-enterprise` |
-| Chef Supermarket                   | `supermarket`       |
-| Chef Workstation                   | `chef-workstation`  |
-| Chef Workstation Enterprise        | `chef-workstation-enterprise` |
+| Product                            | Product key                   | Notes                   |
+| ---------------------------------- | ----------------------------- | ----------------------- |
+| Chef Automate                      | `automate`                    |                         |
+| Chef Backend                       | `chef-backend`                |                         |
+| Chef Habitat                       | `habitat`                     |                         |
+| Chef Infra Client                  | `chef`                        | Versions 18 and earlier |
+| Chef Infra Client Enterprise       | `chef-ice`                    | Versions 19 and later   |
+| Chef Infra Client Legacy Migration | `migrate-ice`                 |                         |
+| Chef Infra Server                  | `chef-server`                 |                         |
+| Chef InSpec                        | `inspec`                      |                         |
+| Chef InSpec Enterprise             | `inspec-enterprise`           |                         |
+| Chef Supermarket                   | `supermarket`                 |                         |
+| Chef Workstation                   | `chef-workstation`            | Versions 25 and earlier |
+| Chef Workstation Enterprise        | `chef-workstation-enterprise` | Versions 26 and later   |
 
 See the [supported versions]({{< relref "versions" >}}) documentation for information about the support status of individual products.
 

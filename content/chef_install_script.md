@@ -239,10 +239,18 @@ To install a specific version of Chef Infra Client 19 or above on Windows, speci
 . { iwr -useb https://chefdownload-commercial.chef.io/install.ps1?license_id=<LICENSE_ID> } | iex; install -project chef-ice -version <VERSION>
 ```
 
-### Install the latest version of Chef Workstation
+### Install Chef Workstation up to version 25
 
-To install the latest version of Chef Workstation on Windows from the `current` channel:
+To install the latest version of Chef Workstation 25 on Windows from the `current` channel, specify the `chef-workstation` project:
 
 ```powershell
 . { iwr -useb https://chefdownload-commercial.chef.io/install.ps1?license_id=<LICENSE_ID> } | iex; install -channel current -project chef-workstation
+```
+
+### Install Chef Workstation 26 and above
+
+To install the latest version of Chef Workstation Enterprise (version 26 and above) on Windows from the `current` channel, specify the `chef-workstation-enterprise` project:
+
+```powershell
+. { iwr -useb https://chefdownload-commercial.chef.io/install.ps1?license_id=<LICENSE_ID> } | iex; install -channel current -project chef-workstation-enterprise
 ```
