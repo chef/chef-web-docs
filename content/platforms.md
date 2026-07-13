@@ -167,7 +167,7 @@ Chef Workstation is supported on the following platforms.
 {{< foundation_tabs_panels tabs-id="chef-workstation-commercial-support" >}}
 {{< foundation_tabs_panel active="true" panel-id="chef-workstation-commercial-support-v26-1" >}}
 
-Chef Workstation 26.1 is support on:
+Chef Workstation 26.1 is supported on:
 
 - Currently supported Linux distributions and versions running Linux kernel 2.6.32 and later on x86-64 (amd64)
 - Currently supported Windows versions greater than or equal to Windows 10 and Windows Server 2016
@@ -176,7 +176,7 @@ Chef Workstation 26.1 is support on:
 
 {{< foundation_tabs_panel panel-id="chef-workstation-commercial-support-v26-0" >}}
 
-Chef Workstation 26.0 is support on:
+Chef Workstation 26.0 is supported on:
 
 - Linux (x86_64)
 - Windows (x86_64)
@@ -185,7 +185,7 @@ Chef Workstation 26.0 is support on:
 
 {{< foundation_tabs_panel panel-id="chef-workstation-commercial-support-v25" >}}
 
-Chef Workstation 25.x is support on:
+Chef Workstation 25.x is supported on:
 
 | Platform                          | Architecture                | Version                                                                    |
 |-----------------------------------| ----------------------------| ---------------------------------------------------------------------------|
