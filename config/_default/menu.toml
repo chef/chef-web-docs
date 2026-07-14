@@ -1266,6 +1266,44 @@ identifier = "chef_workstation"
 ####
 
 ####
+# Chef Workstation 25 Menu
+####
+
+[[workstation_25]]
+title = "Tools"
+identifier = "workstation_25/tools"
+weight = 70
+
+  [[workstation_25]]
+  title = "Cookstyle"
+  identifier = "workstation_25/tools/cookstyle"
+  parent = "workstation_25/tools"
+  weight = 90
+  url = "/workstation/cookstyle/"
+
+  [[workstation_25]]
+  title = "Knife"
+  identifier = "workstation_25/tools/knife"
+  parent = "workstation_25/tools"
+  weight = 10
+
+    [[workstation_25]]
+    title = "Knife plugins"
+    identifier = "workstation_25/tools/knife/plugins"
+    parent = "workstation_25/tools/knife"
+    weight = 10
+
+  [[workstation_25]]
+  title = "Test Kitchen"
+  identifier = "workstation_25/tools/test_kitchen"
+  parent = "workstation_25/tools"
+  weight = 20
+
+####
+# End Chef Workstation 25 Menu
+####
+
+####
 # Effortless Menu
 ####
 
