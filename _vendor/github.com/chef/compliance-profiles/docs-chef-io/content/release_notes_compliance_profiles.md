@@ -17,6 +17,11 @@ draft = false
 - CIS MSSQL Server 2017 v1.3.0
 - CIS MSSQL Server 2022 v1.3.0 
 - CIS Alma Linux 10 v1.0.0
+- CIS Amazon Linux 2 v2.0.0
+
+### Improvements
+
+- CIS RHEL 10 v1.0.0: fixed control 1.3.1.2 (conflicting variable removed)
 
 ## 20260615
 
