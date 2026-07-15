@@ -9,7 +9,7 @@ draft = false
     weight = 10
 +++
 
-{{< readfile file="/content/reusable/md/workstation_modularize.md" >}}
+{{< readfile file="content/workstation/26.1/reusable/md/workstation_modularize.md" >}}
 
 The Chef Workstation native installers provide an efficient way to install Chef Workstation on Windows, Debian, or RPM-based Linux distributions.
 You can download and install the pre-built `.msi`, `.deb`, or `.rpm` packages using your existing package management tools, simplifying the deployment process for managing system configurations.

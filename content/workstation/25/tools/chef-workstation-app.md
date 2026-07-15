@@ -39,7 +39,7 @@ Start `Chef Workstation App` from your Applications folder.
 
 ## Disabling Automatic Update Checks
 
-To disable CWA's automatic update checking, add or modify the `enable` setting under `updates` in [config.toml]({{< ref "config.md#updates" >}}):
+To disable CWA's automatic update checking, add or modify the `enable` setting under `updates` in [config.toml]({{< ref "/workstation/25/tools/knife/config_rb.md#updates" >}}):
 
 ```toml
 [updates]

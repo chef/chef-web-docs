@@ -10,7 +10,7 @@ draft = false
     weight = 10
 +++
 
-{{< readfile file="/content/reusable/md/workstation_modularize.md" >}}
+{{< readfile file="content/workstation/26.0/reusable/md/workstation_modularize.md" >}}
 
 ## System requirements
 

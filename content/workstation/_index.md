@@ -1,6 +1,6 @@
 +++
 title = "Chef Workstation"
-
+linkTitle = "Workstation"
 +++
 
 ## Chef Workstation releases

@@ -89,7 +89,7 @@ Client uses that data to manage the nodes registered with the Chef Infra
 Server and to ensure that it applies the right cookbooks, policyfiles,
 and settings to the right nodes in the right order.
 
-Use the [chef generate repo]({{< relref "ctl_chef.md#chef-generate-repo" >}}) command to create your Chef Infra repository. For example, to create a repository called `chef-repo`:
+Use the [chef generate repo]({{< relref "/workstation/25/tools/ctl_chef.md#chef-generate-repo" >}}) command to create your Chef Infra repository. For example, to create a repository called `chef-repo`:
 
 ```bash
 chef generate repo chef-repo

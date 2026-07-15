@@ -169,7 +169,7 @@ You can specify different cookbook sources in `Policyfile.rb`, including a priva
 
 You can configure remote nodes managed with `chef-run` to send run information to Chef Automate. First, [generate an auth token](/automate/api_tokens/#creating-api-tokens).
 
-Next, add the token to [config.toml]({{< ref "config.md#data_collector" >}}), specifying the appropriate [url](/automate/data_collection/) and [token](/automate/api_tokens/#creating-api-tokens) for the automate server:
+Next, add the token to [config.toml]({{< ref "/workstation/25/tools/knife/config_rb.md#data_collector" >}}), specifying the appropriate [url](/automate/data_collection/) and [token](/automate/api_tokens/#creating-api-tokens) for the automate server:
 
 ```toml
 [data_collector]
