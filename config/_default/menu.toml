@@ -1304,6 +1304,49 @@ weight = 70
 ####
 
 ####
+# Chef Workstation 26.0 Menu
+####
+
+[[workstation_26_0]]
+title = "Tools"
+identifier = "workstation_26_0/tools"
+
+  [[workstation_26_0]]
+  title = "Cookstyle"
+  identifier = "workstation_26_0/tools/cookstyle"
+  parent = "workstation_26_0/tools"
+  weight = 90
+  url = "/workstation/cookstyle/"
+
+  [[workstation_26_0]]
+  title = "Knife"
+  identifier = "workstation_26_0/tools/knife"
+  parent = "workstation_26_0/tools"
+  weight = 100
+
+    [[workstation_26_0]]
+    title = "Knife CLI reference"
+    identifier = "workstation_26_0/tools/knife/reference"
+    parent = "workstation_26_0/tools/knife"
+    weight = 120
+
+    [[workstation_26_0]]
+    title = "Knife plugins"
+    identifier = "workstation_26_0/tools/knife/plugins"
+    parent = "workstation_26_0/tools/knife"
+    weight = 130
+
+  [[workstation_26_0]]
+  title = "Test Kitchen"
+  identifier = "workstation_26_0/tools/test_kitchen"
+  parent = "workstation_26_0/tools"
+  weight = 200
+
+####
+# End Chef Workstation 26.0 Menu
+####
+
+####
 # Effortless Menu
 ####
 
