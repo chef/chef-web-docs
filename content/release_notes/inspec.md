@@ -17,6 +17,30 @@ summary = "Chef InSpec release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
+## Chef InSpec 7.1.16
+
+Release date: July 20th, 2026
+
+### Enhancements
+
+- Added deprecation warning for the `--overwrite` flag in the `inspec compliance upload` command. This option does not work as expected when uploading to Automate and will be removed in a future release. ([#7974](https://github.com/inspec/inspec/pull/7974))
+
+### Bug fixes
+
+- Fixed Docker and Podman resource fallback when using the `--auto-install-gems` flag. The regex patterns now correctly match bare resource names (e.g., `docker` and `podman`) in addition to their sub-resources (e.g., `docker_container`, `podman_volume`). ([#7976](https://github.com/inspec/inspec/pull/7976))
+- Fixed an issue where vendored InSpec profiles with gemspec files in the vendor/ directory were incorrectly identified as gem profiles instead of regular InSpec profiles, which prevented controls from loading. ([#7962](https://github.com/inspec/inspec/pull/7962))
+- Fixed an issue on Windows where the system architecture could not be determined when using Test Kitchen with WinRM. InSpec now includes WOW6432Node registry paths for all architectures except 32-bit (i386) systems, ensuring that 32-bit applications are correctly detected. ([#7942](https://github.com/inspec/inspec/pull/7942))
+
+### Packaging
+
+- Added support for aarch64-linux (ARM64) Habitat packages for Linux systems. ([#7968](https://github.com/inspec/inspec/pull/7968))
+- Added support for aarch64-darwin Habitat packages for Apple Silicon Macs. ([#7987](https://github.com/inspec/inspec/pull/7987))
+
+### Dependency updates
+
+- Updated `train` and `train-core` from 3.16.1 to 3.16.5. ([#7980](https://github.com/inspec/inspec/pull/7980))
+- Updated `chef-licensing` from 1.4.0 to 1.4.1. ([#7983](https://github.com/inspec/inspec/pull/7983))
+
 ## Chef InSpec 7.1.7
 
 Release date: May 11th, 2026
