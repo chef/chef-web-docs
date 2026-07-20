@@ -1310,6 +1310,7 @@ weight = 70
 [[workstation_26_0]]
 title = "Tools"
 identifier = "workstation_26_0/tools"
+weight = 80
 
   [[workstation_26_0]]
   title = "Cookstyle"
@@ -1353,6 +1354,7 @@ identifier = "workstation_26_0/tools"
 [[workstation_26_1]]
 title = "Tools"
 identifier = "workstation_26_1/tools"
+weight = 80
 
   [[workstation_26_1]]
   title = "Cookstyle"

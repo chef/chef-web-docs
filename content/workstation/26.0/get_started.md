@@ -2,8 +2,9 @@
 title = "Get started with Chef Workstation"
 
 [menu.workstation_26_0]
-title = "Get started"
-identifier = "workstation_26_0/get_started"
+  title = "Get started"
+  identifier = "workstation_26_0/get_started"
+  weight = 60
 +++
 
 This getting started guide shows you how to create a cookbook, define cookbook tests, lint the cookbook, and deploy a local VM to run and test the cookbook.

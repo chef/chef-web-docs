@@ -7,7 +7,7 @@ draft = false
   [menu.workstation_25]
     title = "Privacy and Telemetry"
     identifier = "workstation_25/privacy.md Privacy and Telemetry"
-    weight = 10
+    weight = 60
 +++
 
 In order to continually improve Chef Workstation, we collect information to help us identify bugs and understand how people interact with Chef Workstation.

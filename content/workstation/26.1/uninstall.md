@@ -3,8 +3,9 @@ title = "Uninstall Chef Workstation"
 draft = false
 
 [menu.workstation_26_1]
-    title = "Uninstall"
-    identifier = "workstation_26_1/uninstall"
+  title = "Uninstall"
+  identifier = "workstation_26_1/uninstall"
+  weight = 70
 +++
 
 Use these steps to remove Chef Workstation from Debian-based, RPM-based, or Windows systems.

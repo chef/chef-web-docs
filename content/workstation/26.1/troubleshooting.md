@@ -7,7 +7,7 @@ draft = false
   [menu.workstation_26_1]
     title = "Troubleshooting"
     identifier = "workstation_26_1/troubleshooting.md Troubleshooting"
-    weight = 50
+    weight = 90
 +++
 
 ## Chef Workstation logs

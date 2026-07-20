@@ -2,8 +2,9 @@
 title = "Upgrade Chef Workstation and its components"
 
 [menu.workstation_26_0]
-title = "Upgrade"
-identifier = "workstation_26_0/upgrade"
+  title = "Upgrade"
+  identifier = "workstation_26_0/upgrade"
+  weight = 30
 +++
 
 Use the following command to upgrade Chef Workstation or one of its components:

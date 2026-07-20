@@ -7,7 +7,7 @@ draft = false
   [menu.workstation_25]
     title = "Install"
     identifier = "workstation_25/install.md Install Chef Workstation"
-    weight = 10
+    weight = 20
 +++
 <!-- markdownlint-disable-file MD033 -->
 

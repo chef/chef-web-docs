@@ -4,7 +4,7 @@ title = "Uninstall Chef Workstation and its tools"
 [menu.workstation_26_0]
 title = "Uninstall"
 identifier = "workstation_26_0/uninstall"
-weight = 50
+weight = 70
 +++
 
 The page documents how to uninstall Chef Workstation and its component tools.

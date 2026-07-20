@@ -6,7 +6,7 @@ draft = false
   [menu.workstation_26_0]
     title = "Set up"
     identifier = "workstation_26_0/setup.md Set Up Chef Workstation"
-    weight = 10
+    weight = 40
 +++
 
 This guide walks you through the four parts to set up Chef Workstation on your computer.

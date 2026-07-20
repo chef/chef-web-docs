@@ -6,7 +6,7 @@ draft = false
   [menu.workstation_26_1]
     title = "Install"
     identifier = "workstation_26_1/install.md Chef Workstation install guide"
-    weight = 10
+    weight = 20
 +++
 
 {{< readfile file="content/workstation/26.1/reusable/md/workstation_modularize.md" >}}

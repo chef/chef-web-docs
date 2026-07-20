@@ -4,7 +4,7 @@ title = "License Chef Workstation"
 [menu.workstation_26_0]
 title = "License"
 identifier = "workstation_26_0/license"
-weight = 30
+weight = 50
 +++
 
 Chef Workstation requires a valid Progress Chef license for certain operations.

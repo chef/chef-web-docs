@@ -2,8 +2,9 @@
 title = "Upgrade Chef Workstation and its components"
 
 [menu.workstation_26_1]
-title = "Upgrade"
-identifier = "workstation_26_1/upgrade"
+  title = "Upgrade"
+  identifier = "workstation_26_1/upgrade"
+  weight = 30
 +++
 
 Chef Workstation 26.1 and later uses native installers for Debian, RPM, and Windows.
