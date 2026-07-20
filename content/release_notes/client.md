@@ -17,6 +17,144 @@ summary = "Chef Infra Client release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
+## Chef Infra Client 19.4.x
+
+Release date: TBD
+
+### Improvements
+
+- The `chef_client_config` resource now accepts two new properties. `directory_specs` lets you configure permissions (owner, group, mode, and Windows rights and inherits) for each Chef-managed directory: `:config`, `:client_d`, `:logs`, `:cache`, and `:backups`. `client_rb_mode` lets you set the file mode of the generated `client.rb` file (defaults to `"0640"`).
+  ([#16019](https://github.com/chef/chef/pull/16019))
+
+- Template error messages now include the cookbook name and template filename, and are truncated to 10,000 characters to prevent exposing large node attribute data in logs.
+  ([#16073](https://github.com/chef/chef/pull/16073))
+
+- Sensitive properties — passwords, auth tokens, and private key passphrases — are now correctly masked in logs and run reports for `chocolatey_installer`, `chocolatey_package`, `habitat_package`, `habitat_sup`, `openssl_ec_private_key`, and `openssl_rsa_private_key`.
+  ([#16107](https://github.com/chef/chef/pull/16107))
+
+### Bug fixes
+
+- Fixed idempotency in the `sysctl` resource so that it no longer reports a spurious change when the kernel parameter is already at the correct value.
+  ([#16035](https://github.com/chef/chef/pull/16035))
+
+- Fixed a bug in the `chocolatey_installer` resource where the installer was always downloaded from Chocolatey's default URL, ignoring a custom URL option. The resource now constructs a full file path for `Invoke-WebRequest -OutFile`, which PowerShell 5.1 requires.
+  ([#16036](https://github.com/chef/chef/pull/16036))
+
+- Fixed an intermittent `NoMethodError` race condition in the `authenticator.retrieve_certificate_key` method on Windows.
+  ([#16091](https://github.com/chef/chef/pull/16091))
+
+- Fixed the NOTICE file path so that a missing or misplaced NOTICE file raises an error rather than silently continuing.
+  ([#16153](https://github.com/chef/chef/pull/16153))
+
+### Security
+
+- Fixed a path traversal vulnerability in the `archive_file` resource. Extraction now rejects archive entries containing `..` sequences, absolute paths, and unsafe symlinks.
+  ([#16095](https://github.com/chef/chef/pull/16095))
+
+- Updated `faraday` to 2.14.3 to address GHSA-98m9-rrrm-r99r and GHSA-5rv5-xj5j-3484.
+  ([#16132](https://github.com/chef/chef/pull/16132))
+
+- Updated files flagged by a Grype vulnerability scan.
+  ([#16205](https://github.com/chef/chef/pull/16205))
+
+- Applied Cookstyle corrections across the codebase.
+  ([#16201](https://github.com/chef/chef/pull/16201))
+
+### Compliance Phase
+
+- Updated InSpec to 7.1.7.
+  ([#16135](https://github.com/chef/chef/pull/16135))
+
+
+### Packaging
+
+- Added Habitat build plan and GitHub workflows for macOS ARM (`aarch64-darwin`). Chef Infra Client Habitat packages are now released for Apple Silicon natively.
+  ([#16115](https://github.com/chef/chef/pull/16115), [#16130](https://github.com/chef/chef/pull/16130))
+
+- Updated the Habitat ARM package build and promotion pipeline.
+  ([#15986](https://github.com/chef/chef/pull/15986))
+
+- Updated Habitat package version tracking to promote alongside `base-2025`.
+  ([#15998](https://github.com/chef/chef/pull/15998))
+
+- Updated Habitat version pinning strategy in the build pipeline.
+  ([#15995](https://github.com/chef/chef/pull/15995))
+
+
+### CI / Build / Workflow
+
+- Added a DangerJS check that prevents CI jobs from depending on repository secrets, which would block fork contributors from running tests.
+  ([#16172](https://github.com/chef/chef/pull/16172))
+
+- Fixed GitHub Actions workflows for forks so that pull-request-target and push triggers behave correctly.
+  ([#16194](https://github.com/chef/chef/pull/16194))
+
+- Updated the macOS kitchen test workflow to use `pull_request_target` so that fork PRs can run macOS tests.
+  ([#16173](https://github.com/chef/chef/pull/16173))
+
+- FIPS validation CI now tests invalid, boundary-case SHA-256, and clearly valid SHA-512 hashes. Added `workflow_dispatch` triggers to the Windows-FIPS and Linux-FIPS workflows for manual runs.
+  ([#16179](https://github.com/chef/chef/pull/16179), [#16184](https://github.com/chef/chef/pull/16184))
+
+- Fixed SHA exit-code consistency in the self-hosted FIPS Linux workflow.
+  ([#16183](https://github.com/chef/chef/pull/16183))
+
+- Renamed the Linux FIPS workflow for consistency.
+  ([#16185](https://github.com/chef/chef/pull/16185))
+
+- Configured Dependabot groups so dependency bump PRs are consolidated rather than individual.
+  ([#16193](https://github.com/chef/chef/pull/16193))
+
+- Expeditor is now configured to automatically skip version bumps when only CI files change.
+  ([#15687](https://github.com/chef/chef/pull/15687))
+
+- Documented CVE PR label requirements for contributors.
+  ([#16033](https://github.com/chef/chef/pull/16033))
+
+- Disabled the `chrony` kitchen-test recipe on AlmaLinux 10 and Rocky Linux 10 where the test currently fails; documented branching conventions.
+  ([#16031](https://github.com/chef/chef/pull/16031), [#16082](https://github.com/chef/chef/pull/16082))
+
+- Bumped the macOS kitchen test `fail-after` deadline to 2026-07-01.
+  ([#16111](https://github.com/chef/chef/pull/16111))
+
+- Extended the CI chronoguard timeout by one month.
+  ([#16171](https://github.com/chef/chef/pull/16171))
+
+- Updated MCP server settings for the VS Code and CLI developer tooling.
+  ([#16083](https://github.com/chef/chef/pull/16083))
+
+- Bumped the minimum required Habitat version in CI to 2.1.23.
+  ([#16133](https://github.com/chef/chef/pull/16133))
+
+- Bumped `actions/checkout` from 6 to 7.
+  ([#16126](https://github.com/chef/chef/pull/16126))
+
+- Bumped `actions/labeler` from 6.1.0 to 6.2.0.
+  ([#16187](https://github.com/chef/chef/pull/16187))
+
+- Bumped `danger/danger-js` from 13.0.5 to 13.0.10.
+  ([#16123](https://github.com/chef/chef/pull/16123), [#16145](https://github.com/chef/chef/pull/16145))
+
+- Bumped the macOS chronoguard deadline by one month (19.3.15 stable release).
+  ([#16020](https://github.com/chef/chef/pull/16020))
+
+### Dependency updates
+
+- Updated `aws-sdk-s3` from 1.222.0 to 1.227.0.
+  ([#16028](https://github.com/chef/chef/pull/16028), [#16113](https://github.com/chef/chef/pull/16113), [#16189](https://github.com/chef/chef/pull/16189))
+
+- Updated `aws-sdk-secretsmanager` from 1.130.0 to 1.133.0.
+  ([#16026](https://github.com/chef/chef/pull/16026), [#16079](https://github.com/chef/chef/pull/16079))
+
+- Updated `chef-vault` from 4.2.9 to 4.2.12.
+  ([#16127](https://github.com/chef/chef/pull/16127))
+
+- Updated `faraday` from 2.14.1 to 2.14.3.
+  ([#16132](https://github.com/chef/chef/pull/16132))
+
+- Updated Ohai (multiple incremental commits).
+  ([#16023](https://github.com/chef/chef/pull/16023), [#16117](https://github.com/chef/chef/pull/16117), [#16128](https://github.com/chef/chef/pull/16128), [#16140](https://github.com/chef/chef/pull/16140))
+
+
 ## Chef Infra Client 19.3.15
 
 Release date: May 22, 2026
