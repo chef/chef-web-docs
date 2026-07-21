@@ -29,6 +29,152 @@ Chef lets you choose your upgrade journey based on your current version of Chef 
 
 See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/major_upgrade_4.x/) for more information.
 
+## Chef Automate 4.13.516
+
+Released on July <26th>, 2026
+
+### New features
+
+- Added audit log retention workflows, including retention for requested logs. 
+- Added an audit-log download endpoint with support for HTTP range requests.
+
+
+### Improvements
+ 
+- Added request_log_rotation_type configuration for erchef, bifrost, and bookshelf. 
+- Updated Chef Infra Server to 15.10.114. 
+- Updated OpenSearch TuxCare build to 1.3.20.tuxcare.1.0.3.
+- Updated Postgres TuxCare build to 13.23.tuxcare.1.0.1.
+
+### Compliance profile updates
+
+We updated the Chef compliance profiles to version 1.0.0/20260625112700, which includes the new and improved profiles for:
+
+- CIS Red Hat Enterprise Linux 10 v1.0.0 (Audits) 
+- CIS Alma Linux 9 v2.0.0 (Audits)
+- CIS Postgres 17 v1.0.0 (Audits)
+- CIS Apache Tomcat 11 v1.0.0 
+- CIS Oracle Linux 10 v1.0.0
+- CIS Rocky Linux 10 v1.0.0  
+- CIS Windows Server 2019 v4.0.0 
+- CIS Kubernetes v1.12.0
+- CIS Oracle Database 19c v2.0.0 
+- CIS IBM WebSphere Liberty v1.0.0
+- CIS Debian Linux 13 v1.0.0 
+- CIS Oracle Linux 10 profile control improvements
+- Performance optimizations for STIG Windows 11 v2r2 and CIS RHEL 8/9/10 profiles
+
+### Bug fixes
+
+- Fixed token invalidation/logout and token-rotation issues.
+- Fixed bifrost log-rotation behavior.
+- Fixed Builder authentication behavior related to TLS 1.2 enforcement and CA trust.
+
+### Security
+
+#### Security updates
+
+- Upgraded nginx to v1.29.5 address the following CVEs:
+  - CVE-2026-42945
+  - CVE-2026-1642
+  - CVE-2025-23419
+  - CVE-2025-53859
+
+- upgraded OpenSSL to V3.2.6 to address the following CVEs:
+  - CVE-2025-9230 
+  - CVE-2025-9231 
+  - CVE-2025-9232
+
+- Upgraded HAProxy to address the following CVEs:
+  - CVE-2025-11230
+  
+- Upgraded Curl to address the following CVEs:
+  - CVE-2025-9086 
+  - CVE-2025-10966
+
+- Fixed dependabot issues to address the following CVEs:
+  - CVE-2026-33186
+  - CVE-2026-33216
+  - CVE-2026-34986
+  - CVE-2026-33487
+  - CVE-2026-32285
+  - CVE-2025-66630
+  - CVE-2025-15558
+  - CVE-2026-46598
+  - CVE-2026-39832
+  - CVE-2026-39833
+  - CVE-2026-46595
+  - CVE-2026-42508
+  - CVE-2026-39834
+  - CVE-2026-39831
+  - CVE-2026-39829
+  - CVE-2026-39830
+  - CVE-2026-39827
+  - CVE-2026-39835
+  - CVE-2026-39828
+  - CVE-2026-46597
+  - CVE-2026-45045
+  - CVE-2026-25680
+  - CVE-2026-2303
+  - CVE-2025-69725
+  - CVE-2026-40898
+  - CVE-2026-42554
+  - CVE-2026-32952
+
+- Updated Erlang to v26.2.5.20 to fix the following CVEs:
+  - CVE-2025-4748
+  - CVE-2024-53846
+
+- Updated Golang to v1.26.3 to fix the following CVEs:
+
+  - CVE-2026-42501
+  - CVE-2026-33814
+  - CVE-2026-39826
+  - CVE-2026-39836
+  - CVE-2026-42499
+  - CVE-2026-39820
+  - CVE-2026-27142
+  - CVE-2026-25679
+  - CVE-2026-39830
+  - CVE-2026-39832
+  - CVE-2026-33811
+  - CVE-2026-39817
+
+### Chef packaged product versions
+
+This release uses:
+
+- Chef Habitat version: 1.6.1243/20241227194506
+- Chef Habitat Builder version: 10717/20250805204117
+- Chef Infra Server version: 15.10.114
+- Chef InSpec version: 5.24.7/20260324170007
+
+### Service versions
+
+This release uses:
+
+- Postgres: 13.23.tuxcare.1.0.1
+- OpenSearch: 1.3.20.tuxcare.1.0.3
+- Nginx: 1.29.5
+- HAProxy: 2.8.16
+
+### Supported external Chef products
+
+This release supports the following external Chef products:
+
+- Chef Infra Server version: 15.0.9+
+- Chef InSpec version: 4.3.2+
+- Chef Infra Client: 18.0.155+
+- Chef Habitat: 0.81+
+
+### Supported framework versions
+
+This release is built on the following framework versions:
+
+- GoLang: 1.26.3
+- OpenJDK: 17.0.16+8
+- Angular: 19.2.15
+
 ## Chef Automate 4.13.434
 
 Released on February 26th, 2026
