@@ -14,6 +14,7 @@ summary = "Chef Automate release notes"
 +++
 
 <!-- markdownlint-disable-file -->
+<!-- cSpell:ignore tuxcare -->
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
