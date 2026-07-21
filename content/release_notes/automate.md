@@ -80,15 +80,16 @@ We updated the Chef compliance profiles to version 1.0.0/20260625112700, which i
   - CVE-2025-23419
   - CVE-2025-53859
 
-- upgraded OpenSSL to V3.2.6 to address the following CVEs:
+- Upgraded OpenSSL to v3.2.6 to address the following CVEs:
   - CVE-2025-9230 
   - CVE-2025-9231 
   - CVE-2025-9232
 
-- Upgraded HAProxy to address the following CVEs:
+- Upgraded HAProxy to v2.8.16 to address the following CVEs:
   - CVE-2025-11230
+  - CVE-2024-49214
   
-- Upgraded Curl to address the following CVEs:
+- Upgraded Curl to v8.18.0 to address the following CVEs:
   - CVE-2025-9086 
   - CVE-2025-10966
 
@@ -121,11 +122,11 @@ We updated the Chef compliance profiles to version 1.0.0/20260625112700, which i
   - CVE-2026-42554
   - CVE-2026-32952
 
-- Updated Erlang to v26.2.5.20 to fix the following CVEs:
+- Upgraded Erlang to v26.2.5.20 to fix the following CVEs:
   - CVE-2025-4748
   - CVE-2024-53846
 
-- Updated Golang to v1.26.3 to fix the following CVEs:
+- Upgraded Golang to v1.26.3 to fix the following CVEs:
 
   - CVE-2026-42501
   - CVE-2026-33814
