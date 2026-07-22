@@ -32,7 +32,7 @@ See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/
 
 ## Chef Automate 4.13.516
 
-Release date: July 26, 2026
+Release date: July 23, 2026
 
 ### New features
 
@@ -69,9 +69,6 @@ This release updates the Chef Compliance Profiles to version 1.0.0/2026062511270
 - CIS Debian Linux 13 v1.0.0
 - CIS Oracle Linux 10 profile control improvements
 - Profile performance optimizations for STIG Windows 11 v2r2 and CIS RHEL versions 8, 9, and 10.
-
-<!-- TODO: verify — CHEF-35034 (Shipped) targeted nginx 1.30.2, but this release shows 1.29.5; confirm the correct shipped version -->
-<!-- TODO: verify — CHEF-34828 (Shipped) fixed a basic-ftp package vulnerability (5.0.1 → 5.3.1); confirm whether this should be listed under dependabot CVEs or separately -->
 
 ### Security
 
