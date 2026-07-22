@@ -77,7 +77,7 @@ This release updates the Chef Compliance Profiles to version 1.0.0/2026062511270
 
 #### Security updates
 
-- Upgraded nginx to v1.29.5 to address the following CVEs:
+- Upgraded nginx to v1.31.1 to address the following CVEs:
   - CVE-2026-42945
   - CVE-2026-1642
   - CVE-2025-23419
@@ -124,6 +124,9 @@ This release updates the Chef Compliance Profiles to version 1.0.0/2026062511270
   - CVE-2026-40898
   - CVE-2026-42554
   - CVE-2026-32952
+  - CVE-2026-44240
+  - CVE-2026-41324
+  - CVE-2026-27699
 
 - Upgraded Erlang to v26.2.5.20 to address the following CVEs:
   - CVE-2025-4748
