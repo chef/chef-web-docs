@@ -13,9 +13,8 @@ summary = "Chef Supermarket release notes"
     weight = 120
 +++
 
-<!-- markdownlint-disable-file -->
 <!-- cSpell:disable  -->
-<!-- vale off -->
+<!-- vale Microsoft.Acronyms["CVE"] = NO -->
 
 ## Chef Supermarket 5.3.0
 
@@ -98,22 +97,6 @@ We now produce packages for Red Hat Enterprise Linux 9. [(#3112)](https://github
 - Updated footer to include links to the Privacy Policy and Cookie Policy. ([#3186](https://github.com/chef/supermarket/pull/3186))
 
 ## Chef Supermarket 5.1.63
-
-### Enhancements
-
-Add almalinux and rocky Linux logos <https://github.com/chef/supermarket/pull/3071>
-
-### Security
-
-Removed insecure links <https://github.com/chef/supermarket/pull/3078>
-
-### Enhancements
-
-Package Upgrades <https://github.com/chef/supermarket/pull/3057>
-
-Package Upgrades <https://github.com/chef/supermarket/pull/3050>
-
-## Chef Supermarket 5.1.62
 
 ### Enhancements
 
@@ -247,7 +230,7 @@ The following version upgrades are now live with this release of Supermarket:
 
 ## Chef Supermarket 5.0.41
 
-### Upgrade Requiremements
+### Upgrade requirements
 
 #### Database Upgrade
 
