@@ -13,9 +13,106 @@ summary = "Chef Supermarket release notes"
     weight = 120
 +++
 
-<!-- markdownlint-disable-file -->
 <!-- cSpell:disable  -->
-<!-- vale off -->
+<!-- vale Microsoft.Acronyms["CVE"] = NO -->
+
+## Chef Supermarket 5.X.Y
+
+Release date: July 27, 2026
+
+This release remediates security vulnerabilities across dependent packages in Chef Supermarket.
+
+### Dependencies
+
+- Upgraded Ruby from 3.1.2 to 3.1.5.
+- Upgraded Rack from 2.2.20 to 2.2.23 in Supermarket and Omnibus; upgraded Fieri engine from 3.2.4 to 3.2.6.
+- Pinned Puma to 5.6.9.
+- Upgraded WEBrick from 1.9.1 to 1.9.2 in Supermarket and Omnibus.
+
+### Security
+
+- Upgraded rack from v2.2.20 to v2.2.23 (Supermarket/Omnibus) and v3.2.4 to v3.2.6 (Fieri)
+  - CVE-2022-30122
+  - CVE-2022-30123
+  - CVE-2022-44570
+  - CVE-2022-44571
+  - CVE-2022-44572
+  - CVE-2023-27530
+  - CVE-2023-27539
+  - CVE-2024-25126
+  - CVE-2024-26141
+  - CVE-2024-26146
+  - CVE-2025-25184
+  - CVE-2025-27111
+  - CVE-2025-27610
+  - CVE-2025-32441
+  - CVE-2025-46727
+  - CVE-2025-59830
+  - CVE-2025-61770
+  - CVE-2025-61771
+  - CVE-2025-61772
+  - CVE-2025-61780
+
+- Upgraded rexml from v3.4.0 to v3.4.4
+  - CVE-2024-35176
+  - CVE-2024-39908
+  - CVE-2024-41123
+  - CVE-2024-41946
+  - CVE-2024-43398
+  - CVE-2024-49761
+  - CVE-2025-58767
+
+- Upgraded fugit from v1.5.3 to v1.12.2 and et-orbi from v1.2.7 to v1.4.0
+  - CVE-2024-43380
+
+- Upgraded Puma from v5.6.8 to v5.6.9
+  - CVE-2024-45614
+
+- Upgraded WEBrick from v1.9.1 to v1.9.2
+  - CVE-2024-47220
+  - CVE-2025-6442
+
+- Upgraded uri from v0.13.0 to v1.0.3
+  - CVE-2023-28755
+  - CVE-2023-36617
+  - CVE-2025-27221
+
+- Upgraded Ruby from v3.1.2 to v3.1.5
+  - CVE-2024-27280
+
+- Upgraded resolv to v0.4.0
+  - CVE-2025-24294
+
+- Upgraded cgi to v0.5.0
+  - CVE-2021-33621
+  - CVE-2025-27219
+  - CVE-2025-27220
+
+- Upgraded activesupport to v7.1.5.2
+  - CVE-2023-22796
+  - CVE-2023-28120
+  - CVE-2023-38037
+
+- Upgraded postgresql to v13.22
+  - CVE-2025-1094
+
+- Upgraded jmespath to v1.6.2
+  - CVE-2022-32511
+
+- Upgraded minimatch to v3.1.2
+  - CVE-2022-3517
+
+- Upgraded bundler to v2.3.7
+  - CVE-2021-43809
+
+- Upgraded net-imap to v0.5.10
+  - CVE-2025-43857
+
+- Upgraded time to v0.3.0
+  - CVE-2023-28756
+
+- Upgraded rdoc to v6.14.2
+  - CVE-2024-27281
 
 ## Chef Supermarket 5.3.0
 
