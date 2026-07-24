@@ -168,7 +168,7 @@ This argument has the following options:
 
 {{< note >}}
 
-For encrypted data bag items, use *either* `--secret` or
+For encrypted data bag items, use _either_ `--secret` or
 `--secret-file`, not both.
 
 {{< /note >}}
@@ -281,7 +281,7 @@ This argument has the following options:
 
 {{< note >}}
 
-For encrypted data bag items, use *either* `--secret` or
+For encrypted data bag items, use _either_ `--secret` or
 `--secret-file`, not both.
 
 {{< /note >}}
@@ -387,7 +387,7 @@ This argument has the following options:
 
 {{< note >}}
 
-For encrypted data bag items, use *either* `--secret` or
+For encrypted data bag items, use _either_ `--secret` or
 `--secret-file`, not both.
 
 {{< /note >}}

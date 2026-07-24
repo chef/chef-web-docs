@@ -115,7 +115,7 @@ Create a vault called passwords and put an item called `root` in it with the giv
 knife vault create passwords root '{"username": "root", "password": "password_string"}' -A "admin1,admin2"
 ```
 
-Create a vault called passwords and put an item called `root` in it encrypted for admins, `admin1` and `admin2`. *Leaving the data off the command-line will open an editor to fill out the data*
+Create a vault called passwords and put an item called `root` in it encrypted for admins, `admin1` and `admin2`. Omitting the data from the command line opens an editor where you can enter the values.
 
 ```shell
 knife vault create passwords root -A "admin1,admin2"

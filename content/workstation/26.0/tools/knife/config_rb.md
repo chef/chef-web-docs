@@ -357,6 +357,13 @@ Some organizations choose to have all data bags use the same secret and secret f
 
 {{< warning >}}
 
-Review the full list of [optional settings](/workstation/26.0/tools/knife/config_rb_optional_settings/) that can be added to the `config.rb` file. Many of these optional settings shouldn't be added to the `config.rb` file. The reasons for not adding them can vary. For example, using `--yes` as a default in the `config.rb` file causes knife to always assume that "Y" is the response to any prompt, which may lead to undesirable outcomes. Other settings, such as `--hide-healthy`(used only with the `knife status` subcommand) or `--bare-directories` (used only with the `knife list` subcommand) probably aren't used often enough (and in the same exact way) to justify adding them to the `config.rb` file. In general, if the optional settings aren't listed on the main `config.rb` [page](/workstation/26.0/tools/knife/config_rb/), then add settings only after careful consideration. Don't use optional settings in a production environment until after the setting's performance has been validated in a safe testing environment.
+Review the full list of [optional settings](/workstation/26.0/tools/knife/config_rb_optional_settings/) that can be added to the `config.rb` file.
+Many of these optional settings shouldn't be added to `config.rb`, and the reasons vary.
+
+For example, using `--yes` as a default causes knife to always assume `Y` as the response to any prompt, which may lead to undesirable outcomes.
+Other settings, such as `--hide-healthy` (used only with the `knife status` subcommand) or `--bare-directories` (used only with the `knife list` subcommand), probably aren't used often enough to justify adding them to `config.rb`.
+
+In general, if an optional setting isn't listed on the main `config.rb` [page](/workstation/26.0/tools/knife/config_rb/), add it only after careful consideration.
+Don't use optional settings in a production environment until you've validated the setting's performance in a safe testing environment.
 
 {{< /warning >}}
