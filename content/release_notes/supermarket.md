@@ -147,7 +147,6 @@ Release date: February 15, 2023
 - Upgraded dependency: sidekiq from 6.5.0 to 6.5.1 [#2797](https://github.com/chef/supermarket/pull/2797)
 - Upgraded dependencies: omnibus-software, pg, rubocop-rails [2808](https://github.com/chef/supermarket/pull/2808)
 
-
 ## Chef Supermarket 5.1.44
 
 Release date: June 24, 2022
