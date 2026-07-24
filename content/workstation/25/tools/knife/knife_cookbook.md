@@ -483,7 +483,7 @@ defined by the Ruby `File.fnmatch` syntax).
 {{< note >}}
 
 Empty directories aren't uploaded to Chef Infra Server. To upload
-an empty directory, create a "dot" file---e.g. `.keep`---in that
+an empty directory, create a "dot" file---for example, `.keep`---in that
 directory to ensure that the directory itself isn't empty.
 
 {{< /note >}}

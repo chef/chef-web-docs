@@ -42,7 +42,7 @@ This subcommand has the following options:
 
 `--[no-]recurse`
 
-: Use `--recurse` to list dependencies recursively. This option can only be used when `--tree` is set to `true`. Default: `--no-recurse`.
+: Lists dependencies recursively. This option requires `--tree` to be set to `true`. Default: `--no-recurse`.
 
 `--remote`
 

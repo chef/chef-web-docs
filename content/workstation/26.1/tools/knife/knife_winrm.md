@@ -121,7 +121,7 @@ This argument has the following options:
 
 `-p PORT`, `--winrm-port PORT`
 
-: The WinRM port. The TCP port on the remote system to which `knife windows` commands that are made using WinRM are sent. Default: `5986` when `--winrm-transport` is set to `ssl`, otherwise `5985`.
+: The WinRM port. The TCP port on the remote system to which `knife windows` commands that are made using WinRM are sent. Default: `5986` if `--winrm-transport` is set to `ssl`; `5985` otherwise.
 
 `-P PASSWORD`, `--winrm-password PASSWORD`
 
