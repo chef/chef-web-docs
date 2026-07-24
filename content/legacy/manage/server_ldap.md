@@ -167,7 +167,7 @@ the following:
 
     : An integer that specifies the port on which the LDAP server listens.
       The default value is an appropriate value for most configurations.
-      Default value: `389` or `636` when `ldap['encryption']` is set to
+      Default value: `389` or `636` if `ldap['encryption']` is set to
       `:simple_tls`.
 
     `ldap['ssl_enabled']`
