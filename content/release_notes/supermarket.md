@@ -98,19 +98,18 @@ We now produce packages for Red Hat Enterprise Linux 9. [(#3112)](https://github
 
 ## Chef Supermarket 5.1.63
 
-### Enhancements
+### Improvements
 
-Add almalinux and rocky Linux logos <https://github.com/chef/supermarket/pull/3071>
+- Added AlmaLinux and Rocky Linux logos. ([#3071](https://github.com/chef/supermarket/pull/3071))
+
+### Dependencies
+
+- Upgraded dependencies: brakeman, aws-sdk-s3, spring, shoulda-matchers, pry-byebug, rspec-rails, and rack. ([#3057](https://github.com/chef/supermarket/pull/3057))
+- Upgraded dependencies: omnibus-software, sqlite3, kitchen-vagrant, omnibus, capybara, omniauth, pundit, activerecord, rack, pry, dry-struct, and net-snmp. ([#3050](https://github.com/chef/supermarket/pull/3050))
 
 ### Security
 
-Removed insecure links <https://github.com/chef/supermarket/pull/3078>
-
-### Enhancements
-
-Package Upgrades <https://github.com/chef/supermarket/pull/3057>
-
-Package Upgrades <https://github.com/chef/supermarket/pull/3050>
+- Replaced insecure HTTP links with HTTPS. ([#3078](https://github.com/chef/supermarket/pull/3078))
 
 ## Chef Supermarket 5.1.58
 
