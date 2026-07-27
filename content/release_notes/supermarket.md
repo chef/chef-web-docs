@@ -32,53 +32,25 @@ This release remediates security vulnerabilities across dependent packages in Ch
 
 ### Security
 
-- Upgraded rack from v2.2.20 to v2.2.23 (Supermarket/Omnibus) and v3.2.4 to v3.2.6 (Fieri)
-  - CVE-2023-27539
-  - CVE-2025-25184
-  - CVE-2025-32441
-  - CVE-2025-61780
+- Upgraded Rack from v2.2.20 to v2.2.23 (Supermarket/Omnibus) and v3.2.4 to v3.2.6 (Fieri).
+- Upgraded REXML from v3.4.0 to v3.4.4.
+- Upgraded fugit from v1.5.3 to v1.12.2 and et-orbi from v1.2.7 to v1.4.0.
+- Upgraded Puma from v5.6.8 to v5.6.9.
+- Upgraded WEBrick from v1.9.1 to v1.9.2.
+- Upgraded uri from v0.13.0 to v1.0.3.
+- Upgraded Ruby from v3.1.2 to v3.1.5.
+- Upgraded resolv to v0.4.0.
+- Upgraded cgi to v0.5.0.
+- Upgraded activesupport to v7.1.5.2.
+- Upgraded postgresql to v13.22.
+- Upgraded jmespath to v1.6.2.
+- Upgraded minimatch to v3.1.2.
+- Upgraded bundler to v2.3.7.
+- Upgraded net-imap to v0.5.10.
+- Upgraded time to v0.3.0.
+- Upgraded rdoc to v6.14.2.
 
-- Upgraded rexml from v3.4.0 to v3.4.4
-  - CVE-2025-58767
-
-- Upgraded fugit from v1.5.3 to v1.12.2 and et-orbi from v1.2.7 to v1.4.0
-
-- Upgraded Puma from v5.6.8 to v5.6.9
-  - CVE-2024-45614
-
-- Upgraded WEBrick from v1.9.1 to v1.9.2
-  - CVE-2024-47220
-  - CVE-2025-6442
-
-- Upgraded uri from v0.13.0 to v1.0.3
-  - CVE-2023-28755
-  - CVE-2023-36617
-  - CVE-2025-27221
-
-- Upgraded Ruby from v3.1.2 to v3.1.5
-
-- Upgraded resolv to v0.4.0
-
-- Upgraded cgi to v0.5.0
-
-- Upgraded activesupport to v7.1.5.2
-
-- Upgraded postgresql to v13.22
-
-- Upgraded jmespath to v1.6.2
-
-- Upgraded minimatch to v3.1.2
-
-- Upgraded bundler to v2.3.7
-
-- Upgraded net-imap to v0.5.10
-  - CVE-2025-43857
-
-- Upgraded time to v0.3.0
-  - CVE-2023-28756
-
-- Upgraded rdoc to v6.14.2
-  - CVE-2024-27281
+For the complete list of CVEs, or if you have concerns about specific CVEs, contact your account manager or Progress Support.
 
 ## Chef Supermarket 5.3.0
 
