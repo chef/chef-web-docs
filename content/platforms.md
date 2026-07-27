@@ -95,7 +95,7 @@ The following table lists the commercially supported platforms and versions for 
 | AIX | `powerpc` | `7.1` (TL5 SP2 or higher, recommended), `7.2`, `7.3` |
 | Amazon Linux | `x86_64`, `aarch64` | `2.x`, `2023` |
 | CentOS | `x86_64`, `ppc64le`, `ppc64`, `aarch64` | `7.x` |
-| Debian | `x86_64`, `aarch64` | `10`, `11` |
+| Debian | `x86_64`, `aarch64` | `10`, `11`, `13` |
 | FreeBSD | `amd64` | `13.x` |
 | macOS | `aarch64` | `13.x`, `14.x` |
 | Oracle Enterprise Linux | `x86_64`, `aarch64` | `7.x`, `8.x` |
@@ -103,7 +103,7 @@ The following table lists the commercially supported platforms and versions for 
 | Rocky Linux | `x86_64`, `aarch64` | `8.x`, `9.x` |
 | Solaris | `sparc`, `i86pc` | `11.3` (16.17.4 and later only), `11.4`  |
 | SUSE Linux Enterprise Server | `x86_64`, `aarch64` (15.x only), `s390x` | `12`, `15` |
-| Ubuntu (LTS releases) | `x86_64`,`aarch64` (18.x and above) | `18.04`, `20.04`, `22.04`, `24.04` |
+| Ubuntu (LTS releases) | `x86_64`,`aarch64` (18.x and above) | `18.04`, `20.04`, `22.04`, `24.04`, `26.04` |
 | Windows | `x86_64` | `2016`, `10` (all channels except "insider" builds), `2019` (Long-term servicing channel (LTSC), both Desktop Experience and Server Core), `11`, `2022`, `2025` |
 
 #### Derived platforms
@@ -156,15 +156,27 @@ See the [Chef InSpec documentation](/inspec/latest/).
 
 #### Commercial support
 
-The following table lists the commercially supported platforms and versions for the Chef Workstation.
+Chef Workstation is supported on the following platforms.
 
 {{< foundation_tabs tabs-id="chef-workstation-commercial-support" >}}
-  {{< foundation_tab active="true" panel-link="chef-workstation-commercial-support-v26" tab-text="Chef Workstation 26">}}
-  {{< foundation_tab panel-link="chef-workstation-commercial-support-v25" tab-text="Chef Workstation 25" >}}
+  {{< foundation_tab active="true" panel-link="chef-workstation-commercial-support-v26-1" tab-text="Chef Workstation 26.1">}}
+  {{< foundation_tab panel-link="chef-workstation-commercial-support-v26-0" tab-text="Chef Workstation 26.0">}}
+  {{< foundation_tab panel-link="chef-workstation-commercial-support-v25" tab-text="Chef Workstation 25.x" >}}
 {{< /foundation_tabs >}}
 
 {{< foundation_tabs_panels tabs-id="chef-workstation-commercial-support" >}}
-{{< foundation_tabs_panel active="true" panel-id="chef-workstation-commercial-support-v26" >}}
+{{< foundation_tabs_panel active="true" panel-id="chef-workstation-commercial-support-v26-1" >}}
+
+Chef Workstation 26.1 is supported on:
+
+- Currently supported Linux distributions and versions running Linux kernel 2.6.32 and later on x86-64 (amd64)
+- Currently supported Windows versions greater than or equal to Windows 10 and Windows Server 2016
+
+{{< /foundation_tabs_panel >}}
+
+{{< foundation_tabs_panel panel-id="chef-workstation-commercial-support-v26-0" >}}
+
+Chef Workstation 26.0 is supported on:
 
 - Linux (x86_64)
 - Windows (x86_64)
@@ -172,6 +184,8 @@ The following table lists the commercially supported platforms and versions for 
 {{< /foundation_tabs_panel >}}
 
 {{< foundation_tabs_panel panel-id="chef-workstation-commercial-support-v25" >}}
+
+Chef Workstation 25.x is supported on:
 
 | Platform                          | Architecture                | Version                                                                    |
 |-----------------------------------| ----------------------------| ---------------------------------------------------------------------------|
