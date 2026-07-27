@@ -39,8 +39,6 @@ This release remediates security vulnerabilities across dependent packages in Ch
   - CVE-2025-61780
 
 - Upgraded rexml from v3.4.0 to v3.4.4
-  - CVE-2024-39908
-  - CVE-2024-43398
   - CVE-2025-58767
 
 - Upgraded fugit from v1.5.3 to v1.12.2 and et-orbi from v1.2.7 to v1.4.0
