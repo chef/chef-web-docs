@@ -246,7 +246,7 @@ To enable daily deletion of audit log objects older than a set number of days, f
 
     - `<DAYS>` with the number of days to retain audit logs. Default value: `30`.
 
-      Retention is enabled when `days` is greater than `0`.
+      Retention is enabled if `days` is greater than `0`.
       Set to `0` to disable automatic cleanup (unlimited retention).
 
     - `<HOUR>` with the hour (0-23) when cleanup runs. Default: `2` (2 AM).
@@ -438,7 +438,7 @@ For a complete set of log storage settings, see the [reference examples](#audit-
 : `endpoint`
   : The AWS S3 or MinIO endpoint URL.
 
-    Required for S3 when `bucket` is set, and always required for MinIO. For AWS S3, use a regional endpoint (for example, `https://s3.<AWS_REGION>.amazonaws.com`). For `us-east-1`, `https://s3.amazonaws.com` also works.
+    Required for S3 if `bucket` is set, and always required for MinIO. For AWS S3, use a regional endpoint (for example, `https://s3.<AWS_REGION>.amazonaws.com`). For `us-east-1`, `https://s3.amazonaws.com` also works.
 
     Default value: `"https://s3.amazonaws.com"`
 
@@ -448,7 +448,7 @@ For a complete set of log storage settings, see the [reference examples](#audit-
     Default value: n/a
 
 : `storage_region`
-  : Required for AWS S3 when `bucket` is set. For MinIO, use `"us-east-1"`.
+  : Required for AWS S3 if `bucket` is set. For MinIO, use `"us-east-1"`.
 
     Default value: `""`
 
@@ -811,8 +811,8 @@ Response fields:
 
 - `request_id`: The UUID for the request.
 - `status`: One of `processing`, `completed`, `error`, `not_found`.
-- `file_size`: Present when `status` is `completed`. Human-readable size string (for example, `"10.7 KB"`).
-- `download_url`: Present when `status` is `completed`. Use the returned URL/path to download the generated file.
+- `file_size`: Present if `status` is `completed`. Human-readable size string (for example, `"10.7 KB"`).
+- `download_url`: Present if `status` is `completed`. Use the returned URL/path to download the generated file.
   - The returned value may be an absolute URL (when an external FQDN is configured) or a relative path.
   - The download URL is formatted like `/api/v1/audit/download?request_id=<request_id>`.
 - `error`: Present when `status` indicates an error. Possible values include `audit_disabled`, `request_not_found`, and `no_requested_logs`.

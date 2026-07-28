@@ -44,10 +44,7 @@ sitemaps = [
   "https://docs.chef.io/inspec/resource_packs/sitemap.xml",
   "https://docs.chef.io/habitat/1.6/sitemap.xml",
   "https://docs.chef.io/habitat/2.0/sitemap.xml",
-  "https://docs.chef.io/habitat/2.1/sitemap.xml",
-  "https://docs.chef.io/workstation/26.1/sitemap.xml",
-  "https://docs.chef.io/workstation/26.0/sitemap.xml",
-  "https://docs.chef.io/workstation/25/sitemap.xml"
+  "https://docs.chef.io/habitat/2.1/sitemap.xml"
 ]
 
 [chef-web-docs]
@@ -261,6 +258,10 @@ errorLevel = 'warning'
 #
 #######
 
+###
+# Client versions
+###
+
 [[versions.client]]
 link_text = "Chef Infra Client 19"
 base_url = "/client/19/"
@@ -268,3 +269,20 @@ base_url = "/client/19/"
 [[versions.client]]
 link_text = "Chef Infra Client 18"
 base_url = "/client/18/"
+
+###
+# Workstation versions
+###
+
+[[versions.workstation]]
+link_text = "Chef Workstation 26.1"
+base_url = "/workstation/26.1/"
+
+[[versions.workstation]]
+link_text = "Chef Workstation 26.0"
+base_url = "/workstation/26.0/"
+
+[[versions.workstation]]
+link_text = "Chef Workstation 25"
+base_url = "/workstation/25/"
+
