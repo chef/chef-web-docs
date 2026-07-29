@@ -17,9 +17,9 @@ summary = "Chef Supermarket release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
-## Chef Supermarket 5.3.6
+## Chef Supermarket 5.3.7
 
-Release date: July 28, 2026
+Release date: July 29, 2026
 
 This release remediates security vulnerabilities across dependent packages in Chef Supermarket.
 
