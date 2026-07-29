@@ -106,6 +106,12 @@ The following table lists the commercially supported platforms and versions for 
 | Ubuntu (LTS releases) | `x86_64`,`aarch64` (18.x and above) | `18.04`, `20.04`, `22.04`, `24.04`, `26.04` |
 | Windows | `x86_64` | `2016`, `10` (all channels except "insider" builds), `2019` (Long-term servicing channel (LTSC), both Desktop Experience and Server Core), `11`, `2022`, `2025` |
 
+{{< note >}}
+
+There's no native installer for macOS on `aarch64` (Apple Silicon / M-series). Use [Chef Habitat](/habitat/) to install Chef Infra Client on this platform.
+
+{{< /note >}}
+
 #### Derived platforms
 
 The following table lists supported derived platforms and versions for Chef Infra Client.
