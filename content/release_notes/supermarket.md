@@ -13,9 +13,8 @@ summary = "Chef Supermarket release notes"
     weight = 120
 +++
 
-<!-- markdownlint-disable-file -->
 <!-- cSpell:disable  -->
-<!-- vale off -->
+<!-- vale Microsoft.Acronyms["CVE"] = NO -->
 
 ## Chef Supermarket 5.3.7
 
@@ -101,6 +100,8 @@ Release date: November 11, 2025
 
 ## Chef Supermarket 5.2.0
 
+Release date: June 2, 2025
+
 ### Security
 
 - Upgraded PostgreSQL from 13.4 to 13.18.
@@ -108,11 +109,15 @@ Release date: November 11, 2025
 
 ## Chef Supermarket 5.1.80
 
+Release date: October 23, 2024
+
 ### Security
 
 Upgraded OpenSSL to 1.0.2zi. ([#3248](https://github.com/chef/supermarket/pull/3248))
 
 ## Chef Supermarket 5.1.79
+
+Release date: July 8, 2024
 
 ### Packaging
 
@@ -120,11 +125,15 @@ We now produce packages for Red Hat Enterprise Linux 9. [(#3112)](https://github
 
 ## Chef Supermarket 5.1.77
 
+Release date: March 5, 2024
+
 ### Enhancements
 
 - Added support for setting a OneTrust ID in Supermarket. ([#3210](https://github.com/chef/supermarket/pull/3210))
 
 ## Chef Supermarket 5.1.76
+
+Release date: January 8, 2024
 
 ### Improvements
 
@@ -134,37 +143,24 @@ We now produce packages for Red Hat Enterprise Linux 9. [(#3112)](https://github
 
 ## Chef Supermarket 5.1.63
 
-### Enhancements
+Release date: March 17, 2023
 
-Add almalinux and rocky Linux logos <https://github.com/chef/supermarket/pull/3071>
+### Improvements
 
-### Security
+- Added AlmaLinux and Rocky Linux logos. ([#3071](https://github.com/chef/supermarket/pull/3071))
 
-Removed insecure links <https://github.com/chef/supermarket/pull/3078>
+### Dependencies
 
-### Enhancements
-
-Package Upgrades <https://github.com/chef/supermarket/pull/3057>
-
-Package Upgrades <https://github.com/chef/supermarket/pull/3050>
-
-## Chef Supermarket 5.1.62
-
-### Enhancements
-
-Add almalinux and rocky Linux logos <https://github.com/chef/supermarket/pull/3071>
+- Upgraded dependencies: brakeman, aws-sdk-s3, spring, shoulda-matchers, pry-byebug, rspec-rails, and rack. ([#3057](https://github.com/chef/supermarket/pull/3057))
+- Upgraded dependencies: omnibus-software, sqlite3, kitchen-vagrant, omnibus, capybara, omniauth, pundit, activerecord, rack, pry, dry-struct, and net-snmp. ([#3050](https://github.com/chef/supermarket/pull/3050))
 
 ### Security
 
-Removed insecure links <https://github.com/chef/supermarket/pull/3078>
-
-### Enhancements
-
-Package Upgrades <https://github.com/chef/supermarket/pull/3057>
-
-Package Upgrades <https://github.com/chef/supermarket/pull/3050>
+- Replaced insecure HTTP links with HTTPS. ([#3078](https://github.com/chef/supermarket/pull/3078))
 
 ## Chef Supermarket 5.1.58
+
+Release date: February 15, 2023
 
 ### Bug Fixes
 
@@ -186,17 +182,9 @@ Package Upgrades <https://github.com/chef/supermarket/pull/3050>
 - Upgraded dependency: sidekiq from 6.5.0 to 6.5.1 [#2797](https://github.com/chef/supermarket/pull/2797)
 - Upgraded dependencies: omnibus-software, pg, rubocop-rails [2808](https://github.com/chef/supermarket/pull/2808)
 
-## Chef Supermarket 5.1.53
-
-### Bug Fixes
-
-### Enhancements
-
-### Packaging
-
-### Security
-
 ## Chef Supermarket 5.1.44
+
+Release date: June 24, 2022
 
 ### Upgrades
 
@@ -219,6 +207,8 @@ The following version upgrades are now live with this release of Supermarket:
 
 ## Chef Supermarket 5.1.32
 
+Release date: May 20, 2022
+
 ### Bug Fixes
 
 - Updated content security policies for unblocking google analytics scripts [#2746](https://github.com/chef/supermarket/pull/2746) ([@RajeshPaul38](https://github.com/RajeshPaul38))
@@ -232,6 +222,8 @@ The following version upgrades are now live with this release of Supermarket:
 - `faker` from 2.20.0 to 2.21.0 [#2738](https://github.com/chef/supermarket/pull/2738)
 
 ## Chef Supermarket 5.1.30
+
+Release date: May 17, 2022
 
 ### Packaging
 
@@ -251,6 +243,8 @@ The following version upgrades are now live with this release of Supermarket:
 - `rspec-rails` from 5.1.1 to 5.1.2 [#2702](https://github.com/chef/supermarket/pull/2702)
 
 ## Chef Supermarket 5.1.18
+
+Release date: April 14, 2022
 
 ### Bug Fixes
 
@@ -282,7 +276,9 @@ The following version upgrades are now live with this release of Supermarket:
 
 ## Chef Supermarket 5.0.41
 
-### Upgrade Requiremements
+Release date: March 3, 2022
+
+### Upgrade requirements
 
 #### Database Upgrade
 

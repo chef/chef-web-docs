@@ -205,21 +205,6 @@
   status = 301
 
 [[redirects]]
-  from = "/workstation/26.1/*"
-  to = "https://release-26-1--chef-workstation-docs.netlify.app/workstation/26.1/:splat"
-  status = 200
-
-[[redirects]]
-  from = "/workstation/26.0/*"
-  to = "https://release-26-0--chef-workstation-docs.netlify.app/workstation/26.0/:splat"
-  status = 200
-
-[[redirects]]
-  from = "/workstation/25/*"
-  to = "https://release-25--chef-workstation-docs.netlify.app/workstation/25/:splat"
-  status = 200
-
-[[redirects]]
   from = "/workstation/latest/*"
   to = "/workstation/26.1/:splat"
   status = 301
