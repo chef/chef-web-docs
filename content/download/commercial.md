@@ -38,8 +38,9 @@ The Chef Commercial Download API has the following endpoints:
 - `/download`
 - `/fileName`
 - `/package-managers`
+- `/files`
 
-For details about query strings, see the [parameters section](#parameters).
+For details about query strings and path parameters, see the [parameters section](#parameters).
 
 ### architectures
 
@@ -77,6 +78,8 @@ Use the `packages` endpoint to get a full list of packages for a particular rele
 
 By default, this endpoint returns packages for the latest version.
 
+- `direct`: (optional) Returns the download URL from the `/files` endpoint instead of the standard download endpoint. Default value: `false`.
+
 ```plain
 https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/packages?license_id=<LICENSE_ID>
 ```
@@ -85,6 +88,12 @@ To get packages for a specific product version, use the `v` query string:
 
 ```plain
 https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/packages?v=<VERSION_NUMBER>&license_id=<LICENSE_ID>
+```
+
+To retrieve download URLs from the `/files` endpoint, add the `direct=true` parameter:
+
+```plain
+https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/packages?license_id=<LICENSE_ID>&direct=true
 ```
 
 ### versions/all
@@ -113,6 +122,7 @@ The endpoint determines the package type (for example, `rpm` or `deb`) from the 
   - If you also specify `pm`, you can use a generic value such as `linux`.
   - If you omit `pm`, specify the exact platform name (for example, `ubuntu`, `amazon`, or `redhat`) so the API can derive the package type from the platform.
 - `pm`: (optional) The package type to retrieve (for example: `deb`, `rpm`, `msi`, or `tar`). If provided, the API uses `pm` to determine the package type directly.
+- `direct`: (optional) Returns the download URL from the `/files` endpoint instead of the standard download endpoint. Default value: `false`.
 
 Retrieve metadata by specifying the platform:
 
@@ -124,6 +134,12 @@ Retrieve metadata by specifying the platform and package type:
 
 ```plain
 https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/metadata?p=<PLATFORM>&pm=<PACKAGE_MANAGER>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
+```
+
+Retrieve metadata with a download URL from the `/files` endpoint:
+
+```plain
+https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/metadata?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>&direct=true
 ```
 
 ### download
@@ -180,11 +196,37 @@ The `package-managers` endpoint lists the available package types.
 https://chefdownload-commercial.chef.io/package-managers
 ```
 
+### files
+
+The `files` endpoint downloads a particular package of a Chef product.
+
+The endpoint identifies the package using path segments instead of query parameters. The URL structure varies depending on the product type.
+
+To construct a `/files` endpoint URL, use the [`metadata`](#metadata) or [`packages`](#packages) endpoint with the `direct=true` parameter to retrieve the correct URL for your use case. To get the filename for a package, use the [`fileName`](#filename) endpoint.
+
+Download packages for Chef Automate and Chef Habitat:
+
+```plain
+https://chefdownload-commercial.chef.io/files/<CHANNEL>/<PRODUCT>/<PRODUCT_VERSION>/<PLATFORM>/<ARCHITECTURE>/<FILENAME>?license_id=<LICENSE_ID>
+```
+
+Download packages for Chef Infra Client Enterprise, Chef Infra Client Legacy Migration, Chef InSpec Enterprise, and Chef Workstation Enterprise:
+
+```plain
+https://chefdownload-commercial.chef.io/files/<CHANNEL>/<PRODUCT>/<PRODUCT_VERSION>/<PLATFORM>/<ARCHITECTURE>/<PACKAGE_MANAGER>/<FILENAME>?license_id=<LICENSE_ID>
+```
+
+Download packages for other products:
+
+```plain
+https://chefdownload-commercial.chef.io/files/<CHANNEL>/<PRODUCT>/<PRODUCT_VERSION>/<PLATFORM>/<PLATFORM_VERSION>/<ARCHITECTURE>/<FILENAME>?license_id=<LICENSE_ID>
+```
+
 ## Parameters
 
 <!-- markdownlint-disable MD006 MD007 -->
 
-The API accepts the following parameters in a query string.
+The API accepts the following parameters. Most endpoints use them as query string values, while the `files` endpoint uses the same values as path segments in the URL. Each parameter's placeholder name, shown in angle brackets, represents both forms.
 
 `<CHANNEL>`
 : The release channel to install from. For the available channels, see [release channels](#release-channels).
@@ -192,63 +234,75 @@ The API accepts the following parameters in a query string.
 `<PRODUCT>`
 : The Chef Software product to install.
 
-  A list of valid product keys can be found in the [Chef product matrix](https://github.com/chef/mixlib-install/blob/main/PRODUCT_MATRIX.md) or by using the [`products`](#products) endpoint.
+A list of valid product keys can be found in the [Chef product matrix](https://github.com/chef/mixlib-install/blob/main/PRODUCT_MATRIX.md) or by using the [`products`](#products) endpoint.
 
 `license_id`
 : Your license ID.
 
-  A license is required to download packages and retrieve package metadata with this API.
+A license is required to download packages and retrieve package metadata with this API.
 
 `eol`
 : Whether to include EOL versions of a product or EOL products in the response.
 
-  Possible values: `true` or `false`.
+Possible values: `true` or `false`.
 
-  Default value: `false`.
+Default value: `false`.
 
-`p`
+`p` (`<PLATFORM>`)
 : The platform.
 
-  Possible values include: `debian`, `el` (for RHEL derivatives), `linux`, `linux-kernel2`, `mac_os_x`, `sles`, `ubuntu` or `windows`.
+Possible values include: `debian`, `el` (for RHEL derivatives), `linux`, `linux-kernel2`, `mac_os_x`, `sles`, `ubuntu` or `windows`.
 
-  For a complete list, use the [`platforms`](#platforms) endpoint.
+For a complete list, use the [`platforms`](#platforms) endpoint.
 
-`pm`
+`pm` (`<PACKAGE_MANAGER>`)
 : The package type.
 
-  This parameter is optional.
-  If not provided, the API automatically detects the platform and derives the package format from it.
-  Include `pm` when you want to request a specific package format explicitly.
+This parameter is optional.
+If not provided, the API automatically detects the platform and derives the package format from it.
+Include `pm` when you want to request a specific package format explicitly.
 
-  Values include:
+Values include:
 
-  - `deb` for Debian-based systems, for example, Ubuntu
-  - `rpm` for Red Hat-based systems, for example, CentOS or Fedora
-  - `tar` for generic Unix-like systems
-  - `msi` for Windows systems
+- `deb` for Debian-based systems, for example, Ubuntu
+- `rpm` for Red Hat-based systems, for example, CentOS or Fedora
+- `tar` for generic Unix-like systems
+- `msi` for Windows systems
 
-  For a complete list, use the [`package-managers`](#package-managers) endpoint.
+For a complete list, use the [`package-managers`](#package-managers) endpoint.
 
-`pv`
+`pv` (`<PLATFORM_VERSION>`)
 : The platform version.
 
-  Possible values depend on the platform. For example, Ubuntu: `18.04`, or `20.04`, or for macOS: `10.15` or `11`.
+Possible values depend on the platform. For example, Ubuntu: `18.04`, or `20.04`, or for macOS: `10.15` or `11`.
 
-`m`
+`m` (`<ARCHITECTURE>`)
 : The machine architecture for the machine on which the product will be installed.
 
-  Possible values depend on the platform. For example, for
-  Ubuntu or Debian: `i386`, `x86_64`, or `aarch64`, or for macOS: `x86_64`.
+Possible values depend on the platform. For example, for
+Ubuntu or Debian: `i386`, `x86_64`, or `aarch64`, or for macOS: `x86_64`.
 
-  To get the supported architecture values, use the [`architectures`](#architectures) endpoint.
+To get the supported architecture values, use the [`architectures`](#architectures) endpoint.
 
-`v`
+`v` (`<PRODUCT_VERSION>`)
 : The version of the product to be installed.
 
-  Versions typically take the form of `x.y.z` where x, y, and z are decimal numbers that represent major (x), minor (y), and patch (z) versions.
-  One-part (`x`) and two-part (`x.y`) versions are allowed.
+Versions typically take the form of `x.y.z` where x, y, and z are decimal numbers that represent major (x), minor (y), and patch (z) versions.
+One-part (`x`) and two-part (`x.y`) versions are allowed.
 
-  Default value: `latest`.
+Default value: `latest`.
+
+`<FILENAME>`
+: The name of the package file to download.
+
+Use the [`fileName`](#filename) endpoint to retrieve this value for a given package.
+
+`direct`
+: Returns the download URL from the `/files` endpoint instead of the standard download endpoint.
+
+Possible values: `true` or `false`.
+
+Default value: `false`.
 
 ## Chef product names
 
@@ -323,6 +377,21 @@ sha1	"593b60c0f1266267d0dae2921e89a0b3a7c53615"
 sha256	"f27c4ad2fc92f540b3508043af7012023c16a013b3caa3603d93e6ac735bed61"
 url	"https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?license_id=<LICENSE_ID>&eol=false&m=x86_64&p=linux&pm=deb&v=26.0.23"
 version	"26.0.23"
+```
+
+To get the latest supported build of Chef Infra Client for Ubuntu 20.04 with a direct download URL from the `/files` endpoint, add the `direct=true` parameter:
+
+```sh
+https://chefdownload-commercial.chef.io/stable/chef/metadata?p=ubuntu&pv=20.04&m=x86_64&license_id=<LICENSE_ID>&direct=true
+```
+
+which returns something like:
+
+```json
+sha1	"8e8ae315d4695f9c95efc0a1437d2d453f7ab116"
+sha256	"f27c4ad2fc92f540b3508043af7012023c16a013b3caa3603d93e6ac735bed61"
+url	"https://chefdownload-commercial.chef.io/files/stable/chef/18.11.11/ubuntu/20.04/x86_64/chef_18.11.11-1_amd64.deb?license_id=<LICENSE_ID>"
+version	"18.11.11"
 ```
 
 ### Download directly
