@@ -23,6 +23,9 @@ Release date: TBD
 
 ### Improvements
 
+- We updated Chef-19 with support for Ruby 3.4.10 and OpenSSL 3.5.7
+([16242](https://github.com/chef/chef/pull/16242))
+
 - The `chef_client_config` resource now accepts two new properties. `directory_specs` lets you configure permissions (owner, group, mode, and Windows rights and inherits) for each Chef-managed directory: `:config`, `:client_d`, `:logs`, `:cache`, and `:backups`. `client_rb_mode` lets you set the file mode of the generated `client.rb` file (defaults to `"0640"`).
   ([#16019](https://github.com/chef/chef/pull/16019))
 
