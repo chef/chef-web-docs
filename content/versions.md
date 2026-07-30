@@ -88,7 +88,6 @@ If you're using one of these products, migrate to a supported version or product
 | Chef Infra Client | 18.x    | Deprecated       | May 31, 2027      | Chef Infra Client 19.x         |
 | Chef Infra Server | 15.x    | Deprecated       | November 30, 2026 | Chef 360 Platform              |
 | Chef InSpec       | 4.x     | Deprecated       | TBD               | Chef InSpec 5.x                |
-| Chef Workstation  | 24.x    | Deprecated       | April 2026        | Chef Workstation 25 or above   |
 
 ## End of Life (EOL) products
 
@@ -107,6 +106,6 @@ If you're using one of these products, migrate to a supported version or product
 | Chef Replication/Sync    | All                  | EOL              | August 31, 2019   | None                           |
 | Chef Server DRBD HA      | All                  | EOL              | March 31, 2019    | Chef 360 Platform              |
 | Chef Workflow (Delivery) | All                  | EOL              | December 31, 2020 | None                           |
-| Chef Workstation         | 23.12.1055 and under | EOL              | December 31, 2024 | Chef Workstation latest        |
+| Chef Workstation         | 24.x and under       | EOL              | April 30, 2026    | Chef Workstation latest        |
 | Enterprise Chef          | All                  | EOL              | December 31, 2018 | Chef 360 Platform              |
 | Reporting                | All                  | EOL              | December 31, 2018 | Chef Automate latest           |
