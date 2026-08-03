@@ -13,29 +13,46 @@ swiftype_search_products = ["automate", "client", "server", "habitat", "inspec",
     weight = 20
 +++
 
-Chef software is supported on the operating systems (platforms)
-listed below. To see which versions of our software we currently
-support, see the [Supported Versions](/versions/) page.
+## Support definitions
 
-## Support
+### Certification tiers
 
-We offer two levels of support for platforms (operating systems), [Commercial Support]({{< relref "#commercial-support">}}) and [Community Support]({{< relref "#community-support" >}}).
+**Validated & Supported**
+: Platforms tested automatically as part of every CI/CD pipeline build. The full Chef test suite runs in both agent and agentless modes. Covered by paid maintenance contracts and eligible for 24/7 SLA support.
 
-### Commercial support
+**Supported (Untested)**
+: Platforms that are not part of the CI/CD pipeline. These platforms are fully supported and bugs will be addressed, but issues may surface that are not caught before release. Customers with active maintenance contracts are eligible for technical support.
 
-Commercial support for platforms is part of paid maintenance contracts with Chef Software. Support contracts allow you to open tickets and receive service level agreement (SLA) assistance from our support desk. Commercially supported platforms are extensively tested as part of Chef's development and release process. Commercial support follows the lifecycle of the underlying operating system vendor.
+**User Reported**
+: Platforms reported as working by community members. Chef Engineering does not formally test these platforms as part of the development and release process. Support is provided on a best-effort basis and not all Chef resources may be compatible.
 
-Commercial support is limited to the platforms listed in the "Commercial Support" tables--platforms not listed in these tables are unsupported.
+### Installer types
 
-### Community support
+**Native**
+: Chef is installed using the platform's native package manager — MSI on Windows, DEB on Debian/Ubuntu, RPM on RHEL/SUSE, PKG on macOS.
 
-Community support for platforms means that members of the Chef community have contributed to these platforms and Chef doesn't actively work to maintain this functionality. Chef doesn't explicitly test community supported platforms as part of the development and release process.
+**Habitat**
+: Chef is installed and run using [Chef Habitat](https://www.habitat.sh/) commands (`hab pkg install`) or by extracting a Habitat artifact (`.hart` or `.tar.gz`). Used for platforms where a native package is not available or where a self-contained runtime is preferred.
 
-Many of these platforms are forks, clones, or otherwise derivative of platforms that Chef commercially supports. Continued functionality for these platforms is likely, but not guaranteed. Unsupported platforms may have missing or non-operative functionality. As always, we welcome community contributions from anyone looking to expand community support for platforms in Chef products.
+### Agent and agentless modes
 
-### Support for derived platforms
+**Agent** 
+: Agent-based mode includes all software that runs directly on the managed node:
 
-Chef doesn't explicitly test or provide builds for derived distributions other than those in our supported platform list. However, if the derived distribution is a direct rebuild of the originating distribution and hasn't diverged in functionality or packaged dependencies, Chef will support our customers through our normal channels.
+- Chef Infra Client
+- Chef InSpec
+- Chef Habitat supervisor
+- Chef 360 skills running in agent mode, including Courier job execution and Node Management
+
+**Agentless** 
+: Agentless mode includes all software that manages a node remotely without an agent present on the node:
+
+- Chef Infra Client agentless mode (formerly Target Mode) — connects via SSH (Linux) or WinRM/SSH (Windows)
+- Chef InSpec (remote scanning)
+- Chef 360 Courier agentless job execution
+
+Chef software is supported on the operating systems (platforms) listed below.
+To see which versions of our software we currently support, see the [Supported Versions](/versions/) page.
 
 ## Platforms
 
@@ -65,82 +82,24 @@ documentation for a list of supported platforms for Chef Automate HA.
 
 The following table lists the commercially supported platforms for Chef Backend, which is the high-availability solution for Chef Infra Server.
 
-| Platform | Architecture | Version |
+| Platform | Version | Architecture |
 | --- | --- | --- |
-| CentOS | `x86_64` | `6.x`, `7.x`, `8.x` |
-| Oracle Enterprise Linux | `x86_64` | `7.x`, `8.x` |
-| Red Hat Enterprise Linux | `x86_64` | `6.x`, `7.x`, `8.x` |
-| SUSE Linux Enterprise Server | `x86_64` | `12.x` |
-| Ubuntu (LTS releases) | `x86_64` | `16.04`, `18.04` |
+| CentOS | `6.x`, `7.x`, `8.x` | `x86_64` |
+| Oracle Enterprise Linux | `7.x`, `8.x` | `x86_64` |
+| Red Hat Enterprise Linux | `6.x`, `7.x`, `8.x` | `x86_64` |
+| SUSE Linux Enterprise Server | `12.x` | `x86_64` |
+| Ubuntu (LTS releases) | `16.04`, `18.04` | `x86_64` |
 
 #### Derived platforms
 
-The following table lists supported derived platforms and versions for Chef Infra Server.
-
-See our policy on [support for derived platforms](#support-for-derived-platforms) for more information.
-
-| Platform | Architecture | Version | Parent platform |
+| Platform | Version | Architecture | Parent platform |
 | --- | --- | --- | --- |
-| AlmaLinux | `x86_64` | `8.x` | CentOS |
-| Rocky Linux | `x86_64` | `8.x` | CentOS |
+| AlmaLinux | `8.x` | `x86_64` | CentOS |
+| Rocky Linux | `8.x` | `x86_64` | CentOS |
 
 ### Chef Infra Client
 
-#### Commercial support
-
-The following table lists the commercially supported platforms and versions for Chef Infra Client.
-
-| Platform | Architecture | Version |
-| --- | --- | --- |
-| AIX | `powerpc` | `7.1` (TL5 SP2 or higher, recommended), `7.2`, `7.3` |
-| Amazon Linux | `x86_64`, `aarch64` | `2.x`, `2023` |
-| CentOS | `x86_64`, `ppc64le`, `ppc64`, `aarch64` | `7.x` |
-| Debian | `x86_64`, `aarch64` | `10`, `11` |
-| FreeBSD | `amd64` | `13.x` |
-| macOS | `aarch64` | `13.x`, `14.x` |
-| Oracle Enterprise Linux | `x86_64`, `aarch64` | `7.x`, `8.x` |
-| Red Hat Enterprise Linux | `x86_64`, `ppc64le` (7.x only), `ppc64` (7.x only), `aarch64`, `s390x` (7.x / 8.x only) | `7.x`, `8.x`, `9.x`, `10.x` |
-| Rocky Linux | `x86_64`, `aarch64` | `8.x`, `9.x` |
-| Solaris | `sparc`, `i86pc` | `11.3` (16.17.4 and later only), `11.4`  |
-| SUSE Linux Enterprise Server | `x86_64`, `aarch64` (15.x only), `s390x` | `12`, `15` |
-| Ubuntu (LTS releases) | `x86_64`,`aarch64` (18.x and above) | `18.04`, `20.04`, `22.04`, `24.04` |
-| Windows | `x86_64` | `2016`, `10` (all channels except "insider" builds), `2019` (Long-term servicing channel (LTSC), both Desktop Experience and Server Core), `11`, `2022`, `2025` |
-
-#### Derived platforms
-
-The following table lists supported derived platforms and versions for Chef Infra Client.
-
-See our policy on [support for derived platforms](#support-for-derived-platforms) for more information.
-
-| Platform | Architecture | Version | Parent platform |
-| --- | --- | --- | --- |
-| AlmaLinux | `x86_64`, `aarch64` | `8.x`, `9.x`, `10.x` | CentOS |
-
-#### Community support
-
-The following platforms are supported only using the community.
-
-| Platform | Architecture | Version |
-| --- | --- | --- |
-| Alibaba Cloud Linux | `x86_64` | 2.x |
-| Arch Linux | `x86_64` | current version |
-| Arista EOS | `x86_64` | current non-EOL releases |
-| CentOS Stream | `x86_64`, `aarch64` | current non-EOL releases |
-| Clear Linux | `x86_64` | current non-EOL releases |
-| Cumulus Linux | `x86_64` | current non-EOL releases |
-| Fedora | `x86_64`, `aarch64` | current non-EOL releases |
-| Kali Linux | `x86_64` | current non-EOL releases |
-| Linux Mint | `x86_64` | current non-EOL releases |
-| OpenIndiana Hipster | `x86_64` | current non-EOL releases |
-| openSUSE | `x86_64`, `aarch64` | `15.x` |
-| Pop!_OS | `x86_64` | current non-EOL releases |
-| Raspberry Pi OS | `aarch64` | current non-EOL releases |
-| SmartOS | `x86_64` | current non-EOL releases |
-| SUSE Linux Enterprise Desktop | `x86_64`, `aarch64` (15.x only) | `12.x`, `15.x` |
-| Ubuntu | `x86_64`, `aarch64` | Current non-LTS releases |
-| Virtuozzo | `x86_64` | Current non-LTS releases |
-| Windows | `x64` | `Windows Server, Semi-annual channel (SAC) (Server Core only)` |
-| XCP-ng | `x86_64` | 8.x |
+See the [Chef Infra Client supported platforms](/client/19/install/platforms/) documentation for the full list of supported platforms, certification tiers, and installer types.
 
 ### Chef Infra Server
 
@@ -173,14 +132,15 @@ The following table lists the commercially supported platforms and versions for 
 
 {{< foundation_tabs_panel panel-id="chef-workstation-commercial-support-v25" >}}
 
-| Platform                          | Architecture                | Version                                                                    |
-|-----------------------------------| ----------------------------| ---------------------------------------------------------------------------|
-| Amazon Linux                      | x86_64, arch64 (2023 only)  | 2.x, 2023                                                                  |
-| macOS                             | aarch64                     | 13.x, 14.x                                                                 |
-| Debian                            | x86_64                      | 10.x, 11.x                                                                 |
-| Red Hat Enterprise Linux / CentOS | x86_64                      | 7.x, 8.x, 9.x                                                              |
-| Ubuntu                            | x86_64                      | 18.04, 20.04, 22.04                                                        |
-| Windows                           | x64                         | 10, 11, Server 2016, Server 2019, Server 2022                              |
+| Platform                          | Version                                       | Architecture                |
+|-----------------------------------| ----------------------------------------------| ----------------------------|
+| Amazon Linux                      | 2.x                                           | x86_64                      |
+| Amazon Linux                      | 2023                                          | x86_64, aarch64             |
+| macOS                             | 13.x, 14.x                                    | aarch64                     |
+| Debian                            | 10.x, 11.x                                    | x86_64                      |
+| Red Hat Enterprise Linux / CentOS | 7.x, 8.x, 9.x                                | x86_64                      |
+| Ubuntu                            | 18.04, 20.04, 22.04                           | x86_64                      |
+| Windows                           | 10, 11, Server 2016, Server 2019, Server 2022 | x64                         |
 
 {{< /foundation_tabs_panel >}}
 
@@ -190,12 +150,10 @@ The following table lists the commercially supported platforms and versions for 
 
 Chef Workstation 25 supports the following derived platforms and versions.
 
-| Platform | Architecture | Version | Parent platform |
+| Platform | Version | Architecture | Parent platform |
 | --- | --- | --- | --- |
-| AlmaLinux | `x86_64` | `8.x` | CentOS |
-| Rocky Linux | `x86_64` | `8.x` | CentOS |
-
-See our policy on [support for derived platforms](#support-for-derived-platforms) for more information.
+| AlmaLinux | `8.x` | `x86_64` | CentOS |
+| Rocky Linux | `8.x` | `x86_64` | CentOS |
 
 ## Platform end-of-life policy
 
