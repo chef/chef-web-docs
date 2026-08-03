@@ -5,9 +5,9 @@ draft = false
 [menu]
   [menu.client_19]
     title = "Supported platforms"
-    identifier = "install/chef_infra_client_platforms.md Supported Platforms"
-    parent = "install"
-    weight = 20
+    identifier = "overview/chef_infra_client_platforms.md Supported Platforms"
+    parent = "overview"
+    weight = 30
 +++
 
 This page lists the operating system platforms supported by Chef Infra Client 19.

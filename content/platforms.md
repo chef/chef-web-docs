@@ -99,7 +99,7 @@ The following table lists the commercially supported platforms for Chef Backend,
 
 ### Chef Infra Client
 
-See the [Chef Infra Client supported platforms](/client/19/install/platforms/) documentation for the full list of supported platforms, certification tiers, and installer types.
+See the [Chef Infra Client supported platforms](/client/19/overview/platforms/) documentation for the full list of supported platforms, certification tiers, and installer types.
 
 ### Chef Infra Server
 
