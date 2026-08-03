@@ -126,6 +126,10 @@
 # Chef Infra Client redirects
 ####
 
+# The unified resources catalog is a real page at /resources/ (content/resources/_index.md).
+# This rule is non-forced (status 301), so Netlify serves the generated /resources/index.html
+# for the bare path and only applies this redirect to legacy per-resource deep links
+# (for example, /resources/apt_package/), sending them to the Chef Infra Client resource page.
 [[redirects]]
   from = "/resources/*"
   to = "/client/19/resources/bundled/:splat"
