@@ -1,5 +1,5 @@
 +++
-title = "Resources"
+title = "Supported resources"
 draft = false
 description = "Unified reference of every resource available in Chef Infra Client and Chef InSpec, with a compatibility matrix and links to each product's documentation."
 gh_repo = "chef-web-docs"
@@ -10,10 +10,10 @@ swiftype_search_products = ["client", "inspec"]
 
 [menu]
   [menu.overview]
-    title = "Resources"
-    identifier = "overview/resources.md Resources"
-    parent = "overview"
-    weight = 15
+    title = "Supported resources"
+    identifier = "overview/packages_&_platforms/resources.md Supported resources"
+    parent = "overview/packages_&_platforms"
+    weight = 30
 +++
 
 Chef Infra Client and Chef InSpec both use _resources_ as their core building block, but for
@@ -30,6 +30,10 @@ For the resources introduced in a specific release, see that version's documenta
 lists the complete catalog and doesn't replace the version-specific resource references:
 
 - [Chef Infra Client resources](/client/19/resources/)
-- [Chef InSpec resources](/inspec/latest/resources/)
+- [Chef InSpec resources](/inspec/resources/)
 
-The following sections list the resources supported by both products and then the complete catalog.
+The following sections list the resources supported by both products, then the complete catalog,
+and finally the Chef InSpec resource packs. As of Chef InSpec 7, cloud and platform resources---such
+as those for Amazon Web Services, Microsoft Azure, and Google Cloud Platform---moved out of
+Chef InSpec core into separate resource packs, so this page groups them by pack rather than listing
+each resource individually.
