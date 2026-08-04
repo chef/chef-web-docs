@@ -21,10 +21,10 @@ swiftype_search_products = ["automate", "client", "server", "habitat", "inspec",
 : Platforms tested automatically as part of every CI/CD pipeline build. The full Chef test suite runs in both agent and agentless modes. Covered by paid maintenance contracts and eligible for 24/7 SLA support.
 
 **Supported (Untested)**
-: Platforms that are not part of the CI/CD pipeline. These platforms are fully supported and bugs will be addressed, but issues may surface that are not caught before release. Customers with active maintenance contracts are eligible for technical support.
+: Platforms that aren't part of the CI/CD pipeline. These platforms are fully supported and bugs will be addressed, but issues may surface that aren't caught before release. Customers with active maintenance contracts are eligible for technical support.
 
 **User Reported**
-: Platforms reported as working by community members. Chef Engineering does not formally test these platforms as part of the development and release process. Support is provided on a best-effort basis and not all Chef resources may be compatible.
+: Platforms reported as working by community members. Chef Engineering doesn't formally test these platforms as part of the development and release process. Support is provided on a best-effort basis and not all Chef resources may be compatible.
 
 ### Installer types
 
@@ -32,11 +32,11 @@ swiftype_search_products = ["automate", "client", "server", "habitat", "inspec",
 : Chef is installed using the platform's native package manager — MSI on Windows, DEB on Debian/Ubuntu, RPM on RHEL/SUSE, PKG on macOS.
 
 **Habitat**
-: Chef is installed and run using [Chef Habitat](https://www.habitat.sh/) commands (`hab pkg install`) or by extracting a Habitat artifact (`.hart` or `.tar.gz`). Used for platforms where a native package is not available or where a self-contained runtime is preferred.
+: Chef is installed and run using [Chef Habitat](https://www.habitat.sh/) commands (`hab pkg install`) or by extracting a Habitat artifact (`.hart` or `.tar.gz`). Used for platforms where a native package isn't available or where a self-contained runtime is preferred.
 
 ### Agent and agentless modes
 
-**Agent** 
+**Agent**
 : Agent-based mode includes all software that runs directly on the managed node:
 
 - Chef Infra Client
@@ -44,7 +44,7 @@ swiftype_search_products = ["automate", "client", "server", "habitat", "inspec",
 - Chef Habitat supervisor
 - Chef 360 skills running in agent mode, including Courier job execution and Node Management
 
-**Agentless** 
+**Agentless**
 : Agentless mode includes all software that manages a node remotely without an agent present on the node:
 
 - Chef Infra Client agentless mode (formerly Target Mode) — connects via SSH (Linux) or WinRM/SSH (Windows)
