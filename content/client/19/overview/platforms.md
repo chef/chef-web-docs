@@ -31,7 +31,7 @@ This page lists the operating system platforms supported by Chef Infra Client 19
 : Chef is installed using the platform's native package manager—MSI on Windows, DEB on Debian/Ubuntu, RPM on RHEL/SUSE, PKG on macOS.
 
 **Habitat**
-: Chef is installed and run using [Chef Habitat](https://www.habitat.sh/) commands (`hab pkg install`) or by extracting a Habitat artifact (`.hart` or `.tar.gz`). Used for platforms where a native package is not available or where a self-contained runtime is preferred.
+: Chef is installed and run using [Chef Habitat](https://www.habitat.sh/) commands (`hab pkg install`) or by extracting a Habitat artifact (`.hart` or `.tar.gz`). Used for platforms where a native package isn't available or where a self-contained runtime is preferred.
 
 ### Agent and agentless modes
 
@@ -46,7 +46,7 @@ This page lists the operating system platforms supported by Chef Infra Client 19
 **Agentless**
 : Agentless mode includes all software that manages a node remotely without an agent present on the node:
 
-- Chef Infra Client agentless mode (formerly Target Mode)—connects via SSH (Linux) or WinRM/SSH (Windows)
+- Chef Infra Client agentless mode (formerly Target Mode)—connects using SSH (Linux) or WinRM/SSH (Windows)
 - Chef InSpec (remote scanning)
 - Chef 360 Courier agentless job execution
 
