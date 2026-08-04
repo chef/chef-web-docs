@@ -29,7 +29,7 @@ swiftype_search_products = ["automate", "client", "server", "habitat", "inspec",
 ### Installer types
 
 **Native**
-: Chef is installed using the platform's native package manager — MSI on Windows, DEB on Debian/Ubuntu, RPM on RHEL/SUSE, PKG on macOS.
+: Chef is installed using the platform's native package manager—MSI on Windows, DEB on Debian/Ubuntu, RPM on RHEL/SUSE, PKG on macOS.
 
 **Habitat**
 : Chef is installed and run using [Chef Habitat](https://www.habitat.sh/) commands (`hab pkg install`) or by extracting a Habitat artifact (`.hart` or `.tar.gz`). Used for platforms where a native package isn't available or where a self-contained runtime is preferred.
@@ -47,7 +47,7 @@ swiftype_search_products = ["automate", "client", "server", "habitat", "inspec",
 **Agentless**
 : Agentless mode includes all software that manages a node remotely without an agent present on the node:
 
-- Chef Infra Client agentless mode (formerly Target Mode) — connects via SSH (Linux) or WinRM/SSH (Windows)
+- Chef Infra Client agentless mode (formerly Target Mode)—connects using SSH (Linux) or WinRM/SSH (Windows)
 - Chef InSpec (remote scanning)
 - Chef 360 Courier agentless job execution
 
