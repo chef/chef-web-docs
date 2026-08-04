@@ -18,13 +18,13 @@ swiftype_search_products = ["automate", "client", "server", "habitat", "inspec",
 ### Certification tiers
 
 **Validated & Supported**
-: Platforms tested automatically as part of every CI/CD pipeline build. The full Chef test suite runs in both agent and agentless modes. Covered by paid maintenance contracts and eligible for 24/7 SLA support.
+: These platforms are fully tested on every release. These platforms run through the complete Chef automated test suite in CI/CD before each release.
 
 **Supported (Untested)**
-: Platforms that aren't part of the CI/CD pipeline. These platforms are fully supported and bugs will be addressed, but issues may surface that aren't caught before release. Customers with active maintenance contracts are eligible for technical support.
+: These platforms are fully supported, but not tested in our CI/CD pipelines. Chef stands behind these platforms and will address any reported bugs.
 
 **User Reported**
-: Platforms reported as working by community members. Chef Engineering doesn't formally test these platforms as part of the development and release process. Support is provided on a best-effort basis and not all Chef resources may be compatible.
+: These platforms are validated by users. Support is provided on a best-effort basis.
 
 ### Installer types
 
