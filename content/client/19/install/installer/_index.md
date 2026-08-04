@@ -123,6 +123,17 @@ To install Chef Infra Client , follow these steps:
       ```
 
     {{< /accordion-item >}}
+    {{< accordion-item accordion-title="Download tarball" >}}
+
+    For macOS:
+
+    - Using curl:
+
+      ```sh
+      curl -o chef-ice-<VERSION>-macos.tar.gz "https://chefdownload-commercial.chef.io/stable/chef-ice/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=macos&pm=tar&v=<VERSION>"
+      ```
+
+    {{< /accordion-item >}}
     {{< /accordion-list >}}
 
 1. Go to the directory with the installer and install the package.
@@ -150,6 +161,15 @@ To install Chef Infra Client , follow these steps:
 
    ```sh
    sudo -E rpm -ivh chef-ice-<VERSION>-linux.rpm
+   ```
+
+   {{< /accordion-item >}}
+   {{< accordion-item accordion-title="Install from tarball" >}}
+
+   For macOS:
+
+   ```sh
+   tar -zxf chef-ice-<VERSION>-macos.tar.gz
    ```
 
    {{< /accordion-item >}}
