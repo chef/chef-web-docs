@@ -10,6 +10,18 @@ draft = false
     weight = 20
 +++
 
+## 20260715
+
+### New features
+
+- CIS Amazon Linux 2 v1.0.0
+
+## 20260615
+
+### New features
+
+- CIS Debian Linux 13 v1.0.0
+
 ## 20260416
 
 ### New features

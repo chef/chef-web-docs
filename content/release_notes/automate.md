@@ -14,6 +14,7 @@ summary = "Chef Automate release notes"
 +++
 
 <!-- markdownlint-disable-file -->
+<!-- cSpell:ignore tuxcare -->
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
@@ -28,6 +29,154 @@ Chef lets you choose your upgrade journey based on your current version of Chef 
 | 3.0.49| 4.x|
 
 See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/major_upgrade_4.x/) for more information.
+
+## Chef Automate 4.13.516
+
+Release date: July 23, 2026
+
+### New features
+
+- Adds audit log retention workflows, including retention for requested logs.
+- Adds an audit-log download endpoint with support for HTTP range requests.
+
+### Improvements
+
+- Adds `request_log_rotation_type` configuration for erchef, bifrost, and bookshelf.
+- Updates Chef Infra Server to 15.10.114.
+- Updates OpenSearch TuxCare build to 1.3.20.tuxcare.1.0.3.
+- Updates PostgreSQL TuxCare build to 13.23.tuxcare.1.0.1.
+
+### Bug fixes
+
+- Fixed an issue where session tokens remained active after logout and weren't properly rotated.
+- Fixed an issue where bifrost log files weren't rotated correctly.
+- Fixed an issue that prevented Habitat Builder from authenticating correctly when TLS 1.2 enforcement or a custom CA certificate was configured.
+
+### Compliance profile updates
+
+This release updates the Chef Compliance Profiles to version 1.0.0/20260625112700, which includes the new and improved profiles for:
+
+- CIS Red Hat Enterprise Linux 10 v1.0.0 (Audits)
+- CIS Alma Linux 9 v2.0.0 (Audits)
+- CIS Postgres 17 v1.0.0 (Audits)
+- CIS Apache Tomcat 11 v1.0.0
+- CIS Oracle Linux 10 v1.0.0
+- CIS Rocky Linux 10 v1.0.0
+- CIS Windows Server 2019 v4.0.0
+- CIS Kubernetes v1.12.0
+- CIS Oracle Database 19c v2.0.0
+- CIS IBM WebSphere Liberty v1.0.0
+- CIS Debian Linux 13 v1.0.0
+- CIS Oracle Linux 10 profile control improvements
+- Profile performance optimizations for STIG Windows 11 v2r2 and CIS RHEL versions 8, 9, and 10.
+
+### Security
+
+#### Security updates
+
+- Upgraded nginx to v1.31.1 to address the following CVEs:
+  - CVE-2026-42945
+  - CVE-2026-1642
+  - CVE-2025-23419
+  - CVE-2025-53859
+
+- Upgraded OpenSSL to v3.2.6 to address the following CVEs:
+  - CVE-2025-9230
+  - CVE-2025-9231
+  - CVE-2025-9232
+
+- Upgraded HAProxy to v2.8.16 to address the following CVEs:
+  - CVE-2025-11230
+  - CVE-2024-49214
+
+- Upgraded Curl to v8.18.0 to address the following CVEs:
+  - CVE-2025-9086
+  - CVE-2025-10966
+
+- Fixed dependabot issues to address the following CVEs:
+  - CVE-2026-33186
+  - CVE-2026-33216
+  - CVE-2026-34986
+  - CVE-2026-33487
+  - CVE-2026-32285
+  - CVE-2025-66630
+  - CVE-2025-15558
+  - CVE-2026-46598
+  - CVE-2026-39832
+  - CVE-2026-39833
+  - CVE-2026-46595
+  - CVE-2026-42508
+  - CVE-2026-39834
+  - CVE-2026-39831
+  - CVE-2026-39829
+  - CVE-2026-39830
+  - CVE-2026-39827
+  - CVE-2026-39835
+  - CVE-2026-39828
+  - CVE-2026-46597
+  - CVE-2026-45045
+  - CVE-2026-25680
+  - CVE-2026-2303
+  - CVE-2025-69725
+  - CVE-2026-40898
+  - CVE-2026-42554
+  - CVE-2026-32952
+  - CVE-2026-44240
+  - CVE-2026-41324
+  - CVE-2026-27699
+
+- Upgraded Erlang to v26.2.5.20 to address the following CVEs:
+  - CVE-2025-4748
+  - CVE-2024-53846
+
+- Upgraded Golang to v1.26.3 to address the following CVEs:
+  - CVE-2026-42501
+  - CVE-2026-33814
+  - CVE-2026-39826
+  - CVE-2026-39836
+  - CVE-2026-42499
+  - CVE-2026-39820
+  - CVE-2026-27142
+  - CVE-2026-25679
+  - CVE-2026-39830
+  - CVE-2026-39832
+  - CVE-2026-33811
+  - CVE-2026-39817
+
+### Chef packaged product versions
+
+This release uses:
+
+- Chef Habitat version: 1.6.1243/20241227194506
+- Chef Habitat Builder version: 10717/20250805204117
+- Chef Infra Server version: 15.10.114
+- Chef InSpec version: 5.24.7/20260324170007
+
+### Service versions
+
+This release uses:
+
+- Postgres: 13.23.tuxcare.1.0.1
+- OpenSearch: 1.3.20.tuxcare.1.0.3
+- Nginx: 1.29.5
+- HAProxy: 2.8.16
+
+### Supported external Chef products
+
+This release supports the following external Chef products:
+
+- Chef Infra Server version: 15.0.9+
+- Chef InSpec version: 4.3.2+
+- Chef Infra Client: 18.0.155+
+- Chef Habitat: 0.81+
+
+### Supported framework versions
+
+This release is built on the following framework versions:
+
+- GoLang: 1.26.3
+- OpenJDK: 17.0.16+8
+- Angular: 19.2.15
 
 ## Chef Automate 4.13.434
 
@@ -1844,7 +1993,7 @@ Released on January 4, 2023
 
 - Refactor the document for Backup and Restore of Automate HA ([#7433](https://github.com/chef/automate/pull/7433))
 - Improved the documentation for On-Prem deployment of Automate HA ([#7493](https://github.com/chef/automate/pull/7493))
-- Updated *knife-ec-backup* to version 3.0.1 ([#7505](https://github.com/chef/automate/pull/7505))
+- Updated _knife-ec-backup_ to version 3.0.1 ([#7505](https://github.com/chef/automate/pull/7505))
 - Improved Automate HA troubleshooting document ([#7571](https://github.com/chef/automate/pull/7571))
 - Updated Chef Automate Incident Creation app and Chef Automate Integration App to support ServiceNow San Diego and Tokyo versions
 - Improved Backup deletion command to validate backup id before operation ([#7641](https://github.com/chef/automate/pull/7641))
@@ -1870,7 +2019,7 @@ Compliance profiles are updated to version 1.11.1/20221202074320, which includes
 ### Bug fixes
 
 - Fix for Automate HA (v4.3.0) Backend node upgrade failure ([#7566](https://github.com/chef/automate/pull/7566))
-- Fix for errors while fetching *gather-logs* data from faulty/inactive node ([#7525](https://github.com/chef/automate/pull/7525))
+- Fix for errors while fetching _gather-logs_ data from faulty/inactive node ([#7525](https://github.com/chef/automate/pull/7525))
 
 ### Maintenance
 
@@ -3726,7 +3875,7 @@ Released on May 10, 2021
 
 ### New features
 
-- You can manage, create and modify *roles* directly in Chef Automate using Infra Server tab. [#4948](https://github.com/chef/automate/pull/4948), [#4991](https://github.com/chef/automate/pull/4991)
+- You can manage, create and modify _roles_ directly in Chef Automate using Infra Server tab. [#4948](https://github.com/chef/automate/pull/4948), [#4991](https://github.com/chef/automate/pull/4991)
 
 ### Bug fixes
 
@@ -3928,7 +4077,7 @@ Released on March 1, 2021
 
 ### New features
 
-- The updated *Infrastructure* tab lets you add Chef Infra Servers, giving you a comprehensive view of your Chef-managed systems.
+- The updated _Infrastructure_ tab lets you add Chef Infra Servers, giving you a comprehensive view of your Chef-managed systems.
   - Add organizations to each server.
   - View cookbooks, roles, environments, data bags, and clients for each organization.
   - Search and find roles, environments, data bag items, and clients from Chef Automate.
@@ -3936,7 +4085,7 @@ Released on March 1, 2021
 ### Improvements
 
 - Upgraded to Ruby version 2.6 ([4425](https://github.com/chef/automate/pull/4425)).
-- Added IDs on the **Project** and **Role** pages in the *Settings* tab ([4393](https://github.com/chef/automate/pull/4393)).
+- Added IDs on the **Project** and **Role** pages in the _Settings_ tab ([4393](https://github.com/chef/automate/pull/4393)).
 - Added capability to create a backup from AWS ES service to AWS S3 ([4664](https://github.com/chef/automate/pull/4664))
 
 ### Bug fixes
@@ -4038,8 +4187,8 @@ Released on January 11, 2021
 ### Improvements
 
 - Filter service instances in the Applications Dashboard by their connected or disconnected status. ([#4452](https://github.com/chef/automate/pull/4452))
-- Visualize waived nodes and controls in the *Reports* Overview graphs. ([#4456](https://github.com/chef/automate/pull/4456))
-- The *Event Feed* displays the Policyfile cookbook names in updates. ([#4469](https://github.com/chef/automate/pull/4469))
+- Visualize waived nodes and controls in the _Reports_ Overview graphs. ([#4456](https://github.com/chef/automate/pull/4456))
+- The _Event Feed_ displays the Policyfile cookbook names in updates. ([#4469](https://github.com/chef/automate/pull/4469))
 - Dynamically resolve externally deployed ElasticSearch and PostgreSQL hostnames using resolvers/Dynamic Name Servers. ([#4454](https://github.com/chef/automate/pull/4454), [#4486](https://github.com/chef/automate/pull/4486), and [#4502](https://github.com/chef/automate/pull/4502))
 
 ### Bug fixes
@@ -4062,11 +4211,11 @@ Released on December 7, 2020
 ### Improvements
 
 - The Chef Automate Compliance APIs show data for the last 24 hours by default unless an `end_time` is specified. ([#4310](https://github.com/chef/automate/pull/4310))
-- Select the *Last 24 hours* option in the *Reports* search bar to view scan results for the last 24 hours. Select *Choose Date (UTC)* to see scan results from a selected day based on UTC timestamps. ([#4358](https://github.com/chef/automate/pull/4358), [#4437](https://github.com/chef/automate/pull/4437), and [#4448](https://github.com/chef/automate/pull/4448))
+- Select the _Last 24 hours_ option in the _Reports_ search bar to view scan results for the last 24 hours. Select _Choose Date (UTC)_ to see scan results from a selected day based on UTC timestamps. ([#4358](https://github.com/chef/automate/pull/4358), [#4437](https://github.com/chef/automate/pull/4437), and [#4448](https://github.com/chef/automate/pull/4448))
 
 ### Bug fixes
 
-- Resolved pagination issues in the *Client Runs* Run History means that pagination should now appear as expected. ([#4441](https://github.com/chef/automate/pull/4441))
+- Resolved pagination issues in the _Client Runs_ Run History means that pagination should now appear as expected. ([#4441](https://github.com/chef/automate/pull/4441))
 
 ### Chef Product Versions
 
@@ -4087,8 +4236,8 @@ Released on November 23, 2020
 
 ### Bug fixes
 
-- Select different node status filters in *Client Runs* and experience smooth navigation without jarring page jumps. ([#4392](https://github.com/chef/automate/pull/4392))
-- The search bar calendar appears over the *Reports* results tabs, no matter your browser's zoom level. ([#4412](https://github.com/chef/automate/pull/4412))
+- Select different node status filters in _Client Runs_ and experience smooth navigation without jarring page jumps. ([#4392](https://github.com/chef/automate/pull/4392))
+- The search bar calendar appears over the _Reports_ results tabs, no matter your browser's zoom level. ([#4412](https://github.com/chef/automate/pull/4412))
 
 ## Chef Automate 20201020140427
 
@@ -4132,16 +4281,16 @@ Released on October 12, 2020
 ### Improvements
 
 - All internal services now listen only on localhost. ([#4338](https://github.com/chef/automate/pull/4338))
-- The *Node Detail* view for *Reports* shows a "No tests were executed" results message when applicable. ([#4352](https://github.com/chef/automate/pull/4352))
-- Filter in *Applications* with case-insensitive health filters. ([#4388](https://github.com/chef/automate/pull/4388))
+- The _Node Detail_ view for _Reports_ shows a "No tests were executed" results message when applicable. ([#4352](https://github.com/chef/automate/pull/4352))
+- Filter in _Applications_ with case-insensitive health filters. ([#4388](https://github.com/chef/automate/pull/4388))
 - A confirmation screen appears when deleting a Node Integration. ([#4348](https://github.com/chef/automate/pull/4348))
 - Delete a Node Integration and their associated nodes are also deleted. ([#4348](https://github.com/chef/automate/pull/4348))
 
 ### Bug fixes
 
 - The rule name, not the rule ID, appears in the notification banner after creating an ingest rule for a project. ([#4331](https://github.com/chef/automate/pull/4331))
-- The *Report Metadata* display in *Reports* no longer needs a horizontal scrollbar. ([#4356](https://github.com/chef/automate/pull/4356))
-- The controls in the *Reports* scan results sidebar correctly map to their respective nodes. ([#4357](https://github.com/chef/automate/pull/4357))
+- The _Report Metadata_ display in _Reports_ no longer needs a horizontal scrollbar. ([#4356](https://github.com/chef/automate/pull/4356))
+- The controls in the _Reports_ scan results sidebar correctly map to their respective nodes. ([#4357](https://github.com/chef/automate/pull/4357))
 
 ### Chef Product Versions
 
@@ -4164,8 +4313,8 @@ Released on September 28, 2020
 
 ### Bug fixes
 
-- Fixed a bug where a harmless browser console error appeared if you had any pending project edits and viewed *Project Details* for any project. ([#4362](https://github.com/chef/automate/pull/4362))
-- *Add User* and *Cancel* correctly appear separate from a full list of users when adding users to a local team in the browser. ([#4361](https://github.com/chef/automate/pull/4361))
+- Fixed a bug where a harmless browser console error appeared if you had any pending project edits and viewed _Project Details_ for any project. ([#4362](https://github.com/chef/automate/pull/4362))
+- _Add User_ and _Cancel_ correctly appear separate from a full list of users when adding users to a local team in the browser. ([#4361](https://github.com/chef/automate/pull/4361))
 
 ### Chef Product Versions
 
@@ -4188,7 +4337,7 @@ Released on September 9, 2020
 ### Bug fixes
 
 - Focused: Only users with the relevant `iam:projects:update` permission may edit a project. ([#4304](https://github.com/chef/automate/pull/4304) and [#4301](https://github.com/chef/automate/issues/4301))
-- Softcoded: `fakechefserver.eastus.cloudapp.azure.com` no longer appears in the *Desktop Dashboard*'s *Node Details* display. ([#4299](https://github.com/chef/automate/pull/4299))
+- Softcoded: `fakechefserver.eastus.cloudapp.azure.com` no longer appears in the _Desktop Dashboard_'s _Node Details_ display. ([#4299](https://github.com/chef/automate/pull/4299))
 
 ### Chef Product Versions
 
@@ -4275,12 +4424,12 @@ Released on August 11, 2020
 ### New features
 
 - Knowledge is Power: Learn more about [Azure AD as a SAML Identity Provider](https://automate.chef.io/docs/saml/#azure-ad). [#4136](https://github.com/chef/automate/pull/4136)
-- Weeding: Delete individual services from the *Applications* dashboard's *Service Groups* display. [#4079](https://github.com/chef/automate/pull/4079)
+- Weeding: Delete individual services from the _Applications_ dashboard's _Service Groups_ display. [#4079](https://github.com/chef/automate/pull/4079)
 
 ### Improvements
 
-- No Matter How Far: Number inputs in *Data Lifecycle* adjust to show the entire value rather than limiting the display to two digits. [#4121](https://github.com/chef/automate/pull/4121)
-- Data Not Found: *Desktop* dashboard displays an empty state view when no data is available. [#4156](https://github.com/chef/automate/pull/4156)
+- No Matter How Far: Number inputs in _Data Lifecycle_ adjust to show the entire value rather than limiting the display to two digits. [#4121](https://github.com/chef/automate/pull/4121)
+- Data Not Found: _Desktop_ dashboard displays an empty state view when no data is available. [#4156](https://github.com/chef/automate/pull/4156)
 
 ### Bug fixes
 
@@ -4302,16 +4451,16 @@ Released on July 30, 2020
 
 ### Improvements
 
-- Live 24/7: The *Desktop* dashboard's *Node Details* displays live data for all fields. ([#4058](https://github.com/chef/automate/pull/4058))
-- Nifty: Customize your columns for the *Filtered Desktop List* in the *Desktop* dashboard. ([#4083](https://github.com/chef/automate/pull/4083))
+- Live 24/7: The _Desktop_ dashboard's _Node Details_ displays live data for all fields. ([#4058](https://github.com/chef/automate/pull/4058))
+- Nifty: Customize your columns for the _Filtered Desktop List_ in the _Desktop_ dashboard. ([#4083](https://github.com/chef/automate/pull/4083))
 - Beta Boom: Learn more about our Data Feed beta feature with our [Data Feed documentation](https://automate.chef.io/docs/datafeed/). ([#3590](https://github.com/chef/automate/pull/3590))
 - More Context: Chef Automate now ingests reports generated from Chef InSpec runtime exceptions with the addition of status and root level status messages. ([#4131](https://github.com/chef/automate/pull/4131))
 
 ### Bug fixes
 
-- Across the World: The date picker in *Compliance Reports* no longer switches to the day before the selected date for users in Australia and parts of Asia. ([#4030](https://github.com/chef/automate/pull/4030))
+- Across the World: The date picker in _Compliance Reports_ no longer switches to the day before the selected date for users in Australia and parts of Asia. ([#4030](https://github.com/chef/automate/pull/4030))
 - Unlocked: Fixes to Chef Habitat Builder and `backup-gateway` address issues caused by an MinIO upgrade, where configuration became encrypted with an ephemeral key. ([#4061](https://github.com/chef/automate/pull/4061))([#4077](https://github.com/chef/automate/pull/4077))
-- Better: Experience improved performance for control and control tag suggestions in the *Reports* search bar. ([4134](https://github.com/chef/automate/pull/4134))
+- Better: Experience improved performance for control and control tag suggestions in the _Reports_ search bar. ([4134](https://github.com/chef/automate/pull/4134))
 - New Standard: The default maximum request size for the Chef Infra Server is now 4MB to minimize the chances of dropping large reports. This change only affects new installs. You can patch your configuration manually to get the same effect if seeing dropped reports when running an earlier version of the Chef Automate-deployed Chef Infra Server. ([#4069](https://github.com/chef/automate/pull/4069))
 - Not From Around Here: Chef Automate now detects non-local Chef Habitat users and groups. ([#4110](https://github.com/chef/automate/pull/4110)) ([#4122](https://github.com/chef/automate/pull/4122))
 
@@ -4351,14 +4500,14 @@ Released on July 6, 2020
 
 - Vroom: Experience improved report ingestion speed!
 - Total Package: Chef Infra Server configuration now migrates with Chef Infra Server data as a part of the Chef Automate 1 migration process.
-- Beyond API: We expanded Applications *Service Groups* management to the browser! Look under the *Data Lifecycle* settings.
+- Beyond API: We expanded Applications _Service Groups_ management to the browser! Look under the _Data Lifecycle_ settings.
 
 ### Bug fixes
 
 - No Misdirection: Users no longer redirect to the Event Feed when trying to view the Scans list on a scheduled Scan Job with [PR #3950](https://github.com/chef/automate/pull/3950).
 - Less Clicks: Chef Automate closes the "no license" pop-up window automatically within a few minutes for all users once a new license is applied, rather than requiring a manual browser refresh with [PR #3949](https://github.com/chef/automate/pull/3949).
 - Unblocked: We restored functionality to Event Feed filters when filtering by Chef Infra Server, policyfiles, and cookbooks with [PR #3985](https://github.com/chef/automate/pull/3985), [PR #3986](https://github.com/chef/automate/pull/3986), and [PR #3992](https://github.com/chef/automate/pull/3992).
-- Reactivate: You may now change an inactive API token to `active` in *Token Details* with [PR #3991](https://github.com/chef/automate/pull/3991).
+- Reactivate: You may now change an inactive API token to `active` in _Token Details_ with [PR #3991](https://github.com/chef/automate/pull/3991).
 - No More Blanks: Compliance Reports during exporting correctly account for control tag filters with a key and no value with [PR #4001](https://github.com/chef/automate/pull/4001).
 
 ## Chef Automate 20200617215626
@@ -4401,10 +4550,10 @@ Released on June 8, 2020
 
 ### Improvements
 
-- An improved Policies drop-down list in the *API Tokens* creation window sorts and labels Chef-managed policies and custom policies.
-- Project filtering extends for scanned, manually-added nodes with an environment value that matches a project's rules. Node lists from *Scan Jobs* and *Compliance Reports* will match where applicable.
-- Control results in the *Node Detail* display waived controls' execution results if applicable.
-- *Compliance Reports* CSV exports include `waived status`, `waiver justification`, and `waiver expiration date` fields.
+- An improved Policies drop-down list in the _API Tokens_ creation window sorts and labels Chef-managed policies and custom policies.
+- Project filtering extends for scanned, manually-added nodes with an environment value that matches a project's rules. Node lists from _Scan Jobs_ and _Compliance Reports_ will match where applicable.
+- Control results in the _Node Detail_ display waived controls' execution results if applicable.
+- _Compliance Reports_ CSV exports include `waived status`, `waiver justification`, and `waiver expiration date` fields.
 
 ### Bug fixes
 
@@ -4417,13 +4566,13 @@ Released on June 2, 2020
 
 ### Improvements
 
-- No Mouse: Navigate on-page filter controls by keyboard, such as the Health Status buttons in the *Applications* dashboard.
+- No Mouse: Navigate on-page filter controls by keyboard, such as the Health Status buttons in the _Applications_ dashboard.
 - Keeping Tally: Compliance Report API includes a "removed_control_results" field, which shows how many failed/passed/skipped results are truncated when the report is too large. Learn more about these truncation settings in our [Compliance Configuration documentation](https://automate.chef.io/docs/configuration/#compliance-configuration).
 
 ### Bug fixes
 
-- As Expected: Labels in the *Applications* Service Group Details sidebar wrap correctly in [PR #3767](https://github.com/chef/automate/pull/3767). Fixes [Issue #2150](https://github.com/chef/automate/issues/2150).
-- Abracadabra: *Client Runs* includes restored checkboxes and **Delete Nodes** in [PR #3804](https://github.com/chef/automate/pull/3804). Fixes [Issue #3802](https://github.com/chef/automate/issues/3802).
+- As Expected: Labels in the _Applications_ Service Group Details sidebar wrap correctly in [PR #3767](https://github.com/chef/automate/pull/3767). Fixes [Issue #2150](https://github.com/chef/automate/issues/2150).
+- Abracadabra: _Client Runs_ includes restored checkboxes and **Delete Nodes** in [PR #3804](https://github.com/chef/automate/pull/3804). Fixes [Issue #3802](https://github.com/chef/automate/issues/3802).
 
 ## Chef Automate 20200520145933
 
@@ -4435,11 +4584,11 @@ Released on May 26, 2020
 
 ### Bug fixes
 
-- Within Reach: Delete the last token on the *API Tokens* list with greater ease in [PR #3591](https://github.com/chef/automate/pull/3591). Fixes [Issue #2798](https://github.com/chef/automate/issues/2798).
+- Within Reach: Delete the last token on the _API Tokens_ list with greater ease in [PR #3591](https://github.com/chef/automate/pull/3591). Fixes [Issue #2798](https://github.com/chef/automate/issues/2798).
 - On Auto: Window automatically closes after deleting a Notification in [PR #3694](https://github.com/chef/automate/pull/3694). Fixes [Issue #3659](https://github.com/chef/automate/issues/3659).
 - All in One Place: Compliance Reports no longer redistribute across multiple pages after applying a status filter in [PR #3664](https://github.com/chef/automate/pull/3664). Fixes [Issue #3144](https://github.com/chef/automate/issues/3144).
 - Streamlined: Selecting a second drop-down list during API Token creation causes the first open drop-down list to automatically close as expected in [PR #3712](https://github.com/chef/automate/pull/3712). Fixes [Issue #3533](https://github.com/chef/automate/issues/3533).
-- Expansion: We correctly support 64bit service IDs for the *Applications* dashboard in [PR #3718](https://github.com/chef/automate/pull/3718).
+- Expansion: We correctly support 64bit service IDs for the _Applications_ dashboard in [PR #3718](https://github.com/chef/automate/pull/3718).
 - Better Care: Most of our APIs no longer ignore unknown fields sent in JSON payloads. To opt out of this change, pass a `Content-Type: application/json+lax` request header to make the request behave as before, and to ignore and allow unknown fields. Fixed in [PR #3690](https://github.com/chef/automate/pull/3690).
 
 ## Chef Automate 20200513205422
@@ -4448,16 +4597,16 @@ Released on May 14, 2020
 
 ### Improvements
 
-- Coordinated Universal Time: The time and date displays in *Event Feed* indicate their timezone value with the added "UTC" label.
-- Magic: The *Dashboards* tab in the top navigation bar appears only to users with the authorization access to view *Event Feed*.
+- Coordinated Universal Time: The time and date displays in _Event Feed_ indicate their timezone value with the added "UTC" label.
+- Magic: The _Dashboards_ tab in the top navigation bar appears only to users with the authorization access to view _Event Feed_.
 - Try It: Chef Automate works on smaller browser screens with responsive navigational displays.
 - Adjustable: Prevent system overload by specifying the maximum number of inflight data collector requests, which has a default value of sixty times the number of the machine's available CPUs.
 
 ### Bug fixes
 
 - Expansion: `Viewer` Policy members export compliance reports by default in [PR #3623](https://github.com/chef/automate/pull/3623).
-- Cartography: The values of when to label nodes as missing and to remove node data in *Client Runs* correctly map as of [PR #3665](https://github.com/chef/automate/pull/3665). Fixes part of [Issue #3651](https://github.com/chef/automate/issues/3651).
-- Less Shouting: Service Group channel names display as expected on the *Applications* dashboard rather than in all capital letters in [PR 3650](https://github.com/chef/automate/pull/3650). Fixes [Issue #3626](https://github.com/chef/automate/issues/3626).
+- Cartography: The values of when to label nodes as missing and to remove node data in _Client Runs_ correctly map as of [PR #3665](https://github.com/chef/automate/pull/3665). Fixes part of [Issue #3651](https://github.com/chef/automate/issues/3651).
+- Less Shouting: Service Group channel names display as expected on the _Applications_ dashboard rather than in all capital letters in [PR 3650](https://github.com/chef/automate/pull/3650). Fixes [Issue #3626](https://github.com/chef/automate/issues/3626).
 
 ## Chef Automate 20200506172513
 
@@ -4502,7 +4651,7 @@ Released on April 27, 2020
 
 ### Improvements
 
-- Advanced Sifting: Scan Job Reports support project filtering. When manually creating a node in *Scan Jobs*, tag the new node with an `Environment` value, which will pass into Compliance Reports, and the Compliance ingestion will use that environment for project assignment.
+- Advanced Sifting: Scan Job Reports support project filtering. When manually creating a node in _Scan Jobs_, tag the new node with an `Environment` value, which will pass into Compliance Reports, and the Compliance ingestion will use that environment for project assignment.
 
 ## Chef Automate 20200416222158
 
@@ -4514,12 +4663,12 @@ Released on April 20, 2020
 
 ### Improvements
 
-- Stand and Deliver: The *Clear Selection* button in the Project filter clears only the selections made instead of clearing and applying the lack of Project selection.
+- Stand and Deliver: The _Clear Selection_ button in the Project filter clears only the selections made instead of clearing and applying the lack of Project selection.
 
 ### Bug fixes
 
 - Roster: The accurate list of remaining users on a team displays after removing a user.
-- As It Should: The loading screen disappears as expected if you navigate away from *Compliance Profiles* before the page finishes loading.
+- As It Should: The loading screen disappears as expected if you navigate away from _Compliance Profiles_ before the page finishes loading.
 - Moving Made Easy: Custom Identity and Access Management (IAM) v1 policies with a single-term resource, such as `cfgmgmt`, correctly migrate to IAM v2.
 - OK Backup: The Chef Automate-deployed Chef Infra Server's `/universe` and `/version` endpoints handle correctly.
 - Toggle On: The active/inactive status of a token toggles successfully in the browser.
@@ -4542,7 +4691,7 @@ Released on April 13, 2020
 
 ### Bug fixes
 
-- Believe: Compliance Reports appear and correctly filter by Job ID after you click on **Report** for a listed Scan Job on the *Scan Jobs* page.
+- Believe: Compliance Reports appear and correctly filter by Job ID after you click on **Report** for a listed Scan Job on the _Scan Jobs_ page.
 - Lately: Projects filter as expected when a page refreshes.
 - I Need to Know: Chef Habitat Builder deployed with Chef Automate completes backups without failing.
 - Someday: The previously scheduled time appears correctly when editing a Scan Job schedule.
@@ -4570,14 +4719,14 @@ In the next Chef Automate release available on April 13th, 2020, users of Identi
 - Good Times: The Elasticsearch gateway timeout default value increases from 5 minutes to 10 minutes to support installations with backups in Amazon S3.
 - That's the Way: The Project Update banner respects a multi-user environment. All users' browsers display pending edit notifications for projects and for project updates in progress.
 - Don't Stop 'Til You Get Enough: Check out our expanded [IAM API documentation](https://automate.chef.io/docs/api/#operation/UpdateSelfMixin50)!
-- Stayin' Alive: The "Your System is Compliant" banner appears when the scanned infrastructure's status is `waived` on the Compliance *Reports* page.
+- Stayin' Alive: The "Your System is Compliant" banner appears when the scanned infrastructure's status is `waived` on the Compliance _Reports_ page.
 - Turn the Beat Around: Failed Compliance Scan Jobs return a more verbose error message.
 
 ### Bug fixes
 
 - Got to Be Real: The Project Update banner shows on all pages consistently.
-- Jump to It: The *Project Details* page updates correctly.
-- Second Time Around: The *Save* button on the *IAM detail* pages disables in a consistent manner when you return a value to its original state.
+- Jump to It: The _Project Details_ page updates correctly.
+- Second Time Around: The _Save_ button on the _IAM detail_ pages disables in a consistent manner when you return a value to its original state.
 - Stomp: IP addresses in a Compliance report no longer experience overwriting with incorrect values.
 - Celebration: The region value for an AWS Account scan populates correctly.
 
@@ -4601,14 +4750,14 @@ Released on March 16, 2020
 
 ### Improvements
 
-- In Sync: Delete nodes on the *Client Runs* page and those nodes update as deleted in the Node Manager.
+- In Sync: Delete nodes on the _Client Runs_ page and those nodes update as deleted in the Node Manager.
 - Time: Fetch a Compliance report faster in the browser or the API.
 - You Got It: Show Chef InSpec waiver information on Compliance report downloads, where applicable.
 - Little Things: See the estimated completion time sooner when you run a project update.
 
 ### Bug fixes
 
-- Never Gone: Editor and Viewer roles can view the *Scan Jobs* page and create a new scan job.
+- Never Gone: Editor and Viewer roles can view the _Scan Jobs_ page and create a new scan job.
 - Roll With It: Fixed a bug where Elasticsearch backup deletions failed because Elasticsearch only allows one backup deleted at a time.
 - Step by Step: Experience increased resource efficiency when Elasticsearch performs a project update.
 
@@ -4619,7 +4768,7 @@ Released on March 9, 2020
 ### Improvements
 
 - Reference Section: Explore lots of new [API Docs](https://automate.chef.io/docs/api/), which include API Tokens, IAM Policies, Scan Jobs, and Node Managers.
-- Ripple Effect: Mark nodes as *Missing* on the *Chef Client Runs* page, and their state will update to *Missing* with the Node Manager and for nodes found at the `api/v0/nodes` endpoint.
+- Ripple Effect: Mark nodes as _Missing_ on the _Chef Client Runs_ page, and their state will update to _Missing_ with the Node Manager and for nodes found at the `api/v0/nodes` endpoint.
 
 ### Bug fixes
 
@@ -4715,7 +4864,7 @@ Released on January 27, 2020
 #### Identity and Access Management v2
 
 - Prepare for Glory: We increased the project limit from 6 to 300.
-- Squashed: Fixed bug associated with using the browser back button after navigating from the *Teams* page to the *Users* page in Settings.
+- Squashed: Fixed bug associated with using the browser back button after navigating from the _Teams_ page to the _Users_ page in Settings.
 - Targeted: The project filter and project assignment dropdown now features the ability to search for specific projects!
 - One Click: It's now possible to clear all your project selections at once in the project filter.
 
@@ -4733,11 +4882,11 @@ Released on January 21, 2020
 
 ### Bug fixes
 
-- Less is More: Selecting the last day of the year on the *Compliance Reports* date filter no longer shows all data for the entire year.
+- Less is More: Selecting the last day of the year on the _Compliance Reports_ date filter no longer shows all data for the entire year.
 - How Stimulating: You may notice fixes for various minor display issues, which previously required refreshing the web browser to display properly.
 - Only the Guest List: The compliance profiles for CIS Azure Foundations v1.1.0 have a performance fix to control 1.3 that limits the query of AD users to only Guest users.
-- Full Report: Exported reports from the *Client Runs* page now includes full results, and matches the displayed results on the *Client Runs* page.
-- Enforced: You can now select `policy_name` as a filter in *Compliance Reports* page.
+- Full Report: Exported reports from the _Client Runs_ page now includes full results, and matches the displayed results on the _Client Runs_ page.
+- Enforced: You can now select `policy_name` as a filter in _Compliance Reports_ page.
 - Dedupe: Adding an `aws-ec2` integration no longer creates duplicate node records as Chef Automate now recognizes nodes already reported by `chef-client`.
 
 ### Beta Features
@@ -4787,16 +4936,16 @@ Released on December 16, 2019
 #### Applications
 
 - API It Up: The output of Habitat health checks is now exposed with the Applications APIs.
-- Expected Behavior: Selecting a health status filter with zero services in the *Service Group* Details sidebar no longer causes a new service group to be selected.
-- Steady: Selecting a new health status filter on the *Service Group* table will only change the *Service Group* Details sidebar if the new health status filter results don't include the currently selected Service Group.
-- Reversed: The *Service Groups* display used to switch current and previous health statuses when generating messages about health status changes, but we fixed this.
+- Expected Behavior: Selecting a health status filter with zero services in the _Service Group_ Details sidebar no longer causes a new service group to be selected.
+- Steady: Selecting a new health status filter on the _Service Group_ table will only change the _Service Group_ Details sidebar if the new health status filter results don't include the currently selected Service Group.
+- Reversed: The _Service Groups_ display used to switch current and previous health statuses when generating messages about health status changes, but we fixed this.
 - Keep It Simple: Note a small performance improvement by avoiding a double fetch of data.
 
 #### Identity and Access Management v2
 
-- Speedy: Experience a substantially faster loading of the *Projects List* page, since we removed a network call for each project.
-- Re-ordered: The percentage done display now progresses correctly after selecting the *Update Projects* button. Previously, the percentage done display would sometimes start at 100% and then quickly reset due to a minor race condition.
-- Stand Still: The *Global Project Filter* no longer auto refreshes its project list while you select your projects. Previously, users lost their selection due to the periodic auto refresh of the displayed project list.
+- Speedy: Experience a substantially faster loading of the _Projects List_ page, since we removed a network call for each project.
+- Re-ordered: The percentage done display now progresses correctly after selecting the _Update Projects_ button. Previously, the percentage done display would sometimes start at 100% and then quickly reset due to a minor race condition.
+- Stand Still: The _Global Project Filter_ no longer auto refreshes its project list while you select your projects. Previously, users lost their selection due to the periodic auto refresh of the displayed project list.
 
 ## Chef Automate 20191129172405
 
@@ -4894,13 +5043,13 @@ Released on October 28, 2019
 
 ### Improvements
 
-- Capital: Filter suggestions on the *Client Runs* page now display names with accurate casing.
-- All Summed Up: The Controls tab on *Compliance Reports* page now shows the total amount of controls in the tab header.
+- Capital: Filter suggestions on the _Client Runs_ page now display names with accurate casing.
+- All Summed Up: The Controls tab on _Compliance Reports_ page now shows the total amount of controls in the tab header.
 
 ### Bug fixes
 
 - Making Reality Happen: A bug caused some displays of local time to be labeled as UTC, but now the time correctly displays in UTC time.
-- Camouflage: We resolved a bug that caused nodes in the *Client Runs* page to not display their attributes.
+- Camouflage: We resolved a bug that caused nodes in the _Client Runs_ page to not display their attributes.
 
 ## Chef Automate 20191015190829
 
@@ -4908,11 +5057,11 @@ Released on October 21, 2019
 
 ### New features
 
-- Know More: Check out the newly added Controls List tab in the *Compliance Reports* page! Currently, you can view up to 100 controls at a time. Use the search bar filters, including control tag filters, to narrow down the list. We plan to expand the number of viewable controls to the total controls count in the near future.
+- Know More: Check out the newly added Controls List tab in the _Compliance Reports_ page! Currently, you can view up to 100 controls at a time. Use the search bar filters, including control tag filters, to narrow down the list. We plan to expand the number of viewable controls to the total controls count in the near future.
 
 ### Bug fixes
 
-- Lens Fix: Resolved a bug where viewing Scan Results from the *Profile Details* view didn't correctly apply the control filter and distorted the status results.
+- Lens Fix: Resolved a bug where viewing Scan Results from the _Profile Details_ view didn't correctly apply the control filter and distorted the status results.
 
 ## Chef Automate 20191007115919
 
@@ -4920,8 +5069,8 @@ Released on October 14, 2019
 
 ### Improvements
 
-- Reset the Clock: The *API Tokens*, *Node Credentials*, and *Node Integrations* pages have been updated to follow our new standard for date/time values, such as `Wed, 03 Jul 2019 17:08:53 UTC`.
-- Enhanced: Wildcard search on the *Compliance Reports* page now supports full platform and full profile searches, so now you can search with the version number included.
+- Reset the Clock: The _API Tokens_, _Node Credentials_, and _Node Integrations_ pages have been updated to follow our new standard for date/time values, such as `Wed, 03 Jul 2019 17:08:53 UTC`.
+- Enhanced: Wildcard search on the _Compliance Reports_ page now supports full platform and full profile searches, so now you can search with the version number included.
 - Specific: Compliance Reports, whether viewed with download, scan results, or node details, will now only include controls matching the specified control tag filters when a control tag filter is applied.
 - Quality: The compliance profiles for STIG RHEL 7 now feature Code Compliance Inspector (CCI) reference tags.
 - More Control: The compliance profiles for STIG Windows Server 2019 now include control SV-103097r1 implemented.
@@ -4949,8 +5098,8 @@ Released on October 7, 2019
 
 ### Improvements
 
-- Consistency: Entering an invalid URL will now redirect users to the *Event Feed* page.
-- New, Yet the Same: The Compliance Reports search bar has been updated to use "Chef Organization" and "Chef Tag" instead of "Organization" and "Chef Tags," which is consistent with the *Client Runs* search bar.
+- Consistency: Entering an invalid URL will now redirect users to the _Event Feed_ page.
+- New, Yet the Same: The Compliance Reports search bar has been updated to use "Chef Organization" and "Chef Tag" instead of "Organization" and "Chef Tags," which is consistent with the _Client Runs_ search bar.
 - Are You Sure?: When deleting a node credential, a confirmation dialog box will appear before executing the delete query.
 - We're sure: Release manifest signatures are verified during installation and upgrade.
 
@@ -4959,7 +5108,7 @@ Released on October 7, 2019
 - Export Options: Chef tags are now exported in the Client Runs JSON export!
 - Ancient History: The Client Runs Run History panel no longer closes when filtering by date.
 - Improvement: Fixed several controls in the CIS Windows Server 2016 v1.1.0 compliance profile where REG_MULTI_SZ registry keys weren't being correctly tested.
-- Squashed: Resolved a bug where stale user membership data would load briefly on the *Team Details* page.
+- Squashed: Resolved a bug where stale user membership data would load briefly on the _Team Details_ page.
 - Uncovered: Long profile titles and descriptions are no longer partially covered by action buttons.
 - Time Travel: Fixed an issue in Compliance Reports where clicking on a day in the previous or next month on the calendar widget incorrectly selected that day in the currently selected month.
 - Picture Perfect: Fixed a bug in restoring an Elasticsearch snapshot with many indices.
@@ -4972,7 +5121,7 @@ Released on September 9, 2019
 ### New features
 
 - New!: Check out the now available compliance profiles for CIS MacOS 10.13 v1.0.0.
-- Level Up: Compliance profiles for CIS AWS v1.0.0 now provide both a Level 1 and Level 2 profile, and supersedes the previously released "Foundations" profile, which is no longer available in the *Profiles* page.
+- Level Up: Compliance profiles for CIS AWS v1.0.0 now provide both a Level 1 and Level 2 profile, and supersedes the previously released "Foundations" profile, which is no longer available in the _Profiles_ page.
 
 ### Improvements
 
@@ -4980,7 +5129,7 @@ Released on September 9, 2019
 
 ### Bug fixes
 
-- Sorted: Within the compliance reports' *Nodes* tab, the Platform column now correctly sorts by both platform name and platform version.
+- Sorted: Within the compliance reports' _Nodes_ tab, the Platform column now correctly sorts by both platform name and platform version.
 - Out of Order: For the CIS Windows 2016 v1.1.0 compliance profile, we fixed a bug where the security policy controls depended on a specific ordering of results when the ordering isn't significant.
 - In Line: We matched CIS's recommendations by fixing the following compliance profiles:
 
@@ -5032,10 +5181,10 @@ Released on August 19, 2019
 
 ### Improvements
 
-- Top Navigation Changes: *Event Feed* moved to under the *Dashboards* tab, and *Client Runs* relocated to under the *Infrastructure* tab.
-- Better Fit: Chef Server Organization and Chef Server filters have been moved from the left-navigation menu to the on-page filter box for both the *Event Feed* and *Client Runs* pages. This change allows you to filter by multiple Server Organizations and Servers, and also to share and bookmark page URLs with filters still applied.
-- More Sorting: We added a filter box to the *Event Feed* page with options to filter by Chef Server Organization, Chef Server, and Event Type.
-- Status Check: The Nodes display under the Compliance tab now features filter buttons for *Failed*, *Passed*, and *Skipped* states.
+- Top Navigation Changes: _Event Feed_ moved to under the _Dashboards_ tab, and _Client Runs_ relocated to under the _Infrastructure_ tab.
+- Better Fit: Chef Server Organization and Chef Server filters have been moved from the left-navigation menu to the on-page filter box for both the _Event Feed_ and _Client Runs_ pages. This change allows you to filter by multiple Server Organizations and Servers, and also to share and bookmark page URLs with filters still applied.
+- More Sorting: We added a filter box to the _Event Feed_ page with options to filter by Chef Server Organization, Chef Server, and Event Type.
+- Status Check: The Nodes display under the Compliance tab now features filter buttons for _Failed_, _Passed_, and _Skipped_ states.
 - Key Point: We improved keyboard accessibility on the Chef Automate Sign In page.
 
 ### Bug fixes
@@ -5078,7 +5227,7 @@ Released on August 5, 2019
 
 - Clear Your Mind: We removed the shadows from the top and left navigation menus to make Chef Automate easier on your eyes.
 - New Version: Chef InSpec has been upgraded to version 4.7.18.
-- Even More Suggestions: We increased the maximum number of suggestions on the *Compliance* page's search bar to 100.
+- Even More Suggestions: We increased the maximum number of suggestions on the _Compliance_ page's search bar to 100.
 - Better Sorting: We made improvements on how local users are filtered in the following Windows profiles:
 
   - CIS Microsoft Windows Server 2016, v1.1.0
@@ -5091,9 +5240,9 @@ Released on August 5, 2019
 
 ### Bug fixes
 
-- Found: Our recent fix addresses some suggested values missing from the *Compliance* page's search bar.
+- Found: Our recent fix addresses some suggested values missing from the _Compliance_ page's search bar.
 - Getting Through: We squashed a bug where notifications weren't being sent for some custom InSpec profiles.
-- No More Annoying Boxes: We turned off browser form autocompletion for both the *Client Runs* and *Compliance* pages' search bars to save some sanity when entering a search filter.
+- No More Annoying Boxes: We turned off browser form autocompletion for both the _Client Runs_ and _Compliance_ pages' search bars to save some sanity when entering a search filter.
 
 ## Chef Automate 20190722200451
 
@@ -5212,7 +5361,7 @@ ICYMI: If you are upgrading from a version prior to 20190410001346, please read 
 
 ### New features
 
-- Detect Easier: Search by common error message on the *Client Runs* page to find which nodes are failing in the same way.
+- Detect Easier: Search by common error message on the _Client Runs_ page to find which nodes are failing in the same way.
 - Compliance Updates, Part One: Compliance profiles for STIG Red Hat Enterprise Linux 6 v1.22 (Cat 1, 2, and 3) are now available.
 - Compliance Updates, Part Two: Compliance profiles for STIG Windows Server 2012 / 2012 R2 Member Server v2.14 (Cat 1, 2, and 3) are now available.
 
@@ -5234,13 +5383,13 @@ ICYMI: If you are upgrading from a version prior to 20190410001346, please read 
 
 ### Improvements
 
-- The Feature Formerly Known As: The *Asset Store* page is now known as the *Profiles* page in Automate and its documentation.
+- The Feature Formerly Known As: The _Asset Store_ page is now known as the _Profiles_ page in Automate and its documentation.
 - Change of Address: The following pages and their paths now appear under the expanded **Compliance** tab in the top navigation bar:
 
   - Reports - compliance/reports
   - Scan Jobs - compliance/scan-jobs
   - Profiles - compliance/compliance-profiles
-- Bam!: New nodes can now be added directly from *Node Integration* page under the **Settings** tab.
+- Bam!: New nodes can now be added directly from _Node Integration_ page under the **Settings** tab.
 - Search Expansion: New fields were added to the Compliance Report search:
 
   - Chef-server
@@ -5248,7 +5397,7 @@ ICYMI: If you are upgrading from a version prior to 20190410001346, please read 
   - Chef tags
   - Policy group
   - Policy name
-- No More Magnifying Glass: The *Event Feed* page features larger text sizes for better readability.
+- No More Magnifying Glass: The _Event Feed_ page features larger text sizes for better readability.
 - Customize Notifications: Specify to only send ServiceNow InSpec scan failure notifications for critical control failures.
 - Search Multiplier: Filter nodes for a scan job using multiple tag key/value selections.
 - Error Feedback: If a report is too large to be ingested, the scan job will now fail and send an error message.
@@ -5259,7 +5408,7 @@ ICYMI: If you are upgrading from a version prior to 20190410001346, please read 
 
 - Replaced Filter: Wildcard filters of the same type in the Client Runs search bar are now treated as 'OR' filters.
 - Keep It Simple: Compliance will now use one ElasticSearch connection per compliance-service instance. By reducing the number of sockets being managed, this solves a problem of receiving `couldn't get elastic connection` errors in Compliance.
-- In Order: Search bar types under the *Client Runs* page are now sorted alphabetically.
+- In Order: Search bar types under the _Client Runs_ page are now sorted alphabetically.
 
 ## Chef Automate 20190513175357
 
@@ -5272,7 +5421,7 @@ ICYMI: If you are upgrading from a version prior to 20190410001346, please read 
 ### New features
 
 - Expanded Forecast: Test your Azure configuration with API scanning, and scan the nodes in your Azure cloud account with Azure VM scanning. You can also test your Google Cloud Platform nodes with API scanning.
-- Improved Inspection: The *Node Details* page in Compliance includes the ability to show InSpec version.
+- Improved Inspection: The _Node Details_ page in Compliance includes the ability to show InSpec version.
 
 ### Improvements
 
@@ -5467,15 +5616,15 @@ Released on March 4, 2019
 
 ### Improvements
 
-- Same Throughout: The *Asset Store* page in the Automate UI has an especially consistent design. Shout out to UX for keeping things awesome!
+- Same Throughout: The _Asset Store_ page in the Automate UI has an especially consistent design. Shout out to UX for keeping things awesome!
 - Vroom, Vroom: The Chef Client run ingestion pipeline performs even better than before.
 
 ### Bug fixes
 
 - Written in Stone: Automate changes permissions on files correctly, ending this source of exec errors.
 - Restoration Work: Made the certificate permissions restore correctly, so Automate restore succeeds.
-- Squashed!: We called the exterminator on a bug preventing the export of larger data sets from the *Client Runs* page.
-- Sorted Out: The deprecations column on the *Client Runs* page sorts in the way you would expect.
+- Squashed!: We called the exterminator on a bug preventing the export of larger data sets from the _Client Runs_ page.
+- Sorted Out: The deprecations column on the _Client Runs_ page sorts in the way you would expect.
 
 ## Chef Automate 20190207004055
 
@@ -5488,10 +5637,10 @@ Released on February 11, 2019
 ### Improvements
 
 - Try It Out: Switch between IAM v1 and [IAM v2 beta](https://blog.chef.io/2019/01/24/introducing-the-chef-automate-identity-access-management-version-two-iam-v2-beta/) without changing the `automate-gateway` setting called `auth_middleware`. Even if you do set it, Automate ignores it. See the [IAM v2 beta guide](https://automate.chef.io/docs/iam-v2-guide/) for details regarding IAM v2.
-- How Many?: See the number of deprecations on any node in the deprecations column on the *Client Runs* page. Turn this feature on by selecting it in the column settings.
+- How Many?: See the number of deprecations on any node in the deprecations column on the _Client Runs_ page. Turn this feature on by selecting it in the column settings.
 - My One And Only: Selecting a status in the scan job form highlights that--and only that--status.
 - When One is Enough: Views with only one page won't show pagination.
-- Uniform Appearance: Made the look and feel the same for the *Notifications*, *Node Integrations*, *Node Credentials*, *Node Lifecycle*, and *Event Feed* pages.
+- Uniform Appearance: Made the look and feel the same for the _Notifications_, _Node Integrations_, _Node Credentials_, _Node Lifecycle_, and _Event Feed_ pages.
 - Keep It Distinctive: Improved error messaging and user experience when trying to create an API Token with the same ID as another API Token.
 - New and Improved: The preview compliance profiles for Redhat7 and Windows Server 2016 STIGs have a number of new rules implemented, as well as a number of corrections to the test logic of existing rules.
 
@@ -5669,7 +5818,7 @@ Released on November 26, 2018
 
 Released on November 19, 2018
 
-*Happy Thanksgiving!*
+_Happy Thanksgiving!_
 
 ### Improvements
 
@@ -6070,7 +6219,7 @@ Released on July 23, 2018
 ### New features
 
 - Use usernames in authorization policies with `${a2:username}` in resources.
-For example, *local users* can **read**, **update**, and **delete** their own Chef Automate user records using the API. The policy allowing this is (abbreviated):
+For example, _local users_ can **read**, **update**, and **delete** their own Chef Automate user records using the API. The policy allowing this is (abbreviated):
 
   ```json
   {
@@ -6101,7 +6250,7 @@ Released on July 16, 2018
 
 - We've refreshed the administrator's view of the **API Tokens** page with a better arrangement of the details for each token in the table, giving it a more consistent look and feel.
 - These changes aren't just skin deep--we've also updated the underlying code to keep up with Chef's development conventions for improving better performance and maintainability. We did the same work for the **User Management** code.
-- Sometimes your Automate instance has connectivity issues. We clarified the text for that pop-up error message to reflect that there is *some* connectivity problem, not necessarily a license problem, which is what it used to indicate.
+- Sometimes your Automate instance has connectivity issues. We clarified the text for that pop-up error message to reflect that there is _some_ connectivity problem, not necessarily a license problem, which is what it used to indicate.
 - Reduced the bandwidth used in A2 back-end interactions by no longer sending on user/group information from automate-gateway.
 - Improved error handling in the ingest service to avoid a rare possibility of segfault.
 
@@ -6477,7 +6626,7 @@ Released on April 30, 2018
 
 - Delete user session on logout.
 - Fix Node Run Summary view shows run ID instead of the node ID.
-- Define or specify users with *username* instead of *email* in the users API.
+- Define or specify users with _username_ instead of _email_ in the users API.
 - Users in different timezones, meaning across UTCs, can view all the reports because we now account for differences in user's times as well as their dates.
 - Legacy profile routes used by audit cookbook for fetching profiles have been exposed in A2, meaning you should now be able to refer to your installed A2 profiles when using the audit cookbook.
 
@@ -6553,7 +6702,7 @@ Released on April 16, 2018
   - create an admin token, using `chef-automate admin-token` (or use an existing admin token, if you already created one)
   - run `hab pkg exec chef/authn-service migrate-tokens -auth-token <admin token>`
 
-- Shortened Elastic Search index names fit more Compliance time series indices on the URL without exceeding the 2k URL length limit. Users need to first reset compliance data and then re-ingest all of their compliance data by re-sending the reports through to Automate. Use the following commands *while logged onto* their Automate instance:
+- Shortened Elastic Search index names fit more Compliance time series indices on the URL without exceeding the 2k URL length limit. Users need to first reset compliance data and then re-ingest all of their compliance data by re-sending the reports through to Automate. Use the following commands _while logged onto_ their Automate instance:
 
 ```bash
 ### Delete compliance-service indices (we can not use a wildcard as `action.destructive_requires_name` is enabled)
@@ -6576,7 +6725,7 @@ Released on April 9, 2018
 
 ### Improvements
 
-- Added authorization coverage to all public API endpoints! 
+- Added authorization coverage to all public API endpoints!
 - Updated design on the node details page to better show our Chef-ness.
 - Added a summary panel to the event feed features a summary panel showing the total number of events for the last 7 days as well as a breakdown of create, delete, and update actions.
 
@@ -6615,7 +6764,7 @@ Check individual endpoints, parameterized or not, with the HTTP POST method, pas
 
 #### Icons on the event feed
 
-The Event Feed visualization has icons for each event type. See *what* events happened over the last week.
+The Event Feed visualization has icons for each event type. See _what_ events happened over the last week.
 
 #### Configuration management authorization
 
@@ -6681,7 +6830,7 @@ For now, this is solved by having fixed IDs for the (three) default policies.
 
 Before, the only wildcard option for "subjects" in policies was `"*"`.
 Now, in addition to that, partial wildcards are possible, like `"user:local:*"` for any local user, or `"client:*" for any API client.
-This enables authorizing API clients to *only post data to the corresponding endpoint*, and not access any other API.
+This enables authorizing API clients to _only post data to the corresponding endpoint_, and not access any other API.
 
 ### Bug fixes
 
@@ -6795,7 +6944,7 @@ chef-automate deploy config.toml        # re-deploy with the config file from yo
 
 #### Compliance Elasticsearch doc_type change
 
-Changed the ElasticSearch document type for indices from `_doc` to `doc` to ensure backward compatibility with ElasticSearch 5. Users need to first reset compliance data and then re-ingest all of their compliance data by re-sending the reports through to Automate. Use the following commands *while logged onto* their Automate instance:
+Changed the ElasticSearch document type for indices from `_doc` to `doc` to ensure backward compatibility with ElasticSearch 5. Users need to first reset compliance data and then re-ingest all of their compliance data by re-sending the reports through to Automate. Use the following commands _while logged onto_ their Automate instance:
 
 ```bash
 ### Delete compliance-service indices (we can't use a wildcard as `action.destructive_requires_name` is enabled)

@@ -1,0 +1,66 @@
++++
+title = "knife delete"
+draft = false
+
+
+
+[menu]
+  [menu.workstation_26_1]
+    title = "knife delete"
+    identifier = "workstation_26_1/tools/knife/reference/knife_delete.md knife delete"
+    parent = "workstation_26_1/tools/knife/reference"
++++
+
+{{< readfile file="content/workstation/26.1/reusable/md/knife_delete_summary.md" >}}
+
+## Syntax
+
+This subcommand has the following syntax:
+
+```bash
+knife delete [PATTERN...] (options)
+```
+
+## Options
+
+{{< note >}}
+
+{{< readfile file="content/workstation/26.1/reusable/md/knife_common_see_common_options_link.md" >}}
+
+{{< /note >}}
+
+This subcommand has the following options:
+
+`--both`
+
+: Delete both local and remote copies of an object. Default: `false`.
+
+`--chef-repo-path PATH`
+
+: The path to the chef-repo. This setting will override the default path to the chef-repo. Default: same value as specified by `chef_repo_path` in client.rb.
+
+`--concurrency`
+
+: The number of allowed concurrent connections. Default: `10`.
+
+`--local`
+
+: Delete only the local copy of an object. A remote copy won't be deleted. Default: `false`.
+
+`-r`, `--[no-]recurse`
+
+: Use `--recurse` to delete directories recursively. Default: `--no-recurse`.
+
+`--repo-mode MODE`
+
+: The layout of the local chef-repo. Possible values: `static`, `everything`, or `hosted_everything`. Use `static` for just roles, environments, cookbooks, and data bags. By default, `everything` and `hosted_everything` are dynamically selected depending on the server type. Default: `everything` / `hosted_everything`.
+
+{{< note >}}
+
+{{< readfile file="content/workstation/26.1/reusable/md/knife_common_see_all_config_options.md" >}}
+
+{{< /note >}}
+
+## Examples
+
+None.

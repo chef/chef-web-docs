@@ -14,9 +14,11 @@ syntax_full_code_block: |-
     additional_config              String
     chef_license                   String
     chef_server_url                String
+    client_rb_mode                 String # default value: "0640"
     config_directory               String
     data_collector_server_url      String
     data_collector_token           String
+    directory_specs                Hash # default value: {"config"=>{"mode"=>"0750", "inherits"=>"auto"}, "client_d"=>{"mode"=>"0750", "inherits"=>"auto"}, "logs"=>{"mode"=>"0755", "inherits"=>"auto"}, "cache"=>{"mode"=>"0750", "inherits"=>"auto"}, "backups"=>{"mode"=>"0750", "inherits"=>"auto"}}
     event_loggers                  Array # default value: []
     exception_handlers             Array # default value: []
     file_backup_path               String
@@ -29,7 +31,7 @@ syntax_full_code_block: |-
     https_proxy                    String
     log_level                      Symbol
     log_location                   String, Symbol
-    minimal_ohai                   true, false
+    minimal_ohai                   true, false # default value: false
     named_run_list                 String
     no_proxy                       String, Array # default value: []
     node_name                      String
@@ -38,7 +40,7 @@ syntax_full_code_block: |-
     pid_file                       String
     policy_group                   String
     policy_name                    String
-    policy_persist_run_list        true, false
+    policy_persist_run_list        true, false # default value: false
     report_handlers                Array # default value: []
     rubygems_url                   String, Array
     ssl_verify_mode                Symbol, String
@@ -52,14 +54,14 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`additional_config`, `chef_license`, `chef_server_url`, `config_directory`, `data_collector_server_url`,
-  `data_collector_token`, `event_loggers`, `exception_handlers`, `file_backup_path`,
-  `file_cache_path`, `file_staging_uses_destdir`, `formatters`, `ftp_proxy`, `group`,
-  `http_proxy`, `https_proxy`, `log_level`, `log_location`, `minimal_ohai`, `named_run_list`,
-  `no_proxy`, `node_name`, `ohai_disabled_plugins`, `ohai_optional_plugins`, `pid_file`,
-  `policy_group`, `policy_name`, `policy_persist_run_list`, `report_handlers`, `rubygems_url`,
-  `ssl_verify_mode`, `start_handlers`, and `user` are the properties available to
-  this resource."
+- "`additional_config`, `chef_license`, `chef_server_url`, `client_rb_mode`, `config_directory`,
+  `data_collector_server_url`, `data_collector_token`, `directory_specs`, `event_loggers`,
+  `exception_handlers`, `file_backup_path`, `file_cache_path`, `file_staging_uses_destdir`,
+  `formatters`, `ftp_proxy`, `group`, `http_proxy`, `https_proxy`, `log_level`, `log_location`,
+  `minimal_ohai`, `named_run_list`, `no_proxy`, `node_name`, `ohai_disabled_plugins`,
+  `ohai_optional_plugins`, `pid_file`, `policy_group`, `policy_name`, `policy_persist_run_list`,
+  `report_handlers`, `rubygems_url`, `ssl_verify_mode`, `start_handlers`, and `user`
+  are the properties available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -86,6 +88,14 @@ properties_list:
   required: true
   description_list:
   - markdown: The URL for the Chef Infra Server.
+- property: client_rb_mode
+  new_in: '18.11'
+  ruby_type: String
+  required: false
+  default_value: '0640'
+  description_list:
+  - markdown: The mode to set on the client.rb file that is written out by this resource
+      (e.g., 0600).
 - property: config_directory
   ruby_type: String
   required: false
@@ -112,6 +122,29 @@ properties_list:
   - note:
       markdown: If possible, use Chef Infra Server to do all data collection reporting,
         as this removes the need to distribute tokens to individual nodes.
+- property: directory_specs
+  new_in: '18.11'
+  ruby_type: Hash
+  required: false
+  default_value: '{"config"=>{"mode"=>"0750", "inherits"=>"auto"}, "client_d"=>{"mode"=>"0750",
+    "inherits"=>"auto"}, "logs"=>{"mode"=>"0755", "inherits"=>"auto"}, "cache"=>{"mode"=>"0750",
+    "inherits"=>"auto"}, "backups"=>{"mode"=>"0750", "inherits"=>"auto"}}'
+  description_list:
+  - markdown: |-
+      Permission overrides for Chef-managed directories.
+      This must be a hash of hashes: top-level keys are directory names, values are per-directory option hashes.
+
+      Use this property like:
+        directory_specs(
+          config: { owner: "root", group: "root", mode: "0700" },
+          client_d: { owner: "root", group: "root", mode: "0700" },
+          logs: { owner: "root", group: "root", mode: "0700" },
+          cache: { owner: "root", group: "root", mode: "0700" },
+          backups: { owner: "root", group: "root", mode: "0700" }
+        )
+
+      Directory keys: :config, :client_d, :logs, :cache, :backups
+      Override keys: :owner, :group, :mode, :rights, :inherits (:rights and :inherits are Windows-only)
 - property: event_loggers
   ruby_type: Array
   required: false
@@ -194,11 +227,12 @@ properties_list:
 - property: minimal_ohai
   ruby_type: true, false
   required: false
+  default_value: 'false'
   description_list:
   - markdown: Run a minimal set of Ohai plugins providing data necessary for the execution
       of Chef Infra Client's built-in resources. Setting this to true will skip many
       large and time consuming data sets such as `cloud` or `packages`. Setting this
-      this to true may break cookbooks that assume all Ohai data will be present.
+      to true may break cookbooks that assume all Ohai data will be present.
 - property: named_run_list
   ruby_type: String
   required: false
@@ -260,6 +294,7 @@ properties_list:
 - property: policy_persist_run_list
   ruby_type: true, false
   required: false
+  default_value: 'false'
   new_in: '17.3'
   description_list:
   - markdown: Override run lists defined in a Policyfile with the `run_list` defined
@@ -280,8 +315,8 @@ properties_list:
   new_in: '17.11'
   description_list:
   - markdown: The location to source rubygems. It can be set to a string or array
-      of strings for URIs to set as rubygems sources. This allows individuals to set up
-      an internal mirror of rubygems for airgapped environments.
+      of strings for URIs to set as rubygems sources. This allows individuals to setup
+      an internal mirror of rubygems for “airgapped” environments.
 - property: ssl_verify_mode
   ruby_type: Symbol, String
   required: false
@@ -363,23 +398,65 @@ examples: |
     chef_server_url 'https://chef.example.dmz'
     report_handlers [
       {
-       'class' => 'ReportHandler1Class',
-       'arguments' => ["'FirstArgument'", "'SecondArgument'"],
+        'class' => 'ReportHandler1Class',
+        'arguments' => ["'FirstArgument'", "'SecondArgument'"],
       },
       {
-       'class' => 'ReportHandler2Class',
-       'arguments' => ["'FirstArgument'", "'SecondArgument'"],
+        'class' => 'ReportHandler2Class',
+        'arguments' => ["'FirstArgument'", "'SecondArgument'"],
       },
     ]
   end
   ```
 
-  **Report directly to the [Chef Automate data collector endpoint](https://docs.chef.io/automate/data_collection/#configure-chef-infra-client-to-use-the-data-collector-endpoint-in-chef-automate).**
+  **Report directly to the [Chef Automate data collector endpoint](/automate/data_collection/#configure-chef-infra-client-to-use-the-data-collector-endpoint-in-chef-automate).**
 
   ```ruby
   chef_client_config 'Create client.rb' do
     chef_server_url 'https://chef.example.dmz'
     data_collector_server_url 'https://automate.example.dmz'
     data_collector_token 'TEST_TOKEN_TEST'
+  end
+  ```
+
+  **Set Linux directory ownership and modes**:
+
+  ```ruby
+  chef_client_config 'Create client.rb' do
+    chef_server_url 'https://chef.example.dmz'
+    user 'root'
+    group 'root'
+    file_cache_path '/var/chef/cache'
+    file_backup_path '/var/chef/backups'
+    log_location '/var/log/chef/client.log'
+    directory_specs(
+      config: { owner: 'root', group: 'root', mode: '0700' },
+      client_d: { owner: 'root', group: 'root', mode: '0700' },
+      logs: { owner: 'root', group: 'root', mode: '0750' },
+      cache: { owner: 'root', group: 'root', mode: '0750' },
+      backups: { owner: 'root', group: 'root', mode: '0750' }
+    )
+  end
+  ```
+
+  **Set Windows directory inheritance and rights**:
+
+  ```ruby
+  chef_client_config 'Create client.rb' do
+    chef_server_url 'https://chef.example.dmz'
+    config_directory 'C:/chef'
+    file_cache_path 'C:/chef/cache'
+    file_backup_path 'C:/chef/backups'
+    log_location 'C:/chef/log/client.log'
+    directory_specs(
+      config: {
+        owner: 'Administrators',
+        inherits: false,
+        rights: {
+          'Administrators' => :full_control,
+          'SYSTEM' => :full_control,
+        },
+      }
+    )
   end
   ```

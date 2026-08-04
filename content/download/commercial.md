@@ -255,19 +255,20 @@ The API accepts the following parameters in a query string.
 Use the following product keys to download packages or retrieve data for different Chef products.
 You can also use the [products endpoint](#products)
 
-| Product                            | Product key         |
-| ---------------------------------- | ------------------- |
-| Chef Automate                      | `automate`          |
-| Chef Backend                       | `chef-backend`      |
-| Chef Habitat                       | `habitat`           |
-| Chef Infra Client                  | `chef`              |
-| Chef Infra Client Enterprise       | `chef-ice`          |
-| Chef Infra Client Legacy Migration | `migrate-ice`       |
-| Chef Infra Server                  | `chef-server`       |
-| Chef InSpec                        | `inspec`            |
-| Chef InSpec Enterprise             | `inspec-enterprise` |
-| Chef Supermarket                   | `supermarket`       |
-| Chef Workstation                   | `chef-workstation`  |
+| Product                            | Product key                   | Notes                   |
+| ---------------------------------- | ----------------------------- | ----------------------- |
+| Chef Automate                      | `automate`                    |                         |
+| Chef Backend                       | `chef-backend`                |                         |
+| Chef Habitat                       | `habitat`                     |                         |
+| Chef Infra Client                  | `chef`                        | Versions 18 and earlier |
+| Chef Infra Client Enterprise       | `chef-ice`                    | Versions 19 and later   |
+| Chef Infra Client Legacy Migration | `migrate-ice`                 |                         |
+| Chef Infra Server                  | `chef-server`                 |                         |
+| Chef InSpec                        | `inspec`                      |                         |
+| Chef InSpec Enterprise             | `inspec-enterprise`           |                         |
+| Chef Supermarket                   | `supermarket`                 |                         |
+| Chef Workstation                   | `chef-workstation`            | Versions 25 and earlier |
+| Chef Workstation Enterprise        | `chef-workstation-enterprise` | Versions 26 and later   |
 
 See the [supported versions]({{< relref "versions" >}}) documentation for information about the support status of individual products.
 
@@ -307,6 +308,21 @@ sha1	"dcf75b37bb80128af4657501bfd41eac52820191"
 sha256	"2c501d02b16d67e9d5a28578b95f8d3155bed940ee4946229213f41a2e8b798e"
 url	"https://chefdownload-commercial.chef.io/stable/chef-ice/download?license_id=<LICENSE_ID>&eol=false&m=x86_64&p=linux&pm=deb&v=19.1.8"
 version	"19.1.8"
+```
+
+To get the latest supported build of Chef Workstation Enterprise for Debian Linux 26.04, enter the following:
+
+```sh
+https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/metadata?pv=26.04&m=x86_64&p=linux&pm=deb&license_id=<LICENSE_ID>
+```
+
+which returns something like:
+
+```json
+sha1	"593b60c0f1266267d0dae2921e89a0b3a7c53615"
+sha256	"f27c4ad2fc92f540b3508043af7012023c16a013b3caa3603d93e6ac735bed61"
+url	"https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?license_id=<LICENSE_ID>&eol=false&m=x86_64&p=linux&pm=deb&v=26.0.23"
+version	"26.0.23"
 ```
 
 ### Download directly
