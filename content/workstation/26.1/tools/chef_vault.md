@@ -1,0 +1,818 @@
++++
+title = "Chef Vault"
+draft = false
+
+
+
+[menu]
+  [menu.workstation_26_1]
+    title = "Chef Vault"
+    identifier = "workstation_26_1/tools/chef_vault.md chef-vault executable"
+    parent = "workstation_26_1/tools"
+    weight = 50
++++
+
+Chef Vault lets you encrypt a data bag item using asymmetric keys and is included with Chef Workstation and Chef Infra Client.
+When you provide Chef Vault with a list of public keys from your nodes, only nodes on that list can decrypt the data bag item contents.
+`chef-vault` uses the `knife vault` subcommand.
+
+{{< note >}}
+
+Chef Vault doesn't support alternate keying mechanisms like GPG or Amazon KMS.
+
+{{< /note >}}
+
+## Key pair requirements
+
+Chef Vault requires that Chef Infra Client is configured to use public and private key pairs.
+Chef Vault is incompatible with Chef Infra Client instances that use a private key, such as `client.pem`, with a certificate set as its public identity in the Chef Infra Server database.
+
+To update existing nodes to use `chef-vault`, re-register your Chef Infra Client nodes with Chef Infra Server, which generates public/private key pairs, and then install Chef Vault on each node.
+
+If Chef Vault is used with a Chef Infra Client instance configured this way, Chef Vault generates the following error:
+
+```text
+## OpenSSL::PKey::RSAError
+Neither PUB key nor PRIV key:: nested asn1 error
+```
+
+## Configure Chef Vault
+
+To set `client` as the default mode, add the following line to the `config.rb` file.
+
+```shell
+knife[:vault_mode] = 'client'
+```
+
+To set the default list of admins for creating and updating vaults, add the following line to the `config.rb` file.
+
+```shell
+knife[:vault_admins] = [ 'example-alice', 'example-bob', 'example-carol' ]
+```
+
+You can override these values in the command line by using `-A`.
+
+## knife vault CLI
+
+### Syntax
+
+```shell
+knife vault SUBCOMMAND VAULT ITEM VALUES
+```
+
+where:
+
+- `VAULT` names the location for storing the encrypted item.
+- `ITEM` names the item stored in the vault.
+- `VALUES` contains the data that will be encrypted and stored in the
+ vault.
+
+### Subcommands
+
+#### create
+
+The `create` subcommand has the following syntax:
+
+```bash
+knife vault create VAULT ITEM VALUES (options)
+```
+
+For example:
+
+Create a vault called passwords and put an item called `root` in it with the given values for `username` and `password` encrypted for clients `role:webserver`, `client1` and `client2` and admins `admin1` and `admin2`:
+
+```bash
+knife vault create passwords root '{"username": "root", "password": "password_string"}' -S "role:webserver" -C "client1,client2" -A "admin1,admin2"
+```
+
+Create a vault called passwords and put an item called `root` in it with the given values for `username` and `password` encrypted for clients `role:webserver` and admins, `admin1` and `admin2`:
+
+```shell
+knife vault create passwords root '{"username": "root", "password": "password_string"}' -S "role:webserver" -A "admin1,admin2"
+```
+
+Create a vault called passwords and put an item called `root` in it with the given values for `username` and `password` encrypted for clients `role:webserver`, `client1`  and `client2`:
+
+```shell
+knife vault create passwords root '{"username": "root", "password": "password_string"}' -S "role:webserver" -C "client1,client2"
+```
+
+Create a vault called passwords and put an item called `root` in it with the given values for `username` and `password` encrypted for clients `role:webserver`
+
+```shell
+knife vault create passwords root '{"username": "root", "password": "password_string"}' -S "role:webserver"
+```
+
+Create a vault called passwords and put an item called `root` in it with the given values for `username` and `password` encrypted for clients, `client1` and `client2`
+
+```shell
+knife vault create passwords root '{"username": "root", "password": "password_string"}' -C "client1,client2"
+```
+
+Create a vault called passwords and put an item called `root` in it with the given values for `username` and `password` encrypted for admins, `admin1` and `admin2`
+
+```shell
+knife vault create passwords root '{"username": "root", "password": "password_string"}' -A "admin1,admin2"
+```
+
+Create a vault called passwords and put an item called `root` in it encrypted for admins, `admin1` and `admin2`. Omitting the data from the command line opens an editor where you can enter the values.
+
+```shell
+knife vault create passwords root -A "admin1,admin2"
+```
+
+{{< note >}}
+
+A JSON file can be used in place of specifying the values on the command line, see global options below for details
+
+{{< /note >}}
+
+#### delete
+
+This subcommand has the following syntax:
+
+```sh
+knife vault delete VAULT ITEM (options)
+```
+
+For example:
+
+Delete the item root from the passwords vault.
+
+```shell
+knife vault delete passwords root
+```
+
+#### download
+
+This subcommand has the following syntax:
+
+```sh
+knife vault download VAULT ITEM PATH (options)
+```
+
+For example:
+
+Decrypt and download an encrypted file to the specified path.
+
+```shell
+knife vault download certs user_pem ~/downloaded_user_pem
+```
+
+#### edit
+
+This subcommand has the following syntax:
+
+```sh
+knife vault edit VAULT ITEM (options)
+```
+
+For example:
+
+Decrypt the entire root item in the passwords vault and open it in json format in your \$EDITOR. Writing and exiting out the editor will save and encrypt the vault item.
+
+```shell
+knife vault edit passwords root
+```
+
+#### isvault
+
+This subcommand has the following syntax:
+
+```sh
+knife vault isvault VAULT ITEM (options)
+```
+
+For example:
+
+This command checks if the given item is a vault or not, and exit with a status of 0 if it's and 1 if it isn't.
+
+```shell
+knife vault isvault VAULT ITEM
+```
+
+#### itemtype
+
+This subcommand has the following syntax:
+
+```sh
+knife vault itemtype VAULT ITEM (options)
+```
+
+For example:
+
+This command outputs the type of the data bag item: normal, encrypted or vault
+
+```shell
+knife vault itemtype VAULT ITEM
+```
+
+#### list
+
+List data bags on Chef Infra Server.
+
+```bash
+knife vault list (options)
+```
+
+#### refresh
+
+This subcommand has the following syntax:
+
+```sh
+knife vault refresh VAULT ITEM
+```
+
+For example:
+
+This command reads the search_query stored in the vault item, re-executes the search, and refreshes access for all nodes that match the updated query results.
+
+Note: This operation doesn't update or re-encrypt credentials for admin users. To update an admin's credentials, use the [`knife vault update`](#update) command.
+
+```shell
+knife vault refresh VAULT ITEM
+```
+
+To remove clients which have been deleted from Chef but not from the vault, add the `--clean-unknown-clients` switch:
+
+```shell
+knife vault refresh passwords root --clean-unknown-clients
+```
+
+#### remove
+
+This subcommand has the following syntax:
+
+```sh
+knife vault remove VAULT ITEM VALUES (options)
+```
+
+For example:
+
+Remove the values in `username` and `password` from the vault passwords and item root.
+
+```shell
+knife vault remove passwords root '{"username": "root", "password": "password_string"}'
+```
+
+Remove the values in `username` and `password` from the vault passwords and item root and remove role:webserver, `client1` and `client2` from the encrypted clients and `admin1` and `admin2` from the encrypted admins.
+
+```shell
+knife vault remove passwords root '{"username": "root", "password": "password_string"}' -S "role:webserver" -C "client1,client2" -A "admin1,admin2"
+```
+
+Remove the values in `username` and `password` from the vault passwords and item root and remove role:webserver from the encrypted clients and `admin1` and `admin2` from the encrypted admins.
+
+```shell
+knife vault remove passwords root '{"username": "root", "password": "password_string"}' -S "role:webserver" -A "admin1,admin2"
+```
+
+Remove the values in `username` and `password` from the vault passwords and item root and remove `client1` and `client2` from the encrypted clients and `admin1` and `admin2` from the encrypted admins.
+
+```shell
+knife vault remove passwords root '{"username": "root", "password": "password_string"}' -C "client1,client2" -A "admin1,admin2"
+```
+
+Remove the values in `username` and `password` from the vault passwords and item root and remove role:webserver from the encrypted clients.
+
+```shell
+knife vault remove passwords root '{"username": "root", "password": "password_string"}' -S "role:webserver"
+```
+
+Remove the values in `username` and `password` from the vault passwords and item root and remove `client1` and `client2` from the encrypted clients.
+
+```shell
+knife vault remove passwords root '{"username": "root", "password": "password_string"}' -C "client1,client2"
+```
+
+Remove the values in `username` and `password` from the vault passwords and item root and remove `admin1` and `admin2` from the encrypted admins.
+
+```shell
+knife vault remove passwords root '{"username": "root", "password": "password_string"}' -A "admin1,admin2"
+```
+
+Remove `admin1` and `admin2` from encrypted admins and role:webserver, `client1` and `client2` from encrypted clients for the vault passwords and item root.
+
+```shell
+knife vault remove passwords root -S "role:webserver" -C "client1,client2" -A "admin1,admin2"
+```
+
+Remove `admin1` and `admin2` from encrypted admins and role:webserver from encrypted clients for the vault passwords and item root.
+
+```shell
+knife vault remove passwords root -S "role:webserver" -A "admin1,admin2"
+```
+
+Remove role:webserver from encrypted clients for the vault passwords and item root.
+
+```shell
+knife vault remove passwords root -S "role:webserver"
+```
+
+Remove `client1` and `client2` from encrypted clients for the vault passwords and item root.
+
+```shell
+knife vault remove passwords root -C "client1,client2"
+```
+
+Remove `admin1` and `admin2` from encrypted admins for the vault passwords and item root.
+
+```shell
+knife vault remove passwords root -A "admin1,admin2"
+```
+
+#### rotate all keys
+
+This subcommand has the following syntax:
+
+```sh
+knife vault rotate all keys
+```
+
+For example:
+
+Rotate the shared key for all vaults and items. The shared key is that which is used for the chef encrypted data bag item.
+
+```shell
+knife vault rotate all keys
+```
+
+Removes clients which have been deleted from Chef but not from the vault.
+
+```shell
+knife vault rotate keys passwords root --clean-unknown-clients
+```
+
+#### rotate keys
+
+This subcommand has the following syntax:
+
+```sh
+knife vault rotate keys VAULT ITEM (options)
+```
+
+For example:
+
+Rotate the shared key for the vault passwords and item root. The shared key is that which is used for the chef encrypted data bag item.
+
+```shell
+knife vault rotate keys passwords root
+```
+
+To remove clients which have been deleted from Chef but not from the vault, add the `--clean-unknown-clients` switch:
+
+```shell
+knife vault rotate keys passwords root --clean-unknown-clients
+```
+
+#### show
+
+This subcommand has the following syntax:
+
+```sh
+knife vault show VAULT [ITEM] [VALUES] (options)
+```
+
+For example:
+
+Show the items in a vault.
+
+```shell
+knife vault show passwords
+```
+
+Show the entire root item in the passwords vault and print in JSON format.
+
+```shell
+knife vault show passwords root -Fjson
+```
+
+Show the entire root item in the passwords vault and print in JSON format, including the search query, clients, and admins.
+
+```shell
+knife vault show passwords root -Fjson -p all
+```
+
+Show the `username` and `password` for the item root in the vault passwords.
+
+```shell
+knife vault show passwords root "username, password"
+```
+
+Show the contents for the item user_pem in the vault certs.
+
+```shell
+knife vault show certs user_pem "contents"
+```
+
+#### update
+
+This subcommand has the following syntax:
+
+```sh
+knife vault update VAULT ITEM VALUES (options)
+```
+
+{{< warning >}}
+
+This subcommand overwrites existing values.
+
+{{< /warning >}}
+
+For example:
+
+Update the values in `username` and `password` in the vault passwords and item root.
+
+```shell
+knife vault update passwords root '{"username": "root", "password": "password_string"}'
+```
+
+Update the values in `username` and `password` in the vault passwords and item root and add `role:webserver`, `client1` and `client2` to the encrypted clients and `admin1` and `admin2` to the encrypted admins.
+
+```shell
+knife vault update passwords root '{"username": "root", "password": "password_string"}' -S "role:webserver" -C "client1,client2" -A "admin1,admin2"
+```
+
+Update the values in `username` and `password` in the vault passwords and item root and add `role:webserver` to the encrypted clients and `admin1` and `admin2` to the encrypted admins.
+
+```shell
+knife vault update passwords root '{"username": "root", "password": "password_string"}' -S "role:webserver" -A "admin1,admin2"
+```
+
+Update the values in `username` and `password` in the vault passwords and
+item root and add `role:webserver` to the encrypted clients. Will
+overwrite existing values if values already exist!
+
+```shell
+knife vault update passwords root '{"username": "root", "password": "password_string"}' -S "role:webserver"
+```
+
+Update the values in `username` and `password` in the vault passwords and
+item root and add `client1` and `client2` to the encrypted clients. Will
+overwrite existing values if values already exist!
+
+```shell
+knife vault update passwords root '{"username": "root", "password": "password_string"}' -C "client1,client2"
+```
+
+Update the values in `username` and `password` in the vault passwords and
+item root and add `admin1` and `admin2` to the encrypted admins. Will
+overwrite existing values if values already exist!
+
+```shell
+knife vault update passwords root '{"username": "root", "password": "password_string"}' -A "admin1,admin2"
+```
+
+add `role:webserver` to encrypted clients for the vault passwords and item root.
+
+```shell
+knife vault update passwords root -S "role:webserver"
+```
+
+Add `client1` and `client2` to encrypted clients for the vault passwords and item root.
+
+```shell
+knife vault update passwords root -C "client1,client2"
+```
+
+Add `admin1` and `admin2` to encrypted admins for the vault passwords and item root.
+
+```shell
+knife vault update passwords root -A "admin1,admin2"
+```
+
+Add `admin1` and `admin2` to encrypted admins and role:webserver, client1 & client2 to encrypted clients for the vault passwords and item root.
+
+```shell
+knife vault update passwords root -S "role:webserver" -C "client1,client2" -A "admin1,admin2"
+```
+
+Add `admin1` and `admin2` to encrypted admins and role:webserver to encrypted clients for the vault passwords and item root.
+
+```shell
+knife vault update passwords root -S "role:webserver" -A "admin1,admin2"
+```
+
+Add `admin1` and `admin2` to encrypted admins and `client1` and `client2` to encrypted clients for the vault passwords and item root.
+
+```shell
+knife vault update passwords root -C "client1,client2" -A "admin1,admin2"
+```
+
+{{< note >}}
+
+A JSON file can be used in place of specifying the values on the command line, see global options below for details
+
+{{< /note >}}
+
+### Common options
+
+`-A`, `--admins ADMINS`
+
+: Chef users to be added as admins
+
+`-s`, `--server-url URL`
+
+: Chef Infra Server URL
+
+`--chef-zero-host HOST`
+
+: Host to start chef-zero on
+
+`--chef-zero-port PORT`
+
+: Port (or port range) to start chef-zero on. Port ranges like 1000,1010 or 8889-9999 will try all given ports until one works.
+
+`-k`, `--key KEY`
+
+: API Client Key
+
+`-C`, `--clients CLIENTS`
+
+: Chef clients to be added as clients
+
+`--[no-]color`
+
+: Use colored output, defaults to enabled
+
+`-c`, `--config CONFIG`
+
+: The configuration file to use
+
+`--config-option OPTION=VALUE`
+
+: Override a single configuration option
+
+`--defaults`
+
+: Accept default values for all questions
+
+`-d`, --disable-editing
+
+: Don't open EDITOR, just accept the data as is
+
+`-e`, `--editor EDITOR`
+
+: Set the editor to use for interactive commands
+
+`-E`, `--environment ENVIRONMENT`
+
+: Set the Chef environment (except for in searches, where this will be flagrantly ignored)
+
+`--file FILE`
+
+: File to be added to vault item as file-content
+
+`--[no-]fips`
+
+: Enable or disable fips mode
+
+`-F`, `--format FORMAT`
+
+: Which format to use for output
+
+`-J`, `--json FILE`
+
+: File containing JSON data to encrypt
+
+`-K`, `--keys-mode KEYS_MODE`
+
+: Mode in which to save vault keys
+
+`--[no-]listen`
+
+: Whether a local mode (-z) server binds to a port
+
+`-z`, `--local-mode`
+
+: Point knife commands at local repository instead of server
+
+`-u`, `--user USER`
+
+: API Client Username
+
+`--print-after`
+
+: Show the data after a destructive operation
+
+`-S`, `--search SEARCH`
+
+: Chef SOLR search for clients
+
+`-M`, `--mode MODE`
+
+: Chef mode to run in. Default Value: `solo`
+
+`-V`, `--verbose`
+
+: More verbose output. Use twice for max verbosity
+
+`-v`, `--version`
+
+: Show chef version
+
+`-y`, `--yes`
+
+: Say yes to all prompts for confirmation
+
+`-h`, `--help`
+
+: Show this message
+
+### Global options
+
+`-M MODE`
+`--mode MODE`
+: Chef mode to run in. Can be set in config.rb.
+
+  Default value: `solo`
+
+  Valid values: `solo`, `client`
+
+  Sub-commands: all
+
+`-S SEARCH`
+`--search SEARCH`
+: Chef Infra Server SOLR Search Of Nodes.
+
+  Default value: none
+
+  Valid values: none
+
+  Sub-commands: `create`, `remove`, `update`
+
+`-A ADMINS`
+`--admins ADMINS`
+: Chef clients or users to be vault admins, can be comma list.
+
+  Default value: none
+
+  Valid values: none
+
+  Sub-commands: `create`, `remove`, `update`
+
+`-J FILE`
+`--json FILE`
+: JSON file to be used for values, will be merged with VALUES if VALUES is passed.
+
+  Default value: none
+
+  Valid values: none
+
+  Sub-commands: `create`, `update`
+
+`--file FILE`
+: File that `chef-vault` should encrypt. It adds "file-content" & "file-name" keys to the vault item.
+
+  Default value: none
+
+  Valid values: none
+
+  Sub-commands: `create`, `update`
+
+`-p DATA`
+`--print DATA`
+: Print extra vault data.
+
+  Default value: none
+
+  Valid values: `search`, `clients`, `admins`, `all`
+
+  Sub-commands: `show`
+
+`-F FORMAT`
+`--format FORMAT`
+: Format for decrypted output.
+
+  Default value: `summary`
+
+  Valid values: `summary`, `json`, `yaml`, `pp`
+
+  Sub-commands: `show`
+
+`--clean-unknown-clients`
+: Remove unknown clients during key rotation.
+
+  Default value: none
+
+  Valid values: none
+
+  Sub-commands: `refresh`, `remove`, `rotate`
+
+### knife bootstrap options
+
+Use the following options with a validatorless bootstrap to specify items that are stored in Chef Vault:
+
+`--bootstrap-vault-file VAULT_FILE`
+
+: The path to a JSON file that contains a list of vaults and items to be updated.
+
+`--bootstrap-vault-item VAULT_ITEM`
+
+: A single vault and item to update as `vault:item`.
+
+`--bootstrap-vault-json VAULT_JSON`
+
+: A JSON string that contains a list of vaults and items to be updated.
+  For example, `--bootstrap-vault-json '{ "vault1": \["item1", "item2"\], "vault2": "item2" }'`
+
+## Using Chef Vault in recipes
+
+To use this gem in a recipe to decrypt data you must first install the gem with a chef_gem resource. Once the gem is installed, `require` the gem and then you can create a new instance of Chef Vault.
+
+Chef Vault 1.0 style decryption is supported, however it has been deprecated and Chef Vault 2.0 decryption should be used instead
+
+### Example Code
+
+```ruby
+chef_gem 'chef-vault' do
+  compile_time true if respond_to?(:compile_time)
+end
+#
+require 'chef-vault'
+#
+item = ChefVault::Item.load("passwords", "root")
+item["password"]
+```
+
+Note that in this case, the gem needs to be installed at compile time because the require statement is at the top-level of the recipe. If you move the require of `chef-vault` and the call to `::load` to library or provider code, you can install the gem in the converge phase instead.
+
+### Specifying an alternate node name or client key path
+
+Normally, the value of `Chef::Config[:node_name]` is used to find the per-node encrypted secret in the keys data bag item, and the value of `Chef::Config\[:client_key\]` is used to locate the private key to decrypt this secret.
+
+These can be overridden by passing a hash with the keys `:node_name` or `:client_key_path` to `ChefVault::Item.load`:
+
+```ruby
+item = ChefVault::Item.load(
+  'passwords', 'root',
+  node_name: 'service_foo',
+  client_key_path: '/secure/place/service_foo.pem'
+)
+item['password']
+```
+
+The above example assumes that you have transferred `/secure/place/service_foo.pem` to your system with a secure channel.
+
+This usage allows you to decrypt a vault using a key shared among several nodes, which can be helpful when working in cloud environments or other configurations where nodes are created dynamically.
+
+### chef_vault_item helper
+
+The [chef-vault cookbook](https://supermarket.chef.io/cookbooks/chef-vault/) contains a recipe to install the `chef-vault` gem and a helper method `chef_vault_item` which makes it easier to test cookbooks that use Chef Vault using Test Kitchen.
+
+### Determining if Item is a Vault
+
+Chef Vault provides a helper method to determine if a data bag item is a vault, which can be helpful if you produce a recipe for community consumption and want to support both normal data bags and vaults:
+
+```ruby
+if ChefVault::Item.vault?('passwords', 'root')
+  item = ChefVault::Item.load('passwords', 'root')
+else
+  item = Chef::DataBagItem.load('passwords', 'root')
+end
+```
+
+This functionality is also available from the command line as `knife vault isvault VAULT ITEM`.
+
+### Determining Data Bag Item Type
+
+Chef Vault provides a helper method to determine the type of a data bag item. It returns one of the symbols :normal, :encrypted or :vault
+
+```ruby
+case ChefVault::Item.data_bag_item_type('passwords', 'root')
+when :normal
+  ...
+when :encrypted
+  ...
+when :vault
+end
+```
+
+This functionality is also available from the command line as `knife vault itemtype VAULT ITEM`.
+
+## Stand Alone Usage
+
+The `chef-vault` gem can be used as a stand-alone binary to decrypt values stored in Chef. It requires that Chef is installed on the system and that you have a valid `config.rb`. This is useful if you want to mix Chef Vault into non-Chef recipe code, for example some other script where you want to protect a password.
+
+It does still require that the data bag has been encrypted for the user's or client's pem and pushed to Chef Infra Server. It mixes Chef into the gem and uses it to go grab the data bag.
+
+Use `chef-vault --help` to see all all available options
+
+### Example usage (password)
+
+```text
+chef-vault -v passwords -i root -a password -k /etc/chef/config.rb
+```
+
+## Testing
+
+To stub vault items in ChefSpec, use the [chef-vault-testfixture](https://rubygems.org/gems/chef-vault-testfixtures) gem.
+
+To fall back to unencrypted JSON files in Test Kitchen, use the `chef_vault_item` helper in the aforementioned chef-vault cookbook.
+
+## More Information
+
+For more information about `chef-vault`:
+
+- [Nell Shamrell-Harringon's blog post](https://blog.chef.io/2016/01/21/chef-vault-what-is-it-and-what-can-it-do-for-you/)
+- [Joshua Timberman's blog post](https://www.chef.io/blog/2013/09/19/managing-secrets-with-chef-vault/)

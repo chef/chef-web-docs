@@ -310,7 +310,7 @@ of Chef comes out.
 </tr>
 <tr>
 <td><a href="ohai_amazon_linux/">OHAI-7</a></td>
-<td>Amazon linux moved to the Amazon platform_family.</td>
+<td>Amazon Linux moved to the Amazon platform_family.</td>
 <td>13.0</td>
 <td>13.0</td>
 </tr>

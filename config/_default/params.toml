@@ -44,9 +44,7 @@ sitemaps = [
   "https://docs.chef.io/inspec/resource_packs/sitemap.xml",
   "https://docs.chef.io/habitat/1.6/sitemap.xml",
   "https://docs.chef.io/habitat/2.0/sitemap.xml",
-  "https://docs.chef.io/habitat/2.1/sitemap.xml",
-  "https://docs.chef.io/workstation/26/sitemap.xml",
-  "https://docs.chef.io/workstation/25/sitemap.xml"
+  "https://docs.chef.io/habitat/2.1/sitemap.xml"
 ]
 
 [chef-web-docs]
@@ -79,7 +77,23 @@ gh_path = "https://github.com/chef/license-service/tree/main/docs-chef-io/conten
 
 [search]
 
-default_search_product_keys = ["", "chef-360-saas", "chef-360-1.7", "automate", "desktop", "habitat", "chef-habitat-2.1", "client-19", "server", "inspec", "inspec-7.1", "saas", "supermarket", "workstation", "workstation-26"]
+default_search_product_keys = [
+  "",
+  "chef-360-saas",
+  "chef-360-1.7",
+  "automate",
+  "desktop",
+  "habitat",
+  "chef-habitat-2.1",
+  "client-19",
+  "server",
+  "inspec",
+  "inspec-7.1",
+  "saas",
+  "supermarket",
+  "workstation",
+  "workstation-26.1"
+]
 
 [search.products]
 
@@ -200,8 +214,12 @@ name = "Workstation"
 product_key = "workstation"
 
 [[search.products.workstation.versions]]
-name = "26"
-product_version_key = "workstation-26"
+name = "26.1"
+product_version_key = "workstation-26.1"
+
+[[search.products.workstation.versions]]
+name = "26.0"
+product_version_key = "workstation-26.0"
 
 [[search.products.workstation.versions]]
 name = "25"
@@ -240,6 +258,10 @@ errorLevel = 'warning'
 #
 #######
 
+###
+# Client versions
+###
+
 [[versions.client]]
 link_text = "Chef Infra Client 19"
 base_url = "/client/19/"
@@ -247,3 +269,20 @@ base_url = "/client/19/"
 [[versions.client]]
 link_text = "Chef Infra Client 18"
 base_url = "/client/18/"
+
+###
+# Workstation versions
+###
+
+[[versions.workstation]]
+link_text = "Chef Workstation 26.1"
+base_url = "/workstation/26.1/"
+
+[[versions.workstation]]
+link_text = "Chef Workstation 26.0"
+base_url = "/workstation/26.0/"
+
+[[versions.workstation]]
+link_text = "Chef Workstation 25"
+base_url = "/workstation/25/"
+

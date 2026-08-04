@@ -17,6 +17,85 @@ summary = "Chef Workstation release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
+## Chef Workstation 26.1.0
+
+Release date: July 13, 2026
+
+### Bug fixes
+
+- Fixed Chef Test Kitchen Enterprise warnings during `kitchen verify` that occurred due to unresolved or ambiguous gem specifications when multiple versions of gems (such as `reline`, `minitest`, and `drb`) were installed in the environment.
+- Fixed a `knife search` command issue where queries containing spaces were incorrectly parsed due to unquoted argument expansion in the Habitat knife wrapper.
+- Fixed Cookstyle inline `# cookstyle:disable` directives being ignored after the RuboCop engine upgrade. Directive comments are now parsed correctly regardless of whether the raw source contains the literal string `rubocop`.
+
+### Packages
+
+Chef Workstation now includes OS-native packages alongside the existing Habitat packages. You can download packages from the Chef customer download portal or the download API.
+
+The following native packages are available:
+
+- Linux x86: RPM (.rpm) and DEB (.deb) packages
+- Windows x86: MSI installer (.msi)
+
+OS-native packages for Linux ARM and macOS aren't available in this release.
+We plan to add Linux ARM and macOS OS-native packages in upcoming releases.
+
+### Security
+
+- Updated faraday in knife to v2.14.3.
+- Updated concurrent-ruby in knife to v1.3.7.
+- Updated mixlib-shellout in knife to v3.4.10.
+- Updated addressable in chef-cli to v2.9.0.
+
+### Tool updates
+
+- **Berkshelf**:
+
+  - Updated Berkshelf to version 8.1.23.
+
+- **Chef CLI**:
+
+  - Updated the `chef` CLI to version 6.1.34.
+
+- **Chef Infra Client**:
+
+  - Updated Chef Infra Client to version 19.3.15.
+
+    For details, see the [Chef Infra Client 19 release notes](https://docs.chef.io/release_notes/client/#chef-infra-client-19315).
+
+- **Chef InSpec**:
+
+  - Updated Chef InSpec to version 7.1.7.
+
+    For details, see the [Chef InSpec 7 release notes](https://docs.chef.io/release_notes/inspec/#chef-inspec-717).
+
+- **Chef Vault**:
+
+  - Updated Chef Vault to version 4.2.12.
+
+- **Cookstyle**:
+
+  - Updated Cookstyle to version 8.7.6 with RuboCop engine 1.86.1.
+
+- **Fauxhai**:
+
+  - Updated Fauxhai to version 9.4.22.
+
+- **Knife**:
+
+  - Updated Knife to version 19.0.134.
+
+    For details, see the [Knife changelog](https://github.com/chef/knife/blob/main/CHANGELOG.md).
+
+- **Ohai**:
+
+  - Updated Ohai to version 19.1.40.
+
+- **Test Kitchen Enterprise**:
+
+  - Updated Test Kitchen Enterprise to version 2.0.15.
+
+    For details, see the [Test Kitchen Enterprise changelog](https://github.com/chef/chef-test-kitchen-enterprise/blob/main/CHANGELOG.md#v2015-2026-06-18).
+
 ## Chef Workstation 26.0.18
 
 Release date: April 13, 2026

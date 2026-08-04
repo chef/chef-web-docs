@@ -41,7 +41,7 @@
           - static/client/**
           - content/release_notes/client.md
           - static/images/client/**
-          - data/infra/**
+          - data/client/**
           - content/chef_deprecations_client/**
 "Component: Chef Infra Server":
   - changed-files:
@@ -80,3 +80,22 @@
           - static/images/workstation/**
           - content/release_notes/workstation.md
           - generated/**
+"Component: AI":
+  - changed-files:
+      - any-glob-to-any-file:
+          - .github/copilot-instructions.md
+          - .github/**-instructions.md
+          - .github/instructions/**
+          - .github/skills/**
+          - .github/agents/**
+          - .github/prompts/**
+"dependencies":
+  - changed-files:
+      - any-glob-to-any-file:
+          - package.json
+          - package-lock.json
+          - pnpm-lock.yaml
+          - pnpm-workspace.yaml
+          - .npmrc
+          - .nvmrc
+          - .node-version

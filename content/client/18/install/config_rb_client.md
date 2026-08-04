@@ -476,7 +476,7 @@ This configuration file has the following settings:
 : An array of paths to search for knife exec scripts if they're not in the current directory
 
 `skip_gem_metadata_installation`
-: when `skip_gem_metadata_installation` is set to true, cookbook gem installation will be skipped.
+: If set to `true`, cookbook gem installation is skipped.
 
   Default value: `false`
 
@@ -496,7 +496,7 @@ This configuration file has the following settings:
   Default value: `false`
 
 `download_progress_interval`
-: When `show_download_progress` is set to true this is the interval in seconds to write out download progress.
+: The interval (in seconds) for reporting download progress. Requires `show_download_progress` to be set to `true`.
 
   Default value: `10`
 

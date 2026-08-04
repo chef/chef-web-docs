@@ -19,7 +19,15 @@
     {
       "name": "Infra",
       "tags": [
-        "ConfigMgmt"
+        "ConfigMgmt",
+        "InfraProxy"
+      ]
+    },
+    {
+      "name": "Ingest",
+      "tags": [
+        "ChefIngester",
+        "JobScheduler"
       ]
     },
     {
@@ -45,7 +53,48 @@
       "name": "Applications",
       "tags": [
         "service_groups",
-        "retention"
+        "retention",
+        "ApplicationsService"
+      ]
+    },
+    {
+      "name": "Data Feed",
+      "tags": [
+        "DatafeedService"
+      ]
+    },
+    {
+      "name": "Data Lifecycle",
+      "tags": [
+        "DataLifecycle"
+      ]
+    },
+    {
+      "name": "Notifications",
+      "tags": [
+        "Notifications"
+      ]
+    },
+    {
+      "name": "Content Delivery",
+      "tags": [
+        "Cds"
+      ]
+    },
+    {
+      "name": "Audit and Settings",
+      "tags": [
+        "UserSettingsService"
+      ]
+    },
+    {
+      "name": "System",
+      "tags": [
+        "Gateway",
+        "Deployment",
+        "License",
+        "Telemetry",
+        "LegacyDataCollector"
       ]
     },
     {
@@ -62,7 +111,8 @@
         "policies",
         "roles",
         "projects",
-        "rules"
+        "rules",
+        "Authorization"
       ]
     }
   ],
@@ -92,6 +142,18 @@
       "x-displayName": "Nodes"
     },
     {
+      "name": "InfraProxy",
+      "x-displayName": "Chef Infra Server Proxy"
+    },
+    {
+      "name": "ChefIngester",
+      "x-displayName": "Ingest"
+    },
+    {
+      "name": "JobScheduler",
+      "x-displayName": "Job Scheduler"
+    },
+    {
       "name": "NodesService",
       "x-displayName": "Managed Nodes"
     },
@@ -112,13 +174,57 @@
       "x-displayName": "Service Management"
     },
     {
+      "name": "ApplicationsService",
+      "x-displayName": "Applications Telemetry"
+    },
+    {
       "name": "NodeManagerService",
       "x-displayName": "Node Managers"
     },
     {
+      "name": "DatafeedService",
+      "x-displayName": "Data Feed"
+    },
+    {
+      "name": "DataLifecycle",
+      "x-displayName": "Data Lifecycle"
+    },
+    {
+      "name": "Notifications",
+      "x-displayName": "Notifications"
+    },
+    {
+      "name": "Cds",
+      "x-displayName": "Content Delivery"
+    },
+    {
+      "name": "UserSettingsService",
+      "x-displayName": "User Settings and Audit Logs"
+    },
+    {
+      "name": "Gateway",
+      "x-displayName": "Gateway"
+    },
+    {
+      "name": "Deployment",
+      "x-displayName": "Deployment"
+    },
+    {
+      "name": "License",
+      "x-displayName": "License"
+    },
+    {
+      "name": "Telemetry",
+      "x-displayName": "Telemetry"
+    },
+    {
+      "name": "LegacyDataCollector",
+      "x-displayName": "Data Collector (Legacy)"
+    },
+    {
       "name": "policies",
       "x-displayName": "IAM Policies",
-      "description": "A policy defines permissions for who may perform what action on which resources, based on the project. The ‘who’ is a user, a team, or a system. A policy has three components, the agent, the action, and the project. The agent is a user, team, or system. Users and teams are designated by name while systems communicate with Chef Automate using pre-authorized API tokens. Actions are activities that agents can take in relation to Chef Automate’s content and operation. Projects are collections of resources, such as API tokens or ingested compliance nodes."
+      "description": "A policy defines permissions for who may perform what action on which resources, based on the project. The 'who' is a user, a team, or a system. A policy has three components, the agent, the action, and the project. The agent is a user, team, or system. Users and teams are designated by name while systems communicate with Chef Automate using pre-authorized API tokens. Actions are activities that agents can take in relation to Chef Automate's content and operation. Projects are collections of resources, such as API tokens or ingested compliance nodes."
     },
     {
       "name": "roles",
@@ -139,6 +245,11 @@
       "name": "tokens",
       "x-displayName": "IAM API Tokens",
       "description": "Tokens are used for API access to Automate endpoints as well as by systems (e.g. Chef Infra Servers) to communicate with Automate."
+    },
+    {
+      "name": "Authorization",
+      "x-displayName": "Authorization",
+      "description": "Introspection endpoints that allow clients to check which API actions are authorized for the current token or user."
     },
     {
       "name": "JobsService",

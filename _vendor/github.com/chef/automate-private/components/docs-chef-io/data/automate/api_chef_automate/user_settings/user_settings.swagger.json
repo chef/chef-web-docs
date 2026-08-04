@@ -11,6 +11,145 @@
     "application/json"
   ],
   "paths": {
+    "/api/v0/audit/admin/request": {
+      "get": {
+        "summary": "RequestAdminAuditLogs initiates async generation of audit logs for selected users.\nNOTE: This is intended for admin-level access and is protected by IAM policy.\nOnly users with policy management permissions (administrators) can access this endpoint.",
+        "operationId": "UserSettingsService_RequestAdminAuditLogs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/chef.automate.api.user_settings.SelfAuditResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/grpc.gateway.runtime.Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "from",
+            "description": "Start time for audit log retrieval (optional, default: 3 hours ago).",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "to",
+            "description": "End time for audit log retrieval (optional, default: now).",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "order",
+            "description": "Sort order for logs (optional, default: desc)\nValid values: asc, desc.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "usernames",
+            "description": "Usernames to filter audit logs by (optional).\nIf empty, returns logs for all users in the time range.\nQuery param name is \"usernames\". Prefer repeated params (usernames=a\u0026usernames=b).\nThe server also accepts a single comma-separated value (usernames=a,b).",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "tags": [
+          "UserSettingsService"
+        ]
+      }
+    },
+    "/api/v0/audit/self/request": {
+      "get": {
+        "summary": "RequestSelfAuditLogs initiates async generation of audit logs for the current user",
+        "operationId": "UserSettingsService_RequestSelfAuditLogs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/chef.automate.api.user_settings.SelfAuditResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/grpc.gateway.runtime.Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "from",
+            "description": "Start time for audit log retrieval (optional, default: 3 hours ago).",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "to",
+            "description": "End time for audit log retrieval (optional, default: now).",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "order",
+            "description": "Sort order for logs (optional, default: desc)\nValid values: asc, desc.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "UserSettingsService"
+        ]
+      }
+    },
+    "/api/v0/audit/status": {
+      "get": {
+        "summary": "GetAuditLogsRequestStatus checks the status of an audit log request",
+        "operationId": "UserSettingsService_GetAuditLogsRequestStatus",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/chef.automate.api.user_settings.AuditLogsRequestStatusResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/grpc.gateway.runtime.Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "request_id",
+            "description": "Optional UUID of the specific request to check\nIf not provided, returns status of the latest request for the current user.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "UserSettingsService"
+        ]
+      }
+    },
     "/api/v0/user-settings/{user.name}/{user.connector}": {
       "get": {
         "summary": "GetUserSettings returns all of the preferences for a given user",
@@ -23,7 +162,7 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
               "$ref": "#/definitions/grpc.gateway.runtime.Error"
             }
@@ -58,7 +197,7 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
               "$ref": "#/definitions/grpc.gateway.runtime.Error"
             }
@@ -93,7 +232,7 @@
             }
           },
           "default": {
-            "description": "An unexpected error response",
+            "description": "An unexpected error response.",
             "schema": {
               "$ref": "#/definitions/grpc.gateway.runtime.Error"
             }
@@ -128,6 +267,78 @@
     }
   },
   "definitions": {
+    "chef.automate.api.user_settings.AuditLogsRequestStatusResponse": {
+      "type": "object",
+      "properties": {
+        "request_id": {
+          "type": "string",
+          "title": "UUID of the audit log request"
+        },
+        "status": {
+          "type": "string",
+          "title": "Status of the request: \"processing\", \"completed\", \"error\", \"not_found\""
+        },
+        "file_size": {
+          "type": "string",
+          "title": "Human-readable file size (e.g., \"15.2 MB\") - only present when status is \"completed\""
+        },
+        "download_url": {
+          "type": "string",
+          "title": "Download URL for the log file - only present when status is \"completed\""
+        },
+        "error": {
+          "type": "string",
+          "title": "Error code - only present when status indicates an error\nPossible values: \"audit_disabled\", \"not_found\", \"no_requested_logs\""
+        },
+        "message": {
+          "type": "string",
+          "title": "Human-readable message describing the status or error"
+        }
+      },
+      "title": "AuditLogsRequestStatusResponse is the response containing the status of an audit log request"
+    },
+    "chef.automate.api.user_settings.DownloadAuditLogsResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "string",
+          "format": "byte",
+          "title": "Chunk of file data (streamed in multiple responses)"
+        },
+        "metadata": {
+          "$ref": "#/definitions/chef.automate.api.user_settings.DownloadMetadata",
+          "title": "Metadata (only included in the first response)"
+        }
+      },
+      "title": "DownloadAuditLogsResponse is the streaming response for audit log downloads"
+    },
+    "chef.automate.api.user_settings.DownloadMetadata": {
+      "type": "object",
+      "properties": {
+        "filename": {
+          "type": "string",
+          "title": "Filename of the audit log file"
+        },
+        "total_size": {
+          "type": "string",
+          "format": "int64",
+          "title": "Total size of the file in bytes"
+        },
+        "content_range": {
+          "type": "string",
+          "title": "Content range being downloaded (e.g., \"bytes 0-1048575/10485760\")"
+        },
+        "request_id": {
+          "type": "string",
+          "title": "Request ID associated with this file"
+        },
+        "accept_ranges": {
+          "type": "boolean",
+          "title": "Whether the server accepts range requests"
+        }
+      },
+      "title": "DownloadMetadata contains metadata about the download"
+    },
     "chef.automate.api.user_settings.GetUserSettingsResponse": {
       "type": "object",
       "properties": {
@@ -166,6 +377,24 @@
         }
       }
     },
+    "chef.automate.api.user_settings.SelfAuditResponse": {
+      "type": "object",
+      "properties": {
+        "request_id": {
+          "type": "string",
+          "title": "Unique identifier for the audit log request"
+        },
+        "status": {
+          "type": "string",
+          "title": "Current status of the request (e.g., \"processing\")"
+        },
+        "message": {
+          "type": "string",
+          "title": "Human-readable message about the request"
+        }
+      },
+      "title": "SelfAuditResponse is the response after initiating async audit log generation"
+    },
     "chef.automate.api.user_settings.User": {
       "type": "object",
       "properties": {
@@ -190,7 +419,6 @@
         },
         "enabled": {
           "type": "boolean",
-          "format": "boolean",
           "title": "Enabled"
         },
         "valid_values": {
@@ -225,6 +453,31 @@
           "format": "int32"
         },
         "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/google.protobuf.Any"
+          }
+        }
+      }
+    },
+    "grpc.gateway.runtime.StreamError": {
+      "type": "object",
+      "properties": {
+        "grpc_code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "http_code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "http_status": {
           "type": "string"
         },
         "details": {
