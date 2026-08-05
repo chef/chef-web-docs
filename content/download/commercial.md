@@ -259,7 +259,7 @@ For a complete list, use the [`platforms`](#platforms) endpoint.
 : The package type.
 
 This parameter is optional.
-If it is not provided, the API automatically detects the platform and derives the package format from it.
+If it's not provided, the API automatically detects the platform and derives the package format from it.
 Include `pm` when you want to request a specific package format explicitly.
 
 Values include:
