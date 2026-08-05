@@ -33,6 +33,7 @@ Release date: July 20th, 2026
 
 ### Packaging
 
+- We now release Chef InSpec Habitat packages for Linux ARM.
 - Added support for aarch64-linux (ARM64) Habitat packages for Linux systems. ([#7968](https://github.com/inspec/inspec/pull/7968))
 - Added support for aarch64-darwin Habitat packages for Apple Silicon Macs. ([#7987](https://github.com/inspec/inspec/pull/7987))
 
@@ -40,6 +41,7 @@ Release date: July 20th, 2026
 
 - Updated `train` and `train-core` from 3.16.1 to 3.16.5. ([#7980](https://github.com/inspec/inspec/pull/7980))
 - Updated `chef-licensing` from 1.4.0 to 1.4.1. ([#7983](https://github.com/inspec/inspec/pull/7983))
+- Updated gems to support the latest `train-kubernetes` requirements, including `excon` (1.6.0) and `k8s-ruby` (0.18.0). ([#7995](https://github.com/inspec/inspec/pull/7995))
 
 ## Chef InSpec 7.1.7
 
