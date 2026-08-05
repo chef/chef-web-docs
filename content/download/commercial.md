@@ -226,7 +226,7 @@ https://chefdownload-commercial.chef.io/files/<CHANNEL>/<PRODUCT>/<PRODUCT_VERSI
 
 <!-- markdownlint-disable MD006 MD007 -->
 
-The API accepts the following parameters. Most endpoints use them as query string values, while the `files` endpoint uses the same values as path segments in the URL. Each parameter's placeholder name, shown in angle brackets, represents both forms.
+The API accepts the following parameters. Most endpoints use these as query string values, while the `files` endpoint uses the same values as path segments in the URL. Each parameter's placeholder name (shown in angle brackets) represents both forms.
 
 `<CHANNEL>`
 : The release channel to install from. For the available channels, see [release channels](#release-channels).
@@ -234,7 +234,7 @@ The API accepts the following parameters. Most endpoints use them as query strin
 `<PRODUCT>`
 : The Chef Software product to install.
 
-A list of valid product keys can be found in the [Chef product matrix](https://github.com/chef/mixlib-install/blob/main/PRODUCT_MATRIX.md) or by using the [`products`](#products) endpoint.
+You can see a list of valid product keys in the [Chef product matrix](https://github.com/chef/mixlib-install/blob/main/PRODUCT_MATRIX.md) or by using the [`products`](#products) endpoint.
 
 `license_id`
 : Your license ID.
@@ -251,7 +251,7 @@ Default value: `false`.
 `p` (`<PLATFORM>`)
 : The platform.
 
-Possible values include: `debian`, `el` (for RHEL derivatives), `linux`, `linux-kernel2`, `mac_os_x`, `sles`, `ubuntu` or `windows`.
+Possible values include: `debian`, `el` (for RHEL derivatives), `linux`, `linux-kernel2`, `mac_os_x`, `sles`, `ubuntu`, or `windows`.
 
 For a complete list, use the [`platforms`](#platforms) endpoint.
 
@@ -259,7 +259,7 @@ For a complete list, use the [`platforms`](#platforms) endpoint.
 : The package type.
 
 This parameter is optional.
-If not provided, the API automatically detects the platform and derives the package format from it.
+If it is not provided, the API automatically detects the platform and derives the package format from it.
 Include `pm` when you want to request a specific package format explicitly.
 
 Values include:
