@@ -158,7 +158,7 @@ https://chefdownload-community.chef.io/files/stable/<PRODUCT>/<PRODUCT_VERSION>/
 
 ## Parameters
 
-The API accepts the following parameters. Most endpoints use them as query string values, while the `files` endpoint uses the same values as path segments in the URL. Each parameter's placeholder name, shown in angle brackets, represents both forms.
+The API accepts the following parameters. Most endpoints use these as query string values, while the `files` endpoint uses the same values as path segments in the URL. Each parameter's placeholder name (shown in angle brackets) represents both forms.
 
 `<CHANNEL>`
 : The release channel to install from. The Community API only supports the `stable` channel.
@@ -166,7 +166,7 @@ The API accepts the following parameters. Most endpoints use them as query strin
 `<PRODUCT>`
 : The Chef Software product to install.
 
-  A list of valid product keys can be found in the [Chef product matrix](https://github.com/chef/mixlib-install/blob/main/PRODUCT_MATRIX.md) or by using the [`products`](#products) endpoint.
+  You can see a list of valid product keys in the [Chef product matrix](https://github.com/chef/mixlib-install/blob/main/PRODUCT_MATRIX.md) or by using the [`products`](#products) endpoint.
 
 `license_id`
 : Your license ID.
