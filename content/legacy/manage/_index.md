@@ -104,11 +104,3 @@ Organizations, users, and groups can be managed from the Chef management console
 {{< readfile file="content/server/reusable/md/server_rbac.md" >}}
 
 ![image](/images/step_manage_webui_admin.png)
-
-## Install Chef Manage
-
-{{< readfile file="content/server/reusable/md/ctl_chef_server_install_features_download.md" >}}
-
-### Chef Manage Local Installation
-
-{{< readfile file="content/server/reusable/md/ctl_chef_server_install_features_manual.md" >}}
