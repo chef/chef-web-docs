@@ -33,9 +33,9 @@ Release date: August 13th, 2026
 
 ### Packaging
 
-- We now release Chef InSpec Habitat packages for Linux ARM.
-- Added support for aarch64-linux (ARM64) Habitat packages for Linux systems. ([#7968](https://github.com/inspec/inspec/pull/7968))
-- Added support for aarch64-darwin Habitat packages for Apple Silicon Macs. ([#7987](https://github.com/inspec/inspec/pull/7987))
+- We now provide OS-native Habitat-based Chef InSpec packages for Linux ARM.
+- We now release Chef InSpec Habitat packages for Linux ARM. ([#7968](https://github.com/inspec/inspec/pull/7968))
+- We now release Chef InSpec Habitat packages for Apple Silicon Macs. ([#7987](https://github.com/inspec/inspec/pull/7987))
 
 ### Dependency updates
 
