@@ -33,8 +33,9 @@ The Chef Community Download API has the following endpoints:
 - `/metadata`
 - `/download`
 - `/fileName`
+- `/files`
 
-See the [parameters section](#parameters) below to understand the query strings used in the following endpoint descriptions.
+See the [parameters section](#parameters) below to understand the query strings and path parameters used in the following endpoint descriptions.
 
 ### architectures
 
@@ -83,6 +84,12 @@ You can specify a version number with the `v` query string to get packages for a
 https://chefdownload-community.chef.io/stable/<PRODUCT>/packages?v=<VERSION_NUMBER>&license_id=<LICENSE_ID>
 ```
 
+To retrieve download URLs from the `/files` endpoint, add the `direct=true` parameter:
+
+```plain
+https://chefdownload-community.chef.io/stable/<PRODUCT>/packages?license_id=<LICENSE_ID>&direct=true
+```
+
 ### versions/all
 
 Use `versions/all` to return a list of versions of a product.
@@ -107,6 +114,12 @@ The `metadata` endpoint returns data about a particular package of a Chef produc
 https://chefdownload-community.chef.io/stable/<PRODUCT>/metadata?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
 ```
 
+To retrieve metadata with a download URL from the `/files` endpoint, add the `direct=true` parameter:
+
+```plain
+https://chefdownload-community.chef.io/stable/<PRODUCT>/metadata?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>&direct=true
+```
+
 ### download
 
 The `download` endpoint downloads a particular package of a Chef product.
@@ -123,14 +136,37 @@ The `fileName` endpoint returns the file name.
 https://chefdownload-community.chef.io/<CHANNEL>/<PRODUCT>/fileName?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>
 ```
 
+### files
+
+The `files` endpoint downloads a particular package of a Chef product.
+
+The endpoint identifies the package using path segments instead of query parameters. The URL structure varies depending on the product type.
+
+To construct a `/files` endpoint URL, use the [`metadata`](#metadata) or [`packages`](#packages) endpoint with the `direct=true` parameter to retrieve the correct URL for your use case. To get the filename for a package, use the [`fileName`](#filename) endpoint.
+
+Download packages for Chef Automate and Chef Habitat:
+
+```plain
+https://chefdownload-community.chef.io/files/stable/<PRODUCT>/<PRODUCT_VERSION>/<PLATFORM>/<ARCHITECTURE>/<FILENAME>?license_id=<LICENSE_ID>
+```
+
+Download packages for other products:
+
+```plain
+https://chefdownload-community.chef.io/files/stable/<PRODUCT>/<PRODUCT_VERSION>/<PLATFORM>/<PLATFORM_VERSION>/<ARCHITECTURE>/<FILENAME>?license_id=<LICENSE_ID>
+```
+
 ## Parameters
 
-The API accepts the following parameters in a query string.
+The API accepts the following parameters. Most endpoints use these as query string values, while the `files` endpoint uses the same values as path segments in the URL. Each parameter's placeholder name (shown in angle brackets) represents both forms.
+
+`<CHANNEL>`
+: The release channel to install from. The Community API only supports the `stable` channel.
 
 `<PRODUCT>`
 : The Chef Software product to install.
 
-  A list of valid product keys can be found in the [Chef product matrix](https://github.com/chef/mixlib-install/blob/main/PRODUCT_MATRIX.md) or by using the [`products`](#products) endpoint.
+  You can see a list of valid product keys in the [Chef product matrix](https://github.com/chef/mixlib-install/blob/main/PRODUCT_MATRIX.md) or by using the [`products`](#products) endpoint.
 
 `license_id`
 : Your license ID.
@@ -144,29 +180,45 @@ The API accepts the following parameters in a query string.
 
   Default value: `false`.
 
-`p`
+`p` (`<PLATFORM>`)
 : The platform.
 
   Possible values: `debian`, `el` (for RHEL derivatives), `freebsd`, `mac_os_x`, `solaris2`, `sles`, `suse`, `ubuntu` or `windows`.
 
-`pv`
+  For a complete list, use the [`platforms`](#platforms) endpoint.
+
+`pv` (`<PLATFORM_VERSION>`)
 : The platform version.
 
   Possible values depend on the platform. For example, Ubuntu: `18.04`, or `20.04`, or for macOS: `10.15` or `11`.
 
-`m`
+`m` (`<ARCHITECTURE>`)
 : The machine architecture for the machine on which the product will be installed.
 
   Possible values depend on the platform. For example, for
   Ubuntu or Debian: `i386` or `x86_64`, or for macOS: `x86_64`.
 
-`v`
+  To get the supported architecture values, use the [`architectures`](#architectures) endpoint.
+
+`v` (`<PRODUCT_VERSION>`)
 : The version of the product to be installed.
 
   Versions typically take the form of `x.y.z` where x, y, and z are decimal numbers that represent major (x), minor (y), and patch (z) versions.
   One-part (`x`) and two-part (`x.y`) versions are allowed.
 
   Default value: `latest`.
+
+`<FILENAME>`
+: The name of the package file to download.
+
+  Use the [`fileName`](#filename) endpoint to retrieve this value for a given package.
+
+`direct`
+: Returns the download URL from the `/files` endpoint instead of the standard download endpoint.
+
+  Possible values: `true` or `false`.
+
+  Default value: `false`.
 
 ## Chef product names
 
@@ -200,6 +252,21 @@ which returns something like:
 sha1	"3c8a265a36c2ce7e5594ae894fafb248789464a2"
 sha256	"512c1eff0a4103e4a5c73b196d14393eddbf2b766a75e94ac9a9cb97d1fdd19c"
 url	"https://chefdownload-community.chef.io/stable/chef/download?eol=false&m=x86_64&p=ubuntu&pv=20.04&v=14.15.6"
+version	"14.15.6"
+```
+
+To get the latest supported build of Chef Infra Client for Ubuntu 20.04 with a direct download URL from the `/files` endpoint, add the `direct=true` parameter:
+
+```plain
+https://chefdownload-community.chef.io/stable/chef/metadata?p=ubuntu&pv=20.04&m=x86_64&license_id=<LICENSE_ID>&direct=true
+```
+
+which returns something like:
+
+```json
+sha1	"3c8a265a36c2ce7e5594ae894fafb248789464a2"
+sha256	"512c1eff0a4103e4a5c73b196d14393eddbf2b766a75e94ac9a9cb97d1fdd19c"
+url	"https://chefdownload-community.chef.io/files/stable/chef/14.15.6/ubuntu/20.04/x86_64/chef_14.15.6-1_amd64.deb?license_id=<LICENSE_ID>"
 version	"14.15.6"
 ```
 
