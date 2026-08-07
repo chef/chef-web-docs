@@ -1,5 +1,7 @@
 +++
 title = "kitchen.yml"
+description = "Configure the kitchen.yml file to set Test Kitchen drivers, provisioners, platforms, and suites for testing Chef Infra cookbooks."
+summary = "Reference for kitchen.yml configuration, including Test Kitchen driver and provisioner settings."
 draft = false
 
 [menu]
