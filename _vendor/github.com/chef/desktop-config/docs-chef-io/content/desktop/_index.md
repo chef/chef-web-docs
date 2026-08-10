@@ -5,7 +5,7 @@ publishDate = "2020-06-02"
 gh_repo = "desktop-config"
 
 [cascade]
-  product = ["desktop"]
+  swiftype_search_products = ["desktop"]
 
 [menu]
   [menu.desktop]
