@@ -53,7 +53,7 @@ Released on June 25, 2026
 - Chef Infra Client updated from 18.8.46 to 18.10.17.
 - knife updated from 18.8.68 to 19.0.105.
 - knife-ec-backup updated from 3.0.5 to 3.0.8.
-- PostgreSQL client updated from version 13 to 14.
+- Upgraded PostgreSQL from 13.22 to 13.23 to resolve CVE-2025-12818 and CVE-2025-12817.
 - Rails updated from 7.1.5.2 to 7.2.3.1 (includes a pending security fix).
 
 ### Service versions
