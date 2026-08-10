@@ -18,7 +18,7 @@ You can download and install the pre-built `.msi`, `.deb`, or `.rpm` packages us
 
 Chef Workstation is supported on:
 
-- Currently supported Linux distributions and versions running Linux kernel 2.6.32 and later on x86-64 (amd64)
+- Currently supported Linux distributions and versions running Linux kernel 2.6.32 and later on x86-64 (amd64) or ARM64 (aarch64)
 - Currently supported Windows versions greater than or equal to Windows 10 and Windows Server 2016
 
 ## Chef Workstation requirements
@@ -45,16 +45,28 @@ To install Chef Workstation on a Debian-based system, follow these steps:
 
 1. Download the Debian-based installer using one of the following methods:
 
-   - Download using `wget`:
+   - Download for x86-64 (amd64) using `wget`:
 
      ```shell
      wget -O "chef-workstation-enterprise-<VERSION>-linux.deb" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=linux&pm=deb&v=<VERSION>"
      ```
 
-   - Download using `curl`:
+   - Download for x86-64 (amd64) using `curl`:
 
      ```shell
      curl -o "chef-workstation-enterprise-<VERSION>-linux.deb" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=linux&pm=deb&v=<VERSION>"
+     ```
+
+   - Download for ARM64 (aarch64) using `wget`:
+
+     ```shell
+     wget -O "chef-workstation-enterprise-<VERSION>-linux.deb" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=aarch64&p=linux&pm=deb&v=<VERSION>"
+     ```
+
+   - Download for ARM64 (aarch64) using `curl`:
+
+     ```shell
+     curl -o "chef-workstation-enterprise-<VERSION>-linux.deb" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=aarch64&p=linux&pm=deb&v=<VERSION>"
      ```
 
    Replace:
@@ -63,11 +75,21 @@ To install Chef Workstation on a Debian-based system, follow these steps:
 
 1. Install Chef Workstation:
 
-   ```shell
-   sudo dpkg -i chef-workstation-enterprise-<VERSION>_amd64.deb
-   ```
+   - On x86-64 (amd64) systems:
 
-   Replace `<VERSION>` with the version number of the downloaded package, for example `chef-workstation-enterprise-26.1.0-1_amd64.deb`.
+     ```shell
+     sudo dpkg -i chef-workstation-enterprise-<VERSION>_amd64.deb
+     ```
+
+     Replace `<VERSION>` with the version number of the downloaded package, for example `chef-workstation-enterprise-26.1.0-1_amd64.deb`.
+
+   - On ARM64 (aarch64) systems:
+
+     ```shell
+     sudo dpkg -i chef-workstation-enterprise-<VERSION>_arm64.deb
+     ```
+
+     Replace `<VERSION>` with the version number of the downloaded package, for example `chef-workstation-enterprise-26.1.0-1_arm64.deb`.
 
 ### Install Chef Workstation on RPM-based systems
 
@@ -75,16 +97,28 @@ To install Chef Workstation on an RPM-based system, follow these steps:
 
 1. Download the RPM-based installer using one of the following methods:
 
-   - Download using `wget`:
+   - Download for x86-64 (amd64) using `wget`:
 
      ```shell
      wget -O "chef-workstation-enterprise-<VERSION>-linux.rpm" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=linux&pm=rpm&v=<VERSION>"
      ```
 
-   - Download using `curl`:
+   - Download for x86-64 (amd64) using `curl`:
 
      ```shell
      curl -o "chef-workstation-enterprise-<VERSION>-linux.rpm" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=linux&pm=rpm&v=<VERSION>"
+     ```
+
+   - Download for ARM64 (aarch64) using `wget`:
+
+     ```shell
+     wget -O "chef-workstation-enterprise-<VERSION>-linux.rpm" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=aarch64&p=linux&pm=rpm&v=<VERSION>"
+     ```
+
+   - Download for ARM64 (aarch64) using `curl`:
+
+     ```shell
+     curl -o "chef-workstation-enterprise-<VERSION>-linux.rpm" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=aarch64&p=linux&pm=rpm&v=<VERSION>"
      ```
 
    Replace:
@@ -93,17 +127,33 @@ To install Chef Workstation on an RPM-based system, follow these steps:
 
 1. Install Chef Workstation:
 
-   ```shell
-   sudo dnf install chef-workstation-enterprise-<VERSION>.x86_64.rpm
-   ```
+   - On x86-64 (amd64) systems:
 
-   Alternatively:
+     ```shell
+     sudo dnf install chef-workstation-enterprise-<VERSION>.x86_64.rpm
+     ```
 
-   ```shell
-   sudo rpm -Uvh chef-workstation-enterprise-<VERSION>.x86_64.rpm
-   ```
+     Alternatively:
 
-   Replace `<VERSION>` with the version number of the downloaded package, for example `chef-workstation-enterprise-26.1.0-1.x86_64.rpm`.
+     ```shell
+     sudo rpm -Uvh chef-workstation-enterprise-<VERSION>.x86_64.rpm
+     ```
+
+     Replace `<VERSION>` with the version number of the downloaded package, for example `chef-workstation-enterprise-26.1.0-1.x86_64.rpm`.
+
+   - On ARM64 (aarch64) systems:
+
+     ```shell
+     sudo dnf install chef-workstation-enterprise-<VERSION>.aarch64.rpm
+     ```
+
+     Alternatively:
+
+     ```shell
+     sudo rpm -Uvh chef-workstation-enterprise-<VERSION>.aarch64.rpm
+     ```
+
+     Replace `<VERSION>` with the version number of the downloaded package, for example `chef-workstation-enterprise-26.1.0-1.aarch64.rpm`.
 
 ### Install Chef Workstation on Windows
 
