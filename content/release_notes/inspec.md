@@ -21,21 +21,22 @@ summary = "Chef InSpec release notes"
 
 Release date: August 13th, 2026
 
-### Enhancements
-
-- Added deprecation warning for the `--overwrite` flag in the `inspec compliance upload` command. This option does not work as expected when uploading to Automate and will be removed in a future release. ([#7974](https://github.com/inspec/inspec/pull/7974))
-
 ### Bug fixes
 
-- Fixed Docker and Podman resource fallback when using the `--auto-install-gems` flag. The regex patterns now correctly match bare resource names (e.g., `docker` and `podman`) in addition to their sub-resources (e.g., `docker_container`, `podman_volume`). ([#7976](https://github.com/inspec/inspec/pull/7976))
-- Fixed an issue where vendored InSpec profiles with gemspec files in the vendor/ directory were incorrectly identified as gem profiles instead of regular InSpec profiles, which prevented controls from loading. ([#7962](https://github.com/inspec/inspec/pull/7962))
-- Fixed an issue on Windows where the system architecture could not be determined when using Test Kitchen with WinRM. InSpec now includes WOW6432Node registry paths for all architectures except 32-bit (i386) systems, ensuring that 32-bit applications are correctly detected. ([#7942](https://github.com/inspec/inspec/pull/7942))
+- The `--auto-install-gems` flag now correctly falls back to install the Docker and Podman resource pack gems for bare resource names, such as `docker` and `podman`, in addition to sub-resources such as `docker_container` and `podman_volume`. Previously, running a profile with a bare `docker` or `podman` resource and `--auto-install-gems` raised an undefined method error, because the fallback pattern matching required at least one character after the resource name and so skipped bare resource names. ([#7976](https://github.com/inspec/inspec/pull/7976))
+- Chef InSpec now correctly loads controls from vendored profiles that include gemspec files in the `vendor/` directory. Previously, InSpec identified these as gem profiles instead of regular InSpec profiles, so controls failed to load. ([#7962](https://github.com/inspec/inspec/pull/7962))
+- Chef InSpec now correctly detects 32-bit applications on Windows by querying `WOW6432Node` registry paths for all architectures except 32-bit (i386) systems. Previously, when using Test Kitchen with WinRM, InSpec couldn't determine the system architecture, so it skipped `WOW6432Node` paths and 32-bit applications appeared as not installed. ([#7942](https://github.com/inspec/inspec/pull/7942))
+- Chef InSpec Habitat packages on Linux now bundle the build toolchain required to compile native gem extensions, such as those used by the MongoDB resource pack. Previously, these packages couldn't compile native extensions on hosts without system `gcc` and `make` installed. ([#7979](https://github.com/inspec/inspec/pull/7979))
+
+### Deprecated features
+
+- The `--overwrite` flag in the `inspec compliance upload` command is deprecated and will be removed in a future release. This option doesn't work as expected when uploading to Chef Automate. ([#7974](https://github.com/inspec/inspec/pull/7974))
 
 ### Packaging
 
 - We now provide OS-native Habitat-based Chef InSpec packages for Linux ARM.
-- We now release Chef InSpec Habitat packages for Linux ARM. ([#7968](https://github.com/inspec/inspec/pull/7968))
-- We now release Chef InSpec Habitat packages for Apple Silicon Macs. ([#7987](https://github.com/inspec/inspec/pull/7987))
+- We now release Chef InSpec Habitat packages for Linux ARM (`aarch64-linux`). ([#7968](https://github.com/inspec/inspec/pull/7968))
+- We now release Chef InSpec Habitat packages for Apple Silicon Macs (`aarch64-darwin`). ([#7987](https://github.com/inspec/inspec/pull/7987))
 
 ### Dependency updates
 
