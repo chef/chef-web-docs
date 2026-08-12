@@ -171,6 +171,8 @@ Then run `chef-automate config patch </path/to/your-file.toml>` to deploy your c
 
 Chef Automate must be able to access the following:
 
+* `chefdownload-commercial.chef.io`
+* `chefdownload-community.chef.io`
 * `packages.chef.io`
 * `licensing.chef.io`
 * `raw.githubusercontent.com`

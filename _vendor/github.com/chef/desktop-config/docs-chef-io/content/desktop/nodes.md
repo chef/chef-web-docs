@@ -45,8 +45,10 @@ Go to your test node and install the Chef Infra Client from an elevated PowerShe
 #### On Windows
 
 ```powershell
-. { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install -project chef
+. { iwr -useb https://chefdownload-commercial.chef.io/install.ps1?license_id=<LICENSE_ID> } | iex; install -project chef
 ```
+
+Replace `<LICENSE_ID>` with your Progress Chef license ID.
 
 #### On macOS
 

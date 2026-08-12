@@ -20,11 +20,13 @@ See [Airgapped Installation]({{< relref "airgapped_installation.md" >}}) for ins
 
 ## Download the Chef Automate Command-Line Tool
 
-Download and unzip the Chef Automate command-line tool:
+Download the Chef Automate command-line tool:
 
 ```shell
-curl https://packages.chef.io/files/current/latest/chef-automate-cli/chef-automate_linux_amd64.zip | gunzip - > chef-automate && chmod +x chef-automate
+curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
 ```
+
+Replace `<LICENSE_ID>` with your Progress Chef commercial license ID.
 
 ## Create Default Configuration
 

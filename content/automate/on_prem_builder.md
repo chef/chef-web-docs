@@ -71,11 +71,13 @@ Chef Automate and Chef Habitat Builder require:
 
 ### Download the Chef Automate Installer
 
-Download and unzip the installer:
+Download the installer:
 
 ```shell
-curl https://packages.chef.io/files/current/latest/chef-automate-cli/chef-automate_linux_amd64.zip | gunzip - > chef-automate && chmod +x chef-automate
+curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
 ```
+
+Replace `<LICENSE_ID>` with your Progress Chef commercial license ID.
 
 ### Deploy Chef Automate and Chef Habitat Builder On-prem
 
