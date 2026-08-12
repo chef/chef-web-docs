@@ -12,6 +12,10 @@ summary = "Chef Download APIs release notes"
     weight = 30
 +++
 
+## 2026-08-05
+
+Chef Download Service URLs now include the artifact filename in generated download links, so you can more easily identify, cache, and manage downloaded binaries in your own systems. Existing download behavior for current API consumers doesn't change. For details, see the [file endpoint section in the Chef Commercial Download API documentation](https://docs.chef.io/download/commercial/#files).
+
 ## 2023-12-20
 
 We deployed the [Chef Commercial Download API](/download/commercial/).
