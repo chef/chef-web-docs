@@ -52,14 +52,14 @@ For more information about our LTS policy, review [this blog post](https://www.c
 Use of these and later versions of these distributions must be in accordance with the [Chef End User License Agreement](https://www.chef.io/end-user-license-agreement) or a commercial agreement with Chef.
 Additional information is available in [this announcement](https://www.chef.io/blog/chef-software-announces-the-enterprise-automation-stack).
 
-| Product           | Version    | Lifecycle Status | EOL Date |
-| ----------------- | ---------- | ---------------- | -------- |
-| Chef 360 Platform | Latest     | GA               | n/a      |
-| Chef Automate     | Latest     | GA               | n/a      |
-| Chef Infra Client | 19.x       | GA               | n/a      |
-| Chef Habitat      | 0.81+      | GA               | n/a      |
-| Chef InSpec       | 5+         | GA               | n/a      |
-| Chef Workstation  | 25.x, 26.x | GA               | n/a      |
+| Product           | Version     | Lifecycle Status | Deprecation Date   | EOL Date             |
+| ----------------- | ----------- | ---------------- | ------------------ | -------------------- |
+| Chef 360 Platform | Latest      | GA               | n/a                | n/a                  |
+| Chef Automate     | Latest      | GA               | November 1st, 2026 | November 30th, 2027  |
+| Chef Infra Client | 19.x        | GA               | n/a                | n/a                  |
+| Chef Habitat      | <2.x        | GA               | August 20th, 2026  | August 31st, 2027    |
+| Chef InSpec       | 5.x and 6.x | GA               | August 20th, 2026  | August 31st, 2027    |
+| Chef Workstation  | 25.x, 26.x  | GA               | August 20th, 2026  | May 31st, 2027       |
 
 {{< note >}}
 
@@ -73,9 +73,9 @@ but it does have functionality that requires its acceptance in other products.
 Use of the following distributions is governed by the Apache License,
 version 2.0.
 
-| Product     | Version | Lifecycle Status | EOL Date |
-| ----------- | ------- | ---------------- | -------- |
-| Supermarket | 5.x     | GA               | To Be Determined (TBD)      |
+| Product     | Version | Lifecycle Status | Deprecation Date   | EOL Date       |
+| ----------- | ------- | ---------------- | ------------------ | -------------- |
+| Supermarket | 5.x     | GA               | August 20th, 2026  | May 31st, 2027 |
 
 ## Deprecated products and versions
 
@@ -84,11 +84,10 @@ If you're using one of these products, migrate to a supported version or product
 
 | Product           | Version | Lifecycle Status | EOL Date          | Replacement product or version |
 | ----------------- | ------- | ---------------- | ----------------- | ------------------------------ |
-| Chef Backend      | 3.x     | Deprecated       | TBD               | Chef 360 Platform              |
-| Chef Infra Client | 18.x    | Deprecated       | TBD               | Chef Infra Client 19.x         |
+| Chef Infra Client | 18.x    | Deprecated       | August 31, 2027   | Chef Infra Client 19.x         |
 | Chef Infra Server | 15.x    | Deprecated       | November 30, 2026 | Chef 360 Platform              |
-| Chef InSpec       | 4.x     | Deprecated       | TBD               | Chef InSpec 5.x                |
-| Chef Workstation  | 24.x    | Deprecated       | April 2026        | Chef Workstation 25 or above   |
+| Chef InSpec       | 4.x     | Deprecated       | July 31, 2026     | Chef InSpec 7.x                |
+| Chef Workstation  | 24.x    | Deprecated       | April 30, 2026    | Chef Workstation 26.x          |
 
 ## End of Life (EOL) products
 
@@ -96,6 +95,7 @@ If you're using one of these products, migrate to a supported version or product
 | ------------------------ | -------------------- | ---------------- | ----------------- | ------------------------------ |
 | Analytics                | All                  | EOL              | December 31, 2018 | Chef Automate latest           |
 | Chef Automate            | 2.x and under        | EOL              | May 13, 2022      | Chef Automate latest           |
+| Chef Backend             | 3.x                  | EOL              | July 31, 2026     | Chef 360 Platform              | 
 | Chef Infra Client        | 17 and under         | EOL              | February 5, 2026  | Chef Infra Client latest       |
 | Chef Compliance Server   | All                  | EOL              | December 31, 2018 | Chef Automate latest           |
 | ChefDK                   | All                  | EOL              | December 31, 2020 | Chef Workstation latest        |
