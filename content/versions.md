@@ -95,7 +95,7 @@ If you're using one of these products, migrate to a supported version or product
 | ------------------------ | -------------------- | ---------------- | ----------------- | ------------------------------ |
 | Analytics                | All                  | EOL              | December 31, 2018 | Chef Automate latest           |
 | Chef Automate            | 2.x and under        | EOL              | May 13, 2022      | Chef Automate latest           |
-| Chef Backend             | 3.x                  | EOL              | July 31, 2026     | Chef 360 Platform              | 
+| Chef Backend             | 3.x                  | EOL              | July 31, 2026     | Chef 360 Platform              |
 | Chef Infra Client        | 17 and under         | EOL              | February 5, 2026  | Chef Infra Client latest       |
 | Chef Compliance Server   | All                  | EOL              | December 31, 2018 | Chef Automate latest           |
 | ChefDK                   | All                  | EOL              | December 31, 2020 | Chef Workstation latest        |
