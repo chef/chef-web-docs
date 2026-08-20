@@ -52,14 +52,14 @@ For more information about our LTS policy, review [this blog post](https://www.c
 Use of these and later versions of these distributions must be in accordance with the [Chef End User License Agreement](https://www.chef.io/end-user-license-agreement) or a commercial agreement with Chef.
 Additional information is available in [this announcement](https://www.chef.io/blog/chef-software-announces-the-enterprise-automation-stack).
 
-| Product           | Version     | Lifecycle Status | Deprecation Date   | EOL Date             |
-| ----------------- | ----------- | ---------------- | ------------------ | -------------------- |
-| Chef 360 Platform | Latest      | GA               | n/a                | n/a                  |
-| Chef Automate     | Latest      | GA               | November 1st, 2026 | November 30th, 2027  |
-| Chef Infra Client | 19.x        | GA               | n/a                | n/a                  |
-| Chef Habitat      | 2.x         | GA               | n/a                | n/a                  |
-| Chef InSpec       | 7.x         | GA               | n/a                | n/a                  |
-| Chef Workstation  | 26.x        | GA               | n/a                | n/a                  |
+| Product           | Version     | Lifecycle Status | Deprecation Date | EOL Date           |
+| ----------------- | ----------- | ---------------- | ---------------- | ------------------ |
+| Chef 360 Platform | Latest      | GA               | n/a              | n/a                |
+| Chef Automate     | Latest      | GA               | November 1, 2026 | November 30, 2027  |
+| Chef Infra Client | 19.x        | GA               | n/a              | n/a                |
+| Chef Habitat      | 2.x         | GA               | n/a              | n/a                |
+| Chef InSpec       | 7.x         | GA               | n/a              | n/a                |
+| Chef Workstation  | 26.x        | GA               | n/a              | n/a                |
 
 {{< note >}}
 
