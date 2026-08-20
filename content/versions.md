@@ -73,7 +73,7 @@ If you're using one of these products, migrate to a supported version or product
 | Chef Infra Server | 15.x         | Deprecated       | November 30, 2026  | Chef 360 Platform              |
 | Chef InSpec       | 5.x, 6.x     | Deprecated       | August 31, 2027    | Chef InSpec 7.x                |
 | Chef Supermarket  | 5.x          | Deprecated       | May 31, 2027       | Chef 360 Platform              |
-| Chef Workstation  | 25.x         | Deprecated       | May 31, 2027       | Chef Workstation 26.x          |
+| Chef Workstation  | 25.x         | Deprecated       | August 31, 2027    | Chef Workstation 26.x          |
 
 ## End of Life (EOL) products
 
