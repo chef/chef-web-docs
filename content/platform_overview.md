@@ -171,6 +171,5 @@ management console for the Chef Infra Server.
 
 ## Learning More
 
-If you're interested in getting hands-on experience, go to
-the [Learn Chef site](https://learn.chef.io) for tutorials, information about formal
+If you're interested in getting hands-on experience, go to [LearnChef](https://www.chef.io/training/) for tutorials, information about formal
 training classes and community resources.
