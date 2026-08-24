@@ -357,15 +357,8 @@ Specific `optional_settings: values` may be specified.
 
 ### Drivers
 
-{{< readfile file="content/workstation/25/reusable/md/test_kitchen_drivers.md" >}}
-
-### kitchen-vagrant
-
-{{< readfile file="content/workstation/25/reusable/md/test_kitchen_driver_vagrant.md" >}}
-
-{{< readfile file="content/workstation/25/reusable/md/test_kitchen_driver_vagrant_settings.md" >}}
-
-{{< readfile file="content/workstation/25/reusable/md/test_kitchen_driver_vagrant_config.md" >}}
+Test Kitchen uses a driver plugin architecture to test instances on cloud providers and local hypervisors.
+For the list of supported drivers and their configuration, see the [Test Kitchen drivers](/workstation/25/tools/kitchen/drivers/) documentation.
 
 ## Examples
 

@@ -1299,6 +1299,12 @@ weight = 70
   parent = "workstation_25/tools"
   weight = 20
 
+    [[workstation_25]]
+    title = "Drivers"
+    identifier = "workstation_25/tools/test_kitchen/drivers"
+    parent = "workstation_25/tools/test_kitchen"
+    weight = 50
+
 ####
 # End Chef Workstation 25 Menu
 ####
@@ -1343,6 +1349,12 @@ weight = 80
   parent = "workstation_26_0/tools"
   weight = 200
 
+    [[workstation_26_0]]
+    title = "Drivers"
+    identifier = "workstation_26_0/tools/test_kitchen/drivers"
+    parent = "workstation_26_0/tools/test_kitchen"
+    weight = 50
+
 ####
 # End Chef Workstation 26.0 Menu
 ####
@@ -1386,6 +1398,12 @@ weight = 80
   identifier = "workstation_26_1/tools/test_kitchen"
   parent = "workstation_26_1/tools"
   weight = 200
+
+    [[workstation_26_1]]
+    title = "Drivers"
+    identifier = "workstation_26_1/tools/test_kitchen/drivers"
+    parent = "workstation_26_1/tools/test_kitchen"
+    weight = 50
 
 ####
 # End Chef Workstation 26.1 Menu

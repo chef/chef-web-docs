@@ -53,7 +53,8 @@ For more information, see the [Chef licensing documentation](/licensing/).
 
 ## Drivers
 
-{{< readfile file="content/workstation/25/reusable/md/test_kitchen_drivers.md" >}}
+Test Kitchen uses a driver plugin architecture to test instances on cloud providers and local hypervisors.
+For the list of supported drivers and their configuration, see the [Test Kitchen drivers](/workstation/25/tools/kitchen/drivers/) documentation.
 
 ## Validation with Chef InSpec
 
