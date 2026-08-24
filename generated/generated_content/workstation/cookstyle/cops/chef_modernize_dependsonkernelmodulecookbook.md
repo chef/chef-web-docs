@@ -27,6 +27,12 @@ Don't depend on the kernel_module cookbook made obsolete by Chef Infra Client 14
 ```ruby
 # bad
 depends 'kernel_module'
+
+# good
+# the resource ships in Chef Infra Client 14.3+, so use it without a depends
+kernel_module 'loop' do
+  action :install
+end
 ```
 
 ## Configurable attributes

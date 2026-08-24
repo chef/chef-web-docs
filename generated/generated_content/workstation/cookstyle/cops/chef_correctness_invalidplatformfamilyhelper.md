@@ -29,7 +29,7 @@ Pass valid platform families to the `platform_family?` helper. See [Infra Langua
 platform_family?('redhat')
 platform_family?('sles')
 
-# bad
+# good
 platform_family?('rhel')
 platform_family?('suse')
 ```

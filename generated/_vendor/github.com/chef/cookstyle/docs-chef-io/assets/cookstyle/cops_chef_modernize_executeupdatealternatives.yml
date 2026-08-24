@@ -1,0 +1,33 @@
+---
+short_name: ExecuteUpdateAlternatives
+full_name: Chef/Modernize/ExecuteUpdateAlternatives
+department: Chef/Modernize
+description: |-
+  Chef Infra Client 16.0 and later includes an `alternatives` resource that should be used to
+  manage alternatives links instead of shelling out to `update-alternatives` or `alternatives`.
+  The resource is idempotent and handles both the Debian and RHEL flavours of the command, where
+  an `execute` re-runs on every converge and reports the resource as updated every time.
+autocorrection: false
+target_chef_version: 16.0+
+examples: |2-
+
+  # bad
+  execute 'install java alternative' do
+    command 'update-alternatives --install /usr/bin/java java /usr/lib/jvm/jre-11/bin/java 1'
+  end
+
+  execute 'alternatives --set java /usr/lib/jvm/jre-11/bin/java'
+
+  # good
+  alternatives 'java' do
+    link '/usr/bin/java'
+    path '/usr/lib/jvm/jre-11/bin/java'
+    priority 1
+    action :install
+  end
+version_added: 9.0.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/attributes/*.rb"
+- "**/Berksfile"

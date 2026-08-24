@@ -1,0 +1,33 @@
+---
+short_name: PlatformVersionStringComparison
+full_name: Chef/Correctness/PlatformVersionStringComparison
+department: Chef/Correctness
+description: |-
+  Ohai reports version attributes as strings, so comparing one with `<`, `>`, `<=`, or `>=`
+  compares them character by character rather than as versions. That gives the wrong answer
+  whenever the version numbers have different digit counts:
+
+    '7.9' >= '10'   # => true, because '7' sorts after '1'
+    '9' > '10'      # => true
+
+  Compare the major version as an integer with `node['platform_version'].to_i`, or compare
+  full versions with `Gem::Version`.
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  # bad
+  node['platform_version'] >= '10'
+  node['platform_version'] < '7.4'
+
+  # good
+  node['platform_version'].to_i >= 10
+  Gem::Version.new(node['platform_version']) >= Gem::Version.new('7.4')
+
+  # good - equality is a plain string match, which is fine
+  node['platform_version'] == '10'
+version_added: 9.0.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/Berksfile"

@@ -10,6 +10,10 @@ examples: |2-
 
   # bad
   depends 'chef-vault'
+
+  # good
+  # the chef-vault helpers ship in Chef Infra Client 16+, so use them without a depends
+  chef_vault_item('secrets', 'my_secret')
 version_added: 7.20.0
 enabled: true
 included_file_paths:

@@ -1,0 +1,38 @@
+---
+short_name: ServiceGuardOnStopDisable
+full_name: Chef/RedundantCode/ServiceGuardOnStopDisable
+department: Chef/RedundantCode
+description: |-
+  The `:stop` and `:disable` actions of the `service` resource are already no-ops when the service
+  isn't installed, so guarding them with a check for the init script or unit file adds nothing. The
+  base provider only converges these actions when `current_resource.running`/`current_resource.enabled`
+  is set, and the platform providers never set that state for a service they can't find.
+
+  The guard is also actively harmful because it hardcodes a single path while the provider searches
+  several. A guard on `/usr/local/etc/rc.d/snmpd` skips a FreeBSD host running the service out of
+  `/etc/rc.d`, and the run then reports success while leaving the service enabled.
+
+  This cop only fires when every action is `:stop` or `:disable`. Actions like `:start`, `:enable`,
+  `:restart`, and `:reload` are asserted against the init script, so a guard there is meaningful. The
+  `systemd_unit` resource shells out unconditionally, so its guards are meaningful as well and are
+  never flagged.
+autocorrection: true
+target_chef_version: All Versions
+examples: |2-
+
+  # bad
+  service 'snmpd' do
+    action %i(stop disable)
+    only_if { ::File.exist?('/usr/local/etc/rc.d/snmpd') }
+  end
+
+  # good
+  service 'snmpd' do
+    action %i(stop disable)
+  end
+version_added: 9.0.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/attributes/*.rb"
+- "**/Berksfile"

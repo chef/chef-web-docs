@@ -9,8 +9,14 @@ target_chef_version: 15.0+
 examples: |2-
 
   # bad
-  seven_zip_archive "C:\file.zip" do
+  seven_zip_archive 'C:\file.zip' do
     path 'C:\expand_here'
+  end
+
+  # good
+  archive_file 'expand file.zip' do
+    path 'C:\file.zip'
+    destination 'C:\expand_here'
   end
 version_added: 5.5.0
 enabled: true
