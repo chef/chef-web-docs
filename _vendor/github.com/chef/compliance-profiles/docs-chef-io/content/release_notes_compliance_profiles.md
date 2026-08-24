@@ -9,6 +9,18 @@ draft = false
     parent = "release_notes/compliance"
     weight = 10
 +++
+
+## 20260818
+
+### New features
+
+- CIS IBM AIX 7 v1.2.0
+- CIS Debian Linux 12 v1.1.0
+
+### Improvements
+
+- CIS RHEL 8 v3.0.0 (Optimization relating to the hardening of a few controls)
+
 ## 20260715
 
 ### New features
