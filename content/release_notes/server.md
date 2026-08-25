@@ -20,13 +20,6 @@ summary = "Chef Infra Server release notes"
 
 Released on August 26, 2026
 
-### Improvements
-
-- Chef Infra Server now accepts external PostgreSQL 14 databases during preflight validation, in addition to the default embedded PostgreSQL 13 database.
-  Users running an external PostgreSQL 14 database are no longer blocked by a CSPG014 preflight validation failure during `chef-server-ctl reconfigure`.
-  Chef Infra Server is still embedded with PostgreSQL version 13. If you're using the default embedded PostgreSQL, this change doesn't affect your deployment.
-  ([#4225](https://github.com/chef/chef-server/pull/4225))
-
 ### Security
 
 - Removed stale Rack and REXML gem directories that could be left on disk by the package manager during upgrades.
