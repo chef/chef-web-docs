@@ -17,6 +17,39 @@ summary = "Chef Infra Server release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
+## Chef Infra Server 15.10.119
+
+Released on August 25, 2026
+
+### Security
+
+- Removed stale Rack and rexml gem directories left on disk by the package manager during upgrades.
+  `chef-server-ctl reconfigure` now cleans up gem versions below the required minimums, resolving the following CVEs that were flagged on disk even though they were not actively loaded:
+  - CVE-2025-61772 (Rack multipart denial-of-service, fixed in Rack 3.2.2 and later)
+  - CVE-2026-22860 (Rack::Directory path traversal, fixed in Rack 3.2.5 and later)
+  - CVE-2026-25500 (Rack::Directory cross-site scripting, fixed in Rack 3.2.5 and later)
+- Added minimum version floors for `net-imap`, `rack`, and `rexml` in the `oc-id`, `chef-server-ctl`, and `oc-chef-pedant` Gemfiles.
+  These floors are sourced from a shared `safe_versions.rb` constant, making the safety boundary a single source of truth and preventing vulnerable gem versions from being resolved during package installs or bundle updates.
+  ([#4227](https://github.com/chef/chef-server/pull/4227))
+
+### Improvements
+
+- Chef Infra Server now accepts external PostgreSQL 14 databases during preflight validation, in addition to the default embedded PostgreSQL 13.
+  Users running an external PostgreSQL 14 database are no longer blocked by a CSPG014 preflight failure during `chef-server-ctl reconfigure`.
+  The embedded PostgreSQL shipped with Chef Infra Server remains at version 13 and is unaffected by this change.
+  ([#4225](https://github.com/chef/chef-server/pull/4225))
+
+### Service versions
+
+This release uses:
+
+- OpenResty 1.29.2.5
+- OpenJRE 17.0.9+9
+- PostgreSQL 13.23.tuxcare.1.0.0
+- OpenSearch 1.3.20-tuxcare-1.0.3
+- Rack 3.2.6
+- Valkey 7.2.11
+
 ## Chef Infra Server 15.10.114
 
 Released on June 25, 2026
