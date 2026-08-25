@@ -172,6 +172,52 @@ If some packages don't upload, try re-uploading them manually with the `hab pkg 
 This error may also indicate that your installation doesn't have enough CPU, RAM, or other resources.
 Consider allocating more resources (for example, if running on a VM) or moving to a larger instance.
 
+### Errors downloading or installing large packages caused by a small or RAM disk-backed `/tmp` directory
+
+Some cloud instances (this has been observed on certain AWS instance types and images) mount `/tmp` as a `tmpfs` RAM disk with a small size quota, or otherwise limit the amount of space available in `/tmp`.
+Because Chef Habitat downloads and unpacks packages using `/tmp` as scratch space, a constrained `/tmp` can cause large package downloads or installs to fail with "No space left on device" or similar errors, even when the rest of the filesystem has plenty of free space.
+
+You can check whether `/tmp` is mounted as a size-limited `tmpfs` by running:
+
+```bash
+mount | grep /tmp
+df -h /tmp
+```
+
+If `/tmp` shows a filesystem type of `tmpfs` with a size much smaller than your root filesystem, it is likely the cause.
+
+To resolve this, unmount `/tmp` from the RAM disk and let it use the underlying root filesystem instead.
+The following steps apply to any modern Linux distribution using systemd:
+
+1. Mask the `tmp.mount` systemd unit so it won't be (re)mounted as a RAM disk on boot:
+
+    ```bash
+    sudo systemctl mask tmp.mount
+    ```
+
+1. Unmount the current `/tmp` RAM disk (the `-l` performs a "lazy" unmount so this succeeds even if `/tmp` is currently busy):
+
+    ```bash
+    sudo umount -l /tmp
+    ```
+
+1. Recreate `/tmp` on the root filesystem with the standard permissions:
+
+    ```bash
+    sudo mkdir -p /tmp
+    sudo chmod 1777 /tmp
+    ```
+
+1. Reboot to ensure the change takes effect cleanly and `/tmp` is no longer remounted as a RAM disk:
+
+    ```bash
+    sudo reboot
+    ```
+
+1. After the reboot, confirm `/tmp` is now backed by your root filesystem (`df -h /tmp` should no longer show `tmpfs`), and retry the package download or install.
+
+If your distribution doesn't use systemd, look for equivalent `/tmp` mount configuration in `/etc/fstab` (a line mounting `tmpfs` on `/tmp`) and comment out or remove that entry instead of masking `tmp.mount`, then reboot.
+
 ### Error uploading large packages
 
 By default, Chef Habitat On-Prem Builder has a 2 GB package limit.

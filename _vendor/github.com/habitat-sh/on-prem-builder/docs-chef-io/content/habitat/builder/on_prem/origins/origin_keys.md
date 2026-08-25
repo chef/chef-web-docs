@@ -21,9 +21,9 @@ Chef Habitat uses origin keys in the following ways:
 
 ## Prerequisites
 
-- [Download and installed the Chef Habitat CLI](/habitat/install_habitat/).
-- [Create a Chef Habitat On-prem Builder account](/habitat/builder_account/).
-- [Generate a personal access token](/habitat/builder_profile/#create-a-personal-access-token).
+- [Download and install the Chef Habitat CLI](/habitat/install_habitat/).
+- [Create a Chef Habitat On-prem Builder account](/habitat/builder/saas/builder_account/).
+- [Generate a personal access token](/habitat/builder/saas/builder_profile/#create-a-personal-access-token).
 - [Create an origin with `hab origin create` or join an origin by invitation](../create_an_origin).
 
 ## Key access
@@ -113,8 +113,8 @@ When you create an origin in Chef Habitat On-prem Builder, Builder automatically
 
 The Chef Habitat CLI creates origin key pairs through two different commands, for two different uses:
 
-- Use [`hab setup`](/habitat/hab_setup/) to generate your first origin key pair as part of setting up the `hab` CLI.
-- Use the `hab origin key generate` command to create an key pair for an origin created with the `hab origin create` command
+- Use [`hab setup`](/habitat/latest/install/hab_setup/) to generate your first origin key pair as part of setting up the `hab` CLI.
+- Use the `hab origin key generate` command to create a key pair for an origin created with the `hab origin create` command
 
 To create an origin key with the `hab` CLI, run the [`hab origin key generate` command](/habitat/habitat_cli/#hab-origin-key-generate):
 
