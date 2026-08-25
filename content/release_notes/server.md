@@ -16,28 +16,27 @@ summary = "Chef Infra Server release notes"
 <!-- markdownlint-disable-file -->
 <!-- cSpell:disable  -->
 <!-- vale off -->
-
 ## Chef Infra Server 15.10.119
 
-Released on August 25, 2026
-
-### Security
-
-- Removed stale Rack and rexml gem directories left on disk by the package manager during upgrades.
-  `chef-server-ctl reconfigure` now cleans up gem versions below the required minimums, resolving the following CVEs that were flagged on disk even though they were not actively loaded:
-  - CVE-2025-61772 (Rack multipart denial-of-service, fixed in Rack 3.2.2 and later)
-  - CVE-2026-22860 (Rack::Directory path traversal, fixed in Rack 3.2.5 and later)
-  - CVE-2026-25500 (Rack::Directory cross-site scripting, fixed in Rack 3.2.5 and later)
-- Added minimum version floors for `net-imap`, `rack`, and `rexml` in the `oc-id`, `chef-server-ctl`, and `oc-chef-pedant` Gemfiles.
-  These floors are sourced from a shared `safe_versions.rb` constant, making the safety boundary a single source of truth and preventing vulnerable gem versions from being resolved during package installs or bundle updates.
-  ([#4227](https://github.com/chef/chef-server/pull/4227))
+Released on August 26, 2026
 
 ### Improvements
 
-- Chef Infra Server now accepts external PostgreSQL 14 databases during preflight validation, in addition to the default embedded PostgreSQL 13.
-  Users running an external PostgreSQL 14 database are no longer blocked by a CSPG014 preflight failure during `chef-server-ctl reconfigure`.
-  The embedded PostgreSQL shipped with Chef Infra Server remains at version 13 and is unaffected by this change.
+- Chef Infra Server now accepts external PostgreSQL 14 databases during preflight validation, in addition to the default embedded PostgreSQL 13 database.
+  Users running an external PostgreSQL 14 database are no longer blocked by a CSPG014 preflight validation failure during `chef-server-ctl reconfigure`.
+  Chef Infra Server is still embedded with PostgreSQL version 13. If you're using the default embedded PostgreSQL, this change doesn't affect your deployment.
   ([#4225](https://github.com/chef/chef-server/pull/4225))
+
+### Security
+
+- Removed stale Rack and REXML gem directories that could be left on disk by the package manager during upgrades.
+  `chef-server-ctl reconfigure` now removes gem versions below the required minimum versions. This addresses the following CVEs, which could be flagged during vulnerability scans even though the affected gems were not actively loaded:
+  - CVE-2025-61772 (Rack multipart denial-of-service, fixed in Rack 3.2.2 and later)
+  - CVE-2026-22860 (Rack::Directory path traversal, fixed in Rack 3.2.5 and later)
+  - CVE-2026-25500 (Rack::Directory cross-site scripting, fixed in Rack 3.2.5 and later)
+- Defined minimum versions for `net-imap`, `rack`, and `rexml` in the `oc-id`, `chef-server-ctl`, and `oc-chef-pedant` Gemfiles.
+  These minimum versions are defined in a shared `safe_versions.rb` constant, creating a single source of truth and preventing vulnerable gem versions from being included in package installations or bundle updates.
+  ([#4227](https://github.com/chef/chef-server/pull/4227))
 
 ### Service versions
 
