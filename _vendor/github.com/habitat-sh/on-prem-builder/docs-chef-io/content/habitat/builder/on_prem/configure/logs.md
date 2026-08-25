@@ -14,7 +14,7 @@ This page explains how to configure Chef Habitat On-Prem Builder logs.
 ## Supported log levels
 
 You can set the log level to `error`, `warn`, `info`, `debug`, or `trace`.
-For more details about logging in Chef Habitat, see the [Supervisor log configuration reference](/habitat/sup_log_configuration/) and the [Supervisor log key documentation](/habitat/sup_log_keys/).
+For more details about logging in Chef Habitat, see the [Supervisor log configuration reference](/habitat/latest/sup/sup_log_configuration/) and the [Supervisor log key documentation](/habitat/latest/reference/sup_log_keys/).
 
 ## Configure the Habitat Builder log level
 

@@ -20,7 +20,7 @@ Before you begin, review [Habitat Builder's system requirements](system_requirem
 Chef Habitat On-Prem Builder supports Azure AD (OpenID Connect), GitHub, GitLab (OpenID Connect), Okta (OpenID Connect), and Atlassian Bitbucket (cloud) OAuth providers for authentication.
 You need to set up an OAuth application for your Chef Habitat On-Prem Builder instance.
 
-Before you begin, refer to the for the OAuth provider that you plan to use:
+Before you begin, refer to the documentation for the OAuth provider that you plan to use:
 
 - [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code)
 - [GitHub](https://developer.github.com/apps/building-oauth-apps/authorization-options-for-oauth-apps/)
@@ -89,13 +89,19 @@ With an internet-connected computer, follow these steps:
     curl -LO https://github.com/habitat-sh/on-prem-builder/archive/master.zip
     ```
 
-1. Download the Chef Habitat [CLI tool](https://packages.chef.io/files/stable/habitat/latest/hab-x86_64-linux.tar.gz):
+1. Export your Chef Habitat Builder auth token:
 
-    ```bash
-    curl -Lo hab.tar.gz https://packages.chef.io/files/stable/habitat/latest/hab-x86_64-linux.tar.gz
+    ```shell
+    export HAB_AUTH_TOKEN=<AUTH_TOKEN>
     ```
 
-1. Create the Habitat Builder package bundle from the Builder seed lists and download the packages:
+1. Install the Chef Habitat CLI:
+
+    ```bash
+    curl https://raw.githubusercontent.com/habitat-sh/habitat/main/components/hab/install.sh | sudo -E bash
+    ```
+
+1. Create a Habitat Builder package bundle:
 
     ```bash
     sudo hab pkg install habitat/pkg-sync
@@ -103,13 +109,13 @@ With an internet-connected computer, follow these steps:
     export DOWNLOAD_DIR=/path/to/download/directory
 
     hab pkg exec habitat/pkg-sync pkg-sync \
-      --channel stable \
+      --channel base \
       --package-list builder \
       --generate-airgap-list
 
     hab pkg download \
       --target x86_64-linux \
-      --channel stable \
+      --channel base \
       --file package_list_x86_64-linux.txt \
       --download-directory ${DOWNLOAD_DIR}/builder_packages
     ```
@@ -148,7 +154,7 @@ In the airgapped environment, complete these steps:
 1. Pre-install the Habitat Supervisor and its dependencies:
 
     ```bash
-    sudo hab pkg install --binlink --force /hab/cache/artifacts/core-hab-*hart
+    sudo hab pkg install --binlink --force /hab/cache/artifacts/chef-hab-*hart
     ```
 
 ## Configure Chef Habitat On-Prem Builder

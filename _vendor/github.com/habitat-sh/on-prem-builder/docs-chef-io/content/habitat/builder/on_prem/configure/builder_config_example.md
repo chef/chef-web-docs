@@ -1,33 +1,48 @@
 +++
-title = "Example builder.env configuration file"
+title = "Example bldr.env configuration file"
 
 [menu]
   [menu.habitat]
-    title = "Example builder.env config file"
-    identifier = "habitat/builder/on-prem/configure/builder.env"
+    title = "Example bldr.env config file"
+    identifier = "habitat/builder/on-prem/configure/bldr.env"
     parent = "habitat/builder/on-prem/configure"
     weight = 20
 +++
 
-This is an example of the Chef Habitat On-Prem Builder `builder.env` configuration file.
-Also, see the [`builder.env.sample` file](https://github.com/habitat-sh/on-prem-builder/blob/main/bldr.env.sample) in the on-prem-builder repository.
+This is an example of the Chef Habitat On-Prem Builder `bldr.env` configuration file.
+Also, see the [`bldr.env.sample` file](https://github.com/habitat-sh/on-prem-builder/blob/main/bldr.env.sample) in the on-prem-builder repository.
 
 ```shell
 #!/bin/bash
 
-# The endpoint and port for your Postgresql instance
+# Only enable and set these if you are using externally hosted PostgreSQL(RDS, Azure Database for PostgreSql etc).
+# set PG_EXT_ENABLED = true, uncomment PG_USER and update PG_PASSWORD and POSTGRES_HOST appropriately.
+# Migrations from local PostgreSQL to RDS are currently not supported.
+#export PG_EXT_ENABLED=false
+#export PG_USER=hab
+#export PG_PASSWORD=hab
+
+# The endpoint and port for your Postgresql(local, RDS, Azure Database for PostgreSql etc)
 # Change only if needed
 export POSTGRES_HOST=localhost
 export POSTGRES_PORT=5432
 
-# The endpoint, key and secret for your MinIO instance (see README)
+# The endpoint, key and secret for your Minio instance (see README)
 # Change these before the first install if needed
 export MINIO_ENDPOINT=http://localhost:9000
 export MINIO_BUCKET=habitat-builder-artifact-store.local
 export MINIO_ACCESS_KEY=depot
 export MINIO_SECRET_KEY=password
 
-# If you'd like to use Artifactory instead of MinIO, uncomment
+# If you'd like to use AWS S3 instead of Minio,
+# set S3_ENABLED=true and change the other S3 associated variables appropriately.
+export S3_ENABLED=false
+export S3_REGION=us-west-2
+export S3_BUCKET=habitat-builder-artifact-store.local
+export S3_ACCESS_KEY=depotaccesskey
+export S3_SECRET_KEY=depotsecretkey
+
+# If you'd like to use Artifactory instead of Minio, uncomment
 # and set the following variables appropriately.
 # IMPORTANT: See the README for more info
 # export ARTIFACTORY_ENABLED=true
@@ -45,7 +60,7 @@ export APP_SSL_ENABLED=false
 
 # The URL for this instance of the on-prem depot
 # IMPORTANT: If SSL is enabled, APP_URL should start be https
-export APP_URL=http://localhost
+export APP_URL=http://localhost/
 
 # The OAUTH_PROVIDER value can be "github", "gitlab", "bitbucket", "azure-ad",
 # "okta" or "chef-automate"
@@ -87,6 +102,7 @@ export OAUTH_TOKEN_URL=https://github.com/login/oauth/access_token
 
 # The OAUTH_REDIRECT_URL is the registered OAuth2 redirect
 # IMPORTANT: If SSL is enabled, the redirect URL should be https
+# IF SCALING FRONTEND, POINT THIS AT YOUR LOAD BALANCER
 export OAUTH_REDIRECT_URL=http://localhost/
 
 # The OAUTH_CLIENT_ID is the registered OAuth2 client id
@@ -96,11 +112,21 @@ export OAUTH_CLIENT_ID=0123456789abcdef0123
 export OAUTH_CLIENT_SECRET=0123456789abcdef0123456789abcdef01234567
 
 # Modify these only if there is a specific need, otherwise leave as is
-export BLDR_CHANNEL=on-prem-stable
+export BLDR_CHANNEL=on-prem-base
 export BLDR_ORIGIN=habitat
-export HAB_BLDR_URL=https://MY_ON_PREM_URL/
+export HAB_BLDR_URL=https://bldr.habitat.sh/
 # From the Automate CLI use
 # export HAB_BLDR_URL=https://MY_ON_PREM_URL/bldr/v1/
+
+# Modify if you are splitting frontend and backend on separate nodes
+# If so, this should include a --peer argument for each builder IP or hostname
+# including all frontend and backend nodes.
+# For example: export HAB_BLDR_PEER_ARG="--peer host1 --peer host2 --peer host3"
+export HAB_BLDR_PEER_ARG=""
+
+# A valid personal access token associated with an active license on the public builder
+# This will be added to your builder's systemd environment
+export HAB_AUTH_TOKEN=YOUR_TOKEN_HERE
 
 # Help us make Habitat better! Opt into analytics by changing the ANALYTICS_ENABLED
 # setting below to true, then optionally provide your company name. (Analytics is
