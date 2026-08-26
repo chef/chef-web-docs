@@ -16,9 +16,10 @@ summary = "Chef Infra Server release notes"
 <!-- markdownlint-disable-file -->
 <!-- cSpell:disable  -->
 <!-- vale off -->
+
 ## Chef Infra Server 15.10.119
 
-Released on August 26, 2026
+Release date: August 27, 2026
 
 ### Security
 
@@ -44,7 +45,7 @@ This release uses:
 
 ## Chef Infra Server 15.10.114
 
-Released on June 25, 2026
+Release date: June 25, 2026
 
 ### Security
 
@@ -93,7 +94,7 @@ This release uses:
 
 ## Chef Infra Server 15.10.91
 
-Released on February 10, 2026
+Release date: February 10, 2026
 
 ### Security improvements
 
@@ -128,6 +129,8 @@ This release uses:
 - Valkey 7.2.11
 
 ## Chef Infra Server 15.10.83
+
+Release date: November 4, 2025
 
 ### Improvements
 
@@ -185,6 +188,8 @@ This release uses:
 
 ## Chef Infra Server 15.10.66
 
+Release date: September 15, 2025
+
 ### Bug Fixes
 
 - Chef Infra Server now allows and properly validates extended validation certificates when it connects to external databases.
@@ -200,6 +205,8 @@ This release uses:
 - OpenResty 1.25.3.1
 
 ## Chef Infra Server 15.10.63
+
+Release date: August 29, 2025
 
 ### Improvements
 
@@ -228,6 +235,8 @@ This release uses:
 
 ## Chef Infra Server 15.10.33
 
+Release date: March 3, 2025
+
 ### Security
 
 - Updated REXML to 3.3.9 to resolve the following CVE:
@@ -244,6 +253,8 @@ This release uses:
 - OpenResty 1.25.3.1
 
 ## Chef Infra Server 15.10.27
+
+Release date: January 9, 2025
 
 ### Improvements
 
