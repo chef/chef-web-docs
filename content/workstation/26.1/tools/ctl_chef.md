@@ -93,16 +93,17 @@ other Ruby applications that aren't packaged within Chef Workstation
 will be installed to the following locations:
 
 - **Habitat-based Chef Workstation**: gems are stored in `~/.chef/ruby/version#/bin` and persist across Workstation upgrades and downgrades.
-- **Non-Habitat Chef Workstation**: gems are stored in `~/.Chef Workstation/gem/ruby/version#/bin` (where `<version>` is the Ruby version bundled with Chef Workstation).
+- **Non-Habitat Chef Workstation**: gems are stored in `~/.Chef Workstation/gem/ruby/version#/bin`, where `<version>` represents the Ruby version bundled with Chef Workstation.
 
 ### Premium gems
+
 Chef Workstation can install premium extensions from the Chef Premium RubyGem server at rubygems.chef.io. When you run a remote gem command (install, search, fetch, update, or download), Chef Workstation automatically checks whether rubygems.chef.io is already configured and, if not, attempts to add it:
 
 | Condition | Behavior |
 |-----------|----------|
 | rubygems.chef.io already configured with valid credentials | Proceeds with the command. No changes to sources. |
 | Only rubygems.org configured and a valid Chef license key is found | Adds `https://v1:<key>@rubygems.chef.io` to gem sources using `gem sources --add`. Command proceeds against both sources. |
-| A custom non-standard source is present (air-gapped environment) | Displays a warning and does not modify sources. Proceeds using existing sources only. |
+| A custom non-standard source is present (air-gapped environment) | Displays a warning and doesn't modify sources. Proceeds using existing sources only. |
 | No Chef license key found | Displays a warning and proceeds using rubygems.org only. |
 The license key is read from the following locations, in priority order:
 
