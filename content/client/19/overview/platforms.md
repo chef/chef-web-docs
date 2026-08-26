@@ -54,8 +54,8 @@ This page lists the operating system platforms supported by Chef Infra Client 19
 
 | Platform | Architecture | Version | Tier | Agent | Agentless | Installer |
 | --- | --- | --- | --- | --- | --- | --- |
-| Red Hat Enterprise Linux | `x86_64`, `aarch64` | `7.x`, `8.x`, `9.x`, `10.x` | Validated & Supported | Yes | Yes | Native, Habitat |
-| Red Hat Enterprise Linux | `s390x`, `ppc64le`, `ppc64` | `7.x`, `8.x` | Validated & Supported | No | Yes | Habitat |
+| Red Hat Enterprise Linux | `x86_64`, `aarch64` | `8.x`, `9.x`, `10.x` | Validated & Supported | Yes | Yes | Native, Habitat |
+| Red Hat Enterprise Linux | `s390x`, `ppc64le`, `ppc64` | `8.x` | Validated & Supported | No | Yes | Habitat |
 | CentOS | `x86_64`, `aarch64` | `7.x` | Validated & Supported | Yes | Yes | Native, Habitat |
 | CentOS | `ppc64le`, `ppc64` | `7.x` | Validated & Supported | No | Yes | Habitat |
 | Oracle Enterprise Linux | `x86_64`, `aarch64` | `7.x`, `8.x` | Validated & Supported | Yes | Yes | Native, Habitat |
