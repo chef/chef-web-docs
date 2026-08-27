@@ -125,6 +125,12 @@ To install Chef Infra Client , follow these steps:
     {{< /accordion-item >}}
     {{< /accordion-list >}}
 
+    {{< note >}}
+
+    For macOS, skip this step. Installing the migration tool and running `migrate-ice apply` downloads and installs Chef Infra Client in one step. See the **Install from tarball** section below.
+
+    {{< /note >}}
+
 1. Go to the directory with the installer and install the package.
 
    {{< accordion-list data-allow-all-closed="true" >}}
@@ -150,6 +156,15 @@ To install Chef Infra Client , follow these steps:
 
    ```sh
    sudo -E rpm -ivh chef-ice-<VERSION>-linux.rpm
+   ```
+
+   {{< /accordion-item >}}
+   {{< accordion-item accordion-title="Install from tarball" >}}
+
+   For macOS, [install the migration tool](https://docs.chef.io/client/19/install/migration_tool/install/#download-migration-tool-with-curl-windows), then download and install Chef Infra Client in one step:
+
+   ```sh
+   .\migrate-ice apply online --fresh-install --download-url "<CHEF_TAR_DOWNLOAD_URL>"
    ```
 
    {{< /accordion-item >}}
