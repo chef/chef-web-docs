@@ -30,6 +30,19 @@ Chef lets you choose your upgrade journey based on your current version of Chef 
 
 See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/major_upgrade_4.x/) for more information.
 
+## Chef Automate 4.13.520
+
+Release date: August 27, 2026
+
+### Security
+
+- Resolved multiple security vulnerabilities across Chef Automate core services.
+- Fixed a potential SQL injection vulnerability to ensure input sanitization and secure query execution.
+
+### Bug fixes
+
+- The `chef-automate package-cleanup` command now correctly preserves required Automate HA management packages during cleanup. Previously, it built the package whitelist only from actively running Habitat services, causing essential non-running packages such as `automate-ha-ctl` to be removed and breaking backend CLI commands.
+
 ## Chef Automate 4.13.516
 
 Release date: July 23, 2026
