@@ -17,7 +17,7 @@ summary = "Chef Infra Server release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
-## Chef Infra Server 15.10.119
+## Chef Infra Server 15.10.125
 
 Release date: August 27, 2026
 
@@ -36,11 +36,11 @@ Release date: August 27, 2026
 
 This release uses:
 
-- OpenResty 1.29.2.5
+- OpenResty 1.31.1.1
 - OpenJRE 17.0.9+9
 - PostgreSQL 13.23.tuxcare.1.0.0
 - OpenSearch 1.3.20-tuxcare-1.0.3
-- Rack 3.2.6
+- Rack 3.2.5
 - Valkey 7.2.11
 
 ## Chef Infra Server 15.10.114
