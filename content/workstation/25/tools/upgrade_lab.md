@@ -330,7 +330,7 @@ If you don't have access to the original version-controlled source of a cookbook
 
 Upgrading cookbooks from Chef Infra Server isn't an ideal practice. You will make changes to your cookbooks during the course of the upgrade. Making changes to your cookbooks without the ability to track your changes in version control almost inevitably leads to conflicts between cookbook sources. Reconciling cookbooks with untracked changes is a difficult and time-consuming process. If you find yourself using many cookbooks--or complex cookbooks--downloaded from Chef Infra Server, it will be worth the effort in the long run to try to track down their version-controlled sources.
 
-Tracking and testing changes in a CI/CD pipeline is an important part of managing your Chef infrastructure, but are beyond the scope of this guide. See [Learn Chef Rally](https://learn.chef.io/) for tutorials and contact your Customer Success team when you are ready to modernize your system.
+Tracking and testing changes in a CI/CD pipeline is an important part of managing your Chef infrastructure, but are beyond the scope of this guide. See [LearnChef](https://www.chef.io/training/) for tutorials and contact your Customer Success team when you are ready to modernize your system.
 
 ```bash
 ------------------------ WARNING ---------------------------

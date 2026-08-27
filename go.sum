@@ -4,8 +4,8 @@ github.com/chef/chef-docs-theme v0.0.0-20260618125028-0f405d6b95d1 h1:y/rZKqxmyC
 github.com/chef/chef-docs-theme v0.0.0-20260618125028-0f405d6b95d1/go.mod h1:+Jpnv+LXE6dXu2xDcMzMc0RxRGuCPAoFxq5tJ/X6QpQ=
 github.com/chef/chef-server/docs-chef-io v0.0.0-20260804053808-dbef581377f4 h1:6iXaohRcFyxmIODKeZXp4moIOQOHcIt389eWL8fotYU=
 github.com/chef/chef-server/docs-chef-io v0.0.0-20260804053808-dbef581377f4/go.mod h1:gMSa25GUHmLimA0gjvRd3hs1buOBqkKPrdHzHvaJauY=
-github.com/chef/compliance-profiles/docs-chef-io v0.0.0-20260715104031-5f3fc21369ed h1:Gm0tw1M+Z++TMqmyekXFhIQNxncnrbX6FYfpJrA+8vc=
-github.com/chef/compliance-profiles/docs-chef-io v0.0.0-20260715104031-5f3fc21369ed/go.mod h1:fsG7S6r66ZW6Af/sqq+OL3WNP+BoO4V1/Evwu98Noig=
+github.com/chef/compliance-profiles/docs-chef-io v0.0.0-20260824060042-97a0c5b7ceb5 h1:0VmctFM1HdD5qziKs2BloPb3afW9BFg9ZGMQwU11Q8E=
+github.com/chef/compliance-profiles/docs-chef-io v0.0.0-20260824060042-97a0c5b7ceb5/go.mod h1:fsG7S6r66ZW6Af/sqq+OL3WNP+BoO4V1/Evwu98Noig=
 github.com/chef/compliance-remediation-2022/docs-chef-io v0.0.0-20260715070108-00acb7d0c314 h1:LPBZSaWy08jnUM086FNxHeVqJTjF11AKaw1DuBOlr+E=
 github.com/chef/compliance-remediation-2022/docs-chef-io v0.0.0-20260715070108-00acb7d0c314/go.mod h1:kNxSqzNZGBwfF4AfALPzUfOeAsscIIKq8vyoCNL33DA=
 github.com/chef/desktop-config/docs-chef-io v0.0.0-20260810123955-0a43dc750a90 h1:n1wmsX3QjpEaVmYI8jt+hMB11jGM7BsKqF9Qbh9Hcik=
@@ -20,8 +20,8 @@ github.com/chef/supermarket/docs-chef-io v0.0.0-20260728135140-95f7060818fe h1:i
 github.com/chef/supermarket/docs-chef-io v0.0.0-20260728135140-95f7060818fe/go.mod h1:D+9mmEZxCwpdhZ8LrEODBWMwMufmJUubSt5NlU/lLB4=
 github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90 h1:p/a5iSATj0OjrqJLX/YKxYdGXhZzW58yyyNIC4JY4S0=
 github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90/go.mod h1:N/6F0+wmdvL6k0AjqyKIncMRClKAN92atjZdTLtYMaw=
-github.com/habitat-sh/on-prem-builder/docs-chef-io v0.0.0-20260226205032-3c55e89d5039 h1:NGESIOYRuZuFN942hWq7u3CFx9uOQJtfk+IUrzyh/QY=
-github.com/habitat-sh/on-prem-builder/docs-chef-io v0.0.0-20260226205032-3c55e89d5039/go.mod h1:8gmm7JyOiJAbZHIpZNCP4XqgZ8RtUHaEwEi0X0AsJ4M=
+github.com/habitat-sh/on-prem-builder/docs-chef-io v0.0.0-20260825140207-22339f95ff2d h1:NVRwieSOUxf1Wg/DKe5uL8bU3JH0+QTnYwxX8ukSLPs=
+github.com/habitat-sh/on-prem-builder/docs-chef-io v0.0.0-20260825140207-22339f95ff2d/go.mod h1:8gmm7JyOiJAbZHIpZNCP4XqgZ8RtUHaEwEi0X0AsJ4M=
 github.com/swiftype/swiftype-autocomplete-jquery v0.0.0-20190222215504-a90008d64b30 h1:dhqLFBINtD1rMwwd5s9INu4BkciCvQUd+r+CWUYWIB4=
 github.com/swiftype/swiftype-autocomplete-jquery v0.0.0-20190222215504-a90008d64b30/go.mod h1:qnxTyatkwE84LvoaQLPaLB4h5M3n6Q2z+SB/96DcAK8=
 github.com/swiftype/swiftype-search-jquery v1.1.0 h1:VRYyWPQtf3Vl3B5W2xQJuFVoUBlBFGQ4tOTu94b8mNU=
