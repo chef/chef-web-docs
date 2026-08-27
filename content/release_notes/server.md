@@ -17,9 +17,35 @@ summary = "Chef Infra Server release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
+## Chef Infra Server 15.10.125
+
+Release date: August 27, 2026
+
+### Security
+
+- Removed stale Rack and REXML gem directories that could be left on disk by the package manager during upgrades.
+  `chef-server-ctl reconfigure` now removes gem versions below the required minimum versions. This addresses the following CVEs, which could be flagged during vulnerability scans even though the affected gems were not actively loaded:
+  - CVE-2025-61772 (Rack multipart denial-of-service, fixed in Rack 3.2.2 and later)
+  - CVE-2026-22860 (Rack::Directory path traversal, fixed in Rack 3.2.5 and later)
+  - CVE-2026-25500 (Rack::Directory cross-site scripting, fixed in Rack 3.2.5 and later)
+- Defined minimum versions for `net-imap`, `rack`, and `rexml` in the `oc-id`, `chef-server-ctl`, and `oc-chef-pedant` Gemfiles.
+  These minimum versions are defined in a shared `safe_versions.rb` constant, creating a single source of truth and preventing vulnerable gem versions from being included in package installations or bundle updates.
+  ([#4227](https://github.com/chef/chef-server/pull/4227))
+
+### Service versions
+
+This release uses:
+
+- OpenResty 1.31.1.1
+- OpenJRE 17.0.9+9
+- PostgreSQL 13.23.tuxcare.1.0.0
+- OpenSearch 1.3.20-tuxcare-1.0.3
+- Rack 3.2.5
+- Valkey 7.2.11
+
 ## Chef Infra Server 15.10.114
 
-Released on June 25, 2026
+Release date: June 25, 2026
 
 ### Security
 
@@ -68,7 +94,7 @@ This release uses:
 
 ## Chef Infra Server 15.10.91
 
-Released on February 10, 2026
+Release date: February 10, 2026
 
 ### Security improvements
 
@@ -103,6 +129,8 @@ This release uses:
 - Valkey 7.2.11
 
 ## Chef Infra Server 15.10.83
+
+Release date: November 4, 2025
 
 ### Improvements
 
@@ -160,6 +188,8 @@ This release uses:
 
 ## Chef Infra Server 15.10.66
 
+Release date: September 15, 2025
+
 ### Bug Fixes
 
 - Chef Infra Server now allows and properly validates extended validation certificates when it connects to external databases.
@@ -175,6 +205,8 @@ This release uses:
 - OpenResty 1.25.3.1
 
 ## Chef Infra Server 15.10.63
+
+Release date: August 29, 2025
 
 ### Improvements
 
@@ -203,6 +235,8 @@ This release uses:
 
 ## Chef Infra Server 15.10.33
 
+Release date: March 3, 2025
+
 ### Security
 
 - Updated REXML to 3.3.9 to resolve the following CVE:
@@ -219,6 +253,8 @@ This release uses:
 - OpenResty 1.25.3.1
 
 ## Chef Infra Server 15.10.27
+
+Release date: January 9, 2025
 
 ### Improvements
 
