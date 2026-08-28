@@ -328,11 +328,11 @@ The `x_chef_incident.api` role is suitable for users responsible for integrating
 
 Setting the value to `cookbook` creates an incident for the failed cookbook. All failing Chef Infra Client runs on nodes associates with the corresponding incident. `cookbook` is the default value as the number of nodes exceeds the number of cookbooks. The short description of the incident indicates the failed cookbook:
 
-![CCR Failed Cookbook Description](/images/automate/SNOW_Failed_Cookbook.png)
+![ServiceNow incident showing a failed Chef Infra Client run for a cookbook with short description and error details.](/images/automate/SNOW_Failed_Cookbook.png)
 
 The **Chef Infra Client runs** tab of the incident displays the associated client runs. Setting the value to `node` creates an incident for each failed node. All failing Chef Infra Client runs for a node associates with the corresponding incident. The short description of the incident indicates the failed node.
 
-![CCR Failed Node Description](/images/automate/SNOW_Failed_Node_CCR.png)
+![ServiceNow incident activity and related records showing client run failure details for a node-associated incident.](/images/automate/SNOW_Failed_Node_CCR.png)
 
 `x_chef_incident.scan_association`
 
@@ -340,11 +340,11 @@ The **Chef Infra Client runs** tab of the incident displays the associated clien
 
 Setting the value to `profile` creates an incident for the failed Chef InSpec compliance profile. All Chef InSpec scans on failing nodes associates with the corresponding incident. `profile` is the default value as the number of nodes exceeds the number of profiles. The short description of the incident indicates the failed profile.
 
-![Scan Failed Profile Description](/images/automate/SNOW_Failed_Profile_Scan.png)
+![Chef InSpec scan record in ServiceNow showing a compliance failure entry linked to an incident.](/images/automate/SNOW_Failed_Profile_Scan.png)
 
 The **Chef InSpec scans** tab of the incident displays the associated Chef InSpec scans. Setting the value to `node` creates an incident for each failed node. All Chef InSpec scans failing for a node associates with the corresponding incident. The short description of the incident indicates the failed node.
 
-![Scan Failed Node Description](/images/automate/SNOW_Failed_Node_Scan.png)
+![ServiceNow incident showing InSpec scan-related activity and a table of associated failed scan records by node.](/images/automate/SNOW_Failed_Node_Scan.png)
 
 `x_chef_incident.assigned_to`
 
@@ -429,7 +429,7 @@ TODO: [Chef Events Client Runs page] data not available
 
 The **Chef Infra Client Run Alerts** tab of the alerts displays the associated client run events. Setting the value to `node` creates an event for each failed node. All failing Chef Infra client runs for a node associated with the corresponding event. The message key description of the event provides information about the run failure for a node.
 
-![Chef Events Client Run Alerts page](/images/automate/sn_event_clientrun_alerts.png)
+![ServiceNow alert detail page for a Chef Infra Client run event with source, severity, state, and failure description.](/images/automate/sn_event_clientrun_alerts.png)
 
 `x_chef_event.inspec_scan_message_key`
 
@@ -437,14 +437,14 @@ The **Chef Infra Client Run Alerts** tab of the alerts displays the associated c
 
 Set the value to `profile` to create an event for the failed chef InSpec compliance profile with a message value. This associate all failing Chef InSpec compliance scans with the corresponding alerts. `profile` is the default value because the number of cookbooks is independent of the number of nodes in any system. The message key description of the event provides information about the failure.
 
-![Chef Events InSpec Scans page](/images/automate/sn_event_inspecscans.png)
+![ServiceNow Chef InSpec scans list showing failure URLs, timestamps, failed profiles, and node names.](/images/automate/sn_event_inspecscans.png)
 
 The **Chef InSpec Scan Alerts** tab of the event displays the associated Chef InSpec scans. Setting the value to `node` creates an event for each failed node. All failing Chef InSpec scans for a node associated with the corresponding event. The message key description of the event indicates the failed node.
 
-![Chef Events InSpec Scan Alerts page](/images/automate/sn_event_inspecscans_alerts.png)
+![ServiceNow alert detail page for a Chef InSpec scan event with source, severity, state, and failure description.](/images/automate/sn_event_inspecscans_alerts.png)
 
 `x_chef_events.logging.enabled`
 
 : Set to `Yes` to enable logging and `No` to disable it. Once enabled, authorized users can view the logs at **Chef Events** > **Logs** and **System logs** > **Application logs**. Default: `No`.
 
-![Chef Events Properties page](/images/automate/sn_event_app_properties.png) -->
+![Chef Event Properties page with message key settings for Client Run and InSpec Scan and an option to enable logging.](/images/automate/sn_event_app_properties.png) -->

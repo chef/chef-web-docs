@@ -26,7 +26,7 @@ In the above approach, there will be 2 identical clusters
 - primary cluster (or production cluster)
 - disaster recovery cluster
 
-![Disaster Recovery Setup with 2 Identical Clusters](/images/automate/DR-2-cluster.png)
+![Disaster recovery setup diagram showing a primary Chef Automate cluster and identical disaster recovery cluster with DNS failover routing, load balancers, and cron-triggered backup and restore operations.](/images/automate/DR-2-cluster.png)
 
 The primary cluster will be active and regular backups will be performed using `chef-automate backup create`. At the same time, the disaster recovery cluster will be restoring the latest backup data using `chef-automate backup restore`.
 

@@ -18,7 +18,7 @@ Compliance profiles help you secure your infrastructure continuously.
 Chef Automate compliance profiles translate CIS Benchmarks and other security standards into easily readable policy.
 You can install and download one of our 300+ ready-to-use compliance profiles from Profiles, or upload your custom profiles.
 
-![Chef Automate Profiles](/images/automate/asset-store-installed.png)
+![Chef Automate Compliance Profiles page showing one installed profile and 395 available profiles to download with an Upload Profile button and profile table.](/images/automate/asset-store-installed.png)
 
 ## Using Profiles
 
@@ -30,7 +30,7 @@ and the _Available_ page, which displays all of the ready-to-use compliance prof
 
 ### Installing Profiles
 
-![Available Profiles](/images/automate/asset-store-profiles.png)
+![Chef Automate Available Profiles list showing CIS Benchmark profiles with versions and Get buttons for installation.](/images/automate/asset-store-profiles.png)
 
 Locate profiles by browsing the list, or by using the search bar.
 To install a compliance profile into your namespace, simply select **Get** on the right side of the profile name.
@@ -86,7 +86,7 @@ License
 
 Installed profiles display a cURL command for an ad-hoc profile run.
 
-![Installed Profile Details](/images/automate/asset-store-details-installed.png)
+![Chef Automate installed InSpec profile details page showing profile metadata (Status, Version, Maintainer, License, Platform) and a table of 54 controls with Impact severity and Total Tests columns.](/images/automate/asset-store-details-installed.png)
 
 ### Profile Body
 
@@ -104,7 +104,7 @@ Severity
 Selecting the shaded area next to the control name or the `+` on the right side expands the control to show a more detailed description.
 Selecting **View Code** displays the control's InSpec code.
 
-![Profiles Body](/images/automate/profile-detail-body.png)
+![Chef Automate profile detail body showing a table of controls with control IDs (os-01, os-02, os-03, os-04), descriptions, severity levels marked as CRITICAL (1.0), and test counts, plus expandable InSpec code for each control.](/images/automate/profile-detail-body.png)
 
 ### About the Profile Identifier
 
