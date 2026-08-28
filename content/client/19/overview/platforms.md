@@ -14,7 +14,7 @@ This page lists the operating system platforms supported by Chef Infra Client 19
 
 ## Support definitions
 
-Refer to the sections below for definitions of the certification tiers, installer types, and agent and agentless modes.
+Refer to the following sections for definitions of the certification tiers, installer types, and agent and agentless modes.
 
 ### Certification tiers
 
