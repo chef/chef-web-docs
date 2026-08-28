@@ -14,36 +14,38 @@ This page lists the operating system platforms supported by Chef Infra Client 19
 
 ## Support definitions
 
+Refer to the sections below for definitions of the certification tiers, installer types, and agent and agentless modes.
+
 ### Certification tiers
 
-**Validated & Supported**
-: These platforms are fully tested on every release. These platforms run through the complete Chef automated test suite in CI/CD before each release.
+**Validated and supported**
+: These platforms are fully tested on every release. These platforms run through the complete Chef automated test suite in Continuous Integration/Continuous Delivery (CI/CD) prior to each release.
 
-**Supported (Untested)**
-: These platforms are fully supported, but not tested in our CI/CD pipelines. Chef stands behind these platforms and will address any reported bugs.
+**Supported (untested)**
+: These platforms are fully supported, but not tested in our CI/CD pipelines. Chef supports these platforms and will address any reported bugs.
 
-**User Reported**
+**User-reported**
 : These platforms are validated by users. Support is provided on a best-effort basis.
 
 ### Installer types
 
 **Native**
-: Chef is installed using the platform's native package manager—MSI on Windows, DEB on Debian/Ubuntu, RPM on RHEL/SUSE, PKG on macOS.
+: Chef is installed using the platform's native package manager (Microsoft Installer (MSI)) on Windows, Debian package (DEB) on Debian/Ubuntu, RPM Package Manager (RPM) on Red Hat Enterprise Linux (RHEL)/SUSE, or PKG (macOS installer package).
 
 **Habitat**
 : Chef is installed and run using [Chef Habitat](https://www.habitat.sh/) commands (`hab pkg install`) or by extracting a Habitat artifact (`.hart` or `.tar.gz`). Used for platforms where a native package isn't available or where a self-contained runtime is preferred.
 
 ### Agent and agentless modes
 
-**Agent**
+**Agent-based mode**
 : Agent-based mode includes all software that runs directly on the managed node:
 
 - Chef Infra Client
 - Chef InSpec
 - Chef Habitat supervisor
-- Chef 360 skills running in agent mode, including Courier job execution and Node Management
+- Chef 360 Platform skills running in agent mode, including Courier job execution and Node Management
 
-**Agentless**
+**Agentless mode**
 : Agentless mode includes all software that manages a node remotely without an agent present on the node:
 
 - Chef Infra Client agentless mode (formerly Target Mode)—connects using SSH (Linux) or WinRM/SSH (Windows)
