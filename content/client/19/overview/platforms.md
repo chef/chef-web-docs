@@ -30,7 +30,7 @@ Refer to the following sections for definitions of the certification tiers, inst
 ### Installer types
 
 **Native**
-: Chef is installed using the platform's native package manager (Microsoft Installer (MSI)) on Windows, Debian package (DEB) on Debian/Ubuntu, RPM Package Manager (RPM) on Red Hat Enterprise Linux (RHEL)/SUSE, or PKG (macOS installer package).
+: Chef is installed using the platform's native package manager - (Microsoft Installer (MSI)) on Windows, Debian package (DEB) on Debian/Ubuntu, RPM Package Manager (RPM) on Red Hat Enterprise Linux (RHEL)/SUSE, or PKG (macOS installer package).
 
 **Habitat**
 : Chef is installed and run using [Chef Habitat](https://www.habitat.sh/) commands (`hab pkg install`) or by extracting a Habitat artifact (`.hart` or `.tar.gz`). Used for platforms where a native package isn't available or where a self-contained runtime is preferred.
