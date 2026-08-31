@@ -31,8 +31,8 @@ Follow these steps to deploy Chef Automate High Availability (HA) on AWS (Amazon
     ```bash
     sudo -- sh -c "
     # Download Chef Automate CLI.
-    curl \"https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>\" \
-    -o /usr/bin/chef-automate && chmod +x /usr/bin/chef-automate
+    curl -L \"https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=amd64&license_id=<LICENSE_ID>\" \
+    -o /usr/bin/chef-automate.zip && unzip -o /usr/bin/chef-automate.zip -d /usr/bin && chmod +x /usr/bin/chef-automate
 
     # Download the air-gapped bundle.
     curl \"https://packages.chef.io/airgap_bundle/current/automate/<VERSION>.aib\" -o automate.aib

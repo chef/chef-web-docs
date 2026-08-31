@@ -16,7 +16,7 @@ To upgrade Chef Automate HA, follow these steps:
 1. Download the latest CLI:
 
     ```bash
-    curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate && sudo mv chef-automate /usr/bin/chef-automate
+    curl -L "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=amd64&license_id=<LICENSE_ID>" -o chef-automate.zip && unzip chef-automate.zip && chmod +x chef-automate && sudo mv chef-automate /usr/bin/chef-automate
     ```
 
     Replace `<LICENSE_ID>` with your Progress Chef commercial license ID.

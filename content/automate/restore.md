@@ -21,7 +21,7 @@ Before restoring a Chef Automate installation, see how to [configure your backup
 1. On the restore host, download the Chef Automate command-line tool:
 
     ```shell
-    curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
+    curl -L "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=amd64&license_id=<LICENSE_ID>" -o chef-automate.zip && unzip chef-automate.zip && chmod +x chef-automate
     ```
 
     Replace `<LICENSE_ID>` with your Progress Chef commercial license ID.

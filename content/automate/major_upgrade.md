@@ -51,7 +51,7 @@ Please upgrade to latest date pattern version number.
 1. On an internet-connected machine, download the latest Chef Automate CLI.
 
     ```sh
-    curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
+    curl -L "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=amd64&license_id=<LICENSE_ID>" -o chef-automate.zip && unzip chef-automate.zip && chmod +x chef-automate
     ```
 
     Replace `<LICENSE_ID>` with your Progress Chef commercial license ID.
@@ -186,7 +186,7 @@ To upgrade to 3.0.x, follow the steps below:
 1. Download latest CLI of Chef Automate
 
     ```sh
-    curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
+    curl -L "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=amd64&license_id=<LICENSE_ID>" -o chef-automate.zip && unzip chef-automate.zip && chmod +x chef-automate
     ```
 
     Replace `<LICENSE_ID>` with your Progress Chef commercial license ID.
@@ -260,7 +260,7 @@ To upgrade to 3.0.x, follow the steps below:
 1. Download latest CLI of Chef Automate
 
     ```sh
-    curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
+    curl -L "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=amd64&license_id=<LICENSE_ID>" -o chef-automate.zip && unzip chef-automate.zip && chmod +x chef-automate
     ```
 
     Replace `<LICENSE_ID>` with your Progress Chef commercial license ID.

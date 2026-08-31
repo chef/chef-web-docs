@@ -50,7 +50,8 @@ Installing Chef Automate with the Vagrantfile below means you're consenting to C
     sysctl -w vm.max_map_count=262144
     sysctl -w vm.dirty_expire_centisecs=20000
     echo "${CFG_IP} ${CFG_HOSTNAME}" | tee -a /etc/hosts
-    curl -fsSL "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o /usr/local/bin/chef-automate
+    curl -fsSL "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=amd64&license_id=<LICENSE_ID>" -o /usr/local/bin/chef-automate.zip
+    unzip -o /usr/local/bin/chef-automate.zip -d /usr/local/bin
     chmod +x /usr/local/bin/chef-automate
     chef-automate deploy --accept-terms-and-mlsa
     echo "Server is up and running. Please log in at https://${CFG_HOSTNAME}/"
