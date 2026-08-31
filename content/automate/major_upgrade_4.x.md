@@ -49,7 +49,7 @@ For example, if today you are on version _2021201164433_, your upgrade journey s
 - **Download latest chef-automate cli:**
 
     ```sh
-    curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
+    curl -L "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=amd64&license_id=<LICENSE_ID>" -o chef-automate.zip && unzip chef-automate.zip && chmod +x chef-automate
     ```
 
     Replace `<LICENSE_ID>` with your Progress Chef commercial license ID.
@@ -98,7 +98,7 @@ To upgrade Chef Automate from version 3.0.49 to 4.x with embedded Elasticsearch,
 1. Download latest chef-automate cli.
 
     ```sh
-    curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
+    curl -L "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=amd64&license_id=<LICENSE_ID>" -o chef-automate.zip && unzip chef-automate.zip && chmod +x chef-automate
     ```
 
     Replace `<LICENSE_ID>` with your Progress Chef commercial license ID.
@@ -245,7 +245,7 @@ To upgrade Chef Automate with external Elasticsearch from version 3.0.49 to 4.x,
 1. Download latest chef-automate cli.
 
     ```sh
-    curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
+    curl -L "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=amd64&license_id=<LICENSE_ID>" -o chef-automate.zip && unzip chef-automate.zip && chmod +x chef-automate
     ```
 
     Replace `<LICENSE_ID>` with your Progress Chef commercial license ID.
@@ -349,7 +349,7 @@ To upgrade from version 3.0.49 to 4.x, follow the steps below:
 1. Download latest CLI of Chef Automate.
 
     ```sh
-    curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
+    curl -L "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=amd64&license_id=<LICENSE_ID>" -o chef-automate.zip && unzip chef-automate.zip && chmod +x chef-automate
     ```
 
     Replace `<LICENSE_ID>` with your Progress Chef commercial license ID.
@@ -524,7 +524,7 @@ To upgrade to version 3.0.49 to 4.x, follow the steps below:
 1. Download latest CLI of Chef Automate
 
     ```sh
-    curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
+    curl -L "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=amd64&license_id=<LICENSE_ID>" -o chef-automate.zip && unzip chef-automate.zip && chmod +x chef-automate
     ```
 
     Replace `<LICENSE_ID>` with your Progress Chef commercial license ID.
@@ -696,7 +696,7 @@ DeploymentServiceCallError: A request to the deployment-service failed: Request 
 To move ahead with the upgrade you can download the latest CLI and air-gapped bundle using the curl command with proxy settings:
 
 ```sh
-curl -x http://proxy_server:proxy_port --proxy-user username:password -L "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
+curl -x http://proxy_server:proxy_port --proxy-user username:password -L "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=amd64&license_id=<LICENSE_ID>" -o chef-automate.zip && unzip chef-automate.zip && chmod +x chef-automate
 ```
 
 Replace `<LICENSE_ID>` with your Progress Chef commercial license ID.

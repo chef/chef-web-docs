@@ -29,7 +29,7 @@ To get a trial license for an airgapped host [contact Chef](https://www.chef.io/
 Download the Chef Automate command-line tool from the `current` [release channel]({{< relref "install.md#release-channels" >}}).
 
 ```shell
-curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
+curl -L "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=amd64&license_id=<LICENSE_ID>" -o chef-automate.zip && unzip chef-automate.zip && chmod +x chef-automate
 ```
 
 Replace `<LICENSE_ID>` with your Progress Chef commercial license ID.

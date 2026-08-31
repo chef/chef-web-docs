@@ -203,7 +203,7 @@ Where:
 5. SSH to the bastion host and download the Chef Automate CLI:
 
     ```bash
-    curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o /usr/bin/chef-automate && chmod +x /usr/bin/chef-automate
+    curl -L "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=amd64&license_id=<LICENSE_ID>" -o /usr/bin/chef-automate.zip && unzip -o /usr/bin/chef-automate.zip -d /usr/bin && chmod +x /usr/bin/chef-automate
     ```
 
     Replace `<LICENSE_ID>` with your Progress Chef commercial license ID.

@@ -50,7 +50,8 @@ You will need the `chef-automate` command line tool to initiate your upgrade.
 1. Download the latest version of the Chef Automate CLI:
 
     ```shell
-    wget "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -O chef-automate
+    wget "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=amd64&license_id=<LICENSE_ID>" -O chef-automate.zip
+    unzip chef-automate.zip
     chmod +x chef-automate
     ```
 

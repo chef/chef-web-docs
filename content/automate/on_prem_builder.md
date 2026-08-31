@@ -74,7 +74,7 @@ Chef Automate and Chef Habitat Builder require:
 Download the installer:
 
 ```shell
-curl "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=x86_64&license_id=<LICENSE_ID>" -o chef-automate && chmod +x chef-automate
+curl -L "https://chefdownload-commercial.chef.io/stable/automate/download?p=linux&m=amd64&license_id=<LICENSE_ID>" -o chef-automate.zip && unzip chef-automate.zip && chmod +x chef-automate
 ```
 
 Replace `<LICENSE_ID>` with your Progress Chef commercial license ID.
