@@ -34,6 +34,15 @@ module MyCookbook
     # some additional code
   end
 end
+
+# good
+module MyCookbook
+  class MyCookbookService < Chef::Resource
+    provides :mycookbook_service
+
+    # some additional code
+  end
+end
 ```
 
 ## Configurable attributes

@@ -13,6 +13,11 @@ examples: |2-
   # bad
   include_recipe 'ohai::default'
   include_recipe 'ohai'
+
+  # good
+  ohai_plugin 'my_custom_plugin' do
+    source_file 'my_plugin.rb'
+  end
 version_added: 5.4.0
 enabled: true
 excluded_file_paths:

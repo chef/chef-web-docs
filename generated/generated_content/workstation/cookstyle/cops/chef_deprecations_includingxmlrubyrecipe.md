@@ -27,6 +27,10 @@ Do not include the deprecated xml::ruby recipe to install the nokogiri gem. Chef
 ```ruby
 # bad
 include_recipe 'xml::ruby'
+
+# good
+# nokogiri ships with Chef Infra Client, so just require it
+require 'nokogiri'
 ```
 
 ## Configurable attributes

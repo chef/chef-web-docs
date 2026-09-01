@@ -20,16 +20,21 @@ The Cookstyle cops department: `Chef/Modernize`
 | --- | --- | --- |
 | Enabled | Yes | All Versions |
 
-Use ::File.exist?('/foo/bar') instead of the slower 'test -f /foo/bar' which requires shelling out
+Use `::File.exist?('/foo/bar')` in an `only_if` or `not_if` guard instead of the slower `'test -f /foo/bar'`, which requires shelling out. The Ruby check has to be passed as a block. Passing it directly, as `not_if ::File.exist?('/foo/bar')`, raises `ArgumentError: Invalid only_if/not_if command, expected a string`.
 
 ## Examples
 
 ```ruby
 # bad
 only_if 'test -f /bin/foo'
+not_if 'test -f /bin/foo'
+
+# bad - a Ruby guard has to be a block, this raises at converge time
+only_if ::File.exist?('/bin/foo')
 
 # good
 only_if { ::File.exist?('/bin/foo') }
+not_if { ::File.exist?('/bin/foo') }
 ```
 
 ## Configurable attributes

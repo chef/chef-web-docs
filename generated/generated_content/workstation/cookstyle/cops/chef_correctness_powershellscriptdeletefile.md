@@ -22,18 +22,18 @@ The Cookstyle cops department: `Chef/Correctness`
 
 Use the `file` or `directory` resources built into Chef Infra Client with the :delete action to remove files/directories instead of using Remove-Item in a powershell_script resource
 
- ### correct
- file 'C:\Windows\foo\bar.txt' do
-   action :delete
- end
-
 ## Examples
 
 ```ruby
 # bad
 powershell_script 'Cleanup old files' do
   code 'Remove-Item C:\Windows\foo\bar.txt'
-  only_if { ::File.exist?('C:\\Windows\\foo\\bar.txt') }
+  only_if { ::File.exist?('C:\Windows\foo\bar.txt') }
+end
+
+# good
+file 'C:\Windows\foo\bar.txt' do
+  action :delete
 end
 ```
 

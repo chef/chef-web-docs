@@ -12,6 +12,10 @@ examples: |2-
 
   # bad
   provider_base ::Chef::Provider::SomethingSomething
+
+  # good
+  # in the provider, register itself for the resource
+  provides :something_something
 version_added: 5.7.0
 enabled: true
 included_file_paths:
