@@ -1,0 +1,167 @@
+{{/*
+  Unified resources compatibility matrix.
+  Adapted from layouts/_default/infra_resources_all.html.
+
+  Merges data sources into a single 4-column matrix plus a grouped resource-packs table:
+    - Chef Infra Client:      data/client/19/resources/*.yaml (this repo, canonical).
+    - Chef InSpec core:       data/resources/inspec.yaml (committed snapshot; InSpec docs
+                              are deployed as a separate site and aren't built here).
+    - Chef InSpec packs:      data/resources/inspec_packs.yaml (grouped; as of Chef InSpec 7,
+                              cloud and platform resources live in separate resource packs).
+
+  Rows link out to each product's authoritative resource page; this page never
+  duplicates resource documentation.
+
+  inspec_version pins the Chef InSpec docs version used for core resource links.
+  Chef InSpec deploys as a separate, versioned site, so update this when the snapshot
+  in data/resources/inspec.yaml is regenerated against a newer Chef InSpec release.
+*/}}
+
+{{ define "main" }}
+  {{ .Content }}
+
+  {{/* --- Build the Chef Infra Client resource map: name -> {description, new_in} --- */}}
+  {{ $infra := dict }}
+  {{ range $yaml_file := index $.Site.Data ( .Params.data_path ) }}
+    {{ if index $yaml_file "resource_reference" }}
+      {{ $name := index $yaml_file "resource" }}
+      {{ $desc := "" }}
+      {{ with index $yaml_file "resource_description_list" }}
+        {{ range . }}
+          {{ if and (eq $desc "") (isset . "markdown") }}
+            {{ $desc = index . "markdown" }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      {{ $new_in := "" }}
+      {{ with index $yaml_file "resource_new_in" }}{{ $new_in = . }}{{ end }}
+      {{ $infra = merge $infra (dict $name (dict "description" $desc "new_in" $new_in)) }}
+    {{ end }}
+  {{ end }}
+
+  {{/* --- Chef InSpec snapshot: name -> {platform, description, deprecated} --- */}}
+  {{ $inspec := $.Site.Data.resources.inspec }}
+
+  {{/* --- Union of resource names, sorted --- */}}
+  {{ $names := slice }}
+  {{ range $k, $_ := $infra }}{{ $names = $names | append $k }}{{ end }}
+  {{ range $k, $_ := $inspec }}{{ $names = $names | append $k }}{{ end }}
+  {{ $names = $names | uniq | sort }}
+
+  {{/* --- Resources supported by both products (the compatibility core) --- */}}
+  {{ $both := slice }}
+  {{ range $names }}
+    {{ if and (isset $infra .) (isset $inspec .) }}{{ $both = $both | append . }}{{ end }}
+  {{ end }}
+
+  {{ $infra_base := "/client/19/resources/bundled" }}
+  {{ $inspec_version := "7.1" }}
+  {{ $inspec_base := printf "/inspec/%s/resources/core" $inspec_version }}
+
+  <h2 id="resources-supported-by-both-products">Resources supported by both products</h2>
+
+  <p>The following {{ len $both }} resources are available in both Chef Infra Client and
+  Chef InSpec. Chef Infra Client resources configure system state; Chef InSpec resources
+  audit it. Select a checkmark to open that product's resource documentation.</p>
+
+  <div class="responsive-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Resource</th>
+          <th>Chef Infra Client</th>
+          <th>Chef InSpec</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ range $both }}
+          {{ $name := . }}
+          {{ $id := $name }}
+          <tr id="both-{{ $id }}">
+            <td><code>{{ $name }}</code></td>
+            <td><a href="{{ $infra_base }}/{{ $name }}/" aria-label="{{ $name }} in Chef Infra Client">&#10003;</a></td>
+            <td><a href="{{ $inspec_base }}/{{ $name }}/" aria-label="{{ $name }} in Chef InSpec">&#10003;</a></td>
+            <td>{{ partial "resource_short_desc" (index $infra $name).description | markdownify }}</td>
+          </tr>
+        {{ end }}
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="all-resources">All resources</h2>
+
+  <p>The complete catalog of Chef Infra Client and Chef InSpec resources.
+  A checkmark links to that product's authoritative resource documentation.</p>
+
+  <div class="responsive-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Resource</th>
+          <th>Chef Infra Client</th>
+          <th>Chef InSpec</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ range $names }}
+          {{ $name := . }}
+          {{ $in_infra := isset $infra $name }}
+          {{ $in_inspec := isset $inspec $name }}
+          {{ $desc := "" }}
+          {{ if $in_infra }}
+            {{ $desc = (index $infra $name).description }}
+          {{ else }}
+            {{ $desc = (index $inspec $name).description }}
+          {{ end }}
+          <tr id="resource-{{ $name }}">
+            <td><code>{{ $name }}</code></td>
+            <td>
+              {{ if $in_infra }}
+                <a href="{{ $infra_base }}/{{ $name }}/" aria-label="{{ $name }} in Chef Infra Client">&#10003;</a>
+                {{ with (index $infra $name).new_in }}<span class="resource-new-in">{{ . }}</span>{{ end }}
+              {{ else }}&#8212;{{ end }}
+            </td>
+            <td>
+              {{ if $in_inspec }}
+                <a href="{{ $inspec_base }}/{{ $name }}/" aria-label="{{ $name }} in Chef InSpec">&#10003;</a>
+              {{ else }}&#8212;{{ end }}
+            </td>
+            <td>{{ partial "resource_short_desc" $desc | markdownify }}</td>
+          </tr>
+        {{ end }}
+      </tbody>
+    </table>
+  </div>
+
+  {{/* --- Chef InSpec resource packs (grouped; not part of Chef InSpec core) --- */}}
+  {{ with $.Site.Data.resources.inspec_packs }}
+    <h2 id="inspec-resource-packs">Chef InSpec resource packs</h2>
+
+    <p>As of Chef InSpec 7, cloud and platform resources moved out of Chef InSpec core into
+    separate <a href="/inspec/resource_packs/">resource packs</a>. Each pack bundles many
+    resources, so they're grouped here. Select a pack to see all of its resources.</p>
+
+    <div class="responsive-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Resource pack</th>
+            <th>Chef InSpec</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{ range .packs }}
+            <tr>
+              <td><a href="{{ .path }}">{{ .title }}</a></td>
+              <td><a href="{{ .path }}" aria-label="{{ .title }} resource pack for Chef InSpec">&#10003;</a></td>
+              <td>{{ .description }}</td>
+            </tr>
+          {{ end }}
+        </tbody>
+      </table>
+    </div>
+  {{ end }}
+{{ end }}

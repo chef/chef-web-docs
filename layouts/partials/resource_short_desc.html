@@ -1,0 +1,12 @@
+{{/*
+  Returns the first sentence of a resource description for use in the matrix.
+  Input: the raw description string (may be multi-paragraph Markdown).
+  Keeps the table scannable and the description SEO-friendly.
+*/}}
+{{ $d := . }}
+{{ $d = index (split $d "\n\n") 0 }}
+{{ $d = replaceRE `\s+` " " $d }}
+{{ $d = trim $d " " }}
+{{ $match := findRE `^.*?[.!?](\s|$)` $d 1 }}
+{{ with $match }}{{ $d = trim (index . 0) " " }}{{ end }}
+{{ return $d }}

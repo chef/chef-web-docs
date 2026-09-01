@@ -1,0 +1,43 @@
+# Chef InSpec resource packs for the unified /resources page.
+#
+# As of Chef InSpec 7, cloud and platform resources moved out of Chef InSpec core into
+# separate resource packs. Each pack bundles many individual resources, so the unified
+# catalog groups them here as one entry per pack rather than listing every resource.
+#
+# Source: https://docs.chef.io/inspec/resource_packs/
+# Each entry links to that pack's landing page, which lists its individual resources.
+#
+# path is relative to docs.chef.io. To regenerate: re-read the resource packs list from
+# the Chef InSpec resource packs page and update the title, description, and path.
+
+packs:
+  - title: "Amazon Web Services (AWS)"
+    description: "Chef InSpec resources for auditing Amazon Web Services (AWS) infrastructure."
+    path: "/inspec/resource_packs/aws/"
+  - title: "Microsoft Azure"
+    description: "Chef InSpec resources for auditing Microsoft Azure infrastructure."
+    path: "/inspec/resource_packs/azure/"
+  - title: "Google Cloud Platform (GCP)"
+    description: "Chef InSpec resources for auditing Google Cloud Platform infrastructure."
+    path: "/inspec/resource_packs/gcp/"
+  - title: "Docker"
+    description: "Chef InSpec resources for auditing Docker."
+    path: "/inspec/resource_packs/docker/"
+  - title: "Kubernetes"
+    description: "Chef InSpec resources for auditing Kubernetes."
+    path: "/inspec/resource_packs/k8s/"
+  - title: "Elasticsearch"
+    description: "Chef InSpec resources for auditing Elasticsearch."
+    path: "/inspec/resource_packs/elasticsearch/"
+  - title: "MongoDB"
+    description: "Chef InSpec resources for auditing MongoDB databases and configurations."
+    path: "/inspec/resource_packs/mongodb/"
+  - title: "RabbitMQ"
+    description: "Chef InSpec resources for auditing RabbitMQ."
+    path: "/inspec/resource_packs/rabbitmq/"
+  - title: "Podman"
+    description: "Chef InSpec resources for auditing Podman."
+    path: "/inspec/resource_packs/podman/"
+  - title: "Chef Habitat"
+    description: "Chef InSpec resources for auditing Chef Habitat packages and services."
+    path: "/inspec/resource_packs/habitat/"

@@ -1,0 +1,536 @@
+# Chef InSpec core resource catalog snapshot for the unified /resources page.
+#
+# Scope: Chef InSpec *core* resources only (bundled with Chef InSpec).
+# Source: https://docs.chef.io/inspec/7.1/resources/ (the "Core resources" list).
+# Each core resource page lives at /inspec/7.1/resources/core/<name>/.
+#
+# Cloud and platform resource packs (AWS, Azure, GCP, Docker, Kubernetes, and others)
+# are NOT listed here. As of Chef InSpec 7, those resources moved out of core into
+# separate resource packs and are grouped on the page from data/resources/inspec_packs.yaml.
+#
+# This is a point-in-time snapshot; Chef InSpec docs deploy as a separate site and are
+# not built from this repository. To regenerate: re-read the "Core resources" list from
+# the Chef InSpec resources page and rebuild this map (name -> platform, description, deprecated).
+#
+# Keyed by resource name so the resources_matrix layout can look up Chef InSpec support.
+
+aide_conf:
+  platform: "linux"
+  description: "Use the `aide_conf` Chef InSpec audit resource to test the rules established for the file integrity tool AIDE."
+  deprecated: false
+apache:
+  platform: "linux"
+  description: "Use the `apache` Chef InSpec audit resource to test the state of the Apache server on Linux/Unix systems."
+  deprecated: true
+apache_conf:
+  platform: "linux"
+  description: "Use the `apache_conf` Chef InSpec audit resource to test the configuration settings for Apache."
+  deprecated: false
+apt:
+  platform: "linux"
+  description: "Use the `apt` Chef InSpec audit resource to verify Apt repositories on the Debian and Ubuntu platforms, and also PPA repositories on the Ubuntu platform."
+  deprecated: false
+audit_policy:
+  platform: "linux"
+  description: "Use the `audit_policy` Chef InSpec audit resource to test auditing policies on the Windows platform."
+  deprecated: false
+auditd:
+  platform: "linux"
+  description: "Use the `auditd` Chef InSpec audit resource to test the rules for logging that exist on the system."
+  deprecated: false
+auditd_conf:
+  platform: "linux"
+  description: "Use the `auditd_conf` Chef InSpec audit resource to test the configuration settings for the audit daemon."
+  deprecated: false
+bash:
+  platform: "linux"
+  description: "Use the `bash` Chef InSpec audit resource to test an arbitrary command that is run on the system using a Bash script."
+  deprecated: false
+bond:
+  platform: "linux"
+  description: "Use the `bond` Chef InSpec audit resource to test a logical, bonded network interface (i.e."
+  deprecated: false
+bridge:
+  platform: "linux"
+  description: "Use the `bridge` Chef InSpec audit resource to test basic network bridge properties, such as `name`, if an interface is defined, and the associations for any defined interface."
+  deprecated: false
+bsd_service:
+  platform: "linux"
+  description: "Use the `bsd_service` Chef InSpec audit resource to test a service using a Berkeley OS-style `init` on the FreeBSD platform."
+  deprecated: false
+cassandradb_conf:
+  platform: "os"
+  description: "Use the `cassandradb_conf` Chef InSpec audit resource to test the configuration of a Cassandra database, which is typically located at `$CASSANDRA_HOME/cassandra.yaml` or `$CASSANDRA_HOME\\conf\\cassandra.yaml` depending upon the platform."
+  deprecated: false
+cassandradb_session:
+  platform: "os"
+  description: "Use the `cassandradb_session` Chef InSpec audit resource to test Cassandra Query Language (CQL) commands run against a Cassandra database."
+  deprecated: false
+cgroup:
+  platform: "linux"
+  description: "Use the `cgroup` Chef InSpec audit resource to test the different parameters values of the control group (cgroup) resource controllers."
+  deprecated: false
+chocolatey_package:
+  platform: "windows"
+  description: "Use the `chocolatey_package` Chef InSpec audit resource to test if the named [Chocolatey](https://chocolatey.org/) package and/or package version is installed on the system."
+  deprecated: false
+chrony_conf:
+  platform: "linux"
+  description: "Use the `chrony_conf` Chef InSpec audit resource to test the synchronization settings defined in the `chrony.conf` file."
+  deprecated: false
+command:
+  platform: "os"
+  description: "Use the `command` Chef InSpec audit resource to test an arbitrary command that is run on the system."
+  deprecated: false
+cpan:
+  platform: "linux"
+  description: "Use the `cpan` Chef InSpec audit resource to test Perl modules that are installed by system packages or the CPAN installer."
+  deprecated: false
+cran:
+  platform: "linux"
+  description: "Use the `cran` Chef InSpec audit resource to test R modules that are installed from CRAN package repository."
+  deprecated: false
+cron:
+  platform: "linux"
+  description: "Use the `cron` Chef InSpec audit resource to test the Crontab entries of a particular user on the system."
+  deprecated: false
+crontab:
+  platform: "linux"
+  description: "Use the `crontab` Chef InSpec audit resource to test the crontab entries for a particular user on the system."
+  deprecated: false
+csv:
+  platform: "os"
+  description: "Use the `csv` Chef InSpec audit resource to test configuration data in a CSV file."
+  deprecated: false
+default_gateway:
+  platform: "unix"
+  description: "Use the **default_gateway** Chef InSpec audit resource to test the assigned IP address and interface for the default route."
+  deprecated: false
+dh_params:
+  platform: "linux"
+  description: "Use the `dh_params` Chef InSpec audit resource to test Diffie-Hellman (DH) parameters."
+  deprecated: false
+directory:
+  platform: "os"
+  description: "Use the `directory` Chef InSpec audit resource to test if the file type is a directory."
+  deprecated: false
+etc_fstab:
+  platform: "linux"
+  description: "Use the `etc_fstab` Chef InSpec audit resource to test information about all partitions and storage devices on a Linux system."
+  deprecated: false
+etc_group:
+  platform: "linux"
+  description: "Use the `etc_group` Chef InSpec audit resource to test groups that are defined on Linux and Unix platforms."
+  deprecated: false
+etc_hosts:
+  platform: "linux"
+  description: "Use the `etc_hosts` Chef InSpec audit resource to test rules set to match IP addresses with hostnames."
+  deprecated: false
+etc_hosts_allow:
+  platform: "linux"
+  description: "Use the `etc_hosts_allow` Chef InSpec audit resource to test rules defined for accepting daemon and client traffic in the `'/etc/hosts.allow'` file."
+  deprecated: false
+etc_hosts_deny:
+  platform: "linux"
+  description: "Use the `etc_hosts_deny` Chef InSpec audit resource to test rules for rejecting daemon and client traffic defined in /etc/hosts.deny."
+  deprecated: false
+file:
+  platform: "os"
+  description: "Use the `file` Chef InSpec audit resource to test system file types, including directories, symbolic links, named pipes, sockets, character devices, block devices, and doors."
+  deprecated: false
+filesystem:
+  platform: "linux"
+  description: "Use the `filesystem` Chef InSpec resource to audit filesystem disk space usage."
+  deprecated: false
+firewalld:
+  platform: "linux"
+  description: "Use the `firewalld` Chef InSpec audit resource to test that firewalld is configured to allow and deny access to specific hosts, services and ports on a system."
+  deprecated: false
+gem:
+  platform: "os"
+  description: "Use the `gem` Chef InSpec audit resource to test if a global Gem package is installed."
+  deprecated: false
+group:
+  platform: "os"
+  description: "Use the `group` Chef InSpec audit resource to test a single group on the system."
+  deprecated: false
+groups:
+  platform: "os"
+  description: "Use the `groups` Chef InSpec audit resource to test multiple groups on the system."
+  deprecated: false
+grub_conf:
+  platform: "linux"
+  description: "Grub is a boot loader on the Linux platform used to load and then transfer control to an operating system kernel, after which that kernel initializes the rest of the operating system."
+  deprecated: false
+host:
+  platform: "os"
+  description: "Use the `host` Chef InSpec audit resource to test the specific host name and its availability."
+  deprecated: false
+http:
+  platform: "linux"
+  description: "Use the `http` Chef InSpec audit resource to test an http endpoint."
+  deprecated: false
+iis_app:
+  platform: "windows"
+  description: "Use the `iis_app` Chef InSpec audit resource to test the state of IIS on Windows Server 2012 (and later)."
+  deprecated: false
+iis_site:
+  platform: "windows"
+  description: "Use the `iis_site` Chef InSpec audit resource to test the state of IIS on Windows Server 2012 (and later)."
+  deprecated: false
+inetd_conf:
+  platform: "linux"
+  description: "Use the `inetd_conf` Chef InSpec audit resource to test if a service is listed in the `inetd.conf` file on Linux and Unix platforms."
+  deprecated: false
+ini:
+  platform: "os"
+  description: "Use the `ini` Chef InSpec audit resource to test settings in an INI file."
+  deprecated: false
+interface:
+  platform: "os"
+  description: "Use the `interface` Chef InSpec audit resource to test basic network adapter properties, such as name, status, IP addresses, and link speed (in MB/sec)."
+  deprecated: false
+interfaces:
+  platform: "os"
+  description: "Use the `interfaces` Chef InSpec audit resource to test the properties of multiple network interfaces on the system."
+  deprecated: false
+ip6tables:
+  platform: "linux"
+  description: "Use the `ip6tables` Chef InSpec audit resource to test rules that are defined in `ip6tables`, which maintains tables of IP packet filtering rules for IPv6."
+  deprecated: false
+ipfilter:
+  platform: "bsd"
+  description: "Use the `ipfilter` Chef InSpec audit resource to test rules defined for `ipfilter`."
+  deprecated: false
+ipnat:
+  platform: "bsd"
+  description: "Use the `ipnat` Chef InSpec audit resource to test rules that are defined for `IP NAT`."
+  deprecated: false
+iptables:
+  platform: "linux"
+  description: "Use the `iptables` Chef InSpec audit resource to test rules that are defined in `iptables`, which maintains tables of IP packet filtering rules."
+  deprecated: false
+json:
+  platform: "os"
+  description: "Use the `json` Chef InSpec audit resource to test data in a JSON file."
+  deprecated: false
+kernel_module:
+  platform: "linux"
+  description: "Use the `kernel_module` Chef InSpec audit resource to test kernel modules on Linux platforms."
+  deprecated: false
+kernel_parameter:
+  platform: "linux"
+  description: "Use the `kernel_parameter` Chef InSpec audit resource to test kernel parameters on Linux platforms."
+  deprecated: false
+kernel_parameters:
+  platform: "linux"
+  description: "Use the `kernel_parameters` Chef InSpec audit resource to test multiple kernel parameters on Linux platforms."
+  deprecated: false
+key_rsa:
+  platform: "os"
+  description: "Use the `key_rsa` Chef InSpec audit resource to test RSA public/private keypairs."
+  deprecated: false
+launchd_service:
+  platform: "linux"
+  description: "Use the `launchd_service` Chef InSpec audit resource to test a service using Launchd."
+  deprecated: false
+limits_conf:
+  platform: "linux"
+  description: "Use the `limits_conf` Chef InSpec audit resource to test configuration settings in the `/etc/security/limits.conf` file."
+  deprecated: false
+linux_audit_system:
+  platform: "linux"
+  description: "Use the `linux_audit_system` Chef InSpec audit resource to test the configuration of Linux audit system."
+  deprecated: false
+login_defs:
+  platform: "linux"
+  description: "Use the `login_defs` Chef InSpec audit resource to test configuration settings in the `/etc/login.defs` file."
+  deprecated: false
+lxc:
+  platform: "linux"
+  description: "Use the `lxc` Chef InSpec audit resource to test the information about Linux containers."
+  deprecated: false
+mail_alias:
+  platform: "unix"
+  description: "Use the `mail_alias` Chef InSpec audit resource to test the mail alias present in the aliases file."
+  deprecated: false
+mount:
+  platform: "linux"
+  description: "Use the `mount` Chef InSpec audit resource to test the mount points on FreeBSD and Linux systems."
+  deprecated: false
+mssql_session:
+  platform: "windows"
+  description: "Use the `mssql_session` Chef InSpec audit resource to test SQL commands run against a Microsoft SQL database."
+  deprecated: false
+mssql_sys_conf:
+  platform: "os"
+  description: "Use the `mssql_sys_conf` Chef InSpec audit resource to test the configuration of a Microsoft SQL Server database."
+  deprecated: false
+mysql_conf:
+  platform: "os"
+  description: "Use the `mysql_conf` Chef InSpec audit resource to test the contents of the configuration file for MySQL, typically located at `/etc/mysql/my.cnf` or `/etc/my.cnf`."
+  deprecated: false
+mysql_session:
+  platform: "os"
+  description: "Use the `mysql_session` Chef InSpec audit resource to test SQL commands run against a MySQL database."
+  deprecated: false
+nftables:
+  platform: "linux"
+  description: "Use the `nftables` Chef InSpec audit resource to test rules and sets that are defined using `nftables`, which maintains tables of IP packet filtering rules."
+  deprecated: false
+nginx:
+  platform: "linux"
+  description: "Use the `nginx` Chef InSpec audit resource to test the fields and validity of nginx."
+  deprecated: false
+nginx_conf:
+  platform: "linux"
+  description: "Use the `nginx_conf` Chef InSpec resource to test configuration data for the NGINX server located at `/etc/nginx/nginx.conf` on Linux and Unix platforms."
+  deprecated: false
+npm:
+  platform: "os"
+  description: "Use the `npm` Chef InSpec audit resource to test if a global NPM package is installed."
+  deprecated: false
+ntp_conf:
+  platform: "linux"
+  description: "Use the `ntp_conf` Chef InSpec audit resource to test the synchronization settings defined in the `ntp.conf` file."
+  deprecated: false
+oneget:
+  platform: "windows"
+  description: "Use the `oneget` Chef InSpec audit resource to test if the named package and/or package version is installed on the system."
+  deprecated: false
+oracledb_conf:
+  platform: "os"
+  description: "Use the `oracledb_conf` Chef InSpec audit resource to test the Oracle system parameters."
+  deprecated: false
+oracledb_listener_conf:
+  platform: "os"
+  description: "Use the `oracledb_listener_conf` Chef InSpec audit resource to test the listeners settings of Oracle DB, typically located at `$ORACLE_HOME/network/admin/listener.ora` or `$ORACLE_HOME\\network\\admin\\listener.ora` depending upon the platform."
+  deprecated: false
+oracledb_session:
+  platform: "os"
+  description: "Use the `oracledb_session` Chef InSpec audit resource to test SQL commands run against a Oracle database."
+  deprecated: false
+os:
+  platform: "os"
+  description: "Use the `os` Chef InSpec audit resource to test the platform on which the system is running."
+  deprecated: false
+os_env:
+  platform: "os"
+  description: "Use the `os_env` Chef InSpec audit resource to test the environment variables for the platform on which the system is running."
+  deprecated: false
+package:
+  platform: "os"
+  description: "Use the `package` Chef InSpec audit resource to test if the named package and/or package version is installed on the system."
+  deprecated: false
+packages:
+  platform: "linux"
+  description: "Use the `packages` Chef InSpec audit resource to test the properties of multiple packages on the system."
+  deprecated: false
+parse_config:
+  platform: "os"
+  description: "Use the `parse_config` Chef InSpec audit resource to test arbitrary configuration files."
+  deprecated: false
+parse_config_file:
+  platform: "os"
+  description: "Use the `parse_config_file` Chef InSpec audit resource to test arbitrary configuration files."
+  deprecated: false
+passwd:
+  platform: "linux"
+  description: "Use the `passwd` Chef InSpec audit resource to test the contents of `/etc/passwd`, which contains the following information for users that may log into the system and/or as users that own running processes."
+  deprecated: false
+php_config:
+  platform: "os"
+  description: "Use the `php_config` Chef InSpec audit resource to test the PHP configuration parameters from the default `php.ini` file or a custom *php* file."
+  deprecated: false
+pip:
+  platform: "os"
+  description: "Use the `pip` Chef InSpec audit resource to test packages that are installed using the Python PIP installer."
+  deprecated: false
+port:
+  platform: "os"
+  description: "Use the `port` Chef InSpec audit resource to test basic port properties, such as port, process, if it's listening."
+  deprecated: false
+postfix_conf:
+  platform: "os"
+  description: "Use the `postfix_conf` Chef InSpec audit resource to test the main configuration of the Postfix Mail Transfer Agent."
+  deprecated: false
+postgres_conf:
+  platform: "os"
+  description: "Use the `postgres_conf` Chef InSpec audit resource to test the contents of the configuration file for PostgreSQL, typically located at `/etc/postgresql/<version>/main/postgresql.conf` or `/var/lib/postgres/data/postgresql.conf`, depending on the platform."
+  deprecated: false
+postgres_hba_conf:
+  platform: "linux"
+  description: "Use the `postgres_hba_conf` Chef InSpec audit resource to test the client authentication data defined in the pg_hba.conf file."
+  deprecated: false
+postgres_ident_conf:
+  platform: "linux"
+  description: "Use the `postgres_ident_conf` Chef InSpec audit resource to test the client authentication data defined in the pg_ident.conf file."
+  deprecated: false
+postgres_session:
+  platform: "os"
+  description: "Use the `postgres_session` Chef InSpec audit resource to test SQL commands run against a PostgreSQL database."
+  deprecated: false
+powershell:
+  platform: "windows"
+  description: "Use the `powershell` Chef InSpec audit resource to test a Powershell script on the Windows platform."
+  deprecated: false
+ppa:
+  platform: "linux"
+  description: "Use the `ppa` Chef InSpec audit resource to verify the PPA repositories on Debian-based Linux distributions."
+  deprecated: false
+processes:
+  platform: "os"
+  description: "Use the `processes` Chef InSpec audit resource to test the properties of system programs."
+  deprecated: false
+registry_key:
+  platform: "windows"
+  description: "Use the `registry_key` Chef InSpec audit resource to test key values in the Windows registry."
+  deprecated: false
+routing_table:
+  platform: "linux"
+  description: "Use the `routing_table` Chef InSpec audit resource to test the routing information parameters, destination, gateway, and interface present in the routing table."
+  deprecated: false
+runit_service:
+  platform: "linux"
+  description: "Use the `runit_service` Chef InSpec audit resource to test a service using runit."
+  deprecated: false
+security_identifier:
+  platform: "windows"
+  description: "Use the `security_identifier` Chef InSpec resource to test the [Security Identifier (SID)](https://docs.microsoft.com/en-us/windows/desktop/secauthz/security-identifiers) for user and group trustees on Windows."
+  deprecated: false
+security_policy:
+  platform: "windows"
+  description: "Use the `security_policy` Chef InSpec audit resource to test security policies on the Windows platform."
+  deprecated: false
+selinux:
+  platform: "linux"
+  description: "Use the `selinux` Chef InSpec audit resource to test the configuration data of the SELinux policy, SELinux modules and SELinux booleans."
+  deprecated: false
+service:
+  platform: "os"
+  description: "Use the `service` Chef InSpec audit resource to test whether the installation of the named service is successful and enabled."
+  deprecated: false
+shadow:
+  platform: "linux"
+  description: "Use the `shadow` Chef InSpec audit resource to test the contents of `/etc/shadow`, which contains password details that are readable only by the `root` user."
+  deprecated: false
+ssh_config:
+  platform: "linux"
+  description: "Use the `ssh_config` Chef InSpec audit resource to test OpenSSH client configuration data located at `/etc/ssh/ssh_config` on Linux and Unix platforms."
+  deprecated: false
+ssh_key:
+  platform: "os"
+  description: "Use the `ssh_key` Chef InSpec audit resource to test ssh keys."
+  deprecated: false
+sshd_active_config:
+  platform: "linux"
+  description: "Use the `sshd_active_config` Chef InSpec audit resource to find and test configuration data for the OpenSSH daemon."
+  deprecated: false
+sshd_config:
+  platform: "linux"
+  description: "Use the `sshd_config` Chef InSpec audit resource to test configuration data for the OpenSSH daemon located at `/etc/ssh/sshd_config` on Linux and Unix platforms."
+  deprecated: false
+ssl:
+  platform: "os"
+  description: "Use the `ssl` Chef InSpec audit resource to test SSL settings for the named port."
+  deprecated: false
+sys_info:
+  platform: "os"
+  description: "Use the `sys_info` Chef InSpec audit resource to test for operating system properties for the named host, and then returns that info as standard output."
+  deprecated: false
+systemd_service:
+  platform: "linux"
+  description: "Use the `systemd_service` Chef InSpec audit resource to test a service using SystemD."
+  deprecated: false
+sysv_service:
+  platform: "linux"
+  description: "Use the `sysv_service` Chef InSpec audit resource to test a service using SystemV."
+  deprecated: false
+timezone:
+  platform: "linux"
+  description: "Use the `timezone` Chef InSpec audit resource to test timezone configurations of the system."
+  deprecated: false
+toml:
+  platform: "os"
+  description: "Use the `toml` Chef InSpec audit resource to test settings in a TOML file."
+  deprecated: false
+upstart_service:
+  platform: "linux"
+  description: "Use the `upstart_service` Chef InSpec audit resource to test a service using Upstart."
+  deprecated: false
+user:
+  platform: "os"
+  description: "Use the `user` Chef InSpec audit resource to test user profiles of a single, known or expected local user, including the groups to which the user belongs, the frequency of password changes, and the directory paths to home and shell."
+  deprecated: false
+users:
+  platform: "os"
+  description: "Use the `users` Chef InSpec audit resource to look up all local users available on the system, and then test specific properties of those users."
+  deprecated: false
+vbscript:
+  platform: "windows"
+  description: "Use the `vbscript` Chef InSpec audit resource to test a VBScript on the Windows platform."
+  deprecated: false
+virtualization:
+  platform: "linux"
+  description: "Use the `virtualization` Chef InSpec audit resource to test the virtualization platform on which the system is running."
+  deprecated: false
+windows_feature:
+  platform: "windows"
+  description: "Use the `windows_feature` Chef InSpec audit resource to test features on Windows via the `Get-WindowsFeature` cmdlet."
+  deprecated: false
+windows_firewall:
+  platform: "windows"
+  description: "Use the `windows_firewall` Chef InSpec audit resource to test if a firewall profile is correctly configured on a Windows system."
+  deprecated: false
+windows_firewall_rule:
+  platform: "windows"
+  description: "Use the `windows_firewall_rule` Chef InSpec audit resource to test if a firewall rule is correctly configured on a Windows system."
+  deprecated: false
+windows_hotfix:
+  platform: "windows"
+  description: "Use the `windows_hotfix` Chef InSpec audit resource to test if the hotfix has been installed on a Windows system."
+  deprecated: false
+windows_task:
+  platform: "windows"
+  description: "Use the `windows_task` Chef InSpec audit resource to test a scheduled tasks configuration on a Windows platform."
+  deprecated: false
+wmi:
+  platform: "windows"
+  description: "Use the `wmi` Chef InSpec audit resource to test WMI settings on the Windows platform."
+  deprecated: false
+x509_certificate:
+  platform: "os"
+  description: "Use the `x509_certificate` Chef InSpec audit resource to test the fields and validity of an x.509 certificate."
+  deprecated: false
+x509_private_key:
+  platform: "unix"
+  description: "Use the `x509_private_key` Chef InSpec audit resource to test the x509 private key."
+  deprecated: false
+xinetd_conf:
+  platform: "linux"
+  description: "Use the `xinetd_conf` Chef InSpec audit resource to test services under `/etc/xinet.d` on Linux and Unix platforms."
+  deprecated: false
+xml:
+  platform: "os"
+  description: "Use the `xml` Chef InSpec audit resource to test data in an XML file."
+  deprecated: false
+yaml:
+  platform: "os"
+  description: "Use the `yaml` Chef InSpec audit resource to test configuration data in a Yaml file."
+  deprecated: false
+yum:
+  platform: "linux"
+  description: "Use the `yum` Chef InSpec audit resource to test packages in the Yum repository."
+  deprecated: false
+zfs:
+  platform: "linux"
+  description: "Use the `zfs` Chef InSpec audit resource to test the named ZFS Pool file system and its respective properties."
+  deprecated: false
+zfs_dataset:
+  platform: "linux"
+  description: "Use the `zfs_dataset` Chef InSpec audit resource to test the ZFS datasets on FreeBSD & Linux (Check [OS Family Details](https://docs.chef.io/inspec/resources/os/#osfamily-helpers) for more details)."
+  deprecated: false
+zfs_pool:
+  platform: "linux"
+  description: "Use the `zfs_pool` Chef InSpec audit resource to test the ZFS pools on FreeBSD & Linux (Centos, RHEL, Ubuntu, CloudLinux, Debian) systems."
+  deprecated: false
