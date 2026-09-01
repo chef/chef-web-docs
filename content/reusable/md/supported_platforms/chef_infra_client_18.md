@@ -1,4 +1,6 @@
 
+<!-- markdownlint-disable MD036 -->
+
 **Commercially-supported platforms**
 
 The following table lists the commercially supported platforms and versions for Chef Infra Client 18.

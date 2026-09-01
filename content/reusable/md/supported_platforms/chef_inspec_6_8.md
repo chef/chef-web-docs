@@ -1,3 +1,6 @@
+
+<!-- markdownlint-disable MD036 -->
+
 **Commercially supported platforms**
 
 | Platform                     | Architecture                                | Version                                                                                             |

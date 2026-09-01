@@ -1,4 +1,6 @@
 
+<!-- markdownlint-disable MD036 -->
+
 **RHEL/Enterprise Linux family**
 
 | Platform                 | Architecture                | Version                                 | Tier                    | Agent | Agentless | Installer       |
