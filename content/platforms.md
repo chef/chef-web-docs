@@ -15,7 +15,7 @@ swiftype_search_products = ["automate", "client", "server", "habitat", "inspec",
 
 Progress Chef software is supported on the operating systems (platforms)
 listed below. To see which versions of our software we currently
-support, see the [Supported versions](/versions/) page.
+support, see the [supported versions](/versions/) page.
 
 ## Support definitions
 

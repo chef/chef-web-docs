@@ -12,7 +12,6 @@ This page documents how to upgrade Chef Infra Client to version 19 in an online 
 
 ## Supported platforms
 
-
 See the [Chef Infra Client supported platforms](/platforms/#chef-infra-client-support-19) documentation.
 
 ## Prerequisites
