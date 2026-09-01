@@ -1180,31 +1180,38 @@ title = "Chef Workstation"
 identifier = "chef_workstation"
 
   [[workstation]]
+  title = "Workstation v26.2"
+  parent = "chef_workstation"
+  identifier = "chef_workstation/26.2"
+  url = "/workstation/26.2/"
+  weight = 10
+
+  [[workstation]]
   title = "Workstation v26.1"
   parent = "chef_workstation"
   identifier = "chef_workstation/26.1"
   url = "/workstation/26.1/"
-  weight = 10
+  weight = 20
 
   [[workstation]]
   title = "Workstation v26.0"
   parent = "chef_workstation"
   identifier = "chef_workstation/26.0"
   url = "/workstation/26.0/"
-  weight = 20
+  weight = 30
 
   [[workstation]]
   title = "Workstation v25"
   parent = "chef_workstation"
   identifier = "workstation/25"
   url = "/workstation/25/"
-  weight = 30
+  weight = 40
 
   [[workstation]]
   title = "Cookstyle"
   parent = "chef_workstation"
   identifier = "chef_workstation/cookstyle"
-  weight = 500
+  weight = 900
 
     [[workstation]]
     title = "Cops"
@@ -1265,42 +1272,93 @@ identifier = "chef_workstation"
 # End Chef Workstation Menu
 ####
 
+
 ####
-# Chef Workstation 25 Menu
+# Chef Workstation 26.2 Menu
 ####
 
-[[workstation_25]]
+[[workstation_26_2]]
 title = "Tools"
-identifier = "workstation_25/tools"
-weight = 70
+identifier = "workstation_26_2/tools"
+weight = 80
 
-  [[workstation_25]]
+  [[workstation_26_2]]
   title = "Cookstyle"
-  identifier = "workstation_25/tools/cookstyle"
-  parent = "workstation_25/tools"
+  identifier = "workstation_26_2/tools/cookstyle"
+  parent = "workstation_26_2/tools"
   weight = 90
   url = "/workstation/cookstyle/"
 
-  [[workstation_25]]
+  [[workstation_26_2]]
   title = "Knife"
-  identifier = "workstation_25/tools/knife"
-  parent = "workstation_25/tools"
-  weight = 10
+  identifier = "workstation_26_2/tools/knife"
+  parent = "workstation_26_2/tools"
+  weight = 100
 
-    [[workstation_25]]
+    [[workstation_26_2]]
+    title = "Knife CLI reference"
+    identifier = "workstation_26_2/tools/knife/reference"
+    parent = "workstation_26_2/tools/knife"
+    weight = 120
+
+    [[workstation_26_2]]
     title = "Knife plugins"
-    identifier = "workstation_25/tools/knife/plugins"
-    parent = "workstation_25/tools/knife"
-    weight = 10
+    identifier = "workstation_26_2/tools/knife/plugins"
+    parent = "workstation_26_2/tools/knife"
+    weight = 130
 
-  [[workstation_25]]
+  [[workstation_26_2]]
   title = "Test Kitchen"
-  identifier = "workstation_25/tools/test_kitchen"
-  parent = "workstation_25/tools"
-  weight = 20
+  identifier = "workstation_26_2/tools/test_kitchen"
+  parent = "workstation_26_2/tools"
+  weight = 200
 
 ####
-# End Chef Workstation 25 Menu
+# End Chef Workstation 26.2 Menu
+####
+
+####
+# Chef Workstation 26.1 Menu
+####
+
+[[workstation_26_1]]
+title = "Tools"
+identifier = "workstation_26_1/tools"
+weight = 80
+
+  [[workstation_26_1]]
+  title = "Cookstyle"
+  identifier = "workstation_26_1/tools/cookstyle"
+  parent = "workstation_26_1/tools"
+  weight = 90
+  url = "/workstation/cookstyle/"
+
+  [[workstation_26_1]]
+  title = "Knife"
+  identifier = "workstation_26_1/tools/knife"
+  parent = "workstation_26_1/tools"
+  weight = 100
+
+    [[workstation_26_1]]
+    title = "Knife CLI reference"
+    identifier = "workstation_26_1/tools/knife/reference"
+    parent = "workstation_26_1/tools/knife"
+    weight = 120
+
+    [[workstation_26_1]]
+    title = "Knife plugins"
+    identifier = "workstation_26_1/tools/knife/plugins"
+    parent = "workstation_26_1/tools/knife"
+    weight = 130
+
+  [[workstation_26_1]]
+  title = "Test Kitchen"
+  identifier = "workstation_26_1/tools/test_kitchen"
+  parent = "workstation_26_1/tools"
+  weight = 200
+
+####
+# End Chef Workstation 26.1 Menu
 ####
 
 ####
@@ -1347,48 +1405,43 @@ weight = 80
 # End Chef Workstation 26.0 Menu
 ####
 
+
 ####
-# Chef Workstation 26.1 Menu
+# Chef Workstation 25 Menu
 ####
 
-[[workstation_26_1]]
+[[workstation_25]]
 title = "Tools"
-identifier = "workstation_26_1/tools"
-weight = 80
+identifier = "workstation_25/tools"
+weight = 70
 
-  [[workstation_26_1]]
+  [[workstation_25]]
   title = "Cookstyle"
-  identifier = "workstation_26_1/tools/cookstyle"
-  parent = "workstation_26_1/tools"
+  identifier = "workstation_25/tools/cookstyle"
+  parent = "workstation_25/tools"
   weight = 90
   url = "/workstation/cookstyle/"
 
-  [[workstation_26_1]]
+  [[workstation_25]]
   title = "Knife"
-  identifier = "workstation_26_1/tools/knife"
-  parent = "workstation_26_1/tools"
-  weight = 100
+  identifier = "workstation_25/tools/knife"
+  parent = "workstation_25/tools"
+  weight = 10
 
-    [[workstation_26_1]]
-    title = "Knife CLI reference"
-    identifier = "workstation_26_1/tools/knife/reference"
-    parent = "workstation_26_1/tools/knife"
-    weight = 120
-
-    [[workstation_26_1]]
+    [[workstation_25]]
     title = "Knife plugins"
-    identifier = "workstation_26_1/tools/knife/plugins"
-    parent = "workstation_26_1/tools/knife"
-    weight = 130
+    identifier = "workstation_25/tools/knife/plugins"
+    parent = "workstation_25/tools/knife"
+    weight = 10
 
-  [[workstation_26_1]]
+  [[workstation_25]]
   title = "Test Kitchen"
-  identifier = "workstation_26_1/tools/test_kitchen"
-  parent = "workstation_26_1/tools"
-  weight = 200
+  identifier = "workstation_25/tools/test_kitchen"
+  parent = "workstation_25/tools"
+  weight = 20
 
 ####
-# End Chef Workstation 26.1 Menu
+# End Chef Workstation 25 Menu
 ####
 
 ####

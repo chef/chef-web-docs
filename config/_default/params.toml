@@ -214,6 +214,10 @@ name = "Workstation"
 product_key = "workstation"
 
 [[search.products.workstation.versions]]
+name = "26.2"
+product_version_key = "workstation-26.2"
+
+[[search.products.workstation.versions]]
 name = "26.1"
 product_version_key = "workstation-26.1"
 
