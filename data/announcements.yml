@@ -1,0 +1,14 @@
+# Product announcements shown on the docs landing page (layouts/index.html).
+# Set `active: true` (or delete the entry) to retire an announcement.
+# `severity` maps to an existing admonition style: note, important, warning, or danger.
+# `message` supports Markdown; layouts/index.html renders it with `RenderString`.
+- id: chef-infra-server-eol
+  active: true
+  severity: warning
+  product: Chef Infra Server
+  title: Chef Infra Server is deprecated
+  message: >-
+    Chef Infra Server is deprecated and will reach end-of-life status on November 30, 2026.
+    Migrate to [Chef 360 Platform](/360/latest/) as a replacement.
+    See [supported versions](/versions/#deprecated-products-and-versions) for details,
+    and contact your Chef account representative for help with migration planning.
