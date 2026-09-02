@@ -17,6 +17,33 @@ summary = "Chef InSpec release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
+## Chef InSpec 7.2.1
+
+Release date: September 2, 2026
+
+### Bug fixes
+
+- The `--auto-install-gems` flag now correctly falls back to install the Docker and Podman resource pack gems for bare resource names, such as `docker` and `podman`, in addition to sub-resources such as `docker_container` and `podman_volume`. Previously, running a profile with a bare `docker` or `podman` resource and `--auto-install-gems` raised an undefined method error, because the fallback pattern matching required at least one character after the resource name and so skipped bare resource names. ([#7976](https://github.com/inspec/inspec/pull/7976))
+- Chef InSpec now correctly loads controls from vendored profiles that include gemspec files in the `vendor/` directory. Previously, InSpec identified these as gem profiles instead of regular InSpec profiles, so controls failed to load. ([#7962](https://github.com/inspec/inspec/pull/7962))
+- Chef InSpec now correctly detects 32-bit applications on Windows by querying `WOW6432Node` registry paths for all architectures except 32-bit (i386) systems. Previously, when using Test Kitchen with WinRM, InSpec couldn't determine the system architecture, so it skipped `WOW6432Node` paths and 32-bit applications appeared as not installed. ([#7942](https://github.com/inspec/inspec/pull/7942))
+- Chef InSpec Habitat packages on Linux now bundle the build toolchain required to compile native gem extensions, such as those used by the MongoDB resource pack. Previously, these packages couldn't compile native extensions on hosts without system `gcc` and `make` installed. ([#7979](https://github.com/inspec/inspec/pull/7979))
+
+### Deprecated features
+
+- The `--overwrite` flag in the `inspec compliance upload` command is deprecated and will be removed in a future release. This option doesn't work as expected when uploading to Chef Automate. ([#7974](https://github.com/inspec/inspec/pull/7974))
+
+### Packaging
+
+- We now provide OS-native Habitat-based Chef InSpec packages for Linux ARM.
+- We now release Chef InSpec Habitat packages for Linux ARM (`aarch64-linux`). ([#7968](https://github.com/inspec/inspec/pull/7968))
+- We now release Chef InSpec Habitat packages for Apple Silicon Macs (`aarch64-darwin`). ([#7987](https://github.com/inspec/inspec/pull/7987))
+
+### Dependency updates
+
+- Updated `train` and `train-core` from 3.16.1 to 3.16.5. ([#7980](https://github.com/inspec/inspec/pull/7980))
+- Updated `chef-licensing` from 1.4.0 to 1.4.1. ([#7983](https://github.com/inspec/inspec/pull/7983))
+- Updated gems to support the latest `train-kubernetes` requirements, including `excon` (1.6.0) and `k8s-ruby` (0.18.0). ([#7995](https://github.com/inspec/inspec/pull/7995), [k8s-ruby #19](https://github.com/inspec/k8s-ruby/pull/19))
+
 ## Chef InSpec 7.1.7
 
 Release date: May 11th, 2026
