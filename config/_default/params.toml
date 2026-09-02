@@ -41,6 +41,7 @@ sitemaps = [
   "https://docs.chef.io/inspec/6.8/sitemap.xml",
   "https://docs.chef.io/inspec/7.0/sitemap.xml",
   "https://docs.chef.io/inspec/7.1/sitemap.xml",
+  "https://docs.chef.io/inspec/7.2/sitemap.xml",
   "https://docs.chef.io/inspec/resource_packs/sitemap.xml",
   "https://docs.chef.io/habitat/1.6/sitemap.xml",
   "https://docs.chef.io/habitat/2.0/sitemap.xml",
@@ -88,7 +89,7 @@ default_search_product_keys = [
   "client-19",
   "server",
   "inspec",
-  "inspec-7.1",
+  "inspec-7.2",
   "saas",
   "supermarket",
   "workstation",
@@ -180,6 +181,10 @@ product_key = "server"
 [search.products.inspec]
 name = "InSpec"
 product_key = "inspec"
+
+[[search.products.inspec.versions]]
+name = "7.2"
+product_version_key = "inspec-7.2"
 
 [[search.products.inspec.versions]]
 name = "7.1"
