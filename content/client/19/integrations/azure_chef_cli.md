@@ -172,6 +172,10 @@ The extension has the following options that can be provided in the
 
 : Chef Infra Client 15+ requires accepting the CHEF EULA license. Set `CHEF_LICENSE` to one of these values `accept`, `accept-silent` or `accept-no-persist`. Refer to [CHEF EULA license](https://docs.chef.io/licensing/accept//#accept-the-chef-eula)
 
+`chef_license_key`
+
+: Your Chef license key, required by default for downloading Chef Infra Client. Set this as a raw JSON string in the extension's public settings, alongside `CHEF_LICENSE`. The extension exports it as `CHEF_LICENSE_KEY` before running the installer and downloads packages from `chefdownload-commercial.chef.io`.
+
 `hints`
 
 : Specifies the [Ohai Hints](/client/19/features/ohai/#hints) to be set in the Ohai configuration of the target node.
