@@ -10,6 +10,8 @@ draft = false
     weight = 5
 +++
 
+## Prerequisites
+
 Before you bootstrap Chef Infra Client on nodes:
 
 1. Install and configure Chef Infra Server
@@ -17,21 +19,29 @@ Before you bootstrap Chef Infra Client on nodes:
 
 ## Chef Infra Client requirements
 
-- The recommended amount of RAM available to Chef Infra Client during
-    a Chef Infra Client run is 512MB
-- The Chef Infra Client binaries are stored in the `/opt/chef`
-    directory, which requires a minimum of 200MB of disk space. On
-    Windows, the Chef Infra Client binaries can be found in
-    `C:\opscode\`, and they require a minimum of 600MB of disk space.
-- The processor must be [supported](https://docs.chef.io/platforms/). We recommend
-    a 1 gigahertz (GHz) or faster processor, but the processor speed
-    should be based on the other system loads.
-- Chef Infra Client caches to `/var/chef/cache` during a Chef Infra
-    Client run. This is the location in which downloaded cookbooks,
-    packages required by those cookbooks, and other large files are
-    stored. This directory requires enough space to save all of this
-    data and should be generously sized. 5GB is a safe number as a
-    starting point, but tune the size of `/var/chef/cache` as necessary.
-    This location is tunable in a node's
-    [client.rb](/install/config_rb_client/) file using the
-    `file_cache_path` setting.
+Chef Infra Client requires the following system resources and disk space.
+
+### Memory
+
+- We recommend at least 512 MB of available RAM during a Chef Infra Client run.
+
+### Installation disk space
+
+- On Linux, Chef Infra Client installs binaries in `/opt/chef` and requires at least 200 MB of available disk space.
+- On Windows, Chef Infra Client installs binaries in `C:\opscode\` and requires at least 600 MB of available disk space.
+
+### Processor
+
+- See the [supported platforms and processors documentation](/platforms/#chef-infra-client-support-18).
+- We recommend a processor speed of 1 GHz or faster, although actual requirements depend on system workload and the resources available to Chef Infra Client.
+
+### Cache storage
+
+During a run, Chef Infra Client stores downloaded cookbooks, packages, and other temporary files in the cache directory:
+
+- Linux: `/var/chef/cache`
+- Windows: Configured by the `file_cache_path` setting
+
+Ensure that the cache directory has sufficient free space for downloaded content and temporary files. We recommend starting with 5 GB of available disk space and increasing it as needed for your environment.
+
+You can change the cache directory location by configuring the `file_cache_path` setting in `client.rb`.
