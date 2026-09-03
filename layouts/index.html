@@ -5,6 +5,29 @@
   existing product SVGs from /static/images/ where available.
 */}}
 
+<style>
+  /* Keeps the product icon and heading text on one line within each card. */
+  .product-card-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .product-card-heading .product-card-name {
+    margin: 0;
+  }
+  /* Reuses .admonition-warning-title's color/background; only overrides layout so it reads as an inline pill badge. */
+  .product-card-badge {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.5rem;
+    padding: 0.15rem 0.5rem;
+    border-bottom: none;
+    border-radius: 999px;
+    font-size: 0.7rem;
+  }
+</style>
+
 {{ $products := slice
   (dict
     "name"     "Chef 360 Platform"
@@ -47,6 +70,7 @@
     "icon"     ""
     "icon_mat" "storage"
     "desc"     "A central hub for storing and distributing infrastructure configuration data, policies, and cookbooks."
+    "badge"    "Deprecated"
   )
   (dict
     "name"     "Chef InSpec"
@@ -90,6 +114,23 @@
   </div>
   {{- end }}
 
+  {{- $announcements := where .Site.Data.announcements "active" true }}
+  {{- with $announcements }}
+  <div class="product-announcements">
+    <h2>Product announcements</h2>
+    {{- range . }}
+    <div class="admonition-{{ .severity }}">
+      <p class="admonition-{{ .severity }}-title">{{ .title }}</p>
+      <div class="admonition-{{ .severity }}-text">
+        {{ $.RenderString .message }}
+      </div>
+    </div>
+    {{- end }}
+  </div>
+  {{- end }}
+
+  <h2>Browse by product</h2>
+
   <p class="lead">Select a product to browse its documentation.</p>
 
   <div class="grid-x grid-padding-x small-up-1 medium-up-2 large-up-3 product-card-grid">
@@ -98,16 +139,21 @@
       <div class="card product-card">
 
         <div class="card-section">
-          <div class="product-card-icon" aria-hidden="true">
-            {{ if .icon }}
-              <img src="{{ .icon }}" alt="">
-            {{ else }}
-              <span class="material-symbols-outlined" translate="no">{{ .icon_mat }}</span>
-            {{ end }}
+          <div class="product-card-heading">
+            <div class="product-card-icon" aria-hidden="true">
+              {{ if .icon }}
+                <img src="{{ .icon }}" alt="">
+              {{ else }}
+                <span class="material-symbols-outlined" translate="no">{{ .icon_mat }}</span>
+              {{ end }}
+            </div>
+            <h3 class="product-card-name">
+              <a href="{{ .url }}">{{ .name }}</a>
+              {{- with .badge }}
+              <span class="admonition-warning-title product-card-badge">{{ . }}</span>
+              {{- end }}
+            </h3>
           </div>
-          <h2 class="product-card-name">
-            <a href="{{ .url }}">{{ .name }}</a>
-          </h2>
           <p>{{ .desc }}</p>
         </div>
 
