@@ -26,7 +26,7 @@ To uninstall Chef Workstation, follow these steps:
    dpkg -l chef-workstation-enterprise
    ```
 
-   The command returns no output if the package is removed successfully.
+   The command returns a `dpkg-query: no packages found matching chef-workstation-enterprise` message if the package is removed successfully.
 
 ## Uninstall Chef Workstation on RPM-based distributions
 
