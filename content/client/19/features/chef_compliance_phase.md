@@ -229,7 +229,7 @@ The following examples:
   ```
 
   {{< /foundation_tabs_panel >}}
-    {{< foundation_tabs_panel panel-id="local-reporter" >}}
+  {{< foundation_tabs_panel panel-id="local-reporter" >}}
   ```ruby
   # Invoke the Compliance Phase
   default['audit']['compliance_phase'] = true
