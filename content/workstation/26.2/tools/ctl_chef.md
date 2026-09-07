@@ -90,7 +90,7 @@ The `chef gem` subcommand is a wrapper around the `gem` command in
 RubyGems and is used by Chef to install RubyGems into the Chef Workstation
 development environment. All knife plugins, drivers for Kitchen, and
 other Ruby applications that aren't packaged within Chef Workstation
-are stored in `~/.chef/ruby/version#/bin` and persist across Chef Workstation upgrades and downgrades.
+are stored in `~/.chef/ruby/version#/bin` and persist across Chef Workstation upgrades.
 
 ### Premium gems
 
