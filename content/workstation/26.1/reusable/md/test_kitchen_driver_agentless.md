@@ -50,7 +50,7 @@ target individually---this is where `real` targets get their `hostname`, and
 where `ephemeral` targets can use a different image or instance size than the
 source node.
 
-**What actually happens during a test run**
+## What actually happens during a test run
 
 Understanding the run order makes the rest of the configuration easier to
 reason about:
@@ -73,3 +73,74 @@ reason about:
 Because the source node is shared, running `kitchen test` across several
 platforms in one project only pays the installation cost once, not once per
 platform---as long as every platform can use the same source configuration.
+
+## Requirements
+
+- `chef-test-kitchen-enterprise` 3.0 or later
+- Ruby 3.1 or later
+- Chef Infra Client 19.0 or later on the source node, which Target Mode requires
+- Chef InSpec on the source node, installed by the `inspec_agentless` verifier
+
+The `agentless` driver is a premium Test Kitchen Enterprise plugin. Add it to
+your project's `Gemfile` together with the enterprise core and whichever
+`sub_driver` gems your source node and targets need, then run `bundle install`:
+
+```ruby
+# Gemfile
+source "https://rubygems.org"
+
+gem "kitchen-agentless"
+gem "kitchen-docker"   # sub_driver for the source node or ephemeral targets
+gem "kitchen-ec2"      # if any node uses the ec2 sub_driver
+```
+
+## Plugin components
+
+The `agentless` driver is made up of several cooperating pieces:
+
+| Component | Role |
+|---|---|
+| Driver (`agentless`) | Orchestrates the source and target create and destroy actions, and delegates the actual compute lifecycle to the configured `sub_driver`. |
+| Source adapter | Manages the source node's lifecycle and tracks its state in `.kitchen/agentless-source.yml`. |
+| Provisioner (`chef_infra_agentless`) | Builds `chef-client --target` commands, stages target credentials, and uploads cookbooks to the source node. |
+| Verifier (`inspec_agentless`) | Runs Chef InSpec profiles against each target from the source node. |
+| Config parser | Parses and validates `driver.agentless` settings and resolves per-target driver and transport configuration. |
+| Credential manager | Resolves target credentials from a `credential-map-file`, either inline or from an encrypted credential file. |
+| Real-mode validator | Fails `kitchen create` early---before anything is created---when a `real` target is missing a hostname or usable credentials. |
+
+`kitchen-agentless` is a plugin for `chef-test-kitchen-enterprise` and requires
+the core gem. Test Kitchen core itself has no agentless-specific code; it only
+provides the generic plugin extension points---driver registration and the
+`kitchen list` and `kitchen destroy` hooks---that any Test Kitchen driver uses.
+
+## State files
+
+Two kinds of local state live under `.kitchen/`:
+
+- `.kitchen/<instance-name>.yml` is the standard per-target Test Kitchen state,
+  with one file per target instance.
+- `.kitchen/agentless-source.yml` is the shared source node's state, including
+  its hostname, port, credentials, and the `sub_driver` that created it. The
+  presence of this file is how `kitchen create` decides whether the source node
+  already exists or needs to be created.
+
+Because that check is a local file check that never verifies the resource still
+exists in the cloud or hypervisor, keeping this file in sync with reality
+matters. If you switch the `sub_driver` that creates the source node, run
+`kitchen destroy` first so this file doesn't go stale.
+
+## Source node in `kitchen list`
+
+Unless `source_node.mode: local` is set, `kitchen list` shows an extra
+`agentless-source` row above your target instances, with its driver name and
+whether it's currently created:
+
+```console
+$ kitchen list
+Instance             Driver     Provisioner          Verifier          Transport  Last Action    Last Error
+agentless-source     docker     (source node)        -                 Ssh        <Not Created>  <None>
+default-ubuntu-2204  agentless  ChefInfraAgentless   InspecAgentless   Ssh        <Not Created>  <None>
+```
+
+In `local` source mode no `agentless-source` row appears, because the machine
+running `kitchen` is the source node and nothing is created for it.
