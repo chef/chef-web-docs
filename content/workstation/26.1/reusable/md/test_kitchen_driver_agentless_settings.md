@@ -225,7 +225,7 @@ dash-case or snake_case (`skip_connectivity_check`, `connectivity_check_timeout`
 
 `target_platform_version`
 
-: Overrides the reported Windows platform version for WinRM targets. Only needed when the value autodetected from the platform name (for example `windows-2022`) is wrong; ignored for non-WinRM targets.
+: Overrides the reported Windows platform version for WinRM targets. Only needed when the value automatically detected from the platform name (for example `windows-2022`) is wrong; ignored for non-WinRM targets.
 
 : Default value: `nil`.
 
@@ -393,7 +393,7 @@ credentials:
   is parsed, which is the standard way to keep secrets out of the file.
 - A `type: credential-file` entry can point at a plaintext or an
   `openssl enc -aes-256-cbc -pbkdf2`-encrypted file of `key=value` lines (for
-  example `username=...`, `ssh_key=...`). Encryption is autodetected from the
+  example `username=...`, `ssh_key=...`). Encryption is automatically detected from the
   `Salted__` header.
 
 To encrypt a credential file:
