@@ -1,5 +1,5 @@
-Most Test Kitchen drivers work the same way: create a target instance, copy
-Chef Infra Client and InSpec onto it, and run both directly on that machine.
+Most Test Kitchen drivers work the same way: create a target instance, install
+Chef Infra Client onto it, and run directly on that machine.
 This is simple, but it means every target needs enough access to install
 software, enough disk space to hold it, and enough lifetime to make the
 install worthwhile. Some targets can't offer any of that---a locked-down
@@ -29,7 +29,7 @@ Use the `agentless` driver when:
 
 `driver.name: agentless` owns the instance lifecycle, but it never talks to a
 cloud provider or container runtime itself. It delegates that work to a real
-driver named in `sub_driver` (such as `ec2`, `docker`, or `vagrant`), whose
+driver named in `sub_driver` (such as `ec2` or `docker`), whose
 gem must be installed and available to Test Kitchen.
 
 Two concepts control how instances behave:
@@ -78,35 +78,22 @@ platform---as long as every platform can use the same source configuration.
 
 - `chef-test-kitchen-enterprise` 3.0 or later
 - Ruby 3.1 or later
-- Chef Infra Client 19.0 or later on the source node, which Target Mode requires
-- Chef InSpec on the source node, installed by the `inspec_agentless` verifier
+- The `sub_driver` gem for your source node and targets (for example
+  `kitchen-docker` or `kitchen-ec2`) available to Test Kitchen
 
-The `agentless` driver is a premium Test Kitchen Enterprise plugin. Add it to
-your project's `Gemfile` together with the enterprise core and whichever
-`sub_driver` gems your source node and targets need, then run `bundle install`:
-
-```ruby
-# Gemfile
-source "https://rubygems.org"
-
-gem "kitchen-agentless"
-gem "kitchen-docker"   # sub_driver for the source node or ephemeral targets
-gem "kitchen-ec2"      # if any node uses the ec2 sub_driver
-```
+Chef Infra Client and Chef InSpec don't need to be installed ahead of
+time---the `chef_infra_agentless` provisioner and `inspec_agentless` verifier
+install them on the source node at runtime.
 
 ## Plugin components
 
-The `agentless` driver is made up of several cooperating pieces:
+The `agentless` driver is made up of three cooperating pieces:
 
 | Component | Role |
 |---|---|
 | Driver (`agentless`) | Orchestrates the source and target create and destroy actions, and delegates the actual compute lifecycle to the configured `sub_driver`. |
-| Source adapter | Manages the source node's lifecycle and tracks its state in `.kitchen/agentless-source.yml`. |
 | Provisioner (`chef_infra_agentless`) | Builds `chef-client --target` commands, stages target credentials, and uploads cookbooks to the source node. |
 | Verifier (`inspec_agentless`) | Runs Chef InSpec profiles against each target from the source node. |
-| Config parser | Parses and validates `driver.agentless` settings and resolves per-target driver and transport configuration. |
-| Credential manager | Resolves target credentials from a `credential-map-file`, either inline or from an encrypted credential file. |
-| Real-mode validator | Fails `kitchen create` early---before anything is created---when a `real` target is missing a hostname or usable credentials. |
 
 `kitchen-agentless` is a plugin for `chef-test-kitchen-enterprise` and requires
 the core gem. Test Kitchen core itself has no agentless-specific code; it only

@@ -51,13 +51,6 @@ driver:
       transport:
         username: root
         ssh_key: ~/.ssh/id_rsa
-    remote_nodes:
-      default-ubuntu-2204:
-        driver:
-          image: dokken/ubuntu-22.04
-        transport:
-          username: root
-          ssh_key: ~/.ssh/id_rsa
 
 provisioner:
   name: chef_infra_agentless
@@ -87,9 +80,10 @@ suites:
         - path: test/integration/default
 ```
 
-Here, `remote_nodes[name].driver` matches the top-level `driver:` image, so
-it's optional---it's shown for clarity, since a target would normally use a
-different image than the source node.
+For an ephemeral target, `remote_nodes` is optional---the `sub_driver` creates
+the target from the top-level `driver:` and `platforms:` config, so you only add
+a `remote_nodes` entry when a specific target needs to override the image,
+instance size, or transport.
 
 ## Docker, real targets
 
@@ -486,25 +480,25 @@ The `agentless` driver preserves Test Kitchen's normal `create`, `converge`,
 run actually executes:
 
 ```console
-$ bundle exec kitchen create
+$ kitchen create
 -----> Creating <default-ubuntu-2204>...
        [agentless-source] Not found --- creating it as a dependency for target 'default-ubuntu-2204'.
        [agentless-source] Creating shared source node...
        [target: default-ubuntu-2204] Creating ephemeral target instance...
        Finished creating <default-ubuntu-2204>.
 
-$ bundle exec kitchen converge
+$ kitchen converge
 -----> Converging <default-ubuntu-2204>...
        Preparing target_credentials for target mode...
        Running: chef-client --target ssh://root@<target-host> ...
        Infra Phase complete, 4 resources updated
 
-$ bundle exec kitchen verify
+$ kitchen verify
 -----> Verifying <default-ubuntu-2204>...
        Profile: my_cookbook (test/integration/default)
        4 successful, 0 failures
 
-$ bundle exec kitchen destroy
+$ kitchen destroy
 -----> Destroying <default-ubuntu-2204>...
        [agentless-source] Destroying shared source node...
        [agentless-source] agentless-source destroyed
@@ -570,16 +564,9 @@ Set `install_strategy: always` temporarily to force a clean reinstall, confirm
 `CHEF_LICENSE_KEY` (or `verifier.chef_license_key`) is set and valid, and
 confirm the source node can reach Chef's download endpoints.
 
-### Duplicate provisioner or verifier registration
-
-Test Kitchen errors that a plugin is loaded twice. This usually comes from a
-`Gemfile` or `Gemfile.lock` with two overlapping sources for the same plugin
-gem, for example a local `path:` gem and a published version. Ensure exactly
-one source for each plugin gem with `bundle exec gem list | grep -i agentless`.
-
 For more diagnostic output:
 
 ```shell
-bundle exec kitchen create --log-level debug
-bundle exec kitchen diagnose --all
+kitchen create --log-level debug
+kitchen diagnose --all
 ```

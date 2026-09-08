@@ -17,7 +17,7 @@ The following attributes are used to configure the `agentless` driver.
 
 `sub_driver`
 
-: The real driver that creates compute resources for the source node and any ephemeral targets, for example `ec2`, `docker`, or `vagrant`. Its gem must be installed. Required even when `volatility: real` and `source_node.mode: local` are both set, since Test Kitchen still checks for it before doing anything else.
+: The real driver that creates compute resources for the source node and any ephemeral targets, for example `ec2` or `docker`. Its gem must be installed. Required even when `volatility: real` and `source_node.mode: local` are both set, since Test Kitchen still checks for it before doing anything else.
 
 : Required
 
@@ -43,7 +43,7 @@ The following attributes are used to configure the `agentless` driver.
 
 `remote_nodes`
 
-: A Hash, keyed by instance name, of per-instance driver and transport overrides. Must be a Hash---an Array raises a migration error. Required when `volatility: real`, since that's how real targets get their `hostname`.
+: A Hash, keyed by instance name, of per-instance driver and transport overrides. Must be a Hash---an Array raises a migration error. Optional for `ephemeral` targets, where you add an entry only to override a specific target. Required when `volatility: real`, since that's how real targets get their `hostname`.
 
 : Default value: `{}`.
 
@@ -87,8 +87,7 @@ The following attributes are used to configure the `agentless` driver.
 
 ## `driver.agentless.remote_nodes.<instance-name>`
 
-Keys under `remote_nodes` must exactly match the instance names shown by
-`kitchen list`. Test Kitchen builds names as `<suite>-<platform>`, removes
+Test Kitchen builds names as `<suite>-<platform>`, removes
 `.`, and turns `_`, `,`, and `/` into `-`, so `default` and `ubuntu-22.04`
 becomes `default-ubuntu-2204`.
 
