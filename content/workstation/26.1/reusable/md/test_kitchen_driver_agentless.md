@@ -29,7 +29,7 @@ Use the `agentless` driver when:
 
 `driver.name: agentless` owns the instance lifecycle, but it never talks to a
 cloud provider or container runtime itself. It delegates that work to a real
-driver named in `sub_driver` (`ec2`, `docker`, `vagrant`, and so on), whose
+driver named in `sub_driver` (such as `ec2`, `docker`, or `vagrant`), whose
 gem must be installed and available to Test Kitchen.
 
 Two concepts control how instances behave:
@@ -39,7 +39,7 @@ Two concepts control how instances behave:
   `sub_driver`, the default) or `real` (targets already exist, and Test
   Kitchen only connects to them).
 - **Source node**, configured under `driver.agentless.source_node`, is
-  created once per Test Kitchen run and shared by every instance in that
+  created once for each Test Kitchen run and shared by every instance in that
   run. It's either its own `instance` (created by `sub_driver`) or your own
   workstation in `local` mode. A shared instance source node appears in
   `kitchen list` as `agentless-source`, a reserved instance name.
@@ -59,7 +59,7 @@ reason about:
    same way it would for any driver.
 2. If no source node exists yet for this run, one is created (or, in `local`
    mode, your workstation is used as-is). Every target in the run shares
-   this single source node---it's created once, not once per target.
+   this single source node---it's created once, not once for each target.
 3. Chef Infra Client and InSpec are installed on the source node, unless
    `install_strategy: skip` says they're already there.
 4. For each target, short-lived credentials for reaching it are written to
@@ -71,7 +71,7 @@ reason about:
    action finishes, whether it succeeded or failed.
 
 Because the source node is shared, running `kitchen test` across several
-platforms in one project only pays the installation cost once, not once per
+platforms in one project only pays the installation cost once, not once for each
 platform---as long as every platform can use the same source configuration.
 
 ## Requirements
@@ -118,7 +118,7 @@ provides the generic plugin extension points---driver registration and the
 Two kinds of local state live under `.kitchen/`:
 
 - `.kitchen/<instance-name>.yml` is the standard per-target Test Kitchen state,
-  with one file per target instance.
+  with one file for each target instance.
 - `.kitchen/agentless-source.yml` is the shared source node's state, including
   its hostname, port, credentials, and the `sub_driver` that created it. The
   presence of this file is how `kitchen create` decides whether the source node

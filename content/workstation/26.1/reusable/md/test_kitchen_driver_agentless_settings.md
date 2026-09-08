@@ -75,7 +75,7 @@ The following attributes are used to configure the `agentless` driver.
 
 `driver`
 
-: A Hash of sub-driver settings used only for the source node (image, instance size, and so on), merged over the top-level `driver:` block. Use this when the source needs a different image than the targets. Not used when `mode: local`.
+: A Hash of sub-driver settings used only for the source node (such as image and instance size), merged over the top-level `driver:` block. Use this when the source needs a different image than the targets. Not used when `mode: local`.
 
 : Default value: `{}`.
 
@@ -225,7 +225,7 @@ dash-case or snake_case (`skip_connectivity_check`, `connectivity_check_timeout`
 
 `target_platform_version`
 
-: Overrides the reported Windows platform version for WinRM targets. Only needed when the value auto-detected from the platform name (for example `windows-2022`) is wrong; ignored for non-WinRM targets.
+: Overrides the reported Windows platform version for WinRM targets. Only needed when the value autodetected from the platform name (for example `windows-2022`) is wrong; ignored for non-WinRM targets.
 
 : Default value: `nil`.
 
@@ -287,7 +287,7 @@ dash-case or snake_case (`skip_connectivity_check`, `connectivity_check_timeout`
 
 `inspec_tests`
 
-: An Array of profile locators, normally set per suite. Takes priority over `profiles_path`.
+: An Array of profile locators, normally set for each suite. Takes priority over `profiles_path`.
 
 : Default value: `[]`.
 
@@ -339,7 +339,7 @@ dash-case or snake_case (`skip_connectivity_check`, `connectivity_check_timeout`
 
 `KITCHEN_YAML`
 
-: Standard Test Kitchen variable for selecting a `kitchen.yml` file. It does not change `.kitchen/` state paths, so different files in one project share `agentless-source.yml`.
+: Standard Test Kitchen variable for selecting a `kitchen.yml` file. It doesn't change `.kitchen/` state paths, so different files in one project share `agentless-source.yml`.
 
 ## Credentials
 
@@ -351,8 +351,8 @@ conflate, but each serves a different purpose:
 2. **Source node to target node**---how `chef-client --target` (converge) and
    InSpec (verify), both running on the source node, authenticate to each
    target. This is what the rest of this section covers.
-3. **`kitchen.yml` to cloud provider**---normal `sub_driver` credentials (an
-   AWS profile, the Docker socket, and so on) for creating compute resources.
+3. **`kitchen.yml` to cloud provider**---normal `sub_driver` credentials (such
+   as an AWS profile or the Docker socket) for creating compute resources.
    These aren't agentless-specific; see your `sub_driver`'s own documentation.
 
 For reaching a target from the source node, you have two options:
@@ -393,7 +393,7 @@ credentials:
   is parsed, which is the standard way to keep secrets out of the file.
 - A `type: credential-file` entry can point at a plaintext or an
   `openssl enc -aes-256-cbc -pbkdf2`-encrypted file of `key=value` lines (for
-  example `username=...`, `ssh_key=...`). Encryption is auto-detected from the
+  example `username=...`, `ssh_key=...`). Encryption is autodetected from the
   `Salted__` header.
 
 To encrypt a credential file:
