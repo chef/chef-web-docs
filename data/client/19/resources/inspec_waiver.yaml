@@ -59,6 +59,8 @@ properties_list:
   required: false
   description_list:
   - markdown:
+target_mode:
+  support: full
 examples: |
   **Activate the default waiver in the openssh cookbook's compliance segment**:
 

@@ -66,6 +66,8 @@ properties_list:
   required: true
   description_list:
   - markdown: The value to set.
+target_mode:
+  support: full
 examples: |
   **Set vm.swappiness**:
 

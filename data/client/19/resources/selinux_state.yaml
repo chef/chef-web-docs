@@ -61,6 +61,8 @@ properties_list:
   allowed_values: '"default", "minimum", "mls", "src", "strict", "targeted"'
   description_list:
   - markdown: SELinux policy type.
+target_mode:
+  support: full
 examples: |
   **Set SELinux state to permissive**:
 

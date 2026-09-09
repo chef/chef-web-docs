@@ -639,15 +639,6 @@ sub-recipe named `delivery`, use chef-shell. For example:
 search(:node, 'recipes:postfix\:\:delivery')
 ```
 
-<!-- markdownlint-disable-file MD033 -->
-
-<div class="admonition-note">
-<p class="admonition-note-title">Note</p>
-<div class="admonition-note-text">
-
-Single (' ') vs. double (" ") is important. This is because a backslash
-() needs to be included in the string, instead of having Ruby interpret
-it as an escape.
-
-</div>
-</div>
+**Note**: Use single quotes (`' '`), not double quotes (`" "`), around the search query.
+Ruby treats single-quoted strings literally, so the backslashes stay in the string.
+In a double-quoted string, Ruby would interpret each backslash as the start of an escape sequence and remove it.

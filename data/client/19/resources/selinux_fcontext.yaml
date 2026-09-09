@@ -56,6 +56,8 @@ properties_list:
   required: true
   description_list:
   - markdown: SELinux context to assign.
+target_mode:
+  support: full
 examples: |
   **Allow http servers (e.g. nginx/apache) to modify Moodle files**:
 

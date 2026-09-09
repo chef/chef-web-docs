@@ -102,6 +102,8 @@ properties_list:
   default_value: '30'
   description_list:
   - markdown: The timeout in seconds for ssh-keyscan.
+target_mode:
+  support: full
 examples: |
   **Add a single entry for github.com with the key auto detected**
 

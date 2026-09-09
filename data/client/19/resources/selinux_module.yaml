@@ -65,6 +65,8 @@ properties_list:
   required: false
   description_list:
   - markdown: Module source file name.
+target_mode:
+  support: full
 examples: |
   **Create an SElinux module from a TE file located at `files` directory of your cookbook**:
 

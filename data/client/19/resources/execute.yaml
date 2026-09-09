@@ -212,6 +212,10 @@ properties_list:
       also be specified without a domain simply as user if the domain is instead specified
       using the domain property. On Windows only, if this property is specified, the
       password property must be specified.
+target_mode:
+  support: full
+  introduced: '15.1'
+  updated: '19.0'
 examples: |
   **Run a command upon notification**:
 

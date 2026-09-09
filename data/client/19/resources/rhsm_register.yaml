@@ -153,6 +153,8 @@ properties_list:
   - markdown: The username to use when registering. This property is not applicable
       if using an activation key. If specified, password and environment properties
       are also required.
+target_mode:
+  support: full
 examples: |
   **Register a node with RHSM**
 

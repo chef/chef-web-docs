@@ -67,6 +67,8 @@ properties_list:
   description_list:
   - markdown: Name of user key to use for encryption. Passes `--user` to `hab config
       apply`.
+target_mode:
+  support: full
 examples: |
   **Configure your nginx defaults**
 

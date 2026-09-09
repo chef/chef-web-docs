@@ -126,6 +126,11 @@ properties_list:
   required: false
   description_list:
   - markdown: The version of a package to be installed or upgraded.
+target_mode:
+  support: full
+  introduced: '15.1'
+  updated: '19.0'
+  description: Does not support the `response_file` property in Target Mode.
 examples: |
   **Install a package using package manager**:
 

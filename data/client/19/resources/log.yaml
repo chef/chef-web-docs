@@ -17,6 +17,9 @@ actions_list:
     shortcode: resources_common_actions_nothing.md
   :write:
     markdown: "(default)"
+target_mode:
+  support: full
+  introduced: '15.1'
 examples: "
   Set default logging level\n\n  ```ruby\n  log 'a string to log'\n\
   \  ```\n\n  Set debug logging level\n\n  ```ruby\n  log 'a debug string' do\n \

@@ -95,6 +95,8 @@ properties_list:
   required: false
   description_list:
   - markdown: The version of a package to be installed or upgraded.
+target_mode:
+  support: full
 examples: |
   **Install a package using package manager:**
 

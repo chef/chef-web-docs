@@ -31,10 +31,10 @@ Agentless Mode has the following requirements:
 
 - A network-enabled system to execute Agentless Mode.
 - The `chef-client` CLI. This is included with Chef Workstation.
-- A [`target_credentials` file](#target-credentials-file) that provides the system with information to connect to a target node.
+- A [`target_credentials` file](#configure-the-target-credentials-file) that provides the system with information to connect to a target node.
 - A recipe that only includes [Agentless Mode-enabled resources](#resources).
 
-## `target_credentials` file
+## Configure the target credentials file
 
 The `target_credentials` file defines the SSH connection settings for each node in TOML format.
 

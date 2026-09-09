@@ -96,6 +96,14 @@ properties_list:
   default_value: 'false'
   description_list:
   - markdown: Set to `true` if the group belongs to a system group.
+target_mode:
+  support: full
+  platforms:
+  - aix
+  - bsd
+  - linux
+  - macos_x
+  - solaris
 examples: |
   The following examples demonstrate various approaches for using the **group** resource in recipes:
 

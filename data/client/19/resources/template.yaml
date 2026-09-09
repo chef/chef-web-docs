@@ -272,6 +272,8 @@ remote_file_unc_path: false
 ps_credential_helper: false
 ruby_style_basics_chef_log: false
 debug_recipes_chef_shell: false
+target_mode:
+  support: full
 examples: "
   Configure a file from a template\n\n  ```ruby\n  template '/tmp/config.conf'\
   \ do\n    source 'config.conf.erb'\n  end\n  ```\n\n  Configure a file from a local\

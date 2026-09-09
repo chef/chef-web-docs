@@ -1,0 +1,13 @@
+{{/*
+Reads and markdownifies a reusable markdown file, failing the build loudly
+if the referenced file doesn't exist instead of silently rendering nothing.
+
+Usage: {{ partial "utils/read_reusable_md.html" (dict "base" $reusable_base "filename" "some_file.md") }}
+*/}}
+{{- $base := .base -}}
+{{- $filename := .filename -}}
+{{- $path := printf "%s/%s" $base $filename -}}
+{{- if not (fileExists $path) -}}
+  {{- errorf "read_reusable_md.html: missing file %q" $path -}}
+{{- end -}}
+{{- return (readFile $path | markdownify) -}}

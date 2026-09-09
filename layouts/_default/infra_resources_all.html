@@ -2,6 +2,11 @@
 {{ define "main" }}
   {{ $product := index .Params.data_path 0 }}
 
+  {{ $reusable_base := "content/reusable/md" }}
+  {{ if eq $product "client" }}
+    {{ $reusable_base = printf "content/client/%s/reusable/md" (index .Params.data_path 1) }}
+  {{ end }}
+
   {{ .Content }}
 
   {{ range $yaml_file := index $.Site.Data ( .Params.data_path )}}
@@ -14,7 +19,7 @@
 
     {{ end }}
 
-    {{ $partial_data := dict "yaml_file" $yaml_file "product" $product "resource_ID" $resource_ID "heading_base_level" 3 "include_resource_id" true }}
+    {{ $partial_data := dict "yaml_file" $yaml_file "product" $product "reusable_base" $reusable_base "resource_ID" $resource_ID "heading_base_level" 3 "include_resource_id" true }}
     {{ partial "infra_resource_data" $partial_data }}
 
   {{ end }}<!-- end range yaml files -->

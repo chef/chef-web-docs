@@ -50,6 +50,8 @@ properties_list:
   description_list:
   - markdown: An optional property to set the hint name if it differs from the resource
       block's name.
+target_mode:
+  support: full
 examples: |
   **Create a hint file**
 

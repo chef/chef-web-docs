@@ -379,6 +379,8 @@ properties_list:
   required: false
   description_list:
   - markdown: Username to use for basic authentication to a repository.
+target_mode:
+  support: full
 examples: |
   **Add an internal company repository**:
 

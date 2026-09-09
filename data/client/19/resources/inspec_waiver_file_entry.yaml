@@ -74,6 +74,8 @@ properties_list:
   - markdown: If present and `true`, the control will run and be reported, but failures
       in it won’t make the overall run fail. If absent or `false`, the control will
       not be run.
+target_mode:
+  support: full
 examples: |
   **Add an InSpec waiver entry to a given waiver file**:
 

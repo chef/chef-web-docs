@@ -39,6 +39,8 @@ properties_list:
   description_list:
   - markdown: An optional property to set the user name if it differs from the resource
       block's name.
+target_mode:
+  support: full
 examples: |
   **Add the mike user to cron.allow**
 

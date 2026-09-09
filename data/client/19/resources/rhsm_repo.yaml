@@ -35,6 +35,8 @@ properties_list:
   description_list:
   - markdown: An optional property for specifying the repository name if it differs
       from the resource block's name.
+target_mode:
+  support: full
 examples: |
   **Enable an RHSM repository**
 

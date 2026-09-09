@@ -26,6 +26,9 @@ actions_list:
   :break:
     markdown: Add a breakpoint for use with chef-shell (default)
 properties_list: []
+target_mode:
+  support: full
+  introduced: '15.1'
 examples: |
   **A recipe without a breakpoint**
 

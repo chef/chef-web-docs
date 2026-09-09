@@ -150,6 +150,8 @@ properties_list:
   required: false
   description_list:
   - markdown: The actual file to which the link is to be created.
+target_mode:
+  support: full
 examples: |
   **Create symbolic links**
 

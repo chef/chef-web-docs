@@ -123,6 +123,8 @@ properties_list:
   default_value: "`HOME` environment variable of the user running chef-client"
   description_list:
   - markdown: The system user that will own the checked-out code.
+target_mode:
+  support: full
 examples: |
   **Get the latest version of an application**
 

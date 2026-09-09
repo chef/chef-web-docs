@@ -135,4 +135,7 @@ properties_list:
   description_list:
   - markdown: 'The user name or user ID that should be changed before running a
       command.'
+target_mode:
+  support: full
+  description: Needs Ruby interpreter installed on target node.
 examples:

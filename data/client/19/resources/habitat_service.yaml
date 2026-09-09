@@ -162,6 +162,8 @@ properties_list:
         This requires a minimum habitat version of 1.5.71_**
                 - `latest`: Runs the latest package that can be found in the configured channel and local packages.
                 - `track-channel`: Always run the package at the head of a given channel. This enables service rollback, where demoting a package from a channel will cause the package to rollback to an older version of the package. A ramification of enabling this condition is that packages that are newer than the package at the head of the channel are also uninstalled during a service rollback.
+target_mode:
+  support: full
 examples: |
   **Install and load nginx**
 

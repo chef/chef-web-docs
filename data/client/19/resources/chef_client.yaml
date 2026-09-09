@@ -130,3 +130,5 @@ properties_list:
   description_list:
   - markdown: Use to specify if Chef Infra Client is a chef-validator.
 
+target_mode:
+  support: full

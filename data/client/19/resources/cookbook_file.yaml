@@ -272,6 +272,8 @@ remote_file_prevent_re_downloads: false
 ps_credential_helper: false
 ruby_style_basics_chef_log: false
 debug_recipes_chef_shell: false
+target_mode:
+  support: full
 examples: "
   Transfer a file\n\n  ```ruby\n  cookbook_file 'file.txt' do\n  \
   \  mode '0755'\n  end\n  ```\n\n  Handle cookbook_file and package resources in\

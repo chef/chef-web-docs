@@ -47,6 +47,10 @@ properties_list:
   - markdown: 'The name of the Ruby block. Default value: the `name` of the
 
       resource block. See "Syntax" section above for more information.'
+target_mode:
+  support: full
+  description: Ruby code will be run locally and not on the target node. Use the **ruby**
+    resource for this.
 examples: |
   **Reload Chef Infra Client configuration data**
 

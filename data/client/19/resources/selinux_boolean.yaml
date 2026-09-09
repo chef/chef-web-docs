@@ -45,6 +45,8 @@ properties_list:
   allowed_values: '"on", "off", true, false, 0, 1'
   description_list:
   - markdown: SELinux boolean value.
+target_mode:
+  support: full
 examples: |
   **Set ssh_keysign to true**:
 

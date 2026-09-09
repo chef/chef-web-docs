@@ -192,6 +192,10 @@
         </ul>
       {{ end }}
 
+      {{ if index $yaml_file "target_mode" }}
+        <li><a href="#agentless-mode">Agentless Mode</a></li>
+      {{ end }}
+
       {{ if index $yaml_file "unit_file_verification" }}
         <li>
           <a href="#unit-file-verification">Unit file verification</a>

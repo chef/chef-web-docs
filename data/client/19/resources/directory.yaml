@@ -179,6 +179,8 @@ properties_list:
       specifies the rights granted to the principal, `<principal>` is the
       group or user name, and `<options>` is a Hash with one (or more)
       advanced rights options.'
+target_mode:
+  support: full
 examples: |
   Create a directory
 

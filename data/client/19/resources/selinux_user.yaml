@@ -57,6 +57,8 @@ properties_list:
   description_list:
   - markdown: An optional property to set the SELinux user value if it differs from
       the resource block's name.
+target_mode:
+  support: full
 examples: |
   **Set an SELinux user with a level and range of `s0` and roles `sysadm_r` and `staff_r`**:
 

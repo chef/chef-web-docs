@@ -35,6 +35,8 @@ properties_list:
   default_value: The resource block's name
   description_list:
   - markdown: The SELinux context to permit.
+target_mode:
+  support: full
 examples: |
   **Disable enforcement on Apache**:
 
