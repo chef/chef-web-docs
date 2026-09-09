@@ -1,5 +1,7 @@
 +++
 title = "Test Kitchen"
+description = "Test Kitchen tests Chef Infra cookbooks across platforms, cloud providers, and virtualization drivers using a driver plugin architecture."
+summary = "Test Chef Infra cookbooks across platforms and cloud providers with Test Kitchen and its supported drivers."
 draft = false
 
 
@@ -51,7 +53,8 @@ For more information, see the [Chef licensing documentation](/licensing/).
 
 ## Drivers
 
-{{< readfile file="content/workstation/25/reusable/md/test_kitchen_drivers.md" >}}
+Test Kitchen uses a driver plugin architecture to test instances on cloud providers and local hypervisors.
+For the list of supported drivers and their configuration, see the [Test Kitchen drivers](/workstation/25/tools/kitchen/drivers/) documentation.
 
 ## Validation with Chef InSpec
 
