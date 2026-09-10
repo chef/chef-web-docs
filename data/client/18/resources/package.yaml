@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-resource_package_options: true
 resource: package
 resource_description_list:
 - markdown: |-
