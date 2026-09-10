@@ -32,19 +32,6 @@ Refer to the following sections for definitions of the certification tiers, inst
 **User-reported**
 : These platforms are validated by users. Support is provided on a best-effort basis.
 
-**Commercial support**
-: Commercial support for platforms is part of paid maintenance contracts with Progress Chef Software. Support contracts allow you to open tickets and receive service level agreement (SLA) assistance from our support desk. Commercially supported platforms are extensively tested as part of Chef's development and release process. Commercial support follows the lifecycle of the underlying operating system vendor.
-
-  Commercial support is limited to the platforms listed in the "Commercial Support" tables--platforms not listed in these tables are unsupported.
-
-**Community support**
-: Community support for platforms means that members of the Chef community have contributed to these platforms and Chef doesn't actively work to maintain this functionality. Chef doesn't explicitly test community supported platforms as part of the development and release process.
-
-  Many of these platforms are forks, clones, or otherwise derivative of platforms that Chef commercially supports. Continued functionality for these platforms is likely, but not guaranteed. Unsupported platforms may have missing or non-operative functionality. As always, we welcome community contributions from anyone looking to expand community support for platforms in Chef products.
-
-**Derived platforms support**
-: Chef doesn't explicitly test or provide builds for derived distributions other than those in our supported platform list. However, if the derived distribution is a direct rebuild of the originating distribution and hasn't diverged in functionality or packaged dependencies, Chef will support our customers through our normal channels.
-
 ### Installer types
 
 **Native**

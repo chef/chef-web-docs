@@ -1,9 +1,9 @@
 
 <!-- markdownlint-disable MD036 -->
 
-**Commercially-supported platforms**
+**Validated and supported platforms**
 
-The following table lists the commercially-supported platforms and versions for Chef InSpec.
+The following table lists the validated and supported platforms and versions for Chef InSpec.
 
 | Platform                     | Architecture                                   | Version                                                                           |
 | ---------------------------- | ---------------------------------------------- | --------------------------------------------------------------------------------- |
@@ -16,7 +16,7 @@ The following table lists the commercially-supported platforms and versions for 
 | Ubuntu                       | `x86_64`, `aarch64` (only `18.04` and `20.04`) | `16.04`, `18.04`, `20.04`                                                         |
 | Windows                      | `x86_64`                                       | `2016`, `10` (all channels except "insider" builds), `2019`, `11`, `2022`, `2025` |
 
-**Derived platforms**
+**Supported (untested) platforms**
 
 The following table lists supported derived platforms and versions for Chef InSpec.
 
