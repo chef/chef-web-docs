@@ -1,22 +1,8 @@
-Most Test Kitchen drivers work the same way: create a target instance, install
-Chef Infra Client onto it, and run directly on that machine.
-This is simple, but it means every target needs enough access to install
-software, enough disk space to hold it, and enough lifetime to make the
-install worthwhile. Some targets can't offer any of that---a locked-down
-production image, a network appliance, or a container that only exists for a
-few seconds.
-
-The `agentless` driver for Test Kitchen (Kitchen Agent) tests infrastructure
-without installing Chef Infra Client or InSpec on every target. Instead of
-putting an agent on each machine under test, it creates or reuses a single
-shared helper machine---the **source node**---installs Chef Infra Client and
-InSpec there once, and then runs `chef-client --target` and
-`inspec exec --target` **from** the source node **against** each target over
-SSH or WinRM. Targets stay clean; only the source node ever has any tooling
-installed on it. Chef Infra Client's `--target` flag (introduced for this
-purpose) lets one running instance of Chef Infra Client manage a completely
-different, remote node over an existing transport connection---the same
-capability that makes this driver possible.
+The `agentless` driver for Test Kitchen (Kitchen Agent) tests cookbooks in Chef
+Infra's agentless mode, without installing Chef Infra Client or InSpec on each
+target. It installs the tooling once on a single shared **source node**, then
+runs `chef-client --target` and `inspec exec --target` from there against each
+target over SSH or WinRM---so targets stay clean and need only be reachable.
 
 Use the `agentless` driver when:
 
@@ -46,7 +32,7 @@ Two concepts control how instances behave:
 
 `remote_nodes`, configured under `driver.agentless.remote_nodes` and keyed by
 instance name, lets you override the driver and transport settings for each
-target individually---this is where `real` targets get their `hostname`, and
+target individually this is where `real` targets get their `hostname`, and
 where `ephemeral` targets can use a different image or instance size than the
 source node.
 
@@ -57,32 +43,32 @@ reason about:
 
 1. Test Kitchen resolves which target instances a command applies to, the
    same way it would for any driver.
-2. If no source node exists yet for this run, one is created (or, in `local`
+1. If no source node exists yet for this run, one is created (or, in `local`
    mode, your workstation is used as-is). Every target in the run shares
-   this single source node---it's created once, not once for each target.
-3. Chef Infra Client and InSpec are installed on the source node, unless
+   this single source node it's created once, not once for each target.
+1. Chef Infra Client and InSpec are installed on the source node, unless
    `install_strategy: skip` says they're already there.
-4. For each target, short-lived credentials for reaching it are written to
+1. For each target, short-lived credentials for reaching it are written to
    the source node.
-5. The source node runs `chef-client --target` and `inspec exec --target`
+1. The source node runs `chef-client --target` and `inspec exec --target`
    against the target's endpoint, over SSH or WinRM, exactly as it would run
-   locally---only the connection is remote.
-6. The per-target credentials are removed from the source node once the
+   locally only the connection is remote.
+1. The per-target credentials are removed from the source node once the
    action finishes, whether it succeeded or failed.
 
 Because the source node is shared, running `kitchen test` across several
 platforms in one project only pays the installation cost once, not once for each
-platform---as long as every platform can use the same source configuration.
+platform as long as every platform can use the same source configuration.
 
 ## Requirements
 
-- `chef-test-kitchen-enterprise` 3.0 or later
+- `chef-test-kitchen-enterprise`
 - Ruby 3.1 or later
 - The `sub_driver` gem for your source node and targets (for example
   `kitchen-docker` or `kitchen-ec2`) available to Test Kitchen
 
 Chef Infra Client and Chef InSpec don't need to be installed ahead of
-time---the `chef_infra_agentless` provisioner and `inspec_agentless` verifier
+time the `chef_infra_agentless` provisioner and `inspec_agentless` verifier
 install them on the source node at runtime.
 
 ## Plugin components
@@ -98,7 +84,7 @@ The `agentless` driver is made up of three cooperating pieces:
 `kitchen-agentless` is a plugin for `chef-test-kitchen-enterprise` and requires
 the core gem. Test Kitchen core itself has no agentless-specific code; it only
 provides the generic plugin extension points---driver registration and the
-`kitchen list` and `kitchen destroy` hooks---that any Test Kitchen driver uses.
+`kitchen list` and `kitchen destroy` hooks that any Test Kitchen driver uses.
 
 ## State files
 

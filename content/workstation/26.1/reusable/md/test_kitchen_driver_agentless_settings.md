@@ -3,7 +3,7 @@ The `agentless` driver spreads its configuration across four places in
 the nested `driver.agentless` block (agent-specific behavior like
 `volatility`), the `provisioner` block (what to install and run on the
 source node for Chef Infra Client), and the `verifier` block (the same, for
-InSpec). Settings that apply to a specific target---rather than to the run
+InSpec). Settings that apply to a specific target rather than to the run
 as a whole---live under `driver.agentless.remote_nodes`, keyed by instance
 name.
 
@@ -89,7 +89,7 @@ The following attributes are used to configure the `agentless` driver.
 
 Test Kitchen builds names as `<suite>-<platform>`, removes
 `.`, and turns `_`, `,`, and `/` into `-`, so `default` and `ubuntu-22.04`
-becomes `default-ubuntu-2204`.
+become `default-ubuntu-2204`.
 
 Because the instance name comes from `<suite>-<platform>`, each `real` target
 needs its own `platforms` entry so it produces a unique instance name that
@@ -345,12 +345,12 @@ dash-case or snake_case (`skip_connectivity_check`, `connectivity_check_timeout`
 Agentless mode needs credentials in three distinct places. They're easy to
 conflate, but each serves a different purpose:
 
-1. **Workstation to source node**---`driver.agentless.source_node.transport`
+1. **Workstation to source node**  `driver.agentless.source_node.transport`
    describes how the machine running `kitchen` reaches the source node.
-2. **Source node to target node**---how `chef-client --target` (converge) and
+1. **Source node to target node**  how `chef-client --target` (converge) and
    InSpec (verify), both running on the source node, authenticate to each
    target. This is what the rest of this section covers.
-3. **`kitchen.yml` to cloud provider**---normal `sub_driver` credentials (such
+1. **`kitchen.yml` to cloud provider**  normal `sub_driver` credentials (such
    as an AWS profile or the Docker socket) for creating compute resources.
    These aren't agentless-specific; see your `sub_driver`'s own documentation.
 
@@ -381,7 +381,7 @@ credentials:
     protocol: ssh           # or winrm
     username: admin
     password: <%= ENV["TARGET_PASSWORD"] %>   # optional if ssh_key is set
-    ssh_key: ~/.ssh/id_rsa                     # path, resolved relative to the project root
+    ssh_key: ~/.ssh/id_rsa                     # ~ expands to home; relative paths resolve from the project root
 
     # type: credential-file (alternative to inline)
     path: creds/my-target.enc
@@ -409,10 +409,10 @@ For an encrypted `credential-file` entry, the passphrase is resolved in this
 order:
 
 1. `passphrase` set directly in the credential-map-file entry.
-2. `KITCHEN_CREDENTIAL_PASSPHRASE_<INSTANCE_NAME>` environment variable.
-3. `KITCHEN_CREDENTIAL_PASSPHRASE` environment variable.
-4. An interactive prompt, only when attached to a real TTY and `CI` is unset.
-5. Otherwise, it fails with a clear error. It never hangs waiting for input in CI.
+1. `KITCHEN_CREDENTIAL_PASSPHRASE_<INSTANCE_NAME>` environment variable.
+1. `KITCHEN_CREDENTIAL_PASSPHRASE` environment variable.
+1. An interactive prompt, only when attached to a real TTY and `CI` is unset.
+1. Otherwise, it fails with a clear error. It never hangs waiting for input in CI.
 
 ### Secret masking and validation
 
