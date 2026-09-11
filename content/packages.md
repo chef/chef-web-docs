@@ -1,5 +1,5 @@
 +++
-title = "Chef Software Packages"
+title = "Set up a Chef package repository"
 draft = false
 gh_repo = "chef-web-docs"
 
@@ -7,94 +7,102 @@ swiftype_search_products = ["automate", "client", "server", "habitat", "inspec",
 
 [menu]
   [menu.overview]
-    title = "Packages"
+    title = "Set up a Chef package repository"
     identifier = "overview/packages_&_platforms/packages.md Packages"
     parent = "overview/packages_&_platforms"
     weight = 10
 +++
 
-You can install packages for Chef Software products using platform-native package repositories.
+<!-- cspell:words trixie -->
 
-## Release channels
+Use this guide to create a platform-native package repository so you can install Progress Chef application packages through your system's package manager.
+
+## Before you begin
 
 {{< readfile file="content/reusable/md/release_channels.md" >}}
-
-## Package repositories
 
 The `stable` and `current` release channels support the following package repositories:
 
 - APT (Debian and Ubuntu platforms)
-- YUM/DNF (Enterprise Linux platforms)
+- YUM and DNF (Enterprise Linux platforms)
 
-You can download Chef Software's GPG public key from [packages.chef.io](https://packages.chef.io/chef.asc).
+## Set up an APT package repository for Debian and Ubuntu
 
-### Debian / Ubuntu
-
-To set up an APT package repository for Debian and Ubuntu platforms:
+To set up an APT package repository for Debian and Ubuntu, follow these steps:
 
 1. Enable APT to fetch packages over HTTPS:
 
-    ```bash
+    ```shell
     sudo apt-get install apt-transport-https
     ```
 
 1. Install the public key for Chef Software:
 
-    ```bash
+    ```shell
     wget -qO - https://packages.chef.io/chef.asc | sudo apt-key add -
     ```
 
 1. Create the APT repository source file:
 
-    ```bash
+    ```shell
     echo "deb https://<LICENSE_ID>@packages.chef.io/repos/apt/<CHANNEL> <DISTRIBUTION> main" > chef-<CHANNEL>.list
     ```
 
     Replace:
 
-    - `<LICENSE_ID>` with your license id.
+    - `<LICENSE_ID>` with your license ID.
     - `<CHANNEL>` with the release channel: `stable` or `current`.
-    - `<DISTRIBUTION>` with the appropriate distribution name. For example:
+    - `<DISTRIBUTION>` with the codename for your distribution. For example:
 
-      - for Debian 9: `stretch`
-      - for Debian 10: `buster`
-      - for Debian 11: `bullseye`
-      - for Ubuntu 18.04: `bionic`
-      - for Ubuntu 20.04: `focal`
+      - Debian 11: `bullseye`
+      - Debian 12: `bookworm`
+      - Debian 13: `trixie`
+      - Ubuntu 22.04: `jammy`
+      - Ubuntu 24.04: `noble`
 
-1. Update the package repository list:
+1. Move the repository source file into the APT sources directory:
 
-    ```bash
+    ```shell
     sudo mv chef-stable.list /etc/apt/sources.list.d/
     ```
 
-1. Update the cache for the package repository:
+1. Update the APT package cache:
 
-    ```bash
+    ```shell
     sudo apt-get update
     ```
 
-### Enterprise Linux
+## Set up a YUM repository for Enterprise Linux
 
 {{< note >}}
 
-Starting in Chef Infra Client 18.6.2, we upgraded the GPG signing algorithm used to sign RHEL packages from SHA1 to SHA256. RHEL 9 no longer supports the less secure SHA1 hashes.
+Starting in Chef Infra Client 18.6.2, Chef upgraded the GPG signing algorithm used to sign RHEL packages from SHA1 to SHA256. RHEL 9 no longer supports the less secure SHA1 hashes.
 
 {{< /note >}}
 
-Install the public key for Chef Software:
+To set up a YUM package repository for Enterprise Linux, follow these steps:
 
-```bash
-sudo rpm --import https://packages.chef.io/chef.asc
-```
+1. Verify that you have the `yum-utils` package installed:
 
-#### To set up your YUM repository client, follow these steps
+    ```shell
+    rpm -q yum-utils
+    ```
 
-1. Verify that you have the `yum-utils` package installed.
+    If the command returns `package yum-utils is not installed`, install it:
 
-2. Create the yum repository source file:
+    ```shell
+    sudo yum install -y yum-utils
+    ```
 
-    ```bash
+1. Install the public key for Chef Software:
+
+    ```shell
+    sudo rpm --import https://packages.chef.io/chef.asc
+    ```
+
+1. Create the YUM repository source file:
+
+    ```shell
     cat >chef-<CHANNEL>.repo <<EOL
     [chef-<CHANNEL>]
     name=chef-<CHANNEL>
@@ -107,27 +115,35 @@ sudo rpm --import https://packages.chef.io/chef.asc
 
     Replace:
 
-    - `<LICENSE_ID>` with your license id.
+    - `<LICENSE_ID>` with your license ID.
     - `<CHANNEL>` with the release channel: `stable` or `current`.
     - `<VERSION>` with the Enterprise Linux version.
 
-3. Update the package repository list:
+1. Add the repository to your package manager configuration:
 
-    ```bash
+    ```shell
     sudo yum-config-manager --add-repo chef-stable.repo
     ```
 
-4. Pull repository metadata:
+1. Pull the repository metadata:
 
-    ```bash
+    ```shell
     sudo yum makecache
     ```
 
-#### To set up your DNF repository client, follow these steps
+## Set up a DNF repository for Enterprise Linux
 
-1. Create the dnf repository source file:
+To set up a DNF package repository for Enterprise Linux, follow these steps:
 
-    ```bash
+1. Install the public key for Chef Software:
+
+    ```shell
+    sudo rpm --import https://packages.chef.io/chef.asc
+    ```
+
+1. Create the DNF repository source file:
+
+    ```shell
     cat >chef-<CHANNEL>.repo <<EOL
     [chef-<CHANNEL>]
     name=chef-<CHANNEL>
@@ -140,18 +156,18 @@ sudo rpm --import https://packages.chef.io/chef.asc
 
     Replace:
 
-    - `<LICENSE_ID>` with your license id.
+    - `<LICENSE_ID>` with your license ID.
     - `<CHANNEL>` with the release channel: `stable` or `current`.
     - `<VERSION>` with the Enterprise Linux version.
 
-2. Update the package repository list:
+1. Add the repository to your package manager configuration:
 
-    ```bash
+    ```shell
     sudo dnf config-manager --add-repo chef-stable.repo
     ```
 
-3. Pull repository metadata:
+1. Pull the repository metadata:
 
-    ```bash
+    ```shell
     sudo dnf makecache
     ```
