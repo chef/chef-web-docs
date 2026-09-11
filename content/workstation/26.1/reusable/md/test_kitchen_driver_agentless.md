@@ -60,16 +60,6 @@ Because the source node is shared, running `kitchen test` across several
 platforms in one project only pays the installation cost once, not once for each
 platform as long as every platform can use the same source configuration.
 
-## Requirements
-
-- `chef-test-kitchen-enterprise`
-- Ruby 3.1 or later
-- The `sub_driver` gem for your source node and targets (for example
-  `kitchen-docker` or `kitchen-ec2`) available to Test Kitchen
-
-Chef Infra Client and Chef InSpec don't need to be installed ahead of
-time the `chef_infra_agentless` provisioner and `inspec_agentless` verifier
-install them on the source node at runtime.
 
 ## Plugin components
 
