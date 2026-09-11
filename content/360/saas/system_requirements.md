@@ -22,8 +22,6 @@ Open the following default ports for outbound connections.
 | 443   | HTTPS                        |
 | 31050 | RabbitMQ AMQP/AMQP-TLS       |
 | 31000 | Nginx Reverse Proxy NodePort |
-| 22    | SSH (optional)               |
-| 80    | HTTP (optional)              |
 
 ### Cookbook-based enrollment
 
