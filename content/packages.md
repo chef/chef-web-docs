@@ -24,7 +24,7 @@ You can install packages for Chef Software products using platform-native packag
 The `stable` and `current` release channels support the following package repositories:
 
 - APT (Debian and Ubuntu platforms)
-- Yum (Enterprise Linux platforms)
+- YUM/DNF (Enterprise Linux platforms)
 
 You can download Chef Software's GPG public key from [packages.chef.io](https://packages.chef.io/chef.asc).
 
@@ -47,11 +47,12 @@ To set up an APT package repository for Debian and Ubuntu platforms:
 1. Create the APT repository source file:
 
     ```bash
-    echo "deb https://packages.chef.io/repos/apt/<CHANNEL> <DISTRIBUTION> main" > chef-<CHANNEL>.list
+    echo "deb https://<LICENSE_ID>@packages.chef.io/repos/apt/<CHANNEL> <DISTRIBUTION> main" > chef-<CHANNEL>.list
     ```
 
     Replace:
 
+    - `<LICENSE_ID>` with your license id.
     - `<CHANNEL>` with the release channel: `stable` or `current`.
     - `<DISTRIBUTION>` with the appropriate distribution name. For example:
 
@@ -81,23 +82,23 @@ Starting in Chef Infra Client 18.6.2, we upgraded the GPG signing algorithm used
 
 {{< /note >}}
 
-Before you begin, verify that you have the `yum-utils` package installed.
-
-To set up a Yum package repository for Enterprise Linux platforms, follow these steps:
-
-1. Install the public key for Chef Software:
+Install the public key for Chef Software:
 
     ```bash
     sudo rpm --import https://packages.chef.io/chef.asc
     ```
 
-1. Create the Yum repository source file:
+#### To set up your YUM repository client, follow these steps:
+
+1. Verify that you have the `yum-utils` package installed.
+
+2. Create the yum repository source file:
 
     ```bash
     cat >chef-<CHANNEL>.repo <<EOL
     [chef-<CHANNEL>]
     name=chef-<CHANNEL>
-    baseurl=https://packages.chef.io/repos/yum/<CHANNEL>/el/<VERSION>/\$basearch/
+    baseurl=https://<LICENSE_ID>@packages.chef.io/repos/yum/<CHANNEL>/el/<VERSION>/\$basearch/
     gpgcheck=1
     # No auto-upgrade, as there are manual steps needed for Chef Infra Server upgrades
     enabled=0
@@ -106,11 +107,51 @@ To set up a Yum package repository for Enterprise Linux platforms, follow these 
 
     Replace:
 
+    - `<LICENSE_ID>` with your license id.
     - `<CHANNEL>` with the release channel: `stable` or `current`.
     - `<VERSION>` with the Enterprise Linux version.
 
-1. Update the package repository list:
+3. Update the package repository list:
 
     ```bash
     sudo yum-config-manager --add-repo chef-stable.repo
+    ```
+
+3. Pull repository metadata:
+
+    ```bash
+    sudo yum makecache
+    ```
+
+#### To set up your DNF repository client, follow these steps:
+
+1. Create the dnf repository source file:
+
+    ```bash
+    cat >chef-<CHANNEL>.repo <<EOL
+    [chef-<CHANNEL>]
+    name=chef-<CHANNEL>
+    baseurl=https://<LICENSE_ID>@packages.chef.io/repos/yum/<CHANNEL>/el/<VERSION>/$basearch/
+    gpgcheck=1
+    # No auto-upgrade, as there are manual steps needed for Chef Infra Server upgrades
+    enabled=0
+    EOL
+    ```
+
+    Replace:
+
+    - `<LICENSE_ID>` with your license id.
+    - `<CHANNEL>` with the release channel: `stable` or `current`.
+    - `<VERSION>` with the Enterprise Linux version.
+
+2. Update the package repository list:
+
+    ```bash
+    sudo dnf config-manager --add-repo chef-stable.repo
+    ```
+
+3. Pull repository metadata:
+
+    ```bash
+    sudo dnf makecache
     ```
