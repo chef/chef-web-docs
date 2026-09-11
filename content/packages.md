@@ -84,11 +84,11 @@ Starting in Chef Infra Client 18.6.2, we upgraded the GPG signing algorithm used
 
 Install the public key for Chef Software:
 
-    ```bash
-    sudo rpm --import https://packages.chef.io/chef.asc
-    ```
+```bash
+sudo rpm --import https://packages.chef.io/chef.asc
+```
 
-#### To set up your YUM repository client, follow these steps:
+#### To set up your YUM repository client, follow these steps
 
 1. Verify that you have the `yum-utils` package installed.
 
@@ -117,13 +117,13 @@ Install the public key for Chef Software:
     sudo yum-config-manager --add-repo chef-stable.repo
     ```
 
-3. Pull repository metadata:
+4. Pull repository metadata:
 
     ```bash
     sudo yum makecache
     ```
 
-#### To set up your DNF repository client, follow these steps:
+#### To set up your DNF repository client, follow these steps
 
 1. Create the dnf repository source file:
 
