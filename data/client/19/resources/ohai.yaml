@@ -36,6 +36,8 @@ properties_list:
       you can pass `ipaddress` to reload `node['ipaddress']` even though that data
       comes from the `Network` plugin. If this property is not specified, Chef Infra
       Client will reload all plugins.
+target_mode:
+  support: full
 examples: |
   Reload All Ohai Plugins
 

@@ -181,6 +181,8 @@ properties_list:
   new_in: '14.4'
   description_list:
   - markdown: The VLAN to assign the interface to.
+target_mode:
+  support: full
 examples: |
   **Configure a network interface with a static IP**
 

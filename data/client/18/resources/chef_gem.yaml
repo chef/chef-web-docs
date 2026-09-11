@@ -3,6 +3,7 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
+resource_package_options: true
 resource: chef_gem
 resource_description_list:
 - markdown: |-

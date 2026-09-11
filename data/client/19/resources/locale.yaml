@@ -39,6 +39,8 @@ properties_list:
   description_list:
   - markdown: A Hash of LC_* env variables in the form of `({ 'LC_ENV_VARIABLE' =>
       'VALUE' })`.
+target_mode:
+  support: full
 examples: |
   Set the lang to 'en_US.UTF-8'
 

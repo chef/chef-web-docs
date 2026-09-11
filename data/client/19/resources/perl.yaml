@@ -144,4 +144,6 @@ properties_list:
   required: false
   description_list:
   - markdown: The file mode creation mask, or umask.
+target_mode:
+  support: full
 examples:

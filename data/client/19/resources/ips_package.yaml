@@ -78,6 +78,8 @@ properties_list:
   required: false
   description_list:
   - markdown: The version of a package to be installed or upgraded.
+target_mode:
+  support: full
 examples: "
   Install a package\n\n  ```ruby\n  ips_package 'name of package'\
   \ do\n    action :install\n  end\n  ```\n"

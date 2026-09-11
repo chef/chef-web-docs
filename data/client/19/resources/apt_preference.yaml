@@ -57,6 +57,8 @@ properties_list:
   description_list:
   - markdown: Sets the Pin-Priority for a package. See <https://wiki.debian.org/AptPreferences>
       for more details.
+target_mode:
+  support: full
 examples: |
   **Pin libmysqlclient16 to a version 5.1.49-3**:
 

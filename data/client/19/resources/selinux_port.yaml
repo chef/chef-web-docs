@@ -54,6 +54,8 @@ properties_list:
   required: true
   description_list:
   - markdown: SELinux context to assign to the port.
+target_mode:
+  support: full
 examples: |
   **Allow Nginx or Apache to bind to port 5678 by giving it the `http_port_t` context**:
 

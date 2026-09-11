@@ -170,6 +170,9 @@ properties_list:
       also be specified without a domain simply as user if the domain is instead specified
       using the domain property. On Windows only, if this property is specified, the
       password property must be specified.
+target_mode:
+  support: full
+  description: Needs interpreter installed on target node.
 examples: "
   Use a named provider to run a script\n\n  ```ruby\n  bash 'install_something'\
   \ do\n    user 'root'\n    cwd '/tmp'\n    code <<-EOH\n      wget http://www.example.com/tarball.tar.gz\n\

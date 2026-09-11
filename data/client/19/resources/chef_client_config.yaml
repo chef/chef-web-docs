@@ -312,6 +312,8 @@ properties_list:
       markdown: The configuration directory will not be created if it already exists,
         which allows you to further control the setup of that directory outside of
         this resource.
+target_mode:
+  support: full
 examples: |
   **Bare minimum Chef Infra Client client.rb**:
 

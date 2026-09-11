@@ -86,6 +86,14 @@ properties_list:
   description_list:
   - markdown: Determines whether or not Windows should be reboot after changing the
       hostname, as this is required for the change to take effect.
+target_mode:
+  support: full
+  platforms:
+  - aix
+  - bsd
+  - linux
+  - macos_x
+  - solaris
 examples: |
   **Set the hostname using the IP address, as detected by Ohai**:
 

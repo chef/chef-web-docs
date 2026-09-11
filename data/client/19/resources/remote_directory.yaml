@@ -239,6 +239,8 @@ remote_file_unc_path: false
 ps_credential_helper: false
 ruby_style_basics_chef_log: false
 debug_recipes_chef_shell: false
+target_mode:
+  support: full
 examples: "
   Recursively transfer a directory from a remote location\n\n  ```\
   \ ruby\n  # create up to 10 backups of the files\n  # set the files owner different\

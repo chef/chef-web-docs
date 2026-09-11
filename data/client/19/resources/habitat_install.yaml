@@ -69,6 +69,8 @@ properties_list:
   - markdown: Sets TMPDIR environment variable for location to place temp files.
   - note:
       markdown: This is required if `/tmp` and `/var/tmp` are mounted `noexec`.
+target_mode:
+  support: full
 examples: |
   **Installation Without a Resource Name**
 

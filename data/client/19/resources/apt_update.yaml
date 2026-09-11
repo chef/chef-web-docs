@@ -37,6 +37,8 @@ properties_list:
   description_list:
   - markdown: Determines how frequently (in seconds) APT repository updates are made.
       Use this property when the `:periodic` action is specified.
+target_mode:
+  support: full
 examples: |
   **Update the Apt repository at a specified interval**:
 

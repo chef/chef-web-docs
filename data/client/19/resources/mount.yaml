@@ -129,6 +129,12 @@ properties_list:
   required: false
   description_list:
   - markdown: '**Windows only**. Use to specify the user name.'
+target_mode:
+  support: full
+  platforms:
+  - aix
+  - bsd
+  - linux
 examples: "
   Mount a labeled file system\n\n  ```ruby\n  mount '/mnt/volume1'\
   \ do\n    device 'volume1'\n    device_type :label\n    fstype 'xfs'\n    options\

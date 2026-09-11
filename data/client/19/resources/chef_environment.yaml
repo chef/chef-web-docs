@@ -107,3 +107,5 @@ properties_list:
   - shortcode: resources_common_notification_timers.md
   - shortcode: resources_common_notification_subscribes_syntax.md
 
+target_mode:
+  support: full

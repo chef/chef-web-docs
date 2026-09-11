@@ -62,6 +62,8 @@ properties_list:
   default_value: '600'
   description_list:
   - markdown: Timeout for `dd` / `fallocate` commands.
+target_mode:
+  support: full
 examples: |
   **Create a swap file**
 

@@ -106,6 +106,10 @@ properties_list:
   - markdown: Specifies if the unit will be verified before installation. Systemd
       can be overly strict when verifying units, so in certain cases it is preferable
       not to verify the unit.
+target_mode:
+  support: full
+  introduced: '15.1'
+  updated: '19.0'
 examples: |
   **Create systemd service unit file from a Hash**
 

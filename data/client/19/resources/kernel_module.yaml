@@ -69,6 +69,8 @@ properties_list:
   default_value: "/etc/modprobe.d"
   description_list:
   - markdown: The modprobe.d directory.
+target_mode:
+  support: full
 examples: |
   Install and load a kernel module, and ensure it loads on reboot.
 

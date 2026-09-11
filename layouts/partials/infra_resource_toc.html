@@ -11,10 +11,10 @@
     <ul>
       {{ if index $yaml_file "handler_types" }}
         <li>
-          <a href="#handler-types">Handler Types</a>
+          <a href="#handler-types">Handler types</a>
           <ul>
             <li>
-              <a href="#handler-type-exception-report">Exception / Report</a>
+              <a href="#handler-type-exception-report">Exception / report</a>
             </li>
             <li>
               <a href="#handler-type-start">Start</a>
@@ -27,9 +27,9 @@
         <a href="#syntax">Syntax</a>
         {{ if index $yaml_file "registry_key" }}
           <ul>
-            <li><a href="#windows-registry-key-backslashes">Registry Key Path Separators</a></li>
+            <li><a href="#windows-registry-key-backslashes">Registry key path separators</a></li>
             <li>
-              <a href="#dsl-recipe-method-windows-methods">Chef Infra Language Methods</a>
+              <a href="#dsl-recipe-method-windows-methods">Chef Infra Language methods</a>
               <ul>
                 <li><a href="#dsl-recipe-method-registry-data-exists">registry_data_exists?</a></li>
                 <li><a href="#dsl-recipe-method-registry-get-subkeys">registry_get_subkeys</a></li>
@@ -53,11 +53,11 @@
 
       {{ if index $yaml_file "resource_package_options" }}
         <li>
-          <a href="#resource-package-options">Gem Package Options</a>
+          <a href="#resource-package-options">Gem package options</a>
           <ul>
-            <li><a href="#resource-package-options-hash">Specify with Hash</a></li>
-            <li><a href="#resource-package-options-string">Specify with String</a></li>
-            <li><a href="#resource-package-options-gemrc">Specify with .gemrc File</a></li>
+            <li><a href="#resource-package-options-hash">Specify with hash</a></li>
+            <li><a href="#resource-package-options-string">Specify with string</a></li>
+            <li><a href="#resource-package-options-gemrc">Specify with .gemrc file</a></li>
           </ul>
         </li>
       {{ end }}
@@ -72,7 +72,7 @@
         {{ if index $yaml_file "multi_package_resource" }}
           <ul>
             <li>
-              <a href="#multiple-packages-properties">Multiple Packages</a>
+              <a href="#multiple-packages-properties">Multiple packages</a>
             </li>
           </ul>
         {{ end }}
@@ -80,7 +80,7 @@
         {{ if index $yaml_file "resource_directory_recursive_directories" }}
           <ul>
             <li>
-              <a href="#resource-directory-recursive-directories">Recursive Directories</a>
+              <a href="#directory-recursive-directories">Recursive directories</a>
             </li>
           </ul>
         {{ end }}
@@ -88,7 +88,7 @@
         {{ if index $yaml_file "resources_common_atomic_update" }}
           <ul>
             <li>
-              <a href="#resources-common-atomic-update">Atomic File Updates</a>
+              <a href="#common-atomic-update">Atomic file updates</a>
             </li>
           </ul>
         {{ end }}
@@ -96,7 +96,7 @@
         {{ if index $yaml_file "properties_resources_common_windows_security" }}
           <ul>
             <li>
-              <a href="#resources-common-windows-security">Windows File Security</a>
+              <a href="#common-windows-security">Windows file security</a>
             </li>
           </ul>
         {{ end }}
@@ -104,7 +104,7 @@
         {{ if index $yaml_file "remote_file_prevent_re_downloads" }}
           <ul>
             <li>
-              <a href="#prevent-re-downloads">Prevent Re-downloads</a>
+              <a href="#prevent-re-downloads">Prevent re-downloads</a>
             </li>
           </ul>
         {{ end }}
@@ -120,7 +120,7 @@
         {{ if index $yaml_file "ps_credential_helper" }}
           <ul>
             <li>
-              <a href="#ps-credential-helper">ps_credential Helper</a>
+              <a href="#ps-credential-helper">ps_credential helper</a>
             </li>
           </ul>
         {{ end }}
@@ -128,13 +128,13 @@
 
       {{ if index $yaml_file "ruby_style_basics_chef_log" }}
         <li>
-          <a href="#ruby-style-basics-chef-log">Chef::Log Entries</a>
+          <a href="#ruby-style-basics-chef-log">Chef::Log entries</a>
         </li>
       {{ end }}
 
       {{ if  index $yaml_file "debug_recipes_chef_shell" }}
         <li>
-          <a href="#debug-recipes-chef-shell">Debug Recipes with chef-shell</a>
+          <a href="#debug-recipes-chef-shell">Debug recipes with chef-shell</a>
           <ul>
             <li><a href="#chef-shell-modes">Modes</a></li>
             <li>
@@ -146,18 +146,18 @@
             </li>
             <li><a href="#chef-shell-manage">Manage</a></li>
             <li>
-              <a href="#chef-shell-breakpoints">Use Breakpoints</a>
+              <a href="#chef-shell-breakpoints">Use breakpoints</a>
               <ul>
-                <li><a href="#chef-shell-step-through-run-list">Step Through Run-list</a></li>
-                <li><a href="#chef-shell-debug-existing-recipe">Debug Existing Recipe</a></li>
-                <li><a href="#chef-shell-advanced-debug">Advanced Debugging</a></li>
+                <li><a href="#chef-shell-step-through-run-list">Step through run-list</a></li>
+                <li><a href="#chef-shell-debug-existing-recipe">Debug existing recipe</a></li>
+                <li><a href="#chef-shell-advanced-debug">Advanced debugging</a></li>
               </ul>
             </li>
             <li>
-              <a href="#chef-shell-debug-examples">Debug Examples</a>
+              <a href="#chef-shell-debug-examples">Debug examples</a>
               <ul>
-                <li><a href="#chef-shell-debug-example-hello-world">"Hello World"</a></li>
-                <li><a href="#chef-shell-debug-examples-specific-nodes">Get Specific Nodes</a></li>
+                <li><a href="#chef-shell-debug-example-hello-world">"Hello world"</a></li>
+                <li><a href="#chef-shell-debug-examples-specific-nodes">Get specific nodes</a></li>
               </ul>
             </li>
           </ul>
@@ -167,29 +167,33 @@
       {{ if index $yaml_file "template_requirements" }}
         <ul>
           <li>
-            <a href="#template-requirements">Using Templates</a>
+            <a href="#template-requirements">Using templates</a>
             <ul>
-              <li><a href="#template-specificity">File Specificity</a></li>
+              <li><a href="#template-specificity">File specificity</a></li>
               <li>
                 <a href="#template-helpers">Helpers</a>
                 <ul>
-                  <li><a href="#resource-template-inline-method">Inline Methods</a></li>
-                  <li><a href="#resource-template-inline-module">Inline Modules</a></li>
-                  <li><a href="#resource-template-library-module">Library Modules</a></li>
+                  <li><a href="#template-inline-method">Inline methods</a></li>
+                  <li><a href="#template-inline-module">Inline modules</a></li>
+                  <li><a href="#template-library-module">Library modules</a></li>
                 </ul>
               </li>
-              <li><a href="#template-host-notation">Host Notation</a></li>
+              <li><a href="#template-host-notation">Host notation</a></li>
               <li>
-                <a href="#template-partials">Partial Templates</a>
+                <a href="#template-partials">Partial templates</a>
                 <ul>
-                  <li><a href="#template-partials-render-method">render Method</a></li>
+                  <li><a href="#template-partials-render-method">render method</a></li>
                 </ul>
               </li>
-              <li><a href="#template-transfer-frequency">Transfer Frequency</a></li>
+              <li><a href="#template-transfer-frequency">Transfer frequency</a></li>
               <li><a href="#template-variables">Variables</a></li>
             </ul>
           </li>
         </ul>
+      {{ end }}
+
+      {{ if index $yaml_file "target_mode" }}
+        <li><a href="#agentless-mode">Agentless mode</a></li>
       {{ end }}
 
       {{ if index $yaml_file "unit_file_verification" }}
@@ -200,17 +204,17 @@
 
       {{ if or (index $yaml_file "resources_common_properties" ) ( index $yaml_file "resources_common_notification" ) ( index $yaml_file "resources_common_guards" ) ( index $yaml_file "multi_package_resource" ) ( index $yaml_file "resources_common_guard_interpreter" ) ( index $yaml_file "remote_directory_recursive_directories" ) ( index $yaml_file "common_resource_functionality_resources_common_windows_security" )}}
         <li>
-          <a href="#functionality">Common Resource Functionality</a>
+          <a href="#functionality">Common resource functionality</a>
 
           {{ if index $yaml_file "resources_common_properties" }}
             <ul>
-              <li><a href="#resources-common-properties">Common Properties</a></li>
+              <li><a href="#common-properties">Common properties</a></li>
             </ul>
           {{ end }}
 
           {{ if index $yaml_file "resources_common_notification" }}
             <ul>
-              <li><a href="#resources-common-notifications">Notifications</a></li>
+              <li><a href="#common-notifications">Notifications</a></li>
             </ul>
           {{ end }}
 
@@ -222,20 +226,20 @@
 
           {{ if index $yaml_file "multi_package_resource" }}
             <ul>
-              <li><a href="#multiple-packages-common">Multiple Packages</a></li>
+              <li><a href="#multiple-packages-common">Multiple packages</a></li>
             </ul>
           {{ end }}
 
           {{ if index $yaml_file "resources_common_guard_interpreter" }}
             <ul>
-              <li><a href="#guard-interpreter">Guard Interpreter</a></li>
+              <li><a href="#guard-interpreter">Guard interpreter</a></li>
             </ul>
           {{ end }}
 
           {{ if index $yaml_file "remote_directory_recursive_directories" }}
             <ul>
               <li>
-                <a href="#recursive-directories">Recursive Directories</a>
+                <a href="#recursive-directories">Recursive directories</a>
                 <ul>
                   <li><a href="#recursive-directories-example">Example</a></li>
                 </ul>
@@ -246,7 +250,7 @@
 
           {{ if index $yaml_file "common_resource_functionality_resources_common_windows_security" }}
             <ul>
-              <li><a href="#resources-common-windows-security">Windows File Security</a></li>
+              <li><a href="#common-windows-security">Windows file security</a></li>
             </ul>
           {{ end }}
         </li>
@@ -254,7 +258,7 @@
 
       {{ if index $yaml_file "cookbook_file_specificity" }}
         <ul>
-          <li><a href="#cookbook-file-specificity">File Specificity</a></li>
+          <li><a href="#cookbook-file-specificity">File specificity</a></li>
         </ul>
       {{ end }}
 

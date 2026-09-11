@@ -151,6 +151,8 @@ properties_list:
   default_value: NONE
   description_list:
   - markdown: Specifies the repository type.
+target_mode:
+  support: full
 examples: |
   **Add the Apache repo on openSUSE Leap 15**:
 

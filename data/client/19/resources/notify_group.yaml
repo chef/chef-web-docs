@@ -26,6 +26,8 @@ actions_list:
   :run:
     markdown:
 properties_list: []
+target_mode:
+  support: full
 examples: |
   Wire up a notification from a service resource to stop and start the service with a 60 second delay.
 

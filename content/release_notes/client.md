@@ -14401,7 +14401,7 @@ language developed by Microsoft. Windows PowerShell uses a
 document-oriented approach for managing Microsoft Windows-based
 machines, similar to the approach that's used for managing Unix and
 Linux-based machines. Windows PowerShell is [a tool-agnostic
-platform](https://docs.microsoft.com/en-us/powershell/scripting/powershell-scripting)
+platform](https://learn.microsoft.com/en-us/powershell/scripting/overview)
 that supports using Chef for configuration management.
 
 Desired State Configuration (DSC) is a feature of Windows PowerShell

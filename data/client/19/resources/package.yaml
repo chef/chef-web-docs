@@ -1,6 +1,5 @@
 ---
 resource_reference: true
-resource_package_options: true
 resource: package
 resource_description_list:
 - markdown: |-
@@ -261,6 +260,8 @@ resources_common_properties: false
 resources_common_notification: false
 resources_common_guards: false
 common_resource_functionality_multiple_packages: null
+target_mode:
+  support: full
 examples: |
   **Install a gems file for use in recipes**
 

@@ -103,3 +103,5 @@ properties_list:
   description_list:
   - markdown: '...'
 
+target_mode:
+  support: full

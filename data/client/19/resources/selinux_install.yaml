@@ -37,6 +37,8 @@ properties_list:
   default_value: lazy default
   description_list:
   - markdown: SELinux packages for system.
+target_mode:
+  support: full
 examples: |
   **Default installation**:
 

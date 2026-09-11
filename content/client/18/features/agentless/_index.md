@@ -28,7 +28,7 @@ Agentless has the following requirements:
 - A credentials file which provides the system with information to connect to a target node.
 - A recipe that only includes Agentless-enabled resources.
 
-## Credentials file
+## Configure the credentials file
 
 The credentials file defines the SSH connection settings for each node in TOML format.
 

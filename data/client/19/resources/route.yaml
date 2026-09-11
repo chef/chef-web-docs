@@ -75,4 +75,6 @@ properties_list:
   default_value: The resource block's name
   description_list:
   - markdown: The IP address of the target route.
+target_mode:
+  support: full
 examples:

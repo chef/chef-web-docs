@@ -52,6 +52,8 @@ properties_list:
   required: false
   description_list:
   - markdown: SELinux user to be mapped.
+target_mode:
+  support: full
 examples: |
   **Manage test OS user mapping with a range of s0 and associated SELinux user test_u**:
 

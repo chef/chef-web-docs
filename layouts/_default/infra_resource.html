@@ -22,8 +22,13 @@
 
 <hr>
 
+{{ $reusable_base := "content/reusable/md" }}
+{{ if eq $product "client" }}
+  {{ $reusable_base = printf "content/client/%s/reusable/md" (index .Params.data_path 1) }}
+{{ end }}
+
 {{ $yaml_file := index $.Site.Data (.Params.data_path) }}
-{{ $partial_data := dict "yaml_file" $yaml_file "product" $product "resource_ID" "" "heading_base_level" 2 "include_resource_id" false }}
+{{ $partial_data := dict "yaml_file" $yaml_file "product" $product "reusable_base" $reusable_base "resource_ID" "" "heading_base_level" 2 "include_resource_id" false }}
 {{ partial "infra_resource_data" $partial_data }}
 
 {{ end }}

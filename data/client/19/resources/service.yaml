@@ -158,6 +158,10 @@ properties_list:
   new_in: '12.21'
   description_list:
   - markdown: 'systemd only: A username to run the service under.'
+target_mode:
+  support: full
+  introduced: '15.1'
+  updated: '19.0'
 examples: "
   Start a service\n\n  ```ruby\n  service 'example_service' do\n \
   \   action :start\n  end\n  ```\n\n  Start a service, enable it\n\n  ```ruby\n\

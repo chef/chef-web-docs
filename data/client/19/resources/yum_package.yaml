@@ -129,6 +129,8 @@ properties_list:
   required: false
   description_list:
   - markdown: The path to the yum binary.
+target_mode:
+  support: full
 examples: |
   **Install an exact version**:
 

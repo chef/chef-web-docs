@@ -62,6 +62,8 @@ properties_list:
   required: false
   description_list:
   - markdown: The priority of the alternative.
+target_mode:
+  support: full
 examples: |
   **Install an alternative**:
 

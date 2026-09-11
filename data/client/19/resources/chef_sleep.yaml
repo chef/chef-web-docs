@@ -33,6 +33,8 @@ properties_list:
   default_value: The resource block's name
   description_list:
   - markdown: The number of seconds to sleep.
+target_mode:
+  support: full
 examples: |
   **Sleep for 10 seconds**:
 

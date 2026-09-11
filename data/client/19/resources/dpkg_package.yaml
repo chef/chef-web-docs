@@ -96,6 +96,10 @@ properties_list:
   required: false
   description_list:
   - markdown: The version of a package to be installed or upgraded.
+target_mode:
+  support: full
+  introduced: '19.0'
+  description: Does not support the `response_file` property in Target Mode.
 examples: "
   Install a package\n\n  ```ruby\n  dpkg_package 'wget_1.13.4-2ubuntu1.4_amd64.deb'\
   \ do\n    source '/foo/bar/wget_1.13.4-2ubuntu1.4_amd64.deb'\n    action :install\n\

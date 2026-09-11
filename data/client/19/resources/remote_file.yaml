@@ -373,6 +373,8 @@ properties_list:
       Whereas, this should return `false`:\n\n```ruby\nremote_file '/tmp/turtle'\
       \ do\n  verify '/usr/bin/false'\nend\n```\n\nIf a string or a block return `false`,\
       \ the Chef Infra Client run\nwill stop and an error is returned."
+target_mode:
+  support: full
 examples: |
   **Download a file without checking the checksum**:
 
