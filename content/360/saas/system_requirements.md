@@ -34,9 +34,26 @@ Nodes enrolled with Chef 360 SaaS using a Chef Infra cookbook have the following
 - You must have sudo privileges on the node.
 - Note: Requires Chef Infra Server or running Chef Infra Client in zero mode. For SaaS, this requires Chef 360 SaaS Enterprise.
 
-### Chef 360 SaaS enrollment
+### Node Enrollment with Chef 360 SaaS 
 
-Nodes enrolled using single-node enrollment have the following requirements.
+Node enrollment is the process of registering a node with the Chef 360 platform so that it can be managed. Chef 360 supports two enrollment methods: **server-side enrollment** and **client-side enrollment**.
+
+#### Server-Side Enrollment
+
+In server-side enrollment, **Chef 360 initiates the connection to the target node** using SSH or WinRM. Because Chef 360 connects remotely to the node, the target system must satisfy the required connectivity, authentication, and access prerequisites, including:
+
+- Open network ports
+- Valid credentials
+- Appropriate user permissions
+- Any protocol-specific requirements for SSH or WinRM
+
+#### Client-Side Enrollment
+
+In client-side enrollment, **the target node initiates the enrollment process and connects to Chef 360**. Because Chef 360 does not establish a remote connection to the node, SSH and WinRM connectivity requirements do not apply.
+
+**Note:** The choice of enrollment method affects the prerequisites that must be met before enrollment can occur. Server-side enrollment requires Chef 360 to establish a remote connection to the target node, whereas client-side enrollment does not.
+
+The following are the requirements for server-side enrollment
 
 Connection requirements:
 
