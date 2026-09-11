@@ -206,15 +206,15 @@
 
 [[redirects]]
   from = "/workstation/knife_*"
-  to = "/workstation/26.1/tools/knife/knife_:splat"
+  to = "/workstation/26.2/tools/knife/knife_:splat"
   status = 301
 
 [[redirects]]
   from = "/workstation/latest/*"
-  to = "/workstation/26.1/:splat"
+  to = "/workstation/26.2/:splat"
   status = 301
 
 [[redirects]]
   from = "/workstation/26/*"
-  to = "/workstation/26.1/:splat"
+  to = "/workstation/26.2/:splat"
   status = 301
