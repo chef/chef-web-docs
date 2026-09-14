@@ -72,13 +72,15 @@ To set up an APT package repository for Debian and Ubuntu, follow these steps:
     sudo apt-get update
     ```
 
-## Set up a YUM repository for Enterprise Linux
+## Set up a package repository for Enterprise Linux
 
 {{< note >}}
 
 Starting in Chef Infra Client 18.6.2, Chef upgraded the GPG signing algorithm used to sign RHEL packages from SHA1 to SHA256. RHEL 9 no longer supports the less secure SHA1 hashes.
 
 {{< /note >}}
+
+### Set up a YUM repository for Enterprise Linux
 
 To set up a YUM package repository for Enterprise Linux, follow these steps:
 
@@ -131,7 +133,7 @@ To set up a YUM package repository for Enterprise Linux, follow these steps:
     sudo yum makecache
     ```
 
-## Set up a DNF repository for Enterprise Linux
+### Set up a DNF repository for Enterprise Linux
 
 To set up a DNF package repository for Enterprise Linux, follow these steps:
 
