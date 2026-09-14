@@ -33,4 +33,12 @@ See the [Marketplace overview](/marketplace/) to learn what Marketplace is and h
 
 ### Limitations
 
-See the [Marketplace overview](/marketplace/#out-of-scope-and-limitations-for-this-release) for the full list of out-of-scope items and limitations for this release.
+Marketplace 1.0.0 supports backward compatibility for cookbook-consumption workflows only.
+The following items are out of scope for this release:
+
+- Private Chef Supermarket content, including migration workflows for moving that content into Marketplace.
+- `knife supermarket` write or administrative workflows.
+- Publishing, sharing, unsharing, deprecating, deleting, and administrative content operations.
+- Content types other than cookbooks from the public Chef Supermarket.
+
+See [Backward compatibility](/marketplace/backward_compatibility/) for the current, up-to-date list of supported and unsupported workflows.
