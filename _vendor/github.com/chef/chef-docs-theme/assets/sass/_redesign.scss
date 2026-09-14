@@ -1,0 +1,689 @@
+// =========================================================================
+// Chef Docs Redesign — Skin Layer
+// Brand refresh applied on top of the existing Foundation-based theme.
+// Imported last in main.scss so these rules win the cascade without
+// needing to touch/rewrite the underlying Foundation grid or JS behavior.
+// =========================================================================
+
+@font-face {
+  font-family: "Progress Text";
+  src: url("/fonts/progress-text.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Progress Display";
+  src: url("/fonts/progress-display.woff2") format("woff2");
+  font-weight: 500 800;
+  font-display: swap;
+}
+
+:root {
+  --rd-slate: #16232d;
+  --rd-slate-2: #1f333f;
+  --rd-orange: #ef9600;
+  --rd-orange-dark: #d97f00;
+  --rd-blue: #2a7ab0;
+  --rd-ink: #1a2530;
+  --rd-ink-soft: #4b5763;
+  --rd-line: #e4e8ec;
+  --rd-bg-soft: #f6f8fa;
+  --rd-success: #1f9d55;
+  --rd-radius: 10px;
+}
+
+body,
+input,
+button,
+select {
+  font-family: "Progress Text", $body-font-family, sans-serif;
+  font-style: normal;
+  // Explicitly pin the hidden slnt axis to 0 (upright). "Progress Text"
+  // is a variable font with a slant axis; some browsers can mis-render
+  // its default axis value as slanted unless it's forced here.
+  font-variation-settings: "slnt" 0;
+  color: var(--rd-ink);
+}
+
+h1, h2, h3, h4, h5, h6,
+.utility-bar-brand,
+#col-content > div > h1 {
+  font-family: "Progress Display", $body-font-family, sans-serif;
+  font-weight: 700;
+  color: var(--rd-ink);
+  letter-spacing: -0.01em;
+}
+
+a {
+  color: var(--rd-blue);
+  &:hover { color: var(--rd-orange-dark); }
+}
+
+// ---- Header ----------------------------------------------------------
+nav#utility-bar.redesign-header {
+  background: var(--rd-slate);
+  border-bottom: none;
+  height: 64px;
+  padding: 0 1.25rem;
+  box-shadow: 0 1px 2px rgba(16, 24, 32, 0.16);
+
+  a.utility-bar-brand .chef {
+    width: 168px;
+    filter: brightness(0) invert(1);
+  }
+
+  ul.redesign-nav,
+  ul.redesign-nav ul {
+    background-color: transparent;
+  }
+
+  ul.redesign-nav a {
+    color: #cfd9de;
+    font-weight: 600;
+    &:hover { color: #fff; }
+  }
+
+  .redesign-search-btn {
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.06);
+    color: #cfd9de;
+    border-radius: 999px;
+    padding: 0.5rem 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    svg { flex-shrink: 0; }
+    kbd {
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 11px;
+      margin-left: 6px;
+    }
+    &:hover {
+      border-color: var(--rd-orange);
+      color: #fff;
+    }
+  }
+
+  button.utility-bar-nav-bars { color: #fff; }
+}
+
+// ---- Sidebar -----------------------------------------------------------
+#left-nav-off-canvas,
+.sidebar-on-canvas,
+#sidebar {
+  background: var(--rd-bg-soft) !important;
+  font-family: "Progress Text", $body-font-family, sans-serif;
+
+  a {
+    color: var(--rd-ink-soft);
+    &:hover { color: var(--rd-blue); }
+    &.active,
+    &.is-active {
+      color: var(--rd-orange-dark);
+      font-weight: 700;
+      border-left: 3px solid var(--rd-orange);
+    }
+  }
+}
+
+// ---- Buttons -------------------------------------------------------------
+.button,
+button.primary,
+a.button {
+  background: var(--rd-orange);
+  border-radius: 8px;
+  font-weight: 700;
+  &:hover { background: var(--rd-orange-dark); }
+}
+
+// ---- Prose / content -----------------------------------------------------
+.prose {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--rd-ink);
+
+  code {
+    border-radius: 4px;
+  }
+}
+
+// ---- Breadcrumbs -----------------------------------------------------------
+.breadcrumbs,
+nav[aria-label="breadcrumbs"] {
+  font-size: 13px;
+  color: var(--rd-ink-soft);
+  a { color: var(--rd-ink-soft); font-weight: 600; }
+}
+
+// ---- Footer ----------------------------------------------------------------
+footer,
+#footer {
+  background: var(--rd-slate) !important;
+  color: #cfd9de !important;
+  font-family: "Progress Text", $body-font-family, sans-serif;
+
+  a { color: #cfd9de; &:hover { color: #fff; } }
+}
+
+// ---- New reusable content components (opt-in shortcodes) -----------------
+.chefway-box {
+  border-radius: var(--rd-radius);
+  border: 1px solid var(--rd-line);
+  padding: 16px 20px;
+  margin: 20px 0;
+  background: #fff;
+
+  .chefway-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 3px 11px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+  }
+  &.way .chefway-label { background: #e6f4ea; color: var(--rd-success); }
+  &.why .chefway-label { background: #e7f0fa; color: var(--rd-blue); }
+  &.alternative .chefway-label { background: #f0f1f3; color: var(--rd-ink-soft); }
+  &.legacy .chefway-label { background: #fff4e5; color: #92600a; }
+  &.avoid .chefway-label { background: #fdecea; color: #b3261e; }
+  &.migration .chefway-label { background: #f3ecfb; color: #6c3fa8; }
+
+  p:last-child { margin-bottom: 0; }
+}
+
+.standard-steps-wrap ol {
+  counter-reset: step;
+  padding-left: 0;
+  list-style: none;
+
+  > li {
+    position: relative;
+    padding: 4px 0 20px 44px;
+    border-left: 2px solid var(--rd-line);
+    margin-left: 15px;
+
+    &:last-child { border-color: transparent; padding-bottom: 0; }
+
+    &::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: -15px;
+      top: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--rd-orange);
+      color: #fff;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+  }
+}
+
+.verify-box, .before-begin-box, .problem-box {
+  border-radius: var(--rd-radius);
+  border: 1px solid var(--rd-line);
+  background: var(--rd-bg-soft);
+  padding: 16px 20px;
+  margin: 20px 0;
+
+  .box-label {
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--rd-ink-soft);
+    display: block;
+    margin-bottom: 8px;
+  }
+}
+.verify-box { border-left: 4px solid var(--rd-success); }
+.problem-box { border-left: 4px solid #b3261e; }
+.before-begin-box { border-left: 4px solid var(--rd-blue); }
+
+// ---- Version selector (real, functional) ----------------------------------
+.version-select {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0 20px;
+
+  .version-select-label {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--rd-ink-soft);
+  }
+
+  ul.version-select-menu {
+    background: transparent;
+
+    // Foundation's dropdown-menu JS adds "is-dropdown-submenu-parent" to any
+    // <li> with a nested submenu (this one) and injects its own solid
+    // triangle ::after arrow + extra right padding, from a rule that's
+    // lower-specificity than ours here, so targeting both the plain and
+    // JS-added class combos below reliably wins regardless of load timing.
+    > li.version-select-menu-parent > a,
+    > li.version-select-menu-parent.is-dropdown-submenu-parent > a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid var(--rd-line);
+      border-radius: 999px;
+      padding: 5px 14px;
+      font-weight: 700;
+      // Lock the variable font to upright: "Progress Text" ships a hidden
+      // slnt axis, and some browsers (Safari) will synthesize a slant on
+      // bold text from that axis unless explicitly pinned to 0.
+      font-style: normal;
+      font-variation-settings: "slnt" 0;
+      font-synthesis: none;
+      color: var(--rd-ink);
+      background: #fff;
+
+      &:hover { border-color: var(--rd-orange); }
+
+      &::after {
+        content: "" !important;
+        width: 10px;
+        height: 6px;
+        border: none !important;
+        flex-shrink: 0;
+        background: no-repeat center / contain url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%234b5763' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+        margin-left: 4px;
+        // Nudge up slightly: the V-shape's visual weight sits at its
+        // bottom vertex, so geometric centering alone still reads as
+        // "a bit low" next to bold text.
+        margin-top: -1.5px !important;
+        transform: none !important;
+      }
+    }
+
+    ul.version-selector-submenu {
+      border: 1px solid var(--rd-line);
+      border-radius: var(--rd-radius);
+      box-shadow: 0 4px 16px rgba(16, 24, 32, 0.12);
+      padding: 6px;
+
+      li a {
+        border-radius: 6px;
+        padding: 7px 12px;
+        &:hover { background: var(--rd-bg-soft); color: var(--rd-orange-dark); }
+      }
+    }
+  }
+}
+
+// ---- Feedback widget (real, functional) -----------------------------------
+#feedback {
+  border-top: 1px solid var(--rd-line);
+  margin-top: 40px;
+  padding-top: 24px;
+  font-family: "Progress Text", $body-font-family, sans-serif;
+
+  .feedback-request {
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--rd-ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+  }
+
+  #feedback-buttons button,
+  #feedback-edit-on-github .button,
+  #feedback-support .button {
+    border: 1px solid var(--rd-line);
+    background: #fff;
+    border-radius: 999px;
+    padding: 7px 16px;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--rd-ink);
+    margin: 0 8px 8px 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    &:hover { border-color: var(--rd-orange); color: var(--rd-orange-dark); }
+  }
+  .feedback-yes:hover { border-color: var(--rd-success); color: var(--rd-success); }
+  .feedback-no:hover { border-color: #b3261e; color: #b3261e; }
+
+  textarea#feedback-form-feedback {
+    border: 1px solid var(--rd-line);
+    border-radius: var(--rd-radius);
+    font-family: inherit;
+  }
+
+  button#feedback-form-submit-feedback {
+    background: var(--rd-orange);
+    border: none;
+    border-radius: 999px;
+    color: #fff;
+    font-weight: 700;
+    padding: 9px 20px;
+    &:disabled { background: var(--rd-line); color: var(--rd-ink-soft); }
+    &:hover:not(:disabled) { background: var(--rd-orange-dark); }
+  }
+}
+
+// ---- Search modal (real Swiftype-powered, restyled) -----------------------
+#swiftype-modal {
+  background: rgba(22, 35, 45, 0.72);
+  backdrop-filter: blur(2px);
+
+  #swiftype-modal-content {
+    max-width: 640px;
+    margin: 10vh auto 0;
+  }
+
+  .swiftype-search-form {
+    background: #fff;
+    border-radius: var(--rd-radius);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+
+    input.swiftype-search-input {
+      border: none;
+      font-size: 16px;
+      padding: 16px 18px;
+      font-family: "Progress Text", $body-font-family, sans-serif;
+      &:focus { box-shadow: none; outline: none; }
+    }
+    input[type="submit"] {
+      background: var(--rd-orange);
+      border: none;
+      font-weight: 700;
+      &:hover { background: var(--rd-orange-dark); }
+    }
+  }
+
+  #swiftype-search-close-button {
+    color: #fff;
+    font-size: 28px;
+  }
+}
+
+// ---- New homepage (layouts/index.html) ------------------------------------
+.rd-hero {
+  background: linear-gradient(135deg, var(--rd-slate), var(--rd-slate-2));
+  color: #fff;
+  padding: 56px 24px 40px;
+  margin: -20px -20px 0;
+}
+.rd-hero-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: left;
+}
+.rd-hero h1 {
+  color: #fff;
+  font-size: 40px;
+  line-height: 1.15;
+  margin: 0 0 16px;
+}
+.rd-hero-sub {
+  color: #cfd9de;
+  font-size: 17px;
+  max-width: 620px;
+  margin: 0 0 28px;
+}
+.rd-hero-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border-radius: 999px;
+  padding: 6px 8px 6px 20px;
+  max-width: 680px;
+
+  svg { color: var(--rd-ink-soft); flex-shrink: 0; margin: 0; }
+  input {
+    border: none;
+    flex: 1;
+    font-size: 15px;
+    padding: 10px 0;
+    margin: 0;
+    font-family: "Progress Text", $body-font-family, sans-serif;
+    &:focus { outline: none; box-shadow: none; }
+  }
+  button {
+    background: var(--rd-orange);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 10px 22px;
+    margin: 0;
+    font-weight: 700;
+    cursor: pointer;
+    &:hover { background: var(--rd-orange-dark); }
+  }
+}
+.rd-hero-popular {
+  margin: 16px 0 0;
+  font-size: 13.5px;
+  color: #b9c4cb;
+
+  a {
+    color: #e7ecef;
+    text-decoration: underline;
+    margin-left: 10px;
+    &:hover { color: #fff; }
+    &:first-of-type { margin-left: 8px; }
+  }
+}
+
+.rd-section {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 44px 4px 4px;
+
+  h2 { font-size: 24px; margin: 0 0 6px; }
+}
+.rd-section-sub {
+  color: var(--rd-ink-soft);
+  margin: 0 0 22px;
+  font-size: 15px;
+}
+
+.rd-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.rd-tile {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  border: 1px solid var(--rd-line);
+  border-radius: var(--rd-radius);
+  background: #fff;
+  padding: 18px;
+  text-decoration: none !important;
+  color: var(--rd-ink);
+  transition: box-shadow .15s ease, border-color .15s ease;
+
+  &:hover {
+    box-shadow: 0 8px 24px rgba(16, 24, 32, 0.1);
+    border-color: var(--rd-orange);
+  }
+  .rd-tile-icon {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: #fdf0da;
+    color: var(--rd-orange-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .rd-tile-body {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    strong { font-size: 15.5px; text-decoration: none; }
+    span { font-size: 13.5px; color: var(--rd-ink-soft); line-height: 1.4; text-decoration: none; }
+  }
+}
+
+.rd-callout-way {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: var(--rd-bg-soft);
+  border: 1px solid var(--rd-line);
+  border-radius: var(--rd-radius);
+  padding: 24px 28px;
+  flex-wrap: wrap;
+
+  .rd-callout-label {
+    display: block;
+    color: var(--rd-orange-dark);
+    font-weight: 800;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    margin-bottom: 6px;
+  }
+  p { margin: 0; max-width: 620px; color: var(--rd-ink); }
+}
+.rd-btn {
+  display: inline-block;
+  background: var(--rd-orange);
+  color: #fff !important;
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-weight: 700;
+  text-decoration: none !important;
+  white-space: nowrap;
+  &:hover { background: var(--rd-orange-dark); }
+}
+
+.rd-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.rd-pill {
+  border: 1px solid var(--rd-line);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--rd-ink);
+  text-decoration: none !important;
+  &:hover { border-color: var(--rd-orange); color: var(--rd-orange-dark); }
+}
+
+.rd-products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.rd-product-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--rd-line);
+  border-radius: var(--rd-radius);
+  padding: 18px;
+  text-decoration: none !important;
+  color: var(--rd-ink);
+  transition: box-shadow .15s ease, border-color .15s ease;
+
+  &:hover { box-shadow: 0 8px 24px rgba(16, 24, 32, 0.1); border-color: var(--rd-blue); }
+
+  .rd-product-heading {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    .material-symbols-outlined { color: var(--rd-orange-dark); }
+    strong { font-size: 15.5px; color: var(--rd-blue); }
+  }
+  p { font-size: 13.5px; color: var(--rd-ink-soft); flex: 1; margin: 0 0 12px; }
+  .rd-product-link {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--rd-blue);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    .material-symbols-outlined { font-size: 16px; }
+  }
+  .rd-badge {
+    background: var(--rd-orange);
+    color: #fff;
+    font-size: 10.5px;
+    font-weight: 800;
+    border-radius: 999px;
+    padding: 2px 9px;
+  }
+}
+
+@media (max-width: 900px) {
+  .rd-tiles, .rd-products { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .rd-hero h1 { font-size: 28px; }
+  .rd-tiles, .rd-products { grid-template-columns: 1fr; }
+  .rd-callout-way { flex-direction: column; align-items: flex-start; }
+}
+
+// ---- Left-nav group headings (information architecture) -------------------
+// Labels the left nav with the kind of thing each entry is -- Start here /
+// Products / Solutions / Resources / Archive -- so products, solutions built
+// from products, supporting resources and archived material stop reading as
+// peers. Rendered by layouts/partials/range_menu.html.
+#sidebar-nav .nav > ul > li.nav-group-heading {
+  font-family: "Progress Display", $body-font-family, sans-serif;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rd-ink-soft);
+  padding: 0 0 4px;
+  margin: 22px 0 4px;
+  border-bottom: 1px solid var(--rd-line);
+  cursor: default;
+
+  &:first-child {
+    margin-top: 4px;
+  }
+}
+
+// Lightweight lifecycle indicator. Lifecycle status is owned by /versions/;
+// this is a pointer to it, not a second source of truth.
+.nav-status-deprecated {
+  display: inline-block;
+  font-family: "Progress Text", $body-font-family, sans-serif;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #92600a;
+  background: #fff4e5;
+  border-radius: 999px;
+  padding: 1px 7px;
+  margin-left: 6px;
+  vertical-align: middle;
+  white-space: nowrap;
+}

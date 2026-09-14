@@ -1,0 +1,13 @@
+{{- $label := .Get "label" | default "way" -}}
+{{- $labelText := dict
+    "way" "✓ Chef Way"
+    "why" "? Why"
+    "alternative" "⇄ Alternative"
+    "legacy" "◷ Legacy"
+    "avoid" "✕ Avoid"
+    "migration" "→ Migration"
+  -}}
+<div class="chefway-box {{ $label }}">
+  <span class="chefway-label">{{ index $labelText $label | default "✓ Chef Way" }}</span>
+  {{ .Page.RenderString .Inner }}
+</div>

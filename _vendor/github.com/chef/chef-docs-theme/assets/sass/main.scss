@@ -35,3 +35,7 @@ body {
 @import "partials/breadcrumbs";
 @import "partials/version_selector";
 @import "partials/foundation";
+
+// Brand refresh — imported last so it wins the cascade over Foundation
+// defaults without needing to rewrite the underlying grid/JS behavior.
+@import "redesign";
