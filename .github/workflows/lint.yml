@@ -18,8 +18,8 @@ jobs:
   cspell-action:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: streetsidesoftware/cspell-action@v2.1.1
+      - uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3
+      - uses: streetsidesoftware/cspell-action@9915f33c8346978ad67aa8e6f94ebd35d0537971 # v2.1.1
         with:
           files: '**/*.md'
           root: '.'
@@ -32,15 +32,15 @@ jobs:
   markdownlint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
-      - uses: carlosperate/download-file-action@v1.1.2
+      - uses: carlosperate/download-file-action@8b89cb8b4807765e7d63fe765cc600eb1919af11 # v1.1.2
         id: download-mdl-config
         with:
           file-url: 'https://raw.githubusercontent.com/chef/chef-web-docs/main/.markdownlint.yaml'
           file-name: 'markdownlint.yaml'
-      - uses: DavidAnson/markdownlint-cli2-action@v5
+      - uses: DavidAnson/markdownlint-cli2-action@744f913a124058ee903768d3adb92a4847e5d132 # v5
         with:
           globs: |
             *.md
@@ -53,10 +53,74 @@ jobs:
     name: runner / vale
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: errata-ai/vale-action@reviewdog
+      - uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3
+      - uses: errata-ai/vale-action@518a9136acc6e6668ce7c00d367051e0941e87ff # reviewdog
         with:
           files: '["content"]'
           vale_flags: "--config=.vale.ini --minAlertLevel=error"
           filter_mode: diff_context
           fail_on_error: true
+  todo-check:
+    name: runner / todo-check
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Check and comment on TODOs added in this pull request
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        with:
+          script: |
+            const excludeDirs = ['.github/', '_vendor/', 'tools/'];
+            const pull_number = context.payload.pull_request.number;
+            const commit_id = context.payload.pull_request.head.sha;
+
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number,
+              per_page: 100,
+            });
+
+            let found = false;
+
+            for (const file of files) {
+              if (!file.patch) continue;
+              if (excludeDirs.some((dir) => file.filename.startsWith(dir))) continue;
+
+              // Track the new-file line number as this action walks each diff hunk.
+              let newLine = 0;
+              for (const line of file.patch.split('\n')) {
+                const hunkMatch = line.match(/^@@ -\d+(?:,\d+)? \+(\d+)(?:,\d+)? @@/);
+                if (hunkMatch) {
+                  newLine = Number(hunkMatch[1]) - 1;
+                  continue;
+                }
+                if (line.startsWith('+') && !line.startsWith('+++')) {
+                  newLine++;
+                  if (/\bTODO\b/.test(line)) {
+                    found = true;
+                    core.error(`TODO found in ${file.filename}:${newLine}`);
+                    try {
+                      await github.rest.pulls.createReviewComment({
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                        pull_number,
+                        commit_id,
+                        path: file.filename,
+                        line: newLine,
+                        body: 'Found a `TODO` on this line. Resolve it before merging.',
+                      });
+                    } catch (error) {
+                      core.warning(`Couldn't comment on ${file.filename}:${newLine}: ${error.message}`);
+                    }
+                  }
+                } else if (!line.startsWith('-')) {
+                  newLine++;
+                }
+              }
+            }
+
+            if (found) {
+              core.setFailed('Found TODO comments added in this pull request. Resolve them before merging.');
+            }
