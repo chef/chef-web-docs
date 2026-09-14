@@ -1179,30 +1179,51 @@ identifier = "chef_cloud"
 ####
 
 ####
-# Infra Marketplace Menu
+# Marketplace Menu
 ####
 
-[[infra_marketplace]]
-title = "Infra Marketplace"
-identifier = "infra_marketplace"
-url = "/infra_marketplace/"
+[[marketplace]]
+title = "Marketplace"
+identifier = "marketplace"
+url = "/marketplace/"
 
-  [[infra_marketplace]]
+  [[marketplace]]
   title = "Overview"
-  identifier = "infra_marketplace/overview"
-  parent = "infra_marketplace"
-  url = "/infra_marketplace/"
+  identifier = "marketplace/overview"
+  parent = "marketplace"
+  url = "/marketplace/"
   weight = 10
 
-  [[infra_marketplace]]
-  title = "Compatibility reference"
-  identifier = "infra_marketplace/compatibility_reference"
-  parent = "infra_marketplace"
-  url = "/infra_marketplace/compatibility_reference/"
+  [[marketplace]]
+  title = "Backward compatibility"
+  identifier = "marketplace/backward_compatibility"
+  parent = "marketplace"
+  url = "/marketplace/backward_compatibility/"
   weight = 20
 
+    [[marketplace]]
+    title = "Knife supermarket"
+    identifier = "marketplace/backward_compatibility/knife_supermarket"
+    parent = "marketplace/backward_compatibility"
+    url = "/marketplace/backward_compatibility/knife_supermarket/"
+    weight = 10
+
+    [[marketplace]]
+    title = "Berkshelf"
+    identifier = "marketplace/backward_compatibility/berkshelf"
+    parent = "marketplace/backward_compatibility"
+    url = "/marketplace/backward_compatibility/berkshelf/"
+    weight = 20
+
+    [[marketplace]]
+    title = "Policyfile"
+    identifier = "marketplace/backward_compatibility/policyfile"
+    parent = "marketplace/backward_compatibility"
+    url = "/marketplace/backward_compatibility/policyfile/"
+    weight = 30
+
 ####
-# End Infra Marketplace Menu
+# End Marketplace Menu
 ####
 
 ####

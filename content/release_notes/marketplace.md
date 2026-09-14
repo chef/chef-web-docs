@@ -1,35 +1,36 @@
 +++
-title = "Infra Marketplace release notes"
+title = "Marketplace release notes"
 draft = false
-linkTitle = "Infra Marketplace"
-summary = "Infra Marketplace release notes"
+linkTitle = "Marketplace"
+summary = "Marketplace release notes"
 
 [menu]
   [menu.release_notes]
-    title = "Infra Marketplace"
-    identifier = "release_notes/Infra Marketplace"
+    title = "Marketplace"
+    identifier = "release_notes/Marketplace"
     parent = "release_notes"
     weight = 130
 +++
 
-## Infra Marketplace 1.0.0
+## Marketplace 1.0.0
 
 Release date: September 2, 2026
 
-Infra Marketplace 1.0.0 provides backward-compatible public cookbook consumption for Chef Supermarket workflows.
+Marketplace 1.0.0 is the first release of Marketplace, a new Chef product for public cookbook content that will become part of Chef 360 Platform as it grows.
+This release focuses on backward compatibility, so your existing public Chef Supermarket cookbook-consumption workflows keep working if you choose to adopt Marketplace.
+See the [Marketplace overview](/marketplace/) to learn what Marketplace is and how it relates to Chef Supermarket.
 
 ### New features requiring configuration updates
 
-- **Infra Marketplace public cookbook source**: You can use Infra Marketplace as the public cookbook source for Berkshelf, Policyfiles, and `knife supermarket` commands.
+- **Marketplace public cookbook source**: You can use Marketplace as the public cookbook source for Berkshelf, Policyfiles, and `knife supermarket` commands.
   Update your source URL to `https://marketplace.chef.io`.
-  See [Infra Marketplace compatibility reference](/infra_marketplace/compatibility_reference/) for configuration steps.
+  See [Backward compatibility](/marketplace/backward_compatibility/) for configuration steps.
 
 ### New features
 
-- **Unauthenticated read-only Knife commands**: Infra Marketplace supports unauthenticated, read-only `knife supermarket` commands, including `download`, `install`, `list`, `search`, and `show`.
-- **Parallel public-source support**: You can continue to use the public Chef Supermarket source or configure Infra Marketplace as your public cookbook source.
+- **Unauthenticated read-only Knife commands**: Marketplace supports unauthenticated, read-only `knife supermarket` commands, including `download`, `install`, `list`, `search`, and `show`.
+- **Parallel public-source support**: You can continue to use the public Chef Supermarket source or configure Marketplace as your public cookbook source, at your own pace.
 
 ### Limitations
 
-- Infra Marketplace 1.0.0 supports cookbooks from the public Chef Supermarket only.
-- Private Chef Supermarket content, write operations, and administrative workflows aren't supported.
+See the [Marketplace overview](/marketplace/#out-of-scope-and-limitations-for-this-release) for the full list of out-of-scope items and limitations for this release.

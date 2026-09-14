@@ -13,7 +13,7 @@ menu_order = [
   "workstation",
   "effortless",
   "supermarket",
-  "infra_marketplace",
+  "marketplace",
   "release_notes",
   "legacy",
   "extra"

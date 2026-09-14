@@ -1,17 +1,11 @@
 +++
-title = "Infra Marketplace overview"
+title = "Marketplace overview"
 draft = false
-
-[menu]
-  [menu.infra_marketplace]
-    title = "Overview"
-    identifier = "infra_marketplace/overview"
-    parent = "infra_marketplace"
-    weight = 10
 +++
 
-Infra Marketplace provides backward-compatible public cookbook consumption for Chef Supermarket workflows.
-This page describes the confirmed initial-release scope.
+Marketplace is a Chef product for public cookbook content, and it will become part of [Chef 360 Platform](/360/latest/) as the product grows.
+This initial release focuses on one thing: keeping your existing [Chef Supermarket](/supermarket/) cookbook-consumption workflows working without disruption.
+You can adopt Marketplace at your own pace, since Chef Supermarket and Marketplace are both available as public cookbook sources today.
 
 ## Intended audience
 
@@ -27,9 +21,11 @@ The confirmed scope includes:
 - Backward compatibility for Berkshelf cookbook consumption workflows.
 - Backward compatibility for Policyfile cookbook consumption workflows.
 - Compatibility only for cookbooks from the public Chef Supermarket.
-- Parallel support for public Chef Supermarket and Infra Marketplace cookbook sources.
+- Parallel support for public Chef Supermarket and Marketplace cookbook sources.
 
-## Out-of-scope for initial release
+See [Backward compatibility](/marketplace/backward_compatibility/) for configuration steps for each workflow.
+
+## Out-of-scope and limitations for this release
 
 The following items are outside the initial-release scope:
 
@@ -39,16 +35,11 @@ The following items are outside the initial-release scope:
 - Migration workflows for private Chef Supermarket.
 - New content types beyond cookbooks from the public Chef Supermarket.
 
-## Limitations
-
-Compatibility applies only to cookbooks from the public Chef Supermarket.
-Private Chef Supermarket content is not supported in this initial release.
-Unauthenticated, read-only `knife supermarket` commands are in scope.
-Write and administrative commands are outside the initial-release scope.
-
 ## Related information
 
-- [Infra Marketplace compatibility reference](/infra_marketplace/compatibility_reference/)
+- [Backward compatibility](/marketplace/backward_compatibility/)
+- [Chef Supermarket](/supermarket/)
+- [Chef 360 Platform](/360/latest/)
 - [knife supermarket](/workstation/latest/tools/knife/knife_supermarket/)
 - [Berkshelf](/workstation/latest/tools/berkshelf/)
 - [About Policyfiles](/client/latest/policy/policyfile/)
