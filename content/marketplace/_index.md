@@ -14,6 +14,7 @@ This page is for DevOps engineers and platform teams that currently consume cook
 ## Backward compatibility
 
 The initial release of Marketplace focuses entirely on backward compatibility: keeping the cookbook-consumption workflows you already use working, whether you point them at Marketplace, the public Chef Supermarket, or both at once.
+This protects the automation you already have: pipelines, scripts, and workflows built around `knife supermarket`, Berkshelf, or Policyfile keep working whether they point at Chef Supermarket or Marketplace.
 This covers the three ways teams typically consume public cookbooks today:
 
 - `knife supermarket` commands
