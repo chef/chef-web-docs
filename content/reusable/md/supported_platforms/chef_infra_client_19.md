@@ -9,7 +9,7 @@
 | Red Hat Enterprise Linux | `s390x`, `ppc64le`, `ppc64` | `8.x`                                   | Validated and supported | No    | Yes       | Habitat         |
 | CentOS                   | `x86_64`, `aarch64`         | `7.x`                                   | Validated and supported | Yes   | Yes       | Native, Habitat |
 | CentOS                   | `ppc64le`, `ppc64`          | `7.x`                                   | Validated and supported | No    | Yes       | Habitat         |
-| Oracle Enterprise Linux  | `x86_64`, `aarch64`         | `7.x`, `8.x`                            | Validated and supported | Yes   | Yes       | Native, Habitat |
+| Oracle Linux  | `x86_64`, `aarch64`         | `7.x`, `8.x`                            | Validated and supported | Yes   | Yes       | Native, Habitat |
 | Amazon Linux             | `x86_64`, `aarch64`         | `2.x`, `2023`                           | Validated and supported | Yes   | Yes       | Native, Habitat |
 | Rocky Linux              | `x86_64`, `aarch64`         | `8.x`, `9.x`                            | Supported (untested)    | Yes   | Yes       | Habitat         |
 | AlmaLinux                | `x86_64`, `aarch64`         | `8.x`, `9.x`, `10.x`                    | Supported (untested)    | Yes   | Yes       | Habitat         |
