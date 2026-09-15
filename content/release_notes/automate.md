@@ -37,7 +37,7 @@ Release date: August 27, 2026
 ### Security
 
 - Resolved multiple security vulnerabilities across Chef Automate core services.
-- Fixed a potential SQL injection vulnerability to ensure input sanitization and secure query execution.
+- Fixed a potential SQL injection vulnerability to ensure input sanitization and secure query execution to resolve [CVE-2026-80462](https://www.cve.org/CVERecord?id=CVE-2026-80462).
 
 ### Bug fixes
 
