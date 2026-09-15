@@ -214,7 +214,7 @@ Because different vendors use different terminology, the following table clarifi
 | FreeBSD                                                    | End of Life                                                                               |
 | IBM AIX                                                    | IBM End of Support Date                                                                   |
 | Windows                                                    | End of Extended Support                                                                   |
-| Oracle Enterprise Linux                                    | Premier Support Ends                                                                      |
+| Oracle Linux                                    | Premier Support Ends                                                                      |
 | Oracle Solaris                                             | Premier Support Ends                                                                      |
 | SUSE Linux Enterprise Server                               | General Support Ends                                                                      |
 | Ubuntu Linux                                               | End of maintenance updates                                                                |
@@ -225,15 +225,3 @@ indicates upcoming product end-of-life dates for particular platforms.
 On the Chef end-of-life date, Chef discontinues building software for
 that platform and version.
 
-| Platform and Version       | Vendor End-of-Life Date     | Chef End-of-Life Date       |
-| -------------------------- | --------------------------- | --------------------------- |
-| Amazon Linux 2023          | Mar 15, 2028                | Mar 15, 2028                |
-| IBM AIX 7.2                | No current planned EOL date | No current planned EOL date |
-| IBM AIX 7.3                | Nov 30, 2026                | Nov 30, 2026                |
-| Oracle Enterprise Linux 8  | Jul 1, 2029                 | Jul 1, 2029                 |
-| Oracle Solaris 11.4        | Nov 31, 2031                | Nov 31, 2031                |
-| Red Hat Enterprise Linux 8 | May 31, 2029                | May 31, 2029                |
-| Red Hat Enterprise Linux 9 | May 31, 2032                | May 31, 2032                |
-| Ubuntu Linux 22.04 LTS     | Apr 1, 2027                 | Apr 1, 2027                 |
-| Windows Server 2016        | Nov 11, 2027                | Nov 11, 2027                |
-| Windows Server 2019        | Oct 10, 2028                | Oct 10, 2028                |
