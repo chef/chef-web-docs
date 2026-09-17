@@ -1,4 +1,10 @@
 {{ define "main" }}
+{{/*
+  Landing page: responsive grid of Chef product documentation cards.
+  Uses Foundation 6 grid, card components, Material Symbols icons, and
+  existing product SVGs from /static/images/ where available.
+*/}}
+
 {{ $products := slice
   (dict
     "name"     "Chef 360 Platform"
@@ -66,14 +72,18 @@
 }}
 
 <div class="product-landing">
+
   {{- if and (ne (.Param "search") false) (ne (.Site.Param "search") false) }}
   <div id="product-landing-search-container">
     <div id="product-landing-search-input" class="float-center">
-      <form id="product-landing-search-form" onsubmit="event.preventDefault(); var q = document.getElementById('product-landing-search-input-field').value.trim(); if (q) { window.location.href = '/search/#stq=' + encodeURIComponent(q); }">
+      <form id="product-landing-search-form"
+            onsubmit="event.preventDefault(); var q = document.getElementById('product-landing-search-input-field').value.trim(); if (q) { window.location.href = '/search/#stq=' + encodeURIComponent(q); }">
         <div class="input-group">
           <span class="input-group-label hide-for-small-only"><i class="fa fa-search"></i></span>
           <input id="product-landing-search-input-field" class="input-group-field" type="text" placeholder="Search Chef documentation..." aria-label="Search Chef documentation" />
-          <div class="input-group-button"><button type="submit" class="button">Search</button></div>
+          <div class="input-group-button">
+            <button type="submit" class="button">Search</button>
+          </div>
         </div>
       </form>
     </div>
@@ -86,17 +96,31 @@
     {{ range $products }}
     <div class="cell">
       <div class="card product-card">
+
         <div class="card-section">
           <div class="product-card-icon" aria-hidden="true">
-            {{ if .icon }}<img src="{{ .icon }}" alt="">{{ else }}<span class="material-symbols-outlined" translate="no">{{ .icon_mat }}</span>{{ end }}
+            {{ if .icon }}
+              <img src="{{ .icon }}" alt="">
+            {{ else }}
+              <span class="material-symbols-outlined" translate="no">{{ .icon_mat }}</span>
+            {{ end }}
           </div>
-          <h2 class="product-card-name"><a href="{{ .url }}">{{ .name }}</a></h2>
+          <h2 class="product-card-name">
+            <a href="{{ .url }}">{{ .name }}</a>
+          </h2>
           <p>{{ .desc }}</p>
         </div>
-        <div class="card-divider"><a href="{{ .url }}" aria-hidden="true" tabindex="-1">View docs <span class="material-symbols-outlined" translate="no" aria-hidden="true">arrow_forward</span></a></div>
+
+        <div class="card-divider">
+          <a href="{{ .url }}" aria-hidden="true" tabindex="-1">
+            View docs
+            <span class="material-symbols-outlined" translate="no" aria-hidden="true">arrow_forward</span>
+          </a>
+        </div>
       </div>
     </div>
     {{ end }}
   </div>
+
 </div>
 {{ end }}
