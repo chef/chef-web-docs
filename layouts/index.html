@@ -65,68 +65,38 @@
   )
 }}
 
-<div class="docs-home">
-  <section class="docs-home__intro" aria-labelledby="docs-home-title">
-    <div>
-      <p class="docs-home__kicker">Chef documentation</p>
-      <h1 id="docs-home-title">Automate infrastructure, applications, and security with Chef.</h1>
-      <p>Find product documentation and practical guidance for the work you need to do.</p>
+<div class="product-landing">
+  {{- if and (ne (.Param "search") false) (ne (.Site.Param "search") false) }}
+  <div id="product-landing-search-container">
+    <div id="product-landing-search-input" class="float-center">
+      <form id="product-landing-search-form" onsubmit="event.preventDefault(); var q = document.getElementById('product-landing-search-input-field').value.trim(); if (q) { window.location.href = '/search/#stq=' + encodeURIComponent(q); }">
+        <div class="input-group">
+          <span class="input-group-label hide-for-small-only"><i class="fa fa-search"></i></span>
+          <input id="product-landing-search-input-field" class="input-group-field" type="text" placeholder="Search Chef documentation..." aria-label="Search Chef documentation" />
+          <div class="input-group-button"><button type="submit" class="button">Search</button></div>
+        </div>
+      </form>
     </div>
-    <form class="docs-home__search" action="/search/" method="get" role="search">
-      <label class="show-for-sr" for="docs-home-search">Search Chef documentation</label>
-      <input id="docs-home-search" name="stq" type="search" placeholder="Search documentation" />
-      <button type="submit">Search</button>
-    </form>
-  </section>
+  </div>
+  {{- end }}
 
-  <section class="docs-home__section docs-home__section--flush" aria-labelledby="tasks-title">
-    <div class="docs-home__heading"><h2 id="tasks-title">What do you want to do?</h2></div>
-    <div class="docs-home__grid docs-home__grid--six">
-      {{ range slice (dict "icon" "account_tree" "title" "Manage infrastructure" "text" "Configure and automate your infrastructure." "url" "/client/latest/") (dict "icon" "verified_user" "title" "Secure infrastructure" "text" "Test and enforce compliance standards." "url" "/inspec/latest/") (dict "icon" "apps" "title" "Manage applications" "text" "Package and deploy applications." "url" "/habitat/latest/") (dict "icon" "laptop" "title" "Manage endpoints" "text" "Automate desktop and laptop endpoints." "url" "/desktop/") (dict "icon" "play_arrow" "title" "Automate operations" "text" "Orchestrate repeatable operational work." "url" "/automate/") (dict "icon" "swap_horiz" "title" "Upgrade and migrate" "text" "Plan product upgrades and migrations." "url" "/chef_deprecations_client/") }}
-        <a class="docs-home__card" href="{{ .url }}"><span class="docs-home__icon"><span class="material-symbols-outlined" aria-hidden="true">{{ .icon }}</span></span><h3>{{ .title }}</h3><p>{{ .text }}</p></a>
-      {{ end }}
+  <p class="lead">Select a product to browse its documentation.</p>
+
+  <div class="grid-x grid-padding-x small-up-1 medium-up-2 large-up-3 product-card-grid">
+    {{ range $products }}
+    <div class="cell">
+      <div class="card product-card">
+        <div class="card-section">
+          <div class="product-card-icon" aria-hidden="true">
+            {{ if .icon }}<img src="{{ .icon }}" alt="">{{ else }}<span class="material-symbols-outlined" translate="no">{{ .icon_mat }}</span>{{ end }}
+          </div>
+          <h2 class="product-card-name"><a href="{{ .url }}">{{ .name }}</a></h2>
+          <p>{{ .desc }}</p>
+        </div>
+        <div class="card-divider"><a href="{{ .url }}" aria-hidden="true" tabindex="-1">View docs <span class="material-symbols-outlined" translate="no" aria-hidden="true">arrow_forward</span></a></div>
+      </div>
     </div>
-  </section>
-
-  <section class="docs-home__section docs-home__dashboard" aria-label="Documentation paths">
-    <article class="docs-home__panel" aria-labelledby="new-title">
-      <h2 id="new-title">New to Chef?</h2>
-      <a href="/workstation/latest/install_workstation/">Install Chef Workstation <span aria-hidden="true">&rarr;</span></a>
-      <a href="/client/latest/install/">Set up Chef Infra Client <span aria-hidden="true">&rarr;</span></a>
-      <a href="/policyfile/">Use Policyfiles <span aria-hidden="true">&rarr;</span></a>
-      <a class="docs-home__all-link" href="/workstation/latest/">View getting started guides <span aria-hidden="true">&rarr;</span></a>
-    </article>
-    <article class="docs-home__panel" aria-labelledby="way-title">
-      <h2 id="way-title">The Chef Way</h2>
-      <p>Use versioned, testable code to manage infrastructure and compliance.</p>
-      <a href="/platform_overview/">Explore the platform overview <span aria-hidden="true">&rarr;</span></a>
-      <a href="/recipes/">Build infrastructure automation <span aria-hidden="true">&rarr;</span></a>
-      <a href="/inspec/latest/profiles/">Test and validate compliance <span aria-hidden="true">&rarr;</span></a>
-    </article>
-    <article class="docs-home__panel" aria-labelledby="popular-title">
-      <h2 id="popular-title">Popular tasks</h2>
-      {{ range slice (dict "title" "Install Chef Infra Client" "url" "/client/latest/install/") (dict "title" "Create a cookbook" "url" "/workstation/latest/chef_workstation_repo/") (dict "title" "Create a Policyfile" "url" "/policyfile/") (dict "title" "Run an InSpec scan" "url" "/inspec/latest/profiles/") }}<a href="{{ .url }}">{{ .title }} <span aria-hidden="true">&rarr;</span></a>{{ end }}
-      <a class="docs-home__all-link" href="/recipes/">View popular tasks <span aria-hidden="true">&rarr;</span></a>
-    </article>
-  </section>
-
-  <section class="docs-home__section docs-home__section--flush" aria-labelledby="products-title">
-    <div class="docs-home__heading"><h2 id="products-title">Chef products</h2><a class="docs-home__all-link" href="/platform_overview/">View all products <span aria-hidden="true">&rarr;</span></a></div>
-    <div class="docs-home__product-list">
-      {{ range $products }}
-      <a href="{{ .url }}"><span class="material-symbols-outlined" aria-hidden="true">{{ .icon_mat }}</span><span>{{ .name }}</span></a>
-      {{ end }}
-    </div>
-  </section>
-
-  <section class="docs-home__section docs-home__resources" aria-labelledby="resources-title">
-    <div class="docs-home__heading"><h2 id="resources-title">More resources</h2></div>
-    <div class="docs-home__grid docs-home__grid--four">
-      <a class="docs-home__card" href="/chef_deprecations_client/"><h3>Upgrade and migrate</h3><p>Plan product upgrades and migrations.</p></a>
-      <a class="docs-home__card" href="https://community.chef.io/"><h3>Help and support</h3><p>Connect with the Chef community and support.</p></a>
-      <a class="docs-home__card" href="/api_omnitruck/"><h3>Developer resources</h3><p>Use API references and integration guidance.</p></a>
-      <a class="docs-home__card" href="/release_notes/"><h3>Release notes</h3><p>Review the latest product changes.</p></a>
-    </div>
-  </section>
+    {{ end }}
+  </div>
 </div>
 {{ end }}
