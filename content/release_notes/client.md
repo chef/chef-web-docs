@@ -41,6 +41,10 @@ Release date: TBD
   ([#16073](https://github.com/chef/chef/pull/16073))
 - Sensitive properties---passwords, auth tokens, and private key passphrases---are now correctly masked in logs and run reports for `chocolatey_installer`, `chocolatey_package`, `habitat_package`, `habitat_sup`, `openssl_ec_private_key`, and `openssl_rsa_private_key`.
   ([#16107](https://github.com/chef/chef/pull/16107))
+- Lowered the "No key detected" log message from standard output (`puts`) to `Chef::Log.debug`, reducing unnecessary console noise.
+  ([#16222](https://github.com/chef/chef/pull/16222))
+- Updated to Cookstyle 9.0 and corrected the resulting new offenses across the codebase.
+  ([#16329](https://github.com/chef/chef/pull/16329))
 
 ### Bug fixes
 
@@ -64,12 +68,22 @@ Release date: TBD
   ([#16036](https://github.com/chef/chef/pull/16036))
 - Fixed `chef_client_*` resources to correctly converge in non-Habitat builds.
   ([#16089](https://github.com/chef/chef/pull/16089))
-- Lowered the "No key detected" message in the authenticator from stdout (`puts`) to debug logging (`Chef::Log.debug`) during local-mode runs.
-  ([#16222](https://github.com/chef/chef/pull/16222))
+- Fixed an issue in Target Mode where `Dir.tmpdir` resolved the local host's temp directory instead of the remote target's temp directory.
+  ([#16354](https://github.com/chef/chef/pull/16354))
+- Fixed an issue where `homebrew_tap` failed after Homebrew enforced Tap Trust, because the tap wasn't trusted before it was added. The resource now trusts the tap first.
+  ([#16367](https://github.com/chef/chef/pull/16367))
+- Fixed the `dscl` group provider so it no longer mutates `new_resource.gid` as a side effect of managing group membership on macOS.
+  ([#16326](https://github.com/chef/chef/pull/16326))
+- Fixed `homebrew_package` so it respects the `timeout` property instead of ignoring it.
+  ([#16328](https://github.com/chef/chef/pull/16328))
+- Fixed an undefined method error (`mode_to_s`) in `TargetIO::TrainCompat::FileUtils.chmod_R` that occurred during Target Mode runs.
+  ([#16355](https://github.com/chef/chef/pull/16355))
+- Fixed `windows_update_settings` so it no longer writes WSUS registry values that weren't explicitly set.
+  ([#16331](https://github.com/chef/chef/pull/16331))
 
 ### Security
 
-- Updated the `json` gem to 2.21.2 to fix CVE-2026-71847.
+- Updated the `json` gem to 2.21.2 to fix a heap-use-after-free vulnerability in `JSON::ResumableParser` ([CVE-2026-71847](https://github.com/advisories/GHSA-9hj4-r449-hfvc)).
   ([#16349](https://github.com/chef/chef/pull/16349))
 - Fixed a path traversal vulnerability in the `archive_file` resource. Extraction now rejects archive entries containing `..` sequences, absolute paths, and unsafe symlinks.
   ([#16095](https://github.com/chef/chef/pull/16095))
@@ -81,6 +95,8 @@ Release date: TBD
   ([#16132](https://github.com/chef/chef/pull/16132))
 - Applied Cookstyle corrections across the codebase.
   ([#16201](https://github.com/chef/chef/pull/16201))
+- Fixed an issue where sensitive properties could leak their values in logs and run reports when resource validation failed.
+  ([#16300](https://github.com/chef/chef/pull/16300))
 
 ### Compliance Phase
 
@@ -91,6 +107,8 @@ Release date: TBD
 
 - Added Habitat build plans and packaging for macOS ARM (`aarch64-darwin`). Chef Infra Client Habitat packages are now released natively for Apple Silicon.
   ([#16115](https://github.com/chef/chef/pull/16115))
+- Updated Habitat package version resolution for software bill of materials (SBOM) generation.
+  ([#16379](https://github.com/chef/chef/pull/16379))
 
 ### Dependency updates
 
