@@ -14,9 +14,11 @@ syntax_full_code_block: |-
     additional_config              String
     chef_license                   String
     chef_server_url                String
+    client_rb_mode                 String # default value: "0640"
     config_directory               String
     data_collector_server_url      String
     data_collector_token           String
+    directory_specs                Hash
     event_loggers                  Array # default value: []
     exception_handlers             Array # default value: []
     file_backup_path               String
@@ -52,14 +54,14 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`additional_config`, `chef_license`, `chef_server_url`, `config_directory`, `data_collector_server_url`,
-  `data_collector_token`, `event_loggers`, `exception_handlers`, `file_backup_path`,
-  `file_cache_path`, `file_staging_uses_destdir`, `formatters`, `ftp_proxy`, `group`,
-  `http_proxy`, `https_proxy`, `log_level`, `log_location`, `minimal_ohai`, `named_run_list`,
-  `no_proxy`, `node_name`, `ohai_disabled_plugins`, `ohai_optional_plugins`, `pid_file`,
-  `policy_group`, `policy_name`, `policy_persist_run_list`, `report_handlers`, `rubygems_url`,
-  `ssl_verify_mode`, `start_handlers`, and `user` are the properties available to
-  this resource."
+- "`additional_config`, `chef_license`, `chef_server_url`, `client_rb_mode`, `config_directory`,
+  `data_collector_server_url`, `data_collector_token`, `directory_specs`, `event_loggers`,
+  `exception_handlers`, `file_backup_path`, `file_cache_path`, `file_staging_uses_destdir`,
+  `formatters`, `ftp_proxy`, `group`, `http_proxy`, `https_proxy`, `log_level`, `log_location`,
+  `minimal_ohai`, `named_run_list`, `no_proxy`, `node_name`, `ohai_disabled_plugins`,
+  `ohai_optional_plugins`, `pid_file`, `policy_group`, `policy_name`, `policy_persist_run_list`,
+  `report_handlers`, `rubygems_url`, `ssl_verify_mode`, `start_handlers`, and `user`
+  are the properties available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -86,6 +88,14 @@ properties_list:
   required: true
   description_list:
   - markdown: The URL for the Chef Infra Server.
+- property: client_rb_mode
+  ruby_type: String
+  required: false
+  default_value: "0640"
+  new_in: '19.4'
+  description_list:
+  - markdown: The mode to set on the client.rb file that is written out by this resource
+      (for example, `0600`).
 - property: config_directory
   ruby_type: String
   required: false
@@ -112,6 +122,29 @@ properties_list:
   - note:
       markdown: If possible, use Chef Infra Server to do all data collection reporting,
         as this removes the need to distribute tokens to individual nodes.
+- property: directory_specs
+  ruby_type: Hash
+  required: false
+  new_in: '19.4'
+  description_list:
+  - markdown: |-
+      Permission overrides for Chef-managed directories. This must be a hash of hashes: top-level keys are directory names, and values are per-directory option hashes.
+
+      Use this property like:
+
+      ```ruby
+      directory_specs(
+        config: { owner: 'root', group: 'root', mode: '0700' },
+        client_d: { owner: 'root', group: 'root', mode: '0700' },
+        logs: { owner: 'root', group: 'root', mode: '0700' },
+        cache: { owner: 'root', group: 'root', mode: '0700' },
+        backups: { owner: 'root', group: 'root', mode: '0700' }
+      )
+      ```
+
+      Directory keys: `:config`, `:client_d`, `:logs`, `:cache`, `:backups`
+
+      Override keys: `:owner`, `:group`, `:mode`, `:rights`, `:inherits` (`:rights` and `:inherits` are Windows-only)
 - property: event_loggers
   ruby_type: Array
   required: false
