@@ -127,6 +127,15 @@ Release date: TBD
 - Updated `webmock` from 3.26.2 to 3.26.3.
   ([#16313](https://github.com/chef/chef/pull/16313))
 
+### Chef packaged product versions
+
+This release uses:
+
+- Ruby version: 3.4.10
+- OpenSSL version: 3.5.7
+- Ohai version: 19.1.40
+- Chef InSpec version: 7.2.1
+
 ## Chef Infra Client 19.3.15
 
 Release date: May 22, 2026
