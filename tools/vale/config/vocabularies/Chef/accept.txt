@@ -3,3 +3,4 @@ Chef Backend
 YUM
 DNF
 APT
+CIDR
