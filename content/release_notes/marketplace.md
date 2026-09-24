@@ -14,7 +14,7 @@ summary = "Marketplace release notes"
 
 ## Marketplace 1.0.0
 
-Release date: September 2, 2026
+Release date:
 
 Marketplace 1.0.0 is the first release of Marketplace, a new Chef product for public cookbook content that will become part of Chef 360 Platform as it grows.
 This release focuses on backward compatibility, so your existing public Chef Supermarket cookbook-consumption workflows keep working if you choose to adopt Marketplace.
