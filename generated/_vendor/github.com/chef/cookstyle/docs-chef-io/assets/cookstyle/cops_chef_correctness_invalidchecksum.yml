@@ -1,0 +1,32 @@
+---
+short_name: InvalidChecksum
+full_name: Chef/Correctness/InvalidChecksum
+department: Chef/Correctness
+description: |-
+  The `checksum` property of the file downloading resources is a SHA-256 digest. An MD5 or
+  SHA-1 digest can never match, so the resource fails the run with a checksum mismatch rather
+  than installing anything.
+
+  Only digests that are unambiguously the wrong algorithm are flagged: 32 character (MD5) and
+  40 character (SHA-1) hex strings. Anything else is left alone.
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  # bad
+  remote_file '/tmp/foo.tar.gz' do
+    source 'https://example.com/foo.tar.gz'
+    checksum 'd41d8cd98f00b204e9800998ecf8427e'
+  end
+
+  # good
+  remote_file '/tmp/foo.tar.gz' do
+    source 'https://example.com/foo.tar.gz'
+    checksum 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+  end
+version_added: 9.0.0
+enabled: true
+excluded_file_paths:
+- "**/attributes/*.rb"
+- "**/metadata.rb"
+- "**/Berksfile"

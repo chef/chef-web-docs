@@ -1,0 +1,28 @@
+---
+short_name: InsecureRemoteFileSource
+full_name: Chef/Security/InsecureRemoteFileSource
+department: Chef/Security
+description: |-
+  Files downloaded over plain HTTP or FTP can be modified in transit, and the resource will
+  use whatever it receives. Fetch them over HTTPS so the transport is authenticated.
+
+  Where an HTTPS endpoint genuinely isn't available, a `checksum` on the resource at least
+  detects tampering, since the digest is compared before the file is used.
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  # bad
+  remote_file '/tmp/foo.tar.gz' do
+    source 'http://example.com/foo.tar.gz'
+  end
+
+  # good
+  remote_file '/tmp/foo.tar.gz' do
+    source 'https://example.com/foo.tar.gz'
+  end
+version_added: 9.0.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/Berksfile"

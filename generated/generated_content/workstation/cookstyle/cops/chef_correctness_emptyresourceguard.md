@@ -20,12 +20,17 @@ The Cookstyle cops department: `Chef/Correctness`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
-Resource guards (not_if/only_if) should not be empty strings as empty strings will always evaluate to true.
-This will cause confusion in your cookbooks as the guard will always pass.
+Resource guards (not_if/only_if) should not be empty. An empty string always evaluates to true
+and an empty block always evaluates to false, so in either case the guard stops doing the job
+it was written for and the resource silently runs, or fails to run, on every converge.
 
 Empty strings in Ruby are "truthy", which means:
 - `only_if ''` will ALWAYS execute the resource (guard always passes)
 - `not_if ''` will NEVER execute the resource (guard always blocks)
+
+An empty block behaves the other way around, since a block with no body returns `nil`:
+- `only_if { }` will NEVER execute the resource
+- `not_if { }` will ALWAYS execute the resource
 
 This behavior is usually unintended and can lead to resources running when they shouldn't
 or never running when they should.

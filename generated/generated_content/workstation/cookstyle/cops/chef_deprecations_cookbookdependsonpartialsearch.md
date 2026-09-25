@@ -27,6 +27,10 @@ Don't depend on the `partial_search` cookbook made obsolete by Chef Infra Client
 ```ruby
 # bad
 depends 'partial_search'
+
+# good
+# the built-in search helper takes a filter_result option
+search(:node, 'role:web', filter_result: { 'name' => ['name'], 'ip' => ['ipaddress'] })
 ```
 
 ## Configurable attributes

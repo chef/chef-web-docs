@@ -22,11 +22,16 @@ The Cookstyle cops department: `Chef/Correctness`
 
 Use `raise` to force Chef Infra Client to fail instead of using `Chef::Application.fatal`, which masks the full stack trace of the failure and makes debugging difficult.
 
+`Chef::Application.fatal!` optionally takes an exit code as a second argument. That form is
+reported but not autocorrected, since `raise` has no way to express a specific exit code and
+rewriting it would silently change how the run terminates.
+
 ## Examples
 
 ```ruby
 # bad
 Chef::Application.fatal!('Something horrible happened!')
+Chef::Application.fatal!('Something horrible happened!', 1)
 
 # good
 raise "Something horrible happened!"

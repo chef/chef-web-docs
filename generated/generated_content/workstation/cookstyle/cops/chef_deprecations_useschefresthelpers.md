@@ -28,6 +28,9 @@ The `Chef::REST` class was removed in Chef Infra Client 13.
 # bad
 require 'chef/rest'
 Chef::REST::RESTRequest.new(:GET, FOO, nil).call
+
+# good
+Chef::ServerAPI.new(Chef::Config[:chef_server_url]).get('nodes')
 ```
 
 ## Configurable attributes

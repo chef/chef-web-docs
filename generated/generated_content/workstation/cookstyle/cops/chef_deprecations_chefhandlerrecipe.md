@@ -28,6 +28,13 @@ There is no need to include the empty and deprecated chef_handler::default recip
 # bad
 include_recipe 'chef_handler'
 include_recipe 'chef_handler::default'
+
+# good
+# the chef_handler resource ships in Chef Infra Client, so no recipe include is needed
+chef_handler 'MyHandler' do
+  source '/etc/chef/handlers/my_handler.rb'
+  action :enable
+end
 ```
 
 ## Configurable attributes

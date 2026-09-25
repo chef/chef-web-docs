@@ -27,6 +27,10 @@ The Resource.provider_base allows the developer to specify within a resource a m
 ```ruby
 # bad
 provider_base ::Chef::Provider::SomethingSomething
+
+# good
+# in the provider, register itself for the resource
+provides :something_something
 ```
 
 ## Configurable attributes

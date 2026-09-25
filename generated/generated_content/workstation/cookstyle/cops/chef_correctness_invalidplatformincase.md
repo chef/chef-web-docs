@@ -29,6 +29,16 @@ Use valid platform values in case statements. See [Infra Language: Platform](htt
 case node['platform']
 when 'rhel'
   puts "I'm on a Red Hat system!"
+when 'ubuntu'
+  puts "I'm on Ubuntu!"
+end
+
+# good
+case node['platform']
+when 'redhat'
+  puts "I'm on a Red Hat system!"
+when 'ubuntu'
+  puts "I'm on Ubuntu!"
 end
 ```
 

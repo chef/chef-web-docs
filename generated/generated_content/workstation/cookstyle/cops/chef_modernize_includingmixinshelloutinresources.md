@@ -30,6 +30,10 @@ require 'chef/mixin/shell_out'
 include Chef::Mixin::ShellOut
 require 'chef/mixin/powershell_out'
 include Chef::Mixin::PowershellOut
+
+# good
+# shell_out is available in resources and providers with no include
+shell_out!('/opt/app/bin/app --version')
 ```
 
 ## Configurable attributes

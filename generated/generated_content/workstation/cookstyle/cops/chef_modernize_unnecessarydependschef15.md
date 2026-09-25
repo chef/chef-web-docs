@@ -30,6 +30,17 @@ depends 'libarchive'
 depends 'windows_dns'
 depends 'windows_uac'
 depends 'windows_dfs'
+
+# good
+# the resources ship in Chef Infra Client 15+, so use them without a depends
+archive_file 'expand website' do
+  path '/tmp/site.zip'
+  destination '/var/www/html'
+end
+
+windows_uac 'set uac' do
+  enable_uac true
+end
 ```
 
 ## Configurable attributes

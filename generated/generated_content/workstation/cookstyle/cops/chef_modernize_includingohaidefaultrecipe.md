@@ -28,6 +28,11 @@ The Ohai default recipe previously allowed a user to ship custom Ohai plugins to
 # bad
 include_recipe 'ohai::default'
 include_recipe 'ohai'
+
+# good
+ohai_plugin 'my_custom_plugin' do
+  source_file 'my_plugin.rb'
+end
 ```
 
 ## Configurable attributes
