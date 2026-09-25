@@ -12,6 +12,7 @@ syntax_full_code_block: |-
   apt_repository 'name' do
     arch               String, false
     cache_rebuild      true, false # default value: true
+    cache_rebuild_ignore_failure true, false # default value: true
     components         Array # default value: `main` if using a PPA repository.
     cookbook           String, false
     deb_src            true, false # default value: false
@@ -32,9 +33,9 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`arch`, `cache_rebuild`, `components`, `cookbook`, `deb_src`, `distribution`, `key`,
-  `key_proxy`, `keyserver`, `options`, `repo_name`, `signed_by`, `trusted`, and `uri`
-  are the properties available to this resource."
+- "`arch`, `cache_rebuild`, `cache_rebuild_ignore_failure`, `components`, `cookbook`,
+  `deb_src`, `distribution`, `key`, `key_proxy`, `keyserver`, `options`, `repo_name`,
+  `signed_by`, `trusted`, and `uri` are the properties available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -56,6 +57,14 @@ properties_list:
   default_value: 'true'
   description_list:
   - markdown: Determines whether to rebuild the APT package cache.
+- property: cache_rebuild_ignore_failure
+  ruby_type: true, false
+  required: false
+  default_value: 'true'
+  new_in: '19.4'
+  description_list:
+  - markdown: Determines whether to fail the Chef Infra Client run if rebuilding the
+      APT package cache fails.
 - property: components
   ruby_type: Array
   required: false
