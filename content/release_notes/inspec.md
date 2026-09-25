@@ -17,6 +17,20 @@ summary = "Chef InSpec release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
+## Chef InSpec 7.3.2
+
+Release date: October 7, 2026
+
+### Bug fixes
+
+- Fix in `oracledb_session` to correctly parse query output for both `sqlcl` and `sqlplus` clients. Previously, an unsuppressed banner message in `sqlcl` output and unset CSV formatting in `sqlplus` output broke result parsing. ([#8010](https://github.com/inspec/inspec/pull/8010))
+- Fix in `oracledb_session` to correctly parses multi-column query results. Previously, a comma substitution that ran before CSV parsing, combined with flattening logic that couldn't represent more than one column, caused `.column(name)` to silently return `nil` for every column in queries that selected more than one column. ([#7997](https://github.com/inspec/inspec/pull/7997))
+
+### Security fixes
+
+- Updated the `core/openssl` Habitat package from `3.5.7` to `3.5.8` for the Linux x86, Windows x86, Linux ARM (`aarch64-linux`), and macOS ARM (`aarch64-darwin`) platforms.
+- Updated the `core/curl` Habitat package from `8.21.0` to `8.22.0` for the Linux x86, Linux ARM (`aarch64-linux`), and macOS ARM (`aarch64-darwin`) platforms.
+
 ## Chef InSpec 7.2.1
 
 Release date: September 2, 2026
