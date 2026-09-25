@@ -1179,6 +1179,54 @@ identifier = "chef_cloud"
 ####
 
 ####
+# Marketplace Menu
+####
+
+[[marketplace]]
+title = "Marketplace"
+identifier = "marketplace"
+url = "/marketplace/"
+
+  [[marketplace]]
+  title = "Overview"
+  identifier = "marketplace/overview"
+  parent = "marketplace"
+  url = "/marketplace/"
+  weight = 10
+
+  [[marketplace]]
+  title = "Backward compatibility"
+  identifier = "marketplace/backward_compatibility"
+  parent = "marketplace"
+  url = "/marketplace/backward_compatibility/"
+  weight = 20
+
+    [[marketplace]]
+    title = "Knife supermarket"
+    identifier = "marketplace/backward_compatibility/knife_supermarket"
+    parent = "marketplace/backward_compatibility"
+    url = "/marketplace/backward_compatibility/knife_supermarket/"
+    weight = 10
+
+    [[marketplace]]
+    title = "Berkshelf"
+    identifier = "marketplace/backward_compatibility/berkshelf"
+    parent = "marketplace/backward_compatibility"
+    url = "/marketplace/backward_compatibility/berkshelf/"
+    weight = 20
+
+    [[marketplace]]
+    title = "Policyfile"
+    identifier = "marketplace/backward_compatibility/policyfile"
+    parent = "marketplace/backward_compatibility"
+    url = "/marketplace/backward_compatibility/policyfile/"
+    weight = 30
+
+####
+# End Marketplace Menu
+####
+
+####
 # Chef Workstation Menu
 ####
 
