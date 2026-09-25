@@ -17,7 +17,7 @@ This page explains the frequently encountered issues in Chef Automate High Avail
 
 ### Post Automate HA deployment if the chef-server service is in a critical state
 
-![Chef Infra Server critical Error](/images/automate/chef-server-critical-error.png)
+![Chef Infra Server service status output showing critical health check failures with process state, uptime, and error messages indicating deployment issues.](/images/automate/chef-server-critical-error.png)
 
 #### Solution
 

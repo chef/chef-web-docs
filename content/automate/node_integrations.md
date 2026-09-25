@@ -16,7 +16,7 @@ Set up Chef Automate to detect and monitor the nodes in your AWS EC2 and Azure a
 
 Access the _Node Integrations_ page from the **Settings** tab.
 
-![Node Integrations](/images/automate/node-integrations.png)
+![Chef Automate Node Integrations page in Settings showing Nodes by IP Address with manually managed nodes manager and Cloud Platform Providers section with Create Integration button and node managers table displaying Example AWS Integration (aws-api provider, reachable status).](/images/automate/node-integrations.png)
 
 ## Add an AWS EC2 Node Manager
 
@@ -30,13 +30,13 @@ To create an AWS EC2 Node Manager, you need the following information:
 1. Your AWS credentials (access key ID and secret access key)
 1. The default region to target (if `us-east-1` isn't desired)
 
-![Chef Automate Create AWS-EC2 Manager](/images/automate/node-integrations-full.png)
+![Chef Automate Create AWS EC2 Node Manager form showing Name field, Service Type radio buttons (API selected for EC2), checkbox to read credentials from EC2 environment, AWS access key ID and secret access key fields, option to add new credential association by tag with Name key and vj-* value for ssh ec2 credential.](/images/automate/node-integrations-full.png)
 
 You can use associate your `ssh` or `WinRM` credentials with your EC2 instances using tag keys or values, using the option at the bottom of the screen. This feature supports wildcard matching, which is useful for grouping nodes. Chef Automate detects your nodes immediately after any update to the Node Manager, and maintains a current list of your node status. The following example uses tag with the key 'Name' and the value 'vj-' to associate those nodes with the 'ssh ec22' credential.
 
 Filter instances for scanning by specifying either regions or tags by their keys and values.
 
-![Chef Automate Instance Credentials](/images/automate/instance-credentials.png)
+![Chef Automate Node Manager credential association form showing Where field (Name tag key), vj-* value matching, and ssh ec2 credential selected for associating SSH credentials to EC2 instances matching that tag pattern.](/images/automate/instance-credentials.png)
 
 ### AWS EC2 Node Discovery
 
@@ -58,7 +58,7 @@ Scan Jobs
 
 ### Create a Scan Job Targeting Your AWS Account Configuration
 
-![Chef Automate Create AWS-API Scan Job](/images/automate/create-aws-api-scanjob.png)
+![Chef Automate Create AWS API Scan Job form showing step 1 (Add Nodes) with 1 available node and 1 selected.](/images/automate/create-aws-api-scanjob.png)
 
 ### AWS API Scanning Endpoints
 
@@ -132,7 +132,7 @@ The `ssm` Scan Job:
 
 Your Automate instance must be reachable (open to incoming traffic) from the instances being scanned in order for the SSM scanning to work. You can filter the instances to be scanned by specifying tag key/value matches or regions.
 
-![Chef Automate Create AWS-EC2 Scan Job](/images/automate/create-aws-ec2-scanjob.png)
+![Create scan job form for an AWS EC2 manager with selected nodes and optional region and tag filter rules.](/images/automate/create-aws-ec2-scanjob.png)
 
 ### AWS Credential-less Scanning
 
@@ -163,7 +163,7 @@ When creating an Azure VM Node Manager, you will be required to provide:
 
 This information is required to detect the nodes in your Azure account. Chef Automate creates a nodes reference for each VM in your account, reading in all tags associated with each instance. Chef Automate detects your nodes immediately after any update to the Node Manager in order to maintain a current list of your node status. The following example uses a tag with the key 'Name' and the value 'vj-' to associate those nodes with the 'ssh ec2' credential.
 
-![Chef Automate Create Azure-VM Manager](/images/automate/create-azure-vm-mgr.png)
+![Add cloud management service form with Azure VM selected and fields for client ID, client secret, tenant ID, and tag association rules.](/images/automate/create-azure-vm-mgr.png)
 
 Chef Automate uses Azure's RunCommand functionality to run scan jobs on instances without needing `ssh` and `WinRM` credentials. In order for this functionality to work, the Automate instance must be reachable (open to incoming traffic) from the instances being scanned.
 
@@ -178,7 +178,7 @@ You also have the option of using the traditional `ssh` and `WinRM` scanning by 
 
 Chef Automate detects your nodes immediately after any update to the Node Manager, keeping a current view of your nodes' reachability.
 
-![Chef Automate Instance Credentials](/images/automate/instance-credentials.png)
+![Node manager credential association fields for matching VM tags to SSH or WinRM credentials.](/images/automate/instance-credentials.png)
 
 ### Create a Scan Job Targeting Your Azure VMs
 
@@ -186,7 +186,7 @@ Filter the regions for the scan job by specifying regions to include or exclude.
 
 Filter instances for scanning by specifying either regions or tags by their keys and values.
 
-![Chef Automate Create Azure-VM Scan Job](/images/automate/create-azure-vm-scanjob.png)
+![Create scan job form for an Azure VM manager with selected nodes and optional region and tag filters.](/images/automate/create-azure-vm-scanjob.png)
 
 ## Use Case: Azure Account Scanning with Chef Automate
 
@@ -203,7 +203,7 @@ When creating an Azure API Node Manager, you will be required to provide:
 
 This information is required to detect all subscriptions available to your Azure account. Chef Automate creates a nodes reference for each subscription in your account.
 
-![Chef Automate Create API-Azure Manager](/images/automate/Node-Integrations-api-Azure.png)
+![Add cloud management service form with Azure API selected and fields for Azure credentials and subscription ID.](/images/automate/Node-Integrations-api-Azure.png)
 
 ### Create a Scan Job Targeting Your Azure Account Configuration
 
@@ -211,7 +211,7 @@ From the **Scan Jobs** tab, select the "Create new job" button.
 
 Filter the regions for the scan job by specifying regions to include or exclude.
 
-![Chef Automate Create Azure-API Scan Job](/images/automate/create-azure-api-scanjob.png)
+![Chef Automate Create Azure API Scan Job form showing step 1 (Add Nodes) with azure-api manager having 1 available and 1 selected node, and Inspec profile listed for scanning Azure resources.](/images/automate/create-azure-api-scanjob.png)
 
 ## Google Cloud Platform Account Scanning with Chef Automate
 
@@ -226,7 +226,7 @@ To run a GCP scan in Chef Automate:
 Note: The service account json credential requires the following fields:
 `type`, `project_id`, `client_id`, `private_key_id`, `private_key`, `client_email`, `auth_uri`, `token_uri`, `auth_provider_x509_cert_url`, `client_x509_cert_url`
 
-![Chef Automate Create GCP-API Integration](/images/automate/add-gcp-api-integration.png)
+![Chef Automate Create GCP API Node Manager form showing cloud platform provider selection with GCP option, service account JSON credential upload field, and credential fields for service account setup.](/images/automate/add-gcp-api-integration.png)
 
 Set up Chef Automate to detect and monitor the nodes in your AWS EC2 and Azure accounts by providing your credentials in the [Node Credentials]({{< relref "node_credentials.md" >}}) page in the Settings tab and creating a node manager. Chef Automate creates a node reference for each instance in your account. Associate your EC2 and Azure instances with ssh and WinRM credentials using tags--the values support wildcard match--in your node manager. Run scan jobs with your node manager reference and you're suddenly running an `inspec exec` across your instances. Every two hours Chef Automate queries your AWS or Azure account to see the current state of all your nodes, if they're running, stopped, or terminated, and then updates Chef Automate accordingly. If the node manager finds an instance that used to be running and reachable, but which no is--if the node is stopped, terminated, or a transition state--it updates the status of that node in Chef Automate accordingly.
 
@@ -236,4 +236,4 @@ From the **Scan Jobs** tab, select the "Create new job" button.
 
 Filter the regions for the scan job by specifying regions to include or exclude.
 
-![Chef Automate Create GCP-API Scan Job](/images/automate/add-gcp-api-scanjob.png)
+![Chef Automate Create GCP API Scan Job form showing step 1 (Add Nodes) with gcp-api node manager selected showing 1 available and 1 selected node, and step buttons for Add Profiles and Add Schedule.](/images/automate/add-gcp-api-scanjob.png)

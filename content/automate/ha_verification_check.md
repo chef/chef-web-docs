@@ -74,7 +74,7 @@ Once you run the verify command, it checks all the test cases defined. After it 
 
 An example of a checks performed are shown in the below image:
 
-![Config Verify Check](/images/automate/verify_checks_example.png)
+![Chef Automate verify command output table showing health check results for system resources, software versions, certificates, SSH configuration, and backup settings with success and failure status indicators.](/images/automate/verify_checks_example.png)
 
 The above image shows the checks performed for Automate node. The checks in the above image are also performed on all the nodes in Automate HA, i.e., Chef Infra Server, PostgreSQL, OpenSearch, and Chef Automate (the one showed above).
 
