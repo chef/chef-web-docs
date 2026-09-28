@@ -10,10 +10,10 @@ gh_repo = "chef-web-docs"
     breadcrumbs = true
 
 [menu.overview]
-  identifier = "overview/solutions/compliance"
-  parent = "overview/solutions"
-  title = "Chef Compliance"
-  weight = 10
+  identifier = "overview/solutions/compliance/overview"
+  parent = "overview/solutions/compliance"
+  title = "Overview"
+  weight = 1
 +++
 
 Keeping every system compliant takes a lot of effort &mdash; checking things by hand and piecing
