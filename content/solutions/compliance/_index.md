@@ -11,6 +11,7 @@ gh_repo = "chef-web-docs"
     breadcrumbs = true
 
 [menu.solutions_compliance]
+  identifier = "solutions_compliance"
   title = "Chef Compliance"
   weight = 1
 +++
