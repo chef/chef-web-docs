@@ -11,13 +11,13 @@ title = "Virtualization"
 Current audit and remediation coverage for virtualization benchmarks in Chef Compliance.
 This category has **1 benchmarks** with current coverage.
 
-| Benchmark | Audit Version(s) | Remediation Version(s) | Coverage |
+| Benchmark | Audit Versions | Remediation Versions | Coverage |
 | --- | --- | --- | --- |
-| CIS VMware ESXi 6.5 | — | v1.0.0 | Remediation Only |
+| `CIS VMware ESXi 6.5` | — | v1.0.0 | Remediation Only |
 
 _A dagger (&dagger;) on a remediation version means Inferred Current: the customer-shipping
 remediation tree is confirmed by an SME, but version-level release evidence wasn't found.
-Inferred Current does not mean unsupported._
+Inferred Current doesn't mean unsupported._
 
 Audit and remediation coverage are tracked as independent dimensions. A benchmark may offer
 more audit versions than remediation versions, or the reverse.

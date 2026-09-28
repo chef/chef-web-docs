@@ -75,4 +75,4 @@ Browse the catalog by category:
 
 A dagger (**&dagger;**) on a remediation version in the tables below means _Inferred Current_:
 the customer-shipping remediation tree is confirmed by an SME, but version-level release
-evidence wasn't found. Inferred Current does not mean unsupported.
+evidence wasn't found. Inferred Current doesn't mean unsupported.

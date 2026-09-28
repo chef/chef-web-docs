@@ -11,17 +11,17 @@ title = "Web Servers"
 Current audit and remediation coverage for web servers benchmarks in Chef Compliance.
 This category has **5 benchmarks** with current coverage.
 
-| Benchmark | Audit Version(s) | Remediation Version(s) | Coverage |
+| Benchmark | Audit Versions | Remediation Versions | Coverage |
 | --- | --- | --- | --- |
-| CIS Apache HTTP Server 2.2 | v3.6.0 | v3.6.0 | Audit + Remediation |
-| CIS Apache HTTP Server 2.4 | v2.0.0 | v1.4.0, v2.0.0 | Partial Audit + Remediation |
-| CIS Microsoft IIS 10 | v1.1.1 | v1.1.1 | Audit + Remediation |
-| CIS NGINX | — | v1.0.0 | Remediation Only |
-| STIG Microsoft IIS 10.0 | v2 | — | Audit Only |
+| `CIS Apache HTTP Server 2.2` | v3.6.0 | v3.6.0 | Audit + Remediation |
+| `CIS Apache HTTP Server 2.4` | v2.0.0 | v1.4.0, v2.0.0 | Partial Audit + Remediation |
+| `CIS Microsoft IIS 10` | v1.1.1 | v1.1.1 | Audit + Remediation |
+| `CIS NGINX` | — | v1.0.0 | Remediation Only |
+| `STIG Microsoft IIS 10.0` | v2 | — | Audit Only |
 
 _A dagger (&dagger;) on a remediation version means Inferred Current: the customer-shipping
 remediation tree is confirmed by an SME, but version-level release evidence wasn't found.
-Inferred Current does not mean unsupported._
+Inferred Current doesn't mean unsupported._
 
 Audit and remediation coverage are tracked as independent dimensions. A benchmark may offer
 more audit versions than remediation versions, or the reverse.
