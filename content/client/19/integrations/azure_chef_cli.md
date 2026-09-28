@@ -174,7 +174,7 @@ The extension has the following options that can be provided in the
 
 `chef_license_key`
 
-: Your Chef license key, required by default for downloading Chef Infra Client. Set this as a raw JSON string in the extension's public settings, alongside `CHEF_LICENSE`. The extension exports it as `CHEF_LICENSE_KEY` before running the installer and downloads packages from `chefdownload-commercial.chef.io`.
+: **Deprecated.** Your Chef license key, required by default for downloading Chef Infra Client. Setting this in the extension's public settings is still supported for backward compatibility, but this location is public — readable via ARM deployment history/parameters and by anyone with Reader access to the VM extension resource. Set `chef_license_key` under `protectedSettings` instead. Using this location logs a deprecation warning and it will be removed in a future release.
 
 `hints`
 
@@ -229,6 +229,10 @@ The following options can be provided to the extension through the `protectedSet
 `validation_key`
 
 : The contents of your organization validator key, the format is dependent on `validation_key_format`.
+
+`chef_license_key`
+
+: Your Chef license key, required by default for downloading Chef Infra Client. The extension decrypts this value on the target node and exports it as `CHEF_LICENSE_KEY` before running the installer, downloading packages from `chefdownload-commercial.chef.io`. If omitted, the extension falls back to the deprecated, unlicensed `omnitruck.chef.io` download path.
 
 `chef_server_crt`
 
