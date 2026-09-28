@@ -15,10 +15,10 @@ gh_repo = "chef-web-docs"
   weight = 1
 +++
 
-Keeping every system compliant &mdash; and proving it &mdash; is hard when you're checking things
-by hand or piecing together evidence after the fact. Chef Compliance lets you write down what
-"compliant" means once, check for it continuously, see the results in one place, and fix what
-drifts &mdash; whether your systems run in the cloud, on-premises, or a mix of both.
+Keeping every system compliant takes a lot of effort &mdash; checking things by hand and piecing
+together data and evidence from different places. Chef Compliance helps you do this easily: check
+for compliance continuously, see the results in one place, and fix what drifts &mdash; whether
+your systems run in the cloud, on-premises, or a mix of both.
 
 You don't need to learn a new product for this. Chef Compliance is a journey through the tools
 you may already use:
