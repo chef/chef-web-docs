@@ -360,8 +360,8 @@ remote_file_unc_path: false
 ps_credential_helper: false
 ruby_style_basics_chef_log: false
 debug_recipes_chef_shell: false
-examples: |2
-   **Create a file**
+examples: |
+    **Create a file**
 
     ```ruby
     file '/tmp/something' do
