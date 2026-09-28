@@ -33,10 +33,9 @@ swiftype_search_products = [""]
 
 <h2>What do you want to do?</h2>
 
-<p class="lead">Chef Solutions are organized around the outcome you're trying to achieve, not around
-individual products. Each solution brings together whichever Chef products are relevant &mdash;
-Chef InSpec, Chef Automate, Chef Infra Client, and Chef 360 Platform &mdash; into a single,
-end-to-end journey.</p>
+<p class="lead">Find your way around Chef by outcome, not by product name. Each solution below walks you
+through everything you need &mdash; Chef InSpec, Chef Automate, Chef Infra Client, and Chef 360
+Platform &mdash; to get one job done, from first setup to day-to-day operation.</p>
 
 <div class="grid-x grid-padding-x small-up-1 medium-up-2 large-up-3 product-card-grid">
 
@@ -47,10 +46,10 @@ end-to-end journey.</p>
           <div class="product-card-icon" aria-hidden="true">
             <span class="material-symbols-outlined" translate="no">verified_user</span>
           </div>
-          <h3 class="solution-card-name"><a href="/solutions/compliance/">Compliance</a></h3>
+          <h3 class="solution-card-name"><a href="/solutions/compliance/">Chef Compliance</a></h3>
         </div>
-        <p>Define compliance and security requirements as code, scan your infrastructure
-        continuously, and remediate drift with Chef InSpec, Chef Automate, and Chef 360.</p>
+        <p>Write your security and compliance requirements as code, check your systems against
+        them automatically, and fix what's out of line &mdash; wherever those systems live.</p>
       </div>
       <div class="card-divider">
         <a href="/solutions/compliance/" aria-hidden="true" tabindex="-1">

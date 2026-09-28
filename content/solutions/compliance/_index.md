@@ -1,5 +1,5 @@
 +++
-title = "Compliance"
+title = "Chef Compliance"
 draft = false
 gh_repo = "chef-web-docs"
 
@@ -11,24 +11,26 @@ gh_repo = "chef-web-docs"
     breadcrumbs = true
 
 [menu.solutions_compliance]
-  title = "Compliance"
+  title = "Chef Compliance"
   weight = 1
 +++
 
-Chef lets you define compliance and security requirements as code, scan your infrastructure
-against them continuously, see results in one place, and remediate drift &mdash; across cloud,
-on-premises, and hybrid environments.
+Keeping every system compliant &mdash; and proving it &mdash; is hard when you're checking things
+by hand or piecing together evidence after the fact. Chef Compliance lets you write down what
+"compliant" means once, check for it continuously, see the results in one place, and fix what
+drifts &mdash; whether your systems run in the cloud, on-premises, or a mix of both.
 
-This solution brings together the products you need for a complete compliance journey:
+You don't need to learn a new product for this. Chef Compliance is a journey through the tools
+you may already use:
 
-- **[Chef InSpec](/inspec/latest/)** &mdash; author and test compliance controls in a
-  human- and machine-readable language.
-- **[Chef Automate](/automate/reports/)** &mdash; run scans, visualize pass/fail results, and
-  track compliance drift over time.
-- **[Chef Infra Client](/client/latest/features/chef_compliance_phase/)** &mdash; run compliance
-  scans automatically as part of every Chef Infra Client run, and remediate failed controls.
-- **[Chef 360 Platform](/360/latest/)** &mdash; schedule and orchestrate compliance jobs across
-  your entire fleet.
+- **[Chef InSpec](/inspec/latest/)** &mdash; write your compliance and security checks in plain,
+  readable language, so both engineers and auditors can understand them.
+- **[Chef Automate](/automate/reports/)** &mdash; see pass/fail results and compliance trends
+  for your whole fleet on one dashboard.
+- **[Chef Infra Client](/client/latest/features/chef_compliance_phase/)** &mdash; check for
+  compliance automatically every time Chef Infra Client runs, and fix what fails.
+- **[Chef 360 Platform](/360/latest/)** &mdash; schedule and coordinate compliance checks across
+  every node you manage.
 
 ## The compliance workflow
 
