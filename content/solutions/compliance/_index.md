@@ -6,14 +6,14 @@ gh_repo = "chef-web-docs"
 [cascade]
   [cascade.params]
     swiftype_search_products = ["automate", "inspec", "client"]
-    menu_id = "solutions_compliance"
     section_root = "/solutions/compliance"
     breadcrumbs = true
 
-[menu.solutions_compliance]
-  identifier = "solutions_compliance"
+[menu.overview]
+  identifier = "overview/solutions/compliance"
+  parent = "overview/solutions"
   title = "Chef Compliance"
-  weight = 1
+  weight = 10
 +++
 
 Keeping every system compliant takes a lot of effort &mdash; checking things by hand and piecing

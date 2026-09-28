@@ -1,9 +1,9 @@
 +++
 title = "Cloud"
 
-[menu.solutions_compliance]
-  identifier = "solutions_compliance/cloud"
-  parent = "solutions_compliance"
+[menu.overview]
+  identifier = "overview/solutions/compliance/cloud"
+  parent = "overview/solutions/compliance"
   title = "Cloud"
   weight = 40
 +++

@@ -1,9 +1,9 @@
 +++
 title = "Virtualization"
 
-[menu.solutions_compliance]
-  identifier = "solutions_compliance/virtualization"
-  parent = "solutions_compliance"
+[menu.overview]
+  identifier = "overview/solutions/compliance/virtualization"
+  parent = "overview/solutions/compliance"
   title = "Virtualization"
   weight = 80
 +++

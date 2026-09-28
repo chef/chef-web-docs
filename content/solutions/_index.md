@@ -5,6 +5,13 @@ gh_repo = "chef-web-docs"
 left_nav = false
 toc = false
 swiftype_search_products = [""]
+
+[menu]
+  [menu.overview]
+    title = "Solutions"
+    identifier = "overview/solutions"
+    parent = "overview"
+    weight = 60
 +++
 
 <!-- markdownlint-disable MD033 -->

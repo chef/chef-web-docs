@@ -1,9 +1,9 @@
 +++
 title = "Containers / Kubernetes"
 
-[menu.solutions_compliance]
-  identifier = "solutions_compliance/containers_kubernetes"
-  parent = "solutions_compliance"
+[menu.overview]
+  identifier = "overview/solutions/compliance/containers_kubernetes"
+  parent = "overview/solutions/compliance"
   title = "Containers / Kubernetes"
   weight = 50
 +++

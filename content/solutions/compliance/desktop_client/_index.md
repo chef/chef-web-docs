@@ -1,9 +1,9 @@
 +++
 title = "Desktop / Client"
 
-[menu.solutions_compliance]
-  identifier = "solutions_compliance/desktop_client"
-  parent = "solutions_compliance"
+[menu.overview]
+  identifier = "overview/solutions/compliance/desktop_client"
+  parent = "overview/solutions/compliance"
   title = "Desktop / Client"
   weight = 20
 +++

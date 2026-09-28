@@ -1,9 +1,9 @@
 +++
 title = "Web Servers"
 
-[menu.solutions_compliance]
-  identifier = "solutions_compliance/web_servers"
-  parent = "solutions_compliance"
+[menu.overview]
+  identifier = "overview/solutions/compliance/web_servers"
+  parent = "overview/solutions/compliance"
   title = "Web Servers"
   weight = 60
 +++

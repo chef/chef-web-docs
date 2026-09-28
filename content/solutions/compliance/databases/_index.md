@@ -1,9 +1,9 @@
 +++
 title = "Databases"
 
-[menu.solutions_compliance]
-  identifier = "solutions_compliance/databases"
-  parent = "solutions_compliance"
+[menu.overview]
+  identifier = "overview/solutions/compliance/databases"
+  parent = "overview/solutions/compliance"
   title = "Databases"
   weight = 30
 +++

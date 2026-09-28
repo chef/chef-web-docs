@@ -1,9 +1,9 @@
 +++
 title = "Network / Infrastructure"
 
-[menu.solutions_compliance]
-  identifier = "solutions_compliance/network_infrastructure"
-  parent = "solutions_compliance"
+[menu.overview]
+  identifier = "overview/solutions/compliance/network_infrastructure"
+  parent = "overview/solutions/compliance"
   title = "Network / Infrastructure"
   weight = 90
 +++

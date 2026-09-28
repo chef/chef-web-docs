@@ -1,9 +1,9 @@
 +++
 title = "Applications / Middleware"
 
-[menu.solutions_compliance]
-  identifier = "solutions_compliance/applications_middleware"
-  parent = "solutions_compliance"
+[menu.overview]
+  identifier = "overview/solutions/compliance/applications_middleware"
+  parent = "overview/solutions/compliance"
   title = "Applications / Middleware"
   weight = 70
 +++

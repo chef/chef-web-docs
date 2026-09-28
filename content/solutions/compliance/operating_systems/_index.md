@@ -1,9 +1,9 @@
 +++
 title = "Operating Systems"
 
-[menu.solutions_compliance]
-  identifier = "solutions_compliance/operating_systems"
-  parent = "solutions_compliance"
+[menu.overview]
+  identifier = "overview/solutions/compliance/operating_systems"
+  parent = "overview/solutions/compliance"
   title = "Operating Systems"
   weight = 10
 +++
