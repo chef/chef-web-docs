@@ -26,6 +26,10 @@ Release date: October 7, 2026
 - Fix in `oracledb_session` to correctly parse query output for both `sqlcl` and `sqlplus` clients. Previously, an unsuppressed banner message in `sqlcl` output and unset CSV formatting in `sqlplus` output broke result parsing. ([#8010](https://github.com/inspec/inspec/pull/8010))
 - Fix in `oracledb_session` to correctly parses multi-column query results. Previously, a comma substitution that ran before CSV parsing, combined with flattening logic that couldn't represent more than one column, caused `.column(name)` to silently return `nil` for every column in queries that selected more than one column. ([#7997](https://github.com/inspec/inspec/pull/7997))
 
+### Packaging
+
+- We now provide OS-native Habitat-based Chef InSpec packages for macOS ARM.
+
 ### Security fixes
 
 - Updated the `core/openssl` Habitat package from `3.5.7` to `3.5.8` for the Linux x86, Windows x86, Linux ARM (`aarch64-linux`), and macOS ARM (`aarch64-darwin`) platforms.
