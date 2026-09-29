@@ -125,6 +125,9 @@ properties_list:
 - property: directory_specs
   ruby_type: Hash
   required: false
+  default_value: '{config: {mode: "0750", inherits: :auto}, client_d: {mode: "0750",
+    inherits: :auto}, logs: {mode: "0755", inherits: :auto}, cache: {mode: "0750",
+    inherits: :auto}, backups: {mode: "0750", inherits: :auto}}'
   new_in: '19.4'
   description_list:
   - markdown: |-
