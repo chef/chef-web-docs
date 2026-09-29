@@ -211,4 +211,3 @@ the vendor end-of-life in the above table. As such, the following table
 indicates upcoming product end-of-life dates for particular platforms.
 On the Chef end-of-life date, Chef discontinues building software for
 that platform and version.
-
