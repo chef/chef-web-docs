@@ -1,5 +1,5 @@
 +++
-title = "System requirements"
+title = "Chef Infra Client system requirements"
 draft = false
 
 [menu]
@@ -9,6 +9,8 @@ draft = false
     parent = "install"
     weight = 5
 +++
+
+This page documents system requirements for bootstrapping Chef Infra Client on a node.
 
 ## Prerequisites
 
