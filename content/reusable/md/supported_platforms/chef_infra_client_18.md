@@ -1,9 +1,9 @@
 
 <!-- markdownlint-disable MD036 -->
 
-**Commercially-supported platforms**
+**Validated and supported platforms**
 
-The following table lists the commercially supported platforms and versions for Chef Infra Client 18.
+The following table lists the validated and supported platforms and versions for Chef Infra Client 18.
 
 | Platform | Architecture | Version |
 | --- | --- | --- |
@@ -21,7 +21,7 @@ The following table lists the commercially supported platforms and versions for 
 | Ubuntu (LTS releases) | `x86_64`,`aarch64` (18.x and above) | `18.04`, `20.04`, `22.04`, `24.04`, `26.04` |
 | Windows | `x86_64` | `2016`, `10` (all channels except "insider" builds), `2019` (Long-term servicing channel (LTSC), both Desktop Experience and Server Core), `11`, `2022`, `2025` |
 
-**Derived platforms**
+**Supported (untested) platforms**
 
 The following table lists supported derived platforms and versions for Chef Infra Client 18.
 
@@ -29,9 +29,9 @@ The following table lists supported derived platforms and versions for Chef Infr
 | --- | --- | --- | --- |
 | AlmaLinux | `x86_64`, `aarch64` | `8.x`, `9.x`, `10.x` | CentOS |
 
-**Community-supported platforms**
+**User-reported platforms**
 
-The following are community-supported platforms for Chef Infra Client 18.
+The following are user-reported platforms for Chef Infra Client 18.
 
 | Platform | Architecture | Version |
 | --- | --- | --- |
