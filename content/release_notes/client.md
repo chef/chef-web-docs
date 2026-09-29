@@ -23,11 +23,9 @@ Release date: TBD
 
 ### Improvements
 
-- Updated Chef-19 with support for Ruby 3.4.10 and OpenSSL 3.5.7.
-  ([#16242](https://github.com/chef/chef/pull/16242))
-- Removed the experimental tag and warning message when running Chef Infra Client in Target Mode.
+- Removed the experimental tag and warning message when running Chef Infra Client in Agentless Mode.
   ([#16088](https://github.com/chef/chef/pull/16088))
-- Deferred loading `stringio` in `chef-utils` until transport connections are opened in Target Mode, reducing gem load time by ~43% across all standard executions.
+- Deferred loading `stringio` in `chef-utils` until transport connections are opened in Agentless Mode, reducing gem load time by ~43% across all standard executions.
   ([#16335](https://github.com/chef/chef/pull/16335))
 - The `chef_client_config` resource now accepts two new properties: `directory_specs` lets you configure permissions (owner, group, mode, and Windows rights and inherits) for each Chef-managed directory (`:config`, `:client_d`, `:logs`, `:cache`, and `:backups`), and `client_rb_mode` lets you set the file mode of the generated `client.rb` file (defaults to `"0640"`).
   ([#16019](https://github.com/chef/chef/pull/16019))
@@ -35,16 +33,14 @@ Release date: TBD
   ([#16262](https://github.com/chef/chef/pull/16262))
 - Added relative directory caching to `CookbookManifest#parse_file_from_root_paths` to accelerate manifest generation during cookbook synchronization.
   ([#16207](https://github.com/chef/chef/pull/16207))
-- The `chef_client_hab_ca_cert` resource now automatically accepts the Habitat license when discovering certificate package paths, preventing execution failures on newly provisioned nodes.
+- The `chef_client_hab_ca_cert` resource now automatically accepts the Habitat license when discovering certificate package paths, preventing execution failures on newly provisioned nodes, and now supports Habitat installations in non-standard locations such as macOS's `/opt/hab` directory.
   ([#16312](https://github.com/chef/chef/pull/16312))
 - Template error messages now include the cookbook name and template filename, and are truncated to 10,000 characters to prevent exposing large node attribute data in logs.
   ([#16073](https://github.com/chef/chef/pull/16073))
-- Sensitive properties---passwords, auth tokens, and private key passphrases---are now correctly masked in logs and run reports for `chocolatey_installer`, `chocolatey_package`, `habitat_package`, `habitat_sup`, `openssl_ec_private_key`, and `openssl_rsa_private_key`.
+- Sensitive properties---passwords, auth tokens, and private key passphrases---are now correctly masked in logs and run reports across 20 Chef Infra resources, including `chocolatey_installer`, `chocolatey_package`, `habitat_package`, `habitat_sup`, `openssl_ec_private_key`, and `openssl_rsa_private_key`.
   ([#16107](https://github.com/chef/chef/pull/16107))
 - Lowered the "No key detected" log message from standard output (`puts`) to `Chef::Log.debug`, reducing unnecessary console noise.
-  ([#16222](https://github.com/chef/chef/pull/16222))
-- Updated to Cookstyle 9.0 and corrected the resulting new offenses across the codebase.
-  ([#16329](https://github.com/chef/chef/pull/16329))
+  ([#16222](https://github.com/chef/chef/pull/16222
 
 ### Bug fixes
 
@@ -68,7 +64,7 @@ Release date: TBD
   ([#16036](https://github.com/chef/chef/pull/16036))
 - Fixed `chef_client_*` resources to correctly converge in non-Habitat builds.
   ([#16089](https://github.com/chef/chef/pull/16089))
-- Fixed an issue in Target Mode where `Dir.tmpdir` resolved the local host's temp directory instead of the remote target's temp directory.
+- Fixed an issue in Agentless Mode where `Dir.tmpdir` resolved the local host's temp directory instead of the remote target's temp directory.
   ([#16354](https://github.com/chef/chef/pull/16354))
 - Fixed an issue where `homebrew_tap` failed after Homebrew enforced Tap Trust, because the tap wasn't trusted before it was added. The resource now trusts the tap first.
   ([#16367](https://github.com/chef/chef/pull/16367))
@@ -76,7 +72,7 @@ Release date: TBD
   ([#16326](https://github.com/chef/chef/pull/16326))
 - Fixed `homebrew_package` so it respects the `timeout` property instead of ignoring it.
   ([#16328](https://github.com/chef/chef/pull/16328))
-- Fixed an undefined method error (`mode_to_s`) in `TargetIO::TrainCompat::FileUtils.chmod_R` that occurred during Target Mode runs.
+- Fixed an undefined method error (`mode_to_s`) in `TargetIO::TrainCompat::FileUtils.chmod_R` that occurred during Agentless Mode runs.
   ([#16355](https://github.com/chef/chef/pull/16355))
 - Fixed `windows_update_settings` so it no longer writes WSUS registry values that weren't explicitly set.
   ([#16331](https://github.com/chef/chef/pull/16331))
@@ -87,14 +83,14 @@ Release date: TBD
   ([#16349](https://github.com/chef/chef/pull/16349))
 - Fixed a path traversal vulnerability in the `archive_file` resource. Extraction now rejects archive entries containing `..` sequences, absolute paths, and unsafe symlinks.
   ([#16095](https://github.com/chef/chef/pull/16095))
+- Updated `mixlib-archive` to 1.3.6. This fixes a path traversal vulnerability in `mixlib-archive`'s pure-Ruby Tar extraction backend, where a GNU `@LongLink` long-name entry could bypass path traversal checks and write files outside the extraction destination.
+  ([#16381](https://github.com/chef/chef/pull/16381))
 - Constrained `concurrent-ruby` to `>= 1.3.7` to prevent loading versions with known vulnerabilities.
   ([#16216](https://github.com/chef/chef/pull/16216))
 - Configured `OPENSSL_CONF` at runtime on Linux to point to Habitat's OpenSSL configuration with the activated FIPS provider, ensuring FIPS-approved digest operations like SHA256 and SHA512 function properly when FIPS mode is enabled.
   ([#16221](https://github.com/chef/chef/pull/16221))
 - Updated `faraday` to 2.14.3 to address GHSA-98m9-hrrm-r99r and GHSA-5rv5-xj5j-3484.
   ([#16132](https://github.com/chef/chef/pull/16132))
-- Applied Cookstyle corrections across the codebase.
-  ([#16201](https://github.com/chef/chef/pull/16201))
 - Fixed an issue where sensitive properties could leak their values in logs and run reports when resource validation failed.
   ([#16300](https://github.com/chef/chef/pull/16300))
 
@@ -107,19 +103,21 @@ Release date: TBD
 
 - Added Habitat build plans and packaging for macOS ARM (`aarch64-darwin`). Chef Infra Client Habitat packages are now released natively for Apple Silicon.
   ([#16115](https://github.com/chef/chef/pull/16115))
-- Updated Habitat package version resolution for software bill of materials (SBOM) generation.
-  ([#16379](https://github.com/chef/chef/pull/16379))
 
 ### Dependency updates
 
+- Updated Ruby to 3.4.10 and OpenSSL to 3.5.7.
+  ([#16242](https://github.com/chef/chef/pull/16242))
 - Updated `aws-sdk-s3` from 1.222.0 to 1.227.0.
   ([#16028](https://github.com/chef/chef/pull/16028), [#16113](https://github.com/chef/chef/pull/16113), [#16189](https://github.com/chef/chef/pull/16189))
-- Updated `aws-sdk-secretsmanager` from 1.130.0 to 1.134.0.
+- Updated `aws-sdk-secretsmanager` from 1.130.0 to 1.133.0.
   ([#16026](https://github.com/chef/chef/pull/16026), [#16079](https://github.com/chef/chef/pull/16079))
 - Updated `chef-vault` from 4.2.9 to 4.2.12.
   ([#16127](https://github.com/chef/chef/pull/16127))
 - Updated `faraday` from 2.14.1 to 2.14.3.
   ([#16132](https://github.com/chef/chef/pull/16132))
+- Updated `mixlib-archive` from 1.3.3 to 1.3.6.
+  ([#16381](https://github.com/chef/chef/pull/16381))
 - Excluded the broken `ffi-yajl` 3.0.0 release (allocator issue on Ruby 3.2+) while allowing other 2.x and 3.x releases up to 4.0 (`>= 2.2, != 3.0.0, < 4.0`).
   ([#16152](https://github.com/chef/chef/pull/16152), [#16240](https://github.com/chef/chef/pull/16240))
 - Updated Ohai from 19.1.31 to 19.1.40.
