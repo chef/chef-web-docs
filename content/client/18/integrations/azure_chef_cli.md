@@ -257,7 +257,7 @@ The following examples show how you can install and configure Chef Infra Client 
    "properties": {
      "publisher": "Chef.Bootstrap.WindowsAzure",
      "type": "LinuxChefClient",
-     "typeHandlerVersion": "1210.12",
+     "typeHandlerVersion": "1210.15.11.1",
      "settings": {
        "bootstrap_options": {
          "chef_node_name": "node1",
@@ -285,7 +285,7 @@ The following examples show how you can install and configure Chef Infra Client 
   "properties": {
     "publisher": "Chef.Bootstrap.WindowsAzure",
     "type": "ChefClient",
-    "typeHandlerVersion": "1210.12",
+    "typeHandlerVersion": "1210.15.11.1",
     "settings": {
       "bootstrap_options": {
         "chef_node_name": "node12",
@@ -314,7 +314,7 @@ The following examples show how you can install and configure Chef Infra Client 
    "properties": {
      "publisher": "Chef.Bootstrap.WindowsAzure",
      "type": "LinuxChefClient",
-     "typeHandlerVersion": "1210.12",
+     "typeHandlerVersion": "1210.15.11.1",
      "settings": {
        "bootstrap_options": {
          "chef_node_name": "node1",
