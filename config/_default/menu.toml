@@ -107,7 +107,7 @@ weight = 20
   weight = 60
 
     [[overview]]
-    title = "Chef Compliance profiles"
+    title = "Chef Compliance"
     identifier = "overview/solutions/compliance"
     parent = "overview/solutions"
     weight = 10
