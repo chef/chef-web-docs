@@ -75,7 +75,3 @@ Browse the catalog by category:
 | [Containers / Kubernetes](/solutions/compliance/containers_kubernetes/) | 2 |
 | [Network / Infrastructure](/solutions/compliance/network_infrastructure/) | 2 |
 | [Virtualization](/solutions/compliance/virtualization/) | 1 |
-
-A dagger (**&dagger;**) on a remediation version in the tables below means _Inferred Current_:
-the customer-shipping remediation tree is confirmed by an SME, but version-level release
-evidence wasn't found. Inferred Current doesn't mean unsupported.
