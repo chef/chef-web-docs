@@ -17,9 +17,9 @@ summary = "Chef Infra Client release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
-## Chef Infra Client 19.4.x
+## Chef Infra Client 19.4.40
 
-Release date: TBD
+Release date: September 23, 2026
 
 ### Improvements
 
@@ -40,7 +40,7 @@ Release date: TBD
 - Sensitive properties---passwords, auth tokens, and private key passphrases---are now correctly masked in logs and run reports across 20 Chef Infra resources, including `chocolatey_installer`, `chocolatey_package`, `habitat_package`, `habitat_sup`, `openssl_ec_private_key`, and `openssl_rsa_private_key`.
   ([#16107](https://github.com/chef/chef/pull/16107))
 - Lowered the "No key detected" log message from standard output (`puts`) to `Chef::Log.debug`, reducing unnecessary console noise.
-  ([#16222](https://github.com/chef/chef/pull/16222
+  ([#16222](https://github.com/chef/chef/pull/16222))
 
 ### Bug fixes
 
