@@ -1,5 +1,5 @@
 +++
-title = "System requirements"
+title = "Chef Infra Client system requirements"
 draft = false
 
 [menu]
@@ -9,6 +9,10 @@ draft = false
     parent = "install"
     weight = 15
 +++
+
+This page documents system requirements for bootstrapping Chef Infra Client on a node.
+
+## Prerequisites
 
 Before you bootstrap Chef Infra Client on nodes:
 
@@ -21,9 +25,19 @@ See the [Chef Infra Client supported platforms](/platforms/#chef-infra-client-su
 
 ## Chef Infra Client requirements
 
-- **RAM**: Chef Infra Client requires a minimum of 512 MB of RAM during a client run.
-- **Disk space for binaries**:
-  - Linux: The Chef Infra Client binaries are stored in `/hab` and require a minimum of 600 MB of disk space.
-  - Windows: The Chef Infra Client binaries are stored in `C:\hab` and require a minimum of 2.1 GB of disk space.
-- **Processor**: The processor must be supported. We recommend 1 GHz or faster, but the processor speed should be based on other system loads.
-- **Cache directory**: Chef Infra Client caches downloaded cookbooks, packages, and other large files to `/var/chef/cache` during a client run. This directory should be generously sized. Start with 5 GB and tune the size of `/var/chef/cache` as necessary. You can configure this location in a node's [client.rb](/client/19/install/config_rb_client/) file using the `file_cache_path` setting.
+### Memory
+
+Chef Infra Client requires a minimum of 512 MB of RAM during a client run.
+
+### Installation disk space
+
+- Linux: Chef Infra Client stores its binaries in `/hab`, which requires a minimum of 600 MB of disk space.
+- Windows: Chef Infra Client stores its binaries in `C:\hab`, which requires a minimum of 2.1 GB of disk space.
+
+### Processor
+
+Chef Infra Client requires a [supported processor](/platforms/#chef-infra-client-support-19). We recommend 1 GHz or faster, but base the processor speed on other system loads.
+
+### Cache storage
+
+Chef Infra Client caches downloaded cookbooks, packages, and other large files to `/var/chef/cache` during a client run. Size this directory generously. Start with 5 GB and tune the size of `/var/chef/cache` as necessary. You can configure this location in a node's [client.rb](/client/19/install/config_rb_client/) file using the `file_cache_path` setting.
