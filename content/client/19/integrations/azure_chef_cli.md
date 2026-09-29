@@ -128,7 +128,7 @@ If you are using Azure Resource Manager templates to create your infrastructure 
 ### Options
 
 The extension has the following options that can be provided in the
-**settings** hash.
+`settings` hash.
 
 `runlist`
 
@@ -174,7 +174,15 @@ The extension has the following options that can be provided in the
 
 `chef_license_key`
 
-: **Deprecated.** Your Chef license key, required by default for downloading Chef Infra Client. Setting this in the extension's public settings is still supported for backward compatibility, but this location is public — readable via ARM deployment history/parameters and by anyone with Reader access to the VM extension resource. Set `chef_license_key` under `protectedSettings` instead. Using this location logs a deprecation warning and it will be removed in a future release.
+: **Deprecated** Use the [`chef_license_key` protected setting](#protected-settings) instead.
+
+  Your Chef license key for downloading Chef Infra Client.
+
+  {{< warning >}}
+
+  The extension still supports `chef_license_key` in the public `settings` hash for backward compatibility, but this location is public---readable through ARM deployment history and parameters, and by anyone with Reader access to the VM extension resource. Using this in the `settings` hash logs a deprecation warning. Chef will remove this option in a future release.
+
+  {{< /warning >}}
 
 `hints`
 
