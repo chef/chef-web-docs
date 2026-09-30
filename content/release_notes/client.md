@@ -78,7 +78,7 @@ Release date: May 20, 2026
 
 ### Packaging
 
-- We now release Chef Infra Client Habitat packages for Linux ARM. ([#15716](https://github.com/chef/chef/pull/15716))
+- We now release Chef Infra Client Habitat packages and Native Installers for Linux ARM. ([#15716](https://github.com/chef/chef/pull/15716))
 - Added a Habitat install hook that automatically applies SELinux file context (`fcontext`) rules when Chef Infra Client is installed on SELinux-enforcing systems such as Fedora and RHEL.
   This ensures Chef Infra Client binaries are labeled as `bin_t` and can execute under SELinux policy. ([#15787](https://github.com/chef/chef/pull/15787))
 - The `chef/chef-hab` Docker image now supports both amd64 and arm64. Users on ARM-based systems can now pull the image natively without platform emulation. ([#15856](https://github.com/chef/chef/pull/15856))
