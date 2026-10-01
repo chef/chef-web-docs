@@ -137,6 +137,7 @@ For more information, see the [Chef Automate HA system requirements](/automate/h
 {{< /foundation_tabs >}}
 
 {{< foundation_tabs_panels tabs-id="chef-inspec-support" >}}
+
 {{< foundation_tabs_panel active="true" panel-id="chef-inspec-support-7-2" >}}
 {{< readfile file="content/reusable/md/supported_platforms/chef_inspec_7_2.md" >}}
 {{< /foundation_tabs_panel >}}
