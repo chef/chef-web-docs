@@ -14,10 +14,7 @@ You can download and install the pre-built `.msi`, `.deb`, or `.rpm` packages us
 
 ## Supported platforms
 
-Chef Infra Client is supported on:
-
-- Currently supported Linux distributions and versions running Linux kernel 2.6.32 and later on x86-64 (amd64) and ARM (aarch64) architectures
-- Currently supported Windows versions greater than or equal to Windows 10 and Windows Server 2016
+See the [Chef Infra Client supported platforms](/platforms/#chef-infra-client-support-19) documentation.
 
 ## Prerequisites
 
