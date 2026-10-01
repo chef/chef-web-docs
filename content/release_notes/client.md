@@ -17,7 +17,7 @@ summary = "Chef Infra Client release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
-## Chef Infra Client 19.4.40
+## Chef Infra Client 19.4.41
 
 Release date: September 23, 2026
 
@@ -106,7 +106,7 @@ Release date: September 23, 2026
 
 ### Dependency updates
 
-- Updated Ruby to 3.4.10 and OpenSSL to 3.5.7.
+- Updated Ruby to 3.4.10 and OpenSSL to 3.5.8.
   ([#16242](https://github.com/chef/chef/pull/16242))
 - Updated `aws-sdk-s3` from 1.222.0 to 1.227.0.
   ([#16028](https://github.com/chef/chef/pull/16028), [#16113](https://github.com/chef/chef/pull/16113), [#16189](https://github.com/chef/chef/pull/16189))
@@ -130,7 +130,7 @@ Release date: September 23, 2026
 This release uses:
 
 - Ruby version: 3.4.10
-- OpenSSL version: 3.5.7
+- OpenSSL version: 3.5.8
 - Ohai version: 19.1.40
 - Chef InSpec version: 7.2.1
 
