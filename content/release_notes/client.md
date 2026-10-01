@@ -103,6 +103,8 @@ Release date: September 23, 2026
 
 - Added Habitat build plans and packaging for macOS ARM (`aarch64-darwin`). Chef Infra Client Habitat packages are now released natively for Apple Silicon.
   ([#16115](https://github.com/chef/chef/pull/16115))
+- Certified the Effortless packaging pattern for Chef Infra Client 19 on Linux x86_64, Linux ARM, and Windows x86_64 by updating `scaffolding-chef-infra` to use `core/ruby3_4` and resolve packages from the `base-2025` channel.
+  ([chef/effortless#307](https://github.com/chef/effortless/pull/307))
 
 ### Dependency updates
 
