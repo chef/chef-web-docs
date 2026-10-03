@@ -1206,21 +1206,28 @@ url = "/marketplace/"
     identifier = "marketplace/backward_compatibility/knife_supermarket"
     parent = "marketplace/backward_compatibility"
     url = "/marketplace/backward_compatibility/knife_supermarket/"
-    weight = 10
+    weight = 20
 
     [[marketplace]]
     title = "Berkshelf"
     identifier = "marketplace/backward_compatibility/berkshelf"
     parent = "marketplace/backward_compatibility"
     url = "/marketplace/backward_compatibility/berkshelf/"
-    weight = 20
+    weight = 30
 
     [[marketplace]]
     title = "Policyfile"
     identifier = "marketplace/backward_compatibility/policyfile"
     parent = "marketplace/backward_compatibility"
     url = "/marketplace/backward_compatibility/policyfile/"
-    weight = 30
+    weight = 40
+
+    [[marketplace]]
+    title = "Overview"
+    identifier = "marketplace/backward_compatibility/overview"
+    parent = "marketplace/backward_compatibility"
+    url = "/marketplace/backward_compatibility/"
+    weight = 10
 
 ####
 # End Marketplace Menu
