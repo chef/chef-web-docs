@@ -22,13 +22,13 @@ See the [Marketplace overview](/marketplace/) to learn what Marketplace is and h
 
 ### New features requiring configuration updates
 
-- **Marketplace public cookbook source**: You can use Marketplace as the public cookbook source for Berkshelf, Policyfiles, and `knife supermarket` commands.
+- **Marketplace public cookbook source**: You can use Marketplace as a public cookbook source for Berkshelf, Policyfiles, and supported read-only `knife supermarket` commands.
   Update your source URL to `https://marketplace.chef.io`.
   See [Backward compatibility](/marketplace/backward_compatibility/) for configuration steps.
 
 ### New features
 
-- **Unauthenticated read-only Knife commands**: Marketplace supports unauthenticated, read-only `knife supermarket` commands, including `download`, `install`, `list`, `search`, and `show`.
+- **Unauthenticated read-only Knife commands**: Marketplace supports unauthenticated, read-only cookbook-consumption commands, including `download`, `install`, `list`, `search`, and `show`.
 - **Parallel public-source support**: You can continue to use the public Chef Supermarket source or configure Marketplace as your public cookbook source, at your own pace.
 
 ### Limitations

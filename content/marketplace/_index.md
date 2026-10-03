@@ -3,26 +3,31 @@ title = "Marketplace overview"
 draft = false
 +++
 
-Marketplace is a Chef product for public cookbook content, and it will become part of [Chef 360 Platform](/360/latest/) as the product grows.
-This initial release focuses on one thing: keeping your existing [Chef Supermarket](/supermarket/) cookbook-consumption workflows working without disruption.
-You can adopt Marketplace at your own pace, since Chef Supermarket and Marketplace are both available as public cookbook sources today.
+Marketplace is a Chef product for public cookbook content that is planned to become part of [Chef 360 Platform](/360/latest/).
+It supports cookbook consumption through workflows that already use [Chef Supermarket](/supermarket/).
 
 ## Intended audience
 
-This page is for DevOps engineers and platform teams that currently consume cookbooks from the public Chef Supermarket.
+This page is for teams that currently consume cookbooks from the public Chef Supermarket.
+
+## Public Chef Supermarket mirroring
+
+For the time being, ongoing cookbook updates published to [the public Chef Supermarket](https://supermarket.chef.io) are mirrored to Marketplace and reflected on `marketplace.chef.io`.
 
 ## Backward compatibility
 
-The initial release of Marketplace focuses entirely on backward compatibility: keeping the cookbook-consumption workflows you already use working, whether you point them at Marketplace, the public Chef Supermarket, or both at once.
-This protects the automation you already have: pipelines, scripts, and workflows built around `knife supermarket`, Berkshelf, or Policyfile keep working whether they point at Chef Supermarket or Marketplace.
-This covers the three ways teams typically consume public cookbooks today:
+Marketplace's backward-compatibility support helps teams continue using their existing automation to consume public cookbooks.
+Marketplace currently supports these public cookbook workflows:
 
-- `knife supermarket` commands
-- Berkshelf
-- Policyfile
+- [Read-only `knife supermarket` commands](/marketplace/backward_compatibility/knife_supermarket/) to download, install, list, search, and view public cookbooks.
+- [Berkshelf](/marketplace/backward_compatibility/berkshelf/) cookbook sources.
+- [Policyfile](/marketplace/backward_compatibility/policyfile/) cookbook sources.
 
-See [Backward compatibility](/marketplace/backward_compatibility/) for the supported workflows and configuration steps for each one.
-See the [Marketplace release notes](/release_notes/marketplace/) for what's new and what's out of scope in each release.
+## Limitations
+
+- Marketplace supports public cookbooks only. Private Chef Supermarket content and migration of private content to Marketplace aren't supported.
+- Marketplace doesn't support Knife write or administrative operations, including `knife supermarket upload`. To publish or upload cookbooks with Knife, continue to use `supermarket.chef.io`.
+- Marketplace doesn't support cookbook publishing or content types other than cookbooks.
 
 ## Related information
 

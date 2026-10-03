@@ -3,17 +3,20 @@ title = "Knife supermarket compatibility"
 draft = false
 +++
 
-Marketplace supports all unauthenticated, read-only `knife supermarket` commands.
-The command syntax is the same as it is for Chef Supermarket, and no Marketplace credentials are required.
+Marketplace currently supports only unauthenticated, read-only `knife supermarket` commands for consuming public cookbooks.
+Write operations, including `knife supermarket upload`, aren't supported against Marketplace.
+If you configure Marketplace as the Supermarket site, unsupported write commands such as `knife supermarket upload` fail.
+To publish or upload cookbooks using Knife, continue to use `supermarket.chef.io`.
+The supported read-only command syntax is the same as it is for Chef Supermarket, and no Marketplace credentials are required.
 
-Configure Marketplace for all `knife supermarket` commands by adding the following setting to your `knife.rb` file:
+To configure Marketplace for supported read-only `knife supermarket` commands, add the following setting to your `knife.rb` file:
 
 ```ruby
 knife[:supermarket_site] = "https://marketplace.chef.io"
 ```
 
-After you configure `knife[:supermarket_site]`, use your existing `knife supermarket` commands without any further changes.
-You can also apply Marketplace to a single command with the `--supermarket-site https://marketplace.chef.io` option, without changing `knife.rb`.
+After you configure `knife[:supermarket_site]`, use your existing supported read-only cookbook-consumption commands without changing their syntax.
+You can also use Marketplace for a single supported read-only command with the `--supermarket-site https://marketplace.chef.io` option, without changing `knife.rb`.
 
 | Command | Marketplace example | Purpose |
 |---|---|---|
