@@ -8,10 +8,19 @@ title = "Databases"
   weight = 30
 +++
 
-Current audit and remediation coverage for databases benchmarks in Chef Compliance.
-This category has **16 benchmarks** with current coverage.
+Chef Compliance has current coverage for **16 databases benchmarks**.
+Each benchmark below lists every audit version and every remediation version
+currently available.
 
-| Benchmark | Audit Versions | Remediation Versions | Coverage |
+Chef tracks audit and remediation coverage as independent dimensions,
+so a benchmark may have audit coverage, remediation coverage, or both.
+Where both exist, the available versions can differ ---
+an audit version doesn't imply a matching remediation version.
+
+For what audit and remediation each do, see the
+[Compliance solution overview](/solutions/compliance/).
+
+| Benchmark | Audit versions | Remediation versions | Coverage |
 | --- | --- | --- | --- |
 | `CIS MariaDB 10.6` | v1.0.0 | — | Audit Only |
 | `CIS Microsoft SQL Server 2016` | v1.3.0, v1.4.0 | v1.3.0 | Partial Audit + Remediation |
@@ -27,18 +36,24 @@ This category has **16 benchmarks** with current coverage.
 | `CIS PostgreSQL 11` | v1.0.0 | v1.0.0 | Audit + Remediation |
 | `CIS PostgreSQL 16` | v1.0.0 | v1.0.0 | Audit + Remediation |
 | `CIS PostgreSQL 17` | v1.0.0 | v1.0.0† | Audit + Remediation |
-| `OTHER Microsoft SQL Server 2016` | — | v1.1.0† | Remediation Only |
+| `Microsoft SQL Server 2016` | — | v1.1.0† | Remediation Only |
 | `STIG PostgreSQL 9.x` | v2 | — | Audit Only |
 
-_A dagger (&dagger;) on a remediation version means Inferred Current: the customer-shipping
-remediation tree is confirmed by an SME, but version-level release evidence wasn't found.
-Inferred Current doesn't mean unsupported._
+A dagger (†) on a remediation version means the version is **Inferred Current**:
+it's part of Chef's current remediation content, but version-level release evidence wasn't found.
+Inferred Current doesn't mean unsupported.
 
-Audit and remediation coverage are tracked as independent dimensions. A benchmark may offer
-more audit versions than remediation versions, or the reverse.
+Some entries have no framework prefix.
+Those benchmarks aren't published by Chef under a named framework, so no framework is shown
+rather than one being inferred.
+
+For what each coverage term means, see
+[how to read the coverage tables](/solutions/compliance/#how-to-read-the-coverage-tables).
 
 ## Related
 
 - [Compliance solution overview](/solutions/compliance/)
+- [Compliance audit](/solutions/compliance/#compliance-audit)
+- [Compliance remediation](/solutions/compliance/#compliance-remediation)
 - [Chef InSpec](/inspec/latest/)
 - [Compliance reporting in Chef Automate](/automate/reports/)

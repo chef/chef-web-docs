@@ -8,26 +8,41 @@ title = "Cloud"
   weight = 40
 +++
 
-Current audit and remediation coverage for cloud benchmarks in Chef Compliance.
-This category has **5 benchmarks** with current coverage.
+Chef Compliance has current coverage for **5 cloud benchmarks**.
+Each benchmark below lists every audit version and every remediation version
+currently available.
 
-| Benchmark | Audit Versions | Remediation Versions | Coverage |
+Chef tracks audit and remediation coverage as independent dimensions,
+so a benchmark may have audit coverage, remediation coverage, or both.
+Where both exist, the available versions can differ ---
+an audit version doesn't imply a matching remediation version.
+
+For what audit and remediation each do, see the
+[Compliance solution overview](/solutions/compliance/).
+
+| Benchmark | Audit versions | Remediation versions | Coverage |
 | --- | --- | --- | --- |
 | `CIS AWS Foundations` | v1.0.0 | — | Audit Only |
 | `CIS Microsoft 365` | v1.4.0 | v1.0.0 | Audit Ahead |
 | `CIS Microsoft Azure Foundations` | v1.1.0, v1.5.0 | — | Audit Only |
-| `OTHER InSpec GCP Resource Pack` | v1.1.0 | — | Audit Only |
-| `OTHER Microsoft Azure Foundations` | — | v1.1.0† | Remediation Only |
+| `InSpec GCP Resource Pack` | v1.1.0 | — | Audit Only |
+| `Microsoft Azure Foundations` | — | v1.1.0† | Remediation Only |
 
-_A dagger (&dagger;) on a remediation version means Inferred Current: the customer-shipping
-remediation tree is confirmed by an SME, but version-level release evidence wasn't found.
-Inferred Current doesn't mean unsupported._
+A dagger (†) on a remediation version means the version is **Inferred Current**:
+it's part of Chef's current remediation content, but version-level release evidence wasn't found.
+Inferred Current doesn't mean unsupported.
 
-Audit and remediation coverage are tracked as independent dimensions. A benchmark may offer
-more audit versions than remediation versions, or the reverse.
+Some entries have no framework prefix.
+Those benchmarks aren't published by Chef under a named framework, so no framework is shown
+rather than one being inferred.
+
+For what each coverage term means, see
+[how to read the coverage tables](/solutions/compliance/#how-to-read-the-coverage-tables).
 
 ## Related
 
 - [Compliance solution overview](/solutions/compliance/)
+- [Compliance audit](/solutions/compliance/#compliance-audit)
+- [Compliance remediation](/solutions/compliance/#compliance-remediation)
 - [Chef InSpec](/inspec/latest/)
 - [Compliance reporting in Chef Automate](/automate/reports/)

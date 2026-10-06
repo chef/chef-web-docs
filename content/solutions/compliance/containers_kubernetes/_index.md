@@ -8,23 +8,30 @@ title = "Containers / Kubernetes"
   weight = 50
 +++
 
-Current audit and remediation coverage for containers / kubernetes benchmarks in Chef Compliance.
-This category has **2 benchmarks** with current coverage.
+Chef Compliance has current coverage for **2 containers / kubernetes benchmarks**.
+Each benchmark below lists every audit version and every remediation version
+currently available.
 
-| Benchmark | Audit Versions | Remediation Versions | Coverage |
+Chef tracks audit and remediation coverage as independent dimensions,
+so a benchmark may have audit coverage, remediation coverage, or both.
+Where both exist, the available versions can differ ---
+an audit version doesn't imply a matching remediation version.
+
+For what audit and remediation each do, see the
+[Compliance solution overview](/solutions/compliance/).
+
+| Benchmark | Audit versions | Remediation versions | Coverage |
 | --- | --- | --- | --- |
 | `CIS Docker` | — | v1.1.0 | Remediation Only |
 | `CIS Kubernetes` | — | v1.5.0, v1.6.1, v1.12.0 | Remediation Only |
 
-_A dagger (&dagger;) on a remediation version means Inferred Current: the customer-shipping
-remediation tree is confirmed by an SME, but version-level release evidence wasn't found.
-Inferred Current doesn't mean unsupported._
-
-Audit and remediation coverage are tracked as independent dimensions. A benchmark may offer
-more audit versions than remediation versions, or the reverse.
+For what each coverage term means, see
+[how to read the coverage tables](/solutions/compliance/#how-to-read-the-coverage-tables).
 
 ## Related
 
 - [Compliance solution overview](/solutions/compliance/)
+- [Compliance audit](/solutions/compliance/#compliance-audit)
+- [Compliance remediation](/solutions/compliance/#compliance-remediation)
 - [Chef InSpec](/inspec/latest/)
 - [Compliance reporting in Chef Automate](/automate/reports/)

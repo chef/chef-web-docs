@@ -8,10 +8,19 @@ title = "Desktop / Client"
   weight = 20
 +++
 
-Current audit and remediation coverage for desktop / client benchmarks in Chef Compliance.
-This category has **23 benchmarks** with current coverage.
+Chef Compliance has current coverage for **23 desktop / client benchmarks**.
+Each benchmark below lists every audit version and every remediation version
+currently available.
 
-| Benchmark | Audit Versions | Remediation Versions | Coverage |
+Chef tracks audit and remediation coverage as independent dimensions,
+so a benchmark may have audit coverage, remediation coverage, or both.
+Where both exist, the available versions can differ ---
+an audit version doesn't imply a matching remediation version.
+
+For what audit and remediation each do, see the
+[Compliance solution overview](/solutions/compliance/).
+
+| Benchmark | Audit versions | Remediation versions | Coverage |
 | --- | --- | --- | --- |
 | `CIS Apple macOS 10.10` | v1.2.0 | — | Audit Only |
 | `CIS Apple macOS 10.11` | v1.1.0 | — | Audit Only |
@@ -37,15 +46,17 @@ This category has **23 benchmarks** with current coverage.
 | `STIG Microsoft Windows 10` | v2.1.0 | v2.1.0 | Audit + Remediation |
 | `STIG Microsoft Windows 11` | v1.2.0, v2.2.0 | v2.2.0 | Partial Audit + Remediation |
 
-_A dagger (&dagger;) on a remediation version means Inferred Current: the customer-shipping
-remediation tree is confirmed by an SME, but version-level release evidence wasn't found.
-Inferred Current doesn't mean unsupported._
+A dagger (†) on a remediation version means the version is **Inferred Current**:
+it's part of Chef's current remediation content, but version-level release evidence wasn't found.
+Inferred Current doesn't mean unsupported.
 
-Audit and remediation coverage are tracked as independent dimensions. A benchmark may offer
-more audit versions than remediation versions, or the reverse.
+For what each coverage term means, see
+[how to read the coverage tables](/solutions/compliance/#how-to-read-the-coverage-tables).
 
 ## Related
 
 - [Compliance solution overview](/solutions/compliance/)
+- [Compliance audit](/solutions/compliance/#compliance-audit)
+- [Compliance remediation](/solutions/compliance/#compliance-remediation)
 - [Chef InSpec](/inspec/latest/)
 - [Compliance reporting in Chef Automate](/automate/reports/)
