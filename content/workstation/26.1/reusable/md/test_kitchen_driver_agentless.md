@@ -1,7 +1,7 @@
 `kitchen-agentless` is a premium Test Kitchen Enterprise plugin that tests Chef
-Infra cookbooks against target nodes *without installing Chef Infra Client on the
-target*. Using Chef's [Target Mode](https://docs.chef.io/target_mode/), it runs
-`chef-client` and `inspec exec ` from a single shared **source
+Infra cookbooks against target nodes _without installing Chef Infra Client on the
+target_. Using Chef's [Target Mode](https://docs.chef.io/target_mode/), it runs
+`chef-client` and `inspec exec` from a single shared **source
 node** against each target over SSH or WinRM, so targets stay clean and only need
 to be reachable.
 
@@ -9,7 +9,7 @@ This model scales where traditional Test Kitchen doesn't: instead of installing
 Chef Infra Client on every instance, one source node validates many ephemeral,
 minimal, or locked-down targets such as network devices, hardened appliances,
 or air-gapped hosts while preserving the familiar `create` > `converge` >
-`verify` > `destroy` lifecycle. Only *where* the Chef run executes changes.
+`verify` > `destroy` lifecycle. Only _where_ the Chef run executes changes.
 
 Use the `agentless` driver when:
 
@@ -66,7 +66,6 @@ reason about:
 Because the source node is shared, running `kitchen test` across several
 platforms in one project only pays the installation cost once, not once for each
 platform as long as every platform can use the same source configuration.
-
 
 ## Plugin components
 
