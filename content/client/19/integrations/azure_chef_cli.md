@@ -128,7 +128,7 @@ If you are using Azure Resource Manager templates to create your infrastructure 
 ### Options
 
 The extension has the following options that can be provided in the
-**settings** hash.
+`settings` hash.
 
 `runlist`
 
@@ -174,7 +174,15 @@ The extension has the following options that can be provided in the
 
 `chef_license_key`
 
-: Your Chef license key, required by default for downloading Chef Infra Client. Set this as a raw JSON string in the extension's public settings, alongside `CHEF_LICENSE`. The extension exports it as `CHEF_LICENSE_KEY` before running the installer and downloads packages from `chefdownload-commercial.chef.io`.
+: **Deprecated** Use the [`chef_license_key` protected setting](#protected-settings) instead.
+
+  Your Chef license key for downloading Chef Infra Client.
+
+  {{< warning >}}
+
+  The extension still supports `chef_license_key` in the public `settings` hash for backward compatibility, but this location is public---readable through ARM deployment history and parameters, and by anyone with Reader access to the VM extension resource. Using this in the `settings` hash logs a deprecation warning. Chef will remove this option in a future release.
+
+  {{< /warning >}}
 
 `hints`
 
@@ -230,6 +238,10 @@ The following options can be provided to the extension through the `protectedSet
 
 : The contents of your organization validator key, the format is dependent on `validation_key_format`.
 
+`chef_license_key`
+
+: Your Chef license key, required by default for downloading Chef Infra Client. The extension decrypts this value on the target node and exports it as `CHEF_LICENSE_KEY` before running the installer, downloading packages from `chefdownload-commercial.chef.io`. If omitted, the extension falls back to the deprecated, unlicensed `omnitruck.chef.io` download path.
+
 `chef_server_crt`
 
 : The SSL certificate of your Chef Infra Server that will be added to the trusted certificates.
@@ -253,7 +265,7 @@ The following examples show how you can install and configure Chef Infra Client 
    "properties": {
      "publisher": "Chef.Bootstrap.WindowsAzure",
      "type": "LinuxChefClient",
-     "typeHandlerVersion": "1210.12",
+     "typeHandlerVersion": "1210.15.11.1",
      "settings": {
        "bootstrap_options": {
          "chef_node_name": "node1",
@@ -281,7 +293,7 @@ The following examples show how you can install and configure Chef Infra Client 
   "properties": {
     "publisher": "Chef.Bootstrap.WindowsAzure",
     "type": "ChefClient",
-    "typeHandlerVersion": "1210.12",
+    "typeHandlerVersion": "1210.15.11.1",
     "settings": {
       "bootstrap_options": {
         "chef_node_name": "node12",
@@ -310,7 +322,7 @@ The following examples show how you can install and configure Chef Infra Client 
    "properties": {
      "publisher": "Chef.Bootstrap.WindowsAzure",
      "type": "LinuxChefClient",
-     "typeHandlerVersion": "1210.12",
+     "typeHandlerVersion": "1210.15.11.1",
      "settings": {
        "bootstrap_options": {
          "chef_node_name": "node1",
