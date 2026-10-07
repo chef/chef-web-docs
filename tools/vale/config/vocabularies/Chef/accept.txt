@@ -4,3 +4,4 @@ YUM
 DNF
 APT
 CIDR
+SSH
