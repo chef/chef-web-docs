@@ -1,4 +1,4 @@
-<nav id="utility-bar" class="hide-for-print top-bar">
+<nav id="utility-bar" class="hide-for-print top-bar redesign-header">
 
   <div class="top-bar-left">
     <a href="/" class="utility-bar-brand">
@@ -6,19 +6,19 @@
     </a>
   </div>
 
-  <ul class="menu top-nav top-bar-right">
+  <ul class="menu top-nav top-bar-right redesign-nav">
+    {{- range .Site.Menus.main -}}
+    <li class="show-for-medium"><a href="{{ .URL }}">{{ .Title }}</a></li>
+    {{- end -}}
+
     {{- if and (ne (.Param "search") false) (ne (.Site.Param "search") false) -}}
-    <li id="swiftype-search-top-nav">
-      <button id="swiftype-search-magnifying-icon">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <span id="swiftype-search-search-text" class="show-for-mediumlarge text-left">Search...</span>
+    <li id="swiftype-search-top-nav" class="redesign-search-slot">
+      <button id="swiftype-search-magnifying-icon" class="redesign-search-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <span id="swiftype-search-search-text" class="show-for-mediumlarge text-left">Search Chef documentation&hellip;</span>
+        <kbd class="show-for-mediumlarge">/</kbd>
       </button>
     </li>
-    {{- end -}}
-    {{- range .Site.Menus.main -}}
-
-    <li class="show-for-medium"><a href="{{ .URL }}">{{ .Title }}</a></li>
-
     {{- end -}}
   </ul>
 

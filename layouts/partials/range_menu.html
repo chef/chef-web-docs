@@ -1,0 +1,67 @@
+{{- /*
+  Left-nav menu renderer (project-level override of the theme partial).
+
+  Groups the left nav under labelled headings -- Start here / Products /
+  Solutions / Resources / Archive -- so that the *kind* of each entry is
+  obvious. Previously every menu rendered as an undifferentiated peer, which
+  put products, a deployment model, solutions built from products, a content
+  type and a lifecycle state at the same level.
+
+  Behaviour:
+    - A page pinning one menu with `menu_id` keeps the original flat rendering.
+    - With site.Params.menu_groups set, menus render under group headings.
+    - Without it, rendering falls back to the flat menu_order as before.
+
+  Config: config/_default/params.toml -> menu_groups, deprecated_menu_ids
+*/ -}}
+
+{{ $currentPage := . }}
+{{ $menu_order := or .Site.Params.menu_order .Site.Params.menuOrder }}
+{{ $menu_groups := .Site.Params.menu_groups }}
+{{ $deprecated := .Site.Params.deprecated_menu_ids | default slice }}
+
+{{- /* A page-level menu_id pins the nav to a single menu: keep it ungrouped. */ -}}
+{{ with .Params.menu_id }}
+  {{ $menu_order = slice . }}
+  {{ $menu_groups = false }}
+{{ end }}
+
+{{ if $menu_groups }}
+
+  {{ range $group := $menu_groups }}
+    {{- /* Only render a heading if the group has at least one non-empty menu. */ -}}
+    {{ $has_entries := false }}
+    {{ range $menu_name := $group.menus }}
+      {{ with index $.Site.Menus $menu_name }}
+        {{ $has_entries = true }}
+      {{ end }}
+    {{ end }}
+
+    {{ if $has_entries }}
+      <li class="nav-group-heading" aria-hidden="true">{{ $group.title }}</li>
+      {{ range $menu_name := $group.menus }}
+        {{ with index $.Site.Menus $menu_name }}
+          {{ partial "range_menu_entries.html" (dict
+              "menu" .
+              "page" $currentPage
+              "menu_name" $menu_name
+              "deprecated" (in $deprecated $menu_name)
+          ) }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+{{ else }}
+
+  {{ range $menu_name := $menu_order }}
+    {{ $menu := index $.Site.Menus $menu_name }}
+    {{ partial "range_menu_entries.html" (dict
+        "menu" $menu
+        "page" $currentPage
+        "menu_name" $menu_name
+        "deprecated" (in $deprecated $menu_name)
+    ) }}
+  {{ end }}
+
+{{ end }}

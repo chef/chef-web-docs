@@ -1,122 +1,153 @@
 {{ define "main" }}
 {{/*
-  Landing page: responsive grid of Chef product documentation cards.
-  Uses Foundation 6 grid, card components, Material Symbols icons, and
-  existing product SVGs from /static/images/ where available.
+  Landing page: task-first hero + goal tiles + Chef Way callout + New to Chef
+  pills + data-driven product announcements/cards.
+  Announcements and products stay data-driven (data/announcements.yml,
+  the $products slice below) so editors don't touch this template to update
+  either list.
 */}}
-
-<style>
-  /* Keeps the product icon and heading text on one line within each card. */
-  .product-card-heading {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.75rem;
-  }
-  .product-card-heading .product-card-name {
-    margin: 0;
-  }
-  /* Reuses .admonition-warning-title's color/background; only overrides layout so it reads as an inline pill badge. */
-  .product-card-badge {
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 0.5rem;
-    padding: 0.15rem 0.5rem;
-    border-bottom: none;
-    border-radius: 999px;
-    font-size: 0.7rem;
-  }
-</style>
 
 {{ $products := slice
   (dict
     "name"     "Chef 360 Platform"
-    "url"      "/360/latest/"
-    "icon"     ""
+    "url"      "/360/"
     "icon_mat" "hub"
     "desc"     "A DevSecOps platform for automating security, compliance, and operational governance across your infrastructure."
   )
   (dict
     "name"     "Chef Automate"
     "url"      "/automate/"
-    "icon"     ""
     "icon_mat" "space_dashboard"
     "desc"     "Compliance dashboards, event feeds, and visibility into your Chef-managed infrastructure."
   )
   (dict
     "name"     "Chef Desktop"
     "url"      "/desktop/"
-    "icon"     ""
     "icon_mat" "desktop_windows"
     "desc"     "Automate the setup and ongoing management of desktop and laptop endpoints across your organization."
   )
   (dict
     "name"     "Chef Habitat"
-    "url"      "/habitat/latest/"
-    "icon"     ""
+    "url"      "/habitat/"
     "icon_mat" "deployed_code"
     "desc"     "An application automation framework for building, packaging, deploying, and managing applications anywhere."
   )
   (dict
     "name"     "Chef Infra Client"
-    "url"      "/client/latest/"
-    "icon"     ""
+    "url"      "/client/19/overview/chef_overview/"
     "icon_mat" "smb_share"
     "desc"     "Automate infrastructure configuration and enforce policy on every node using infrastructure-as-code."
   )
   (dict
     "name"     "Chef Infra Server"
     "url"      "/server/"
-    "icon"     ""
     "icon_mat" "storage"
     "desc"     "A central hub for storing and distributing infrastructure configuration data, policies, and cookbooks."
     "badge"    "Deprecated"
   )
   (dict
     "name"     "Chef InSpec"
-    "url"      "/inspec/latest/"
-    "icon"     ""
+    "url"      "/inspec/"
     "icon_mat" "search_check"
     "desc"     "A compliance-as-code framework for auditing and testing the state and security of your infrastructure."
   )
   (dict
     "name"     "Chef Supermarket"
     "url"      "/supermarket/"
-    "icon"     ""
     "icon_mat" "storefront"
     "desc"     "The community cookbook sharing platform for discovering, publishing, and reusing Chef content."
   )
   (dict
     "name"     "Chef Workstation"
-    "url"      "/workstation/latest/"
-    "icon"     ""
+    "url"      "/workstation/26.1/"
     "icon_mat" "computer"
     "desc"     "The all-in-one development environment for authoring, testing, and running Chef Infra and InSpec code."
   )
 }}
 
-<div class="product-landing">
+{{ $goals := slice
+  (dict "title" "Manage infrastructure" "desc" "Configuration management, cookbooks, Policyfiles, and node runs with Chef Infra." "url" "/client/19/overview/chef_overview/" "icon" "wrench")
+  (dict "title" "Secure & audit infrastructure" "desc" "Compliance-as-code scans, CIS/SOC2 profiles, and remediation with Chef InSpec." "url" "https://docs.chef.io/inspec/7.2/" "icon" "shield")
+  (dict "title" "Build & ship applications" "desc" "Package, deploy, and manage applications anywhere with Chef Habitat." "url" "https://docs.chef.io/habitat/2.1/" "icon" "package")
+  (dict "title" "Manage endpoints" "desc" "Automate setup and ongoing management of desktops and laptops." "url" "/desktop/" "icon" "monitor")
+  (dict "title" "Upgrade & migrate" "desc" "Move from Infra Server to Chef 360, upgrade clients, or plan an EOL transition." "url" "/upgrade-migrate/" "icon" "refresh")
+  (dict "title" "Troubleshoot an issue" "desc" "Diagnose failed runs, connectivity, authentication, and compliance scan errors." "url" "/troubleshoot/" "icon" "compass")
+}}
 
-  {{- if and (ne (.Param "search") false) (ne (.Site.Param "search") false) }}
-  <div id="product-landing-search-container">
-    <div id="product-landing-search-input" class="float-center">
-      <form id="product-landing-search-form"
+{{ $icons := dict
+  "wrench" `<path d="M14.7 6.3a4 4 0 0 1-5.4 5.4L4 17l-1-1 5.3-5.3a4 4 0 0 1 5.4-5.4l-2.4 2.4 1 1 2.4-2.4z"/>`
+  "shield" `<path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/>`
+  "package" `<path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M4.5 7.5L12 12l7.5-4.5"/><path d="M12 12v9"/>`
+  "monitor" `<rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/>`
+  "refresh" `<path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/>`
+  "compass" `<circle cx="12" cy="12" r="9"/><path d="M14.8 9.2l-2 5.6-5.6 2 2-5.6z"/>`
+}}
+
+<div class="rd-home">
+
+  <section class="rd-hero">
+    <div class="rd-hero-inner">
+      <h1>Automate infrastructure, applications, and security with Chef.</h1>
+      <p class="rd-hero-sub">Task-first guidance for every Chef product &mdash; from your first cookbook to production-scale compliance automation. Start with a goal, not a product.</p>
+
+      {{- if and (ne (.Param "search") false) (ne (.Site.Param "search") false) }}
+      <form class="rd-hero-search" id="product-landing-search-form"
             onsubmit="event.preventDefault(); var q = document.getElementById('product-landing-search-input-field').value.trim(); if (q) { window.location.href = '/search/#stq=' + encodeURIComponent(q); }">
-        <div class="input-group">
-          <span class="input-group-label hide-for-small-only"><i class="fa fa-search"></i></span>
-          <input id="product-landing-search-input-field" class="input-group-field" type="text" placeholder="Search Chef documentation..." aria-label="Search Chef documentation" />
-          <div class="input-group-button">
-            <button type="submit" class="button">Search</button>
-          </div>
-        </div>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input id="product-landing-search-input-field" type="text" placeholder="Try &ldquo;bootstrap a node&rdquo;, &ldquo;install Chef 360&rdquo;, or &ldquo;upgrade Infra Client&rdquo;&hellip;" aria-label="Search Chef documentation" autocomplete="off">
+        <button type="submit">Search</button>
       </form>
+      <p class="rd-hero-popular">
+        Popular:
+        <a href="/workstation/26.1/">Install Chef Workstation</a>
+        <a href="/client/19/">Create a cookbook</a>
+        <a href="/inspec/">Run an InSpec scan</a>
+        <a href="/versions/">Upgrade guide</a>
+      </p>
+      {{- end }}
     </div>
-  </div>
-  {{- end }}
+  </section>
+
+  <section class="rd-section">
+    <h2>What do you want to do?</h2>
+    <p class="rd-section-sub">Start from your goal. We'll route you to the right product, guide, and reference.</p>
+
+    <div class="rd-tiles">
+      {{ range $goals }}
+      <a class="rd-tile" href="{{ .url }}">
+        <span class="rd-tile-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{{ safeHTML (index $icons .icon) }}</svg>
+        </span>
+        <span class="rd-tile-body">
+          <strong>{{ .title }}</strong>
+          <span>{{ .desc }}</span>
+        </span>
+      </a>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="rd-section rd-callout-way">
+    <div>
+      <span class="rd-callout-label">The Chef Way</span>
+      <p>Chef has 15+ years of history, which means multiple ways to do almost everything. Every guide labels its approach so you always know what's current, what's legacy, and what to avoid.</p>
+    </div>
+    <a class="rd-btn" href="/chef-way/">Explore The Chef Way &rarr;</a>
+  </section>
+
+  <section class="rd-section">
+    <h2>New to Chef?</h2>
+    <div class="rd-pills">
+      <a class="rd-pill" href="/start-here/">How Chef works</a>
+      <a class="rd-pill" href="/platform_overview/">Chef architecture overview</a>
+      <a class="rd-pill" href="/versions/#supported-platforms">Supported platforms</a>
+      <a class="rd-pill" href="/start-here/">How to use Chef Docs</a>
+    </div>
+  </section>
 
   {{- $announcements := where .Site.Data.announcements "active" true }}
   {{- with $announcements }}
-  <div class="product-announcements">
+  <section class="rd-section">
     <h2>Product announcements</h2>
     {{- range . }}
     <div class="admonition-{{ .severity }}">
@@ -126,48 +157,27 @@
       </div>
     </div>
     {{- end }}
-  </div>
+  </section>
   {{- end }}
 
-  <h2>Browse by product</h2>
+  <section class="rd-section">
+    <h2>Browse by product</h2>
+    <p class="rd-section-sub">Select a product to browse its documentation.</p>
 
-  <p class="lead">Select a product to browse its documentation.</p>
-
-  <div class="grid-x grid-padding-x small-up-1 medium-up-2 large-up-3 product-card-grid">
-    {{ range $products }}
-    <div class="cell">
-      <div class="card product-card">
-
-        <div class="card-section">
-          <div class="product-card-heading">
-            <div class="product-card-icon" aria-hidden="true">
-              {{ if .icon }}
-                <img src="{{ .icon }}" alt="">
-              {{ else }}
-                <span class="material-symbols-outlined" translate="no">{{ .icon_mat }}</span>
-              {{ end }}
-            </div>
-            <h3 class="product-card-name">
-              <a href="{{ .url }}">{{ .name }}</a>
-              {{- with .badge }}
-              <span class="admonition-warning-title product-card-badge">{{ . }}</span>
-              {{- end }}
-            </h3>
-          </div>
-          <p>{{ .desc }}</p>
+    <div class="rd-products">
+      {{ range $products }}
+      <a class="rd-product-card" href="{{ .url }}">
+        <div class="rd-product-heading">
+          <span class="material-symbols-outlined" translate="no" aria-hidden="true">{{ .icon_mat }}</span>
+          <strong>{{ .name }}</strong>
+          {{- with .badge }}<span class="rd-badge">{{ . }}</span>{{- end }}
         </div>
-
-        <div class="card-divider">
-          <a href="{{ .url }}" aria-hidden="true" tabindex="-1">
-            View docs
-            <span class="material-symbols-outlined" translate="no" aria-hidden="true">arrow_forward</span>
-          </a>
-        </div>
-
-      </div>
+        <p>{{ .desc }}</p>
+        <span class="rd-product-link">View docs <span class="material-symbols-outlined" translate="no" aria-hidden="true">arrow_forward</span></span>
+      </a>
+      {{ end }}
     </div>
-    {{ end }}
-  </div>
+  </section>
 
 </div>
 {{ end }}

@@ -1,0 +1,5 @@
+{{- $title := .Get "title" | default "Common problem" -}}
+<div class="problem-box">
+  <span class="box-label">{{ $title }}</span>
+  {{ .Page.RenderString .Inner }}
+</div>

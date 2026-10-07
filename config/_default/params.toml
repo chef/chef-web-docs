@@ -1,22 +1,30 @@
 ## The order of the menus (e.g. menu.infra, menu.inspec, etc...) in the left nav menu
 ## is set by the menuOrder parameter below.
+##
+## menu_order remains the flat fallback used when a page pins a single menu with
+## `menu_id`, and when menu_groups below is absent.
 menu_order = [
-  "overview",
+  "start_here",
   "360",
-  "automate",
   "cloud",
-  "desktop",
-  "habitat",
   "infra",
   "server",
-  "inspec",
   "workstation",
-  "effortless",
+  "inspec",
+  "automate",
+  "habitat",
   "supermarket",
+  "desktop",
+  "effortless",
+  "overview",
   "release_notes",
-  "legacy",
-  "extra"
+  "extra",
+  "legacy"
 ]
+
+## Menu identifiers rendered with a lightweight "Deprecated" indicator in the
+## left nav. Source of truth for lifecycle status is /versions/.
+deprecated_menu_ids = ["server"]
 
 robots = ''
 breadcrumbs = true
@@ -291,3 +299,29 @@ base_url = "/workstation/26.0/"
 link_text = "Chef Workstation 25"
 base_url = "/workstation/25/"
 
+## menu_groups groups the left-nav menus under labelled headings so that the
+## *kind* of each entry is obvious: a product is not the same thing as a
+## solution built from products, a supporting resource, or archived material.
+##
+## Each group lists menu names from menu_order. A menu listed here but missing
+## from the site's menus is skipped, and removing menu_groups entirely restores
+## the previous flat rendering.
+[[menu_groups]]
+  title = "Start here"
+  menus = ["start_here"]
+
+[[menu_groups]]
+  title = "Products"
+  menus = ["360", "cloud", "infra", "server", "workstation", "inspec", "automate", "habitat", "supermarket"]
+
+[[menu_groups]]
+  title = "Solutions"
+  menus = ["desktop", "effortless"]
+
+[[menu_groups]]
+  title = "Resources"
+  menus = ["overview", "release_notes", "extra"]
+
+[[menu_groups]]
+  title = "Archive"
+  menus = ["legacy"]

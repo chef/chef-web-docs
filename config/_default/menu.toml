@@ -1,7 +1,38 @@
 
 ####
+## Start Here Menu ##
+##
+## Orientation entries for the left nav. These point at existing pages; no new
+## content or URLs are introduced here.
+####
+
+[[start_here]]
+title = "How to use Chef Docs"
+identifier = "start_here/how_to_use"
+url = "/start-here/"
+weight = 10
+
+[[start_here]]
+title = "The Chef Way"
+identifier = "start_here/chef_way"
+url = "/chef-way/"
+weight = 20
+
+####
 ## Main Menu ##
 ####
+
+[[main]]
+title = "I want to…"
+identifier = "start-here"
+url = "/start-here/"
+weight = 1
+
+[[main]]
+title = "The Chef Way"
+identifier = "chef-way"
+url = "/chef-way/"
+weight = 2
 
 [[main]]
 title = "chef.io"
@@ -1082,17 +1113,21 @@ weight = 130
     url = "/chef_deprecations_client/"
 
 ####
-# Chef Cloud Menu
+# Chef SaaS Menu
+#
+# "Chef Cloud" previously wrapped these two entries. It was a navigation-only
+# label -- the documentation calls these offerings "Chef 360 SaaS" and
+# "Chef SaaS" -- and it placed a deployment model at the same level as the
+# products it deploys. The wrapper is removed and both offerings now sit under
+# the Products group using their documented names.
+#
+# The menu is still named `cloud` so that the `[menu.cloud]` front matter in
+# content/360/saas/ and content/saas/ keeps resolving.
 ####
-
-[[cloud]]
-title = "Chef Cloud"
-identifier = "chef_cloud"
 
   [[cloud]]
   title = "Chef 360 SaaS"
   identifier = "chef_cloud/360"
-  parent = "chef_cloud"
 
     [[cloud]]
     title = "Get started"
@@ -1172,10 +1207,9 @@ identifier = "chef_cloud"
   [[cloud]]
   title = "Chef SaaS"
   identifier = "chef_cloud/saas"
-  parent = "chef_cloud"
 
 ####
-# End Chef Cloud Menu
+# End Chef SaaS Menu
 ####
 
 ####
