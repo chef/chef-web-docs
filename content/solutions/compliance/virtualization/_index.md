@@ -5,7 +5,7 @@ title = "Virtualization"
   identifier = "overview/solutions/compliance/virtualization"
   parent = "overview/solutions/compliance"
   title = "Virtualization"
-  weight = 80
+  weight = 90
 +++
 
 Chef Compliance has current coverage for **1 virtualization benchmark**.

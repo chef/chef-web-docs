@@ -25,11 +25,11 @@ whether those systems run in the cloud, in your own data center, or both.
 
 ## Compliance challenges Chef helps solve
 
-Compliance work gets harder as an estate grows, and it gets harder in specific, recognizable ways.
+Compliance work gets harder as a fleet grows, and it gets harder in specific, recognizable ways.
 
 ### Every platform has a different definition of compliant
 
-A compliance requirement that means one thing on Red Hat Enterprise Linux means something
+A compliance requirement that means one thing on Ubuntu Linux means something
 different on Windows Server, different again on a PostgreSQL instance,
 and different again on an Azure subscription.
 Each platform has its own published benchmark, its own control identifiers,
@@ -44,7 +44,7 @@ A system can pass an assessment on the day it's checked and drift out of complia
 week --- a package update, a troubleshooting change left in place,
 or a new system built from an older image.
 
-A point-in-time assessment tells you the state of your estate on one day.
+A point-in-time assessment tells you the state of your fleet on one day.
 It doesn't tell you whether that state held.
 
 ### Finding a problem isn't the same as fixing it
@@ -74,14 +74,15 @@ A new version adds controls, changes thresholds, and retires requirements.
 Keeping your own copy of a benchmark current means tracking those revisions across every platform
 you run and reworking your checks each time.
 
-## How Chef Compliance works
+## The Chef Way of Compliance
 
-Chef Compliance follows one loop,
-and the loop is what makes compliance hold rather than happen once.
+Chef Compliance follows one loop.
+Repeating that loop on a schedule is what keeps your systems compliant over time,
+instead of just on the day you checked.
 
 **Define your requirements.**
 Start from a published benchmark --- a CIS Benchmark or a DISA STIG ---
-expressed as Chef InSpec controls you can run,
+expressed as [Chef InSpec](/inspec/latest/) controls you can run,
 or write your own controls for requirements specific to your organization.
 
 **Assess your systems.**
@@ -90,7 +91,7 @@ servers, desktops, databases, cloud accounts, containers, and network devices.
 
 **Identify the gaps.**
 Review the results by node, by profile, and by control to see what failed,
-how severe each failure is, and how widely it's affecting your estate.
+how severe each failure is, and how widely it's affecting your fleet.
 
 **Correct the configuration.**
 Use Chef remediation content to apply the configuration a benchmark requires,
@@ -101,9 +102,7 @@ Run the same controls again.
 The assessment is what proves the correction worked.
 
 **Maintain visibility.**
-Repeat on a schedule.
-Compliance is held rather than achieved,
-and drift shows up as a control that starts failing again.
+Repeat on a schedule, so drift shows up as a control that starts failing again.
 
 ## Compliance audit
 
@@ -112,7 +111,7 @@ and gives you the detail you need to act on the answer.
 
 ### What gets assessed
 
-Chef Compliance assesses the systems and services your estate actually consists of:
+Chef Compliance assesses the systems and services your fleet actually consists of:
 
 - Server and desktop operating systems, including Linux, Windows, macOS, AIX, and Solaris
 - Databases
@@ -130,13 +129,13 @@ through their API, so a cloud subscription is assessed the same way a server is.
 A benchmark such as a CIS Benchmark or a DISA STIG is a published document.
 It describes, requirement by requirement, how a particular platform should be configured.
 
-Chef expresses those requirements as Chef InSpec controls, grouped into a profile.
+Chef expresses those requirements as Chef InSpec controls, grouped into a [profile](/inspec/profiles/).
 Each control carries an identifier, a title, a description, and an impact rating,
 and produces a clear result --- pass, fail, or skip --- for every system it runs against.
 
 Because benchmarks are revised over time,
 a profile is written against a specific benchmark version.
-That's why Chef tracks coverage by version rather than as a single yes or no:
+That's why Chef tracks coverage by version, not as a single yes or no:
 knowing that a platform is covered matters less than knowing
 which version of the benchmark it's covered against.
 
@@ -146,15 +145,15 @@ and you can write your own controls or adapt the provided ones.
 ### How you run an assessment
 
 How you run an assessment depends on how the systems are managed.
-You can use more than one approach in the same estate.
+You can use more than one approach in the same fleet.
 
 | Approach | Fits | How it runs |
 | --- | --- | --- |
-| Compliance Phase | Nodes already managed by Chef Infra Client | Runs compliance audits as part of any Chef Infra Client run |
+| [Compliance Phase](/client/latest/features/chef_compliance_phase/) | Nodes already managed by Chef Infra Client | Runs compliance audits as part of any Chef Infra Client run |
 | Scan jobs in Chef Automate | Nodes and cloud accounts, including systems without an agent | Runs now, at a scheduled time, once, or on a recurring interval |
 | Chef InSpec directly | Ad hoc checks, local development, and pipeline stages | Runs locally, or over SSH or WinRM |
 
-The [Compliance Phase](/client/latest/features/chef_compliance_phase/) runs profiles retrieved
+The Compliance Phase runs profiles retrieved
 from Chef Automate, Chef Supermarket, a local file, GitHub, or HTTP,
 and reports results to Chef Automate, the terminal, or a file on disk.
 Scan frequency is configurable and defaults to once a day.
@@ -188,7 +187,7 @@ Deep filtering narrows a report to a single profile, or to one control within a 
 
 ### How findings turn into a gap list
 
-The same results, read as work rather than as a score, tell you where to start.
+The same results tell you where to start --- read them as a list of work to do, not as a score.
 
 A control failing on one system is a configuration issue.
 The same control failing on two hundred systems is a fleet-wide gap, and it shows up that way:
@@ -196,26 +195,26 @@ Chef Automate surfaces the profiles and the individual controls responsible for 
 so you can see where corrective effort has the most effect.
 
 Severity lets you rank what you found.
-Grouping by platform and environment tells you which part of the estate to work on first.
+Grouping by platform and environment tells you which part of the fleet to work on first.
 And because results are retained over time,
 you can see whether a gap is closing, holding, or reopening.
 
 ### Evidence and reporting
 
-Assessment results are the evidence.
+Assessment results are the evidence, retained and reported in [Chef Automate](/automate/reports/).
 
 Reports are dated and retained,
-so you can show the state of your estate on a given day as well as how it changed.
-They can be downloaded as JSON or CSV,
-and a download reflects the filters and the report date you selected,
-so that the evidence you export is the evidence you were looking at.
+so you can show the state of your fleet on a given day as well as how it changed.
+You can download reports as JSON or CSV.
+Each download includes the filters and report date you selected,
+so it matches exactly what you saw on screen.
 
 Where a failing control has been deliberately accepted,
 record it as a [waiver](/inspec/latest/configure/waivers/)
-rather than leaving it as an unexplained failure.
+instead of leaving it as an unexplained failure.
 Waived nodes and controls are counted, tracked over time, and filterable,
 and each waiver's detail is visible on the control it applies to.
-An accepted exception stays visible as an accepted exception.
+You can always see which failures were accepted on purpose.
 
 To see which benchmarks and versions have current audit coverage, see
 [supported compliance standards and platforms](#supported-compliance-standards-and-platforms).
@@ -224,13 +223,13 @@ To see which benchmarks and versions have current audit coverage, see
 
 An assessment tells you a system doesn't meet a requirement.
 Remediation content helps you correct the configuration behind that requirement,
-the same way, on every system that needs it.
+the Chef Way, on every system that needs it.
 
 ### What remediation content is
 
 Remediation content is curated, standards-based content
 that brings a system's configuration into line with what a benchmark requires.
-It's delivered as Chef Infra cookbooks,
+It's delivered as [Chef Infra cookbooks](/client/latest/cookbooks/),
 built against the same CIS Benchmarks and DISA STIGs as the audit profiles,
 and maintained by Chef as those benchmarks are revised.
 
@@ -257,9 +256,9 @@ Where both exist, the available versions can differ.
 **An audit version doesn't imply a matching remediation version.**
 This is worth knowing before you plan work around remediation content,
 and it's why the coverage tables list audit versions and remediation versions in separate columns
-rather than giving a single answer for each benchmark.
+instead of giving a single answer for each benchmark.
 
-### How it standardizes corrective action
+### The Chef Way of compliance remediation
 
 Applying a fix by hand once is straightforward.
 Applying the same fix to every affected system, consistently, and keeping it applied, isn't.
@@ -276,11 +275,11 @@ Because remediation content is delivered as Chef Infra cookbooks,
 it fits the review, testing, and promotion process you already use for cookbooks.
 You can test it with [Chef Workstation](/workstation/latest/) before it reaches production.
 
-**It holds, rather than applying once.**
+**It holds, instead of applying once.**
 Chef Infra Client converges:
 it acts only when a system's current state doesn't match what the cookbook describes.
 Re-running remediation content on a system that's already correct changes nothing,
-which is what makes it usable on a schedule rather than as a one-off intervention.
+which is what makes it usable on a schedule, not as a one-off intervention.
 
 ### How audit and remediation work together
 
@@ -293,7 +292,8 @@ Audit and remediation are separate capabilities that are most useful in sequence
 1. Confirm that the previously failing controls now pass, with a dated record of the change.
 1. Maintain the cycle on a schedule, so drift surfaces as a control that starts failing again.
 
-Reassessment is what makes this a loop rather than a list.
+Reassessment turns this into a loop instead of a one-time list ---
+the Chef Way: assess, fix, reassess, repeat.
 The audit content is what demonstrates the remediation worked,
 which is why the two are used together and why neither replaces the other.
 
@@ -304,8 +304,7 @@ which is why the two are used together and why neither replaces the other.
   and available versions differ by benchmark.
   See [supported compliance standards and platforms](#supported-compliance-standards-and-platforms).
 - **Confirm your entitlement.**
-  Remediation content is part of Chef Premium Content,
-  which is provided to enterprise users of Chef.
+  Remediation content is part of Chef Premium Content, covered in the previous section.
 - **Expect content to change.**
   Benchmarks are revised, and remediation content is updated to follow them.
 - **Test before production.**
@@ -320,27 +319,27 @@ which is why the two are used together and why neither replaces the other.
 You run several hundred Linux systems across a few distributions and a range of releases,
 and you've been asked to show they meet CIS Benchmark requirements.
 
-**The Chef approach.**
-Use the Chef InSpec profiles built on the relevant CIS Benchmarks
+**The Chef Way.**
+Use the [Chef InSpec profiles](/inspec/profiles/) built on the relevant CIS Benchmarks
 for the distributions and versions you run.
 On nodes already managed by Chef,
 turn on the Compliance Phase so the assessment runs as part of the Chef Infra Client run.
-Send results to Chef Automate.
+Send results to [Chef Automate](/automate/).
 
 **The outcome.**
 One view of every Linux system, grouped by node, profile, and control,
 showing which CIS requirements pass and which don't ---
-and which failures are fleet-wide rather than isolated.
+and which failures are fleet-wide, not isolated.
 
 See [Operating Systems](/solutions/compliance/operating_systems/) for current coverage.
 
 ### Assess Windows environments against security baselines
 
 **The problem.**
-Your Windows estate spans several Server releases and a mix of client builds,
+Your Windows fleet spans several Server releases and a mix of client builds,
 and the security baseline for each is different.
 
-**The Chef approach.**
+**The Chef Way.**
 Use the profiles built on the CIS Benchmark or DISA STIG for each Windows version you run.
 Assess through the Compliance Phase on managed nodes,
 or with Chef Automate scan jobs where nodes aren't managed by Chef Infra Client.
@@ -359,7 +358,7 @@ Database configuration is in scope for your compliance requirements,
 but it's managed by a different team with different tooling,
 and nobody has a current picture.
 
-**The Chef approach.**
+**The Chef Way.**
 Assess database instances with the profiles built on the relevant CIS Benchmarks.
 Chef InSpec can examine data in a database directly,
 so assessment doesn't depend on inspecting configuration files alone.
@@ -372,14 +371,14 @@ instead of as a separate exercise.
 
 See [Databases](/solutions/compliance/databases/) for current coverage.
 
-### Address controls that keep failing across your estate
+### Address controls that keep failing across your fleet
 
 **The problem.**
 The same handful of controls fail on hundreds of systems, assessment after assessment.
 Each fix is understood; applying them consistently and keeping them applied isn't.
 
-**The Chef approach.**
-Use the top control failures view in Chef Automate
+**The Chef Way.**
+Use the top control failures view in [Chef Automate](/automate/reports/)
 to identify which requirements account for the most failures.
 Where remediation content covers the benchmark,
 apply it to correct the configuration behind those controls,
@@ -388,19 +387,19 @@ Re-running on a schedule holds the configuration,
 because Chef Infra Client acts only where a system has drifted.
 
 **The outcome.**
-Repeated failures handled once as a class rather than many times as individual incidents,
+Repeated failures handled once, as a class, instead of many times as individual incidents,
 with a dated record showing when they stopped failing.
 
-### Maintain compliance across a mixed estate
+### Maintain compliance across a mixed fleet
 
 **The problem.**
-Your estate spans on-premises servers, cloud accounts, desktops, databases, and containers.
+Your fleet spans on-premises servers, cloud accounts, desktops, databases, and containers.
 Each has its own benchmark and, today, its own process.
 
-**The Chef approach.**
+**The Chef Way.**
 Assess each class of system with the profiles built for it,
 using the Compliance Phase for managed nodes
-and Chef Automate scan jobs for cloud accounts and systems without an agent.
+and [Chef Automate scan jobs](/automate/scan_jobs/) for cloud accounts and systems without an agent.
 Schedule scans to recur.
 Report everything into the same place.
 
@@ -415,47 +414,47 @@ so newly created instances are assessed without anyone having to remember to add
 An assessment is scheduled and you need to show which systems were checked, against what,
 with what result, and what was accepted as an exception.
 
-**The Chef approach.**
+**The Chef Way.**
 Filter reports to the systems and benchmarks in scope,
 select the reporting date you need,
 and download the results as JSON or CSV.
 Make sure accepted failures are recorded as waivers
-rather than left as unexplained failures.
+instead of left as unexplained failures.
 
 **The outcome.**
-Evidence assembled from assessment results rather than from memory:
+Evidence assembled from assessment results, not from memory:
 dated, filtered to scope, exportable, and showing both results and accepted exceptions.
 
 ## Supported compliance standards and platforms
 
-Chef tracks audit and remediation coverage as independent dimensions.
-A benchmark can have audit coverage, remediation coverage, or both,
-and where both exist the available versions can differ.
+Audit and remediation coverage are tracked independently:
+a benchmark can have one, the other, or both,
+and the versions available for each can differ.
 Every version is listed --- version sets are never reduced to a single latest version ---
 because which version of a benchmark you're covered against
 is usually the question that matters.
 
-Current coverage is **132 benchmarks**:
+Current coverage is **127 benchmarks**:
 
 | Coverage | Benchmarks |
 | --- | ---: |
-| Audit and remediation | 60 |
-| Audit only | 59 |
-| Remediation only | 13 |
-| **Total** | **132** |
+| Audit and remediation | 53 |
+| Audit only | 66 |
+| Remediation only | 8 |
+| **Total** | **127** |
 
-Across those benchmarks there are 191 audit versions and 101 remediation versions,
+Across those benchmarks there are 191 audit versions and 84 remediation versions,
 built on CIS Benchmarks and DISA STIGs.
 
 Browse coverage by category:
 
 | Category | Benchmarks |
 | --- | ---: |
-| [Operating Systems](/solutions/compliance/operating_systems/) | 69 |
+| [Operating Systems](/solutions/compliance/operating_systems/) | 66 |
 | [Desktop / Client](/solutions/compliance/desktop_client/) | 23 |
-| [Databases](/solutions/compliance/databases/) | 16 |
+| [Databases](/solutions/compliance/databases/) | 15 |
 | [Applications / Middleware](/solutions/compliance/applications_middleware/) | 9 |
-| [Cloud](/solutions/compliance/cloud/) | 5 |
+| [Cloud](/solutions/compliance/cloud/) | 4 |
 | [Web Servers](/solutions/compliance/web_servers/) | 5 |
 | [Containers / Kubernetes](/solutions/compliance/containers_kubernetes/) | 2 |
 | [Network / Infrastructure](/solutions/compliance/network_infrastructure/) | 2 |
@@ -471,15 +470,6 @@ Browse coverage by category:
 | Remediation Ahead | Remediation content covers a newer benchmark version than audit content does |
 | Audit Only | Audit content only; no current remediation content |
 | Remediation Only | Remediation content only; no current audit content |
-
-A dagger (†) on a remediation version means the version is **Inferred Current**:
-it's part of Chef's current remediation content,
-but version-level release evidence wasn't found.
-Inferred Current doesn't mean unsupported.
-
-Some entries have no framework prefix.
-Those benchmarks aren't published by Chef under a named framework,
-so no framework is shown rather than one being inferred.
 
 ## Get started
 
@@ -506,5 +496,5 @@ Use [compliance reporting](/automate/reports/) to see results by node, profile, 
 and to filter down to what you need.
 
 **Write your own controls.**
-Use [Chef InSpec](/inspec/latest/) and [Chef Workstation](/workstation/latest/)
+[Install Chef InSpec](/inspec/latest/install/) and [Chef Workstation](/workstation/latest/)
 to author and test controls for requirements specific to your organization.

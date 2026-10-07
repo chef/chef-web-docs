@@ -35,8 +35,8 @@ For what audit and remediation each do, see the
 | `CIS Apple macOS 11.0` | v1.2.0 | — | Audit Only |
 | `CIS Apple macOS 13.0` | v2.0.0 | — | Audit Only |
 | `CIS Microsoft Windows 10-1511` | v1.1.0 | — | Audit Only |
-| `CIS Microsoft Windows 10-1909` | v1.8.1 | v1.8.0†, v1.8.1† | Partial Audit + Remediation |
-| `CIS Microsoft Windows 10-2004` | v1.9.1 | v1.9.1† | Audit + Remediation |
+| `CIS Microsoft Windows 10-1909` | v1.8.1 | — | Audit Only |
+| `CIS Microsoft Windows 10-2004` | v1.9.1 | — | Audit Only |
 | `CIS Microsoft Windows 10-20h2` | v1.10.0 | v1.10.0 | Audit + Remediation |
 | `CIS Microsoft Windows 10-21h1` | v1.11.0 | v1.11.0 | Audit + Remediation |
 | `CIS Microsoft Windows 11` | v3.0.0 | — | Audit Only |
@@ -45,10 +45,6 @@ For what audit and remediation each do, see the
 | `CIS Microsoft Windows 8.1` | v2.2.1 | — | Audit Only |
 | `STIG Microsoft Windows 10` | v2.1.0 | v2.1.0 | Audit + Remediation |
 | `STIG Microsoft Windows 11` | v1.2.0, v2.2.0 | v2.2.0 | Partial Audit + Remediation |
-
-A dagger (†) on a remediation version means the version is **Inferred Current**:
-it's part of Chef's current remediation content, but version-level release evidence wasn't found.
-Inferred Current doesn't mean unsupported.
 
 For what each coverage term means, see
 [how to read the coverage tables](/solutions/compliance/#how-to-read-the-coverage-tables).

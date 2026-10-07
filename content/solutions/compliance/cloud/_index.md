@@ -5,10 +5,10 @@ title = "Cloud"
   identifier = "overview/solutions/compliance/cloud"
   parent = "overview/solutions/compliance"
   title = "Cloud"
-  weight = 40
+  weight = 50
 +++
 
-Chef Compliance has current coverage for **5 cloud benchmarks**.
+Chef Compliance has current coverage for **4 cloud benchmarks**.
 Each benchmark below lists every audit version and every remediation version
 currently available.
 
@@ -26,15 +26,6 @@ For what audit and remediation each do, see the
 | `CIS Microsoft 365` | v1.4.0 | v1.0.0 | Audit Ahead |
 | `CIS Microsoft Azure Foundations` | v1.1.0, v1.5.0 | — | Audit Only |
 | `InSpec GCP Resource Pack` | v1.1.0 | — | Audit Only |
-| `Microsoft Azure Foundations` | — | v1.1.0† | Remediation Only |
-
-A dagger (†) on a remediation version means the version is **Inferred Current**:
-it's part of Chef's current remediation content, but version-level release evidence wasn't found.
-Inferred Current doesn't mean unsupported.
-
-Some entries have no framework prefix.
-Those benchmarks aren't published by Chef under a named framework, so no framework is shown
-rather than one being inferred.
 
 For what each coverage term means, see
 [how to read the coverage tables](/solutions/compliance/#how-to-read-the-coverage-tables).

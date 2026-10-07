@@ -8,7 +8,7 @@ title = "Databases"
   weight = 30
 +++
 
-Chef Compliance has current coverage for **16 databases benchmarks**.
+Chef Compliance has current coverage for **15 databases benchmarks**.
 Each benchmark below lists every audit version and every remediation version
 currently available.
 
@@ -35,17 +35,8 @@ For what audit and remediation each do, see the
 | `CIS PostgreSQL 10` | — | v1.0.0 | Remediation Only |
 | `CIS PostgreSQL 11` | v1.0.0 | v1.0.0 | Audit + Remediation |
 | `CIS PostgreSQL 16` | v1.0.0 | v1.0.0 | Audit + Remediation |
-| `CIS PostgreSQL 17` | v1.0.0 | v1.0.0† | Audit + Remediation |
-| `Microsoft SQL Server 2016` | — | v1.1.0† | Remediation Only |
+| `CIS PostgreSQL 17` | v1.0.0 | — | Audit Only |
 | `STIG PostgreSQL 9.x` | v2 | — | Audit Only |
-
-A dagger (†) on a remediation version means the version is **Inferred Current**:
-it's part of Chef's current remediation content, but version-level release evidence wasn't found.
-Inferred Current doesn't mean unsupported.
-
-Some entries have no framework prefix.
-Those benchmarks aren't published by Chef under a named framework, so no framework is shown
-rather than one being inferred.
 
 For what each coverage term means, see
 [how to read the coverage tables](/solutions/compliance/#how-to-read-the-coverage-tables).

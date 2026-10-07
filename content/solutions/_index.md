@@ -54,7 +54,7 @@ Chef 360 Platform &mdash; to get one job done, from first setup to day-to-day op
           </div>
           <h3 class="solution-card-name"><a href="/solutions/compliance/">Chef Compliance</a></h3>
         </div>
-        <p>Write your security and compliance requirements as code, check your systems against
+        <p>The Chef Way: write your security and compliance requirements as code, check your systems against
         them automatically, and fix what's out of line &mdash; wherever those systems live.</p>
       </div>
       <div class="card-divider">

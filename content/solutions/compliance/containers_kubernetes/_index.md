@@ -5,7 +5,7 @@ title = "Containers / Kubernetes"
   identifier = "overview/solutions/compliance/containers_kubernetes"
   parent = "overview/solutions/compliance"
   title = "Containers / Kubernetes"
-  weight = 50
+  weight = 70
 +++
 
 Chef Compliance has current coverage for **2 containers / kubernetes benchmarks**.

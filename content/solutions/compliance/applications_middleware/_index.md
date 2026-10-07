@@ -5,7 +5,7 @@ title = "Applications / Middleware"
   identifier = "overview/solutions/compliance/applications_middleware"
   parent = "overview/solutions/compliance"
   title = "Applications / Middleware"
-  weight = 70
+  weight = 40
 +++
 
 Chef Compliance has current coverage for **9 applications / middleware benchmarks**.

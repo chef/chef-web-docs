@@ -8,7 +8,7 @@ title = "Operating Systems"
   weight = 10
 +++
 
-Chef Compliance has current coverage for **69 operating systems benchmarks**.
+Chef Compliance has current coverage for **66 operating systems benchmarks**.
 Each benchmark below lists every audit version and every remediation version
 currently available.
 
@@ -43,12 +43,11 @@ For what audit and remediation each do, see the
 | `CIS IBM AIX 7.2` | v1.1.0 | — | Audit Only |
 | `CIS Microsoft Windows Server 2012` | v2.0.1, v2.3.0 | v2.2.0, v2.3.0 | Partial Audit + Remediation |
 | `CIS Microsoft Windows Server 2012r2` | v2.2.1, v2.3.0, v2.5.0, v3.0.0 | v2.4.0, v2.5.0 | Partial Audit + Remediation |
-| `CIS Microsoft Windows Server 2016` | v1.4.0, v2.0.0, v3.0.0 | v1.4.0, v2.0.0† | Partial Audit + Remediation |
-| `CIS Microsoft Windows Server 2016-1607` | v1.0.0, v1.1.0, v1.2.0, v1.3.0 | v1.2.0†, v1.3.0† | Partial Audit + Remediation |
+| `CIS Microsoft Windows Server 2016` | v1.4.0, v2.0.0, v3.0.0 | v1.4.0 | Partial Audit + Remediation |
+| `CIS Microsoft Windows Server 2016-1607` | v1.0.0, v1.1.0, v1.2.0, v1.3.0 | — | Audit Only |
 | `CIS Microsoft Windows Server 2019` | v1.1.0, v1.2.1, v1.3.0, v2.0.0, v3.0.1, v4.0.0 | v1.2.1, v1.3.0, v2.0.0, v4.0.0 | Partial Audit + Remediation |
-| `CIS Microsoft Windows Server 2019-1809` | — | v1.1.0† | Remediation Only |
-| `CIS Microsoft Windows Server 2022` | v1.0.0, v2.0.0, v3.0.0, v4.0.0 | v1.0.0, v2.0.0†, v4.0.0 | Partial Audit + Remediation |
-| `CIS Microsoft Windows Server 2025` | v1.0.0 | v1.0.0†, v2.1.0† | Partial Audit + Remediation |
+| `CIS Microsoft Windows Server 2022` | v1.0.0, v2.0.0, v3.0.0, v4.0.0 | v1.0.0, v4.0.0 | Partial Audit + Remediation |
+| `CIS Microsoft Windows Server 2025` | v1.0.0 | — | Audit Only |
 | `CIS Oracle Linux 10` | v1.0.0 | — | Audit Only |
 | `CIS Oracle Linux 7` | v1.1.0, v3.1.1 | v3.1.1 | Partial Audit + Remediation |
 | `CIS Oracle Linux 8` | v2.0.0 | v2.0.0 | Audit + Remediation |
@@ -57,8 +56,8 @@ For what audit and remediation each do, see the
 | `CIS Oracle Solaris 11` | v1.1.0 | — | Audit Only |
 | `CIS Oracle Solaris 11.1` | v1.0.0 | — | Audit Only |
 | `CIS Oracle Solaris 11.2` | v1.1.0 | — | Audit Only |
-| `CIS Oracle Solaris 11.4` | v1.0.0 | v1.0.0† | Audit + Remediation |
-| `CIS Red Hat Enterprise Linux 10` | v1.0.0 | v1.0.0† | Audit + Remediation |
+| `CIS Oracle Solaris 11.4` | v1.0.0 | — | Audit Only |
+| `CIS Red Hat Enterprise Linux 10` | v1.0.0 | — | Audit Only |
 | `CIS Red Hat Enterprise Linux 5` | v2.2.0 | v2.2.0 | Audit + Remediation |
 | `CIS Red Hat Enterprise Linux 6` | v2.0.2, v2.1.0, v3.0.0 | v2.1.0, v3.0.0 | Partial Audit + Remediation |
 | `CIS Red Hat Enterprise Linux 7` | v2.1.1, v2.2.0, v3.1.1, v4.0.0 | v2.2.0, v3.1.1 | Partial Audit + Remediation |
@@ -77,8 +76,6 @@ For what audit and remediation each do, see the
 | `CIS Ubuntu Linux 20.04` | v1.1.0 | v1.0.0, v1.1.0 | Partial Audit + Remediation |
 | `CIS Ubuntu Linux 22.04` | v1.0.0, v2.0.0 | v1.0.0, v2.0.0 | Audit + Remediation |
 | `CIS Ubuntu Linux 24.04` | v1.0.0 | v1.0.0 | Audit + Remediation |
-| `CentOS Linux 7` | — | v2.2.0† | Remediation Only |
-| `Microsoft Windows Server 2016-1607` | — | v1.1.0† | Remediation Only |
 | `STIG Microsoft Windows Server 2012` | v2.14.0, v2.15.0, v2.16.0, v2.17.0 | — | Audit Only |
 | `STIG Microsoft Windows Server 2012r2` | — | v3.1.0 | Remediation Only |
 | `STIG Microsoft Windows Server 2016` | v1.6.0, v1.9.0, v1.10.0, v1.11.0, v1.12.0, v2.1.0 | v2.1.0 | Partial Audit + Remediation |
@@ -91,14 +88,6 @@ For what audit and remediation each do, see the
 | `STIG Red Hat Enterprise Linux 8` | v1.2.0 | v1.2.0 | Audit + Remediation |
 | `STIG Red Hat Enterprise Linux 9` | v1.1.0 | v1.1.0 | Audit + Remediation |
 | `STIG Ubuntu Linux 20.04` | v1.2.0 | v1.2.0 | Audit + Remediation |
-
-A dagger (†) on a remediation version means the version is **Inferred Current**:
-it's part of Chef's current remediation content, but version-level release evidence wasn't found.
-Inferred Current doesn't mean unsupported.
-
-Some entries have no framework prefix.
-Those benchmarks aren't published by Chef under a named framework, so no framework is shown
-rather than one being inferred.
 
 For what each coverage term means, see
 [how to read the coverage tables](/solutions/compliance/#how-to-read-the-coverage-tables).
