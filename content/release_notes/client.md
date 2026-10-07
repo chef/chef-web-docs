@@ -17,9 +17,9 @@ summary = "Chef Infra Client release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
-## Chef Infra Client 19.4.41
+## Chef Infra Client 19.4.43
 
-Release date: September 23, 2026
+Release date: October 6, 2026
 
 ### Improvements
 
@@ -41,6 +41,8 @@ Release date: September 23, 2026
   ([#16107](https://github.com/chef/chef/pull/16107))
 - Lowered the "No key detected" log message from standard output (`puts`) to `Chef::Log.debug`, reducing unnecessary console noise.
   ([#16222](https://github.com/chef/chef/pull/16222))
+- Added Target Mode support to the Solaris `mount` provider, including converting its file I/O to `TargetIO::File` so it correctly operates against the remote target instead of the local host.
+  ([#16383](https://github.com/chef/chef/pull/16383))
 
 ### Bug fixes
 
@@ -93,6 +95,8 @@ Release date: September 23, 2026
   ([#16132](https://github.com/chef/chef/pull/16132))
 - Fixed an issue where sensitive properties could leak their values in logs and run reports when resource validation failed.
   ([#16300](https://github.com/chef/chef/pull/16300))
+- Updated `rubyzip` from 2.4.1 to 3.7.0 and `chef-winrm-fs` from 1.4.2 to 1.4.4 to remove a transitive dependency on a vulnerable version of `rubyzip`.
+  ([#16402](https://github.com/chef/chef/pull/16402))
 
 ### Compliance Phase
 
@@ -120,6 +124,8 @@ Release date: September 23, 2026
   ([#16132](https://github.com/chef/chef/pull/16132))
 - Updated `mixlib-archive` from 1.3.3 to 1.3.6.
   ([#16381](https://github.com/chef/chef/pull/16381))
+- Updated `rubyzip` from 2.4.1 to 3.7.0 and `chef-winrm-fs` from 1.4.2 to 1.4.4.
+  ([#16402](https://github.com/chef/chef/pull/16402))
 - Excluded the broken `ffi-yajl` 3.0.0 release (allocator issue on Ruby 3.2+) while allowing other 2.x and 3.x releases up to 4.0 (`>= 2.2, != 3.0.0, < 4.0`).
   ([#16152](https://github.com/chef/chef/pull/16152), [#16240](https://github.com/chef/chef/pull/16240))
 - Updated Ohai from 19.1.31 to 19.1.40.
