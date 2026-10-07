@@ -27,22 +27,22 @@ PowerShell is already set as the default guard interpreter for `powershell_scrip
 ```ruby
 # bad
 powershell_script 'Create Directory' do
-  code "New-Item -ItemType Directory -Force -Path C:\mydir"
+  code 'New-Item -ItemType Directory -Force -Path C:\mydir'
   guard_interpreter :powershell_script
 end
 
 batch 'Create Directory' do
-  code "mkdir C:\mydir"
+  code 'mkdir C:\mydir'
   guard_interpreter :powershell_script
 end
 
 # good
 powershell_script 'Create Directory' do
-  code "New-Item -ItemType Directory -Force -Path C:\mydir"
+  code 'New-Item -ItemType Directory -Force -Path C:\mydir'
 end
 
 batch 'Create Directory' do
-  code "mkdir C:\mydir"
+  code 'mkdir C:\mydir'
 end
 ```
 

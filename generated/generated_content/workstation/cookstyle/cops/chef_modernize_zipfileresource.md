@@ -26,8 +26,14 @@ Use the archive_file resource built into Chef Infra Client 15+ instead of the zi
 
 ```ruby
 # bad
-zipfile "C:\file.zip" do
+zipfile 'C:\file.zip' do
   path 'C:\expand_here'
+end
+
+# good
+archive_file 'expand file.zip' do
+  path 'C:\file.zip'
+  destination 'C:\expand_here'
 end
 ```
 

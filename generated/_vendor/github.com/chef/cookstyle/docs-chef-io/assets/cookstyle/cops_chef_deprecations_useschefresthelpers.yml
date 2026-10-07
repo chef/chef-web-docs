@@ -10,6 +10,9 @@ examples: |2-
   # bad
   require 'chef/rest'
   Chef::REST::RESTRequest.new(:GET, FOO, nil).call
+
+  # good
+  Chef::ServerAPI.new(Chef::Config[:chef_server_url]).get('nodes')
 version_added: 5.5.0
 enabled: true
 excluded_file_paths:

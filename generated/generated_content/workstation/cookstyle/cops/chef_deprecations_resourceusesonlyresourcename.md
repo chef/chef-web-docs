@@ -26,8 +26,16 @@ Starting with Chef Infra Client 16, using `resource_name` without also using `pr
 
 ```ruby
 # bad
-mycookbook/resources/myresource.rb:
+# mycookbook/resources/myresource.rb
 resource_name :mycookbook_myresource
+
+# good
+# mycookbook/resources/myresource.rb
+provides :mycookbook_myresource
+
+# or, to also support Chef Infra Client < 16
+resource_name :mycookbook_myresource
+provides :mycookbook_myresource
 ```
 
 ## Configurable attributes

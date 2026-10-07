@@ -29,6 +29,16 @@ Use valid platform family values in case statements. See [Infra Language: Platfo
 case node['platform_family']
 when 'redhat'
   puts "I'm on a RHEL-like system"
+when 'debian'
+  puts "I'm on a Debian-like system"
+end
+
+# good
+case node['platform_family']
+when 'rhel'
+  puts "I'm on a RHEL-like system"
+when 'debian'
+  puts "I'm on a Debian-like system"
 end
 ```
 

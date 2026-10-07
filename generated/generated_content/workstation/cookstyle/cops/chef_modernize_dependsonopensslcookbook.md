@@ -27,6 +27,15 @@ Don't depend on the `openssl` cookbook which was made obsolete by Chef Infra Cli
 ```ruby
 # bad
 depends 'openssl'
+
+# good
+# the openssl_* resources ship in Chef Infra Client 14.4+, so use them without a depends
+openssl_x509_certificate '/etc/httpd/ssl/mycert.pem' do
+  common_name 'www.example.com'
+  org 'Example Inc'
+  org_unit 'IT'
+  country 'US'
+end
 ```
 
 ## Configurable attributes

@@ -26,6 +26,12 @@ examples: |2-
   opensolaris_platform?
   nexentacore?
   opensolaris?
+
+  # good
+  # the equivalents now shipping in Chef Infra Client and in Ruby itself
+  vagrant?
+  node.recipe?('foo::bar')
+  shell_out!('/opt/app/bin/app --version', out: File::NULL)
 version_added: 7.3.0
 enabled: true
 excluded_file_paths:

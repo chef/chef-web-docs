@@ -9,8 +9,14 @@ target_chef_version: 15.0+
 examples: |2-
 
   # bad
-  windows_zipfile 'C:\\files\\' do
-    source 'C:\\Temp\\file.zip'
+  windows_zipfile 'C:\files' do
+    source 'C:\Temp\file.zip'
+  end
+
+  # good
+  archive_file 'expand file.zip' do
+    path 'C:\Temp\file.zip'
+    destination 'C:\files'
   end
 version_added: 5.4.0
 enabled: true

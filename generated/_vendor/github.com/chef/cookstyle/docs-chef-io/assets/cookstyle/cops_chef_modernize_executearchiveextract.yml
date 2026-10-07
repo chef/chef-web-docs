@@ -1,0 +1,31 @@
+---
+short_name: ExecuteArchiveExtract
+full_name: Chef/Modernize/ExecuteArchiveExtract
+department: Chef/Modernize
+description: |-
+  Use the archive_file resource built into Chef Infra Client 15+ instead of shelling out to
+  tar or unzip. The resource extracts tar, tar.gz, tar.bz2, tar.xz, and zip archives, and it
+  only runs when the archive is newer than what was already extracted, where the shelled out
+  command re-extracts on every converge.
+autocorrection: false
+target_chef_version: 15.0+
+examples: |2-
+
+  # bad
+  execute 'extract nginx' do
+    command "tar xzf #{Chef::Config[:file_cache_path]}/nginx.tar.gz -C /opt/nginx"
+  end
+
+  execute 'unzip -o /tmp/app.zip -d /opt/app'
+
+  # good
+  archive_file 'extract nginx' do
+    path "#{Chef::Config[:file_cache_path]}/nginx.tar.gz"
+    destination '/opt/nginx'
+  end
+version_added: 9.0.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/attributes/*.rb"
+- "**/Berksfile"

@@ -13,6 +13,11 @@ examples: |2-
     lang 'en_gb.utf-8'
     lc_all 'en_gb.utf-8'
   end
+
+  # good
+  locale 'set locale' do
+    lang 'en_gb.utf-8'
+  end
 version_added: 5.5.0
 enabled: true
 excluded_file_paths:
