@@ -18,6 +18,9 @@ Each enrollment method has its own connectivity, port, and credential requiremen
 
 ## Node requirements
 
+Choose one of the following methods to enroll a node: cookbook-based, server-side, or client-side enrollment.
+The requirements in each of the following sections apply only if you use that enrollment method.
+
 ### Ports
 
 Open the following default ports for outbound connections from each node.
@@ -26,11 +29,10 @@ Open the following default ports for outbound connections from each node.
 | ------- | ---------------------------- |
 | `443`   | HTTPS                        |
 | `31050` | RabbitMQ AMQP/AMQP-TLS       |
-| `31000` | Nginx reverse proxy NodePort |
 
-### Node requirements for cookbook-based enrollment
+### Requirements if you use cookbook-based enrollment
 
-Nodes enrolled with Chef 360 SaaS using a Chef Infra cookbook must meet the following requirements:
+If you enroll a node with Chef 360 SaaS using a Chef Infra cookbook, the node must meet the following requirements:
 
 - Chef Infra Client must be installed on the node.
 - The node must have a public DNS name or public IP address that `https://CUSTOMER_SUBDOMAIN.cloud.chef.io` can reach.
@@ -45,10 +47,10 @@ For Chef 360 SaaS, zero mode requires Chef 360 SaaS Enterprise.
 
 {{< /note >}}
 
-### Node requirements for server-side enrollment
+### Requirements if you use server-side enrollment
 
 In server-side enrollment, Chef 360 SaaS initiates the connection to the target node using SSH or WinRM.
-Because Chef 360 SaaS connects remotely to the node, the target system must satisfy the following connectivity, authentication, and access prerequisites:
+If you use server-side enrollment, the target node must satisfy the following connectivity, authentication, and access prerequisites because Chef 360 SaaS connects to it remotely:
 
 - The node must accept SSH or WinRM connections from `https://CUSTOMER_SUBDOMAIN.cloud.chef.io`.
 - The node must have a public DNS name or public IP address that `https://CUSTOMER_SUBDOMAIN.cloud.chef.io` can reach.
@@ -80,10 +82,10 @@ Because Chef 360 SaaS connects remotely to the node, the target system must sati
     netsh advfirewall firewall add rule name="WinRM-HTTPS" dir=in localport=5986 protocol=TCP action=allow
     ```
 
-### Node requirements for client-side enrollment
+### Requirements if you use client-side enrollment
 
 In client-side enrollment, the target node initiates the enrollment process and connects to Chef 360 SaaS.
-Because Chef 360 SaaS doesn't establish a remote connection to the node, SSH and WinRM connectivity requirements don't apply.
+If you use client-side enrollment, SSH and WinRM connectivity requirements don't apply because Chef 360 SaaS doesn't establish a remote connection to the node.
 
 ## Skill requirements
 
