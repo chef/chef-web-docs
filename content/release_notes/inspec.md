@@ -34,6 +34,7 @@ Release date: October 7, 2026
 
 - Updated the `core/openssl` Habitat package from `3.5.7` to `3.5.8` for the Linux x86, Windows x86, Linux ARM (`aarch64-linux`), and macOS ARM (`aarch64-darwin`) platforms.
 - Updated the `core/curl` Habitat package from `8.21.0` to `8.22.0` for the Linux x86, Linux ARM (`aarch64-linux`), and macOS ARM (`aarch64-darwin`) platforms.
+- Updated `rubyzip` from `2.4.1` to `3.7.0`. ([#8024](https://github.com/inspec/inspec/pull/8024))
 
 ## Chef InSpec 7.2.1
 
