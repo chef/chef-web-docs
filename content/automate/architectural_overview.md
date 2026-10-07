@@ -15,7 +15,7 @@ draft = false
 
 ## Chef Automate 2 Architecture
 
-![Chef Automate 2 Architecture](/images/automate/a2-architecture-os.png)
+![Chef Automate 2 architecture diagram showing the load balancer, gateway, microservices including config management and compliance services, and backend databases with their port configurations.](/images/automate/a2-architecture-os.png)
 
 ## Component overview
 

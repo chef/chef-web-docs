@@ -33,9 +33,9 @@ Update non-SAN Certificates involves:
     ```
 
 1. If your setup has non-SAN certificates, the above script returns the list of non-SAN certificates as a response, as shown below.
-   ![invalid_san_certificates](/images/automate/invalid_san_certificates.png)
+   ![Certificate validation script output showing invalid SAN certificates with certificate paths like /hab/svc/deployment-service/config/certs/custom_certs.pem listed as non-SAN certificates.](/images/automate/invalid_san_certificates.png)
 1. If the script doesn't return any values as invalid certificates, as below, your setup has valid internal certificates.
-   ![valid_san_certificates](/images/automate/valid_san_certificates.png)
+   ![Certificate validation script output showing no results for invalid SAN certificates, confirming all certificates have proper SAN extensions.](/images/automate/valid_san_certificates.png)
 1. If you have non-SAN certificates, run the command
 
     ```sh

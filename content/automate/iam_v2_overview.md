@@ -26,7 +26,7 @@ The "who" may be a user, a team, or an API token.
 
 The following diagram shows the new policy structure. We detail the specifics in the next sections.
 
-![IAM v2 policy structure diagram](/images/automate/iam-v2-diagram.png)
+![Chef Automate IAM v2 policy structure diagram showing WHO (User, Team, API Token) connected to Policy, Policy containing Statements (Allow/Deny) and Roles with Actions, and WHERE (Project with Resource) scoping.](/images/automate/iam-v2-diagram.png)
 
 ## Policy Definition
 
