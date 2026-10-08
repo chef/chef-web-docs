@@ -60,7 +60,7 @@ Release date: October 6, 2026
   ([#16091](https://github.com/chef/chef/pull/16091))
 - Corrected `Chef::ReservedNames::Win32::Security.set_security_descriptor_dacl` to be a class method, fixing `NoMethodError` exceptions when setting security descriptor DACLs on Windows.
   ([#16290](https://github.com/chef/chef/pull/16290))
-- Initialized `@http_output_locations_clients` in the Data Collector handler, resolving `NoMethodError` exceptions when reporting to HTTP URL destinations configured via `data_collector.output_locations[:urls]`.
+- Initialized `@http_output_locations_clients` in the Data Collector handler, resolving `NoMethodError` exceptions when reporting to HTTP URL destinations configured with `data_collector.output_locations[:urls]`.
   ([#16289](https://github.com/chef/chef/pull/16289))
 - Fixed a bug in the `chocolatey_installer` resource where the installer was always downloaded from Chocolatey's default URL, ignoring a custom URL option. The resource now constructs a full file path for `Invoke-WebRequest -OutFile`, which PowerShell 5.1 requires.
   ([#16036](https://github.com/chef/chef/pull/16036))
@@ -133,7 +133,7 @@ Release date: October 6, 2026
 - Updated `webmock` from 3.26.2 to 3.26.3.
   ([#16313](https://github.com/chef/chef/pull/16313))
 
-### Chef packaged product versions
+### Bundled components
 
 This release uses:
 
