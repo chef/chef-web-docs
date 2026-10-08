@@ -30,34 +30,17 @@ Open the following default ports for outbound connections from each node.
 | `443`   | HTTPS                        |
 | `31050` | RabbitMQ AMQP/AMQP-TLS       |
 
-### Requirements if you use cookbook-based enrollment
+### Server-side enrollment requirements
 
-If you enroll a node with Chef 360 SaaS using a Chef Infra cookbook, the node must meet the following requirements:
+Server-side enrollment includes two methods: bulk enrollment and single-node enrollment.
+In both methods, Chef 360 SaaS initiates the connection to the target node using SSH or WinRM.
+Because Chef 360 SaaS connects to the node remotely, the target node must meet the following connectivity, authentication, and access prerequisites:
 
-- Chef Infra Client must be installed on the node.
-- The node must have a public DNS name or public IP address that `https://CUSTOMER_SUBDOMAIN.cloud.chef.io` can reach.
-- The node must allow outbound and inbound communication with `https://bldr.habitat.sh`.
-- The node's IP address can't be localhost (`127.0.0.1`).
-- You must have sudo privileges on the node.
-
-{{< note >}}
-
-Cookbook-based enrollment requires Chef Infra Server or Chef Infra Client running in zero mode.
-For Chef 360 SaaS, zero mode requires Chef 360 SaaS Enterprise.
-
-{{< /note >}}
-
-### Requirements if you use server-side enrollment
-
-In server-side enrollment, Chef 360 SaaS initiates the connection to the target node using SSH or WinRM.
-If you use server-side enrollment, the target node must satisfy the following connectivity, authentication, and access prerequisites because Chef 360 SaaS connects to it remotely:
-
-- The node must accept SSH or WinRM connections from `https://CUSTOMER_SUBDOMAIN.cloud.chef.io`.
-- The node must have a public DNS name or public IP address that `https://CUSTOMER_SUBDOMAIN.cloud.chef.io` can reach.
+- The node must accept SSH or WinRM connections from `https://<CUSTOMER_SUBDOMAIN>.cloud.chef.io`.
+- The node must have a public DNS name or public IP address that `https://<CUSTOMER_SUBDOMAIN>.cloud.chef.io` can reach.
 - The node must allow outbound and inbound communication with `https://bldr.habitat.sh`.
 - The node's IP address can't be localhost (`127.0.0.1`).
 - The node's CIDR address can't be in the same range as the Chef 360 SaaS services. The default CIDR range for Chef 360 SaaS services is `10.244.0.0/16` or `10.96.0.0/12`.
-- The node's ports for RabbitMQ (`31050`) and the Nginx API gateway (`31000`) must be open to Chef 360 SaaS.
 
 #### SSH connection requirements
 
@@ -82,10 +65,25 @@ If you use server-side enrollment, the target node must satisfy the following co
     netsh advfirewall firewall add rule name="WinRM-HTTPS" dir=in localport=5986 protocol=TCP action=allow
     ```
 
-### Requirements if you use client-side enrollment
+### Client-side enrollment requirements
 
-In client-side enrollment, the target node initiates the enrollment process and connects to Chef 360 SaaS.
-If you use client-side enrollment, SSH and WinRM connectivity requirements don't apply because Chef 360 SaaS doesn't establish a remote connection to the node.
+Client-side enrollment includes two methods: self enrollment and cookbook-based enrollment. With these methods, the target node initiates the enrollment process and connects to Chef 360 SaaS.
+
+#### Self enrollment requirements
+
+If you use self enrollment, SSH and WinRM connectivity requirements don't apply because Chef 360 SaaS doesn't establish a remote connection to the node.
+
+#### Cookbook-based enrollment requirements
+
+If you enroll a node with Chef 360 SaaS using a Chef Infra cookbook, the node must meet the following requirements:
+
+- Chef Infra Client must be installed on the node.
+- The node must have a public DNS name or public IP address that `https://<CUSTOMER_SUBDOMAIN>.cloud.chef.io` can reach.
+- The node must allow outbound and inbound communication with `https://bldr.habitat.sh`.
+- The node's IP address can't be localhost (`127.0.0.1`).
+- You must have sudo privileges on the node.
+- The node is currently managed by Chef Infra Server or Chef Infra Client runs in zero mode.
+  This requires Chef 360 SaaS Enterprise.
 
 ## Skill requirements
 
@@ -99,4 +97,4 @@ Chef 360 Platform skills are supported on the following platforms.
 Skills have the following dependencies:
 
 - The Chef Infra Client interpreter requires [Chef Infra Client](/client/latest/overview/chef_overview/) on the node.
-- The InSpec interpreter requires [Chef InSpec](/inspec/) on the node.
+- The Chef InSpec interpreter requires [Chef InSpec](/inspec/) on the node.
