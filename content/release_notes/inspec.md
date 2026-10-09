@@ -17,6 +17,25 @@ summary = "Chef InSpec release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
+## Chef InSpec 7.3.4
+
+Release date: October 12, 2026
+
+### Bug fixes
+
+- The `oracledb_session` resource now correctly parses query output from both `sqlcl` and `sqlplus`. Previously, an unsuppressed banner in `sqlcl` output and output that wasn't formatted as CSV in `sqlplus` broke result parsing. ([#8010](https://github.com/inspec/inspec/pull/8010))
+- The `oracledb_session` resource now correctly returns values for every column in multi-column query results. Previously, comma replacement altered CSV delimiters before parsing, and row flattening prevented the resource from representing more than one column, causing `.column(name)` to return `nil`. ([#7997](https://github.com/inspec/inspec/pull/7997))
+
+### Packages
+
+- Chef InSpec is now available as a native macOS ARM installer. The installer uses a Habitat-built artifact, so you don't need to use Habitat tooling directly.
+
+### Security fixes
+
+- Updated the `core/openssl` Habitat package from `3.5.7` to `3.5.8` for the Linux x86, Windows x86, Linux ARM (`aarch64-linux`), and macOS ARM (`aarch64-darwin`) platforms.
+- Updated the `core/curl` Habitat package from `8.21.0` to `8.22.0` for the Linux x86, Linux ARM (`aarch64-linux`), and macOS ARM (`aarch64-darwin`) platforms.
+- Updated `rubyzip` from `2.4.1` to `3.7.0`. ([#8024](https://github.com/inspec/inspec/pull/8024))
+
 ## Chef InSpec 7.2.1
 
 Release date: September 2, 2026
