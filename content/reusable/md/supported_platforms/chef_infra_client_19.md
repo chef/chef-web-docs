@@ -60,7 +60,7 @@
 
 | Platform       | Architecture | Version                                 | Tier                    | Agent | Agentless | Installer |
 | -------------- | ------------ | --------------------------------------- | ----------------------- | ----- | --------- | --------- |
-| Oracle Solaris | `i86pc`      | `11.3` (16.17.4 and later only), `11.4` | Validated and supported | Yes   | Yes       | Habitat   |
+| Oracle Solaris | `i86pc`      | `11.3` (16.17.4 and later only), `11.4` | Validated and supported | No    | Yes       | Habitat   |
 | Oracle Solaris | `sparc`      | `11.3` (16.17.4 and later only), `11.4` | Validated and supported | No    | Yes       | Habitat   |
 
 **FreeBSD**
