@@ -19,7 +19,7 @@ summary = "Chef InSpec release notes"
 
 ## Chef InSpec 7.3.4
 
-Release date: October 12, 2026
+Release date: October 13, 2026
 
 ### Bug fixes
 
