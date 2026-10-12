@@ -17,9 +17,9 @@ summary = "Chef Infra Client release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
-## Chef Infra Client 19.4.43
+## Chef Infra Client 19.4.45
 
-Release date: October 6, 2026
+Release date: October 9, 2026
 
 ### Improvements
 
