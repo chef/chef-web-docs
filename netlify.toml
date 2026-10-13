@@ -151,6 +151,11 @@
   status = 200
 
 [[redirects]]
+  from = "/inspec/7.3/*"
+  to = "https://release-7-3--chef-inspec-docs.netlify.app/inspec/7.3/:splat"
+  status = 200
+
+[[redirects]]
   from = "/inspec/7.2/*"
   to = "https://release-7-2--chef-inspec-docs.netlify.app/inspec/7.2/:splat"
   status = 200
@@ -182,7 +187,7 @@
 
 [[redirects]]
   from = "/inspec/latest/*"
-  to = "/inspec/7.2/:splat"
+  to = "/inspec/7.3/:splat"
   status = 301
 
 [[redirects]]
@@ -192,12 +197,12 @@
 
 [[redirects]]
   from = "/inspec/profiles/*"
-  to = "/inspec/7.2/profiles/:splat"
+  to = "/inspec/7.3/profiles/:splat"
   status = 301
 
 [[redirects]]
   from = "/inspec/resources/*"
-  to = "/inspec/7.2/resources/"
+  to = "/inspec/7.3/resources/"
   status = 301
 
 ####
