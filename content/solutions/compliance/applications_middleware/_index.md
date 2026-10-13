@@ -35,10 +35,24 @@ For what audit and remediation each do, see the
 For what each coverage term means, see
 [how to read the coverage tables](/solutions/compliance/#how-to-read-the-coverage-tables).
 
+## Inspect middleware configuration directly
+
+Chef InSpec provides a [RabbitMQ resource pack](/inspec/resource_packs/rabbitmq/)
+for inspecting RabbitMQ configuration.
+Chef doesn't publish a prebuilt compliance benchmark for RabbitMQ ---
+the resource pack is for authoring your own checks.
+
+For the other technologies in this category,
+write controls using Chef InSpec core resources.
+
+A resource pack isn't a benchmark and doesn't assess anything on its own.
+It provides the resources you use to write your own controls.
+
 ## Related
 
 - [Compliance solution overview](/solutions/compliance/)
 - [Compliance audit](/solutions/compliance/#compliance-audit)
 - [Compliance remediation](/solutions/compliance/#compliance-remediation)
+- [Build custom compliance checks with Chef InSpec](/solutions/compliance/extend/)
 - [Chef InSpec](/inspec/latest/)
 - [Compliance reporting in Chef Automate](/automate/reports/)

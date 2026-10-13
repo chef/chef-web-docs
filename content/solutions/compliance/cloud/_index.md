@@ -30,10 +30,31 @@ For what audit and remediation each do, see the
 For what each coverage term means, see
 [how to read the coverage tables](/solutions/compliance/#how-to-read-the-coverage-tables).
 
+## Inspect cloud configuration directly
+
+The benchmarks above are prebuilt content.
+When your requirement isn't covered by one ---
+a provider service with no published benchmark,
+or a control specific to your organization ---
+you can write your own Chef InSpec controls against the provider API.
+
+Chef InSpec provides resource packs for the major cloud providers:
+
+- [AWS resource pack](/inspec/resource_packs/aws/) ---
+  inspect EC2, IAM, RDS, Lambda, VPC and networking, CloudFront, CloudWatch, and more
+- [Azure resource pack](/inspec/resource_packs/azure/) ---
+  inspect virtual machines, SQL, networking, Key Vault, policy, and Active Directory
+- [GCP resource pack](/inspec/resource_packs/gcp/) ---
+  inspect Compute Engine, Cloud SQL, Cloud Storage, GKE, IAM, KMS, and more
+
+A resource pack isn't a benchmark and doesn't assess anything on its own.
+It provides the resources you use to write your own controls.
+
 ## Related
 
 - [Compliance solution overview](/solutions/compliance/)
 - [Compliance audit](/solutions/compliance/#compliance-audit)
 - [Compliance remediation](/solutions/compliance/#compliance-remediation)
+- [Build custom compliance checks with Chef InSpec](/solutions/compliance/extend/)
 - [Chef InSpec](/inspec/latest/)
 - [Compliance reporting in Chef Automate](/automate/reports/)

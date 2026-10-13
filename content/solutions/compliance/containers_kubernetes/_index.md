@@ -28,10 +28,29 @@ For what audit and remediation each do, see the
 For what each coverage term means, see
 [how to read the coverage tables](/solutions/compliance/#how-to-read-the-coverage-tables).
 
+## Inspect container platforms directly
+
+Chef doesn't publish prebuilt audit content for the benchmarks above,
+but Chef InSpec provides resource packs you can use to write your own controls:
+
+- [Kubernetes resource pack](/inspec/resource_packs/k8s/) ---
+  inspect pods, containers, deployments, DaemonSets, CronJobs, namespaces, nodes,
+  ConfigMaps, network policies, and RBAC cluster roles
+- [Docker resource pack](/inspec/resource_packs/docker/) ---
+  inspect containers, images, services, and plugins
+- [Podman resource pack](/inspec/resource_packs/podman/) ---
+  inspect containers, images, networks, volumes, and pods
+
+Chef doesn't publish a prebuilt compliance benchmark for Podman.
+
+A resource pack isn't a benchmark and doesn't assess anything on its own.
+It provides the resources you use to write your own controls.
+
 ## Related
 
 - [Compliance solution overview](/solutions/compliance/)
 - [Compliance audit](/solutions/compliance/#compliance-audit)
 - [Compliance remediation](/solutions/compliance/#compliance-remediation)
+- [Build custom compliance checks with Chef InSpec](/solutions/compliance/extend/)
 - [Chef InSpec](/inspec/latest/)
 - [Compliance reporting in Chef Automate](/automate/reports/)

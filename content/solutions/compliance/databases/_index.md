@@ -41,10 +41,32 @@ For what audit and remediation each do, see the
 For what each coverage term means, see
 [how to read the coverage tables](/solutions/compliance/#how-to-read-the-coverage-tables).
 
+## Inspect database configuration directly
+
+Most database benchmarks above rely on Chef InSpec core resources,
+such as `mssql_session`, `oracledb_session`, `postgres_session`, and `mysql_session`.
+You can use those same resources to write controls for requirements
+that no prebuilt benchmark covers.
+
+Chef InSpec also provides two database resource packs:
+
+- [MongoDB resource pack](/inspec/resource_packs/mongodb/) ---
+  inspect MongoDB configuration and query a running instance
+- [Elasticsearch resource pack](/inspec/resource_packs/elasticsearch/) ---
+  inspect Elasticsearch configuration
+
+Chef doesn't publish a prebuilt compliance benchmark for Elasticsearch.
+The resource pack is for authoring your own checks,
+and doesn't indicate Elasticsearch benchmark coverage.
+
+A resource pack isn't a benchmark and doesn't assess anything on its own.
+It provides the resources you use to write your own controls.
+
 ## Related
 
 - [Compliance solution overview](/solutions/compliance/)
 - [Compliance audit](/solutions/compliance/#compliance-audit)
 - [Compliance remediation](/solutions/compliance/#compliance-remediation)
+- [Build custom compliance checks with Chef InSpec](/solutions/compliance/extend/)
 - [Chef InSpec](/inspec/latest/)
 - [Compliance reporting in Chef Automate](/automate/reports/)

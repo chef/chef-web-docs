@@ -498,3 +498,5 @@ and to filter down to what you need.
 **Write your own controls.**
 [Install Chef InSpec](/inspec/latest/install/) and [Chef Workstation](/workstation/latest/)
 to author and test controls for requirements specific to your organization.
+For what to build those controls from, see
+[Build custom compliance checks with Chef InSpec](/solutions/compliance/extend/).
