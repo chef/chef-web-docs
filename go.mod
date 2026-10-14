@@ -7,7 +7,7 @@ require (
 	github.com/chef/chef-docs-theme v0.0.0-20260618125028-0f405d6b95d1 // indirect
 	github.com/chef/chef-server/docs-chef-io v0.0.0-20260902055333-6a599ba7875b // indirect
 	github.com/chef/compliance-profiles/docs-chef-io v0.0.0-20260824060042-97a0c5b7ceb5 // indirect
-	github.com/chef/compliance-remediation-2022/docs-chef-io v0.0.0-20260715070108-00acb7d0c314 // indirect
+	github.com/chef/compliance-remediation-2022/docs-chef-io v0.0.0-20261014115514-0291d51f0b4b // indirect
 	github.com/chef/desktop-config/docs-chef-io v0.0.0-20260810123955-0a43dc750a90 // indirect
 	github.com/chef/effortless/docs-chef-io v0.0.0-20230711123605-c8beb79aba4f // indirect
 	github.com/chef/license-service/docs-chef-io v0.0.0-20250120051510-ae1de80f4621 // indirect
