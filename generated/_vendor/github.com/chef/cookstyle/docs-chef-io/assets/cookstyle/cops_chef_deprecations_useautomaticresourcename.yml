@@ -17,6 +17,15 @@ examples: |2-
       # some additional code
     end
   end
+
+  # good
+  module MyCookbook
+    class MyCookbookService < Chef::Resource
+      provides :mycookbook_service
+
+      # some additional code
+    end
+  end
 version_added: 6.12.0
 enabled: true
 included_file_paths:

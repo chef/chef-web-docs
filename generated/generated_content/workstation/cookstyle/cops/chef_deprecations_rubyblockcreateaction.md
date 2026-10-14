@@ -33,12 +33,22 @@ ruby_block 'my special ruby block' do
   action :create
 end
 
+# bad
+template '/etc/foo.conf' do
+  notifies :create, 'ruby_block[my special ruby block]', :immediately
+end
+
 # good
 ruby_block 'my special ruby block' do
   block do
     puts 'running'
   end
   action :run
+end
+
+# good
+template '/etc/foo.conf' do
+  notifies :run, 'ruby_block[my special ruby block]', :immediately
 end
 ```
 

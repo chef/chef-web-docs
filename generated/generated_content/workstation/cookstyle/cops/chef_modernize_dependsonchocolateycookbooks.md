@@ -28,6 +28,13 @@ Don't depend on the chocolatey_source or chocolatey_config cookbooks made obsole
 # bad
 depends 'chocolatey_source'
 depends 'chocolatey_config'
+
+# good
+# the resources ship in Chef Infra Client 14.3+, so use them without a depends
+chocolatey_source 'internal' do
+  source 'https://mycorp.example/nuget'
+  action :add
+end
 ```
 
 ## Configurable attributes

@@ -12,6 +12,7 @@ examples: |2-
   depends 'build-essential'
   include_recipe 'build-essential::default'
   include_recipe 'build-essential'
+  run_context.include_recipe 'build-essential::default'
 
   # good
   build_essential 'install compilation tools'
