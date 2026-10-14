@@ -17,6 +17,100 @@ summary = "Chef Workstation release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
+## Chef Workstation 26.2.0
+
+Release date: TBD
+
+### Packages
+
+Chef Workstation now provides OS-native packages for macOS and Linux ARM, in addition to the Linux x86 and Windows packages.
+You can download packages from the Chef customer download portal or the download API.
+
+The following native packages are available:
+
+- Linux x86: RPM (.rpm) and DEB (.deb) packages
+- Linux ARM (aarch64): RPM (.rpm) and DEB (.deb) packages
+- macOS ARM (Apple Silicon): DMG (.dmg) installer
+- Windows x86: MSI installer (.msi)
+
+For installation steps, see the [Chef Workstation install guide](https://docs.chef.io/workstation/install/).
+
+#### Supported platforms
+
+| Platform | Architecture | Package |
+|----------|--------------|---------|
+| Linux (Debian-based) | x86-64 (amd64) | `.deb` |
+| Linux (Debian-based) | ARM64 (aarch64) | `.deb` |
+| Linux (RPM-based) | x86-64 | `.rpm` |
+| Linux (RPM-based) | ARM64 (aarch64) | `.rpm` |
+| macOS 14 (Sonoma) and later | ARM64 (Apple Silicon) | `.dmg` |
+| Windows 10 and later, Windows Server 2016 and later | x86-64 | `.msi` |
+
+#### Upgrade path
+
+- Upgrade by installing the latest native package for your platform. The macOS installer detects and upgrades an existing installation.
+- Upgrading from the earlier omnibus Chef Workstation package isn't available on Linux ARM, because no ARM omnibus package exists.
+
+For details, see [Upgrade Chef Workstation](https://docs.chef.io/workstation/upgrade/).
+
+#### Known limitations
+
+- The macOS installer stops if it detects a standalone Chef Infra Client or a Habitat-based `chef-infra-client` installation.
+  Uninstall the existing Chef Infra Client installation, then run the installer again.
+- The macOS installer blocks downgrades.
+  To install an earlier version, uninstall Chef Workstation first by running `sudo /opt/hab/chef-workstation/uninstall.sh`.
+- macOS packages are available for Apple Silicon (ARM64) only. Intel-based Macs aren't supported.
+
+### Tool updates
+
+- **Berkshelf**:
+
+  - Updated Berkshelf to version 8.1.27.
+
+- **Chef CLI**:
+
+  - Updated the `chef` CLI to version 6.1.40.
+
+- **Chef Infra Client**:
+
+  - Updated Chef Infra Client to version 19.4.45.
+
+    For details, see the [Chef Infra Client 19 release notes](https://docs.chef.io/release_notes/client/).
+
+- **Chef InSpec**:
+
+  - Updated Chef InSpec to version 7.3.4.
+
+    For details, see the [Chef InSpec 7 release notes](https://docs.chef.io/release_notes/inspec/).
+
+- **Chef Vault**:
+
+  - Updated Chef Vault to version 4.2.15.
+
+- **Cookstyle**:
+
+  - Updated Cookstyle to version 9.0.6.
+
+- **Fauxhai**:
+
+  - Updated Fauxhai to version 9.4.27.
+
+- **Knife**:
+
+  - Updated Knife to version 19.0.150.
+
+    For details, see the [Knife changelog](https://github.com/chef/knife/blob/main/CHANGELOG.md).
+
+- **Ohai**:
+
+  - Updated Ohai to version 19.1.51.
+
+- **Test Kitchen Enterprise**:
+
+  - Updated Test Kitchen Enterprise to version 2.0.21.
+
+    For details, see the [Test Kitchen Enterprise changelog](https://github.com/chef/chef-test-kitchen-enterprise/blob/main/CHANGELOG.md).
+
 ## Chef Workstation 26.1.0
 
 Release date: July 13, 2026
