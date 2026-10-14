@@ -25,7 +25,7 @@ Navigate to _Projects_ in the **Settings** tab. Then use the **Create Project** 
 
 When a project is created, three policies that control access to that project are also created. Those policies include: _Project Owner_, _Project Editor_, and _Project Viewer_. Adding members to these policies will grant them access to the project.
 
-![Chef Automate projects settings page](/images/automate/settings-projects.png)
+![Chef Automate Settings Projects page showing Create Project and Update Projects buttons with a projects table listing Dev Ops, Example Project, and Finance with their IDs and ingest rule statuses (Applied, No rules, Edits pending).](/images/automate/settings-projects.png)
 
 ### Deleting Projects
 

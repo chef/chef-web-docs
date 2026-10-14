@@ -25,7 +25,7 @@ Navigate to _API Tokens_ in the **Settings** tab. Then, use the **Create Token**
 
 If a policy is assigned to an API token on creation, the API token will have permissions. If no policy is selected during its creation, the API token will have no permissions. To assign permissions to the API token any time after creation, navigate to _Policies_ in the **Settings** tab, locate the appropriate policy, and then add the API token as a member of the policy using a [member expression]({{< relref "iam_v2_guide.md#member-expressions" >}}).
 
-![API Tokens](/images/automate/admin-tab-API-tokens-list.png)
+![The API Tokens list in the Settings tab, showing the Create Token button and a table of existing tokens.](/images/automate/admin-tab-API-tokens-list.png)
 
 #### API Token Value
 

@@ -19,7 +19,7 @@ To interact with roles, users need permission for the `iam:roles` action.
 Users who are members of the `admins` team or the `Administrator` policy already have this permission.
 For all other users, you can create [IAM custom policies]({{< relref "iam_v2_guide.md#creating-custom-policies" >}}) to grant this permission.
 
-![Chef Automate settings roles page](/images/automate/settings-roles.png)
+![Chef Automate Settings Roles page showing a roles table with columns for Name and Type, listing Chef-managed roles (Editor, Ingest, Owner, Project Owner, Viewer) and custom roles (Example Role).](/images/automate/settings-roles.png)
 
 ## Chef-managed roles
 

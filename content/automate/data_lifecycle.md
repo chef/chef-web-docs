@@ -21,7 +21,7 @@ Navigate to _Settings_ > _Data Lifecycle_ and adjust any settings you would like
 
 Users with `dataLifecycle:*` IAM access can see the data lifecycle job statuses, configure jobs or run jobs. While configuring the data lifecycle in a number of days, please refer to the section on [Impact On OpenSearch Shards](/automate/data_lifecycle/#impact-on-opensearch-shards) to set the appropriate maximum shards per node value.
 
-![Data Lifecycle](/images/automate/data-lifecycle.png)
+![Chef Automate Settings page for Data Lifecycle showing retention configuration options for event feed, Chef Infra Server actions, service groups, client runs, and compliance data.](/images/automate/data-lifecycle.png)
 
 ### Event Feed
 

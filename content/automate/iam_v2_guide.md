@@ -33,7 +33,7 @@ This policy display includes the following:
 * Imported v1 default policies--now called _legacy policies_--in the new v2 policy format and marked with the `[Legacy]` prefix.
 * Imported v1 custom policies that you created, which are marked with the `[Legacy]` prefix and a `(custom)` suffix.
 
-![Migrated IAM v2 policies page](/images/automate/admin-policies-migrated.png)
+![Chef Automate Settings Policies page showing the IAM v2 policies table with migrated legacy policies marked with [Legacy] prefix, indicating their type as custom, and status as in use.](/images/automate/admin-policies-migrated.png)
 
 ## Policy Conversion
 
@@ -311,13 +311,13 @@ Compliance reports must be using **audit cookbook 7.5+** in order to make use of
 }
 ```
 
-![Create project rule interface](/images/automate/create-project-rule.png)
+![Chef Automate Create Project Rule form showing fields for rule name, resource type selection (Node), and conditions for filtering resources by Chef Organization.](/images/automate/create-project-rule.png)
 
 Save the rule. If you later need to change the name or the conditions, select the project rule name on the project details page.
 
 When edits are pending, a banner will be shown at the bottom of every page. Selecting the `Update Projects` button on that banner will apply those changes.
 
-![Chef Automate admin projects page](/images/automate/admin-projects.png)
+![Chef Automate Settings Projects page showing a table of projects with their names, IDs, and ingest rule statuses, plus a banner indicating pending edits that need to be applied.](/images/automate/admin-projects.png)
 
 Updating a project begins an operation that applies all pending rule edits and then moves ingested resources into the correct projects according to those latest changes. An ingested resource is moved into a project if it matches at least one of the project's rules.
 In this example, upon successful update, all ingested resources whose Chef Organization matches `devops` will be considered a part of the project `project-devops`.
@@ -335,7 +335,7 @@ Once rules have been successfully applied, the banner will be dismissed until th
 To verify that the ingested resources have been moved into the correct projects, select `project-devops` in the global projects filter, which is on the top navigation. The data in Chef Automate filters by the selected `project-devops` project.
 In this example, the effect is revealed by navigating to the Compliance Reports' Nodes tab, which only features nodes that belong to the `devops` Chef Organization.
 
-![Global projects filter in navigation](/images/automate/global-projects-filter.png)
+![Chef Automate global projects filter dropdown in top navigation showing project-devops selected with (unassigned) option and Apply Changes button, filtering Compliance Reports to show 3 nodes from DevSec Prod Beta environment.](/images/automate/global-projects-filter.png)
 
 Now that the first set of ingested data associated is in the new project, add another condition and a new rule to add more data to `project-devops`.
 
@@ -373,7 +373,7 @@ Upon completion of the update, you should be able to filter by `project-devops` 
 
 To create a project that contains all Effortless Infra nodes, create a ingest rule with resource type `Node` and a condition that uses attribute `Chef Infra Server`, operator `equals`, and value `localhost`.
 
-![Effortless Infra project rule configuration](/images/automate/effortless-project-rule.png)
+![Chef Automate project rule form for Effortless Infra showing Rule Name (all nodes), Resource Type (Node), and Conditions section with NODE ATTRIBUTE (Chef Infra Server), OPERATOR (equals), VALUE (localhost) fields, plus Save Rule and Cancel buttons.](/images/automate/effortless-project-rule.png)
 
 The above rule matches on a node's Chef Infra Server field, which is set to `localhost`. This rule works because all Effortless Infra nodes list the `Chef Infra Server` attribute as `localhost`.
 

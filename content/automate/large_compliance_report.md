@@ -22,7 +22,7 @@ Chef Automate fails to ingest compliance reports larger than 4 MB sent through t
 
 The following architecture change enables Chef Automate to ingest reports larger than 4 MB.
 
-![LCR Architecture](/images/automate/lcr_architecture.jpg)
+![Chef Automate Large Compliance Report architecture diagram showing Chef Infra Client/InSpec sending compliance reports through data collector to Chef Automate OpenSearch, with backup S3 storage and an external MinIO service for storing large reports.](/images/automate/lcr_architecture.jpg)
 
 With this configuration, Chef Automate allows ingestion of large compliance reports and sends data to OpenSearch and an externally deployed MinIO service. In this configuration, Chef Automate expects a MinIO server running outside the Chef Automate ecosystem.
 
