@@ -1,7 +1,7 @@
 nav#utility-bar {
   background-color: $topbar-background;
   border-bottom: 1px solid $border;
-  height: 60px;
+  height: $utility-bar-height;
   padding: .2rem 1rem;
   @include top-bar-unstack;
 
@@ -48,6 +48,16 @@ nav#utility-bar {
     #swiftype-search-search-text{
       min-width: 170px;
       display: inline-block;
+    }
+    #swiftype-search-shortcut-hint {
+      margin-left: .5rem;
+      padding: .1rem .4rem;
+      font-size: .75rem;
+      font-family: inherit;
+      color: $charcoal;
+      background-color: $off-white;
+      border: 1px solid $border;
+      border-radius: $border-radius-base;
     }
   }
 

@@ -238,7 +238,28 @@ The theme for this site is sourced from [chef/chef-docs-theme](https://github.co
 
 ### Update theme
 
-Run `make update_theme` to update the site theme.
+The [Makefile](Makefile) provides commands to update the theme and synchronize its packages:
+
+- `make update_theme` updates the theme module version, then runs `make update_packages` to rebuild vendored content and synchronize packages.
+- `make update_packages` rebuilds vendored content, regenerates `package.json` from the selected modules, installs Node packages, updates transitive dependencies, and validates the final lockfile with `pnpm install --frozen-lockfile`.
+  It doesn't fetch a newer theme version.
+
+To update the theme and synchronize its packages, run:
+
+```shell
+make update_theme
+```
+
+To use a specific theme branch, tag, or commit instead, run:
+
+```shell
+hugo mod get github.com/chef/chef-docs-theme@<THEME_REF>
+make update_packages
+```
+
+Replace `<THEME_REF>` with the branch name, tag, or commit SHA.
+Run `make update_packages` on its own to synchronize packages for the theme version already selected in `go.mod`.
+Both commands replace `_vendor` and `node_modules`, so save any local changes in those directories before running either command.
 
 ### Update theme Javascript dependencies
 
@@ -253,9 +274,9 @@ Update them through the theme update workflow described below.
 To update first-level Node dependencies:
 
 1. Update the dependency in the [chef/chef-docs-theme package.hugo.json file](https://github.com/chef/chef-docs-theme/blob/main/package.hugo.json).
-2. Update the [package.json file in chef/chef-docs-theme](https://github.com/chef/chef-docs-theme/blob/main/package.json) by running `hugo mod npm pack`.
-3. Commit the package file updates to main in chef/chef-docs-theme.
-4. Update the theme in this repo by running `make update_theme`.
+1. Update the [package.json file in chef/chef-docs-theme](https://github.com/chef/chef-docs-theme/blob/main/package.json) by running `hugo mod npm pack`.
+1. Commit the package file updates to main in chef/chef-docs-theme.
+1. Update the theme and synchronize its packages in this repo by running `make update_theme`.
 
 To update transitive Node dependencies in this repo:
 
@@ -269,9 +290,9 @@ We use Hugo to import JavaScript dependencies from GitHub repositories. You can 
 To update these dependencies, follow these steps:
 
 1. Update the dependency in the go.mod file in chef/chef-docs-theme using the [`hugo mod get -u` command](https://gohugo.io/commands/hugo_mod_get/).
-2. Tidy the go.mod and go.sum files with `hugo mod tidy`.
-3. Commit the changes to chef/chef-docs-theme.
-4. Update the theme contents in this repo with `make update_theme`.
+1. Tidy the go.mod and go.sum files with `hugo mod tidy`.
+1. Commit the changes to chef/chef-docs-theme.
+1. Update the theme, rebuild its vendored content, and synchronize its packages in this repo with `make update_theme`.
 
 ### Local theme testing
 

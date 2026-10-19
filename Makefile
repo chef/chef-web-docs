@@ -54,8 +54,13 @@ audit: bundle
 lint: bundle
 	hugo -D
 
+.PHONY: update_theme update_packages
+
 update_theme:
 	hugo mod get -u github.com/chef/chef-docs-theme
+	$(MAKE) update_packages
+
+update_packages:
 	rm -rf _vendor
 	rm -rf node_modules
 	hugo mod tidy
@@ -63,10 +68,7 @@ update_theme:
 	hugo mod npm pack
 	pnpm install
 	$(MAKE) update_transitive_deps
-	sed -i '' \
-	  -e 's|/-/[0-9][0-9]*\.[0-9][0-9]*\.[0-9][0-9]*/|/-/|g' \
-	  -e 's|/-/@[^/]*/|/-/|g' \
-	  pnpm-lock.yaml
+	pnpm install --frozen-lockfile
 
 ## Updates transitive (non-direct) dependencies in pnpm-lock.yaml without
 ## changing the direct dependency versions defined in package.json.
@@ -122,4 +124,3 @@ verify_cookstyle_pages:
 	if test ! -f "generated/generated_content/workstation/cookstyle/cops/_index.md"; then \
 			echo "generated/generated_content/workstation/cookstyle/cops/_index.md does not exist."; \
 	fi; \
-

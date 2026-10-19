@@ -1,0 +1,43 @@
+{{- /*
+  Renders a card containing a list of related links, inside the `cards` shortcode.
+  Use `card` instead when the whole card is a single link.
+
+  Params:
+    title       - card heading. Required.
+    link        - destination URL for the heading. Required.
+    target      - optional heading link target. Omitted by default (equivalent to "_self").
+    description - optional supporting line. Supports inline Markdown.
+    icon        - optional Material Symbols Outlined name, for example "download".
+    icon_filled - optional boolean. Set to true for filled icons. Defaults to false.
+
+  Inner content: a Markdown list of related links.
+
+  Usage:
+    {{< card_links title="Install" link="/get_started/" icon="download" icon_filled=true description="Stand up the platform." >}}
+    - [Deployment models](/get_started/overview/deployment_models/)
+    - [Embedded cluster](/get_started/embedded/)
+    {{< /card_links >}}
+*/ -}}
+{{- $page := .Page -}}
+{{- $iconClass := "material-symbols-outlined" -}}
+{{- if eq (printf "%v" (.Get "icon_filled")) "true" -}}
+  {{- $iconClass = "material-symbols-outlined icon-filled" -}}
+{{- end -}}
+{{- $columns := 3 -}}
+{{- with .Parent -}}
+  {{- $columns = int (.Get "columns" | default 3) -}}
+{{- end -}}
+{{- if not (in (slice 2 3 4) $columns) -}}
+  {{- errorf "%s shortcode: columns %d must be one of 2, 3, or 4 (%s)" .Name $columns .Position -}}
+{{- else -}}
+{{- $large := div 12 $columns -}}
+<div class="cell small-12 medium-6 xlarge-{{ $large }}">
+  <div class="grid-cell card-cell card-cell-list">
+    <h3><a href="{{ .Get "link" | default "#" }}"{{ with .Get "target" }} target="{{ . }}"{{ end }}>{{ with .Get "icon" }}<span class="{{ $iconClass }}" aria-hidden="true" translate="no">{{ . }}</span>{{ end }}{{ .Get "title" }}</a></h3>
+    {{- with .Get "description" }}
+    <p class="card-description">{{ $page.RenderString . }}</p>
+    {{- end }}
+    <div class="card-links">{{ $page.RenderString (dict "display" "block") (trim .Inner " \n\r\t") }}</div>
+  </div>
+  {{- end -}}
+</div>

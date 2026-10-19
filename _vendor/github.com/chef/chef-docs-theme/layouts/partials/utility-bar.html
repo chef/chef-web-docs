@@ -7,11 +7,13 @@
   </div>
 
   <ul class="menu top-nav top-bar-right">
-    {{- if and (ne (.Param "search") false) (ne (.Site.Param "search") false) -}}
+    {{- /* Suppress the nav search icon on pages that already render their own inline search box (product landing pages, and the search page itself), to avoid showing redundant search entry points */ -}}
+    {{- if and (ne (.Param "search") false) (ne (.Site.Param "search") false) (ne .Params.search_input true) (ne .Params.layout "search") -}}
     <li id="swiftype-search-top-nav">
-      <button id="swiftype-search-magnifying-icon">
+      <button id="swiftype-search-magnifying-icon" aria-haspopup="dialog" aria-keyshortcuts="Control+K Meta+K">
         <i class="fa-solid fa-magnifying-glass"></i>
         <span id="swiftype-search-search-text" class="show-for-mediumlarge text-left">Search...</span>
+        <kbd id="swiftype-search-shortcut-hint" class="show-for-mediumlarge" aria-hidden="true">Ctrl+K</kbd>
       </button>
     </li>
     {{- end -}}

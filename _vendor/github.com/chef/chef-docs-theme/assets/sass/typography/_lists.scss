@@ -45,6 +45,10 @@
     // Definition descriptions
     dd {
       margin: rem-calc(16);
+
+      > p {
+        margin-top: rem-calc(16);
+      }
     }
 
     // Nested definition lists

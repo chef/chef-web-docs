@@ -1,0 +1,24 @@
+{{- /*
+  Renders a Swiftype search input: icon, text field, clear button, and submit button.
+  Shared by the nav search modal, the search page's own search bar, and the
+  search_bar shortcode, so all three stay in sync.
+
+  Params (dict):
+    id (required): id prefix for this instance; produces "{id}-input",
+      "{id}-input-clear", and "{id}-input-search" element ids.
+    placeholder (optional): input placeholder text, defaults to "Search...".
+    ariaLabel (optional): input aria-label, defaults to "Search this site".
+*/ -}}
+{{- $id := .id -}}
+{{- $placeholder := .placeholder | default "Search..." -}}
+{{- $ariaLabel := .ariaLabel | default "Search this site" -}}
+<div id="{{ $id }}" class="swiftype-search-form input-group">
+  <span class="input-group-label hide-for-small-only"><i class="fa fa-search" aria-hidden="true"></i></span>
+  <input id="{{ $id }}-input" class="swiftype-search-input input-group-field" type="text" placeholder="{{ $placeholder }}" aria-label="{{ $ariaLabel }}" />
+  <div class="input-group-button">
+    <input id="{{ $id }}-input-clear" class="swiftype-clear-input" type="reset" value="&#x2715;" aria-label="Clear the search form">
+  </div>
+  <div class="input-group-button">
+    <input id="{{ $id }}-input-search" type="submit" class="button" value="Search">
+  </div>
+</div>

@@ -80,19 +80,50 @@
 
   .grid-container {
     margin-top: 3rem;
+
+    // The `cards` shortcode sets its own vertical rhythm and runs edge-to-edge.
+    &.card-grid {
+      margin: 1.5rem 0 2.5rem;
+      padding-left: 0;
+      padding-right: 0;
+      max-width: none;
+      // Without this, .grid-margin-y's negative margin-top on the inner
+      // .grid-x collapses through and eats into the margin above.
+      display: flow-root;
+    }
+  }
+
+  // .cell doesn't establish a flex context on its own; card-cell needs one
+  // to lay itself out in a column (header, description, links pinned down).
+  .card-grid .cell {
+    display: flex;
   }
 
   // Grid cell styling
   .grid-cell {
+    // .cell stretches to match row height (flex), but block-level anchors
+    // don't fill their container by default, so force it here.
+    height: 100%;
+    box-sizing: border-box;
     border: 1px solid $border;
     border-radius: $border-radius-base;
     padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    // Soft, low-opacity elevation shadow.
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .07), 0 1px 2px 0 rgba(0, 0, 0, .06);
     transition: border-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 
     &:hover {
       border-color: $border-dark;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 3px 8px 0 rgba(0, 0, 0, .1), 0 1px 3px 0 rgba(0, 0, 0, .08);
+    }
+
+    // `card`/`card_links` need a column layout, and tighter padding than the
+    // plain .grid-cell used by _default/list.html.
+    &.card-cell {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 1.15rem 1.25rem;
     }
 
     h2,
@@ -100,9 +131,60 @@
     h4,
     h5,
     h6 {
+      font-size: 1.2rem;
       margin-top: 0;
+      margin-bottom: 1rem;
       text-decoration: none !important;
       color: $blue-darker
+    }
+
+    &.card-cell .material-symbols-outlined {
+      font-size: 1.2rem;
+      margin-right: 0.5rem;
+      vertical-align: middle;
+      opacity: .7;
+    }
+
+    // h2 covers list.html's auto-generated cards; h3 covers the card/card_links shortcodes.
+    &.card-cell h2,
+    &.card-cell h3 {
+      font-size: 1.05rem;
+      line-height: 1.35;
+      margin: 0;
+      border-bottom: none;
+      // Safety net for long single-word titles at narrower card widths.
+      overflow-wrap: anywhere;
+      // Wraps the badge onto its own line (flush left, via gap) instead of
+      // indenting it with a margin that looks wrong once it's no longer
+      // following the title on the same line.
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.25rem 1rem;
+    }
+
+    &.card-cell h2 a,
+    &.card-cell h3 a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .card-badge {
+      display: inline-block;
+      padding: .1rem .5rem;
+      border-radius: $border-radius-base;
+      font-size: .8rem;
+    }
+
+    .card-description {
+      margin: 0.5rem 0 0;
+      font-size: 0.9rem;
+      line-height: 1.45;
+      color: $text-muted;
     }
 
     // Clickable cells (when cell is an anchor tag)
@@ -124,11 +206,45 @@
   }
 }
 
-.has-sidebar {
-  @include breakpoint(medium) {
-    #main-content {
-      position: relative;
-      background: linear-gradient(90deg, $sidebar-gray 50%, $white 50%);
+// The markdown-rendered link list in `card_links` needs to outrank the
+// generic list styling (typography/_lists.scss), which already carries
+// #main-content-col plus several :not() clauses worth of specificity.
+#main-content #main-content-col .card-grid .card-cell-list .card-links {
+  // More separation than the heading-to-description gap: this is a
+  // visually distinct section, not a continuation of the description.
+  margin-top: 0.75rem;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+
+    // Divider only between items, not directly under the description.
+    + li {
+      border-top: 1px solid $border;
+    }
+  }
+
+  a {
+    // Padding lives on the link, not the li, so the whole row is clickable.
+    display: block;
+    padding: 0.35rem 0;
+    overflow-wrap: anywhere;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:focus {
+      outline: 3px solid $blue;
+      outline-offset: 2px;
     }
   }
 }
