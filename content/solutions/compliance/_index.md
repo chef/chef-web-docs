@@ -23,6 +23,16 @@ You define your requirements once as code, apply them across every platform you 
 dated record of what passed, what failed, and what you accepted ---
 whether those systems run in the cloud, in your own data center, or both.
 
+{{< note >}}
+
+**Want to try it rather than read about it?**
+[Audit SSH configuration across a Linux fleet](/solutions/compliance/ssh_baseline/)
+walks through writing a Chef InSpec profile, running it against your servers,
+reading the findings, and recording an approved exception ---
+with the commands and output at each step.
+
+{{< /note >}}
+
 ## Compliance challenges Chef helps solve
 
 Compliance work gets harder as a fleet grows, and it gets harder in specific, recognizable ways.
@@ -118,18 +128,20 @@ or existing ones are updated.
 
 **Installing.**
 Content arrives as a single tar file containing the profiles or cookbooks for
-a benchmark. Untar it, then either upload the contents to Chef Automate so
+a benchmark. Extract it, then either upload the contents to Chef Automate so
 they're available to scan jobs and the Compliance Phase, or run them directly
 with Chef InSpec.
 
-**Reaching a successful outcome.**
-Audit and remediation content are built from the same benchmark, and
-installing them is only the starting point --- together they close the loop.
-Audit content detects where a system doesn't meet a requirement and
-benchmarks define exactly what's expected; remediation content corrects the
-configuration behind that gap. Used together, provisioning and installing
-this content gets you a complete solution: detect the gap, understand what
-the benchmark requires, and fix it --- not just a report of what's wrong.
+**After you install it.**
+Audit and remediation content for a benchmark are built from the same source,
+and they're meant to be used together:
+audit content detects where a system doesn't meet a requirement,
+and remediation content corrects the configuration behind it.
+Run the audit content first to establish where you stand,
+apply remediation where coverage exists,
+then run the audit content again to confirm the change.
+[How audit and remediation work together](#how-audit-and-remediation-work-together)
+covers that sequence, and the coverage tables show which benchmarks have both.
 
 ## Compliance audit
 
@@ -340,6 +352,15 @@ which is why the two are used together and why neither replaces the other.
 
 ## Common compliance scenarios
 
+Each scenario below names the problem, the approach, and where to start.
+
+If you haven't run Chef InSpec before,
+[Audit SSH configuration across a Linux fleet](/solutions/compliance/ssh_baseline/)
+is the one end-to-end walkthrough in this section.
+It covers authoring a profile, running it, reading results, and recording an exception.
+Those mechanics are the same whichever scenario you're working on,
+so it's worth doing once even if your actual problem is elsewhere.
+
 ### Assess a Linux fleet against CIS Benchmarks
 
 **The problem.**
@@ -353,12 +374,19 @@ On nodes already managed by Chef,
 turn on the Compliance Phase so the assessment runs as part of the Chef Infra Client run.
 Send results to [Chef Automate](/automate/).
 
-**The outcome.**
-One view of every Linux system, grouped by node, profile, and control,
-showing which CIS requirements pass and which don't ---
-and which failures are fleet-wide, not isolated.
+**Start here.**
 
-See [Operating Systems](/solutions/compliance/operating_systems/) for current coverage.
+1. Confirm the benchmark versions you need are covered, in
+   [Operating Systems](/solutions/compliance/operating_systems/).
+1. Install the profiles from the
+   [Chef Automate Profiles page](/automate/profiles/).
+1. Run one assessment by hand before scaling up, so you can read the output and
+   recognize a real finding ---
+   [the SSH walkthrough](/solutions/compliance/ssh_baseline/) covers this with core resources.
+1. Turn on the [Compliance Phase](/client/latest/features/chef_compliance_phase/)
+   so assessment runs as part of each Chef Infra Client run.
+1. Review results by node, profile, and control in
+   [compliance reporting](/automate/reports/).
 
 ### Assess Windows environments against security baselines
 
@@ -371,12 +399,25 @@ Use the profiles built on the CIS Benchmark or DISA STIG for each Windows versio
 Assess through the Compliance Phase on managed nodes,
 or with Chef Automate scan jobs where nodes aren't managed by Chef Infra Client.
 
-**The outcome.**
-A per-release view of baseline conformance, filterable by platform and environment,
-so a 2016 finding isn't conflated with a 2022 finding.
+**Start here.**
 
-See [Operating Systems](/solutions/compliance/operating_systems/) and
-[Desktop / Client](/solutions/compliance/desktop_client/) for current coverage.
+1. Find your Server releases in [Operating Systems](/solutions/compliance/operating_systems/)
+   and your client builds in [Desktop / Client](/solutions/compliance/desktop_client/).
+   Each release has its own benchmark, so check them separately.
+1. Install the matching profiles from the
+   [Chef Automate Profiles page](/automate/profiles/).
+1. For nodes running Chef Infra Client, turn on the
+   [Compliance Phase](/client/latest/features/chef_compliance_phase/).
+1. For nodes without an agent, add
+   [node credentials](/automate/node_credentials/) for WinRM,
+   then create a [scan job](/automate/scan_jobs/).
+1. Filter reporting by platform so a 2016 finding isn't conflated with a 2022 finding.
+
+There's no Windows-specific walkthrough yet.
+The [SSH walkthrough](/solutions/compliance/ssh_baseline/) teaches the same
+`inspec exec`, results, and waiver mechanics;
+for Windows targets, use a `winrm://` target instead of `ssh://`,
+as described in the [Chef InSpec CLI reference](/inspec/latest/reference/cli/).
 
 ### Find compliance gaps in databases
 
@@ -392,11 +433,22 @@ so assessment doesn't depend on inspecting configuration files alone.
 Use deep filtering in Chef Automate to report on one database profile,
 or one control within it.
 
-**The outcome.**
-Database compliance reported the same way as everything else, in the same place,
-instead of as a separate exercise.
+**Start here.**
 
-See [Databases](/solutions/compliance/databases/) for current coverage.
+1. Check which database benchmarks are covered in
+   [Databases](/solutions/compliance/databases/).
+1. Install the matching profiles from the
+   [Chef Automate Profiles page](/automate/profiles/).
+1. Where a requirement depends on data rather than a configuration file,
+   query the running instance directly with a session resource such as
+   [`postgres_session`](/inspec/latest/resources/core/postgres_session/),
+   [`mysql_session`](/inspec/latest/resources/core/mysql_session/), or
+   [`oracledb_session`](/inspec/latest/resources/core/oracledb_session/).
+   These need an account on the database with permission to run the query.
+1. For requirements no published benchmark covers, write your own controls ---
+   see [Build custom compliance checks with Chef InSpec](/solutions/compliance/extend/).
+1. Use deep filtering in [compliance reporting](/automate/reports/)
+   to report on one database profile, or one control within it.
 
 ### Address controls that keep failing across your fleet
 
@@ -413,9 +465,20 @@ then reassess with the same audit content to confirm the result.
 Re-running on a schedule holds the configuration,
 because Chef Infra Client acts only where a system has drifted.
 
-**The outcome.**
-Repeated failures handled once, as a class, instead of many times as individual incidents,
-with a dated record showing when they stopped failing.
+**Start here.**
+
+1. Open the top control failures view in [compliance reporting](/automate/reports/)
+   to see which requirements account for the most failures across your fleet.
+1. Check whether remediation content covers that benchmark, in
+   [supported compliance standards and platforms](#supported-compliance-standards-and-platforms).
+   Remediation coverage is narrower than audit coverage.
+1. Where it's covered, apply the remediation content as you would any cookbook ---
+   see [compliance remediation](#compliance-remediation).
+1. Reassess with the same audit content and confirm the control now passes.
+   [Step 6 of the SSH walkthrough](/solutions/compliance/ssh_baseline/#step-6-fix-the-finding-and-reassess)
+   shows this fix-and-reassess loop on a single control.
+1. Where a failure is accepted rather than fixed, record it as a waiver
+   so it reports as a documented exception instead of an unexplained failure.
 
 ### Maintain compliance across a mixed fleet
 
@@ -430,10 +493,22 @@ and [Chef Automate scan jobs](/automate/scan_jobs/) for cloud accounts and syste
 Schedule scans to recur.
 Report everything into the same place.
 
-**The outcome.**
-Heterogeneity stops being a reporting problem.
-Scheduled cloud scans re-query the provider on each run,
-so newly created instances are assessed without anyone having to remember to add them.
+**Start here.**
+
+1. Work out what you're covering for each class of system, using the
+   [category pages](#supported-compliance-standards-and-platforms).
+1. For nodes running Chef Infra Client, turn on the
+   [Compliance Phase](/client/latest/features/chef_compliance_phase/).
+1. For cloud accounts and systems without an agent, add
+   [node credentials](/automate/node_credentials/),
+   then create [scan jobs](/automate/scan_jobs/) and set them to recur.
+   Scheduled cloud scans re-query the provider on each run,
+   so newly created instances are assessed without anyone adding them by hand.
+1. For cloud accounts, Kubernetes clusters, and container runtimes,
+   the resources you write controls against come from resource packs ---
+   see [Build custom compliance checks with Chef InSpec](/solutions/compliance/extend/).
+1. Report everything into [compliance reporting](/automate/reports/)
+   so results from every class of system land in the same place.
 
 ### Prepare for a compliance assessment
 
@@ -448,9 +523,18 @@ and download the results as JSON or CSV.
 Make sure accepted failures are recorded as waivers
 instead of left as unexplained failures.
 
-**The outcome.**
-Evidence assembled from assessment results, not from memory:
-dated, filtered to scope, exportable, and showing both results and accepted exceptions.
+**Start here.**
+
+1. Record accepted failures as waivers before the assessment, not during it.
+   A waiver carries a justification and an expiration date into the report ---
+   see [Step 7 of the SSH walkthrough](/solutions/compliance/ssh_baseline/#step-7-waive-an-exception-youve-accepted)
+   for a working example, and the
+   [waivers reference](/inspec/latest/configure/waivers/) for the full file format.
+1. Filter [compliance reporting](/automate/reports/) to the systems and benchmarks in scope,
+   and select the reporting date you need.
+1. Export the filtered results as JSON or CSV to hand over.
+1. Check that every failing control in scope is either remediated or waived,
+   so there's nothing in the report you can't account for.
 
 ## Supported compliance standards and platforms
 
@@ -513,7 +597,10 @@ Install profiles from the [Chef Automate Profiles page](/automate/profiles/),
 or upload your own.
 
 **Run your first assessment.**
-Turn on the Compliance Phase on managed nodes,
+Work through
+[Audit SSH configuration across a Linux fleet](/solutions/compliance/ssh_baseline/)
+to write and run a profile from the command line.
+To assess at scale, turn on the Compliance Phase on managed nodes,
 or create a [scan job](/automate/scan_jobs/) in Chef Automate for nodes and cloud accounts.
 Set up [node credentials](/automate/node_credentials/) first
 if you're scanning systems that aren't managed by Chef Infra Client.

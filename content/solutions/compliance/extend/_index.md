@@ -16,7 +16,13 @@ or a control specific to your organization ---
 you can write your own checks with Chef InSpec.
 
 This page explains what you build those checks from,
+how to add a resource pack to a profile,
 and how custom checks relate to the benchmark coverage in the rest of this section.
+
+If you haven't written a profile before, start with
+[Audit SSH configuration across a Linux fleet](/solutions/compliance/ssh_baseline/),
+which walks through authoring and running one end to end using core resources.
+This page picks up where that leaves off: checking technologies that need a resource pack.
 
 ## Choose between prebuilt content and custom checks
 
@@ -94,21 +100,105 @@ and others provide a small number of resources for specific configuration.
 Check the pack's documentation for the resources you need
 before you plan work around it.
 
-## Use a resource pack in a profile
+## Add a resource pack to a profile
 
-To use a resource pack, add it as a dependency in your profile's `inspec.yml`,
-then write controls against the resources it provides.
-Each pack's documentation gives the exact dependency entry to use.
+Resource packs are distributed in three ways, and the one you're using
+determines how you add it.
+Each pack's documentation states which applies.
 
-As of Chef InSpec 7, some packs are distributed as separate Ruby gems.
-The Docker resource pack, for example, is distributed as `inspec-docker-resources`.
+### Cloud packs: Generate a profile for the platform
 
-Resource packs that inspect a remote API, such as the cloud packs,
-need credentials for the account or subscription you're assessing.
-The pack's documentation describes what it expects.
+The AWS, Azure, and GCP packs are wired up by `inspec init profile`.
+Pass `--platform` and you get a profile already configured for that cloud:
 
-For profile structure, dependencies, and authoring syntax, see the
-[Chef InSpec documentation](/inspec/latest/).
+```bash
+inspec init profile --platform aws my-aws-profile
+```
+
+Chef InSpec uses the cloud provider's standard authentication.
+For AWS, set credentials as environment variables:
+
+```bash
+export AWS_REGION=us-east-1
+export AWS_ACCESS_KEY_ID=<YOUR_ACCESS_KEY_ID>
+export AWS_SECRET_ACCESS_KEY=<YOUR_SECRET_ACCESS_KEY>
+```
+
+Confirm Chef InSpec can reach the account before you write any controls:
+
+```bash
+inspec detect -t aws://
+```
+
+```text
+== Platform Details
+Name: aws
+Families: cloud, api
+Release: aws-sdk-v2.10.125
+```
+
+Then write controls against the pack's resources.
+This one checks that a bucket isn't exposed publicly:
+
+```ruby
+control 'aws-s3-01' do
+  impact 'critical'
+  title 'Ensure the audit log bucket is not public'
+
+  describe aws_s3_bucket('audit-logs-example') do
+    it { should exist }
+    it { should_not be_public }
+  end
+end
+```
+
+Run it against the account rather than a host:
+
+```bash
+inspec exec my-aws-profile -t aws://
+```
+
+The target is the cloud account, not a machine, so there's nothing to connect to over SSH.
+Use an account with read-only permissions ---
+for AWS, the managed `ReadOnlyAccess` policy is a reasonable starting point.
+
+### Packs distributed as an archive: Add a `depends` entry
+
+The Kubernetes pack is added as a dependency in `inspec.yml`,
+along with the platform it supports:
+
+```yaml
+supports:
+  platform: k8s
+depends:
+  - name: inspec-k8s
+    url: https://github.com/inspec/inspec-k8s/archive/main.tar.gz
+```
+
+Chef InSpec reads your `KUBECONFIG` environment variable or `~/.kube/config`
+to find the cluster, then you run against the cluster as the target:
+
+```bash
+inspec exec my-k8s-profile -t k8s://
+```
+
+### Packs distributed as a gem: Depend on the gem
+
+Starting in Chef InSpec 7, some resources that used to ship in core are released
+as separate Ruby gems.
+The Docker resources are one example:
+
+```yaml
+depends:
+  - name: inspec-docker-resources
+    gem: inspec-docker-resources
+```
+
+If you upgrade to Chef InSpec 7 and controls that used `docker_container`
+suddenly fail to resolve, a missing dependency entry like this is the reason.
+
+Check the pack's own documentation for the exact entry to use ---
+these three patterns aren't interchangeable.
 
 ## Core resources
 
@@ -116,6 +206,23 @@ Core resources cover operating systems, databases, web servers, and host network
 and they're what most prebuilt benchmark content is built on.
 If you're writing checks for a server, a desktop, a web server,
 or a relational database, start with core resources rather than a pack.
+
+They need no dependency entry and no credentials beyond access to the target:
+
+```ruby
+describe package('openssh-server') do
+  it { should be_installed }
+end
+
+describe service('sshd') do
+  it { should be_enabled }
+  it { should be_running }
+end
+
+describe port(22) do
+  it { should be_listening }
+end
+```
 
 For the full list, see the
 [Chef InSpec resource documentation](/inspec/latest/resources/).
@@ -137,6 +244,7 @@ For the full list, see the
 
 ## Related
 
+- [Audit SSH configuration across a Linux fleet](/solutions/compliance/ssh_baseline/)
 - [Compliance solution overview](/solutions/compliance/)
 - [Compliance audit](/solutions/compliance/#compliance-audit)
 - [Supported compliance standards and platforms](/solutions/compliance/#supported-compliance-standards-and-platforms)
