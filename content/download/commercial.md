@@ -142,34 +142,6 @@ Retrieve metadata with a download URL from the `/files` endpoint:
 https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/metadata?p=<PLATFORM>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&v=<PRODUCT_VERSION>&license_id=<LICENSE_ID>&direct=true
 ```
 
-#### Verify a package checksum
-
-The `metadata` endpoint returns JSON with the package's `sha1` and `sha256` checksums, the `url` to download the package, and its `version`:
-
-```json
-{
-  "sha1": "<SHA1_CHECKSUM>",
-  "sha256": "<SHA256_CHECKSUM>",
-  "url": "https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/download?eol=false&license_id=<LICENSE_ID>&m=<ARCHITECTURE>&p=<PLATFORM>&pm=<PACKAGE_MANAGER>&v=<PRODUCT_VERSION>",
-  "version": "<PRODUCT_VERSION>"
-}
-```
-
-The checksums apply to the package that the `url` value points to. To match a checksum to an artifact, use the same `p`, `pm`, `m`, and `v` values in the `metadata` and `download` requests. The `url` value uses the `download` endpoint, or the `/files` endpoint if you set `direct=true`. Both URLs return the same package.
-
-For example, to download a Chef Infra Client 19 `.deb` package and verify it:
-
-```bash
-BASE="https://chefdownload-commercial.chef.io/stable/chef-ice"
-QUERY="p=linux&pm=deb&m=x86_64&v=<VERSION>&license_id=<LICENSE_ID>"
-
-curl -o chef-ice.deb "$BASE/download?eol=false&$QUERY"
-EXPECTED=$(curl -s "$BASE/metadata?$QUERY" | jq -r .sha256)
-echo "$EXPECTED  chef-ice.deb" | sha256sum -c -
-```
-
-On macOS, use `shasum -a 256 -c -` instead of `sha256sum -c -`.
-
 ### download
 
 The `download` endpoint downloads a particular package of a Chef product.
@@ -447,3 +419,38 @@ To download a specific package format, add the optional `pm=<PACKAGE_MANAGER>` p
 ```bash
 wget --content-disposition https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM>&pm=<PACKAGE_MANAGER>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&license_id=<LICENSE_ID>
 ```
+
+### Verify a package checksum
+
+You can use the `metadata` endpoint to verify a package's checksum.
+
+The `metadata` endpoint returns JSON with the package's `sha1` and `sha256` checksums, the `url` to download the package, and its `version`, for example:
+
+```json
+{
+  "sha1": "<SHA1_CHECKSUM>",
+  "sha256": "<SHA256_CHECKSUM>",
+  "url": "https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/download?eol=false&license_id=<LICENSE_ID>&m=<ARCHITECTURE>&p=<PLATFORM>&pm=<PACKAGE_MANAGER>&v=<PRODUCT_VERSION>",
+  "version": "<PRODUCT_VERSION>"
+}
+```
+
+To download a Chef Infra Client 19 `.deb` package and verify it, create a shell script with the following content:
+
+```shell
+BASE="https://chefdownload-commercial.chef.io/stable/chef-ice"
+QUERY="p=linux&pm=deb&m=x86_64&v=<VERSION>&license_id=<LICENSE_ID>"
+
+curl -o chef-ice.deb "$BASE/download?eol=false&$QUERY"
+EXPECTED=$(curl -s "$BASE/metadata?$QUERY" | jq -r .sha256)
+echo "$EXPECTED  chef-ice.deb" | sha256sum -c -
+```
+
+{{< note >}}
+
+On macOS, use `shasum -a 256 -c -` instead of `sha256sum -c -`.
+
+{{< /note >}}
+
+The checksums apply to the package that the `url` value points to. To match a checksum to an artifact, use the same `p`, `pm`, `m`, and `v` values in the `metadata` and `download` requests. The `url` value uses the `download` endpoint, or the `/files` endpoint if you set `direct=true`. Both URLs return the same package.
+
