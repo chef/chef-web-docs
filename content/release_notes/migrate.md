@@ -23,8 +23,8 @@ Release date: October 19, 2026
 
 ### Bug fixes
 
-- Fixed an issue where the `/usr/local/bin/hab` symlink wasn't recreated after removal. A pre-existing Habitat installation was left with a dangling link, and `hab` returned "command not found" after migration.
-- Fixed an issue where Chef Infra Client failed to start on Windows because `hab.exe` wasn't on `PATH`. Chef Migrate now binlinks the `hab` package into `C:\hab\bin`. This also fixes upgrades being silently skipped.
+- The migration tool now recreates the `/usr/local/bin/hab` symlink after removal. Before this fix, it left an existing Chef Habitat installation with a dangling link, causing `hab` to return "command not found" after migration.
+- Chef Migrate now binlinks the `hab` package into `C:\hab\bin`, so Chef Infra Client starts on Windows. Before this fix, `hab.exe` wasn't on `PATH`, so Chef Infra Client couldn't start and Chef Migrate skipped upgrades without reporting the issue.
 
 ## Chef Migrate 1.2.33
 
