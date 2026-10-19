@@ -13,6 +13,19 @@ summary = "Chef Migrate release notes"
     weight = 110
 +++
 
+## Chef Migrate 1.2.40
+
+Release date: October 19, 2026
+
+### New features
+
+- Adds support for macOS on ARM64 (Apple silicon, `aarch64`) systems.
+
+### Bug fixes
+
+- The migration tool now recreates the `/usr/local/bin/hab` symlink after removal. Before this fix, it left an existing Chef Habitat installation with a dangling link, causing `hab` to return "command not found" after migration.
+- Chef Migrate now binlinks the `hab` package into `C:\hab\bin`, so Chef Infra Client starts on Windows. Before this fix, `hab.exe` wasn't on `PATH`, so Chef Infra Client couldn't start and Chef Migrate skipped upgrades without reporting the issue.
+
 ## Chef Migrate 1.2.33
 
 Release date: May 22, 2026
