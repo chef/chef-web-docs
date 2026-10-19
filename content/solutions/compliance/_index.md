@@ -104,6 +104,33 @@ The assessment is what proves the correction worked.
 **Maintain visibility.**
 Repeat on a schedule, so drift shows up as a control that starts failing again.
 
+## Getting Chef Compliance content
+
+Audit profiles and remediation cookbooks reach your systems through the same
+two steps, whether you're setting up your first benchmark or adding coverage
+for a platform you just brought into the fleet.
+
+**Provisioning.**
+Content is provisioned through Chef Automate, where published profiles are
+available to install directly, or through Chef's content delivery email,
+which notifies you and provides the package as new benchmarks are published
+or existing ones are updated.
+
+**Installing.**
+Content arrives as a single tar file containing the profiles or cookbooks for
+a benchmark. Untar it, then either upload the contents to Chef Automate so
+they're available to scan jobs and the Compliance Phase, or run them directly
+with Chef InSpec.
+
+**Reaching a successful outcome.**
+Audit and remediation content are built from the same benchmark, and
+installing them is only the starting point --- together they close the loop.
+Audit content detects where a system doesn't meet a requirement and
+benchmarks define exactly what's expected; remediation content corrects the
+configuration behind that gap. Used together, provisioning and installing
+this content gets you a complete solution: detect the gap, understand what
+the benchmark requires, and fix it --- not just a report of what's wrong.
+
 ## Compliance audit
 
 A compliance audit determines whether your systems meet the requirements of a benchmark,
