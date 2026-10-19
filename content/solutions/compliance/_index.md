@@ -356,7 +356,7 @@ Each scenario below names the problem, the approach, and where to start.
 
 If you haven't run Chef InSpec before,
 [Audit SSH configuration across a Linux fleet](/solutions/compliance/ssh_baseline/)
-is the one end-to-end walkthrough in this section.
+is the one end-to-end guide in this section.
 It covers authoring a profile, running it, reading results, and recording an exception.
 Those mechanics are the same whichever scenario you're working on,
 so it's worth doing once even if your actual problem is elsewhere.
@@ -382,7 +382,7 @@ Send results to [Chef Automate](/automate/).
    [Chef Automate Profiles page](/automate/profiles/).
 1. Run one assessment by hand before scaling up, so you can read the output and
    recognize a real finding ---
-   [the SSH walkthrough](/solutions/compliance/ssh_baseline/) covers this with core resources.
+   [the SSH guide](/solutions/compliance/ssh_baseline/) covers this with core resources.
 1. Turn on the [Compliance Phase](/client/latest/features/chef_compliance_phase/)
    so assessment runs as part of each Chef Infra Client run.
 1. Review results by node, profile, and control in
@@ -413,8 +413,8 @@ or with Chef Automate scan jobs where nodes aren't managed by Chef Infra Client.
    then create a [scan job](/automate/scan_jobs/).
 1. Filter reporting by platform so a 2016 finding isn't conflated with a 2022 finding.
 
-There's no Windows-specific walkthrough yet.
-The [SSH walkthrough](/solutions/compliance/ssh_baseline/) teaches the same
+There's no Windows-specific guide yet.
+The [SSH guide](/solutions/compliance/ssh_baseline/) teaches the same
 `inspec exec`, results, and waiver mechanics;
 for Windows targets, use a `winrm://` target instead of `ssh://`,
 as described in the [Chef InSpec CLI reference](/inspec/latest/reference/cli/).
@@ -475,7 +475,7 @@ because Chef Infra Client acts only where a system has drifted.
 1. Where it's covered, apply the remediation content as you would any cookbook ---
    see [compliance remediation](#compliance-remediation).
 1. Reassess with the same audit content and confirm the control now passes.
-   [Step 6 of the SSH walkthrough](/solutions/compliance/ssh_baseline/#step-6-fix-the-finding-and-reassess)
+   [Step 6 of the SSH guide](/solutions/compliance/ssh_baseline/#step-6-fix-the-finding-and-reassess)
    shows this fix-and-reassess loop on a single control.
 1. Where a failure is accepted rather than fixed, record it as a waiver
    so it reports as a documented exception instead of an unexplained failure.
@@ -527,7 +527,7 @@ instead of left as unexplained failures.
 
 1. Record accepted failures as waivers before the assessment, not during it.
    A waiver carries a justification and an expiration date into the report ---
-   see [Step 7 of the SSH walkthrough](/solutions/compliance/ssh_baseline/#step-7-waive-an-exception-youve-accepted)
+   see [Step 7 of the SSH guide](/solutions/compliance/ssh_baseline/#step-7-waive-an-exception-youve-accepted)
    for a working example, and the
    [waivers reference](/inspec/latest/configure/waivers/) for the full file format.
 1. Filter [compliance reporting](/automate/reports/) to the systems and benchmarks in scope,
