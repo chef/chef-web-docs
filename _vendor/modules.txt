@@ -8,7 +8,7 @@
 # github.com/chef/compliance-remediation-2022/docs-chef-io v0.0.0-20261014115514-0291d51f0b4b
 # github.com/chef/license-service/docs-chef-io v0.0.0-20250120051510-ae1de80f4621
 # github.com/chef/samples v0.0.0-20250424163637-3393187e624c
-# github.com/chef/chef-docs-theme v0.0.0-20261019221119-e70cf6a0e68d
+# github.com/chef/chef-docs-theme v0.0.0-20261020122627-4bb0684ec9e5
 # github.com/FortAwesome/Font-Awesome v0.0.0-20240108205627-a1232e345536
 # github.com/cowboy/jquery-hashchange v0.0.0-20100902193700-0310f3847f90
 # github.com/twitter/hogan.js v3.0.2+incompatible

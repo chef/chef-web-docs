@@ -1,6 +1,9 @@
 # Keep lockfile-first behavior as the default for pnpm installs
 preferFrozenLockfile: true
 
+# Preserve registry-specific download paths instead of deriving tarball URLs.
+lockfileIncludeTarballUrl: true
+
 # Two-week dependency cooldown (minutes; 20160 = 14 days)
 minimumReleaseAge: 20160
 

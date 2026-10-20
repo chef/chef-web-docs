@@ -76,7 +76,7 @@ The Chef Documentation website is built using:
 
 - [Hugo](https://gohugo.io/) 0.142.0 or higher
 - [Node](https://www.nodejs.com) 22.0.0 or higher
-- [pnpm](https://pnpm.io/) 11.7.0 or higher
+- [pnpm](https://pnpm.io/) 11.7.0, pinned in [`package.json`](package.json) and [`package.hugo.json`](package.hugo.json)
 - [Go](https://golang.org/dl/) 1.22 or higher
 - [Dart Sass](https://sass-lang.com/dart-sass/) 2.7.1
 
@@ -241,8 +241,12 @@ The theme for this site is sourced from [chef/chef-docs-theme](https://github.co
 The [Makefile](Makefile) provides commands to update the theme and synchronize its packages:
 
 - `make update_theme` updates the theme module version, then runs `make update_packages` to rebuild vendored content and synchronize packages.
-- `make update_packages` rebuilds vendored content, regenerates `package.json` from the selected modules, installs Node packages, updates transitive dependencies, and validates the final lockfile with `pnpm install --frozen-lockfile`.
+- `make update_packages` rebuilds vendored content, regenerates `package.json` from the selected modules, and rebuilds `pnpm-lock.yaml` from fresh resolutions using the required Harness registry.
+  It updates packages within the theme's declared ranges, records explicit tarball URLs, and validates the final lockfile with a clean `pnpm install --frozen-lockfile`.
   It doesn't fetch a newer theme version.
+- `make update_transitive_deps` rebuilds transitive dependency resolutions while preserving installed direct dependency versions and the original `package.json`.
+  It requires an existing installation and lockfile, verifies that direct versions remain unchanged, and validates a clean frozen install.
+  If it fails, it restores the original manifest and lockfile.
 
 To update the theme and synchronize its packages, run:
 
@@ -259,7 +263,18 @@ make update_packages
 
 Replace `<THEME_REF>` with the branch name, tag, or commit SHA.
 Run `make update_packages` on its own to synchronize packages for the theme version already selected in `go.mod`.
-Both commands replace `_vendor` and `node_modules`, so save any local changes in those directories before running either command.
+Both commands replace `_vendor`, `node_modules`, and `pnpm-lock.yaml`, so save any local changes before running either command.
+Review dependency version, integrity, and tarball URL changes before committing.
+Both package update targets resolve dependencies with a temporary empty metadata cache.
+The final frozen install uses a separate empty cache to check the lockfile against current registry metadata without reusing cached policy results.
+The targets remove these temporary caches when they exit and leave your shared pnpm cache intact.
+
+Use pnpm 11.7.0 locally to match GitHub Actions and Netlify.
+When changing this version, update `package.json`, `package.hugo.json`, and `PNPM_VERSION` in [`netlify.toml`](netlify.toml) together.
+
+If an install reports `ERR_PNPM_TARBALL_URL_MISMATCH`, inspect the lockfile changes and registry metadata before rebuilding.
+After confirming that the changes are expected, run `make update_packages` to rebuild the lockfile.
+Don't bypass the required registry or disable supply-chain policies to make an install pass.
 
 ### Update theme Javascript dependencies
 
@@ -280,7 +295,9 @@ To update first-level Node dependencies:
 
 To update transitive Node dependencies in this repo:
 
-1. Run `pnpm update`.
+1. Run `pnpm install --frozen-lockfile` if you haven't installed the current dependencies.
+1. Run `make update_transitive_deps`.
+   This command replaces `node_modules`, so save any local changes in that directory first.
 1. Commit the updated `pnpm-lock.yaml` file.
 
 #### Javascript dependencies imported with Hugo

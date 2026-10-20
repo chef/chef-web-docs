@@ -4,6 +4,7 @@
 [build.environment]
   HUGO_ENABLEGITINFO = "true"
   NODE_VERSION = "22"
+  PNPM_VERSION = "11.7.0"
 
 [build.processing]
   skip_processing = true
