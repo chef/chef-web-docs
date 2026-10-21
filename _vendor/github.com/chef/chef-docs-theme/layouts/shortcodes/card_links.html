@@ -19,6 +19,11 @@
     {{< /card_links >}}
 */ -}}
 {{- $page := .Page -}}
+{{- $link := .Get "link" | default "#" -}}
+{{- $url := urls.Parse $link -}}
+{{- if and (not $url.IsAbs) (not $url.Host) $url.Path -}}
+  {{- $link = strings.TrimPrefix "/" $link | relURL -}}
+{{- end -}}
 {{- $iconClass := "material-symbols-outlined" -}}
 {{- if eq (printf "%v" (.Get "icon_filled")) "true" -}}
   {{- $iconClass = "material-symbols-outlined icon-filled" -}}
@@ -33,7 +38,7 @@
 {{- $large := div 12 $columns -}}
 <div class="cell small-12 medium-6 xlarge-{{ $large }}">
   <div class="grid-cell card-cell card-cell-list">
-    <h3><a href="{{ .Get "link" | default "#" }}"{{ with .Get "target" }} target="{{ . }}"{{ end }}>{{ with .Get "icon" }}<span class="{{ $iconClass }}" aria-hidden="true" translate="no">{{ . }}</span>{{ end }}{{ .Get "title" }}</a></h3>
+    <h3><a href="{{ $link }}"{{ with .Get "target" }} target="{{ . }}"{{ end }}>{{ with .Get "icon" }}<span class="{{ $iconClass }}" aria-hidden="true" translate="no">{{ . }}</span>{{ end }}{{ .Get "title" }}</a></h3>
     {{- with .Get "description" }}
     <p class="card-description">{{ $page.RenderString . }}</p>
     {{- end }}

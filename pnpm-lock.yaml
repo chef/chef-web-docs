@@ -23,8 +23,8 @@ importers:
 
 packages:
 
-  '@babel/runtime@7.29.7':
-    resolution: {integrity: sha512-Nq8OhGWiZIZGV6hLHoyAKLLcJihP/xFeBMGJoUrxTX2psI8dCifzLhZISFb+VWS3wFMRDmCGw5R+dOySCqPLhw==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/@babel/runtime/-/runtime-7.29.7.tgz}
+  '@babel/runtime@7.29.10':
+    resolution: {integrity: sha512-NpugTzbKgGrNe45Ui32cN8vCFFMxVtP/9rtfwv0nP5FRDAjvYBxJcLVpYA9mr1jxP6cnIT7x9LUzuDTbWYYNRA==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/@babel/runtime/-/runtime-7.29.10.tgz}
     engines: {node: '>=6.9.0'}
 
   '@bufbuild/protobuf@2.16.0':
@@ -726,7 +726,7 @@ packages:
 
 snapshots:
 
-  '@babel/runtime@7.29.7': {}
+  '@babel/runtime@7.29.10': {}
 
   '@bufbuild/protobuf@2.16.0': {}
 
@@ -1070,7 +1070,7 @@ snapshots:
 
   polished@4.3.1:
     dependencies:
-      '@babel/runtime': 7.29.7
+      '@babel/runtime': 7.29.10
 
   prismjs@1.30.0: {}
 

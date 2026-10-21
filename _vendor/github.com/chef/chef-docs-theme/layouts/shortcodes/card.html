@@ -19,6 +19,11 @@
     {{< card title="Legacy tool" link="/legacy_tool/" icon="warning" badge="Deprecated" >}}
 */ -}}
 {{- $page := .Page -}}
+{{- $link := .Get "link" | default "#" -}}
+{{- $url := urls.Parse $link -}}
+{{- if and (not $url.IsAbs) (not $url.Host) $url.Path -}}
+  {{- $link = strings.TrimPrefix "/" $link | relURL -}}
+{{- end -}}
 {{- $iconClass := "material-symbols-outlined" -}}
 {{- if eq (printf "%v" (.Get "icon_filled")) "true" -}}
   {{- $iconClass = "material-symbols-outlined icon-filled" -}}
@@ -36,7 +41,7 @@
   {{- errorf "card shortcode: badge_level %q must be one of note, warning, danger (%s)" $badgeLevel $page.File.Filename -}}
 {{- end -}}
 <div class="cell small-12 medium-6 xlarge-{{ $large }}">
-  <a class="grid-cell card-cell" href="{{ .Get "link" | default "#" }}"{{ with .Get "target" }} target="{{ . }}"{{ end }}>
+  <a class="grid-cell card-cell" href="{{ $link }}"{{ with .Get "target" }} target="{{ . }}"{{ end }}>
     <h3>
       <span class="card-title">{{- with .Get "icon" }}<span class="{{ $iconClass }}" aria-hidden="true" translate="no">{{ . }}</span>{{ end }}{{ .Get "title" }}</span>
       {{- with .Get "badge" }}<span class="admonition-{{ $badgeLevel }}-title card-badge">{{ . }}</span>{{ end -}}
