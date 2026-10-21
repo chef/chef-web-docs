@@ -1112,28 +1112,28 @@ identifier = "chef_cloud"
       title = "Install CLIs"
       identifier = "chef_cloud/360/get_started/cli"
       parent = "chef_cloud/360/get_started"
-      url = "/360/latest/get_started/install_cli"
+      url = "/360/latest/get_started/initial_setup/configure_workstation/"
       weight = 40
 
       [[cloud]]
       title = "Node management settings"
       identifier = "chef_cloud/360/get_started/node settings"
       parent = "chef_cloud/360/get_started"
-      url = "/360/latest/get_started/node_management_settings/"
+      url = "/360/latest/use/operators/node_management/default_settings/"
       weight = 50
 
       [[cloud]]
       title = "Enroll nodes"
       identifier = "chef_cloud/360/get_started/enroll_nodes"
       parent = "chef_cloud/360/get_started"
-      url = "/360/latest/get_started/enroll_nodes/"
+      url = "/360/latest/use/operators/node_enrollment/"
       weight = 100
 
       [[cloud]]
       title = "Run Courier jobs"
       identifier = "chef_cloud/360/get_started/jobs"
       parent = "chef_cloud/360/get_started"
-      url = "/360/latest/get_started/jobs/"
+      url = "/360/latest/use/operators/job_execution/"
       weight = 110
 
     [[cloud]]

@@ -100,28 +100,43 @@
   status = 301
 
 [[redirects]]
-  from = "/360/latest/administration/"
+  from = "/360/latest/administration/*"
   to = "/360/1.7/use/administrators/"
   status = 301
 
 [[redirects]]
-  from = "/360/latest/courier/"
+  from = "/360/latest/courier/*"
   to = "/360/1.7/use/operators/job_execution/"
   status = 301
 
 [[redirects]]
-  from = "/360/latest/node_management/"
+  from = "/360/latest/node_management/*"
   to = "/360/1.7/use/operators/node_management/"
   status = 301
 
 [[redirects]]
-  from = "/360/latest/dsm/"
+  from = "/360/latest/dsm/auth"
+  to = "/360/1.7/use/operators/dsm_operations/dsm_authentication/"
+  status = 301
+
+[[redirects]]
+  from = "/360/latest/dsm/*"
   to = "/360/1.7/use/operators/dsm_operations/"
   status = 301
 
 [[redirects]]
-  from = "/360/latest/opsmith/"
+  from = "/360/latest/opsmith/*"
   to = "/360/1.7/use/operators/opsmith/"
+  status = 301
+
+[[redirects]]
+  from = "/360/latest/chef_360_ui/tenant_management/"
+  to = "/360/1.7/use/administrators/tenants/manage_tenants/"
+  status = 301
+
+[[redirects]]
+  from = "/360/latest/chef_360_ui/download_centre/"
+  to = "/360/1.7/use/operators/download_centre/"
   status = 301
 
 [[redirects]]
