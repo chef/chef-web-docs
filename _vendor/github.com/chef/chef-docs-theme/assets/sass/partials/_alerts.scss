@@ -49,4 +49,25 @@
   &-danger {
     @include admonition($alert-color);
   }
+  // Contained callout (not full-width) so it reads as a notice about this
+  // page's content, not a site-wide banner. $black on $light-light-gray is
+  // ~19:1, well above the WCAG AA 4.5:1 minimum for text contrast.
+  &-outdated {
+    margin: 0 0 1.5rem;
+    padding: 0.75rem 1rem;
+    background-color: $light-light-gray;
+    border: 1px solid $border-dark;
+    border-radius: $border-radius-base;
+    color: $black;
+    font-size: 0.9rem;
+
+    p {
+      margin: 0;
+    }
+
+    a {
+      color: $blue-darkest;
+      text-decoration: underline;
+    }
+  }
 }

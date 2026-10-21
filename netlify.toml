@@ -4,6 +4,7 @@
 [build.environment]
   HUGO_ENABLEGITINFO = "true"
   NODE_VERSION = "22"
+  PNPM_VERSION = "11.7.0"
 
 [build.processing]
   skip_processing = true
@@ -92,6 +93,36 @@
   from = "/360/1.7/*"
   to = "https://release-1-7--chef-360.netlify.app/360/1.7/:splat"
   status = 200
+
+[[redirects]]
+  from = "/360/latest/chef_360_ui/organization_management/"
+  to = "/360/1.7/use/administrators/organizations/manage_organizational_units_ui/"
+  status = 301
+
+[[redirects]]
+  from = "/360/latest/administration/"
+  to = "/360/1.7/use/administrators/"
+  status = 301
+
+[[redirects]]
+  from = "/360/latest/courier/"
+  to = "/360/1.7/use/operators/job_execution/"
+  status = 301
+
+[[redirects]]
+  from = "/360/latest/node_management/"
+  to = "/360/1.7/use/operators/node_management/"
+  status = 301
+
+[[redirects]]
+  from = "/360/latest/dsm/"
+  to = "/360/1.7/use/operators/dsm_operations/"
+  status = 301
+
+[[redirects]]
+  from = "/360/latest/opsmith/"
+  to = "/360/1.7/use/operators/opsmith/"
+  status = 301
 
 [[redirects]]
   from = "/360/latest/*"

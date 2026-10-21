@@ -2,14 +2,15 @@
 {{ .Content }}
 
 {{ if eq .Params.list_pages true }}
-    <div class="grid-container">
+    <div class="grid-container card-grid">
         <div class="grid-x grid-margin-x grid-margin-y">
             {{ range .Pages.ByTitle }}
-            <div class="cell small-12 medium-6 large-4">
-                <a href="{{ .RelPermalink }}" class="grid-cell">
+            <div class="cell small-12 medium-6 xlarge-4">
+                <a href="{{ .RelPermalink }}" class="grid-cell card-cell">
                 <h2>{{ .LinkTitle }}</h2>
-                <hr>
-                <p>{{ .Summary | plainify | safeHTML | truncate 100 }}</p>
+                {{ $desc := (or .Summary .Params.description) | plainify }}
+                {{ $words := split $desc " " }}
+                <p class="card-description">{{ delimit (first 30 $words) " " }}{{ if gt (len $words) 30 }}&hellip;{{ end }}</p>
                 </a>
             </div>
             {{ end }}

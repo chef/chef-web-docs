@@ -7,14 +7,43 @@ h1, h2, h3, h4, h5, h6 {
   color: $header-color;
   line-height: $header-lineheight;
 
+  .heading-link {
+    position: relative;
+
+    // Confirms the clipboard copy visually; aria-label carries the same
+    // confirmation for screen readers (see chef-hugo.js).
+    &.is-copied::after {
+      content: "Copied!";
+      position: absolute;
+      left: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      margin-left: rem-calc(6);
+      padding: rem-calc(2) rem-calc(6);
+      font-size: rem-calc(12);
+      font-weight: $regular;
+      white-space: nowrap;
+      color: $white;
+      background-color: $slate;
+      border-radius: $border-radius-base;
+    }
+  }
+
   svg.svg-link {
+    // em-based so the icon scales with each heading level's own font-size
+    // (a fixed px size looked oversized next to h6 and small next to h2).
+    width: .75em;
+    height: .75em;
     margin-left: rem-calc(8);
-    opacity: 0.7;
+    // currentColor + $border-medium (~3.7:1 against white, meets the 3:1
+    // non-text contrast guideline) instead of a hardcoded low-contrast SVG
+    // fill recolored on hover via a brittle filter() chain.
+    color: $border-medium;
+    vertical-align: middle;
     transition: all 0.2s ease-in-out;
 
     &:hover {
-      opacity: 1;
-      filter: brightness(0) saturate(100%) invert(38%) sepia(99%) saturate(497%) hue-rotate(163deg) brightness(87%) contrast(79%);
+      color: $menu-item-color-active;
     }
   }
 }

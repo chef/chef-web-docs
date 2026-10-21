@@ -1,0 +1,10 @@
+{{- /*
+  Optional banner for pages documenting an older product version. Opt in via
+  front matter with the full Markdown text to display:
+    outdated_version_note = "This is documentation for an older version of X.  [the latest](url)."
+*/ -}}
+{{ with .Params.outdated_version_note }}
+<div class="admonition-outdated">
+  {{ . | $.RenderString }}
+</div>
+{{ end }}

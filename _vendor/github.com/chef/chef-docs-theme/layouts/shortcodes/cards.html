@@ -1,0 +1,20 @@
+{{- /*
+  Renders a responsive grid of cards. Pair with the `card` or `card_links`
+  shortcode.
+
+  Params:
+    columns - cards per row on wide screens (1200px+): 2, 3, or 4. Default 3.
+              Stays at 2 columns below that, since the sidebar and the
+              table-of-contents panel otherwise squeeze the content column
+              too narrow for 3+ columns and card text overflows.
+
+  Usage:
+    {{< cards columns="3" >}}
+      {{< card title="Install" link="/get_started/" description="Deploy the platform." >}}
+    {{< /cards >}}
+*/ -}}
+<div class="grid-container card-grid">
+  <div class="grid-x grid-margin-x grid-margin-y">
+    {{- .Inner -}}
+  </div>
+</div>

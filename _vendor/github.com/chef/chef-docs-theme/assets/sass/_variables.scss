@@ -4,14 +4,21 @@
 // TODO: Pull these colors into Sass variables.
 
 $charcoal: #424242;
+$black: #000000;
 $blue: #92C1E9;
   $blue-darker: #2a7ab0;
+  // Darkened further for links on $light-light-gray backgrounds: $blue-darker
+  // is only ~3.77:1 there (below WCAG AA's 4.5:1); this gives ~5.96:1.
+  $blue-darkest: #1c5a85;
 $orange: #EF9600;
   $orange-lighter: #f9a51d;
   $orange-darker: #e58e00;
 $gray: #909090;
 $lightgray: #BABDBE;
 $light-light-gray: #e7e7e7;
+// Muted secondary text (card descriptions, etc.) — darker/less saturated
+// than $gray, distinct from $body-font-color so it reads as secondary.
+$text-muted: #55595c;
 $active-menu-item-gray: #efeff0;
 $sidebar-gray: #f4f5f7;
 $ash: #ECEFF1;
@@ -19,6 +26,9 @@ $slate: #243541;
 $slate-light: #627b8f;
 $footer-text: #f3f6f8;
 $white: #FFFFFF;
+// Near-white surface for subtle chips/panels that should read as distinct
+// from pure $white (search shortcut hint, search modal)
+$off-white: #fefefe;
 $border: #eeeeee;
 $border-dark: #a1a1a1;
 // #848484 gives 3.43:1 against $sidebar-gray and 3.74:1 against $white —
@@ -34,13 +44,15 @@ $body-font-color: #424242;
 $body-font-family: Inter, sans-serif;
 $border-radius-base: 3px;
 $topbar-background: #fff;
+$utility-bar-height: 60px;
 $code-border: #c1c1c1;
 $code-background: rgba(237, 237, 237, 0.5);
 $code-background-hover: #F2F2F2;
 $code-background-active: #D9D9D9;
 $code-background-focus: #E6E6E6;
 $code-font-weight: 300;
-$menu-item-color-active:#2a7ab0;
+// Darkened from #2a7ab0 to meet WCAG AA (4.5:1) against the active-item and sidebar backgrounds (was ~4.05:1/4.27:1)
+$menu-item-color-active:#256c9c;
 $menu-item-background-active: #e0e1e5;
 $accordionmenu-arrow-color: #898a8d;
 $accordion-title-font-size: 1em;
@@ -53,6 +65,8 @@ $dropdown-background: $charcoal;
 $offcanvas-background: $white;
 $tab-content-padding: 0;
 $box-shadow: 0 3px 7px 0 $border-dark,0 1px 2px 0 $border-dark;
+$modal-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+$modal-backdrop-color: rgba(0, 0, 0, 0.5);
 
 $header-font-weight: 600;
 

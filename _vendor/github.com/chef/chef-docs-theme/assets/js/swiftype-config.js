@@ -52,35 +52,71 @@ $(document).ready(function() {
   //
   ///////////////////////////////////
 
-  // Shows the search modal, focuses the input, and stops the click event from
-  // propagating so the body click handler doesn't immediately close it.
-  function showSearchModal(event) {
-    $("#swiftype-modal").show(250);
-    $("#swiftype-search-form-modal-input").focus();
-    event.stopPropagation();
+  const isMac = navigator.platform.toUpperCase().includes('MAC');
+  const searchModal = document.getElementById('swiftype-modal');
+
+  // Show the shortcut appropriate to the user's platform (Cmd on Mac, Ctrl elsewhere)
+  const shortcutHint = document.getElementById('swiftype-search-shortcut-hint');
+  if (shortcutHint) {
+    shortcutHint.textContent = isMac ? '⌘K' : 'Ctrl+K';
   }
 
-  // Hides the search modal and clears the input field.
-  function hideSearchModal() {
-    $("#swiftype-modal").hide(250);
-    $('input#swiftype-search-form-modal-input').val('');
+  // Opens the search modal (native <dialog>) and focuses the input. No-ops if
+  // already open, since calling showModal() on an open dialog throws.
+  function showSearchModal(event) {
+    if (!searchModal.open) {
+      searchModal.showModal();
+    }
+    $("#swiftype-search-form-modal-input").focus();
+    if (event) {
+      event.stopPropagation();
+    }
   }
+
+  // Closes the search modal. Input clearing is handled by the dialog's
+  // "close" listener below so it also covers Esc and backdrop-click closes.
+  function hideSearchModal() {
+    if (searchModal.open) {
+      searchModal.close();
+    }
+  }
+
+  // Clear the search input whenever the dialog closes, regardless of cause
+  // (close button, Esc key, backdrop click, or a submitted search).
+  searchModal.addEventListener('close', function() {
+    $('input#swiftype-search-form-modal-input').val('');
+  });
+
+  // Clicking directly on the dialog element (i.e. its ::backdrop, since a
+  // click on the modal content targets a descendant instead) closes it.
+  searchModal.addEventListener('click', function(event) {
+    if (event.target === searchModal) {
+      hideSearchModal();
+    }
+  });
 
   // Hide search modal if clicking close button
   $("#swiftype-search-close-button").click(function(){
     hideSearchModal();
   });
 
-  // Hide search modal if it's already visible and click outside modal box
-  $('body').on('click', function(event) {
-    if ($('#swiftype-modal').is(':visible') && !$(event.target).closest("#swiftype-modal").length) {
-      hideSearchModal();
-    }
-  });
-
   // Show search modal when clicking on search bar in top nav
   $("#swiftype-search-top-nav").click(function(event){
     showSearchModal(event);
+  });
+
+  // Open the search modal from anywhere on the site with Cmd+K (Mac) or Ctrl+K
+  $(document).on('keydown', function(event) {
+    const target = event.target;
+    const isEditableTarget = target && (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName));
+    if (isEditableTarget) {
+      return;
+    }
+    const shortcutPressed = (isMac ? event.metaKey : event.ctrlKey) && event.key.toLowerCase() === 'k';
+    if (shortcutPressed) {
+      event.preventDefault();
+      showSearchModal(event);
+    }
   });
 
   // Clear text in search modal if x button is clicked
@@ -103,6 +139,24 @@ $(document).ready(function() {
     const searchInput = $("input#swiftype-search-form-modal-input").val();
     globalThis.location.href = "/search/#stq=" + encodeURIComponent(searchInput) + '&stp=1';
     hideSearchModal();
+  });
+
+  ///////////////////////////////////
+  //
+  // search_bar shortcode functions
+  //
+  ///////////////////////////////////
+
+  // Clear text in the search_bar shortcode's input if the x button is clicked
+  $('#search-bar-form-input-clear').click(function() {
+    $('input#search-bar-form-input').val('');
+    $('input#search-bar-form-input').focus();
+  });
+
+  // on clicking the search_bar shortcode's search button, navigate to search page and submit search string
+  $('#search-bar-form-input-search').click(function() {
+    const searchInput = $('input#search-bar-form-input').val();
+    globalThis.location.href = "/search/#stq=" + encodeURIComponent(searchInput) + '&stp=1';
   });
 
   ///////////////////////////////////
@@ -267,6 +321,63 @@ $(document).ready(function() {
     return resultTemplate.render(data);
   };
 
+  // Builds a windowed list of page numbers to display: always the first and
+  // last page, plus up to `delta` pages on either side of the current page,
+  // with "..." markers standing in for any gaps between them.
+  const getPaginationRange = function(current, total, delta = 2) {
+    const range = [];
+    for (let page = 1; page <= total; page += 1) {
+      if (page === 1 || page === total || (page >= current - delta && page <= current + delta)) {
+        range.push(page);
+      }
+    }
+
+    const rangeWithEllipses = [];
+    let previousPage;
+    range.forEach((page) => {
+      if (previousPage !== undefined && page - previousPage > 1) {
+        rangeWithEllipses.push('...');
+      }
+      rangeWithEllipses.push(page);
+      previousPage = page;
+    });
+
+    return rangeWithEllipses;
+  };
+
+  // Renders the "« previous", numbered page links, and "next »" pagination
+  // controls. Page-number links reuse the plugin's own [data-hash][data-page]
+  // click handler (see jquery.swiftype.search.js), so no extra JS wiring is needed.
+  const customRenderPaginationForType = function(_documentType, currentPage, totalPages) {
+    currentPage = parseInt(currentPage, 10);
+    totalPages = parseInt(totalPages, 10);
+
+    let html = '<div class="st-page">';
+
+    if (currentPage !== 1) {
+      html += `<a href="#" class="st-prev" data-hash="true" data-page="${currentPage - 1}">&laquo; previous</a>`;
+    }
+
+    html += '<div class="st-page-numbers">';
+    getPaginationRange(currentPage, totalPages).forEach((page) => {
+      if (page === '...') {
+        html += '<span class="st-page-ellipsis">&hellip;</span>';
+      } else if (page === currentPage) {
+        html += `<span class="st-page-number is-current" aria-current="page">${page}</span>`;
+      } else {
+        html += `<a href="#" class="st-page-number" data-hash="true" data-page="${page}">${page}</a>`;
+      }
+    });
+    html += '</div>';
+
+    if (currentPage < totalPages) {
+      html += `<a href="#" class="st-next" data-hash="true" data-page="${currentPage + 1}">next &raquo;</a>`;
+    }
+
+    html += '</div>';
+    return html;
+  };
+
   // Resets the URL hash to page 1 and triggers a hashchange event to
   // reload search results with the current query and filters.
   var reloadResults = function() {
@@ -323,6 +434,7 @@ $(document).ready(function() {
     resultContainingElement: '#swiftype-search-results',
     engineKey: 'mXqaEKYsv--xS9fcY3Jz',
     renderFunction: customRenderFunction,
+    renderPaginationForType: customRenderPaginationForType,
     facets: { page: ['chef-product'] },
     filters: readFilters,
     perPage: 10,

@@ -4,7 +4,8 @@
 <body>
   <a class="skip-main" href="#main-content-col">Skip to main content</a>
 
-  {{ partialCached "utility-bar" . }}
+  {{/* Cache is keyed on these page-level values too, since the nav's search icon visibility depends on them */}}
+  {{ partialCached "utility-bar" . (.Param "search") (.Site.Param "search") (.Params.search_input) (.Params.layout) }}
 
   {{ partial "sidebar-off-canvas" . }}
 
@@ -20,6 +21,8 @@
             <main id="main-content-col" tabindex="-1">
 
               {{ partial "breadcrumbs.html" . }}
+
+              {{ partial "outdated_version" . }}
 
               <div id="col-content" data-swiftype-index='true'>
                 <div id="{{ anchorize ( .Title )}}"><h1>{{ .Title }}</h1></div>

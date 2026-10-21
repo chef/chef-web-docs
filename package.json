@@ -3,6 +3,7 @@
     "dependencies": {
       "foundation-sites": "github.com/chef/chef-docs-theme",
       "jquery": "github.com/chef/chef-docs-theme",
+      "motion-ui": "github.com/chef/chef-docs-theme",
       "redoc": "github.com/chef/chef-docs-theme"
     },
     "devDependencies": {}
@@ -10,8 +11,11 @@
   "dependencies": {
     "foundation-sites": "~6.8.1",
     "jquery": "^3.7.1",
+    "motion-ui": "^2.0.8",
     "redoc": "^2.4.0"
   },
+  "devDependencies": {},
   "name": "chef-web-docs",
+  "packageManager": "pnpm@11.7.0",
   "version": "0.1.0"
 }
