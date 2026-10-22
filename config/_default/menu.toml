@@ -503,53 +503,61 @@ title = "Chef InSpec"
 identifier = "inspec"
 
   [[inspec]]
+  title = "version 7.3"
+  identifier = "inspec/7.3/"
+  parent = "inspec"
+  url = "/inspec/7.3/"
+  weight = 10
+
+
+  [[inspec]]
   title = "version 7.2"
   identifier = "inspec/7.2/"
   parent = "inspec"
   url = "/inspec/7.2/"
-  weight = 10
+  weight = 20
 
   [[inspec]]
   title = "version 7.1"
   identifier = "inspec/7.1/"
   parent = "inspec"
   url = "/inspec/7.1/"
-  weight = 20
+  weight = 30
 
   [[inspec]]
   title = "version 7.0"
   identifier = "inspec/7.0/"
   parent = "inspec"
   url = "/inspec/7.0/"
-  weight = 30
+  weight = 40
 
   [[inspec]]
   title = "version 6.8"
   identifier = "inspec/6.8/"
   parent = "inspec"
   url = "/inspec/6.8/"
-  weight = 40
+  weight = 50
 
   [[inspec]]
   title = "version 5.24"
   identifier = "inspec/5.24/"
   parent = "inspec"
   url = "/inspec/5.24/"
-  weight = 50
+  weight = 60
 
   [[inspec]]
   title = "version 5.23"
   identifier = "inspec/5.23/"
   parent = "inspec"
   url = "/inspec/5.23/"
-  weight = 60
+  weight = 70
 
   [[inspec]]
   title = "Resource packs"
   identifier = "inspec/resource_packs"
   parent = "inspec"
   url = "/inspec/resource_packs/"
-  weight = 70
+  weight = 80
 
 ####
 # End Chef InSpec Menu
@@ -1116,28 +1124,28 @@ identifier = "chef_cloud"
       title = "Install CLIs"
       identifier = "chef_cloud/360/get_started/cli"
       parent = "chef_cloud/360/get_started"
-      url = "/360/latest/get_started/install_cli"
+      url = "/360/latest/get_started/initial_setup/configure_workstation/"
       weight = 40
 
       [[cloud]]
       title = "Node management settings"
       identifier = "chef_cloud/360/get_started/node settings"
       parent = "chef_cloud/360/get_started"
-      url = "/360/latest/get_started/node_management_settings/"
+      url = "/360/latest/use/operators/node_management/default_settings/"
       weight = 50
 
       [[cloud]]
       title = "Enroll nodes"
       identifier = "chef_cloud/360/get_started/enroll_nodes"
       parent = "chef_cloud/360/get_started"
-      url = "/360/latest/get_started/enroll_nodes/"
+      url = "/360/latest/use/operators/node_enrollment/"
       weight = 100
 
       [[cloud]]
       title = "Run Courier jobs"
       identifier = "chef_cloud/360/get_started/jobs"
       parent = "chef_cloud/360/get_started"
-      url = "/360/latest/get_started/jobs/"
+      url = "/360/latest/use/operators/job_execution/"
       weight = 110
 
     [[cloud]]

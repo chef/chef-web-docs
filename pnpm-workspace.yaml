@@ -1,6 +1,9 @@
 # Keep lockfile-first behavior as the default for pnpm installs
 preferFrozenLockfile: true
 
+# Preserve registry-specific download paths instead of deriving tarball URLs.
+lockfileIncludeTarballUrl: true
+
 # Two-week dependency cooldown (minutes; 20160 = 14 days)
 minimumReleaseAge: 20160
 
@@ -12,3 +15,7 @@ trustPolicyIgnoreAfter: 525600
 # Explicitly disallow build scripts for packages that don't need them
 allowBuilds:
   core-js: false
+
+peerDependencyRules:
+  allowedVersions:
+    "foundation-sites@6.8.1>motion-ui": "2.0.8"

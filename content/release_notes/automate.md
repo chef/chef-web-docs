@@ -14,7 +14,6 @@ summary = "Chef Automate release notes"
 +++
 
 <!-- markdownlint-disable-file -->
-<!-- cSpell:ignore tuxcare -->
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
@@ -22,13 +21,86 @@ summary = "Chef Automate release notes"
 
 Chef lets you choose your upgrade journey based on your current version of Chef Automate. You can do all the version upgrades manually.
 
-| Your current version | Upgrade to |
-| -------------------- | ---------- |
-| Any version before 20220329091442| 20220329091442|
-| 20220329091442| 3.0.x|
-| 3.0.49| 4.x|
+| Your current version              | Upgrade to     |
+| --------------------------------- | -------------- |
+| Any version before 20220329091442 | 20220329091442 |
+| 20220329091442                    | 3.0.x          |
+| 3.0.49                            | 4.x            |
 
 See the [Chef Automate 4.x upgrade documentation](https://docs.chef.io/automate/major_upgrade_4.x/) for more information.
+
+## Chef Automate 4.13.535
+
+Release date: October 22, 2026
+
+### Security
+
+- Updated the PostgreSQL 13 tuxcare patch to 1.0.1 to address the following CVEs:
+  - CVE-2026-6473
+  - CVE-2026-6475
+  - CVE-2026-6471
+- Updated NGINX to 1.31.4 LTS-2024 to address CVE-2026-9256, which fixes an `ngx_http_rewrite_module` vulnerability triggered by overlapping regex capture groups.
+- Updated the OpenSearch tuxcare patch to 1.0.4 (1.3.20.tuxcare.1.0.4) to address the following CVEs in the bundled Apache CXF library:
+  - CVE-2026-50623
+  - CVE-2026-50633
+  - CVE-2026-50634
+- The same OpenSearch tuxcare patch update addresses the following CVEs in the bundled Spring Framework library:
+  - CVE-2024-38816
+  - CVE-2026-41855
+- Updated the Apache CXF XKMS server bundled with OpenSearch to address CVE-2026-44930, which fixes an LDAP injection vulnerability.
+- Updated Netty to address CVE-2026-50010, which fixes a vulnerability that bypassed hostname verification when a plain `X509TrustManager` was supplied.
+- Updated the Apache Log4j version bundled with OpenSearch to address CVE-2026-49844, which fixes an improper JSON serialization issue.
+- Upgraded the bundled Apache Log4j Core package to 2.25.4 to address the following CVEs:
+  - CVE-2025-68161
+  - CVE-2026-34477
+  - CVE-2026-34480
+- Updated the bundled Ruby `net-imap` gem to address multiple CVEs.
+- Updated the core/ruby3_1 pin to address a vulnerability in `rexml`.
+- Updated Node.js to 24.21.0 and 22.23.0, and libcurl to 8.22.0, to resolve multiple CVEs.
+
+### Bug fixes
+
+- The OpenJDK crypto policy directory now has the correct permissions. Previously, incorrect permissions caused OpenSearch to repeatedly crash and restart.
+- Distinguished names now correctly escape commas so they're valid in TOML. Previously, unescaped commas produced invalid TOML entries.
+- The `backup-gateway` component now includes Content-MD5 checksums on multipart uploads. Previously, S3 Object Lock backups failed for multipart objects.
+- The `license-control-service` test suite no longer races on `schema_migrations`. Previously, a flaky race condition caused intermittent test failures.
+
+### Dependency updates
+
+- Updated Chef Infra Server to 15.10.125.
+- Updated the PostgreSQL 13 and PostgreSQL 14 client package versions, and the cs-nginx component packages.
+- Rebuilt components on the latest dependency versions: Automate HA cluster-ctl, the load balancer, the local user service, and OpenJDK.
+
+### Supported framework versions
+
+This release is built on the following framework versions.
+
+### Chef packaged product versions
+
+This release uses:
+
+- Chef Habitat version: 1.6.1243/20241227194506
+- Chef Habitat Builder version: 10717/20250805204117
+- Chef Infra Server version: 15.10.125
+- Chef InSpec version: 5.24.7/20260324170007
+
+### Service versions
+
+This release uses:
+
+- Postgres: 13.23.tuxcare.1.0.1
+- OpenSearch: 1.3.20.tuxcare.1.0.4
+- Nginx: 1.31.4
+- HAProxy: 2.8.16
+
+### Supported Chef products
+
+This release supports the following external Chef products:
+
+- Chef Infra Server version: 15.0.9+
+- Chef InSpec version: 4.3.2+
+- Chef Infra Client: 18.0.155+
+- Chef Habitat: 0.81+
 
 ## Chef Automate 4.13.520
 

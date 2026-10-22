@@ -1,0 +1,24 @@
+{{- /*
+  Renders an inline Swiftype search box (the one formerly built into the
+  product_landing layout). Drop it anywhere in a page's content.
+
+  Params:
+    placeholder - optional input placeholder. Defaults to "Search Chef documentation...".
+    aria_label  - optional input aria-label. Defaults to "Search Chef documentation".
+
+  Set `search_input = true` in the page's front matter too, so the nav bar
+  doesn't also show its own search icon (see utility-bar.html).
+
+  Usage:
+    {{< search_bar >}}
+    {{< search_bar placeholder="Search downloads..." aria_label="Search downloads" >}}
+*/ -}}
+<div id="search-bar-container">
+  <div id="search-bar-input" class="float-center">
+    {{ partial "search-form.html" (dict
+      "id" "search-bar-form"
+      "placeholder" (.Get "placeholder" | default "Search Chef documentation...")
+      "ariaLabel" (.Get "aria_label" | default "Search Chef documentation")
+    ) }}
+  </div>
+</div>

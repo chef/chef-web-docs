@@ -1,7 +1,39 @@
 #left-nav-on-canvas {
-  margin: .5rem 1rem 0 0;
+  // No top margin: lets the sidebar's background sit flush against the nav
+  // bar above it instead of leaving a sliver of the page background showing.
+  margin: 0 1.5rem 0 0;
   z-index: 50;
   box-shadow: none;
+  // Painted here (the static column) rather than on .sidebar itself: .sidebar
+  // is repositioned by Foundation's Sticky plugin (position/top change as you
+  // scroll), and painting the background on that dynamically-positioned,
+  // transform-promoted element caused it to stop rendering partway down once
+  // the plugin un-stuck the element near the bottom of the page.
+  background-color: $sidebar-gray;
+  border-right: 1px solid $border;
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+
+    > #left-nav-off-canvas-top-bar {
+      flex-shrink: 0;
+    }
+
+    > #sidebar-nav {
+      flex: 1;
+      min-height: 0;
+      height: auto;
+    }
+  }
+}
+
+// The desktop table-of-contents column (large screens and up). Same reasoning
+// as #left-nav-on-canvas above: the background lives on this static column,
+// not on the .sidebar aside inside it, so it keeps rendering correctly once
+// Foundation's Sticky plugin un-sticks the TOC near the bottom of the page.
+#onCanvasRightTOC {
+  background-color: $sidebar-gray;
 }
 
 // left-nav-off-canvas stays hidden until bars icon is clicked on in the utility bar
@@ -30,6 +62,25 @@
   height: 100vh;
   margin: 0;
   overflow-x: hidden;
+  // Without an explicit overflow-y, the browser computes it as auto (per
+  // spec, since overflow-x isn't visible) giving this element its own
+  // scrollbar on top of #sidebar-nav's below — only the inner nav should scroll.
+  overflow-y: hidden;
+
+  // Foundation's .top-bar defaults to a white background; let the parent
+  // column's background show through instead (the version-select button and
+  // its dropdown keep their own white background for contrast).
+  #left-nav-off-canvas-top-bar {
+    background-color: transparent;
+
+    // Foundation's `.top-bar ul` rule also whites out every ul inside it,
+    // including this outer wrapper ul -- that left a white sliver in its
+    // margin-top gap above the dropdown button. Only the button/submenu
+    // (styled in _version_selector.scss) should be white.
+    .version-select-menu {
+      background-color: transparent;
+    }
+  }
 }
 
 #sidebar-nav{

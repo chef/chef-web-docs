@@ -9,6 +9,7 @@
   "enableSourceMap" (not hugo.IsProduction)
   "includePaths" (slice "node_modules")
   "silenceDeprecations" (cond hugo.IsDevelopment $silenceSassDeprecations "")
+  "silenceDependencyDeprecations" true
   "outputStyle" (cond hugo.IsDevelopment "expanded" "compressed")
 }}
 {{ if hugo.Environment | eq "development" }}

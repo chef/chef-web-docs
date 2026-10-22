@@ -15,26 +15,17 @@ draft = false
 
 ## Hardware
 
-Chef Automate requires a minimum of
+Chef Automate has the following minimum system requirements:
 
-* 16 GB of RAM
-* 80 GB of disk space (available to `/hab`)
-* 4 vCPUs
+- 16 GB of RAM
+- 80 GB of disk space for the `/hab` directory, which stores Chef Habitat packages, service data, and application artifacts
+- 4 vCPUs
 
 ## Operating system
 
-Chef Automate requires
+{{< readfile file="content/reusable/md/supported_platforms/automate.md" >}}
 
-* a Linux kernel of version 3.2 or greater
-* `systemd` as the init system
-* `useradd`
-* `curl` or `wget`
-* The shell that starts Chef Automate should have a max open files setting of at least 65535
-
-Commercial support for Chef Automate is available for platforms that satisfy these
-criteria.
-
-## Supported Browsers
+## Supported browsers
 
 Chef Automate supports the current browser versions for Chrome, Edge, and Firefox. Chef
 Automate doesn't support other browsers and may not be compatible with older browser

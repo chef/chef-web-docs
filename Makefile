@@ -54,38 +54,27 @@ audit: bundle
 lint: bundle
 	hugo -D
 
+.PHONY: update_theme update_packages update_transitive_deps
+
 update_theme:
 	hugo mod get -u github.com/chef/chef-docs-theme
+	$(MAKE) update_packages
+
+update_packages:
 	rm -rf _vendor
-	rm -rf node_modules
 	hugo mod tidy
 	hugo mod vendor
 	hugo mod npm pack
-	pnpm install
+	@temp_dir=$$(mktemp -d); \
+	trap 'rm -rf "$$temp_dir/cache" "$$temp_dir/state"; rmdir "$$temp_dir"' EXIT; \
+	pnpm clean --lockfile; \
+	pnpm install --no-frozen-lockfile \
+		--config.cacheDir="$$temp_dir/cache" --config.stateDir="$$temp_dir/state"
 	$(MAKE) update_transitive_deps
-	sed -i '' \
-	  -e 's|/-/[0-9][0-9]*\.[0-9][0-9]*\.[0-9][0-9]*/|/-/|g' \
-	  -e 's|/-/@[^/]*/|/-/|g' \
-	  pnpm-lock.yaml
 
-## Updates transitive (non-direct) dependencies in pnpm-lock.yaml without
-## changing the direct dependency versions defined in package.json.
-## package.json is backed up, then direct deps are pinned to their exact installed
-## versions so pnpm update cannot move them. After all transitive deps are updated,
-## package.json is restored verbatim and the lockfile specifiers for direct deps
-## are patched back to their original values.
+# Preserve installed direct versions while resolving transitive dependencies afresh.
 update_transitive_deps:
-	@cp package.json package.json.bak; \
-	trap 'mv -f package.json.bak package.json 2>/dev/null; exit 1' ERR; \
-	EXACT=$$(node -e "const {execSync}=require('child_process'); const d=JSON.parse(execSync('pnpm ls --json --depth 0').toString())[0].dependencies; process.stdout.write(Object.entries(d).map(([k,v])=>k+'@'+v.version).join(' '))"); \
-	echo "Pinning direct deps to exact resolved versions: $$EXACT"; \
-	pnpm add --save-exact $$EXACT; \
-	echo "Updating transitive dependencies..."; \
-	pnpm update --depth Infinity; \
-	echo "Restoring original package.json..."; \
-	mv package.json.bak package.json; \
-	echo "Fixing lockfile specifiers for direct deps..."; \
-	node -e "const fs=require('fs');const pkg=JSON.parse(fs.readFileSync('./package.json','utf8'));let lock=fs.readFileSync('./pnpm-lock.yaml','utf8');for(const[name,spec]of Object.entries(pkg.dependencies)){const marker='      '+name+':\n        specifier: ';const idx=lock.indexOf(marker);if(idx!==-1){const s=idx+marker.length;const e=lock.indexOf('\n',s);lock=lock.slice(0,s)+spec+lock.slice(e);}}fs.writeFileSync('./pnpm-lock.yaml',lock);"
+	bash scripts/update-transitive-deps.sh
 
 ## See:
 ## - https://cspell.org/docs/getting-started/
@@ -122,4 +111,3 @@ verify_cookstyle_pages:
 	if test ! -f "generated/generated_content/workstation/cookstyle/cops/_index.md"; then \
 			echo "generated/generated_content/workstation/cookstyle/cops/_index.md does not exist."; \
 	fi; \
-

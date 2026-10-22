@@ -1,16 +1,65 @@
-#swiftype-modal {
-  display: none;
-  background-color: #fefefe;
-  left: 50%;
-  top: 90px;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-  border-radius: $border-radius-base;
-
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+// Shared border/sizing for the search text input, so it looks the same across
+// the search modal, search results page, and the search_bar shortcode.
+// (The modal overrides padding/height below for its more compact layout.)
+.swiftype-search-input {
   padding: 10px;
   font-size: 1rem;
+  border: 1px solid $border-dark;
+  border-right: none;
+  height: 2.5rem;
+}
+
+// Matches how .cell gets its gutter inside .grid-padding-x (padding, no
+// compensating negative margin on the container) so widths line up exactly.
+#search-bar-container {
+  @include xy-gutters($gutter-type: padding);
+  margin: 2rem 0;
+
+  // Caps the input's width so .float-center's margin: 0 auto has something
+  // to center against, instead of stretching edge-to-edge of the content column.
+  #search-bar-input {
+    max-width: rem-calc(600);
+  }
+}
+
+// Shared clear (✕) button styling for all search inputs
+// (search modal, search results page, search_bar shortcode)
+// See layouts/partials/search-form.html for the shared markup.
+.swiftype-clear-input {
+  appearance: none;
+  background: none;
+  border: 1px solid $border-dark;
+  border-left: none;
+  padding: 0 12px;
+  margin-right: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: $body-font-color;
+    color: $white;
+  }
+
+  &:focus {
+    outline: rem-calc(2) solid $primary-color;
+    outline-offset: rem-calc(2);
+  }
+}
+
+#swiftype-modal {
+  background-color: $off-white;
+  // Sit just below the nav bar it's triggered from, rather than centered in the viewport
+  margin-top: calc(#{$utility-bar-height} + 1rem);
+  border: none;
+  border-radius: $border-radius-base;
+
+  box-shadow: $modal-shadow;
+  padding: 10px;
+  font-size: 1rem;
+
+  &::backdrop {
+    background-color: $modal-backdrop-color;
+  }
 
   @media (max-width: map-get($breakpoints, medium)) {
     width: 100%;
@@ -58,13 +107,6 @@
     #swiftype-search-form-modal-input{
       border-right: none;
       padding: 2px;
-    }
-
-    #swiftype-search-form-modal-input-clear {
-      background: none;
-      border-left: none;
-      padding: 0 10px;
-      margin-right: 5px;
     }
 
   }
@@ -200,20 +242,52 @@
         }
 
         >.st-page {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: 5px;
 
-          >a {
+          >a.st-prev,
+          >a.st-next {
             position: relative;
             border-bottom: none;
             width: auto;
-            margin-top: 5px;
             padding: 5px 0;
             font-size: 1rem;
-            &.st-prev {
-              float: left;
+          }
+
+          .st-page-numbers {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin: 0 auto;
+          }
+
+          .st-page-number {
+            display: inline-block;
+            min-width: 1.75rem;
+            text-align: center;
+            padding: 4px 6px;
+            border-radius: $border-radius-base;
+            font-size: 1rem;
+            border-bottom: none;
+            color: $body-font-color;
+            text-decoration: none;
+
+            &:hover {
+              background-color: $sidebar-gray;
             }
-            &.st-next {
-              float: right;
+
+            &.is-current {
+              background-color: $body-font-color;
+              color: $white;
+              font-weight: 600;
             }
+          }
+
+          .st-page-ellipsis {
+            padding: 0 4px;
+            color: $border-dark;
           }
         }
         > div.st-spelling-suggestion {
@@ -241,31 +315,7 @@
       outline: none;
 
       &-input {
-        padding: 10px;
-        font-size: 1rem;
         width: 90%;
-        border: 1px solid $border-dark;
-        border-right: none;
-        height: 2.5rem;
-
-        &-clear {
-
-          font-size: 1rem;
-          padding: 10px;
-          border-left: none;
-          border-right: 1px solid $border-dark;
-          border-top: 1px solid $border-dark;
-          border-bottom: 1px solid $border-dark;
-
-          margin-right: 10px;
-          background-color: $white;
-
-          &:hover {
-            color: $white;
-            background-color: $body-font-color;
-          }
-
-        }
       }
     }
   }

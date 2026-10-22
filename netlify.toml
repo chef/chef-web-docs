@@ -4,6 +4,7 @@
 [build.environment]
   HUGO_ENABLEGITINFO = "true"
   NODE_VERSION = "22"
+  PNPM_VERSION = "11.7.0"
 
 [build.processing]
   skip_processing = true
@@ -94,6 +95,51 @@
   status = 200
 
 [[redirects]]
+  from = "/360/latest/chef_360_ui/organization_management/"
+  to = "/360/1.7/use/administrators/organizations/manage_organizational_units_ui/"
+  status = 301
+
+[[redirects]]
+  from = "/360/latest/administration/*"
+  to = "/360/1.7/use/administrators/"
+  status = 301
+
+[[redirects]]
+  from = "/360/latest/courier/*"
+  to = "/360/1.7/use/operators/job_execution/"
+  status = 301
+
+[[redirects]]
+  from = "/360/latest/node_management/*"
+  to = "/360/1.7/use/operators/node_management/"
+  status = 301
+
+[[redirects]]
+  from = "/360/latest/dsm/auth"
+  to = "/360/1.7/use/operators/dsm_operations/dsm_authentication/"
+  status = 301
+
+[[redirects]]
+  from = "/360/latest/dsm/*"
+  to = "/360/1.7/use/operators/dsm_operations/"
+  status = 301
+
+[[redirects]]
+  from = "/360/latest/opsmith/*"
+  to = "/360/1.7/use/operators/opsmith/"
+  status = 301
+
+[[redirects]]
+  from = "/360/latest/chef_360_ui/tenant_management/"
+  to = "/360/1.7/use/administrators/tenants/manage_tenants/"
+  status = 301
+
+[[redirects]]
+  from = "/360/latest/chef_360_ui/download_centre/"
+  to = "/360/1.7/use/operators/download_centre/"
+  status = 301
+
+[[redirects]]
   from = "/360/latest/*"
   to = "/360/1.7/:splat"
   status = 301
@@ -151,6 +197,11 @@
   status = 200
 
 [[redirects]]
+  from = "/inspec/7.3/*"
+  to = "https://release-7-3--chef-inspec-docs.netlify.app/inspec/7.3/:splat"
+  status = 200
+
+[[redirects]]
   from = "/inspec/7.2/*"
   to = "https://release-7-2--chef-inspec-docs.netlify.app/inspec/7.2/:splat"
   status = 200
@@ -182,7 +233,7 @@
 
 [[redirects]]
   from = "/inspec/latest/*"
-  to = "/inspec/7.2/:splat"
+  to = "/inspec/7.3/:splat"
   status = 301
 
 [[redirects]]
@@ -192,12 +243,12 @@
 
 [[redirects]]
   from = "/inspec/profiles/*"
-  to = "/inspec/7.2/profiles/:splat"
+  to = "/inspec/7.3/profiles/:splat"
   status = 301
 
 [[redirects]]
   from = "/inspec/resources/*"
-  to = "/inspec/7.2/resources/"
+  to = "/inspec/7.3/resources/"
   status = 301
 
 ####

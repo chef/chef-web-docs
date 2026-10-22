@@ -7,7 +7,7 @@
 
 [module.hugoVersion]
 extended = true
-min = "0.123.7"
+min = "0.152.2"
 
 [[module.mounts]]
 source = "assets"
