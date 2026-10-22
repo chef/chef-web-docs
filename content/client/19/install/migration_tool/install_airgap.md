@@ -13,11 +13,7 @@ This page documents how to do a fresh install of Chef Infra Client in an air-gap
 
 ## Supported platforms
 
-Chef Infra Client is supported on:
-
-- Linux x86-64 (amd64)
-- Linux ARM (aarch64)
-- Windows x86-64
+See the [Chef Infra Client supported platforms](/platforms/#chef-infra-client-support-19) documentation.
 
 ## Prerequisites
 
