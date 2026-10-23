@@ -16,43 +16,41 @@ gh_repo = "chef-web-docs"
   weight = 1
 +++
 
-Chef Compliance helps you assess your systems against established security benchmarks,
-see where they fall short, correct the configuration that caused the gap, and confirm the fix.
+Chef Compliance checks your systems against security benchmarks like CIS Benchmarks and
+DISA STIGs, and corrects the configuration behind anything that fails ---
+across Linux, Windows, databases, cloud accounts, containers, and network devices,
+wherever your fleet runs.
 
-You define your requirements once as code, apply them across every platform you run, and keep a
-dated record of what passed, what failed, and what you accepted ---
-whether those systems run in the cloud, in your own data center, or both.
+## The problem
 
-{{< note >}}
+A fleet drifts out of compliance between audits: a package update, an emergency change left in
+place, a new system built from an old image.
+Checking configuration by hand doesn't scale past a handful of systems, and a spreadsheet of
+findings is out of date the day after you build it.
+Fixing what you find is separate work from finding it, and doing that consistently across
+hundreds of systems, by hand, produces inconsistent results even when every individual fix
+was correct.
 
-**Want to try it rather than read about it?**
-[Audit SSH configuration across a Linux fleet](/solutions/compliance/ssh_baseline/)
-walks through writing a Chef InSpec profile, running it against your servers,
-reading the findings, and recording an approved exception ---
-with the commands and output at each step.
+## What this solution implements
 
-{{< /note >}}
+A Chef InSpec profile checks your systems against a benchmark and reports a pass, fail, or skip
+for every requirement.
+Chef remediation content then corrects the configuration behind a failure, built from the same
+benchmark, so the same check that found the gap also confirms it's closed.
+Both run on a schedule, so drift shows up again as a control that starts failing, not as a
+surprise at the next audit.
 
-## Compliance challenges Chef helps solve
+Start here:
 
-Compliance work gets harder as a fleet grows, in specific, recognizable ways:
-
-- **Every platform has a different definition of compliant.**
-  Ubuntu Linux, Windows Server, a PostgreSQL instance, and an Azure subscription
-  each have their own benchmark, control identifiers, and configuration settings,
-  so the cost of compliance grows with every technology the organization adopts.
-- **Audits happen periodically, but configuration changes continuously.**
-  A point-in-time assessment tells you the state of your fleet on one day;
-  it doesn't tell you whether that state held the week after.
-- **Finding a problem isn't the same as fixing it.**
-  The same failed control on two hundred systems becomes two hundred manual changes,
-  applied inconsistently even when every individual fix was correct.
-- **Evidence is assembled by hand.**
-  When assessment results live in scan output, spreadsheets, and people's memory,
-  assembling evidence becomes a project in itself, repeated for every assessment.
-- **Benchmarks move.**
-  CIS Benchmarks and DISA STIGs are revised, adding controls and retiring requirements,
-  so keeping your own copy current means reworking your checks every time.
+- **New to Chef InSpec?**
+  [Audit SSH configuration across a Linux fleet](/solutions/compliance/ssh_baseline/)
+  writes and runs a profile end to end, with the commands and output at each step.
+- **Assessing an AWS account?**
+  [Audit an AWS account against security baseline](/solutions/compliance/aws_foundations/)
+  does the same using the AWS resource pack.
+- **Have a different fleet or problem in mind?**
+  See [common compliance scenarios](#common-compliance-scenarios) for Windows, databases,
+  mixed fleets, and more.
 
 ## The Chef Way of Compliance
 
