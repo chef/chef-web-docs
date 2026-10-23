@@ -52,36 +52,6 @@ Start here:
   See [common compliance scenarios](#common-compliance-scenarios) for Windows, databases,
   mixed fleets, and more.
 
-## The Chef Way of Compliance
-
-Chef Compliance follows one loop.
-Repeating that loop on a schedule is what keeps your systems compliant over time,
-instead of just on the day you checked.
-
-**Define your requirements.**
-Start from a published benchmark --- a CIS Benchmark or a DISA STIG ---
-expressed as [Chef InSpec](/inspec/latest/) controls you can run,
-or write your own controls for requirements specific to your organization.
-
-**Assess your systems.**
-Run those controls against the systems you're responsible for:
-servers, desktops, databases, cloud accounts, containers, and network devices.
-
-**Identify the gaps.**
-Review the results by node, by profile, and by control to see what failed,
-how severe each failure is, and how widely it's affecting your fleet.
-
-**Correct the configuration.**
-Use Chef remediation content to apply the configuration a benchmark requires,
-consistently, to every system that needs it.
-
-**Reassess.**
-Run the same controls again.
-The assessment is what proves the correction worked.
-
-**Maintain visibility.**
-Repeat on a schedule, so drift shows up as a control that starts failing again.
-
 ## Getting Chef Compliance content
 
 Audit profiles and remediation cookbooks reach your systems through the same
@@ -211,28 +181,15 @@ This is worth knowing before you plan work around remediation content,
 and it's why the coverage tables list audit versions and remediation versions in separate columns
 instead of giving a single answer for each benchmark.
 
-### The Chef Way of compliance remediation
+### How remediation content behaves
 
-Applying a fix by hand once is straightforward.
-Applying the same fix to every affected system, consistently, and keeping it applied, isn't.
-
-Remediation content addresses that in three ways:
-
-**It's the same content everywhere.**
-The corrective configuration for a benchmark requirement is defined once
-and applied the same way to every system in that class,
-instead of varying with whoever carried out the change.
-
-**It goes through your existing cookbook workflow.**
-Because remediation content is delivered as Chef Infra cookbooks,
-it fits the review, testing, and promotion process you already use for cookbooks.
-You can test it with [Chef Workstation](/workstation/latest/) before it reaches production.
-
-**It holds, instead of applying once.**
-Chef Infra Client converges:
-it acts only when a system's current state doesn't match what the cookbook describes.
-Re-running remediation content on a system that's already correct changes nothing,
-which is what makes it usable on a schedule, not as a one-off intervention.
+The corrective configuration for a benchmark requirement is defined once and applied the
+same way to every system in that class.
+It's delivered as a Chef Infra cookbook, so it goes through the same review, testing, and
+promotion process as any other cookbook --- you can test it with
+[Chef Workstation](/workstation/latest/) before it reaches production.
+Chef Infra Client converges, so re-running it on a system that's already correct changes
+nothing, which is what makes it safe to run on a schedule instead of as a one-off fix.
 
 ### How audit and remediation work together
 
@@ -245,8 +202,6 @@ Audit and remediation are separate capabilities that are most useful in sequence
 1. Confirm that the previously failing controls now pass, with a dated record of the change.
 1. Maintain the cycle on a schedule, so drift surfaces as a control that starts failing again.
 
-Reassessment turns this into a loop instead of a one-time list ---
-the Chef Way: assess, fix, reassess, repeat.
 The audit content is what demonstrates the remediation worked,
 which is why the two are used together and why neither replaces the other.
 
