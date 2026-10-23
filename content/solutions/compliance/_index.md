@@ -78,8 +78,7 @@ and remediation content corrects the configuration behind it.
 Run the audit content first to establish where you stand,
 apply remediation where coverage exists,
 then run the audit content again to confirm the change.
-[The audit, remediate, reassess cycle](#the-audit-remediate-reassess-cycle)
-covers that sequence, and the coverage tables show which benchmarks have both.
+The coverage tables show which benchmarks have both.
 
 ## Compliance audit
 
@@ -101,13 +100,9 @@ Assessment isn't limited to things you can log in to.
 Chef InSpec can examine data in a database or inspect the configuration of virtual resources
 through their API, so a cloud subscription is assessed the same way a server is.
 
-### From benchmark to runnable profile
-
-Chef expresses a published benchmark's requirements as Chef InSpec controls,
-grouped into a [profile](/inspec/profiles/), each producing a pass, fail, or skip result.
-Because benchmarks are revised over time, coverage is tracked by version, not a single yes or no.
-Chef provides profiles built on CIS Benchmarks and DISA STIGs,
-and you can write your own controls or adapt the provided ones ---
+Chef expresses a benchmark's requirements as Chef InSpec controls grouped into a
+[profile](/inspec/profiles/).
+You can write your own controls or adapt the ones Chef provides ---
 see [Audit SSH configuration across a Linux fleet](/solutions/compliance/ssh_baseline/)
 to write and run one.
 
@@ -122,19 +117,10 @@ and you can use more than one approach in the same fleet.
 | [Scan jobs](/automate/scan_jobs/) in Chef Automate | Nodes and cloud accounts, including systems without an agent | Runs now, at a scheduled time, once, or on a recurring interval |
 | Chef InSpec directly | Ad hoc checks, local development, and pipeline stages | Runs locally, or over SSH or WinRM |
 
-### What an assessment gives you
+### Results and evidence
 
-For every control on every system, you get the result, its severity, the profile it came from,
-and the Chef InSpec source of the control itself.
-In [Chef Automate](/automate/reports/), results roll up by node, profile, and control,
-filterable by platform, environment, policy group, and more:
-a control failing on two hundred systems surfaces as a fleet-wide gap, not two hundred
-separate findings.
-
-### Evidence and reporting
-
-Assessment results are the evidence, retained and reported in [Chef Automate](/automate/reports/),
-downloadable as dated JSON or CSV.
+Results, including severity and the control's source, roll up by node, profile, and control in
+[Chef Automate](/automate/reports/), filterable and downloadable as dated JSON or CSV.
 Where a failing control has been deliberately accepted,
 record it as a [waiver](/inspec/latest/configure/waivers/)
 instead of leaving it as an unexplained failure.
@@ -145,65 +131,25 @@ To see which benchmarks and versions have current audit coverage, see
 ## Compliance remediation
 
 An assessment tells you a system doesn't meet a requirement.
-Remediation content helps you correct the configuration behind that requirement,
-the Chef Way, on every system that needs it.
-
-### Remediation content
-
-Remediation content is curated, standards-based content
-that brings a system's configuration into line with what a benchmark requires.
-It's delivered as [Chef Infra cookbooks](/client/latest/cookbooks/),
-built against the same CIS Benchmarks and DISA STIGs as the audit profiles,
-and maintained by Chef as those benchmarks are revised.
-
-Remediation content is part of [Chef Premium Content](/enterprise_chef/),
-which provides ready-to-use curated content for compliance audits, remediation,
-and desktop configuration.
-Chef Premium Content is provided to enterprise users of Chef,
-and subscribers are notified when content is updated.
+Remediation content corrects the configuration behind that requirement,
+on every system that needs it.
+It's delivered as [Chef Infra cookbooks](/client/latest/cookbooks/), built against the same
+CIS Benchmarks and DISA STIGs as the audit profiles, and part of
+[Chef Premium Content](/enterprise_chef/) for enterprise users.
+Because Chef Infra Client converges, re-running it on a system that's already correct changes
+nothing --- which is what makes it safe to run on a schedule instead of as a one-off fix.
 
 ### How remediation relates to benchmarks and controls
 
 Audit content and remediation content are built from the same published benchmark,
-but they do different jobs.
-
-Audit content answers a question: does this system meet the requirement?
-Remediation content addresses the subject of that question:
-the configuration the requirement describes.
-A failed control and the remediation for it refer to the same underlying benchmark requirement.
-
-Because they're maintained as separate content, Chef tracks their coverage separately.
-A benchmark can have audit coverage, remediation coverage, or both.
-Where both exist, the available versions can differ.
+but they're maintained as separate content, so Chef tracks their coverage separately.
+A benchmark can have audit coverage, remediation coverage, or both,
+and where both exist, the available versions can differ.
 
 **An audit version doesn't imply a matching remediation version.**
 This is worth knowing before you plan work around remediation content,
 and it's why the coverage tables list audit versions and remediation versions in separate columns
 instead of giving a single answer for each benchmark.
-
-### How remediation content runs
-
-The corrective configuration for a benchmark requirement is defined once and applied the
-same way to every system in that class.
-It's delivered as a Chef Infra cookbook, so it goes through the same review, testing, and
-promotion process as any other cookbook --- you can test it with
-[Chef Workstation](/workstation/latest/) before it reaches production.
-Chef Infra Client converges, so re-running it on a system that's already correct changes
-nothing, which is what makes it safe to run on a schedule instead of as a one-off fix.
-
-### The audit, remediate, reassess cycle
-
-Audit and remediation are separate capabilities that are most useful in sequence:
-
-1. Assess your systems with audit content and get a result for every control.
-1. Identify which controls failed, their severity, and how many systems they affect.
-1. Apply remediation content for the configuration behind those failures.
-1. Reassess with the same audit content.
-1. Confirm that the previously failing controls now pass, with a dated record of the change.
-1. Maintain the cycle on a schedule, so drift surfaces as a control that starts failing again.
-
-The audit content is what demonstrates the remediation worked,
-which is why the two are used together and why neither replaces the other.
 
 ### Before you use remediation content
 
@@ -217,7 +163,7 @@ which is why the two are used together and why neither replaces the other.
   Benchmarks are revised, and remediation content is updated to follow them.
 - **Test before production.**
   Remediation content changes system configuration.
-  Test it the way you'd test any cookbook.
+  Test it the way you'd test any cookbook, with [Chef Workstation](/workstation/latest/).
 
 ## Common compliance scenarios
 
