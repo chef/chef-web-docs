@@ -21,7 +21,7 @@ DISA STIGs, and corrects the configuration behind anything that fails ---
 across Linux, Windows, databases, cloud accounts, containers, and network devices,
 wherever your fleet runs.
 
-## The problem
+## Why compliance drifts between audits
 
 A fleet drifts out of compliance between audits: a package update, an emergency change left in
 place, a new system built from an old image.
@@ -78,7 +78,7 @@ and remediation content corrects the configuration behind it.
 Run the audit content first to establish where you stand,
 apply remediation where coverage exists,
 then run the audit content again to confirm the change.
-[How audit and remediation work together](#how-audit-and-remediation-work-together)
+[The audit, remediate, reassess cycle](#the-audit-remediate-reassess-cycle)
 covers that sequence, and the coverage tables show which benchmarks have both.
 
 ## Compliance audit
@@ -101,7 +101,7 @@ Assessment isn't limited to things you can log in to.
 Chef InSpec can examine data in a database or inspect the configuration of virtual resources
 through their API, so a cloud subscription is assessed the same way a server is.
 
-### How a benchmark becomes something you can run
+### From benchmark to runnable profile
 
 Chef expresses a published benchmark's requirements as Chef InSpec controls,
 grouped into a [profile](/inspec/profiles/), each producing a pass, fail, or skip result.
@@ -148,7 +148,7 @@ An assessment tells you a system doesn't meet a requirement.
 Remediation content helps you correct the configuration behind that requirement,
 the Chef Way, on every system that needs it.
 
-### What remediation content is
+### Remediation content
 
 Remediation content is curated, standards-based content
 that brings a system's configuration into line with what a benchmark requires.
@@ -181,7 +181,7 @@ This is worth knowing before you plan work around remediation content,
 and it's why the coverage tables list audit versions and remediation versions in separate columns
 instead of giving a single answer for each benchmark.
 
-### How remediation content behaves
+### How remediation content runs
 
 The corrective configuration for a benchmark requirement is defined once and applied the
 same way to every system in that class.
@@ -191,7 +191,7 @@ promotion process as any other cookbook --- you can test it with
 Chef Infra Client converges, so re-running it on a system that's already correct changes
 nothing, which is what makes it safe to run on a schedule instead of as a one-off fix.
 
-### How audit and remediation work together
+### The audit, remediate, reassess cycle
 
 Audit and remediation are separate capabilities that are most useful in sequence:
 
