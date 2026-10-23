@@ -35,54 +35,24 @@ with the commands and output at each step.
 
 ## Compliance challenges Chef helps solve
 
-Compliance work gets harder as a fleet grows, and it gets harder in specific, recognizable ways.
+Compliance work gets harder as a fleet grows, in specific, recognizable ways:
 
-### Every platform has a different definition of compliant
-
-A compliance requirement that means one thing on Ubuntu Linux means something
-different on Windows Server, different again on a PostgreSQL instance,
-and different again on an Azure subscription.
-Each platform has its own published benchmark, its own control identifiers,
-and its own set of configuration settings that satisfy them.
-
-Teams end up maintaining a separate approach for each platform,
-and the cost of compliance grows with every technology the organization adopts.
-
-### Audits happen periodically, but configuration changes continuously
-
-A system can pass an assessment on the day it's checked and drift out of compliance the following
-week --- a package update, a troubleshooting change left in place,
-or a new system built from an older image.
-
-A point-in-time assessment tells you the state of your fleet on one day.
-It doesn't tell you whether that state held.
-
-### Finding a problem isn't the same as fixing it
-
-An assessment produces a list of failed controls.
-Turning that list into corrected systems is separate work, and it's usually manual.
-
-The same failed control on two hundred systems becomes two hundred changes,
-applied by different people at different times in slightly different ways.
-The result is inconsistent even where every individual fix was correct.
-
-### Evidence is assembled by hand
-
-Demonstrating compliance means showing which systems were assessed,
-against which version of which benchmark, with what result,
-and what was deliberately accepted as an exception.
-
-When that information lives in scan output on individual machines, in spreadsheets,
-and in people's memory, assembling it becomes a project in itself,
-repeated for every assessment.
-
-### Benchmarks move
-
-CIS Benchmarks and DISA STIGs are revised.
-A new version adds controls, changes thresholds, and retires requirements.
-
-Keeping your own copy of a benchmark current means tracking those revisions across every platform
-you run and reworking your checks each time.
+- **Every platform has a different definition of compliant.**
+  Ubuntu Linux, Windows Server, a PostgreSQL instance, and an Azure subscription
+  each have their own benchmark, control identifiers, and configuration settings,
+  so the cost of compliance grows with every technology the organization adopts.
+- **Audits happen periodically, but configuration changes continuously.**
+  A point-in-time assessment tells you the state of your fleet on one day;
+  it doesn't tell you whether that state held the week after.
+- **Finding a problem isn't the same as fixing it.**
+  The same failed control on two hundred systems becomes two hundred manual changes,
+  applied inconsistently even when every individual fix was correct.
+- **Evidence is assembled by hand.**
+  When assessment results live in scan output, spreadsheets, and people's memory,
+  assembling evidence becomes a project in itself, repeated for every assessment.
+- **Benchmarks move.**
+  CIS Benchmarks and DISA STIGs are revised, adding controls and retiring requirements,
+  so keeping your own copy current means reworking your checks every time.
 
 ## The Chef Way of Compliance
 
@@ -165,95 +135,41 @@ through their API, so a cloud subscription is assessed the same way a server is.
 
 ### How a benchmark becomes something you can run
 
-A benchmark such as a CIS Benchmark or a DISA STIG is a published document.
-It describes, requirement by requirement, how a particular platform should be configured.
-
-Chef expresses those requirements as Chef InSpec controls, grouped into a [profile](/inspec/profiles/).
-Each control carries an identifier, a title, a description, and an impact rating,
-and produces a clear result --- pass, fail, or skip --- for every system it runs against.
-
-Because benchmarks are revised over time,
-a profile is written against a specific benchmark version.
-That's why Chef tracks coverage by version, not as a single yes or no:
-knowing that a platform is covered matters less than knowing
-which version of the benchmark it's covered against.
-
+Chef expresses a published benchmark's requirements as Chef InSpec controls,
+grouped into a [profile](/inspec/profiles/), each producing a pass, fail, or skip result.
+Because benchmarks are revised over time, coverage is tracked by version, not a single yes or no.
 Chef provides profiles built on CIS Benchmarks and DISA STIGs,
-and you can write your own controls or adapt the provided ones.
+and you can write your own controls or adapt the provided ones ---
+see [Audit SSH configuration across a Linux fleet](/solutions/compliance/ssh_baseline/)
+to write and run one.
 
 ### How you run an assessment
 
-How you run an assessment depends on how the systems are managed.
-You can use more than one approach in the same fleet.
+How you run an assessment depends on how the systems are managed,
+and you can use more than one approach in the same fleet.
 
 | Approach | Fits | How it runs |
 | --- | --- | --- |
 | [Compliance Phase](/client/latest/features/chef_compliance_phase/) | Nodes already managed by Chef Infra Client | Runs compliance audits as part of any Chef Infra Client run |
-| Scan jobs in Chef Automate | Nodes and cloud accounts, including systems without an agent | Runs now, at a scheduled time, once, or on a recurring interval |
+| [Scan jobs](/automate/scan_jobs/) in Chef Automate | Nodes and cloud accounts, including systems without an agent | Runs now, at a scheduled time, once, or on a recurring interval |
 | Chef InSpec directly | Ad hoc checks, local development, and pipeline stages | Runs locally, or over SSH or WinRM |
-
-The Compliance Phase runs profiles retrieved
-from Chef Automate, Chef Supermarket, a local file, GitHub, or HTTP,
-and reports results to Chef Automate, the terminal, or a file on disk.
-Scan frequency is configurable and defaults to once a day.
-
-[Scan jobs](/automate/scan_jobs/) in Chef Automate are the equivalent of running Chef InSpec
-against a set of targets, and send their results to compliance reporting.
-They can target manually added nodes, AWS EC2 instances, AWS API regions,
-Azure virtual machines, and Azure API subscriptions.
-A scheduled cloud scan queries the provider each time it runs,
-so instances added or removed since the last scan are picked up.
 
 ### What an assessment gives you
 
-An assessment produces more than a pass rate.
-
-For every control on every system, you get the result, its severity,
-the profile it came from, and the Chef InSpec source of the control itself,
-so that anyone reviewing a finding can see exactly what was checked.
-
-In [Chef Automate](/automate/reports/), those results roll up three ways:
-
-- **Nodes**: which systems passed, failed, were skipped, or were waived,
-  and how failures distribute across platforms and environments
-- **Profiles**: which benchmarks are in use, at which versions, and which are failing most
-- **Controls**: which individual requirements are failing, their severity,
-  and how many systems each affects
-
-You can filter by platform, environment, node name, profile, control, control tag, policy group,
-role, recipe, Chef tag, organization, and Chef Infra Server.
-Deep filtering narrows a report to a single profile, or to one control within a profile.
-
-### How findings turn into a gap list
-
-The same results tell you where to start --- read them as a list of work to do, not as a score.
-
-A control failing on one system is a configuration issue.
-The same control failing on two hundred systems is a fleet-wide gap, and it shows up that way:
-Chef Automate surfaces the profiles and the individual controls responsible for the most failures,
-so you can see where corrective effort has the most effect.
-
-Severity lets you rank what you found.
-Grouping by platform and environment tells you which part of the fleet to work on first.
-And because results are retained over time,
-you can see whether a gap is closing, holding, or reopening.
+For every control on every system, you get the result, its severity, the profile it came from,
+and the Chef InSpec source of the control itself.
+In [Chef Automate](/automate/reports/), results roll up by node, profile, and control,
+filterable by platform, environment, policy group, and more:
+a control failing on two hundred systems surfaces as a fleet-wide gap, not two hundred
+separate findings.
 
 ### Evidence and reporting
 
-Assessment results are the evidence, retained and reported in [Chef Automate](/automate/reports/).
-
-Reports are dated and retained,
-so you can show the state of your fleet on a given day as well as how it changed.
-You can download reports as JSON or CSV.
-Each download includes the filters and report date you selected,
-so it matches exactly what you saw on screen.
-
+Assessment results are the evidence, retained and reported in [Chef Automate](/automate/reports/),
+downloadable as dated JSON or CSV.
 Where a failing control has been deliberately accepted,
 record it as a [waiver](/inspec/latest/configure/waivers/)
 instead of leaving it as an unexplained failure.
-Waived nodes and controls are counted, tracked over time, and filterable,
-and each waiver's detail is visible on the control it applies to.
-You can always see which failures were accepted on purpose.
 
 To see which benchmarks and versions have current audit coverage, see
 [supported compliance standards and platforms](#supported-compliance-standards-and-platforms).
