@@ -171,10 +171,11 @@ Each scenario below names the problem, the approach, and where to start.
 
 If you haven't run Chef InSpec before,
 [Audit SSH configuration across a Linux fleet](/solutions/compliance/ssh_baseline/)
-is the one end-to-end guide in this section.
-It covers authoring a profile, running it, reading results, and recording an exception.
+covers authoring a profile, running it, reading results, and recording an exception.
 Those mechanics are the same whichever scenario you're working on,
 so it's worth doing once even if your actual problem is elsewhere.
+For cloud accounts, the equivalent guide is
+[Audit an AWS account against security baseline](/solutions/compliance/aws_foundations/).
 
 ### Assess a Linux fleet against CIS Benchmarks
 
@@ -264,6 +265,34 @@ or one control within it.
    see [Build custom compliance checks with Chef InSpec](/solutions/compliance/extend/).
 1. Use deep filtering in [compliance reporting](/automate/reports/)
    to report on one database profile, or one control within it.
+
+### Assess the configuration of a cloud account
+
+**The problem.**
+Your AWS account holds storage, networks, and identities that nobody assesses on a schedule.
+A misconfiguration there exposes data without any server being compromised.
+
+**The Chef Way.**
+Write Chef InSpec controls against the provider API using the AWS resource pack,
+then run them with the account as the target instead of a host.
+Schedule the same profile as a Chef Automate scan job so resources are assessed as they're
+created.
+
+**Start here.**
+
+1. Work through
+   [Audit an AWS account against security baseline](/solutions/compliance/aws_foundations/),
+   which builds and runs a profile covering S3, IAM, and security groups.
+1. Check whether a published benchmark already covers the requirement, in
+   [Cloud](/solutions/compliance/cloud/).
+1. Extend the profile to the services you care about, using the
+   [AWS resource pack reference](/inspec/resource_packs/aws/).
+1. Add an AWS API node manager in
+   [node integrations](/automate/node_integrations/), then create a recurring
+   [scan job](/automate/scan_jobs/) for the account.
+1. Assess the servers in the account separately.
+   Account configuration and host configuration are different questions ---
+   see [Operating Systems](/solutions/compliance/operating_systems/) for host benchmarks.
 
 ### Address controls that keep failing across your fleet
 

@@ -50,6 +50,11 @@ Chef InSpec provides resource packs for the major cloud providers:
 A resource pack isn't a benchmark and doesn't assess anything on its own.
 It provides the resources you use to write your own controls.
 
+For a worked example,
+[Audit an AWS account against security baseline](/solutions/compliance/aws_foundations/)
+builds a profile on the AWS pack that checks S3 buckets, IAM policies, and security groups
+across an account, then runs it and reads the findings.
+
 ## Related
 
 - [Compliance solution overview](/solutions/compliance/)
