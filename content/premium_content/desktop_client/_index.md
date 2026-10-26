@@ -1,14 +1,15 @@
 +++
 title = "Desktop / Client"
+aliases = ["/solutions/compliance/desktop_client/"]
 
-[menu.overview]
-  identifier = "overview/solutions/compliance/desktop_client"
-  parent = "overview/solutions/compliance"
+[menu.premium_content]
+  identifier = "premium_content/desktop_client"
+  parent = "premium_content/benchmark_coverage"
   title = "Desktop / Client"
   weight = 20
 +++
 
-Chef Compliance has current coverage for **23 desktop / client benchmarks**.
+Chef Premium Content has current coverage for **23 desktop / client benchmarks**.
 Each benchmark below lists every audit version and every remediation version
 currently available.
 
@@ -47,10 +48,11 @@ For what audit and remediation each do, see the
 | `STIG Microsoft Windows 11` | v1.2.0, v2.2.0 | v2.2.0 | Partial Audit + Remediation |
 
 For what each coverage term means, see
-[how to read the coverage tables](/solutions/compliance/#how-to-read-the-coverage-tables).
+[how to read the coverage tables](/premium_content/#how-to-read-the-coverage-tables).
 
 ## Related
 
+- [Chef Premium Content](/premium_content/)
 - [Compliance solution overview](/solutions/compliance/)
 - [Compliance audit](/solutions/compliance/#compliance-audit)
 - [Compliance remediation](/solutions/compliance/#compliance-remediation)

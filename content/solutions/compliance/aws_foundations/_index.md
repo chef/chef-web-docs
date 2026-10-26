@@ -612,7 +612,7 @@ requirement it may already cover.
 This profile checks the account's configuration.
 The EC2 instances inside it are assessed as hosts ---
 see [Audit SSH configuration across a Linux fleet](/solutions/compliance/ssh_baseline/)
-and [Operating Systems](/solutions/compliance/operating_systems/) for the benchmarks Chef
+and [Operating Systems](/premium_content/operating_systems/) for the benchmarks Chef
 publishes.
 
 **Check other cloud providers or container platforms.**
@@ -629,5 +629,5 @@ added to a profile.
 - [Chef Automate node integrations](/automate/node_integrations/)
 - [Chef Automate scan jobs](/automate/scan_jobs/)
 - [Audit SSH configuration across a Linux fleet](/solutions/compliance/ssh_baseline/)
-- [Cloud benchmark coverage](/solutions/compliance/cloud/)
+- [Cloud benchmark coverage](/premium_content/cloud/)
 - [Compliance solution overview](/solutions/compliance/)

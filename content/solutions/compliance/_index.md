@@ -135,7 +135,7 @@ Remediation content corrects the configuration behind that requirement,
 on every system that needs it.
 It's delivered as [Chef Infra cookbooks](/client/latest/cookbooks/), built against the same
 CIS Benchmarks and DISA STIGs as the audit profiles, and part of
-[Chef Premium Content](/enterprise_chef/) for enterprise users.
+[Chef Premium Content](/premium_content/) for enterprise users.
 Because Chef Infra Client converges, re-running it on a system that's already correct changes
 nothing --- which is what makes it safe to run on a schedule instead of as a one-off fix.
 
@@ -158,7 +158,8 @@ instead of giving a single answer for each benchmark.
   and available versions differ by benchmark.
   See [supported compliance standards and platforms](#supported-compliance-standards-and-platforms).
 - **Confirm your entitlement.**
-  Remediation content is part of Chef Premium Content, covered in the previous section.
+  Remediation content is part of
+  [Chef Premium Content](/premium_content/), available to enterprise users.
 - **Expect content to change.**
   Benchmarks are revised, and remediation content is updated to follow them.
 - **Test before production.**
@@ -193,7 +194,7 @@ Send results to [Chef Automate](/automate/).
 **Start here.**
 
 1. Confirm the benchmark versions you need are covered, in
-   [Operating Systems](/solutions/compliance/operating_systems/).
+   [Operating Systems](/premium_content/operating_systems/).
 1. Install the profiles from the
    [Chef Automate Profiles page](/automate/profiles/).
 1. Run one assessment by hand before scaling up, so you can read the output and
@@ -217,8 +218,8 @@ or with Chef Automate scan jobs where nodes aren't managed by Chef Infra Client.
 
 **Start here.**
 
-1. Find your Server releases in [Operating Systems](/solutions/compliance/operating_systems/)
-   and your client builds in [Desktop / Client](/solutions/compliance/desktop_client/).
+1. Find your Server releases in [Operating Systems](/premium_content/operating_systems/)
+   and your client builds in [Desktop / Client](/premium_content/desktop_client/).
    Each release has its own benchmark, so check them separately.
 1. Install the matching profiles from the
    [Chef Automate Profiles page](/automate/profiles/).
@@ -252,7 +253,7 @@ or one control within it.
 **Start here.**
 
 1. Check which database benchmarks are covered in
-   [Databases](/solutions/compliance/databases/).
+   [Databases](/premium_content/databases/).
 1. Install the matching profiles from the
    [Chef Automate Profiles page](/automate/profiles/).
 1. Where a requirement depends on data rather than a configuration file,
@@ -284,7 +285,7 @@ created.
    [Audit an AWS account against security baseline](/solutions/compliance/aws_foundations/),
    which builds and runs a profile covering S3, IAM, and security groups.
 1. Check whether a published benchmark already covers the requirement, in
-   [Cloud](/solutions/compliance/cloud/).
+   [Cloud](/premium_content/cloud/).
 1. Extend the profile to the services you care about, using the
    [AWS resource pack reference](/inspec/resource_packs/aws/).
 1. Add an AWS API node manager in
@@ -292,7 +293,7 @@ created.
    [scan job](/automate/scan_jobs/) for the account.
 1. Assess the servers in the account separately.
    Account configuration and host configuration are different questions ---
-   see [Operating Systems](/solutions/compliance/operating_systems/) for host benchmarks.
+   see [Operating Systems](/premium_content/operating_systems/) for host benchmarks.
 
 ### Address controls that keep failing across your fleet
 
@@ -340,7 +341,7 @@ Report everything into the same place.
 **Start here.**
 
 1. Work out what you're covering for each class of system, using the
-   [category pages](#supported-compliance-standards-and-platforms).
+   [category pages](/premium_content/#benchmark-coverage).
 1. For nodes running Chef Infra Client, turn on the
    [Compliance Phase](/client/latest/features/chef_compliance_phase/).
 1. For cloud accounts and systems without an agent, add
@@ -382,49 +383,21 @@ instead of left as unexplained failures.
 
 ## Supported compliance standards and platforms
 
-Audit and remediation coverage are tracked independently:
-a benchmark can have one, the other, or both,
-and the versions available for each can differ.
-Every version is listed --- version sets are never reduced to a single latest version ---
-because which version of a benchmark you're covered against
-is usually the question that matters.
+Chef publishes audit and remediation content built on the
+[CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) and
+[DISA STIGs](https://public.cyber.mil/stigs/),
+covering operating systems, desktop and client platforms, databases,
+applications and middleware, cloud, web servers, containers, network infrastructure,
+and virtualization.
 
-Current coverage is **127 benchmarks**:
+That content is distributed as [Chef Premium Content](/premium_content/).
+Its [coverage tables](/premium_content/#benchmark-coverage) list every benchmark Chef
+currently covers, by category, with every audit version and every remediation version
+available for each one.
 
-| Coverage | Benchmarks |
-| --- | ---: |
-| Audit and remediation | 53 |
-| Audit only | 66 |
-| Remediation only | 8 |
-| **Total** | **127** |
-
-Across those benchmarks there are 191 audit versions and 84 remediation versions,
-built on CIS Benchmarks and DISA STIGs.
-
-Browse coverage by category:
-
-| Category | Benchmarks |
-| --- | ---: |
-| [Operating Systems](/solutions/compliance/operating_systems/) | 66 |
-| [Desktop / Client](/solutions/compliance/desktop_client/) | 23 |
-| [Databases](/solutions/compliance/databases/) | 15 |
-| [Applications / Middleware](/solutions/compliance/applications_middleware/) | 9 |
-| [Cloud](/solutions/compliance/cloud/) | 4 |
-| [Web Servers](/solutions/compliance/web_servers/) | 5 |
-| [Containers / Kubernetes](/solutions/compliance/containers_kubernetes/) | 2 |
-| [Network / Infrastructure](/solutions/compliance/network_infrastructure/) | 2 |
-| [Virtualization](/solutions/compliance/virtualization/) | 1 |
-
-### How to read the coverage tables
-
-| Term | Meaning |
-| --- | --- |
-| Audit + Remediation | Both audit and remediation content cover this benchmark |
-| Partial Audit + Remediation | Both are present, but the version sets overlap only partly |
-| Audit Ahead | Audit content covers a newer benchmark version than remediation content does |
-| Remediation Ahead | Remediation content covers a newer benchmark version than audit content does |
-| Audit Only | Audit content only; no current remediation content |
-| Remediation Only | Remediation content only; no current audit content |
+Check coverage there before you plan work around a specific benchmark:
+audit and remediation are tracked independently, so a benchmark can have one, the other,
+or both, and an audit version doesn't imply a matching remediation version.
 
 ## Get started
 
@@ -433,7 +406,8 @@ Read [about the Compliance Phase](/client/latest/features/chef_compliance_phase/
 to see how compliance assessment fits into a Chef Infra Client run.
 
 **Check your coverage.**
-Find your platforms in the category pages above
+Find your platforms in the
+[Chef Premium Content coverage tables](/premium_content/#benchmark-coverage)
 and confirm which benchmark versions have audit and remediation coverage.
 
 **Get your profiles.**

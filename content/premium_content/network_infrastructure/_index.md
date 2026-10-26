@@ -1,14 +1,15 @@
 +++
 title = "Network / Infrastructure"
+aliases = ["/solutions/compliance/network_infrastructure/"]
 
-[menu.overview]
-  identifier = "overview/solutions/compliance/network_infrastructure"
-  parent = "overview/solutions/compliance"
+[menu.premium_content]
+  identifier = "premium_content/network_infrastructure"
+  parent = "premium_content/benchmark_coverage"
   title = "Network / Infrastructure"
   weight = 80
 +++
 
-Chef Compliance has current coverage for **2 network / infrastructure benchmarks**.
+Chef Premium Content has current coverage for **2 network / infrastructure benchmarks**.
 Each benchmark below lists every audit version and every remediation version
 currently available.
 
@@ -26,10 +27,11 @@ For what audit and remediation each do, see the
 | `CIS Cisco IOS 15` | v4.0.0 | — | Audit Only |
 
 For what each coverage term means, see
-[how to read the coverage tables](/solutions/compliance/#how-to-read-the-coverage-tables).
+[how to read the coverage tables](/premium_content/#how-to-read-the-coverage-tables).
 
 ## Related
 
+- [Chef Premium Content](/premium_content/)
 - [Compliance solution overview](/solutions/compliance/)
 - [Compliance audit](/solutions/compliance/#compliance-audit)
 - [Compliance remediation](/solutions/compliance/#compliance-remediation)

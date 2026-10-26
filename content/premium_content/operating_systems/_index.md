@@ -1,14 +1,15 @@
 +++
 title = "Operating Systems"
+aliases = ["/solutions/compliance/operating_systems/"]
 
-[menu.overview]
-  identifier = "overview/solutions/compliance/operating_systems"
-  parent = "overview/solutions/compliance"
+[menu.premium_content]
+  identifier = "premium_content/operating_systems"
+  parent = "premium_content/benchmark_coverage"
   title = "Operating Systems"
   weight = 10
 +++
 
-Chef Compliance has current coverage for **66 operating systems benchmarks**.
+Chef Premium Content has current coverage for **66 operating systems benchmarks**.
 Each benchmark below lists every audit version and every remediation version
 currently available.
 
@@ -90,10 +91,11 @@ For what audit and remediation each do, see the
 | `STIG Ubuntu Linux 20.04` | v1.2.0 | v1.2.0 | Audit + Remediation |
 
 For what each coverage term means, see
-[how to read the coverage tables](/solutions/compliance/#how-to-read-the-coverage-tables).
+[how to read the coverage tables](/premium_content/#how-to-read-the-coverage-tables).
 
 ## Related
 
+- [Chef Premium Content](/premium_content/)
 - [Compliance solution overview](/solutions/compliance/)
 - [Compliance audit](/solutions/compliance/#compliance-audit)
 - [Compliance remediation](/solutions/compliance/#compliance-remediation)

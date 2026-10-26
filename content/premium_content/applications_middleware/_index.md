@@ -1,14 +1,15 @@
 +++
 title = "Applications / Middleware"
+aliases = ["/solutions/compliance/applications_middleware/"]
 
-[menu.overview]
-  identifier = "overview/solutions/compliance/applications_middleware"
-  parent = "overview/solutions/compliance"
+[menu.premium_content]
+  identifier = "premium_content/applications_middleware"
+  parent = "premium_content/benchmark_coverage"
   title = "Applications / Middleware"
   weight = 40
 +++
 
-Chef Compliance has current coverage for **9 applications / middleware benchmarks**.
+Chef Premium Content has current coverage for **9 applications / middleware benchmarks**.
 Each benchmark below lists every audit version and every remediation version
 currently available.
 
@@ -33,7 +34,7 @@ For what audit and remediation each do, see the
 | `CIS Microsoft SharePoint 2016` | v1.1.0 | v1.1.0 | Audit + Remediation |
 
 For what each coverage term means, see
-[how to read the coverage tables](/solutions/compliance/#how-to-read-the-coverage-tables).
+[how to read the coverage tables](/premium_content/#how-to-read-the-coverage-tables).
 
 ## Inspect middleware configuration directly
 
@@ -50,6 +51,7 @@ It provides the resources you use to write your own controls.
 
 ## Related
 
+- [Chef Premium Content](/premium_content/)
 - [Compliance solution overview](/solutions/compliance/)
 - [Compliance audit](/solutions/compliance/#compliance-audit)
 - [Compliance remediation](/solutions/compliance/#compliance-remediation)

@@ -1,14 +1,15 @@
 +++
 title = "Web Servers"
+aliases = ["/solutions/compliance/web_servers/"]
 
-[menu.overview]
-  identifier = "overview/solutions/compliance/web_servers"
-  parent = "overview/solutions/compliance"
+[menu.premium_content]
+  identifier = "premium_content/web_servers"
+  parent = "premium_content/benchmark_coverage"
   title = "Web Servers"
   weight = 60
 +++
 
-Chef Compliance has current coverage for **5 web servers benchmarks**.
+Chef Premium Content has current coverage for **5 web servers benchmarks**.
 Each benchmark below lists every audit version and every remediation version
 currently available.
 
@@ -29,10 +30,11 @@ For what audit and remediation each do, see the
 | `STIG Microsoft IIS 10.0` | v2 | — | Audit Only |
 
 For what each coverage term means, see
-[how to read the coverage tables](/solutions/compliance/#how-to-read-the-coverage-tables).
+[how to read the coverage tables](/premium_content/#how-to-read-the-coverage-tables).
 
 ## Related
 
+- [Chef Premium Content](/premium_content/)
 - [Compliance solution overview](/solutions/compliance/)
 - [Compliance audit](/solutions/compliance/#compliance-audit)
 - [Compliance remediation](/solutions/compliance/#compliance-remediation)

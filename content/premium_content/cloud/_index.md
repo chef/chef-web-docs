@@ -1,14 +1,15 @@
 +++
 title = "Cloud"
+aliases = ["/solutions/compliance/cloud/"]
 
-[menu.overview]
-  identifier = "overview/solutions/compliance/cloud"
-  parent = "overview/solutions/compliance"
+[menu.premium_content]
+  identifier = "premium_content/cloud"
+  parent = "premium_content/benchmark_coverage"
   title = "Cloud"
   weight = 50
 +++
 
-Chef Compliance has current coverage for **4 cloud benchmarks**.
+Chef Premium Content has current coverage for **4 cloud benchmarks**.
 Each benchmark below lists every audit version and every remediation version
 currently available.
 
@@ -28,7 +29,7 @@ For what audit and remediation each do, see the
 | `InSpec GCP Resource Pack` | v1.1.0 | — | Audit Only |
 
 For what each coverage term means, see
-[how to read the coverage tables](/solutions/compliance/#how-to-read-the-coverage-tables).
+[how to read the coverage tables](/premium_content/#how-to-read-the-coverage-tables).
 
 ## Inspect cloud configuration directly
 
@@ -57,6 +58,7 @@ across an account, then runs it and reads the findings.
 
 ## Related
 
+- [Chef Premium Content](/premium_content/)
 - [Compliance solution overview](/solutions/compliance/)
 - [Compliance audit](/solutions/compliance/#compliance-audit)
 - [Compliance remediation](/solutions/compliance/#compliance-remediation)

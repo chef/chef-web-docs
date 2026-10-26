@@ -564,6 +564,26 @@ identifier = "inspec"
 ####
 
 ####
+# Chef Premium Content Menu
+####
+
+[[premium_content]]
+title = "Chef Premium Content"
+identifier = "premium_content"
+url = "/premium_content/"
+
+  [[premium_content]]
+  title = "Benchmark coverage"
+  identifier = "premium_content/benchmark_coverage"
+  parent = "premium_content"
+  url = "/premium_content/#benchmark-coverage"
+  weight = 20
+
+####
+# End Chef Premium Content Menu
+####
+
+####
 # Chef Infra Server Menu
 ####
 

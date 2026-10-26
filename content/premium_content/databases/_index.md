@@ -1,14 +1,15 @@
 +++
 title = "Databases"
+aliases = ["/solutions/compliance/databases/"]
 
-[menu.overview]
-  identifier = "overview/solutions/compliance/databases"
-  parent = "overview/solutions/compliance"
+[menu.premium_content]
+  identifier = "premium_content/databases"
+  parent = "premium_content/benchmark_coverage"
   title = "Databases"
   weight = 30
 +++
 
-Chef Compliance has current coverage for **15 databases benchmarks**.
+Chef Premium Content has current coverage for **15 databases benchmarks**.
 Each benchmark below lists every audit version and every remediation version
 currently available.
 
@@ -39,7 +40,7 @@ For what audit and remediation each do, see the
 | `STIG PostgreSQL 9.x` | v2 | — | Audit Only |
 
 For what each coverage term means, see
-[how to read the coverage tables](/solutions/compliance/#how-to-read-the-coverage-tables).
+[how to read the coverage tables](/premium_content/#how-to-read-the-coverage-tables).
 
 ## Inspect database configuration directly
 
@@ -64,6 +65,7 @@ It provides the resources you use to write your own controls.
 
 ## Related
 
+- [Chef Premium Content](/premium_content/)
 - [Compliance solution overview](/solutions/compliance/)
 - [Compliance audit](/solutions/compliance/#compliance-audit)
 - [Compliance remediation](/solutions/compliance/#compliance-remediation)
