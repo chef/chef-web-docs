@@ -419,3 +419,26 @@ To download a specific package format, add the optional `pm=<PACKAGE_MANAGER>` p
 ```bash
 wget --content-disposition https://chefdownload-commercial.chef.io/<CHANNEL>/<PRODUCT>/download?p=<PLATFORM>&pm=<PACKAGE_MANAGER>&pv=<PLATFORM_VERSION>&m=<ARCHITECTURE>&license_id=<LICENSE_ID>
 ```
+
+### Verify a package checksum
+
+You can use the `metadata` endpoint to verify the checksum of a package downloaded with the `download` endpoint.
+
+The following example downloads a Chef Infra Client Enterprise 19 Debian package, retrieves its SHA-256 checksum from the `metadata` endpoint, and verifies the downloaded package:
+
+```shell
+BASE="https://chefdownload-commercial.chef.io/stable/chef-ice"
+# Keep the package parameters identical in both requests.
+QUERY="p=linux&pm=deb&m=x86_64&v=<VERSION>&license_id=<LICENSE_ID>"
+
+curl -fL -o chef-ice.deb "$BASE/download?eol=false&$QUERY"
+EXPECTED=$(curl -fsS "$BASE/metadata?$QUERY" | jq -er .sha256)
+echo "$EXPECTED  chef-ice.deb" | sha256sum -c -
+```
+
+On macOS, replace `sha256sum -c -` with `shasum -a 256 -c -`.
+
+Replace the following:
+
+- `<VERSION>`: the Chef Infra Client Enterprise version to download
+- `<LICENSE_ID>`: your Chef license ID
