@@ -50,7 +50,7 @@ Release date: October 22, 2026
 - Updated the Apache CXF XKMS server bundled with OpenSearch to address CVE-2026-44930, which fixes an LDAP injection vulnerability.
 - Updated Netty to address CVE-2026-50010, which fixes a vulnerability that bypassed hostname verification when a plain `X509TrustManager` was supplied.
 - Updated the Apache Log4j version bundled with OpenSearch to address CVE-2026-49844, which fixes an improper JSON serialization issue.
-- Upgraded the bundled Apache Log4j Core package to 2.25.4 to address the following CVEs:
+- Updated the Apache Log4j Core package bundled with OpenSearch to `2.17.1-tuxcare.4`, which includes backported fixes from Log4j 2.25.4, to address the following CVEs:
   - CVE-2025-68161
   - CVE-2026-34477
   - CVE-2026-34480
