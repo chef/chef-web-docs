@@ -50,10 +50,13 @@ Release date: October 22, 2026
 - Updated the Apache CXF XKMS server bundled with OpenSearch to address CVE-2026-44930, which fixes an LDAP injection vulnerability.
 - Updated Netty to address CVE-2026-50010, which fixes a vulnerability that bypassed hostname verification when a plain `X509TrustManager` was supplied.
 - Updated the Apache Log4j version bundled with OpenSearch to address CVE-2026-49844, which fixes an improper JSON serialization issue.
-- Upgraded the bundled Apache Log4j Core package to 2.25.4 to address the following CVEs:
+- Updated the Apache Log4j Core library bundled with OpenSearch to the TuxCare-patched build `2.17.1-tuxcare.4` to address the following CVEs:
   - CVE-2025-68161
   - CVE-2026-34477
   - CVE-2026-34480
+
+  This build backports the security fixes from upstream Log4j 2.25.4 to Log4j 2.17.1. It doesn't upgrade Log4j to 2.25.4, so the JAR file is named `log4j-core-2.17.1-tuxcare.4.jar` and still includes `2.17.1` in its filename. Vulnerability scanners that read only the version number may continue to report these CVEs. For TuxCare's vulnerability status for this build, see the [TuxCare VEX data for log4j-core 2.17.1-tuxcare.4](https://security.tuxcare.com/vex/cyclonedx/els_lang_java/org.apache.logging.log4j/log4j-core/2.17.1-tuxcare.4/vex.json).
+
 - Updated the bundled Ruby `net-imap` gem to address multiple CVEs.
 - Updated the core/ruby3_1 pin to address a vulnerability in `rexml`.
 - Updated Node.js to 24.21.0 and 22.23.0, and libcurl to 8.22.0, to resolve multiple CVEs.
