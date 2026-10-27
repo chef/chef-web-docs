@@ -56,6 +56,7 @@ Release date: October 22, 2026
   - CVE-2026-34480
 
   This build backports the security fixes from upstream Log4j 2.25.4 to Log4j 2.17.1. It doesn't upgrade Log4j to 2.25.4, so the JAR file is named `log4j-core-2.17.1-tuxcare.4.jar` and still includes `2.17.1` in its filename. Vulnerability scanners that read only the version number may continue to report these CVEs. For TuxCare's vulnerability status for this build, see the [TuxCare VEX data for log4j-core 2.17.1-tuxcare.4](https://security.tuxcare.com/vex/cyclonedx/els_lang_java/org.apache.logging.log4j/log4j-core/2.17.1-tuxcare.4/vex.json).
+
 - Updated the bundled Ruby `net-imap` gem to address multiple CVEs.
 - Updated the core/ruby3_1 pin to address a vulnerability in `rexml`.
 - Updated Node.js to 24.21.0 and 22.23.0, and libcurl to 8.22.0, to resolve multiple CVEs.
