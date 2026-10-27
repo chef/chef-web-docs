@@ -4,7 +4,7 @@ aliases = ["/solutions/compliance/operating_systems/"]
 
 [menu.premium_content]
   identifier = "premium_content/operating_systems"
-  parent = "premium_content/benchmark_coverage"
+  parent = "premium_content"
   title = "Operating Systems"
   weight = 10
 +++

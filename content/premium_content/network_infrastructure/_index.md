@@ -4,7 +4,7 @@ aliases = ["/solutions/compliance/network_infrastructure/"]
 
 [menu.premium_content]
   identifier = "premium_content/network_infrastructure"
-  parent = "premium_content/benchmark_coverage"
+  parent = "premium_content"
   title = "Network / Infrastructure"
   weight = 80
 +++

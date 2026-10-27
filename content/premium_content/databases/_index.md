@@ -4,7 +4,7 @@ aliases = ["/solutions/compliance/databases/"]
 
 [menu.premium_content]
   identifier = "premium_content/databases"
-  parent = "premium_content/benchmark_coverage"
+  parent = "premium_content"
   title = "Databases"
   weight = 30
 +++

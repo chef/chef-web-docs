@@ -4,7 +4,7 @@ aliases = ["/solutions/compliance/web_servers/"]
 
 [menu.premium_content]
   identifier = "premium_content/web_servers"
-  parent = "premium_content/benchmark_coverage"
+  parent = "premium_content"
   title = "Web Servers"
   weight = 60
 +++

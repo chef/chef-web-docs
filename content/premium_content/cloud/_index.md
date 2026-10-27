@@ -4,7 +4,7 @@ aliases = ["/solutions/compliance/cloud/"]
 
 [menu.premium_content]
   identifier = "premium_content/cloud"
-  parent = "premium_content/benchmark_coverage"
+  parent = "premium_content"
   title = "Cloud"
   weight = 50
 +++

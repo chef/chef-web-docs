@@ -4,7 +4,7 @@ aliases = ["/solutions/compliance/virtualization/"]
 
 [menu.premium_content]
   identifier = "premium_content/virtualization"
-  parent = "premium_content/benchmark_coverage"
+  parent = "premium_content"
   title = "Virtualization"
   weight = 90
 +++

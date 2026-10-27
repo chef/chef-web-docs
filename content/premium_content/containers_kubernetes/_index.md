@@ -4,7 +4,7 @@ aliases = ["/solutions/compliance/containers_kubernetes/"]
 
 [menu.premium_content]
   identifier = "premium_content/containers_kubernetes"
-  parent = "premium_content/benchmark_coverage"
+  parent = "premium_content"
   title = "Containers / Kubernetes"
   weight = 70
 +++

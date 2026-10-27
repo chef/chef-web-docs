@@ -4,7 +4,7 @@ aliases = ["/solutions/compliance/applications_middleware/"]
 
 [menu.premium_content]
   identifier = "premium_content/applications_middleware"
-  parent = "premium_content/benchmark_coverage"
+  parent = "premium_content"
   title = "Applications / Middleware"
   weight = 40
 +++

@@ -4,7 +4,7 @@ aliases = ["/solutions/compliance/desktop_client/"]
 
 [menu.premium_content]
   identifier = "premium_content/desktop_client"
-  parent = "premium_content/benchmark_coverage"
+  parent = "premium_content"
   title = "Desktop / Client"
   weight = 20
 +++
