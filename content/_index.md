@@ -79,6 +79,13 @@ Select a product to browse its documentation.
 >}}
 
 {{< card
+  title="Chef Premium Content"
+  link="/premium_content/"
+  icon="workspace_premium"
+  description="Curated audit and remediation content built on CIS Benchmarks and DISA STIGs for licensed Chef users."
+>}}
+
+{{< card
   title="Chef Supermarket"
   link="/supermarket/"
   icon="storefront"

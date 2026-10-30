@@ -10,6 +10,7 @@ menu_order = [
   "infra",
   "server",
   "inspec",
+  "premium_content",
   "workstation",
   "effortless",
   "supermarket",
