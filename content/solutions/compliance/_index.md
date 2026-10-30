@@ -48,6 +48,12 @@ Start here:
 - **Assessing an AWS account?**
   [Audit an AWS account against security baseline](/solutions/compliance/aws_foundations/)
   does the same using the AWS resource pack.
+- **Assessing GitHub repository governance?**
+  [GitHub compliance with Chef InSpec](/solutions/compliance/github_governance/)
+  covers organization-wide policy, ownership, access, merge controls, evidence, exceptions, and recurring assessments.
+  For a smaller first assessment,
+  [Audit a GitHub repository with Chef InSpec](/solutions/compliance/github/)
+  checks repository files, records approved exceptions, and explains how to retain evidence and detect drift.
 - **Have a different fleet or problem in mind?**
   See [common compliance scenarios](#common-compliance-scenarios) for Windows, databases,
   mixed fleets, and more.
