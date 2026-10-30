@@ -59,7 +59,7 @@ Release date: October 22, 2026
 
 - Updated the bundled Ruby `net-imap` gem to address multiple CVEs.
 - Updated the core/ruby3_1 pin to address a vulnerability in `rexml`.
-- Updated Node.js to 24.21.0 and 22.23.0, and libcurl to 8.22.0, to resolve multiple CVEs.
+- Updated Node.js to 24.21.0 and libcurl to 8.22.0 to resolve multiple CVEs.
 
 ### Bug fixes
 
