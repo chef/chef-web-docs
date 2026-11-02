@@ -1,12 +1,13 @@
 +++
-title = "Audit a GitHub repository with Chef InSpec"
+title = "The Chef way of GitHub repository compliance"
+description = "Audit a GitHub repository with Chef InSpec: check repository governance files, record approved exceptions, and detect configuration drift."
 draft = false
 gh_repo = "chef-web-docs"
 
 [menu.overview]
   identifier = "overview/solutions/compliance/github"
   parent = "overview/solutions/compliance"
-  title = "Guide: Audit a GitHub repository"
+  title = "GitHub repository compliance"
   weight = 7
 +++
 
@@ -17,10 +18,10 @@ Chef InSpec compares repository configuration with executable policy and reports
 The [GitHub resource pack](https://github.com/inspec/inspec-github-resources) extends Chef InSpec with resources for GitHub repositories, files, collaborators, and rulesets.
 You write controls that express your organization's requirements, supply repository-specific values as inputs, and retain the results for review.
 
-This guide starts with three repository-file requirements.
+This page starts with three repository-file requirements.
 It then explains how to retain evidence, manage approved exceptions, and repeat assessments to detect drift.
 These are organization-specific checks, not a published compliance benchmark or a complete GitHub governance assessment.
-For the organization-wide workflow, including access, ownership, and merge requirements, see [GitHub compliance with Chef InSpec](/solutions/compliance/github_governance/).
+For the organization-wide workflow, including access, ownership, and merge requirements, see [The Chef way of GitHub organization compliance](/solutions/compliance/github_governance/).
 
 ## What you'll build
 
@@ -82,7 +83,7 @@ Test the endpoints your controls need.
 
 Missing permissions, API failures, and rate limits can produce incomplete observations.
 An inaccessible resource isn't evidence that a repository meets policy.
-The file checks in this guide don't distinguish every collection error from a missing file, so investigate access and API errors before classifying a finding.
+The file checks on this page don't distinguish every collection error from a missing file, so investigate access and API errors before classifying a finding.
 
 {{< /warning >}}
 
@@ -314,7 +315,7 @@ Keep failed and incomplete runs, not just successful assessments.
 To confirm a correction, rerun the same policy against the same repository and preserve both results.
 For recurring assessments, configure your approved scheduler to prepare the tested tools, inject credentials, validate the profile, run the assessment, and retain evidence even when checks fail.
 If you use GitHub Actions, pin approved actions and dependencies, restrict workflow changes, and use an execution environment with Chef InSpec and GitHub CLI installed.
-This guide doesn't define a supported GitHub-specific Chef Automate or Chef 360 Platform integration.
+This page doesn't define a supported GitHub-specific Chef Automate or Chef 360 Platform integration.
 
 Compare runs only after accounting for policy and scope changes:
 
@@ -358,5 +359,5 @@ Don't present an assessment percentage without its denominator, exclusions, exce
 - [GitHub resource pack and resource reference](https://github.com/inspec/inspec-github-resources)
 - [Chef InSpec profiles](/inspec/latest/profiles/)
 - [Chef InSpec controls](/inspec/latest/profiles/controls/)
-- [Build custom compliance checks with Chef InSpec](/solutions/compliance/extend/)
+- [The Chef way of custom compliance checks](/solutions/compliance/extend/)
 - [Chef Compliance overview](/solutions/compliance/)

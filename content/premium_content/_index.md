@@ -110,7 +110,7 @@ end to end.
 
 When your requirement isn't covered by a published benchmark, you can write your own
 Chef InSpec controls instead.
-See [Build custom compliance checks with Chef InSpec](/solutions/compliance/extend/).
+See [The Chef way of custom compliance checks](/solutions/compliance/extend/).
 
 ## Related
 

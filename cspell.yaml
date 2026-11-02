@@ -31,6 +31,14 @@ dictionaryDefinitions:
 
 flagWords:
 - hte
+
+# words - project terms that aren't in the shared Chef dictionaries.
+# GitHub product terminology used in the Compliance solution pages.
+words:
+- CODEOWNERS
+- ruleset
+- rulesets
+
 ignorePaths:
 - ".expeditor/**/*"
 - "**/*.sh"

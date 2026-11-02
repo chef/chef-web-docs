@@ -1,12 +1,13 @@
 +++
-title = "Audit an AWS account against security baseline"
+title = "The Chef way of AWS compliance"
+description = "Audit an AWS account against a security baseline with Chef InSpec and the AWS resource pack: check S3 buckets, IAM policies, and security groups."
 draft = false
 gh_repo = "chef-web-docs"
 
 [menu.overview]
   identifier = "overview/solutions/compliance/aws_foundations"
   parent = "overview/solutions/compliance"
-  title = "Guide: Audit an AWS account"
+  title = "AWS compliance"
   weight = 6
 +++
 
@@ -15,10 +16,10 @@ open to `0.0.0.0/0` can sit in an AWS account for months before anyone notices -
 about the AWS console tells you these violate your baseline, and checking by hand doesn't
 scale past a handful of accounts.
 
-This guide walks through writing a Chef InSpec profile with the **AWS resource pack**,
-running it against an AWS account, and reading what comes back.
+The steps below write a Chef InSpec profile with the **AWS resource pack**,
+run it against an AWS account, and read what comes back.
 It uses the same pattern as
-[Audit SSH configuration across a Linux fleet](/solutions/compliance/ssh_baseline/),
+[The Chef way of SSH compliance](/solutions/compliance/ssh_baseline/),
 applied to a cloud account instead of a host ---
 if you haven't written a Chef InSpec profile before, start there first.
 
@@ -43,7 +44,7 @@ using the same pattern you'd follow for any other AWS service.
 
 **What was run, and where.**
 The generator output, the vendoring output, and the `inspec check` and `inspec detect` output
-in this guide were produced on Chef InSpec 5.24.7 from Chef Workstation.
+on this page were produced on Chef InSpec 5.24.7 from Chef Workstation.
 Assessment results shown for a run against a live AWS account are illustrative and
 are labeled where they appear.
 Exit codes come from the [Chef InSpec CLI reference](/inspec/latest/reference/cli/),
@@ -61,9 +62,9 @@ You need:
   Run `inspec version` to confirm it's available.
 - **An AWS account** to assess, and credentials for it.
   An account with the AWS-managed `ReadOnlyAccess` policy is enough for every
-  control in this guide.
+  control on this page.
 - **AWS credentials available as environment variables.**
-  This guide uses the standard AWS SDK credential chain, the same one the
+  These steps use the standard AWS SDK credential chain, the same one the
   AWS CLI uses, so anything that already works with `aws` works here.
 
 You don't need to install anything in the AWS account.
@@ -507,7 +508,7 @@ The control reports as skipped and carries your justification into the
 report, the same way a waiver works for any Chef InSpec profile.
 See [the waivers reference](/inspec/latest/configure/waivers/) for the full
 file format, and
-[Step 7 of the SSH guide](/solutions/compliance/ssh_baseline/#step-7-waive-an-exception-youve-accepted)
+[Step 7 of SSH compliance](/solutions/compliance/ssh_baseline/#step-7-waive-an-exception-youve-accepted)
 for another worked example.
 
 ## Extend the profile to more of the account
@@ -611,12 +612,12 @@ requirement it may already cover.
 **Assess the instances as well as the account.**
 This profile checks the account's configuration.
 The EC2 instances inside it are assessed as hosts ---
-see [Audit SSH configuration across a Linux fleet](/solutions/compliance/ssh_baseline/)
+see [The Chef way of SSH compliance](/solutions/compliance/ssh_baseline/)
 and [Operating Systems](/premium_content/operating_systems/) for the benchmarks Chef
 publishes.
 
 **Check other cloud providers or container platforms.**
-See [Build custom compliance checks with Chef InSpec](/solutions/compliance/extend/)
+See [The Chef way of custom compliance checks](/solutions/compliance/extend/)
 for the Azure, GCP, Kubernetes, and other resource packs, and how each is
 added to a profile.
 
@@ -628,6 +629,6 @@ added to a profile.
 - [Waivers reference](/inspec/latest/configure/waivers/)
 - [Chef Automate node integrations](/automate/node_integrations/)
 - [Chef Automate scan jobs](/automate/scan_jobs/)
-- [Audit SSH configuration across a Linux fleet](/solutions/compliance/ssh_baseline/)
+- [The Chef way of SSH compliance](/solutions/compliance/ssh_baseline/)
 - [Cloud benchmark coverage](/premium_content/cloud/)
 - [Compliance solution overview](/solutions/compliance/)

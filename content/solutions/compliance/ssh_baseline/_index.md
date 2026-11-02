@@ -1,12 +1,13 @@
 +++
-title = "Audit SSH configuration across a Linux fleet"
+title = "The Chef way of SSH compliance"
+description = "Audit SSH configuration across a Linux fleet with Chef InSpec: write a profile, run it, read the findings, and fix or waive what fails."
 draft = false
 gh_repo = "chef-web-docs"
 
 [menu.overview]
   identifier = "overview/solutions/compliance/ssh_baseline"
   parent = "overview/solutions/compliance"
-  title = "Guide: Audit SSH configuration"
+  title = "SSH compliance"
   weight = 5
 +++
 
@@ -18,8 +19,8 @@ and both are undone by a one-line edit during an incident.
 Checking that file by hand doesn't scale past a handful of hosts,
 and a spreadsheet of findings goes stale the day after you build it.
 
-This guide walks through writing a Chef InSpec profile that checks those requirements,
-running it against your servers, and reading what comes back.
+The steps below write a Chef InSpec profile that checks those requirements,
+run it against your servers, and read what comes back.
 It uses only core Chef InSpec resources, so you don't need a resource pack
 or a Chef Automate server to complete it.
 
@@ -434,7 +435,7 @@ See [compliance remediation](/solutions/compliance/#compliance-remediation).
 **Check technologies beyond the operating system.**
 Core resources cover much of a host.
 For cloud accounts, Kubernetes clusters, and container runtimes,
-see [Build custom compliance checks with Chef InSpec](/solutions/compliance/extend/).
+see [The Chef way of custom compliance checks](/solutions/compliance/extend/).
 
 ## Related
 
