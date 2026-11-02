@@ -106,10 +106,11 @@ weight = 20
   parent = "overview"
   weight = 60
 
-  # The "Chef Compliance" entry under Solutions is declared in
-  # content/solutions/compliance/_index.md so the menu entry is the overview
-  # page itself. That makes the parent a working link and keeps the section
-  # expanded when a reader lands on it, without a duplicate "Overview" child.
+    [[overview]]
+    title = "Chef Compliance"
+    identifier = "overview/solutions/compliance"
+    parent = "overview/solutions"
+    weight = 10
 
 ####
 # End Overview Menu
