@@ -11,10 +11,10 @@ gh_repo = "chef-web-docs"
     breadcrumbs = true
 
 [menu.overview]
-  identifier = "overview/solutions/compliance/overview"
-  parent = "overview/solutions/compliance"
-  title = "Overview"
-  weight = 1
+  identifier = "overview/solutions/compliance"
+  parent = "overview/solutions"
+  title = "Chef Compliance"
+  weight = 10
 +++
 
 Chef Compliance checks your systems against security benchmarks like CIS Benchmarks and
