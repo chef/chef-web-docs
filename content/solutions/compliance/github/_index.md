@@ -359,5 +359,5 @@ Don't present an assessment percentage without its denominator, exclusions, exce
 - [GitHub resource pack and resource reference](https://github.com/inspec/inspec-github-resources)
 - [Chef InSpec profiles](/inspec/latest/profiles/)
 - [Chef InSpec controls](/inspec/latest/profiles/controls/)
-- [The Chef way of custom compliance checks](/solutions/compliance/extend/)
+- [The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
 - [Chef Compliance overview](/solutions/compliance/)
