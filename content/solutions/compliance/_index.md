@@ -278,7 +278,7 @@ or one control within it.
    [`oracledb_session`](/inspec/latest/resources/core/oracledb_session/).
    These need an account on the database with permission to run the query.
 1. For requirements no published benchmark covers, write your own controls ---
-   see [The Chef way of custom compliance checks](/solutions/compliance/extend/).
+   see [The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/).
 1. Use deep filtering in [compliance reporting](/automate/reports/)
    to report on one database profile, or one control within it.
 
@@ -366,7 +366,7 @@ Report everything into the same place.
    so newly created instances are assessed without anyone adding them by hand.
 1. For cloud accounts, Kubernetes clusters, and container runtimes,
    the resources you write controls against come from resource packs ---
-   see [The Chef way of custom compliance checks](/solutions/compliance/extend/).
+   see [The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/).
 1. Report everything into [compliance reporting](/automate/reports/)
    so results from every class of system land in the same place.
 
@@ -446,4 +446,4 @@ and to filter down to what you need.
 [Install Chef InSpec](/inspec/latest/install/) and [Chef Workstation](/workstation/latest/)
 to author and test controls for requirements specific to your organization.
 For what to build those controls from, see
-[The Chef way of custom compliance checks](/solutions/compliance/extend/).
+[The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/).

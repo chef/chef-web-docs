@@ -617,7 +617,7 @@ and [Operating Systems](/premium_content/operating_systems/) for the benchmarks 
 publishes.
 
 **Check other cloud providers or container platforms.**
-See [The Chef way of custom compliance checks](/solutions/compliance/extend/)
+See [The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
 for the Azure, GCP, Kubernetes, and other resource packs, and how each is
 added to a profile.
 

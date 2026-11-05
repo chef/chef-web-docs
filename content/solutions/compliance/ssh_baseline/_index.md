@@ -435,7 +435,7 @@ See [compliance remediation](/solutions/compliance/#compliance-remediation).
 **Check technologies beyond the operating system.**
 Core resources cover much of a host.
 For cloud accounts, Kubernetes clusters, and container runtimes,
-see [The Chef way of custom compliance checks](/solutions/compliance/extend/).
+see [The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/).
 
 ## Related
 

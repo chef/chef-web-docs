@@ -3,7 +3,7 @@ title = "The Chef way of custom compliance checks"
 description = "Build custom compliance checks with Chef InSpec when no published benchmark covers your requirement, using core resources and resource packs."
 
 [menu.overview]
-  identifier = "overview/solutions/compliance/extend"
+  identifier = "overview/solutions/compliance/custom_compliance_checks"
   parent = "overview/solutions/compliance"
   title = "Custom compliance checks"
   weight = 100
