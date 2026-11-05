@@ -57,12 +57,6 @@ Start with the one closest to the systems you own:
 - **Assessing an AWS account?**
   [The Chef way of AWS compliance](/solutions/compliance/aws_foundations/)
   does the same using the AWS resource pack.
-- **Assessing GitHub repository governance?**
-  [The Chef way of GitHub organization compliance](/solutions/compliance/github_governance/)
-  covers organization-wide policy, ownership, access, merge controls, evidence, exceptions, and recurring assessments.
-  For a smaller first assessment,
-  [The Chef way of GitHub repository compliance](/solutions/compliance/github/)
-  checks repository files, records approved exceptions, and explains how to retain evidence and detect drift.
 - **Have a different fleet or problem in mind?**
   See [common compliance scenarios](#common-compliance-scenarios) for Windows, databases,
   mixed fleets, and more.
