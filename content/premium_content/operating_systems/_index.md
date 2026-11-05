@@ -15,6 +15,21 @@ See [benchmark coverage](/premium_content/#benchmark-coverage) for how audit and
 remediation coverage are tracked, and the
 [Compliance solution overview](/solutions/compliance/) for what each does.
 
+## Browse by platform
+
+Platform pages describe what the benchmarks cover, which profiles ship, and what
+remediation is available:
+
+| Platform | Benchmarks |
+| --- | --- |
+| [AlmaLinux OS](/premium_content/operating_systems/almalinux/) | CIS |
+| [Windows Server](/premium_content/operating_systems/windows_server/) | CIS, STIG |
+
+Pages for the remaining platforms are in progress. Until then, the full table below
+lists every supported operating system benchmark.
+
+## All operating system benchmarks
+
 | Benchmark | Audit versions | Remediation versions | Coverage |
 | --- | --- | --- | --- |
 | `CIS AlmaLinux OS 10` | v1.0.0 | — | Audit Only |

@@ -90,6 +90,22 @@ An entry in a coverage table means Chef currently publishes content for that ben
 version. It isn't a statement about your own compliance posture, which depends on the
 systems you assess and the results you act on.
 
+### Benchmark versions and content builds
+
+Coverage tables list the *benchmark* version, such as `v2.0.0`. That's the version
+published by CIS or DISA.
+
+The content you receive carries a second number, written as a suffix: `2.0.0-3`. The
+suffix is the Chef build of that benchmark version. A benchmark version is first
+published as `-1`. If an issue is found and corrected, Chef publishes a new build of
+the same benchmark version as `-2`, then `-3`, and distributes the updated content to
+entitled users.
+
+Both `2.0.0-1` and `2.0.0-3` cover the same benchmark requirements; the higher suffix is
+the more current Chef build. Coverage tables don't list build numbers, because they
+change independently of the benchmark. Always use the most recent build you've
+received.
+
 ### Before you plan work around remediation content
 
 Remediation coverage is narrower than audit coverage, and available versions differ by

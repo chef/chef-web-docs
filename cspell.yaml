@@ -38,6 +38,17 @@ words:
 - CODEOWNERS
 - ruleset
 - rulesets
+# Premium Content profile name tokens.
+- almalinux
+- almalinuxos
+- cationly
+- disableslowrules
+- domaincontroller
+- memberserver
+- microsoftwindowsserver
+- missioncritical
+- missionsupport
+- missionsupportsensitive
 
 ignorePaths:
 - ".expeditor/**/*"
