@@ -44,7 +44,7 @@ using the same pattern you'd follow for any other AWS service.
 
 **What was run, and where.**
 The generator output, the vendoring output, and the `inspec check` and `inspec detect` output
-on this page were produced on Chef InSpec 5.24.7 from Chef Workstation.
+on this page were produced on Chef InSpec 7.3.4.
 Assessment results shown for a run against a live AWS account are illustrative and
 are labeled where they appear.
 Exit codes come from the [Chef InSpec CLI reference](/inspec/latest/reference/cli/),
@@ -119,9 +119,9 @@ inspec init profile --platform aws aws-baseline
 ```text
 ─────────────────────────── InSpec Code Generator ───────────────────────────
 
-Creating new profile at ./aws-baseline
+Creating new profile at /home/you/aws-baseline
  • Creating file README.md
- • Creating directory ./aws-baseline/controls
+ • Creating directory /home/you/aws-baseline/controls
  • Creating file controls/example.rb
  • Creating file inputs.yml
  • Creating file inspec.yml
@@ -154,7 +154,13 @@ copyright_email: compliance@example.com
 license: Apache-2.0
 summary: Verify AWS S3, IAM, and security group configuration against organization requirements
 version: 0.1.0
+inspec_version: '~> 7'
 ```
+
+`inspec_version` records the Chef InSpec versions the profile is written for.
+The generated file ships with an older constraint,
+so set it to match the version you're running or every command reports
+`cannot satisfy profile inspec_version constraint`.
 
 For every field you can set here, see
 [the inspec.yml reference](/inspec/latest/profiles/inspec_yml/).
@@ -169,7 +175,7 @@ inspec vendor aws-baseline
 ```
 
 ```text
-Dependencies for profile aws-baseline successfully vendored to ./aws-baseline/vendor
+Dependencies for profile aws-baseline successfully vendored to /home/you/aws-baseline/vendor
 ```
 
 This writes a `vendor/` directory holding the pack and an `inspec.lock` file recording
@@ -194,7 +200,7 @@ re-vendor on purpose with `inspec vendor --overwrite`.
 Skip this step and the next command fails rather than downloading the pack implicitly:
 
 ```text
-×  ./inspec.yml:0:0: Your profile needs to be vendored with `inspec vendor`.
+×  aws-baseline/inspec.yml:0:0: Your profile needs to be vendored with `inspec vendor`.
 ```
 
 ## Step 3: Set credentials
@@ -233,7 +239,7 @@ inspec detect -t aws://
 
 Name:      aws
 Families:  cloud, api
-Release:   train-aws: v0.2.36, aws-sdk-core: v3.246.0
+Release:   train-aws: v0.2.44, aws-sdk-core: v3.234.0
 ```
 
 The `Release` line reports the versions of the AWS transport and SDK in your installation,
@@ -241,7 +247,7 @@ so expect different numbers from a different Chef InSpec release.
 
 {{< note >}}
 
-On Chef InSpec 5.24.7, `inspec detect -t aws://` returned these platform details with no
+On Chef InSpec 7.3.4, `inspec detect -t aws://` returned these platform details with no
 credentials set at all.
 Treat it as confirmation that the AWS transport loaded, not as proof that your credentials
 work --- the first run of the profile is what exercises them.
@@ -253,7 +259,7 @@ work --- the first run of the profile is what exercises them.
 Delete the generated example and create `controls/aws.rb`:
 
 ```ruby
-control 'aws-01' do
+control 'aws-01-s3-no-public-access' do
   impact 'critical'
   title 'S3 buckets must not be publicly accessible'
   desc 'A bucket open to the public can expose its contents to anyone on the internet.'
@@ -266,7 +272,7 @@ control 'aws-01' do
   end
 end
 
-control 'aws-02' do
+control 'aws-02-iam-no-wildcard-permissions' do
   impact 'critical'
   title 'IAM policies must not grant wildcard permissions'
   desc 'A policy allowing Action: "*" on Resource: "*" grants more access than almost any role needs.'
@@ -279,7 +285,7 @@ control 'aws-02' do
   end
 end
 
-control 'aws-03' do
+control 'aws-03-sg-no-open-admin-ports' do
   impact 'high'
   title 'Security groups must not allow unrestricted remote administration'
   desc 'SSH (22) and RDP (3389) open to 0.0.0.0/0 let anyone on the internet attempt a login.'
@@ -296,10 +302,16 @@ end
 
 Each part of a control does a specific job:
 
-`control 'aws-01'`
+`control 'aws-01-s3-no-public-access'`
 : The identifier that follows this check through every report.
-  Keep it stable --- if you renumber controls later, you lose the ability to compare
-  this month's results against last month's.
+  Make it a meaningful kebab-case or snake_case string that states the control's intent.
+  A reviewer reading `aws-01-s3-no-public-access` in a report knows what failed;
+  `aws-01` tells them nothing without the profile open beside it.
+  The leading number is optional, but it keeps related controls ordered in a report
+  and lets you select a whole group with a pattern, such as `--controls /^aws-0/`.
+  Keep identifiers stable once you have results that refer to them.
+  Renumbering costs you the ability to compare this month's results against last
+  month's, and it quietly redirects any waiver that names the old identifier.
 
 `impact`
 : How serious a failure is.
@@ -327,10 +339,10 @@ Two details decide how much these controls actually cover:
 It reports a bucket as public if an ACL grants access to the `AllUsers` or
 `AuthenticatedUsers` group, or if a bucket policy has effect `Allow` with principal `*`.
 It doesn't inspect object ACLs, so a private bucket holding public objects still passes
-`aws-01`.
+`aws-01-s3-no-public-access`.
 
 **`have_statement` matches literal values and doesn't expand wildcards.**
-`aws-02` finds policies granting full administrative access.
+`aws-02-iam-no-wildcard-permissions` finds policies granting full administrative access.
 A policy with `"Action": "s3:*"` doesn't match a test for `Action: '*'`, so add a separate
 assertion for each wildcard form you care about.
 The [`aws_iam_policy` reference](/inspec/resource_packs/aws/aws_iam_policy/) describes the
@@ -378,7 +390,7 @@ command --- the profile doesn't change for each account.
 
 If no usable credentials are available, the run stops with an AWS error instead of
 reporting failed controls.
-This output was captured on Chef InSpec 5.24.7 with the AWS environment variables unset:
+This output was captured on Chef InSpec 7.3.4 with the AWS credential environment variables unset:
 
 ```text
 Error retrieving instance profile credentials: Failed to open TCP connection to 169.254.169.254:80 ...
@@ -399,12 +411,12 @@ Profile:   AWS account security baseline (aws-baseline)
 Version:   0.1.0
 Target:    aws://
 
-  ×  aws-01: S3 buckets must not be publicly accessible
+  ×  aws-01-s3-no-public-access: S3 buckets must not be publicly accessible
      ×  AWS S3 Bucket audit-logs-example is expected not to be public
 
-  ✔  aws-02: IAM policies must not grant wildcard permissions
+  ✔  aws-02-iam-no-wildcard-permissions: IAM policies must not grant wildcard permissions
 
-  ×  aws-03: Security groups must not allow unrestricted remote administration
+  ×  aws-03-sg-no-open-admin-ports: Security groups must not allow unrestricted remote administration
      ×  AWS Security Group sg-0123456789abcdef0 is expected not to allow in {:port=>22, :ipv4_range=>"0.0.0.0/0"}
 
 
@@ -462,9 +474,9 @@ inspec exec aws-baseline -t aws://
 ```
 
 ```text
-  ✔  aws-01: S3 buckets must not be publicly accessible
-  ✔  aws-02: IAM policies must not grant wildcard permissions
-  ×  aws-03: Security groups must not allow unrestricted remote administration
+  ✔  aws-01-s3-no-public-access: S3 buckets must not be publicly accessible
+  ✔  aws-02-iam-no-wildcard-permissions: IAM policies must not grant wildcard permissions
+  ×  aws-03-sg-no-open-admin-ports: Security groups must not allow unrestricted remote administration
 
 
 Profile Summary: 2 successful controls, 1 control failure, 0 controls skipped
@@ -492,7 +504,7 @@ group intentionally open for a documented reason.
 Create `waivers.yml`:
 
 ```yaml
-aws-03:
+aws-03-sg-no-open-admin-ports:
   justification: "Approved exception CHG-5102; bastion host requires direct SSH access."
   expiration_date: 2027-06-30
   run: false
@@ -521,7 +533,7 @@ S3 is a useful example because bucket exposure isn't only about public access.
 Add these controls to `controls/aws.rb`:
 
 ```ruby
-control 'aws-04' do
+control 'aws-04-s3-default-encryption' do
   impact 'high'
   title 'S3 buckets must have default encryption enabled'
   desc 'Default server-side encryption means objects are encrypted at rest without relying on the caller to request it.'
@@ -534,7 +546,7 @@ control 'aws-04' do
   end
 end
 
-control 'aws-05' do
+control 'aws-05-s3-deny-plaintext-http' do
   impact 'high'
   title 'S3 bucket policies must deny plaintext HTTP requests'
   desc 'Without an explicit deny on unencrypted transport, objects can be read over plain HTTP.'
@@ -549,16 +561,16 @@ end
 ```
 
 `have_secure_transport_enabled` looks for a bucket policy that explicitly denies requests
-where `aws:SecureTransport` is false, so a bucket with no policy at all fails `aws-05`.
-That's the correct result, but it means `aws-05` reports on buckets nobody has configured
+where `aws:SecureTransport` is false, so a bucket with no policy at all fails `aws-05-s3-deny-plaintext-http`.
+That's the correct result, but it means `aws-05-s3-deny-plaintext-http` reports on buckets nobody has configured
 yet, not only on buckets configured wrongly.
 
 Re-run `inspec check` after adding controls.
 `Controls : 5` confirms both were parsed.
 
-A bucket that fails `aws-04` needs
+A bucket that fails `aws-04-s3-default-encryption` needs
 [default bucket encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-bucket-encryption.html).
-One that fails `aws-05` needs a policy statement denying requests where
+One that fails `aws-05-s3-deny-plaintext-http` needs a policy statement denying requests where
 `aws:SecureTransport` is false.
 
 The same approach works for the rest of the account.

@@ -68,9 +68,9 @@ inspec init profile ssh-baseline
 ```text
 ─────────────────────────── InSpec Code Generator ───────────────────────────
 
-Creating new profile at ./ssh-baseline
+Creating new profile at /home/you/ssh-baseline
  • Creating file README.md
- • Creating directory ./ssh-baseline/controls
+ • Creating directory /home/you/ssh-baseline/controls
  • Creating file controls/example.rb
  • Creating file inspec.yml
 ```
@@ -104,7 +104,7 @@ For every field you can set here, see
 Delete the generated example and create `controls/ssh.rb`:
 
 ```ruby
-control 'ssh-01' do
+control 'ssh-01-no-root-login' do
   impact 'critical'
   title 'Disable direct root login over SSH'
   desc 'Administrators must authenticate as themselves, then escalate.'
@@ -116,7 +116,7 @@ control 'ssh-01' do
   end
 end
 
-control 'ssh-02' do
+control 'ssh-02-no-password-auth' do
   impact 'high'
   title 'Require key-based authentication'
   desc 'Password authentication must be disabled on the SSH daemon.'
@@ -127,7 +127,7 @@ control 'ssh-02' do
   end
 end
 
-control 'ssh-03' do
+control 'ssh-03-limit-attempts' do
   impact 'medium'
   title 'Limit authentication attempts per connection'
   desc 'The SSH daemon must not allow more than four authentication attempts.'
@@ -141,10 +141,17 @@ end
 
 Each part of a control does a specific job:
 
-`control 'ssh-01'`
+`control 'ssh-01-no-root-login'`
 : The identifier that follows this check through every report.
-  Keep it stable --- if you renumber controls later, you lose the ability to compare
-  this month's results against last month's.
+  Make it a meaningful kebab-case or snake_case string that states the control's intent.
+  A reviewer reading `ssh-01-no-root-login` in a report knows what failed;
+  `ssh-01` tells them nothing without the profile open beside it.
+  The leading number is optional, but it keeps related controls ordered in a report
+  and lets you select a whole group with a pattern, such as `--controls /^ssh-0/`.
+  Keep identifiers stable once you have results that refer to them.
+  Renumbering costs you the ability to compare this month's results against last
+  month's, and it quietly redirects any waiver that names the old identifier ---
+  see [Step 7](#step-7-waive-an-exception-youve-accepted).
 
 `impact`
 : How serious a failure is.
@@ -167,7 +174,7 @@ Each part of a control does a specific job:
 : The assertion.
   Use `cmp` rather than `eq` for configuration values:
   it compares without caring whether the value came back as `'no'`, `'No'`, or `'NO'`,
-  and it handles numeric comparison, as `ssh-03` does with `should cmp <= 4`.
+  and it handles numeric comparison, as `ssh-03-limit-attempts` does with `should cmp <= 4`.
 
 Chef InSpec includes a large set of core resources for packages, services, files,
 users, ports, and databases.
@@ -229,10 +236,49 @@ Flags worth knowing while you're developing:
 | `--target`, `-t` | The target to assess, as `ssh://user@host`, `winrm://`, or `docker://` |
 | `--key-files`, `-i` | SSH private key to authenticate with |
 | `--sudo` | Escalate privileges on the target |
-| `--controls` | Run named controls only, such as `--controls ssh-01` |
+| `--controls` | Run named controls only, such as `--controls ssh-01-no-root-login` |
 | `--reporter` | Choose output format and destination |
 
 The full list is in the [CLI reference](/inspec/latest/reference/cli/).
+
+### Scale the loop with InSpec Parallel
+
+The loop above runs hosts one after another, so a hundred hosts take a hundred
+times as long as one. [InSpec Parallel](/inspec/latest/configure/parallel/)
+does the same job concurrently.
+
+List one set of options for each run in an option file, `hosts.txt`:
+
+```text
+-t ssh://admin@web01.example.com -i ~/.ssh/id_rsa --sudo --reporter cli:reports/web01.txt
+-t ssh://admin@web02.example.com -i ~/.ssh/id_rsa --sudo --reporter cli:reports/web02.txt
+```
+
+Then run them together:
+
+```bash
+inspec parallel exec ssh-baseline --option-file hosts.txt --jobs 2
+```
+
+Each line holds only options --- the profile is named once on the command line.
+Give every run its own `--reporter` destination,
+otherwise the concurrent runs overwrite each other's output.
+Use `--dry-run` to print the commands without running them.
+
+This is also where control naming pays off a second time:
+`--controls /^ssh-0/` splits a large profile across processes by ID pattern,
+which works because the IDs follow a deliberate scheme.
+
+{{< warning >}}
+
+`inspec parallel` exits `0` once it has run every job,
+even when individual runs failed their controls.
+Check the per-run reports or the child exit codes in the log
+rather than the exit code of the parallel command.
+
+{{< /warning >}}
+
+InSpec Parallel requires Chef InSpec 6 or later.
 
 ## Step 5: Read the results
 
@@ -243,7 +289,7 @@ Profile:   SSH configuration baseline (ssh-baseline)
 Version:   0.1.0
 Target:    ssh://admin@web01.example.com
 
-  ×  ssh-01: Disable direct root login over SSH
+  ×  ssh-01-no-root-login: Disable direct root login over SSH
      ×  SSHD Configuration PermitRootLogin is expected to cmp == "no"
 
      expected: no
@@ -251,7 +297,7 @@ Target:    ssh://admin@web01.example.com
 
      (compared using `cmp` matcher)
 
-  ×  ssh-02: Require key-based authentication
+  ×  ssh-02-no-password-auth: Require key-based authentication
      ×  SSHD Configuration PasswordAuthentication is expected to cmp == "no"
 
      expected: no
@@ -259,7 +305,7 @@ Target:    ssh://admin@web01.example.com
 
      (compared using `cmp` matcher)
 
-  ✔  ssh-03: Limit authentication attempts per connection
+  ✔  ssh-03-limit-attempts: Limit authentication attempts per connection
      ✔  SSHD Configuration MaxAuthTries is expected to cmp <= 4
 
 
@@ -289,9 +335,21 @@ echo $?
 | Exit code | Meaning |
 | --- | --- |
 | `0` | Every control passed |
+| `1` | Usage or general error |
+| `2` | Plugin system error |
+| `3` | A fatal deprecation was encountered |
+| `4` | A gem dependency failed to load |
 | `100` | At least one control failed |
 | `101` | At least one control was skipped, and none failed |
-| `1` | Usage or general error |
+| `130` | The run was terminated with Ctrl-C |
+| `172` | The license wasn't accepted |
+| `173` | The license isn't entitled to run Chef InSpec |
+| `174` | No license was set |
+
+Treat `0`, `100`, and `101` as assessment outcomes and everything else as a
+problem with the run itself.
+A pipeline that only checks for a non-zero exit treats a licensing or plugin
+failure as if it were a compliance failure, so branch on the specific code.
 
 A `101` usually means the profile's `supports` didn't match the target.
 Running this Linux profile against a macOS machine reports
@@ -340,21 +398,31 @@ If you lock yourself out, an open session is the way back in.
 Run the same profile again:
 
 ```bash
-inspec exec ssh-baseline --target ssh://admin@web01.example.com --key-files ~/.ssh/id_rsa
+inspec exec ssh-baseline --target ssh://admin@web01.example.com --key-files ~/.ssh/id_rsa --sudo
 ```
 
 ```text
-  ✔  ssh-01: Disable direct root login over SSH
+  ✔  ssh-01-no-root-login: Disable direct root login over SSH
      ✔  SSHD Configuration PermitRootLogin is expected to cmp == "no"
-  ✔  ssh-02: Require key-based authentication
+  ✔  ssh-02-no-password-auth: Require key-based authentication
      ✔  SSHD Configuration PasswordAuthentication is expected to cmp == "no"
-  ✔  ssh-03: Limit authentication attempts per connection
+  ✔  ssh-03-limit-attempts: Limit authentication attempts per connection
      ✔  SSHD Configuration MaxAuthTries is expected to cmp <= 4
 
 
 Profile Summary: 3 successful controls, 0 control failures, 0 controls skipped
 Test Summary: 3 successful, 0 failures, 0 skipped
 ```
+
+{{< warning >}}
+
+Keep `--sudo` on the re-run.
+On most distributions `/etc/ssh/sshd_config` is readable only by root,
+so without it every control reports as skipped with
+`Can't read file: /etc/ssh/sshd_config` and the run exits `101` rather than `0`.
+That's not a pass --- nothing was assessed.
+
+{{< /warning >}}
 
 Running the profile again is what demonstrates the fix worked.
 The first run found the gap, the second run is the evidence that it's closed,
@@ -367,10 +435,14 @@ or a system that can't be changed yet.
 Recording that in a waiver file keeps it visible as an exception,
 instead of hiding it or leaving it in the report as an unexplained failure.
 
+Take a second host that meets the first two requirements but runs legacy
+automation needing six authentication attempts, so `ssh-03-limit-attempts`
+fails there and has an approved exception on file.
+
 Create `waivers.yml`:
 
 ```yaml
-ssh-03:
+ssh-03-limit-attempts:
   justification: "Approved exception CHG-4821; legacy automation requires six attempts."
   expiration_date: 2027-06-30
   run: false
@@ -379,21 +451,41 @@ ssh-03:
 Apply it:
 
 ```bash
-inspec exec ssh-baseline --waiver-file waivers.yml
+inspec exec ssh-baseline --target ssh://admin@web01.example.com --key-files ~/.ssh/id_rsa --sudo --waiver-file waivers.yml
 ```
 
 ```text
-  ↺  ssh-03: Limit authentication attempts per connection
+  ✔  ssh-01-no-root-login: Disable direct root login over SSH
+     ✔  SSHD Configuration PermitRootLogin is expected to cmp == "no"
+  ✔  ssh-02-no-password-auth: Require key-based authentication
+     ✔  SSHD Configuration PasswordAuthentication is expected to cmp == "no"
+  ↺  ssh-03-limit-attempts: No-op
      ↺  Skipped control due to waiver condition: Approved exception CHG-4821; legacy automation requires six attempts.
 
 
-Profile Summary: 0 successful controls, 2 control failures, 1 control skipped
+Profile Summary: 2 successful controls, 0 control failures, 1 control skipped
+Test Summary: 2 successful, 0 failures, 1 skipped
 ```
 
 The control reports as skipped and carries your justification into the report.
-`run: false` stops the control from executing at all.
-Set it to `true` to keep running the control and collecting its result
+It's listed as `No-op` rather than by its title,
+because `run: false` stops the control body from executing at all.
+Set `run` to `true` to keep running the control and collecting its result
 while still marking it as waived.
+
+Waivers are one of the strongest reasons to give controls meaningful IDs.
+A waiver file matches on the control ID and nothing else,
+so if controls are renumbered later --- what was `ssh-02` becomes `ssh-03` ---
+a waiver still keyed on the old number silently waives whichever control now
+holds that ID. The exception is applied to the wrong requirement,
+and the report still looks orderly.
+
+The reverse is just as quiet.
+If the waiver names an ID that no longer exists,
+Chef InSpec doesn't warn you: the waiver simply never applies,
+the control runs, and an approved exception reappears as a failure.
+An ID like `ssh-03-limit-attempts` describes what's being waived,
+so the file keeps meaning something as the profile changes.
 
 {{< note >}}
 
