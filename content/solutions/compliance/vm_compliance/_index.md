@@ -140,10 +140,10 @@ inputs:
     value: 5f1a7c3e9b2d4e6f8a0b1c2d3e4f5a6b
 ```
 
-The `inputs` hold the values that differ between organizations ---
-which platforms you approve, and which template you clone from ---
-so the controls don't need editing when those change.
-Override them at run time with `--input`, or keep them per environment in an input file.
+The `inputs` hold the values that differ between organizations:
+which platforms you approve, and which template you clone from.
+Keeping them out of the controls means you don't edit the controls when those values change.
+Override them at run time with `--input`, or keep them in an input file for each environment.
 See [Chef InSpec inputs](/inspec/latest/profiles/inputs/).
 
 `supports` limits the profile to Linux, as in
@@ -328,7 +328,7 @@ the steps are the same as for any profile:
 ## Step 6: Check the template before you clone it
 
 Every finding in a template is copied into every VM built from it.
-Assessing the template before you publish it is the cheapest place to catch a finding,
+The cheapest place to catch a finding is the template, before you publish it,
 because you fix it once.
 
 Use [Test Kitchen](/workstation/latest/tools/kitchen/) to build a VM from the template,
@@ -405,8 +405,8 @@ See [node integrations](/automate/node_integrations/) for the permissions each n
 
 Chef Automate doesn't have a node manager for on-premises hypervisors,
 so VMs that aren't managed by Chef Infra Client are added as manual nodes.
-Tag them when you add them --- by environment, cluster, or owner ---
-so scan jobs can select them by tag instead of by name.
+Tag them when you add them, by environment, cluster, or owner.
+Scan jobs can then select them by tag instead of by name.
 If VMs are created and destroyed often,
 managing them with Chef Infra Client and the Compliance Phase avoids maintaining that list,
 because each VM assesses itself on every Chef Infra Client run.
@@ -520,7 +520,7 @@ For VM-specific findings, fix the source rather than each VM:
 **Turn it on for the fleet.**
 Enable the [Compliance Phase](/client/latest/features/chef_compliance_phase/)
 on managed VMs, and create recurring [scan jobs](/automate/scan_jobs/)
-for cloud and unmanaged VMs.
+for cloud VMs and VMs that Chef Infra Client doesn't manage.
 
 **Find the benchmark for each guest.**
 Use the [Operating Systems](/premium_content/operating_systems/) coverage table
