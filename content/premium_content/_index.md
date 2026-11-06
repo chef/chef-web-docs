@@ -92,7 +92,7 @@ systems you assess and the results you act on.
 
 ### Benchmark versions and content builds
 
-Coverage tables list the *benchmark* version, such as `v2.0.0`. That's the version
+Coverage tables list the _benchmark_ version, such as `v2.0.0`. That's the version
 published by CIS or DISA.
 
 The content you receive carries a second number, written as a suffix: `2.0.0-3`. The
