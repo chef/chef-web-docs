@@ -61,6 +61,7 @@ words:
 - enterpriserelease
 - highsecurity
 - ibmaix
+- ibmwebsphereliberty
 - linuxhostosusingtraditionalauditing
 - linuxhostosusingunifiedauditing
 - mariadbonlinux
@@ -101,6 +102,7 @@ words:
 - redhatenterpriselinux
 - rockylinux
 - sensitivedataenvironmentlimitedfunctionality
+- websphere
 - windowsserverhostosusingtraditionalauditing
 - windowsserverhostosusingunifiedauditing
 

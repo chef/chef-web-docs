@@ -23,6 +23,7 @@ remediation is available:
 | Platform | Benchmarks |
 | --- | --- |
 | [Apache Tomcat](/premium_content/applications_middleware/apache_tomcat/) | CIS |
+| [IBM WebSphere Liberty](/premium_content/applications_middleware/ibm_websphere_liberty/) | CIS |
 
 ## All application and middleware benchmarks
 
