@@ -15,6 +15,19 @@ See [benchmark coverage](/premium_content/#benchmark-coverage) for how audit and
 remediation coverage are tracked, and the
 [Compliance solution overview](/solutions/compliance/) for what each does.
 
+## Browse by platform
+
+Platform pages describe what the benchmarks cover, which profiles ship, and what
+remediation is available:
+
+| Platform | Benchmarks |
+| --- | --- |
+| [Microsoft SQL Server](/premium_content/databases/microsoft_sql_server/) | CIS |
+| [Oracle Database](/premium_content/databases/oracle_database/) | CIS |
+| [PostgreSQL](/premium_content/databases/postgresql/) | CIS, STIG |
+
+## All database benchmarks
+
 | Benchmark | Audit versions | Remediation versions | Coverage |
 | --- | --- | --- | --- |
 | `CIS MariaDB 10.6` | 1.0.0 | — | Audit Only |
