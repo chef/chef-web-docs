@@ -48,12 +48,14 @@ words:
 - debianlinux
 - disableslowrules
 - domaincontroller
+- ibmaix
 - memberserver
 - microsoftwindowsserver
 - missioncritical
 - missionsupport
 - missionsupportsensitive
 - oraclelinux
+- oraclesolaris
 - redhatenterpriselinux
 - rockylinux
 
