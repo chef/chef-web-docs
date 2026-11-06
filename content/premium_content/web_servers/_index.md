@@ -15,6 +15,17 @@ See [benchmark coverage](/premium_content/#benchmark-coverage) for how audit and
 remediation coverage are tracked, and the
 [Compliance solution overview](/solutions/compliance/) for what each does.
 
+## Browse by platform
+
+Platform pages describe what the benchmarks cover, which profiles ship, and what
+remediation is available:
+
+| Platform | Benchmarks |
+| --- | --- |
+| [Microsoft IIS](/premium_content/web_servers/microsoft_iis/) | CIS, STIG |
+
+## All web server benchmarks
+
 | Benchmark | Audit versions | Remediation versions | Coverage |
 | --- | --- | --- | --- |
 | `CIS Apache HTTP Server 2.2` | 0.1.0 | 3.6.0 | Remediation Ahead |
