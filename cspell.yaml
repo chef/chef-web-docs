@@ -41,7 +41,9 @@ words:
 # Premium Content profile name tokens.
 - almalinux
 - almalinuxos
+- canonicalubuntu
 - cationly
+- debianlinux
 - disableslowrules
 - domaincontroller
 - memberserver
@@ -49,6 +51,7 @@ words:
 - missioncritical
 - missionsupport
 - missionsupportsensitive
+- redhatenterpriselinux
 
 ignorePaths:
 - ".expeditor/**/*"

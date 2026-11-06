@@ -5,7 +5,7 @@ title = "Windows Server"
   identifier = "premium_content/operating_systems/windows_server"
   parent = "premium_content/operating_systems"
   title = "Windows Server"
-  weight = 20
+  weight = 130
 +++
 
 Windows Server runs a large share of enterprise directory, file, and
