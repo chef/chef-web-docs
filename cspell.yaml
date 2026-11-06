@@ -56,6 +56,9 @@ words:
 - ibmaix
 - linuxhostosusingtraditionalauditing
 - linuxhostosusingunifiedauditing
+- mariadbonlinux
+- mariadbrdbms
+- mariadbrdbmsonlinux
 - memberserver
 - microsoftsql
 - microsoftsqlserver
@@ -68,8 +71,13 @@ words:
 - missionsupportclassified
 - missionsupportpublic
 - missionsupportsensitive
+- mysqlrdbms
+- mysqlrdbmsonlinux
+- onlinux
 - oracledatabase
 - oraclelinux
+- oraclemysql
+- oraclemysqlcommunity
 - oraclesolaris
 - postgresqlonlinux
 - rdbms

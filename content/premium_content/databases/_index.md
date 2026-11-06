@@ -22,8 +22,11 @@ remediation is available:
 
 | Platform | Benchmarks |
 | --- | --- |
+| [MariaDB](/premium_content/databases/mariadb/) | CIS |
 | [Microsoft SQL Server](/premium_content/databases/microsoft_sql_server/) | CIS |
+| [MongoDB](/premium_content/databases/mongodb/) | CIS |
 | [Oracle Database](/premium_content/databases/oracle_database/) | CIS |
+| [Oracle MySQL](/premium_content/databases/oracle_mysql/) | CIS |
 | [PostgreSQL](/premium_content/databases/postgresql/) | CIS, STIG |
 
 ## All database benchmarks
