@@ -26,7 +26,10 @@ remediation is available:
 | [Amazon Linux](/premium_content/operating_systems/amazon_linux/) | CIS |
 | [CentOS](/premium_content/operating_systems/centos/) | CIS |
 | [Debian](/premium_content/operating_systems/debian/) | CIS |
+| [HP-UX](/premium_content/operating_systems/hp_ux/) | CIS |
+| [IBM AIX](/premium_content/operating_systems/ibm_aix/) | CIS |
 | [Oracle Linux](/premium_content/operating_systems/oracle_linux/) | CIS, STIG |
+| [Oracle Solaris](/premium_content/operating_systems/oracle_solaris/) | CIS |
 | [Red Hat Enterprise Linux](/premium_content/operating_systems/rhel/) | CIS, STIG |
 | [Rocky Linux](/premium_content/operating_systems/rocky_linux/) | CIS |
 | [SUSE Linux Enterprise Server](/premium_content/operating_systems/sles/) | CIS |
