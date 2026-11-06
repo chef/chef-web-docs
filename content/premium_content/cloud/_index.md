@@ -22,6 +22,7 @@ remediation is available:
 
 | Platform | Benchmarks |
 | --- | --- |
+| [AWS Foundations](/premium_content/cloud/aws_foundations/) | CIS |
 | [Microsoft 365](/premium_content/cloud/microsoft_365/) | CIS |
 | [Microsoft Azure](/premium_content/cloud/microsoft_azure/) | CIS |
 
