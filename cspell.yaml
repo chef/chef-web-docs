@@ -60,6 +60,7 @@ words:
 - domaincontroller
 - enterpriseenvironmentgeneraluse
 - enterpriserelease
+- esxi
 - highsecurity
 - ibmaix
 - ibmwebsphereliberty
@@ -95,6 +96,7 @@ words:
 - oraclemysqlcommunity
 - oraclesolaris
 - postgresqlonlinux
+- rbvmomi
 - rdbms
 - rdbmsonhostos
 - rdbmsonlinuxhostos
@@ -104,6 +106,7 @@ words:
 - redhatenterpriselinux
 - rockylinux
 - sensitivedataenvironmentlimitedfunctionality
+- waiverfiles
 - websphere
 - windowsserverhostosusingtraditionalauditing
 - windowsserverhostosusingunifiedauditing
