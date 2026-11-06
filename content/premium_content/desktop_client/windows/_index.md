@@ -8,11 +8,26 @@ title = "Windows"
   weight = 20
 +++
 
-Windows 10 and Windows 11 are common enterprise endpoints, and a fleet can include several releases at once.
+The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) and [DISA STIGs](https://public.cyber.mil/stigs/) for Windows client releases define secure configuration requirements for Windows 10 and Windows 11.
+Chef Premium Content provides these requirements as Chef InSpec audit profiles and remediation content, and coverage differs by benchmark and version, so check the following version table.
 Benchmarks for Windows 10 are specific to a release, so identify the release you're running before you choose a profile.
-
-Chef Premium Content covers these Windows client releases against both the [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) and the [DISA STIGs](https://public.cyber.mil/stigs/).
 For server releases, see [Windows Server](/premium_content/operating_systems/windows_server/).
+
+## What the benchmarks check
+
+The CIS requirements cover the following areas in the Windows 11 benchmark at v3.0.0:
+
+- **Account policies:** Password settings
+- **Local policies:** User rights assignments and security options
+- **System services:** Services to turn off, such as Bluetooth Audio Gateway and OpenSSH Server
+- **Windows Firewall:** Firewall state and logging for the domain, private, and public profiles
+- **Advanced audit policy:** Which account, file share, and policy change events are recorded
+- **Administrative templates:** Computer and user settings, such as virtualization-based security and lock screen behavior
+
+The STIG states its requirements individually.
+The Windows 11 STIG at v2.2.0 includes requirements for audit events, Microsoft Defender SmartScreen, and SMB signing.
+
+The exact requirements differ by benchmark and version.
 
 ## Supported versions
 

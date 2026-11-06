@@ -8,15 +8,22 @@ title = "Debian"
   weight = 40
 +++
 
-Debian is a long-standing community distribution used widely for servers, container
-hosts, and as the upstream base for other distributions. Its deliberate stable release
-cadence means production estates often run several Debian releases at once, and systems
-built on an older stable release frequently stay in service well after a newer one
-arrives.
+The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) for Debian Linux define secure configuration requirements for Debian Linux 9, 11, 12, and 13.
+Chef Premium Content provides these requirements as Chef InSpec audit profiles and remediation content, and coverage differs by benchmark and version, so check the following version table.
 
-Chef Premium Content covers Debian against the
-[CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks), so you can assess and
-correct Debian systems without writing and maintaining that content yourself.
+## What the benchmarks check
+
+The requirements cover the following areas in the Debian Linux 13 benchmark at v1.0.0:
+
+- **Initial setup:** Filesystem kernel modules, partition options, APT trusted keys, and kernel settings
+- **Services:** Services to remove, listening services, and time synchronization
+- **Network:** IPv6 status, network kernel modules, and redirect and logging settings
+- **Host-based firewall:** ufw configuration and default policies
+- **Access control:** SSH, PAM modules, and password history
+- **Logging and auditing:** journald, rsyslog, and audit rules
+- **System maintenance:** Permissions on system files, world-writable files, and account consistency
+
+The exact requirements differ by benchmark and version.
 
 ## Supported versions
 

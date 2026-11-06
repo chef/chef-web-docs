@@ -8,10 +8,18 @@ title = "Cisco IOS"
   weight = 10
 +++
 
-Cisco IOS runs on routers and switches that carry traffic for the systems around them, so a weak device setting can affect a large part of a network.
-Network devices also tend to stay in service for a long time, so a fleet can include more than one major IOS release.
+The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) for Cisco IOS define secure configuration requirements for IOS 12 and IOS 15 devices.
+Chef Premium Content provides these requirements as Chef InSpec audit profiles, without remediation content.
 
-Chef Premium Content covers Cisco IOS 12 and 15 against the [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks), so you can assess device configuration without writing and maintaining that content yourself.
+## What the benchmarks check
+
+The requirements cover the following areas in the Cisco IOS 15 benchmark at v4.0.0:
+
+- **Management plane:** AAA, session timeouts, and SNMP
+- **Control plane:** The hostname, unused services such as BOOTP, logging, and NTP authentication
+- **Data plane:** Source routing, interface access groups, and routing protocol authentication
+
+The exact requirements differ by benchmark and version.
 
 ## Supported versions
 

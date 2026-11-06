@@ -8,15 +8,25 @@ title = "Ubuntu"
   weight = 120
 +++
 
-Ubuntu is the most widely deployed Linux distribution on cloud instances and container
-hosts, and its long-term support releases arrive every two years with multi-year support
-windows. That cadence means most organizations are assessing several LTS releases at the
-same time, from hosts built years apart, and auditors still expect evidence against a
-recognized standard for all of them.
+The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) and [DISA STIGs](https://public.cyber.mil/stigs/) for Ubuntu define secure configuration requirements for Ubuntu LTS releases from 12.04 through 24.04.
+Chef Premium Content provides these requirements as Chef InSpec audit profiles and remediation content, and coverage differs by benchmark and version, so check the following version table.
 
-Chef Premium Content covers Ubuntu against both the
-[CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) and the
-[DISA STIGs](https://public.cyber.mil/stigs/).
+## What the benchmarks check
+
+The CIS requirements cover the following areas in the Ubuntu 24.04 benchmark at v1.0.0:
+
+- **Initial setup:** Filesystem kernel modules, partition options, and prelink
+- **Services:** Services to remove, the mail transfer agent, and time synchronization
+- **Network:** IPv6 status, network kernel modules, and packet redirect settings
+- **Host-based firewall:** Using a single firewall utility, and ufw, nftables, and iptables policies
+- **Access control:** SSH and PAM modules
+- **Logging and auditing:** journald, rsyslog, and audit rules
+- **System maintenance:** Permissions on system files, world-writable files, and account consistency
+
+The STIG states its requirements individually.
+The Ubuntu 20.04 STIG at v1.2.0 includes requirements for session locking, Personal Identity Verification credentials, and audit records.
+
+The exact requirements differ by benchmark and version.
 
 ## Supported versions
 

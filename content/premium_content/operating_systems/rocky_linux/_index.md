@@ -8,15 +8,22 @@ title = "Rocky Linux"
   weight = 100
 +++
 
-Rocky Linux is a community enterprise distribution built to be binary compatible with
-Red Hat Enterprise Linux. It emerged after CentOS Linux shifted to CentOS Stream, and
-many organizations now run it as a drop-in replacement for RHEL where they want
-enterprise-compatible systems without a subscription. That compatibility means the same
-compliance expectations that apply to RHEL estates apply here too.
+The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) for Rocky Linux define secure configuration requirements for Rocky Linux 8 and 10.
+Chef Premium Content provides these requirements as Chef InSpec audit profiles and remediation content, and coverage differs by benchmark and version, so check the following version table.
 
-Chef Premium Content covers Rocky Linux against the
-[CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks), so you can assess and
-correct Rocky Linux systems without writing and maintaining that content yourself.
+## What the benchmarks check
+
+The requirements cover the following areas in the Rocky Linux 10 benchmark at v1.0.0:
+
+- **Initial setup:** Filesystem kernel modules, partitions, package signing, and kernel settings
+- **Services:** Services to remove, the GNOME Display Manager, and time synchronization
+- **Network:** IPv6 status, network kernel modules, and redirect and logging settings
+- **Host-based firewall:** firewalld installation and zone configuration
+- **Access control:** SSH, account lockout, and password expiration
+- **Logging and auditing:** AIDE, rsyslog, and audit rules
+- **System maintenance:** Permissions on system files, world-writable files, and account consistency
+
+The exact requirements differ by benchmark and version.
 
 ## Supported versions
 

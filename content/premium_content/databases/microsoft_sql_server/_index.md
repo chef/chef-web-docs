@@ -8,13 +8,23 @@ title = "Microsoft SQL Server"
   weight = 30
 +++
 
-Microsoft SQL Server is widely deployed both on-premises and as a managed service on
-AWS RDS, and it's common for an estate to run several supported major versions at
-once as teams upgrade on their own schedules.
+The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) for Microsoft SQL Server define secure configuration requirements for SQL Server 2016 through 2022, for both the database engine and Amazon RDS.
+Chef Premium Content provides these requirements as Chef InSpec audit profiles and remediation content, and coverage differs by benchmark and version, so check the following version table.
 
-Chef Premium Content covers Microsoft SQL Server against the
-[CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks), so you can assess and
-correct SQL Server instances without writing and maintaining that content yourself.
+## What the benchmarks check
+
+The requirements cover the following areas in the SQL Server 2022 database engine benchmark at v1.3.0:
+
+- **Installation and updates:** Cumulative and security updates, and single-function servers
+- **Surface area:** Server configuration options, the `Trustworthy` property, and the `sa` account
+- **Authentication and authorization:** Authentication mode, contained databases, and service accounts
+- **Password policies:** `MUST_CHANGE`, `CHECK_EXPIRATION`, and `CHECK_POLICY` for SQL logins
+- **Auditing and logging:** Error log retention, the default trace, and login auditing
+- **Application development:** User input and CLR assembly permission sets
+- **Encryption:** Symmetric and asymmetric key strength
+- **Other settings:** The SQL Server Browser service
+
+The exact requirements differ by benchmark and version.
 
 ## Supported versions
 

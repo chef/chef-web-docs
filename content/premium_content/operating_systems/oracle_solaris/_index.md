@@ -8,13 +8,24 @@ title = "Oracle Solaris"
   weight = 80
 +++
 
-Oracle Solaris is a commercial UNIX operating system, used mainly for long-lived
-enterprise and database workloads on both SPARC and x86 hardware. Estates tend to run
-older releases for a very long time because the applications on them are long-lived.
+The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) for Oracle Solaris define secure configuration requirements for Oracle Solaris 10 and 11.
+Chef Premium Content provides these requirements as Chef InSpec audit profiles, without remediation content.
 
-Chef Premium Content covers Oracle Solaris against the
-[CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks), so you can assess systems
-without writing and maintaining that content yourself.
+## What the benchmarks check
+
+The requirements cover the following areas in the Oracle Solaris 11.2 benchmark at v1.1.0:
+
+- **Package updates:** Using the latest package updates
+- **Services:** Services to turn off, such as NIS, GSS, and Apache
+- **Kernel and network:** Core dumps, broadcast forwarding, and ICMP handling
+- **Auditing:** Audit classes, and auditing of connections, file changes, and privileges
+- **File permissions:** The sticky bit on world-writable directories
+- **System access:** Serial sign-in, SSH, FTP, and scheduled jobs
+- **User accounts:** Password expiration, password strength, and default umask
+- **Warning banners:** Banners for sign-in services, SSH, GNOME, and FTP
+- **System maintenance:** Remote consoles, home directories, and user `.netrc` files
+
+The exact requirements differ by benchmark and version.
 
 ## Supported versions
 

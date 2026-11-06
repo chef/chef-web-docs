@@ -8,13 +8,22 @@ title = "Oracle MySQL"
   weight = 40
 +++
 
-Oracle MySQL is a widely used open-source relational database, commonly deployed as
-the database engine behind web applications on both standalone hosts and Linux
-servers managed through configuration management.
+The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) for Oracle MySQL define secure configuration requirements for MySQL Community Edition 5.7.
+Chef Premium Content provides these requirements as Chef InSpec audit profiles, without remediation content.
 
-Chef Premium Content covers Oracle MySQL against the
-[CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks), so you can assess
-Oracle MySQL instances without writing and maintaining that content yourself.
+## What the benchmarks check
+
+The requirements cover the following areas in the benchmark at v2.0.0:
+
+- **Installation and planning:** Backups, shared usernames, and encryption modes
+- **General settings:** Test databases, `local_infile`, symbolic links, and plugins
+- **Permissions:** Administrative access and privileges such as `PROCESS`, `SHUTDOWN`, and `GRANT OPTION`
+- **Auditing and logging:** Error logs, log storage, and audit logging
+- **Authentication:** Authentication plugins, account passwords, and password lifetime
+- **Network:** Secure transport, client TLS requirements, and connection limits
+- **Replication:** Secure replication traffic, certificate verification, and replication user privileges
+
+The exact requirements differ by benchmark and version.
 
 ## Supported versions
 

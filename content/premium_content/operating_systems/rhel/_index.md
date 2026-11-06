@@ -8,15 +8,25 @@ title = "Red Hat Enterprise Linux"
   weight = 90
 +++
 
-Red Hat Enterprise Linux is the dominant enterprise Linux distribution in regulated
-and government environments, and it's usually the platform under the heaviest audit
-scrutiny. Red Hat Enterprise Linux estates also tend to be long-lived, so most
-organizations are assessing several major releases at once, against more than one
-standard.
+The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) and [DISA STIGs](https://public.cyber.mil/stigs/) for Red Hat Enterprise Linux define secure configuration requirements for releases from Red Hat Enterprise Linux 5 through 10.
+Chef Premium Content provides these requirements as Chef InSpec audit profiles and remediation content, and coverage differs by benchmark and version, so check the following version table.
 
-Chef Premium Content covers Red Hat Enterprise Linux against both the
-[CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) and the
-[DISA STIGs](https://public.cyber.mil/stigs/).
+## What the benchmarks check
+
+The CIS requirements cover the following areas in the Red Hat Enterprise Linux 10 benchmark at v1.0.0:
+
+- **Initial setup:** Filesystem kernel modules, partitions, package signing, and kernel settings
+- **Services:** Services to remove, the GNOME Display Manager, and time synchronization
+- **Network:** IPv6 status, network kernel modules, and redirect and logging settings
+- **Host-based firewall:** firewalld installation and zone configuration
+- **Access control:** SSH, account lockout, and password expiration
+- **Logging and auditing:** AIDE, rsyslog, and audit rules
+- **System maintenance:** Permissions on system files, world-writable files, and account consistency
+
+The STIG states its requirements individually.
+The Red Hat Enterprise Linux 9 STIG at v1.1.0 includes requirements for supported releases, file permissions, SSH, and single-user mode.
+
+The exact requirements differ by benchmark and version.
 
 ## Supported versions
 

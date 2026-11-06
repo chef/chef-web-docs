@@ -8,11 +8,22 @@ title = "Apple macOS"
   weight = 10
 +++
 
-Apple macOS runs on developer and knowledge-worker endpoints, which often hold credentials and source code.
-Those endpoints change often, and a fleet can include several macOS releases at once.
-
-Chef Premium Content covers Apple macOS against the [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks), from macOS 10.5 through macOS 13.0.
+The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) for Apple macOS define secure configuration requirements for macOS releases from 10.5 through 13.0.
+Chef Premium Content provides these requirements as Chef InSpec audit profiles and remediation content, and coverage differs by benchmark and version, so check the following version table.
 Most of this coverage is audit only, so check the following table before you plan a hardening rollout.
+
+## What the benchmarks check
+
+The requirements cover the following areas in the macOS 13.0 benchmark at v2.0.0:
+
+- **Software updates:** Update checks, automatic installs, and update deferment
+- **System settings:** Sharing, location services, power, and iCloud settings
+- **Logging and auditing:** Security auditing, audit flags, and log retention
+- **Network:** Bonjour advertising, and HTTP and NFS servers
+- **Authentication and authorization:** Home folder security, password complexity, and sudo timestamps
+- **User interface and browser:** File name extensions and Safari settings
+
+The exact requirements differ by benchmark and version.
 
 ## Supported versions
 

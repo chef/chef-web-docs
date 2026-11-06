@@ -8,10 +8,25 @@ title = "Microsoft IIS"
   weight = 20
 +++
 
-Microsoft Internet Information Services (IIS) is the web server that runs on Windows Server.
-It often faces the internet directly, so its configuration is a common focus of security reviews.
+The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) and [DISA STIGs](https://public.cyber.mil/stigs/) for Microsoft Internet Information Services (IIS) define secure configuration requirements for IIS 10.
+Chef Premium Content provides these requirements as Chef InSpec audit profiles and remediation content, and coverage differs by benchmark and version, so check the following version table.
 
-Chef Premium Content covers Microsoft IIS 10 against both the [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) and the [DISA STIGs](https://public.cyber.mil/stigs/).
+## What the benchmarks check
+
+The CIS requirements cover the following areas in the Microsoft IIS 10 benchmark at v1.1.1:
+
+- **Basic configuration:** Web content location, host headers, directory browsing, and application pool identity
+- **Configure authentication and authorization:** Authorization rules, forms authentication, and password format
+- **ASP.NET configuration:** Deployment method, detailed errors, cookies, and .NET trust levels
+- **Request filtering:** Content length, query strings, double-encoded requests, and file extensions
+- **Logging:** Log location, advanced logging, and ETW logging
+- **FTP:** Encrypted FTP requests and sign-in attempt restrictions
+- **Transport encryption:** HSTS, TLS versions, and cipher suites
+
+The STIG states its requirements individually.
+The IIS 10.0 STIG includes requirements for enhanced logging, accounts created by uninstalled features, and SHA-2 encryption.
+
+The exact requirements differ by benchmark and version.
 
 ## Supported versions
 

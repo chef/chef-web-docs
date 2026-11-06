@@ -8,11 +8,23 @@ title = "Microsoft 365"
   weight = 20
 +++
 
-Microsoft 365 tenant settings control who can sign in, share files, and send email across an organization.
-A single setting can affect every user, so these settings are a common focus of security reviews.
-
-Chef Premium Content covers Microsoft 365 against the [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks).
+The CIS Microsoft 365 benchmark from the [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) defines secure configuration requirements for a Microsoft 365 tenant.
+Chef Premium Content provides these requirements as Chef InSpec audit profiles and remediation content, and coverage differs by benchmark and version, so check the following version table.
 This content assesses tenant settings using PowerShell from a Windows host, rather than the configuration of that host.
+
+## What the benchmarks check
+
+The requirements cover the following areas at v1.4.0:
+
+- **Accounts and authentication:** Multi-factor authentication, Conditional Access, and session settings
+- **Application permissions:** Third-party applications, Safe Links, and admin consent
+- **Data management:** Customer Lockbox, data loss prevention, and external access in Teams
+- **Email security:** Attachment filtering, anti-phishing policies, and DMARC records
+- **Auditing:** Audit log search and regular review of activity reports
+- **Storage:** Document sharing, OneDrive sync, and external sharing links
+- **Mobile devices:** Device management policies, device lock, and password requirements
+
+The exact requirements differ by benchmark and version.
 
 ## Supported versions
 

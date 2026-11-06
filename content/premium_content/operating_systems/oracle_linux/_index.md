@@ -8,16 +8,25 @@ title = "Oracle Linux"
   weight = 70
 +++
 
-Oracle Linux is an enterprise Linux distribution that's binary compatible with Red Hat
-Enterprise Linux. Organizations use it widely for Oracle Database and Oracle
-application workloads, as well as for general enterprise server estates. Because it
-appears in regulated and government environments, it's assessed against both the CIS
-Benchmarks and the DISA STIGs, in the same way as other major enterprise Linux
-distributions.
+The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) and [DISA STIGs](https://public.cyber.mil/stigs/) for Oracle Linux define secure configuration requirements for Oracle Linux 7 through 10.
+Chef Premium Content provides these requirements as Chef InSpec audit profiles and remediation content, and coverage differs by benchmark and version, so check the following version table.
 
-Chef Premium Content covers Oracle Linux against both
-[CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) and
-[DISA STIGs](https://public.cyber.mil/stigs/).
+## What the benchmarks check
+
+The CIS requirements cover the following areas in the Oracle Linux 10 benchmark at v1.0.0:
+
+- **Initial setup:** Filesystem kernel modules, partitions, package signing, and kernel settings
+- **Services:** Services to remove, the GNOME Display Manager, and time synchronization
+- **Network:** IPv6 status, network kernel modules, and redirect and logging settings
+- **Host-based firewall:** firewalld installation and zone configuration
+- **Access control:** SSH, account lockout, and password expiration
+- **Logging and auditing:** AIDE, rsyslog, and audit rules
+- **System maintenance:** Permissions on system files, world-writable files, and account consistency
+
+The STIG states its requirements individually.
+The Oracle Linux 8 STIG at v1.8.0 includes requirements for auditing, kernel settings, and kernel modules.
+
+The exact requirements differ by benchmark and version.
 
 ## Supported versions
 

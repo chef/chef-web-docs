@@ -8,10 +8,24 @@ title = "Apache Tomcat"
   weight = 10
 +++
 
-Apache Tomcat runs Java web applications, and its security depends on configuration that's set for each installation.
-Application teams often own their own Tomcat instances, so a fleet can include several major versions at once.
+The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) for Apache Tomcat define secure configuration requirements for Tomcat 5.5 through Tomcat 11.
+Chef Premium Content provides these requirements as Chef InSpec audit profiles and remediation content, and coverage differs by benchmark and version, so check the following version table.
 
-Chef Premium Content covers Apache Tomcat against the [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks), so you can assess Tomcat installations without writing and maintaining that content yourself.
+## What the benchmarks check
+
+The requirements cover the following areas in the Apache Tomcat 11 benchmark at v1.0.0:
+
+- **Extraneous resources:** Unneeded files and directories, and unused connectors
+- **Server information:** The server details that Tomcat advertises
+- **Shutdown port:** The shutdown command and shutdown port
+- **File and directory access:** Access to `$CATALINA_HOME`, logs, web applications, and configuration files
+- **Realms:** Secure realms and account lockout
+- **Connector security:** SSL on sensitive connectors and client certificate authentication
+- **Logging:** Application logging and log file locations
+- **Application deployment:** Automatic deployment, deployment on startup, and access to sensitive packages
+- **Other settings:** The manager application, connection timeouts, and running applications without privileges
+
+The exact requirements differ by benchmark and version.
 
 ## Supported versions
 

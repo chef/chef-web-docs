@@ -8,15 +8,23 @@ title = "Windows Server"
   weight = 130
 +++
 
-Windows Server runs a large share of enterprise directory, file, and
-application workloads, and it's usually the platform under the heaviest audit scrutiny.
-Windows Server estates also tend to be long-lived, so most organizations are assessing
-several releases at once, against more than one standard.
+The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) and [DISA STIGs](https://public.cyber.mil/stigs/) for Windows Server define secure configuration requirements for Windows Server releases from 2012 through 2025.
+Chef Premium Content provides these requirements as Chef InSpec profiles and remediation content, and coverage differs by benchmark and version.
 
-Chef Premium Content covers Windows Server against both the
-[CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) and the
-[DISA STIGs](https://public.cyber.mil/stigs/). It's the broadest coverage in the
-catalog, spanning Windows Server 2012 through Windows Server 2025.
+## What the benchmarks check
+
+The CIS requirements cover the following areas in the Windows Server 2022 benchmark at v4.0.0:
+
+- **Account policies:** Password and account lockout settings
+- **Local policies:** User rights assignments and security options
+- **Windows Firewall:** Firewall state for the domain, private, and public profiles
+- **Advanced audit policy:** Which account, policy, and privilege events are recorded
+- **Administrative templates:** Computer and user settings managed through Group Policy
+
+The STIG states its requirements individually.
+The Windows Server 2019 STIG at v2.2.0 includes requirements for audit events, user rights, Remote Desktop Services, and network signing.
+
+The exact requirements differ by release, benchmark version, and profile.
 
 ## Supported versions
 

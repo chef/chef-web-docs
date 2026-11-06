@@ -8,11 +8,19 @@ title = "AWS Foundations"
   weight = 5
 +++
 
-AWS accounts change often, and teams can create resources and change settings without going through a server configuration process.
-That makes account-level settings, such as logging and monitoring, a common focus of security reviews.
-
-Chef Premium Content covers AWS against the CIS Amazon Web Services Foundations Benchmark from the [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks).
+The CIS Amazon Web Services Foundations Benchmark from the [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) defines secure configuration requirements for an AWS account.
+Chef Premium Content provides these requirements as Chef InSpec audit profiles, without remediation content.
 This content assesses your AWS account, rather than the configuration of a single host.
+
+## What the benchmarks check
+
+The requirements cover the following areas at v1.0.0:
+
+- **Identity and access:** IAM policies and multi-factor authentication for the root account
+- **Logging:** CloudTrail trails and their configuration
+- **Monitoring:** Log metric filters and alarms for events such as CloudTrail configuration and VPC changes
+
+The exact requirements differ by benchmark and version.
 
 ## Supported versions
 

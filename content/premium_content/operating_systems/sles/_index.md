@@ -8,16 +8,22 @@ title = "SUSE Linux Enterprise Server"
   weight = 110
 +++
 
-SUSE Linux Enterprise Server is a commercially supported enterprise Linux distribution
-with long maintenance lifecycles, used heavily for SAP workloads, mainframe and Power
-deployments, and other long-lived enterprise systems. Those long lifecycles mean several
-major releases are commonly in service at once, often well beyond the point where a
-newer release is already available.
+The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) for SUSE Linux Enterprise Server define secure configuration requirements for releases 11, 12, and 15.
+Chef Premium Content provides these requirements as Chef InSpec audit profiles and remediation content, and coverage differs by benchmark and version, so check the following version table.
 
-Chef Premium Content covers SUSE Linux Enterprise Server against the
-[CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks), so you can assess and
-correct SUSE Linux Enterprise Server systems without writing and maintaining that
-content yourself.
+## What the benchmarks check
+
+The requirements cover the following areas in the SUSE Linux Enterprise Server 15 benchmark at v2.0.1:
+
+- **Initial setup:** Filesystem kernel modules, partition options, package signing, and crypto policy
+- **Services:** Services to remove, X Window servers, and time synchronization
+- **Network:** IPv6 status, network kernel modules, and packet redirect settings
+- **Host-based firewall:** Using a single firewall utility, and firewalld configuration
+- **Access control:** SSH, account lockout, and password age
+- **Logging and auditing:** AIDE, rsyslog, and audit rules
+- **System maintenance:** Permissions on system files, world-writable files, and account consistency
+
+The exact requirements differ by benchmark and version.
 
 ## Supported versions
 

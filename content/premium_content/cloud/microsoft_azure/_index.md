@@ -8,11 +8,25 @@ title = "Microsoft Azure"
   weight = 10
 +++
 
-Azure subscriptions change often, and teams can create resources and change settings without going through a server configuration process.
-That makes account-level settings, such as logging, networking, and key management, a common focus of security reviews.
+The CIS Azure Foundations Benchmark from the [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) defines secure configuration requirements for an Azure environment.
+Chef Premium Content provides these requirements as Chef InSpec audit profiles and remediation content, and coverage differs by benchmark and version, so check the following version table.
+This content assesses your environment through the Azure APIs, rather than the configuration of a single host.
 
-Chef Premium Content covers Microsoft Azure against the CIS Azure Foundations Benchmark from the [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks).
-This content assesses your Azure environment through the Azure APIs, rather than the configuration of a single host.
+## What the benchmarks check
+
+The requirements cover the following areas at v1.1.0:
+
+- **Identity and access:** Multi-factor authentication, application consent, and custom roles
+- **Security Center:** Default monitoring policies and security contact notifications
+- **Storage accounts:** Secure transfer, shared access signatures, and storage logging
+- **Database services:** SQL Server auditing, data encryption, and PostgreSQL logging
+- **Logging and monitoring:** Activity Log retention and alerts
+- **Networking:** RDP, SSH, and SQL access from the internet, and Network Watcher
+- **Virtual machines:** Disk encryption and endpoint protection
+- **Other security:** Key and secret expiration, recoverable key vaults, and resource locks
+- **App Service:** TLS and runtime versions for web applications
+
+The exact requirements differ by benchmark and version.
 
 ## Supported versions
 

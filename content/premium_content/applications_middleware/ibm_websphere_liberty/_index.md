@@ -8,10 +8,24 @@ title = "IBM WebSphere Liberty"
   weight = 20
 +++
 
-IBM WebSphere Liberty is an application server for Java workloads.
-Its security depends on server configuration that's often set separately for each deployment, so settings can differ between servers that run the same application.
+The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) for IBM WebSphere Liberty define secure configuration requirements for Liberty servers.
+Chef Premium Content provides these requirements as Chef InSpec audit profiles, without remediation content.
 
-Chef Premium Content covers IBM WebSphere Liberty against the [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks), so you can assess Liberty servers without writing and maintaining that content yourself.
+## What the benchmarks check
+
+The requirements cover the following areas in the benchmark at v1.0.0:
+
+- **Installation and file system:** Ownership of the binaries, file system access, and validating the installation
+- **Authentication registries:** Removing basic and quick start registries, and using TLS for LDAP connections
+- **Application security:** Automatic application updates and the JDK Security Manager
+- **Web security:** Session cookies, HTTP ports, and trusted hosts
+- **CSIv2 and Java serialization:** Transport settings, identity assertion, and serialization filters
+- **Web services:** WS-Security policies, including signing and encrypting SOAP messages
+- **Host and address lists:** Include and exclude lists for hosts and addresses
+- **z/OS security:** SAF authorization, key rings, and the SAF registry
+- **General settings:** Unused features, encrypted passwords, and the welcome page
+
+The exact requirements differ by benchmark and version.
 
 ## Supported versions
 

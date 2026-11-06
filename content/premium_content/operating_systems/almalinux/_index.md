@@ -8,15 +8,22 @@ title = "AlmaLinux OS"
   weight = 10
 +++
 
-AlmaLinux OS is a community-maintained, binary-compatible rebuild of Red Hat Enterprise
-Linux, widely adopted as a drop-in replacement after the CentOS Linux end of life.
-Organizations that moved production workloads from CentOS to AlmaLinux still carry the
-same audit obligations they had before, and auditors still expect evidence against a
-recognized standard.
+The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) for AlmaLinux OS define secure configuration requirements for AlmaLinux OS 8, 9, and 10.
+Chef Premium Content provides these requirements as Chef InSpec profiles for all three releases, and as remediation content for AlmaLinux OS 8.
 
-Chef Premium Content covers AlmaLinux OS against the
-[CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks), so you can assess and
-correct AlmaLinux systems without writing and maintaining that content yourself.
+## What the benchmarks check
+
+The requirements cover the following areas in the AlmaLinux OS 9 benchmark at v2.0.0:
+
+- **Initial setup:** Filesystem kernel modules, package signing keys, SELinux, and bootloader settings
+- **Services:** Services and clients to remove, time synchronization, and job scheduling
+- **Network:** IPv6 status, network kernel modules, and IP forwarding
+- **Host-based firewall:** firewalld and nftables configuration
+- **Access control:** SSH, sudo, PAM, and password expiration
+- **Logging and auditing:** AIDE, journald, and auditd
+- **System maintenance:** Permissions on system files and account password storage
+
+The exact requirements differ by release, benchmark version, level, and scope.
 
 ## Supported versions
 

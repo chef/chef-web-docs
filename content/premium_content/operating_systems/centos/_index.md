@@ -8,14 +8,21 @@ title = "CentOS"
   weight = 30
 +++
 
-CentOS Linux was for many years the standard free rebuild of Red Hat Enterprise Linux
-and remains widely deployed, particularly on long-lived systems. Many estates still run
-CentOS Linux releases that are past upstream end of life but still in production and
-still in audit scope, which is exactly where benchmark evidence matters.
+The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) for CentOS Linux define secure configuration requirements for CentOS Linux 6, 7, and 8.
+Chef Premium Content provides these requirements as Chef InSpec audit profiles and remediation content, and coverage differs by benchmark and version, so check the following version table.
 
-Chef Premium Content covers CentOS Linux against the
-[CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks), so you can assess and
-correct CentOS Linux systems without writing and maintaining that content yourself.
+## What the benchmarks check
+
+The requirements cover the following areas in the CentOS Linux 8 benchmark at v1.0.1:
+
+- **Initial setup:** Filesystems, partitions, package repositories, and SELinux
+- **Services:** Services to remove, such as xinetd, Avahi, and HTTP and LDAP servers
+- **Network:** IP forwarding, IPv6 router advertisements, and firewall zones and policies
+- **Logging and auditing:** auditd, sign-in and mount events, and rsyslog
+- **Access control:** Scheduled jobs, SSH, and password reuse
+- **System maintenance:** Permissions on system files, root path integrity, and user `.netrc` files
+
+The exact requirements differ by benchmark and version.
 
 ## Supported versions
 

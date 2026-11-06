@@ -8,13 +8,26 @@ title = "PostgreSQL"
   weight = 70
 +++
 
-PostgreSQL is a widely used open-source relational database, common across both
-self-managed deployments and application stacks that bundle it directly.
+The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) and [DISA STIGs](https://public.cyber.mil/stigs/) for PostgreSQL define secure configuration requirements for PostgreSQL 9.x through 17.
+Chef Premium Content provides these requirements as Chef InSpec audit profiles and remediation content, and coverage differs by benchmark and version, so check the following version table.
 
-Chef Premium Content covers PostgreSQL against both the
-[CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) and
-[DISA STIGs](https://public.cyber.mil/stigs/), so you can assess and correct
-PostgreSQL instances without writing and maintaining that content yourself.
+## What the benchmarks check
+
+The CIS requirements cover the following areas in the PostgreSQL 17 benchmark at v1.0.0:
+
+- **Installation:** Package sources, required packages, and data cluster initialization
+- **Directory and file permissions:** The file permissions mask, extension directories, and stored credentials
+- **Logging and auditing:** Log destinations, log retention, and connection logging
+- **Access and authorization:** Interactive sign-in, administrative privileges, and row-level security
+- **Connection and sign-in:** Binding to an IP address, and local and host authentication
+- **Settings:** Runtime parameters and FIPS-validated cryptography
+- **Replication:** Replication users, WAL archiving, and base backups
+- **Other settings:** Data directories, backup tooling, and miscellaneous settings
+
+The STIG states its requirements individually.
+The PostgreSQL 9.x STIG includes requirements for privileges, audit records, and how passwords are stored.
+
+The exact requirements differ by benchmark and version.
 
 ## Supported versions
 

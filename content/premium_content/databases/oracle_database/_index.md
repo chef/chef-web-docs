@@ -8,14 +8,21 @@ title = "Oracle Database"
   weight = 50
 +++
 
-Oracle Database is a commercial relational database widely used for enterprise and
-mission-critical workloads. Major versions often remain in production for many years
-after release, so several versions are commonly in service across an estate at once.
+The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) for Oracle Database define secure configuration requirements for Oracle Database 12c through 23ai.
+Chef Premium Content provides these requirements as Chef InSpec audit profiles and remediation content, and coverage differs by benchmark and version, so check the following version table.
 
-Chef Premium Content covers Oracle Database against the
-[CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks), so you can assess and
-correct Oracle Database instances without writing and maintaining that content
-yourself.
+## What the benchmarks check
+
+The requirements cover the following areas in the Oracle Database 23ai benchmark at v1.0.0:
+
+- **Installation and patching:** The Oracle software version and patches
+- **Database settings:** Initialization parameters such as `REMOTE_OS_ROLES`
+- **Profiles:** Failed sign-in limits, lockout time, and password lifetime and reuse
+- **Accounts and links:** Default passwords, password files, and public database links
+- **Auditing:** System actions, sign-in and sign-out events, and export activity
+- **Access control:** System privileges and roles revoked from unauthorized grantees
+
+The exact requirements differ by benchmark and version.
 
 ## Supported versions
 

@@ -38,6 +38,27 @@ words:
 - CODEOWNERS
 - ruleset
 - rulesets
+# Technical terms from the benchmark summaries on Premium Content pages.
+- autoindex
+- avahi
+- cloudtrail
+- csiv
+- dcui
+- dmarc
+- flrt
+- flrtvc
+- infile
+- iptables
+- iscsi
+- journald
+- netrc
+- ntp
+- ocsp
+- prelink
+- sgid
+- sudo
+- ufw
+- webdav
 # Premium Content profile name tokens.
 - administrativeclassified
 - administrativepublic

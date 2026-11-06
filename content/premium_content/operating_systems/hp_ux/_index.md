@@ -8,14 +8,19 @@ title = "HP-UX"
   weight = 50
 +++
 
-HP-UX is a commercial UNIX operating system that runs on HPE Integrity hardware,
-typically hosting long-lived enterprise applications that were built around it. Those
-systems tend to stay in service for a very long time, so the ability to assess them
-against a recognized benchmark matters even when the platform itself is stable.
+The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) for HP-UX define secure configuration requirements for HP-UX 11i.
+Chef Premium Content provides these requirements as Chef InSpec audit profiles, without remediation content.
 
-Chef Premium Content covers HP-UX against the
-[CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks), so you can assess HP-UX
-systems without writing and maintaining that content yourself.
+## What the benchmarks check
+
+The requirements include the following areas in the benchmark at v1.4.2:
+
+- **Patches:** Applying the latest operating system patches
+- **Services:** Boot services to turn off
+- **File system:** Finding unowned files and directories
+- **Accounts:** Password complexity requirements
+
+The exact requirements differ by benchmark and version.
 
 ## Supported versions
 

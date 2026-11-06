@@ -8,10 +8,24 @@ title = "VMware ESXi"
   weight = 10
 +++
 
-VMware ESXi hosts run the virtual machines that many other workloads depend on, so a weak host or VM setting can affect everything above it.
-
-Chef Premium Content covers VMware ESXi against the [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks).
+The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) for VMware ESXi define secure configuration requirements for ESXi hosts and the virtual machines they run.
+Chef Premium Content provides these requirements as Chef InSpec audit profiles and remediation content, and coverage differs by benchmark and version, so check the following version table.
 Audit content for ESXi works differently from most Chef Premium Content, because it ships as scan cookbooks that you run from a Chef Infra Client node.
+
+## What the benchmarks check
+
+The requirements cover the following areas in the ESXi 8.0 benchmark at v1.1.0:
+
+- **Host hardware:** Firmware, TPM 2.0, and the hardware management controller
+- **Host software:** Supported software, image profile acceptance level, and time synchronization
+- **Host access:** SSH, DCUI session timeouts, account lockout, and the exception users list
+- **Host logging:** Persistent log locations and event detail
+- **Host networking:** Forged transmits, promiscuous mode, and Virtual Guest Tagging
+- **Host services:** CIM access, iSCSI authentication, and SSH daemon settings
+- **Virtual machines:** Secure Boot, device passthrough, and unneeded virtual devices
+- **VMware Tools:** Supported versions and optional features
+
+The exact requirements differ by benchmark and version.
 
 ## Supported versions
 

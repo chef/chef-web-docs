@@ -8,14 +8,22 @@ title = "IBM AIX"
   weight = 60
 +++
 
-IBM AIX is a commercial UNIX operating system that runs on IBM Power hardware,
-typically hosting long-lived enterprise workloads such as databases and ERP systems.
-Estates commonly run several AIX releases at once and keep them in service for many
-years.
+The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) for IBM AIX define secure configuration requirements for AIX 5.3 through AIX 7.2.
+Chef Premium Content provides these requirements as Chef InSpec audit profiles, without remediation content.
 
-Chef Premium Content covers IBM AIX against the
-[CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks), so you can assess systems
-without writing and maintaining that content yourself.
+## What the benchmarks check
+
+The requirements cover the following areas in the AIX 7.2 benchmark at v1.1.0:
+
+- **System configuration:** Collecting configuration regularly, and allowlisting authorized scripts
+- **File systems:** File system and logical volume encryption, default umask, and group write permissions
+- **Network services:** Services to turn off, and NIS and SNMP settings
+- **Accounts and passwords:** Password expiration and password attributes
+- **Privilege escalation:** Executables that elevate privileges, and sudo
+- **Patching:** Using FLRT and FLRTVC regularly
+- **Logging and auditing:** Local and remote syslog, and AIX auditing
+
+The exact requirements differ by benchmark and version.
 
 ## Supported versions
 

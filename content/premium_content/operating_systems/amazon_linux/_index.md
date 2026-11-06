@@ -8,16 +8,21 @@ title = "Amazon Linux"
   weight = 20
 +++
 
-Amazon Linux is the distribution Amazon Web Services maintains for EC2 and other AWS
-compute services, and it's the default operating system for a large share of workloads
-running on AWS. Because instances are frequently rebuilt from images, benchmark evidence
-is often gathered as part of an image build pipeline as well as on running instances.
-Three generations are in service: Amazon Linux 1, Amazon Linux 2, and Amazon Linux 2023,
-and each one carries its own profile naming and version coverage.
+The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) for Amazon Linux define secure configuration requirements for Amazon Linux 1, Amazon Linux 2, and Amazon Linux 2023.
+Chef Premium Content provides these requirements as Chef InSpec audit profiles and remediation content, and coverage differs by benchmark and version, so check the following version table.
 
-Chef Premium Content covers Amazon Linux against the
-[CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks), so you can assess and
-correct Amazon Linux systems without writing and maintaining that content yourself.
+## What the benchmarks check
+
+The requirements cover the following areas in the Amazon Linux 2023 benchmark at v1.0.0:
+
+- **Initial setup:** Filesystems, partition options, and core dumps
+- **Services:** Time synchronization, and services to remove such as DNS servers and HTTP proxies
+- **Network:** IPv6 status, packet redirects, ICMP handling, and firewalld
+- **Access control:** Scheduled jobs, SSH, and account lockout
+- **Logging and auditing:** rsyslog, journald, and audit rules
+- **System maintenance:** Permissions on system files, SUID and SGID files, and duplicate accounts
+
+The exact requirements differ by benchmark and version.
 
 ## Supported versions
 

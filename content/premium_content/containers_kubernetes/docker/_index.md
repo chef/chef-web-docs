@@ -8,9 +8,22 @@ title = "Docker"
   weight = 10
 +++
 
-Docker hosts run many containers on a shared kernel, so a weak daemon or host setting can affect every workload on the system.
+The CIS Docker Benchmark from the [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) defines secure configuration requirements for Docker hosts, the Docker daemon, images, and containers.
+Chef Premium Content provides these requirements as a Chef InSpec audit profile, without remediation content.
 
-Chef Premium Content covers Docker against the [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks), so you can assess Docker without writing and maintaining that content yourself.
+## What the benchmarks check
+
+The benchmark organizes its requirements into the following areas:
+
+- **Host configuration:** The host that runs Docker
+- **Docker daemon configuration:** Settings for the Docker daemon
+- **Docker daemon configuration files:** Ownership and permissions on the daemon's files
+- **Container images and build files:** How images are built and maintained
+- **Container runtime:** How containers are started and what they can access
+- **Docker security operations:** Ongoing security operations
+- **Docker Swarm configuration:** Swarm settings, where Swarm is in use
+
+The exact requirements differ by benchmark version.
 
 ## Supported versions
 

@@ -8,13 +8,22 @@ title = "MongoDB"
   weight = 20
 +++
 
-MongoDB is a widely deployed document database, and keeping it configured to a
-consistent security standard matters whether you're running a single replica set or
-many across an estate.
+The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) for MongoDB define secure configuration requirements for MongoDB 3.6.
+Chef Premium Content provides these requirements as Chef InSpec audit profiles and remediation content.
 
-Chef Premium Content covers MongoDB against the
-[CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks), so you can assess and
-correct MongoDB instances without writing and maintaining that content yourself.
+## What the benchmarks check
+
+The requirements cover the following areas in the benchmark at v1.1.0:
+
+- **Installation and patching:** The MongoDB version and patches
+- **Authentication:** Authentication settings, the localhost exception, and sharded clusters
+- **Authorization:** Role-based access control, network listeners, and least-privilege accounts
+- **Data protection:** Encryption in transit and at rest, and FIPS mode
+- **Auditing:** System activity auditing, audit filters, and log handling
+- **Operating system hardening:** Default ports, resource limits, and server-side scripting
+- **File permissions:** Authentication files and database files
+
+The exact requirements differ by benchmark and version.
 
 ## Supported versions
 

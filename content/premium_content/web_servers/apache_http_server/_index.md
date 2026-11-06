@@ -8,10 +8,25 @@ title = "Apache HTTP Server"
   weight = 10
 +++
 
-Apache HTTP Server is a widely deployed open source web server.
-It often faces the internet directly, and its behavior depends on configuration files and modules that can differ from one server to the next.
+The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) for Apache HTTP Server define secure configuration requirements for Apache HTTP Server 2.2 and 2.4.
+Chef Premium Content provides these requirements as Chef InSpec audit profiles and remediation content, and coverage differs by benchmark and version, so check the following version table.
 
-Chef Premium Content covers Apache HTTP Server 2.2 and 2.4 against the [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks), so you can assess and correct these servers without writing and maintaining that content yourself.
+## What the benchmarks check
+
+The requirements cover the following areas in the Apache HTTP Server 2.4 benchmark at v2.0.0:
+
+- **Planning and installation:** Pre-installation planning, single-purpose servers, and installing from appropriate binaries
+- **Modules:** Authentication modules, and modules to turn off such as WebDAV and autoindex
+- **Permissions and ownership:** Running as a non-root user, directory ownership, and core dump directories
+- **Access control:** Access to the root directory and web content, and `AllowOverride`
+- **Features and content:** Directory options, default content, and HTTP request methods
+- **Logging:** Error logs, access logs, and log rotation
+- **TLS:** `mod_ssl`, protocol versions, compression, and OCSP stapling
+- **Information leakage:** `ServerTokens`, `ServerSignature`, and response headers
+- **Denial of service:** Timeouts, keep-alive settings, and request limits
+- **Mandatory access control:** SELinux and AppArmor configuration
+
+The exact requirements differ by benchmark and version.
 
 ## Supported versions
 
