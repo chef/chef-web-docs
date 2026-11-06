@@ -15,6 +15,17 @@ See [benchmark coverage](/premium_content/#benchmark-coverage) for how audit and
 remediation coverage are tracked, and the
 [Compliance solution overview](/solutions/compliance/) for what each does.
 
+## Browse by platform
+
+Platform pages describe what the benchmarks cover, which profiles ship, and what
+remediation is available:
+
+| Platform | Benchmarks |
+| --- | --- |
+| [Docker](/premium_content/containers_kubernetes/docker/) | CIS |
+
+## All container and Kubernetes benchmarks
+
 | Benchmark | Audit versions | Remediation versions | Coverage |
 | --- | --- | --- | --- |
 | `CIS Docker` | 2.1.0 | — | Audit Only |
@@ -24,8 +35,8 @@ For what each coverage term means, see
 
 ## Inspect container platforms directly
 
-Chef doesn't publish prebuilt audit content for the benchmarks above,
-but Chef InSpec provides resource packs you can use to write your own controls:
+For requirements that the benchmarks above don't cover,
+Chef InSpec provides resource packs you can use to write your own controls:
 
 - [Kubernetes resource pack](/inspec/resource_packs/k8s/) ---
   inspect pods, containers, deployments, DaemonSets, CronJobs, namespaces, nodes,
