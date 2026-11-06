@@ -514,6 +514,7 @@ Before you expand from one database to a fleet:
 - [Databases coverage](/premium_content/databases/)
 - [The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
 - [The Chef way of SSH compliance](/solutions/compliance/ssh_baseline/)
+- [The Chef way of Kubernetes compliance](/solutions/compliance/kubernetes/)
 - [Profiles](/inspec/latest/profiles/)
 - [Compliance reporting](/automate/reports/)
 - [Compliance overview](/solutions/compliance/)

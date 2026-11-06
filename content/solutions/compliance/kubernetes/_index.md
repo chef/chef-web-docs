@@ -419,6 +419,7 @@ Before you expand from one cluster to a fleet of them:
 - [Containers / Kubernetes coverage](/premium_content/containers_kubernetes/)
 - [The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
 - [The Chef way of SSH compliance](/solutions/compliance/ssh_baseline/)
+- [The Chef way of database compliance](/solutions/compliance/databases/)
 - [Profiles](/inspec/latest/profiles/)
 - [Compliance reporting](/automate/reports/)
 - [Compliance overview](/solutions/compliance/)
