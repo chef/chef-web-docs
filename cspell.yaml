@@ -45,7 +45,10 @@ words:
 - almalinux
 - almalinuxos
 - amazonlinux
+- applemacos
+- appleosx
 - awsrds
+- bitlocker
 - canonicalubuntu
 - cationly
 - centoslinux
@@ -53,6 +56,9 @@ words:
 - debianlinux
 - disableslowrules
 - domaincontroller
+- enterpriseenvironmentgeneraluse
+- enterpriserelease
+- highsecurity
 - ibmaix
 - linuxhostosusingtraditionalauditing
 - linuxhostosusingunifiedauditing
@@ -62,6 +68,7 @@ words:
 - memberserver
 - microsoftsql
 - microsoftsqlserver
+- microsoftwindows
 - microsoftwindowsserver
 - missioncritical
 - missioncriticalclassified
@@ -73,7 +80,11 @@ words:
 - missionsupportsensitive
 - mysqlrdbms
 - mysqlrdbmsonlinux
+- nextgenerationwindowssecurity
+- onforuseinthenewesthardwareandconfigurationenvironments
+- onforwhenbitlockerisdeployed
 - onlinux
+- optionaladd
 - oracledatabase
 - oraclelinux
 - oraclemysql
@@ -88,6 +99,7 @@ words:
 - rdbmsusingunifiedauditing
 - redhatenterpriselinux
 - rockylinux
+- sensitivedataenvironmentlimitedfunctionality
 - windowsserverhostosusingtraditionalauditing
 - windowsserverhostosusingunifiedauditing
 

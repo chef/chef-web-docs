@@ -15,6 +15,18 @@ See [benchmark coverage](/premium_content/#benchmark-coverage) for how audit and
 remediation coverage are tracked, and the
 [Compliance solution overview](/solutions/compliance/) for what each does.
 
+## Browse by platform
+
+Platform pages describe what the benchmarks cover, which profiles ship, and what
+remediation is available:
+
+| Platform | Benchmarks |
+| --- | --- |
+| [Apple macOS](/premium_content/desktop_client/apple_macos/) | CIS |
+| [Windows](/premium_content/desktop_client/windows/) | CIS, STIG |
+
+## All desktop and client benchmarks
+
 | Benchmark | Audit versions | Remediation versions | Coverage |
 | --- | --- | --- | --- |
 | `CIS Apple macOS 10.10` | 1.2.0 | — | Audit Only |
