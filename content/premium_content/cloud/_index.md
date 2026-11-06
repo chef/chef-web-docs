@@ -15,6 +15,18 @@ See [benchmark coverage](/premium_content/#benchmark-coverage) for how audit and
 remediation coverage are tracked, and the
 [Compliance solution overview](/solutions/compliance/) for what each does.
 
+## Browse by platform
+
+Platform pages describe what the benchmarks cover, which profiles ship, and what
+remediation is available:
+
+| Platform | Benchmarks |
+| --- | --- |
+| [Microsoft 365](/premium_content/cloud/microsoft_365/) | CIS |
+| [Microsoft Azure](/premium_content/cloud/microsoft_azure/) | CIS |
+
+## All cloud benchmarks
+
 | Benchmark | Audit versions | Remediation versions | Coverage |
 | --- | --- | --- | --- |
 | `CIS AWS Foundations` | 1.0.0 | — | Audit Only |

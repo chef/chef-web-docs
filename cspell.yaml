@@ -50,6 +50,7 @@ words:
 - applemacos
 - appleosx
 - awsrds
+- backend
 - bitlocker
 - canonicalubuntu
 - cationly
@@ -58,6 +59,7 @@ words:
 - debianlinux
 - disableslowrules
 - domaincontroller
+- encryptedpass
 - enterpriseenvironmentgeneraluse
 - enterpriserelease
 - esxi
@@ -86,6 +88,7 @@ words:
 - mysqlrdbms
 - mysqlrdbmsonlinux
 - nextgenerationwindowssecurity
+- onedrivesync
 - onforuseinthenewesthardwareandconfigurationenvironments
 - onforwhenbitlockerisdeployed
 - onlinux
@@ -96,6 +99,7 @@ words:
 - oraclemysqlcommunity
 - oraclesolaris
 - postgresqlonlinux
+- powershell
 - rbvmomi
 - rdbms
 - rdbmsonhostos
@@ -103,13 +107,16 @@ words:
 - rdbmsonwindowsserverhostos
 - rdbmsusingtraditionalauditing
 - rdbmsusingunifiedauditing
+- readme
 - redhatenterpriselinux
 - rockylinux
 - sensitivedataenvironmentlimitedfunctionality
+- userquerylimit
 - waiverfiles
 - websphere
 - windowsserverhostosusingtraditionalauditing
 - windowsserverhostosusingunifiedauditing
+- yaml
 
 ignorePaths:
 - ".expeditor/**/*"
