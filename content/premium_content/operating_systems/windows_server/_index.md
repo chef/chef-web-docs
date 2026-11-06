@@ -26,20 +26,19 @@ catalog, spanning Windows Server 2012 through Windows Server 2025.
 | --- | --- | --- | --- |
 | `CIS Microsoft Windows Server 2012` | v2.0.1, v2.3.0 | v2.2.0, v2.3.0 | Partial Audit + Remediation |
 | `CIS Microsoft Windows Server 2012r2` | v2.2.1, v2.3.0, v2.5.0, v3.0.0 | v2.4.0, v2.5.0 | Partial Audit + Remediation |
-| `CIS Microsoft Windows Server 2016` | v1.4.0, v2.0.0, v3.0.0 | v1.4.0 | Partial Audit + Remediation |
+| `CIS Microsoft Windows Server 2016` | v1.4.0, v2.0.0, v3.0.0 | v1.1.0, v1.2.0, v1.3.0, v2.0.0 | Partial Audit + Remediation |
 | `CIS Microsoft Windows Server 2016-1607` | v1.0.0, v1.1.0, v1.2.0, v1.3.0 | --- | Audit Only |
-| `CIS Microsoft Windows Server 2019` | v1.1.0, v1.2.1, v1.3.0, v2.0.0, v3.0.1, v4.0.0 | v1.2.1, v1.3.0, v2.0.0, v4.0.0 | Partial Audit + Remediation |
-| `CIS Microsoft Windows Server 2022` | v1.0.0, v2.0.0, v3.0.0, v4.0.0 | v1.0.0, v4.0.0 | Partial Audit + Remediation |
-| `CIS Microsoft Windows Server 2025` | v1.0.0 | --- | Audit Only |
+| `CIS Microsoft Windows Server 2019` | v1.3.0, v2.0.0, v3.0.1, v4.0.0 | v1.1.0, v1.2.1, v2.0.0, v4.0.0 | Partial Audit + Remediation |
+| `CIS Microsoft Windows Server 2022` | v1.0.0, v2.0.0, v3.0.0, v4.0.0 | v1.0.0, v2.0.0, v4.0.0 | Partial Audit + Remediation |
+| `CIS Microsoft Windows Server 2025` | v1.0.0, v2.1.0 | v1.0.0, v2.1.0 | Audit + Remediation |
 
 ### STIG
 
 | Benchmark | Audit versions | Remediation versions | Coverage |
 | --- | --- | --- | --- |
-| `STIG Microsoft Windows Server 2012` | v2.14.0, v2.15.0, v2.16.0, v2.17.0 | --- | Audit Only |
 | `STIG Microsoft Windows Server 2012r2` | --- | v3.1.0 | Remediation Only |
-| `STIG Microsoft Windows Server 2016` | v1.6.0, v1.9.0, v1.10.0, v1.11.0, v1.12.0, v2.1.0 | v2.1.0 | Partial Audit + Remediation |
-| `STIG Microsoft Windows Server 2019` | v1.1.0, v1.2.0, v2.1.0, v2.2.0 | v2.1.0, v2.2.0 | Partial Audit + Remediation |
+| `STIG Microsoft Windows Server 2016` | --- | v2.1.0 | Remediation Only |
+| `STIG Microsoft Windows Server 2019` | v2.2.0 | v2.1.0, v2.2.0 | Partial Audit + Remediation |
 | `STIG Microsoft Windows Server 2022` | v1.2.0 | v2.3.0 | Remediation Ahead |
 
 Audit and remediation coverage are tracked separately, and a benchmark can have more
@@ -97,9 +96,9 @@ the applicable requirements are:
 stig-microsoftwindowsserver<os-version>-<mac><confidentiality>-v<benchmark-version>
 ```
 
-For example, the MAC II mission support profile for a sensitive Windows Server 2016
-system at benchmark v2.1.0 is
-`stig-microsoftwindowsserver2016-ii-missionsupportsensitive-v2.1.0`.
+For example, the MAC II mission support profile for a sensitive Windows Server 2019
+system at benchmark v2.2.0 is
+`stig-microsoftwindowsserver2019-ii-missionsupportsensitive-v2.2.0`.
 
 That gives nine combinations for each benchmark version. Two further variants ship alongside
 them:
@@ -109,8 +108,9 @@ them:
 | `cationly` | Assesses only the requirements relating to Common Access Card authentication |
 | `disableslowrules` | Omits the checks that take longest to execute, for faster feedback during development |
 
-Windows Server 2012 and 2012r2 STIG profiles additionally carry a role token in the
-name, so confirm the exact profile name for those releases before you run them.
+This naming applies to the Windows Server 2019 and 2022 STIGs, which are the STIG
+benchmarks with audit content. The Windows Server 2012r2 and 2016 STIGs are remediation
+only, so no audit profiles are published for them.
 
 ## What you can do with this content
 
@@ -149,10 +149,10 @@ Remediation coverage is available for most CIS benchmarks and for the Windows Se
 2012r2, 2016, 2019, and 2022 STIGs. Check the version tables above before you plan a
 hardening rollout: remediation and audit versions don't always line up.
 
-- **Windows Server 2016-1607 and 2025 (CIS)** and the **Windows Server 2012 STIG** are
-  audit only. You can assess systems and act on the findings, but matching remediation
-  content isn't available.
-- **The Windows Server 2012r2 STIG** is remediation only, with no audit profile.
+- **Windows Server 2016-1607 (CIS)** is audit only. You can assess systems and act on
+  the findings, but matching remediation content isn't available.
+- **The Windows Server 2012r2 and 2016 STIGs** are remediation only, with no audit
+  profile.
 - **The Windows Server 2022 STIG** currently has remediation at a later version than the
   available audit content.
 
