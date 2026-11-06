@@ -31,6 +31,115 @@ dictionaryDefinitions:
 
 flagWords:
 - hte
+
+# words - project terms that aren't in the shared Chef dictionaries.
+# GitHub product terminology used in the Compliance solution pages.
+words:
+- CODEOWNERS
+- ruleset
+- rulesets
+# Technical terms from the benchmark summaries on Premium Content pages.
+- autoindex
+- avahi
+- cloudtrail
+- csiv
+- dcui
+- dmarc
+- flrt
+- flrtvc
+- infile
+- iptables
+- iscsi
+- journald
+- netrc
+- ntp
+- ocsp
+- prelink
+- sgid
+- sudo
+- ufw
+- webdav
+# Premium Content profile name tokens.
+- administrativeclassified
+- administrativepublic
+- administrativesensitive
+- almalinux
+- almalinuxos
+- amazonlinux
+- apachehttp
+- apachetomcat
+- applemacos
+- appleosx
+- awsrds
+- backend
+- bitlocker
+- canonicalubuntu
+- cationly
+- centoslinux
+- ciscoios
+- databaseengine
+- debianlinux
+- disableslowrules
+- domaincontroller
+- encryptedpass
+- enterpriseenvironmentgeneraluse
+- enterpriserelease
+- esxi
+- highsecurity
+- ibmaix
+- ibmwebsphereliberty
+- linuxhostosusingtraditionalauditing
+- linuxhostosusingunifiedauditing
+- mariadbonlinux
+- mariadbrdbms
+- mariadbrdbmsonlinux
+- memberserver
+- microsoftiis
+- microsoftsql
+- microsoftsqlserver
+- microsoftwindows
+- microsoftwindowsserver
+- missioncritical
+- missioncriticalclassified
+- missioncriticalpublic
+- missioncriticalsensitive
+- missionsupport
+- missionsupportclassified
+- missionsupportpublic
+- missionsupportsensitive
+- mysqlrdbms
+- mysqlrdbmsonlinux
+- nextgenerationwindowssecurity
+- onedrivesync
+- onforuseinthenewesthardwareandconfigurationenvironments
+- onforwhenbitlockerisdeployed
+- onlinux
+- optionaladd
+- oracledatabase
+- oraclelinux
+- oraclemysql
+- oraclemysqlcommunity
+- oraclesolaris
+- postgresqlonlinux
+- powershell
+- rbvmomi
+- rdbms
+- rdbmsonhostos
+- rdbmsonlinuxhostos
+- rdbmsonwindowsserverhostos
+- rdbmsusingtraditionalauditing
+- rdbmsusingunifiedauditing
+- readme
+- redhatenterpriselinux
+- rockylinux
+- sensitivedataenvironmentlimitedfunctionality
+- userquerylimit
+- waiverfiles
+- websphere
+- windowsserverhostosusingtraditionalauditing
+- windowsserverhostosusingunifiedauditing
+- yaml
+
 ignorePaths:
 - ".expeditor/**/*"
 - "**/*.sh"
