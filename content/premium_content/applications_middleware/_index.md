@@ -15,6 +15,17 @@ See [benchmark coverage](/premium_content/#benchmark-coverage) for how audit and
 remediation coverage are tracked, and the
 [Compliance solution overview](/solutions/compliance/) for what each does.
 
+## Browse by platform
+
+Platform pages describe what the benchmarks cover, which profiles ship, and what
+remediation is available:
+
+| Platform | Benchmarks |
+| --- | --- |
+| [Apache Tomcat](/premium_content/applications_middleware/apache_tomcat/) | CIS |
+
+## All application and middleware benchmarks
+
 | Benchmark | Audit versions | Remediation versions | Coverage |
 | --- | --- | --- | --- |
 | `CIS Apache Tomcat 10.1` | 1.1.0 | 1.1.0 | Audit + Remediation |
