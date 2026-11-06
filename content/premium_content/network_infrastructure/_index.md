@@ -17,8 +17,8 @@ remediation coverage are tracked, and the
 
 | Benchmark | Audit versions | Remediation versions | Coverage |
 | --- | --- | --- | --- |
-| `CIS Cisco IOS 12` | v4.0.0 | — | Audit Only |
-| `CIS Cisco IOS 15` | v4.0.0 | — | Audit Only |
+| `CIS Cisco IOS 12` | 4.0.0 | — | Audit Only |
+| `CIS Cisco IOS 15` | 4.0.0 | — | Audit Only |
 
 For what each coverage term means, see
 [how to read the coverage tables](/premium_content/#how-to-read-the-coverage-tables).

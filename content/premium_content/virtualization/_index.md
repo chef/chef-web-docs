@@ -9,7 +9,7 @@ aliases = ["/solutions/compliance/virtualization/"]
   weight = 90
 +++
 
-Chef Premium Content has current coverage for **1 virtualization benchmark**,
+Chef Premium Content has current coverage for **3 virtualization benchmarks**,
 with every audit version and remediation version currently available.
 See [benchmark coverage](/premium_content/#benchmark-coverage) for how audit and
 remediation coverage are tracked, and the
@@ -17,7 +17,9 @@ remediation coverage are tracked, and the
 
 | Benchmark | Audit versions | Remediation versions | Coverage |
 | --- | --- | --- | --- |
-| `CIS VMware ESXi 6.5` | — | v1.0.0 | Remediation Only |
+| `CIS VMware ESXi 6.5` | — | 1.0.0 | Remediation Only |
+| `CIS VMware ESXi 7.0` | 1.3.0 | — | Audit Only |
+| `CIS VMware ESXi 8.0` | 1.1.0 | — | Audit Only |
 
 For what each coverage term means, see
 [how to read the coverage tables](/premium_content/#how-to-read-the-coverage-tables).

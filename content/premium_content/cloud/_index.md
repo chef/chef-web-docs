@@ -9,7 +9,7 @@ aliases = ["/solutions/compliance/cloud/"]
   weight = 50
 +++
 
-Chef Premium Content has current coverage for **4 cloud benchmarks**,
+Chef Premium Content has current coverage for **3 cloud benchmarks**,
 with every audit version and remediation version currently available.
 See [benchmark coverage](/premium_content/#benchmark-coverage) for how audit and
 remediation coverage are tracked, and the
@@ -17,10 +17,9 @@ remediation coverage are tracked, and the
 
 | Benchmark | Audit versions | Remediation versions | Coverage |
 | --- | --- | --- | --- |
-| `CIS AWS Foundations` | v1.0.0 | — | Audit Only |
-| `CIS Google Cloud Platform Foundations` | v1.1.0 | — | Audit Only |
-| `CIS Microsoft 365` | v1.4.0 | v1.0.0 | Audit Ahead |
-| `CIS Microsoft Azure Foundations` | v1.1.0, v1.5.0 | — | Audit Only |
+| `CIS AWS Foundations` | 1.0.0 | — | Audit Only |
+| `CIS Microsoft 365` | 1.4.0 | 1.0.0 | Audit Ahead |
+| `CIS Microsoft Azure Foundations` | 1.0.0, 1.1.0 | 1.1.0 | Partial Audit + Remediation |
 
 For what each coverage term means, see
 [how to read the coverage tables](/premium_content/#how-to-read-the-coverage-tables).

@@ -9,7 +9,7 @@ aliases = ["/solutions/compliance/containers_kubernetes/"]
   weight = 70
 +++
 
-Chef Premium Content has current coverage for **2 containers / kubernetes benchmarks**,
+Chef Premium Content has current coverage for **1 containers / kubernetes benchmark**,
 with every audit version and remediation version currently available.
 See [benchmark coverage](/premium_content/#benchmark-coverage) for how audit and
 remediation coverage are tracked, and the
@@ -17,8 +17,7 @@ remediation coverage are tracked, and the
 
 | Benchmark | Audit versions | Remediation versions | Coverage |
 | --- | --- | --- | --- |
-| `CIS Docker` | — | v1.1.0 | Remediation Only |
-| `CIS Kubernetes` | — | v1.5.0, v1.6.1, v1.12.0 | Remediation Only |
+| `CIS Docker` | 2.1.0 | — | Audit Only |
 
 For what each coverage term means, see
 [how to read the coverage tables](/premium_content/#how-to-read-the-coverage-tables).
