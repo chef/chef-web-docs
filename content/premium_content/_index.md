@@ -71,7 +71,7 @@ Browse coverage by category:
 | [Applications / Middleware](/premium_content/applications_middleware/) | 9 |
 | [Cloud](/premium_content/cloud/) | 4 |
 | [Web Servers](/premium_content/web_servers/) | 5 |
-| [Containers / Kubernetes](/premium_content/containers_kubernetes/) | 2 |
+| [Containers](/premium_content/containers_kubernetes/) | 2 |
 | [Network / Infrastructure](/premium_content/network_infrastructure/) | 2 |
 | [Virtualization](/premium_content/virtualization/) | 1 |
 

@@ -52,7 +52,7 @@ See [Progress Chef Enterprise Edition](/enterprise_chef/) for what the entitleme
 
 ## Related
 
-- [Containers / Kubernetes coverage](/premium_content/containers_kubernetes/)
+- [Containers coverage](/premium_content/containers_kubernetes/)
 - [Docker resource pack](/inspec/resource_packs/docker/)
 - [Chef Premium Content](/premium_content/)
 - [Compliance solution overview](/solutions/compliance/)

@@ -1,15 +1,15 @@
 +++
-title = "Containers / Kubernetes"
+title = "Containers"
 aliases = ["/solutions/compliance/containers_kubernetes/"]
 
 [menu.premium_content]
   identifier = "premium_content/containers_kubernetes"
   parent = "premium_content"
-  title = "Containers / Kubernetes"
+  title = "Containers"
   weight = 70
 +++
 
-Chef Premium Content has current coverage for **1 containers / kubernetes benchmark**,
+Chef Premium Content has current coverage for **1 container benchmark**,
 with every audit version and remediation version currently available.
 See [benchmark coverage](/premium_content/#benchmark-coverage) for how audit and
 remediation coverage are tracked, and the
@@ -24,7 +24,7 @@ remediation is available:
 | --- | --- |
 | [Docker](/premium_content/containers_kubernetes/docker/) | CIS |
 
-## All container and Kubernetes benchmarks
+## All container benchmarks
 
 | Benchmark | Audit versions | Remediation versions | Coverage |
 | --- | --- | --- | --- |
