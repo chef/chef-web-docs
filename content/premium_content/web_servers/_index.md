@@ -22,13 +22,14 @@ remediation is available:
 
 | Platform | Benchmarks |
 | --- | --- |
+| [Apache HTTP Server](/premium_content/web_servers/apache_http_server/) | CIS |
 | [Microsoft IIS](/premium_content/web_servers/microsoft_iis/) | CIS, STIG |
 
 ## All web server benchmarks
 
 | Benchmark | Audit versions | Remediation versions | Coverage |
 | --- | --- | --- | --- |
-| `CIS Apache HTTP Server 2.2` | 0.1.0 | 3.6.0 | Remediation Ahead |
+| `CIS Apache HTTP Server 2.2` | 3.6.0 | 3.6.0 | Audit + Remediation |
 | `CIS Apache HTTP Server 2.4` | 2.0.0 | 1.4.0, 2.0.0 | Partial Audit + Remediation |
 | `CIS Microsoft IIS 10` | 1.1.1 | 1.1.1 | Audit + Remediation |
 | `STIG Microsoft IIS 10.0` | 2 | — | Audit Only |
