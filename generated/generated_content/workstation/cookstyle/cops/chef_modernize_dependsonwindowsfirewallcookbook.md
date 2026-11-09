@@ -27,6 +27,14 @@ Don't depend on the windows_firewall cookbook made obsolete by Chef Infra Client
 ```ruby
 # bad
 depends 'windows_firewall'
+
+# good
+# the resource ships in Chef Infra Client 14.7+, so use it without a depends
+windows_firewall_rule 'permit ssh' do
+  local_port '22'
+  protocol 'TCP'
+  firewall_action :allow
+end
 ```
 
 ## Configurable attributes

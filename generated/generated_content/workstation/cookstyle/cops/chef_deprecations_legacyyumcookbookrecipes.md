@@ -34,6 +34,14 @@ include_recipe 'yum::ius'
 include_recipe 'yum::remi'
 include_recipe 'yum::repoforge'
 include_recipe 'yum::yum'
+
+# good
+include_recipe 'yum-elrepo'
+include_recipe 'yum-epel'
+include_recipe 'yum-ius'
+include_recipe 'yum-remi'
+include_recipe 'yum-repoforge'
+include_recipe 'yum'
 ```
 
 ## Configurable attributes

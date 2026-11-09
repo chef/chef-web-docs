@@ -1,0 +1,32 @@
+---
+short_name: ConditionalUnifiedModeTrue
+full_name: Chef/Correctness/ConditionalUnifiedModeTrue
+department: Chef/Correctness
+description: |-
+  Setting `unified_mode true` conditionally leaves a resource running in unified mode on newer
+  Chef Infra Client releases and in legacy mode on older ones. That's not a coherent thing to
+  want: the resource has to be written, tested, and debugged against both execution models.
+
+  Pick one. Set `unified_mode true` unconditionally and drop support for releases that predate
+  it, or set `unified_mode false if respond_to?(:unified_mode)` to deliberately opt out of
+  unified mode everywhere and keep writing the resource in the traditional style.
+
+  Only `unified_mode true` is flagged. `unified_mode false` under a guard is the supported way
+  to opt out and is left alone.
+autocorrection: true
+target_chef_version: 15.3+
+examples: |2-
+
+  # bad
+  unified_mode true if respond_to?(:unified_mode)
+
+  # good
+  unified_mode true
+
+  # good - deliberately opting out of unified mode
+  unified_mode false if respond_to?(:unified_mode)
+version_added: 9.0.0
+enabled: true
+included_file_paths:
+- "**/libraries/*.rb"
+- "**/resources/*.rb"

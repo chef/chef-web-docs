@@ -13,7 +13,7 @@ examples: |2-
   platform_family?('redhat')
   platform_family?('sles')
 
-  # bad
+  # good
   platform_family?('rhel')
   platform_family?('suse')
 version_added: 5.15.0

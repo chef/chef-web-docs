@@ -10,6 +10,10 @@ examples: |2-
 
   # bad
   include_recipe 'xml::ruby'
+
+  # good
+  # nokogiri ships with Chef Infra Client, so just require it
+  require 'nokogiri'
 version_added: 5.4.0
 enabled: true
 excluded_file_paths:

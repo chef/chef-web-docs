@@ -30,6 +30,15 @@ file '/Users/bob_bobberson/.ssh/id_rsa' do
   content '-----BEGIN RSA PRIVATE KEY-----\n...\n-----END RSA PRIVATE KEY-----'
   mode '600'
 end
+
+# good
+# fetch the key from a secrets management system instead
+file '/home/bob/.ssh/id_rsa' do
+  content chef_vault_item('ssh_keys', 'bob')['private_key']
+  mode '600'
+  owner 'bob'
+  sensitive true
+end
 ```
 
 ## Configurable attributes

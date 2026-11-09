@@ -1,0 +1,27 @@
+---
+short_name: PowershellDownloadFile
+full_name: Chef/Modernize/PowershellDownloadFile
+department: Chef/Modernize
+description: |-
+  Use the `remote_file` resource to download files instead of shelling out to PowerShell.
+  `remote_file` is idempotent, supports checksum verification, proxies, and conditional
+  downloads with etags and last-modified headers, none of which a script gets for free.
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  # bad
+  powershell_script 'download the installer' do
+    code 'Invoke-WebRequest -Uri https://example.com/foo.msi -OutFile C:\foo.msi'
+  end
+
+  # good
+  remote_file 'C:\foo.msi' do
+    source 'https://example.com/foo.msi'
+  end
+version_added: 9.0.0
+enabled: true
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/attributes/*.rb"
+- "**/Berksfile"

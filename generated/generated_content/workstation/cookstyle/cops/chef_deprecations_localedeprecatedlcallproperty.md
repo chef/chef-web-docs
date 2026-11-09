@@ -30,6 +30,11 @@ locale 'set locale' do
   lang 'en_gb.utf-8'
   lc_all 'en_gb.utf-8'
 end
+
+# good
+locale 'set locale' do
+  lang 'en_gb.utf-8'
+end
 ```
 
 ## Configurable attributes

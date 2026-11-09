@@ -42,6 +42,12 @@ nexentacore_platform?
 opensolaris_platform?
 nexentacore?
 opensolaris?
+
+# good
+# the equivalents now shipping in Chef Infra Client and in Ruby itself
+vagrant?
+node.recipe?('foo::bar')
+shell_out!('/opt/app/bin/app --version', out: File::NULL)
 ```
 
 ## Configurable attributes

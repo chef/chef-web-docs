@@ -20,14 +20,25 @@ The Cookstyle cops department: `Chef/Correctness`
 | --- | --- | --- |
 | Enabled | No | All Versions |
 
-Use a service resource to start and stop services
+Use the `service` resource to manage services instead of shelling out. The resource is
+idempotent, picks the right init system for the platform, and reports correctly on what it
+changed. A shelled out command runs on every converge whether or not anything needed to
+change, so the run reports the resource as updated every time.
 
 ## Examples
 
 ```ruby
 # bad
-command "/etc/init.d/mysql start"
-command "/sbin/service/memcached start"
+execute 'restart apache' do
+  command 'systemctl restart httpd'
+end
+
+execute '/etc/init.d/httpd start'
+
+# good
+service 'httpd' do
+  action :restart
+end
 ```
 
 ## Configurable attributes

@@ -27,6 +27,13 @@ Don't depend on the zypper cookbook as the zypper_repository resource is built i
 ```ruby
 # bad
 depends 'zypper'
+
+# good
+# the resource ships in Chef Infra Client 13.3+, so use it without a depends
+zypper_repository 'apache' do
+  baseurl 'https://download.opensuse.org/repositories/Apache'
+  action :add
+end
 ```
 
 ## Configurable attributes

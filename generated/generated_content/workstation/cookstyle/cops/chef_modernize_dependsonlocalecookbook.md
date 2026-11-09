@@ -27,6 +27,12 @@ Don't depend on the locale cookbook made obsolete by Chef Infra Client 14.5. The
 ```ruby
 # bad
 depends 'locale'
+
+# good
+# the resource ships in Chef Infra Client 14.5+, so use it without a depends
+locale 'set locale' do
+  lang 'en_us.UTF-8'
+end
 ```
 
 ## Configurable attributes

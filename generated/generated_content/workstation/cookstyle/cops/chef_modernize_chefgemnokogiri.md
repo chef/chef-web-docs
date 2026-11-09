@@ -27,6 +27,10 @@ The nokogiri gem ships in Chef Infra Client 12+ and does not need to be installe
 ```ruby
 # bad
 chef_gem 'nokogiri'
+
+# good
+# nokogiri ships with Chef Infra Client, so just require it
+require 'nokogiri'
 ```
 
 ## Configurable attributes

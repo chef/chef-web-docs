@@ -10,6 +10,10 @@ examples: |2-
 
   # bad
   depends 'timezone_lwrp'
+
+  # good
+  # the resource ships in Chef Infra Client 14.6+, so use it without a depends
+  timezone 'UTC'
 version_added: 7.19.0
 enabled: true
 included_file_paths:
