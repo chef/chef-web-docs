@@ -17,6 +17,37 @@ summary = "Chef Workstation release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
+## Chef Workstation 26.2.0
+
+Release date: TBD
+
+### Improvements
+
+<!-- TODO: verify — no PR found; written from Jira data only -->
+- **knife-vcenter gem**: Chef Workstation now includes the `knife-vcenter` gem in the `knife` Habitat package, so you can use the plugin's vCenter commands without having to manually install the gem.
+
+### Packages
+
+This release adds the following OS-native packages:
+
+- Linux ARM (aarch64) RPM (.rpm) and DEB (.deb) packages
+- macOS ARM (Apple Silicon) DMG (.dmg) installer
+
+For a full list of supported packages and platforms for this release, see the [Chef Workstation supported packages](/platforms/#chef-workstation).
+
+### Tool updates
+
+- Updated Berkshelf to version 8.1.27.
+- Updated the `chef` CLI to version 6.1.40.
+- Updated Chef Infra Client to version 19.4.45. For details, see the [Chef Infra Client 19 release notes](https://docs.chef.io/release_notes/client/).
+- Updated Chef InSpec to version 7.3.4. For details, see the [Chef InSpec 7 release notes](https://docs.chef.io/release_notes/inspec/).
+- Updated Chef Vault to version 4.2.15.
+- Updated Cookstyle to version 9.0.6.
+- Updated Fauxhai to version 9.4.27.
+- Updated Knife to version 19.0.150. For details, see the [Knife changelog](https://github.com/chef/knife/blob/main/CHANGELOG.md).
+- Updated Ohai to version 19.1.51.
+- Updated Test Kitchen Enterprise to version 2.0.21. For details, see the [Test Kitchen Enterprise changelog](https://github.com/chef/chef-test-kitchen-enterprise/blob/main/CHANGELOG.md).
+
 ## Chef Workstation 26.1.0
 
 Release date: July 13, 2026
