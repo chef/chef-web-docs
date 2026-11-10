@@ -1392,8 +1392,8 @@ Our <span class="title-ref">cacert</span> bundle has been updated to the
 #### Chef EULA
 
 Usage of ChefDK 4.0, Chef Infra Client 15, and Chef InSpec 4 requires
-accepting the [Chef
-EULA](/chef_license/#chef-eula). See the
+accepting the Chef
+EULA. See the
 [frequently asked questions](https://www.chef.io/bmc-faq/) for
 information about the license update and the associated business model
 change.
@@ -1830,8 +1830,8 @@ Test Kitchen has been updated to 1.25 with backports of many
 non-breaking Test Kitchen 2.0 features:
 
 - Support for accepting the Chef 15 license in Test Kitchen runs. See
-    [Accepting the Chef
-    License](/chef_license_accept/) for usage
+    Accepting the Chef
+    License for usage
     details.
 - A new `--fail-fast` command line flag for use with the <span
     class="title-ref">concurrency</span> flag. With this flag set, Test

@@ -486,7 +486,7 @@ We updated Knife from v18.6.2 to v18.6.13. This release introduces a warning mes
 To ensure uninterrupted downloads and remove this warning:
 
 - For connected environments: Activate your Chef license and Knife automatically uses the new download APIs.
-- For air-gapped environments: Set up a local Chef licensing service and configure the `CHEF_LICENSE_SERVER` environment variable to point to its URL. For more information, see the [Chef Local License Service documentation](https://docs.chef.io/licensing/local_license_service/install/).
+- For air-gapped environments: Set up a local Chef licensing service and configure the `CHEF_LICENSE_SERVER` environment variable to point to its URL. For more information, see the [Chef Local License Service documentation](/licensing/local_license_service/install/).
 
 Activating your Chef license ensures a smooth transition to the new download mechanism before the Omnitruck API is deprecated.
 
@@ -4198,7 +4198,7 @@ Ubuntu 14.04 entered the end-of-life phase April 30, 2019. Since this version of
 
 #### Chef EULA
 
-Usage of Chef Workstation 0.4, Chef Infra Client 15, and InSpec 4 requires accepting the [Chef EULA](https://docs.chef.io/chef_license.html#chef-eula). See the [frequently asked questions](https://www.chef.io/bmc-faq/) for information about the license update and the associated business model change.
+Usage of Chef Workstation 0.4, Chef Infra Client 15, and InSpec 4 requires accepting the [Chef EULA](/licensing/#chef-eula). See the [frequently asked questions](https://www.chef.io/bmc-faq/) for information about the license update and the associated business model change.
 
 #### Chef provisioning
 
@@ -4317,7 +4317,7 @@ Rubygems has been updated from 2.7.8 to 2.7.9 to resolves the following CVEs:
 
 ChefDK now ships with Chef 14.13.11. See [Chef 14.14 release notes](https://docs.chef.io/release_notes.html) for more information on what's new.
 
-It also updates `knife bootstrap` to support installing and managing Chef Infra Client 15 on remote nodes. See [Accepting the Chef EULA](https://docs.chef.io/chef_license_accept.html#workstation-products) general instructions for accepting the license (command line flag, environment variable or configured in `~/.chef/config.rb`).
+It also updates `knife bootstrap` to support installing and managing Chef Infra Client 15 on remote nodes. See Accepting the Chef EULA general instructions for accepting the license (command line flag, environment variable or configured in `~/.chef/config.rb`).
 
 #### InSpec 3.9.0
 
@@ -4363,7 +4363,7 @@ knife-vsphere has been updated to 2.1.3, which adds support for knife's `bootstr
 
 #### `chef-run`
 
-The Chef Apply gem has been updated to 0.2.13, which adds support for installing and managing Chef Infra Client 15 on remote nodes. See [Accepting the Chef EULA](https://docs.chef.io/chef_license_accept.html#workstation-products) general instructions for accepting the license (command line flag or environment variable). Additionally the license can be accepted in the `~/.chef-workstation/config.toml` by adding:
+The Chef Apply gem has been updated to 0.2.13, which adds support for installing and managing Chef Infra Client 15 on remote nodes. See Accepting the Chef EULA general instructions for accepting the license (command line flag or environment variable). Additionally the license can be accepted in the `~/.chef-workstation/config.toml` by adding:
 
 ```
 [chef]
