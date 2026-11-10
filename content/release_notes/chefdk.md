@@ -299,7 +299,7 @@ Chef Infra Client has updated from 15.7 to 15.11, which includes improvements to
 
 Chef InSpec has updated from 4.18.51 to 4.19.0. This update includes a large number of fixes to resources and these significant new features:
 
-- You can now develop your own Chef InSpec Reporter plugin and determine how Chef InSpec will report result data. Learn more about Chef InSpec [plugins and implementation](/inspec/plugins/) in our documentation
+- You can now develop your own Chef InSpec Reporter plugin and determine how Chef InSpec will report result data. Learn more about Chef InSpec [plugins and implementation](/inspec/latest/configure/plugins/) in our documentation
 - The `inspec archive` command packs your profile into a tar.gz file that includes the profile in JSON form as the `inspec.json` file. Use this JSON file to programmatically examine the profile without needing to load it into Chef InSpec
 - Chef InSpec accepts a variety of date formats in the `waivers.yaml` configuration file, rather than only the `YYYY-MM-DD` format
 - Use the new `inspec` command options to control the size of reports:
@@ -833,7 +833,7 @@ changes:
 - Waivers, our new beta feature, was added to InSpec! Waivers allows
     you to better manage compliance failures. We would love to hear your
     feedback on this! See the [InSpec Waivers
-    documentation](/inspec/waivers/) for
+    documentation](/inspec/latest/configure/waivers/) for
     more details.
 
 **Improvements**
@@ -1392,8 +1392,8 @@ Our <span class="title-ref">cacert</span> bundle has been updated to the
 #### Chef EULA
 
 Usage of ChefDK 4.0, Chef Infra Client 15, and Chef InSpec 4 requires
-accepting the Chef
-EULA. See the
+accepting the [Chef
+EULA](/licensing/#chef-eula). See the
 [frequently asked questions](https://www.chef.io/bmc-faq/) for
 information about the license update and the associated business model
 change.
@@ -1830,8 +1830,8 @@ Test Kitchen has been updated to 1.25 with backports of many
 non-breaking Test Kitchen 2.0 features:
 
 - Support for accepting the Chef 15 license in Test Kitchen runs. See
-    Accepting the Chef
-    License for usage
+    [Accepting the Chef
+    License](/licensing/accept/) for usage
     details.
 - A new `--fail-fast` command line flag for use with the <span
     class="title-ref">concurrency</span> flag. With this flag set, Test
@@ -2660,7 +2660,7 @@ cookbooks given on the command line.
 
     More information can be found in
     [RFC097](https://github.com/chef/chef-rfc/blob/main/rfc097-policyfile-includes.md)
-    and the [Policyfile documentation](/policyfile/).
+    and the [Policyfile documentation](/client/latest/policy/policyfile/).
 
 - **New tools bundled**
 

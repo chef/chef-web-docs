@@ -13,7 +13,7 @@ draft = false
 
 {{< warning >}}
 
-- Standalone Chef Automate or Chef Automate with embedded Chef Infra Server can migrate to Automate HA, with the minimum version of Chef Automate: [20201230192246](/release_notes_automate/#20201230192246)
+- Standalone Chef Automate or Chef Automate with embedded Chef Infra Server can migrate to Automate HA, with the minimum version of Chef Automate: [20201230192246](/release_notes/automate/#20201230192246)
 
 {{< /warning >}}
 

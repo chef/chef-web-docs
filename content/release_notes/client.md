@@ -3718,8 +3718,8 @@ Chef InSpec has been updated from 4.29.3 to 4.31.1.
 
 #### New Features
 
-- Commands can now be set to timeout using the [command resource](https://docs.chef.io/inspec/resources/command/) or the [`--command-timeout`](https://docs.chef.io/inspec/cli/) option in the CLI. Commands timeout by default after one hour.
-- Added the [`--docker-url`](https://docs.chef.io/inspec/cli/) CLI option, which can be used to specify the URI to connect to the Docker Engine.
+- Commands can now be set to timeout using the [command resource](https://docs.chef.io/inspec/resources/command/) or the [`--command-timeout`](/inspec/latest/reference/cli/) option in the CLI. Commands timeout by default after one hour.
+- Added the [`--docker-url`](/inspec/latest/reference/cli/) CLI option, which can be used to specify the URI to connect to the Docker Engine.
 - Added support for targeting Linux and Windows containers running on Docker for Windows.
 
 #### Bug Fixes
@@ -5317,10 +5317,10 @@ Updated Chef InSpec from 4.29.3 to 4.32.
 
 #### New Features
 
-- Commands can now be set to timeout using the [command resource](https://docs.chef.io/inspec/resources/command/) or the [`--command-timeout`](https://docs.chef.io/inspec/cli/) option in the CLI. Commands timeout by default after one hour.
-- Added the [`--docker-url`](https://docs.chef.io/inspec/cli/) CLI option, which can be used to specify the URI to connect to the Docker Engine.
+- Commands can now be set to timeout using the [command resource](https://docs.chef.io/inspec/resources/command/) or the [`--command-timeout`](/inspec/latest/reference/cli/) option in the CLI. Commands timeout by default after one hour.
+- Added the [`--docker-url`](/inspec/latest/reference/cli/) CLI option, which can be used to specify the URI to connect to the Docker Engine.
 - Added support for targeting Linux and Windows containers running on Docker for Windows.
-- Added ability to pass inputs to InSpec shell using input file and cli. For more information, see [How can I set Inputs?](https://docs.chef.io/inspec/inputs/#how-can-i-set-inputs) in the InSpec documentation.
+- Added ability to pass inputs to InSpec shell using input file and cli. For more information, see [How can I set Inputs?](/inspec/latest/profiles/inputs/#how-can-i-set-inputs) in the InSpec documentation.
 
 #### Bug Fixes
 

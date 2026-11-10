@@ -35,7 +35,7 @@ end
 ```
 
 The second, and preferred, is to add a [gem
-dependency](/config_rb_metadata/) in your cookbook metadata.
+dependency](/client/latest/cookbooks/config_rb_metadata/) in your cookbook metadata.
 
 ```ruby
 gem 'etcd'

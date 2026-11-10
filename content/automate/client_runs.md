@@ -38,7 +38,7 @@ The Node Details table displays the most recent converge results. Find more info
 
 **Run List** shows cookbooks, roles, and recipes. For a node using Policyfiles, you can see the policy IDs for each cookbook listed.
 
-**Attributes** shows an expandable list of node properties. Use the search bar to discover the node attributes by attribute name, key name, or value. The search results show by highlighting matching attributes. Use the **Default**, **Normal**, **Override**, and **Automatic** buttons beneath the search bar to filter attributes by these categories. Learn more about [attributes](/attributes/).
+**Attributes** shows an expandable list of node properties. Use the search bar to discover the node attributes by attribute name, key name, or value. The search results show by highlighting matching attributes. Use the **Default**, **Normal**, **Override**, and **Automatic** buttons beneath the search bar to filter attributes by these categories. Learn more about [attributes](/client/latest/cookbooks/attributes/).
 
 When looking at a failed Chef Infra Client run, select **View Error Log** at the top of the page to open a window showing the error message and backtrace. Use the **Download** button to save the error message.
 
@@ -54,7 +54,7 @@ Filter nodes from the search bar based on existing node information. You can app
 
 #### Node filters
 
-[Attribute](/attributes/)
+[Attribute](/client/latest/cookbooks/attributes/)
 : Search for an attribute key. This doesn't search across attribute values.
 
 [Chef Organization](/server_orgs/)
@@ -66,22 +66,22 @@ Filter nodes from the search bar based on existing node information. You can app
 [Cookbook](/client/latest/cookbooks/)
 : A cookbook name.
 
-[Environment](/environments/)
+[Environment](/client/latest/policy/environments/)
 : Nodes can have one environment.
 
-[Node Name](/nodes/#about-node-names)
+[Node Name](/client/latest/overview/nodes/#about-node-names)
 : Name of the node.
 
 [Platform](/platforms/#chef-automate-server)
 : OS Platform of a node.
 
-[Policy Group](/policyfile/#settings)
+[Policy Group](/client/latest/policy/policyfile/#settings)
 : Policy group name, only nodes using Policyfiles appear.
 
-[Policy Name](/policyfile/#settings)
+[Policy Name](/client/latest/policy/policyfile/#settings)
 : Name of the policy as set in `policyfile.rb`, only nodes using Policyfiles appear.
 
-[Policy Revision](/release_notes_server/#policiesnamerevisions)
+[Policy Revision](/release_notes/server/#policiesnamerevisions)
 : The policy revision ID, only nodes using Policyfiles appear.
 
 [Recipe](/client/latest/cookbooks/recipes/)
@@ -90,10 +90,10 @@ Filter nodes from the search bar based on existing node information. You can app
 [Resource Name](/client/latest/resources/bundled/)
 : A resource within a cookbook.
 
-[Role](/roles/)
+[Role](/client/latest/policy/roles/)
 : Search by nodes assigned to a role. Nodes can have zero or multiple roles.
 
-See more about [Policyfiles](/policyfile/).
+See more about [Policyfiles](/client/latest/policy/policyfile/).
 
 ## Manage node data
 

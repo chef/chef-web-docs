@@ -152,7 +152,7 @@ The output displays the installed Chef Workstation version.
 The following tools are included with Chef Workstation but can also be installed individually using Chef Habitat.
 If you only need specific tools rather than the full Workstation package, install them as standalone applications:
 
-1. Install a package using [`hab pkg install`](/habitat/habitat_cli/#hab-pkg-install):
+1. Install a package using [`hab pkg install`](/habitat/latest/reference/habitat_cli/#hab-pkg-install):
 
    ```shell
    hab pkg install <PACKAGE_IDENT> --binlink --force
