@@ -116,7 +116,7 @@ identifier = "360"
   title = "version 1.7"
   parent = "360"
   identifier = "360/1.7"
-  url = "/360/latest/"
+  url = "/360/1.7/"
   weight = 10
 
   [[360]]

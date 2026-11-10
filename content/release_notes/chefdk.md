@@ -3024,8 +3024,8 @@ standard license strings.
 
 ### Delivery CLI
 
-- The `project.toml` file, which can be used to execute [local
-    phases](/delivery_cli/#delivery-local), now supports:
+- The `project.toml` file, which can be used to execute local
+    phases, now supports:
     - An optional `functional` phase.
     - New `remote_file` option to specify a remote `project.toml`.
     - The ability to run stages (collection of phases).
@@ -3040,14 +3040,12 @@ standard license strings.
 ### Policyfiles
 
 - Added a `chef_server` default source option to
-    [Policyfiles](/config_rb_policyfile/#settings).
+    [Policyfiles](/client/latest/policy/config_rb_policyfile/#settings).
 
 ### Automate Workflow Adopts SSH for Cookbook Generation
 
 The `chef generate cookbook` command now uses the SSH based job dispatch
-system as its default behavior. For more details on this new system and
-how to use it, see [Job Dispatch
-Docs](/runners/)
+system as its default behavior.
 
 ### FIPS (Windows and RHEL only)
 

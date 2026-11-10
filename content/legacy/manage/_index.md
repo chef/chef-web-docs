@@ -33,7 +33,7 @@ The Chef management console enables the management of nodes, data bags, roles, e
 
 {{< readfile file="content/reusable/md/node.md" >}}
 
-The Chef management console provides ways for users to [delete nodes and reset their private keys](/server_manage_nodes/#manage), [edit node attributes](/server_manage_nodes/#node-attributes), [manage the run-lists](/server_manage_nodes/#run-lists), [configure user and group permissions](/server_manage_nodes/#permissions), and [manage tags](/server_manage_nodes/#manage-tags).
+The Chef management console provides ways for users to [delete nodes and reset their private keys](/legacy/manage/server_manage_nodes/#manage), [edit node attributes](/legacy/manage/server_manage_nodes/#node-attributes), [manage the run-lists](/legacy/manage/server_manage_nodes/#run-lists), [configure user and group permissions](/legacy/manage/server_manage_nodes/#permissions), and [manage tags](/legacy/manage/server_manage_nodes/#manage-tags).
 
 ![image](/images/step_manage_webui_nodes.png)
 
@@ -93,7 +93,7 @@ The syntax for search queries in the Chef management console is identical to the
 
 {{< readfile file="content/reusable/md/policy_summary.md" >}}
 
-The Chef management console provides ways for users to manage [data bags](/server_manage_data_bags/), [environments](/server_manage_environments/), [roles](/server_manage_roles/), [cookbooks](/server_manage_cookbooks/), [clients](/server_manage_clients/), and [managing tags](/server_manage_nodes/#manage-tags.html).
+The Chef management console provides ways for users to manage [data bags](/legacy/manage/server_manage_data_bags/), [environments](/legacy/manage/server_manage_environments/), [roles](/legacy/manage/server_manage_roles/), [cookbooks](/legacy/manage/server_manage_cookbooks/), [clients](/legacy/manage/server_manage_clients/), and [managing tags](/legacy/manage/server_manage_nodes/#manage-tags).
 
 ![image](/images/step_manage_webui_policy.png)
 

@@ -3374,7 +3374,7 @@ The Chef Workstation App now runs at boot and launches after installing Chef Wor
 
 #### Chef Infra Client 15.8.23
 
-Chef Infra Client has been updated to 15.8.23 with updated resources, a new notify_group feature, and dozens of new helpers to make writing cookbooks easier than ever. Check the complete release notes for details on [docs.chef.io](https://docs.chef.io/release_notes.html#what-s-new-in-15-8)
+Chef Infra Client has been updated to 15.8.23 with updated resources, a new notify_group feature, and dozens of new helpers to make writing cookbooks easier than ever. Check the complete release notes for details on [docs.chef.io](/release_notes/client/#what-s-new-in-15-8)
 
 #### Chef InSpec 4.18.85
 
@@ -3989,7 +3989,7 @@ Chef Workstation is now validated against macOS 10.15 (Catalina). Additionally, 
 
 #### Chef Infra Client
 
-Chef Infra Client has been updated from 15.1 to 15.2 with new and improved resources and support for RHEL 8. See the [Chef Infra Client 15.2 Release Notes](https://docs.chef.io/release_notes.html#chef-infra-client-15-2) for a complete list of new and improved functionality.
+Chef Infra Client has been updated from 15.1 to 15.2 with new and improved resources and support for RHEL 8. See the [Chef Infra Client 15.2 Release Notes](/release_notes/client/#chef-infra-client-15-2) for a complete list of new and improved functionality.
 
 #### Chef InSpec
 
@@ -4315,7 +4315,7 @@ Rubygems has been updated from 2.7.8 to 2.7.9 to resolves the following CVEs:
 
 #### Chef 14.12.3
 
-ChefDK now ships with Chef 14.13.11. See [Chef 14.14 release notes](https://docs.chef.io/release_notes.html) for more information on what's new.
+ChefDK now ships with Chef 14.13.11. See [Chef 14.14 release notes](/release_notes/client/) for more information on what's new.
 
 It also updates `knife bootstrap` to support installing and managing Chef Infra Client 15 on remote nodes. See Accepting the Chef EULA general instructions for accepting the license (command line flag, environment variable or configured in `~/.chef/config.rb`).
 
@@ -4420,7 +4420,7 @@ OpenSSL updated to 1.0.2r to resolve [CVE-2019-1559](https://nvd.nist.gov/vuln/d
 
 #### Chef 14.10.9
 
-Chef Workstation now ships with Chef 14.10.9. See <https://docs.chef.io/release_notes.html> for more information on what's new.
+Chef Workstation now ships with Chef 14.10.9. See [Chef Infra Client release notes](/release_notes/client/) for more information on what's new.
 
 #### InSpec 3.4.1
 
@@ -4459,7 +4459,7 @@ Support Azure Managed Identities and apply vm_tags to all resources in resource 
 
 #### Chef 14.8.12
 
-ChefDK now ships with Chef 14.8.12. See <https://docs.chef.io/release_notes.html> for more information on what's new.
+ChefDK now ships with Chef 14.8.12. See [Chef Infra Client release notes](/release_notes/client/) for more information on what's new.
 
 #### OpenSSL
 
@@ -4502,7 +4502,7 @@ This release doesn't have any release notes.
 
 ### Chef 14.6.47
 
-ChefDK now ships with Chef 14.6.47. See [https://docs.chef.io/release_notes.html](https://docs.chef.io/release_notes.html) for more information on what's new.
+ChefDK now ships with Chef 14.6.47. See [Chef Infra Client release notes](/release_notes/client/) for more information on what's new.
 
 ### Smaller package size
 

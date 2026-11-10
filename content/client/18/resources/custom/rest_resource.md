@@ -635,7 +635,7 @@ rest_property_map({
 
 ## Additional resources
 
-- [Custom resources documentation](/resources/custom/)
+- [Custom resources documentation](/client/18/resources/custom/)
 - [JMESPath Tutorial](https://jmespath.org/tutorial.html)
 - [RFC 6570 URI Template Specification](https://tools.ietf.org/html/rfc6570)
 - [REST API Tutorial](https://restfulapi.net/)

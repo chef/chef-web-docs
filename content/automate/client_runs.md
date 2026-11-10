@@ -57,7 +57,7 @@ Filter nodes from the search bar based on existing node information. You can app
 [Attribute](/client/latest/cookbooks/attributes/)
 : Search for an attribute key. This doesn't search across attribute values.
 
-[Chef Organization](/server_orgs/)
+[Chef Organization](/server/server_orgs/)
 : A Chef Infra Server organization name.
 
 [Chef Infra Server](/server/)

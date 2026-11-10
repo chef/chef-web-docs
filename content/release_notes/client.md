@@ -13549,7 +13549,7 @@ The following examples show:
 1. A definition
 2. The same definition rewritten as a custom resource
 3. The same definition, rewritten again to use a [common resource
-    property](/resource_common/)
+    property](/client/latest/resources/common_functionality/)
 
 #### As a Definition
 
@@ -13615,7 +13615,7 @@ end
 #### Common Properties
 
 Unlike definitions, custom resources are able to use [common resource
-properties](/resource_common/). For example, `only_if`:
+properties](/client/latest/resources/common_functionality/). For example, `only_if`:
 
 ```ruby
 host_porter 'www1' do
@@ -17268,7 +17268,7 @@ as managing all service states with BSD-based init systems.
 **System Requirements**
 
 Chef Infra Client has the [same system
-requirements](/chef_system_requirements/#chef-infra-client) on the
+requirements](/client/latest/install/system_requirements/#chef-infra-client-requirements) on the
 AIX platform as any other platform, with the following notes:
 
 - Expand the file system on the AIX platform using `chfs` or by
