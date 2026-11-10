@@ -117,14 +117,10 @@ It isn't a statement about your own compliance posture, which depends on the sys
 Coverage tables list the _benchmark_ version, such as `v2.0.0`.
 That's the version published by CIS or DISA.
 
-The content you receive carries a second number, written as a suffix: `2.0.0-3`.
-The suffix is the Chef build of that benchmark version.
-A benchmark version is first published as `-1`.
-If an issue is found and corrected, Chef publishes a new build of the same benchmark version as `-2`, then `-3`, and distributes the updated content to entitled users.
-
-Both `2.0.0-1` and `2.0.0-3` cover the same benchmark requirements, and the higher suffix is the more current Chef build.
-Coverage tables don't list build numbers, because they change independently of the benchmark.
-Always use the most recent build you've received.
+The content you receive carries a build suffix, such as `2.0.0-3`.
+The number before the suffix is the benchmark version, and the suffix is the Chef build.
+A higher suffix is a newer build of the same benchmark version, so use the most recent build you've received.
+Coverage tables list benchmark versions, not build numbers.
 
 ### Coverage changes over time
 
