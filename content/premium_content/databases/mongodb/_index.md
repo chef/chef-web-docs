@@ -53,10 +53,8 @@ cis-mongodb<version>-<level>-mongodb-v<benchmark-version>
 For example, the CIS Level 1 profile for MongoDB 3.6 at benchmark v1.1.0 is
 `cis-mongodb3.6-level1-mongodb-v1.1.0`.
 
-MongoDB has a single release in the published catalog, 3.6, so the version token in the
-profile name is always `3.6`. There's only one target scope for this platform, the
-`mongodb` token, and no deployment-target axis to track the way there is for other
-database platforms.
+MongoDB has a single release, 3.6, so the version in the profile name is always `3.6`.
+There's only one target scope for this platform: `mongodb`.
 
 Both levels ship for both benchmark versions. There's no level restriction and no
 version gap to watch for: the same two profiles, Level 1 and Level 2, are available at
