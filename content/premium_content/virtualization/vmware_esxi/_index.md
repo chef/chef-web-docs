@@ -9,7 +9,8 @@ title = "VMware ESXi"
 +++
 
 The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) for VMware ESXi define secure configuration requirements for ESXi hosts and the virtual machines they run.
-Chef Premium Content provides these requirements as Chef InSpec audit profiles and remediation content, and coverage differs by benchmark and version, so check the following version table.
+Chef Premium Content provides Chef InSpec audit profiles and remediation content for these benchmarks.
+Coverage varies by benchmark and version. See the coverage tables on this page for details.
 Audit content for ESXi works differently from most Chef Premium Content, because it ships as scan cookbooks that you run from a Chef Infra Client node.
 
 ## What the benchmarks check

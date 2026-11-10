@@ -9,7 +9,8 @@ title = "Microsoft 365"
 +++
 
 The CIS Microsoft 365 benchmark from the [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) defines secure configuration requirements for a Microsoft 365 tenant.
-Chef Premium Content provides these requirements as Chef InSpec audit profiles and remediation content, and coverage differs by benchmark and version, so check the following version table.
+Chef Premium Content provides Chef InSpec audit profiles and remediation content for these benchmarks.
+Coverage varies by benchmark and version. See the coverage tables on this page for details.
 This content assesses tenant settings using PowerShell from a Windows host, rather than the configuration of that host.
 
 ## What the benchmarks check

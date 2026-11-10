@@ -9,7 +9,8 @@ title = "Windows Server"
 +++
 
 The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) and [DISA STIGs](https://public.cyber.mil/stigs/) for Windows Server define secure configuration requirements for Windows Server releases from 2012 through 2025.
-Chef Premium Content provides these requirements as Chef InSpec profiles and remediation content, and coverage differs by benchmark and version.
+Chef Premium Content provides Chef InSpec audit profiles and remediation content for these benchmarks.
+Coverage varies by benchmark and version. See the coverage tables on this page for details.
 
 ## What the benchmarks check
 

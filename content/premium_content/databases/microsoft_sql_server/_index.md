@@ -9,7 +9,8 @@ title = "Microsoft SQL Server"
 +++
 
 The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) for Microsoft SQL Server define secure configuration requirements for SQL Server 2016 through 2022, for both the database engine and Amazon RDS.
-Chef Premium Content provides these requirements as Chef InSpec audit profiles and remediation content, and coverage differs by benchmark and version, so check the following version table.
+Chef Premium Content provides Chef InSpec audit profiles and remediation content for these benchmarks.
+Coverage varies by benchmark and version. See the coverage tables on this page for details.
 
 ## What the benchmarks check
 

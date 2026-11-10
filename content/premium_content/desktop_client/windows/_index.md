@@ -9,7 +9,8 @@ title = "Windows"
 +++
 
 The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) and [DISA STIGs](https://public.cyber.mil/stigs/) for Windows client releases define secure configuration requirements for Windows 10 and Windows 11.
-Chef Premium Content provides these requirements as Chef InSpec audit profiles and remediation content, and coverage differs by benchmark and version, so check the following version table.
+Chef Premium Content provides Chef InSpec audit profiles and remediation content for these benchmarks.
+Coverage varies by benchmark and version. See the coverage tables on this page for details.
 Benchmarks for Windows 10 are specific to a release, so identify the release you're running before you choose a profile.
 For server releases, see [Windows Server](/premium_content/operating_systems/windows_server/).
 

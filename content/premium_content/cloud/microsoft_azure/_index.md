@@ -9,7 +9,8 @@ title = "Microsoft Azure"
 +++
 
 The CIS Azure Foundations Benchmark from the [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) defines secure configuration requirements for an Azure environment.
-Chef Premium Content provides these requirements as Chef InSpec audit profiles and remediation content, and coverage differs by benchmark and version, so check the following version table.
+Chef Premium Content provides Chef InSpec audit profiles and remediation content for these benchmarks.
+Coverage varies by benchmark and version. See the coverage tables on this page for details.
 This content assesses your environment through the Azure APIs, rather than the configuration of a single host.
 
 ## What the benchmarks check

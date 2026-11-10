@@ -9,7 +9,8 @@ title = "Apache HTTP Server"
 +++
 
 The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) for Apache HTTP Server define secure configuration requirements for Apache HTTP Server 2.2 and 2.4.
-Chef Premium Content provides these requirements as Chef InSpec audit profiles and remediation content, and coverage differs by benchmark and version, so check the following version table.
+Chef Premium Content provides Chef InSpec audit profiles and remediation content for these benchmarks.
+Coverage varies by benchmark and version. See the coverage tables on this page for details.
 
 ## What the benchmarks check
 

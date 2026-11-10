@@ -9,7 +9,8 @@ title = "Apache Tomcat"
 +++
 
 The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) for Apache Tomcat define secure configuration requirements for Tomcat 5.5 through Tomcat 11.
-Chef Premium Content provides these requirements as Chef InSpec audit profiles and remediation content, and coverage differs by benchmark and version, so check the following version table.
+Chef Premium Content provides Chef InSpec audit profiles and remediation content for these benchmarks.
+Coverage varies by benchmark and version. See the coverage tables on this page for details.
 
 ## What the benchmarks check
 

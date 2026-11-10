@@ -9,7 +9,8 @@ title = "Oracle Database"
 +++
 
 The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) for Oracle Database define secure configuration requirements for Oracle Database 12c through 23ai.
-Chef Premium Content provides these requirements as Chef InSpec audit profiles and remediation content, and coverage differs by benchmark and version, so check the following version table.
+Chef Premium Content provides Chef InSpec audit profiles and remediation content for these benchmarks.
+Coverage varies by benchmark and version. See the coverage tables on this page for details.
 
 ## What the benchmarks check
 

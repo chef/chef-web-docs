@@ -9,7 +9,8 @@ title = "Apple macOS"
 +++
 
 The [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) for Apple macOS define secure configuration requirements for macOS releases from 10.5 through 13.0.
-Chef Premium Content provides these requirements as Chef InSpec audit profiles and remediation content, and coverage differs by benchmark and version, so check the following version table.
+Chef Premium Content provides Chef InSpec audit profiles and remediation content for these benchmarks.
+Coverage varies by benchmark and version. See the coverage tables on this page for details.
 Most of this coverage is audit only, so check the following table before you plan a hardening rollout.
 
 ## What the benchmarks check
