@@ -33,7 +33,7 @@ Progress SOC verifies and manages compliance with its products, which includes a
 
 Enterprise users of Chef are provided with [Chef Premium Content](/premium_content/).
 
-Chef Premium Content consists of ready-to-use 100+ curated content for compliance audits, remediation and desktop configuration based on the Center for Internet Security (CIS) certified benchmarks or Defense Information Systems Agency (DISA) and Security Technical Implementation Guides (STIGs).
+Chef Premium Content provides more than 100 ready-to-use, curated benchmarks for compliance audits, remediation, and desktop configuration. They're based on Center for Internet Security (CIS) certified benchmarks and Defense Information Systems Agency (DISA) Security Technical Implementation Guides (STIGs).
 
 ## Completely managed solution (SaaS)
 
