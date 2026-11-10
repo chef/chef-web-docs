@@ -111,9 +111,7 @@ at benchmark v1.8.0 is `stig-oraclelinux8-ii-missionsupportsensitive-v1.8.0`.
 Unlike Red Hat Enterprise Linux, where the CIS profiles use the short token
 `rhel<version>` and the STIG profiles use the long token
 `redhatenterpriselinux<version>`, Oracle Linux uses the same token `oraclelinux<version>`
-for both CIS and STIG profiles. If you're coming from the Red Hat Enterprise Linux
-page, you might expect a different long-form token for the STIG profiles. Oracle Linux
-doesn't have one.
+for both CIS and STIG profiles.
 
 That gives nine combinations for each benchmark version. One further variant ships
 alongside them:

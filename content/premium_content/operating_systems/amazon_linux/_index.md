@@ -60,9 +60,7 @@ A few points are worth calling out:
 - Amazon Linux 1 and Amazon Linux 2 ship level only, with no server or workstation
   scope in the profile name.
 - Amazon Linux 2023 is the only release that carries a scope, and it ships `server`
-  only. There's no workstation profile for Amazon Linux 2023. This is consistent with
-  Amazon Linux being a server and cloud instance operating system rather than a
-  desktop one.
+  only. There's no workstation profile for Amazon Linux 2023.
 - The Amazon Linux 1 platform token embeds the release date range,
   `amazonlinux-2014.09-2015.03`, rather than a simple version number. This reflects the
   Amazon Linux 1 release naming of the period. It's easy to mistype, so the exact

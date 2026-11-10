@@ -41,8 +41,8 @@ for what each coverage term means.
 ## Available profiles
 
 IBM AIX profile names have no single pattern. The platform token is spelled three
-different ways across the four benchmarks, so a reader who infers a name from one
-benchmark will construct a name that doesn't exist for another. The complete set of
+different ways across the four benchmarks, so don't infer a name from one benchmark.
+The complete set of
 profiles is listed below instead of a pattern.
 
 | Benchmark | Profiles |
