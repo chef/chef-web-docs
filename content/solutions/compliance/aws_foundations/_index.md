@@ -73,16 +73,17 @@ Chef InSpec connects to the AWS API and reads what it needs.
 ### Permissions each resource requires
 
 If you'd rather grant specific permissions than attach `ReadOnlyAccess`,
-the AWS resource pack reference lists the actions each resource needs:
+the AWS resource pack reference lists the SDK responses each resource reads.
+The table maps them to the IAM actions to grant:
 
-| Resource | Actions documented for it |
+| Resource | IAM actions to grant |
 | --- | --- |
-| [`aws_s3_buckets`](/inspec/resource_packs/aws/aws_s3_buckets/) | `S3:Client:ListBucketsOutput` |
-| [`aws_s3_bucket`](/inspec/resource_packs/aws/aws_s3_bucket/) | `S3:Client:GetBucketAclOutput`, `S3:Client:GetBucketLocationOutput`, `S3:Client:GetBucketLoggingOutput`, `S3:Client:GetBucketPolicyOutput`, `S3:Client:GetBucketEncryptionOutput` |
-| [`aws_iam_policies`](/inspec/resource_packs/aws/aws_iam_policies/) | `IAM:Client:ListPoliciesResponse` |
-| [`aws_iam_policy`](/inspec/resource_packs/aws/aws_iam_policy/) | `IAM:Client:GetGroupPolicyResponse`, `IAM:Client:ListPoliciesResponse`, `IAM:Client:ListEntitiesForPolicyResponse` |
-| [`aws_security_groups`](/inspec/resource_packs/aws/aws_security_groups/) | `EC2:Client:DescribeSecurityGroupsResult` |
-| [`aws_security_group`](/inspec/resource_packs/aws/aws_security_group/) | `EC2:Client:DescribeSecurityGroupsResult` |
+| [`aws_s3_buckets`](/inspec/resource_packs/aws/aws_s3_buckets/) | `s3:ListAllMyBuckets` |
+| [`aws_s3_bucket`](/inspec/resource_packs/aws/aws_s3_bucket/) | `s3:GetBucketAcl`, `s3:GetBucketLocation`, `s3:GetBucketLogging`, `s3:GetBucketPolicy`, `s3:GetEncryptionConfiguration` |
+| [`aws_iam_policies`](/inspec/resource_packs/aws/aws_iam_policies/) | `iam:ListPolicies` |
+| [`aws_iam_policy`](/inspec/resource_packs/aws/aws_iam_policy/) | `iam:GetGroupPolicy`, `iam:ListPolicies`, `iam:ListEntitiesForPolicy` |
+| [`aws_security_groups`](/inspec/resource_packs/aws/aws_security_groups/) | `ec2:DescribeSecurityGroups` |
+| [`aws_security_group`](/inspec/resource_packs/aws/aws_security_group/) | `ec2:DescribeSecurityGroups` |
 
 A missing permission surfaces as an AWS API error on the control that needed it,
 not as a failing assertion.
