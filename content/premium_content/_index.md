@@ -69,7 +69,7 @@ Chef provides Premium Content to licensed users in two ways: a delivery email an
 
 #### Delivery email
 
-Chef sends licensed users a Premium Content email every month, which includes new and updated profiles and cookbooks.
+Chef sends licensed users a Premium Content email that includes new and updated profiles and cookbooks.
 The email lists the available audit profiles and remediation cookbooks, with the date each one was last updated and a link to download its archive.
 Use the email to get a specific benchmark version, including earlier versions that are still available.
 
