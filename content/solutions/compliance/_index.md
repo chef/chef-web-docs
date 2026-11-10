@@ -153,7 +153,7 @@ See the [Chef InSpec CLI reference](/inspec/latest/reference/cli/).
 
 **The Chef way:**
 
-1. Use the top control failures view in [compliance reporting](/automate/reports/) to see which requirements fail most often.
+1. Use the control failure data in [compliance reporting](/automate/reports/) to see which requirements fail most often.
 1. Check whether remediation content covers that benchmark on its [platform page](/premium_content/#find-your-platform).
 1. Where it's covered, [get the cookbook](/premium_content/#get-the-profiles-and-cookbooks), and then apply it as you would any cookbook, after you review [before you use remediation content](#before-you-use-remediation-content).
 1. Reassess with the same audit content, as shown in [Step 6 of SSH compliance](/solutions/compliance/ssh_baseline/#step-6-fix-the-finding-and-reassess).
