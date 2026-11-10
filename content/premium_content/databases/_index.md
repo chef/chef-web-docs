@@ -9,8 +9,8 @@ aliases = ["/solutions/compliance/databases/"]
   weight = 30
 +++
 
-Chef Premium Content has current coverage for **17 databases benchmarks**,
-with every audit version and remediation version currently available.
+Chef Premium Content has current coverage for **17 database benchmarks**,
+including the audit and remediation versions listed on each platform page.
 See [benchmark coverage](/premium_content/#benchmark-coverage) for how audit and
 remediation coverage are tracked, and the
 [Compliance solution overview](/solutions/compliance/) for what each does.
