@@ -139,7 +139,7 @@ the same tooling you already use to manage the system.
 Check the version table above before you plan a hardening rollout, because remediation
 and audit versions don't always line up.
 
-- **Oracle Database 12c** is partial, and unusually the remediation versions
+- **Oracle Database 12c** is partial, and the remediation versions
   (v2.1.0, v3.0.0) don't merely trail the single audit version (v3.0.0) ---
   v2.1.0 remediation has no corresponding audit version in the current catalog at
   all. Check the version table above before you plan a hardening rollout.
