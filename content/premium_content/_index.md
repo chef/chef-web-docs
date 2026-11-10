@@ -55,7 +55,7 @@ Current coverage is **118 benchmarks**, with 164 audit versions and 87 remediati
 | Remediation only | 6 |
 | **Total** | **118** |
 
-We track audit and remediation coverage separately.
+Chef tracks audit and remediation coverage separately.
 A benchmark may have audit content, remediation content, or both, and the available versions may differ.
 The coverage tables list all available versions, not just the latest, so you can confirm whether a specific benchmark version is covered.
 
