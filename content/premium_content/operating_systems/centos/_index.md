@@ -133,6 +133,6 @@ includes, and contact your Chef account representative to confirm your access.
 - [Operating systems coverage](/premium_content/operating_systems/)
 - [Chef Premium Content](/premium_content/)
 - [Compliance solution overview](/solutions/compliance/)
-- [The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
+- [The Chef Way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
 - [Chef InSpec](/inspec/latest/)
 - [Compliance reporting in Chef Automate](/automate/reports/)

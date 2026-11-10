@@ -109,7 +109,7 @@ time.
 All four IBM AIX benchmarks are audit only. You can assess systems against the
 benchmark and act on the findings, but no matching Chef Infra cookbooks are published
 for this platform. See
-[The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
+[The Chef Way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
 for writing your own content to close the findings an audit reports.
 
 ## Access this content
@@ -123,6 +123,6 @@ includes, and contact your Chef account representative to confirm your access.
 - [Operating systems coverage](/premium_content/operating_systems/)
 - [Chef Premium Content](/premium_content/)
 - [Compliance solution overview](/solutions/compliance/)
-- [The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
+- [The Chef Way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
 - [Chef InSpec](/inspec/latest/)
 - [Compliance reporting in Chef Automate](/automate/reports/)

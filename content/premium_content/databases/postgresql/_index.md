@@ -50,7 +50,7 @@ for what each coverage term means.
 
 CIS PostgreSQL profiles vary along a single axis: scope. There's a profile for
 PostgreSQL itself, and a profile that also includes Linux host OS checks. There's no
-Level 1 / Level 2 split for CIS PostgreSQL at any version, every profile is implicitly
+Level 1 / Level 2 split for CIS PostgreSQL at any version. Every profile is implicitly
 the one published level.
 
 ```text
@@ -84,11 +84,8 @@ confidentiality (`classified`, `public`, `sensitive`):
 - `stig-postgresql9.x-iii-administrativepublic-v2`
 - `stig-postgresql9.x-iii-administrativesensitive-v2`
 
-The STIG version token here is the bare `v2`, not `v2.0.0`, this benchmark's own
-versioning doesn't use a dotted scheme. The platform token keeps the literal `9.x`
-rather than a specific point release like `9.6`, this STIG benchmark covers the
-PostgreSQL 9.x line as a single generation, which is why its catalog name is "STIG
-PostgreSQL 9.x" rather than a specific version number.
+The STIG version token is the bare `v2`, not `v2.0.0`.
+The platform token is the literal `9.x` rather than a point release like `9.6`, because this STIG covers the whole PostgreSQL 9.x line.
 
 ## What you can do with this content
 
@@ -148,6 +145,6 @@ includes, and contact your Chef account representative to confirm your access.
 - [Databases coverage](/premium_content/databases/)
 - [Chef Premium Content](/premium_content/)
 - [Compliance solution overview](/solutions/compliance/)
-- [The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
+- [The Chef Way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
 - [Chef InSpec](/inspec/latest/)
 - [Compliance reporting in Chef Automate](/automate/reports/)

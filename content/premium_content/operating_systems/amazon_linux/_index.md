@@ -65,7 +65,7 @@ A few points are worth calling out:
   desktop one.
 - The Amazon Linux 1 platform token embeds the release date range,
   `amazonlinux-2014.09-2015.03`, rather than a simple version number. This reflects the
-  Amazon Linux 1 release naming of the period. It's easily mistyped, so the exact
+  Amazon Linux 1 release naming of the period. It's easy to mistype, so the exact
   names are listed in the table above.
 - Level axis values across all releases are `level1` and `level2`.
 
@@ -132,6 +132,6 @@ includes, and contact your Chef account representative to confirm your access.
 - [Operating systems coverage](/premium_content/operating_systems/)
 - [Chef Premium Content](/premium_content/)
 - [Compliance solution overview](/solutions/compliance/)
-- [The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
+- [The Chef Way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
 - [Chef InSpec](/inspec/latest/)
 - [Compliance reporting in Chef Automate](/automate/reports/)

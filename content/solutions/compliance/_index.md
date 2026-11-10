@@ -1,6 +1,6 @@
 +++
 title = "Chef Compliance"
-description = "The Chef way of compliance: assess systems against CIS Benchmarks and DISA STIGs with Chef InSpec, then correct what fails with Chef remediation content."
+description = "The Chef Way of compliance: assess systems against CIS Benchmarks and DISA STIGs with Chef InSpec, then correct what fails with Chef remediation content."
 draft = false
 gh_repo = "chef-web-docs"
 
@@ -18,11 +18,11 @@ gh_repo = "chef-web-docs"
 +++
 
 Chef Compliance assesses your systems against CIS Benchmarks and DISA STIGs, and corrects the configuration behind what fails.
-It does this the Chef way: every compliance requirement becomes code that you can run, review, and repeat.
+It does this the Chef Way: every compliance requirement becomes code that you can run, review, and repeat.
 
-## The Chef way
+## The Chef Way
 
-The Chef way treats a compliance requirement as code, so nothing is checked by hand or tracked in a spreadsheet:
+The Chef Way treats a compliance requirement as code, so you don't check by hand or track results in a spreadsheet:
 
 - **A control** states one requirement.
 - **A profile** groups the controls for a benchmark or a system.
@@ -35,15 +35,15 @@ Every requirement then follows the same path:
 1. **Confirm:** Run the same profile again to prove the result.
 1. **Repeat:** Schedule the assessment, so drift shows up as a control that starts failing.
 
-### Follow the Chef way
+### Follow the Chef Way
 
 Choose the path that matches what you need to do:
 
 | If you want to | Start with |
 | --- | --- |
-| Learn Chef InSpec with a working example | [The Chef way of SSH compliance](/solutions/compliance/ssh_baseline/) |
-| Assess the configuration of an AWS account | [The Chef way of AWS compliance](/solutions/compliance/aws_foundations/) |
-| Check a requirement that no benchmark covers | [The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/) |
+| Learn Chef InSpec with a working example | [The Chef Way of SSH compliance](/solutions/compliance/ssh_baseline/) |
+| Assess the configuration of an AWS account | [The Chef Way of AWS compliance](/solutions/compliance/aws_foundations/) |
+| Check a requirement that no benchmark covers | [The Chef Way of custom compliance checks](/solutions/compliance/custom_compliance_checks/) |
 | Use a published CIS Benchmark or DISA STIG | [Find your platform](/premium_content/#find-your-platform) |
 | Solve a specific fleet problem | [Common compliance scenarios](#common-compliance-scenarios) |
 
@@ -53,7 +53,7 @@ For details, see [get the profiles and cookbooks](/premium_content/#get-the-prof
 
 ## Compliance audit
 
-An audit shows whether your systems meet a benchmark’s requirements and identifies settings that need attention.
+An audit shows whether your systems meet a benchmark's requirements and identifies settings that need attention.
 Chef InSpec can also inspect data in a database and the configuration of virtual resources through their APIs, so assessment isn't limited to systems you can sign in to.
 
 ### How you run an assessment
@@ -92,14 +92,14 @@ Check the following before you run remediation content:
 
 ## Common compliance scenarios
 
-Each of the following scenarios describes a problem and the Chef way to solve it.
-If you haven't run Chef InSpec before, start with [The Chef way of SSH compliance](/solutions/compliance/ssh_baseline/), because the same mechanics apply to each scenario.
+Each of the following scenarios describes a problem and the Chef Way to solve it.
+If you haven't run Chef InSpec before, start with [The Chef Way of SSH compliance](/solutions/compliance/ssh_baseline/), because the same mechanics apply to each scenario.
 
 ### Assess a Linux fleet against CIS Benchmarks
 
 **The problem:** You run many Linux systems across several distributions and releases, and you need to show that they meet CIS Benchmark requirements.
 
-**The Chef way:**
+**The Chef Way:**
 
 1. Confirm that the benchmark versions you need are covered in [Operating Systems](/premium_content/operating_systems/).
 1. Get the profiles from [Chef Automate or your monthly delivery email](/premium_content/#get-the-profiles-and-cookbooks).
@@ -111,7 +111,7 @@ If you haven't run Chef InSpec before, start with [The Chef way of SSH complianc
 
 **The problem:** Your fleet spans several Windows Server releases and client builds, and each one has a different security baseline.
 
-**The Chef way:**
+**The Chef Way:**
 
 1. Find your releases on the [Windows Server](/premium_content/operating_systems/windows_server/) and [Windows](/premium_content/desktop_client/windows/) pages, and check each one separately.
 1. Get the matching profiles from [Chef Automate or your monthly delivery email](/premium_content/#get-the-profiles-and-cookbooks).
@@ -119,29 +119,29 @@ If you haven't run Chef InSpec before, start with [The Chef way of SSH complianc
 1. For nodes without an agent, add [node credentials](/automate/node_credentials/) for WinRM, and then create a [scan job](/automate/scan_jobs/).
 1. Filter reporting by platform, so you can review each release separately.
 
-To run a profile directly, follow [The Chef way of SSH compliance](/solutions/compliance/ssh_baseline/) with a `winrm://` target instead of `ssh://`.
+To run a profile directly, follow [The Chef Way of SSH compliance](/solutions/compliance/ssh_baseline/) with a `winrm://` target instead of `ssh://`.
 See the [Chef InSpec CLI reference](/inspec/latest/reference/cli/).
 
 ### Find compliance gaps in databases
 
 **The problem:** Database configuration is in scope for your compliance requirements, but another team manages it with different tooling.
 
-**The Chef way:**
+**The Chef Way:**
 
 1. Check which benchmarks are covered in [Databases](/premium_content/databases/).
 1. Get the matching profiles from [Chef Automate or your monthly delivery email](/premium_content/#get-the-profiles-and-cookbooks).
 1. Where a requirement depends on data, query the running instance with a resource such as [`postgres_session`](/inspec/latest/resources/core/postgres_session/), [`mysql_session`](/inspec/latest/resources/core/mysql_session/), or [`oracledb_session`](/inspec/latest/resources/core/oracledb_session/).
    These resources need a database account with permission to run the query.
-1. For requirements that no benchmark covers, see [The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/).
+1. For requirements that no benchmark covers, see [The Chef Way of custom compliance checks](/solutions/compliance/custom_compliance_checks/).
 1. Use deep filtering in [compliance reporting](/automate/reports/) to report on one database profile or control.
 
 ### Assess the configuration of a cloud account
 
-**The problem:** Your AWS account holds storage, networks, and identities that nobody assesses on a schedule.
+**The problem:** Your cloud accounts hold storage, networks, and identities that nobody assesses on a schedule.
 
-**The Chef way:**
+**The Chef Way:**
 
-1. Work through [The Chef way of AWS compliance](/solutions/compliance/aws_foundations/), which builds and runs a profile for S3, IAM, and security groups.
+1. Work through [The Chef Way of AWS compliance](/solutions/compliance/aws_foundations/), which builds and runs an example profile for S3, IAM, and security groups.
 1. Check whether a published benchmark covers your requirement in [Cloud](/premium_content/cloud/).
 1. Extend the profile to other services with the [AWS resource pack](/inspec/resource_packs/aws/).
 1. Add an AWS API node manager in [node integrations](/automate/node_integrations/), and then create a recurring [scan job](/automate/scan_jobs/) for the account.
@@ -151,11 +151,11 @@ See the [Chef InSpec CLI reference](/inspec/latest/reference/cli/).
 
 **The problem:** The same controls fail on many systems in every assessment, and fixes aren't applied consistently.
 
-**The Chef way:**
+**The Chef Way:**
 
 1. Use the control failure data in [compliance reporting](/automate/reports/) to see which requirements fail most often.
 1. Check whether remediation content covers that benchmark on its [platform page](/premium_content/#find-your-platform).
-1. Where it's covered, [get the cookbook](/premium_content/#get-the-profiles-and-cookbooks), and then apply it as you would any cookbook, after you review [before you use remediation content](#before-you-use-remediation-content).
+1. Where it's covered, [get the cookbook](/premium_content/#get-the-profiles-and-cookbooks), and then apply it as you would any cookbook, after you complete the checks in [Before you use remediation content](#before-you-use-remediation-content).
 1. Reassess with the same audit content, as shown in [Step 6 of SSH compliance](/solutions/compliance/ssh_baseline/#step-6-fix-the-finding-and-reassess).
 1. Where you accept a failure, record it as a [waiver](/inspec/latest/configure/waivers/).
 
@@ -163,19 +163,19 @@ See the [Chef InSpec CLI reference](/inspec/latest/reference/cli/).
 
 **The problem:** Your fleet spans on-premises servers, cloud accounts, desktops, databases, and containers, and each one has its own benchmark and process.
 
-**The Chef way:**
+**The Chef Way:**
 
 1. Identify what each class of system needs with [find your platform](/premium_content/#find-your-platform).
 1. For nodes running Chef Infra Client, turn on the [Compliance Phase](/client/latest/features/chef_compliance_phase/).
 1. For cloud accounts and systems without an agent, add [node credentials](/automate/node_credentials/), and then create recurring [scan jobs](/automate/scan_jobs/).
-1. For requirements that need resource packs, such as Kubernetes clusters, see [The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/).
+1. For requirements that need resource packs, such as Kubernetes clusters, see [The Chef Way of custom compliance checks](/solutions/compliance/custom_compliance_checks/).
 1. Send results from each class of system to [compliance reporting](/automate/reports/).
 
 ### Prepare for a compliance assessment
 
 **The problem:** An assessment is scheduled, and you need to show what was checked, against which benchmark, with what result, and which exceptions you accepted.
 
-**The Chef way:**
+**The Chef Way:**
 
 1. Record accepted failures as waivers before the assessment, so each one has a justification and expiration date.
    See [Step 7 of SSH compliance](/solutions/compliance/ssh_baseline/#step-7-waive-an-exception-youve-accepted) and the [waivers reference](/inspec/latest/configure/waivers/).
@@ -186,4 +186,4 @@ See the [Chef InSpec CLI reference](/inspec/latest/reference/cli/).
 ## Supported compliance standards and platforms
 
 Chef publishes audit and remediation content built on the [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) and [DISA STIGs](https://public.cyber.mil/stigs/).
-[Chef Premium Content](/premium_content/) lists each supported platform, what its benchmarks check, and every audit and remediation version.
+[Chef Premium Content](/premium_content/) lists each supported platform, what its benchmarks check, and the audit and remediation versions available for it.

@@ -1,5 +1,5 @@
 +++
-title = "The Chef way of SSH compliance"
+title = "The Chef Way of SSH compliance"
 description = "Audit SSH configuration across a Linux fleet with Chef InSpec: write a profile, run it, read the findings, and fix or waive what fails."
 draft = false
 gh_repo = "chef-web-docs"
@@ -17,7 +17,7 @@ Both requirements are set in a single file, `/etc/ssh/sshd_config`,
 and both are undone by a one-line edit during an incident.
 
 Checking that file by hand doesn't scale past a handful of hosts,
-and a spreadsheet of findings goes stale the day after you build it.
+and a spreadsheet of findings quickly goes stale.
 
 The steps below write a Chef InSpec profile that checks those requirements,
 run it against your servers, and read what comes back.
@@ -351,7 +351,7 @@ problem with the run itself.
 A pipeline that only checks for a non-zero exit treats a licensing or plugin
 failure as if it were a compliance failure, so branch on the specific code.
 
-A `101` usually means the profile's `supports` didn't match the target.
+A `101` can mean the profile's `supports` didn't match the target.
 Running this Linux profile against a macOS machine reports
 `Skipping profile: 'ssh-baseline' on unsupported platform` and exits `101` ---
 which is why Step 1 set `supports` rather than leaving the default.
@@ -480,7 +480,7 @@ a waiver still keyed on the old number silently waives whichever control now
 holds that ID. The exception is applied to the wrong requirement,
 and the report still looks orderly.
 
-The reverse is just as quiet.
+The reverse is also silent.
 If the waiver names an ID that no longer exists,
 Chef InSpec doesn't warn you: the waiver simply never applies,
 the control runs, and an approved exception reappears as a failure.
@@ -527,7 +527,7 @@ See [compliance remediation](/solutions/compliance/#compliance-remediation).
 **Check technologies beyond the operating system.**
 Core resources cover much of a host.
 For cloud accounts, Kubernetes clusters, and container runtimes,
-see [The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/).
+see [The Chef Way of custom compliance checks](/solutions/compliance/custom_compliance_checks/).
 
 ## Related
 

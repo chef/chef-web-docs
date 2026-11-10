@@ -1,5 +1,5 @@
 +++
-title = "The Chef way of AWS compliance"
+title = "The Chef Way of AWS compliance"
 description = "Audit an AWS account against a security baseline with Chef InSpec and the AWS resource pack: check S3 buckets, IAM policies, and security groups."
 draft = false
 gh_repo = "chef-web-docs"
@@ -12,14 +12,14 @@ gh_repo = "chef-web-docs"
 +++
 
 A publicly readable S3 bucket, an IAM policy with wildcard permissions, or a security group
-open to `0.0.0.0/0` can sit in an AWS account for months before anyone notices --- nothing
+open to `0.0.0.0/0` can go unnoticed in an AWS account --- nothing
 about the AWS console tells you these violate your baseline, and checking by hand doesn't
 scale past a handful of accounts.
 
 The steps below write a Chef InSpec profile with the **AWS resource pack**,
 run it against an AWS account, and read what comes back.
 It uses the same pattern as
-[The Chef way of SSH compliance](/solutions/compliance/ssh_baseline/),
+[The Chef Way of SSH compliance](/solutions/compliance/ssh_baseline/),
 applied to a cloud account instead of a host ---
 if you haven't written a Chef InSpec profile before, start there first.
 
@@ -96,7 +96,7 @@ Checking AWS objects --- an S3 bucket, an IAM policy, a security group ---
 needs the [AWS resource pack](/inspec/resource_packs/aws/), a separately
 distributed set of resources for AWS.
 
-The AWS pack covers EC2, IAM, RDS, Lambda, VPC and networking, CloudFront,
+The AWS pack covers S3, EC2, IAM, RDS, Lambda, VPC and networking, CloudFront,
 CloudWatch, SSM, WAF, and API Gateway.
 See the pack's own documentation for the full resource list with properties
 and matchers for each one.
@@ -625,12 +625,12 @@ requirement it may already cover.
 **Assess the instances as well as the account.**
 This profile checks the account's configuration.
 The EC2 instances inside it are assessed as hosts ---
-see [The Chef way of SSH compliance](/solutions/compliance/ssh_baseline/)
+see [The Chef Way of SSH compliance](/solutions/compliance/ssh_baseline/)
 and [Operating Systems](/premium_content/operating_systems/) for the benchmarks Chef
 publishes.
 
 **Check other cloud providers or container platforms.**
-See [The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
+See [The Chef Way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
 for the Azure, GCP, Kubernetes, and other resource packs, and how each is
 added to a profile.
 
@@ -642,6 +642,6 @@ added to a profile.
 - [Waivers reference](/inspec/latest/configure/waivers/)
 - [Chef Automate node integrations](/automate/node_integrations/)
 - [Chef Automate scan jobs](/automate/scan_jobs/)
-- [The Chef way of SSH compliance](/solutions/compliance/ssh_baseline/)
+- [The Chef Way of SSH compliance](/solutions/compliance/ssh_baseline/)
 - [Cloud benchmark coverage](/premium_content/cloud/)
 - [Compliance solution overview](/solutions/compliance/)

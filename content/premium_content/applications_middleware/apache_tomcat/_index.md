@@ -105,6 +105,6 @@ See [Progress Chef Enterprise Edition](/enterprise_chef/) for what the entitleme
 - [Applications / middleware coverage](/premium_content/applications_middleware/)
 - [Chef Premium Content](/premium_content/)
 - [Compliance solution overview](/solutions/compliance/)
-- [The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
+- [The Chef Way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
 - [Chef InSpec](/inspec/latest/)
 - [Compliance reporting in Chef Automate](/automate/reports/)

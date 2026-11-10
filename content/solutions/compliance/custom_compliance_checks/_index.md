@@ -1,5 +1,5 @@
 +++
-title = "The Chef way of custom compliance checks"
+title = "The Chef Way of custom compliance checks"
 description = "Build custom compliance checks with Chef InSpec when no published benchmark covers your requirement, using core resources and resource packs."
 
 [menu.overview]
@@ -21,7 +21,7 @@ how to add a resource pack to a profile,
 and how custom checks relate to the benchmark coverage in the rest of this section.
 
 If you haven't written a profile before, start with
-[The Chef way of SSH compliance](/solutions/compliance/ssh_baseline/),
+[The Chef Way of SSH compliance](/solutions/compliance/ssh_baseline/),
 which walks through authoring and running one end to end using core resources.
 This page picks up where that leaves off: checking technologies that need a resource pack.
 
@@ -245,7 +245,7 @@ For the full list, see the
 
 ## Related
 
-- [The Chef way of SSH compliance](/solutions/compliance/ssh_baseline/)
+- [The Chef Way of SSH compliance](/solutions/compliance/ssh_baseline/)
 - [Compliance solution overview](/solutions/compliance/)
 - [Compliance audit](/solutions/compliance/#compliance-audit)
 - [Supported compliance standards and platforms](/solutions/compliance/#supported-compliance-standards-and-platforms)

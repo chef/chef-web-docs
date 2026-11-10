@@ -3,7 +3,7 @@ title = "Solutions"
 draft = false
 gh_repo = "chef-web-docs"
 toc = false
-swiftype_search_products = [""]
+swiftype_search_products = []
 
 [menu]
   [menu.overview]
@@ -40,8 +40,7 @@ swiftype_search_products = [""]
 <h2>What do you want to do?</h2>
 
 <p class="lead">Find your way around Chef: what's available, and how to put it to work. Each solution below
-brings together everything you need &mdash; Chef InSpec, Chef Automate, Chef Infra Client, and
-Chef 360 Platform &mdash; to get one job done, from first setup to day-to-day operation.</p>
+brings together the Chef products you need to get one job done, from first setup to day-to-day operation.</p>
 
 <div class="grid-x grid-padding-x small-up-1 medium-up-2 large-up-3 product-card-grid">
 
@@ -94,8 +93,7 @@ Chef 360 Platform &mdash; to get one job done, from first setup to day-to-day op
             <span class="admonition-warning-title solution-card-badge">Coming soon</span>
           </h3>
         </div>
-        <p>Harden systems, manage secrets and credentials, and enforce security baselines
-        across your fleet.</p>
+        <p>Harden systems and enforce security baselines across your fleet.</p>
       </div>
     </div>
   </div>
@@ -113,23 +111,6 @@ Chef 360 Platform &mdash; to get one job done, from first setup to day-to-day op
         </div>
         <p>Package, deploy, and manage applications with Chef Habitat, independent of the
         underlying runtime.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="cell">
-    <div class="card product-card">
-      <div class="card-section">
-        <div class="solution-card-heading">
-          <div class="product-card-icon" aria-hidden="true">
-            <span class="material-symbols-outlined" translate="no">devices</span>
-          </div>
-          <h3 class="solution-card-name">Endpoint management
-            <span class="admonition-warning-title solution-card-badge">Coming soon</span>
-          </h3>
-        </div>
-        <p>Automate the setup and ongoing management of desktop and laptop endpoints with
-        Chef Desktop.</p>
       </div>
     </div>
   </div>
@@ -178,8 +159,7 @@ Chef 360 Platform &mdash; to get one job done, from first setup to day-to-day op
             <span class="admonition-warning-title solution-card-badge">Coming soon</span>
           </h3>
         </div>
-        <p>Automate provisioning and compliance across AWS, Azure, GCP, and other cloud
-        providers.</p>
+        <p>Automate provisioning and compliance across your cloud accounts.</p>
       </div>
     </div>
   </div>

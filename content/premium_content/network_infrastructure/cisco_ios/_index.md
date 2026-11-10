@@ -77,5 +77,5 @@ See [Progress Chef Enterprise Edition](/enterprise_chef/) for what the entitleme
 - [Network / infrastructure coverage](/premium_content/network_infrastructure/)
 - [Chef Premium Content](/premium_content/)
 - [Compliance solution overview](/solutions/compliance/)
-- [The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
+- [The Chef Way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
 - [Chef InSpec](/inspec/latest/)

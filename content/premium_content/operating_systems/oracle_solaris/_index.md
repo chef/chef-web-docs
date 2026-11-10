@@ -110,7 +110,7 @@ time.
 All four Oracle Solaris benchmarks are audit only: you can assess systems and act on
 the findings, but no matching Chef Infra cookbooks are published for this platform.
 If you need to close findings with reusable, maintainable content, see
-[The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
+[The Chef Way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
 for writing your own.
 
 ## Access this content
@@ -124,6 +124,6 @@ includes, and contact your Chef account representative to confirm your access.
 - [Operating systems coverage](/premium_content/operating_systems/)
 - [Chef Premium Content](/premium_content/)
 - [Compliance solution overview](/solutions/compliance/)
-- [The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
+- [The Chef Way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
 - [Chef InSpec](/inspec/latest/)
 - [Compliance reporting in Chef Automate](/automate/reports/)

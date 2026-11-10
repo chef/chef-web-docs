@@ -94,7 +94,7 @@ The HP-UX benchmark is audit only: you can assess systems and act on the finding
 no matching Chef Infra cookbooks are published for this platform. If you need to correct
 the configuration behind a failed requirement, you'll need to write that content
 yourself. See
-[The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
+[The Chef Way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
 for guidance on writing your own compliance content.
 
 ## Access this content
@@ -108,6 +108,6 @@ includes, and contact your Chef account representative to confirm your access.
 - [Operating systems coverage](/premium_content/operating_systems/)
 - [Chef Premium Content](/premium_content/)
 - [Compliance solution overview](/solutions/compliance/)
-- [The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
+- [The Chef Way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
 - [Chef InSpec](/inspec/latest/)
 - [Compliance reporting in Chef Automate](/automate/reports/)

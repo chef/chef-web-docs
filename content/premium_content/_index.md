@@ -75,7 +75,7 @@ Use the email to get a specific benchmark version, including earlier versions th
 
 #### Chef Automate
 
-Chef Automate ships with the available benchmark profiles and cookbooks, and new profile versions ship with the product.
+Chef Automate includes the latest versions of the benchmark profiles, and new profile versions ship with the product.
 To install, download, upload, or update profiles, see [Chef Automate profiles](/automate/profiles/).
 
 ### Run the content
@@ -85,14 +85,14 @@ To use Premium Content, follow these steps:
 1. Find your benchmark on its [platform page](#find-your-platform), and check which audit and remediation versions are available.
 1. Choose the profile that matches your system, using the naming pattern on the platform page.
 1. Run the audit content, and review which requirements pass and fail.
-   Most audit content runs with [Chef InSpec](/inspec/latest/), the [Compliance Phase](/client/latest/features/chef_compliance_phase/), or an [Automate scan job](/automate/scan_jobs/).
+   Audit content runs with [Chef InSpec](/inspec/latest/), the [Compliance Phase](/client/latest/features/chef_compliance_phase/), or an [Automate scan job](/automate/scan_jobs/).
    Where a platform works differently, its page explains how to run it.
 1. Correct what fails, using remediation content where it's available or your own tooling where it isn't.
    See [before you use remediation content](/solutions/compliance/#before-you-use-remediation-content) before you run it against production systems.
 1. Run the audit content on a schedule, and use [compliance reporting in Chef Automate](/automate/reports/) to see how results change over time.
 
 For the workflow end to end, see the [Chef Compliance solution](/solutions/compliance/).
-When a published benchmark doesn't cover your requirement, see [The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/).
+When a published benchmark doesn't cover your requirement, see [The Chef Way of custom compliance checks](/solutions/compliance/custom_compliance_checks/).
 
 ## Reference
 

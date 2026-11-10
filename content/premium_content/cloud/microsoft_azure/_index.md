@@ -35,8 +35,6 @@ The exact requirements differ by benchmark and version.
 | --- | --- | --- | --- |
 | `CIS Microsoft Azure Foundations` | v1.0.0, v1.1.0 | v1.1.0 | Partial Audit + Remediation |
 
-Chef tracks audit and remediation coverage separately.
-A benchmark can have more audit versions than remediation versions, or vice versa.
 See [how to read the coverage tables](/premium_content/#how-to-read-the-coverage-tables) for what each coverage term means.
 
 ## Available profiles
@@ -52,7 +50,7 @@ Benchmark v1.0.0 ships as one profile with no separate levels.
 For benchmark v1.1.0, choose the level that matches your risk posture:
 
 - **Level 1** applies settings that improve security with limited operational impact.
-- **Level 2** extends Level 1 with defense-in-depth settings for stricter environments, and is more likely to affect how services behave.
+- **Level 2** extends Level 1 with defense-in-depth settings for stricter environments, and might affect how services behave.
 
 ## What you can do with this content
 
@@ -94,5 +92,5 @@ See [Progress Chef Enterprise Edition](/enterprise_chef/) for what the entitleme
 - [Azure resource pack](/inspec/resource_packs/azure/)
 - [Chef Premium Content](/premium_content/)
 - [Compliance solution overview](/solutions/compliance/)
-- [The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
+- [The Chef Way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
 - [Chef InSpec](/inspec/latest/)

@@ -65,9 +65,9 @@ The account you use affects which controls can run:
 - Controls 1.4, 2.5, 3.6, 6.1, and 6.2 connect to SharePoint Online and require the Global Administrator role.
 - All other controls work with the Global Reader role.
 
-Chef InSpec can't complete a multi-factor authentication check for this account.
+Chef InSpec can't respond to a multi-factor authentication prompt for this account.
 Don't turn off multi-factor authentication for the account.
-Instead, give it an exception using the [Microsoft multi-factor authentication settings](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-mfasettings).
+Instead, give it an exception using the [Microsoft multi-factor authentication settings](https://learn.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-mfasettings).
 
 #### Set the inputs
 
@@ -86,7 +86,7 @@ Pass the inputs in a YAML file with the `--input-file` option:
 | `internal_domain_list` | The domains that are internal to your organization |
 | `onedrivesync_allowed_domains` | The domains allowed for OneDrive sync |
 
-An encrypted password is keyed to the Windows user that created it, so you can't share it between users.
+An encrypted password is keyed to the Windows user that created it, so you can't share it between Windows users.
 
 #### Run the profile
 
@@ -104,8 +104,8 @@ Remediation content is delivered as a [Chef Infra cookbook](/client/latest/cookb
 
 The cookbook has the following known limitations:
 
-- **Recommendation 1.6 isn't implemented.** The `LegacyAuthProtocolsEnabled` SharePoint Online setting blocks basic authentication sign-in, regardless of additional multi-factor authentication settings.
-- **Recommendation 2.3 isn't implemented.** The PowerShell code that CIS provides sets properties that `Set-AtpPolicyForO365` doesn't support.
+- **Recommendation 1.6 isn't implemented.** The `LegacyAuthProtocolsEnabled` SharePoint Online setting blocks basic authentication sign-in, regardless of other multi-factor authentication settings.
+- **Recommendation 2.3 isn't implemented.** The PowerShell that CIS provides uses properties that the supported cmdlet doesn't accept.
 - **Recommendation 4.5 may fail.** It assumes that at least one transport rule already exists.
 
 ## Audit limitations
@@ -113,7 +113,7 @@ The cookbook has the following known limitations:
 Check these limitations before you rely on the results:
 
 - **Some recommendations have no automated check.** These are 1.1.4, 1.1.7, 1.1.10, 1.1.11, 1.1.13, 1.1.14, 1.1.16, 2.1, 2.7, 2.9, 2.10, 2.11, 3.2, 5.3 through 5.15, and 7.1 through 7.13.
-- **Disabling basic authentication can stop later scans.** If you apply audit recommendation 1.4 manually by turning off basic authentication for SharePoint Online, you can no longer scan or remediate SharePoint Online features using automation.
+- **Disabling basic authentication can stop later scans.** If you apply audit recommendation 1.4 manually by turning off basic authentication for SharePoint Online, you can no longer scan or remediate SharePoint Online with automation.
 
 ## Access this content
 
@@ -125,5 +125,5 @@ See [Progress Chef Enterprise Edition](/enterprise_chef/) for what the entitleme
 - [Cloud coverage](/premium_content/cloud/)
 - [Chef Premium Content](/premium_content/)
 - [Compliance solution overview](/solutions/compliance/)
-- [The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
+- [The Chef Way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
 - [Chef InSpec](/inspec/latest/)

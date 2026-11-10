@@ -71,7 +71,7 @@ You can assess your account and act on the findings, but matching remediation co
 
 This benchmark is prebuilt content.
 For checks that it doesn't cover, you can write your own controls with the AWS resource pack.
-[The Chef way of AWS compliance](/solutions/compliance/aws_foundations/) walks through building and running a custom profile, which is separate from this benchmark.
+[The Chef Way of AWS compliance](/solutions/compliance/aws_foundations/) walks through building and running a custom profile, which is separate from this benchmark.
 
 ## Access this content
 
@@ -84,5 +84,5 @@ See [Progress Chef Enterprise Edition](/enterprise_chef/) for what the entitleme
 - [AWS resource pack](/inspec/resource_packs/aws/)
 - [Chef Premium Content](/premium_content/)
 - [Compliance solution overview](/solutions/compliance/)
-- [The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
+- [The Chef Way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
 - [Chef InSpec](/inspec/latest/)

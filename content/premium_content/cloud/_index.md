@@ -58,7 +58,7 @@ A resource pack isn't a benchmark and doesn't assess anything on its own.
 It provides the resources you use to write your own controls.
 
 For a worked example,
-[The Chef way of AWS compliance](/solutions/compliance/aws_foundations/)
+[The Chef Way of AWS compliance](/solutions/compliance/aws_foundations/)
 builds a profile on the AWS pack that checks S3 buckets, IAM policies, and security groups
 across an account, then runs it and reads the findings.
 
@@ -68,6 +68,6 @@ across an account, then runs it and reads the findings.
 - [Compliance solution overview](/solutions/compliance/)
 - [Compliance audit](/solutions/compliance/#compliance-audit)
 - [Compliance remediation](/solutions/compliance/#compliance-remediation)
-- [The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
+- [The Chef Way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
 - [Chef InSpec](/inspec/latest/)
 - [Compliance reporting in Chef Automate](/automate/reports/)

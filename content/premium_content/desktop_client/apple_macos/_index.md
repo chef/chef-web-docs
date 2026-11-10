@@ -110,6 +110,6 @@ See [Progress Chef Enterprise Edition](/enterprise_chef/) for what the entitleme
 - [Desktop / client coverage](/premium_content/desktop_client/)
 - [Chef Premium Content](/premium_content/)
 - [Compliance solution overview](/solutions/compliance/)
-- [The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
+- [The Chef Way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
 - [Chef InSpec](/inspec/latest/)
 - [Compliance reporting in Chef Automate](/automate/reports/)
