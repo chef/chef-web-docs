@@ -78,7 +78,7 @@ cis-ubuntu<os-version>lts-<level>-<scope>-v<benchmark-version>
 For example, the CIS Level 1 server profile for Ubuntu 22.04 at benchmark v2.0.0 is
 `cis-ubuntu22.04lts-level1-server-v2.0.0`.
 
-Note that the platform token carries a trailing `lts`, as in `ubuntu22.04lts`. It isn't
+The platform name in the profile has a trailing `lts`, as in `ubuntu22.04lts`. It isn't
 `ubuntu<version>` on its own.
 
 The exceptions are Ubuntu 12.04 and Ubuntu 14.04, which have no server or workstation
@@ -113,9 +113,9 @@ For example, the MAC II mission support profile for a sensitive Ubuntu 20.04 sys
 benchmark v1.2.0 is
 `stig-canonicalubuntu20.04lts-ii-missionsupportsensitive-v1.2.0`.
 
-Note that the platform token here carries a `canonical` prefix, as in
-`canonicalubuntu20.04lts`. It differs from the `ubuntu<version>lts` token used by the
-CIS profiles above, and mixing up the two is a common mistake.
+The platform name here has a `canonical` prefix, as in
+`canonicalubuntu20.04lts`. It differs from the `ubuntu<version>lts` name used by the
+CIS profiles above.
 
 That gives nine combinations for each benchmark version. One further variant ships
 alongside them:

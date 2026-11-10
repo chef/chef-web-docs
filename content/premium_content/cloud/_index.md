@@ -30,9 +30,9 @@ remediation is available:
 
 | Benchmark | Audit versions | Remediation versions | Coverage |
 | --- | --- | --- | --- |
-| `CIS AWS Foundations` | 1.0.0 | — | Audit Only |
-| `CIS Microsoft 365` | 1.4.0 | 1.0.0 | Audit Ahead |
-| `CIS Microsoft Azure Foundations` | 1.0.0, 1.1.0 | 1.1.0 | Partial Audit + Remediation |
+| `CIS AWS Foundations` | v1.0.0 | — | Audit Only |
+| `CIS Microsoft 365` | v1.4.0 | v1.0.0 | Audit Ahead |
+| `CIS Microsoft Azure Foundations` | v1.0.0, v1.1.0 | v1.1.0 | Partial Audit + Remediation |
 
 For what each coverage term means, see
 [how to read the coverage tables](/premium_content/#how-to-read-the-coverage-tables).

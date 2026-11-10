@@ -28,9 +28,9 @@ remediation is available:
 
 | Benchmark | Audit versions | Remediation versions | Coverage |
 | --- | --- | --- | --- |
-| `CIS VMware ESXi 6.5` | — | 1.0.0 | Remediation Only |
-| `CIS VMware ESXi 7.0` | 1.3.0 | — | Audit Only |
-| `CIS VMware ESXi 8.0` | 1.1.0 | — | Audit Only |
+| `CIS VMware ESXi 6.5` | — | v1.0.0 | Remediation Only |
+| `CIS VMware ESXi 7.0` | v1.3.0 | — | Audit Only |
+| `CIS VMware ESXi 8.0` | v1.1.0 | — | Audit Only |
 
 For what each coverage term means, see
 [how to read the coverage tables](/premium_content/#how-to-read-the-coverage-tables).

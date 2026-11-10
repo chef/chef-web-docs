@@ -80,7 +80,7 @@ cis-rhel<os-version>-<level>-<scope>-v<benchmark-version>
 For example, the CIS Level 1 server profile for Red Hat Enterprise Linux 9 at benchmark
 v2.0.0 is `cis-rhel9-level1-server-v2.0.0`.
 
-Note that the platform token is the short form `rhel<version>`, not the full benchmark
+The platform name in the profile is the short form `rhel<version>`, not the full benchmark
 title.
 
 The exception is Red Hat Enterprise Linux 5, which has no server or workstation scope.
@@ -115,9 +115,8 @@ For example, the MAC II mission support profile for a sensitive Red Hat Enterpri
 Linux 8 system at benchmark v1.2.0 is
 `stig-redhatenterpriselinux8-ii-missionsupportsensitive-v1.2.0`.
 
-Note that the platform token here is the long form `redhatenterpriselinux<version>`,
-not the short form `rhel<version>` used by the CIS profiles above. Mixing up the two
-tokens is a common mistake.
+The platform name here is the long form `redhatenterpriselinux<version>`,
+not the short form `rhel<version>` used by the CIS profiles above.
 
 That gives nine combinations for each benchmark version. Two further variants ship
 alongside them:

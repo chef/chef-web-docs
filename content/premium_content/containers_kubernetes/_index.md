@@ -28,7 +28,7 @@ remediation is available:
 
 | Benchmark | Audit versions | Remediation versions | Coverage |
 | --- | --- | --- | --- |
-| `CIS Docker` | 2.1.0 | — | Audit Only |
+| `CIS Docker` | v2.1.0 | — | Audit Only |
 
 For what each coverage term means, see
 [how to read the coverage tables](/premium_content/#how-to-read-the-coverage-tables).

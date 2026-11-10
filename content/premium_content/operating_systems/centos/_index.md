@@ -56,8 +56,8 @@ cis-centos<os-version>-<level>-<scope>-v<benchmark-version>
 For example, the CIS Level 1 server profile for CentOS Linux 7 at benchmark v3.1.2 is
 `cis-centos7-level1-server-v3.1.2`.
 
-Note that the platform token is the short form `centos<version>`, as in `centos7`. It
-isn't `centoslinux<version>`, and assuming the longer form is a common mistake.
+The platform name in the profile is the short form `centos<version>`, as in `centos7`. It
+isn't `centoslinux<version>`.
 
 Whether a scope is present depends on the benchmark version, not on the release. At
 benchmark v1.1.0, CentOS Linux 6 and CentOS Linux 7 ship level only, with no server or

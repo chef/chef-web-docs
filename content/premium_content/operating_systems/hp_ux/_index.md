@@ -46,9 +46,8 @@ cis-hp-ux11i-<level>-v1.4.2
 The only axis is CIS profile level. There's no server or workstation scope on either
 profile, unlike most other platforms in this section.
 
-Note that the platform token is `hp-ux11i`, and it contains a hyphen, which no other
-platform token in this section does. If you flatten it to `hpux11i`, you get a name
-that doesn't exist, so keep the hyphen when you construct a profile name.
+The platform name in the profile is `hp-ux11i`, with a hyphen.
+Keep the hyphen when you construct a profile name, because `hpux11i` doesn't exist.
 
 `11i` is the HP-UX release family name, not a version number that varies. The single
 published benchmark covers it.

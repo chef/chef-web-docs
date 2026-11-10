@@ -54,9 +54,9 @@ cis-mariadb<version>-<level>-<scope>-v<benchmark-version>
 For example, the CIS Level 1 profile for the database engine on MariaDB 10.6 at
 benchmark v1.0.0 is `cis-mariadb10.6-level1-mariadbrdbms-v1.0.0`.
 
-Note that the scope token for a database engine running on a Linux host is
+For a database engine running on a Linux host, the scope in the profile name is
 `mariadbrdbmsonlinux`, not `mariadbonlinux` or `onlinux` --- it's the full
-`mariadbrdbms` token with `onlinux` appended, run together as a single word.
+`mariadbrdbms` scope with `onlinux` appended, as a single word.
 
 Both levels ship at this single benchmark version, so there's no level or scope
 restriction to account for here, unlike some other database platforms.

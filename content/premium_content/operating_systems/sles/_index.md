@@ -57,7 +57,7 @@ cis-sles<os-version>-<level>-<scope>-v<benchmark-version>
 For example, the CIS Level 1 server profile for SUSE Linux Enterprise Server 15 at
 benchmark v2.0.1 is `cis-sles15-level1-server-v2.0.1`.
 
-Note that the platform token is the short form `sles<version>`, as in `sles15`, even
+The platform name in the profile is the short form `sles<version>`, as in `sles15`, even
 though the benchmark itself is named "SUSE Linux Enterprise Server."
 
 Whether a scope is present in a profile name depends on the benchmark version, not on

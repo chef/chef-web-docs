@@ -44,7 +44,7 @@ using the same pattern you'd follow for any other AWS service.
 
 **What was run, and where.**
 The generator output, the vendoring output, and the `inspec check` and `inspec detect` output
-on this page were produced on Chef InSpec 7.3.4.
+on this page were produced on Chef InSpec 7.
 Assessment results shown for a run against a live AWS account are illustrative and
 are labeled where they appear.
 Exit codes come from the [Chef InSpec CLI reference](/inspec/latest/reference/cli/),
@@ -248,7 +248,7 @@ so expect different numbers from a different Chef InSpec release.
 
 {{< note >}}
 
-On Chef InSpec 7.3.4, `inspec detect -t aws://` returned these platform details with no
+On Chef InSpec 7, `inspec detect -t aws://` returned these platform details with no
 credentials set at all.
 Treat it as confirmation that the AWS transport loaded, not as proof that your credentials
 work --- the first run of the profile is what exercises them.
@@ -391,7 +391,7 @@ command --- the profile doesn't change for each account.
 
 If no usable credentials are available, the run stops with an AWS error instead of
 reporting failed controls.
-This output was captured on Chef InSpec 7.3.4 with the AWS credential environment variables unset:
+This output was captured on Chef InSpec 7 with the AWS credential environment variables unset:
 
 ```text
 Error retrieving instance profile credentials: Failed to open TCP connection to 169.254.169.254:80 ...

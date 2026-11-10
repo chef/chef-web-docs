@@ -79,7 +79,7 @@ cis-windows<os-version>-<level>-<role>-v<benchmark-version>
 For example, the CIS Level 1 member server profile for Windows Server 2022 at benchmark
 v2.0.0 is `cis-windows2022-level1-memberserver-v2.0.0`.
 
-Note that the platform token is `windows<version>`, not the full benchmark title. The
+The platform name in the profile is `windows<version>`, not the full benchmark title. The
 one exception is Windows Server 2016-1607, which uses `windows2016rtm-release1607`.
 
 - **Level 1** applies settings that improve security with limited operational impact.

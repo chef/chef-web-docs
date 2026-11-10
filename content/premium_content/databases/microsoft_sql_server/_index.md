@@ -59,7 +59,7 @@ cis-microsoftsql<year>-<level>-<scope>-v<benchmark-version>
 For example, the CIS Level 1 Database Engine profile for SQL Server 2022 at benchmark
 v1.3.0 is `cis-microsoftsql2022-level1-databaseengine-v1.3.0`.
 
-Note that the platform token is `microsoftsql<year>`, not `microsoftsqlserver` or
+The platform name in the profile is `microsoftsql<year>`, not `microsoftsqlserver` or
 `mssql` --- "server" and any abbreviation are both dropped.
 
 Level 2 availability is version-dependent, and for SQL Server 2016 and 2017 it's also

@@ -58,8 +58,8 @@ cis-debianlinux<os-version>-<level>-<scope>-v<benchmark-version>
 For example, the CIS Level 1 server profile for Debian Linux 12 at benchmark v1.1.0 is
 `cis-debianlinux12-level1-server-v1.1.0`.
 
-Note that the platform token is `debianlinux<version>`, as in `debianlinux12`. It isn't
-`debian<version>`, and assuming the shorter form is a common mistake.
+The platform name in the profile is `debianlinux<version>`, as in `debianlinux12`. It isn't
+`debian<version>`.
 
 Choose the level that matches your risk posture and the scope that matches the system's
 role:

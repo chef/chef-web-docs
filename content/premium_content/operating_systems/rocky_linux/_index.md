@@ -56,8 +56,8 @@ cis-rockylinux<os-version>-<level>-<scope>-v<benchmark-version>
 For example, the CIS Level 1 server profile for Rocky Linux 8 at benchmark v1.0.0 is
 `cis-rockylinux8-level1-server-v1.0.0`.
 
-Note that the platform token is `rockylinux<version>`, as in `rockylinux8`. It isn't
-`rocky<version>`, and assuming the shorter form is a common mistake.
+The platform name in the profile is `rockylinux<version>`, as in `rockylinux8`. It isn't
+`rocky<version>`.
 
 Choose the level that matches your risk posture and the scope that matches the system's
 role:

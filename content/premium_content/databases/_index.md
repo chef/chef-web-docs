@@ -33,23 +33,23 @@ remediation is available:
 
 | Benchmark | Audit versions | Remediation versions | Coverage |
 | --- | --- | --- | --- |
-| `CIS MariaDB 10.6` | 1.0.0 | — | Audit Only |
-| `CIS Microsoft SQL Server 2016` | 1.3.0, 1.4.0 | 1.1.0, 1.3.0 | Partial Audit + Remediation |
-| `CIS Microsoft SQL Server 2017` | 1.2.0, 1.3.0 | 1.2.0 | Partial Audit + Remediation |
-| `CIS Microsoft SQL Server 2019` | 1.2.0 | 1.2.0 | Audit + Remediation |
-| `CIS Microsoft SQL Server 2022` | 1.1.0, 1.3.0 | — | Audit Only |
-| `CIS MongoDB 3.6` | 1.0.0, 1.1.0 | 1.0.0, 1.1.0 | Audit + Remediation |
-| `CIS Oracle Database 12c` | 3.0.0 | 2.1.0, 3.0.0 | Partial Audit + Remediation |
-| `CIS Oracle Database 18c` | 1.0.0 | 1.0.0 | Audit + Remediation |
-| `CIS Oracle Database 19c` | 1.0.0, 2.0.0 | 1.0.0 | Partial Audit + Remediation |
-| `CIS Oracle Database 23ai` | 1.0.0 | — | Audit Only |
-| `CIS Oracle MySQL 5.7` | 2.0.0 | — | Audit Only |
-| `CIS PostgreSQL 10` | — | 1.0.0 | Remediation Only |
-| `CIS PostgreSQL 11` | 1.0.0 | 1.0.0 | Audit + Remediation |
-| `CIS PostgreSQL 16` | 1.0.0 | 1.0.0 | Audit + Remediation |
-| `CIS PostgreSQL 17` | 1.0.0 | 1.0.0 | Audit + Remediation |
+| `CIS MariaDB 10.6` | v1.0.0 | — | Audit Only |
+| `CIS Microsoft SQL Server 2016` | v1.3.0, v1.4.0 | v1.1.0, v1.3.0 | Partial Audit + Remediation |
+| `CIS Microsoft SQL Server 2017` | v1.2.0, v1.3.0 | v1.2.0 | Partial Audit + Remediation |
+| `CIS Microsoft SQL Server 2019` | v1.2.0 | v1.2.0 | Audit + Remediation |
+| `CIS Microsoft SQL Server 2022` | v1.1.0, v1.3.0 | — | Audit Only |
+| `CIS MongoDB 3.6` | v1.0.0, v1.1.0 | v1.0.0, v1.1.0 | Audit + Remediation |
+| `CIS Oracle Database 12c` | v3.0.0 | v2.1.0, v3.0.0 | Partial Audit + Remediation |
+| `CIS Oracle Database 18c` | v1.0.0 | v1.0.0 | Audit + Remediation |
+| `CIS Oracle Database 19c` | v1.0.0, v2.0.0 | v1.0.0 | Partial Audit + Remediation |
+| `CIS Oracle Database 23ai` | v1.0.0 | — | Audit Only |
+| `CIS Oracle MySQL 5.7` | v2.0.0 | — | Audit Only |
+| `CIS PostgreSQL 10` | — | v1.0.0 | Remediation Only |
+| `CIS PostgreSQL 11` | v1.0.0 | v1.0.0 | Audit + Remediation |
+| `CIS PostgreSQL 16` | v1.0.0 | v1.0.0 | Audit + Remediation |
+| `CIS PostgreSQL 17` | v1.0.0 | v1.0.0 | Audit + Remediation |
 | `STIG MarkLogic Server` | not stated | not stated | Audit + Remediation |
-| `STIG PostgreSQL 9.x` | 2 | — | Audit Only |
+| `STIG PostgreSQL 9.x` | v2 | — | Audit Only |
 
 For what each coverage term means, see
 [how to read the coverage tables](/premium_content/#how-to-read-the-coverage-tables).

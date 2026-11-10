@@ -54,9 +54,8 @@ cis-oraclemysqlcommunity<version>-<level>-<scope>-v<benchmark-version>
 For example, the CIS Level 1 profile for the database engine on Oracle MySQL 5.7 at
 benchmark v2.0.0 is `cis-oraclemysqlcommunity5.7-level1-mysqlrdbms-v2.0.0`.
 
-Note that the platform token is `oraclemysqlcommunity<version>`, not `oraclemysql` or
-`mysql` --- this benchmark covers MySQL Community Edition specifically, and the
-`community` token reflects that.
+The platform name in the profile is `oraclemysqlcommunity<version>`, not `oraclemysql` or
+`mysql` --- this benchmark covers MySQL Community Edition specifically.
 
 Both levels ship at this single benchmark version, so there's no level or scope
 restriction to account for here, unlike some other database platforms.

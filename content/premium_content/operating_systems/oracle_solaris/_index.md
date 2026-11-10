@@ -59,14 +59,12 @@ cis-oraclesolaris<os-version>-<level>-v<benchmark-version>
 For example, the CIS Level 1 profile for Oracle Solaris 11.2 at benchmark v1.1.0 is
 `cis-oraclesolaris11.2-level1-v1.1.0`.
 
-Note that the OS version token keeps its dot, as in `oraclesolaris11.1` and
+The OS version in the profile name keeps its dot, as in `oraclesolaris11.1` and
 `oraclesolaris11.2`, not `oraclesolaris111`.
 
-Benchmark versions don't track OS versions here, and the gap is wide enough to be
-confusing: Oracle Solaris 10 is at benchmark v5.2.0 while Oracle Solaris 11 is at
-v1.1.0. A higher benchmark version doesn't mean newer or better content; it's just where
-that benchmark's own numbering has reached. Check the table above before you compare
-versions across releases.
+Benchmark versions don't track OS versions here.
+Oracle Solaris 10 is at benchmark v5.2.0, and Oracle Solaris 11 is at v1.1.0.
+Check the table above before you compare versions across releases.
 
 Choose the level that matches your risk posture:
 
