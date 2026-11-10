@@ -77,7 +77,7 @@ That's why this page treats the central service as a choice:
 | Are building a new on-premises estate | Use Chef 360 Platform, and decide whether you want Chef to manage its Kubernetes (embedded cluster) or you manage it (bring your own Kubernetes). See [Choose where the platform runs](#choose-where-the-platform-runs). |
 | Have servers you can reach over SSH but don't want an agent on | Use Agentless Mode for Linux nodes. See [Nodes without an agent](#nodes-without-an-agent). |
 
-The cookbooks, recipes, and resources in the walkthrough are the same whichever central service you use.
+The cookbooks, recipes, and resources in the example are the same whichever central service you use.
 
 ## What you'll build
 
@@ -97,7 +97,7 @@ You need:
 - [Chef Workstation](/workstation/latest/install/) on the machine where you write and test code.
   It includes the `chef` and `chef-client` commands and the testing tools.
 - A test node or a scratch directory.
-  The walkthrough runs in your workstation's local mode and writes to a temporary directory, so it doesn't change the system.
+  The example runs in your workstation's local mode and writes to a temporary directory, so it doesn't change the system.
 - A Progress Chef license, for bootstrapping nodes and for commercial downloads.
   Chef Infra Client might ask you to accept the license terms the first time you run it.
 
@@ -159,7 +159,7 @@ To create a cookbook and a recipe that describes the state you want, follow thes
 
 To see Chef Infra Client apply the cookbook and then undo a manual change, follow these steps:
 
-1. Create `attrs.json` in the repository, so the walkthrough writes to a temporary directory instead of `/etc`:
+1. Create `attrs.json` in the repository, so the example writes to a temporary directory instead of `/etc`:
 
    ```json
    {
@@ -271,7 +271,7 @@ By default, the timer runs every 30 minutes with a 5-minute random delay (`splay
 The resource runs as `root` by default, and it has related resources for other schedulers, including [`chef_client_cron`](/client/latest/resources/bundled/chef_client_cron/).
 See [`chef_client_systemd_timer`](/client/latest/resources/bundled/chef_client_systemd_timer/) for every property.
 
-This snippet is from the resource reference and isn't part of the tested walkthrough.
+This snippet is from the resource reference and isn't part of the tested example.
 
 Pick an interval that matches how fast you need drift corrected and how much load your central service handles.
 An interval that's too short wastes capacity, and one that's too long leaves a hand-made change in place longer.
@@ -451,7 +451,7 @@ Plan for these points:
 
 ## Where to start
 
-If you're new to Chef, start with the walkthrough on this page, and then read [the Chef Infra Client run](/client/latest/#the-chef-infra-client-run).
+If you're new to Chef, start with the example on this page, and then read [the Chef Infra Client run](/client/latest/#the-chef-infra-client-run).
 If you run an estate today, look at [Choose where the platform runs](#choose-where-the-platform-runs) and, if you use Chef Infra Server, [Migrate from Chef Infra Server](#migrate-from-chef-infra-server).
 Before you scale up:
 
