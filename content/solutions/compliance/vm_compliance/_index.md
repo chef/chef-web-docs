@@ -52,7 +52,7 @@ A Chef InSpec profile with three controls that assert:
 - The VM runs as a guest on a virtualization platform your organization approves.
 - VMware guests run `open-vm-tools`, so the platform can report guest state,
   shut the guest down cleanly, and quiesce it for snapshots.
-- Every clone has its own machine ID, not an empty one and not the one copied from the template.
+- The clone regenerated its machine ID rather than retaining the template ID.
 
 These are requirements a general operating system benchmark doesn't check,
 because they only make sense on a VM.
@@ -188,9 +188,9 @@ end
 
 control 'vm-03' do
   impact 'high'
-  title 'Give every clone its own machine ID'
-  desc 'Each VM cloned from a template must have a unique machine ID, not an empty one and not the one copied from the template.'
-  desc 'rationale', 'Logging, monitoring, and DHCP can key on the machine ID, so clones that share one are indistinguishable.'
+  title 'Regenerate the machine ID from the template'
+  desc 'A VM cloned from a template must have a valid machine ID that differs from the template ID, confirming the template was sealed.'
+  desc 'rationale', 'A clone that retains the template machine ID indicates an unsealed template, causing duplicate identifiers across clones in logging, monitoring, and DHCP.'
   tag 'vm', 'template'
 
   describe file('/etc/machine-id') do
@@ -221,8 +221,8 @@ What's specific to VMs here:
 
 `input('template_machine_id')`
 : Reads the value from `inspec.yml`, or from `--input` at run time.
-  `vm-03` uses it to catch clones that kept the template's ID,
-  and the format check catches clones where the ID was never regenerated at all.
+  `vm-03` uses it to catch clones of unsealed templates that kept the template's ID,
+  and the format check catches clones where the ID was never generated at all.
 
 For the parts of a control that aren't specific to VMs ---
 `impact`, `desc`, `tag`, and `cmp` ---
@@ -300,7 +300,7 @@ Target:    ssh://admin@app01.example.com:22
      expected that `System Package open-vm-tools` is installed
      ×  Processes vmtoolsd is expected to exist
      expected Processes vmtoolsd to exist
-  ×  vm-03: Give every clone its own machine ID (1 failed)
+  ×  vm-03: Regenerate the machine ID from the template (1 failed)
      ✔  File /etc/machine-id content is expected to match /\A\h{32}\s*\z/
      ×  File /etc/machine-id content is expected not to match /\A5f1a7c3e9b2d4e6f8a0b1c2d3e4f5a6b/
 
@@ -311,7 +311,7 @@ Test Summary: 3 successful, 3 failures, 0 skipped
 
 `vm-03` is the finding to act on first.
 The machine ID is well-formed but matches the template's,
-so this VM is indistinguishable from every other clone that kept it.
+indicating that the template wasn't sealed before cloning.
 Fixing it on one VM doesn't fix the next clone --- fix the template,
 as described in [Step 6](#step-6-check-the-template-before-you-clone-it).
 
