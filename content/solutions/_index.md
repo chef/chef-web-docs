@@ -39,7 +39,7 @@ swiftype_search_products = [""]
 
 <h2>What do you want to do?</h2>
 
-<p class="lead">Find your way around Chef: what we offer, and how to put it to work. Each solution below
+<p class="lead">Find your way around Chef: what's available, and how to put it to work. Each solution below
 brings together everything you need &mdash; Chef InSpec, Chef Automate, Chef Infra Client, and
 Chef 360 Platform &mdash; to get one job done, from first setup to day-to-day operation.</p>
 
