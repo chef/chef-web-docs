@@ -53,7 +53,7 @@ For details, see [get the profiles and cookbooks](/premium_content/#get-the-prof
 
 ## Compliance audit
 
-An audit shows whether your systems meet the requirements of a benchmark, and which settings to act on.
+An audit shows whether your systems meet a benchmark’s requirements and identifies settings that need attention.
 Chef InSpec can also inspect data in a database and the configuration of virtual resources through their APIs, so assessment isn't limited to systems you can sign in to.
 
 ### How you run an assessment
