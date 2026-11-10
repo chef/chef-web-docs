@@ -146,7 +146,7 @@ Chef 360 Platform &mdash; to get one job done, from first setup to day-to-day op
           </h3>
         </div>
         <p>Schedule, monitor, and orchestrate automation jobs at scale across your fleet with
-        Chef 360.</p>
+        Chef 360 Platform.</p>
       </div>
     </div>
   </div>
