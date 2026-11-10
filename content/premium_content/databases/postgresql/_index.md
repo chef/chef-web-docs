@@ -60,10 +60,8 @@ cis-postgresql<version>-level1-<scope>-v<benchmark-version>
 For example, the profile covering PostgreSQL 16 plus Linux host OS checks at
 benchmark v1.0.0 is `cis-postgresql16-level1-postgresqlonlinux-v1.0.0`.
 
-_CIS PostgreSQL 10 is remediation only._ Profile names following the pattern above
-exist in the content repository for PostgreSQL 10, but they were never released as
-published artifacts, so no audit content for version 10 is available, even though the
-naming pattern would suggest two names exist.
+CIS PostgreSQL 10 is remediation only.
+No audit profile is available for this version, despite the naming pattern above.
 
 - **PostgreSQL** checks the database engine configuration only.
 - **PostgreSQL on Linux** adds checks against the underlying Linux host as well.
