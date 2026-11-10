@@ -50,8 +50,8 @@ The exact requirements differ by release, benchmark version, and profile.
 | `STIG Microsoft Windows Server 2019` | v2.2.0 | v2.1.0, v2.2.0 | Partial Audit + Remediation |
 | `STIG Microsoft Windows Server 2022` | v1.2.0 | v2.3.0 | Remediation Ahead |
 
-Audit and remediation coverage are tracked separately, and a benchmark can have more
-versions of one than the other.
+Chef tracks audit and remediation coverage separately.
+A benchmark can have more audit versions than remediation versions, or vice versa.
 See [how to read the coverage tables](/premium_content/#how-to-read-the-coverage-tables)
 for what each coverage term means.
 

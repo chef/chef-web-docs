@@ -77,8 +77,9 @@ If you accept a failing control, record it as a [waiver](/inspec/latest/configur
 Remediation content is delivered as [Chef Infra cookbooks](/client/latest/cookbooks/) that correct the configuration behind a failed requirement.
 Chef Infra Client changes only what differs from the desired state, so re-running a cookbook on a correctly configured system changes nothing.
 
-Audit and remediation content are built from the same published benchmark, but Chef maintains and tracks them separately.
-A benchmark can have one, the other, or both, and an audit version doesn't imply a matching remediation version.
+Audit and remediation content are built from the same published benchmark, but Chef tracks coverage for them separately.
+A benchmark may have audit content, remediation content, or both, and the available versions may differ.
+An audit version doesn't guarantee that a matching remediation version is available.
 
 ### Before you use remediation content
 

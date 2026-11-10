@@ -36,7 +36,8 @@ The exact requirements differ by benchmark and version.
 | `CIS Apache HTTP Server 2.2` | v3.6.0 | v3.6.0 | Audit + Remediation |
 | `CIS Apache HTTP Server 2.4` | v2.0.0 | v1.4.0, v2.0.0 | Partial Audit + Remediation |
 
-Audit and remediation coverage are tracked separately, and a benchmark can have more versions of one than the other.
+Chef tracks audit and remediation coverage separately.
+A benchmark can have more audit versions than remediation versions, or vice versa.
 See [how to read the coverage tables](/premium_content/#how-to-read-the-coverage-tables) for what each coverage term means.
 
 ## Available profiles
