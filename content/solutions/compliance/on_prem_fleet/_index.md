@@ -5,9 +5,9 @@ draft = false
 gh_repo = "chef-web-docs"
 
 [menu.overview]
-  identifier = "overview/solutions/compliance/small_fleet"
+  identifier = "overview/solutions/compliance/on_prem_fleet"
   parent = "overview/solutions/compliance"
-  title = "Managing a small fleet"
+  title = "The Chef way of managing an on-prem fleet"
   weight = 13
 +++
 
