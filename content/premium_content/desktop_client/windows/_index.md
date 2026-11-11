@@ -126,7 +126,7 @@ Two further variants ship with them:
 
 | Variant | Purpose |
 | --- | --- |
-| `cationly` | Assesses only the requirements relating to Common Access Card authentication |
+| `cationly` | Assesses only Category I (CAT I) requirements, the highest-severity STIG findings |
 | `disableslowrules` | Omits the checks that take longest to execute, for faster feedback during development |
 
 This naming applies only to the Windows 11 STIG.
