@@ -59,6 +59,10 @@ words:
 - sudo
 - ufw
 - webdav
+# OpenSSH setting names as sshd -T prints them.
+- kbdinteractiveauthentication
+- passwordauthentication
+- permitrootlogin
 # Premium Content profile name tokens.
 - administrativeclassified
 - administrativepublic

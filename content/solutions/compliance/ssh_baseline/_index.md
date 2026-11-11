@@ -13,7 +13,8 @@ gh_repo = "chef-web-docs"
 
 Almost every security standard requires that administrators don't log in directly as `root`
 and that servers don't accept password authentication over SSH.
-Both requirements are set in a single file, `/etc/ssh/sshd_config`,
+Both requirements are set in the SSH daemon's configuration, `/etc/ssh/sshd_config`
+and any files it includes,
 and both are undone by a one-line edit during an incident.
 
 Checking that file by hand doesn't scale past a handful of hosts,
@@ -26,11 +27,12 @@ or a Chef Automate server to complete it.
 
 ## What you'll build
 
-A Chef InSpec profile with three controls that assert:
+A Chef InSpec profile with four controls that assert:
 
 - Direct `root` login over SSH is disabled.
-- Password authentication is disabled.
+- Password authentication is disabled, including through keyboard-interactive authentication.
 - The daemon allows no more than four authentication attempts on a connection.
+- The settings the daemon enforces match the file, so an included file can't quietly turn password logins back on.
 
 By the end you'll be able to run that profile against one host or many,
 get a pass or fail result for each control,
@@ -50,9 +52,9 @@ You need:
   If you haven't accepted the Chef license yet, the first run prompts you to.
 - **A Linux target to assess.** This can be the machine you're working on,
   or a remote host you can reach over SSH.
-- **For remote targets:** SSH access, and an account that can read `/etc/ssh/sshd_config`.
-  That file is usually world-readable, but if yours isn't, you need an account
-  that can escalate with `sudo`.
+- **For remote targets:** SSH access, and an account that can escalate with `sudo`.
+  On most distributions `/etc/ssh/sshd_config` is readable only by root,
+  and reading the configuration the daemon enforces always requires root.
 
 You don't need to install anything on the target.
 Chef InSpec connects over SSH and reads what it needs.
@@ -119,11 +121,12 @@ end
 control 'ssh-02-no-password-auth' do
   impact 'high'
   title 'Require key-based authentication'
-  desc 'Password authentication must be disabled on the SSH daemon.'
+  desc 'The SSH daemon must not accept passwords, either directly or through keyboard-interactive authentication.'
   tag 'ssh'
 
   describe sshd_config do
     its('PasswordAuthentication') { should cmp 'no' }
+    its('KbdInteractiveAuthentication') { should cmp 'no' }
   end
 end
 
@@ -135,6 +138,19 @@ control 'ssh-03-limit-attempts' do
 
   describe sshd_config do
     its('MaxAuthTries') { should cmp <= 4 }
+  end
+end
+
+control 'ssh-04-effective-auth' do
+  impact 'high'
+  title 'Confirm the authentication settings the daemon enforces'
+  desc 'The running configuration, including any included files, must disable root login and passwords.'
+  tag 'ssh'
+
+  describe parse_config(command('sshd -T').stdout, assignment_regex: /^(\S+)\s+(.*)$/) do
+    its('permitrootlogin') { should cmp 'no' }
+    its('passwordauthentication') { should cmp 'no' }
+    its('kbdinteractiveauthentication') { should cmp 'no' }
   end
 end
 ```
@@ -168,7 +184,26 @@ Each part of a control does a specific job:
   It parses `/etc/ssh/sshd_config` and exposes each setting as a property,
   so you don't have to write text parsing.
   Pass a path --- `sshd_config('/etc/ssh/sshd_config.d/10-custom.conf')` ---
-  if your configuration lives somewhere else.
+  to read a different file.
+  It reads only the one file: it doesn't follow `Include` lines or evaluate `Match` blocks.
+  That makes it the right check for what the file records,
+  but not proof of what the daemon enforces.
+
+`its('KbdInteractiveAuthentication')`
+: Turning off `PasswordAuthentication` doesn't stop every password prompt.
+  When the daemon uses PAM, keyboard-interactive authentication can still ask for an account password,
+  so `ssh-02-no-password-auth` checks both settings.
+  Older OpenSSH releases call this setting `ChallengeResponseAuthentication`.
+
+`describe parse_config(command('sshd -T').stdout, ...)`
+: `sshd -T` prints the configuration the daemon enforces,
+  after it has read every included file, with each setting name in lowercase.
+  The [`parse_config` resource](/inspec/latest/resources/core/parse_config/) turns that output into properties,
+  so `ssh-04-effective-auth` checks the result rather than the file.
+  Many distributions start `sshd_config` with `Include /etc/ssh/sshd_config.d/*.conf`,
+  and the daemon keeps the first value it reads for a setting,
+  so a file in that directory overrides the main file.
+  Running `sshd -T` requires root, so run this control with `--sudo`.
 
 `its('PermitRootLogin') { should cmp 'no' }`
 : The assertion.
@@ -192,14 +227,14 @@ inspec check ssh-baseline
 ```text
 Location :   ssh-baseline
 Profile :    ssh-baseline
-Controls :   3
-Timestamp :  2026-02-11T09:14:22+00:00
+Controls :   4
+Timestamp :  2026-11-11T16:36:13+05:30
 Valid :      true
 
 No errors, warnings, or offenses
 ```
 
-`Controls : 3` confirms Chef InSpec found all three controls.
+`Controls : 4` confirms Chef InSpec found all four controls.
 If you have a syntax error or a missing required field, this is where it surfaces ---
 not halfway through a run against production.
 
@@ -282,12 +317,13 @@ InSpec Parallel requires Chef InSpec 6 or later.
 
 ## Step 5: Read the results
 
-A run against a host that doesn't meet two of the three requirements looks like this:
+A run against a freshly launched Amazon Linux 2023 host, before any changes, looks like this:
 
 ```text
 Profile:   SSH configuration baseline (ssh-baseline)
 Version:   0.1.0
-Target:    ssh://admin@web01.example.com
+Target:    ssh://admin@web01.example.com:22
+Target ID: fcd9806d-9c9b-5c6d-8d8f-5598b25b985b
 
   ×  ssh-01-no-root-login: Disable direct root login over SSH
      ×  SSHD Configuration PermitRootLogin is expected to cmp == "no"
@@ -297,20 +333,38 @@ Target:    ssh://admin@web01.example.com
 
      (compared using `cmp` matcher)
 
-  ×  ssh-02-no-password-auth: Require key-based authentication
-     ×  SSHD Configuration PasswordAuthentication is expected to cmp == "no"
+  ×  ssh-02-no-password-auth: Require key-based authentication (1 failed)
+     ✔  SSHD Configuration PasswordAuthentication is expected to cmp == "no"
+     ×  SSHD Configuration KbdInteractiveAuthentication is expected to cmp == "no"
 
      expected: no
           got:
 
      (compared using `cmp` matcher)
 
-  ✔  ssh-03-limit-attempts: Limit authentication attempts per connection
-     ✔  SSHD Configuration MaxAuthTries is expected to cmp <= 4
+  ×  ssh-03-limit-attempts: Limit authentication attempts per connection
+     ×  SSHD Configuration MaxAuthTries is expected to cmp <= 4
+
+     expected it to be <= 4
+          got:
+
+     (compared using `cmp` matcher)
+
+  ×  ssh-04-effective-auth: Confirm the authentication settings the daemon enforces (1 failed)
+     ×  Parse Config  permitrootlogin is expected to cmp == "no"
+
+     expected: no
+          got: without-password
+
+     (compared using `cmp` matcher)
+
+     ✔  Parse Config  passwordauthentication is expected to cmp == "no"
+     ✔  Parse Config  kbdinteractiveauthentication is expected to cmp == "no"
 
 
-Profile Summary: 1 successful control, 2 control failures, 0 controls skipped
-Test Summary: 1 successful, 2 failures, 0 skipped
+Profile Summary: 0 successful controls, 4 control failures, 0 controls skipped
+Test Summary: 3 successful, 4 failures, 0 skipped
+exit 100
 ```
 
 Read it this way:
@@ -318,10 +372,19 @@ Read it this way:
 - `×` is a failure, `✔` is a pass, and `↺` is a skip.
 - Each failure names the control, the property checked, what was expected,
   and what was found.
-- An empty `got:` means the setting isn't present in the file at all.
+  A control that has more than one test reports how many failed, such as `(1 failed)`.
+- An empty `got:` from `sshd_config` means the setting isn't present in the file at all.
   This is the common case and a real finding:
-  the daemon falls back to its built-in default, which may or may not satisfy
-  your requirement, and nothing records the intent.
+  the daemon falls back to a default or to an included file, which may or may not satisfy
+  your requirement, and the main file records no intent.
+- `ssh-04-effective-auth` shows what the daemon enforces.
+  Here `permitrootlogin` is `without-password`, the built-in default,
+  which still allows `root` to log in with a key.
+
+The two kinds of check also disagree on keyboard-interactive authentication.
+The main file doesn't set it, so `ssh-02-no-password-auth` fails,
+but the daemon enforces `no` because an included file on this distribution sets it.
+Neither result is wrong: one reports what the file records, the other what the daemon does.
 
 ### Check the exit code
 
@@ -374,19 +437,24 @@ Other formats, including `html2`, `junit2`, and `yaml`, are in the
 
 ## Step 6: Fix the finding and reassess
 
-The two failures above are both settings missing from `sshd_config`.
+The file-based failures above are all settings missing from `sshd_config`.
 Add them on the target:
 
 ```text
 PermitRootLogin no
-PasswordAuthentication no
+KbdInteractiveAuthentication no
+MaxAuthTries 4
 ```
 
-Then reload the daemon so the running configuration matches the file:
+Check the syntax, then reload the daemon so the running configuration matches the file:
 
 ```bash
+sudo sshd -t
 sudo systemctl reload sshd
 ```
+
+`sshd -t` prints nothing when the configuration is valid,
+so run it before every reload.
 
 {{< note >}}
 
@@ -406,27 +474,89 @@ inspec exec ssh-baseline --target ssh://admin@web01.example.com --key-files ~/.s
      ✔  SSHD Configuration PermitRootLogin is expected to cmp == "no"
   ✔  ssh-02-no-password-auth: Require key-based authentication
      ✔  SSHD Configuration PasswordAuthentication is expected to cmp == "no"
+     ✔  SSHD Configuration KbdInteractiveAuthentication is expected to cmp == "no"
   ✔  ssh-03-limit-attempts: Limit authentication attempts per connection
      ✔  SSHD Configuration MaxAuthTries is expected to cmp <= 4
+  ✔  ssh-04-effective-auth: Confirm the authentication settings the daemon enforces
+     ✔  Parse Config  permitrootlogin is expected to cmp == "no"
+     ✔  Parse Config  passwordauthentication is expected to cmp == "no"
+     ✔  Parse Config  kbdinteractiveauthentication is expected to cmp == "no"
 
 
-Profile Summary: 3 successful controls, 0 control failures, 0 controls skipped
-Test Summary: 3 successful, 0 failures, 0 skipped
+Profile Summary: 4 successful controls, 0 control failures, 0 controls skipped
+Test Summary: 7 successful, 0 failures, 0 skipped
+exit 0
 ```
 
 {{< warning >}}
 
 Keep `--sudo` on the re-run.
-On most distributions `/etc/ssh/sshd_config` is readable only by root,
-so without it every control reports as skipped with
-`Can't read file: /etc/ssh/sshd_config` and the run exits `101` rather than `0`.
-That's not a pass --- nothing was assessed.
+Without it, the three `sshd_config` controls report as skipped with
+`Can't read file: /etc/ssh/sshd_config`,
+and `ssh-04-effective-auth` fails with an empty `got:` because `sshd -T` can't run.
+That's not a finding about the host --- nothing was assessed.
 
 {{< /warning >}}
 
 Running the profile again is what demonstrates the fix worked.
 The first run found the gap, the second run is the evidence that it's closed,
 and both are dated.
+
+### Catch an override from an included file
+
+`ssh-04-effective-auth` earns its place when something else changes the configuration.
+Suppose a provisioning tool leaves `/etc/ssh/sshd_config.d/40-legacy-access.conf` on the host,
+containing one line:
+
+```text
+PasswordAuthentication yes
+```
+
+The main file still says `PasswordAuthentication no`,
+but the daemon reads the included file first and keeps its value.
+After a reload, the same run reports:
+
+```text
+  ✔  ssh-01-no-root-login: Disable direct root login over SSH
+     ✔  SSHD Configuration PermitRootLogin is expected to cmp == "no"
+  ✔  ssh-02-no-password-auth: Require key-based authentication
+     ✔  SSHD Configuration PasswordAuthentication is expected to cmp == "no"
+     ✔  SSHD Configuration KbdInteractiveAuthentication is expected to cmp == "no"
+  ✔  ssh-03-limit-attempts: Limit authentication attempts per connection
+     ✔  SSHD Configuration MaxAuthTries is expected to cmp <= 4
+  ×  ssh-04-effective-auth: Confirm the authentication settings the daemon enforces (1 failed)
+     ✔  Parse Config  permitrootlogin is expected to cmp == "no"
+     ×  Parse Config  passwordauthentication is expected to cmp == "no"
+
+     expected: no
+          got: yes
+
+     (compared using `cmp` matcher)
+
+     ✔  Parse Config  kbdinteractiveauthentication is expected to cmp == "no"
+
+
+Profile Summary: 3 successful controls, 1 control failure, 0 controls skipped
+Test Summary: 6 successful, 1 failure, 0 skipped
+exit 100
+```
+
+Every file-based control passes, and password logins are enabled.
+Only the check against `sshd -T` shows the problem.
+Remove or correct the included file, reload the daemon, and run the profile again.
+
+`sshd -T` reports the configuration for connections that no `Match` block applies to.
+Settings inside a `Match` block apply only to the connections it matches,
+so pass the connection details with `-C` to see them:
+
+```bash
+sudo sshd -T -C user=deploy,host=web01.example.com,addr=192.0.2.10
+```
+
+With a `Match User deploy` block that sets `PasswordAuthentication yes`,
+`sshd -T` alone reports `passwordauthentication no`,
+and the command above reports `passwordauthentication yes`.
+To check a `Match` rule in a control, use the same command with the connection details you need to verify.
 
 ## Step 7: Waive an exception you've accepted
 
@@ -435,7 +565,7 @@ or a system that can't be changed yet.
 Recording that in a waiver file keeps it visible as an exception,
 instead of hiding it or leaving it in the report as an unexplained failure.
 
-Take a second host that meets the first two requirements but runs legacy
+Take a second host that meets the authentication requirements but runs legacy
 automation needing six authentication attempts, so `ssh-03-limit-attempts`
 fails there and has an approved exception on file.
 
@@ -459,12 +589,18 @@ inspec exec ssh-baseline --target ssh://admin@web01.example.com --key-files ~/.s
      ✔  SSHD Configuration PermitRootLogin is expected to cmp == "no"
   ✔  ssh-02-no-password-auth: Require key-based authentication
      ✔  SSHD Configuration PasswordAuthentication is expected to cmp == "no"
+     ✔  SSHD Configuration KbdInteractiveAuthentication is expected to cmp == "no"
   ↺  ssh-03-limit-attempts: No-op
      ↺  Skipped control due to waiver condition: Approved exception CHG-4821; legacy automation requires six attempts.
+  ✔  ssh-04-effective-auth: Confirm the authentication settings the daemon enforces
+     ✔  Parse Config  permitrootlogin is expected to cmp == "no"
+     ✔  Parse Config  passwordauthentication is expected to cmp == "no"
+     ✔  Parse Config  kbdinteractiveauthentication is expected to cmp == "no"
 
 
-Profile Summary: 2 successful controls, 0 control failures, 1 control skipped
-Test Summary: 2 successful, 0 failures, 1 skipped
+Profile Summary: 3 successful controls, 0 control failures, 1 control skipped
+Test Summary: 6 successful, 0 failures, 1 skipped
+exit 101
 ```
 
 The control reports as skipped and carries your justification into the report.

@@ -116,6 +116,19 @@ Pass `--platform` and you get a profile already configured for that cloud:
 inspec init profile --platform aws my-aws-profile
 ```
 
+The generated `inspec.yml` sets an older `inspec_version` constraint.
+Set it to match the version you're running, or Chef InSpec refuses to run the profile:
+
+```yaml
+inspec_version: '~> 7'
+```
+
+The profile fetches the pack over the network, so vendor it before you run anything:
+
+```bash
+inspec vendor my-aws-profile
+```
+
 Chef InSpec uses the cloud provider's standard authentication.
 For AWS, set credentials as environment variables:
 
@@ -174,6 +187,20 @@ supports:
 depends:
   - name: inspec-k8s
     url: https://github.com/inspec/inspec-k8s/archive/main.tar.gz
+```
+
+Vendor the dependency, as with the cloud packs:
+
+```bash
+inspec vendor my-k8s-profile
+```
+
+The `k8s://` target comes from the `train-kubernetes` transport plugin.
+Chef InSpec 7 includes it.
+If you're running `inspec-core` or an earlier release, install it first:
+
+```bash
+inspec plugin install train-kubernetes
 ```
 
 Chef InSpec reads your `KUBECONFIG` environment variable or `~/.kube/config`

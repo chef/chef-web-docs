@@ -58,6 +58,15 @@ Target a Windows host that has the following PowerShell modules installed:
 - `AzureADPreview`
 - `PowershellGet`
 
+{{< warning >}}
+
+Microsoft has retired two of these modules.
+`MSOnline` stopped working in May 2025, and `AzureADPreview` began to stop working in October 2025.
+The profile still connects through them, so the controls that use them can't run.
+See [audit limitations](#audit-limitations) for the affected controls.
+
+{{< /warning >}}
+
 #### Provide an account
 
 The account you use affects which controls can run:
@@ -112,6 +121,7 @@ The cookbook has the following known limitations:
 
 Check these limitations before you rely on the results:
 
+- **Some controls depend on retired PowerShell modules.** Controls 1.1.1, 1.1.2, 1.1.3, 1.1.5, 1.1.6, 1.1.8, 1.1.9, 1.1.12, 1.1.15, 1.5, 1.6, 2.6, 4.9, and 4.10 connect through `MSOnline` or `AzureADPreview`, which Microsoft has retired. These controls can't run until the profile moves to supported modules, so don't treat their results as an assessment. For the retirement details, see [MSOnline and AzureAD PowerShell retirement](https://techcommunity.microsoft.com/blog/microsoft-entra-blog/action-required-msonline-and-azuread-powershell-retirement---2025-info-and-resou/4364991).
 - **Some recommendations have no automated check.** These are 1.1.4, 1.1.7, 1.1.10, 1.1.11, 1.1.13, 1.1.14, 1.1.16, 2.1, 2.7, 2.9, 2.10, 2.11, 3.2, 5.3 through 5.15, and 7.1 through 7.13.
 - **Disabling basic authentication can stop later scans.** If you apply audit recommendation 1.4 manually by turning off basic authentication for SharePoint Online, you can no longer scan or remediate SharePoint Online with automation.
 

@@ -92,6 +92,7 @@ default_search_product_keys = [
   "server",
   "inspec",
   "inspec-7.3",
+  "premium-content",
   "saas",
   "supermarket",
   "workstation",
@@ -211,6 +212,10 @@ product_version_key = "inspec-5.24"
 [[search.products.inspec.versions]]
 name = "5.23"
 product_version_key = "inspec-5.23"
+
+[search.products.premium_content]
+name = "Premium Content"
+product_key = "premium-content"
 
 [search.products.saas]
 name = "SaaS"
