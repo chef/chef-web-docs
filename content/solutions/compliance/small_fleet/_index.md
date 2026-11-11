@@ -96,11 +96,13 @@ You need:
   Run `chef --version` to confirm it's installed.
 - **A Chef 360 Platform tenant with DSM enabled.**
   Ensure your Chef Workstation `.chef/config.rb` file is configured with your DSM organization URL:
+
   ```ruby
   chef_server_url 'https://<CHEF_360_HOST>/organizations/<ORG_NAME>'
   client_key      '/path/to/user.pem'
   node_name       'your_username'
   ```
+
 - **Linux servers enrolled in Chef 360 Platform** that meet the
   [Chef 360 Platform node requirements](/360/saas/system_requirements/).
   Chef Courier skills and DSM node management run on x86_64 Linux and on Windows Server 2019 and later.
@@ -603,14 +605,18 @@ Every change follows a predictable path through DSM:
 1. Update the cookbook or Policyfile in a Git branch, and test with `kitchen test`.
 2. After review and merge, run `chef update` to lock the new revision ID.
 3. Deploy to the canary policy group in DSM:
+
    ```bash
    chef push canary
    ```
+
 4. Trigger the Courier job or run `chef-client` on the canary node to verify the change.
 5. Promote the policy to the fleet policy group in DSM:
+
    ```bash
    chef push fleet
    ```
+
    All fleet nodes converge on the new revision during their next scheduled run.
 
 To roll back, push the previous revision lock back to DSM:
