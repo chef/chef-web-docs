@@ -49,8 +49,8 @@ both of these entries in your site configuration:
   source = 'static'
   target = 'assets'
 
-By default, if this render hook is unable to resolve a destination, including a
-fragment if present, it passes the destination through without modification. To
+If this render hook is unable to resolve a local path, it resolves the path
+against the site's baseURL, preserving any query string and fragment. To
 emit a warning or error, set the error level in your site configuration:
 
   [params.render_hooks.link]
@@ -151,6 +151,9 @@ either of these shortcodes in conjunction with this render hook.
       {{- /* Destination is a global resource; drop query and fragment. */}}
       {{- $attrs = dict "href" .RelPermalink }}
     {{- else }}
+      {{- if not $u.Host }}
+        {{- $attrs = dict "href" (strings.TrimPrefix "/" $u.String | relURL) }}
+      {{- end }}
       {{- if eq $errorLevel "warning" }}
         {{- warnf $msg }}
         {{- if and $highlightBrokenLinks hugo.IsDevelopment }}

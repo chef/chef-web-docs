@@ -2,9 +2,26 @@
   Optional banner for pages documenting an older product version. Opt in via
   front matter with the full Markdown text to display:
     outdated_version_note = "This is documentation for an older version of X.  [the latest](url)."
+  The default level suggests upgrading to the latest version. Set
+  outdated_version_level = "deprecated" for deprecated documentation or
+  outdated_version_level = "end-of-life" for unsupported releases.
 */ -}}
 {{ with .Params.outdated_version_note }}
-<div class="admonition-outdated">
-  {{ . | $.RenderString }}
+{{ $endOfLife := eq $.Params.outdated_version_level "end-of-life" }}
+{{ $deprecated := eq $.Params.outdated_version_level "deprecated" }}
+{{ $level := default "default" $.Params.outdated_version_level }}
+{{ $title := cond $endOfLife "End-of-life documentation" (cond $deprecated "Deprecated documentation" "") }}
+<div class="admonition-outdated outdated-version outdated-version--{{ $level }}" role="note">
+  {{ if $title }}
+  <span class="material-symbols-outlined outdated-version-icon" aria-hidden="true">{{ cond $endOfLife "error" "warning" }}</span>
+  {{ end }}
+  <div class="outdated-version-body">
+    {{ if $title }}
+    <p class="outdated-version-title">{{ $title }}</p>
+    {{ end }}
+    <div class="outdated-version-text">
+    {{ . | $.RenderString (dict "display" "block") }}
+    </div>
+  </div>
 </div>
 {{ end }}
