@@ -467,11 +467,15 @@ remediation content covers.
 
 Some findings are accepted rather than fixed---for example, a firewall rule
 intentionally open for a documented reason.
+Because `gcp-02` uses one control ID while checking firewall rules in the project,
+waiving it skips the entire control, including SSH and RDP checks for other rules.
+Use this waiver only when the approved exception covers the project-wide assessment.
+For an exception limited to one firewall rule, don't use this project-wide waiver.
 Create `waivers.yml`:
 
 ```yaml
 gcp-02:
-  justification: "Approved exception CHG-5307; bastion host requires direct SSH access."
+  justification: "Approved project-wide exception CHG-5307; SSH and RDP checks for all ingress firewall rules are waived during the migration window."
   expiration_date: 2027-06-30
   run: false
 ```

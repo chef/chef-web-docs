@@ -456,11 +456,17 @@ remediation content covers.
 
 Some findings are accepted rather than fixed---for example, a network security
 group intentionally open for a documented reason.
+Because `azure-03` uses one control ID while checking every network security group,
+waiving it skips both SSH and RDP checks for every network security group in the
+selected subscription.
+Use this waiver only when the approved exception covers all of those resources.
+For an exception limited to one network security group, don't use this subscription-wide
+waiver.
 Create `waivers.yml`:
 
 ```yaml
 azure-03:
-  justification: "Approved exception CHG-5214; jump box requires direct SSH access during the migration window."
+  justification: "Approved subscription-wide exception CHG-5214; SSH and RDP checks are waived for all network security groups during the migration window."
   expiration_date: 2027-06-30
   run: false
 ```
