@@ -288,6 +288,30 @@ base_url = "/client/18/"
 link_text = "Chef InSpec 7.3"
 base_url = "/inspec/7.3/"
 
+[[versions.inspec]]
+link_text = "Chef InSpec 7.2"
+base_url = "/inspec/7.2/"
+
+[[versions.inspec]]
+link_text = "Chef InSpec 7.1"
+base_url = "/inspec/7.1/"
+
+[[versions.inspec]]
+link_text = "Chef InSpec 7.0"
+base_url = "/inspec/7.0/"
+
+[[versions.inspec]]
+link_text = "Chef InSpec 6.8"
+base_url = "/inspec/6.8/"
+
+[[versions.inspec]]
+link_text = "Chef InSpec 5.24"
+base_url = "/inspec/5.24/"
+
+[[versions.inspec]]
+link_text = "Chef InSpec 5.23"
+base_url = "/inspec/5.23/"
+
 ###
 # Workstation versions
 ###

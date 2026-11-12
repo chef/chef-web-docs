@@ -1,0 +1,81 @@
++++
+title = "cran resource"
+draft = false
+
+platform = "linux"
+
+[menu.inspec_7_0]
+    title = "cran"
+    identifier = "resources/core/cran.md cran resource"
+    parent = "resources/core"
++++
+
+Use the `cran` Chef InSpec audit resource to test R modules that are installed from CRAN package repository.
+
+## Availability
+
+### Install
+
+{{< readfile file="content/inspec/7.0/reusable/md/inspec_installation.md" >}}
+
+### Version
+
+This resource first became available in v1.43.5 of InSpec.
+
+## Syntax
+
+A `cran` resource block declares a package and (optionally) a package version:
+
+```ruby
+describe cran('package_name') do
+  it { should be_installed }
+end
+```
+
+where:
+
+- `'package_name'` is the name of the package, such as `'DBI'`
+- `be_installed` tests to see if the package described above is installed
+
+## Examples
+
+The following examples show how to use this Chef InSpec audit resource.
+
+### Test if DBI is installed on the system
+
+```ruby
+describe cran('DBI') do
+  it { should be_installed }
+end
+```
+
+### Test if DBI 0.5.1 is installed on the system
+
+```ruby
+describe cran('DBI') do
+  it { should be_installed }
+  its('version') { should eq '0.5.1' }
+end
+```
+
+## Property Examples
+
+### version
+
+The `version` property tests if the named package version is on the system:
+
+```ruby
+its('version') { should eq '1.2.3' }
+```
+
+## Matchers
+
+This Chef InSpec audit resource has the following matchers:
+
+### be_installed
+
+The `be_installed` matcher tests if the named package is installed on the system:
+
+```ruby
+it { should be_installed }
+```

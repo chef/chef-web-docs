@@ -6,6 +6,7 @@ draft = false
 [menu.inspec_7_3]
     title = "InSpec shell"
     identifier = "Chef InSpec shell"
+    weight = 60
 +++
 
 The Chef InSpec interactive shell is a [pry-based REPL](https://pry.github.io/) that can be used to

@@ -1,7 +1,8 @@
 +++
 title = "About Chef InSpec"
 draft = false
-linkTitle = "InSpec"
+linkTitle = "version 7.3"
+summary = "Chef InSpec 7.3"
 
 [cascade]
   breadcrumbs = true

@@ -5,6 +5,7 @@ draft = false
 [menu.inspec_7_3]
     title = "Troubleshooting"
     identifier = "Troubleshooting"
+    weight = 70
 +++
 
 <!-- vale Microsoft.HeadingColons = NO -->
