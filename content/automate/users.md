@@ -27,7 +27,7 @@ Permission for the `iam:users` action is required to interact with users other t
 
 Navigate to _Users_ in the **Settings** tab. Select the **Create User** button, which opens a dialog box for entering the user's _display name_, and _password_. A username automatically generates upon creation. If you would like to change the username, use the **Edit Username** button.
 
-![Add Local User](/images/automate/admin-tab-users-list.png)
+![Chef Automate Settings Users page showing Create User button with a users table listing Editor User, Example User, Local Administrator, and Viewer User with their display names and usernames.](/images/automate/admin-tab-users-list.png)
 
 Please attach the policy to the new users before their first login, and refer to it [Attached policies]({{< relref "policies.md#adding-members-to-policies" >}}).
 

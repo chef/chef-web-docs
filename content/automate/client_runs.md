@@ -21,7 +21,7 @@ Nodes appear in this view after a Chef Infra Client run completes.
 
 The Chef Infra Client Run Status chart displays a summary of node statuses: failed, successful, or missing, and the total node count. The chart changes as you select filters.
 
-![Client Runs Overview](/images/automate/client-runs.png)
+![Chef Automate Client Runs page showing a donut chart with Chef Infra Client run status (passed, failed, and missing nodes) with a status summary below and a node list table showing check-in status and platform details.](/images/automate/client-runs.png)
 
 ## Node list table
 

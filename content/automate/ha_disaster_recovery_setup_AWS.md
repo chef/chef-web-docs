@@ -27,7 +27,7 @@ In the above approach, there will be two identical clusters
 - Primary Cluster (or Production Cluster)
 - Disaster Recovery Cluster
 
-![Disaster Recovery Setup with 2 Identical Clusters](/images/automate/DR_AWS_Deployment.png)
+![Chef Automate High Availability disaster recovery setup on AWS with DNS routing, primary and secondary load balancers, primary and DR clusters containing Chef Automate and Chef Infra frontend clusters, PostgreSQL and OpenSearch backend clusters, backup S3 storage, and cron-triggered backup/restore operations at regular intervals.](/images/automate/DR_AWS_Deployment.png)
 
 The primary cluster will be active and regular backups will be performed using `chef-automate backup create`. At the same time, the disaster recovery cluster will be restoring the latest backup data using `chef-automate backup restore`.
 
