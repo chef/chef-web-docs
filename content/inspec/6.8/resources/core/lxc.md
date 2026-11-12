@@ -10,7 +10,7 @@ platform = "linux"
     parent = "resources/core"
 +++
 
-Use the `lxc` Chef InSpec audit resource to test the information about Linux containers. LXC is a command-line client for LXD that manages your LXD instances (containers and virtual machines). The tests are against the container's information obtained on `lxc info [container-name]`. `lxc` resource allows the testing if the container exists or is in *running* status.
+Use the `lxc` Chef InSpec audit resource to test the information about Linux containers. LXC is a command-line client for LXD that manages your LXD instances (containers and virtual machines). The tests are against the container's information obtained on `lxc info [container-name]`. `lxc` resource allows the testing if the container exists or is in _running_ status.
 
 ## Availability
 
@@ -20,7 +20,7 @@ This resource is distributed with Chef InSpec and is automatically available for
 
 ## Syntax
 
-An `lxc` Chef InSpec audit resource allows testing if the container exists or is in *running* status.
+An `lxc` Chef InSpec audit resource allows testing if the container exists or is in _running_ status.
 
 ```ruby
   describe lxc("linux-container-name") do

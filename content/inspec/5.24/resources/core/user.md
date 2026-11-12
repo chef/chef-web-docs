@@ -276,7 +276,7 @@ The `have_login_shell` matcher tests if the given path to shell is the default s
 
 ### have_uid
 
-The `have_uid` matcher tests if the given user identifier is *true*. This matcher is similar to `uid` property.
+The `have_uid` matcher tests if the given user identifier is _true_. This matcher is similar to `uid` property.
 
 ```ruby
     it { should have_uid 1234 }

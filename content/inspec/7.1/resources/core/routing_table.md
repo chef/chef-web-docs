@@ -51,7 +51,7 @@ The following examples show how to use this Chef InSpec audit resource.
 
 ### Ensures an entry with the destination as '10.123.137.0', gateway as '0.0.0.0', and interface as 'eth0' exists in the routing table
 
-`have_entry` returns *true* if the given combination of destination, gateway, and interface is a valid entry in the routing table.
+`have_entry` returns _true_ if the given combination of destination, gateway, and interface is a valid entry in the routing table.
 
 ```ruby
     describe routing_table do

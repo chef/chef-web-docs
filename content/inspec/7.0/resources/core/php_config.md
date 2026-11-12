@@ -10,7 +10,7 @@ platform = "os"
     parent = "resources/core"
 +++
 
-Use the `php_config` Chef InSpec audit resource to test the PHP configuration parameters from the default `php.ini` file or a custom *php* file.
+Use the `php_config` Chef InSpec audit resource to test the PHP configuration parameters from the default `php.ini` file or a custom _php_ file.
 
 ## Availability
 
@@ -20,7 +20,7 @@ The Chef InSpec distributes This resource.
 
 ## Syntax
 
-A `php_config` Chef InSpec audit resource allows to test PHP configuration parameters from the default `php.ini` or a custom *php* file. The custom configuration file path is provided in a hash format with `ini` as the key and path as the value.
+A `php_config` Chef InSpec audit resource allows to test PHP configuration parameters from the default `php.ini` or a custom _php_ file. The custom configuration file path is provided in a hash format with `ini` as the key and path as the value.
 
 ```ruby
     describe php_config("config_param") do

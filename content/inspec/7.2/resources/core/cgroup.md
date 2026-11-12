@@ -28,7 +28,7 @@ end
 
 where:
 
-- `cpuset.cpus` is a property of this resource and a parameter of the *cpuset* resource controller.
+- `cpuset.cpus` is a property of this resource and a parameter of the _cpuset_ resource controller.
 - `group-name` is the name of cgroup directory.
 
 ## Properties
@@ -78,7 +78,7 @@ end
 
 ### Example 3
 
-Use `match` to test for parameters that have multi-line values and can be passed as *regex*. The value considered is the output obtained on `cgget -n -r [subsystem.parameters] [cgroup-name]`.
+Use `match` to test for parameters that have multi-line values and can be passed as _regex_. The value considered is the output obtained on `cgget -n -r [subsystem.parameters] [cgroup-name]`.
 
 ```ruby
 describe cgroup("group-name") do
