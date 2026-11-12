@@ -552,6 +552,67 @@ identifier = "inspec"
 ####
 
 ####
+# Chef InSpec 7.3 Menu
+####
+
+[[inspec_7_3]]
+title = "Install"
+identifier = "install"
+weight = 10
+
+[[inspec_7_3]]
+title = "Profiles"
+identifier = "profiles"
+weight = 20
+
+[[inspec_7_3]]
+title = "Configure"
+identifier = "configure"
+weight = 30
+
+[[inspec_7_3]]
+title = "Manage"
+identifier = "manage"
+weight = 40
+
+[[inspec_7_3]]
+title = "Chef tools"
+identifier = "chef_tools"
+weight = 50
+
+[[inspec_7_3]]
+title = "Related projects"
+identifier = "related"
+weight = 60
+
+[[inspec_7_3]]
+title = "Reference"
+identifier = "reference"
+weight = 70
+
+[[inspec_7_3]]
+title = "Resources"
+identifier = "resources"
+weight = 80
+
+  [[inspec_7_3]]
+  title = "Core resources"
+  identifier = "resources/core"
+  parent = "resources"
+  weight = 30
+
+  [[inspec_7_3]]
+  title = "Custom resources"
+  identifier = "resources/custom"
+  parent = "resources"
+  url = "/inspec/7.3/profiles/custom_resources/"
+  weight = 40
+
+####
+# End Chef InSpec 7.3 Menu
+####
+
+####
 # Chef Infra Server Menu
 ####
 

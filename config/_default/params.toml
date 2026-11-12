@@ -281,6 +281,14 @@ link_text = "Chef Infra Client 18"
 base_url = "/client/18/"
 
 ###
+# InSpec versions
+###
+
+[[versions.inspec]]
+link_text = "Chef InSpec 7.3"
+base_url = "/inspec/7.3/"
+
+###
 # Workstation versions
 ###
 
