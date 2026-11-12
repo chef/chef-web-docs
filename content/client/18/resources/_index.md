@@ -90,7 +90,7 @@ See these guides for additional information about resources:
 <td>A reference guide that lists both the common and individual options available to every resource that's bundled into Chef.</td>
 </tr>
 <tr>
-<td><a href="/custom_resources/">Custom Resources</a></td>
+<td><a href="/client/18/resources/custom/">Custom Resources</a></td>
 <td>Shows you how to create your own Chef resources.</td>
 </tr>
 </tbody>

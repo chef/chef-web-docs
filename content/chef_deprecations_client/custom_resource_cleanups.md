@@ -113,7 +113,7 @@ notifications from the resource would not fire, and in general its use
 has always been buggy. The Chef Infra Client notification code checks
 `updated_by_last_action?` instead, so setting that's recommended as a
 substitute. See the
-[updated_by_last_action](/custom_resources_notes/#updated-by-last-action)
+[updated_by_last_action](/client/latest/resources/custom/custom_resources_notes/#updated_by_last_action)
 documentation for more information.
 
 {{< note >}}

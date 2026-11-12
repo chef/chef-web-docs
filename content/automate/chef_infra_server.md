@@ -173,7 +173,7 @@ Chef Infra Server lets you delete the existing roles one at a time. To delete a 
 
 ### Environments
 
-An [environment]({{< relref "environments" >}}) can be used to map an organization's real-life workflow to what can be configured and managed when using Chef Infra. This mapping is accomplished by setting attributes and pinning cookbooks at the environment level.
+An [environment](/client/latest/policy/environments/) can be used to map an organization's real-life workflow to what can be configured and managed when using Chef Infra. This mapping is accomplished by setting attributes and pinning cookbooks at the environment level.
 
 The Chef Infra Server UI lets you:
 
@@ -213,7 +213,7 @@ Select a specific environment to view that environment's cookbook constraints an
 
 ##### Attributes
 
-The attributes window shows all the default and overridden [attributes]({{< relref "attributes" >}}). Select **Expand All** or **Collapse All** to view or hide the attributes. Select **Edit** to change the _Default Attributes_ and _Override Attributes_.
+The attributes window shows all the default and overridden [attributes](/client/latest/cookbooks/attributes/). Select **Expand All** or **Collapse All** to view or hide the attributes. Select **Edit** to change the _Default Attributes_ and _Override Attributes_.
 
 {{< note >}} You can edit _Cookbook Constraints_ and the _Attributes_ only for environments with an existing _client_ for that _organization_.
 {{< /note >}}
@@ -228,7 +228,7 @@ The Chef Infra Server lets you delete environments one at a time. Select **Delet
 
 ### Data Bags
 
-[Data bags]({{< relref "data_bags" >}}) store global variables as JSON data. Data bags are indexed for searching and can be loaded by a cookbook or accessed during a search.
+[Data bags](/client/latest/policy/data_bags/) store global variables as JSON data. Data bags are indexed for searching and can be loaded by a cookbook or accessed during a search.
 
 Chef Infra Server UI lets you:
 
@@ -347,7 +347,7 @@ Chef Infra Server lets you delete the existing clients one at a time. To delete 
 
 ### Nodes
 
-A [node]({{< relref "/nodes" >}}) is a device that's managed by Chef Infra. During the Chef Infra Client run, the Infra Client retrieves [attributes](/nodes#attributes) that defines the expected state of the node and a [run-list](/nodes#run-lists) that defines how a node can be configured to that state from the Infra Server. The Infra Client then uses that information to update the node to its expected state.
+A [node](/client/latest/overview/nodes/) is a device that's managed by Chef Infra. During the Chef Infra Client run, the Infra Client retrieves [attributes](/client/latest/overview/nodes/#attributes) that defines the expected state of the node and a [run-list](/client/latest/overview/nodes/#run-lists) that defines how a node can be configured to that state from the Infra Server. The Infra Client then uses that information to update the node to its expected state.
 
 The Chef Infra Server integration lets you:
 
@@ -421,7 +421,7 @@ You can find the editing window directly by selecting the ellipses icon {{< font
 
 ##### Attributes
 
-The attributes window shows all the default and overridden [attributes]({{< relref "attributes" >}}). Select **Expand All** or **Collapse All** to view or hide the attributes. Select **Edit** to change or update the existing attributes.
+The attributes window shows all the default and overridden [attributes](/client/latest/cookbooks/attributes/). Select **Expand All** or **Collapse All** to view or hide the attributes. Select **Edit** to change or update the existing attributes.
 
 {{< figure src="/images/automate/node-attributes-list.png" alt="Node Attributes List">}}
 
@@ -451,7 +451,7 @@ Delete individual existing nodes by selecting the ellipses icon {{< fontawesome 
 
 ### Policyfiles
 
-[Policyfiles]({{< relref "/policyfile" >}}) are preferred way of managing roles, environments, and community cookbooks data with a single document that's uploaded to the Chef Infra Server. Policyfiles lets you test and promote codes with a simpler interface.
+[Policyfiles](/client/latest/policy/policyfile/) are preferred way of managing roles, environments, and community cookbooks data with a single document that's uploaded to the Chef Infra Server. Policyfiles lets you test and promote codes with a simpler interface.
 
 The Chef Infra Server integration lets you:
 

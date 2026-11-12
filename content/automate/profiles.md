@@ -120,7 +120,7 @@ Users in a Chef Automate instance with the same username in both saml and local 
 ## Interacting with Chef Automate Profiles
 
 You can interact with Chef Automate Profiles from the command line, as well as from the user interface.
-For more information, see the [InSpec CLI](/inspec/cli/) subcommand.
+For more information, see the [InSpec CLI](/inspec/latest/reference/cli/) subcommand.
 
 ### API Calls
 

@@ -3718,8 +3718,8 @@ Chef InSpec has been updated from 4.29.3 to 4.31.1.
 
 #### New Features
 
-- Commands can now be set to timeout using the [command resource](https://docs.chef.io/inspec/resources/command/) or the [`--command-timeout`](https://docs.chef.io/inspec/cli/) option in the CLI. Commands timeout by default after one hour.
-- Added the [`--docker-url`](https://docs.chef.io/inspec/cli/) CLI option, which can be used to specify the URI to connect to the Docker Engine.
+- Commands can now be set to timeout using the [command resource](https://docs.chef.io/inspec/resources/command/) or the [`--command-timeout`](/inspec/latest/reference/cli/) option in the CLI. Commands timeout by default after one hour.
+- Added the [`--docker-url`](/inspec/latest/reference/cli/) CLI option, which can be used to specify the URI to connect to the Docker Engine.
 - Added support for targeting Linux and Windows containers running on Docker for Windows.
 
 #### Bug Fixes
@@ -5317,10 +5317,10 @@ Updated Chef InSpec from 4.29.3 to 4.32.
 
 #### New Features
 
-- Commands can now be set to timeout using the [command resource](https://docs.chef.io/inspec/resources/command/) or the [`--command-timeout`](https://docs.chef.io/inspec/cli/) option in the CLI. Commands timeout by default after one hour.
-- Added the [`--docker-url`](https://docs.chef.io/inspec/cli/) CLI option, which can be used to specify the URI to connect to the Docker Engine.
+- Commands can now be set to timeout using the [command resource](https://docs.chef.io/inspec/resources/command/) or the [`--command-timeout`](/inspec/latest/reference/cli/) option in the CLI. Commands timeout by default after one hour.
+- Added the [`--docker-url`](/inspec/latest/reference/cli/) CLI option, which can be used to specify the URI to connect to the Docker Engine.
 - Added support for targeting Linux and Windows containers running on Docker for Windows.
-- Added ability to pass inputs to InSpec shell using input file and cli. For more information, see [How can I set Inputs?](https://docs.chef.io/inspec/inputs/#how-can-i-set-inputs) in the InSpec documentation.
+- Added ability to pass inputs to InSpec shell using input file and cli. For more information, see [How can I set Inputs?](/inspec/latest/profiles/inputs/#how-can-i-set-inputs) in the InSpec documentation.
 
 #### Bug Fixes
 
@@ -13549,7 +13549,7 @@ The following examples show:
 1. A definition
 2. The same definition rewritten as a custom resource
 3. The same definition, rewritten again to use a [common resource
-    property](/resource_common/)
+    property](/client/latest/resources/common_functionality/)
 
 #### As a Definition
 
@@ -13615,7 +13615,7 @@ end
 #### Common Properties
 
 Unlike definitions, custom resources are able to use [common resource
-properties](/resource_common/). For example, `only_if`:
+properties](/client/latest/resources/common_functionality/). For example, `only_if`:
 
 ```ruby
 host_porter 'www1' do
@@ -17268,7 +17268,7 @@ as managing all service states with BSD-based init systems.
 **System Requirements**
 
 Chef Infra Client has the [same system
-requirements](/chef_system_requirements/#chef-infra-client) on the
+requirements](/client/latest/install/system_requirements/#chef-infra-client-requirements) on the
 AIX platform as any other platform, with the following notes:
 
 - Expand the file system on the AIX platform using `chfs` or by

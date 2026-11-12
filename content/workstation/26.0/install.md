@@ -186,7 +186,7 @@ The following applications are included with Chef Workstation but can also be in
 
 To install a Workstation tool as a standalone application, follow these steps:
 
-1. Install a package using [`hab pkg install`](/habitat/habitat_cli/#hab-pkg-install):
+1. Install a package using [`hab pkg install`](/habitat/latest/reference/habitat_cli/#hab-pkg-install):
 
     ```sh
     hab pkg install <PACKAGE_IDENT> --binlink --force
