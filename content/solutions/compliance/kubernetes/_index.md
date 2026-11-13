@@ -53,7 +53,7 @@ Which one you start with depends on whether you need to meet a published benchma
 | --- | --- | --- |
 | Check your own cluster requirements, such as required network policies or workload settings | The [Kubernetes resource pack](/inspec/resource_packs/k8s/) with Chef InSpec | Available. You write the controls, and this page shows how. |
 | Correct configuration to the [CIS Kubernetes Benchmark](https://www.cisecurity.org/cis-benchmarks) | Chef remediation content, part of [Chef Premium Content](/premium_content/) | Available for CIS Kubernetes v1.5.0, v1.6.1, and v1.12.0. Remediation only. |
-| Run a prebuilt audit of the CIS Kubernetes Benchmark | Chef audit content | Not currently published. See [Containers / Kubernetes](/premium_content/containers_kubernetes/) for current coverage. |
+| Run a prebuilt audit of the CIS Kubernetes Benchmark | Chef audit content | CIS Kubernetes v1.12.0 is listed in the Chef Compliance Audit Profiles release notes. Confirm current availability and version coverage in the [coverage table](/premium_content/containers_kubernetes/) before you plan an assessment. |
 
 {{< note >}}
 
@@ -202,13 +202,15 @@ To create a profile that uses the Kubernetes resource pack, follow these steps:
                             pod_name: input('workload_pod'),
                             name: input('workload_container')) do
        it { should exist }
-       its('image') { should_not match(/:latest$/) }
+       its('image') { should match(%r{(?:\A|/)[^/:@]+:(?!latest\z)[^/:@]+\z|@sha256:[0-9a-f]{64}\z}) }
      end
    end
    ```
 
    The first two controls use documented properties of [`k8s_namespaces`](/inspec/resource_packs/k8s/k8s_namespaces/) and [`k8s_network_policies`](/inspec/resource_packs/k8s/k8s_network_policies/).
    The third uses the `image` property of [`k8s_container`](/inspec/resource_packs/k8s/k8s_container/).
+   Its pattern accepts an image with an explicit tag other than `latest`, or an image digest.
+   It rejects `nginx:latest`, and it also rejects an image with no tag, such as `nginx`, which Kubernetes treats as `latest`.
    The same resource also exposes `securityContext`, `resource`, and probe settings, which you can use to extend the check.
    Keep control IDs stable so you can compare results over time and apply waivers.
    Choose impact values that match your organization's risk model.
@@ -280,8 +282,8 @@ To check the profile and run it against the cluster, follow these steps:
       expected k8s_network_policies to exist
    ×  k8s-workload-pinned-image: Workload image uses a pinned tag (1 failed)
       ✔  payments/web is expected to exist
-      ×  payments/web image is expected not to match /:latest$/
-      expected "nginx:latest" not to match /:latest$/
+      ×  payments/web image is expected to match /(?:\A|\/)[^\/:@]+:(?!latest\z)[^\/:@]+\z|@sha256:[0-9a-f]{64}\z/
+      expected "nginx:latest" to match /(?:\A|\/)[^\/:@]+:(?!latest\z)[^\/:@]+\z|@sha256:[0-9a-f]{64}\z/
 
    Profile Summary: 2 successful controls, 2 control failures, 0 controls skipped
    Test Summary: 5 successful, 2 failures, 0 skipped

@@ -447,14 +447,16 @@ control 'mysql-no-anonymous-users' do
   title 'No anonymous accounts exist'
   desc 'An anonymous account lets anyone connect without a user name.'
 
-  describe sql.query("SELECT user FROM mysql.user WHERE user = '';") do
-    its('stdout.strip') { should eq '' }
+  describe sql.query("SELECT COUNT(*) FROM mysql.user WHERE user = '';") do
+    its('exit_status') { should eq 0 }
+    its('stdout.strip') { should eq '0' }
   end
 end
 ```
 
 Replace `<assessment-user>` with your assessment account.
 These two controls pass against a MySQL 8.4 test instance with default settings.
+The second control counts the anonymous accounts and checks that the query ran, so it fails if an anonymous account exists and also if the query can't run.
 
 Each resource page lists the connection options, including encrypted connections, so check it before you point a profile at a production database.
 For configuration files, [`postgres_conf`](/inspec/latest/resources/core/postgres_conf/) and [`mysql_conf`](/inspec/latest/resources/core/mysql_conf/) read `postgresql.conf` and `my.cnf`, and the MongoDB resource pack includes `mongodb_conf`.
