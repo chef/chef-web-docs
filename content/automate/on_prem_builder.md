@@ -245,7 +245,7 @@ Once you are signed in to the Chef Habitat Builder UI, select the **New Origin**
 ## Access Chef Habitat Builder On-prem With Chef Habitat Command-Line Tools
 
 Use the `https://{{< example_fqdn "automate" >}}/bldr/v1` URL when accessing your Chef Habitat Builder installation with the Chef Habitat command-line tools.
-The Chef Habitat command-line tools recognize the [`HAB_BLDR_URL` environment variable]({{< relref "/habitat/environment_variables" >}}), which you can set on the command line with:
+The Chef Habitat command-line tools recognize the [`HAB_BLDR_URL` environment variable](/habitat/latest/reference/environment_variables/), which you can set on the command line with:
 
 ```bash
 export HAB_BLDR_URL=https://{{< example_fqdn "automate" >}}/bldr/v1/
@@ -253,7 +253,7 @@ export HAB_BLDR_URL=https://{{< example_fqdn "automate" >}}/bldr/v1/
 
 ## Access the Chef Habitat Builder On-prem REST API
 
-To access the [REST API]({{< relref "/habitat/builder_api" >}}) for your on-prem installation of Chef Habitat Builder, you must specify your Builder authentication token as a bearer token in your request's
+To access the [REST API](/habitat/builder/saas/builder_api/) for your on-prem installation of Chef Habitat Builder, you must specify your Builder authentication token as a bearer token in your request's
 `Authorization` header.
 For example:
 
@@ -359,8 +359,8 @@ To finish up, return to your Chef Habitat Builder on-prem installation and view 
 
 ## Using Chef Habitat Builder
 
-Because you are using an on-prem installation of Chef Habitat Builder, you must specify the [Builder API endpoint of your installation]({{< ref "on_prem_builder.md#access-chef-habitat-builder-on-prem-with-habitat-command-line-tools" >}}) when following the [Habitat Builder documentation]({{< relref "/habitat/builder_overview" >}}).
-This documentation covers [using origin keys]({{< relref "/habitat/builder_origins#origin-keys" >}}), [using origin secrets]({{< relref "/habitat/builder_origins#origin-secrets" >}}), and [uploading and promoting packages]({{< relref "/habitat/builder_origin_packages" >}}).
+Because you are using an on-prem installation of Chef Habitat Builder, you must specify the [Builder API endpoint of your installation]({{< ref "on_prem_builder.md#access-chef-habitat-builder-on-prem-with-habitat-command-line-tools" >}}) when following the [Habitat Builder documentation](/habitat/builder/saas/).
+This documentation covers [using origin keys](/habitat/builder/saas/builder_origins/#origin-keys), [using origin secrets](/habitat/builder/saas/builder_origins/#origin-secrets), and [uploading and promoting packages](/habitat/builder/saas/builder_origin_packages/).
 
 ## Operating Chef Habitat Builder
 

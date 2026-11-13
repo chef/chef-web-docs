@@ -31,7 +31,7 @@ See the following guides to setup and configure knife:
 - **[Set up knife](/workstation/26.1/tools/knife/set_up/)**: Configure knife to interact with your organization's Chef Infra Server and infrastructure.
 - **[knife Common Options](/workstation/26.1/tools/knife/common_options/)**: Common options that are available for all knife subcommands.
 - **[config.rb](/workstation/26.1/tools/knife/config_rb/)**: Common options for the `config.rb` file
-- **[config.rb optional settings](tools/knife/config_rb_optional_settings/)**: Additional options for your `config.rb` file
+- **[config.rb optional settings](/workstation/26.1/tools/knife/config_rb_optional_settings/)**: Additional options for your `config.rb` file
 
 ## knife subcommands
 

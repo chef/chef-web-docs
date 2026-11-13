@@ -14,7 +14,7 @@ for managing remote systems.
 
 ## Prerequisites
 
-- [Chef Infra Client is installed](/install/)
+- [Chef Infra Client is installed](/client/18/install/)
 - Your `HAB_AUTH_TOKEN` is exported
 - a valid Progress Chef license key
 

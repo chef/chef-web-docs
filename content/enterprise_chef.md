@@ -70,5 +70,5 @@ Enterprise Chef guarantees support for issues arising from embedded dependencies
 - [Progress Chef 360 platform](/360/1.0/)
 - [Chef Automate Overview](/automate/)
 - [Chef SaaS Overview](/saas/)
-- [Chef Automate release Notes](/release_notes_automate/)
+- [Chef Automate release Notes](/release_notes/automate/)
 - [Chef Support](https://www.chef.io/support)

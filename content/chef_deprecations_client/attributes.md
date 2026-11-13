@@ -63,7 +63,7 @@ node.set_unless['chef']['server'] = 'https://my.chef.server'
 ### Remediation
 
 Choose the appropriate [precedence
-level](/attributes/#attribute-precedence), then replace `set` with
+level](/client/latest/cookbooks/attributes/#attribute-precedence), then replace `set` with
 that precedence level.
 
 ```ruby

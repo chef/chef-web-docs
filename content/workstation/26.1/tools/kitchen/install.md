@@ -18,7 +18,7 @@ Chef Test Kitchen Enterprise is supported on Linux x86-64 systems.
 ## Install
 
 If you haven't already installed Chef Habitat, follow these steps to install and set it up.
-For more information, see the [Chef Habitat install documentation](/habitat/install_habitat/).
+For more information, see the [Chef Habitat install documentation](/habitat/latest/install/).
 
 1. Download and install Chef Habitat:
 

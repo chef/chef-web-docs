@@ -19,5 +19,5 @@ if they're used.
 If you have custom Ohai V6 plugins installed using cookbook or bootstrap
 you will need to update these plugins to the Ohai V7 plugin format.
 
-See the [Ohai Custom Plugins page](/ohai_custom/) for additional
+See the [Ohai Custom Plugins page](/client/latest/extension_apis/custom_plugins/) for additional
 information on writing V7 plugins.
