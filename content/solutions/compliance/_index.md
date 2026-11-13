@@ -156,7 +156,7 @@ See the [Chef InSpec CLI reference](/inspec/latest/reference/cli/).
 1. Use the control failure data in [compliance reporting](/automate/reports/) to see which requirements fail most often.
 1. Check whether remediation content covers that benchmark on its [platform page](/premium_content/#find-your-platform).
 1. Where it's covered, [get the cookbook](/premium_content/#get-the-profiles-and-cookbooks), and then apply it as you would any cookbook, after you complete the checks in [Before you use remediation content](#before-you-use-remediation-content).
-1. Reassess with the same audit content, as shown in [Step 6 of SSH compliance](/solutions/compliance/ssh_baseline/#step-6-fix-the-finding-and-reassess).
+1. Reassess with the same audit content, as shown in [Fix the finding and reassess](/solutions/compliance/ssh_baseline/#fix-the-finding-and-reassess) in the SSH compliance page.
 1. Where you accept a failure, record it as a [waiver](/inspec/latest/configure/waivers/).
 
 ### Maintain compliance across a mixed fleet
@@ -178,7 +178,7 @@ See the [Chef InSpec CLI reference](/inspec/latest/reference/cli/).
 **The Chef Way:**
 
 1. Record accepted failures as waivers before the assessment, so each one has a justification and expiration date.
-   See [Step 7 of SSH compliance](/solutions/compliance/ssh_baseline/#step-7-waive-an-exception-youve-accepted) and the [waivers reference](/inspec/latest/configure/waivers/).
+   See [Waive an exception you've accepted](/solutions/compliance/ssh_baseline/#waive-an-exception-youve-accepted) in the SSH compliance page and the [waivers reference](/inspec/latest/configure/waivers/).
 1. Filter [compliance reporting](/automate/reports/) to the systems and benchmarks in scope, and select the reporting date.
 1. Export the filtered results as JSON or CSV.
 1. Check that each failing control in scope is either remediated or waived.

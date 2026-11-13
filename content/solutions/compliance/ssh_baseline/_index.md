@@ -59,7 +59,7 @@ You need:
 You don't need to install anything on the target.
 Chef InSpec connects over SSH and reads what it needs.
 
-## Step 1: Create a profile
+## Create a profile
 
 A profile is a directory with a known layout. Generate one:
 
@@ -101,7 +101,7 @@ instead of reporting misleading failures.
 For every field you can set here, see
 [the inspec.yml reference](/inspec/latest/profiles/inspec_yml/).
 
-## Step 2: Write the controls
+## Write the controls
 
 Delete the generated example and create `controls/ssh.rb`:
 
@@ -167,7 +167,7 @@ Each part of a control does a specific job:
   Keep identifiers stable once you have results that refer to them.
   Renumbering costs you the ability to compare this month's results against last
   month's, and it quietly redirects any waiver that names the old identifier ---
-  see [Step 7](#step-7-waive-an-exception-youve-accepted).
+  see [Waive an exception you've accepted](#waive-an-exception-youve-accepted).
 
 `impact`
 : How serious a failure is.
@@ -216,7 +216,7 @@ users, ports, and databases.
 See the [resource reference](/inspec/latest/resources/) for the full list,
 and [the controls reference](/inspec/latest/profiles/controls/) for control syntax.
 
-## Step 3: Validate the profile
+## Validate the profile
 
 Before running the profile anywhere, check that it's well-formed:
 
@@ -238,7 +238,7 @@ No errors, warnings, or offenses
 If you have a syntax error or a missing required field, this is where it surfaces ---
 not halfway through a run against production.
 
-## Step 4: Run the assessment
+## Run the assessment
 
 Against the machine you're on:
 
@@ -315,7 +315,7 @@ rather than the exit code of the parallel command.
 
 InSpec Parallel requires Chef InSpec 6 or later.
 
-## Step 5: Read the results
+## Read the results
 
 A run against a freshly launched Amazon Linux 2023 host, before any changes, looks like this:
 
@@ -417,7 +417,7 @@ failure as if it were a compliance failure, so branch on the specific code.
 A `101` can mean the profile's `supports` didn't match the target.
 Running this Linux profile against a macOS machine reports
 `Skipping profile: 'ssh-baseline' on unsupported platform` and exits `101` ---
-which is why Step 1 set `supports` rather than leaving the default.
+which is why the profile you created set `supports` rather than leaving the default.
 
 ### Keep the results
 
@@ -435,7 +435,7 @@ Only one reporter can write to standard output at a time.
 Other formats, including `html2`, `junit2`, and `yaml`, are in the
 [reporters reference](/inspec/latest/configure/reporters/).
 
-## Step 6: Fix the finding and reassess
+## Fix the finding and reassess
 
 The file-based failures above are all settings missing from `sshd_config`.
 Add them on the target:
@@ -558,7 +558,7 @@ With a `Match User deploy` block that sets `PasswordAuthentication yes`,
 and the command above reports `passwordauthentication yes`.
 To check a `Match` rule in a control, use the same command with the connection details you need to verify.
 
-## Step 7: Waive an exception you've accepted
+## Waive an exception you've accepted
 
 Some findings are accepted rather than fixed --- a documented exception,
 or a system that can't be changed yet.

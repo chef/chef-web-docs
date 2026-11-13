@@ -107,9 +107,9 @@ the controls themselves are content you own and maintain.
 For Chef's published AWS benchmark content, see
 [supported compliance standards and platforms](/solutions/compliance/#supported-compliance-standards-and-platforms).
 
-`inspec init profile --platform aws` declares the pack as a dependency; Step 2 fetches it.
+`inspec init profile --platform aws` declares the pack as a dependency; the next section fetches it.
 
-## Step 1: Create a profile
+## Create a profile
 
 Generate a profile pre-configured for AWS:
 
@@ -166,7 +166,7 @@ so set it to match the version you're running or every command reports
 For every field you can set here, see
 [the inspec.yml reference](/inspec/latest/profiles/inspec_yml/).
 
-## Step 2: Vendor the dependency
+## Vendor the dependency
 
 Declaring the pack isn't the same as having it.
 The pack is fetched over the network, so pull it down before you rely on the profile:
@@ -204,7 +204,7 @@ Skip this step and the next command fails rather than downloading the pack impli
 ×  aws-baseline/inspec.yml:0:0: Your profile needs to be vendored with `inspec vendor`.
 ```
 
-## Step 3: Set credentials
+## Set credentials
 
 Set AWS credentials as environment variables:
 
@@ -255,7 +255,7 @@ work --- the first run of the profile is what exercises them.
 
 {{< /note >}}
 
-## Step 4: Write the controls
+## Write the controls
 
 Delete the generated example and create `controls/aws.rb`:
 
@@ -349,7 +349,7 @@ assertion for each wildcard form you care about.
 The [`aws_iam_policy` reference](/inspec/resource_packs/aws/aws_iam_policy/) describes the
 matching rules in full.
 
-## Step 5: Validate the profile
+## Validate the profile
 
 Before running the profile against a real account, check that it's well-formed:
 
@@ -371,7 +371,7 @@ No errors, warnings, or offenses
 A Ruby syntax error, an undeclared input, or a dependency you haven't vendored surfaces
 here rather than part way through a run against production.
 
-## Step 6: Run the assessment
+## Run the assessment
 
 The target is the AWS account, not a machine, so there's nothing to connect to
 over SSH:
@@ -401,7 +401,7 @@ unable to sign request without credentials set
 
 Resolve that before reading anything into a result.
 
-## Step 7: Read the results
+## Read the results
 
 A run against an account with a public bucket and an open security group
 looks like this.
@@ -463,7 +463,7 @@ dated record.
 Only one reporter can write to standard output at a time.
 Other formats are in the [reporters reference](/inspec/latest/configure/reporters/).
 
-## Step 8: Fix a finding and reassess
+## Fix a finding and reassess
 
 The bucket finding above is a configuration change in AWS, not in the
 profile. Remove public access from the bucket with
@@ -498,7 +498,7 @@ remediation content covers.
 
 {{< /note >}}
 
-## Step 9: Waive an exception you've accepted
+## Waive an exception you've accepted
 
 Some findings are accepted rather than fixed --- for example, a security
 group intentionally open for a documented reason.
@@ -521,7 +521,7 @@ The control reports as skipped and carries your justification into the
 report, the same way a waiver works for any Chef InSpec profile.
 See [the waivers reference](/inspec/latest/configure/waivers/) for the full
 file format, and
-[Step 7 of SSH compliance](/solutions/compliance/ssh_baseline/#step-7-waive-an-exception-youve-accepted)
+[Waive an exception you've accepted](/solutions/compliance/ssh_baseline/#waive-an-exception-youve-accepted) in the SSH compliance page
 for another worked example.
 
 ## Extend the profile to more of the account
