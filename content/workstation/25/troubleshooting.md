@@ -16,7 +16,7 @@ Chef Workstation logs are stored in `~/.chef-workstation/logs`.
 
 ## Uninstall instructions
 
-Follow the steps provided under [Uninstalling]({{< ref "install.md#uninstalling" >}}).
+Follow the steps provided under [Uninstalling]({{< relref "install.md#uninstalling" >}}).
 
 ## Trusted certs
 

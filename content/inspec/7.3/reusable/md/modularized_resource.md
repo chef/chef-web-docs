@@ -1,1 +1,1 @@
-This resource is no longer released as part of InSpec core and is now released separately in an InSpec resource pack. For more information, see the [InSpec resource pack documentation](/inspec/7.3/resource_packs/).
+This resource is no longer released as part of InSpec core and is now released separately in an InSpec resource pack. For more information, see the [InSpec resource pack documentation](/inspec/7.3/resources/packs/).

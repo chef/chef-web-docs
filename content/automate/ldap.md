@@ -273,7 +273,7 @@ Once the user has provided a username and password at the sign in screen, Chef A
 
 #### Authorization with LDAP
 
-Chef Automate supports defining permissions for LDAP users and their groups. See [IAM members and policies]({{< ref "iam_v2_overview.md#members-and-policies" >}}).
+Chef Automate supports defining permissions for LDAP users and their groups. See [IAM members and policies]({{< relref "iam_v2_overview.md#members-and-policies" >}}).
 
 #### Connect
 

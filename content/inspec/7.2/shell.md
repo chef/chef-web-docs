@@ -11,7 +11,7 @@ draft = false
 
 The Chef InSpec interactive shell is a [pry-based REPL](https://pry.github.io/) that can be used to
 quickly run Chef InSpec controls and tests without having to write it to a
-file. Its functionality is similar to [chef-shell](/workstation/chef_shell/) as it provides a way
+file. Its functionality is similar to [chef-shell](/workstation/latest/tools/chef_shell/) as it provides a way
 to exercise the Chef InSpec Language, its resources, tests, and plugins without
 having to create a profile or write a test file.
 

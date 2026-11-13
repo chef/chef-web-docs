@@ -12,9 +12,9 @@ draft = false
     weight = 70
 +++
 
-Restore Chef Automate from a [filesystem backup]({{< ref "restore.md#restore-from-a-filesystem-backup" >}}), an [Amazon S3 bucket backup]({{< ref "restore.md#restore-from-an-aws-s3-backup" >}}), or a [Google Cloud Storage (GCS) bucket backup]({{< ref "restore.md#restore-from-a-google-cloud-storage-backup" >}}).
+Restore Chef Automate from a [filesystem backup]({{< relref "restore.md#restore-from-a-filesystem-backup" >}}), an [Amazon S3 bucket backup]({{< relref "restore.md#restore-from-an-aws-s3-backup" >}}), or a [Google Cloud Storage (GCS) bucket backup]({{< relref "restore.md#restore-from-a-google-cloud-storage-backup" >}}).
 
-Before restoring a Chef Automate installation, see how to [configure your backups]({{< ref "backup.md" >}}).
+Before restoring a Chef Automate installation, see how to [configure your backups]({{< relref "backup.md" >}}).
 
 ## Prerequisites
 
@@ -26,13 +26,13 @@ Before restoring a Chef Automate installation, see how to [configure your backup
 
     Replace `<LICENSE_ID>` with your Progress Chef commercial license ID.
 
-1. To restore from **filesystem backups**, Chef Automate requires access to a backup directory containing a timestamp-based directory and an `automate-elasticsearch-data` directory in the [configured location]({{< ref "backup.md#backup-to-a-filesystem" >}}).
+1. To restore from **filesystem backups**, Chef Automate requires access to a backup directory containing a timestamp-based directory and an `automate-elasticsearch-data` directory in the [configured location]({{< relref "backup.md#backup-to-a-filesystem" >}}).
 
      Ensure access for the backup type used:
 
-     1. To restore [a network-attached filesystem backup]({{< ref "backup.md#backup-to-a-filesystem" >}}), mount the shared backup directory to the same mount point configured at the time of the backup.
-     1. To restore [a backup directory that's not a network-attached filesystem]({{< ref "backup.md#backup-to-a-filesystem" >}}), copy the backup directory to the configured location at the time of the backup.
-     1. To restore a [single-file backup archive]({{< ref "backup.md#store-a-filesystem-backup-in-a-single-file-archive" >}}), copy your archive to the restore host and extract it to the configured backup directory.
+     1. To restore [a network-attached filesystem backup]({{< relref "backup.md#backup-to-a-filesystem" >}}), mount the shared backup directory to the same mount point configured at the time of the backup.
+     1. To restore [a backup directory that's not a network-attached filesystem]({{< relref "backup.md#backup-to-a-filesystem" >}}), copy the backup directory to the configured location at the time of the backup.
+     1. To restore a [single-file backup archive]({{< relref "backup.md#store-a-filesystem-backup-in-a-single-file-archive" >}}), copy your archive to the restore host and extract it to the configured backup directory.
 
      With this step complete, the `ls` command should show a timestamp-based directory and an `automate-elasticsearch-data` directory in the backup directory.
 
@@ -76,7 +76,7 @@ Before restoring a Chef Automate installation, see how to [configure your backup
 
 ## Restore From a Filesystem Backup
 
-Meet the required [prerequisites]({{< ref "restore.md#prerequisites" >}}) before beginning your restore process.
+Meet the required [prerequisites]({{< relref "restore.md#prerequisites" >}}) before beginning your restore process.
 
 ### Restore in an Internet-Connected Environment
 
@@ -149,9 +149,9 @@ sudo chef-automate backup fix-repo-permissions <path>
 
 ## Restore From an AWS S3 Backup
 
-Meet the required [prerequisites]({{< ref "restore.md#prerequisites" >}}) before beginning your restore process.
+Meet the required [prerequisites]({{< relref "restore.md#prerequisites" >}}) before beginning your restore process.
 
-See how to [back up to AWS S3]({{< ref "backup/#backup-to-aws-s3" >}}).
+See how to [back up to AWS S3]({{< relref "backup/#backup-to-aws-s3" >}}).
 
 To restore from an AWS S3 bucket backup on a new host, run:
 
@@ -179,9 +179,9 @@ Success: Restored backup 20180517223558
 
 ## Restore From a Google Cloud Storage Backup
 
-Meet the required [prerequisites]({{< ref "restore.md#prerequisites" >}}) before beginning your restore process.
+Meet the required [prerequisites]({{< relref "restore.md#prerequisites" >}}) before beginning your restore process.
 
-See how to [back up to GCS]({{< ref "backup/#backup-to-gcs" >}}).
+See how to [back up to GCS]({{< relref "backup/#backup-to-gcs" >}}).
 
 To restore from a Google Cloud Storage (GCS) bucket backup on a new host, run:
 
