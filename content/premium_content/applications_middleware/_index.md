@@ -44,7 +44,7 @@ For what each coverage term means, see
 
 Chef InSpec provides a [RabbitMQ resource pack](/inspec/resource_packs/rabbitmq/)
 for inspecting RabbitMQ configuration.
-Chef doesn't publish a prebuilt compliance benchmark for RabbitMQ ---
+Chef doesn't publish a prebuilt compliance benchmark for RabbitMQ---
 the resource pack is for authoring your own checks.
 
 For the other technologies in this category,

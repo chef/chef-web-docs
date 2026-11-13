@@ -63,9 +63,9 @@ that no prebuilt benchmark covers.
 
 Chef InSpec also provides two database resource packs:
 
-- [MongoDB resource pack](/inspec/resource_packs/mongodb/) ---
+- [MongoDB resource pack](/inspec/resource_packs/mongodb/)---
   inspect MongoDB configuration and query a running instance
-- [Elasticsearch resource pack](/inspec/resource_packs/elasticsearch/) ---
+- [Elasticsearch resource pack](/inspec/resource_packs/elasticsearch/)---
   inspect Elasticsearch configuration
 
 Chef doesn't publish a prebuilt compliance benchmark for Elasticsearch.

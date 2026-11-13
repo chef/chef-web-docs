@@ -12,7 +12,7 @@ gh_repo = "chef-web-docs"
 +++
 
 A publicly readable S3 bucket, an IAM policy with wildcard permissions, or a security group
-open to `0.0.0.0/0` can go unnoticed in an AWS account --- nothing
+open to `0.0.0.0/0` can go unnoticed in an AWS account---nothing
 about the AWS console tells you these violate your baseline, and checking by hand doesn't
 scale past a handful of accounts.
 
@@ -20,7 +20,7 @@ The steps below write a Chef InSpec profile with the **AWS resource pack**,
 run it against an AWS account, and read what comes back.
 It uses the same pattern as
 [The Chef Way of SSH compliance](/solutions/compliance/ssh_baseline/),
-applied to a cloud account instead of a host ---
+applied to a cloud account instead of a host---
 if you haven't written a Chef InSpec profile before, start there first.
 
 ## What you'll build
@@ -92,7 +92,7 @@ Grant read access before you interpret any result as a finding.
 ## Get the AWS resource pack
 
 Checking a host uses Chef InSpec's core resources.
-Checking AWS objects --- an S3 bucket, an IAM policy, a security group ---
+Checking AWS objects---an S3 bucket, an IAM policy, a security group---
 needs the [AWS resource pack](/inspec/resource_packs/aws/), a separately
 distributed set of resources for AWS.
 
@@ -251,7 +251,7 @@ so expect different numbers from a different Chef InSpec release.
 On Chef InSpec 7, `inspec detect -t aws://` returned these platform details with no
 credentials set at all.
 Treat it as confirmation that the AWS transport loaded, not as proof that your credentials
-work --- the first run of the profile is what exercises them.
+work---the first run of the profile is what exercises them.
 
 {{< /note >}}
 
@@ -322,11 +322,11 @@ Each part of a control does a specific job:
 : Plural resources from the AWS pack that list every matching object in the
   account, so a control checks the whole account instead of one bucket you
   have to name in advance.
-  Each singular resource --- `aws_s3_bucket`, `aws_iam_policy`,
-  `aws_security_group` --- then inspects one object by name or ID.
+  Each singular resource---`aws_s3_bucket`, `aws_iam_policy`,
+  `aws_security_group`---then inspects one object by name or ID.
 
 `should_not allow_in(port: 22, ipv4_range: '0.0.0.0/0')`
-: A matcher specific to the AWS pack's `aws_security_group` resource ---
+: A matcher specific to the AWS pack's `aws_security_group` resource---
   this kind of target-specific matcher is exactly what a resource pack
   provides that core resources can't.
 
@@ -387,7 +387,7 @@ inspec exec aws-baseline -t aws://us-east-2/auditing
 ```
 
 Against a different account or role, change credentials and repeat the same
-command --- the profile doesn't change for each account.
+command---the profile doesn't change for each account.
 
 If no usable credentials are available, the run stops with an AWS error instead of
 reporting failed controls.
@@ -444,7 +444,7 @@ bucket or security group that doesn't meet the requirement.
 | `101` | Normal exit, at least one test skipped but none failed |
 | `172` | Chef license not accepted |
 
-A missing-credentials failure returns `1`, not `100` ---
+A missing-credentials failure returns `1`, not `100`---
 the difference between a broken run and a real finding.
 The complete list of codes is in the
 [Chef InSpec CLI reference](/inspec/latest/reference/cli/).
@@ -490,8 +490,8 @@ and both are dated.
 {{< note >}}
 
 Correct AWS findings with AWS tooling.
-Nothing in the AWS resource pack changes a configuration --- it reads the AWS APIs and
-reports what it finds --- and Chef's remediation cookbooks cover operating system and
+Nothing in the AWS resource pack changes a configuration---it reads the AWS APIs and
+reports what it finds---and Chef's remediation cookbooks cover operating system and
 platform benchmarks, not cloud provider APIs.
 See [compliance remediation](/solutions/compliance/#compliance-remediation) for what
 remediation content covers.
@@ -500,7 +500,7 @@ remediation content covers.
 
 ## Waive an exception you've accepted
 
-Some findings are accepted rather than fixed --- for example, a security
+Some findings are accepted rather than fixed---for example, a security
 group intentionally open for a documented reason.
 Create `waivers.yml`:
 
@@ -608,7 +608,7 @@ A direct `inspec exec` run prints to your terminal and writes whatever file your
 `--reporter` names; a scan job stores results in Chef Automate, with history for each run.
 
 The [Compliance Phase](/client/latest/features/chef_compliance_phase/) is the third
-execution path, and it isn't the right one here ---
+execution path, and it isn't the right one here---
 it runs profiles during a Chef Infra Client run on a node, and an AWS account has no node
 to run on.
 Use scan jobs for cloud accounts, and the Compliance Phase for the servers inside them.
@@ -617,14 +617,14 @@ Use scan jobs for cloud accounts, and the Compliance Phase for the servers insid
 
 **Start from a published benchmark instead of your own controls.**
 Chef publishes prebuilt audit content built on the CIS AWS Foundations
-Benchmark --- see
+Benchmark---see
 [supported compliance standards and platforms](/solutions/compliance/#supported-compliance-standards-and-platforms)
 to check current coverage before writing your own controls for a
 requirement it may already cover.
 
 **Assess the instances as well as the account.**
 This profile checks the account's configuration.
-The EC2 instances inside it are assessed as hosts ---
+The EC2 instances inside it are assessed as hosts---
 see [The Chef Way of SSH compliance](/solutions/compliance/ssh_baseline/)
 and [Operating Systems](/premium_content/operating_systems/) for the benchmarks Chef
 publishes.

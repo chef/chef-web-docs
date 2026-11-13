@@ -11,9 +11,9 @@ description = "Build custom compliance checks with Chef InSpec when no published
 
 Chef publishes prebuilt audit and remediation content for a wide range of
 compliance benchmarks.
-When your requirement falls outside that content ---
+When your requirement falls outside that content---
 a technology with no published benchmark,
-or a control specific to your organization ---
+or a control specific to your organization---
 you can write your own checks with Chef InSpec.
 
 This page explains what you build those checks from,
@@ -44,8 +44,8 @@ and add custom checks for requirements the benchmark doesn't address.
 ## Resources and resource packs
 
 A **resource** is the building block of a Chef InSpec control.
-Each resource knows how to inspect one kind of thing ---
-a file, a package, a running service, a database query, or a cloud API object ---
+Each resource knows how to inspect one kind of thing---
+a file, a package, a running service, a database query, or a cloud API object---
 and exposes properties you write expectations against.
 
 Chef InSpec includes a large set of **core resources** covering operating systems,
@@ -173,7 +173,7 @@ inspec exec my-aws-profile -t aws://
 ```
 
 The target is the cloud account, not a machine, so there's nothing to connect to over SSH.
-Use an account with read-only permissions ---
+Use an account with read-only permissions---
 for AWS, the managed `ReadOnlyAccess` policy is a reasonable starting point.
 
 ### Packs distributed as an archive: Add a `depends` entry
@@ -225,7 +225,7 @@ depends:
 If you upgrade to Chef InSpec 7 and controls that used `docker_container`
 suddenly fail to resolve, a missing dependency entry like this is the reason.
 
-Check the pack's own documentation for the exact entry to use ---
+Check the pack's own documentation for the exact entry to use---
 these three patterns aren't interchangeable.
 
 ## Core resources

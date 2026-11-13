@@ -39,7 +39,7 @@ get a pass or fail result for each control,
 save the results as a JSON file you can keep as evidence,
 and record an approved exception so it doesn't show up as a failure.
 
-The same pattern works for any configuration requirement you can express as a check ---
+The same pattern works for any configuration requirement you can express as a check---
 SSH is the example, not the limit.
 
 ## Before you begin
@@ -166,7 +166,7 @@ Each part of a control does a specific job:
   and lets you select a whole group with a pattern, such as `--controls /^ssh-0/`.
   Keep identifiers stable once you have results that refer to them.
   Renumbering costs you the ability to compare this month's results against last
-  month's, and it quietly redirects any waiver that names the old identifier ---
+  month's, and it quietly redirects any waiver that names the old identifier---
   see [Waive an exception you've accepted](#waive-an-exception-youve-accepted).
 
 `impact`
@@ -183,7 +183,7 @@ Each part of a control does a specific job:
 : The [`sshd_config` resource](/inspec/latest/resources/core/sshd_config/).
   It parses `/etc/ssh/sshd_config` and exposes each setting as a property,
   so you don't have to write text parsing.
-  Pass a path --- `sshd_config('/etc/ssh/sshd_config.d/10-custom.conf')` ---
+  Pass a path---`sshd_config('/etc/ssh/sshd_config.d/10-custom.conf')`---
   to read a different file.
   It reads only the one file: it doesn't follow `Include` lines or evaluate `Match` blocks.
   That makes it the right check for what the file records,
@@ -235,7 +235,7 @@ No errors, warnings, or offenses
 ```
 
 `Controls : 4` confirms Chef InSpec found all four controls.
-If you have a syntax error or a missing required field, this is where it surfaces ---
+If you have a syntax error or a missing required field, this is where it surfaces---
 not halfway through a run against production.
 
 ## Run the assessment
@@ -295,7 +295,7 @@ Then run them together:
 inspec parallel exec ssh-baseline --option-file hosts.txt --jobs 2
 ```
 
-Each line holds only options --- the profile is named once on the command line.
+Each line holds only options---the profile is named once on the command line.
 Give every run its own `--reporter` destination,
 otherwise the concurrent runs overwrite each other's output.
 Use `--dry-run` to print the commands without running them.
@@ -416,7 +416,7 @@ failure as if it were a compliance failure, so branch on the specific code.
 
 A `101` can mean the profile's `supports` didn't match the target.
 Running this Linux profile against a macOS machine reports
-`Skipping profile: 'ssh-baseline' on unsupported platform` and exits `101` ---
+`Skipping profile: 'ssh-baseline' on unsupported platform` and exits `101`---
 which is why the profile you created set `supports` rather than leaving the default.
 
 ### Keep the results
@@ -494,7 +494,7 @@ Keep `--sudo` on the re-run.
 Without it, the three `sshd_config` controls report as skipped with
 `Can't read file: /etc/ssh/sshd_config`,
 and `ssh-04-effective-auth` fails with an empty `got:` because `sshd -T` can't run.
-That's not a finding about the host --- nothing was assessed.
+That's not a finding about the host---nothing was assessed.
 
 {{< /warning >}}
 
@@ -560,7 +560,7 @@ To check a `Match` rule in a control, use the same command with the connection d
 
 ## Waive an exception you've accepted
 
-Some findings are accepted rather than fixed --- a documented exception,
+Some findings are accepted rather than fixed---a documented exception,
 or a system that can't be changed yet.
 Recording that in a waiver file keeps it visible as an exception,
 instead of hiding it or leaving it in the report as an unexplained failure.
@@ -611,7 +611,7 @@ while still marking it as waived.
 
 Waivers are one of the strongest reasons to give controls meaningful IDs.
 A waiver file matches on the control ID and nothing else,
-so if controls are renumbered later --- what was `ssh-02` becomes `ssh-03` ---
+so if controls are renumbered later---what was `ssh-02` becomes `ssh-03`---
 a waiver still keyed on the old number silently waives whichever control now
 holds that ID. The exception is applied to the wrong requirement,
 and the report still looks orderly.
@@ -627,7 +627,7 @@ so the file keeps meaning something as the profile changes.
 
 `expiration_date` must be in the future.
 Once it passes, the waiver stops applying and the control reports as a failure again.
-That's the intended behavior --- an expired exception is one that needs re-approval ---
+That's the intended behavior---an expired exception is one that needs re-approval---
 but it does mean a waiver can start failing a pipeline on a date nobody is watching for.
 
 {{< /note >}}
@@ -651,7 +651,7 @@ across your fleet, with history by node, profile, and control.
 
 **Start from a published benchmark instead of your own controls.**
 Writing your own controls makes sense for organization-specific requirements.
-For CIS Benchmarks and DISA STIGs, Chef publishes prebuilt audit content ---
+For CIS Benchmarks and DISA STIGs, Chef publishes prebuilt audit content---
 see [supported compliance standards and platforms](/solutions/compliance/#supported-compliance-standards-and-platforms)
 to find your platform.
 

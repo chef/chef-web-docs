@@ -38,12 +38,12 @@ For what each coverage term means, see
 For requirements that the benchmarks above don't cover,
 Chef InSpec provides resource packs you can use to write your own controls:
 
-- [Kubernetes resource pack](/inspec/resource_packs/k8s/) ---
+- [Kubernetes resource pack](/inspec/resource_packs/k8s/)---
   inspect pods, containers, deployments, DaemonSets, CronJobs, namespaces, nodes,
   ConfigMaps, network policies, and RBAC cluster roles
-- [Docker resource pack](/inspec/resource_packs/docker/) ---
+- [Docker resource pack](/inspec/resource_packs/docker/)---
   inspect containers, images, services, and plugins
-- [Podman resource pack](/inspec/resource_packs/podman/) ---
+- [Podman resource pack](/inspec/resource_packs/podman/)---
   inspect containers, images, networks, volumes, and pods
 
 Chef doesn't publish a prebuilt compliance benchmark for Podman.

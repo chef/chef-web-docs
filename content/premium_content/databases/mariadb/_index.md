@@ -55,7 +55,7 @@ For example, the CIS Level 1 profile for the database engine on MariaDB 10.6 at
 benchmark v1.0.0 is `cis-mariadb10.6-level1-mariadbrdbms-v1.0.0`.
 
 For a database engine running on a Linux host, the scope in the profile name is
-`mariadbrdbmsonlinux`, not `mariadbonlinux` or `onlinux` --- it's the full
+`mariadbrdbmsonlinux`, not `mariadbonlinux` or `onlinux`---it's the full
 `mariadbrdbms` scope with `onlinux` appended, as a single word.
 
 Both levels ship at this single benchmark version, so there's no level or scope

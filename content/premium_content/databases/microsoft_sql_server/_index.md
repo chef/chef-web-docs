@@ -60,14 +60,14 @@ For example, the CIS Level 1 Database Engine profile for SQL Server 2022 at benc
 v1.3.0 is `cis-microsoftsql2022-level1-databaseengine-v1.3.0`.
 
 The platform name in the profile is `microsoftsql<year>`, not `microsoftsqlserver` or
-`mssql` --- "server" and any abbreviation are both dropped.
+`mssql`---"server" and any abbreviation are both dropped.
 
 Level 2 availability is version-dependent, and for SQL Server 2016 and 2017 it's also
 scope-dependent. This is the main trap when constructing a profile name for this
 platform:
 
 - **SQL Server 2016**: Level 1 ships for both scopes at v1.3.0 and v1.4.0. Level 2
-  exists only at v1.4.0, and only for the `databaseengine` scope --- there's no Level 2
+  exists only at v1.4.0, and only for the `databaseengine` scope---there's no Level 2
   `awsrds` profile for 2016 at any version.
 - **SQL Server 2017**: the same shape applies. Level 1 ships for both scopes at v1.2.0
   and v1.3.0. Level 2 exists only at v1.3.0, and only for `databaseengine`.

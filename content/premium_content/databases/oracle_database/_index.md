@@ -41,7 +41,7 @@ See [how to read the coverage tables](/premium_content/#how-to-read-the-coverage
 
 There's no single profile name pattern across Oracle Database versions.
 The profile set changes shape at every major version, so profiles are listed for each version instead of derived from a pattern.
-There's no Level 2 at any version for this platform --- only Level 1 profiles are published, unlike most other database pages in this section.
+There's no Level 2 at any version for this platform---only Level 1 profiles are published, unlike most other database pages in this section.
 
 **CIS Oracle Database 12c (benchmark v3.0.0)** ships 6 profiles, one for each combination of target and auditing mode:
 
@@ -117,7 +117,7 @@ Check the version table above before you plan a hardening rollout, because remed
 - **Oracle Database 12c** is partial. Remediation covers v2.1.0 and v3.0.0, but audit covers only v3.0.0, so v2.1.0 remediation has no matching audit profile.
 - **Oracle Database 18c** is fully aligned at v1.0.0.
 - **Oracle Database 19c** is partial: remediation covers only v1.0.0 even though audit also covers v2.0.0, so hardening against v2.0.0 isn't available.
-- **Oracle Database 23ai** is audit only --- you can assess instances and act on the findings, but the corresponding remediation content isn't available.
+- **Oracle Database 23ai** is audit only---you can assess instances and act on the findings, but the corresponding remediation content isn't available.
 
 ## Access this content
 
