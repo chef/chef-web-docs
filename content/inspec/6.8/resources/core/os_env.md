@@ -50,9 +50,9 @@ describe os_env('PATH') do
 end
 ```
 
-### Test the Path environment variable by specifying the target Environment (Windows)
+### Test the Path environment variable by specifying the target environment (Windows)
 
-On windows a User's environment variable may obscure the local machine (system) environment variable. The correct environment variable may be tested as follows:
+On Windows a user's environment variable may obscure the local machine (system) environment variable. The correct environment variable may be tested as follows:
 
 ```ruby
 describe os_env('PATH', 'target') do

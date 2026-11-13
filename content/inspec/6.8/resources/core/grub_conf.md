@@ -45,7 +45,7 @@ where:
 
 - `'service_name'` is a service listed in the `grub.conf` file
 - `'path'` is the path to the `grub.conf` file
-- `'kernel'` specifies the default kernel (by using `'default'`) or a specific kernel; `'default'` defines the position in the list of kernels at which the default kernel is defined, that is `should eq '0'` for the first kernel listed or `'path', 'default'` to use the default kernel as specified in the `grub.conf` file
+- `'kernel'` specifies the default kernel (by using `'default'`) or a specific kernel; `'default'` defines the position in the list of kernels at which the default kernel is defined, for example, `should eq '0'` for the first kernel listed or `'path', 'default'` to use the default kernel as specified in the `grub.conf` file
 - `'value'` is the value that's expected
 
 ## Examples

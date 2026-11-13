@@ -61,7 +61,7 @@ describe os.family do
 end
 ```
 
-### Test for Microsoft Windows
+### Test for Windows
 
 ```ruby
 describe os.family do
