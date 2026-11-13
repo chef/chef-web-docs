@@ -52,7 +52,7 @@ Follow the [Backup]({{< relref "backup.md" >}}) documentation to make a copy of 
 
 ### Upgrade Chef Automate
 
-- For **airgapped** Chef Automate systems, follow the instructions in the [Airgap Installation Guide]({{< ref "airgapped_installation.md" >}}) to upgrade to the latest version.
+- For **airgapped** Chef Automate systems, follow the instructions in the [Airgap Installation Guide]({{< relref "airgapped_installation.md" >}}) to upgrade to the latest version.
 
 - Upgrade standard Chef Automate installations to the latest version that supports External PostgreSQL v13 with the command:
 
@@ -270,6 +270,6 @@ sudo su - postgres
    chef-automate backup restore </path/to/backups/>BACKUP_ID
    ```
 
-      For other restoration types please refer this [Restore]({{< ref "restore.md" >}})
+      For other restoration types please refer this [Restore]({{< relref "restore.md" >}})
 
 1. Don't upgrade PostgreSQL until you have an uncorrupted Chef Automate and an uncorrupted PostgreSQL database.

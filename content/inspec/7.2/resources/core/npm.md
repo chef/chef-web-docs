@@ -1,0 +1,91 @@
++++
+title = "npm resource"
+draft = false
+
+platform = "os"
+
+[menu.inspec_7_2]
+    title = "npm"
+    identifier = "resources/core/npm.md npm resource"
+    parent = "resources/core"
++++
+
+Use the `npm` Chef InSpec audit resource to test if a global NPM package is installed. NPM is the the package manager for [Node.js packages](https://docs.npmjs.com), such as Bower and StatsD.
+
+## Availability
+
+### Install
+
+{{< readfile file="content/inspec/7.2/reusable/md/inspec_installation.md" >}}
+
+### Version
+
+This resource first became available in v1.0.0 of InSpec.
+
+## Syntax
+
+A `npm` resource block declares a package and (optionally) a package version:
+
+```ruby
+describe npm('npm_package_name') do
+  it { should be_installed }
+end
+```
+
+where:
+
+- `('npm_package_name')` must specify an NPM package, such as `'bower'` or `'statsd'`
+- `be_installed` is a valid matcher for this resource
+
+You can also specify additional options:
+
+```ruby
+describe npm('npm_package_name', path: '/path/to/project') do
+  it { should be_installed }
+end
+```
+
+The `path` specifies a folder, that contains a `node_modules` subdirectory. It emulates running `npm` inside the specified folder. This way you can inspect local NPM installations as well as global ones.
+
+## Examples
+
+The following examples show how to use this Chef InSpec audit resource.
+
+### Verify that bower is installed, with a specific version
+
+```ruby
+describe npm('bower') do
+  it { should be_installed }
+  its('version') { should eq '1.4.1' }
+end
+```
+
+### Verify that statsd isn't installed
+
+```ruby
+describe npm('statsd') do
+  it { should_not be_installed }
+end
+```
+
+## Matchers
+
+{{< readfile file="content/inspec/7.2/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
+
+### be_installed
+
+The `be_installed` matcher tests if the named Gem package and package version (if specified) is installed:
+
+```ruby
+it { should be_installed }
+```
+
+### version
+
+The `version` matcher tests if the named package version is on the system:
+
+```ruby
+its('version') { should eq '1.2.3' }
+```

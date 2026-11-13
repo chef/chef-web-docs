@@ -12,12 +12,12 @@ draft = false
     weight = 10
 +++
 
-Backups are crucial for protecting your data from catastrophic loss and preparing a recovery procedure. The `chef-automate backup create` command creates a single backup that contains data for all products deployed with Chef Automate, including [Chef Infra Server]({{< ref "infra_server.md" >}}) and [Chef Habitat Builder on-prem]({{< ref "on_prem_builder.md" >}}).
+Backups are crucial for protecting your data from catastrophic loss and preparing a recovery procedure. The `chef-automate backup create` command creates a single backup that contains data for all products deployed with Chef Automate, including [Chef Infra Server]({{< relref "infra_server.md" >}}) and [Chef Habitat Builder on-prem]({{< relref "on_prem_builder.md" >}}).
 By default, Chef Automate stores backups to the filesystem in the directory `/var/opt/chef-automate/backups`.
 The backup command stores the configuration data in the timestamp-based directory and the reporting data in the `automate-elasticsearch-data` directory. Both these directories are in the configured backup directory.
 You can also configure Chef Automate to store backups in AWS S3 buckets or in Google Cloud Storage (GCS) buckets.
 
-After configuring your backups, see how to [restore]({{< ref "restore.md" >}}) a Chef Automate installation.
+After configuring your backups, see how to [restore]({{< relref "restore.md" >}}) a Chef Automate installation.
 
 ## Backup Space Requirements
 
@@ -59,7 +59,7 @@ To configure your Chef Automate installation's backup directory to another locat
 
 Offline backups can be stored in single-file archives, which must include the configuration and reporting data in the standard backup.
 
-The [configured backup directory]({{< ref "backup.md#backup-to-a-filesystem" >}}) contains the following directories
+The [configured backup directory]({{< relref "backup.md#backup-to-a-filesystem" >}}) contains the following directories
 
 1. The timestamp-based directory has the configuration data.
 2. `automate-elasticsearch-data` directory having reporting data stored.
@@ -108,7 +108,7 @@ To store backups in an existing AWS S3 bucket, use the supported S3-related sett
   -----END CERTIFICATE-----
 ```
 
-See how to [restore from AWS S3]({{< ref "restore/#restore-from-an-aws-s3-backup" >}}).
+See how to [restore from AWS S3]({{< relref "restore/#restore-from-an-aws-s3-backup" >}}).
 
 ### AWS S3 Permissions
 
@@ -181,7 +181,7 @@ json = '''
 '''
 ```
 
-See how to [restore from GCS]({{< ref "restore/#restore-from-a-google-cloud-storage-backup" >}}).
+See how to [restore from GCS]({{< relref "restore/#restore-from-a-google-cloud-storage-backup" >}}).
 
 ## Backup Commands
 

@@ -10,7 +10,7 @@ importers:
     dependencies:
       foundation-sites:
         specifier: ~6.8.1
-        version: 6.8.1(jquery@3.7.1)(motion-ui@2.0.8(jquery@3.7.1))(what-input@5.2.12)
+        version: 6.8.1(jquery@3.7.1)(motion-ui@2.0.8(jquery@3.7.1))(what-input@6.0.1)
       jquery:
         specifier: ^3.7.1
         version: 3.7.1
@@ -19,7 +19,7 @@ importers:
         version: 2.0.8(jquery@3.7.1)
       redoc:
         specifier: ^2.4.0
-        version: 2.5.4(core-js@3.50.0)(mobx@6.16.1)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(styled-components@6.5.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0))
+        version: 2.5.4(core-js@3.51.0)(mobx@6.16.1)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(styled-components@6.6.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1))
 
 packages:
 
@@ -124,12 +124,15 @@ packages:
   '@redocly/config@0.22.0':
     resolution: {integrity: sha512-gAy93Ddo01Z3bHuVdPWfCwzgfaYgMdaZPcfL7JZ7hWJoK9V0lXDbigTWkhiPFAaLWzbOJ+kbUQG1+XwIm0KRGQ==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/@redocly/config/-/config-0.22.0.tgz}
 
-  '@redocly/openapi-core@1.34.20':
-    resolution: {integrity: sha512-ypeBZ/6BKXR9+7/TtbKhbl4UgD7raHhPS12oknlKno2A8+lnFkxIwiE/Aklu6L2cd/ioH+fCWuMxi9/p3EyAPw==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/@redocly/openapi-core/-/openapi-core-1.34.20.tgz}
+  '@redocly/openapi-core@1.34.22':
+    resolution: {integrity: sha512-dEyx4uHh6Pc6ZkdU9Xe8rA4h12Odq6QKU/fqseBn07xwVwskhHiF3KHhqmw5BR+jAiFTvKTmwCafFql/k1pSzA==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/@redocly/openapi-core/-/openapi-core-1.34.22.tgz}
     engines: {node: '>=18.17.0', npm: '>=9.5.0'}
 
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/@types/json-schema/-/json-schema-7.0.15.tgz}
+
+  '@types/stylis@4.2.7':
+    resolution: {integrity: sha512-VgDNokpBoKF+wrdvhAAfS55OMQpL6QRglwTwNC3kIgBrzZxA4WsFj+2eLfEA/uMUDzBcEhYmjSbwQakn/i3ajA==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/@types/stylis/-/stylis-4.2.7.tgz}
 
   '@types/trusted-types@2.0.7':
     resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/@types/trusted-types/-/trusted-types-2.0.7.tgz}
@@ -189,8 +192,8 @@ packages:
   colorjs.io@0.7.1:
     resolution: {integrity: sha512-LY7OHnJZxHwT5UlzNa9bbhHHDbzB6yE5+3MIPwJEQKRvSCt/T4G7epsj+9j2BExUIIfXFIJGsIXUKdfrK9Q5tA==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/colorjs.io/-/colorjs.io-0.7.1.tgz}
 
-  core-js@3.50.0:
-    resolution: {integrity: sha512-BRWgOLKkFeCgRudR6zrs8p9XJZcE14grzKMMssoYrk6krtuEZ7MTKPIY5RzOnqsEKIR9kst7wNzphttraT+Yqw==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/core-js/-/core-js-3.50.0.tgz}
+  core-js@3.51.0:
+    resolution: {integrity: sha512-7bDKx/5jm5MxzsXxc93g6Z2+4ZsuT/MddrfRmTDJNAkWsYWHU8EVNEsBiIEWnMAMCHMmRfUEjkuo3jeNBOIHRw==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/core-js/-/core-js-3.51.0.tgz}
 
   csstype@3.2.3:
     resolution: {integrity: sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/csstype/-/csstype-3.2.3.tgz}
@@ -211,8 +214,8 @@ packages:
     resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/detect-libc/-/detect-libc-2.1.2.tgz}
     engines: {node: '>=8'}
 
-  dompurify@3.4.16:
-    resolution: {integrity: sha512-sqo+pNp3qRhCIpbgRi1y8Tgk27Bo2Ry7w0dC1NBeNTdZChWjz9Xb/KOoZbRP/R6pQZ80Qw8YhXw13hWWBbMRnQ==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/dompurify/-/dompurify-3.4.16.tgz}
+  dompurify@3.4.17:
+    resolution: {integrity: sha512-B/pSlYVHQ58kqISD/yDjuJ1yfzI34m1gF4lAod2bwSRhiN4K5Cl3H8Af7hqB2PmTL911tdEudnnXn5FnhRoz0w==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/dompurify/-/dompurify-3.4.17.tgz}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/emoji-regex/-/emoji-regex-8.0.0.tgz}
@@ -399,8 +402,8 @@ packages:
     resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/object-assign/-/object-assign-4.1.1.tgz}
     engines: {node: '>=0.10.0'}
 
-  openapi-sampler@1.7.6:
-    resolution: {integrity: sha512-MvWOm3vdgX7CZ6CNfu2wOFMGhC/pq03BxYTL/DKCkyPWfR6XIwUJnOV32mQGgCcUm1tY/y1jj7F2yqx1DieIWw==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/openapi-sampler/-/openapi-sampler-1.7.6.tgz}
+  openapi-sampler@1.7.9:
+    resolution: {integrity: sha512-r3D6O5m3O6mhMpQkr+kddfVX6A5jos6/B9BRWiYk4dR0/jgoEbLtD853fDL3CDIyrlXRIL+sI7ap36VSeHSEPQ==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/openapi-sampler/-/openapi-sampler-1.7.9.tgz}
 
   path-browserify@1.0.1:
     resolution: {integrity: sha512-b7uo2UCUOYZcnF/3ID0lulOJi/bafxa1xPe7ZPsammBSpjSWQkjNxlt635YGS2MiR9GjvuXCtz2emr3jbsz98g==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/path-browserify/-/path-browserify-1.0.1.tgz}
@@ -431,10 +434,10 @@ packages:
   prop-types@15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/prop-types/-/prop-types-15.8.1.tgz}
 
-  react-dom@19.3.0:
-    resolution: {integrity: sha512-JDk8dgif51OjFoDE70+OT9ICyYr+69HlmihNwp1+Nsfbna3t5sIiCa9ZJktDmQ4/1b/rn26hIAR2uYXDMr5r0Q==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/react-dom/-/react-dom-19.3.0.tgz}
+  react-dom@19.3.1:
+    resolution: {integrity: sha512-Y0bARz53lhEC1NMCASs0/j+faB/zqt3R8hpvg1e8+61ZVJ4UL0UdC4cBbXfZMcIuhrfgeILTLe+ZeBCavQPtKQ==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/react-dom/-/react-dom-19.3.1.tgz}
     peerDependencies:
-      react: ^19.3.0
+      react: ^19.3.1
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/react-is/-/react-is-16.13.1.tgz}
@@ -444,8 +447,8 @@ packages:
     peerDependencies:
       react: ^18.0.0 || ^19.0.0
 
-  react@19.3.0:
-    resolution: {integrity: sha512-E8LUcbtBWt20bbl2YoHfx4ZDBdxVTfOKtCZn9cDSJ4l6/nuoApcpIBcj47t2wZoVX8g2ZHuMHbiShgCR1T5Sog==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/react/-/react-19.3.0.tgz}
+  react@19.3.1:
+    resolution: {integrity: sha512-QNhWdt7nrgVWWQG58QuGsAR3jv3Hbe4mb4vz7w2csnHavciZJgda1CPNaldF6eVxv90ud3jUXpKlHL69gO38yw==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/react/-/react-19.3.1.tgz}
     engines: {node: '>=0.10.0'}
 
   readdirp@5.1.1:
@@ -476,117 +479,117 @@ packages:
   rxjs@7.8.2:
     resolution: {integrity: sha512-dhKf903U/PQZY6boNNtAGdWbG85WAbjT/1xYoZIC7FAY0yWapOBQVsVrDl58W86//e1VpMNBtRV4MaXfdMySFA==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/rxjs/-/rxjs-7.8.2.tgz}
 
-  sass-embedded-all-unknown@1.105.1:
-    resolution: {integrity: sha512-kN0G03K9KoUbSf72t7ZvxAudcB4Wbf0M0XFaPc1gaF94jEPUb0xLCQUIPIDPH2Kx8vpYZ/GzzgF7USsB6rUYfw==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-all-unknown/-/sass-embedded-all-unknown-1.105.1.tgz}
+  sass-embedded-all-unknown@1.107.0:
+    resolution: {integrity: sha512-Vll3OTXluDCFj1p/QZSFZrRR9sUQ+PkZXn8d9MJEz4Zatozkdxy0AhUVvCjODbonl2/r5iSt4gpoZm3OW9e1tA==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-all-unknown/-/sass-embedded-all-unknown-1.107.0.tgz}
     cpu: ['!arm', '!arm64', '!riscv64', '!x64']
 
-  sass-embedded-android-arm64@1.105.1:
-    resolution: {integrity: sha512-lWnIFmW3gL4ZDfZgjeUfxazmA0zlwSS/ADe2q9XmP0W2UfM9kuvrXdWvp6KjZOCv0CrTYVQMrIUj8Of1L2M24Q==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-android-arm64/-/sass-embedded-android-arm64-1.105.1.tgz}
+  sass-embedded-android-arm64@1.107.0:
+    resolution: {integrity: sha512-khlf9rBiUvWILhOutf5EdApHCf9NtZN0xrPopbrW1vSSlCf84aUJ2L+d/EdgqrBMDpjETc1brjOyOl9j2qP0Rg==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-android-arm64/-/sass-embedded-android-arm64-1.107.0.tgz}
     engines: {node: '>=14.0.0'}
     cpu: [arm64]
     os: [android]
 
-  sass-embedded-android-arm@1.105.1:
-    resolution: {integrity: sha512-WYltUXkUP9jDaUq4uUiLgZXyYO5c72sa/TvpO4E2MMRdS+WJWgrPUDyvO+DpMR9gKWIm0QQ5cCEYnPDgovjVJw==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-android-arm/-/sass-embedded-android-arm-1.105.1.tgz}
+  sass-embedded-android-arm@1.107.0:
+    resolution: {integrity: sha512-BIy4QhqOC9ltqdQLKbyJXS4QRpoEQFrQxAizYKkDmgAlb4CsUkcPeW2g7T8lEdRD5CC4TNEF1GWisdc2wCN5Vw==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-android-arm/-/sass-embedded-android-arm-1.107.0.tgz}
     engines: {node: '>=14.0.0'}
     cpu: [arm]
     os: [android]
 
-  sass-embedded-android-riscv64@1.105.1:
-    resolution: {integrity: sha512-lWity0qhyQyPgkHUfZz+4IeD0r6mcAqG9KzOwVSjUrcSR9xAfWFKYAtHTA05R28ymyXf2Sf2+XfNV7YkxLgkUQ==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-android-riscv64/-/sass-embedded-android-riscv64-1.105.1.tgz}
+  sass-embedded-android-riscv64@1.107.0:
+    resolution: {integrity: sha512-jaoqQKgEOTQghqApzNZRqMIYhRnGVFndPK7QZFLkS4PBBBNj2EMrpY/jCh4k2ATpk30S1k7EjMbvHW7lJqCl+Q==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-android-riscv64/-/sass-embedded-android-riscv64-1.107.0.tgz}
     engines: {node: '>=14.0.0'}
     cpu: [riscv64]
     os: [android]
 
-  sass-embedded-android-x64@1.105.1:
-    resolution: {integrity: sha512-FRGZuIZ9eS3qutYPFqz8u12Ti9ccyWKWb7F7rKRI1BkIEmLZV1rC862dUGnTV2d9Tk9qbSAXL71t8alUR+fzIA==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-android-x64/-/sass-embedded-android-x64-1.105.1.tgz}
+  sass-embedded-android-x64@1.107.0:
+    resolution: {integrity: sha512-0ETPwPcwtX1/eEsBkTat4jSBtintmQmc+N/An8HHfqymRQsdPfxwnk7WpTHMdVXSFkv6DfzkjFlRmZtXTfSsFA==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-android-x64/-/sass-embedded-android-x64-1.107.0.tgz}
     engines: {node: '>=14.0.0'}
     cpu: [x64]
     os: [android]
 
-  sass-embedded-darwin-arm64@1.105.1:
-    resolution: {integrity: sha512-75qVpHj0qwJKWOo+ZA5NPVFnOGfRrUiBdnLR0dPqsvzp3acvb5gBevptqTtJjVWubpYRIjcRdDDjmeWoXnfacQ==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-darwin-arm64/-/sass-embedded-darwin-arm64-1.105.1.tgz}
+  sass-embedded-darwin-arm64@1.107.0:
+    resolution: {integrity: sha512-apPK51fNRBOdGxpHNp+6X+YTTt6km3bZO3IB/Z987ASaDtdxjQ2U1LP9smbea6GzJpujuxWUuvw/l4vzLN9Y6g==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-darwin-arm64/-/sass-embedded-darwin-arm64-1.107.0.tgz}
     engines: {node: '>=14.0.0'}
     cpu: [arm64]
     os: [darwin]
 
-  sass-embedded-darwin-x64@1.105.1:
-    resolution: {integrity: sha512-5TV8xyZrOO89ky752favkTuyz9O2hOB2aMoiUpMTk0rFr+UVANcXdIrEvJ9WKoqTHaszim7un3jADumunpW7zQ==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-darwin-x64/-/sass-embedded-darwin-x64-1.105.1.tgz}
+  sass-embedded-darwin-x64@1.107.0:
+    resolution: {integrity: sha512-d1U7XHQuQb2iuSf+5NxjMMSt7I9yCYGQw3K4NZd32yf5tuhFMTeyiu3nf0+HvLavD2jAkOiykJtbm+zYnwd5HQ==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-darwin-x64/-/sass-embedded-darwin-x64-1.107.0.tgz}
     engines: {node: '>=14.0.0'}
     cpu: [x64]
     os: [darwin]
 
-  sass-embedded-linux-arm64@1.105.1:
-    resolution: {integrity: sha512-arALlVQkXjxN1RPaQR41vbDYXrTIdXwPtEzBWRkOg7FdIN/dSohY8ik96M6M3MSc+niV/UIC7BO47PcspzJGpw==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-linux-arm64/-/sass-embedded-linux-arm64-1.105.1.tgz}
+  sass-embedded-linux-arm64@1.107.0:
+    resolution: {integrity: sha512-HcA2wCqXtcRuGIzS0Qfgk0QQCP9B+57fPWstKozMl/Penl1pXVBA98Ilo64A8wPd2WHYSsY0u5WOAQa3h06IcA==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-linux-arm64/-/sass-embedded-linux-arm64-1.107.0.tgz}
     engines: {node: '>=14.0.0'}
     cpu: [arm64]
     os: [linux]
 
-  sass-embedded-linux-arm@1.105.1:
-    resolution: {integrity: sha512-Ng9GWIF6heTrwc9r/FFY9oUSoaylV2zcS296Qo2re3tJfLMWR37O2JUMyzPT+vtkRs8k3JOE6jTFVlXYnz4EAA==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-linux-arm/-/sass-embedded-linux-arm-1.105.1.tgz}
+  sass-embedded-linux-arm@1.107.0:
+    resolution: {integrity: sha512-JOk4lk1iYKujZOKXLG1EFWvBxtqN/2mDe6vYw2WJAK1KG1B5Z1l9zRPBXRv+H+YXbObGb8OH6S0AgIvZbBrI0w==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-linux-arm/-/sass-embedded-linux-arm-1.107.0.tgz}
     engines: {node: '>=14.0.0'}
     cpu: [arm]
     os: [linux]
 
-  sass-embedded-linux-musl-arm64@1.105.1:
-    resolution: {integrity: sha512-KizYVR3d70U67iLgKdF+HCKBdQYUxYiv0YWCS3zl6GwNGIbGXlkOtnjxus41CKTA4oOK0KsSus9P5zwhOBjiYA==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-linux-musl-arm64/-/sass-embedded-linux-musl-arm64-1.105.1.tgz}
+  sass-embedded-linux-musl-arm64@1.107.0:
+    resolution: {integrity: sha512-waH4HH7o0/7uM3M6vp/SisW63JnR2VLU3B7N2sB/+P9C9GLd4ei6X8AzOzemMXDbRSpkM78vFtF9hOOT4HIHjQ==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-linux-musl-arm64/-/sass-embedded-linux-musl-arm64-1.107.0.tgz}
     engines: {node: '>=14.0.0'}
     cpu: [arm64]
     os: [linux]
 
-  sass-embedded-linux-musl-arm@1.105.1:
-    resolution: {integrity: sha512-7u932XawHxGZvuYV4pOqcCvQi05yMONDmNDxVNh8Q7KmpytQP7mnyxBOYWStiw/p665AVL6BYGe7WY/vzCcWGw==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-linux-musl-arm/-/sass-embedded-linux-musl-arm-1.105.1.tgz}
+  sass-embedded-linux-musl-arm@1.107.0:
+    resolution: {integrity: sha512-n1ujZwaQzjQ8etH9dm0uOxNkdnIu/bpY0j0TkrWmdCpsqNCob/noyWbuTofZ3whfz2IijHb9d1YAb/CEqDKoig==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-linux-musl-arm/-/sass-embedded-linux-musl-arm-1.107.0.tgz}
     engines: {node: '>=14.0.0'}
     cpu: [arm]
     os: [linux]
 
-  sass-embedded-linux-musl-riscv64@1.105.1:
-    resolution: {integrity: sha512-gs84BgRBVNMX5fHRU3wxc3HuJjl0dUmZFpcVIaDDEVhnp5oXFLQp+gEu0xBBAurTzCHVpPU6GlGK6B1gRKmbhg==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-linux-musl-riscv64/-/sass-embedded-linux-musl-riscv64-1.105.1.tgz}
+  sass-embedded-linux-musl-riscv64@1.107.0:
+    resolution: {integrity: sha512-ONS/JfxvUn9KyLIsWH+Q6R0axjhRgtk80jfpOwFltqZBF20lXCEdf9PyoDaE0z+4RebK9D5jHzn8FhciIG9PSA==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-linux-musl-riscv64/-/sass-embedded-linux-musl-riscv64-1.107.0.tgz}
     engines: {node: '>=14.0.0'}
     cpu: [riscv64]
     os: [linux]
 
-  sass-embedded-linux-musl-x64@1.105.1:
-    resolution: {integrity: sha512-jFSRc1BSoCo0bw6GXmBWQMzdj0FBl2FTKSRqQSye3vmlI9O466DwBK4OQL9HRp6MGdY9IQFFMZLPZo5LJWIPsQ==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-linux-musl-x64/-/sass-embedded-linux-musl-x64-1.105.1.tgz}
+  sass-embedded-linux-musl-x64@1.107.0:
+    resolution: {integrity: sha512-iTqvfT21RdnSSF/Fqnlln1gMDF97BfJhabxmz7f3Th0X1YSPX3+XwPLUH1r8RiSIIXcckYGY5adKs/P8iJVgWA==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-linux-musl-x64/-/sass-embedded-linux-musl-x64-1.107.0.tgz}
     engines: {node: '>=14.0.0'}
     cpu: [x64]
     os: [linux]
 
-  sass-embedded-linux-riscv64@1.105.1:
-    resolution: {integrity: sha512-tkZs6OvA+omJgSf8EaPQavq6M7bJNLm88eKt3yzYnBy0dVGMao4+lyRb/EnsgIq2R/B2lhxUHhSVNWAcY5bgXw==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-linux-riscv64/-/sass-embedded-linux-riscv64-1.105.1.tgz}
+  sass-embedded-linux-riscv64@1.107.0:
+    resolution: {integrity: sha512-aP3z4aXO7kUR7vwcERe7j6EHVEKJPkC1t8JAJJo9wIintYmUnXKP67Tm5Llfp6r5XhJpUFMjCwrBixtfA43+/Q==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-linux-riscv64/-/sass-embedded-linux-riscv64-1.107.0.tgz}
     engines: {node: '>=14.0.0'}
     cpu: [riscv64]
     os: [linux]
 
-  sass-embedded-linux-x64@1.105.1:
-    resolution: {integrity: sha512-YF4OyymSlm26OcdPovIZL1blzjTxf5yN/rzgTmoGqAjEk57+yIuYo+7jBCgSQZFov8Rn4uHhZT+u0cpzxNFMRg==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-linux-x64/-/sass-embedded-linux-x64-1.105.1.tgz}
+  sass-embedded-linux-x64@1.107.0:
+    resolution: {integrity: sha512-fhJs/cx2cV8e7wn8ybnjJrWxsLb9YVALksGE1shOJ5fCE1c4H2K6LkcieDK8gKNdqzcihFW8amIoGuMh1fY2yQ==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-linux-x64/-/sass-embedded-linux-x64-1.107.0.tgz}
     engines: {node: '>=14.0.0'}
     cpu: [x64]
     os: [linux]
 
-  sass-embedded-unknown-all@1.105.1:
-    resolution: {integrity: sha512-bd2zDf+MdoPdRDH1awSQ+IL67vHvCbiKsWJ95XchPg3I67zQlXjTSf9KqRiE6twjNT1fRV82JUKoc0Hf6CUmfQ==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-unknown-all/-/sass-embedded-unknown-all-1.105.1.tgz}
+  sass-embedded-unknown-all@1.107.0:
+    resolution: {integrity: sha512-vjRXQZn8Dek8GqwTZ52vh+YTZLtoH9X8zGcBRKyt5a9yNStoE5N3KXIaeD/2z5jK/Vo9XrsqKJalujugDQnShA==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-unknown-all/-/sass-embedded-unknown-all-1.107.0.tgz}
     os: ['!android', '!darwin', '!linux', '!win32']
 
-  sass-embedded-win32-arm64@1.105.1:
-    resolution: {integrity: sha512-Zpp/RWYL8ZzpLzBrs+/UVMEHOHx7sw4nlq2R52dKQ0qv/0V8oKemAy41PZyLir3c+S2C+YViYyfnFfQLRTAzuA==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-win32-arm64/-/sass-embedded-win32-arm64-1.105.1.tgz}
+  sass-embedded-win32-arm64@1.107.0:
+    resolution: {integrity: sha512-4c8GS5WJcgfDl8ELCqLBw+sNzCMEHhLQ3S8mGp7rxnCcddLmOJwrgPQBPdoOhkWomURzPn8S1BWvUbfgiyAM9A==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-win32-arm64/-/sass-embedded-win32-arm64-1.107.0.tgz}
     engines: {node: '>=14.0.0'}
     cpu: [arm64]
     os: [win32]
 
-  sass-embedded-win32-x64@1.105.1:
-    resolution: {integrity: sha512-DM8EkMDzEsxnYoy11nyA5I4jr8lOV1TVQ/drNYvFQA9undiMzZD+7SkRA0OnCrgD1uCT+uRArCHSpNiiYVks+g==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-win32-x64/-/sass-embedded-win32-x64-1.105.1.tgz}
+  sass-embedded-win32-x64@1.107.0:
+    resolution: {integrity: sha512-RJGBevID/0o1bVboKlzvCZkliIJ8I4ETE4jVKiAF673MrAS3ywl69hKeaWE6Ssl1yPlkrepCTqLSJ8tFngY5Zg==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded-win32-x64/-/sass-embedded-win32-x64-1.107.0.tgz}
     engines: {node: '>=14.0.0'}
     cpu: [x64]
     os: [win32]
 
-  sass-embedded@1.105.1:
-    resolution: {integrity: sha512-9tKxXG4rq+oGTZUlQehWZwHxBTL80EiB8IWk9AEqz8uOqg910t88JIYbN92eMCxokQ5vrYSQxg15bh0o/3hh3w==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded/-/sass-embedded-1.105.1.tgz}
+  sass-embedded@1.107.0:
+    resolution: {integrity: sha512-0SWHSg0yNgjZ1Yxw5QYd7fHla1ilqaXEtDyc0VgW+xMjuxsjRmLR7s9+OOCXYqjjNhjT20Oxl6I1+9ylqnw5XQ==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass-embedded/-/sass-embedded-1.107.0.tgz}
     engines: {node: '>=20.19.0'}
     hasBin: true
 
-  sass@1.105.1:
-    resolution: {integrity: sha512-1CnAWPyrrnVQzXGB/DUep1vYCKCm1CIBr+YxjjiW6wk9qtzemnGP4qicH56T2F9S4Hjtv/Ne3jDz8JqfdDU4oA==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass/-/sass-1.105.1.tgz}
+  sass@1.107.0:
+    resolution: {integrity: sha512-+whPilvVNoAD57xvdIPLQT0gXo4RD1lHYw+Uw8zYHlojaeaMDxK14tc0JmEsz/XMns48h3lpypisMP+3E8eHQA==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sass/-/sass-1.107.0.tgz}
     engines: {node: '>=20.19.0'}
     hasBin: true
 
@@ -630,11 +633,11 @@ packages:
     resolution: {integrity: sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/strip-ansi/-/strip-ansi-6.0.1.tgz}
     engines: {node: '>=8'}
 
-  strnum@2.4.2:
-    resolution: {integrity: sha512-rDG3Ah4TV0k1hWvLSzkZtMmLN9+eS+h3knq4MP6A42Y3Yh5qGNnOUs1jJkoSr8FG5dsL28c7KgkIBzSEykqtuw==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/strnum/-/strnum-2.4.2.tgz}
+  strnum@2.5.1:
+    resolution: {integrity: sha512-UM4nTLWzQiDBseVxUGxN0wJzIk0UU89Qi7pKXz9qISo+lhviJikTuikBsK/oFRlpvYHvSdz0TVoLyQ+sEpYwxA==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/strnum/-/strnum-2.5.1.tgz}
 
-  styled-components@6.5.3:
-    resolution: {integrity: sha512-vAX79sfpmUerP9fsTTxoTrBDE0RuO4ahjInyWYoohNgqrdg63Ms4q6FJ/o2Fyity82NU3cujOT8Ewl9TThBdwg==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/styled-components/-/styled-components-6.5.3.tgz}
+  styled-components@6.6.0:
+    resolution: {integrity: sha512-drKKsqvDBxVRn4ySU67iQ5nQBuo/1xyYeBfdhDde112PkqrS3+95KPnpDs5hFRcmrW+q6+gbyywYYYR14oWFtw==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/styled-components/-/styled-components-6.6.0.tgz}
     engines: {node: '>= 16'}
     peerDependencies:
       css-to-react-native: '>= 3.2.0'
@@ -660,8 +663,8 @@ packages:
     resolution: {integrity: sha512-upi/0ZGkYgEcLeGieoz8gT74oWHA0E7JivX7aN9mAf+Tc7BQoRBvnIGHoPDw+f9TXTW4s6kGYCZJtauP6OYp7g==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/swagger2openapi/-/swagger2openapi-7.0.8.tgz}
     hasBin: true
 
-  sync-child-process@1.0.2:
-    resolution: {integrity: sha512-8lD+t2KrrScJ/7KXCSyfhT3/hRq78rC0wBFqNJXv3mZyn6hW2ypM05JmlSvtqRbeq6jqA94oHbxAr2vYsJ8vDA==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sync-child-process/-/sync-child-process-1.0.2.tgz}
+  sync-child-process@1.1.1:
+    resolution: {integrity: sha512-54zMOnH5qgjdKW8SGpCx3daSP+v+TtTfOxgPdhUE3P0hytMMpknZfP67S4JeRcx5IQRWJERz6890yO4dkTywww==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/sync-child-process/-/sync-child-process-1.1.1.tgz}
     engines: {node: '>=16.0.0'}
 
   sync-message-port@1.2.0:
@@ -674,8 +677,8 @@ packages:
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/tslib/-/tslib-2.8.1.tgz}
 
-  uri-js-replace@1.0.1:
-    resolution: {integrity: sha512-W+C9NWNLFOoBI2QWDp4UT9pv65r2w5Cx+3sTYFvtMdDBxkKt1syCqsUdSFAChbEe1uK5TfS04wt/nGwmaeIQ0g==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/uri-js-replace/-/uri-js-replace-1.0.1.tgz}
+  uri-js-replace@1.0.2:
+    resolution: {integrity: sha512-VeBBt/nMxedczht3KDL2yBBMJqIxpCQLMZp3UJ1otcWwUHdQW4IiyHpJivExzSK+FdxTowRfGL4FmwDqH9+S8Q==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/uri-js-replace/-/uri-js-replace-1.0.2.tgz}
 
   url-template@2.0.8:
     resolution: {integrity: sha512-XdVKMF4SJ0nP/O7XIPB0JwAEuT9lDIYnNsK8yGVe43y0AWoKeJNdv3ZNWh7ksJ6KqQFjOO6ox/VEitLnaVNufw==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/url-template/-/url-template-2.0.8.tgz}
@@ -691,8 +694,9 @@ packages:
   webidl-conversions@3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/webidl-conversions/-/webidl-conversions-3.0.1.tgz}
 
-  what-input@5.2.12:
-    resolution: {integrity: sha512-3yrSa7nGSXGJS6wZeSkO6VNm95pB1mZ9i3wFzC1hhY7mn4/afue/MvXz04OXNdBC8bfo4AB4RRd3Dem9jXM58Q==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/what-input/-/what-input-5.2.12.tgz}
+  what-input@6.0.1:
+    resolution: {integrity: sha512-9AE9mIMxsTSQB5EFMFz136Egi/FTL1yIMvS/wnNHWTfHBJMEH3E8lS/9q2Ppmg2VogUSd8bwwqJ337aa7wLMhw==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/what-input/-/what-input-6.0.1.tgz}
+    engines: {node: '>=20'}
 
   whatwg-url@5.0.0:
     resolution: {integrity: sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw==, tarball: https://pkg.harness.io/pkg/ct8onj8YTdaXtKaFsYCRLg/org-chef-npm/npm/whatwg-url/-/whatwg-url-5.0.0.tgz}
@@ -802,11 +806,11 @@ snapshots:
       fast-deep-equal: 3.1.3
       json-schema-traverse: 1.0.0
       require-from-string: 2.0.2
-      uri-js-replace: 1.0.1
+      uri-js-replace: 1.0.2
 
   '@redocly/config@0.22.0': {}
 
-  '@redocly/openapi-core@1.34.20':
+  '@redocly/openapi-core@1.34.22':
     dependencies:
       '@redocly/ajv': 8.11.2
       '@redocly/config': 0.22.0
@@ -821,6 +825,8 @@ snapshots:
       - supports-color
 
   '@types/json-schema@7.0.15': {}
+
+  '@types/stylis@4.2.7': {}
 
   '@types/trusted-types@2.0.7':
     optional: true
@@ -870,7 +876,7 @@ snapshots:
 
   colorjs.io@0.7.1: {}
 
-  core-js@3.50.0: {}
+  core-js@3.51.0: {}
 
   csstype@3.2.3: {}
 
@@ -883,7 +889,7 @@ snapshots:
   detect-libc@2.1.2:
     optional: true
 
-  dompurify@3.4.16:
+  dompurify@3.4.17:
     optionalDependencies:
       '@types/trusted-types': 2.0.7
 
@@ -910,16 +916,16 @@ snapshots:
       fast-xml-builder: 1.3.1
       is-unsafe: 2.0.2
       path-expression-matcher: 1.6.2
-      strnum: 2.4.2
+      strnum: 2.5.1
       xml-naming: 0.3.0
 
   foreach@2.0.6: {}
 
-  foundation-sites@6.8.1(jquery@3.7.1)(motion-ui@2.0.8(jquery@3.7.1))(what-input@5.2.12):
+  foundation-sites@6.8.1(jquery@3.7.1)(motion-ui@2.0.8(jquery@3.7.1))(what-input@6.0.1):
     dependencies:
       jquery: 3.7.1
       motion-ui: 2.0.8(jquery@3.7.1)
-      what-input: 5.2.12
+      what-input: 6.0.1
 
   get-caller-file@2.0.5: {}
 
@@ -978,28 +984,28 @@ snapshots:
     dependencies:
       brace-expansion: 2.1.7
 
-  mobx-react-lite@4.1.1(mobx@6.16.1)(react-dom@19.3.0(react@19.3.0))(react@19.3.0):
+  mobx-react-lite@4.1.1(mobx@6.16.1)(react-dom@19.3.1(react@19.3.1))(react@19.3.1):
     dependencies:
       mobx: 6.16.1
-      react: 19.3.0
-      use-sync-external-store: 1.7.0(react@19.3.0)
+      react: 19.3.1
+      use-sync-external-store: 1.7.0(react@19.3.1)
     optionalDependencies:
-      react-dom: 19.3.0(react@19.3.0)
+      react-dom: 19.3.1(react@19.3.1)
 
-  mobx-react@9.2.0(mobx@6.16.1)(react-dom@19.3.0(react@19.3.0))(react@19.3.0):
+  mobx-react@9.2.0(mobx@6.16.1)(react-dom@19.3.1(react@19.3.1))(react@19.3.1):
     dependencies:
       mobx: 6.16.1
-      mobx-react-lite: 4.1.1(mobx@6.16.1)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
-      react: 19.3.0
+      mobx-react-lite: 4.1.1(mobx@6.16.1)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      react: 19.3.1
     optionalDependencies:
-      react-dom: 19.3.0(react@19.3.0)
+      react-dom: 19.3.1(react@19.3.1)
 
   mobx@6.16.1: {}
 
   motion-ui@2.0.8(jquery@3.7.1):
     dependencies:
       jquery: 3.7.1
-      sass-embedded: 1.105.1
+      sass-embedded: 1.107.0
 
   ms@2.1.3: {}
 
@@ -1051,7 +1057,7 @@ snapshots:
 
   object-assign@4.1.1: {}
 
-  openapi-sampler@1.7.6:
+  openapi-sampler@1.7.9:
     dependencies:
       '@types/json-schema': 7.0.15
       fast-xml-parser: 5.11.2
@@ -1080,50 +1086,50 @@ snapshots:
       object-assign: 4.1.1
       react-is: 16.13.1
 
-  react-dom@19.3.0(react@19.3.0):
+  react-dom@19.3.1(react@19.3.1):
     dependencies:
-      react: 19.3.0
+      react: 19.3.1
       scheduler: 0.28.0
 
   react-is@16.13.1: {}
 
-  react-tabs@6.1.1(react@19.3.0):
+  react-tabs@6.1.1(react@19.3.1):
     dependencies:
       clsx: 2.1.1
       prop-types: 15.8.1
-      react: 19.3.0
+      react: 19.3.1
 
-  react@19.3.0: {}
+  react@19.3.1: {}
 
   readdirp@5.1.1:
     optional: true
 
-  redoc@2.5.4(core-js@3.50.0)(mobx@6.16.1)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(styled-components@6.5.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0)):
+  redoc@2.5.4(core-js@3.51.0)(mobx@6.16.1)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(styled-components@6.6.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1)):
     dependencies:
-      '@redocly/openapi-core': 1.34.20
+      '@redocly/openapi-core': 1.34.22
       classnames: 2.5.1
-      core-js: 3.50.0
+      core-js: 3.51.0
       decko: 1.2.0
-      dompurify: 3.4.16
+      dompurify: 3.4.17
       eventemitter3: 5.0.4
       json-pointer: 0.6.2
       lunr: 2.3.9
       mark.js: 8.11.1
       marked: 4.3.0
       mobx: 6.16.1
-      mobx-react: 9.2.0(mobx@6.16.1)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
-      openapi-sampler: 1.7.6
+      mobx-react: 9.2.0(mobx@6.16.1)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      openapi-sampler: 1.7.9
       path-browserify: 1.0.1
       perfect-scrollbar: 1.5.6
       polished: 4.3.1
       prismjs: 1.30.0
       prop-types: 15.8.1
-      react: 19.3.0
-      react-dom: 19.3.0(react@19.3.0)
-      react-tabs: 6.1.1(react@19.3.0)
+      react: 19.3.1
+      react-dom: 19.3.1(react@19.3.1)
+      react-tabs: 6.1.1(react@19.3.1)
       slugify: 1.4.7
       stickyfill: 1.1.1
-      styled-components: 6.5.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      styled-components: 6.6.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       swagger2openapi: 7.0.8
       url-template: 2.0.8
     transitivePeerDependencies:
@@ -1141,94 +1147,94 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  sass-embedded-all-unknown@1.105.1:
+  sass-embedded-all-unknown@1.107.0:
     dependencies:
-      sass: 1.105.1
+      sass: 1.107.0
     optional: true
 
-  sass-embedded-android-arm64@1.105.1:
+  sass-embedded-android-arm64@1.107.0:
     optional: true
 
-  sass-embedded-android-arm@1.105.1:
+  sass-embedded-android-arm@1.107.0:
     optional: true
 
-  sass-embedded-android-riscv64@1.105.1:
+  sass-embedded-android-riscv64@1.107.0:
     optional: true
 
-  sass-embedded-android-x64@1.105.1:
+  sass-embedded-android-x64@1.107.0:
     optional: true
 
-  sass-embedded-darwin-arm64@1.105.1:
+  sass-embedded-darwin-arm64@1.107.0:
     optional: true
 
-  sass-embedded-darwin-x64@1.105.1:
+  sass-embedded-darwin-x64@1.107.0:
     optional: true
 
-  sass-embedded-linux-arm64@1.105.1:
+  sass-embedded-linux-arm64@1.107.0:
     optional: true
 
-  sass-embedded-linux-arm@1.105.1:
+  sass-embedded-linux-arm@1.107.0:
     optional: true
 
-  sass-embedded-linux-musl-arm64@1.105.1:
+  sass-embedded-linux-musl-arm64@1.107.0:
     optional: true
 
-  sass-embedded-linux-musl-arm@1.105.1:
+  sass-embedded-linux-musl-arm@1.107.0:
     optional: true
 
-  sass-embedded-linux-musl-riscv64@1.105.1:
+  sass-embedded-linux-musl-riscv64@1.107.0:
     optional: true
 
-  sass-embedded-linux-musl-x64@1.105.1:
+  sass-embedded-linux-musl-x64@1.107.0:
     optional: true
 
-  sass-embedded-linux-riscv64@1.105.1:
+  sass-embedded-linux-riscv64@1.107.0:
     optional: true
 
-  sass-embedded-linux-x64@1.105.1:
+  sass-embedded-linux-x64@1.107.0:
     optional: true
 
-  sass-embedded-unknown-all@1.105.1:
+  sass-embedded-unknown-all@1.107.0:
     dependencies:
-      sass: 1.105.1
+      sass: 1.107.0
     optional: true
 
-  sass-embedded-win32-arm64@1.105.1:
+  sass-embedded-win32-arm64@1.107.0:
     optional: true
 
-  sass-embedded-win32-x64@1.105.1:
+  sass-embedded-win32-x64@1.107.0:
     optional: true
 
-  sass-embedded@1.105.1:
+  sass-embedded@1.107.0:
     dependencies:
       '@bufbuild/protobuf': 2.16.0
       colorjs.io: 0.7.1
       immutable: 5.1.9
       rxjs: 7.8.2
       supports-color: 8.1.1
-      sync-child-process: 1.0.2
+      sync-child-process: 1.1.1
       varint: 6.0.0
     optionalDependencies:
-      sass-embedded-all-unknown: 1.105.1
-      sass-embedded-android-arm: 1.105.1
-      sass-embedded-android-arm64: 1.105.1
-      sass-embedded-android-riscv64: 1.105.1
-      sass-embedded-android-x64: 1.105.1
-      sass-embedded-darwin-arm64: 1.105.1
-      sass-embedded-darwin-x64: 1.105.1
-      sass-embedded-linux-arm: 1.105.1
-      sass-embedded-linux-arm64: 1.105.1
-      sass-embedded-linux-musl-arm: 1.105.1
-      sass-embedded-linux-musl-arm64: 1.105.1
-      sass-embedded-linux-musl-riscv64: 1.105.1
-      sass-embedded-linux-musl-x64: 1.105.1
-      sass-embedded-linux-riscv64: 1.105.1
-      sass-embedded-linux-x64: 1.105.1
-      sass-embedded-unknown-all: 1.105.1
-      sass-embedded-win32-arm64: 1.105.1
-      sass-embedded-win32-x64: 1.105.1
+      sass-embedded-all-unknown: 1.107.0
+      sass-embedded-android-arm: 1.107.0
+      sass-embedded-android-arm64: 1.107.0
+      sass-embedded-android-riscv64: 1.107.0
+      sass-embedded-android-x64: 1.107.0
+      sass-embedded-darwin-arm64: 1.107.0
+      sass-embedded-darwin-x64: 1.107.0
+      sass-embedded-linux-arm: 1.107.0
+      sass-embedded-linux-arm64: 1.107.0
+      sass-embedded-linux-musl-arm: 1.107.0
+      sass-embedded-linux-musl-arm64: 1.107.0
+      sass-embedded-linux-musl-riscv64: 1.107.0
+      sass-embedded-linux-musl-x64: 1.107.0
+      sass-embedded-linux-riscv64: 1.107.0
+      sass-embedded-linux-x64: 1.107.0
+      sass-embedded-unknown-all: 1.107.0
+      sass-embedded-win32-arm64: 1.107.0
+      sass-embedded-win32-x64: 1.107.0
 
-  sass@1.105.1:
+  sass@1.107.0:
     dependencies:
       chokidar: 5.0.0
       immutable: 5.1.9
@@ -1282,18 +1288,19 @@ snapshots:
     dependencies:
       ansi-regex: 5.0.1
 
-  strnum@2.4.2:
+  strnum@2.5.1:
     dependencies:
       anynum: 1.0.1
 
-  styled-components@6.5.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0):
+  styled-components@6.6.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1):
     dependencies:
       '@emotion/is-prop-valid': 1.4.0
+      '@types/stylis': 4.2.7
       csstype: 3.2.3
-      react: 19.3.0
+      react: 19.3.1
       stylis: 4.3.6
     optionalDependencies:
-      react-dom: 19.3.0(react@19.3.0)
+      react-dom: 19.3.1(react@19.3.1)
 
   stylis@4.3.6: {}
 
@@ -1317,7 +1324,7 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  sync-child-process@1.0.2:
+  sync-child-process@1.1.1:
     dependencies:
       sync-message-port: 1.2.0
 
@@ -1327,19 +1334,19 @@ snapshots:
 
   tslib@2.8.1: {}
 
-  uri-js-replace@1.0.1: {}
+  uri-js-replace@1.0.2: {}
 
   url-template@2.0.8: {}
 
-  use-sync-external-store@1.7.0(react@19.3.0):
+  use-sync-external-store@1.7.0(react@19.3.1):
     dependencies:
-      react: 19.3.0
+      react: 19.3.1
 
   varint@6.0.0: {}
 
   webidl-conversions@3.0.1: {}
 
-  what-input@5.2.12: {}
+  what-input@6.0.1: {}
 
   whatwg-url@5.0.0:
     dependencies:

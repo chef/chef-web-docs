@@ -49,25 +49,66 @@
   &-danger {
     @include admonition($alert-color);
   }
-  // Contained callout (not full-width) so it reads as a notice about this
-  // page's content, not a site-wide banner. $black on $light-light-gray is
-  // ~19:1, well above the WCAG AA 4.5:1 minimum for text contrast.
-  &-outdated {
-    margin: 0 0 1.5rem;
-    padding: 0.75rem 1rem;
-    background-color: $light-light-gray;
-    border: 1px solid $border-dark;
-    border-radius: $border-radius-base;
-    color: $black;
-    font-size: 0.9rem;
+}
 
-    p {
-      margin: 0;
-    }
+.outdated-version {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.75rem;
+  margin: 0 0 1.5rem;
+  padding: 1rem;
+  border-left: 4px solid $blue-darker;
+  border-radius: $border-radius-base;
+  background-color: $outdated-version-default-background;
+  color: $outdated-version-default-text;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
 
-    a {
-      color: $blue-darkest;
-      text-decoration: underline;
+  &--deprecated,
+  &--end-of-life {
+    grid-template-columns: 1.5rem minmax(0, 1fr);
+  }
+
+  &-icon {
+    color: $outdated-version-deprecated-icon;
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  &--deprecated {
+    border-left-color: $outdated-version-deprecated-border;
+    background-color: $outdated-version-deprecated-background;
+  }
+
+  &--end-of-life {
+    border-left-color: $outdated-version-end-of-life-border;
+    background-color: $outdated-version-end-of-life-background;
+    color: $outdated-version-end-of-life-text;
+
+    .outdated-version-icon {
+      color: $outdated-version-end-of-life-border;
     }
+  }
+
+  &-title {
+    font-weight: bold;
+  }
+
+  &-text {
+    margin-top: 0.5rem;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  p + p {
+    margin-top: 1rem;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
   }
 }

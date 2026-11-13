@@ -10,6 +10,7 @@ dictionaries:
 - chef
 - docs
 - hab-docs
+- inspec-docs
 
 dictionaryDefinitions:
 - name: 360-docs
@@ -24,6 +25,10 @@ dictionaryDefinitions:
 - name: hab-docs
   path: https://raw.githubusercontent.com/chef/chef_dictionary/main/hab-docs.txt
   description: Custom Habitat Docs Dictionary
+- name: inspec-docs
+  path: https://raw.githubusercontent.com/chef/chef_dictionary/main/inspec-docs.txt
+  description: Custom InSpec Docs Dictionary
+
 
 # flagWords - list of words to be always considered incorrect
 # This is useful for offensive words and common spelling errors.

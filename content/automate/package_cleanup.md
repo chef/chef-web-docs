@@ -350,9 +350,9 @@ Packages are stored in `/hab/pkgs`, with each package consuming:
 
 ## Additional resources
 
-- [Chef Automate CLI reference]({{< ref "cli.md" >}})
-- [Chef Automate upgrade guide]({{< ref "upgrade.md" >}})
-- [Chef Automate backup guide]({{< ref "backup.md" >}})
+- [Chef Automate CLI reference]({{< relref "cli.md" >}})
+- [Chef Automate upgrade guide]({{< relref "upgrade.md" >}})
+- [Chef Automate backup guide]({{< relref "backup.md" >}})
 - [Chef Habitat Package Management](/habitat/builder/on_prem/packages/update_packages/)
 
 ## Support
