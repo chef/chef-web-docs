@@ -8,7 +8,7 @@ gh_repo = "chef-web-docs"
   identifier = "overview/solutions/compliance/on_prem_fleet"
   parent = "overview/solutions/compliance"
   title = "The Chef way of managing an on-prem fleet"
-  weight = 13
+  weight = 17
 +++
 
 
@@ -22,7 +22,7 @@ You need one consistent way to configure, update, and keep servers in a known st
 Chef does this by letting you describe the state you want as code, and by running an agent on every server that makes the server match that description, again and again.
 The agent changes only what has drifted, so running it on a schedule is safe and a hand-made change doesn't survive for long.
 
-## Who this page is for
+## Who should read this
 
 **If you're accountable for the outcome**, such as an infrastructure, operations, or platform owner, read this section and [How Chef manages a fleet](#how-chef-manages-a-fleet).
 You'll learn what Chef gives you for an on-premises estate, what it doesn't, and which parts of the platform you run yourself.
@@ -58,18 +58,9 @@ Each one maps to a piece of the platform.
 
 A node pulls its configuration.
 Chef Infra Client contacts the central service on a schedule, downloads the cookbooks that apply, and, only if the node doesn't match what the cookbook says, makes the change.
-Because most of the work happens on the nodes and not on the central service, the central service doesn't run your configuration for you.
+Most of the work happens on the nodes, not on the central service.
 
-{{< warning >}}
-
-**Check the lifecycle before you design.**
-Chef Infra Server is deprecated, and the [supported versions](/versions/) page lists its end-of-life date as November 30, 2026, with Chef 360 Platform as the replacement.
-The same page lists [Chef Automate](/automate/) as generally available, with a deprecation date of November 1, 2026 and an end-of-life date of November 30, 2027, and Chef Infra Client 19.x as the current long-term support release.
-Dates can change, so confirm them on that page and with your Chef account team before you commit to a design.
-
-{{< /warning >}}
-
-That's why this page treats the central service as a choice:
+Choose the central service that fits your situation:
 
 | If you | Then |
 | --- | --- |
@@ -86,9 +77,8 @@ A Chef Infra cookbook that does two things on a node:
 - Creates a configuration directory.
 - Manages one configuration file, so a hand edit to the file is reverted at the next run.
 
-It's a small stand-in for the real work, such as an SSH policy, an NTP configuration, or a package and its service.
 You'll run it on one node, change the file by hand, and watch Chef correct it.
-Then the page shows how the same cookbook reaches many nodes.
+Then you see how the same cookbook reaches many nodes.
 
 ## Before you begin
 
@@ -105,7 +95,7 @@ You need:
 
 Chef Infra Client 19 and Chef Workstation 26 are the current releases.
 To bootstrap a node with Chef Infra Client 19 or later, you need Chef Workstation 26 or later.
-The output on this page comes from Chef Infra Client 18.10, so output from 19 might differ slightly.
+The output shown here comes from Chef Infra Client 18.10, so output from 19 might differ slightly.
 
 {{< /note >}}
 
@@ -299,9 +289,9 @@ For the install steps, see [embedded cluster](/360/latest/get_started/on_prem/em
 
 ### DSM compared with Chef Infra Server
 
-The Chef documentation names Chef 360 Platform as the replacement for Chef Infra Server, and DSM is the part of it that does the Chef Infra Server job.
-The DSM documentation describes the same role: a central repository for cookbooks, policies, and node metadata that nodes managed by Chef Infra Client retrieve their configuration from.
-These points come from the documentation, so check them there before you rely on them:
+Chef 360 Platform replaces Chef Infra Server, and DSM is the part that does the Chef Infra Server job.
+It's a central repository for cookbooks, policies, and node metadata that nodes managed by Chef Infra Client retrieve their configuration from.
+Here's how they compare:
 
 - **The same workflow.** You connect Chef Workstation and `knife` to DSM with a `chef_server_url`, and Chef Infra Client reads its configuration from DSM. See [connect to DSM](/360/latest/use/operators/dsm_operations/connect_to_dsm/).
 - **The same kinds of objects.** DSM manages cookbooks, roles, environments, data bags, clients, nodes, Policyfiles, and policy groups. See [DSM operations](/360/latest/use/operators/dsm_operations/).
@@ -309,9 +299,9 @@ These points come from the documentation, so check them there before you rely on
 - **A migration path.** You can import Chef Infra Server data into DSM. See [Migrate from Chef Infra Server](#migrate-from-chef-infra-server).
 
 Keep two cautions in mind.
-The documentation doesn't state that DSM matches every Chef Infra Server capability, and the import documentation says unsupported objects can leave an import only partly successful.
+Unsupported objects can leave an import only partly successful.
 Also, DSM users, organizations, and nodes are separate from the Chef 360 Platform users, organizations, and Node Management nodes that have similar names.
-Test your own cookbooks and workflows against DSM before you retire Chef Infra Server, and ask your Chef account team about anything you depend on that isn't covered in the documentation.
+Test your own cookbooks and workflows against DSM before you retire Chef Infra Server, and ask your Chef account team about anything you depend on.
 
 ## Bring nodes under management
 
@@ -354,7 +344,7 @@ You describe each target in a `target_credentials` file and run:
 chef-client -t <TARGET_NAME>
 ```
 
-Every resource in the cookbook must support Agentless Mode, and the documentation lists Linux as the supported platform.
+Every resource in the cookbook must support Agentless Mode, and Agentless Mode supports Linux nodes.
 See [Agentless Mode](/client/latest/features/agentless/) for the supported resources and how to schedule runs.
 
 ## Roll changes out in controlled waves
@@ -394,9 +384,8 @@ The `package` resource installs a package or pins it to a version, and you promo
 
 Chef Infra Client itself needs updating too.
 Chef Infra Client 19.x is the current long-term support release.
-Chef Infra Client 18.x is deprecated and reaches end of life on August 31, 2027, and Chef Workstation 25.x is deprecated with the same end-of-life date.
 To install a specific version on a new node, use `knife bootstrap` with `--bootstrap-version`.
-Plan the move to 19 before that date, and check the [supported versions](/versions/) page for the current list.
+Plan the move to 19, and check the [supported versions](/versions/) page for the current list.
 
 ## See the state of the fleet
 
@@ -445,13 +434,13 @@ Plan for these points:
 - Nodes that can't reach the internet need a different source for the Chef Infra Client package.
   Use a custom `knife bootstrap` template that points to your own artifact store.
 - For Chef Automate, see [air-gapped installation](/automate/airgapped_installation/).
-- For Chef 360 Platform, the upgrade documentation covers air-gapped environments.
+- For Chef 360 Platform, you can upgrade in an air-gapped environment.
 - Check the system requirements for the ports that nodes must open.
   For Chef 360 SaaS, nodes need outbound access on ports 443 and 31050.
 
 ## Where to start
 
-If you're new to Chef, start with the example on this page, and then read [the Chef Infra Client run](/client/latest/#the-chef-infra-client-run).
+If you're new to Chef, start with the cookbook example, and then read [the Chef Infra Client run](/client/latest/#the-chef-infra-client-run).
 If you run an estate today, look at [Choose where the platform runs](#choose-where-the-platform-runs) and, if you use Chef Infra Server, [Migrate from Chef Infra Server](#migrate-from-chef-infra-server).
 Before you scale up:
 

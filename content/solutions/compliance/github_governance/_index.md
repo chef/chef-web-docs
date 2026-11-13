@@ -8,12 +8,12 @@ gh_repo = "chef-web-docs"
   identifier = "overview/solutions/compliance/github_governance"
   parent = "overview/solutions/compliance"
   title = "GitHub organization compliance"
-  weight = 8
+  weight = 10
 +++
 
 Assess repository governance, retain control-level evidence, manage approved exceptions, and detect drift across a GitHub organization.
 
-This page is for Chef InSpec practitioners, platform engineers, and governance teams implementing repository compliance.
+If you're a Chef InSpec practitioner, platform engineer, or governance team member implementing repository compliance, this guide is for you.
 It covers the full assessment lifecycle: define scope, prepare access, implement policy, validate results, and operate recurring assessments.
 For a shorter introduction focused on repository files, see [The Chef way of GitHub repository compliance](/solutions/compliance/github/).
 
@@ -41,13 +41,13 @@ The implementation consists of:
 - A scheduled execution mechanism, such as GitHub Actions or an approved enterprise scheduler.
 
 A resource pack supplies the ability to inspect a technology; it isn't a benchmark profile.
-The examples on this page implement organization-specific policy and don't establish coverage of a published benchmark.
+The examples in this guide implement organization-specific policy and don't establish coverage of a published benchmark.
 
 ## What you can assess
 
 Map every control to an approved organizational policy.
 Assess properties that support a defined requirement, and confirm the resources and API permissions available in your selected resource-pack version.
-The following sections describe the assessment scope; the example controls later on this page cover a starting subset.
+The following sections describe the assessment scope; the example controls later in this guide cover a starting subset.
 
 ### Required repository files
 
@@ -210,7 +210,6 @@ Choose one policy path:
 
 - **Predefined benchmark profile:** Obtain an approved, maintained profile through its documented distribution and entitlement process.
   Record the profile and benchmark versions, automated coverage, manual checks, and required permissions.
-  This page doesn't identify a publicly distributed GitHub benchmark profile.
 - **Organization-specific profile:** Convert your repository policies into controls using the resource pack.
   Preserve control IDs and map control metadata to the originating policy requirement.
 
@@ -362,7 +361,7 @@ Use [`github_action_workflow`](https://github.com/inspec/inspec-github-resources
 In `controls/ownership.rb`, check CODEOWNERS validity and the approved team list:
 
 ```ruby
-control 'github-required-codeowners' do
+control 'github-codeowners-approved-teams' do
   impact 0.7
   title 'Require valid code ownership by approved teams'
   desc 'Code-owner teams must come from the approved organization list.'
@@ -382,7 +381,9 @@ control 'github-required-codeowners' do
     its('cross_org_teams') { should be_empty }
   end
 
-  describe (owners.teams - input('approved_owner_teams')) do
+  unapproved_teams = owners.teams - input('approved_owner_teams')
+
+  describe unapproved_teams do
     it { should be_empty }
   end
 end
@@ -547,7 +548,7 @@ Keep the control unchanged when an exception has formal approval.
 Create `github-compliance-profile/waivers/example-repo.yml`:
 
 ```yaml
-github-required-codeowners:
+github-codeowners-approved-teams:
   run: false
   justification: >-
     Exception GRC-1842 for example-org/example-repo, approved by
@@ -635,7 +636,7 @@ Prepare these prerequisites:
 
 - A dedicated, trusted self-hosted Linux runner labeled `github-compliance`, with Git, GitHub CLI, and compatible Chef InSpec installed.
   Configure noninteractive license access on that runner and restrict it to trusted policy workflows.
-- A repository variable named `GITHUB_RESOURCE_PACK_COMMIT` containing the approved full resource-pack commit ID.
+- A repository variable named `RESOURCE_PACK_COMMIT` containing the approved full resource-pack commit ID.
 - A secret named `GIT_COMPLIANCE_TOKEN` containing an approved read-only credential for the assessed repository.
   For GitHub Apps, replace this injection with your approved installation-token generation step.
 - The profile at `github-compliance-profile/`, with `inputs/production.yml` containing real repository values.
@@ -675,14 +676,14 @@ jobs:
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           repository: inspec/inspec-github-resources
-          ref: ${{ vars.GITHUB_RESOURCE_PACK_COMMIT }}
+          ref: ${{ vars.RESOURCE_PACK_COMMIT }}
           path: inspec-github-resources
           persist-credentials: false
 
       - name: Verify tools and dependency revision
         shell: bash
         env:
-          APPROVED_COMMIT: ${{ vars.GITHUB_RESOURCE_PACK_COMMIT }}
+          APPROVED_COMMIT: ${{ vars.RESOURCE_PACK_COMMIT }}
         run: |
           set -euo pipefail
           [[ "$APPROVED_COMMIT" =~ ^[0-9a-f]{40}$ ]]

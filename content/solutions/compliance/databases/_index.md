@@ -8,10 +8,8 @@ gh_repo = "chef-web-docs"
   identifier = "overview/solutions/compliance/databases"
   parent = "overview/solutions/compliance"
   title = "Database compliance"
-  weight = 11
+  weight = 15
 +++
-
-<!-- cspell:ignore authid rolsuper rolname rolcanlogin rolpassword psql mysqld sqlcmd sqlplus oracledb mssql tablespace mariadb -->
 
 A database holds the data your business runs on, and its security settings drift like any other system's.
 A DBA adds a role for a one-off report and never removes it.
@@ -23,13 +21,13 @@ Checking these settings by hand gives you an answer that's out of date by the ne
 You write controls that state your requirements, and the controls query the running database and read its configuration.
 Each control reports pass, fail, or skip, and you can run the same profile again on a schedule, so a setting that drifts shows up as a failing control instead of a surprise at the next audit.
 
-## Who this page is for
+## Who should read this
 
 **If you're accountable for the outcome**, such as a compliance, risk, or data platform owner, read this section and [What Chef covers for databases](#what-chef-covers-for-databases).
 You'll learn what [Chef Compliance](/solutions/compliance/) gives you for databases, what it doesn't, and what evidence you can hand to an auditor.
 
-**If you run the database or write the checks**, work through the rest of the page.
-It builds and runs a small profile against a live PostgreSQL instance, shows how to read the results, and explains how to fix a finding and record an exception.
+**If you run the database or write the checks**, work through the steps that follow.
+You build and run a small profile against a live PostgreSQL instance, read the results, fix a finding, and record an exception.
 The same approach applies to MySQL, Microsoft SQL Server, Oracle Database, and MongoDB, and [Other database engines](#other-database-engines) shows how the connection differs for each.
 If you haven't used Chef InSpec before, you don't need to read anything else first, but [The Chef way of SSH compliance](/solutions/compliance/ssh_baseline/) explains the profile, run, and results mechanics in more detail.
 
@@ -55,7 +53,7 @@ Which one you start with depends on whether you need to meet a published benchma
 | --- | --- | --- |
 | Assess a database against a published benchmark | Chef audit content for the [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) and DISA STIGs, part of [Chef Premium Content](/premium_content/) | Available for many versions of PostgreSQL, MySQL, MariaDB, Microsoft SQL Server, Oracle Database, and MongoDB. Check the [coverage table](/premium_content/databases/) for yours. |
 | Correct configuration to a benchmark | Chef remediation content, delivered as [Chef Infra](/client/latest/) cookbooks | Available for a narrower set of versions than audit. Audit and remediation versions are tracked separately. |
-| Check requirements no benchmark covers | Chef InSpec resources that query a database or read its configuration | Available. You write the controls, and this page shows how. |
+| Check requirements no benchmark covers | Chef InSpec resources that query a database or read its configuration | Available. You write the controls. |
 
 {{< note >}}
 
@@ -65,8 +63,8 @@ Remediation content is part of Chef Premium Content, available to enterprise use
 
 {{< /note >}}
 
-The published benchmarks are built from the same Chef InSpec resources that this page uses.
-That means the profile you write here works alongside them: run the benchmark for the broad baseline, and add your own controls for requirements specific to your organization.
+The published benchmarks are built from the same Chef InSpec resources that the examples here use.
+That means the profile you write here works with them: run the benchmark for the broad baseline, and add your own controls for requirements specific to your organization.
 
 ## How Chef InSpec reaches a database
 
@@ -96,12 +94,11 @@ A Chef InSpec profile with five controls that check a PostgreSQL instance:
 
 - The server runs an approved major version.
 - Connections and disconnections are logged.
-- Client connections can use TLS.
+- TLS is enabled for client connections.
 - Only approved roles have the superuser attribute.
 - No login role is missing a password.
 
-These are illustrative organization-specific requirements.
-They aren't a published benchmark and not a complete database assessment.
+This isn't a published benchmark or a complete database assessment.
 Replace the approved versions and roles with your own, and extend the profile using the resources listed in [Extend the profile](#extend-the-profile).
 
 ## Before you begin
@@ -117,7 +114,7 @@ You need:
 - A dedicated assessment role, and its password in your approved secret store.
   Don't assess with a shared administrator account, and don't put the password in a profile, input file, script, or command-line argument.
 
-The last control on this page reads `pg_authid`, which only a superuser can read.
+The last control reads `pg_authid`, which only a superuser can read.
 If you don't want to give the assessment role that permission, leave that control out or ask your DBA for a view that exposes the same information.
 The other controls need only the ability to run `SHOW` and to read `pg_roles`.
 
@@ -226,7 +223,7 @@ To create a profile for PostgreSQL, follow these steps:
 
    control 'pg-ssl-enabled' do
      impact 0.7
-     title 'Client connections can use TLS'
+     title 'TLS is enabled for client connections'
      desc 'Without TLS, credentials and data cross the network in clear text.'
 
      describe sql.query('SHOW ssl;', ['postgres']) do
@@ -316,7 +313,7 @@ To check the profile and run it against the database, follow these steps:
       ×  PostgreSQL query: SHOW log_disconnections; output is expected to eq "on"
       expected: "on"
            got: "off"
-   ×  pg-ssl-enabled: Client connections can use TLS
+   ×  pg-ssl-enabled: TLS is enabled for client connections
       ×  PostgreSQL query: SHOW ssl; output is expected to eq "on"
       expected: "on"
            got: "off"
@@ -361,9 +358,9 @@ inspec exec postgres-compliance-profile \
 ```
 
 The logging and password controls now pass, and the pair of files is your evidence that the gaps existed and were closed.
-The TLS control still fails, because turning on TLS needs a server certificate and a restart.
+The TLS control still fails, because turning on TLS needs a server certificate and a configuration reload.
 That one is a planned change, not a quick fix, which is what the next section is for.
-[Step 6 of SSH compliance](/solutions/compliance/ssh_baseline/#step-6-fix-the-finding-and-reassess) shows the same fix-and-reassess loop on a single control.
+[Fix the finding and reassess](/solutions/compliance/ssh_baseline/#fix-the-finding-and-reassess) in the SSH compliance page shows the same fix-and-reassess loop on a single control.
 
 For benchmark settings that Chef remediation content covers, check the [coverage table](/premium_content/databases/) for your engine and version.
 Test remediation content with [Chef Workstation](/workstation/latest/) before you apply it to a production database.
@@ -398,7 +395,7 @@ To waive the TLS check for an isolated development database, follow these steps:
    An expired waiver no longer applies, and the check determines the result again.
 
    ```text
-   ↺  pg-ssl-enabled: Client connections can use TLS
+   ↺  pg-ssl-enabled: TLS is enabled for client connections
       ↺  Skipped control due to waiver condition: Exception DB-1177. This is an isolated development database ...
 
    Profile Summary: 4 successful controls, 0 control failures, 1 control skipped
@@ -478,7 +475,7 @@ Keep the database password out of attributes and read it on the node from your s
 Scan jobs log in to the node over SSH, but they don't document how a database password reaches the profile, so confirm how your scan job supplies it before you rely on it.
 
 Send results to [compliance reporting](/automate/reports/) to see them by node, profile, and control.
-For a mixed fleet, [Common compliance scenarios](/solutions/compliance/#common-compliance-scenarios) shows how databases fit alongside servers and cloud accounts.
+For a mixed fleet, [Common compliance scenarios](/solutions/compliance/#common-compliance-scenarios) shows how databases fit in with servers and cloud accounts.
 
 ## Keep the evidence and detect drift
 
@@ -493,7 +490,7 @@ Compare runs only after accounting for changes to the profile or the inputs:
 | A waiver granted or expired | An exception change |
 
 With each run, store the Chef InSpec version, the profile version, the inputs, the database you assessed, and the time of the run, along with the JSON results.
-The JSON report records the profile and its results, so keep the other items alongside it.
+The JSON report records the profile and its results, so keep the other items with it.
 Keep failed runs as well as passing ones, and keep credentials out of the stored evidence.
 
 ## Extend the profile

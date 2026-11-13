@@ -8,10 +8,8 @@ gh_repo = "chef-web-docs"
   identifier = "overview/solutions/compliance/kubernetes"
   parent = "overview/solutions/compliance"
   title = "Kubernetes compliance"
-  weight = 10
+  weight = 13
 +++
-
-<!-- cspell:ignore sobject sobjects -->
 
 A Kubernetes cluster changes constantly.
 Teams create namespaces, deploy workloads, and adjust network and access rules, often through several pipelines at once.
@@ -22,13 +20,13 @@ The [Kubernetes resource pack](/inspec/resource_packs/k8s/) provides resources f
 You write controls that state your requirements, run them against the cluster through the Kubernetes API, and keep the results.
 The same profile runs again on a schedule, so a requirement that stops being met shows up as a failing control, not as a surprise at the next audit.
 
-## Who this page is for
+## Who should read this
 
 **If you're accountable for the outcome**, such as a compliance, risk, or platform owner, read this section and [What Chef covers for Kubernetes](#what-chef-covers-for-kubernetes).
 You'll learn what [Chef Compliance](/solutions/compliance/) gives you for Kubernetes, what it doesn't, and what evidence you can hand to an auditor.
 
-**If you run the cluster or write the checks**, work through the rest of the page.
-It builds and runs a small profile against a live cluster, shows how to read the results, and explains how to record an exception.
+**If you run the cluster or write the checks**, work through the steps that follow.
+You build and run a small profile against a live cluster, read the results, and record an exception.
 If you haven't used Chef InSpec before, you don't need to read anything else first, but [The Chef way of SSH compliance](/solutions/compliance/ssh_baseline/) explains the profile, run, and results mechanics in more detail.
 
 ### What you get
@@ -51,7 +49,7 @@ Which one you start with depends on whether you need to meet a published benchma
 
 | You need to | Use | Status |
 | --- | --- | --- |
-| Check your own cluster requirements, such as required network policies or workload settings | The [Kubernetes resource pack](/inspec/resource_packs/k8s/) with Chef InSpec | Available. You write the controls, and this page shows how. |
+| Check your own cluster requirements, such as required network policies or workload settings | The [Kubernetes resource pack](/inspec/resource_packs/k8s/) with Chef InSpec | Available. You write the controls. |
 | Correct configuration to the [CIS Kubernetes Benchmark](https://www.cisecurity.org/cis-benchmarks) | Chef remediation content, part of [Chef Premium Content](/premium_content/) | Available for CIS Kubernetes v1.5.0, v1.6.1, and v1.12.0. Remediation only. |
 | Run a prebuilt audit of the CIS Kubernetes Benchmark | Chef audit content | CIS Kubernetes v1.12.0 is listed in the Chef Compliance Audit Profiles release notes. Confirm current availability and version coverage in the [coverage table](/premium_content/containers_kubernetes/) before you plan an assessment. |
 
@@ -72,8 +70,7 @@ A Chef InSpec profile with three controls that check:
 - Each application namespace has at least one network policy.
 - One container uses a pinned image tag, not `latest`.
 
-These are illustrative organization-specific requirements.
-They aren't a published benchmark and not a complete cluster assessment.
+This isn't a published benchmark or a complete cluster assessment.
 Replace the namespace and workload names with your own, and extend the profile using the resources listed in [Extend the profile](#extend-the-profile).
 
 ## Before you begin
@@ -135,7 +132,7 @@ To create a profile that uses the Kubernetes resource pack, follow these steps:
        url: https://github.com/inspec/inspec-k8s/archive/main.tar.gz
    inputs:
      - name: namespaces
-       description: Application namespaces that must exist and be isolated
+       description: Application namespaces that must exist and have a network policy
        type: Array
        required: true
      - name: workload_namespace
@@ -207,7 +204,7 @@ To create a profile that uses the Kubernetes resource pack, follow these steps:
    end
    ```
 
-   The first two controls use documented properties of [`k8s_namespaces`](/inspec/resource_packs/k8s/k8s_namespaces/) and [`k8s_network_policies`](/inspec/resource_packs/k8s/k8s_network_policies/).
+   The first two controls use properties of [`k8s_namespaces`](/inspec/resource_packs/k8s/k8s_namespaces/) and [`k8s_network_policies`](/inspec/resource_packs/k8s/k8s_network_policies/).
    The third uses the `image` property of [`k8s_container`](/inspec/resource_packs/k8s/k8s_container/).
    Its pattern accepts an image with an explicit tag other than `latest`, or an image digest.
    It rejects `nginx:latest`, and it also rejects an image with no tag, such as `nginx`, which Kubernetes treats as `latest`.
@@ -312,7 +309,7 @@ inspec exec k8s-compliance-profile -t k8s:// \
 
 The network policy control that failed before now passes, and the pair of files is your evidence that the gap existed and was closed.
 The pinned image control still fails until the workload is redeployed with a pinned tag, which is also a correct result.
-[Step 6 of SSH compliance](/solutions/compliance/ssh_baseline/#step-6-fix-the-finding-and-reassess) shows the same fix-and-reassess loop on a single control.
+[Fix the finding and reassess](/solutions/compliance/ssh_baseline/#fix-the-finding-and-reassess) in the SSH compliance page shows the same fix-and-reassess loop on a single control.
 
 For requirements covered by the CIS Kubernetes Benchmark, Chef remediation content is delivered as [Chef Infra](/client/latest/) cookbooks.
 Check [Containers / Kubernetes](/premium_content/containers_kubernetes/) for the benchmark versions covered, and test remediation content with [Chef Workstation](/workstation/latest/) before you apply it to production systems.
@@ -372,11 +369,11 @@ To detect drift, run the same profile on a schedule and compare results:
 | A waiver granted or expired | An exception change |
 
 With each run, store the Chef InSpec version, the profile version and the revision of the resource pack, the inputs, the cluster you targeted, and the time of the run, along with the JSON results.
-The JSON report records the profile and its results, so keep the other items alongside it.
+The JSON report records the profile and its results, so keep the other items with it.
 Keep failed runs as well as passing ones, and keep credentials out of the stored evidence.
 
 Run the profile on a schedule from your pipeline or another approved scheduler, using a read-only kubeconfig stored in your secret store.
-[Chef Automate](/automate/) scan jobs don't currently list a Kubernetes cluster among the [targets they scan](/automate/scan_jobs/), so the examples on this page run Chef InSpec directly.
+[Chef Automate](/automate/) scan jobs don't currently list a Kubernetes cluster among the [targets they scan](/automate/scan_jobs/), so the examples here run Chef InSpec directly.
 If you need cluster results in Chef Automate [compliance reporting](/automate/reports/), confirm the integration with Chef support before you design around it.
 
 ## Extend the profile
@@ -387,7 +384,7 @@ Each has a singular and a plural form, such as `k8s_pod` and `k8s_pods`.
 | Area | Resources |
 | --- | --- |
 | Workloads | `k8s_pod`, `k8s_container`, `k8s_deployment`, `k8s_daemon_set`, `k8s_job`, `k8s_cronjob` |
-| Isolation and namespaces | `k8s_namespace`, `k8s_network_policy` |
+| Namespaces and network policies | `k8s_namespace`, `k8s_network_policy` |
 | Access | `k8s_rbac_cluster_role` |
 | Configuration and nodes | `k8s_config_map`, `k8s_node`, `k8s_exec_file` |
 | Anything else | `k8sobject`, `k8sobjects`, `k8s_api_resources` |

@@ -8,7 +8,7 @@ gh_repo = "chef-web-docs"
   identifier = "overview/solutions/compliance/github"
   parent = "overview/solutions/compliance"
   title = "GitHub repository compliance"
-  weight = 7
+  weight = 9
 +++
 
 Repository governance changes as teams add collaborators, edit workflows, and update merge requirements.
@@ -18,8 +18,8 @@ Chef InSpec compares repository configuration with executable policy and reports
 The [GitHub resource pack](https://github.com/inspec/inspec-github-resources) extends Chef InSpec with resources for GitHub repositories, files, collaborators, and rulesets.
 You write controls that express your organization's requirements, supply repository-specific values as inputs, and retain the results for review.
 
-This page starts with three repository-file requirements.
-It then explains how to retain evidence, manage approved exceptions, and repeat assessments to detect drift.
+You start with three repository-file requirements.
+You then retain evidence, manage approved exceptions, and repeat assessments to detect drift.
 These are organization-specific checks, not a published compliance benchmark or a complete GitHub governance assessment.
 For the organization-wide workflow, including access, ownership, and merge requirements, see [The Chef way of GitHub organization compliance](/solutions/compliance/github_governance/).
 
@@ -83,7 +83,7 @@ Test the endpoints your controls need.
 
 Missing permissions, API failures, and rate limits can produce incomplete observations.
 An inaccessible resource isn't evidence that a repository meets policy.
-The file checks on this page don't distinguish every collection error from a missing file, so investigate access and API errors before classifying a finding.
+The file checks in this example don't distinguish every collection error from a missing file, so investigate access and API errors before classifying a finding.
 
 {{< /warning >}}
 
@@ -315,7 +315,6 @@ Keep failed and incomplete runs, not just successful assessments.
 To confirm a correction, rerun the same policy against the same repository and preserve both results.
 For recurring assessments, configure your approved scheduler to prepare the tested tools, inject credentials, validate the profile, run the assessment, and retain evidence even when checks fail.
 If you use GitHub Actions, pin approved actions and dependencies, restrict workflow changes, and use an execution environment with Chef InSpec and GitHub CLI installed.
-This page doesn't define a supported GitHub-specific Chef Automate or Chef 360 Platform integration.
 
 Compare runs only after accounting for policy and scope changes:
 

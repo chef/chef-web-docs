@@ -8,46 +8,32 @@ gh_repo = "chef-web-docs"
   identifier = "overview/solutions/compliance/web_servers_middleware"
   parent = "overview/solutions/compliance"
   title = "Configuring web servers and middleware"
-  weight = 10
+  weight = 14
 +++
 
 Web servers and middleware are the part of your fleet that the internet talks to directly.
-A version string left in a response header, a TLS 1.0 listener nobody turned off,
-or a Tomcat example application that shipped with the package
-is visible to anyone who sends a request.
+A version string left in a response header, a TLS 1.0 listener nobody turned off, or a Tomcat example application that shipped with the package is visible to anyone who sends a request.
 
 Those settings drift for ordinary reasons.
-A package upgrade restores a default configuration file,
-a team adds a virtual host by copying an old one,
-and a certificate renewal is missed because nobody owned it.
-Checking them by hand after each change doesn't scale,
-and it doesn't leave evidence you can show an assessor.
+A package upgrade restores a default configuration file, a team adds a virtual host by copying an old one, and a certificate renewal is missed because nobody owned it.
+Checking them by hand after each change doesn't scale, and it doesn't leave evidence you can show an assessor.
 
-The steps below write a Chef InSpec profile for NGINX and Apache Tomcat,
-run it against a server alongside a published benchmark,
-run it again before a configuration change ships,
-and then adapt it to the other web servers and middleware in your fleet.
-
-If you haven't written a Chef InSpec profile before, start with
-[The Chef way of SSH compliance](/solutions/compliance/ssh_baseline/).
+The steps below write a Chef InSpec profile for NGINX and Apache Tomcat, run it against a server together with a published benchmark, run it again before a configuration change ships, and then adapt it to the other web servers and middleware in your fleet.
 
 ## What web server and middleware compliance covers
 
 A web tier is assessed at four layers.
-Each layer answers a different question,
-and a server can pass one layer while failing another,
-so check all four.
+Each layer answers a different question, and a server can pass one layer while failing another, so check all four.
 
 | Layer | What you're asking | How Chef assesses it |
 | --- | --- | --- |
 | **Host operating system** | Is the server the web tier runs on configured to its benchmark? | CIS Benchmark and DISA STIG profiles for the operating system |
 | **Server configuration** | Do the configuration files set what your standard requires? | Configuration resources such as `nginx_conf`, `apache_conf`, and `xml`, plus published benchmarks |
-| **Behavior on the wire** | What does a client actually see --- which TLS protocols, which response headers? | Network resources such as `ssl` and `http` |
+| **Behavior on the wire** | What does a client actually see---which TLS protocols, which response headers? | Network resources such as `ssl` and `http` |
 | **Certificates** | Is the certificate valid, strong enough, and far enough from expiry? | The `x509_certificate` resource |
 
 The configuration and wire layers check the same requirement from two directions.
-A configuration file can set `ssl_protocols TLSv1.2 TLSv1.3;`
-while an included file, a load balancer, or a second listener still accepts TLS 1.0.
+A configuration file can set `ssl_protocols TLSv1.2 TLSv1.3;` while an included file, a load balancer, or a second listener still accepts TLS 1.0.
 Checking the file tells you what was intended.
 Checking the wire tells you what's true.
 
@@ -66,12 +52,9 @@ Chef publishes audit and remediation content for these web servers and middlewar
 
 Coverage differs by version.
 Some benchmarks have audit content only, some have remediation content only, and some have both.
-Check the [Web Servers](/premium_content/web_servers/) and
-[Applications / Middleware](/premium_content/applications_middleware/)
-coverage tables for the exact audit and remediation versions before you plan around one.
+Check the [Web Servers](/premium_content/web_servers/) and [Applications / Middleware](/premium_content/applications_middleware/) coverage tables for the exact audit and remediation versions before you plan around one.
 
-There's no published audit benchmark for NGINX,
-which is one reason the profile on this page starts with NGINX.
+There's no published audit benchmark for NGINX, which is one reason the profile on this page starts with NGINX.
 
 ## What you'll build
 
@@ -79,29 +62,12 @@ A Chef InSpec profile with six controls that assert:
 
 - NGINX doesn't disclose its version.
 - The HTTPS listener refuses SSL 3.0, TLS 1.0, and TLS 1.1.
-- Responses send HTTP Strict Transport Security (HSTS) with a `max-age` of at least six months,
-  and send `X-Content-Type-Options` and `X-Frame-Options`.
+- Responses send HTTP Strict Transport Security (HSTS) with a `max-age` of at least six months, and send `X-Content-Type-Options` and `X-Frame-Options`.
 - The server certificate is valid for at least 30 more days and uses a key of at least 2048 bits.
 - The Tomcat shutdown port is disabled.
 - The Tomcat example, documentation, and management applications aren't deployed.
 
-By the end you'll be able to run that profile against a web server,
-run it in the same command as a published benchmark,
-run it before a configuration change reaches production,
-and extend it to Apache HTTP Server, IIS, and other middleware.
-
-{{< note >}}
-
-**What was run, and where.**
-The generator output, `inspec check` output, and controls on this page
-were produced and run on Chef InSpec 5.24.7 from Chef Workstation,
-against an NGINX configuration file, a Tomcat `server.xml`, a certificate,
-and a local HTTPS listener that each contain the findings shown,
-to confirm that every resource, matcher, and `only_if` condition evaluates as described.
-The results in [Read the results](#step-5-read-the-results) come from that run,
-with host names and paths changed to match the examples.
-
-{{< /note >}}
+By the end you'll be able to run that profile against a web server, run it in the same command as a published benchmark, run it before a configuration change reaches production, and extend it to Apache HTTP Server, IIS, and other middleware.
 
 ## Before you begin
 
@@ -110,27 +76,22 @@ You need:
 - **Chef InSpec**, from [Chef Workstation](/workstation/latest/) or a
   [standalone install](/inspec/latest/install/).
   Run `inspec version` to confirm it's available.
-- **A Linux server running NGINX, Apache Tomcat, or both**,
-  that you can reach over SSH with an account that can escalate with `sudo`.
+- **A Linux server running NGINX, Apache Tomcat, or both**, that you can reach over SSH with an account that can escalate with `sudo`.
   The controls skip whichever one isn't installed.
-  For Apache HTTP Server and IIS, see
-  [Adapt the profile to other web servers and middleware](#adapt-the-profile-to-other-web-servers-and-middleware).
+  For Apache HTTP Server and IIS, see [Adapt the profile to other web servers and middleware](#adapt-the-profile-to-other-web-servers-and-middleware).
 - **Network access to the HTTPS port** from the machine that runs Chef InSpec.
-  The `ssl` resource opens TLS connections to the target's host name,
-  so a firewall between you and the server affects the result.
-- **The paths your installation uses**:
-  the main NGINX configuration file, the certificate NGINX presents,
-  and the Tomcat `CATALINA_BASE` directory.
+  The `ssl` resource opens TLS connections to the target's host name, so a firewall between you and the server affects the result.
+- **The paths your installation uses**: the main NGINX configuration file, the certificate NGINX presents, and the Tomcat `CATALINA_BASE` directory.
   The defaults on this page are `/etc/nginx/nginx.conf`, `/etc/nginx/tls/server.crt`, and `/opt/tomcat`.
 
 You don't need to install anything on the server.
 Chef InSpec connects to it and reads what it needs.
 
-## Step 1: Create a profile
+## Create a profile
 
 Generate a profile:
 
-```bash
+```shell
 inspec init profile web-tier-baseline
 ```
 
@@ -188,21 +149,16 @@ inputs:
     value: /opt/tomcat
 ```
 
-The `inputs` hold the values that differ between servers and organizations:
-where the configuration and certificate live, which port serves HTTPS,
-and how strict your HSTS and certificate expiry thresholds are.
-Keeping them out of the controls means one profile covers servers
-that are laid out differently.
+The `inputs` hold the values that differ between servers and organizations: where the configuration and certificate live, which port serves HTTPS, and how strict your HSTS and certificate expiry thresholds are.
+Keeping them out of the controls means one profile covers servers that are laid out differently.
 Override them at run time with `--input`, or keep them in an input file for each server role.
 See [Chef InSpec inputs](/inspec/latest/profiles/inputs/).
 
-The `hsts_min_max_age` default of 15768000 seconds is six months,
-the minimum the CIS NGINX Benchmark recommends.
+The `hsts_min_max_age` default of 15768000 seconds is six months, the minimum the CIS NGINX Benchmark recommends.
 
-`supports` limits the profile to Linux, as in
-[Step 1 of SSH compliance](/solutions/compliance/ssh_baseline/#step-1-create-a-profile).
+`supports` limits the profile to Linux, as in [Create a profile](/solutions/compliance/ssh_baseline/#create-a-profile) in the SSH compliance page.
 
-## Step 2: Write the controls
+## Write the controls
 
 Delete `controls/example.rb` and create `controls/web_tier.rb`:
 
@@ -310,51 +266,37 @@ end
 What's specific to web servers and middleware here:
 
 `nginx_conf(...).params.dig('http', 0, 'server_tokens')`
-: The [`nginx_conf` resource](/inspec/latest/resources/core/nginx_conf/)
-  parses `nginx.conf` and every file it includes into nested `params`.
+: The [`nginx_conf` resource](/inspec/latest/resources/core/nginx_conf/) parses `nginx.conf` and every file it includes into nested `params`.
   `web-01` reads `server_tokens` from the first `http` block.
-  If the directive isn't set at all, the value is empty and the control fails ---
-  which is correct, because NGINX sends its version by default.
-  The `nginx_conf` resource is marked experimental, so confirm it parses your configuration
-  by running `web-01` against one server before you roll it out.
+  If the directive isn't set at all, the value is empty and the control fails, which is correct, because NGINX sends its version by default.
+  The `nginx_conf` resource is marked experimental, so confirm it parses your configuration by running `web-01` against one server before you roll it out.
 
 `ssl(port: ...).protocols(...)`
-: The [`ssl` resource](/inspec/latest/resources/core/ssl/)
-  attempts a handshake with each protocol and reports whether the server accepted it.
-  `web-02` checks what the listener actually accepts,
-  not what a configuration file says it should,
-  so it catches a second listener or an included file that re-enables an old protocol.
+: The [`ssl` resource](/inspec/latest/resources/core/ssl/) attempts a handshake with each protocol and reports whether the server accepted it.
+  `web-02` checks what the listener actually accepts, not what a configuration file says it should, so it catches a second listener or an included file that re-enables an old protocol.
 
 `http(...)` and `headers`
-: The [`http` resource](/inspec/latest/resources/core/http/)
-  sends the request from the target itself when you assess a remote server,
-  so `https://localhost/` reaches the local listener without opening it to your workstation.
+: The [`http` resource](/inspec/latest/resources/core/http/) sends the request from the target itself when you assess a remote server, so `https://localhost/` reaches the local listener without opening it to your workstation.
   `ssl_verify: false` lets the request succeed against a certificate issued for the public name.
-  `web-03` extracts the number from `max-age` and compares it,
-  because a header that's present with `max-age=0` turns HSTS off.
+  `web-03` extracts the number from `max-age` and compares it, because a header that's present with `max-age=0` turns HSTS off.
 
 `x509_certificate`
-: The [`x509_certificate` resource](/inspec/latest/resources/core/x509_certificate/)
-  reads the certificate file and reports `validity_in_days` as the time left until it expires.
-  Set `certificate_min_days` longer than your renewal process takes,
-  so a failure is a warning you can act on, not an outage.
+: The [`x509_certificate` resource](/inspec/latest/resources/core/x509_certificate/) reads the certificate file and reports `validity_in_days` as the time left until it expires.
+  Set `certificate_min_days` longer than your renewal process takes, so a failure is a warning you can act on, not an outage.
 
 `xml(...)` with `Server/@port`
-: The [`xml` resource](/inspec/latest/resources/core/xml/)
-  evaluates an XPath expression against `server.xml` and returns an array of matches.
+: The [`xml` resource](/inspec/latest/resources/core/xml/) evaluates an XPath expression against `server.xml` and returns an array of matches.
   `@port` selects the attribute, and Tomcat's default of `8005` fails the control.
 
 `only_if`
 : Runs the control only when the condition is true, and reports it as skipped otherwise.
   The NGINX and Tomcat controls use it so the same profile runs on a server that has only one of them.
 
-For the parts of a control that aren't specific to web servers ---
-`impact`, `desc`, `tag`, and `cmp` ---
-see [Step 2 of SSH compliance](/solutions/compliance/ssh_baseline/#step-2-write-the-controls).
+For the parts of a control that aren't specific to web servers---`impact`, `desc`, `tag`, and `cmp`---see [Write the controls](/solutions/compliance/ssh_baseline/#write-the-controls) in the SSH compliance page.
 
-## Step 3: Validate the profile
+## Validate the profile
 
-```bash
+```shell
 inspec check web-tier-baseline
 ```
 
@@ -368,23 +310,22 @@ Valid :      true
 No errors, warnings, or offenses
 ```
 
-## Step 4: Run the assessment against a server
+## Run the assessment against a server
 
 Run the profile against a server over SSH:
 
-```bash
+```shell
 inspec exec web-tier-baseline \
   --target ssh://admin@web01.example.com \
   --key-files ~/.ssh/id_rsa \
   --sudo
 ```
 
-`--sudo` is needed because private keys, Tomcat configuration, and some NGINX include files
-are readable only by root or the service account.
+`--sudo` is needed because private keys, Tomcat configuration, and some NGINX include files are readable only by root or the service account.
 
 If a server is laid out differently from the defaults, override the inputs for that run:
 
-```bash
+```shell
 inspec exec web-tier-baseline \
   --target ssh://admin@web02.example.com \
   --key-files ~/.ssh/id_rsa \
@@ -396,10 +337,9 @@ inspec exec web-tier-baseline \
 
 The profile above checks your organization's standard.
 The web server, the middleware, and the host operating system each still need their own benchmark.
-`inspec exec` accepts more than one profile,
-so pass them together and assess the server in a single run:
+`inspec exec` accepts more than one profile, so pass them together and assess the server in a single run:
 
-```bash
+```shell
 inspec exec web-tier-baseline path/to/tomcat-benchmark-profile path/to/os-benchmark-profile \
   --target ssh://admin@web01.example.com \
   --key-files ~/.ssh/id_rsa \
@@ -407,17 +347,12 @@ inspec exec web-tier-baseline path/to/tomcat-benchmark-profile path/to/os-benchm
   --reporter cli json:web01-results.json
 ```
 
-Get the benchmark profiles from the [Chef Automate Profiles page](/automate/profiles/),
-and confirm the version you need in the [Web Servers](/premium_content/web_servers/),
-[Applications / Middleware](/premium_content/applications_middleware/), and
-[Operating Systems](/premium_content/operating_systems/) coverage tables.
-Each profile reports its own results, so a reviewer can tell a finding against your standard
-from a benchmark finding.
+Get the benchmark profiles from the [Chef Automate Profiles page](/automate/profiles/), and confirm the version you need in the [Web Servers](/premium_content/web_servers/), [Applications / Middleware](/premium_content/applications_middleware/), and [Operating Systems](/premium_content/operating_systems/) coverage tables.
+Each profile reports its own results, so a reviewer can tell a finding against your standard from a benchmark finding.
 
-## Step 5: Read the results
+## Read the results
 
-A run against a server running NGINX and Tomcat with package defaults,
-a missing HSTS header, and a certificate that expires in 20 days:
+A run against a server running NGINX and Tomcat with package defaults, a missing HSTS header, and a certificate that expires in 20 days:
 
 ```text
 Profile:   Web server and middleware baseline (web-tier-baseline)
@@ -468,40 +403,34 @@ Test Summary: 9 successful, 5 failures, 0 skipped
 ```
 
 `web-04` is the finding to act on first.
-It's the only one with a deadline: in 20 days the service stops working for every client,
-regardless of how the rest is configured.
+It's the only one with a deadline: in 20 days the service stops working for every client, regardless of how the rest is configured.
 
 `web-01`, `mw-01`, and `mw-02` are package defaults.
-Every server installed the same way has the same findings,
-so fix them in the cookbook or image that builds the server, not on each server ---
-see [Fix what fails](#fix-what-fails).
+Every server installed the same way has the same findings, so fix them in the cookbook or image that builds the server, not on each server.
+See [Fix what fails](#fix-what-fails).
 
 `web-03` shows `got: 0` because the response has no `Strict-Transport-Security` header.
 A header with `max-age=0` reports the same value and fails the same way.
 
-On a server without NGINX or Tomcat, the matching controls report as skipped with their `only_if` message,
-not as a pass:
+On a server without NGINX or Tomcat, the matching controls report as skipped with their `only_if` message, not as a pass:
 
 ```text
   ↺  mw-01: Disable the Tomcat shutdown port
      ↺  Skipped control due to only_if condition: Tomcat isn't installed at the configured tomcat_home.
 ```
 
-For exit codes, keeping results as evidence, and recording an accepted exception as a waiver,
-the steps are the same as for any profile:
+For exit codes, keeping results as evidence, and recording an accepted exception as a waiver, the steps are the same as for any profile:
 
 - [Check the exit code](/solutions/compliance/ssh_baseline/#check-the-exit-code)
 - [Keep the results](/solutions/compliance/ssh_baseline/#keep-the-results)
-- [Waive an exception you've accepted](/solutions/compliance/ssh_baseline/#step-7-waive-an-exception-youve-accepted)
+- [Waive an exception you've accepted](/solutions/compliance/ssh_baseline/#waive-an-exception-youve-accepted)
 
-## Step 6: Check configuration before it ships
+## Check configuration before it ships
 
-Most web tier findings are introduced by a change:
-a new virtual host, a cookbook update, or a package upgrade.
+Most web tier findings are introduced by a change: a new virtual host, a cookbook update, or a package upgrade.
 The cheapest place to catch them is before the change reaches production.
 
-Use [Test Kitchen](/workstation/latest/tools/kitchen/) to build a server with the cookbook
-that configures your web tier, run the profile against it, and destroy it.
+Use [Test Kitchen](/workstation/latest/tools/kitchen/) to build a server with the cookbook that configures your web tier, run the profile against it, and destroy it.
 Configure the InSpec verifier in `kitchen.yml` to run the same profiles you run in production:
 
 ```yaml
@@ -521,26 +450,22 @@ suites:
 
 Then build, verify, and destroy the test instance:
 
-```bash
+```shell
 kitchen test web
 ```
 
 Two things to account for when you verify configuration this way:
 
-- **Test with the certificate path, not the certificate.**
-  A test instance usually has a self-signed certificate,
-  so `web-04` measures the test certificate's expiry, not production's.
-  Override `certificate_min_days` for the test suite, or waive `web-04` there,
-  and rely on the scheduled production run for expiry.
+- **Test the certificate file at its path.**
+  The `x509_certificate` resource reads the certificate file at the path you give it, so pass the file path, not the certificate contents.
+  A test instance usually has a self-signed certificate, so `web-04` measures the test certificate's expiry, not production's.
+  Override `certificate_min_days` for the test suite, or waive `web-04` there, and rely on the scheduled production run for expiry.
 - **Run the same profile version everywhere.**
-  Pin the profile version that Test Kitchen and production use,
-  so a change that passes in CI is assessed against the same controls in production.
+  Pin the profile version that Test Kitchen and production use, so a change that passes in CI is assessed against the same controls in production.
 
 ## Adapt the profile to other web servers and middleware
 
-The controls above follow one pattern:
-read the configuration with a resource that understands its format,
-then check behavior on the wire.
+The controls above follow one pattern: read the configuration with a resource that understands its format, then check behavior on the wire.
 The same pattern applies to the rest of the web tier:
 
 | Technology | Configuration resource | Example check |
@@ -554,81 +479,56 @@ The same pattern applies to the rest of the web tier:
 Two things to account for:
 
 - **`apache_conf` needs `ServerRoot`.**
-  The resource follows `Include` directives only when `ServerRoot` is set in the configuration,
-  so a configuration without it reports only the main file's settings.
+  The resource follows `Include` directives only when `ServerRoot` is set in the configuration, so a configuration without it reports only the main file's settings.
 - **IIS runs on Windows.**
-  Put IIS controls in a separate profile that `supports` the `windows` platform family,
-  and run it over WinRM, as described in the [Chef InSpec CLI reference](/inspec/latest/reference/cli/).
+  Put IIS controls in a separate profile that `supports` the `windows` platform family, and run it over WinRM, as described in the [Chef InSpec CLI reference](/inspec/latest/reference/cli/).
   The `ssl`, `http`, and `x509_certificate` checks work the same way on Windows targets.
 
-For middleware without a dedicated resource, such as message brokers,
-see [The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/)
-for resource packs and for writing your own resources.
+For middleware without a dedicated resource, such as message brokers, see [The Chef way of custom compliance checks](/solutions/compliance/custom_compliance_checks/) for resource packs and for writing your own resources.
 
 ## Assess web servers across your fleet
 
 Running a profile by hand answers a question once.
-Running it on a schedule catches a certificate that's about to expire,
-or a setting that a package upgrade reset.
+Running it on a schedule catches a certificate that's about to expire, or a setting that a package upgrade reset.
 
 - **Servers managed by Chef Infra Client:**
-  add the profile to the [Compliance Phase](/client/latest/features/chef_compliance_phase/),
-  so every Chef Infra Client run assesses the server it configured.
+  add the profile to the [Compliance Phase](/client/latest/features/chef_compliance_phase/), so every Chef Infra Client run assesses the server it configured.
 - **Servers that aren't:**
-  add them as nodes in Chef Automate and create a recurring [scan job](/automate/scan_jobs/),
-  or enroll them in [Chef 360 Platform](/360/latest/use/operators/node_enrollment/)
-  and run scans as [Chef Courier jobs](/360/latest/use/operators/job_execution/).
+  add them as nodes in Chef Automate and create a recurring [scan job](/automate/scan_jobs/), or enroll them in [Chef 360 Platform](/360/latest/use/operators/node_enrollment/) and run scans as [Chef Courier jobs](/360/latest/use/operators/job_execution/).
 
-Web servers are often VMs or cloud instances, so the discovery and scheduling options
-in [Assess VMs across your fleet](/solutions/compliance/vm_compliance/#assess-vms-across-your-fleet) apply here too.
+Web servers are often VMs or cloud instances, so the discovery and scheduling options in [Assess VMs across your fleet](/solutions/compliance/vm_compliance/#assess-vms-across-your-fleet) apply here too.
 Tag nodes by role, such as `web` or `tomcat`, so a scan job runs this profile only where it applies.
 
 Run `web-04` at least daily on production servers.
 A certificate expiry check that runs weekly can miss the renewal window entirely.
 
-Report results into [compliance reporting](/automate/reports/),
-where you can filter by profile and control to see every server that fails `web-04`.
+Report results into [compliance reporting](/automate/reports/), where you can filter by profile and control to see every server that fails `web-04`.
 
 ## Fix what fails
 
-For published benchmarks,
-[compliance remediation](/solutions/compliance/#compliance-remediation)
-content corrects the configuration behind failing controls
-on servers managed by Chef Infra Client.
-Check remediation coverage for your benchmark and version first ---
-for example, CIS NGINX has remediation content but no audit content,
-and some Tomcat versions have audit content but no remediation content.
+For published benchmarks, [compliance remediation](/solutions/compliance/#compliance-remediation) content corrects the configuration behind failing controls on servers managed by Chef Infra Client.
+Check remediation coverage for your benchmark and version first, for example, CIS NGINX has remediation content but no audit content, and some Tomcat versions have audit content but no remediation content.
 
 For findings from your own profile, fix the source rather than each server:
 
 - **A finding on every server built the same way** is a build finding.
-  Fix the cookbook or image, reverify it with
-  [Test Kitchen](#step-6-check-configuration-before-it-ships),
-  then roll it out.
+  Fix the cookbook or image, reverify it with [Test Kitchen](#check-configuration-before-it-ships), then roll it out.
 - **A finding on one server** is drift.
-  Fix it with Chef Infra Client, so the fix is reapplied if it drifts again,
-  and reassess to confirm the control passes.
+  Fix it with Chef Infra Client, so the fix is reapplied if it drifts again, and reassess to confirm the control passes.
 - **A certificate finding** is a renewal process finding.
   Renew the certificate now, then find out why renewal didn't happen before the threshold.
-- **A finding you've accepted**, such as a legacy application that requires TLS 1.1
-  until a dated migration,
-  is a waiver with a justification and an expiration date, not an ignored failure.
+- **A finding you've accepted**, such as a legacy application that requires TLS 1.1 until a dated migration, is a waiver with a justification and an expiration date, not an ignored failure.
 
 ## Where to go next
 
 **Turn it on for the fleet.**
-Enable the [Compliance Phase](/client/latest/features/chef_compliance_phase/)
-on managed servers, and create recurring [scan jobs](/automate/scan_jobs/)
-for servers that Chef Infra Client doesn't manage.
+Enable the [Compliance Phase](/client/latest/features/chef_compliance_phase/) on managed servers, and create recurring [scan jobs](/automate/scan_jobs/) for servers that Chef Infra Client doesn't manage.
 
 **Add the published benchmark for each server.**
-Use the [Web Servers](/premium_content/web_servers/) and
-[Applications / Middleware](/premium_content/applications_middleware/) coverage tables
-to match each web server and middleware version to its benchmark.
+Use the [Web Servers](/premium_content/web_servers/) and [Applications / Middleware](/premium_content/applications_middleware/) coverage tables to match each web server and middleware version to its benchmark.
 
 **Prepare for an assessment.**
-See [Prepare for a compliance assessment](/solutions/compliance/#prepare-for-a-compliance-assessment)
-for filtering, exporting, and accounting for every failing control.
+See [Prepare for a compliance assessment](/solutions/compliance/#prepare-for-a-compliance-assessment) for filtering, exporting, and accounting for every failing control.
 
 ## Related
 
