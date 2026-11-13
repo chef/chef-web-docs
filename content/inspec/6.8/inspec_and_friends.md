@@ -92,8 +92,8 @@ to find out more on the relationship between Chef InSpec and Serverspec.
 
 ### How Chef InSpec is different from Serverspec
 
-One of the key differences is that Chef InSpec targets more user groups. It
-is optimized for DevOps, Security, and Compliance professionals.
+One of the key differences is that Chef InSpec targets more user groups. It's
+optimized for DevOps, Security, and Compliance professionals.
 Additional metadata, such as impact, title, and description, make it
 easier to fully describe the controls which makes it easier to share the
 controls with other departments. This enables Security departments to
