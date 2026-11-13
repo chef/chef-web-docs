@@ -31,6 +31,31 @@ dictionaryDefinitions:
 
 flagWords:
 - hte
+
+words:
+- walkthrough
+
+ignoreWords:
+- entra
+- CODEOWNERS
+- ruleset
+- rulesets
+- authid
+- rolsuper
+- rolname
+- rolcanlogin
+- rolpassword
+- psql
+- mysqld
+- sqlcmd
+- sqlplus
+- oracledb
+- mssql
+- tablespace
+- mariadb
+- sobject
+- sobjects
+
 ignorePaths:
 - ".expeditor/**/*"
 - "**/*.sh"
