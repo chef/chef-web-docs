@@ -14,5 +14,5 @@ examples: |2-
   # good
   require 'net/http'
   require 'openssl'
-version_added: 
+version_added:
 enabled: false

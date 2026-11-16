@@ -33,6 +33,14 @@ depends 'dmg'
 depends 'mac_os_x'
 depends 'swap'
 depends 'sysctl'
+
+# good
+# the resources ship in Chef Infra Client 14+, so use them without a depends
+build_essential 'install compilation tools'
+
+sysctl 'vm.swappiness' do
+  value 10
+end
 ```
 
 ## Configurable attributes

@@ -13,6 +13,10 @@ examples: |2-
   include Chef::Mixin::ShellOut
   require 'chef/mixin/powershell_out'
   include Chef::Mixin::PowershellOut
+
+  # good
+  # shell_out is available in resources and providers with no include
+  shell_out!('/opt/app/bin/app --version')
 version_added: 5.4.0
 enabled: true
 included_file_paths:
