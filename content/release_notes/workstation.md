@@ -19,12 +19,32 @@ summary = "Chef Workstation release notes"
 
 ## Chef Workstation 26.2.0
 
-Release date: TBD
+Release date: November 24, 2026
 
-### Improvements
+### New features
 
-<!-- TODO: verify — no PR found; written from Jira data only -->
-- **knife-vcenter gem**: Chef Workstation now includes the `knife-vcenter` gem in the `knife` Habitat package, so you can use the plugin's vCenter commands without having to manually install the gem.
+- **Ruby gem extensions**: You can now extend supported Workstation tools---including Chef CLI, Knife, Test Kitchen Enterprise, and Ohai---with user-installed Ruby gems and plugins.
+  Gems are stored outside the installation directory in `~/.chef/ruby/<ruby-ABI-version>/gems` and persist across Workstation upgrades that use the same Ruby ABI.
+  Knife, Test Kitchen Enterprise, and Ohai automatically discover compatible gems in this directory.
+
+- **Chef Premium RubyGem access**: Chef CLI automatically configures the Chef Premium RubyGem server for gem installation, search, and update operations using your configured Chef license key.
+  It preserves custom gem-source configurations and warns if it can't configure the premium source.
+
+- **Additional Knife cloud integrations**: Workstation now includes the `knife-azure` and `knife-vcenter` plugins, so you can manage Azure and VMware vCenter infrastructure without installing these plugins separately.
+
+- **Configurable Google Cloud password-reset timeout**: The `knife google server create` command adds `--winpass-timeout SECS` to control how long it waits for a Windows password reset.
+  Increase the timeout for instances that take longer to initialize; the default is 120 seconds.
+
+### Bug fixes
+
+- **Knife cookbook listings**: Fixed incomplete results from `knife supermarket list` when Chef Supermarket returned fewer cookbooks than requested on a page.
+
+- **Knife SSH password prompts**: Fixed `knife ssh` commands hanging or timing out when a remote host used `sudo-rs`.
+  Knife recognizes its sudo password prompt even when the prompt arrives across multiple SSH messages.
+
+- **Cookstyle suppression directives**: Fixed ignored `push`, `pop`, `disable-next`, and `todo-next` directives under both the `cookstyle:` and `rubocop:` prefixes.
+
+- **Cookstyle path checks**: Fixed an internal error in `Chef/Modernize/CronDFileOrTemplate` when resource path expressions contained non-string values, such as numeric array indexes.
 
 ### Packages
 
@@ -37,16 +57,17 @@ For a full list of supported packages and platforms for this release, see the [C
 
 ### Tool updates
 
-- Updated Berkshelf to version 8.1.27.
-- Updated the `chef` CLI to version 6.1.40.
-- Updated Chef Infra Client to version 19.4.45. For details, see the [Chef Infra Client 19 release notes](https://docs.chef.io/release_notes/client/).
+- Updated Berkshelf to version 8.1.31.
+- Updated the `chef` CLI to version 6.1.42.
+- Updated Chef Infra Client to version 19.4.46. For details, see the [Chef Infra Client 19 release notes](https://docs.chef.io/release_notes/client/).
 - Updated Chef InSpec to version 7.3.4. For details, see the [Chef InSpec 7 release notes](https://docs.chef.io/release_notes/inspec/).
-- Updated Chef Vault to version 4.2.15.
-- Updated Cookstyle to version 9.0.6.
-- Updated Fauxhai to version 9.4.27.
-- Updated Knife to version 19.0.150. For details, see the [Knife changelog](https://github.com/chef/knife/blob/main/CHANGELOG.md).
-- Updated Ohai to version 19.1.51.
-- Updated Test Kitchen Enterprise to version 2.0.21. For details, see the [Test Kitchen Enterprise changelog](https://github.com/chef/chef-test-kitchen-enterprise/blob/main/CHANGELOG.md).
+- Updated Chef Vault to version 4.2.16.
+- Updated Cookstyle to version 9.0.9.
+  For details, see the [Cookstyle 9 release notes](https://github.com/chef/cookstyle/blob/v9.0.9/RELEASE_NOTES.md).
+- Updated Fauxhai to version 9.4.29.
+- Updated Knife to version 19.0.153. For details, see the [Knife changelog](https://github.com/chef/knife/blob/main/CHANGELOG.md).
+- Updated Ohai to version 19.1.53.
+- Updated Test Kitchen Enterprise to version 2.0.23. For details, see the [Test Kitchen Enterprise changelog](https://github.com/chef/chef-test-kitchen-enterprise/blob/main/CHANGELOG.md).
 
 ## Chef Workstation 26.1.0
 
