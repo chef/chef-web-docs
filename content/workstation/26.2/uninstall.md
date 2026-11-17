@@ -8,7 +8,7 @@ draft = false
   weight = 70
 +++
 
-Use these steps to remove Chef Workstation from Debian-based, RPM-based, Windows, or macOS systems.
+This guide explains how to uninstall Chef Workstation from supported Debian-based, RPM-based, Windows, and macOS systems.
 
 ## Uninstall Chef Workstation on Debian-based distributions
 
@@ -20,13 +20,13 @@ To uninstall Chef Workstation, follow these steps:
    sudo apt-get purge chef-workstation-enterprise
    ```
 
-1. Verify that the package has been removed:
+1. Verify that `apt-get` purged the package:
 
    ```shell
-   dpkg -l chef-workstation-enterprise
+   dpkg-query -W -f='${db:Status-Status}\n' chef-workstation-enterprise
    ```
 
-   The command returns no output if the package is removed successfully.
+   If the purge succeeds, `dpkg-query` finds no matching package.
 
 ## Uninstall Chef Workstation on RPM-based distributions
 
@@ -38,13 +38,13 @@ To uninstall Chef Workstation, follow these steps:
    sudo dnf remove chef-workstation-enterprise
    ```
 
-1. Verify that the package has been removed:
+1. Verify that `dnf` removed the package:
 
    ```shell
-   rpm -qa chef-workstation-enterprise
+   rpm -q chef-workstation-enterprise
    ```
 
-   The command returns no output if the package is removed successfully.
+   If the removal succeeds, `rpm -q` finds no installed package.
 
 ## Uninstall Chef Workstation on Windows
 
@@ -70,15 +70,14 @@ To uninstall Chef Workstation on macOS, run the uninstaller script:
 sudo /opt/hab/chef-workstation/uninstall.sh
 ```
 
-This script will:
+The script removes the following:
 
-- Remove all Chef Workstation binaries from `/usr/local/bin/`
-- Remove the installation directory `/opt/hab/`
-- Remove the PATH configuration from `/etc/paths.d/chef-workstation-enterprise`
-- Remove the installation metadata from `/Library/Application Support/chef-workstation-enterprise/`
-- Forget the package receipt using `pkgutil`
+- Chef Workstation binaries from `/usr/local/bin/`
+- The installation directory `/opt/hab/`
+- The PATH configuration from `/etc/paths.d/chef-workstation-enterprise`
+- The installation metadata from `/Library/Application Support/chef-workstation-enterprise/`
+- The package receipt through `pkgutil`
 
 ## See also
 
-- [Install Chef Workstation](install)
-- [Upgrade Chef Workstation](upgrade)
+- [Install or upgrade Chef Workstation](install)
