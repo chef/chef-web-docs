@@ -183,7 +183,7 @@ Cookstyle version: 7.32.8
 
 ## Upgrading
 
-To upgrade from ChefDK or an earlier release of Chef Workstation, follow the instructions provided under [Installing]({{< ref "install.md" >}}).
+To upgrade from ChefDK or an earlier release of Chef Workstation, follow the instructions provided under [Installing]({{< relref "install.md" >}}).
 
 ## Uninstalling
 

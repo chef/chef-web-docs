@@ -56,11 +56,11 @@ For more information on setting up Chef Habitat, see the Chef Habitat [Service G
 To get started, you need:
 
 1. Running installations of Chef Automate and Chef Habitat Builder SasS or Builder on-prem
-1. A [Chef Automate API token]({{< ref "api_tokens#creating-a-standard-api-token" >}}) specifically for this integration
+1. A [Chef Automate API token]({{< relref "api_tokens#creating-a-standard-api-token" >}}) specifically for this integration
 
 ## Sending Event Data to Chef Automate
 
-If you haven't already done so, [create an API token]({{< ref "api_tokens#creating-a-standard-api-token" >}}) in Chef Automate. Save it somewhere safe and accessible to you for use in this step.
+If you haven't already done so, [create an API token]({{< relref "api_tokens#creating-a-standard-api-token" >}}) in Chef Automate. Save it somewhere safe and accessible to you for use in this step.
 
 ### Customize the Event Stream Command
 

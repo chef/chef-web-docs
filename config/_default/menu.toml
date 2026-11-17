@@ -552,6 +552,408 @@ identifier = "inspec"
 ####
 
 ####
+# Chef InSpec 7.3 Menu
+####
+
+[[inspec_7_3]]
+title = "Install"
+identifier = "install"
+weight = 20
+
+[[inspec_7_3]]
+title = "Profiles"
+identifier = "profiles"
+weight = 50
+
+[[inspec_7_3]]
+title = "Configure"
+identifier = "configure"
+weight = 30
+
+[[inspec_7_3]]
+title = "Manage"
+identifier = "manage"
+weight = 40
+
+[[inspec_7_3]]
+title = "Chef tools"
+identifier = "chef_tools"
+weight = 80
+
+[[inspec_7_3]]
+title = "Related projects"
+identifier = "related"
+weight = 90
+
+[[inspec_7_3]]
+title = "Reference"
+identifier = "reference"
+weight = 110
+
+[[inspec_7_3]]
+title = "Resources"
+identifier = "resources"
+weight = 100
+
+  [[inspec_7_3]]
+  title = "Core resources"
+  identifier = "resources/core"
+  parent = "resources"
+  weight = 30
+
+  [[inspec_7_3]]
+  title = "Custom resources"
+  identifier = "resources/custom"
+  parent = "resources"
+  url = "/inspec/7.3/profiles/custom_resources/"
+  weight = 40
+
+####
+# End Chef InSpec 7.3 Menu
+####
+
+####
+# Chef InSpec 7.2 Menu
+####
+
+[[inspec_7_2]]
+title = "Install"
+identifier = "install"
+weight = 20
+
+[[inspec_7_2]]
+title = "Profiles"
+identifier = "profiles"
+weight = 50
+
+[[inspec_7_2]]
+title = "Configure"
+identifier = "configure"
+weight = 30
+
+[[inspec_7_2]]
+title = "Manage"
+identifier = "manage"
+weight = 40
+
+[[inspec_7_2]]
+title = "Chef tools"
+identifier = "chef_tools"
+weight = 80
+
+[[inspec_7_2]]
+title = "Related projects"
+identifier = "related"
+weight = 90
+
+[[inspec_7_2]]
+title = "Reference"
+identifier = "reference"
+weight = 110
+
+[[inspec_7_2]]
+title = "Resources"
+identifier = "resources"
+weight = 100
+
+[[inspec_7_2]]
+title = "Core resources"
+identifier = "resources/core"
+parent = "resources"
+weight = 30
+
+[[inspec_7_2]]
+title = "Custom resources"
+identifier = "resources/custom"
+parent = "resources"
+url = "/inspec/7.2/profiles/custom_resources/"
+weight = 40
+
+####
+# End Chef InSpec 7.2 Menu
+####
+
+####
+# Chef InSpec 7.1 Menu
+####
+
+[[inspec_7_1]]
+title = "Install"
+identifier = "install"
+weight = 20
+
+[[inspec_7_1]]
+title = "Profiles"
+identifier = "profiles"
+weight = 50
+
+[[inspec_7_1]]
+title = "Configure"
+identifier = "configure"
+weight = 30
+
+[[inspec_7_1]]
+title = "Chef tools"
+identifier = "chef_tools"
+weight = 80
+
+[[inspec_7_1]]
+title = "Related projects"
+identifier = "related"
+weight = 90
+
+[[inspec_7_1]]
+title = "Reference"
+identifier = "reference"
+weight = 110
+
+[[inspec_7_1]]
+title = "Resources"
+identifier = "resources"
+weight = 100
+
+[[inspec_7_1]]
+title = "Core resources"
+identifier = "resources/core"
+parent = "resources"
+weight = 30
+
+[[inspec_7_1]]
+title = "Custom resources"
+identifier = "resources/custom"
+parent = "resources"
+url = "/inspec/7.1/profiles/custom_resources/"
+weight = 40
+
+####
+# End Chef InSpec 7.1 Menu
+####
+
+####
+# Chef InSpec 7.0 Menu
+####
+
+[[inspec_7_0]]
+title = "Install"
+identifier = "install"
+weight = 20
+
+[[inspec_7_0]]
+title = "Profiles"
+identifier = "profiles"
+weight = 50
+
+[[inspec_7_0]]
+title = "Configure"
+identifier = "configure"
+weight = 30
+
+[[inspec_7_0]]
+title = "Chef tools"
+identifier = "chef_tools"
+weight = 80
+
+[[inspec_7_0]]
+title = "Related projects"
+identifier = "related"
+weight = 90
+
+[[inspec_7_0]]
+title = "Reference"
+identifier = "reference"
+weight = 110
+
+[[inspec_7_0]]
+title = "Resources"
+identifier = "resources"
+weight = 100
+
+[[inspec_7_0]]
+title = "Core resources"
+identifier = "resources/core"
+parent = "resources"
+weight = 30
+
+[[inspec_7_0]]
+title = "Custom resources"
+identifier = "resources/custom"
+parent = "resources"
+url = "/inspec/7.0/profiles/custom_resources/"
+weight = 40
+
+####
+# End Chef InSpec 7.0 Menu
+####
+
+####
+# Chef InSpec 6.8 Menu
+####
+
+[[inspec_6_8]]
+title = "Install"
+identifier = "install"
+weight = 20
+
+[[inspec_6_8]]
+title = "Profiles"
+identifier = "profiles"
+weight = 50
+
+[[inspec_6_8]]
+title = "Configure"
+identifier = "configure"
+weight = 30
+
+[[inspec_6_8]]
+title = "Chef tools"
+identifier = "chef_tools"
+weight = 80
+
+[[inspec_6_8]]
+title = "Related projects"
+identifier = "related"
+weight = 90
+
+[[inspec_6_8]]
+title = "Reference"
+identifier = "reference"
+weight = 110
+
+[[inspec_6_8]]
+title = "Resources"
+identifier = "resources"
+weight = 100
+
+[[inspec_6_8]]
+title = "Core resources"
+identifier = "resources/core"
+parent = "resources"
+weight = 30
+
+[[inspec_6_8]]
+title = "Custom resources"
+identifier = "resources/custom"
+parent = "resources"
+url = "/inspec/6.8/profiles/custom_resources/"
+weight = 40
+
+####
+# End Chef InSpec 6.8 Menu
+####
+
+####
+# Chef InSpec 5.24 Menu
+####
+
+[[inspec_5_24]]
+title = "Install"
+identifier = "install"
+weight = 20
+
+[[inspec_5_24]]
+title = "Profiles"
+identifier = "profiles"
+weight = 50
+
+[[inspec_5_24]]
+title = "Configure"
+identifier = "configure"
+weight = 30
+
+[[inspec_5_24]]
+title = "Chef tools"
+identifier = "chef_tools"
+weight = 80
+
+[[inspec_5_24]]
+title = "Related projects"
+identifier = "related"
+weight = 90
+
+[[inspec_5_24]]
+title = "Reference"
+identifier = "reference"
+weight = 110
+
+[[inspec_5_24]]
+title = "Resources"
+identifier = "resources"
+weight = 100
+
+[[inspec_5_24]]
+title = "Core resources"
+identifier = "resources/core"
+parent = "resources"
+weight = 30
+
+[[inspec_5_24]]
+title = "Custom resources"
+identifier = "resources/custom"
+parent = "resources"
+url = "/inspec/5.24/profiles/custom_resources/"
+weight = 40
+
+####
+# End Chef InSpec 5.24 Menu
+####
+
+####
+# Chef InSpec 5.23 Menu
+####
+
+[[inspec_5_23]]
+title = "Install"
+identifier = "install"
+weight = 20
+
+[[inspec_5_23]]
+title = "Profiles"
+identifier = "profiles"
+weight = 50
+
+[[inspec_5_23]]
+title = "Configure"
+identifier = "configure"
+weight = 30
+
+[[inspec_5_23]]
+title = "Chef tools"
+identifier = "chef_tools"
+weight = 80
+
+[[inspec_5_23]]
+title = "Related projects"
+identifier = "related"
+weight = 90
+
+[[inspec_5_23]]
+title = "Reference"
+identifier = "reference"
+weight = 110
+
+[[inspec_5_23]]
+title = "Resources"
+identifier = "resources"
+weight = 100
+
+[[inspec_5_23]]
+title = "Core resources"
+identifier = "resources/core"
+parent = "resources"
+weight = 30
+
+[[inspec_5_23]]
+title = "Custom resources"
+identifier = "resources/custom"
+parent = "resources"
+url = "/inspec/5.23/profiles/custom_resources/"
+weight = 40
+
+####
+# End Chef InSpec 5.23 Menu
+####
+
+####
 # Chef Infra Server Menu
 ####
 
