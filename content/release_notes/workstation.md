@@ -23,28 +23,39 @@ Release date: November 19, 2026
 
 ### New features
 
-- **Ruby gem extensions**: You can now extend supported Workstation tools---including Chef CLI, Knife, Test Kitchen Enterprise, and Ohai---with user-installed Ruby gems and plugins.
-  Gems are stored outside the installation directory in `~/.chef/ruby/<ruby-ABI-version>/gems` and persist across Workstation upgrades that use the same Ruby ABI.
-  Knife, Test Kitchen Enterprise, Ohai and other components automatically discover compatible gems in this directory.
+- You can now extend supported Workstation tools---including Chef CLI, Knife, Test Kitchen Enterprise, and Ohai---with user-installed Ruby gems and plugins.
+  Workstation stores gems outside its installation directory in `~/.chef/ruby/<ruby-ABI-version>/gems`, so they persist across upgrades that use the same Ruby ABI.
+  Knife, Test Kitchen Enterprise, Ohai, and other components automatically discover compatible gems in this directory.
 
-- **Chef Premium RubyGem access**: Chef CLI automatically configures the Chef Premium RubyGem server for gem installation, search, and update operations using your configured Chef license key.
-  It preserves custom gem-source configurations and warns if it can't configure the premium source.
+- Chef CLI now configures the Chef Premium RubyGem server for gem installation, search, and update operations using your configured Chef license key.
+  It preserves custom gem-source configurations and warns you if it can't configure the premium source.
 
-- **Additional Knife cloud integrations**: Workstation now includes the `knife-azure` and `knife-vcenter` plugins, so you can manage Azure and VMware vCenter infrastructure without installing these plugins separately.
+- Workstation now includes the `knife-azure` and `knife-vcenter` plugins, so you can manage Azure and VMware vCenter infrastructure without installing these plugins separately.
 
-- **Configurable Google Cloud password-reset timeout**: The `knife google server create` command adds `--winpass-timeout SECS` to control how long it waits for a Windows password reset.
-  Increase the timeout for instances that take longer to initialize; the default is 120 seconds.
+- The `knife google server create` command now accepts `--winpass-timeout SECS` to control how long it waits for a Windows password reset.
+  The default is 120 seconds; increase it for instances that take longer to initialize.
+
+### Security
+
+- Updated the bundled `net-imap` gem to address CVE-2026-47240, CVE-2026-47241, and CVE-2026-47242.
+- Updated `curl` in the bundled Git package to address CVE-2026-8925.
 
 ### Bug fixes
 
-- **Knife cookbook listings**: Fixed incomplete results from `knife supermarket list` when Chef Supermarket returned fewer cookbooks than requested on a page.
+- The `knife supermarket list` command now returns complete results when Chef Supermarket returns fewer cookbooks than requested on a page.
+  Previously, the command could return incomplete results.
 
-- **Knife SSH password prompts**: Fixed `knife ssh` commands hanging or timing out when a remote host used `sudo-rs`.
-  Knife recognizes its sudo password prompt even when the prompt arrives across multiple SSH messages.
+- The `knife ssh` command now recognizes `sudo-rs` password prompts, even when a prompt arrives across multiple SSH messages.
+  Previously, these commands could hang or time out.
 
-- **Cookstyle suppression directives**: Fixed ignored `push`, `pop`, `disable-next`, and `todo-next` directives under both the `cookstyle:` and `rubocop:` prefixes.
+- Test Kitchen now correctly identifies downloaded Chef Infra Client packages on Rocky Linux.
+  Previously, it could treat an RPM package as a macOS installer and fail to install it.
 
-- **Cookstyle path checks**: Fixed an internal error in `Chef/Modernize/CronDFileOrTemplate` when resource path expressions contained non-string values, such as numeric array indexes.
+- Cookstyle now honors `push`, `pop`, `disable-next`, and `todo-next` suppression directives with both the `cookstyle:` and `rubocop:` prefixes.
+  Previously, it could ignore these directives.
+
+- Cookstyle now handles non-string values, such as numeric array indexes, in resource path expressions without an internal error from `Chef/Modernize/CronDFileOrTemplate`.
+  Previously, these values could trigger an internal error.
 
 ### Packages
 
