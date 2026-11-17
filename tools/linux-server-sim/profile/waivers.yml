@@ -1,0 +1,4 @@
+linux-server-01:
+  expiration_date: 2027-06-30
+  justification: Approved temporary exception for the Linux server baseline test.
+  run: false

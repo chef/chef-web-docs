@@ -126,7 +126,7 @@ Two entries in the generated `azure-baseline/inspec.yml` are what make this an A
 ```yaml
 depends:
   - name: inspec-azure
-    url: https://github.com/inspec/inspec-azure/archive/main.tar.gz
+    url: https://github.com/inspec/inspec-azure/archive/refs/tags/v1.118.47.tar.gz
 supports:
   - platform: azure
 ```

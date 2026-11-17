@@ -1,0 +1,10 @@
+name: linux-server-baseline
+title: Linux server baseline
+maintainer: Chef
+copyright: Chef
+copyright_email: docs@chef.io
+license: Apache-2.0
+summary: Verify the example Linux server configuration.
+version: 0.1.0
+supports:
+  - platform-family: linux

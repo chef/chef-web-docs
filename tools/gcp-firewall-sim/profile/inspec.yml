@@ -1,0 +1,11 @@
+name: gcp-firewall-simulation
+title: GCP firewall control simulation
+maintainer: Chef
+copyright: Chef
+copyright_email: docs@chef.io
+license: Apache-2.0
+summary: Simulate the gcp-02 firewall control with local fixtures.
+version: 0.1.0
+inputs:
+  - name: gcp_project_id
+    value: simulated-project
