@@ -1,18 +1,19 @@
 +++
-title = "Chef Workstation install guide"
+title = "Install and upgrade Chef Workstation"
 draft = false
 
 [menu]
   [menu.workstation_26_2]
-    title = "Install"
-    identifier = "workstation_26_2/install.md Chef Workstation install guide"
+    title = "Install and upgrade"
+    identifier = "workstation_26_2/install.md Install and upgrade Chef Workstation"
     weight = 20
 +++
 
 {{< readfile file="content/workstation/26.2/reusable/md/workstation_modularize.md" >}}
 
-The Chef Workstation native installers provide an efficient way to install Chef Workstation on Windows, Debian, or RPM-based Linux distributions.
-You can download and install the pre-built `.msi`, `.deb`, or `.rpm` packages using your existing package management tools, simplifying the deployment process for managing system configurations.
+This guide explains how to install or upgrade Chef Workstation on supported Windows, Debian-based Linux, RPM-based Linux, and macOS systems.
+You don't need to uninstall an existing version before upgrading.
+Follow the installation steps for your platform and use a newer version.
 
 ## Supported platforms
 
@@ -20,6 +21,7 @@ Chef Workstation is supported on:
 
 - Currently supported Linux distributions and versions running Linux kernel 2.6.32 and later on x86-64 (amd64)
 - Currently supported Windows versions greater than or equal to Windows 10 and Windows Server 2016
+- macOS 14 (Sonoma) on Apple Silicon (ARM64/aarch64)
 
 ## Chef Workstation requirements
 
@@ -27,6 +29,7 @@ Chef Workstation is supported on:
 - **Disk space for binaries**:
   - Linux: The Chef Workstation binaries are stored in `/hab` and require a minimum of 2.8 GB of disk space.
   - Windows: The Chef Workstation binaries are stored in `C:\hab` and require a minimum of 3.3 GB of disk space.
+  - macOS: The Chef Workstation binaries are stored in `/opt/hab` and require a minimum of 2.4 GB of disk space.
 
 ## Prerequisites
 
@@ -57,17 +60,17 @@ To install Chef Workstation on a Debian-based system, follow these steps:
      curl -o "chef-workstation-enterprise-<VERSION>-linux.deb" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=linux&pm=deb&v=<VERSION>"
      ```
 
-   Replace:
+   Replace the following:
    - `<VERSION>` with the version number to install.
    - `<LICENSE_ID>` with your Chef license ID.
 
 1. Install Chef Workstation:
 
    ```shell
-   sudo dpkg -i chef-workstation-enterprise-<VERSION>_amd64.deb
+   sudo dpkg -i chef-workstation-enterprise-<VERSION>-linux.deb
    ```
 
-   Replace `<VERSION>` with the version number of the downloaded package, for example `chef-workstation-enterprise-26.2.0-1_amd64.deb`.
+   Use the same `<VERSION>` value as in the download command.
 
 ### Install Chef Workstation on RPM-based systems
 
@@ -87,23 +90,23 @@ To install Chef Workstation on an RPM-based system, follow these steps:
      curl -o "chef-workstation-enterprise-<VERSION>-linux.rpm" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=linux&pm=rpm&v=<VERSION>"
      ```
 
-   Replace:
+   Replace the following:
    - `<VERSION>` with the version number to install.
    - `<LICENSE_ID>` with your Chef license ID.
 
 1. Install Chef Workstation:
 
    ```shell
-   sudo dnf install chef-workstation-enterprise-<VERSION>.x86_64.rpm
+   sudo dnf install ./chef-workstation-enterprise-<VERSION>-linux.rpm
    ```
 
    Alternatively:
 
    ```shell
-   sudo rpm -Uvh chef-workstation-enterprise-<VERSION>.x86_64.rpm
+   sudo rpm -Uvh chef-workstation-enterprise-<VERSION>-linux.rpm
    ```
 
-   Replace `<VERSION>` with the version number of the downloaded package, for example `chef-workstation-enterprise-26.2.0-1.x86_64.rpm`.
+   Use the same `<VERSION>` value as in the download command.
 
 ### Install Chef Workstation on Windows
 
@@ -115,7 +118,7 @@ To install Chef Workstation on Windows, follow these steps:
    Invoke-WebRequest -Uri "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=windows&pm=msi&v=<VERSION>" -OutFile "chef-workstation-enterprise-<VERSION>_x86_64.msi"
    ```
 
-   Replace:
+   Replace the following:
    - `<VERSION>` with the version number to install.
    - `<LICENSE_ID>` with your Chef license ID.
 
@@ -129,7 +132,43 @@ To install Chef Workstation on Windows, follow these steps:
 
    - Double-click the `.msi` file and follow the on-screen installation wizard.
 
-   Replace `<VERSION>` with the version number of the downloaded package, for example `chef-workstation-enterprise-26.2.0-1_x86_64.msi`.
+   Use the same `<VERSION>` value as in the download command.
+
+### Install Chef Workstation on macOS
+
+To install Chef Workstation on macOS (Apple Silicon), follow these steps:
+
+1. Download the installer using one of the following methods:
+
+   - Download using `curl`:
+
+    ```shell
+    curl -o "chef-workstation-enterprise-<VERSION>-darwin.dmg" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=aarch64&p=mac_os_x&pm=dmg&v=<VERSION>"
+    ```
+
+   - Download using `wget`:
+
+    ```shell
+    wget -O "chef-workstation-enterprise-<VERSION>-darwin.dmg" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=aarch64&p=mac_os_x&pm=dmg&v=<VERSION>"
+    ```
+
+   Replace the following:
+   - `<VERSION>` with the version number to install.
+   - `<LICENSE_ID>` with your Chef license ID.
+
+1. Install Chef Workstation using one of the following methods:
+
+   - Double-click the `.dmg` file, then double-click the `.pkg` file inside and follow the on-screen installation wizard.
+
+   - Run the following commands:
+
+    ```shell
+    hdiutil attach chef-workstation-enterprise-<VERSION>-darwin.dmg
+    sudo installer -pkg "/Volumes/Chef Workstation Enterprise <VERSION>/chef-workstation-enterprise-<VERSION>-1_arm64.pkg" -target /
+    hdiutil detach "/Volumes/Chef Workstation Enterprise <VERSION>"
+    ```
+
+   Use the same `<VERSION>` value as in the download command.
 
 ## Verify the installation
 
@@ -180,6 +219,5 @@ If you only need specific tools rather than the full Workstation package, instal
 ## See also
 
 - [Chef Download API documentation](/download/)
-- [Upgrade Chef Workstation](upgrade)
 - [Uninstall Chef Workstation](uninstall)
 - [Chef Workstation tools](tools)
