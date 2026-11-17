@@ -50,8 +50,9 @@ both of these entries in your site configuration:
   target = 'assets'
 
 If this render hook is unable to resolve a local path, it resolves the path
-against the site's baseURL, preserving any query string and fragment. To
-emit a warning or error, set the error level in your site configuration:
+against the site's baseURL, preserving any query string and fragment.
+Deferred shortcode links are left untouched for Hugo to expand later.
+To emit a warning or error, set the error level in your site configuration:
 
   [params.render_hooks.link]
   errorLevel = 'warning' # ignore (default), warning, or error (fails the build)
@@ -116,7 +117,9 @@ either of these shortcodes in conjunction with this render hook.
 
 {{- /* Set attributes for anchor element. */}}
 {{- $attrs := dict "href" $u.String }}
-{{- if $u.IsAbs }}
+{{- if strings.Contains .Destination "HAHAHUGOSHORTCODE" }}
+  {{- /* Hugo expands deferred shortcodes after this hook; preserve their URLs. */}}
+{{- else if $u.IsAbs }}
   {{- /* Destination is a remote resource. */}}
   {{- $attrs = merge $attrs (dict "rel" "external") }}
 {{- else }}
