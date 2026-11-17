@@ -25,7 +25,7 @@ Release date: November 19, 2026
 
 - **Ruby gem extensions**: You can now extend supported Workstation tools---including Chef CLI, Knife, Test Kitchen Enterprise, and Ohai---with user-installed Ruby gems and plugins.
   Gems are stored outside the installation directory in `~/.chef/ruby/<ruby-ABI-version>/gems` and persist across Workstation upgrades that use the same Ruby ABI.
-  Knife, Test Kitchen Enterprise, and Ohai automatically discover compatible gems in this directory.
+  Knife, Test Kitchen Enterprise, Ohai and other components automatically discover compatible gems in this directory.
 
 - **Chef Premium RubyGem access**: Chef CLI automatically configures the Chef Premium RubyGem server for gem installation, search, and update operations using your configured Chef license key.
   It preserves custom gem-source configurations and warns if it can't configure the premium source.
