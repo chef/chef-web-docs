@@ -16,28 +16,16 @@ To upgrade Chef Workstation on a Debian-based system, follow these steps:
 
 1. Download the latest Debian-based installer using one of the following methods:
 
-   - Download for x86-64 (amd64) using `wget`:
+   - Download using `wget`:
 
      ```shell
      wget -O "chef-workstation-enterprise-<VERSION>-linux.deb" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=linux&pm=deb&v=<VERSION>"
      ```
 
-   - Download for x86-64 (amd64) using `curl`:
+   - Download using `curl`:
 
      ```shell
      curl -o "chef-workstation-enterprise-<VERSION>-linux.deb" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=linux&pm=deb&v=<VERSION>"
-     ```
-
-   - Download for ARM64 (aarch64) using `wget`:
-
-     ```shell
-     wget -O "chef-workstation-enterprise-<VERSION>-linux.deb" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=aarch64&p=linux&pm=deb&v=<VERSION>"
-     ```
-
-   - Download for ARM64 (aarch64) using `curl`:
-
-     ```shell
-     curl -o "chef-workstation-enterprise-<VERSION>-linux.deb" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=aarch64&p=linux&pm=deb&v=<VERSION>"
      ```
 
    Replace:
@@ -46,17 +34,9 @@ To upgrade Chef Workstation on a Debian-based system, follow these steps:
 
 1. Install the new version:
 
-   - On x86-64 (amd64) systems:
-
-     ```shell
-     sudo dpkg -i chef-workstation-enterprise-<VERSION>_amd64.deb
-     ```
-
-   - On ARM64 (aarch64) systems:
-
-     ```shell
-     sudo dpkg -i chef-workstation-enterprise-<VERSION>_arm64.deb
-     ```
+   ```shell
+   sudo dpkg -i chef-workstation-enterprise-<VERSION>_amd64.deb
+   ```
 
    Replace `<VERSION>` with the version number of the downloaded package.
 
@@ -66,28 +46,16 @@ To upgrade Chef Workstation on an RPM-based system, follow these steps:
 
 1. Download the latest RPM-based installer using one of the following methods:
 
-   - Download for x86-64 (amd64) using `wget`:
+   - Download using `wget`:
 
      ```shell
      wget -O "chef-workstation-enterprise-<VERSION>-linux.rpm" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=linux&pm=rpm&v=<VERSION>"
      ```
 
-   - Download for x86-64 (amd64) using `curl`:
+   - Download using `curl`:
 
      ```shell
      curl -o "chef-workstation-enterprise-<VERSION>-linux.rpm" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=linux&pm=rpm&v=<VERSION>"
-     ```
-
-   - Download for ARM64 (aarch64) using `wget`:
-
-     ```shell
-     wget -O "chef-workstation-enterprise-<VERSION>-linux.rpm" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=aarch64&p=linux&pm=rpm&v=<VERSION>"
-     ```
-
-   - Download for ARM64 (aarch64) using `curl`:
-
-     ```shell
-     curl -o "chef-workstation-enterprise-<VERSION>-linux.rpm" "https://chefdownload-commercial.chef.io/stable/chef-workstation-enterprise/download?eol=false&license_id=<LICENSE_ID>&m=aarch64&p=linux&pm=rpm&v=<VERSION>"
      ```
 
    Replace:
@@ -96,29 +64,15 @@ To upgrade Chef Workstation on an RPM-based system, follow these steps:
 
 1. Install the new version:
 
-   - On x86-64 (amd64) systems:
+   ```shell
+   sudo dnf install chef-workstation-enterprise-<VERSION>.x86_64.rpm
+   ```
 
-     ```shell
-     sudo dnf install chef-workstation-enterprise-<VERSION>.x86_64.rpm
-     ```
+   Alternatively:
 
-     Alternatively:
-
-     ```shell
-     sudo rpm -Uvh chef-workstation-enterprise-<VERSION>.x86_64.rpm
-     ```
-
-   - On ARM64 (aarch64) systems:
-
-     ```shell
-     sudo dnf install chef-workstation-enterprise-<VERSION>.aarch64.rpm
-     ```
-
-     Alternatively:
-
-     ```shell
-     sudo rpm -Uvh chef-workstation-enterprise-<VERSION>.aarch64.rpm
-     ```
+   ```shell
+   sudo rpm -Uvh chef-workstation-enterprise-<VERSION>.x86_64.rpm
+   ```
 
    Replace `<VERSION>` with the version number of the downloaded package.
 
