@@ -19,7 +19,7 @@ summary = "Chef Workstation release notes"
 
 ## Chef Workstation 26.2.0
 
-Release date: November 24, 2026
+Release date: November 19, 2026
 
 ### New features
 
