@@ -30,7 +30,7 @@ A `config.rb` file:
 
 {{< note >}}
 
-When running Windows, the `config.rb` file is located at `%HOMEDRIVE%:%HOMEPATH%\.chef` (e.g. `c:\Users\<username>\.chef`).
+When running Windows, the `config.rb` file is located at `%HOMEDRIVE%:%HOMEPATH%\.chef` (for example, `c:\Users\<username>\.chef`).
 
 {{< /note >}}
 

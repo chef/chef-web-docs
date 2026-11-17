@@ -282,11 +282,11 @@ knife bootstrap FQDN_or_IP_ADDRESS (options)
 
 `-V -V`
 
-: Run the initial Chef Infra Client run at the `debug` log-level (e.g. `chef-client -l debug`).
+: Run the initial Chef Infra Client run at the `debug` log-level (for example, `chef-client -l debug`).
 
 `-V -V -V`
 
-: Run the initial Chef Infra Client run at the `trace` log-level (e.g. `chef-client -l trace`).
+: Run the initial Chef Infra Client run at the `trace` log-level (for example, `chef-client -l trace`).
 
 {{< note >}}
 

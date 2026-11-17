@@ -1003,10 +1003,10 @@ This subcommand has the following options:
 
 `--head`
 
-:   A shortcut for `chef diff --git HEAD`. When a git-specific flag is
-    not provided, the on-disk `Policyfile.lock.json` file is compared to
-    one on Chef Infra Server or (if a `Policyfile.lock.json` file is
-    not present on-disk) two `Policyfile.lock.json` files in the
+:   A shortcut for `chef diff --git HEAD`. When a git-specific flag isn't
+    provided, the on-disk `Policyfile.lock.json` file is compared to
+    one on Chef Infra Server or (if a `Policyfile.lock.json` file isn't
+    present on-disk) two `Policyfile.lock.json` files in the
     specified policy group on Chef Infra Server are compared.
 
 `--[no-]pager`

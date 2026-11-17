@@ -144,7 +144,7 @@ The `config.rb` file loads every time the knife command is invoked using the fol
 
 {{< note >}}
 
-On Windows, the `config.rb` file is located at: `%HOMEDRIVE%:%HOMEPATH%\.chef` (e.g. `c:\Users\<USERNAME>\.chef`).
+On Windows, the `config.rb` file is located at: `%HOMEDRIVE%:%HOMEPATH%\.chef` (for example, `c:\Users\<USERNAME>\.chef`).
 In a script for Windows, use: `%USERPROFILE%\chef-repo\.chef`.
 
 {{< /note >}}
