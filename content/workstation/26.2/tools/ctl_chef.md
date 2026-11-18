@@ -92,21 +92,6 @@ development environment. All knife plugins, drivers for Kitchen, and
 other Ruby applications that aren't packaged within Chef Workstation
 are stored in `~/.chef/ruby/version#/gems` and persist across Chef Workstation upgrades.
 
-### Premium gems
-
-To install a gem, run `chef gem install <gem-name>`.
-
-When you run a `chef gem` command that downloads gems, Chef CLI checks whether an authenticated Chef Premium RubyGem source is configured.
-If it isn't, Chef CLI tries to add the source using an available Chef license key, such as one configured with `chef license add` or set in the `CHEF_LICENSE_KEY` environment variable.
-If you've already configured a custom gem source, Chef CLI preserves it and returns a warning instead of adding the Chef Premium source.
-
-{{< note >}}
-
-The `chef gem` command doesn't prompt for a license key.
-To configure a license key, run `chef license add` or set `CHEF_LICENSE_KEY` before you run the command.
-
-{{< /note >}}
-
 ### Syntax
 
 This subcommand has the following syntax:
@@ -114,6 +99,19 @@ This subcommand has the following syntax:
 ```bash
 chef gem GEM_COMMAND GEM_OPTIONS (options)
 ```
+
+### Add Chef's Premium RubyGem server as a source
+
+Before downloading a gem, Chef CLI checks whether an authenticated source for [Chef's Premium RubyGem server](https://rubygems.chef.io/) is configured.
+If no authenticated source for this server is configured, Chef CLI tries to add it using a license key configured with `chef license add` or set in the `CHEF_LICENSE_KEY` environment variable.
+If you've configured a custom gem source, Chef CLI leaves it unchanged and displays a warning instead of adding Chef's Premium RubyGem server as a source.
+
+{{< note >}}
+
+The `chef gem` command doesn't prompt for a license key.
+To configure a license key, run [`chef license add`](#chef-license) or set `CHEF_LICENSE_KEY` as described on the [License Chef Workstation](../license.md) page.
+
+{{< /note >}}
 
 ### Options
 
@@ -125,7 +123,7 @@ This subcommand has the following options:
 
 `-v`, `--version`
 
-: The Chef Infra Client version.
+: The RubyGems version bundled with Chef Workstation.
 
 ### Examples
 
@@ -725,6 +723,65 @@ This subcommand has the following options:
 ### Examples
 
 None.
+
+## chef license
+
+The `chef license` command validates the installed license or manages installed licenses.
+
+### Syntax
+
+```shell
+chef license [SUBCOMMAND]
+```
+
+Omit `SUBCOMMAND` to validate the installed license or start the interactive license setup.
+
+### chef license add
+
+Creates and installs a free or trial license, or installs a commercial license.
+
+#### Syntax
+
+```shell
+chef license add [--chef-license-key LICENSE]
+```
+
+To start the interactive license setup, run:
+
+```shell
+chef license add
+```
+
+To add a license using a license key, run:
+
+```shell
+chef license add --chef-license-key <LICENSE_KEY>
+```
+
+Replace `<LICENSE_KEY>` with the license key you received.
+
+#### Options
+
+`--chef-license-key LICENSE`
+: Accepts and stores the specified license key.
+
+  Type: string
+
+  Default: not set
+
+### chef license list
+
+Lists details about licenses installed on the system.
+
+#### Syntax
+
+```shell
+chef license list
+```
+
+### More information
+
+See [License Chef Workstation](../license.md) for licensing requirements and ways to configure a license.
 
 ## chef report
 
