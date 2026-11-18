@@ -90,19 +90,22 @@ The `chef gem` subcommand is a wrapper around the `gem` command in
 RubyGems and is used by Chef to install RubyGems into Chef Workstation
 development environment. All knife plugins, drivers for Kitchen, and
 other Ruby applications that aren't packaged within Chef Workstation
-are stored in `~/.chef/ruby/version#/bin` and persist across Chef Workstation upgrades.
+are stored in `~/.chef/ruby/version#/gems` and persist across Chef Workstation upgrades.
 
 ### Premium gems
 
-Using Chef Workstation, you can install premium gems from the Chef's RubyGem server at rubygems.chef.io. When you run a command like `chef gem install <<gem-name>>`, Chef Workstation checks whether rubygems.chef.io is configured as a gem source. If not, it tries to add it if you have configured the license key with the "chef license add" command. By default, it tries to fetch the gem from rubygems.org.
+To install a gem, run `chef gem install <gem-name>`.
 
-If you don't configure a gem source for Chef premium gems, you can't install them.
+When you run a `chef gem` command that downloads gems, Chef CLI checks whether an authenticated Chef Premium RubyGem source is configured.
+If it isn't, Chef CLI tries to add the source using an available Chef license key, such as one configured with `chef license add` or set in the `CHEF_LICENSE_KEY` environment variable.
+If you've already configured a custom gem source, Chef CLI preserves it and returns a warning instead of adding the Chef Premium source.
 
 {{< note >}}
 
-The `chef gem` command never prompts interactively for a license key. To configure a license key, run `chef license add` first.
+The `chef gem` command doesn't prompt for a license key.
+To configure a license key, run `chef license add` or set `CHEF_LICENSE_KEY` before you run the command.
 
-{{< /note >}}.
+{{< /note >}}
 
 ### Syntax
 
