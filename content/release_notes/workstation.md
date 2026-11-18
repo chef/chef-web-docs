@@ -26,7 +26,7 @@ Release date: November 19, 2026
 - You can now extend supported Workstation tools---including Chef CLI, Knife, Test Kitchen Enterprise, and Ohai---with user-installed Ruby gems and plugins.
   Workstation stores gems outside its installation directory in `~/.chef/ruby/<ruby-ABI-version>/gems`, so they persist across upgrades that use the same Ruby ABI.
   Knife, Test Kitchen Enterprise, Ohai, and other components automatically discover compatible gems in this directory.
-  To install a gem, run `chef gem install <gem-name>`. For details, see the [`chef gem` command documentation](/workstation/26.2/tools/ctl_chef/#chef-gem).
+  Install gems with `chef gem install <GEM_NAME>`. For details, see the [`chef gem` command documentation](/workstation/26.2/tools/ctl_chef/#chef-gem).
 
 - Chef CLI now configures the Chef Premium RubyGem server for gem installation, search, and update operations using your configured Chef license key.
   It preserves custom gem-source configurations and warns you if it can't configure the premium source.
@@ -36,9 +36,9 @@ Release date: November 19, 2026
 - The `knife google server create` command now accepts `--winpass-timeout SECS` to control how long it waits for a Windows password reset.
   The default is 120 seconds; increase it for instances that take longer to initialize.
 
-- Cookstyle 9 introduces new cops and expands existing checks.
-  Cookbooks that passed earlier versions may report additional offenses;
-  review the Cookstyle release notes before upgrading CI environments.
+- Cookstyle 9 adds new Chef cops, enables two new RuboCop cops, and expands existing checks.
+  These changes may surface additional offenses in cookbooks that passed earlier versions.
+  Review the [Cookstyle changelog](https://github.com/chef/cookstyle/blob/main/CHANGELOG.md) and [Cookstyle documentation](/workstation/cookstyle/) before upgrading CI environments.
 
 ### Security
 
@@ -56,7 +56,9 @@ Release date: November 19, 2026
 - Test Kitchen now correctly identifies downloaded Chef Infra Client packages on Rocky Linux.
   Previously, it could treat an RPM package as a macOS installer and fail to install it.
 
-- Fixed an issue where InSpec package checks run through Test Kitchen on Windows could incorrectly report installed 32-bit packages as missing because of incorrect architecture detection in PowerShell WinRM sessions.
+- Test Kitchen's `kitchen verify` command now correctly detects installed 32-bit packages on 64-bit Windows targets over PowerShell WinRM sessions.
+  Previously, InSpec's architecture detection relied on CMD-style environment variable expansion, which these sessions don't support.
+  The Train transport now falls back to PowerShell-native syntax to detect the system architecture.
 
 - Cookstyle now honors `push`, `pop`, `disable-next`, and `todo-next` suppression directives with both the `cookstyle:` and `rubocop:` prefixes.
   Previously, it could ignore these directives.
