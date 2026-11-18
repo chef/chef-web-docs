@@ -26,6 +26,7 @@ Release date: November 19, 2026
 - You can now extend supported Workstation tools---including Chef CLI, Knife, Test Kitchen Enterprise, and Ohai---with user-installed Ruby gems and plugins.
   Workstation stores gems outside its installation directory in `~/.chef/ruby/<ruby-ABI-version>/gems`, so they persist across upgrades that use the same Ruby ABI.
   Knife, Test Kitchen Enterprise, Ohai, and other components automatically discover compatible gems in this directory.
+  To install a gem, run `chef gem install <gem-name>`. For details, see the [`chef gem` command documentation](/workstation/26.2/tools/ctl_chef/#chef-gem).
 
 - Chef CLI now configures the Chef Premium RubyGem server for gem installation, search, and update operations using your configured Chef license key.
   It preserves custom gem-source configurations and warns you if it can't configure the premium source.
@@ -34,6 +35,10 @@ Release date: November 19, 2026
 
 - The `knife google server create` command now accepts `--winpass-timeout SECS` to control how long it waits for a Windows password reset.
   The default is 120 seconds; increase it for instances that take longer to initialize.
+
+- Cookstyle 9 introduces new cops and expands existing checks.
+  Cookbooks that passed earlier versions may report additional offenses;
+  review the Cookstyle release notes before upgrading CI environments.
 
 ### Security
 
@@ -51,6 +56,8 @@ Release date: November 19, 2026
 - Test Kitchen now correctly identifies downloaded Chef Infra Client packages on Rocky Linux.
   Previously, it could treat an RPM package as a macOS installer and fail to install it.
 
+- Fixed an issue where InSpec package checks run through Test Kitchen on Windows could incorrectly report installed 32-bit packages as missing because of incorrect architecture detection in PowerShell WinRM sessions.
+
 - Cookstyle now honors `push`, `pop`, `disable-next`, and `todo-next` suppression directives with both the `cookstyle:` and `rubocop:` prefixes.
   Previously, it could ignore these directives.
 
@@ -62,7 +69,7 @@ Release date: November 19, 2026
 This release adds the following OS-native packages:
 
 - Linux ARM (aarch64) RPM (.rpm) and DEB (.deb) packages
-- macOS ARM (Apple Silicon) DMG (.dmg) installer
+- macOS ARM (Apple Silicon) DMG (.dmg) installer for macOS 14 (Sonoma) and later
 
 For a full list of supported packages and platforms for this release, see the [Chef Workstation supported packages](/platforms/#chef-workstation).
 
