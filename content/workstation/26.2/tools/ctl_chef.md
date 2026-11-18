@@ -94,7 +94,7 @@ are stored in `~/.chef/ruby/version#/bin` and persist across Chef Workstation up
 
 ### Premium gems
 
-Chef Workstation can install premium gems from the Chef Premium RubyGem server at rubygems.chef.io. When you run a `chef gem` command, for example `chef gem install <<name>>`, Chef Workstation automatically checks whether rubygems.chef.io is already configured and, if not, attempts to add it using chef license which has been added with `chef license add`.
+Using Chef Workstation, you can install premium gems from the Chef's RubyGem server at rubygems.chef.io. When you run a command like `chef gem install <<gem-name>>`, Chef Workstation checks whether rubygems.chef.io is configured as a gem source. If not, it tries to add it if you have configured the license key with the "chef license add" command. By default, it tries to fetch the gem from rubygems.org.
 
 If you don't configure a gem source for Chef premium gems, you can't install them.
 
