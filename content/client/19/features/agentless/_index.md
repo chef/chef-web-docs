@@ -14,13 +14,11 @@ linkTitle = "Agentless"
 {{< readfile file="content/client/19/reusable/md/agentless_summary.md" >}}
 
 The target node can be any remote system, edge device, or cloud resource that the Linux host running Agentless Mode can reach.
-This includes Linux, Windows, and macOS systems, as well as Wi-Fi routers, switches, relays, cloud resources, IP phones, router hubs, and network management peripherals.
+This includes Wi-Fi routers, switches, relays, cloud resources, IP phones, router hubs, and network management peripherals.
 
 ## Supported target platforms
 
-Run Agentless Mode from a Linux host.
-It connects from that host to target nodes running Linux, Windows, or macOS.
-The Linux requirement applies to the host running Agentless Mode, not to the target nodes.
+For supported target platforms, see the [Chef Infra Client 19 platform list](/platforms/#chef-infra-client-support-19).
 
 ## Transport Interface (Train)
 
@@ -32,7 +30,7 @@ Agentless Mode supports the SSH Train protocol. The other Train protocols are ex
 
 Agentless Mode has the following requirements:
 
-- A network-enabled system to execute Agentless Mode.
+- A Linux host with network access to run Agentless Mode and reach the target.
 - The `chef-client` CLI. This is included with Chef Workstation.
 - A [`target_credentials` file](#configure-the-target-credentials-file) that provides the system with information to connect to a target node.
 - A recipe that only includes [Agentless Mode-enabled resources](#resources).
