@@ -167,14 +167,19 @@ For more information, see the [Chef Automate HA system requirements](/automate/h
 ### Chef Workstation
 
 {{< foundation_tabs tabs-id="chef-workstation-support" >}}
-  {{< foundation_tab active="true" panel-link="chef-workstation-support-26-1" tab-text="Chef Workstation 26.1">}}
+  {{< foundation_tab active="true" panel-link="chef-workstation-support-26-2" tab-text="Chef Workstation 26.2">}}
+  {{< foundation_tab panel-link="chef-workstation-support-26-1" tab-text="Chef Workstation 26.1">}}
   {{< foundation_tab panel-link="chef-workstation-support-26-0" tab-text="Chef Workstation 26.0">}}
   {{< foundation_tab panel-link="chef-workstation-support-25" tab-text="Chef Workstation 25.x" >}}
 {{< /foundation_tabs >}}
 
 {{< foundation_tabs_panels tabs-id="chef-workstation-support" >}}
 
-{{< foundation_tabs_panel active="true" panel-id="chef-workstation-support-26-1" >}}
+{{< foundation_tabs_panel active="true" panel-id="chef-workstation-support-26-2" >}}
+{{< readfile file="content/reusable/md/supported_platforms/chef_workstation_26_2.md" >}}
+{{< /foundation_tabs_panel >}}
+
+{{< foundation_tabs_panel panel-id="chef-workstation-support-26-1" >}}
 {{< readfile file="content/reusable/md/supported_platforms/chef_workstation_26_1.md" >}}
 {{< /foundation_tabs_panel >}}
 

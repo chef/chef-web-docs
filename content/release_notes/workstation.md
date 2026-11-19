@@ -17,6 +17,78 @@ summary = "Chef Workstation release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
+## Chef Workstation 26.2.0
+
+Release date: November 19, 2026
+
+### New features
+
+- You can now extend supported Workstation tools---including Chef CLI, Knife, Test Kitchen Enterprise, and Ohai---with user-installed Ruby gems and plugins.
+  Workstation stores gems outside its installation directory in `~/.chef/ruby/<ruby-ABI-version>/gems`, so they persist across upgrades that use the same Ruby ABI.
+  Knife, Test Kitchen Enterprise, Ohai, and other components automatically discover compatible gems in this directory.
+  Install gems with `chef gem install <GEM_NAME>`. For details, see the [`chef gem` command documentation](/workstation/26.2/tools/ctl_chef/#chef-gem).
+
+- Chef CLI now configures the Chef Premium RubyGem server for gem installation, search, and update operations using your configured Chef license key.
+  It preserves custom gem-source configurations and warns you if it can't configure the premium source.
+
+- Workstation now includes the `knife-azure` and `knife-vcenter` plugins, so you can manage Azure and VMware vCenter infrastructure without installing these plugins separately.
+
+- The `knife google server create` command now accepts `--winpass-timeout SECS` to control how long it waits for a Windows password reset.
+  The default is 120 seconds; increase it for instances that take longer to initialize.
+
+- Cookstyle 9 adds new Chef cops, enables two new RuboCop cops, and expands existing checks.
+  These changes may surface additional offenses in cookbooks that passed earlier versions.
+  Review the [Cookstyle changelog](https://github.com/chef/cookstyle/blob/main/CHANGELOG.md) and [Cookstyle documentation](/workstation/cookstyle/) before upgrading CI environments.
+
+### Security
+
+- Updated the bundled `net-imap` gem to address CVE-2026-47240, CVE-2026-47241, and CVE-2026-47242.
+- Updated `curl` in the bundled Git package to address CVE-2026-8925.
+
+### Bug fixes
+
+- The `knife supermarket list` command now returns complete results when Chef Supermarket returns fewer cookbooks than requested on a page.
+  Previously, the command could return incomplete results.
+
+- The `knife ssh` command now recognizes `sudo-rs` password prompts, even when a prompt arrives across multiple SSH messages.
+  Previously, these commands could hang or time out.
+
+- Test Kitchen now correctly identifies downloaded Chef Infra Client packages on Rocky Linux.
+  Previously, it could treat an RPM package as a macOS installer and fail to install it.
+
+- Test Kitchen's `kitchen verify` command now correctly detects installed 32-bit packages on 64-bit Windows targets over PowerShell WinRM sessions.
+  Previously, InSpec's architecture detection relied on CMD-style environment variable expansion, which these sessions don't support.
+  The Train transport now falls back to PowerShell-native syntax to detect the system architecture.
+
+- Cookstyle now honors `push`, `pop`, `disable-next`, and `todo-next` suppression directives with both the `cookstyle:` and `rubocop:` prefixes.
+  Previously, it could ignore these directives.
+
+- Cookstyle now handles non-string values, such as numeric array indexes, in resource path expressions without an internal error from `Chef/Modernize/CronDFileOrTemplate`.
+  Previously, these values could trigger an internal error.
+
+### Packages
+
+This release adds the following OS-native packages:
+
+- Linux ARM (aarch64) RPM (.rpm) and DEB (.deb) packages
+- macOS ARM (Apple Silicon) DMG (.dmg) installer for macOS 14 (Sonoma) and later
+
+For a full list of supported packages and platforms for this release, see the [Chef Workstation supported packages](/platforms/#chef-workstation).
+
+### Tool updates
+
+- Updated Berkshelf to version 8.1.31.
+- Updated the `chef` CLI to version 6.1.42.
+- Updated Chef Infra Client to version 19.4.46. For details, see the [Chef Infra Client 19 release notes](https://docs.chef.io/release_notes/client/).
+- Updated Chef InSpec to version 7.3.4. For details, see the [Chef InSpec 7 release notes](https://docs.chef.io/release_notes/inspec/).
+- Updated Chef Vault to version 4.2.16.
+- Updated Cookstyle to version 9.0.9.
+  For details, see the [Cookstyle 9 release notes](https://github.com/chef/cookstyle/blob/v9.0.9/RELEASE_NOTES.md).
+- Updated Fauxhai to version 9.4.29.
+- Updated Knife to version 19.0.153. For details, see the [Knife changelog](https://github.com/chef/knife/blob/main/CHANGELOG.md).
+- Updated Ohai to version 19.1.53.
+- Updated Test Kitchen Enterprise to version 2.0.23. For details, see the [Test Kitchen Enterprise changelog](https://github.com/chef/chef-test-kitchen-enterprise/blob/main/CHANGELOG.md).
+
 ## Chef Workstation 26.1.0
 
 Release date: July 13, 2026
