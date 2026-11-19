@@ -1695,7 +1695,7 @@ weight = 20
 [[workstation_26_2]]
 title = "Tools"
 identifier = "workstation_26_2/tools"
-weight = 80
+weight = 70
 
   [[workstation_26_2]]
   title = "Cookstyle"

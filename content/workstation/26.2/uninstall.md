@@ -5,7 +5,7 @@ draft = false
 [menu.workstation_26_2]
   title = "Uninstall"
   identifier = "workstation_26_2/uninstall"
-  weight = 70
+  weight = 80
 +++
 
 This guide explains how to uninstall Chef Workstation from supported Debian-based, RPM-based, Windows, and macOS systems.

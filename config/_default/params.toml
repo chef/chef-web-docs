@@ -321,6 +321,10 @@ base_url = "/inspec/5.23/"
 ###
 
 [[versions.workstation]]
+link_text = "Chef Workstation 26.2"
+base_url = "/workstation/26.2/"
+
+[[versions.workstation]]
 link_text = "Chef Workstation 26.1"
 base_url = "/workstation/26.1/"
 
