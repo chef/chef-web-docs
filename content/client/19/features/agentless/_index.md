@@ -30,7 +30,7 @@ Agentless Mode supports the SSH Train protocol. The other Train protocols are ex
 
 Agentless Mode has the following requirements:
 
-- A Linux host with network access to run Agentless Mode and reach the target.
+- Run Agentless Mode from a Linux host with network access to the target.
 - The `chef-client` CLI. This is included with Chef Workstation.
 - A [`target_credentials` file](#configure-the-target-credentials-file) that provides the system with information to connect to a target node.
 - A recipe that only includes [Agentless Mode-enabled resources](#resources).
