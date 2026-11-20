@@ -35,7 +35,7 @@ For example, if today you are on version _2021201164433_, your upgrade journey s
 
 ## Upgrade and migration flow
 
-![Upgrade flow](/images/automate/migration-and-upgrade-v4-flow.png)
+![Chef Automate upgrade and migration flowchart showing the major upgrade process from Start major upgrade through prerequisite checks, Y/N decision points, Elasticsearch to OpenSearch migration, and completion or termination outcomes.](/images/automate/migration-and-upgrade-v4-flow.png)
 
 ## Prerequisites
 

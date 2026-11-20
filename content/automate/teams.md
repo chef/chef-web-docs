@@ -28,7 +28,7 @@ Chef Automate comes with an _Admins_ team by default. Local users can be added d
 
 Navigate to _Teams_ in the **Settings** tab. Select the **Create Team** button, which opens a dialog box to enter the team's _Name_ and optionally assign the team to one or more _Projects_. A team ID automatically generates upon creation. If you would like to change the team ID, use the **Edit ID** button.
 
-![Create Local Team](/images/automate/admin-tab-teams-list.png)
+![Chef Automate Settings Teams page showing Create Team button with a teams table listing admins, editors, Example Team, and viewers with their IDs and assigned projects.](/images/automate/admin-tab-teams-list.png)
 
 ### Adding Local Users to Teams
 
