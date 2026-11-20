@@ -378,7 +378,7 @@ To send local-mode run data to Chef Automate, see [Data collection](/automate/da
 
 ## Related resources
 
-- [Chef Infrastructure Management overview](/solutions/infra_management/)
+- [Chef Configuration Management overview](/solutions/infra_management/)
 - [Ohai](/client/latest/features/ohai/)
 - [Policyfiles](/client/latest/policy/policyfile/)
 - [Google Cloud: Use startup scripts on Linux VMs](https://cloud.google.com/compute/docs/instances/startup-scripts/linux)

@@ -1,5 +1,5 @@
 +++
-title = "The Chef way of Kubernetes config management"
+title = "The Chef way of Kubernetes configuration management"
 description = "Configure the Linux nodes that run Kubernetes with Chef: write the node settings and the kubelet configuration as code, converge nodes on a schedule, correct drift, and roll changes out one node pool at a time."
 draft = false
 gh_repo = "chef-web-docs"
@@ -7,7 +7,7 @@ gh_repo = "chef-web-docs"
 [menu.overview]
   identifier = "overview/solutions/infra_management/kubernetes_config"
   parent = "overview/solutions/infra_management"
-  title = "Kubernetes config management"
+  title = "Kubernetes configuration management"
   weight = 10
 +++
 

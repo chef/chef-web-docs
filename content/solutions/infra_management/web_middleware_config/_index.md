@@ -1,5 +1,5 @@
 +++
-title = "The Chef way of web server and middleware config management"
+title = "The Chef way of web server and middleware configuration management"
 description = "Configure NGINX, Apache Tomcat, and the rest of your web tier with Chef: write the configuration as code, check every change before it reaches the live file, reload instead of restart, and roll changes out one group of servers at a time."
 draft = false
 gh_repo = "chef-web-docs"
@@ -7,7 +7,7 @@ gh_repo = "chef-web-docs"
 [menu.overview]
   identifier = "overview/solutions/infra_management/web_middleware_config"
   parent = "overview/solutions/infra_management"
-  title = "Web server and middleware config management"
+  title = "Web server and middleware configuration management"
   weight = 50
 +++
 
@@ -517,7 +517,7 @@ A Windows server running IIS bootstraps over WinRM with `-o winrm`.
 
 Enrollment methods, scheduling, and servers that can't reach the central service work the same way for a web tier as for any other fleet, so this page doesn't repeat them:
 
-- **Enroll and schedule.** See [The Chef way of hybrid fleet config management](/solutions/infra_management/hybrid_fleet_config/) for enrollment methods, the `chef_client_systemd_timer` and `chef_client_scheduled_task` resources, and how `splay` spreads the load on the central service.
+- **Enroll and schedule.** See [The Chef way of hybrid fleet configuration management](/solutions/infra_management/hybrid_fleet_config/) for enrollment methods, the `chef_client_systemd_timer` and `chef_client_scheduled_task` resources, and how `splay` spreads the load on the central service.
 - **Servers in a DMZ or closed segment.** Use `chef export` to apply a policy locally with `chef-client -z`, and set the proxy that Chef Infra Client reads. See [`chef export`](/client/latest/policy/policyfile/#chef-export) and [proxies](/client/latest/install/proxies/).
 - **Certificates in a closed segment.** The `secret` helper calls the secrets service, so the server needs a route to it, or another way to deliver the certificate.
 
@@ -629,7 +629,7 @@ Before you scale up:
 - [Policyfiles](/policyfile/)
 - [Secrets management integrations](/client/latest/infra_language/secrets/)
 - [The Chef way of configuring web servers and middleware](/solutions/compliance/web_servers_middleware/)
-- [The Chef way of hybrid fleet config management](/solutions/infra_management/hybrid_fleet_config/)
+- [The Chef way of hybrid fleet configuration management](/solutions/infra_management/hybrid_fleet_config/)
 - [Chef Automate client runs](/automate/client_runs/)
 - [NGINX: Controlling nginx](https://nginx.org/en/docs/control.html)
 - [Apache Tomcat configuration reference](https://tomcat.apache.org/tomcat-10.1-doc/config/index.html)

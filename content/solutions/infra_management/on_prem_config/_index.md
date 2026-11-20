@@ -1,5 +1,5 @@
 +++
-title = "The Chef way of on-prem config management"
+title = "The Chef way of on-prem configuration management"
 description = "Configure the servers in your own data center with Chef: write the baseline settings as code, converge servers on a schedule, correct drift, and roll changes out one server group at a time."
 draft = false
 gh_repo = "chef-web-docs"
@@ -7,7 +7,7 @@ gh_repo = "chef-web-docs"
 [menu.overview]
   identifier = "overview/solutions/infra_management/on_prem_config"
   parent = "overview/solutions/infra_management"
-  title = "On-prem config management"
+  title = "On-prem configuration management"
   weight = 30
 +++
 

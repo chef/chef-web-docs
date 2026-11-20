@@ -1,5 +1,5 @@
 +++
-title = "The Chef way of hybrid fleet config management"
+title = "The Chef way of hybrid fleet configuration management"
 description = "Configure a fleet that spans operating systems and sites with one codebase: handle Linux and Windows in the cookbook, handle each site in a layered policy, and roll changes out one site at a time."
 draft = false
 gh_repo = "chef-web-docs"
@@ -7,7 +7,7 @@ gh_repo = "chef-web-docs"
 [menu.overview]
   identifier = "overview/solutions/infra_management/hybrid_fleet_config"
   parent = "overview/solutions/infra_management"
-  title = "Hybrid fleet config management"
+  title = "Hybrid fleet configuration management"
   weight = 40
 +++
 

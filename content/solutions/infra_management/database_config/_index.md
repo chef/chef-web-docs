@@ -1,5 +1,5 @@
 +++
-title = "The Chef way of database config management"
+title = "The Chef way of database configuration management"
 description = "Configure the servers that run your databases with Chef: write the database settings and host settings as code, converge servers on a schedule, correct drift, and apply changes with the reload or restart that each setting needs."
 draft = false
 gh_repo = "chef-web-docs"
@@ -7,7 +7,7 @@ gh_repo = "chef-web-docs"
 [menu.overview]
   identifier = "overview/solutions/infra_management/database_config"
   parent = "overview/solutions/infra_management"
-  title = "Database config management"
+  title = "Database configuration management"
   weight = 20
 +++
 

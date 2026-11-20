@@ -47,7 +47,7 @@ identifier = "overview"
 weight = 20
 
     [[overview]]
-    title = "Chef Infrastructure Management"
+    title = "Chef Configuration Management"
     identifier = "overview/solutions/infra_management"
     parent = "overview/solutions"
     weight = 20

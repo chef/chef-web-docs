@@ -17,7 +17,7 @@ Chef Infra Client solves this by configuring each virtual machine from code.
 It runs inside the guest operating system, applies the cookbooks or policies assigned to that machine, and corrects anything that no longer matches the next time it runs.
 
 This page explains how Chef Infra fits into a virtual machine workflow, how to bring new and existing machines under management, and how to keep them in the state you defined.
-For an overview of the solution, see [Chef Infrastructure Management](/solutions/infra_management/).
+For an overview of the solution, see [Chef Configuration Management](/solutions/infra_management/).
 For Windows guests, also see [Windows configuration management](/solutions/infra_management/windows/).
 
 ## When to use Chef Infra for virtual machines
@@ -325,7 +325,7 @@ For more detail, see [Troubleshooting](/client/latest/troubleshooting/).
 
 ## Related resources
 
-- [Chef Infrastructure Management](/solutions/infra_management/)
+- [Chef Configuration Management](/solutions/infra_management/)
 - [Windows configuration management](/solutions/infra_management/windows/)
 - [Chef and VMware](/client/latest/integrations/vmware/)
 - [Bootstrap a node with Chef Infra](/client/latest/install/bootstrap/)

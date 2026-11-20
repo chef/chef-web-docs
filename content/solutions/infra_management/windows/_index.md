@@ -17,7 +17,7 @@ It uses the same cookbooks, recipes, and policies you use for Linux, and adds re
 You describe the state you want, and Chef Infra Client changes only what doesn't match.
 
 This page explains how to install Chef Infra Client on Windows, what you can manage, and how to configure and maintain Windows nodes.
-For an overview of the solution, see [Chef Infrastructure Management](/solutions/infra_management/).
+For an overview of the solution, see [Chef Configuration Management](/solutions/infra_management/).
 For virtual machine workflows, also see [Virtual machine configuration management](/solutions/infra_management/virtual_machines/).
 
 ## When to use Chef Infra for Windows
@@ -347,7 +347,7 @@ For more detail, see [Troubleshooting](/client/latest/troubleshooting/).
 
 ## Related resources
 
-- [Chef Infrastructure Management](/solutions/infra_management/)
+- [Chef Configuration Management](/solutions/infra_management/)
 - [Virtual machine configuration management](/solutions/infra_management/virtual_machines/)
 - [Chef for Windows](/client/latest/integrations/windows/)
 - [Install Chef Infra Client on Windows nodes](/client/latest/integrations/install_windows/)

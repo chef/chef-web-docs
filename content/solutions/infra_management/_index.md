@@ -1,5 +1,5 @@
 +++
-title = "Chef Infrastructure Management"
+title = "Chef Configuration Management"
 draft = false
 gh_repo = "chef-web-docs"
 
@@ -16,7 +16,7 @@ gh_repo = "chef-web-docs"
   weight = 1
 +++
 
-Chef Infrastructure Management configures servers and other systems from code with Chef Infra.
+Chef Configuration Management configures servers and other systems from code with Chef Infra.
 You describe packages, files, services, users, and other settings in [cookbooks](/client/latest/cookbooks/),
 and [Chef Infra Client](/client/latest/) applies that state to each system, changing only what doesn't match.
 
