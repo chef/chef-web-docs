@@ -1,5 +1,7 @@
 +++
 title = "About Chef Test Kitchen Enterprise"
+description = "Chef Test Kitchen Enterprise tests Chef Infra cookbooks across platforms, cloud providers, and virtualization drivers using a driver plugin architecture."
+summary = "Test Chef Infra cookbooks across platforms and cloud providers with Chef Test Kitchen Enterprise and its supported drivers."
 draft = false
 linkTitle = "Test Kitchen Enterprise"
 

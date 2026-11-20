@@ -1,5 +1,7 @@
 +++
 title = "kitchen executable"
+description = "Reference for the kitchen command-line executable used to create, converge, verify, and destroy Test Kitchen instances."
+summary = "kitchen command-line executable reference for Test Kitchen."
 draft = false
 
 
