@@ -18,7 +18,7 @@ This includes Wi-Fi routers, switches, relays, cloud resources, IP phones, route
 
 ## Agentless Mode platform support
 
-Agentless Mode runs from a Linux host and can manage target platforms listed in the [Chef Infra Client 19 platform list](/platforms/#chef-infra-client-support-19).
+Agentless Mode runs from a Linux host and can manage target platforms listed in the [Supported Platforms for Chef Infra Client 19](/platforms/#chef-infra-client-support-19).
 
 ## Transport Interface (Train)
 
