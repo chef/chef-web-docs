@@ -17,7 +17,7 @@ summary = "Chef Infra Server release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
-## Chef Infra Server 15.10.127
+## Chef Infra Server 15.10.131
 
 Release date: December 3, 2026
 
@@ -25,10 +25,9 @@ Release date: December 3, 2026
 
 - Updated OpenResty from 1.31.1.1 to 1.31.8.1.
 - Updated Erlang/OTP from 26.2.5.21 to 29.1.2.
-- Updated PostgreSQL from 13.23.tuxcare.1.0.0 to 13.23.tuxcare.[x].
-- Updated OpenSearch from 1.3.20-tuxcare-1.0.3 to 1.3.20-tuxcare-[1.0.x].
-- Updated OpenJRE from 17.0.9+9 to [17.0.x].
-- Updated HAProxy from 3.0.11 to [3.0.x].
+- Updated PostgreSQL from 13.23.tuxcare.1.0.0 to 13.23.tuxcare.1.0.12.
+- Updated OpenSearch from 1.3.20-tuxcare-1.0.3 to 1.3.20-tuxcare-1.0.4.
+- Updated OpenJRE from 17.0.9+9 to 17.0.20.1.1.
 - Updated curl from 8.19.0 to 8.21.0.
 - Updated Rack from 3.2.5 to 3.2.8.
 - Updated activestorage from 7.2.3.1 to 7.2.3.2.
