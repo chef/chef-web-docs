@@ -107,7 +107,7 @@ weight = 20
   weight = 60
 
     [[overview]]
-    title = "Chef Configuration Management"
+    title = "Configuration Management"
     identifier = "overview/solutions/infra_management"
     parent = "overview/solutions"
     weight = 20
