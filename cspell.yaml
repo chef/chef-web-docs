@@ -36,6 +36,12 @@ dictionaryDefinitions:
 
 flagWords:
 - hte
+
+ignoreWords:
+- CODEOWNERS
+- ruleset
+- rulesets
+
 ignorePaths:
 - ".expeditor/**/*"
 - "**/*.sh"
