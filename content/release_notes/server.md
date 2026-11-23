@@ -17,6 +17,45 @@ summary = "Chef Infra Server release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
+## Chef Infra Server 15.10.127
+
+Release date: December 3, 2026
+
+### Security
+
+- Updated OpenResty from 1.31.1.1 to 1.31.8.1.
+- Updated Erlang/OTP from 26.2.5.21 to 29.1.2.
+- Updated PostgreSQL from 13.23.tuxcare.1.0.0 to 13.23.tuxcare.[x].
+- Updated OpenSearch from 1.3.20-tuxcare-1.0.3 to 1.3.20-tuxcare-[1.0.x].
+- Updated OpenJRE from 17.0.9+9 to [17.0.x].
+- Updated HAProxy from 3.0.11 to [3.0.x].
+- Updated curl from 8.19.0 to 8.21.0.
+- Updated Rack from 3.2.5 to 3.2.8.
+- Updated activestorage from 7.2.3.1 to 7.2.3.2.
+- Updated faraday to 2.14.3 in oc-id and chef-server-ctl.
+- Updated the remaining addressable versions from 2.8.0 and 2.8.7 to 2.9.0.
+- Updated bundler from 2.2.15 to 2.2.18.
+- Updated concurrent-ruby from 1.1.10 and 1.3.6 to 1.3.7.
+- Updated erb from 2.2.3 to 4.0.3.1.
+- Updated json from 2.18.1 to 2.19.2.
+- Updated websocket-driver from 0.8.0 to 0.8.2.
+- Removed the vulnerable REXML 3.2.5 version.
+
+### Bug fixes
+
+- Fixed an issue where chef-server-ctl commands that use knife, such as chef-server-ctl org-list, failed in FIPS-enabled environments with an OpenSSL error. chef-server-ctl now includes an OpenSSL version that supports FIPS mode.
+
+### Service versions
+
+This release uses:
+
+- OpenResty 1.31.8.1
+- OpenJRE 17.0.9+9
+- PostgreSQL 13.23.tuxcare.1.0.2
+- OpenSearch 1.3.20-tuxcare-1.0.5
+- Rack 3.2.8
+- Valkey 7.2.11
+
 ## Chef Infra Server 15.10.125
 
 Release date: August 27, 2026
