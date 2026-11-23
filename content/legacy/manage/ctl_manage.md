@@ -68,7 +68,7 @@ chef-manage-ctl show-config
 
 The `uninstall` subcommand is used to manage the hooks between runit and
 `sysvinit` or `upstart`. This subcommand doesn't [uninstall the Chef
-management console](/manage_uninstall/#chef-manage) or remove `.rpm` or
+management console](/legacy/manage/manage_uninstall/) or remove `.rpm` or
 `.deb` files.
 
 This subcommand has the following syntax:

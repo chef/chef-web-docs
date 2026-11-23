@@ -1,0 +1,70 @@
++++
+title = "zfs_dataset resource"
+draft = false
+
+platform = "linux"
+
+[menu.inspec_5_23]
+    title = "zfs_dataset"
+    identifier = "resources/core/zfs_dataset.md zfs_dataset resource"
+    parent = "resources/core"
++++
+
+Use the `zfs_dataset` Chef InSpec audit resource to test the ZFS datasets on FreeBSD & Linux (Check [OS Family Details](/inspec/5.23/resources/core/os/#osfamily-helpers) for more details).
+
+## Availability
+
+### Install
+
+{{< readfile file="content/inspec/5.23/reusable/md/inspec_installation.md" >}}
+
+### Version
+
+This resource first became available in v1.16.0 of InSpec.
+
+## Syntax
+
+A `zfs_dataset` resource block declares the ZFS dataset properties that should be tested:
+
+```ruby
+describe zfs_dataset('dataset') do
+  it { should MATCHER 'value' }
+end
+```
+
+where:
+
+- `('dataset')` is the name of the ZFS dataset (eg: `'tank/tmp'`)
+- `MATCHER` is a valid matcher for this resource
+- `'value'` is the value to be tested
+
+## Examples
+
+The following examples show how to use this Chef InSpec audit resource.
+
+### Test a dataset of 'tank/tmp'
+
+```ruby
+describe zfs_dataset('tank/tmp') do
+  it { should be_mounted }
+  its('atime') { should eq  'on' }
+  its('compression') { should eq  'lz4' }
+  its('exec') { should eq  'off' }
+  its('readonly') { should eq  'off' }
+  its('setuid') { should eq  'off' }
+end
+```
+
+## Matchers
+
+This Chef InSpec audit resource has the matchers listed below, in addition to dynamically exposing all ZFS dataset properties available (see: `man zfs` for the list of supported properties). {{< readfile file="content/inspec/5.23/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
+
+### be_mounted
+
+The `be_mounted` matcher tests if the dataset is accessible from the file system:
+
+```ruby
+it { should be_mounted }
+```

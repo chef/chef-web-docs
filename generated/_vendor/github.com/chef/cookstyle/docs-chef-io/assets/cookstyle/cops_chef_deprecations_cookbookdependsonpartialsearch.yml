@@ -10,6 +10,10 @@ examples: |2-
 
   # bad
   depends 'partial_search'
+
+  # good
+  # the built-in search helper takes a filter_result option
+  search(:node, 'role:web', filter_result: { 'name' => ['name'], 'ip' => ['ipaddress'] })
 version_added: 5.1.0
 enabled: true
 included_file_paths:

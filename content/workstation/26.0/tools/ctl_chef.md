@@ -663,7 +663,7 @@ None.
 
 ## chef generate input
 
-Use the `chef generate input` subcommand to generate an [input](/inspec/latest/inputs/) file for Chef Infra Client's Compliance Phase execution.
+Use the `chef generate input` subcommand to generate an [input](/inspec/latest/profiles/inputs/) file for Chef Infra Client's Compliance Phase execution.
 
 ### Syntax
 
@@ -687,7 +687,7 @@ None.
 
 ## chef generate waiver
 
-Use the `chef generate waiver` subcommand to generate a [waiver](/inspec/latest/waivers/) file for Chef Infra Client's Compliance Phase execution.
+Use the `chef generate waiver` subcommand to generate a [waiver](/inspec/latest/configure/waivers/) file for Chef Infra Client's Compliance Phase execution.
 
 ### Syntax
 

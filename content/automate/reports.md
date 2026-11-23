@@ -111,7 +111,7 @@ If the results returned by your deep filter are incorrectly scoped, review the `
 
 A node's waived status appears if applicable in displays where a node's status appears in Chef Automate. The Compliance Reports overview displays the node count, history of waived nodes, and the count and history of waived controls. _Nodes_ and _Profiles_ views include _Waived Nodes_ and _Waived Profiles_ status filters, respectively. The _Waived_ status filter displays the respective Node or Profile reporting with the `waived` status. Hover over the control's Waived icon under the Node Status column in _Controls_ to view more details about the waiver applied to the control.
 
-Use Chef InSpec to configure [waivers](/inspec/waivers/).
+Use Chef InSpec to configure [waivers](/inspec/latest/configure/waivers/).
 
 ## Download Report Results (Default Configuration)
 

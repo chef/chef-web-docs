@@ -47,7 +47,7 @@ Follow the [Backup]({{< relref "backup.md" >}}) documentation to make a copy of 
 
 ### Upgrade Chef Automate
 
-- Follow the instructions to upgrade to Chef Automate 4.x or higher. OpenSearch support is available on [Chef Automate version 4.x]({{< ref "major_upgrade.md" >}}) or higher.
+- Follow the instructions to upgrade to Chef Automate 4.x or higher. OpenSearch support is available on [Chef Automate version 4.x]({{< relref "major_upgrade.md" >}}) or higher.
 
 ### Stop Chef Automate
 

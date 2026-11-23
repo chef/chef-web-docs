@@ -7,6 +7,6 @@ description: |-
   methods don't spawn 2 shells per shellout and instead use .NET bindings to call PS directly.
 autocorrection: false
 target_chef_version: All Versions
-examples: 
-version_added: 
+examples:
+version_added:
 enabled: false

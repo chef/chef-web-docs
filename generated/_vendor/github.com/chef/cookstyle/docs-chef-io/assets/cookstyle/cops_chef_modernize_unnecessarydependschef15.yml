@@ -14,6 +14,17 @@ examples: |2-
   depends 'windows_dns'
   depends 'windows_uac'
   depends 'windows_dfs'
+
+  # good
+  # the resources ship in Chef Infra Client 15+, so use them without a depends
+  archive_file 'expand website' do
+    path '/tmp/site.zip'
+    destination '/var/www/html'
+  end
+
+  windows_uac 'set uac' do
+    enable_uac true
+  end
 version_added: 7.19.0
 enabled: true
 included_file_paths:

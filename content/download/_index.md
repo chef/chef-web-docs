@@ -35,9 +35,9 @@ The following documentation pages provide for guidance on downloading and instal
 
 - [Chef Automate](/automate/install/)
 - [Chef Automate HA](/automate/ha/)
-- [Chef Habitat](/habitat/install_habitat/)
+- [Chef Habitat](/habitat/latest/install/)
 - [Chef Infra Client](/client/latest/install/bootstrap/)
 - [Chef Infra Server](/server/install_server/)
-- [Chef InSpec](/inspec/install/)
+- [Chef InSpec](/inspec/latest/install/)
 - [Chef Workstation](/workstation/latest/install/)
 - [Private Chef Supermarket](/supermarket/install_supermarket/)

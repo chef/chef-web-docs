@@ -49,18 +49,18 @@ For best results:
 
 For services that don't follow this layout, you should select environment and application names that help you find and filter the application data and are relevant to your typical job tasks.
 
-For more information on setting up Chef Habitat, see the Chef Habitat [Service Groups]({{< relref "/habitat/about_services#service-group" >}}) documentation.
+For more information on setting up Chef Habitat, see the Chef Habitat [Service Groups](/habitat/latest/services/#service-group) documentation.
 
 ## Setting up the Applications Dashboard
 
 To get started, you need:
 
 1. Running installations of Chef Automate and Chef Habitat Builder SasS or Builder on-prem
-1. A [Chef Automate API token]({{< ref "api_tokens#creating-a-standard-api-token" >}}) specifically for this integration
+1. A [Chef Automate API token]({{< relref "api_tokens#creating-a-standard-api-token" >}}) specifically for this integration
 
 ## Sending Event Data to Chef Automate
 
-If you haven't already done so, [create an API token]({{< ref "api_tokens#creating-a-standard-api-token" >}}) in Chef Automate. Save it somewhere safe and accessible to you for use in this step.
+If you haven't already done so, [create an API token]({{< relref "api_tokens#creating-a-standard-api-token" >}}) in Chef Automate. Save it somewhere safe and accessible to you for use in this step.
 
 ### Customize the Event Stream Command
 
@@ -75,7 +75,7 @@ hab sup run \
   --event-stream-token="API_TOKEN" \
 ```
 
-* [hab sup run]({{< relref "/habitat/habitat_cli#hab-sup-run" >}}) is the hab CLI command to start the Habitat supervisor.
+* [hab sup run](/habitat/latest/reference/habitat_cli/#hab-sup-run) is the hab CLI command to start the Habitat supervisor.
 * `MY_APP` is the name of your application. Chef Automate groups services by application name in the Applications Dashboard
 * `MY_ENV` is the application environment for this supervisor. Chef Automate groups services by environment in the Applications Dashboard
 * `MY_SITE` describes the physical (for example, data center) or cloud-specific (for example, the AWS region) location where your services are deployed. The site field is a value filtering for services in the Applications Dashboard.
@@ -262,7 +262,7 @@ For more information, check out this further explanation on how to [configure Bu
 For more information, see the [Chef Habitat documentation]({{< relref "/habitat" >}}).
 In particular, see the entries on:
 
-* [Service Groups]({{< relref "/habitat/service_groups" >}})
-* [Services]({{< relref "/habitat/about_services" >}})
-* [Supervisor]({{< relref "/habitat/sup" >}})
-* [Topology]({{< relref "/habitat/about_services#topology" >}})
+* [Service Groups](/habitat/latest/services/service_groups/)
+* [Services](/habitat/latest/services/)
+* [Supervisor](/habitat/latest/sup/)
+* [Topology](/habitat/latest/services/#topology)

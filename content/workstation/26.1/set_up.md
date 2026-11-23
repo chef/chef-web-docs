@@ -168,7 +168,7 @@ For more information about how knife and Chef Infra Client use SSL certificates 
 
 ## More information
 
-- [Knife setup documentation](/workstation/26.1/tools/knife/knife_setup/)
+- [Knife setup documentation](/workstation/26.1/tools/knife/set_up/)
 - [Knife `config.rb` documentation](/workstation/26.1/tools/knife/config_rb)
 - [`knife ssl fetch` documentation](/workstation/26.1/tools/knife/knife_ssl_fetch/)
 - [`knife ssl check` documentation](/workstation/26.1/tools/knife/knife_ssl_check/)
