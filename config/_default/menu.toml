@@ -46,12 +46,6 @@ title = "Overview"
 identifier = "overview"
 weight = 20
 
-    [[overview]]
-    title = "Chef Configuration Management"
-    identifier = "overview/solutions/infra_management"
-    parent = "overview/solutions"
-    weight = 20
-
   [[overview]]
   title = "Licensing"
   identifier = "overview/licensing"
@@ -105,6 +99,18 @@ weight = 20
       identifier = "overview/community/style/hugo"
       parent = "overview/community/style"
       weight = 999
+
+  [[overview]]
+  title = "Solutions"
+  identifier = "overview/solutions"
+  parent = "overview"
+  weight = 60
+
+    [[overview]]
+    title = "Chef Configuration Management"
+    identifier = "overview/solutions/infra_management"
+    parent = "overview/solutions"
+    weight = 20
 
 ####
 # End Overview Menu
