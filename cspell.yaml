@@ -42,9 +42,6 @@ words:
 
 ignoreWords:
 - entra
-- CODEOWNERS
-- ruleset
-- rulesets
 - authid
 - rolsuper
 - rolname
