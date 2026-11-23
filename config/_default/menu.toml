@@ -100,6 +100,18 @@ weight = 20
       parent = "overview/community/style"
       weight = 999
 
+  [[overview]]
+  title = "Solutions"
+  identifier = "overview/solutions"
+  parent = "overview"
+  weight = 60
+
+    [[overview]]
+    title = "Chef Compliance"
+    identifier = "overview/solutions/compliance"
+    parent = "overview/solutions"
+    weight = 10
+
 ####
 # End Overview Menu
 ####
