@@ -6,6 +6,6 @@ description: Rubygems does not need to be required in a Gemspec. It's already lo
   out of the box in Ruby now.
 autocorrection: true
 target_chef_version: All Versions
-examples: 
-version_added: 
+examples:
+version_added:
 enabled: false

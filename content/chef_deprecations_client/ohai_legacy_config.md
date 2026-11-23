@@ -22,5 +22,5 @@ configure the `plugin_path` value previously you would set
 `Ohai::Config[:plugin_path] = "/etc/chef/ohai/plugins.local"`, where as
 you would now use `ohai.plugin_path = "/etc/chef/ohai/plugins.local"`.
 See the [Ohai Configuration
-Documentation](/ohai/#ohai-settings-in-client-rb) for additional
+Documentation](/client/latest/features/ohai/#ohai-settings-in-clientrb) for additional
 usage information.

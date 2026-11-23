@@ -21,7 +21,7 @@ During every Chef Infra Client run, the following happens:
 <tbody>
 <tr>
 <td><strong>Get configuration data</strong></td>
-<td>Chef Infra Client gets process configuration data from the <a href="/config_rb_client/">client.rb</a> file on the <a href="/nodes/">node</a>, and then gets node configuration data from Ohai. One important piece of configuration data is the name of the node, which is found in the <code>node_name</code> attribute in the client.rb file or is provided by Ohai. If Ohai provides the name of a node, it's typically the FQDN for the node, which is always unique within an organization.</td>
+<td>Chef Infra Client gets process configuration data from the <a href="/client/latest/install/config_rb_client/">client.rb</a> file on the <a href="/client/latest/overview/nodes/">node</a>, and then gets node configuration data from Ohai. One important piece of configuration data is the name of the node, which is found in the <code>node_name</code> attribute in the client.rb file or is provided by Ohai. If Ohai provides the name of a node, it's typically the FQDN for the node, which is always unique within an organization.</td>
 </tr>
 <tr>
 <td><strong>Authenticate to the Chef Infra Server</strong></td>

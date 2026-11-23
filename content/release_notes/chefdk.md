@@ -299,7 +299,7 @@ Chef Infra Client has updated from 15.7 to 15.11, which includes improvements to
 
 Chef InSpec has updated from 4.18.51 to 4.19.0. This update includes a large number of fixes to resources and these significant new features:
 
-- You can now develop your own Chef InSpec Reporter plugin and determine how Chef InSpec will report result data. Learn more about Chef InSpec [plugins and implementation](/inspec/plugins/) in our documentation
+- You can now develop your own Chef InSpec Reporter plugin and determine how Chef InSpec will report result data. Learn more about Chef InSpec [plugins and implementation](/inspec/latest/configure/plugins/) in our documentation
 - The `inspec archive` command packs your profile into a tar.gz file that includes the profile in JSON form as the `inspec.json` file. Use this JSON file to programmatically examine the profile without needing to load it into Chef InSpec
 - Chef InSpec accepts a variety of date formats in the `waivers.yaml` configuration file, rather than only the `YYYY-MM-DD` format
 - Use the new `inspec` command options to control the size of reports:
@@ -833,7 +833,7 @@ changes:
 - Waivers, our new beta feature, was added to InSpec! Waivers allows
     you to better manage compliance failures. We would love to hear your
     feedback on this! See the [InSpec Waivers
-    documentation](/inspec/waivers/) for
+    documentation](/inspec/latest/configure/waivers/) for
     more details.
 
 **Improvements**
@@ -1393,7 +1393,7 @@ Our <span class="title-ref">cacert</span> bundle has been updated to the
 
 Usage of ChefDK 4.0, Chef Infra Client 15, and Chef InSpec 4 requires
 accepting the [Chef
-EULA](/chef_license/#chef-eula). See the
+EULA](/licensing/#chef-eula). See the
 [frequently asked questions](https://www.chef.io/bmc-faq/) for
 information about the license update and the associated business model
 change.
@@ -1831,7 +1831,7 @@ non-breaking Test Kitchen 2.0 features:
 
 - Support for accepting the Chef 15 license in Test Kitchen runs. See
     [Accepting the Chef
-    License](/chef_license_accept/) for usage
+    License](/licensing/accept/) for usage
     details.
 - A new `--fail-fast` command line flag for use with the <span
     class="title-ref">concurrency</span> flag. With this flag set, Test
@@ -2660,7 +2660,7 @@ cookbooks given on the command line.
 
     More information can be found in
     [RFC097](https://github.com/chef/chef-rfc/blob/main/rfc097-policyfile-includes.md)
-    and the [Policyfile documentation](/policyfile/).
+    and the [Policyfile documentation](/client/latest/policy/policyfile/).
 
 - **New tools bundled**
 
@@ -3024,8 +3024,8 @@ standard license strings.
 
 ### Delivery CLI
 
-- The `project.toml` file, which can be used to execute [local
-    phases](/delivery_cli/#delivery-local), now supports:
+- The `project.toml` file, which can be used to execute local
+    phases, now supports:
     - An optional `functional` phase.
     - New `remote_file` option to specify a remote `project.toml`.
     - The ability to run stages (collection of phases).
@@ -3040,14 +3040,12 @@ standard license strings.
 ### Policyfiles
 
 - Added a `chef_server` default source option to
-    [Policyfiles](/config_rb_policyfile/#settings).
+    [Policyfiles](/client/latest/policy/config_rb_policyfile/#settings).
 
 ### Automate Workflow Adopts SSH for Cookbook Generation
 
 The `chef generate cookbook` command now uses the SSH based job dispatch
-system as its default behavior. For more details on this new system and
-how to use it, see [Job Dispatch
-Docs](/runners/)
+system as its default behavior.
 
 ### FIPS (Windows and RHEL only)
 

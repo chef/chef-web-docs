@@ -18,7 +18,7 @@ Chef community members can use Chef's Community API to download Chef software pa
 You must have a Free Tier License ID to download packages from the Chef Community API.
 To generate a new license ID or retrieve an existing license ID, [submit a request](https://www.chef.io/license-generation-free-trial).
 
-See [Chef's licensing documentation]({{< relref "chef_license" >}}) for more information on the Chef license.
+See [Chef's licensing documentation](/licensing/) for more information on the Chef license.
 
 ## Endpoints
 

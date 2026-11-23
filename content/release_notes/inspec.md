@@ -382,7 +382,7 @@ Before you can execute scans with InSpec, you must accept the Chef EULA and add 
 
 Commercial users can find their license key in [Chef Support Hub](https://community.progress.com/s/products/chef).  Users can [request a Free or Trial license](https://www.chef.io/licensing/inspec/license-generation-free-trial) that comes with product limitations. See the license tiers section below.
 
-For more information on adding a license key to InSpec and Chef licenses, see [Chef InSpec's licensing documentation](https://docs.chef.io/inspec/license/) and [Chef licensing documentation](https://docs.chef.io/licensing/).
+For more information on adding a license key to InSpec and Chef licenses, see [Chef InSpec's licensing documentation](/inspec/latest/install/license/) and [Chef licensing documentation](https://docs.chef.io/licensing/).
 
 #### License tiers
 
@@ -403,7 +403,7 @@ See our [licensing documentation](https://docs.chef.io/licensing/) or contact [C
 The new `inspec parallel` command allows you to simultaneously run multiple audits on multiple cloud or on-prem targets.
 This can speed up audits and allow you to remediate problems more quickly.
 
-For more information, see the [InSpec Parallel documentation](https://docs.chef.io/inspec/parallel/)
+For more information, see the [InSpec Parallel documentation](/inspec/latest/configure/parallel/)
 
 #### Audit Logging (Preview)
 
@@ -411,7 +411,7 @@ Audit Logging logs the commands and file accesses made through the underlying Tr
 To enable this feature, set the environment variable `CHEF_PREVIEW_AUDIT_LOGGING` to any non-empty value and Chef InSpec will write logs to `~/.inspec/logs/inspec-audit-TIMESTAMP-PID.log` in JSON format.
 
 This is a preview feature with limited capabilities. We're seeking user feedback for future feature development.
-For more details, see [InSpec Audit Log](https://docs.chef.io/inspec/audit_log/).
+For more details, see [InSpec Audit Log](/inspec/latest/configure/audit_log/).
 
 #### Mandatory Profile Signing (Preview)
 
@@ -815,7 +815,7 @@ Release date: May 18, 2023
 
 The train-kubernetes plugin now ships with Chef InSpec. This plugin allows you to perform compliance checks with the Kubernetes API. ([#6512](https://github.com/inspec/inspec/pull/6512))
 
-See the [documentation on train plugins](https://docs.chef.io/inspec/plugins/) for more information about using train with Chef InSpec.
+See the [documentation on train plugins](/inspec/latest/configure/plugins/) for more information about using train with Chef InSpec.
 See the [train-kubernetes repository](https://github.com/inspec/train-kubernetes) for more information on train-kubernetes.
 
 ### New resources
@@ -1317,7 +1317,7 @@ CLI command fixes:
 
 ### New features
 
-- Added ability to pass inputs to InSpec shell using input file and cli ([#5452](https://github.com/inspec/inspec/pull/5452)) For more information, see [How can I set Inputs?](https://docs.chef.io/inspec/inputs/#how-can-i-set-inputs) in the InSpec documentation.
+- Added ability to pass inputs to InSpec shell using input file and cli ([#5452](https://github.com/inspec/inspec/pull/5452)) For more information, see [How can I set Inputs?](/inspec/latest/profiles/inputs/#how-can-i-set-inputs) in the InSpec documentation.
 
 ### Bug fixes
 
@@ -1335,8 +1335,8 @@ This release is a hotfix to address a regression in 4.31.0.
 
 ### New features
 
-- Commands can now be set to timeout using the [command resource](https://docs.chef.io/inspec/resources/command/) or the [`--command-timeout`](https://docs.chef.io/inspec/cli/) option in the CLI. Commands timeout by default after one hour. ([#5443](https://github.com/inspec/inspec/pull/5443))
-- Added the [`--docker-url`](https://docs.chef.io/inspec/cli/) CLI option, which can be used to specify the URI to connect to the Docker Engine. ([#5445](https://github.com/inspec/inspec/pull/5445))
+- Commands can now be set to timeout using the [command resource](https://docs.chef.io/inspec/resources/command/) or the [`--command-timeout`](/inspec/latest/reference/cli/) option in the CLI. Commands timeout by default after one hour. ([#5443](https://github.com/inspec/inspec/pull/5443))
+- Added the [`--docker-url`](/inspec/latest/reference/cli/) CLI option, which can be used to specify the URI to connect to the Docker Engine. ([#5445](https://github.com/inspec/inspec/pull/5445))
 - Added support for targeting Linux and Windows containers running on Docker for Windows. ([train #674](https://github.com/inspec/train/pull/674))
 
 ### Bug fixes

@@ -1,0 +1,46 @@
+---
+short_name: ExecuteDeleteFile
+full_name: Chef/Correctness/ExecuteDeleteFile
+department: Chef/Correctness
+description: |-
+  Use the `file` or `directory` resources built into Chef Infra Client with the `:delete` action
+  to remove files and directories instead of shelling out to `rm`. The resources are idempotent,
+  report correctly on what they changed, and work without a shell.
+
+  The two resources are not interchangeable and the one you pick has to match what is on disk.
+  `directory` asserts the path really is a directory before deleting, so it raises
+  `Cannot delete directory[...]` on a file even with `recursive true`, and `file` calls
+  `File.delete`, so it raises `Errno::EISDIR` on a directory. A `directory` delete also needs
+  `recursive true` for anything that isn't empty, or it raises `Errno::ENOTEMPTY`.
+
+  Only a single `rm` of one path is flagged. A command containing a glob, a shell operator, or
+  anything beyond the one deletion is left alone, since the `file` and `directory` resources
+  can't express those.
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  # bad -- rm without -r, which the shell will not let you point at a directory
+  execute 'rm /etc/foo.conf'
+
+  # good
+  file '/etc/foo.conf' do
+    action :delete
+  end
+
+  # bad -- a recursive rm of a directory
+  execute 'delete the thing' do
+    command 'rm -rf /opt/thing'
+  end
+
+  # good
+  directory '/opt/thing' do
+    recursive true
+    action :delete
+  end
+version_added: 9.0.0
+enabled: true
+excluded_file_paths:
+- "**/attributes/*.rb"
+- "**/metadata.rb"
+- "**/Berksfile"

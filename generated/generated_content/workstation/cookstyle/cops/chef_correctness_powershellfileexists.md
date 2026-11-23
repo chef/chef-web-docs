@@ -26,7 +26,7 @@ Use Ruby's built-in `File.exist?('C:\somefile')` method instead of executing Pow
 
 ```ruby
 # bad
-powershell_out('Test-Path "C:\\Program Files\\LAPS\\CSE\\AdmPwd.dll"').stdout.strip == 'True'
+powershell_out('Test-Path "C:\Program Files\LAPS\CSE\AdmPwd.dll"').stdout.strip == 'True'
 
 # good
 ::File.exist?('C:\Program Files\LAPS\CSE\AdmPwd.dll')

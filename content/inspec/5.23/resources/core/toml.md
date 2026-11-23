@@ -1,0 +1,83 @@
++++
+title = "toml resource"
+draft = false
+
+platform = "os"
+
+[menu.inspec_5_23]
+    title = "toml"
+    identifier = "resources/core/toml.md toml resource"
+    parent = "resources/core"
++++
+
+Use the `toml` Chef InSpec audit resource to test settings in a TOML file.
+
+## Availability
+
+### Install
+
+{{< readfile file="content/inspec/5.23/reusable/md/inspec_installation.md" >}}
+
+### Version
+
+This resource first became available in v1.0.0 of InSpec.
+
+## Syntax
+
+An `toml` resource block declares the configuration settings to be tested:
+
+```ruby
+describe toml('path') do
+  its('setting_name') { should eq 'value' }
+end
+```
+
+where:
+
+- `'setting_name'` is a setting key defined in the TOML file.
+- `('path')` is the path to the TOML file.
+- `{ should eq 'value' }` is the value that's expected.
+
+## Properties
+
+This resource supports any of the settings listed in a TOML file as properties.
+
+## Examples
+
+In the examples below, the `example.toml` file contains the following data:
+
+```toml
+port = 8080
+fruits = ["apple", "banana", "cantaloupe"]
+
+[section]
+key1 = "value1"
+```
+
+**Verify the port number:**
+
+```ruby
+describe toml('path/to/example.toml') do
+  its('port') { should eq 8080 }
+end
+```
+
+**Verify the value of an array using brackets:**
+
+```ruby
+describe toml('path/to/example.toml') do
+  its(['fruits', 0]) { should eq 'apple' }
+end
+```
+
+**Verify the value of a key in a table using brackets:**
+
+```ruby
+describe toml('path/to/example.toml') do
+  its(['section', 'key1']) { should cmp 'value1' }
+end
+```
+
+## Matchers
+
+{{< readfile file="content/inspec/5.23/reusable/md/inspec_matchers_link.md" >}}

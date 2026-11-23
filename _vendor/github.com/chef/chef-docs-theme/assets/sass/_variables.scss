@@ -35,6 +35,14 @@ $border-dark: #a1a1a1;
 // passes WCAG 1.4.11 non-text contrast (requires 3:1) while being lighter
 // and less saturated than $slate-light.
 $border-medium: #848484;
+$outdated-version-default-background: #eff6ff;
+$outdated-version-default-text: #323130;
+$outdated-version-deprecated-border: #ffb900;
+$outdated-version-deprecated-background: #fff4ce;
+$outdated-version-deprecated-icon: #ff8c00;
+$outdated-version-end-of-life-border: #d13438;
+$outdated-version-end-of-life-background: #fde7e9;
+$outdated-version-end-of-life-text: #201f1e;
 
 $fa-font-path: "../fonts/fontawesome";
 $font-family-monospace: "Source Code Pro", "Consolas","Inconsolata","Menlo","Monaco","Courier New","monospace";

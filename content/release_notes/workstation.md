@@ -17,6 +17,78 @@ summary = "Chef Workstation release notes"
 <!-- cSpell:disable  -->
 <!-- vale off -->
 
+## Chef Workstation 26.2.0
+
+Release date: November 19, 2026
+
+### New features
+
+- You can now extend supported Workstation tools---including Chef CLI, Knife, Test Kitchen Enterprise, and Ohai---with user-installed Ruby gems and plugins.
+  Workstation stores gems outside its installation directory in `~/.chef/ruby/<ruby-ABI-version>/gems`, so they persist across upgrades that use the same Ruby ABI.
+  Knife, Test Kitchen Enterprise, Ohai, and other components automatically discover compatible gems in this directory.
+  Install gems with `chef gem install <GEM_NAME>`. For details, see the [`chef gem` command documentation](/workstation/26.2/tools/ctl_chef/#chef-gem).
+
+- Chef CLI now configures the Chef Premium RubyGem server for gem installation, search, and update operations using your configured Chef license key.
+  It preserves custom gem-source configurations and warns you if it can't configure the premium source.
+
+- Workstation now includes the `knife-azure` and `knife-vcenter` plugins, so you can manage Azure and VMware vCenter infrastructure without installing these plugins separately.
+
+- The `knife google server create` command now accepts `--winpass-timeout SECS` to control how long it waits for a Windows password reset.
+  The default is 120 seconds; increase it for instances that take longer to initialize.
+
+- Cookstyle 9 adds new Chef cops, enables two new RuboCop cops, and expands existing checks.
+  These changes may surface additional offenses in cookbooks that passed earlier versions.
+  Review the [Cookstyle changelog](https://github.com/chef/cookstyle/blob/main/CHANGELOG.md) and [Cookstyle documentation](/workstation/cookstyle/) before upgrading CI environments.
+
+### Security
+
+- Updated the bundled `net-imap` gem to address CVE-2026-47240, CVE-2026-47241, and CVE-2026-47242.
+- Updated `curl` in the bundled Git package to address CVE-2026-8925.
+
+### Bug fixes
+
+- The `knife supermarket list` command now returns complete results when Chef Supermarket returns fewer cookbooks than requested on a page.
+  Previously, the command could return incomplete results.
+
+- The `knife ssh` command now recognizes `sudo-rs` password prompts, even when a prompt arrives across multiple SSH messages.
+  Previously, these commands could hang or time out.
+
+- Test Kitchen now correctly identifies downloaded Chef Infra Client packages on Rocky Linux.
+  Previously, it could treat an RPM package as a macOS installer and fail to install it.
+
+- Test Kitchen's `kitchen verify` command now correctly detects installed 32-bit packages on 64-bit Windows targets over PowerShell WinRM sessions.
+  Previously, InSpec's architecture detection relied on CMD-style environment variable expansion, which these sessions don't support.
+  The Train transport now falls back to PowerShell-native syntax to detect the system architecture.
+
+- Cookstyle now honors `push`, `pop`, `disable-next`, and `todo-next` suppression directives with both the `cookstyle:` and `rubocop:` prefixes.
+  Previously, it could ignore these directives.
+
+- Cookstyle now handles non-string values, such as numeric array indexes, in resource path expressions without an internal error from `Chef/Modernize/CronDFileOrTemplate`.
+  Previously, these values could trigger an internal error.
+
+### Packages
+
+This release adds the following OS-native packages:
+
+- Linux ARM (aarch64) RPM (.rpm) and DEB (.deb) packages
+- macOS ARM (Apple Silicon) DMG (.dmg) installer for macOS 14 (Sonoma) and later
+
+For a full list of supported packages and platforms for this release, see the [Chef Workstation supported packages](/platforms/#chef-workstation).
+
+### Tool updates
+
+- Updated Berkshelf to version 8.1.31.
+- Updated the `chef` CLI to version 6.1.42.
+- Updated Chef Infra Client to version 19.4.46. For details, see the [Chef Infra Client 19 release notes](https://docs.chef.io/release_notes/client/).
+- Updated Chef InSpec to version 7.3.4. For details, see the [Chef InSpec 7 release notes](https://docs.chef.io/release_notes/inspec/).
+- Updated Chef Vault to version 4.2.16.
+- Updated Cookstyle to version 9.0.9.
+  For details, see the [Cookstyle 9 release notes](https://github.com/chef/cookstyle/blob/v9.0.9/RELEASE_NOTES.md).
+- Updated Fauxhai to version 9.4.29.
+- Updated Knife to version 19.0.153. For details, see the [Knife changelog](https://github.com/chef/knife/blob/main/CHANGELOG.md).
+- Updated Ohai to version 19.1.53.
+- Updated Test Kitchen Enterprise to version 2.0.23. For details, see the [Test Kitchen Enterprise changelog](https://github.com/chef/chef-test-kitchen-enterprise/blob/main/CHANGELOG.md).
+
 ## Chef Workstation 26.1.0
 
 Release date: July 13, 2026
@@ -351,8 +423,8 @@ Release Date: September 30, 2025.
 
 ### Component updates
 
-- Updated Chef Infra Client to v18.8.11. See the [Chef Infra Client release notes](https://docs.chef.io/release_notes_client/#18.8.11) for a full list of improvements and features.
-- Updated Chef InSpec to v5.22.95. See the [InSpec release notes](https://docs.chef.io/release_notes_inspec/#5.22.95) for more information.
+- Updated Chef Infra Client to v18.8.11. See the [Chef Infra Client release notes](/release_notes/client/#18.8.11) for a full list of improvements and features.
+- Updated Chef InSpec to v5.22.95. See the [InSpec release notes](/release_notes/inspec/#5.22.95) for more information.
 - Updated Knife to v18.8.13.
 - Updated Test Kitchen to v3.9.0.
 - Updated chef-vault from 4.1.23 to 4.2.5
@@ -408,11 +480,11 @@ Release Date: May 27, 2025.
 
 #### Chef Infra Client
 
-- Updated Chef Infra Client to v18.7.10. See the [Chef Infra Client release notes](https://docs.chef.io/release_notes_client/) for a full list of improvements and features.
+- Updated Chef Infra Client to v18.7.10. See the [Chef Infra Client release notes](/release_notes/client/) for a full list of improvements and features.
 
 #### InSpec
 
-- Updated Chef InSpec to v5.22.80. See the [InSpec release notes](https://docs.chef.io/release_notes_inspec/#5.22.80) for more information.
+- Updated Chef InSpec to v5.22.80. See the [InSpec release notes](/release_notes/inspec/#5.22.80) for more information.
 
 #### Knife
 
@@ -486,13 +558,13 @@ We updated Knife from v18.6.2 to v18.6.13. This release introduces a warning mes
 To ensure uninterrupted downloads and remove this warning:
 
 - For connected environments: Activate your Chef license and Knife automatically uses the new download APIs.
-- For air-gapped environments: Set up a local Chef licensing service and configure the `CHEF_LICENSE_SERVER` environment variable to point to its URL. For more information, see the [Chef Local License Service documentation](https://docs.chef.io/licensing/local_license_service/install/).
+- For air-gapped environments: Set up a local Chef licensing service and configure the `CHEF_LICENSE_SERVER` environment variable to point to its URL. For more information, see the [Chef Local License Service documentation](/licensing/local_license_service/install/).
 
 Activating your Chef license ensures a smooth transition to the new download mechanism before the Omnitruck API is deprecated.
 
 #### Chef Habitat
 
-- Updated Chef Habitat from v1.6.1041 to v1.6.1243. See the [Habitat release notes](https://docs.chef.io/release_notes_habitat/#1.6.1243) for more information.
+- Updated Chef Habitat from v1.6.1041 to v1.6.1243. See the [Habitat release notes](/release_notes/habitat/#1.6.1243) for more information.
 
 ### Improvements
 
@@ -512,8 +584,8 @@ Release Date: 18 December, 2024.
 
 ### Components
 
-- Updated Chef Infra Client from v18.5.0 to v18.6.2 and Knife from v18.5.0 to v18.6.2. See the [Chef Infra Client release notes](https://docs.chef.io/release_notes_client/#18.6.2) for a full list of improvements and features.
-- Updated Chef InSpec from v5.22.55 to v5.22.65. See the [InSpec release notes](https://docs.chef.io/release_notes_inspec/#5.22.65) for more information.
+- Updated Chef Infra Client from v18.5.0 to v18.6.2 and Knife from v18.5.0 to v18.6.2. See the [Chef Infra Client release notes](/release_notes/client/#18.6.2) for a full list of improvements and features.
+- Updated Chef InSpec from v5.22.55 to v5.22.65. See the [InSpec release notes](/release_notes/inspec/#5.22.65) for more information.
 - Updated kitchen-dokken to v2.20.7.
 
 ### Improvements
@@ -573,9 +645,9 @@ See the Chef [licensing documentation](https://docs.chef.io/licensing/) and [dow
 ### Components
 
 - Updated Chef Infra Client from v18.4.12 to v18.5.0 and Knife from v18.4.2 to v18.5.0.
-  See the [Chef Infra Client release notes](https://docs.chef.io/release_notes_client/#18.5.0) for a full list of improvements and features.
+  See the [Chef Infra Client release notes](/release_notes/client/#18.5.0) for a full list of improvements and features.
 
-- Updated Chef InSpec from v5.22.50 to v5.22.55. See the [InSpec release notes](https://docs.chef.io/release_notes_inspec/#5.22.55) for more information.
+- Updated Chef InSpec from v5.22.50 to v5.22.55. See the [InSpec release notes](/release_notes/inspec/#5.22.55) for more information.
 - Updated the following Test Kitchen drivers:
 
   - Updated kitchen-azurerm to v1.13.1.
@@ -613,11 +685,11 @@ See the Chef [licensing documentation](https://docs.chef.io/licensing/) and [dow
 
 #### Chef InSpec
 
-- Updated Chef InSpec from 5.22.40 to 5.22.50. See the [InSpec release notes](https://docs.chef.io/release_notes_inspec/#5.22.50) for more information.
+- Updated Chef InSpec from 5.22.40 to 5.22.50. See the [InSpec release notes](/release_notes/inspec/#5.22.50) for more information.
 
 #### Chef Habitat
 
-- Updated the Chef Habitat CLI from 1.6.652 to 1.6.1041. See the [Chef Habitat release notes](https://docs.chef.io/release_notes_habitat/) for a full list of improvements and features.
+- Updated the Chef Habitat CLI from 1.6.652 to 1.6.1041. See the [Chef Habitat release notes](/release_notes/habitat/) for a full list of improvements and features.
 
 ## Chef Workstation 24.4.1064
 
@@ -641,7 +713,7 @@ Updated the libxml2 to v2.12.5 to address the following CVE:
 
 #### Chef Infra Client
 
-Updated Chef Infra Client to v18.4.12. See the [Chef Infra Client release notes](https://docs.chef.io/release_notes_client/) for a full list of improvements and features.
+Updated Chef Infra Client to v18.4.12. See the [Chef Infra Client release notes](/release_notes/client/) for a full list of improvements and features.
 
 #### Fauxhai
 
@@ -677,7 +749,7 @@ We now produce Amazon Linux 2023 packages for Chef Workstation for x86_64 and AA
 
 #### InSpec
 
-Updated Chef InSpec from 5.22.36 to 5.22.40. See the [InSpec release notes](https://docs.chef.io/release_notes_inspec/#5.22.40) for more information.
+Updated Chef InSpec from 5.22.36 to 5.22.40. See the [InSpec release notes](/release_notes/inspec/#5.22.40) for more information.
 
 #### Cookstyle
 
@@ -715,13 +787,13 @@ Updated OpenSSL from 3.0.11 to 3.0.12, which resolves the following CVEs:
 
 #### Chef Infra Client
 
-Updated Chef Infra Client from 18.2.7 to 18.3.0. See the [Chef Infra Client release notes](https://docs.chef.io/release_notes_client/) for a full list of improvements and features.
+Updated Chef Infra Client from 18.2.7 to 18.3.0. See the [Chef Infra Client release notes](/release_notes/client/) for a full list of improvements and features.
 
 #### Chef InSpec
 
 Updated Chef InSpec from 5.22.3 to 5.22.36. This update overhauls the `inspec check` and `inspec export` commands to improve security and addresses [CVE-2023-42658](https://www.cvedetails.com/cve/CVE-2023-42658/).
 
-See the [InSpec release notes](https://docs.chef.io/release_notes_inspec/) for more information.
+See the [InSpec release notes](/release_notes/inspec/) for more information.
 
 #### knife-vshpere
 
@@ -823,7 +895,7 @@ Updated zlib from 1.2.11 to 1.3 to resolve the following CVEs:
 
 #### Chef InSpec
 
-Updated Chef InSpec from 5.21.29 to 5.22.3. See the [Chef InSpec release notes](https://docs.chef.io/release_notes_inspec/) for a full list of improvements and features.
+Updated Chef InSpec from 5.21.29 to 5.22.3. See the [Chef InSpec release notes](/release_notes/inspec/) for a full list of improvements and features.
 
 ### Bug fixes
 
@@ -856,11 +928,11 @@ This release doesn't have any release notes.
 
 #### Chef Infra Client
 
-Updated Chef Infra Client from 18.0.185 to 18.2.7. See the [Chef Infra Client release notes](https://docs.chef.io/release_notes_client/) for a full list of improvements and features.
+Updated Chef Infra Client from 18.0.185 to 18.2.7. See the [Chef Infra Client release notes](/release_notes/client/) for a full list of improvements and features.
 
 #### Chef InSpec
 
-Updated Chef InSpec from 5.18.14 to 5.21.29. See the [Chef InSpec release notes](https://docs.chef.io/release_notes_inspec/) for a full list of improvements and features.
+Updated Chef InSpec from 5.18.14 to 5.21.29. See the [Chef InSpec release notes](/release_notes/inspec/) for a full list of improvements and features.
 
 ### Bug fixes & updates
 
@@ -873,7 +945,7 @@ Updated Chef InSpec from 5.18.14 to 5.21.29. See the [Chef InSpec release notes]
 
 #### Chef Habitat CLI
 
-Updated the Chef Habitat CLI from 1.6.521 to 1.6.652. See the [Chef Habitat release notes](https://docs.chef.io/release_notes_habitat/) for a full list of improvements and features.
+Updated the Chef Habitat CLI from 1.6.521 to 1.6.652. See the [Chef Habitat release notes](/release_notes/habitat/) for a full list of improvements and features.
 
 #### Chef Workstation App
 
@@ -891,11 +963,11 @@ We removed the experimental dashboard that allows you to manage cookbooks on Win
 
 #### Chef Infra Client
 
-Updated Chef Infra Client from 17.10.0 to 18.0.185, which comes with Ruby 3.1. See the [Chef Infra Client release notes](https://docs.chef.io/release_notes_client/) for a full list of improvements and features.
+Updated Chef Infra Client from 17.10.0 to 18.0.185, which comes with Ruby 3.1. See the [Chef Infra Client release notes](/release_notes/client/) for a full list of improvements and features.
 
 #### Chef InSpec
 
-Updated Chef InSpec from 4.56.20 to 5.18.14. See the [Chef InSpec release notes](https://docs.chef.io/release_notes_inspec/) for a full list of improvements and features.
+Updated Chef InSpec from 4.56.20 to 5.18.14. See the [Chef InSpec release notes](/release_notes/inspec/) for a full list of improvements and features.
 
 ### Bug fixes & updates
 
@@ -942,7 +1014,7 @@ Updated Test Kitchen to allow pattern-based [platform exclusions](https://github
 
 ### Chef Habitat
 
-Updated the Chef Habitat CLI to [1.6.521](https://docs.chef.io/release_notes_habitat/#1.6.521).
+Updated the Chef Habitat CLI to [1.6.521](/release_notes/habitat/#1.6.521).
 
 ### Bug fixes
 
@@ -1012,7 +1084,7 @@ The `chef report nodes` and `chef report cookbooks` subcommands now work with a 
 
 #### Chef Infra Client 17.10.0
 
-Updated Chef Infra Client from 17.9.52 to 17.10.0. See the [Chef Infra Client release notes](https://docs.chef.io/release_notes_client/#17.10.0) for a complete list of new features and updates.
+Updated Chef Infra Client from 17.9.52 to 17.10.0. See the [Chef Infra Client release notes](/release_notes/client/#17.10.0) for a complete list of new features and updates.
 
 #### Test Kitchen updates
 
@@ -1022,7 +1094,7 @@ Updated Chef Infra Client from 17.9.52 to 17.10.0. See the [Chef Infra Client re
 
 #### Chef InSpec 4.56.19
 
-Updated Chef InSpec 4.52.9 to 4.56.19. See the [Chef InSpec release notes](https://docs.chef.io/release_notes_inspec/#5.10.5) for a complete list of new features and updates.
+Updated Chef InSpec 4.52.9 to 4.56.19. See the [Chef InSpec release notes](/release_notes/inspec/#5.10.5) for a complete list of new features and updates.
 
 ### Bug fixes
 
@@ -1065,7 +1137,7 @@ Updated the documentation for test-kitchen plugins in the [kitchen.ci](https://k
 
 #### Chef Infra Client 17.9.52
 
-We updated Chef Infra Client from 17.9.26 to 17.9.52. See the [Chef Infra Client release notes](https://docs.chef.io/release_notes_client/#17.9.52) for a complete list of new features and updates.
+We updated Chef Infra Client from 17.9.26 to 17.9.52. See the [Chef Infra Client release notes](/release_notes/client/#17.9.52) for a complete list of new features and updates.
 
 #### Cookstyle 7.31.7
 
@@ -1097,7 +1169,7 @@ We updated the `chef-run` command for ad-hoc execution of Chef Infra Client on r
 
 #### Chef Infra Client 17.9.26
 
-We updated Chef Infra Client from 17.9.18 to 17.9.26. This update includes a fix for failures when running the homebrew_tap resource that was introduced in 17.9.18. See the [Chef Infra Client release notes](https://docs.chef.io/release_notes_client/) for a complete list of new features and updates.
+We updated Chef Infra Client from 17.9.18 to 17.9.26. This update includes a fix for failures when running the homebrew_tap resource that was introduced in 17.9.18. See the [Chef Infra Client release notes](/release_notes/client/) for a complete list of new features and updates.
 
 #### Cookstyle 7.31.1
 
@@ -1155,7 +1227,7 @@ Improved the Knife command performance with optimizations to plugin loading. Win
 
 #### Chef Infra Client 17.9.18
 
-Updated Chef Infra Client from 17.8.25 to 17.9.18 with improvements to YUM support in the `package` resource, improved detection of VMware hypervisors, and supports for HashiCorp Vault Approle authentication in the `secrets` helper. See the [Chef Infra Client release notes](https://docs.chef.io/release_notes_client/) for a complete list of new features and updates.
+Updated Chef Infra Client from 17.8.25 to 17.9.18 with improvements to YUM support in the `package` resource, improved detection of VMware hypervisors, and supports for HashiCorp Vault Approle authentication in the `secrets` helper. See the [Chef Infra Client release notes](/release_notes/client/) for a complete list of new features and updates.
 
 #### Chef InSpec 4.52.9
 
@@ -1198,7 +1270,7 @@ Chef InSpec has been updated from 4.49.0 to 4.50.3 which adds Windows support to
 
 #### Chef Infra Client 17.8.25
 
-Chef Infra Client has been updated from 17.7.29 to 17.8.25. This new release includes Compliance Phase improvements along with a large number of resource improvements and fixes. See the [Chef Infra Client 17.8.25 Release Notes](https://docs.chef.io/release_notes_client/?v=17.8.25) for complete details on what's new in this version.
+Chef Infra Client has been updated from 17.7.29 to 17.8.25. This new release includes Compliance Phase improvements along with a large number of resource improvements and fixes. See the [Chef Infra Client 17.8.25 Release Notes](/release_notes/client/) for complete details on what's new in this version.
 
 #### Chef Vault 4.1.5
 
@@ -3374,7 +3446,7 @@ The Chef Workstation App now runs at boot and launches after installing Chef Wor
 
 #### Chef Infra Client 15.8.23
 
-Chef Infra Client has been updated to 15.8.23 with updated resources, a new notify_group feature, and dozens of new helpers to make writing cookbooks easier than ever. Check the complete release notes for details on [docs.chef.io](https://docs.chef.io/release_notes.html#what-s-new-in-15-8)
+Chef Infra Client has been updated to 15.8.23 with updated resources, a new notify_group feature, and dozens of new helpers to make writing cookbooks easier than ever. Check the complete release notes for details on [docs.chef.io](/release_notes/client/#what-s-new-in-15-8)
 
 #### Chef InSpec 4.18.85
 
@@ -3989,7 +4061,7 @@ Chef Workstation is now validated against macOS 10.15 (Catalina). Additionally, 
 
 #### Chef Infra Client
 
-Chef Infra Client has been updated from 15.1 to 15.2 with new and improved resources and support for RHEL 8. See the [Chef Infra Client 15.2 Release Notes](https://docs.chef.io/release_notes.html#chef-infra-client-15-2) for a complete list of new and improved functionality.
+Chef Infra Client has been updated from 15.1 to 15.2 with new and improved resources and support for RHEL 8. See the [Chef Infra Client 15.2 Release Notes](/release_notes/client/#chef-infra-client-15-2) for a complete list of new and improved functionality.
 
 #### Chef InSpec
 
@@ -4198,7 +4270,7 @@ Ubuntu 14.04 entered the end-of-life phase April 30, 2019. Since this version of
 
 #### Chef EULA
 
-Usage of Chef Workstation 0.4, Chef Infra Client 15, and InSpec 4 requires accepting the [Chef EULA](https://docs.chef.io/chef_license.html#chef-eula). See the [frequently asked questions](https://www.chef.io/bmc-faq/) for information about the license update and the associated business model change.
+Usage of Chef Workstation 0.4, Chef Infra Client 15, and InSpec 4 requires accepting the [Chef EULA](/licensing/#chef-eula). See the [frequently asked questions](https://www.chef.io/bmc-faq/) for information about the license update and the associated business model change.
 
 #### Chef provisioning
 
@@ -4315,9 +4387,9 @@ Rubygems has been updated from 2.7.8 to 2.7.9 to resolves the following CVEs:
 
 #### Chef 14.12.3
 
-ChefDK now ships with Chef 14.13.11. See [Chef 14.14 release notes](https://docs.chef.io/release_notes.html) for more information on what's new.
+ChefDK now ships with Chef 14.13.11. See [Chef 14.14 release notes](/release_notes/client/) for more information on what's new.
 
-It also updates `knife bootstrap` to support installing and managing Chef Infra Client 15 on remote nodes. See [Accepting the Chef EULA](https://docs.chef.io/chef_license_accept.html#workstation-products) general instructions for accepting the license (command line flag, environment variable or configured in `~/.chef/config.rb`).
+It also updates `knife bootstrap` to support installing and managing Chef Infra Client 15 on remote nodes. See Accepting the Chef EULA general instructions for accepting the license (command line flag, environment variable or configured in `~/.chef/config.rb`).
 
 #### InSpec 3.9.0
 
@@ -4363,7 +4435,7 @@ knife-vsphere has been updated to 2.1.3, which adds support for knife's `bootstr
 
 #### `chef-run`
 
-The Chef Apply gem has been updated to 0.2.13, which adds support for installing and managing Chef Infra Client 15 on remote nodes. See [Accepting the Chef EULA](https://docs.chef.io/chef_license_accept.html#workstation-products) general instructions for accepting the license (command line flag or environment variable). Additionally the license can be accepted in the `~/.chef-workstation/config.toml` by adding:
+The Chef Apply gem has been updated to 0.2.13, which adds support for installing and managing Chef Infra Client 15 on remote nodes. See Accepting the Chef EULA general instructions for accepting the license (command line flag or environment variable). Additionally the license can be accepted in the `~/.chef-workstation/config.toml` by adding:
 
 ```
 [chef]
@@ -4420,7 +4492,7 @@ OpenSSL updated to 1.0.2r to resolve [CVE-2019-1559](https://nvd.nist.gov/vuln/d
 
 #### Chef 14.10.9
 
-Chef Workstation now ships with Chef 14.10.9. See <https://docs.chef.io/release_notes.html> for more information on what's new.
+Chef Workstation now ships with Chef 14.10.9. See [Chef Infra Client release notes](/release_notes/client/) for more information on what's new.
 
 #### InSpec 3.4.1
 
@@ -4459,7 +4531,7 @@ Support Azure Managed Identities and apply vm_tags to all resources in resource 
 
 #### Chef 14.8.12
 
-ChefDK now ships with Chef 14.8.12. See <https://docs.chef.io/release_notes.html> for more information on what's new.
+ChefDK now ships with Chef 14.8.12. See [Chef Infra Client release notes](/release_notes/client/) for more information on what's new.
 
 #### OpenSSL
 
@@ -4502,7 +4574,7 @@ This release doesn't have any release notes.
 
 ### Chef 14.6.47
 
-ChefDK now ships with Chef 14.6.47. See [https://docs.chef.io/release_notes.html](https://docs.chef.io/release_notes.html) for more information on what's new.
+ChefDK now ships with Chef 14.6.47. See [Chef Infra Client release notes](/release_notes/client/) for more information on what's new.
 
 ### Smaller package size
 

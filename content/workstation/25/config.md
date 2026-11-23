@@ -44,7 +44,7 @@ dev = false
 #### enable
 
 Description
-: When `true`, anonymous usage data and bug reports are sent to Chef. See Chef's [Privacy Statement]({{< ref "privacy.md" >}}) for the type and usage of gathered data.
+: When `true`, anonymous usage data and bug reports are sent to Chef. See Chef's [Privacy Statement]({{< relref "privacy.md" >}}) for the type and usage of gathered data.
 
 Value
 : `true`, `false`
