@@ -153,7 +153,7 @@ Login to Chef Automate to start a trial.
 The trial provides you with a 60-day license.
 Requesting a trial license requires internet connectivity in your Chef Automate 2 instance (only at the time of the license request).
 
-If you are migrating an [airgapped Chef Automate installation](/install_chef_air_gap/#chef-automate),
+If you are migrating an [airgapped Chef Automate installation](/client/latest/install/install_chef_air_gap/#chef-automate),
 contact your Chef account representative for a Chef Automate 2 license.
 
 ## Migrate

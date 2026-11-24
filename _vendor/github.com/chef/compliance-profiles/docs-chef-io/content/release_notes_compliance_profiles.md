@@ -9,6 +9,12 @@ draft = false
     parent = "release_notes/compliance"
     weight = 10
 +++
+## 20261115
+
+### New features
+
+- CIS Oracle DB 11g R2 v2.2.0
+- CIS Microsoft SQL 2014 v1.5.0
 
 ## 20261015
 

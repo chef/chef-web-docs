@@ -6,7 +6,7 @@ description: Policyfiles should be used for cookbook dependency solving instead 
   a Berkshelf Berksfile.
 autocorrection: false
 target_chef_version: All Versions
-examples: 
+examples:
 version_added: 5.12.0
 enabled: false
 included_file_paths:

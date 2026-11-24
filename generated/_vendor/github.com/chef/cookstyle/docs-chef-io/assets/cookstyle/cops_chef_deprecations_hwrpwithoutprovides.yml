@@ -2,11 +2,9 @@
 short_name: HWRPWithoutProvides
 full_name: Chef/Deprecations/HWRPWithoutProvides
 department: Chef/Deprecations
-description: |-
-  Chef Infra Client 16 and later a legacy HWRP resource must use `provides` to define how the resource is called in recipes or other resources. To maintain compatibility with Chef Infra Client < 16 use both `resource_name` and `provides`.
-
-   # better
-   Convert your legacy HWRPs to custom resources
+description: Chef Infra Client 16 and later a legacy HWRP resource must use `provides`
+  to define how the resource is called in recipes or other resources. To maintain
+  compatibility with Chef Infra Client < 16 use both `resource_name` and `provides`.
 autocorrection: true
 target_chef_version: All Versions
 examples: |2-
@@ -65,6 +63,9 @@ examples: |2-
       end
     end
   end
+
+  # better
+  # Convert your legacy HWRPs to custom resources
 version_added: 6.0.0
 enabled: true
 included_file_paths:

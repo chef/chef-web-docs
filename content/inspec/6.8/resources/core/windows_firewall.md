@@ -1,0 +1,100 @@
++++
+title = "windows_firewall resource"
+draft = false
+
+platform = "windows"
+
+[menu.inspec_6_8]
+    title = "windows_firewall"
+    identifier = "resources/core/windows_firewall.md windows_firewall resource"
+    parent = "resources/core"
++++
+
+Use the `windows_firewall` Chef InSpec audit resource to test if a firewall profile is correctly configured on a Windows system.
+
+## Availability
+
+### Install
+
+{{< readfile file="content/inspec/6.8/reusable/md/inspec_installation.md" >}}
+
+## Syntax
+
+A `windows_firewall` resource block specifies which profile to validate:
+
+```ruby
+describe windows_firewall('name') do
+  it { should be_enabled }
+end
+```
+
+where:
+
+* `('name')` must specify the name of a firewall profile, such as `'Public'`, `'Private'` or `'Domain'`
+* `be_enabled` is a valid matcher for this resource
+
+## Examples
+
+The following example shows how to use this Chef InSpec audit resource.
+
+### Test if the firewall has the appropriate amount of rules and default Accept
+
+```ruby
+describe windows_firewall('Public') do
+  it { should be_enabled }
+  it { should have_default_inbound_allowed }
+  its('num_rules') { should eq 219 }
+end
+```
+
+## Properties
+
+The resource compiles the following list of firewall profile properties:
+
+* `description`
+* `default_inbound_action`
+* `default_outbound_action`
+* `allow_inbound_rules`
+* `allow_local_firewall_rules`
+* `allow_local_ipsec_rules`
+* `allow_user_apps`
+* `allow_user_ports`
+* `allow_unicast_response_to_multicast`
+* `notify_on_listen`
+* `enable_stealth_mode_for_ipsec`
+* `log_max_size_kilobytes`
+* `log_allowed`
+* `log_blocked`
+* `log_ignored`
+* `num_rules`
+
+Each of these properties can be used in two distinct ways:
+
+```ruby
+its('default_inbound_action') { should cmp 'Allow' }
+```
+
+or with a matcher:
+
+```ruby
+it { should have_default_inbound_action 'Allow' }
+```
+
+Shortcuts are defined for:
+
+* `have_default_inbound_allow?`
+* `have_default_outbound_allow?`
+
+## Matchers
+
+{{< readfile file="content/inspec/6.8/reusable/md/inspec_matchers_link.md" >}}
+
+This resource has the following special matchers.
+
+### be_enabled
+
+The `be_enabled` matcher tests if the Profile is enabled:
+
+```ruby
+it { should be_enabled }
+```

@@ -552,6 +552,408 @@ identifier = "inspec"
 ####
 
 ####
+# Chef InSpec 7.3 Menu
+####
+
+[[inspec_7_3]]
+title = "Install"
+identifier = "install"
+weight = 20
+
+[[inspec_7_3]]
+title = "Profiles"
+identifier = "profiles"
+weight = 50
+
+[[inspec_7_3]]
+title = "Configure"
+identifier = "configure"
+weight = 30
+
+[[inspec_7_3]]
+title = "Manage"
+identifier = "manage"
+weight = 40
+
+[[inspec_7_3]]
+title = "Chef tools"
+identifier = "chef_tools"
+weight = 80
+
+[[inspec_7_3]]
+title = "Related projects"
+identifier = "related"
+weight = 90
+
+[[inspec_7_3]]
+title = "Reference"
+identifier = "reference"
+weight = 110
+
+[[inspec_7_3]]
+title = "Resources"
+identifier = "resources"
+weight = 100
+
+  [[inspec_7_3]]
+  title = "Core resources"
+  identifier = "resources/core"
+  parent = "resources"
+  weight = 30
+
+  [[inspec_7_3]]
+  title = "Custom resources"
+  identifier = "resources/custom"
+  parent = "resources"
+  url = "/inspec/7.3/profiles/custom_resources/"
+  weight = 40
+
+####
+# End Chef InSpec 7.3 Menu
+####
+
+####
+# Chef InSpec 7.2 Menu
+####
+
+[[inspec_7_2]]
+title = "Install"
+identifier = "install"
+weight = 20
+
+[[inspec_7_2]]
+title = "Profiles"
+identifier = "profiles"
+weight = 50
+
+[[inspec_7_2]]
+title = "Configure"
+identifier = "configure"
+weight = 30
+
+[[inspec_7_2]]
+title = "Manage"
+identifier = "manage"
+weight = 40
+
+[[inspec_7_2]]
+title = "Chef tools"
+identifier = "chef_tools"
+weight = 80
+
+[[inspec_7_2]]
+title = "Related projects"
+identifier = "related"
+weight = 90
+
+[[inspec_7_2]]
+title = "Reference"
+identifier = "reference"
+weight = 110
+
+[[inspec_7_2]]
+title = "Resources"
+identifier = "resources"
+weight = 100
+
+[[inspec_7_2]]
+title = "Core resources"
+identifier = "resources/core"
+parent = "resources"
+weight = 30
+
+[[inspec_7_2]]
+title = "Custom resources"
+identifier = "resources/custom"
+parent = "resources"
+url = "/inspec/7.2/profiles/custom_resources/"
+weight = 40
+
+####
+# End Chef InSpec 7.2 Menu
+####
+
+####
+# Chef InSpec 7.1 Menu
+####
+
+[[inspec_7_1]]
+title = "Install"
+identifier = "install"
+weight = 20
+
+[[inspec_7_1]]
+title = "Profiles"
+identifier = "profiles"
+weight = 50
+
+[[inspec_7_1]]
+title = "Configure"
+identifier = "configure"
+weight = 30
+
+[[inspec_7_1]]
+title = "Chef tools"
+identifier = "chef_tools"
+weight = 80
+
+[[inspec_7_1]]
+title = "Related projects"
+identifier = "related"
+weight = 90
+
+[[inspec_7_1]]
+title = "Reference"
+identifier = "reference"
+weight = 110
+
+[[inspec_7_1]]
+title = "Resources"
+identifier = "resources"
+weight = 100
+
+[[inspec_7_1]]
+title = "Core resources"
+identifier = "resources/core"
+parent = "resources"
+weight = 30
+
+[[inspec_7_1]]
+title = "Custom resources"
+identifier = "resources/custom"
+parent = "resources"
+url = "/inspec/7.1/profiles/custom_resources/"
+weight = 40
+
+####
+# End Chef InSpec 7.1 Menu
+####
+
+####
+# Chef InSpec 7.0 Menu
+####
+
+[[inspec_7_0]]
+title = "Install"
+identifier = "install"
+weight = 20
+
+[[inspec_7_0]]
+title = "Profiles"
+identifier = "profiles"
+weight = 50
+
+[[inspec_7_0]]
+title = "Configure"
+identifier = "configure"
+weight = 30
+
+[[inspec_7_0]]
+title = "Chef tools"
+identifier = "chef_tools"
+weight = 80
+
+[[inspec_7_0]]
+title = "Related projects"
+identifier = "related"
+weight = 90
+
+[[inspec_7_0]]
+title = "Reference"
+identifier = "reference"
+weight = 110
+
+[[inspec_7_0]]
+title = "Resources"
+identifier = "resources"
+weight = 100
+
+[[inspec_7_0]]
+title = "Core resources"
+identifier = "resources/core"
+parent = "resources"
+weight = 30
+
+[[inspec_7_0]]
+title = "Custom resources"
+identifier = "resources/custom"
+parent = "resources"
+url = "/inspec/7.0/profiles/custom_resources/"
+weight = 40
+
+####
+# End Chef InSpec 7.0 Menu
+####
+
+####
+# Chef InSpec 6.8 Menu
+####
+
+[[inspec_6_8]]
+title = "Install"
+identifier = "install"
+weight = 20
+
+[[inspec_6_8]]
+title = "Profiles"
+identifier = "profiles"
+weight = 50
+
+[[inspec_6_8]]
+title = "Configure"
+identifier = "configure"
+weight = 30
+
+[[inspec_6_8]]
+title = "Chef tools"
+identifier = "chef_tools"
+weight = 80
+
+[[inspec_6_8]]
+title = "Related projects"
+identifier = "related"
+weight = 90
+
+[[inspec_6_8]]
+title = "Reference"
+identifier = "reference"
+weight = 110
+
+[[inspec_6_8]]
+title = "Resources"
+identifier = "resources"
+weight = 100
+
+[[inspec_6_8]]
+title = "Core resources"
+identifier = "resources/core"
+parent = "resources"
+weight = 30
+
+[[inspec_6_8]]
+title = "Custom resources"
+identifier = "resources/custom"
+parent = "resources"
+url = "/inspec/6.8/profiles/custom_resources/"
+weight = 40
+
+####
+# End Chef InSpec 6.8 Menu
+####
+
+####
+# Chef InSpec 5.24 Menu
+####
+
+[[inspec_5_24]]
+title = "Install"
+identifier = "install"
+weight = 20
+
+[[inspec_5_24]]
+title = "Profiles"
+identifier = "profiles"
+weight = 50
+
+[[inspec_5_24]]
+title = "Configure"
+identifier = "configure"
+weight = 30
+
+[[inspec_5_24]]
+title = "Chef tools"
+identifier = "chef_tools"
+weight = 80
+
+[[inspec_5_24]]
+title = "Related projects"
+identifier = "related"
+weight = 90
+
+[[inspec_5_24]]
+title = "Reference"
+identifier = "reference"
+weight = 110
+
+[[inspec_5_24]]
+title = "Resources"
+identifier = "resources"
+weight = 100
+
+[[inspec_5_24]]
+title = "Core resources"
+identifier = "resources/core"
+parent = "resources"
+weight = 30
+
+[[inspec_5_24]]
+title = "Custom resources"
+identifier = "resources/custom"
+parent = "resources"
+url = "/inspec/5.24/profiles/custom_resources/"
+weight = 40
+
+####
+# End Chef InSpec 5.24 Menu
+####
+
+####
+# Chef InSpec 5.23 Menu
+####
+
+[[inspec_5_23]]
+title = "Install"
+identifier = "install"
+weight = 20
+
+[[inspec_5_23]]
+title = "Profiles"
+identifier = "profiles"
+weight = 50
+
+[[inspec_5_23]]
+title = "Configure"
+identifier = "configure"
+weight = 30
+
+[[inspec_5_23]]
+title = "Chef tools"
+identifier = "chef_tools"
+weight = 80
+
+[[inspec_5_23]]
+title = "Related projects"
+identifier = "related"
+weight = 90
+
+[[inspec_5_23]]
+title = "Reference"
+identifier = "reference"
+weight = 110
+
+[[inspec_5_23]]
+title = "Resources"
+identifier = "resources"
+weight = 100
+
+[[inspec_5_23]]
+title = "Core resources"
+identifier = "resources/core"
+parent = "resources"
+weight = 30
+
+[[inspec_5_23]]
+title = "Custom resources"
+identifier = "resources/custom"
+parent = "resources"
+url = "/inspec/5.23/profiles/custom_resources/"
+weight = 40
+
+####
+# End Chef InSpec 5.23 Menu
+####
+
+####
 # Chef Infra Server Menu
 ####
 
@@ -1146,35 +1548,28 @@ identifier = "chef_cloud"
       title = "Create and use tokens with the Chef 360 Platform APIs"
       identifier = "chef_cloud/360/user_guides/apis"
       parent = "chef_cloud/360/user_guides"
-      url = "/360/latest/apis/"
+      url = "/360/latest/reference/api/"
       weight = 10
 
       [[cloud]]
       title = "Chef 360 Platform system administration"
       identifier = "chef_cloud/360/user_guides/system administration"
       parent = "chef_cloud/360/user_guides"
-      url = "/360/latest/administration/"
+      url = "/360/latest/use/administrators/"
       weight = 20
-
-      [[cloud]]
-      title = "Chef Courier"
-      identifier = "chef_cloud/360/user_guides/courier"
-      parent = "chef_cloud/360/user_guides"
-      url = "/360/latest/courier/"
-      weight = 30
 
       [[cloud]]
       title = "Chef Node Management"
       identifier = "chef_cloud/360/user_guides/node management"
       parent = "chef_cloud/360/user_guides"
-      url = "/360/latest/node_management/"
+      url = "/360/latest/use/operators/node_management/"
       weight = 40
 
       [[cloud]]
       title = "Update skills"
       identifier = "chef_cloud/360/user_guides/update skills"
       parent = "chef_cloud/360/user_guides"
-      url = "/360/latest/node_management/skills/skill_assembly/#update-a-skill-assembly"
+      url = "/360/latest/use/operators/node_management/skills/skill_assembly/"
       weight = 50
 
   [[cloud]]
@@ -1195,31 +1590,38 @@ title = "Chef Workstation"
 identifier = "chef_workstation"
 
   [[workstation]]
+  title = "Workstation v26.2"
+  parent = "chef_workstation"
+  identifier = "chef_workstation/26.2"
+  url = "/workstation/26.2/"
+  weight = 10
+
+  [[workstation]]
   title = "Workstation v26.1"
   parent = "chef_workstation"
   identifier = "chef_workstation/26.1"
   url = "/workstation/26.1/"
-  weight = 10
+  weight = 20
 
   [[workstation]]
   title = "Workstation v26.0"
   parent = "chef_workstation"
   identifier = "chef_workstation/26.0"
   url = "/workstation/26.0/"
-  weight = 20
+  weight = 30
 
   [[workstation]]
   title = "Workstation v25"
   parent = "chef_workstation"
   identifier = "workstation/25"
   url = "/workstation/25/"
-  weight = 30
+  weight = 40
 
   [[workstation]]
   title = "Cookstyle"
   parent = "chef_workstation"
   identifier = "chef_workstation/cookstyle"
-  weight = 500
+  weight = 900
 
     [[workstation]]
     title = "Cops"
@@ -1280,42 +1682,98 @@ identifier = "chef_workstation"
 # End Chef Workstation Menu
 ####
 
+
 ####
-# Chef Workstation 25 Menu
+# Chef Workstation 26.2 Menu
 ####
 
-[[workstation_25]]
+[[workstation_26_2]]
+title = "Install"
+identifier = "workstation_26_2/install"
+weight = 20
+
+[[workstation_26_2]]
 title = "Tools"
-identifier = "workstation_25/tools"
+identifier = "workstation_26_2/tools"
 weight = 70
 
-  [[workstation_25]]
+  [[workstation_26_2]]
   title = "Cookstyle"
-  identifier = "workstation_25/tools/cookstyle"
-  parent = "workstation_25/tools"
+  identifier = "workstation_26_2/tools/cookstyle"
+  parent = "workstation_26_2/tools"
   weight = 90
   url = "/workstation/cookstyle/"
 
-  [[workstation_25]]
+  [[workstation_26_2]]
   title = "Knife"
-  identifier = "workstation_25/tools/knife"
-  parent = "workstation_25/tools"
-  weight = 10
+  identifier = "workstation_26_2/tools/knife"
+  parent = "workstation_26_2/tools"
+  weight = 100
 
-    [[workstation_25]]
+    [[workstation_26_2]]
+    title = "Knife CLI reference"
+    identifier = "workstation_26_2/tools/knife/reference"
+    parent = "workstation_26_2/tools/knife"
+    weight = 120
+
+    [[workstation_26_2]]
     title = "Knife plugins"
-    identifier = "workstation_25/tools/knife/plugins"
-    parent = "workstation_25/tools/knife"
-    weight = 10
+    identifier = "workstation_26_2/tools/knife/plugins"
+    parent = "workstation_26_2/tools/knife"
+    weight = 130
 
-  [[workstation_25]]
+  [[workstation_26_2]]
   title = "Test Kitchen"
-  identifier = "workstation_25/tools/test_kitchen"
-  parent = "workstation_25/tools"
-  weight = 20
+  identifier = "workstation_26_2/tools/test_kitchen"
+  parent = "workstation_26_2/tools"
+  weight = 200
 
 ####
-# End Chef Workstation 25 Menu
+# End Chef Workstation 26.2 Menu
+####
+
+####
+# Chef Workstation 26.1 Menu
+####
+
+[[workstation_26_1]]
+title = "Tools"
+identifier = "workstation_26_1/tools"
+weight = 80
+
+  [[workstation_26_1]]
+  title = "Cookstyle"
+  identifier = "workstation_26_1/tools/cookstyle"
+  parent = "workstation_26_1/tools"
+  weight = 90
+  url = "/workstation/cookstyle/"
+
+  [[workstation_26_1]]
+  title = "Knife"
+  identifier = "workstation_26_1/tools/knife"
+  parent = "workstation_26_1/tools"
+  weight = 100
+
+    [[workstation_26_1]]
+    title = "Knife CLI reference"
+    identifier = "workstation_26_1/tools/knife/reference"
+    parent = "workstation_26_1/tools/knife"
+    weight = 120
+
+    [[workstation_26_1]]
+    title = "Knife plugins"
+    identifier = "workstation_26_1/tools/knife/plugins"
+    parent = "workstation_26_1/tools/knife"
+    weight = 130
+
+  [[workstation_26_1]]
+  title = "Test Kitchen"
+  identifier = "workstation_26_1/tools/test_kitchen"
+  parent = "workstation_26_1/tools"
+  weight = 200
+
+####
+# End Chef Workstation 26.1 Menu
 ####
 
 ####
@@ -1362,48 +1820,43 @@ weight = 80
 # End Chef Workstation 26.0 Menu
 ####
 
+
 ####
-# Chef Workstation 26.1 Menu
+# Chef Workstation 25 Menu
 ####
 
-[[workstation_26_1]]
+[[workstation_25]]
 title = "Tools"
-identifier = "workstation_26_1/tools"
-weight = 80
+identifier = "workstation_25/tools"
+weight = 70
 
-  [[workstation_26_1]]
+  [[workstation_25]]
   title = "Cookstyle"
-  identifier = "workstation_26_1/tools/cookstyle"
-  parent = "workstation_26_1/tools"
+  identifier = "workstation_25/tools/cookstyle"
+  parent = "workstation_25/tools"
   weight = 90
   url = "/workstation/cookstyle/"
 
-  [[workstation_26_1]]
+  [[workstation_25]]
   title = "Knife"
-  identifier = "workstation_26_1/tools/knife"
-  parent = "workstation_26_1/tools"
-  weight = 100
+  identifier = "workstation_25/tools/knife"
+  parent = "workstation_25/tools"
+  weight = 10
 
-    [[workstation_26_1]]
-    title = "Knife CLI reference"
-    identifier = "workstation_26_1/tools/knife/reference"
-    parent = "workstation_26_1/tools/knife"
-    weight = 120
-
-    [[workstation_26_1]]
+    [[workstation_25]]
     title = "Knife plugins"
-    identifier = "workstation_26_1/tools/knife/plugins"
-    parent = "workstation_26_1/tools/knife"
-    weight = 130
+    identifier = "workstation_25/tools/knife/plugins"
+    parent = "workstation_25/tools/knife"
+    weight = 10
 
-  [[workstation_26_1]]
+  [[workstation_25]]
   title = "Test Kitchen"
-  identifier = "workstation_26_1/tools/test_kitchen"
-  parent = "workstation_26_1/tools"
-  weight = 200
+  identifier = "workstation_25/tools/test_kitchen"
+  parent = "workstation_25/tools"
+  weight = 20
 
 ####
-# End Chef Workstation 26.1 Menu
+# End Chef Workstation 25 Menu
 ####
 
 ####

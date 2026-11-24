@@ -11,7 +11,7 @@ The page documents how to uninstall Chef Workstation and its component tools.
 
 ## Uninstall Chef Workstation
 
-To uninstall Chef Workstation, use the [`hab pkg uninstall`](/habitat/habitat_cli/#hab-pkg-uninstall) command:
+To uninstall Chef Workstation, use the [`hab pkg uninstall`](/habitat/latest/reference/habitat_cli/#hab-pkg-uninstall) command:
 
 ```sh
 hab pkg uninstall chef/chef-workstation
@@ -34,7 +34,7 @@ Uninstalling `chef/chef-workstation` removes all bundled component tools:
 
 If you installed a Workstation tool as a standalone application, you can uninstall it without uninstalling the entire Workstation package.
 
-To uninstall a Workstation tool, use the [`hab pkg uninstall`](/habitat/habitat_cli/#hab-pkg-uninstall) command:
+To uninstall a Workstation tool, use the [`hab pkg uninstall`](/habitat/latest/reference/habitat_cli/#hab-pkg-uninstall) command:
 
 ```sh
 hab pkg uninstall <PACKAGE_IDENT>
