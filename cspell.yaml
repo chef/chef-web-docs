@@ -36,6 +36,13 @@ dictionaryDefinitions:
 
 flagWords:
 - hte
+
+words:
+- walkthrough
+
+ignoreWords:
+- vcruntime
+
 ignorePaths:
 - ".expeditor/**/*"
 - "**/*.sh"
