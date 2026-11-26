@@ -25,17 +25,17 @@ Release date: December 3, 2026
 
 - Updated OpenResty from 1.31.1.1 to 1.31.8.1.
 - Updated Erlang/OTP from 26.2.5.21 to 29.1.2.
-- Updated PostgreSQL from 13.23.tuxcare.1.0.0 to 13.23.tuxcare.1.0.12.
-- Updated OpenSearch from 1.3.20-tuxcare-1.0.3 to 1.3.20-tuxcare-1.0.4.
+- Updated PostgreSQL from 13.23.tuxcare.1.0.0 to 13.23.tuxcare.1.0.2.
+- Updated OpenSearch from 1.3.20-tuxcare-1.0.3 to 1.3.20-tuxcare-1.0.5.
 - Updated OpenJRE from 17.0.9+9 to 17.0.20.1.1.
-- Updated curl from 8.19.0 to 8.21.0.
+- Updated curl from 8.19.0 to 8.22.0.
 - Updated Rack from 3.2.5 to 3.2.8.
 - Updated activestorage from 7.2.3.1 to 7.2.3.2.
 - Updated faraday to 2.14.3 in oc-id and chef-server-ctl.
 - Updated the remaining addressable versions from 2.8.0 and 2.8.7 to 2.9.0.
 - Updated bundler from 2.2.15 to 2.2.18.
-- Updated concurrent-ruby from 1.1.10 and 1.3.6 to 1.3.7.
-- Updated erb from 2.2.3 to 4.0.3.1.
+- Updated concurrent-ruby from 1.1.10 and 1.3.6 to 1.3.8.
+- Updated erb from 2.2.3 to 4.0.4.1.
 - Updated json from 2.18.1 to 2.19.2.
 - Updated websocket-driver from 0.8.0 to 0.8.2.
 - Removed the vulnerable REXML 3.2.5 version.
