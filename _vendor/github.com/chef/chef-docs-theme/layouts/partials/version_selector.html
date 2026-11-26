@@ -1,4 +1,4 @@
-{{- if .Params.version_selector -}}
+{{- if and .Params.version_selector (or .Site.Params.versions.version_selector.enabled .Params.version_selector_product) -}}
 {{- $page_path := .Page.Path -}}
 {{- $versions_list := slice -}}
 {{- $this_version_text := "" -}}
@@ -43,8 +43,9 @@
       <a href="#">{{ $this_version_text }}</a>
       <ul class="menu version-selector-submenu">
         {{ range $versions_list -}}
-          {{- if not (or (hasPrefix .base_url "/") (hasPrefix .base_url "https://") (hasPrefix .base_url "http://")) -}}
-            {{- errorf "base_url in site params must begin with '/', 'https://', or 'http://'. See base URL path %s for %v" .base_url .link_text -}}
+          {{- $base_url := urls.Parse .base_url -}}
+          {{- if not (or (hasPrefix .base_url "/") (and (in (slice "http" "https") $base_url.Scheme) $base_url.Host)) -}}
+            {{- errorf "base_url in site params must begin with '/' or be an absolute HTTP or HTTPS URL. See base URL path %s for %v" .base_url .link_text -}}
           {{- end }}
           <li><a href="{{ .base_url }}">{{ .link_text }}</a></li>
         {{- end }}

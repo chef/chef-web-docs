@@ -11,6 +11,14 @@ examples: |2-
 
   # bad
   depends 'windows_firewall'
+
+  # good
+  # the resource ships in Chef Infra Client 14.7+, so use it without a depends
+  windows_firewall_rule 'permit ssh' do
+    local_port '22'
+    protocol 'TCP'
+    firewall_action :allow
+  end
 version_added: 7.19.0
 enabled: true
 included_file_paths:

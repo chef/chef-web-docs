@@ -416,9 +416,9 @@ chef-automate config show > full_config.toml
 
 ### Restore From an AWS S3 Backup
 
-Meet the required [prerequisites]({{< ref "restore.md#prerequisites" >}}) before beginning your restore process.
+Meet the required [prerequisites]({{< relref "restore.md#prerequisites" >}}) before beginning your restore process.
 
-See how to [backup to AWS S3]({{< ref "backup/#backup-to-aws-s3" >}}).
+See how to [backup to AWS S3]({{< relref "backup/#backup-to-aws-s3" >}}).
 
 Pass the s3 access key and s3 secret key to restore the command.
 
@@ -662,9 +662,9 @@ Here, `bucket_name` is the name of the S3 bucket and `base_path` is an optional 
 
 ### Restore From an AWS S3 Backup
 
-Meet the required [prerequisites]({{< ref "restore.md#prerequisites" >}}) before beginning your restore process.
+Meet the required [prerequisites]({{< relref "restore.md#prerequisites" >}}) before beginning your restore process.
 
-See how to [back up to AWS S3]({{< ref "backup/#backup-to-aws-s3" >}}). Pass s3 access key and s3 secret key to restore command.
+See how to [back up to AWS S3]({{< relref "backup/#backup-to-aws-s3" >}}). Pass s3 access key and s3 secret key to restore command.
 
 To restore from an AWS S3 bucket backup on a new host, run:
 
@@ -691,5 +691,5 @@ Success: Restored backup 20180517223558
 ```
 
 {{< note >}}
-If you are taking backup from existing OpenSearch domain for ex: domain1 and restoring data to new OpenSearch domain for ex: domain2 then please follow manual steps of registering snapshot repositories in new OpenSearch domain mentioned here: [Registering Snapshot Repository]({{< ref "managed_services.md#registering-snapshot-repository" >}}) before restoring backup into new OpenSearch domain.
+If you are taking backup from existing OpenSearch domain for ex: domain1 and restoring data to new OpenSearch domain for ex: domain2 then please follow manual steps of registering snapshot repositories in new OpenSearch domain mentioned here: [Registering Snapshot Repository]({{< relref "managed_services.md#registering-snapshot-repository" >}}) before restoring backup into new OpenSearch domain.
 {{< /note >}}

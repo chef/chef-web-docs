@@ -7,7 +7,7 @@ description: The Foodcritic cookbook linter has been deprecated and should no lo
   by Foodcritic in your cookbooks.
 autocorrection: false
 target_chef_version: All Versions
-examples: 
+examples:
 version_added: 7.32.0
 enabled: true
 included_file_paths:

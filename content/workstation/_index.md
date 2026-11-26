@@ -5,10 +5,19 @@ linkTitle = "Workstation"
 
 ## Chef Workstation releases
 
-- [Chef Workstation v26.1](/workstation/26.1/)
-- [Chef Workstation v26.0](/workstation/26.0/)
-- [Chef Workstation v25](/workstation/25/)
+{{< cards columns="3" >}}
+
+{{< card title="Chef Workstation v26.2" link="/workstation/26.2/" >}}
+{{< card title="Chef Workstation v26.1" link="/workstation/26.1/" >}}
+{{< card title="Chef Workstation v26.0" link="/workstation/26.0/" >}}
+{{< card title="Chef Workstation v25" link="/workstation/25/" >}}
+
+{{< /cards >}}
 
 ## Cookstyle
 
-- [Chef Cookstyle](/workstation/cookstyle/)
+{{< cards columns="3" >}}
+
+{{< card title="Chef Cookstyle" link="/workstation/cookstyle/" >}}
+
+{{< /cards >}}

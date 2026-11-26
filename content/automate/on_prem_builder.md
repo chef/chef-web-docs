@@ -319,7 +319,7 @@ HAB_AUTH_TOKEN=<your_public_builder_personal_access_token> hab pkg download --ta
 
 ### Bulk-Upload Seed List Packages to Chef Habitat Builder on-prem
 
-Run the `bulkupload` command to upload artifacts from `<artifact-dir>` to the `<channel>` channel in the on-premises Chef Habitat Builder using the [Builder API endpoint]({{< ref "on_prem_builder.md#access-chef-habitat-builder-on-prem-with-chef-habitat-command-line-tools" >}}):
+Run the `bulkupload` command to upload artifacts from `<artifact-dir>` to the `<channel>` channel in the on-premises Chef Habitat Builder using the [Builder API endpoint]({{< relref "on_prem_builder.md#access-chef-habitat-builder-on-prem-with-chef-habitat-command-line-tools" >}}):
 
 ```shell
 HAB_AUTH_TOKEN=<your_on-prem_Builder_personal_access_token> hab pkg bulkupload --url https://{{< example_fqdn "automate" >}}/bldr/v1 --channel <channel> <artifact-dir> --auto-create-origins
@@ -359,7 +359,7 @@ To finish up, return to your Chef Habitat Builder on-prem installation and view 
 
 ## Using Chef Habitat Builder
 
-Because you are using an on-prem installation of Chef Habitat Builder, you must specify the [Builder API endpoint of your installation]({{< ref "on_prem_builder.md#access-chef-habitat-builder-on-prem-with-habitat-command-line-tools" >}}) when following the [Habitat Builder documentation](/habitat/builder/saas/).
+Because you are using an on-prem installation of Chef Habitat Builder, you must specify the [Builder API endpoint of your installation]({{< relref "on_prem_builder.md#access-chef-habitat-builder-on-prem-with-habitat-command-line-tools" >}}) when following the [Habitat Builder documentation](/habitat/builder/saas/).
 This documentation covers [using origin keys](/habitat/builder/saas/builder_origins/#origin-keys), [using origin secrets](/habitat/builder/saas/builder_origins/#origin-secrets), and [uploading and promoting packages](/habitat/builder/saas/builder_origin_packages/).
 
 ## Operating Chef Habitat Builder
