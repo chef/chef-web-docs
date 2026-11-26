@@ -181,8 +181,8 @@ Each part of a control does a specific job:
 
 `describe sshd_config`
 : The [`sshd_config` resource](/inspec/latest/resources/core/sshd_config/).
-  It parses `/etc/ssh/sshd_config` and exposes each setting as a property,
-  so you don't have to write text parsing.
+  It parses `/etc/ssh/sshd_config` and exposes each setting as a property, so
+  you don't have to write text parsing.
   Pass a path---`sshd_config('/etc/ssh/sshd_config.d/10-custom.conf')`---
   to read a different file.
   It reads only the one file: it doesn't follow `Include` lines or evaluate `Match` blocks.
@@ -191,18 +191,18 @@ Each part of a control does a specific job:
 
 `its('KbdInteractiveAuthentication')`
 : Turning off `PasswordAuthentication` doesn't stop every password prompt.
-  When the daemon uses PAM, keyboard-interactive authentication can still ask for an account password,
-  so `ssh-02-no-password-auth` checks both settings.
+  When the daemon uses PAM, keyboard-interactive authentication can still ask for an account password, so
+  `ssh-02-no-password-auth` checks both settings.
   Older OpenSSH releases call this setting `ChallengeResponseAuthentication`.
 
 `describe parse_config(command('sshd -T').stdout, ...)`
 : `sshd -T` prints the configuration the daemon enforces,
   after it has read every included file, with each setting name in lowercase.
-  The [`parse_config` resource](/inspec/latest/resources/core/parse_config/) turns that output into properties,
-  so `ssh-04-effective-auth` checks the result rather than the file.
+  The [`parse_config` resource](/inspec/latest/resources/core/parse_config/) turns that output into properties, so
+  `ssh-04-effective-auth` checks the result rather than the file.
   Many distributions start `sshd_config` with `Include /etc/ssh/sshd_config.d/*.conf`,
-  and the daemon keeps the first value it reads for a setting,
-  so a file in that directory overrides the main file.
+  and the daemon keeps the first value it reads for a setting, so
+  a file in that directory overrides the main file.
   Running `sshd -T` requires root, so run this control with `--sudo`.
 
 `its('PermitRootLogin') { should cmp 'no' }`
@@ -428,8 +428,8 @@ inspec exec ssh-baseline --reporter cli json:results.json
 ```
 
 That prints to the terminal and writes `results.json` at the same time.
-The JSON includes each control's ID, its impact as a number, and the status of every test,
-so you can feed it into a ticketing system or keep it as a dated record.
+The JSON includes each control's ID, its impact as a number, and the status of every test, so
+you can feed it into a ticketing system or keep it as a dated record.
 Only one reporter can write to standard output at a time.
 
 Other formats, including `html2`, `junit2`, and `yaml`, are in the
@@ -453,8 +453,8 @@ sudo sshd -t
 sudo systemctl reload sshd
 ```
 
-`sshd -t` prints nothing when the configuration is valid,
-so run it before every reload.
+`sshd -t` prints nothing when the configuration is valid, so
+run it before every reload.
 
 {{< note >}}
 
@@ -620,8 +620,8 @@ The reverse is also silent.
 If the waiver names an ID that no longer exists,
 Chef InSpec doesn't warn you: the waiver simply never applies,
 the control runs, and an approved exception reappears as a failure.
-An ID like `ssh-03-limit-attempts` describes what's being waived,
-so the file keeps meaning something as the profile changes.
+An ID like `ssh-03-limit-attempts` describes what's being waived, so
+the file keeps meaning something as the profile changes.
 
 {{< note >}}
 

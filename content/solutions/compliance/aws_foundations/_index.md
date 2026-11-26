@@ -159,8 +159,8 @@ inspec_version: '~> 7'
 ```
 
 `inspec_version` records the Chef InSpec versions the profile is written for.
-The generated file ships with an older constraint,
-so set it to match the version you're running or every command reports
+The generated file ships with an older constraint, so
+set it to match the version you're running or every command reports
 `cannot satisfy profile inspec_version constraint`.
 
 For every field you can set here, see
@@ -243,8 +243,8 @@ Families:  cloud, api
 Release:   train-aws: v0.2.44, aws-sdk-core: v3.234.0
 ```
 
-The `Release` line reports the versions of the AWS transport and SDK in your installation,
-so expect different numbers from a different Chef InSpec release.
+The `Release` line reports the versions of the AWS transport and SDK in your installation, so
+expect different numbers from a different Chef InSpec release.
 
 {{< note >}}
 

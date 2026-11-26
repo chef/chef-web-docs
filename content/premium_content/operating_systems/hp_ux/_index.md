@@ -57,8 +57,8 @@ Choose the level that matches your risk posture:
 - **Level 1** applies settings that improve security with limited operational impact.
   It's the common starting point for production systems.
 - **Level 2** extends Level 1 with defense-in-depth settings intended for environments
-  with stricter requirements. Level 2 is more likely to affect how applications behave,
-  so test it before rolling it out broadly.
+  with stricter requirements. Level 2 is more likely to affect how applications behave, so
+  test it before rolling it out broadly.
 
 ## What you can do with this content
 

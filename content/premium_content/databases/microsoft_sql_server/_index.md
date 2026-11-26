@@ -85,8 +85,8 @@ instance is deployed:
 - **Level 1** applies settings that improve security with limited operational impact.
   It's the common starting point for production instances.
 - **Level 2** extends Level 1 with defense-in-depth settings intended for environments
-  with stricter requirements. Level 2 is more likely to affect how applications behave,
-  so test it before rolling it out broadly.
+  with stricter requirements. Level 2 is more likely to affect how applications behave, so
+  test it before rolling it out broadly.
 - **Database Engine** targets an on-premises or self-managed SQL Server instance.
 - **AWS RDS** targets a managed Amazon RDS for SQL Server instance. Amazon manages the
   underlying OS and some settings this benchmark would otherwise check, so coverage

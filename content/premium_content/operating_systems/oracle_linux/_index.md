@@ -55,8 +55,8 @@ for what each coverage term means.
 
 Oracle Linux ships a large number of Chef InSpec profiles across these benchmarks,
 because each benchmark version is split into several variants. Rather than list them
-all, the following sections give the naming pattern and the values each part can take,
-so you can work out the profile you need.
+all, the following sections give the naming pattern and the values each part can take, so
+you can work out the profile you need.
 
 ### CIS profiles
 
@@ -85,8 +85,8 @@ you assume a scope is available.
 - **Level 1** applies settings that improve security with limited operational impact.
   It's the common starting point for production systems.
 - **Level 2** extends Level 1 with defense-in-depth settings intended for environments
-  with stricter requirements. Level 2 is more likely to affect how applications behave,
-  so test it before rolling it out broadly.
+  with stricter requirements. Level 2 is more likely to affect how applications behave, so
+  test it before rolling it out broadly.
 - **Server** targets systems running without a graphical desktop.
 - **Workstation** targets systems with an interactive desktop environment.
 
